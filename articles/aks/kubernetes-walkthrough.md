@@ -229,4 +229,4 @@ In this quick start, you deployed a Kubernetes cluster and deployed a multi-cont
 To learn more about Azure Container Service, and walk through a complete code to deployment example, continue to the Kubernetes cluster tutorial.
 
 > [!div class="nextstepaction"]
-> [Manage an AKS cluster](./container-service-tutorial-kubernetes-prepare-app.md)
+> [Manage an AKS cluster](./tutorial-kubernetes-prepare-app.md)

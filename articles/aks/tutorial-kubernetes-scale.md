@@ -37,7 +37,7 @@ In subsequent tutorials, the Azure Vote application is updated, and Operations M
 
 In previous tutorials, an application was packaged into a container image, this image uploaded to Azure Container Registry, and a Kubernetes cluster created. The application was then run on the Kubernetes cluster. 
 
-If you have not done these steps, and would like to follow along, return to the [Tutorial 1 – Create container images](./container-service-tutorial-kubernetes-prepare-app.md). 
+If you have not done these steps, and would like to follow along, return to the [Tutorial 1 – Create container images](./tutorial-kubernetes-prepare-app.md). 
 
 ## Manually scale pods
 
@@ -154,5 +154,5 @@ In this tutorial, you used different scaling features in your Kubernetes cluster
 Advance to the next tutorial to learn about updating application in Kubernetes.
 
 > [!div class="nextstepaction"]
-> [Update an application in Kubernetes](./container-service-tutorial-kubernetes-app-update.md)
+> [Update an application in Kubernetes](./tutorial-kubernetes-app-update.md)
 

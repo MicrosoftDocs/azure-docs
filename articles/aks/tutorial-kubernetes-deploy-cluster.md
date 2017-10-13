@@ -33,11 +33,11 @@ In subsequent tutorials, the Azure Vote application is deployed to the cluster, 
 
 ## Before you begin
 
-In previous tutorials, a container image was created and uploaded to an Azure Container Registry instance. If you have not done these steps, and would like to follow along, return to [Tutorial 1 – Create container images](./container-service-tutorial-kubernetes-prepare-app.md).
+In previous tutorials, a container image was created and uploaded to an Azure Container Registry instance. If you have not done these steps, and would like to follow along, return to [Tutorial 1 – Create container images](./tutorial-kubernetes-prepare-app.md).
 
 ## Create Kubernetes cluster
 
-The following example creates a cluster named `myK8sCluster` in a Resource Group named `myResourceGroup`. This Resource Group was created in the [previous tutorial](./container-service-tutorial-kubernetes-prepare-acr.md).
+The following example creates a cluster named `myK8sCluster` in a Resource Group named `myResourceGroup`. This Resource Group was created in the [previous tutorial](./tutorial-kubernetes-prepare-acr.md).
 
 ```azurecli
 az aks create --resource-group myResourceGroup --name myK8sCluster --generate-ssh-keys
@@ -94,4 +94,4 @@ In this tutorial, an Azure Container Service Kubernetes cluster was deployed. Th
 Advance to the next tutorial to learn about running application on the cluster.
 
 > [!div class="nextstepaction"]
-> [Deploy application in Kubernetes](./container-service-tutorial-kubernetes-deploy-application.md)
+> [Deploy application in Kubernetes](./tutorial-kubernetes-deploy-application.md)

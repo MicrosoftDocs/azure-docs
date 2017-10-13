@@ -29,7 +29,7 @@ This document steps through configuring and using helm in a Kubernetes cluster o
 
 To complete the steps in this document, you need a Kubernetes cluster in Azure, and `kubectl` installed on your development system. Also, ensure that `kubectl` has been configured to connect to the Kubernetes cluster using the [az acs kubernetes get-credential]() command. This command downloads a configuration file that allows `kubectl` to connect to a Kubernetes cluster. This file is also used to connect Helm to the cluster.
 
-For more information on completing these tasks, see the [Kubernetes on Azure quickstart](./container-service-kubernetes-walkthrough.md).
+For more information on completing these tasks, see the [Kubernetes on Azure quickstart](./kubernetes-walkthrough.md).
 
 ## Install Helm CLI
 

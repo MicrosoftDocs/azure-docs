@@ -40,7 +40,7 @@ In previous tutorials, an application was packaged into a container image, the i
 
 An application repository was also cloned which includes the application source code, and a pre-created Docker Compose file used in this tutorial. Verify that you have created a clone of the repo, and that you have changed directories into the cloned directory. Inside is a directory named `azure-vote` and a file named `docker-compose.yml`.
 
-If you haven't completed these steps, and want to follow along, return to [Tutorial 1 – Create container images](./container-service-tutorial-kubernetes-prepare-app.md). 
+If you haven't completed these steps, and want to follow along, return to [Tutorial 1 – Create container images](./tutorial-kubernetes-prepare-app.md). 
 
 ## Update application
 
@@ -172,4 +172,4 @@ In this tutorial, you updated an application and rolled out this update to a Kub
 Advance to the next tutorial to learn about how to monitor Kubernetes with Operations Management Suite.
 
 > [!div class="nextstepaction"]
-> [Monitor Kubernetes with OMS](./container-service-tutorial-kubernetes-monitor.md)
+> [Monitor Kubernetes with OMS](./tutorial-kubernetes-monitor.md)

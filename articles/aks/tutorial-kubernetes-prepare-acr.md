@@ -33,7 +33,7 @@ In subsequent tutorials, this ACR instance is integrated with an Azure Container
 
 ## Before you begin
 
-In the [previous tutorial](./container-service-tutorial-kubernetes-prepare-app.md), a container image was created for a simple Azure Voting application. If you have not created the Azure Voting app image, return to [Tutorial 1 – Create container images](./container-service-tutorial-kubernetes-prepare-app.md).
+In the [previous tutorial](./tutorial-kubernetes-prepare-app.md), a container image was created for a simple Azure Voting application. If you have not created the Azure Voting app image, return to [Tutorial 1 – Create container images](./tutorial-kubernetes-prepare-app.md).
 
 This tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
@@ -168,4 +168,4 @@ In this tutorial, an Azure Container Registry was prepared for use in an ACS Kub
 Advance to the next tutorial to learn about deploying a Kubernetes cluster in Azure.
 
 > [!div class="nextstepaction"]
-> [Deploy Kubernetes cluster](./container-service-tutorial-kubernetes-deploy-cluster.md)
+> [Deploy Kubernetes cluster](./tutorial-kubernetes-deploy-cluster.md)

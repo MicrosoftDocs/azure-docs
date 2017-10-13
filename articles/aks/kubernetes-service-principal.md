@@ -72,7 +72,7 @@ Highlighted are the **client ID** (`appId`) and the **client secret** (`password
 
 Provide the **client ID** (also called the `appId`, for Application ID) and **client secret** (`password`) of an existing service principal as parameters when you create the Kubernetes cluster. Make sure the service principal meets the requirements at the beginning this article.
 
-You can specify these parameters when deploying the Kubernetes cluster using the [Azure Command-Line Interface (CLI) 2.0](container-service-kubernetes-walkthrough.md).
+You can specify these parameters when deploying the Kubernetes cluster using the [Azure Command-Line Interface (CLI) 2.0](./kubernetes-walkthrough.md).
 
 >[!TIP]
 >When specifying the **client ID**, be sure to use the `appId`, not the `ObjectId`, of the service principal.
@@ -133,6 +133,6 @@ az acs create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-
 
 ## Next steps
 
-* [Get started with Kubernetes](container-service-kubernetes-walkthrough.md) in your container service cluster.
+* [Get started with Kubernetes](./kubernetes-walkthrough.md) in your container service cluster.
 
 * To troubleshoot the service principal for Kubernetes, see the [ACS Engine documentation](https://github.com/Azure/acs-engine/blob/master/docs/kubernetes.md#troubleshooting).

@@ -24,7 +24,7 @@ ms.custom: mvc
 # Monitor an Azure Container Service cluster with Microsoft Operations Management Suite (OMS)
 
 ## Prerequisites
-This walkthrough assumes that you have [created a Kubernetes cluster using Azure Container Service](container-service-kubernetes-walkthrough.md).
+This walkthrough assumes that you have [created a Kubernetes cluster using Azure Container Service](./kubernetes-walkthrough.md).
 
 It also assumes that you have the `az` Azure cli and `kubectl` tools installed.
 

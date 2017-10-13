@@ -39,7 +39,7 @@ In previous tutorials, an application was packaged into a container image, this 
 
 To complete this tutorial, you need the pre-created `azure-vote-all-in-one-redis.yml` Kubernetes manifest file. This file was downloaded with the application source code in a previous tutorial. Verify that you have cloned the repo, and that you have changed directories into the cloned repo.
 
-If you have not done these steps, and would like to follow along, return to [Tutorial 1 – Create container images](./container-service-tutorial-kubernetes-prepare-app.md). 
+If you have not done these steps, and would like to follow along, return to [Tutorial 1 – Create container images](./tutorial-kubernetes-prepare-app.md). 
 
 ## Update manifest file
 
@@ -88,7 +88,7 @@ service "azure-vote-front" created
 
 A [Kubernetes service](https://kubernetes.io/docs/concepts/services-networking/service/) is created which exposes the application to the internet. This process can take a few minutes. 
 
-To monitor progress, use the [kubectl get service](https://review.docs.microsoft.com/en-us/azure/container-service/container-service-kubernetes-walkthrough?branch=pr-en-us-17681) command with the `--watch` argument.
+To monitor progress, use the [kubectl get service](https://kubernetes.io/docs/user-guide/kubectl/v1.7/#get) command with the `--watch` argument.
 
 ```azurecli
 kubectl get service azure-vote-front --watch
@@ -118,4 +118,4 @@ In this tutorial, the Azure vote application was deployed to an Azure Container 
 Advance to the next tutorial to learn about scaling both a Kubernetes application and the underlying Kubernetes infrastructure. 
 
 > [!div class="nextstepaction"]
-> [Scale Kubernetes application and infrastructure](./container-service-tutorial-kubernetes-scale.md)
+> [Scale Kubernetes application and infrastructure](./tutorial-kubernetes-scale.md)

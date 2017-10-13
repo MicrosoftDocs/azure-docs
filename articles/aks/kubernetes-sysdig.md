@@ -24,7 +24,7 @@ ms.custom: mvc
 # Monitor an Azure Container Service Kubernetes cluster using Sysdig
 
 ## Prerequisites
-This walkthrough assumes that you have [created a Kubernetes cluster using Azure Container Service](container-service-kubernetes-walkthrough.md).
+This walkthrough assumes that you have [created a Kubernetes cluster using Azure Container Service](./kubernetes-walkthrough.md).
 
 It also assumes that you have the azure cli and kubectl tools installed.
 
