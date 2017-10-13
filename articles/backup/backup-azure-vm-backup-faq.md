@@ -44,6 +44,9 @@ You need to give permissions for Azure Backup service to access Key Vault. You c
 ### I migrated disks of a VM to managed disks. Will my backups continue to work?
 Yes, backups work seamlessly and no need to re-configure backup. 
 
+### My VM is shutdown. Will an on-demand or a scheduled backup work?
+Yes. Even when a machine is shutdown backups work and the recovery point will be marked as Crash consistent. For more details, refer to the data consistency section in [this article](backup-azure-vms-introduction.md#how-does-azure-back-up-virtual-machines)
+
 ## Restore
 ### How do I decide between restoring disks versus full VM restore?
 Think of Azure full VM restore as a way of quick create option for restored VM. Restore VM option will change the names of disks, containers used by disks,public IP addresses, network interface names for uniqueness of resources getting created as part of VM creation.It will also not add the VM to availability set. 
