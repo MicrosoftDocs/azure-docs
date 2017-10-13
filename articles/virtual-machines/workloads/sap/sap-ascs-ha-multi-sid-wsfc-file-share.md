@@ -244,8 +244,7 @@ You need to prepare the infrastructure on existing (A)SCS cluster, for a second 
 * Create a virtual host name for the clustered SAP ASCS/SCS instance on the DNS server
 * Add an IP address to an existing Azure internal load balancer by using PowerShell
 
-These steps are described in [Infrastructure Preparation for SAP Multi-SID Scenario](sap-ascs-ha-multi-sid-wsfc-shared-disk-infrast-prepare).
-
+These steps are described in [Infrastructure Preparation for SAP Multi-SID Scenario][sap-ascs-ha-multi-sid-wsfc-shared-disk-infrast-prepare].
 
 
 ### Infrastructure Preparation on SOFS Cluster Using Existing SAP GLOBAL Host
