@@ -681,7 +681,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/bing-news-search/search-the-web">
+                                            <a href="/azure/cognitive-services/Bing-news-Search/search-the-web">
                                                 <img src="media/index/API_Sear_BingNewsSearch.svg" alt="" />
                                                 <p>Bing News</p>
                                             </a>
@@ -693,7 +693,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/bing-web-search/search-the-web">
+                                            <a href="/azure/cognitive-services/bing-web-search/">
                                                 <img src="media/index/API_Sear_BingSearch.svg" alt="" />
                                                 <p>Bing Web Search</p>
                                             </a>
@@ -2690,22 +2690,22 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-news-search/search-the-web"><img src="media/index/API_Sear_BingNewsSearch.svg" alt="" />Bing News</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/bing-video-search/search-the-web"><img src="media/index/API_Sear_BingVideoSearch.svg" alt="" />Bing Video Search</a>
+                                                                <a class="barLink" href="/azure/cognitive-services/Bing-Video-Search/search-the-web"><img src="media/index/API_Sear_BingVideoSearch.svg" alt="" />Bing Video Search</a>
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-web-search/search-the-web"><img src="media/index/API_Sear_BingSearch.svg" alt="" />Bing Web Search</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/bing-autosuggest/get-suggested-search-terms"><img src="media/index/API_Sear_BingAutoSuggest.svg" alt="" />Bing Autosuggest</a>
+               &nbsp;<sup style="font-size:70%">PREVIEW</sup>                                                 <a class="barLink" href="/azure/cognitive-services/Bing-Autosuggest/"><img src="media/index/API_Sear_BingAutoSuggest.svg" alt="" />Bing Autosuggest</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/bing-custom-search/overview"><img src="media/index/API_Sear_BingSearch.svg" alt="" /><span>Bing Custom Search</a>
+                                                                <a class="barLink" href="azure/cognitive-services/bing-custom-search/"><img src="media/index/API_Sear_BingSearch.svg" alt="" /><span>Bing Custom Search</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/bing-entities-search/search-the-web"><img src="media/index/API_Sear_BingSearch.svg" alt="" /><span>Bing Entities Search</a>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-entities-search/search-the-web"><img src="media/index/API_Sear_BingSearch.svg" alt="" /><span>Bing Entity Search&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/bing-image-search/search-the-web"><img src="media/index/API_Sear_BingImageSearch.svg" alt="" />Bing Image Search</a>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-image-search/"><img src="media/index/API_Sear_BingImageSearch.svg" alt="" />Bing Image Search</a>
                                                             </li>
                                                         </ul>
                                                     </div>
