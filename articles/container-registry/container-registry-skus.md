@@ -109,4 +109,4 @@ Visit the [ACR Roadmap](https://aka.ms/acr/roadmap) on GitHub to find informatio
 
 **Azure Container Registry UserVoice**
 
-Submit and and vote on new feature suggestions in [ACR UserVoice](https://feedback.azure.com/forums/903958-azure-container-registry).
+Submit and vote on new feature suggestions in [ACR UserVoice](https://feedback.azure.com/forums/903958-azure-container-registry).
