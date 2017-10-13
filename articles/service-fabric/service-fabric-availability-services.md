@@ -33,7 +33,7 @@ A stateful service has a state associated with it. In Service Fabric, a stateful
 
 There can be only one Primary replica, but there can be multiple Active Secondary replicas. The number of active Secondary replicas is configurable, and a higher number of replicas can tolerate a greater number of concurrent software and hardware failures.
 
-If the primary replica goes down, Service Fabric makes one of the Active Secondary replicas the new Primary replica. This Active Secondary replica already has the updated version of the state, via *replication*, and it can continue processing further read/write operations. This process is known as *reconfiguration* and is described further in the [Reconfiguration](service-fabric-concepts-reconfiguration.md) article.
+If the Primary replica goes down, Service Fabric makes one of the Active Secondary replicas the new Primary replica. This Active Secondary replica already has the updated version of the state, via *replication*, and it can continue processing further read/write operations. This process is known as *reconfiguration* and is described further in the [Reconfiguration](service-fabric-concepts-reconfiguration.md) article.
 
 The concept of a replica being either a Primary or Active Secondary, is known as the *replica role*. These replicas are described further in the [Replicas and instances](service-fabric-concepts-replica-lifecycle.md) article. 
 
