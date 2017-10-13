@@ -99,7 +99,7 @@ Queries the list of models in an account. You can filter the result list by tag 
 ### Parameters
 | Name | Located in | Description | Required | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | path | The Azure subscription ID. | Yes | string |
+| subscriptionId | path | Azure subscription ID. | Yes | string |
 | resourceGroupName | path | Name of the resource group in which the Model Management account is located. | Yes | string |
 | accountName | path | Name of the Model Management account. | Yes | string |
 | api-version | query | Version of the Microsoft.Machine.Learning resource provider API to use. | Yes | string |
@@ -107,12 +107,12 @@ Queries the list of models in an account. You can filter the result list by tag 
 | name | query | Object name. | No | string |
 | tag | query | Model tag. | No | string |
 | count | query | Number of items to retrieve in a page. | No | string |
-| $skipToken | Continuation token to retrieve the next page. | No | string |
+| $skipToken | query | Continuation token to retrieve the next page. | No | string |
 
 ### Responses
 | Code | Description | Schema |
 |--------------------|--------------------|--------------------|
-| 200 | Success | [PaginatedModelList](#paginatedmodellist) |
+| 200 | Success. | [PaginatedModelList](#paginatedmodellist) |
 | default | Error response that describes why the operation failed. | [ErrorResponse](#errorresponse) |
 
 ## Get model details
@@ -128,7 +128,7 @@ Gets a model by ID.
 ### Parameters
 | Name | Located in | Description | Required | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | path | Azure subscription ID | Yes | string |
+| subscriptionId | path | Azure subscription ID. | Yes | string |
 | resourceGroupName | path | Name of the resource group in which the Model Management account is located. | Yes | string |
 | accountName | path | Name of the Model Management account. | Yes | string |
 | id | path | Object ID. | Yes | string |
@@ -154,7 +154,7 @@ Registers a manifest with the registered model and all its dependencies.
 ### Parameters
 | Name | Located in | Description | Required | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | path | Azure subscription ID | Yes | string |
+| subscriptionId | path | Azure subscription ID. | Yes | string |
 | resourceGroupName | path | Name of the resource group in which the Model Management account is located. | Yes | string |
 | accountName | path | Name of the Model Management account. | Yes | string |
 | api-version | query | Version of the Microsoft.Machine.Learning resource provider API to use. | Yes | string |
@@ -164,7 +164,7 @@ Registers a manifest with the registered model and all its dependencies.
 ### Responses
 | Code | Description | Schema |
 |--------------------|--------------------|--------------------|
-| 200 | The Manifest registration was successful. | [Manifest](#manifest) |
+| 200 | Manifest registration was successful. | [Manifest](#manifest) |
 | default | Error response that describes why the operation failed. | [ErrorResponse](#errorresponse) |
 
 ## Query the list of manifests in an account
@@ -175,12 +175,12 @@ Registers a manifest with the registered model and all its dependencies.
 | GET |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/manifests | 
 
 ### Description
-Queries the list of manifests in an account. You can filter the result list by model ID and manifest name. If no filter is passed, the query lists all the manifests in the account. The returned list is paginated, and the count of item. in each page is an optional parameter.
+Queries the list of manifests in an account. You can filter the result list by model ID and manifest name. If no filter is passed, the query lists all the manifests in the account. The returned list is paginated, and the count of items in each page is an optional parameter.
 
 ### Parameters
 | Name | Located in | Description | Required | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | path | Azure subscription ID | Yes | string |
+| subscriptionId | path | Azure subscription ID. | Yes | string |
 | resourceGroupName | path | Name of the resource group in which the Model Management account is located. | Yes | string |
 | accountName | path | Name of the Model Management account. | Yes | string |
 | api-version | query | Version of the Microsoft.Machine.Learning resource provider API to use. | Yes | string |
@@ -193,7 +193,7 @@ Queries the list of manifests in an account. You can filter the result list by m
 ### Responses
 | Code | Description | Schema |
 |--------------------|--------------------|--------------------|
-| 200 | success | [PaginatedManifestList](#paginatedmanifestlist) |
+| 200 | Success. | [PaginatedManifestList](#paginatedmanifestlist) |
 | default | Error response that describes why the operation failed. | [ErrorResponse](#errorresponse) |
 
 ## Get manifest details
@@ -219,7 +219,7 @@ Gets the manifest by ID.
 ### Responses
 | Code | Description | Schema |
 |--------------------|--------------------|--------------------|
-| 200 | success | [Manifest](#manifest) |
+| 200 | Success. | [Manifest](#manifest) |
 | default | Error response that describes why the operation failed. | [ErrorResponse](#errorresponse) |
 
 ## Create an image
@@ -274,7 +274,7 @@ Queries the list of images in an account. You can filter the result list by mani
 ### Responses
 | Code | Description | Schema |
 |--------------------|--------------------|--------------------|
-| 200 | success | [PaginatedImageList](#paginatedimagelist) |
+| 200 | Success. | [PaginatedImageList](#paginatedimagelist) |
 | default | Error response that describes why the operation failed. | [ErrorResponse](#errorresponse) |
 
 ## Get image details
@@ -300,7 +300,7 @@ Gets an image by ID.
 ### Responses
 | Code | Description | Schema |
 |--------------------|--------------------|--------------------|
-| 200 | success | [Image](#image) |
+| 200 | Success. | [Image](#image) |
 | default | Error response that describes why the operation failed. | [ErrorResponse](#errorresponse) |
 
 
@@ -328,7 +328,7 @@ Creates a service from an image.
 | Code | Description | Headers | Schema |
 |--------------------|--------------------|--------------------|--------------------|
 | 202 | Async operation location URL. A GET call will show you the status of the service creation task. | Operation-Location |
-| 409 | Service with the specified name already exists. |
+| 409 | A service with the specified name already exists. |
 | default | Error response that describes why the operation failed. | [ErrorResponse](#errorresponse) |
 
 ## Query the list of services in an account
@@ -339,7 +339,7 @@ Creates a service from an image.
 | GET |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/services | 
 
 ### Description
-Queries the list of Services in an account. You can filter the result list by model name/ID, manifest name/ID, image ID, service name, or Machine Learning compute resource ID. If no filter is passed, the query lists all services in the account. The returned list is paginated, and the count of items in each page is an optional parameter.
+Queries the list of services in an account. You can filter the result list by model name/ID, manifest name/ID, image ID, service name, or Machine Learning compute resource ID. If no filter is passed, the query lists all services in the account. The returned list is paginated, and the count of items in each page is an optional parameter.
 
 ### Parameters
 | Name | Located in | Description | Required | Schema
@@ -355,14 +355,14 @@ Queries the list of Services in an account. You can filter the result list by mo
 | manifestId | query | Manifest ID. | No | string |
 | manifestName | query | Manifest name. | No | string |
 | imageId | query | Image ID. | No | string |
-| computeResourceId | query | Machine Learning compute resource ID | No | string |
+| computeResourceId | query | Machine Learning compute resource ID. | No | string |
 | count | query | Number of items to retrieve in a page. | No | string |
 | $skipToken | query | Continuation token to retrieve the next page. | No | string |
 
 ### Responses
 | Code | Description | Schema |
 |--------------------|--------------------|--------------------|
-| 200 | success | [PaginatedServiceList](#paginatedservicelist) |
+| 200 | Success. | [PaginatedServiceList](#paginatedservicelist) |
 | default | Error response that describes why the operation failed. | [ErrorResponse](#errorresponse) |
 
 ## Get service details
@@ -388,7 +388,7 @@ Gets a service by ID.
 ### Responses
 | Code | Description | Schema |
 |--------------------|--------------------|--------------------|
-| 200 | success | [ServiceResponse](#serviceresponse) |
+| 200 | Success. | [ServiceResponse](#serviceresponse) |
 | default | Error response that describes why the operation failed. | [ErrorResponse](#errorresponse)
 
 ## Update a service
@@ -442,7 +442,7 @@ Deletes a service.
 ### Responses
 | Code | Description | Schema |
 |--------------------|--------------------|--------------------|
-| 200 | success |  |
+| 200 | Success. |  |
 | 204 | The service with the specified ID does not exist. |
 | default | Error response that describes why the operation failed. | [ErrorResponse](#errorresponse)
 
@@ -462,14 +462,14 @@ Gets service keys.
 | subscriptionId | path | Azure subscription ID. | Yes | string |
 | resourceGroupName | path | Name of the resource group in which the Model Management account is located. | Yes | string |
 | accountName | path | Name of the Model Management account. | Yes | string |
-| id | path | The service ID. | Yes | string |
+| id | path | Service ID. | Yes | string |
 | api-version | query | Version of the Microsoft.Machine.Learning resource provider API to use. | Yes | string |
 | Authorization | header | Authorization token. It should be something like "Bearer XXXXXX." | Yes | string |
 
 ### Responses
 | Code | Description | Schema |
 |--------------------|--------------------|--------------------|
-| 200 | success | [AuthKeys](#authkeys)
+| 200 | Success. | [AuthKeys](#authkeys)
 | default | Error response that describes why the operation failed. | [ErrorResponse](#errorresponse)
 
 ## Regenerate service keys
@@ -496,7 +496,7 @@ Regenerates service keys and returns them.
 ### Responses
 | Code | Description | Schema |
 |--------------------|--------------------|--------------------|
-| 200 | success | [AuthKeys](#authkeys)
+| 200 | Success. | [AuthKeys](#authkeys)
 | default | Error response that describes why the operation failed. | [ErrorResponse](#errorresponse)
 
 ## Query the list of deployments in an account
@@ -522,7 +522,7 @@ Queries the list of deployments in an account. You can filter the result list by
 ### Responses
 | Code | Description | Schema |
 |--------------------|--------------------|--------------------|
-| 200 | success | [DeploymentList](#deploymentlist) |
+| 200 | Success. | [DeploymentList](#deploymentlist) |
 | default | Error response that describes why the operation failed. | [ErrorResponse](#errorresponse)
 
 ## Get deployment details
@@ -533,7 +533,7 @@ Queries the list of deployments in an account. You can filter the result list by
 | GET |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/deployments/{id} | 
 
 ### Description
-Get the deployment by ID.
+Gets the deployment by ID.
 
 ### Parameters
 | Name | Located in | Description | Required | Schema
@@ -548,7 +548,7 @@ Get the deployment by ID.
 ### Responses
 | Code | Description | Schema |
 |--------------------|--------------------|--------------------|
-| 200 | success | [Deployment](#deployment) |
+| 200 | Success. | [Deployment](#deployment) |
 | default | Error response that describes why the operation failed. | [ErrorResponse](#errorresponse)
 
 ## Get operation details
@@ -574,7 +574,7 @@ Gets the async operation status by operation ID.
 ### Responses
 | Code | Description | Schema |
 |--------------------|--------------------|--------------------|
-| 200 | success | [OperationStatus](#asyncoperationstatus) |
+| 200 | Success. | [OperationStatus](#asyncoperationstatus) |
 | default | Error response that describes why the operation failed. | [ErrorResponse](#errorresponse)
 
 
@@ -661,8 +661,8 @@ Configuration to reserve resources for a container in the cluster.
 
 |Name|Description|Schema|
 |---|---|---|
-|**cpu**  <br>*optional*|Specifies CPU reservation. Format for Kubernetes: [Meaning of CPU](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/#meaning-of-cpu).|string|
-|**memory**  <br>*optional*|Specifies memory reservation. Format for Kubernetes: [Meaning of memory](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/#meaning-of-memory).|string|
+|**cpu**  <br>*optional*|Specifies CPU reservation. Format for Kubernetes: see [Meaning of CPU](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/#meaning-of-cpu).|string|
+|**memory**  <br>*optional*|Specifies memory reservation. Format for Kubernetes: see [Meaning of memory](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/#meaning-of-memory).|string|
 
 
 <a name="deployment"></a>
@@ -684,7 +684,7 @@ An instance of an Azure Machine Learning deployment.
 ### DeploymentList
 An array of deployment objects.
 
-*Type* : < [Deployment](#deployment) > array
+*Type* : <[Deployment](#deployment)> array
 
 
 <a name="errordetail"></a>
@@ -706,14 +706,14 @@ A Model Management service error object.
 |Name|Description|Schema|
 |---|---|---|
 |**code**  <br>*required*|Error code.|string|
-|**details**  <br>*optional*|Array of error detail objects.|< [ErrorDetail](#errordetail) > array|
+|**details**  <br>*optional*|Array of error detail objects.|<[ErrorDetail](#errordetail)> array|
 |**message**  <br>*required*|Error message.|string|
 |**statusCode**  <br>*optional*|HTTP status code.|integer|
 
 
 <a name="image"></a>
 ### Image
-The Auzre Machine Learning image.
+The Azure Machine Learning image.
 
 
 |Name|Description|Schema|
@@ -760,12 +760,12 @@ The Azure Machine Learning manifest.
 
 |Name|Description|Schema|
 |---|---|---|
-|**assets**  <br>*required*|List of assets.|< [Asset](#asset) > array|
+|**assets**  <br>*required*|List of assets.|<[Asset](#asset)> array|
 |**createdTime**  <br>*optional*  <br>*read-only*|Manifest creation time (UTC).|string (date-time)|
 |**description**  <br>*optional*|Manifest description text.|string|
 |**driverProgram**  <br>*required*|Driver program of the manifest.|string|
 |**id**  <br>*optional*|Manifest ID.|string|
-|**modelIds**  <br>*optional*|List of model IDs of the registered models. The request will fail if any of the included models are not registered.|< string > array|
+|**modelIds**  <br>*optional*|List of model IDs of the registered models. The request will fail if any of the included models are not registered.|<string> array|
 |**modelType**  <br>*optional*|Specifies that the models are already registered with the Model Management service.|enum (Registered)|
 |**name**  <br>*required*|Manifest name.|string|
 |**targetRuntime**  <br>*required*||[TargetRuntime](#targetruntime)|
@@ -783,17 +783,17 @@ An instance of an Azure Machine Learning model.
 |**createdAt**  <br>*optional*  <br>*read-only*|Model creation time (UTC).|string (date-time)|
 |**description**  <br>*optional*|Model description text.|string|
 |**id**  <br>*optional*  <br>*read-only*|Model ID.|string|
-|**mimeType**  <br>*required*|The MIME type of the model content. For more details about MIME type, see the [list of IANA media types](https://www.iana.org/assignments/media-types/media-types.xhtml).|string|
+|**mimeType**  <br>*required*|MIME type of the model content. For more details about MIME type, see the [list of IANA media types](https://www.iana.org/assignments/media-types/media-types.xhtml).|string|
 |**name**  <br>*required*|Model name.|string|
-|**tags**  <br>*optional*|Model tag list.|< string > array|
+|**tags**  <br>*optional*|Model tag list.|<string> array|
 |**unpack**  <br>*optional*|Indicates whether we need to unpack the model during Docker image creation.|boolean|
 |**url**  <br>*required*|URL of the model. Usually we put a shared access signature URL here.|string|
-|**version**  <br>*optional*  <br>*read-only*|The model version assigned by the Model Management service.|integer|
+|**version**  <br>*optional*  <br>*read-only*|Model version assigned by the Model Management service.|integer|
 
 
 <a name="modeldatacollection"></a>
 ### ModelDataCollection
-The Model data collection information.
+The model data collection information.
 
 
 |Name|Description|Schema|
@@ -810,7 +810,7 @@ A paginated list of images.
 |Name|Description|Schema|
 |---|---|---|
 |**nextLink**  <br>*optional*|Continuation link (absolute URI) to the next page of results in the list.|string|
-|**value**  <br>*optional*|Array of model objects.|< [Image](#image) > array|
+|**value**  <br>*optional*|Array of model objects.|<[Image](#image)> array|
 
 
 <a name="paginatedmanifestlist"></a>
@@ -821,7 +821,7 @@ A paginated list of manifests.
 |Name|Description|Schema|
 |---|---|---|
 |**nextLink**  <br>*optional*|Continuation link (absolute URI) to the next page of results in the list.|string|
-|**value**  <br>*optional*|Array of manifest objects.|< [Manifest](#manifest) > array|
+|**value**  <br>*optional*|Array of manifest objects.|<[Manifest](#manifest)> array|
 
 
 <a name="paginatedmodellist"></a>
@@ -832,7 +832,7 @@ A paginated list of models.
 |Name|Description|Schema|
 |---|---|---|
 |**nextLink**  <br>*optional*|Continuation link (absolute URI) to the next page of results in the list.|string|
-|**value**  <br>*optional*|Array of model objects.|< [Model](#model) > array|
+|**value**  <br>*optional*|Array of model objects.|<[Model](#model)> array|
 
 
 <a name="paginatedservicelist"></a>
@@ -843,7 +843,7 @@ A paginated list of services.
 |Name|Description|Schema|
 |---|---|---|
 |**nextLink**  <br>*optional*|Continuation link (absolute URI) to the next page of results in the list.|string|
-|**value**  <br>*optional*|Array of service objects.|< [ServiceResponse](#serviceresponse) > array|
+|**value**  <br>*optional*|Array of service objects.|<[ServiceResponse](#serviceresponse)> array|
 
 
 <a name="servicecreaterequest"></a>
@@ -885,7 +885,7 @@ The detailed status of the service.
 |**ID**  <br>*optional*|Service ID.|string|
 |**image**  <br>*optional*||[Image](#image)|
 |**manifest**  <br>*optional*||[Manifest](#manifest)|
-|**models**  <br>*optional*|List of models.|< [Model](#model) > array|
+|**models**  <br>*optional*|List of models.|<[Model](#model)> array|
 |**name**  <br>*optional*|Service name.|string|
 |**scoringUri**  <br>*optional*|URI for scoring the service.|string|
 |**state**  <br>*optional*||[AsyncOperationState](#asyncoperationstate)|
@@ -923,6 +923,6 @@ The type of the target runtime.
 
 |Name|Description|Schema|
 |---|---|---|
-|**properties**  <br>*required*||< string, string > map|
+|**properties**  <br>*required*||<string, string> map|
 |**runtimeType**  <br>*required*|Specifies the runtime.|enum (SparkPython, Python)|
 
