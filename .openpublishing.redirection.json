@@ -13561,8 +13561,33 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/security-center/security-center-resolve-endpoint-protection-health-alerts.md",
-            "redirect_url": "/azure/security-center",
+          "source_path": "articles/security-center/security-center-resolve-endpoint-protection-health-alerts.md",
+          "redirect_url": "/azure/security-center",
+          "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-network/virtual-network-deploy-multinic-arm-cli.md",
+            "redirect_url": "/azure/virtual-machines/linux/multiple-nics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-network/virtual-network-deploy-multinic-arm-ps.md",
+            "redirect_url": "/azure/virtual-machines/windows/multiple-nics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-network/virtual-network-deploy-multinic-cli-nodejs.md",
+            "redirect_url": "/azure/virtual-machines/linux/multiple-nics-nodejs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-network/virtual-networks-create-nsg-arm-portal.md",
+            "redirect_url": "/azure/virtual-network/virtual-networks-create-nsg-arm-pportal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-network/virtual-networks-multiple-nics.md",
+            "redirect_url": "/azure/virtual-network/virtual-network-deploy-multinic-classic-ps",
             "redirect_document_id": false
         }
     ]
