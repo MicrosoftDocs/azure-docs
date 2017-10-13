@@ -116,7 +116,7 @@ To support multiple subscriptions, use the PowerShell script from [Enable Azure 
 - To configure multiple Azure subscriptions, use the following commands:
 
     ```powershell
-    PS C:\> $WSID = "/subscriptions/<subID>/resourcegroups/oms/providers/microsoft.operationalinsights/workspaces/omsws"
+    PS C:\> $WSID = "/subscriptions/<subID>/resourcegroups/<RG_NAME>/providers/microsoft.operationalinsights/workspaces/<WORKSPACE_NAME>"
     PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
     ```
 
