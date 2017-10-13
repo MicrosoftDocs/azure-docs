@@ -42,10 +42,10 @@ One reason could be related to having stale debugging components in your userpro
 
 Follow the link below to obtain a script which will refresh the network related components on your host machine.
 
-`https://github.com/MicrosoftDocs/Virtualization-Documentation/tree/master/windows-server-container-tools/CleanupContainerHostNetworking`
+[https://github.com/MicrosoftDocs/Virtualization-Documentation/tree/master/windows-server-container-tools/CleanupContainerHostNetworking]
 
 ## Microsoft/DockerTools GitHub Repo
 
 For any other issues you encountere, please see
 
- `https://github.com/microsoft/dockertools/issues`
+ [https://github.com/microsoft/dockertools/issues]
