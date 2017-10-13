@@ -67,13 +67,16 @@ This article contains the release notes for Azure Storage Explorer 0.9.0 (Previe
 ./StorageExplorer.exe --disable-gpu
 ```
 * For users on Ubuntu 14.04, you will need to ensure GCC is up to date - this can be done by running the following commands, and then restarting your machine:
+
 	```
 	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
 	sudo apt-get update
 	sudo apt-get upgrade
 	sudo apt-get dist-upgrade
 	```
-For users on Ubuntu 17.04, you will need to install GConf - this can be done by running the following commands, and then restarting your machine:
+
+* For users on Ubuntu 17.04, you will need to install GConf - this can be done by running the following commands, and then restarting your machine:
+
 	```
 	sudo apt-get install libgconf-2-4
 	```
