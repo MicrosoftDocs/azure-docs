@@ -35,17 +35,17 @@ To resolve this issue:
 
 ## Unable to start debugging
 
-One reason could be related to having stale debugging components in your userprofile folder. Execute the following commands to remove these folders so that the latest debugging components are downloaded on the next debug session.
+One reason could be related to having stale debugging components in your user profile folder. Execute the following commands to remove these folders so that the latest debugging components are downloaded on the next debug session.
 
 - del %userprofile%\vsdbg
 - del %userprofile%\onecoremsvsmon
 
 ## Errors specific to networking when debugging your application
 
-Try executing the script downloadable from [Cleanup Container Host Networking](https://github.com/MicrosoftDocs/Virtualization-Documentation/tree/master/windows-server-container-tools/CleanupContainerHostNetworking)
-which will refresh the network related components on your host machine.
+Try executing the script downloadable from [Cleanup Container Host Networking](https://github.com/MicrosoftDocs/Virtualization-Documentation/tree/master/windows-server-container-tools/CleanupContainerHostNetworking),
+which will refresh the network-related components on your host machine.
 
 
 ## Microsoft/DockerTools GitHub Repo
 
-For any other issues you encounter, please see  [Microsoft/DockerTools](https://github.com/microsoft/dockertools/issues) issues.
+For any other issues you encounter, see  [Microsoft/DockerTools](https://github.com/microsoft/dockertools/issues) issues.
