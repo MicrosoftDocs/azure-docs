@@ -1,5 +1,5 @@
 ---
-title: Azure Infrastructure Preparation for SAP HA using Windows Failover Cluster and Shared Disk for SAP (A)SCS Instance | Microsoft Docs
+title: Azure Infrastructure Preparation for SAP HA Using Windows Failover Cluster and Shared Disk for SAP (A)SCS Instance | Microsoft Docs
 description: Azure Infrastructure Preparation for SAP HA using Windows Failover Cluster and Shared Disk for SAP (A)SCS Instance
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -21,7 +21,7 @@ ms.custom: H1Hack27Feb2017
 
 ---
 
-# Azure Infrastructure Preparation for SAP HA using Windows Failover Cluster and Shared Disk for SAP (A)SCS Instance
+# Azure Infrastructure Preparation for SAP HA Using Windows Failover Cluster and Shared Disk for SAP (A)SCS Instance
 
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -169,7 +169,7 @@ Make sure to review these documents before starting with installation:
 
 * [Azure Infrastructure Preparation for SAP HA using **Windows Failover Cluster** and **Shared Disk** for **SAP (A)SCS** Instance][sap-high-availability-infrastructure-wsfc-shared-disk]
 
-## Prepare the infrastructure for Architectural Template 1
+## Prepare the Infrastructure for Architectural Template 1
 Azure Resource Manager templates for SAP help simplify deployment of required resources.
 
 The three-tier templates in Azure Resource Manager also support high-availability scenarios, such as in Architectural Template 1, which has two clusters. Each cluster is an SAP single point of failure for SAP ASCS/SCS and DBMS.
@@ -221,7 +221,7 @@ _**Figure:** Set SAP high-availability Azure Resource Manager parameters_
 >
 >
 
-## <a name="c87a8d3f-b1dc-4d2f-b23c-da4b72977489"></a> Deploy virtual machines with corporate network connectivity (cross-premises) to use in production
+## <a name="c87a8d3f-b1dc-4d2f-b23c-da4b72977489"></a> Deploy Virtual Machines With Corporate Network Connectivity (Cross-Premises) to Use in Production
 For production SAP systems, deploy Azure virtual machines with [corporate network connectivity (cross-premises)][planning-guide-2.2] by using Azure Site-to-Site VPN or Azure ExpressRoute.
 
 > [!NOTE]
@@ -250,7 +250,7 @@ For production SAP systems, deploy Azure virtual machines with [corporate networ
   /subscriptions/<SubscriptionId>/resourceGroups/<VPNName>/providers/Microsoft.Network/virtualNetworks/azureVnet/subnets/<SubnetName>
   ```
 
-## <a name="7fe9af0e-3cce-495b-a5ec-dcb4d8e0a310"></a> Deploy cloud-only SAP instances for test and demo
+## <a name="7fe9af0e-3cce-495b-a5ec-dcb4d8e0a310"></a> Deploy Cloud-only SAP Instances for Test and Demo
 You can deploy your high-availability SAP system in a cloud-only deployment model. This kind of deployment primarily is useful for demo and test use cases. It's not suited for production use cases.
 
 - In the Azure portal, on the **Parameters** blade, in the **NEWOREXISTINGSUBNET** box, select **new**. Leave the **SUBNETID** field empty.
@@ -263,7 +263,7 @@ You can deploy your high-availability SAP system in a cloud-only deployment mode
 >
 
 
-## Prepare the infrastructure for Architectural Template 2
+## Prepare the Infrastructure for Architectural Template 2
 
 You can use this Azure Resource Manager template for SAP to help simplify deployment of required infrastructure resources for SAP Architectural Template 2.
 
@@ -289,7 +289,7 @@ To create a new multi-SID cluster, you need to deploy the following three templa
 
 The following sections have more details about the templates and the parameters you need to provide in the templates.
 
-### <a name="ASCS-SCS-template"></a> ASCS/SCS template
+### <a name="ASCS-SCS-template"></a> ASCS/SCS Template
 
 The ASCS/SCS template deploys two virtual machines that you can use to create a Windows Server failover cluster that hosts multiple ASCS/SCS instances.
 
@@ -327,7 +327,7 @@ The load balancer is configured to use the following probe ports (where x is the
 - ASCS/SCS internal load balancer probe port: 620x0
 - ERS internal load balancer probe port (Linux only): 621x2
 
-### <a name="database-template"></a> Database template
+### <a name="database-template"></a> Database Template
 
 The database template deploys one or two virtual machines that you can use to install the relational database management system (RDBMS) for one SAP system. For example, if you deploy an ASCS/SCS template for five SAP systems, you need to deploy this template five times.
 
@@ -344,7 +344,7 @@ To set up the database multi-SID template, in the [database multi-SID template][
   -  **Admin Username and Admin Password**. Create a new user that can be used to sign in to the machine.
   -  **Subnet Id**. Enter the ID of the subnet that you used during the deployment of the ASCS/SCS template, or the ID of the subnet that was created as part of the ASCS/SCS template deployment.
 
-### <a name="application-servers-template"></a> Application servers template
+### <a name="application-servers-template"></a> Application Servers Template
 
 The application servers template deploys two or more virtual machines that can be used as SAP Application Server instances for one SAP system. For example, if you deploy an ASCS/SCS template for five SAP systems, you need to deploy this template five times.
 
@@ -358,7 +358,7 @@ To set up the application servers multi-SID template, in the [application server
   -  **Subnet Id**. Enter the ID of the subnet that you used during the deployment of the ASCS/SCS template, or the ID of the subnet that was created as part of the ASCS/SCS template deployment.
 
 
-## <a name="47d5300a-a830-41d4-83dd-1a0d1ffdbe6a"></a> Azure virtual network
+## <a name="47d5300a-a830-41d4-83dd-1a0d1ffdbe6a"></a> Azure Virtual Network
 In our example, the address space of the Azure virtual network is 10.0.0.0/16. There is one subnet called **Subnet**, with an address range of 10.0.0.0/24. All virtual machines and internal load balancers are deployed in this virtual network.
 
 > [!IMPORTANT]
@@ -366,7 +366,7 @@ In our example, the address space of the Azure virtual network is 10.0.0.0/16. T
 >
 >
 
-## <a name="b22d7b3b-4343-40ff-a319-097e13f62f9e"></a> DNS IP addresses
+## <a name="b22d7b3b-4343-40ff-a319-097e13f62f9e"></a> DNS IP Addresses
 
 To set the required DNS IP addresses, do the following steps.
 
@@ -392,7 +392,7 @@ In our example, the DNS service is installed and configured on these Windows vir
 | First DNS server |domcontr-0 |pr1-nic-domcontr-0 |10.0.0.10 |
 | Second DNS server |domcontr-1 |pr1-nic-domcontr-1 |10.0.0.11 |
 
-## <a name="9fbd43c0-5850-4965-9726-2a921d85d73f"></a> Host names and static IP addresses for the SAP ASCS/SCS clustered instance and DBMS clustered instance
+## <a name="9fbd43c0-5850-4965-9726-2a921d85d73f"></a> Host Names and Static IP Addresses for the SAP ASCS/SCS Clustered Instance and DBMS Clustered Instance
 
 For on-premises deployment, you need these reserved host names and IP addresses:
 
@@ -406,7 +406,7 @@ When you create the cluster, create the virtual host names **pr1-ascs-vir** and 
 
 You can manually create the other two virtual host names, **pr1-ascs-sap** and **pr1-dbms-sap**, and the associated IP addresses, on the DNS server. The clustered SAP ASCS/SCS instance and the clustered DBMS instance use these resources. For information about how to do this, see [Create a virtual host name for a clustered SAP ASCS/SCS instance][sap-ha-guide-9.1.1].
 
-## <a name="84c019fe-8c58-4dac-9e54-173efd4b2c30"></a> Set static IP addresses for the SAP virtual machines
+## <a name="84c019fe-8c58-4dac-9e54-173efd4b2c30"></a> Set Static IP Addresses for the SAP Virtual Machines
 After you deploy the virtual machines to use in your cluster, you need to set static IP addresses for all virtual machines. Do this in the Azure Virtual Network configuration, and not in the guest operating system.
 
 1.  In the Azure portal, select **Resource Group** > **Network Card** > **Settings** > **IP Address**.
@@ -436,7 +436,7 @@ In our example, we have these virtual machines and static IP addresses:
 | First cluster node for DBMS instance |pr1-db-0 |pr1-nic-db-0 |10.0.0.30 |
 | Second cluster node for DBMS instance |pr1-db-1 |pr1-nic-db-1 |10.0.0.31 |
 
-## <a name="7a8f3e9b-0624-4051-9e41-b73fff816a9e"></a> Set a static IP address for the Azure internal load balancer
+## <a name="7a8f3e9b-0624-4051-9e41-b73fff816a9e"></a> Set a Static IP Address for the Azure Internal Load Balancer
 
 The SAP Azure Resource Manager template creates an Azure internal load balancer that is used for the SAP ASCS/SCS instance cluster and the DBMS cluster.
 
@@ -464,7 +464,7 @@ In our example, we have two Azure internal load balancers that have these static
 | SAP DBMS internal load balancer |pr1-lb-dbms |10.0.0.33 |
 
 
-## <a name="f19bd997-154d-4583-a46e-7f5a69d0153c"></a> Default ASCS/SCS load balancing rules for the Azure internal load balancer
+## <a name="f19bd997-154d-4583-a46e-7f5a69d0153c"></a> Default ASCS/SCS Load Balancing Rules for the Azure Internal Load Balancer
 
 The SAP Azure Resource Manager template creates the ports you need:
 * An ABAP ASCS instance, with the default instance number **00**
@@ -516,7 +516,7 @@ _**Figure:** Default ASCS/SCS load balancing rules for the Azure internal load b
 
 Set the IP address of the load balancer **pr1-lb-dbms** to the IP address of the virtual host name of the DBMS instance.
 
-### <a name="fe0bd8b5-2b43-45e3-8295-80bee5415716"></a> Change the ASCS/SCS default load balancing rules for the Azure internal load balancer
+### <a name="fe0bd8b5-2b43-45e3-8295-80bee5415716"></a> Change the ASCS/SCS Default Load Balancing Rules for the Azure Internal Load Balancer
 
 If you want to use different numbers for the SAP ASCS or SCS instances, you must change the names and values of their ports from default values.
 
@@ -535,7 +535,7 @@ If you want to use different numbers for the SAP ASCS or SCS instances, you must
 
   _**Figure:** Change the ASCS/SCS default load balancing rules for the Azure internal load balancer_
 
-## <a name="e69e9a34-4601-47a3-a41c-d2e11c626c0c"></a> Add Windows virtual machines to the domain
+## <a name="e69e9a34-4601-47a3-a41c-d2e11c626c0c"></a> Add Windows Virtual Machines to the Domain
 
 After you assign a static IP address to the virtual machines, add the virtual machines to the domain.
 
@@ -543,7 +543,7 @@ After you assign a static IP address to the virtual machines, add the virtual ma
 
 _**Figure:** Add a virtual machine to a domain_
 
-## <a name="661035b2-4d0f-4d31-86f8-dc0a50d78158"></a> Add registry entries on both cluster nodes of the SAP ASCS/SCS instance
+## <a name="661035b2-4d0f-4d31-86f8-dc0a50d78158"></a> Add Registry Entries on Both Cluster Nodes of the SAP ASCS/SCS Instance
 
 Azure Load Balancer has an internal load balancer that closes connections when the connections are idle for a set period of time (an idle timeout). SAP work processes in dialog instances open connections to the SAP enqueue process as soon as the first enqueue/dequeue request needs to be sent. These connections usually remain established until the work process or the enqueue process restarts. However, if the connection is idle for a set period of time, the Azure internal load balancer closes the connections. This isn't a problem because the SAP work process reestablishes the connection to the enqueue process if it no longer exists. These activities are documented in the developer traces of SAP processes, but they create a large amount of extra content in those traces. It's a good idea to change the TCP/IP `KeepAliveTime` and `KeepAliveInterval` on both cluster nodes. Combine these changes in the TCP/IP parameters with SAP profile parameters, described later in the article.
 
@@ -571,14 +571,14 @@ _**Table 4:** Change the second TCP/IP parameter_
 
 **To apply the changes, restart both cluster nodes**.
 
-## <a name="0d67f090-7928-43e0-8772-5ccbf8f59aab"></a> Set up a Windows Server Failover Clustering cluster for an SAP ASCS/SCS instance
+## <a name="0d67f090-7928-43e0-8772-5ccbf8f59aab"></a> Set up a Windows Server Failover Clustering Cluster for an SAP ASCS/SCS Instance
 
 Setting up a Windows Server Failover Clustering cluster for an SAP ASCS/SCS instance involves these tasks:
 
 - Collecting the cluster nodes in a cluster configuration
 - Configuring a cluster file share witness
 
-### <a name="5eecb071-c703-4ccc-ba6d-fe9c6ded9d79"></a> Collect the cluster nodes in a cluster configuration
+### <a name="5eecb071-c703-4ccc-ba6d-fe9c6ded9d79"></a> Collect the Cluster Nodes in a Cluster Configuration
 
 1.  In the Add Role and Features Wizard, add failover clustering to both cluster nodes.
 2.  Set up the failover cluster by using Failover Cluster Manager. In Failover Cluster Manager, select **Create Cluster**, and then add only the name of the first cluster, node A. Do not add the second node yet; you'll add the second node in a later step.
@@ -657,14 +657,14 @@ Setting up a Windows Server Failover Clustering cluster for an SAP ASCS/SCS inst
   _**Figure:** Ignore warnings about the disk quorum_
 
 
-#### <a name="e49a4529-50c9-4dcf-bde7-15a0c21d21ca"></a> Configure a cluster file share witness
+#### <a name="e49a4529-50c9-4dcf-bde7-15a0c21d21ca"></a> Configure a Cluster File Share Witness
 
 Configuring a cluster file share witness involves these tasks:
 
 - Creating a file share
 - Setting the file share witness quorum in Failover Cluster Manager
 
-#### <a name="06260b30-d697-4c4d-b1c9-d22c0bd64855"></a> Create a file share
+#### <a name="06260b30-d697-4c4d-b1c9-d22c0bd64855"></a> Create a File Share
 
 1.  Select a file share witness instead of a quorum disk. SIOS DataKeeper supports this option.
 
@@ -703,7 +703,7 @@ Configuring a cluster file share witness involves these tasks:
 
   _**Figure:** Set the security attributes for the cluster name object on the file share quorum_
 
-#### <a name="4c08c387-78a0-46b1-9d27-b497b08cac3d"></a> Set the file share witness quorum in Failover Cluster Manager
+#### <a name="4c08c387-78a0-46b1-9d27-b497b08cac3d"></a> Set the File Share Witness Quorum in Failover Cluster Manager
 
 1.  Open the Configure Quorum Setting Wizard.
 
@@ -741,7 +741,7 @@ After installing the Windows Failover Cluster successfully, changes need to be m
 
 These settings were tested with customers and provided a good compromise to be resilient enough on the one side. On the other hand those settings were providing fast enough failover in real error conditions on SAP software or node/VM failure.
 
-### <a name="5c8e5482-841e-45e1-a89d-a05c0907c868"></a> Install SIOS DataKeeper Cluster Edition for the SAP ASCS/SCS cluster share disk
+### <a name="5c8e5482-841e-45e1-a89d-a05c0907c868"></a> Install SIOS DataKeeper Cluster Edition for the SAP ASCS/SCS Cluster Share Disk
 
 You now have a working Windows Server Failover Clustering configuration in Azure. But, to install an SAP ASCS/SCS instance, you need a shared disk resource. You cannot create the shared disk resources you need in Azure. SIOS DataKeeper Cluster Edition is a third-party solution you can use to create shared disk resources.
 
@@ -884,6 +884,6 @@ After you install SIOS DataKeeper on both nodes, you need to start the configura
 
   _**Figure:** Failover Cluster Manager shows the disk that DataKeeper replicated_
 
-## Next steps
+## Next Steps
 
 * [SAP NetWeaver HA Installation using **Windows Failover Cluster** and **Shared Disk** for SAP (A)SCS Instance][sap-high-availability-installation-wsfc-shared-disk]

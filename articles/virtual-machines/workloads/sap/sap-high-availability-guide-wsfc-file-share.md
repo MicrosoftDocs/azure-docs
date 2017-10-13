@@ -227,7 +227,7 @@ The Azure cloud platform doesn't offer the option to configure virtual IP addres
 
 _**Figure 1:** Windows Server Failover Clustering configuration in Azure without a shared disk_
 
-## SAP (A)SCS HA with File Share
+## SAP (A)SCS HA With File Share
 
 SAP developed new approach and alternative to cluster shared disks, to cluster SAP (A)SCS instance on Windows Failover Cluster.
 
@@ -356,7 +356,7 @@ _**Figure 5:** SAP (A)SCS instance and SOFS deployed in TWO clusters_
 >On Azure cloud, each cluster used for SAP and for SOFS file shares must be deployed in their own Azure Availability Set, to ensure distributed the placement of those cluster VMs across the underlying Azure infrastructure.
 >
 
-## Generic File Share with SIOS as Cluster Shared Disks
+## Generic File Share With SIOS as Cluster Shared Disks
 
 
 > [!IMPORTANT]
@@ -369,7 +369,7 @@ Generic File Share is another option for achieving highly available file share.
 
 Here, as a cluster shared disk you can use 3rd party SIOS solution.
 
-## Next steps
+## Next Steps
 
 * [Azure Infrastructure Preparation for SAP HA using Windows Failover Cluster and File Share for SAP (A)SCS Instance][sap-high-availability-infrastructure-wsfc-file-share]
 

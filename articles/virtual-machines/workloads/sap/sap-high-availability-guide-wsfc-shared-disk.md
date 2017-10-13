@@ -199,7 +199,7 @@ Make sure to review these documents before starting with this document:
 
 Compared to bare metal or private cloud deployments, Azure Virtual Machines requires additional steps to configure Windows Server Failover Clustering. When you build a  cluster, you need to set several IP addresses and virtual host names for the SAP ASCS/SCS instance.
 
-### Name resolution in Azure and Cluster Virtual Host Name
+### Name Resolution in Azure and Cluster Virtual Host Name
 
 The Azure cloud platform doesn't offer the option to configure virtual IP addresses, such as floating IP addresses. You need an alternative solution to set up a virtual IP address to reach the cluster resource in the cloud. Azure has an **internal load balancer** in the Azure Load Balancer service. With the internal load balancer, clients reach the cluster over the cluster virtual IP address. You need to deploy the internal load balancer in the resource group that contains the cluster nodes. Then, configure all necessary port forwarding rules with the probe ports of the internal load balancer. The clients can connect via the virtual host name. The DNS server resolves the cluster IP address, and the internal load balancer handles port forwarding to the active node of the cluster.
 
@@ -207,7 +207,7 @@ The Azure cloud platform doesn't offer the option to configure virtual IP addres
 
 _**Figure 1:** Windows Server Failover Clustering configuration in Azure without a shared disk_
 
-### SAP (A)SCS HA with Cluster Shared Disks
+### SAP (A)SCS HA With Cluster Shared Disks
 On **Windows**, an **SAP (A)SCS** instance contains not only **SAP central services**, **SAP message server** and **enqueue server processes**, but also **SAP GLOBAL HOST** files used to store central files for the whole SAP system.
 
 Therefore, we have following two components of an SAP (A)SCS instance:
@@ -246,7 +246,7 @@ _**Figure 3:** SAP (A)SCS HA architecture with shared disk_
 
 _**Figure 4:** SAP (A)SCS HA architecture with shared disk_
 
-### Shared disk in Azure with SIOS DataKeeper
+### Shared Disk in Azure With SIOS DataKeeper
 
 You need cluster shared storage for a high-availability SAP ASCS/SCS instance.
 
@@ -268,7 +268,7 @@ _**Figure 5:** Windows Server Failover Clustering configuration in Azure with SI
 > You don't need shared disks for high availability with some DBMS products, like SQL Server. SQL Server Always On replicates DBMS data and log files from the local disk of one cluster node to the local disk of another cluster node. In this case, the Windows cluster configuration doesn't need a shared disk.
 >
 
-## Next steps
+## Next Steps
 
 * [Azure Infrastructure Preparation for SAP HA using Windows Failover Cluster and Shared Disk for SAP (A)SCS Instance][sap-high-availability-infrastructure-wsfc-shared-disk]
 

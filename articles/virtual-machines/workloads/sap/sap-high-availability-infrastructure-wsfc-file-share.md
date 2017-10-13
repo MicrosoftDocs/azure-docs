@@ -316,7 +316,7 @@ Also, you can **automate** deployment of SOFS using Azure Resource Manager templ
 >Therefore, in the SOFS Resource Manager template UI you must specify in VM Count.
 >
 
-### Using managed disks
+### Using Managed Disks
 
 https://github.com/robotechredmond/301-storage-spaces-direct-md
 
@@ -338,6 +338,6 @@ _**Figure 2:** UI screen for SOFS Azure Resource Manager template without Manage
 
 Make sure to choose **Premium Storage** as Storage Account Type. Other settings are the same as with managed disks.
 
-## Next steps
+## Next Steps
 
 * [SAP NetWeaver HA Installation on Windows Failover Cluster and File Share for SAP (A)SCS Instance][sap-high-availability-installation-wsfc-file-share]

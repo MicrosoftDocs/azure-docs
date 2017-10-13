@@ -70,8 +70,8 @@ ms.custom: H1Hack27Feb2017
 [sap-ha-guide-9.1]:#31c6bd4f-51df-4057-9fdf-3fcbc619c170
 [sap-ha-guide-9.1.1]:#a97ad604-9094-44fe-a364-f89cb39bf097
 
-[sap-ha-multi-sid-guide]:sap-high-availability-multi-sid.md (SAP multi-SID high-availability configuration)
-
+[sap-ascs-ha-multi-sid-wsfc-shared-disk]:sap-ascs-ha-multi-sid-wsfc-shared-disk.md
+[sap-ascs-ha-multi-sid-wsfc-shared-disk-infrast-prepare]:sap-ascs-ha-multi-sid-wsfc-shared-disk.md#25e358f8-92e5-4e8d-a1e5-df7580a39cb0
 [Logo_Linux]:media/virtual-machines-shared-sap-shared/Linux.png
 [Logo_Windows]:media/virtual-machines-shared-sap-shared/Windows.png
 
@@ -233,22 +233,22 @@ The installation of an additional **&lt;SID2&gt;** SAP system is basically ident
 
 ## Infrastructure Preparation for SAP Multi-SID Scenario
 
-### Infrastructure preparation on Domain Controller
+### Infrastructure Preparation on Domain Controller
 
 Create the domain group **&lt;Domain&gt;\SAP_&lt;SID2&gt;_GlobalAdmin**, e.g. with &lt;SID2&gt; = PR2. The domain group name is <Domain>\SAP_PR2_GlobalAdmin
 
-### Infrastructure preparation on (A)SCS Cluster
+### Infrastructure Preparation on (A)SCS Cluster
 
 You need to prepare the infrastructure on existing (A)SCS cluster, for a second SAP &lt;SID&gt;:
 
 * Create a virtual host name for the clustered SAP ASCS/SCS instance on the DNS server
 * Add an IP address to an existing Azure internal load balancer by using PowerShell
 
-These steps are described in document Create an **SAP NetWeaver multi-SID configuration**.
-https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-multi-sid#prepare-the-infrastructure
+These steps are described in [Infrastructure Preparation for SAP Multi-SID Scenario](sap-ascs-ha-multi-sid-wsfc-shared-disk-infrast-prepare).
 
 
-### Infrastructure preparation on SOFS Cluster using existing SAP GLOBAL host
+
+### Infrastructure Preparation on SOFS Cluster Using Existing SAP GLOBAL Host
 
 You have the option to reuse the existing **&lt;SAPGLOBALHost&gt;** and **Volume1** of the first SAP <SID1> system.
 
@@ -315,7 +315,7 @@ $Acl.SetAccessRule($Ar)
 Set-Acl $UsrSAPFolder $Acl -Verbose
 ```
 
-### Infrastructure preparation on SOFS Cluster using Different SAP GLOBAL host
+### Infrastructure Preparation on SOFS Cluster Using Different SAP GLOBAL Host
 
 You can configure the second SOFS e.g. the second SOFS cluster role with **&lt;SAPGlobalHost2&gt;** and different **Voulme2** for the second **&lt;SID2&gt;**.
 
@@ -425,13 +425,13 @@ _**Figure 12:** Click Create_
 
 _**Figure 13:** The **second sapmnt** bound to **sapglobal2** host and **Volume2** is created_
 
-## SAP NetWeaver Multi-SID installation
+## SAP NetWeaver Multi-SID Installation
 
-### SAP &lt;SID2&gt; (A)SCS and ERS instances Installation
+### SAP &lt;SID2&gt; (A)SCS and ERS Instances Installation
 
 Follow the same installation and configuration steps as described for one SAP &lt;SID&gt;.
 
-### Install DBMS and SAP application Servers
+### Install DBMS and SAP Application Servers
 Install DBMS and SAP application Servers as described earlier.
 
 

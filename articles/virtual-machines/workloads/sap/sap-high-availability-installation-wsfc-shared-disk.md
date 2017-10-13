@@ -161,7 +161,7 @@ There are no special considerations when different DBMS services interact with t
 >
 >
 
-## <a name="31c6bd4f-51df-4057-9fdf-3fcbc619c170"></a> Install SAP with a high-availability ASCS/SCS instance
+## <a name="31c6bd4f-51df-4057-9fdf-3fcbc619c170"></a> Install SAP With a High-Availability ASCS/SCS Instance
 
 > [!IMPORTANT]
 > Be sure not to place your page file on DataKeeper mirrored volumes. DataKeeper does not support mirrored volumes. You can leave your page file on the temporary drive D of an Azure virtual machine, which is the default. If it's not already there, move the Windows page file to drive D of your Azure virtual machine.
@@ -176,7 +176,7 @@ Installing SAP with a high-availability ASCS/SCS instance involves these tasks:
 - Adding a probe port
 - Opening the Windows firewall probe port
 
-#### <a name="a97ad604-9094-44fe-a364-f89cb39bf097"></a> Create a virtual host name for the clustered SAP ASCS/SCS instance
+#### <a name="a97ad604-9094-44fe-a364-f89cb39bf097"></a> Create a Virtual Host Name for the Clustered SAP ASCS/SCS Instance
 
 1.  In the Windows DNS manager, create a DNS entry for the virtual host name of the ASCS/SCS instance.
 
@@ -197,7 +197,7 @@ Installing SAP with a high-availability ASCS/SCS instance involves these tasks:
 
   _**Figure 2:** New virtual name and TCP/IP address for SAP ASCS/SCS cluster configuration_
 
-### <a name="eb5af918-b42f-4803-bb50-eff41f84b0b0"></a> Install the SAP first cluster node
+### <a name="eb5af918-b42f-4803-bb50-eff41f84b0b0"></a> Install the SAP First Cluster Node
 
 1.  Execute the first cluster node option on cluster node A. For example, on the **pr1-ascs-0** host.
 2.  To keep the default ports for the Azure internal load balancer, select:
@@ -215,7 +215,7 @@ The next few tasks aren't described in the standard SAP installation documentati
 >
 >
 
-### <a name="e4caaab2-e90f-4f2c-bc84-2cd2e12a9556"></a> Modify the SAP profile of the ASCS/SCS instance
+### <a name="e4caaab2-e90f-4f2c-bc84-2cd2e12a9556"></a> Modify the SAP Profile of the ASCS/SCS Instance
 
 You need to add a new profile parameter. The profile parameter prevents connections between SAP work processes and the enqueue server from closing when they are idle for too long. We mentioned the problem scenario in [Add registry entries on both cluster nodes of the SAP ASCS/SCS instance][sap-ha-guide-8.11]. In that section, we also introduced two changes to some basic TCP/IP connection parameters. In a second step, you need to set the enqueue server to send a `keep_alive` signal so that the connections don't hit the Azure internal load balancer's idle threshold.
 
@@ -236,7 +236,7 @@ To modify the SAP profile of the ASCS/SCS instance:
 
 2.  To apply the changes, restart the SAP ASCS /SCS instance.
 
-### <a name="10822f4f-32e7-4871-b63a-9b86c76ce761"></a> Add a probe port
+### <a name="10822f4f-32e7-4871-b63a-9b86c76ce761"></a> Add a Probe Port
 
 Use the internal load balancer's probe functionality to make the entire cluster configuration work with Azure Load Balancer. The Azure internal load balancer usually distributes the incoming workload equally between participating virtual machines. However, this won't work in some cluster configurations because only one instance is active. The other instance is passive and can’t accept any of the workload. A probe functionality helps when the Azure internal load balancer assigns work only to an active instance. With the probe functionality, the internal load balancer can detect which instances are active, and then target only the instance with the workload.
 
@@ -331,7 +331,7 @@ To add a probe port:
 
   _**Figure 4:** Probe the cluster port after you set the new value_
 
-### <a name="4498c707-86c0-4cde-9c69-058a7ab8c3ac"></a> Open the Windows firewall probe port
+### <a name="4498c707-86c0-4cde-9c69-058a7ab8c3ac"></a> Open the Windows Firewall Probe Port
 
 You need to open a Windows firewall probe port on both cluster nodes. Use the following script to open a Windows firewall probe port. Update the PowerShell variables for your environment.
 
@@ -343,15 +343,15 @@ You need to open a Windows firewall probe port on both cluster nodes. Use the fo
 
 The **ProbePort** is set to **62000**. Now you can access the file share **\\\ascsha-clsap\sapmnt** from other hosts, such as from **ascsha-dbas**.
 
-## <a name="85d78414-b21d-4097-92b6-34d8bcb724b7"></a> Install the database instance
+## <a name="85d78414-b21d-4097-92b6-34d8bcb724b7"></a> Install the Database Instance
 
 To install the database instance, follow the process described in the SAP installation documentation.
 
-## <a name="8a276e16-f507-4071-b829-cdc0a4d36748"></a> Install the second cluster node
+## <a name="8a276e16-f507-4071-b829-cdc0a4d36748"></a> Install the Second Cluster Node
 
 To install the second cluster, follow the steps in the SAP installation guide.
 
-## <a name="094bc895-31d4-4471-91cc-1513b64e406a"></a> Change the start type of the SAP ERS Windows service instance
+## <a name="094bc895-31d4-4471-91cc-1513b64e406a"></a> Change the Start Type of the SAP ERS Windows Service Instance
 
 Change the start type of the SAP ERS Windows service to **Automatic (Delayed Start)** on both cluster nodes.
 
@@ -372,10 +372,10 @@ Install an SAP Additional Application Server (AAS) on all the virtual machines t
 >
 
 
-## <a name="18aa2b9d-92d2-4c0e-8ddd-5acaabda99e9"></a> Test the SAP ASCS/SCS instance failover and SIOS replication
+## <a name="18aa2b9d-92d2-4c0e-8ddd-5acaabda99e9"></a> Test the SAP ASCS/SCS Instance Failover and SIOS Replication
 It's easy to test and monitor an SAP ASCS/SCS instance failover and SIOS disk replication by using Failover Cluster Manager and the SIOS DataKeeper Management and Configuration tool.
 
-### <a name="65fdef0f-9f94-41f9-b314-ea45bbfea445"></a> SAP ASCS/SCS instance is running on cluster node A
+### <a name="65fdef0f-9f94-41f9-b314-ea45bbfea445"></a> SAP ASCS/SCS Instance is Running on Cluster Node A
 
 The **SAP PR1** cluster group is running on cluster node A. For example, on **pr1-ascs-0**. Assign the shared disk drive S, which is part of the **SAP PR1** cluster group, and which the ASCS/SCS instance uses, to cluster node A.
 
@@ -389,7 +389,7 @@ In the SIOS DataKeeper Management and Configuration tool, you can see that the s
 
 _**Figure 7:** In SIOS DataKeeper, replicate the local volume from cluster node A to cluster node B_
 
-### <a name="5e959fa9-8fcd-49e5-a12c-37f6ba07b916"></a> Failover from node A to node B
+### <a name="5e959fa9-8fcd-49e5-a12c-37f6ba07b916"></a> Failover From Node A to Node B
 
 1.  Choose one of these options to initiate a failover of the SAP <*SID*> cluster group from cluster node A to cluster node B:
   - Use Failover Cluster Manager  

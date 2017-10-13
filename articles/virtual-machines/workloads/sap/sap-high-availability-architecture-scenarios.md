@@ -89,6 +89,12 @@ ms.custom: H1Hack27Feb2017
 [virtual-machines-windows-portal-sql-alwayson-availability-groups-manual]:../../windows/sql/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md
 [virtual-machines-windows-portal-sql-alwayson-int-listener]:../../windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md
 
+[sap-ha-bc-virtual-env-hyperv-vmware-white-paper]:http://scn.sap.com/docs/DOC-44415
+[sap-ha-partner-information]:http://scn.sap.com/docs/DOC-8541
+[azure-sla]:https://azure.microsoft.com/support/legal/sla/
+[azure-virtual-machines-manage-availability]:http://azure.microsoft.com/documentation/articles/virtual-machines-manage-availability
+[azure-storage-redundancy]:http://azure.microsoft.com/documentation/articles/storage-redundancy/
+[azure-storage-managed-disks-overview]:https://docs.microsoft.com/azure/storage/storage-managed-disks-overview
 
 [planning-guide-figure-100]:media/virtual-machines-shared-sap-planning-guide/100-single-vm-in-azure.png
 [planning-guide-figure-1300]:media/virtual-machines-shared-sap-planning-guide/1300-ref-config-iaas-for-sap.png
@@ -220,7 +226,7 @@ ms.custom: H1Hack27Feb2017
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
 
-## Definition of terminologies
+## Definition of Terminologies
 
 The term **high availability (HA)** is generally related to a set of technologies that minimizes IT disruptions by providing business continuity of IT services through redundant, fault-tolerant or failover protected components inside the **same** data center. In our case, within one Azure Region.
 
@@ -240,19 +246,21 @@ We can separate the discussion about SAP high availability in Azure into three p
 * **SAP application high availability**
 
   To achieve full SAP system high availability, we need to protect all critical SAP system components, for example:
-  * redundant **SAP application servers**,
-  * and unique components (for example **Single Point of Failure (SPOF)**  ) like
+  * Redundant **SAP application servers**, and
+  * Unique components (for example **Single Point of Failure (SPOF)**  ) like
     * **SAP (A)SCS instance** and
     *  **DBMS**.
 
 
-SAP High Availability in Azure has some differences compared to SAP High Availability in an on-premises physical or virtual environment. The following paper from SAP describes standard SAP High Availability configurations in virtualized environments on Windows: <http://scn.sap.com/docs/DOC-44415>. There is no sapinst-integrated SAP-HA configuration for Linux like it exists for Windows. Regarding SAP HA on-premises for Linux find more information here: <http://scn.sap.com/docs/DOC-8541>.
+SAP High Availability in Azure has some differences compared to SAP High Availability in an on-premises physical or virtual environment. The following paper [SAP NetWeaver High Availability and Business Continuity in Virtual Environments with VMware and Hyper-V on Microsoft Windows][sap-ha-bc-virtual-env-hyperv-vmware-white-paper] describes standard SAP High Availability configurations in virtualized environments on Windows.
+
+There is no sapinst-integrated SAP-HA configuration for Linux like it exists for Windows. Regarding SAP HA on-premises for Linux find more information in [High Availability Partner Information][sap-ha-partner-information].
 
 ## Azure Infrastructure High Availability
 
 ### Single Instance Virtual Machine SLA
 
-There is currently a single-VM SLA of 99.9% with premium storage. To get an idea how the availability of a single VM might look like you can simply build the product of the different available Azure SLAs: <https://azure.microsoft.com/support/legal/sla/>.
+There is currently a single-VM SLA of 99.9% with premium storage. To get an idea how the availability of a single VM might look like you can simply build the product of the different available [Azure Service Level Agreements][azure-sla].
 
 The basis for the calculation is 30 days per month, or 43200 minutes. Therefore, 0.05% downtime corresponds to 21.6 minutes. As usual, the availability of the different services will multiply in the following way:
 
@@ -271,11 +279,13 @@ When two or more VMs are part of the same Availability Set, each virtual machine
 
 **Update domains** guarantees that different VMs will not be rebooted at the same time during the planned maintenance of Azure infrastructure, but only one VM is rebooted at a time.
 
-More details can be found in this documentation: <http://azure.microsoft.com/documentation/articles/virtual-machines-manage-availability>
+For more details, see [Manage the availability of Windows virtual machines in Azure][azure-virtual-machines-manage-availability].
 
 Availability Set is used for achieving high availability of:
-* redundant SAP application servers  
-* clusters with two or more nodes (e.g. VMs) that protect SPOFs like SAP (A)SCS instance and DBMS
+
+* Redundant SAP application servers  
+
+* Clusters with two or more nodes (e.g. VMs) that protect SPOFs like SAP (A)SCS instance and DBMS
 
 ### Virtual Machine (VM) Planned and Unplanned Maintenance
 
@@ -285,22 +295,23 @@ There are two types of Azure platform events that can affect the availability of
 
 * **Unplanned maintenance** events occur when the hardware or physical infrastructure underlying your virtual machine has faulted in some way. This may include local network failures, local disk failures, or other rack level failures. When such a failure is detected, the Azure platform will automatically migrate your virtual machine from the unhealthy physical server hosting your virtual machine to a healthy physical server. Such events are rare, but may also cause your virtual machine to reboot.
 
-More details can be found in this documentation: <http://azure.microsoft.com/documentation/articles/virtual-machines-manage-availability>
+For more details, see [Manage the availability of Windows virtual machines in Azure][azure-virtual-machines-manage-availability].
 
 ### Azure Storage Redundancy
 The data in your Microsoft Azure Storage Account is always replicated to ensure durability and high availability, meeting the Azure Storage SLA even in the face of transient hardware failures.
 
 Since Azure Storage is keeping three images of the data by default, RAID5 or RAID1 across multiple Azure disks are not necessary.
 
-More details can be found in this article: <http://azure.microsoft.com/documentation/articles/storage-redundancy/>
+For more details, see [Azure Storage replication][azure-storage-redundancy].
 
 ### Azure Managed Disks
-Managed Disks are a new resource type in Azure Resource Manager that can be used instead of VHDs that are stored in Azure Storage Accounts. Managed Disks automatically align with the Availability Set of the virtual machine they are attached to and therefore increase the availability of your virtual machine and the services that are running on the virtual machine. For more information, read the [overview article](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview).
+Managed Disks are a new resource type in Azure Resource Manager that can be used instead of VHDs that are stored in Azure Storage Accounts. Managed Disks automatically align with the Availability Set of the virtual machine they are attached to and therefore increase the availability of your virtual machine and the services that are running on the virtual machine.
+For more information, see  [Azure Managed Disks Overview][azure-storage-managed-disks-overview].
 
 We recommend to you use Managed disk, because they simplify the deployment and management of your virtual machines.
 **SAP currently only supports Premium Managed Disks**. For more information, read SAP Note [1928533].
 
-## Utilizing Azure infrastructure HA to achieve SAP application “higher” availability
+## Utilizing Azure Infrastructure HA to Achieve SAP Application “Higher” Availability
 
 If you decide not to use functionalities like Windows Server Failover Clustering (WSFC) or Pacemaker on Linux (currently only supported for SLES 12 and higher), Azure VM Restart is utilized to protect an SAP System against planned and unplanned downtime of the Azure physical server infrastructure and overall underlying Azure platform.
 
@@ -309,8 +320,10 @@ This approach is described more in following document [Utilizing Azure Infrastru
 ## SAP Application High Availability on Azure IaaS
 
 To achieve full SAP system high availability, we need to protect all critical SAP system components, for example:
-* redundant **SAP application servers**,
-* and unique components (for example **Single Point of Failure (SPOF)**  ) like
+
+* Redundant **SAP application servers**, and
+
+* Unique components (for example **Single Point of Failure (SPOF)**  ) like
   * **SAP (A)SCS instance** and
   *  **DBMS**.
 
@@ -356,9 +369,9 @@ Azure Availability Sets were presented in chapter [Azure Availability Sets][plan
 >
 
 
-### High Availability Architecture for the SAP (A)SCS instance
+### High Availability Architecture for the SAP (A)SCS Instance
 
-### High Availability Architecture for the SAP (A)SCS instance on Windows
+### High Availability Architecture for the SAP (A)SCS Instance on Windows
 
 
 > ![Windows][Logo_Windows] Windows
@@ -374,7 +387,7 @@ You can use **Windows Server Failover Clustering** (**WSFC**) solution to protec
 
   You can  find more information on HA architecture with file share in this document: [Clustering SAP (A)SCS Instance on Windows Failover Cluster Using File  Share][sap-high-availability-guide-wsfc-file-share].
 
-### High Availability for the SAP (A)SCS instance on Linux
+### High Availability for the SAP (A)SCS Instance on Linux
 
 
 > ![Linux][Logo_Linux] Linux
@@ -395,7 +408,7 @@ You can  find more information on Multi-SID HA architecture in these architectur
 
 * [SAP (A)SCS Instance Multi-SID High Availability for with Windows Server Failover Clustering and Shared Disk][sap-ascs-ha-multi-sid-wsfc-shared-disk]
 
-### High-availability DBMS instance
+### High-availability DBMS Instance
 
 The DBMS also is a single point of contact in an SAP system. You need to protect it by using a high-availability solution. Figure below  shows a SQL Server Always On high-availability solution in Azure, with Windows Server Failover Clustering and the Azure internal load balancer. SQL Server Always On replicates DBMS data and log files by using its own DBMS replication. In this case, you don't need cluster shared disks, which simplifies the entire setup.
 

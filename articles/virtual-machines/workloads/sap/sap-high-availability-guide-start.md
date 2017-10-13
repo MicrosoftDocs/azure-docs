@@ -179,9 +179,12 @@ ms.custom: H1Hack27Feb2017
 Azure Virtual Machines is the solution for organizations that need compute, storage, and network resources, in minimal time, and without lengthy procurement cycles. You can use Azure Virtual Machines to deploy classic applications like **SAP NetWeaver-based ABAP**, **Java**, and an **ABAP+Java stack**. Extend reliability and availability without additional on-premises resources. Azure Virtual Machines supports cross-premises connectivity, so you can integrate Azure Virtual Machines into your organization's on-premises domains, private clouds, and SAP system landscape.
 
 In the articles below, we cover:
-* architecture and scenarios,
-* infrastructure preparations and
-+ SAP installation steps
+
+* Architecture and scenarios,
+
+* Infrastructure preparations, and
+
+* SAP installation steps
 
 that you can take to deploy high-availability SAP systems in Azure by using the **Azure Resource Manager** deployment model.
 
@@ -205,7 +208,9 @@ You will learn how to help protect **single-point-of-failure (SPOF)** components
 
 **Updated:** September 2017
 
-[This guide can be found here][sap-high-availability-architecture-scenarios]
+This guide can be found here:
+
+* [Azure Virtual Machines High Availability Architecture and Scenarios for SAP NetWeaver][sap-high-availability-architecture-scenarios]
 
 It covers both ![Windows][Logo_Windows] **Windows** and ![Linux][Logo_Linux] **Linux**
 

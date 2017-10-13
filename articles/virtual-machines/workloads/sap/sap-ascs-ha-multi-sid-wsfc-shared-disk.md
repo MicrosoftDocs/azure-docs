@@ -1,4 +1,4 @@
-18810088-f9be---
+---
 title: SAP (A)SCS Instance Multi-SID High Availability with Windows Server Failover Clustering and Shared Disk on Azure | Microsoft Docs
 description:  Multi-SID High Availability for SAP (A)SCS Instance with Windows Server Failover Clustering and Shared Disk on Azure
 services: virtual-machines-windows,virtual-network,storage
@@ -200,7 +200,7 @@ ms.custom: H1Hack27Feb2017
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
-# SAP (A)SCS Instance Multi-SID High Availability with Windows Server Failover Clustering and Shared Disk on Azure
+# SAP (A)SCS Instance Multi-SID High Availability With Windows Server Failover Clustering and Shared Disk on Azure
 
 > ![Windows][Logo_Windows] Windows
 >
@@ -246,7 +246,7 @@ The complete landscape with two high-availability SAP systems would look like th
 
 ![SAP high-availability multi-SID setup with two SAP system SIDs][sap-ha-guide-figure-6003]
 
-## Infrastructure Preparation for SAP Multi-SID Scenario
+## <a name="25e358f8-92e5-4e8d-a1e5-df7580a39cb0"></a> Infrastructure Preparation for SAP Multi-SID Scenario
 
 To prepare your infrastructure, you can install an additional SAP ASCS/SCS instance with the following parameters:
 
@@ -271,7 +271,7 @@ You can install additional SAP ASCS/SCS instances in the existing WSFC cluster w
 | 1st cluster node for ASCS/SCS instance |pr1-ascs-0 |10.0.0.10 |
 | 2nd cluster node for ASCS/SCS instance |pr1-ascs-1 |10.0.0.9 |
 
-### Create a virtual host name for the clustered SAP ASCS/SCS instance on the DNS server
+### Create a Virtual Host Name for the Clustered SAP ASCS/SCS Instance on the DNS Server
 
 You can create a DNS entry for the virtual host name of the ASCS/SCS instance by using the following parameters:
 
@@ -290,7 +290,7 @@ The procedure for creating a DNS entry is also described in detail in the main [
 >
 >In our scenario, the IP address is 10.0.0.50.
 
-### Add an IP address to an existing Azure internal load balancer by using PowerShell
+### Add an IP Address to an Existing Azure Internal Load Balancer by Using PowerShell
 
 To create more than one SAP ASCS/SCS instance in the same WSFC cluster, use PowerShell to add an IP address to an existing Azure internal load balancer. Each IP address requires its own load-balancing rules, probe port, front-end IP pool, and back-end pool.
 
@@ -377,7 +377,7 @@ After the script has run, the results are displayed in the Azure portal, as show
 
 ![New front-end IP pool in the Azure portal][sap-ha-guide-figure-6005]
 
-### Add disks to cluster machines, and configure the SIOS cluster share disk
+### Add Disks to Cluster Machines, and Configure the SIOS Cluster Share Disk
 
 You must add a new cluster share disk for each additional SAP ASCS/SCS instance. For Windows Server 2012 R2, the WSFC cluster share disk currently in use is the SIOS DataKeeper software solution.
 
@@ -389,14 +389,14 @@ This procedure assumes that you have already installed SIOS DataKeeper on the WS
 
 ![DataKeeper synchronous mirroring for the new SAP ASCS/SCS share disk][sap-ha-guide-figure-6006]
 
-### Deploy VMs for SAP application servers and DBMS cluster
+### Deploy VMs for SAP Application Servers and DBMS Cluster
 
 To complete the infrastructure preparation for the second SAP system, do the following:
 
 1. Deploy dedicated VMs for SAP application servers and put them in their own dedicated availability group.
 2. Deploy dedicated VMs for DBMS cluster and put them in their own dedicated availability group.
 
-## SAP NetWeaver Multi-SID installation
+## SAP NetWeaver Multi-SID Installation
 
 The complete process of installing a second SAP SID2 system is described in the guide [SAP NetWeaver HA Installation on Windows Failover Cluster and Shared Disk for SAP (A)SCS Instance][sap-high-availability-installation-wsfc-shared-disk].
 
@@ -436,7 +436,7 @@ The high-level procedure is as follows:
 
 10. [Test the SAP ASCS/SCS instance failover and SIOS replication][sap-high-availability-installation-wsfc-shared-disk-test-ascs-failover-and-sios-repl].
 
-## Next steps
+## Next Steps
 
 - [Networking limits: Azure Resource Manager][networking-limits-azure-resource-manager]
 - [Multiple VIPs for Azure Load Balancer][load-balancer-multivip-overview]

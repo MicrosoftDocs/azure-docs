@@ -222,7 +222,7 @@ There are no special considerations when different DBMS services interact with t
 >There is no change in other installation steps to install (and cluster) DBMS instance and SAP applications servers.
 >
 
-### Install (A)SCS Instance on local drive
+### Install (A)SCS Instance on Local Drive
 
 Install SAP (A)SCS instance on **BOTH** nodes of (A)SCS cluster. Install it on **local** drive. In our example, we chose local drive is C:\\. You can choose any other local drive.  
 
@@ -236,7 +236,7 @@ Product -> DBMS -> Installation -> Application Server ABAP (or Java) -> Distribu
 >Product -> DBMS -> Installation -> Application Server ABAP (or Java) -> High-Availability  System -> …
 >
 
-### Remove SAPMNT and create SAPLOC File Share
+### Remove SAPMNT and Create SAPLOC File Share
 
 SWMP created SAPMNT local share on C:\\usr\\sap folder.
 
@@ -329,13 +329,13 @@ $Acl.SetAccessRule($Ar)
 # Set security
 Set-Acl $UsrSAPFolder $Acl -Verbose
  ```
-## Stop (A)SCS instances and SAP services
+## Stop (A)SCS Instances and SAP Services
 
 Execute following steps:
 * Stop SAP (A)SCS instances on both (A)SCS cluster nodes
 * Stop SAP (A)SCS Windows services **SAP&lt;SID&gt;_&lt;InstanceNumber&gt;** on both cluster nodes
 
-## Move \SYS\... folder to SOFS Cluster
+## Move \SYS\... Folder to SOFS Cluster
 
 Execute following steps:
 * Copy SYS folder (e.g. C:\usr\sap\&lt;SID&gt;\SYS) from one of the (A)SCS cluster nodes
@@ -360,7 +360,7 @@ Grant-ClusterAccess -User $SAPSIDGlobalAdminGroupName -Full
 Get-ClusterAccess
 ```
 
-## Create a virtual host name for the clustered SAP (A)SCS instance
+## Create a Virtual Host Name for the Clustered SAP (A)SCS Instance
 
 As described in chapter [Create a virtual host name for the clustered SAP ASCS/SCS instance][sap-high-availability-installation-wsfc-shared-disk-create-ascs-virt-host] , create SAP (A)SCS cluster network name e.g. **pr1-ascs [10.0.6.7]**
 
@@ -382,7 +382,7 @@ You must update the DEFAULT and SAP (A)SCS instance profile &lt;SID&gt;_(A)SCS<N
 | SAP Global Host | **sapglobal** |
 | SAP (A)SCS Instance profile name | PR1\_ASCS00\_**pr1-ascs** |
 
-### Update SAP DEFAULT profile
+### Update SAP DEFAULT Profile
 
 
 | Parameter Name | Parameter Value |
@@ -391,7 +391,7 @@ You must update the DEFAULT and SAP (A)SCS instance profile &lt;SID&gt;_(A)SCS<N
 | rdisp/mshost | **pr1-ascs** |
 | enque/serverhost | **pr1-ascs** |
 
-### Update SAP (A)SCS instance profile
+### Update SAP (A)SCS Instance Profile
 
 | Parameter Name | Parameter Value |
 | --- | --- |
@@ -423,7 +423,7 @@ Update-SAPASCSSCSProfile -PathToAscsScsInstanceProfile \\sapglobal\sapmnt\PR1\SY
 
 _**Figure 1:** SAPScripts.ps1 output_
 
-## Update &lt;sid&gt;adm User Environment variable
+## Update &lt;sid&gt;adm User Environment Variable
 
 Update &lt;sid&gt;adm user environment new GLOBALHOST UNC path on BOTH (A)SCS cluster nodes.
 Log on as &lt;sid&gt;adm user and start Regedit.exe tool.
@@ -437,7 +437,7 @@ Go to **HKEY_CURRENT_USER** -> **Environment** and update variables to new value
 | SAPLOCALHOST  | **pr1-ascs** |
 
 
-## Install new SAPRC.DLL
+## Install New SAPRC.DLL
 
 You need to install a new version of SAP cluster resource which supports file share scenario.
 
@@ -451,7 +451,7 @@ Unpack NTCLUS.SAR on one of the (A)SCS cluster nodes and run following command f
 
 The new saprc.dll will be installed on both (A)SCS cluster nodes.
 
-## Create SAP <SID> Cluster Group, Network name and IP
+## Create SAP <SID> Cluster Group, Network Name and IP
 
 You must create:
 
@@ -500,7 +500,7 @@ Set-ClusterResourceDependency -Resource $SAPNetworkNameClusterResourceName -Depe
 Start-ClusterGroup -Name $SAPClusterGroupName -Verbose
 ```
 
-## Register SAP START Service on BOTH nodes
+## Register SAP START Service on BOTH Nodes
 
 You need to re-register SAP (A)SCS sapstart service to pint to the new profile and profile path.
 
@@ -560,19 +560,19 @@ $SAPASCSServiceClusterResource  | Set-ClusterParameter  -Name SAPSystem -Value $
 Set-ClusterResourceDependency -Resource $SAPASCSServiceClusterResource  -Dependency "[$SAPServiceClusterResourceName]" -Verbose
 ```
 
-## Add a probe port
+## Add a Probe Port
 
 In this step, you are configuring an SAP cluster resource SAP-SID-IP probe port by using PowerShell. Execute this configuration on one
 of the SAP ASCS/SCS cluster nodes, as described [here][sap-high-availability-installation-wsfc-shared-disk-add-probe-port].
 
-## Install ERS instance on BOTH cluster nodes
+## Install ERS Instance on BOTH Cluster Nodes
 
 In next step, you must install ERS (Enqueue Replication Server) instance on BOTH nodes of the (A)SCS cluster.
 The installation option can be found in SWPM menu:
 
 <Product> -> <DBMS> -> Installation -> Additional SAP System instances -> **Enqueue Replication Server Instance**
 
-## Install your DBMS instance and SAP Application Servers
+## Install DBMS Instance and SAP Application Servers
 
 Finalize your SAP system installation by installing:
 * DBMS instance
@@ -583,13 +583,13 @@ Finalize your SAP system installation by installing:
 
 The architecture of SAP Multi-SID is as described in **Configuring SAP (A)SCS Multi-SID with SOFS chapter**. The installation of an additional **&lt;SID2&gt;** SAP system is basically identical to installation of one <SID> system. There are two additional preparation steps need on (A)SCS cluster as well as on SIOS cluster.
 
-## Infrastructure preparation on Domain Controller
+## Infrastructure Preparation on Domain Controller
 
 Create the domain group **&lt;Domain&gt;\SAP_&lt;SID2&gt;_GlobalAdmin**, e.g. with &lt;SID2&gt; = PR2. The domain group name is <Domain>\SAP_PR2_GlobalAdmin
 
 
 
-## Infrastructure preparation on (A)SCS Cluster
+## Infrastructure Preparation on (A)SCS Cluster
 
 You need to prepare the infrastructure on existing (A)SCS cluster, for a second SAP &lt;SID&gt;:
 
@@ -600,7 +600,7 @@ These steps are described in document Create an **SAP NetWeaver multi-SID config
 https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-multi-sid#prepare-the-infrastructure
 
 
-## Infrastructure preparation on SIOS Cluster using existing SAP GLOBAL host
+## Infrastructure Preparation on SIOS Cluster Using Existing SAP GLOBAL Host
 
 You have the option to reuse the existing **&lt;SAPGLOBALHost&gt;** and **Volume1** of the first SAP <SID1> system.
 
@@ -666,7 +666,7 @@ $Acl.SetAccessRule($Ar)
 # Set security
 Set-Acl $UsrSAPFolder $Acl -Verbose
 ```
-## Infrastructure preparation on SIOS Cluster using Different SAP GLOBAL host
+## Infrastructure Preparation on SIOS Cluster Using Different SAP GLOBAL Host
 
 You can configure the second SOFS e.g. the second SOFS cluster role with **&lt;SAPGlobalHost2&gt;** and different **Voulme2** for the second **&lt;SID2&gt;**.
 
@@ -777,11 +777,11 @@ _**Figure 12:** Click Create_
 
 _**Figure 13:** The **second sapmnt** bound to **sapglobal2** host and **Volume2** is created_
 
-## SAP &lt;SID2&gt; (A)SCS and ERS instances Installation
+## SAP &lt;SID2&gt; (A)SCS and ERS Instances Installation
 
 Follow the same installation and configuration steps as described for one SAP &lt;SID&gt;.
 
-## Install DBMS and SAP application Servers
+## Install DBMS and SAP Application Servers
 Install DBMS and SAP application Servers as described earlier.
 
 # Next Steps
