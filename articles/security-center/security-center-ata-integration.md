@@ -1,6 +1,6 @@
 ---
 title: Connecting Microsoft Advanced Threat Analytics to Azure Security Center | Microsoft Docs
-description: Learn about Azure Security Center security policies, and its key capabilities.
+description: Learn how Azure Security Center integrates with Microsoft Advanced Threat Analytics.
 services: security-center
 documentationcenter: na
 author: YuriDio
@@ -21,18 +21,18 @@ ms.author: yurid
 This document helps you use to configure the integration between Microsoft Advanced Threat Analytics and Azure Security Center.
 
 ## Why add Advanced Threat Analytics data?
-[Advanced Threat Analytics (ATA)](https://docs.microsoft.com/advanced-threat-analytics/what-is-ata) is an on-premises platform that helps detect suspicious user behaviors. When connected, you will be able to view suspicious actions detected by ATA in Security Center. This enables you to view, correlate, and investigate all security alerts related to your hybrid cloud workloads in Security Center. 
+[Advanced Threat Analytics (ATA)](https://docs.microsoft.com/advanced-threat-analytics/what-is-ata) is an on-premises platform that helps detect suspicious user behaviors. When connected, you are able to view suspicious actions detected by ATA in Security Center. This integration enables you to view, correlate, and investigate all security alerts related to your hybrid cloud workloads in Security Center. 
 
 ## How to configure this integration?
 Assuming that you already have ATA installed, and working properly on-premises, follow the steps below to configure this integration:
 
-1. Logon to the ATA Center, and access the ATA portal.
+1. Log on to the ATA Center, and access the ATA portal.
 2. Click **Syslog server** in the left pane.
 
 	![Syslog server](./media/security-center-ata-integration/security-center-ata-integration-fig1.png)
 
 3. In the **Syslog server endpoint** field, type 127.0.0.7 (it must be this address), and type 5114 on the port (recommended). While the port number is a recommendation, any unique port should work. Leave all other options as is, and click **Save**.
-4. Click **Notifications** in the left pane, and enable all the Syslog notifications (strongly recommended) as shown below:
+4. Click **Notifications** in the left pane, and enable all the Syslog notifications (strongly recommended) as shown the following image:
 
 	![Notifications](./media/security-center-ata-integration/security-center-ata-integration-fig2.png)
 
@@ -58,11 +58,12 @@ Assuming that you already have ATA installed, and working properly on-premises, 
 12. Install this agent in the ATA Center. During the installation, make sure to select the option **Connect the agent to Azure Log Analytics (OMS)**, and provide the *workspace ID*, and *primary key* when requested.
 
 
-Once you finish the installation, the integration will be completed, and you will be able to see new alerts sent from ATA to Security Center in **Security Alerts** and **Search**. The solution will appear in the **Security Solutions** blade under connected solutions. 
+Once you finish the installation, the integration is completed, and you will be able to see new alerts sent from ATA to Security Center in **Security Alerts** and **Search**. The solution appears in the **Security Solutions** page, under **Connected solutions**. 
 
 ## Next steps
-In this document, you learned how connect Microsoft ATA to Security Center. To learn more about Security Center, see the following:
+In this document, you learned how to connect Microsoft ATA to Security Center. To learn more about Security Center, see the following articles:
 
+* [Connecting Azure Active Directory Identity Protection to Azure Security Center](security-center-aadip-integration.md)
 * [Setting security policies in Azure Security Center](security-center-policies.md) — Learn how to configure security policies for your Azure subscriptions and resource groups.
 * [Managing security recommendations in Azure Security Center](security-center-recommendations.md) — Learn how recommendations help you protect your Azure resources.
 * [Security health monitoring in Azure Security Center](security-center-monitoring.md) — Learn how to monitor the health of your Azure resources.
