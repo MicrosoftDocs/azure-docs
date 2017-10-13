@@ -19,7 +19,7 @@ ms.author: cynthn
 ---
 # Create a snapshot
 
-Take a snapshot of a VHD for backup or to troubleshoot VM issues. A snapshot is a full, read-only copy of your VHD. 
+Take a snapshot of an OS or data disk VHD for backup or to troubleshoot VM issues. A snapshot is a full, read-only copy of a VHD. 
 
 ## Use Azure portal to take a snapshot 
 
