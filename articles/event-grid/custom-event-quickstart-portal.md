@@ -1,5 +1,5 @@
 ---
-title: Custom events for Azure Event Grid with portal | Microsoft Docs
+title: Custom events for Azure Event Grid with the Azure portal | Microsoft Docs
 description: Use Azure Event Grid and PowerShell to publish a topic, and subscribe to that event. 
 services: event-grid 
 keywords: 
@@ -9,7 +9,7 @@ ms.date: 10/11/2017
 ms.topic: hero-article
 ms.service: event-grid
 ---
-# Create and route custom events with Azure portal and Event Grid
+# Create and route custom events with the Azure portal and Event Grid
 
 Azure Event Grid is an eventing service for the cloud. In this article, you use the Azure portal to create a custom topic, subscribe to the topic, and trigger the event to view the result. Typically, you send events to an endpoint that responds to the event, such as, a webhook or Azure Function. However, to simplify this article, you send the events to a URL that merely collects the messages. You create this URL by using an open source, third-party tool called [RequestBin](https://requestb.in/).
 
