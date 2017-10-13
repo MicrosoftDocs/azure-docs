@@ -157,7 +157,7 @@ sudo systemctl restart atomic-openshift-master-controllers
 sudo systemctl restart atomic-openshift-master
 ```
 
-In the OpenShift Console, you will now see two options for authentication - htpasswd_auth and **<App Registration>**.
+In the OpenShift Console, you will now see two options for authentication - htpasswd_auth and **[App Registration]**.
 
 ## Monitor OpenShift with OMS
 
