@@ -105,7 +105,7 @@ Some examples of service URI are as follows.
 | `dictation` | fr-FR | simple | https://speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR&format=simple |
 
 > [!NOTE]
-> The HTTP service endpoints are only needed when your application wants to directly talk to the speech service via REST or WebSocket protocol. If you use one of the [client libraries](GetStarted/GetStartedClientLibraries.md), you usaully do not need to know which endpoint is being used. The client libraries might use different service URIs, which are only applicable for a specific client library. For more information, see the client library of your choice.
+> The HTTP service endpoints are only needed when your application wants to directly talk to the speech service via REST or WebSocket protocol. If you use one of the [client libraries](GetStarted/GetStartedClientLibraries.md), you usually do not need to know which endpoint is being used. The client libraries might use different service URIs, which are only applicable for a specific client library. For more information, see the client library of your choice.
 
 ## Recognition modes
 

@@ -17,7 +17,7 @@ This page shows how to develop a basic Windows application that uses Microsoft s
 
 To use the C#/.NET speech desktop library on Windows, you need to install [NuGet package Microsoft.ProjectOxford.SpeechRecognition-x86](https://www.nuget.org/packages/Microsoft.ProjectOxford.SpeechRecognition-x86/) for 32-bit platform and [NuGet packageMicrosoft.ProjectOxford.SpeechRecognition-x64](https://www.nuget.org/packages/Microsoft.ProjectOxford.SpeechRecognition-x64/) for 64-bit platform. For client library API reference, see [Microsoft Speech C# Desktop Library](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-Windows/master/docs/SpeechSDK/index.html).
 
-This following sections describe how to install, build, and run the C# sample application using C# desktop library.
+The following sections describe how to install, build, and run the C# sample application using C# desktop library.
 
 ## Prerequisites
 

@@ -17,7 +17,7 @@ With Microsoft speech recognition service library, your service can utilize the 
 
 To use the C# service library, you need to install [NuGet package Microsoft.Bing.Speech](https://www.nuget.org/packages/Microsoft.Bing.Speech/). For library API reference, see the [Microsoft Speech C# Service Library](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-ServiceLibrary/master/docs/index.html).
 
-This following sections describe how to install, build, and run the C# sample application using C# service Library.
+The following sections describe how to install, build, and run the C# sample application using C# service Library.
 
 ## Prerequisites
 
