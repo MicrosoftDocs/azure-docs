@@ -20,7 +20,7 @@ ms.author: devinb
 
 # Troubleshoot Visual Studio 2017 development with Docker
 
-When you're working with Visual Studio Tools for Docker, you may encounter issues while building or debugging your application. Below are some common trouble shooting steps.
+When you're working with Visual Studio Tools for Docker, you may encounter issues while building or debugging your application. Below are some common troubleshooting steps.
 
 ## Volume sharing is not enabled. Enable volume sharing in the Docker CE for Windows settings  (Linux containers only)
 
@@ -29,16 +29,16 @@ To resolve this issue:
 1. Right-click **Docker for Windows** in the notification area, and then select **Settings**.
 1. Select **Shared Drives** and share the system drive along with the drive where the project resides.
 
-**NOTE**: If files appear shared, you may still need to click the "Reset credentials..." link at the bottom of dialog in order to re-enable volume sharing.
+**NOTE**: If files appear shared, you may still need to click the "Reset credentials..." link at the bottom of the dialog in order to re-enable volume sharing.
 
 ![shared drives](./media/vs-azure-tools-docker-troubleshooting-docker-errors/shareddrives.png)
 
 ## Unable to start debugging
 
-One reason could be related to having stale debugging components in your userprofile folder.  Try removing the following folders so that the latest debugging components are downloaded.
+One reason could be related to having stale debugging components in your userprofile folder. Execute the following commands to remove these folders so that the latest debugging components are downloaded on the next debug session.
 
-- %userprofile%\vsdbg
-- %userprofile%\onecoremsvsmon
+- del %userprofile%\vsdbg
+- del %userprofile%\onecoremsvsmon
 
 ## Errors specific to networking when debugging your application
 
