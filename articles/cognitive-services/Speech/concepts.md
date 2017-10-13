@@ -83,7 +83,7 @@ The Microsoft WebSocket speech recognition API is a service protocol definition 
 
 Microsoft speech [client libraries](GetStarted/GetStartedClientLibraries.md) are using this API to provide more advanced functionalities while hiding low-level communication details to users. If your language or platform does not yet have an SDK, you can create your own implementation based on the [protocol documentation](API-Reference-REST/websocketprotocol.md).
 
-## Speech service endpoints
+## Speech service HTTP endpoints
 
 The URI of the HTTP endpoints of Microsoft Speech Service is defined as follows:
 
@@ -101,15 +101,20 @@ Some examples of service URI are as follows.
 | Recognition mode  | Language | Output format | REST end point |
 |---|---|---|---|
 | `interactive` | pt-BR | default | https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR | 
-| `conversation` | en-US | detailed | https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed |
+| `conversation` | en-US | detailed |https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed |
 | `dictation` | fr-FR | simple | https://speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR&format=simple |
+
+> [!NOTE]
+> The HTTP service endpoints are only needed when your application wants to directly talk to the speech service via REST or WebSocket protocol. If you use one of the [client libraries](GetStarted/GetStartedClientLibraries.md), you usaully do not need to take care of which endpoint is being used. The client libraries might use different service URIs, which are only applicable for the specific client library. For more information, see the client library of your choice.
 
 ## Recognition modes
 
 There are three modes of recognition: `interactive`, `conversation`, and `dictation`. The recognition mode adjusts speech recognition based on how the users are likely to speak. Choose the appropriate recognition mode for your application.
 
 > [!NOTE]
-> Recognition modes might have different behaviors in the REST protocol than they do in the WebSocket protocol. For example, the REST API does not support continuous recognition, even in conversation or dictation mode.
+> Recognition modes might have different behaviors in the [REST protocol](#rest-speech-recognition-api) than they do in the [WebSocket protocol](#webSocket-speech-recognition-api). For example, the REST API does not support continuous recognition, even in conversation or dictation mode.
+> [!NOTE]
+> These modes are applicable when you directly use the REST or WebSocket protocol. The [client libraries](GetStarted/GetStartedClientLibraries.md) use different parameters to specify recognition mode. For more information, see the client library of your choice.
 
 The Microsoft Speech Service returns only one recognition phrase result for all recognition modes. There is a limit of 15 seconds for any single utterance.
 

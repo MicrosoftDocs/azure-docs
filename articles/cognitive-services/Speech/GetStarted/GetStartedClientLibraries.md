@@ -27,7 +27,7 @@ Currently, the following Microsoft Speech Client Libraries are available:
 
 - [JavaScript library](GetStartedJSWebsockets.md)
 
-- [Java bibrary for Android](GetStartedJavaAndroid.md)
+- [Java library for Android](GetStartedJavaAndroid.md)
 
 - [ObjectiveC library for iOS](Get-Started-ObjectiveC-iOS.md)
 

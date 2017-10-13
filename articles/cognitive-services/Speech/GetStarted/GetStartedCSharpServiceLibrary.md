@@ -51,7 +51,7 @@ Press Ctrl+Shift+B, or click `Build` on the ribbon menu, then select `Build Solu
 3. Run `SpeechClientSample.exe` with the following arguments:
  * Arg[0]: Specify an input audio wav file.
  * Arg[1]: Specify the audio locale.
- * Arg[2]: Specify the service uri.
+ * Arg[2]: Specify the [recognition mode](#recognition-modes]: *Short* for the `ShortPhrase` mode, and *Long* for the `LongDictation` mode.
  * Arg[3]: Specify the subscription key to access the speech recognition Service.
 
 ## Samples explained
