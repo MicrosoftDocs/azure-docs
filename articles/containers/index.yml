@@ -50,11 +50,11 @@ sections:
     - href: https://docs.microsoft.com/azure/container-instances/container-instances-quickstart
       title: Create a containerized app with Azure Container Instances
       image: 
-        src: https://docs.microsoft.com/media/index/containerservice.svg 
+        src: https://docs.microsoft.com/media/index/ContainerService.svg 
     - href: https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough
       title: Create a Kubernetes cluster for Linux Containers
       image:
-      src: https://docs.microsoft.com/media/index/containerservice.svg 
+      src: https://docs.microsoft.com/media/index/ContainerService.svg 
     - href: https://docs.microsoft.com/azure/container-service/dcos-swarm/container-service-swarm-walkthrough
       title: Deploy a Docker Swarm cluster
       image: 
