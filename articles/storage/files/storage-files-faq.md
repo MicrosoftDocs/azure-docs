@@ -86,12 +86,12 @@ ms.author: renash
    see [Mounting an Azure file share with Azure Container Instances](https://docs.microsoft.com/en-us/azure/container-instances/container-instances-mounting-azure-files-volume)
 
 * **Can I increase the size of File Share?**
-    No. The maximum size of a File shar is 5 TB.
+    No. The maximum size of a File share is 5 TB.
 
 * **Can I implement IP restrictions at File share?**
     Yes. For more information, see [Configure Azure Storage Firewalls and Virtual Networks](../common/storage-network-security.md)
 
-* **can I to convert to premium storage account for File share?**
+* **Can I to convert to premium storage account for File share?**
     No. You have to create a Standard storage account  for the File share.
 
 ## Azure File Sync
@@ -235,7 +235,7 @@ https://docs.microsoft.com/en-us/azure/storage/storage-files-faq
 
 * **How to mount the Files share in on-premises macOS?**  
     See the following articles to mount Azure file share on local macOS:
-    - [Mount Azure File share over SMB with macOS](storage-file-how-to-use-files-mac.md)
+    - [Mount Azure File share over SMB with macOS](storage-how-to-use-files-mac.md)
     - [How to connect with File Sharing on your Mac](https://support.apple.com/en-us/HT204445)
 
 ## Backup
@@ -270,7 +270,7 @@ https://docs.microsoft.com/en-us/azure/storage/storage-files-faq
 * **Can I create share snapshots of encrypted fileshare?**
     You can take a share snapshot of Azure File shares which has encryption at rest enabled. You can restore files from a share snapshot to an encrypted file share. If your share is encrypted, your share snapshot will also be encrypted.
 
-* **Are my share snaphsots geo-redundant?**
+* **Are my share snapshots geo-redundant?**
     Share snapshot will have the same redundancy as the Azure File share they are for. If you have selected geo-redundant storage (GRS) for your account your share snapshot will also be stored redundantly in the paired region.
 
 ### Manage share snapshots
