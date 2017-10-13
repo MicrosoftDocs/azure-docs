@@ -28,9 +28,136 @@ After the OpenShift cluster is deployed, there are additional items that can be 
 
 ## Single Sign On using AAD
 
-In order to use AAD for authentication, an Azure AD App Registration must be configured first.
+In order to use AAD for authentication, an Azure AD App Registration must be created first. This process will involve two steps - creation of the app registration and then configuring permissions.
 
-[include detailed steps]
+### Create App Registration
+
+We will use the Azure CLI to create the App Registration and the GUI (Portal) to set the Permissions. To create the App Registration, five pieces of information will be needed.
+
+- Display Name: App Registration Name (ex: OCPAzureAD)
+- Home Page: OpenShift Console URL (ex:  https://masterdns343khhde.westus.cloudapp.azure.com:8443/console)
+- Identifier URI: OpenShift Console URL (ex:  https://masterdns343khhde.westus.cloudapp.azure.com:8443/console)
+- Reply URL: Master public URL and the App Registration Name (ex: https://masterdns343khhde.westus.cloudapp.azure.com:8443/oauth2callback/OCPAzureAD)
+- Password: Secure Password (Use a Strong Password)
+
+The following example will create an App Registration using the information from above.
+
+```
+az ad app create --display-name OCPAzureAD --homepage https://masterdns343khhde.westus.cloudapp.azure.com:8443/console --reply-urls https://masterdns343khhde.westus.cloudapp.azure.com:8443/oauth2callback/hwocpadint --identifier-uris https://masterdns343khhde.westus.cloudapp.azure.com:8443/console --password {Strong Password}
+```
+
+If the command is successful, you will get a JSON output similar to:
+
+```
+{
+  "appId": "12345678-ca3c-427b-9a04-ab12345cd678",
+  "appPermissions": null,
+  "availableToOtherTenants": false,
+  "displayName": "OCPAzureAD",
+  "homepage": "https://masterdns343khhde.westus.cloudapp.azure.com:8443/console",
+  "identifierUris": [
+    "https://masterdns343khhde.westus.cloudapp.azure.com:8443/console"
+  ],
+  "objectId": "62cd74c9-42bb-4b9f-b2b5-b6ee88991c80",
+  "objectType": "Application",
+  "replyUrls": [
+    "https://masterdns343khhde.westus.cloudapp.azure.com:8443/oauth2callback/OCPAzureAD"
+  ]
+}
+```
+
+Notate appID as this will be used in a later step.
+
+In the Azure Portal:
+
+1.  Select *Azure Active Directory* --> *App Registration*
+2.  Search for your App Registration (ex: OCPAzureAD)
+3.  In results, click the App Registration
+4.  In Settings blade, select *Required permissions*
+5.  In Required Permissions blade, click *Add*
+6.  Click on Step 1: Select API and then click *Windows Azure Active Directory (Microsoft.Azure.ActiveDirectory)* and click *Select* at bottom
+7.  On Step 2: Select Permissions, select *Sign in and read user profile* under *Delegated Permissions* and click *Select*
+8.  Click Done
+
+### Configure OpenShift for Azure AD Authentication
+
+To configure OpenShift to use Azure AD as an Authentication provider, the /etc/origin/master/master-config.yaml file must be edited on all Master Nodes.
+
+The tenant Id can be found by using the following CLI command:\
+
+```
+az account show
+```
+
+In the yaml file, find the following lines:
+
+```
+oauthConfig:
+  assetPublicURL: https://masterdns343khhde.westus.cloudapp.azure.com:8443/console/
+  grantConfig:
+    method: auto
+  identityProviders:
+  - challenge: true
+    login: true
+    mappingMethod: claim
+    name: htpasswd_auth
+    provider:
+      apiVersion: v1
+      file: /etc/origin/master/htpasswd
+      kind: HTPasswdPasswordIdentityProvider
+```
+
+Insert the following lines immediately after the above lines:
+
+```
+  - name: *<App Registration Name>*
+    challenge: false
+    login: true
+    mappingMethod: claim
+    provider:
+      apiVersion: v1
+      kind: OpenIDIdentityProvider
+      clientID: *<appId>*
+      clientSecret: *<Strong Password>*
+      claims:
+        id:
+        - sub
+        preferredUsername:
+        - unique_name
+        name:
+        - name
+        email:
+        - email
+      urls:
+        authorize: https://login.microsoftonline.com/*<tenant Id>*/oauth2/authorize
+        token: https://login.microsoftonline.com/*<tenant Id>*/oauth2/token
+
+```
+
+The tenant Id can be found by using the following CLI command: ```az account show```
+
+Restart the OpenShift Master services on all Master Nodes
+
+*OpenShift Origin*
+```
+sudo systemctl restart origin-master-api
+sudo systemctl restart origin-master-controllers
+```
+
+*OpenShift Container Platform with multiple Masters*
+
+```
+sudo systemctl restart atomic-openshift-master-api
+sudo systemctl restart atomic-openshift-master-controllers
+```
+
+*OpenShift Container Platform with single Master*
+
+```
+sudo systemctl restart atomic-openshift-master
+```
+
+In the OpenShift Console, you will now see two options for authentication - htpasswd_auth and *<App Registration>*.
 
 ## Monitor OpenShift with OMS
 
@@ -154,7 +281,7 @@ SSH to the the first Master Node using port 2200
 
 Example
 ```
-ssh -p 2200 masterdnsixpdkehd3h.eastus.azure.cloudapp.com 
+ssh -p 2200 clusteradmin@masterdnsixpdkehd3h.eastus.cloudapp.azure.com 
 ```
 
 Edit the /etc/ansible/hosts file and add the following lines after the Identity Provider Section (# Enable HTPasswdPasswordIdentityProvider)
