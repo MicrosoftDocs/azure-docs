@@ -87,7 +87,7 @@ For more information on the 2.x version of the .NET SDK, see the [Release notes]
 
 In Node.js, the Key Vault management API and the Key Vault object API are separate. The following overview article gives you access to both. 
 
-[Azure Key Vault modules for Node.js](https://docs.microsoft.com/en-us/nodejs/api/overview/azure/key-vault)
+[Azure Key Vault modules for Node.js](https://docs.microsoft.com/nodejs/api/overview/azure/key-vault)
 
 #### Python
 
