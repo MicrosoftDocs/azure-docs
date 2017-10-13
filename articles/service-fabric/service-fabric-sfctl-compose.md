@@ -18,18 +18,18 @@ ms.author: ryanwi
 
 ---
 # sfctl compose
-Create, delete, and manage Docker Compose applications.
+Create, delete, and manage Docker Compose deployments.
 
 ## Commands
 
 |Command|Description|
 | --- | --- |
-|    create| Creates a Service Fabric application from a Compose file.|
-|    list  | Gets the list of compose applications created in the Service Fabric cluster.|
-|   remove| Deletes an existing Service Fabric compose application from cluster.|
-|   status| Gets information about a Service Fabric compose application.|
+|    create| Deploy a Service Fabric application from a Compose file.|
+|    list  | Gets the list of compose deployments created in the Service Fabric cluster.|
+|   remove| Deletes an existing Service Fabric compose deployment from cluster.|
+|   status| Gets information about a Service Fabric compose deployment.|
 |upgrade       | Starts upgrading a compose deployment in the Service Fabric cluster.|
-|    upgrade-status| Gets details for the latest upgrade performed on this Service Fabric compose                    deployment.|
+|    upgrade-status| Gets details for the latest upgrade performed on this Service Fabric compose deployment.|
 
 
 ## sfctl compose create
@@ -40,11 +40,11 @@ Creates a Service Fabric compose deployment.
 |Argument|Description|
 | --- | --- |
 | --file-path [Required]| Path to the target Docker Compose file.|
- |   --name      [Required]| The identity of the deployment.|
-|    --encrypted-pass      | Rather than prompting for a container registry password, use an already                            encrypted passphrase.|
-|    --has-pass            | Prompts for a password to the container registry.|
-|    --timeout -t          | Server time-out in seconds.  Default: 60.|
- |   --user                | User name to connect to container registry.|
+ |   --deployment-name  [Required]| The name of the deployment.|
+|    --encrypted-pass             | Rather than prompting for a container registry password, use an already encrypted passphrase.|
+|    --has-pass                   | Prompts for a password to the container registry.|
+|    --timeout -t                 | Server time-out in seconds.  Default: 60.|
+ |   --user                       | User name to connect to container registry.|
 
 ### Global Arguments
 
@@ -137,7 +137,7 @@ Validates the supplied upgrade parameters and starts upgrading the deployment.
 |Argument|Description|
 | --- | --- |
 |    --file-path        [Required]| Path to the target Docker Compose file.|
-|    --name             [Required]| The identity of the deployment.|
+|    --deployment-name  [Required]| The name of the deployment.|
 |    --default-svc-type-health-map| JSON encoded dictionary that describes the health policy used to                                   evaluate the health of services.|
 |    --encrypted-pass             | Rather than prompting for a container registry password, use an                                   already encrypted passphrase.|
  |   --failure-action             | Possible values include: 'Invalid', 'Rollback', 'Manual'.|

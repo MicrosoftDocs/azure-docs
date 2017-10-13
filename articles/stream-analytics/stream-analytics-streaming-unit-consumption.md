@@ -1,6 +1,6 @@
 ---
 title: 'Azure Stream Analytics: Understand and adjust Streaming Units | Microsoft Docs'
-description: Understand what factos impact performance in Azure Stream Analytics.
+description: Understand what factors impact performance in Azure Stream Analytics.
 keywords: streaming unit, query performance
 services: stream-analytics
 documentationcenter: ''
