@@ -28,7 +28,7 @@ After the OpenShift cluster is deployed, there are additional items that can be 
 
 ## Single Sign On using AAD
 
-In order to use AAD for authentication, an Azure AD App Registration must be created first. This process will involve two steps - creation of the app registration and then configuring permissions.
+In order to use AAD for authentication, an Azure AD App Registration must be created first. This process will involve two steps - creation of the app registration and then configure permissions.
 
 ### Create App Registration
 
@@ -66,9 +66,9 @@ If the command is successful, you will get a JSON output similar to:
 }
 ```
 
-Notate appID as this will be used in a later step.
+Notate appId as this will be used in a later step.
 
-In the Azure Portal:
+In the **Azure Portal**:
 
 1.  Select *Azure Active Directory* --> *App Registration*
 2.  Search for your App Registration (ex: OCPAzureAD)
@@ -81,9 +81,9 @@ In the Azure Portal:
 
 ### Configure OpenShift for Azure AD Authentication
 
-To configure OpenShift to use Azure AD as an Authentication provider, the /etc/origin/master/master-config.yaml file must be edited on all Master Nodes.
+To configure OpenShift to use Azure AD as an Authentication provider, the **/etc/origin/master/master-config.yaml** file must be edited on all Master Nodes.
 
-The tenant Id can be found by using the following CLI command:\
+The tenant Id can be found by using the following CLI command:
 
 ```
 az account show
@@ -110,15 +110,15 @@ oauthConfig:
 Insert the following lines immediately after the above lines:
 
 ```
-  - name: *<App Registration Name>*
+  - name: <App Registration Name>
     challenge: false
     login: true
     mappingMethod: claim
     provider:
       apiVersion: v1
       kind: OpenIDIdentityProvider
-      clientID: *<appId>*
-      clientSecret: *<Strong Password>*
+      clientID: <appId>
+      clientSecret: <Strong Password>
       claims:
         id:
         - sub
@@ -129,8 +129,8 @@ Insert the following lines immediately after the above lines:
         email:
         - email
       urls:
-        authorize: https://login.microsoftonline.com/*<tenant Id>*/oauth2/authorize
-        token: https://login.microsoftonline.com/*<tenant Id>*/oauth2/token
+        authorize: https://login.microsoftonline.com/<tenant Id>/oauth2/authorize
+        token: https://login.microsoftonline.com/<tenant Id>/oauth2/token
 
 ```
 
@@ -138,20 +138,20 @@ The tenant Id can be found by using the following CLI command: ```az account sho
 
 Restart the OpenShift Master services on all Master Nodes
 
-*OpenShift Origin*
+**OpenShift Origin**
 ```
 sudo systemctl restart origin-master-api
 sudo systemctl restart origin-master-controllers
 ```
 
-*OpenShift Container Platform with multiple Masters*
+**OpenShift Container Platform with multiple Masters**
 
 ```
 sudo systemctl restart atomic-openshift-master-api
 sudo systemctl restart atomic-openshift-master-controllers
 ```
 
-*OpenShift Container Platform with single Master*
+**OpenShift Container Platform with single Master**
 
 ```
 sudo systemctl restart atomic-openshift-master
@@ -312,7 +312,7 @@ Replace $ROUTING with the string used for openshift_master_default_subdomain opt
 
 On the Bastion Node, SSH using the credentials provided during deployment. Issue the following command:
 
-````
+```
 ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
 -e openshift_metrics_install_metrics=True \
 -e openshift_metrics_cassandra_storage_type=dynamic
@@ -326,7 +326,7 @@ ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cl
 
 On the Bastion Node, SSH using the credentials provided during deployment. Issue the following command:
 
-````
+```
 ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
 -e openshift_metrics_install_metrics=True 
 
