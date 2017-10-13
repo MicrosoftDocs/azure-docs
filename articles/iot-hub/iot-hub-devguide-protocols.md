@@ -25,7 +25,7 @@ IoT Hub allows devices to use the following protocols for device-side communicat
 * MQTT over WebSockets
 * [AMQP][lnk-amqp]
 * AMQP over WebSockets
-* HTTP
+* HTTPS
 
 For information about how these protocols support specific IoT Hub features, see [Device-to-cloud communications guidance][lnk-d2c-guidance] and [Cloud-to-device communications guidance][lnk-c2d-guidance].
 
@@ -35,18 +35,18 @@ The following table provides the high-level recommendations for your choice of p
 | --- | --- |
 | MQTT <br> MQTT over WebSocket |Use on all devices that do not require to connect multiple devices (each with its own per-device credentials) over the same TLS connection. |
 | AMQP <br> AMQP over WebSocket |Use on field and cloud gateways to take advantage of connection multiplexing across devices. |
-| HTTP |Use for devices that cannot support other protocols. |
+| HTTPS |Use for devices that cannot support other protocols. |
 
 Consider the following points when you choose your protocol for device-side communications:
 
-* **Cloud-to-device pattern**. HTTP does not have an efficient way to implement server push. As such, when you are using HTTP, devices poll IoT Hub for cloud-to-device messages. This approach is inefficient for both the device and IoT Hub. Under current HTTP guidelines, each device should poll for messages every 25 minutes or more. MQTT and AMQP support server push when receiving cloud-to-device messages. They enable immediate pushes of messages from IoT Hub to the device. If delivery latency is a concern, MQTT or AMQP are the best protocols to use. For rarely connected devices, HTTP works as well.
-* **Field gateways**. When using MQTT and HTTP, you cannot connect multiple devices (each with its own per-device credentials) using the same TLS connection. For [Field gateway scenarios][lnk-azure-gateway-guidance] that require one TLS connection between the field gateway and IoT Hub for each connected device, these protocols are suboptimal.
-* **Low resource devices**. The MQTT and HTTP libraries have a smaller footprint than the AMQP libraries. As such, if the device has limited resources (for example, less than 1 MB RAM), these protocols might be the only protocol implementation available.
-* **Network traversal**. The standard AMQP protocol uses port 5671, and MQTT listens on port 8883. USe of these ports could cause problems in networks that are closed to non-HTTP protocols. Use MQTT over WebSockets, AMQP over WebSockets, or HTTP in this scenario.
-* **Payload size**. MQTT and AMQP are binary protocols, which result in more compact payloads than HTTP.
+* **Cloud-to-device pattern**. HTTPS does not have an efficient way to implement server push. As such, when you are using HTTPS, devices poll IoT Hub for cloud-to-device messages. This approach is inefficient for both the device and IoT Hub. Under current HTTPS guidelines, each device should poll for messages every 25 minutes or more. MQTT and AMQP support server push when receiving cloud-to-device messages. They enable immediate pushes of messages from IoT Hub to the device. If delivery latency is a concern, MQTT or AMQP are the best protocols to use. For rarely connected devices, HTTPS works as well.
+* **Field gateways**. When using MQTT and HTTPS, you cannot connect multiple devices (each with its own per-device credentials) using the same TLS connection. For [Field gateway scenarios][lnk-azure-gateway-guidance] that require one TLS connection between the field gateway and IoT Hub for each connected device, these protocols are suboptimal.
+* **Low resource devices**. The MQTT and HTTPS libraries have a smaller footprint than the AMQP libraries. As such, if the device has limited resources (for example, less than 1 MB RAM), these protocols might be the only protocol implementation available.
+* **Network traversal**. The standard AMQP protocol uses port 5671, and MQTT listens on port 8883. USe of these ports could cause problems in networks that are closed to non-HTTPS protocols. Use MQTT over WebSockets, AMQP over WebSockets, or HTTPS in this scenario.
+* **Payload size**. MQTT and AMQP are binary protocols, which result in more compact payloads than HTTPS.
 
 > [!WARNING]
-> When using HTTP, each device should poll for cloud-to-device messages every 25 minutes or more. However, during development, it is acceptable to poll more frequently than every 25 minutes.
+> When using HTTPS, each device should poll for cloud-to-device messages every 25 minutes or more. However, during development, it is acceptable to poll more frequently than every 25 minutes.
 
 ## Port numbers
 
@@ -58,7 +58,7 @@ Devices can communicate with IoT Hub in Azure using various protocols. Typically
 | MQTT over WebSockets |443 |
 | AMQP |5671 |
 | AMQP over WebSockets |443 |
-| HTTP |443 |
+| HTTPS |443 |
 
 Once you have created an IoT hub in an Azure region, the IoT hub keeps the same IP address for the lifetime of that IoT hub. However, if Microsoft moves the IoT hub to a different scale unit to maintain quality of service,  then it is assigned a new IP address.
 
