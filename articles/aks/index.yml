@@ -3,8 +3,8 @@ documentType: LandingData
 title: Azure Container Service (AKS)
 metadata:
   document_id: 
-  title: Azure Container Service with Kubernetes Documentation - Tutorials, API Reference | Microsoft Docs
-  meta.description: Azure Container Service allows you to quickly deploy a production ready Kubernetes cluster. Learn how to use Azure Container Service in concert with Kubernetes with these quickstarts, tutorials, and samples.
+  title: Azure Container Service (AKS) Documentation - Tutorials, API Reference | Microsoft Docs
+  meta.description: Azure Container Service (AKS) allows you to quickly deploy a production ready Kubernetes cluster. Learn how to use AKS with these quickstarts, tutorials, and samples.
   services: container-service
   author: carolz
   manager: carolz
@@ -15,12 +15,12 @@ metadata:
   ms.date: 07-21-2017
   ms.author: carolz
 abstract:
-  description: Azure Container Service allows you to quickly deploy a production ready Kubernetes cluster. Learn how to use Azure Container Service in concert with Kubernetes with these quickstarts, tutorials, and samples.
+  description: Azure Container Service (AKS) allows you to quickly deploy a production ready Kubernetes cluster. Learn how to use AKS with these quickstarts, tutorials, and samples.
 sections:
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: 'Learn how to deploy Kubernetes clusters using Azure Container Service:'
+    text: 'Learn how to deploy an AKS cluster:'
   - type: list
     style: icon48
     items: 
@@ -31,7 +31,7 @@ sections:
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: 'Learn how to deploy, manage, and update applications in an Azure Container Service Kubernetes cluster.'
+    text: 'Learn how to deploy, manage, and update applications on an AKS cluster.'
   - type: list
     style: ordered
     items:
