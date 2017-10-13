@@ -97,14 +97,14 @@ choose **Use this template**.
 you are prompted to perform any of these steps:
 
    * Sign in with your credentials to systems or services 
-   that are referencedy by the template.
+   that are referenced by the template.
 
    * Create connections for any services or systems 
    referenced by the template. To create a connection, 
    provide a name for your connection, and if necessary, 
    select the resource that you want to use. 
 
-   * If you already have these connections, 
+   * If you already set up these connections, 
    choose **Continue**.
 
    For example:
@@ -157,14 +157,18 @@ Choose a prebuilt template. For example:
 choose **Use this template**. 
 
 5. Based on the connectors in the template, 
-sign in with your credentials, 
-or create connections for any services or systems 
-that the template references. To create a connection, 
-provide a name for your connection and if required, 
-select the resource that you want to use.
+you are prompted to perform any of these steps:
 
-   If you have already have these connections, 
-   you can choose **Continue**.
+   * Sign in with your credentials to systems or 
+   services that are referenced by the template.
+
+   * Create connections for any services or systems 
+   referenced by the template. To create a connection, 
+   provide a name for your connection, and if necessary, 
+   select the resource that you want to use. 
+
+   * If you already set up these connections, 
+   choose **Continue**.
 
    ![Create connections](./media/logic-apps-create-logic-apps-from-templates/logic-app-create-connection.png)
 

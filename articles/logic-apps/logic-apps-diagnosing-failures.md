@@ -54,7 +54,7 @@ on your logic app menu, choose **Overview**. Under
 
    | Status | Description | 
    | ------ | ----------- | 
-   | **Succeeded** | The trigger checked the endpoint and found available data. Usually, a "Fired" status also appears alongside this status. If not, the trigger definition might have a condition or `SplitOn` command that wasn't met. <p>This status can apply to a manual trigger, recurrence trigger, or polling trigger. A trigger can run successfully, but the run itself might still fail if the actions generate unhandled errors. | 
+   | **Succeeded** | The trigger checked the endpoint and found available data. Usually, a "Fired" status also appears alongside this status. If not, the trigger definition might have a condition or `SplitOn` command that wasn't met. <p>This status can apply to a manual trigger, recurrence trigger, or polling trigger. A trigger can run successfully, but the run itself might still fail when the actions generate unhandled errors. | 
    | **Skipped** | The trigger checked the endpoint but found no data. | 
    | **Failed** | An error occurred. To review any generated error messages for a failed trigger, select that trigger attempt and choose **Outputs**. For example, you might find inputs that aren't valid. | 
    ||| 
@@ -118,7 +118,7 @@ Under **Runs history**, review the run for the fired trigger.
    | Status | Description | 
    | ------ | ----------- | 
    | **Succeeded** | All actions succeeded. <p>If any failures happened in a specific action, a following action in the workflow handled that failure. | 
-   | **Failed** | At least one action failed, and no later actions in the workflow were set up to handle the failture. | 
+   | **Failed** | At least one action failed, and no later actions in the workflow were set up to handle the failure. | 
    | **Cancelled** | The workflow was running but received a cancel request. | 
    | **Running** | The workflow is currently running. <p>This status might happen for throttled workflows, or due to the current pricing plan. For more information, see the [action limits on the pricing page](https://azure.microsoft.com/pricing/details/logic-apps/). If you set up [diagnostics logging](../logic-apps/logic-apps-monitor-your-logic-apps.md), you can also get information about any throttle events that happen. | 
    ||| 
@@ -128,7 +128,7 @@ Under **Runs history**, select the run that you want to examine.
 
    ![Review runs history](./media/logic-apps-diagnosing-failures/logic-app-run-history.png)
 
-   Whether the run itself succeded or failed, 
+   Whether the run itself succeeded or failed, 
    the Run Details view shows each step and whether 
    they succeeded or failed.
 
@@ -147,7 +147,7 @@ service so that you can inspect HTTP requests and determine
 their exact size, shape, and format.
 
 1. Create a RequestBin, 
-which you can make private and viweable only in your browser.
+which you can make private and viewable only in your browser.
 
 2. In your logic app, add an HTTP POST action with the 
 body content that you want to test, 
@@ -155,7 +155,7 @@ for example, an expression or another step output.
 
 3. Paste the URL for your RequestBin into the HTTP POST action.
 
-4. To review how a request was formed when generated from the Logic Apps engine, 
+4. To review how a request is formed when generated from the Logic Apps engine, 
 run the logic app, and refresh your RequestBin.
 
 ## Next steps
