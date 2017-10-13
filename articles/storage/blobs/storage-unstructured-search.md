@@ -164,7 +164,7 @@ Now that you have a search service, you can attach it to your blob storage. This
  
 2. Enter a name for your index in the **Index name** field.
 
-3. Select **metadata_storage_name** from the **Key** dropdown.
+3. Select the **Retrievable** attribute's checkbox under **metadata_storage_name**.
 
   ![Unstructured search](media/storage-unstructured-search/valuestoselect.png)
 
