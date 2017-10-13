@@ -27,7 +27,7 @@ Generally, you work with three types of resource names in Resource Manager:
 * Resource names that are not required to be unique, but you choose to provide a name that can help you identify a resource based on context.
 * Resource names that can be generic.
 
-For help establishing a naming convention, see the [Azure infrastructure naming guidelines](../virtual-machines/windows/infrastructure-naming-guidelines.md). For information about resource name restrictions, see [Recommended naming conventions for Azure resources](../guidance/guidance-naming-conventions.md).
+ For information about resource name restrictions, see [Recommended naming conventions for Azure resources](../guidance/guidance-naming-conventions.md).
 
 ### Unique resource names
 You must provide a unique resource name for any resource type that has a data access endpoint. Some common resource types that require a unique name include:
@@ -44,7 +44,7 @@ You must provide a unique resource name for any resource type that has a data ac
 
 <sup>1</sup> Storage account names also must be lowercase, 24 characters or less, and not have any hyphens.
 
-If you provide a parameter for a resource name, you must provide a unique name when you deploy the resource. Optionally, you can create a variable that uses the [uniqueString()](resource-group-template-functions.md#uniquestring) function to generate a name. 
+If you provide a parameter for a resource name, you must provide a unique name when you deploy the resource. Optionally, you can create a variable that uses the [uniqueString()](resource-group-template-functions-string.md#uniquestring) function to generate a name. 
 
 You also might want to add a prefix or suffix to the **uniqueString** result. Modifying the unique name can help you more easily identify the resource type from the name. For example, you can generate a unique name for a storage account by using the following variable:
 
@@ -170,7 +170,7 @@ The following information can be helpful when you work with parameters:
 The following information can be helpful when you work with variables:
 
 * Use variables for values that you need to use more than once in a template. If a value is used only once, a hard-coded value makes your template easier to read.
-* You cannot use the [reference](resource-group-template-functions.md#reference) function in the **variables** section of the template. The **reference** function derives its value from the resource's runtime state. However, variables are resolved during the initial parsing of the template. Construct values that need the **reference** function directly in the **resources** or **outputs** section of the template.
+* You cannot use the [reference](resource-group-template-functions-resource.md#reference) function in the **variables** section of the template. The **reference** function derives its value from the resource's runtime state. However, variables are resolved during the initial parsing of the template. Construct values that need the **reference** function directly in the **resources** or **outputs** section of the template.
 * Include variables for resource names that must be unique, as described in [Resource names](#resource-names).
 * You can group variables into complex objects. Use the **variable.subentry** format to reference a value from a complex object. Grouping variables can help you track related variables. It also improves readability of the template. Here's an example:
    
@@ -390,7 +390,6 @@ It's also a good idea to format your JSON for better readability. You can use a 
 
 ## Next steps
 * For guidance on architecting your solution for virtual machines, see [Run a Windows VM in Azure](../guidance/guidance-compute-single-vm.md) and [Run a Linux VM in Azure](../guidance/guidance-compute-single-vm-linux.md).
-* For guidance on setting up a storage account, see [Azure Storage performance and scalability checklist](../storage/storage-performance-checklist.md).
-* For help with virtual networks, see the [networking infrastructure guidelines](../virtual-machines/windows/infrastructure-networking-guidelines.md).
+* For guidance on setting up a storage account, see [Azure Storage performance and scalability checklist](../storage/common/storage-performance-checklist.md).
 * To learn about how an enterprise can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold: Prescriptive subscription governance](resource-manager-subscription-governance.md).
 

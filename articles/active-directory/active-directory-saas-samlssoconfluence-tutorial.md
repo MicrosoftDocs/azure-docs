@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/02/2017
+ms.date: 05/18/2017
 ms.author: jeedes
 
 ---
@@ -121,7 +121,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<server-base-url>/plugins/servlet/samlsso`
 	 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [SAML SSO for Confluence by resolution GmbH Client support team](mailto:c.eitel@resolution.de) to get these values. 
+	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [SAML SSO for Confluence by resolution GmbH Client support team](https://www.resolution.de/go/support) to get these values. 
 
 5. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
@@ -141,15 +141,37 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon2.png)
 
-10. Under **USERS & SECURITY** tab, click **SAML SingleSignOn**.
+10. Under **ATLASSIAN MARKETPLACE** tab, click **Find new add-ons**. 
+
+	![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon.png)
+
+11. Search **SAML Single Sign On (SSO) for Confluence** and click **Install** button to install the new SAML plugin.
+
+	![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon7.png)
+
+12. The plugin installation will start. Click **Close**.
+
+	![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon8.png)
+
+	![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon9.png)
+
+13.	Click **Manage**.
+
+	![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon10.png)
+    
+14. Click **Configure** to configure the new plugin.
+
+	![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon11.png)
+
+15. This new plugin can also be found under **USERS & SECURITY** tab.
 
 	![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon3.png)
     
-11. On **SAML SingleSignOn Plugin Configuration** page, click **Add additional Identity Provider** button to configure the settings of Identity Provider.
+16. On **SAML SingleSignOn Plugin Configuration** page, click **Add additional Identity Provider** button to configure the settings of Identity Provider.
 
 	![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon4.png)
 
-12. Perform following steps on this page:
+17. Perform following steps on this page:
 
 	![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon5.png)
  
@@ -157,12 +179,12 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	b. Add **Description** of the Identity Provider (e.g Azure AD).
 
-	c. Click **XML** and select the **Metadata** file which you have downloaded from Azure Portal.
+	c. Click **XML** and select the **Metadata** file that you have downloaded from Azure portal.
 
 	d. Click **Load** button.
 
     e. It reads the IdP metadata and populates the fields as highlighted in the screenshot.	
-13. Click **Save settings** button to save the settings.
+18. Click **Save settings** button to save the settings.
 
 	![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon6.png)
 
@@ -264,7 +286,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the SAML SSO for Confluence by resolution GmbH tile in the Access Panel, you should get automatically signed-on to your SAML SSO for Confluence by resolution GmbH application.
-For more information about the Access Panel, see [introduction to the Access Panel](https://msdn.microsoft.com/library/dn308586). 
+For more information about the Access Panel, see [introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 

@@ -17,12 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
+ms.custom: aaddev
 
 ---
 # v2.0 Protocols - OAuth 2.0 Authorization Code Flow
 The OAuth 2.0 authorization code grant can be used in apps that are installed on a device to gain access to protected resources, such as web APIs.  Using the app model v2.0 's implementation of OAuth 2.0, you can add sign in and API access to your mobile and desktop apps.  This guide is language-independent, and describes how to send and receive HTTP messages without using any of our open-source libraries.
-
-<!-- TODO: Need link to libraries -->
 
 > [!NOTE]
 > Not all Azure Active Directory scenarios & features are supported by the v2.0 endpoint.  To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
@@ -168,9 +167,8 @@ A successful token response will look like:
 | token_type |Indicates the token type value. The only type that Azure AD supports is Bearer |
 | expires_in |How long the access token is valid (in seconds). |
 | scope |The scopes that the access_token is valid for. |
-| refresh_token |An OAuth 2.0 refresh token. The  app can use this token acquire additional access tokens after the current access token expires.  Refresh_tokens are long-lived, and can be used to retain access to resources for extended periods of time.  For more detail, refer to the [v2.0 token reference](active-directory-v2-tokens.md). |
-| id_token |An unsigned JSON Web Token (JWT). The  app can base64Url decode the segments of this token to request information about the user who signed in. The  app can cache the values and display them, but it should not rely on them for any authorization or security boundaries.  For more information about id_tokens see the [v2.0 endpoint token reference](active-directory-v2-tokens.md). |
-
+| refresh_token |An OAuth 2.0 refresh token. The  app can use this token acquire additional access tokens after the current access token expires.  Refresh_tokens are long-lived, and can be used to retain access to resources for extended periods of time.  For more detail, refer to the [v2.0 token reference](active-directory-v2-tokens.md). <br> **Note:** Only provided if `offline_access` scope was requested. |
+| id_token |An unsigned JSON Web Token (JWT). The  app can base64Url decode the segments of this token to request information about the user who signed in. The  app can cache the values and display them, but it should not rely on them for any authorization or security boundaries.  For more information about id_tokens see the [v2.0 endpoint token reference](active-directory-v2-tokens.md). <br> **Note:** Only provided if `openid` scope was requested. |
 #### Error response
 Error responses will look like:
 
@@ -276,8 +274,8 @@ A successful token response will look like:
 | token_type |Indicates the token type value. The only type that Azure AD supports is Bearer |
 | expires_in |How long the access token is valid (in seconds). |
 | scope |The scopes that the access_token is valid for. |
-| refresh_token |A new OAuth 2.0 refresh token. You should replace the old refresh token with this newly acquired refresh token to ensure your refresh tokens remain valid for as long as possible. |
-| id_token |An unsigned JSON Web Token (JWT). The  app can base64Url decode the segments of this token to request information about the user who signed in. The  app can cache the values and display them, but it should not rely on them for any authorization or security boundaries.  For more information about id_tokens see the [v2.0 endpoint token reference](active-directory-v2-tokens.md). |
+| refresh_token |A new OAuth 2.0 refresh token. You should replace the old refresh token with this newly acquired refresh token to ensure your refresh tokens remain valid for as long as possible. <br> **Note:** Only provided if `offline_access` scope was requested. |
+| id_token |An unsigned JSON Web Token (JWT). The  app can base64Url decode the segments of this token to request information about the user who signed in. The  app can cache the values and display them, but it should not rely on them for any authorization or security boundaries.  For more information about id_tokens see the [v2.0 endpoint token reference](active-directory-v2-tokens.md). <br> **Note:** Only provided if `openid` scope was requested. |
 
 #### Error response
 ```

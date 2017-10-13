@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2017
-ms.author: markvi
+ms.date: 07/17/2017
+ms.author: billmath
 
 ---
 # Implement password synchronization with Azure AD Connect sync

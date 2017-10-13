@@ -1,13 +1,12 @@
 ---
 title: Azure AD v2 iOS Getting Started - Configure (ARP) | Microsoft Docs
-description: How iOS (Swift) applications can call an API that require access tokens by Azure Active Directory v2 endpoint
+description: How iOS (Swift) applications can call an API that require access tokens by Azure Active Directory v2 endpoint 
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms
 manager: mbaldwin
 editor: ''
 
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -19,7 +18,7 @@ ms.author: andret
 ---
 ## Add the application’s registration information to your app
 
-In this step, you need to add the Application Id to your project.
+In this step, you need to add the Application Id to your project:
 
 1.	In `ViewController.swift`, replace the line starting with '`let kClientID`' with:
 ```swift

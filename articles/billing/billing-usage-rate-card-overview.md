@@ -4,7 +4,7 @@ description: Learn about Azure Billing Usage and RateCard APIs, which are used t
 services: ''
 documentationcenter: ''
 author: BryanLa
-manager: ruchic
+manager: tonguyen
 editor: ''
 tags: billing
 
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: billing
-ms.date: 04/18/2017
+ms.date: 10/9/2017
 ms.author: mobandyo;bryanla
 
 ---
@@ -38,13 +38,13 @@ Use the Azure [Resource Usage API](https://msdn.microsoft.com/library/azure/mt21
 * **Hourly or Daily Aggregations** - Callers can specify whether they want their Azure usage data in hourly buckets or daily buckets. The default is daily.
 * **Instance metadata (includes resource tags)** – Get instance-level detail like the fully qualified resource uri (/subscriptions/{subscription-id}/..), the resource group information, and resource tags. This metadata helps you deterministically and programmatically allocate usage by the tags, for use-cases like cross-charging.
 * **Resource metadata** - Resource details such as the meter name, meter category, meter sub category, unit, and region give the caller a better understanding of what was consumed. We're also working to align resource metadata terminology across the Azure portal, Azure usage CSV, EA billing CSV, and other public-facing experiences, to let you correlate data across experiences.
-* **Usage for all offer types** – Usage data is available for all offer types like Pay-as-you-go, MSDN, Monetary commitment, Monetary credit, and EA.
+* **Usage for different offer types** – Usage data is available for offer types like Pay-as-you-go, MSDN, Monetary commitment, Monetary credit, and EA, except [CSP](https://docs.microsoft.com/azure/cloud-solution-provider/billing/azure-csp-invoice#retrieve-usage-data-for-a-specific-subscription).
 
 ## Azure Resource RateCard API (Preview)
 Use the [Azure Resource RateCard API](https://msdn.microsoft.com/library/azure/mt219005) to get the list of available Azure resources and estimated pricing information for each. The API includes:
 
 * **Azure Role-based Access Control** - Configure your access policies on the [Azure portal](https://portal.azure.com) or through [Azure PowerShell cmdlets](/powershell/azure/overview) to specify which users or applications can get access to the RateCard data. Callers must use standard Azure Active Directory tokens for authentication. Add the caller to either the Reader, Owner, or Contributor role to get access to the usage data for a particular Azure subscription.
-* **Support for Pay-as-you-go, MSDN, Monetary commitment, and Monetary credit offers (EA not supported)** - This API provides Azure offer-level rate information.  The caller of this API must pass in the offer information to get resource details and rates. We're currently unable to provide EA rates because EA offers have customized rates per enrollment. 
+* **Support for Pay-as-you-go, MSDN, Monetary commitment, and Monetary credit offers (EA and [CSP](https://docs.microsoft.com/azure/cloud-solution-provider/billing/azure-csp-pricelist#get-prices-by-using-the-azure-rate-card) not supported)** - This API provides Azure offer-level rate information.  The caller of this API must pass in the offer information to get resource details and rates. We're currently unable to provide EA rates because EA offers have customized rates per enrollment. 
 
 ## Scenarios
 Here are some of the scenarios that are made possible with the combination of the Usage and the RateCard APIs:
@@ -59,8 +59,6 @@ Here are some of the scenarios that are made possible with the combination of th
   * You can also determine if another Azure offer type gives a better rate on an Azure resource.
   
 ## Partner solutions
-[Microsoft Azure Usage and RateCard APIs Enable Cloudyn to Provide ITFM for Customers](billing-usage-rate-card-partner-solution-cloudyn.md) describes the integration experience offered by Azure Billing API partner [Cloudyn](https://www.cloudyn.com/microsoft-azure/). This article talks about their experiences and includes a video that shows how you can use Cloudyn and the Azure Billing APIs to get insights from Azure consumption data.
-
 [Cloud Cruiser and Microsoft Azure Billing API Integration](billing-usage-rate-card-partner-solution-cloudcruiser.md) describes how [Cloud Cruiser's Express for Azure Pack](http://www.cloudcruiser.com/partners/microsoft/) works directly from the Windows Azure Pack (WAP) portal. You can seamlessly manage both the operational and financial aspects of the Microsoft Azure private or hosted public cloud from a single user interface.   
 
 ## Next steps

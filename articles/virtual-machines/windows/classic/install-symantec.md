@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2017
+ms.date: 03/31/2017
 ms.author: iainfou
 
 ---
@@ -69,8 +69,6 @@ To verify that the Symantec security extension has been installed and is up-to-d
 
 <!--Link references-->
 [Symantec]: http://www.symantec.com/connect/blogs/symantec-endpoint-protection-now-microsoft-azure
-
-[Portal]: http://manage.windowsazure.com
 
 [Create]:tutorial.md
 

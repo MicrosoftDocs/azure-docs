@@ -3,8 +3,8 @@ title: How to diagnose errors with the Azure Active Directory Connection Wizard
 description: The active directory connection wizard detected an incompatible authentication type
 services: active-directory
 documentationcenter: ''
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: ''
 
 ms.assetid: dd89ea63-4e45-4da1-9642-645b9309670a
@@ -14,7 +14,8 @@ ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2017
-ms.author: tarcher
+ms.author: kraigb
+ms.custom: aaddev
 
 ---
 # Diagnosing errors with the Azure Active Directory Connection Wizard

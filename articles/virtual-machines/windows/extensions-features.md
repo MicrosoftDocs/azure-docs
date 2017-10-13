@@ -36,7 +36,6 @@ There are many different Azure VM extensions available, each with a specific use
 
 In addition to process-specific extensions, a Custom Script extension is available for both Windows and Linux virtual machines. The Custom Script extension for Windows allows any PowerShell script to be run on a virtual machine. This is useful when you're designing Azure deployments that require configuration beyond what native Azure tooling can provide. For more information, see [Windows VM Custom Script extension](extensions-customscript.md).
 
-To work through an example where a VM extension is used in an end-to-end application deployment, see [Automating application deployments to Azure virtual machines](dotnet-core-1-landing.md).
 
 ## Prerequisites
 
@@ -155,7 +154,7 @@ For more information, see the [full Resource Manager template](https://github.co
 }
 ```
 
-For more information, see [Authoring Azure Resource Manager templates with Windows VM extensions](extensions-authoring-templates.md).
+For more information, see [Authoring Azure Resource Manager templates with Windows VM extensions](template-description.md#extensions).
 
 ## Secure VM extension data
 

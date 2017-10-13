@@ -11,11 +11,12 @@ tags: azure-service-management
 ms.assetid:
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/05/2017
 ms.author: allclark
+ms.custom: mvc
 ---
 
 # Deploy the LAMP stack in a load-balanced virtual machine scale set
@@ -28,7 +29,7 @@ on each virtual machine in the scale set.
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/virtual-machine/create-scaleset-php-ansible/build-stack.sh "Create virtual machine scale set with LAMP stack")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/create-scaleset-php-ansible/build-stack.sh "Create virtual machine scale set with LAMP stack")]
 
 ## Connect
 
@@ -40,7 +41,7 @@ Use this code to see how to connect to your VMs and your scale set.
 
 Run the following command to remove the resource group, the scale set and VMs, and all related resources.
 
-```azurecli
+```azurecli-interactive 
 az group delete -n myResourceGroup
 ```
 
@@ -50,14 +51,14 @@ This script uses the following commands to create a resource group, virtual mach
 
 | Command | Notes |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
-| [az vmss create](https://docs.microsoft.com/cli/azure/vmss#create) | Creates a virtual machine scale set |
-| [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule#create) | Add a load-balanced endpoint |
-| [az vmss extension set](https://docs.microsoft.com/cli/azure/vmss/extension#set) | Create the extension that runs the custom script on deployment of a VM |
-| [az vmss update-instances](https://docs.microsoft.com/cli/azure/vmss#update-instances) | Run the custom script on the VM instances that were deployed before the extension was applied to the scale set. |
-| [az vmss scale](https://docs.microsoft.com/cli/azure/vmss#scale) | Scale up the scale set by adding more VM instances. The custom script is run on these when they are deployed. |
-| [az network public-ip list](https://docs.microsoft.com/cli/azure/network/public-ip#list) | Get the IP addresses of the VMs created by the sample. |
-| [az network lb show](https://docs.microsoft.com/cli/azure/network/lb#show) | Get the frontend and backend ports used by the load balancer. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
+| [az vmss create](https://docs.microsoft.com/cli/azure/vmss#az_vmss_create) | Creates a virtual machine scale set |
+| [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule#az_network_lb_rule_create) | Add a load-balanced endpoint |
+| [az vmss extension set](https://docs.microsoft.com/cli/azure/vmss/extension#az_vmss_extension_set) | Create the extension that runs the custom script on deployment of a VM |
+| [az vmss update-instances](https://docs.microsoft.com/cli/azure/vmss#az_vmss_update_instances) | Run the custom script on the VM instances that were deployed before the extension was applied to the scale set. |
+| [az vmss scale](https://docs.microsoft.com/cli/azure/vmss#az_vmss_scale) | Scale up the scale set by adding more VM instances. The custom script is run on these when they are deployed. |
+| [az network public-ip list](https://docs.microsoft.com/cli/azure/network/public-ip#az_network_public_ip_list) | Get the IP addresses of the VMs created by the sample. |
+| [az network lb show](https://docs.microsoft.com/cli/azure/network/lb#az_network_lb_show) | Get the frontend and backend ports used by the load balancer. |
 
 ## Next steps
 

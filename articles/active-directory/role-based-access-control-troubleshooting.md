@@ -3,9 +3,8 @@ title: Troubleshoot Azure RBAC | Microsoft Docs
 description: Get help with issues or questions about Role Based Access Control resources.
 services: azure-portal
 documentationcenter: na
-author: kgremban
+author: andredm7
 manager: femila
-editor: ''
 
 ms.assetid: df42cca2-02d6-4f3c-9d56-260e1eb7dc44
 ms.service: active-directory
@@ -13,9 +12,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2017
-ms.author: kgremban
-
+ms.date: 07/12/2017
+ms.author: andredm
+ms.reviewer: rqureshi
 ---
 # Role-Based Access Control troubleshooting
 
@@ -42,14 +41,14 @@ If you grant a user read-only access to a single web app, some features are disa
 * Web tests
 * Virtual network (only visible to a reader if a virtual network has previously been configured by a user with write access).
 
-If you can't access any of these tiles, you'll need to ask your administrator for Contributor access to the web app.
+If you can't access any of these tiles, you need to ask your administrator for Contributor access to the web app.
 
 ### Dealing with related resources
 Web apps are complicated by the presence of a few different resources that interplay. Here is a typical resource group with a couple websites:
 
 ![Web app resource group](./media/role-based-access-control-troubleshooting/website-resource-model.png)
 
-As a result, if you grant someone access to just the web app, much of the functionality on the website blade in the Azure portal will be disabled.
+As a result, if you grant someone access to just the web app, much of the functionality on the website blade in the Azure portal is disabled.
 
 These items require **write** access to the **App Service plan** that corresponds to your website:  
 
@@ -59,7 +58,7 @@ These items require **write** access to the **App Service plan** that correspond
 
 These items require **write** access to the whole **Resource group** that contains your website:  
 
-* SSL Certificates and bindings (This is because SSL certificates can be shared between sites in the same resource group and geo-location)  
+* SSL Certificates and bindings (SSL certificates can be shared between sites in the same resource group and geo-location)  
 * Alert rules  
 * Autoscale settings  
 * Application insights components  
@@ -83,7 +82,7 @@ These require **write** access to both the **Virtual machine**, and the **Resour
 * Load balanced set  
 * Alert rules  
 
-If you can't access any of these tiles, youneed to ask your administrator for Contributor access to the Resource group.
+If you can't access any of these tiles, ask your administrator for Contributor access to the Resource group.
 
 ## See more
 * [Role Based Access Control](role-based-access-control-configure.md): Get started with RBAC in the Azure portal.

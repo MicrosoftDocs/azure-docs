@@ -3,7 +3,7 @@ title: Receive events from Azure Event Hubs using Apache Storm | Microsoft Docs
 description: Get started receiving from Event Hubs using Apache Storm
 services: event-hubs
 documentationcenter: ''
-author: jtaubensee
+author: sethmanheim
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: java
 ms.devlang: multiple
 ms.topic: article
-ms.date: 05/03/2017
-ms.author: jotaub;sethm
+ms.date: 08/15/2017
+ms.author: sethm
 ---
 
 # Receive events from Event Hubs using Apache Storm
@@ -72,7 +72,7 @@ This tutorial uses an [HDInsight Storm][HDInsight Storm] installation, which com
     </dependency>
     ```
 
-9. In the **src** folder, create a file called **Config.properties** and copy the following content, substituting the following values:
+9. In the **src** folder, create a file called **Config.properties** and copy the following content, substituting the `receive rule key` and `event hub name` values:
 
 	```java
 	eventhubspout.username = ReceiveRule

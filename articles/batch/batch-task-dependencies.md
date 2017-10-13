@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 03/02/2017
+ms.date: 05/22/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 
@@ -149,10 +149,11 @@ For example, suppose that a dependent task is awaiting data from the completion 
 
 A dependency action is based on an exit condition for the parent task. You can specify a dependency action for any of the following exit conditions; for .NET, see the [ExitConditions][net_exitconditions] class for details:
 
-- When a scheduling error occurs
-- When the task exits with an exit code defined by the **ExitCodes** property
-- When the task exits with an exit code that falls within a range specified by the **ExitCodeRanges** property
-- The default case, if the task exits with an exit code not defined by **ExitCodes** or **ExitCodeRanges**, or if the task exits with a scheduling error and the **SchedulingError** property is not set 
+- When a pre-processing error occurs.
+- When a file upload error occurs. If the task exits with an exit code that was specified via **exitCodes** or **exitCodeRanges**, and then encounters a file upload error, the action specified by the exit code takes precedence.
+- When the task exits with an exit code defined by the **ExitCodes** property.
+- When the task exits with an exit code that falls within a range specified by the **ExitCodeRanges** property.
+- The default case, if the task exits with an exit code not defined by **ExitCodes** or **ExitCodeRanges**, or if the task exits with a pre-processing error and the **PreProcessingError** property is not set, or if the task fails with a file upload error and the **FileUploadError** property is not set. 
 
 To specify a dependency action in .NET, set the [ExitOptions][net_exitoptions].[DependencyAction][net_dependencyaction] property for the exit condition. The **DependencyAction** property takes one of two values:
 
@@ -161,29 +162,29 @@ To specify a dependency action in .NET, set the [ExitOptions][net_exitoptions].[
 
 The default setting for the **DependencyAction** property is **Satisfy** for exit code 0, and **Block** for all other exit conditions.
 
-The following code snippet sets the **DependencyAction** property for a parent task. If the parent task exits with a scheduling error, or with the specified error codes, the dependent task is blocked. If the parent task exits with any other non-zero error, the dependent task is eligible to run.
+The following code snippet sets the **DependencyAction** property for a parent task. If the parent task exits with a pre-processing error, or with the specified error codes, the dependent task is blocked. If the parent task exits with any other non-zero error, the dependent task is eligible to run.
 
 ```csharp
 // Task A is the parent task.
 new CloudTask("A", "cmd.exe /c echo A")
 {
     // Specify exit conditions for task A and their dependency actions.
-    ExitConditions = new ExitConditions()
+    ExitConditions = new ExitConditions
     {
-        // If task A exits with a scheduling error, block any downstream tasks (in this example, task B).
-        SchedulingError = new ExitOptions()
+        // If task A exits with a pre-processing error, block any downstream tasks (in this example, task B).
+        PreProcessingError = new ExitOptions
         {
             DependencyAction = DependencyAction.Block
         },
         // If task A exits with the specified error codes, block any downstream tasks (in this example, task B).
-        ExitCodes = new List<ExitCodeMapping>()
+        ExitCodes = new List<ExitCodeMapping>
         {
             new ExitCodeMapping(10, new ExitOptions() { DependencyAction = DependencyAction.Block }),
             new ExitCodeMapping(20, new ExitOptions() { DependencyAction = DependencyAction.Block })
         },
         // If task A succeeds or fails with any other error, any downstream tasks become eligible to run 
         // (in this example, task B).
-        Default = new ExitOptions()
+        Default = new ExitOptions
         {
             DependencyAction = DependencyAction.Satisfy
         }

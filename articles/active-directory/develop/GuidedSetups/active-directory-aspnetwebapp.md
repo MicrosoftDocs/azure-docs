@@ -1,5 +1,5 @@
 ---
-title: Azure AD v2 ASP.NET Web Server Getting Started | Microsoft Docs
+title: Azure AD v2 ASP.NET web server getting started | Microsoft Docs
 description: Implementing Microsoft Sign-In on an ASP.NET solution with a traditional web browser based application using OpenID Connect standard
 services: active-directory
 documentationcenter: dev-center-name
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/09/2017
+ms.date: 07/05/2017
 ms.author: andret
 ms.custom: aaddev 
 

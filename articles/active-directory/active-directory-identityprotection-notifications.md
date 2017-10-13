@@ -14,8 +14,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2017
+ms.date: 06/23/2017
 ms.author: markvi
+ms.reviewer: nigu
 
 ---
 # Azure Active Directory Identity Protection notifications

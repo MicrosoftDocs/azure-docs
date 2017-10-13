@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 05/02/2017
+ms.date: 05/22/2017
 ms.author: mikeray
 
 ---
@@ -87,7 +87,7 @@ $bepool = Get-AzureRmLoadBalancerBackendAddressPoolConfig -Name $BackEndConfigur
 foreach($VMName in $VMNames)
     {
         $VM = Get-AzureRmVM -ResourceGroupName $ResourceGroupName -Name $VMName 
-        $NICName = ($VM.NetworkInterfaceIDs[0].Split('/') | select -last 1)
+        $NICName = ($vm.NetworkProfile.NetworkInterfaces.Id.split('/') | select -last 1)
         $NIC = Get-AzureRmNetworkInterface -name $NICName -ResourceGroupName $ResourceGroupName
         $NIC.IpConfigurations[0].LoadBalancerBackendAddressPools = $BEPool
         Set-AzureRmNetworkInterface -NetworkInterface $NIC

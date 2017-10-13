@@ -2,25 +2,40 @@
 title: 'Troubleshoot: Azure AD SSPR | Microsoft Docs'
 description: Troubleshooting Azure AD self-service password reset
 services: active-directory
-keywords: 
+keywords:
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: femila
+ms.reviewer: sahenry
 
-ms.assetid: 
+ms.assetid:
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 09/21/2017
 ms.author: joflore
+ms.custom: it-pro
 
 ---
-
 # How to troubleshoot self-service password reset
 
 If you are having issues with self-service password reset, the items that follow may help you to get things working quickly.
+
+## Troubleshoot self-service password reset errors that a user may see
+
+| Error | Details | Technical details |
+| --- | --- | --- |
+| TenantSSPRFlagDisabled = 9 | We’re sorry <br> You cannot reset your password at this time because your administrator has disabled password reset for your organization. There is no further action you can take to resolve this situation. Please contact your admin and ask them to enable this feature. To learn more, read [Help, I forgot my Azure AD password](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-update-your-own-password#common-problems-and-their-solutions). | SSPR_0009: We've detected that Password Reset has not been enabled by your administrator. Please contact your admin and ask them to enable Password Reset for your organization. |
+| WritebackNotEnabled = 10 |We’re sorry <br> You cannot reset your password at this time because your administrator has not enabled a necessary service for your organization. There is no further action you can take to resolve this situation. Please contact your admin and ask them to check your organization’s configuration. To learn more about this necessary service, read [Configuring password writeback](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-writeback#configuring-password-writeback). | SSPR_0010: We've detected that Password Writeback has not been enabled. Please contact your admin and ask them to enable Password Writeback. |
+| SsprNotEnabledInUserPolicy = 11 | We’re sorry  <br> You cannot reset your password at this time because your administrator has not configured password reset for your organization. There is no further action you can take to resolve this situation. Please contact your admin and ask them to configure password reset. To learn more about password reset configuration read the article [Quickstart: Azure AD self-service password reset](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started). | SSPR_0011: Your organization has not defined a password reset policy. Please contact your admin and ask them to define a password reset policy. |
+| UserNotLicensed = 12 | We’re sorry <br> You cannot reset your password at this time because required licenses are missing from your organization. There is no further action you can take to resolve this situation. Please contact your admin and ask them to check license assignment. To learn more about licensing read the article [Licensing requirements for Azure AD self-service password reset](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-licensing). | SSPR_0012: Your organization does not have the required licenses necessary to perform password reset. Please contact your admin and ask them to review license assignments. |
+| UserNotMemberOfScopedAccessGroup = 13 | We’re sorry <br> You cannot reset your password at this time because your administrator has not configured your account to use password reset. There is no further action you can take to resolve this situation. Please contact your admin and ask them to configure your account for password reset. To learn more about account configuration for password reset read the article [Roll out password reset for users](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-best-practices). | SSPR_0012: You are not a member of a group enabled for password reset. Contact your admin and request to be added to the group. |
+| UserNotProperlyConfigured = 14 | We’re sorry <br> You cannot reset your password at this time because necessary information is missing from your account. There is no further action you can take to resolve this situation. Please contact you admin and ask them to reset your password for you. After you have access to your account again, you can learn how register the necessary information by following the steps in the article [Register for self-service password reset](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-reset-register). | SSPR_0014: Additional security info is needed to reset your password. To proceed, contact your admin and ask them to reset your password. After you have access to your account you can register additional security info at https://aka.ms/ssprsetup. Your admin can add additional security info to your account by following the steps in [Set and read authentication data for Password Reset](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-data#set-and-read-authentication-data-using-powershell). |
+| OnPremisesAdminActionRequired = 29 | We’re sorry <br> We cannot reset your password at this time because of a problem with your organization’s password reset configuration. There is no further action you can take to resolve this situation. Please contact your admin and ask them to investigate. To learn more about the potential issue read the article [Troubleshoot password writeback](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#troubleshoot-password-writeback). | SSPR_0029: We are unable to reset your password due to an error in your on-premises configuration. Please contact your admin and ask them to investigate. |
+| OnPremisesConnectivityError = 30 | We’re sorry <br> We cannot reset your password at this time because of connectivity issues to your organization. There is no action to take right now, but the problem may be resolved if you try again later. If the problem persists, please contact your admin and ask them to investigate. To learn more about connectivity issues read [Troubleshoot Password Writeback connectivity](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#troubleshoot-password-writeback-connectivity). | SSPR_0030: We cannot reset your password due to a poor connection with your on-premises environment. Please contact your admin and ask them to investigate.|
+
 
 ## Troubleshoot password reset configuration in the Azure portal
 
@@ -71,7 +86,6 @@ If you are having issues with self-service password reset, the items that follow
 | The Azure AD Connect machine event log contains error 32002 thrown by the PasswordResetService. <br> <br> The error reads: “Error Connecting to ServiceBus, The token provider was unable to provide a security token…” | Your on-premises environment is not able to connect to the service bus endpoint in the cloud. This error is normally caused by a firewall rule blocking an outbound connection to a particular port or web address. See [Network requirements](active-directory-passwords-how-it-works.md#network-requirements) for more info. Once you have updated these rules, reboot the Azure AD Connect machine and Password Writeback should start working again. |
 | After working for some time, federated or password hash synchronized users cannot reset their passwords. | In some rare cases, the Password Writeback service may fail to restart when Azure AD Connect has restarted. In these cases, first, check whether Password Writeback appears to be enabled on-prem. This can be done using the Azure AD Connect wizard or powershell (See HowTos section above).If the feature appears to be enabled, try enabling or disabling the feature again either through the UI or PowerShell. If this doesn’t work, try completely uninstalling and reinstalling Azure AD Connect. |
 | Federated or password hash synchronized users who attempt to reset their passwords see an error after submitting the password indicating there was a service problem. <br ><br> In addition to this, during password reset operations, you may see an error regarding management agent was denied access in your on premises event logs. | If you see these errors in your event log, confirm that the AD MA account (that was specified in the wizard at the time of configuration) has the necessary permissions for password writeback. <br> <br> **Once this permission is given, it can take up to 1 hour for the permissions to trickle down via sdprop background task on the DC.** <br> <br> For password reset to work, the permission needs to be stamped on the security descriptor of the user object whose password is being reset. Until this permission shows up on the user object, password reset continues to fail with access denied. |
-| Unable to reset password for users in special groups such as Domain Admins or Enterprise Admins | Privileged users in Active Directory are protected using AdminSDHolder. For more information, see [http://technet.microsoft.com/magazine/2009.09.sdadminholder.aspx](http://technet.microsoft.com/magazine/2009.09.sdadminholder.aspx) for more details. <br> <br> This means the security descriptors on these objects are periodically checked to match the one specified in AdminSDHolder and are reset if they are different. The additional permissions that are needed for Password Writeback therefore do not trickle to such users. This can result in Password Writeback not working for such users. As a result, **we do not support managing passwords for users within these groups because it breaks the AD security model.**
 | Federated or password hash synchronized users who attempt to reset their passwords see an error after submitting the password indicating there was a service problem. <br> <br> In addition to this, during password reset operations, you may see an error in your event logs from the Azure AD Connect service indicating an “Object could not be found” error. | This error usually indicates that the sync engine is unable to find either the user object in the AAD connector space or the linked MV or AD connector space object. <br> <br> To troubleshoot this, make sure that the user is indeed synchronized from on-prem to AAD via the current instance of Azure AD Connect and inspect the state of the objects in the connector spaces and MV. Confirm that the AD CS object is connector to the MV object via the “Microsoft.InfromADUserAccountEnabled.xxx” rule.|
 | Federated or password hash synchronized users who attempt to reset their passwords see an error after submitting the password indicating there was a service problem. <br> <br> In addition to this, during password reset operations, you may see an error in your event logs from the Azure AD Connect service indicating a “Multiple matches found” error. | This indicates that the sync engine detected that the MV object is connected to more than one AD CS objects via the “Microsoft.InfromADUserAccountEnabled.xxx”. This means that the user has an enabled account in more than one forest. **This scenario is not supported for password writeback.** |
 | Password operations fail with a configuration error. The application event log contains <br> <br> Azure AD Connect error 6329 with text: 0x8023061f (The operation failed because password synchronization is not enabled on this Management Agent.) | This occurs if the Azure AD Connect configuration is changed to add a new AD forest (or to remove and readd an existing forest) after the Password Writeback feature has already been enabled. Password operations for users in such newly added forests fail. To fix the problem, disable and re-enable the Password Writeback feature after the forest configuration changes have been completed. |
@@ -133,17 +147,21 @@ A best practice when troubleshooting issues with Password Writeback is to inspec
 | 33008| ADPasswordPolicyError| This event occurs when the Password Writeback service attempts to set a password on your local directory that does not meet the password age, history, complexity, or filtering requirements of the domain. <br> <br> If you have a minimum password age, and have recently changed the password within that window of time, you are not able to change the password again until it reaches the specified age in your domain. For testing purposes, minimum age should be set to 0. <br> <br> If you have password history requirements enabled, then you must select a password that has not been used in the last N times, where N is the password history setting. If you do select a password that has been used in the last N times, then you see a failure in this case. For testing purposes, history should be set to 0. <br> <br> If you have password complexity requirements, all of them are enforced when the user attempts to change or reset a password. <br> <br> If you have password filters enabled, and a user selects a password that does not meet the filtering criteria, then the reset or change operation fails.|
 | 33009| ADConfigurationError| This event indicates there was an issue writing a password back to your on-premises directory due to a configuration issue with Active Directory. Check the Azure AD Connect machine’s Application event log for messages from the ADSync service for more information on what error occurred.|
 
-
 ## Troubleshoot Password Writeback connectivity
 
 If you are experiencing service interruptions with the Password Writeback component of Azure AD Connect, here are some quick steps you can take to resolve this:
 
-* [Restart the Azure AD Connect Sync Service](#restart-the-azure-AD-Connect-sync-service)
+* [Confirm network connectivity](#confirm-network-connectivity)
+* [Restart the Azure AD Connect Sync Service](#restart-the-azure-ad-connect-sync-service)
 * [Disable and re-enable the Password Writeback feature](#disable-and-re-enable-the-password-writeback-feature)
 * [Install the latest Azure AD Connect release](#install-the-latest-azure-ad-connect-release)
 * [Troubleshoot Password Writeback](#troubleshoot-password-writeback)
 
 In general, we recommend that you execute these steps in the order above to recover your service in the most rapid manner.
+
+### Confirm network connectivity
+
+The most common point of failure is that firewall and or proxy ports and idle timeouts are incorrectly configured. Review the network requirements in the article [Self-service password reset in Azure AD deep dive](active-directory-passwords-how-it-works.md#network-requirements) for more information.
 
 ### Restart the Azure AD Connect Sync Service
 
@@ -194,6 +212,27 @@ These steps re-establish your connection with our cloud service and resolve any 
 
 If installing the latest version of the Azure AD Connect server does not resolve your issue, we recommend that you try disabling and re-enabling Password Writeback as a final step after installing the latest release.
 
+## Verify whether Azure AD Connect has the required permission for Password writeback
+Azure AD Connect requires AD **Reset Password** permission to perform Password writeback. To find out if Azure AD Connect has the permission for a given on-premises AD User account, you can use the Windows Effective Permission feature:
+
+1. Log in to Azure AD Connect server and start the **Synchronization Service Manager** (Start → Synchronization Service).
+2. Under the **Connectors** tab, select the on-premises **AD connector** and click **Properties**.  
+![Effective Permission - step 2](./media/active-directory-passwords-troubleshoot/checkpermission01.png)  
+3. In the pop-up dialog, select the **Connect to Active Directory Forest** tab and note down the **User name** property. This is the AD DS account used by Azure AD Connect to perform directory synchronization. For Azure AD Connect to perform Password writeback, the AD DS account must have Reset Password permission.  
+![Effective Permission - step 3](./media/active-directory-passwords-troubleshoot/checkpermission02.png) 
+4. Log in to an on-premises Domain Controller and start the **Active Directory Users and Computers** application.
+5. Click **View** and make sure **Advanced Features** option is enabled.  
+![Effective Permission - step 5](./media/active-directory-passwords-troubleshoot/checkpermission03.png) 
+6. Look for the AD User account you want to verify. Right-click on the account and select **Properties**.  
+![Effective Permission - step 6](./media/active-directory-passwords-troubleshoot/checkpermission04.png) 
+7. In the pop-up dialog, go to the **Security** tab and click **Advanced**.  
+![Effective Permission - step 7](./media/active-directory-passwords-troubleshoot/checkpermission05.png) 
+8. In the Advanced Security Settings pop-up dialog, go to the **Effective Access** tab.
+9. Click on **Select a user** and select the AD DS account used by Azure AD Connect (see step 3). Then click **View effective access**.  
+![Effective Permission - step 9](./media/active-directory-passwords-troubleshoot/checkpermission06.png) 
+10. Scroll down and look for **Reset password**. If the entry is checked, it means that the AD DS account has permission to reset the password of the selected AD User account.  
+![Effective Permission - step 10](./media/active-directory-passwords-troubleshoot/checkpermission07.png)  
+
 ## Azure AD forums
 
 If you have a general question about Azure AD and self-service password reset, you can ask the community for assistance on the [Azure AD forums](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WindowsAzureAD). Members of the community include Engineers, Product Managers, MVPs, and fellow IT Professionals.
@@ -206,10 +245,11 @@ To properly assist, we ask that you provide as much detail as possible when open
 
 * **General description of the error** - What is the error? What was the behavior that was noticed? How can we reproduce the error? Please provide as much detail as possible.
 * **Page** - What page were you on when you noticed the error? Please include the URL if you are able to and a screenshot.
-* **Date, time, and timezone** - Please include the precise date and time **with the timezone** that the error occurred.
-* **Support code** - What was the support code generated when the user saw the error? 
+* **Support code** - What was the support code generated when the user saw the error?
     * To find this, reproduce the error, then click the Support Code link at the bottom of the screen and send the support engineer the GUID that results.
+    ![Find the support code at the bottom of the screen][Support Code]
     * If you are on a page without a support code at the bottom, press F12 and search for SID and CID and send those two results to the support engineer.
+* **Date, time, and timezone** - Please include the precise date and time **with the timezone** that the error occurred.
 * **User ID** - Who was the user who saw the error? (user@contoso.com)
     * Is this a federated user?
     * Is this a password hash synchronized user?
@@ -217,13 +257,16 @@ To properly assist, we ask that you provide as much detail as possible when open
 * **Licensing** - Does the user have an Azure AD Premium or Azure AD Basic license assigned?
 * **Application event log** - If you are using password writeback and the error is in you on-premises infrastructure, include a zipped copy of your application event log from the Azure AD Connect server when contacting support.
 
+
+
 [Service Restart]: ./media/active-directory-passwords-troubleshoot/servicerestart.png "Restart the Azure AD Sync service"
+[Support Code]: ./media/active-directory-passwords-troubleshoot/supportcode.png "Support Code is located at the bottom right of the window"
 
 ## Next steps
 
 The following links provide additional information regarding password reset using Azure AD
 
-* [**Quick Start**](active-directory-passwords-getting-started.md) - Get up and running with Azure AD self service password management 
+* [**Quick Start**](active-directory-passwords-getting-started.md) - Get up and running with Azure AD self service password management
 * [**Licensing**](active-directory-passwords-licensing.md) - Configure your Azure AD Licensing
 * [**Data**](active-directory-passwords-data.md) - Understand the data that is required and how it is used for password management
 * [**Rollout**](active-directory-passwords-best-practices.md) - Plan and deploy SSPR to your users using the guidance found here

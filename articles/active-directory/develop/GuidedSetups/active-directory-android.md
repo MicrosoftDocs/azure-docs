@@ -1,5 +1,5 @@
 ---
-title: Azure AD v2 Android Getting Started | Microsoft Docs
+title: Azure AD v2 Android getting started | Microsoft Docs
 description: How an Android app can get an access token and call Microsoft Graph API or APIs that require access tokens from Azure Active Directory v2 endpoint
 services: active-directory
 documentationcenter: dev-center-name

@@ -18,6 +18,9 @@ ms.author: mandia
 
 ---
 # What you can and can't do using the BizTalk Service state
+
+> [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
 Depending on the current state of the BizTalk service, there are operations that you can or cannot perform on the BizTalk service.
 
 For example, you provision a new BizTalk service in the Azure classic portal. When it completes successfully, the BizTalk service is in `active` state. In the active state, you can stop, suspend, and delete the BizTalk service. If you stop the BizTalk service, and stop fails, then the BizTalk service goes to a `StopFailed` state. In the `StopFailed` state, you can restart the BizTalk service. If you try an operation that is not allowed, like resume, the following error occurs:

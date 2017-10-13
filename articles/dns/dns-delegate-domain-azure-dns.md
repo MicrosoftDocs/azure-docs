@@ -292,11 +292,11 @@ az network dns record-set ns add-record --resource-group contosorg --zone-name c
 
 ## Delete all resources
 
-To delete all resources created in thsi article, complete the following steps:
+To delete all resources created in this article, complete the following steps:
 
 1. In the Azure portal **Favorites** pane, click **All resources**. Click the **contosorg** resource group in the All resources blade. If the subscription you selected already has several resources in it, you can enter **contosorg** in the **Filter by name…** box to easily access the resource group.
 1. In the **contosorg** blade, click the **Delete** button.
-1. The portal requires you to type the name of the resource group to confirm that you want to delete it. Click **Delete**, Type *contosorg* for the resource group name, then click **Delete**. Deleting a resource group deletes all resources within the resource group, so always be sure to confirm the contents of a resource group before deleting it. The portal deletes all resources contained within the resource group, then deletes the resource group itself. This process takes several minutes.
+1. The portal requires you to type the name of the resource group to confirm that you want to delete it. Type *contosorg* for the resource group name, then click **Delete**. Deleting a resource group deletes all resources within the resource group, so always be sure to confirm the contents of a resource group before deleting it. The portal deletes all resources contained within the resource group, then deletes the resource group itself. This process takes several minutes.
 
 ## Next steps
 

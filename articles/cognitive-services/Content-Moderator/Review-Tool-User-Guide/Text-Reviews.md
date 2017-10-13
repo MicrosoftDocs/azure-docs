@@ -12,17 +12,15 @@ ms.date: 02/03/2017
 ms.author: sajagtap
 ---
 
-# Text Moderation Reviews #
+# Text Moderation reviews #
 
 ## Select or enter the text to review ##
 
-Click the **Try** TAB and select the "Text" option to bring up the Text Moderation start screen. Enter any text upto a maximum of 1024 characters or use the default sample text to submit for automated text moderation.
+Click the **Try** tab and select the "Text" option to bring up the Text Moderation start screen. Enter any text upto a maximum of 1024 characters or use the default sample text to submit for automated text moderation.
 
 ## Get ready to review results ##
 
 The review tool will call the text moderation API and generate text reviews with the detected tags and match scores results within the review tool for your team's attention.
-
-![Ready for text reviews](images/2-Text-Submitted.png)
 
 ## Review text results ##
 

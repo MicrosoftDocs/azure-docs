@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/04/2017
+ms.date: 10/11/2017
 ms.author: larryfr
 
 ---
@@ -34,7 +34,7 @@ In this document, you learn how to use the Ambari Web UI with an HDInsight clust
 The Ambari Web UI is provided by default with HDInsight clusters that use the Linux operating system.
 
 > [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date). 
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). 
 
 ## Connectivity
 
@@ -48,6 +48,9 @@ The Ambari Web UI is available on your HDInsight cluster at HTTPS://CLUSTERNAME.
 While Ambari for your cluster is accessible directly over the Internet, some links from the Ambari Web UI (such as to the JobTracker) are not exposed on the internet. To access these services, you must create an SSH tunnel. For more information, see [Use SSH Tunneling with HDInsight](hdinsight-linux-ambari-ssh-tunnel.md).
 
 ## Ambari Web UI
+
+> [!WARNING]
+> Not all features of the Ambari Web UI are supported on HDInsight. For more information, see the [Unsupported operations](#unsupported-operations) section of this document.
 
 When connecting to the Ambari Web UI, you are prompted to authenticate to the page. Use the cluster admin user (default Admin) and password you used during cluster creation.
 
@@ -233,3 +236,13 @@ Ambari Views allow developers to plug UI elements into the Ambari Web UI using t
 * Hive View: The Hive View allows you to run Hive queries directly from your web browser. You can save queries, view results, save results to the cluster storage, or download results to your local system. For more information on using Hive Views, see [Use Hive Views with HDInsight](hdinsight-hadoop-use-hive-ambari-view.md).
 
 * Tez View: The Tez View allows you to better understand and optimize jobs. You can view information on how Tez jobs are executed and what resources are used.
+
+## Unsupported operations
+
+The following Ambari operations are not supported on HDInsight:
+
+* __Moving the Metrics Collector service__. When viewing information on the Metrics Collector service, one of the actions available from the Service Actions menu is __Move Metrics collector__. This is not supported with HDInsight.
+
+## Next steps
+
+Learn how to use the [Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md) with HDInsight.

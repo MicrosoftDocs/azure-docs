@@ -2,12 +2,10 @@
 title: Azure AD v2 iOS Getting Started - Setup | Microsoft Docs
 description: How iOS (Swift) applications can call an API that require access tokens by Azure Active Directory v2 endpoint
 services: active-directory
-documentationcenter: dev-center-name
+documentationcenter: dev-center-name 
 author: andretms
 manager: mbaldwin
 editor: ''
-
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -17,7 +15,6 @@ ms.date: 05/09/2017
 ms.author: andret
 
 ---
-
 ## Setting up your iOS application
 
 This section provides step-by-step instructions for how to create a new project to demonstrate how to integrate an iOS application (Swift) with *Sign-In with Microsoft* so it can query Web APIs that require a token.
@@ -26,9 +23,9 @@ This section provides step-by-step instructions for how to create a new project 
 
 
 ## Install Carthage to download and build MSAL
-Carthage package manager is used during the preview period of MSAL – it integrates with XCode while maintaining the ability for Microsoft to make changes to the library. Follow the instructions below to install Carthage:
+Carthage package manager is used during the preview period of MSAL – it integrates with XCode while maintaining the ability for Microsoft to make changes to the library.
 
-1.	Download and install the latest release of Carthage [here](https://github.com/Carthage/Carthage/releases "Carthage download URL")
+- Download and install the latest release of Carthage [here](https://github.com/Carthage/Carthage/releases "Carthage download URL")
 
 ## Creating your application
 

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
-ms.author: estfan
+ms.author: LADocs; padmavc
 
 ---
 # Receive data in logic apps with the B2B features in the Enterprise Integration Pack

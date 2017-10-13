@@ -42,7 +42,7 @@ Standard tier features:
 For Basic and Standard Notification Hubs tiers, properly configured applications can send push notifications or perform registration management operations at least 99.9 percent of the time. To learn more about the SLA, go to the [Notification Hubs SLA](https://azure.microsoft.com/support/legal/sla/notification-hubs/) page.
 
 > [!NOTE]
-> Because push notifications depend on third-party Platform Notification Systems (such as Apple APNS and Google FCM), there is no SLA guarantee for the delivery of these messages. After Notification Hubs batches the sends to Platform Notification Systems (SLA guaranteed), it is the responsibility of the Platform Notification Systems to deliver the pushes (no SLA guaranteed).
+> Because push notifications depend on third-party Platform Notification Systems (such as Apple APNS and Google FCM), there is no SLA guarantee for the delivery of these messages. After Notification Hubs sends the batches to Platform Notification Systems (SLA guaranteed), it is the responsibility of the Platform Notification Systems to deliver the pushes (no SLA guaranteed).
 
 ### Which customers are using Notification Hubs?
 Many customers use Notification Hubs. Some notable ones are listed here:
@@ -138,7 +138,7 @@ If you have an application that is used globally, you can create hubs in differe
 Registrations from the app back end are useful when you have to authenticate clients before creating the registration. They're also useful when you have tags that must be created or modified by the app back end based on app logic. For more information, go to the [Backend Registration guidance] and [Backend Registration guidance 2] pages.
 
 ### What is the push notification delivery security model?
-Azure Notification Hubs uses a [shared access signature](../storage/storage-dotnet-shared-access-signature-part-1.md)-based security model. You can use the shared access signature tokens at the root namespace level or at the granular notification hub level. Shared access signature tokens can be set to follow different authorization rules, for example, to send message permissions or to listen for notification permissions. For more information, see the [Notification Hubs security model] document.
+Azure Notification Hubs uses a [shared access signature](../storage/common/storage-dotnet-shared-access-signature-part-1.md)-based security model. You can use the shared access signature tokens at the root namespace level or at the granular notification hub level. Shared access signature tokens can be set to follow different authorization rules, for example, to send message permissions or to listen for notification permissions. For more information, see the [Notification Hubs security model] document.
 
 ### How should I handle sensitive payload in push notifications?
 All notifications are delivered to target devices by the platform's PNS. When a notification is sent to Azure Notification Hubs, it is processed and passed to the respective PNS.

@@ -2,7 +2,7 @@
 title: Azure Notification Hubs Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to send push notifications from any backend to any mobile device with Notification Hubs. Tutorials, API references, and other documentation.
 services: notification-hubs
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid:	
@@ -66,7 +66,7 @@ Learn how to use Notification Hubs, a multi-platform, scalable push-notification
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started sending push notifications to Android (FCM) with Azure Notification Hubs</h3>
+                        <h3>Get started sending push notifications to Android (FCM) with Azure Notification Hubs</h3>
                     </div>
                 </div>
             </div>
@@ -102,7 +102,7 @@ Learn how to use Notification Hubs, a multi-platform, scalable push-notification
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started sending push notifications to Chrome apps with Azure Notification Hubs</h3>
+                        <h3>Get started sending push notifications to Chrome apps with Azure Notification Hubs</h3>
                     </div>
                 </div>
             </div>
@@ -120,7 +120,7 @@ Learn how to use Notification Hubs, a multi-platform, scalable push-notification
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started sending push notifications to iOS with Azure Notification Hubs</h3>
+                        <h3>Get started sending push notifications to iOS with Azure Notification Hubs</h3>
                     </div>
                 </div>
             </div>
@@ -138,7 +138,7 @@ Learn how to use Notification Hubs, a multi-platform, scalable push-notification
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with Notification Hubs for Kindle apps</h3>
+                        <h3>Get started with Notification Hubs for Kindle apps</h3>
                     </div>
                 </div>
             </div>
