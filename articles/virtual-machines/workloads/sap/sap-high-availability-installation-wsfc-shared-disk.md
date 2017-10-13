@@ -144,7 +144,7 @@ ms.custom: H1Hack27Feb2017
 
 This document is describing how to install and configure high available SAP system on Azure, with **Windows Failover Cluster (WSFC)** and using **cluster shared disk** for clustering SAP (A)SCS instance.
 
-## Prerequisite
+## Prerequisites
 
 Make sure to review these documents before starting with installation:
 
@@ -170,13 +170,13 @@ There are no special considerations when different DBMS services interact with t
 
 Installing SAP with a high-availability ASCS/SCS instance involves these tasks:
 
-- Creating a virtual host name for the clustered SAP ASCS/SCS instance
-- Installing the SAP first cluster node
-- Modifying the SAP profile of the ASCS/SCS instance
-- Adding a probe port
-- Opening the Windows firewall probe port
+* Creating a virtual host name for the clustered SAP ASCS/SCS instance
+* Installing the SAP first cluster node
+* Modifying the SAP profile of the ASCS/SCS instance
+* Adding a probe port
+* Opening the Windows firewall probe port
 
-#### <a name="a97ad604-9094-44fe-a364-f89cb39bf097"></a> Create a Virtual Host Name for the Clustered SAP ASCS/SCS Instance
+### <a name="a97ad604-9094-44fe-a364-f89cb39bf097"></a> Create a Virtual Host Name for the Clustered SAP ASCS/SCS Instance
 
 1.  In the Windows DNS manager, create a DNS entry for the virtual host name of the ASCS/SCS instance.
 

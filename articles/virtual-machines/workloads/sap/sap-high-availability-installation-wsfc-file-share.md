@@ -28,11 +28,16 @@ ms.custom: H1Hack27Feb2017
 [2015553]:https://launchpad.support.sap.com/#/notes/2015553
 [2178632]:https://launchpad.support.sap.com/#/notes/2178632
 [2243692]:https://launchpad.support.sap.com/#/notes/2243692
+[1596496]:https://launchpad.support.sap.com/#/notes/1596496
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
 [azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
 [azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md
+
+[s2d-in-win-2016]:https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview
+[sofs-overview]:https://technet.microsoft.com/library/hh831349(v=ws.11).aspx
+[new-in-win-2016-storage]:https://docs.microsoft.com/windows-server/storage/whats-new-in-storage
 
 [dbms-guide]:../../virtual-machines-windows-sap-dbms-guide.md
 
@@ -189,7 +194,7 @@ ms.custom: H1Hack27Feb2017
 
 This document is describing how to install and configure high available SAP system on Azure, with **Windows Failover Cluster (WSFC)** and **Scale Out File Share** as an option for clustering SAP (A)SCS instance.
 
-## Prerequisite
+## Prerequisites
 
 Make sure to review these documents before starting with installation:
 
@@ -367,8 +372,10 @@ As described in chapter [Create a virtual host name for the clustered SAP ASCS/S
 ## Update DEFAULT and SAP (A)SCS Instance Profile
 
 You must update the DEFAULT and SAP (A)SCS instance profile &lt;SID&gt;_(A)SCS<Nr>_<Host> to use:
-* new SAP (A)SCS virtual host name
-* new SAP GLOBAL Host name
+
+* New SAP (A)SCS virtual host name
+
+* New SAP GLOBAL Host name
 
 
 | Old Values |  |
@@ -441,7 +448,7 @@ Go to **HKEY_CURRENT_USER** -> **Environment** and update variables to new value
 
 You need to install a new version of SAP cluster resource which supports file share scenario.
 
-Download **NTCLUST.SAR** package from this location: https://mdocs.sap.com/mcm/public/v1/open?shr=FAquHRcYlofa-DGwBPnhDxEWGSIOwT0DsN3PSOi-Fwo
+Download latest **NTCLUST.SAR** package from SAP Service Market Place.
 
 Unpack NTCLUS.SAR on one of the (A)SCS cluster nodes and run following command from command prompt to install new saprc.dll:
 
@@ -450,6 +457,8 @@ Unpack NTCLUS.SAR on one of the (A)SCS cluster nodes and run following command f
 ```
 
 The new saprc.dll will be installed on both (A)SCS cluster nodes.
+
+For more information, see [SAP Note 1596496 - How to update SAP Resource Type DLLs for Cluster Resource Monitor][1596496]. 
 
 ## Create SAP <SID> Cluster Group, Network Name and IP
 
@@ -786,16 +795,10 @@ Install DBMS and SAP application Servers as described earlier.
 
 # Next Steps
 
-Official SAP Guidelines for HA File Share: [Installation of an (A)SCS Instance on a Failover Cluster with no Shared Disks][sap-official-ha-file-share-document]:
+* [Installation of an (A)SCS Instance on a Failover Cluster with no Shared Disks - Official SAP Guidelines for HA File Share][sap-official-ha-file-share-document]:
 
-**Storage Spaces Direct in Windows Server 2016**
+* [Storage Spaces Direct in Windows Server 2016][s2d-in-win-2016]
 
-https://docs.microsoft.com/en-us/windows-server/storage/storage-spaces/storage-spaces-direct-overview
+* [Scale-Out File Server for Application Data Overview][sofs-overview]
 
-**Scale-Out File Server**
-
-https://technet.microsoft.com/en-us/library/hh831349(v=ws.11).aspx
-
-**What's new in Storage in Windows Server 2016**
-
-https://docs.microsoft.com/en-us/windows-server/storage/whats-new-in-storage
+* [What's new in Storage in Windows Server 2016][new-in-win-2016-storage]

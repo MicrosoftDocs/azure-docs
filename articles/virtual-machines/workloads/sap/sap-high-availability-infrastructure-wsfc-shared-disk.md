@@ -161,7 +161,7 @@ ms.custom: H1Hack27Feb2017
 
 This document is describing Azure infrastructure preparation steps, needed to install and configure high available SAP system on **Windows Failover Cluster (WSFC)**, using **cluster shared disk** as an option for clustering SAP (A)SCS instance.
 
-## Prerequisite
+## Prerequisites
 
 Make sure to review these documents before starting with installation:
 
@@ -490,7 +490,7 @@ To create required internal load balancing endpoints, first, create these load b
 | Win RM *Lbrule5985* | |5985 |
 | File Share *Lbrule445* | |445 |
 
-_**Table 1:** Port numbers of the SAP NetWeaver ABAP ASCS instances_
+**Table 1:** Port numbers of the SAP NetWeaver ABAP ASCS instances
 
 Then, create these load balancing endpoints for the SAP NetWeaver Java SCS ports:
 
@@ -508,7 +508,7 @@ Then, create these load balancing endpoints for the SAP NetWeaver Java SCS ports
 | Win RM *Lbrule5985* | |5985 |
 | File Share *Lbrule445* | |445 |
 
-_**Table 2:** Port numbers of the SAP NetWeaver Java SCS instances_
+**Table 2:** Port numbers of the SAP NetWeaver Java SCS instances
 
 ![Figure: Default ASCS/SCS load balancing rules for the Azure internal load balancer][sap-ha-guide-figure-3004]
 
@@ -556,7 +556,7 @@ To add registry entries on both cluster nodes of the SAP ASCS/SCS instance, firs
 | Value |120000 |
 | Link to documentation |[https://technet.microsoft.com/library/cc957549.aspx](https://technet.microsoft.com/library/cc957549.aspx) |
 
-_**Table 3:** Change the first TCP/IP parameter_
+**Table 3:** Change the first TCP/IP parameter
 
 Then, add this Windows registry entries on both Windows cluster nodes for SAP ASCS/SCS:
 
@@ -567,7 +567,7 @@ Then, add this Windows registry entries on both Windows cluster nodes for SAP AS
 | Value |120000 |
 | Link to documentation |[https://technet.microsoft.com/en-us/library/cc957548.aspx](https://technet.microsoft.com/en-us/library/cc957548.aspx) |
 
-_**Table 4:** Change the second TCP/IP parameter_
+**Table 4:** Change the second TCP/IP parameter
 
 **To apply the changes, restart both cluster nodes**.
 
