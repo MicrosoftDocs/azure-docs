@@ -66,7 +66,7 @@ If the command is successful, you will get a JSON output similar to:
 }
 ```
 
-Notate appId as this will be used in a later step.
+Notate **appId** as this will be used in a later step.
 
 In the **Azure Portal**:
 
@@ -76,7 +76,7 @@ In the **Azure Portal**:
 4.  In Settings blade, select **Required permissions**
 5.  In Required Permissions blade, click **Add**
 6.  Click on Step 1: Select API and then click **Windows Azure Active Directory (Microsoft.Azure.ActiveDirectory)** and click **Select** at bottom
-7.  On Step 2: Select Permissions, select **Sign in and read user profile** under **Delegated Permissions* and click **Select**
+7.  On Step 2: Select Permissions, select **Sign in and read user profile** under **Delegated Permissions** and click **Select**
 8.  Click **Done**
 
 ### Configure OpenShift for Azure AD Authentication
@@ -157,7 +157,7 @@ sudo systemctl restart atomic-openshift-master-controllers
 sudo systemctl restart atomic-openshift-master
 ```
 
-In the OpenShift Console, you will now see two options for authentication - htpasswd_auth and *<App Registration>*.
+In the OpenShift Console, you will now see two options for authentication - htpasswd_auth and **<App Registration>**.
 
 ## Monitor OpenShift with OMS
 
@@ -322,7 +322,7 @@ ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cl
 -e openshift_hosted_logging_storage_kind=dynamic
 ```
 
-### Azure Cloud Provider **not** in use
+### Azure Cloud Provider not in use
 
 On the first Master Node (Origin) or Bastion Node (OCP), SSH using the credentials provided during deployment. Issue the following command:
 
