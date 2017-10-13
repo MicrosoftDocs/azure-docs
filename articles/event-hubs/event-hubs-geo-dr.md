@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2017
+ms.date: 10/13/2017
 ms.author: sethm
 
 ---
@@ -25,22 +25,24 @@ The Geo-disaster recovery feature of Azure Event Hubs is a disaster recovery sol
 
 For a detailed discussion of disaster recovery in Microsoft Azure, see [this article](/azure/architecture/resiliency/disaster-recovery-azure-applications). 
 
-## How it works?
-### Terminology
+## Terminology
 
-**Pairing**: Establishing the disaster recovery configuration between the active region and passive region is known as ‘pairing the regions’
+**Pairing**: Establishing the disaster recovery configuration between the active region and passive region is known as *pairing* the regions.
 
-**Alias**: A name for a disaster recovery configuration that the user sets up. The alias provides a single stable Fully Qualified Domain Name (FQDN) connection string.
-Applications use alias connection string to connect to an Event.
+**Alias**: A name for a disaster recovery configuration that you set up. The alias provides a single stable Fully Qualified Domain Name (FQDN) connection string. Applications use this connection string to connect to an event hub.
 
-**Meta-data**: Here refers to event hub names, consumer groups, partitions, throughput units, entities, and properties that are associated with the namespace
-[TODO:Add image content here]
+**Meta-data**: Refers to event hub names, consumer groups, partitions, throughput units, entities, and properties that are associated with the namespace.
 
-### Step1: Create a geo-pair
-To create a pairing between two regions, you would need a primary namespace and a secondary namespace. An alias
-is created to form the geo-pair. Once the namespaces are paired with an alias, the meta-data is replicated periodically in both the namespaces.
+## Step 1: create a geo-pairing
 
-The following code snippet shows how to do this:
+The following figure shows the geo-pairing workflow:
+
+![][1]
+
+To create a pairing between two regions, you need a primary namespace and a secondary namespace. You then create an alias to form the geo-pair. Once the namespaces are paired with an alias, the metadata is periodically replicated in both namespaces. 
+
+The following code shows how to do this:
+
 ```csharp
 ArmDisasterRecovery adr = await client.DisasterRecoveryConfigs.CreateOrUpdateAsync(
                                     config.PrimaryResourceGroupName,
@@ -49,9 +51,9 @@ ArmDisasterRecovery adr = await client.DisasterRecoveryConfigs.CreateOrUpdateAsy
                                     new ArmDisasterRecovery(){ PartnerNamespace = config.SecondaryNamespace});
 ```
 
-### Step2: Update existing clients
-Once the geo-pairing is done, the connection strings that point to the primary namespaces must now be updated to point to the alias
-connection string. Obtain the connection strings as shown below,
+## Step 2: update existing clients
+
+Once the geo-pairing is complete, the connection strings that point to the primary namespaces must be updated to point to the alias connection string. Obtain the connection strings as shown in the following example:
 
 ```csharp
 var accessKeys = await client.Namespaces.ListKeysAsync(config.PrimaryResourceGroupName,
@@ -59,21 +61,23 @@ var accessKeys = await client.Namespaces.ListKeysAsync(config.PrimaryResourceGro
 var aliasPrimaryConnectionString = accessKeys.AliasPrimaryConnectionString;
 var aliasSecondaryConnectionString =    accessKeys.AliasSecondaryConnectionString;
 ```
-### Step3: Initiate a failover
-In the event of disaster or you, decide to initiate a failover to the secondary namespace, metadata and data start flowing into the
-secondary namespace. Since the applications use the alias connection strings, no further action is required, as they automatically start reading and writing to and from the event hubs in the secondary namespace. 
 
-The following code snippet shows how to do the failover:
+## Step 3: initiate a failover
+
+If a disaster occurs, or if you decide to initiate a failover to the secondary namespace, metadata and data start flowing into the secondary namespace. because the applications use the alias connection strings, no further action is required, as they automatically start reading and writing to and from the event hubs in the secondary namespace. 
+
+The following code shows how to trigger the failover:
+
 ```csharp
 await client.DisasterRecoveryConfigs.FailOverAsync(config.SecondaryResourceGroupName,
                                                    config.SecondaryNamespace, config.Alias);
 ```
-Note, once the failover is done and you need the data present in the primary namespace, you must use an explicit connection to the
-event hubs in the primary namespace to extract the data.
 
-### Other operations (optional)
-You can also break the geo-pairing or delete an alias, which can be done as shown in the code below
-Note: To delete an alias,you need to break the geo-paring first.
+Once the failover is complete and you need the data present in the primary namespace, you must use an explicit connection to the event hubs in the primary namespace to extract the data.
+
+## Other operations (optional)
+
+You can also break the geo-pairing or delete an alias, as shown in the following code. Note that to delete an alias, you must first break the geo-paring.
 
 ```csharp
 // Break pairing
@@ -81,10 +85,9 @@ await client.DisasterRecoveryConfigs.BreakPairingAsync(config.PrimaryResourceGro
                                                        config.PrimaryNamespace, config.Alias);
 
 // Delete alias
-// Before the alias is deleted, pairing needs to be broken
+// Before the alias is deleted, pairing must be broken
 await client.DisasterRecoveryConfigs.DeleteAsync(config.PrimaryResourceGroupName,
                                                  config.PrimaryNamespace, config.Alias);
-
 ```
 
 ## Considerations for public preview
@@ -98,12 +101,14 @@ Note the following considerations for this release:
 
 ## Next Steps
 
-* The [sample on GitHub])https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/GeoDRClient) walks you through the simple workflow for creating geo-pair and initiating a failover for a disaster recovery scenario
-* The [REST API reference here](/rest/api/eventhub/disasterrecoveryconfigs) gives you the APIs for performing the Geo-DR configurations
+* The [sample on GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/GeoDRClient) walks through a simple workflow that creates a geo-pairing and initiates a failover for a disaster recovery scenario.
+* The [REST API reference](/rest/api/eventhub/disasterrecoveryconfigs) describes APIs for performing the Geo-disaster recovery configuration.
 
 For more information about Event Hubs, visit the following links:
 
 * Get started with an [Event Hubs tutorial](event-hubs-dotnet-standard-getstarted-send.md)
 * [Event Hubs FAQ](event-hubs-faq.md)
 * [Sample applications that use Event Hubs](https://github.com/Azure/azure-event-hubs/tree/master/samples)
+
+[1]: ./media/event-hubs-geo-dr/eh-geodr1.png
 
