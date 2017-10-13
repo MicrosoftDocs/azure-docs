@@ -253,15 +253,9 @@ ms.author: renash
 
     There is no way to apply domain or NTFS permissions to an Azure File Share. Alternatively, A shared access signature (SAS) provides you with a way to grant limited access to objects in your storage account to other clients, without exposing your account key.
 
-* **Can I access File share using Domain Account Credentials**
+* **Can I access File share using Domain account credentials?**
 
     No. Currently the Azure File Share only support Storage keys authentication. So we cannot use domain account credentials to access them.
-
-You can find the information on these Azure File Share authentication from the following article:
-
-Frequently Asked Questions about Azure File storage
-https://docs.microsoft.com/en-us/azure/storage/storage-files-faq 
-
 
 ## On-Premises Access
 * **Do I have to use Azure ExpressRoute to connect to Azure Files or to use Azure File Sync on-premises?**  
