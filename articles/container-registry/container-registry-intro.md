@@ -5,7 +5,7 @@ services: container-registry
 documentationcenter: ''
 author: stevelas
 manager: balans
-editor: dlepow
+editor: mmacy
 tags: ''
 keywords: ''
 
@@ -17,7 +17,6 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2017
 ms.author: stevelas
-ms.custom: H1Hack27Feb2017
 ---
 # Introduction to private Docker container registries in Azure
 
@@ -54,4 +53,3 @@ Developers can also push to a container registry as part of a container developm
 * [Create a container registry using the Azure portal](container-registry-get-started-portal.md)
 * [Create a container registry using the Azure CLI](container-registry-get-started-azure-cli.md)
 * [Push your first image using the Docker CLI](container-registry-get-started-docker-cli.md)
-* To build a continuous integration and deployment workflow using Visual Studio Team Services, Azure Container Service, and Azure Container Registry, see [CI/CD with Docker Swarm and VSTS](../container-service/dcos-swarm/container-service-docker-swarm-setup-ci-cd.md).
