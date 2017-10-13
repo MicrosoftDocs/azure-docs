@@ -114,9 +114,7 @@ The following examples illustrate several design patterns for filter scenarios. 
    search=hotels ocean$filter=(baseRate ge 60 and baseRate lt 300) or city eq 'Los Angeles'
    ```
 
-+ "Contains" filters. Filters come with precision requirements for fully qualified, case-sensitive terms. If you want to filter on a term that appears in a description, you can use the search.ismatch function to relax some of these restrictions.
-
-Search.ismatch is only useful when combined in a filter with other expressions via ‘or’. Otherwise, you could achieve exactly the same thing with just search=white sand ocean
++ "Contains" filters. Filters come with precision requirements for fully qualified, case-sensitive terms. If you want to filter on a term that appears in a verbose string field you can use the **search.ismatch** function to relax some of these restrictions.
 
   ```
    # search.ismatch selects documents where 'ocean' appears in any field, for a search on white sand.
