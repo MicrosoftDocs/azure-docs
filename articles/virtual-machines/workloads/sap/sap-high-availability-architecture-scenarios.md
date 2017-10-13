@@ -317,7 +317,7 @@ If you decide not to use functionalities like Windows Server Failover Clustering
 
 This approach is described more in following document [Utilizing Azure Infrastructure VM Restart to Achieve “Higher Availability” of SAP System][sap-higher-availability].
 
-## SAP Application High Availability on Azure IaaS
+## <a name="baed0eb3-c662-4405-b114-24c10a62954e"></a> SAP Application High Availability on Azure IaaS
 
 To achieve full SAP system high availability, we need to protect all critical SAP system components, for example:
 

@@ -44,6 +44,7 @@ ms.custom: H1Hack27Feb2017
 
 [ha-guide]:sap-high-availability-guide.md
 [sap-higher-availability]:sap-higher-availability-architecture-scenarios.md
+[sap-high-availability-architecture-scenarios-sap-app-ha]:sap-high-availability-architecture-scenarios.md#baed0eb3-c662-4405-b114-24c10a62954e
 
 [planning-guide]:planning-guide.md  
 [planning-guide-1.2]:planning-guide.md#e55d1e22-c2c8-460b-9897-64622a34fdff
@@ -250,7 +251,7 @@ For critical SAP components we achieved the following so far:
   Here, similar to the SAP (A)SCS instance use case, we utilize Azure VM Restart to protect the VM with installed DBMS software, and we achieve “higher availability” of DBMS software through VM Restart.
   DBMS running in a single VM is also a SPOF, and it is the determinative factor for the availability of the whole SAP landscape.
 
-# Using Autostart for SAP Instances
+## Using Autostart for SAP Instances
   SAP offered the functionality to start SAP instances immediately after the start of the OS within the VM. The exact steps were documented in SAP Knowledge Base Article [1909114]. However, SAP is not recommending to use the setting anymore because there is no control in the order of instance restarts, assuming more than one VM got affected or multiple instances ran per VM. Assuming a typical Azure scenario of one SAP application server instance in a VM and the case of a single VM eventually getting restarted, the Autostart is not really critical and can be enabled by adding this parameter:
 
       Autostart = 1
@@ -267,3 +268,7 @@ For critical SAP components we achieved the following so far:
   * [Start/Stop SAP along with your Unix Server Start/Stop](http://scn.sap.com/community/unix/blog/2012/08/07/startstop-sap-along-with-your-unix-server-startstop)
   * [Starting and Stopping SAP NetWeaver Management Agents](https://help.sap.com/saphelp_nwpi711/helpdata/en/49/9a15525b20423ee10000000a421938/content.htm)
   * [How to enable auto Start of HANA Database](http://www.freehanatutorials.com/2012/10/how-to-enable-auto-start-of-hana.html)
+
+## Next Steps
+
+For the full SAP NetWeaver application aware high availability, see [SAP Application High Availability on Azure IaaS][sap-high-availability-architecture-scenarios-sap-app-ha].
