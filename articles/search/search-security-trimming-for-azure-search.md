@@ -1,20 +1,20 @@
 ---
-title: "Security Trimming with Azure Search"
+title: "Security trimming with Azure Search"
 description: Implement security trimming using Azure Search filter.
 ms.custom: ""
-ms.date: "2017-07-08"
-ms.prod: "azure"
+ms.date: "08/07/2017"
+ms.service: "azure"
 ms.reviewer: ""
 ms.service: "search"
 ms.suite: ""
 ms.tgt_pltfrm: ""
 caps.latest.revision: 26
-author: "Revitalbarletz"
+author: "revitalbarletz"
 ms.author: "revitalb"
 manager: "jlembicz"
 ---
 
-# Security Trimming with Azure Search
+# Security trimming with Azure Search
 
 You can apply security filters on search results to restrict document access based on user identity. This search experience generally requires comparing the identity of whoever requests the search against a field containing the principles who have permissions to the document. When a match is found, the user or principal (such as a group or role) has access to that document.
 
@@ -35,7 +35,7 @@ This article shows you how to accomplish security filtering using the following 
 
 This article assumes you have an [Azure subscription](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F), [Azure Search service](https://docs.microsoft.com/azure/search/search-create-service-portal), and [Azure Search Index](https://docs.microsoft.com/azure/search/search-create-index-portal).  
 
-## Create Security Field
+## Create security field
 
 Your documents must include a field specifying which groups have access. This information becomes the filter criteria against which documents are selected or rejected from the result set returned to the issuer.
 Let's assume that we have an index of secured files, and each file is accessible by a different set of users.
