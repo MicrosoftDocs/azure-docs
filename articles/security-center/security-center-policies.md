@@ -43,7 +43,7 @@ You can edit the default security policy for each of your Azure subscriptions in
 
 	![Policy definitions](./media/security-center-policies/security-center-policies-fig11.png)
 
-5. If you want more detailed explanation about the policy, click on it and another page will open with the details, and the JSON code that has the [policy definition(https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-policy#policy-definition-structure) structure:
+5. If you want more detailed explanation about the policy, click on it and another page will open with the details, and the JSON code that has the [policy definition](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-policy#policy-definition-structure) structure:
 
 	![Json](./media/security-center-policies/security-center-policies-fig13.png)
 

@@ -32,6 +32,7 @@
 #### [View service summary](storsimple-virtual-array-service-summary.md)
 #### [View device summary](storsimple-virtual-array-device-summary.md)
 #### [Manage storage accounts](storsimple-virtual-array-manage-storage-accounts.md)
+#### [Role-based Access Control](storsimple-8000-role-based-access-control.md)
 #### [Manage ACRs](storsimple-virtual-array-manage-acrs.md)
 #### [Manage jobs](storsimple-virtual-array-manage-jobs.md)
 #### [Change device password](storsimple-virtual-array-change-device-admin-password.md)
