@@ -6,7 +6,7 @@
 # Get started
 ## [Create your first logic app](logic-apps-create-a-logic-app.md)
 ## [Create logic apps from templates](logic-apps-create-logic-apps-from-templates.md)
-## [Create logic apps from Resource Manager templates](logic-apps-create-logic-apps-azure-resource-manager-templates.md)
+## [Create logic apps from Resource Manager templates](logic-apps-create-deploy-azure-resource-manager-templates.md)
 ## [Move MABS apps to logic apps](logic-apps-move-from-mabs.md)
 
 # How To
