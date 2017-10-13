@@ -20,25 +20,32 @@ ms.author: LADocs; jehollan
 # Troubleshoot and diagnose logic app failures
 
 Your logic app generates information that can help you 
-diagnose and debug problems with your logic app. 
-If your logic app experiences problems or failures, 
-here are some ways that can help you better understand 
-the source for those problems or failures. 
+diagnose and debug problems in your app. 
+Here are some ways that can help you find 
+the source behind problems or failures. 
 
 You can diagnose a logic app by reviewing 
 each step in the workflow through the Azure portal. 
 Or you can add some steps to a workflow for runtime debugging.
 
-## Trigger history in Azure portal
+## Review trigger history
 
 Each logic app starts with trigger. If the trigger doesn't fire, 
 first check the trigger history. This history lists all the 
 trigger attempts that your logic app made and details about 
 inputs and outputs for each trigger attempt.
 
-1. On your logic app menu, choose **Overview**. 
-To confirm that the trigger fired, check under 
-**Trigger History** to review the trigger's status.
+> [!NOTE]
+> You might have multiple trigger entries with the same date and time, 
+> which happens when your logic app finds multiple items. 
+> Each time the trigger fires, the Logic Apps engine creates 
+> a logic app instance to run your workflow. By default, 
+> each instance runs in parallel so that no workflow 
+> has to wait before starting a run.
+
+1. To check whether the trigger fired, 
+on your logic app menu, choose **Overview**. Under 
+**Trigger History**, review the trigger's status.
 
    > [!TIP]
    > If you don't see the logic app menu, 
@@ -48,13 +55,12 @@ To confirm that the trigger fired, check under
    ![Review trigger history](./media/logic-apps-diagnosing-failures/logic-app-trigger-history-overview.png)
 
    > [!TIP]
-   > If you don't find the data that you expect, 
-   > select **Refresh** on the toolbar.
-   >
-   > To check the trigger immediately without waiting for the next recurrence, 
-   > On the logic app menu, choose **Overview**. On the overview toolbar, 
-   > choose **Run trigger**, and select the trigger, which forces a check. 
-   > Or, you can select **Run** on designer toolbar.
+   > * If the list shows many trigger attempts, 
+   > and you can't find the entry you want, 
+   > try filtering the list.
+   > 
+   > * If you don't find the data that you expect, 
+   > try selecting **Refresh** on the toolbar.
 
    Here are the possible statuses for a trigger attempt:
 
@@ -65,12 +71,11 @@ To confirm that the trigger fired, check under
    | **Failed** | An error occurred. To review any generated error messages for a failed trigger, select that trigger attempt and choose **Outputs**. For example, you might find inputs that aren't valid. | 
    ||| 
 
-   You might have multiple trigger entries with the same date and time, 
-   which happens when your logic app finds multiple data items. 
-   Each time the trigger fires, the Logic Apps engine creates 
-   a logic app instance to run your workflow. By default, 
-   each instance runs in parallel so that no workflow 
-   has to wait before starting a run. 
+   > [!TIP]
+   > You can recheck the trigger without waiting for the next recurrence. 
+   > On the overview toolbar, choose **Run trigger**, 
+   > and select the trigger, which forces a check. 
+   > Or, select **Run** on Logic Apps Designer toolbar.
 
 3. To examine the details for a trigger attempt, 
 under **Trigger History**, select that trigger attempt. 
@@ -78,10 +83,9 @@ under **Trigger History**, select that trigger attempt.
    ![Select a trigger attempt](./media/logic-apps-diagnosing-failures/logic-app-trigger-history.png)
 
 4. Review the inputs and any outputs that the trigger generated. 
-
-   Trigger outputs show the data that came from the trigger. 
-   These outputs can help you determine whether all properties 
-   returned as expected.
+Trigger outputs show the data that came from the trigger. 
+These outputs can help you determine whether all properties 
+returned as expected.
 
    > [!NOTE]
    > If you find any content that you don't understand, 
@@ -90,17 +94,30 @@ under **Trigger History**, select that trigger attempt.
 
    ![Trigger outputs](./media/logic-apps-diagnosing-failures/trigger-outputs.png)
 
-## Runs history in Azure portal
+## Review run history
 
 Each fired trigger starts a workflow run. 
 You can review what happened during that run, 
 including the status for each step in the workflow, 
-plus the inputs and outputs for each step in the run.
+plus the inputs and outputs for each step.
 
 1. On the logic app menu, choose **Overview**. 
 Under **Runs history**, review the run for the fired trigger.
 
+   > [!TIP]
+   > If you don't see the logic app menu, 
+   > try returning to the Azure dashboard, 
+   > and reopen your logic app.
+
    ![Review runs history](./media/logic-apps-diagnosing-failures/logic-app-runs-history-overview.png)
+
+   > [!TIP]
+   > * If the list shows many runs, 
+   > and you can't find the entry you want, 
+   > try filtering the list.
+   > 
+   > * If you don't find the data that you expect, 
+   > try selecting **Refresh** on the toolbar.
 
    Here are the possible statuses for a run:
 
@@ -109,40 +126,42 @@ Under **Runs history**, review the run for the fired trigger.
    | **Succeeded** | All actions succeeded. <p>If any failures happened in a specific action, a following action in the workflow handled that failure. | 
    | **Failed** | At least one action failed, and no later actions in the workflow were set up to handle the failture. | 
    | **Cancelled** | The workflow was running but received a cancel request. | 
-   | **Running** | The workflow is currently running. <p>This status might happen for throttled workflows, or due to the current pricing plan. For more information, see [action limits on the pricing page](https://azure.microsoft.com/pricing/details/app-service/plans/). <p>If you set up diagnostics logging, you can also get information about any throttle events that happen. | 
+   | **Running** | The workflow is currently running. <p>This status might happen for throttled workflows, or due to the current pricing plan. For more information, see [action limits on the pricing page](https://azure.microsoft.com/pricing/details/logic-apps/). If you set up [diagnostics logging](../logic-apps/logic-apps-monitor-your-logic-apps.md), you can also get information about any throttle events that happen. | 
    ||| 
 
-2. For more details about each step in a specific run, 
-under **Runs history**, select the run that you want to examine.
+2. Review the details for each step in a specific run. 
+Under **Runs history**, select the run that you want to examine.
 
    ![Review runs history](./media/logic-apps-diagnosing-failures/logic-app-run-history.png)
 
-   Regardless whether the run succeded or failed, 
-   the Run Details view shows the workflow steps 
-   and whether they passed or failed.
+   Whether the run itself succeded or failed, 
+   the Run Details view shows each step and whether 
+   they succeeded or failed.
 
    ![View details for a logic app run](./media/logic-apps-diagnosing-failures/logic-app-run-details.png)
 
-3. To examine the inputs, outputs, and any error messages for each step, 
-expand the shape for the step that you want to review. For example:
+3. To examine the inputs, outputs, and any error messages for a specific step, choose that step so that the shape expands and shows the details. For example:
 
    ![View step details](./media/logic-apps-diagnosing-failures/logic-app-run-details-expanded.png)
 
-## Debug workflow runtime
+## Perform runtime debugging
 
-You can also add diagnostic steps to a workflow that help with debugging. 
-For example, you can add a step that uses the [RequestBin](http://requestb.in) 
-service so that you can inspect HTTP requests and determine their exact size, shape, 
-and format.
+To help with debugging, you can add diagnostic steps to a workflow, 
+along with reviewing the trigger and runs history. For example, 
+you can add steps that use the [RequestBin](http://requestb.in) 
+service so that you can inspect HTTP requests and determine 
+their exact size, shape, and format.
 
-1. Create a RequestBin.
+1. Create a RequestBin, 
+which you can make private and viweable only in your browser.
 
-2. In your logic app, add an HTTP POST action with the body content that you wan to test, 
+2. In your logic app, add an HTTP POST action with the 
+body content that you want to test, 
 for example, an expression or another step output.
 
-3. Paste the URL for your RequestBin in the HTTP POST action.
+3. Paste the URL for your RequestBin into the HTTP POST action.
 
-4. To see how a request was formed when generated from the Logic Apps engine, 
+4. To review how a request was formed when generated from the Logic Apps engine, 
 run the logic app, and refresh your RequestBin.
 
 ## Next steps

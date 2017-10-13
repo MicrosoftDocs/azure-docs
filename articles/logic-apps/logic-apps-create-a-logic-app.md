@@ -296,9 +296,14 @@ Confirm that you want to delete your logic app, then choose **Delete**.
   > try returning to the Azure dashboard, 
   > and reopen your logic app.
 
+## Get support
+
+* For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](http://aka.ms/logicapps-wish).
+
 ## Next steps
 
 Learn how to build logic apps from prebuilt templates.
 
 > [!div class="nextstepaction"]
-> [Build logic apps from templates](../logic-apps/logic-apps-use-logic-app-templates.md)
+> [Create logic app workflows from templates](../logic-apps/logic-apps-create-logic-apps-from-templates.md)
