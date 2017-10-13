@@ -33,14 +33,6 @@
   items:
   - name: Use Helm charts
     href: kubernetes-helm.md
-  - name: Use Jenkins with ACS
-    href: kubernetes-jenkins.md
-  - name: Use Draft with ACS
-    href: draft-up.md
-  - name: Scale cluster
-    href: scale.md
-  - name: Use Web interface
-    href: kubernetes-ui.md
 - name: Reference
   items:
   - name: Azure CLI
