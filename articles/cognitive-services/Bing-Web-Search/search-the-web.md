@@ -21,16 +21,16 @@ If you're building a search results page that displays any content that's releva
 
 If Bing didn't find content from one of the content-specific APIs relevant enough, it would not include it in the search results. For example, the results could include webpages, news articles, and videos but not images. However, it's possible that if you called the Image Search API directly with the same query, it would return images.
 
-If you don't need webpages but you do need answers from more than one of the other APIs, such as images and news, you'd still call this API. For example, if you only wanted Images and News, you'd call this API and set [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference#responsefilter) query parameter to limit the results to only Images and News. For more information, see [Filtering Answers](./filter-answers.md).
+If you don't need webpages but you do need answers from more than one of the other APIs, such as images and news, you'd still call this API. For example, if you only wanted Images and News, you'd call this API and set [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#responsefilter) query parameter to limit the results to only Images and News. For more information, see [Filtering Answers](./filter-answers.md).
 
 
 ## Search query term
 
 If you provide a search box where the user enters their search term, use the [Bing Autosuggest API](../bing-autosuggest/get-suggested-search-terms.md) to improve the experience. The API returns suggested query strings based on partial search terms as the user types.
 
-After the user enters their query term, URL encode the term before setting the [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference#query) query parameter. For example, if the user enters *sailing dinghies*, set `q` to *sailing+dinghies* or *sailing%20dinghies*.
+After the user enters their query term, URL encode the term before setting the [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query) query parameter. For example, if the user enters *sailing dinghies*, set `q` to *sailing+dinghies* or *sailing%20dinghies*.
 
-If the query term contains a spelling mistake, the search response includes a [QueryContext](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference#querycontext) object. The object shows the original spelling and the corrected spelling that Bing used for the search. 
+If the query term contains a spelling mistake, the search response includes a [QueryContext](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#querycontext) object. The object shows the original spelling and the corrected spelling that Bing used for the search. 
 
 ```
   "queryContext":{  
@@ -46,7 +46,7 @@ You can use this information to let the user know that you modified their query 
 
 ## The search response
 
-When you send Bing a search request, it sends back a response that contains a [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference#searchresponse) object in the body of the response. The object includes a field for each answer that Bing thought was relevant to the user's query term. The following shows an example of the response object if Bing returned all answers.
+When you send Bing a search request, it sends back a response that contains a [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#searchresponse) object in the body of the response. The object includes a field for each answer that Bing thought was relevant to the user's query term. The following shows an example of the response object if Bing returned all answers.
 
 ```
 {
@@ -63,15 +63,15 @@ When you send Bing a search request, it sends back a response that contains a [S
     "rankingResponse" : {...}
 ```
 
-Typically, Bing returns a subset of the answers. For example, if the query term was *sailing dinghies*, the response might include only `webPages`, `images`, and `rankingResponse`. Unless you've used [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference#responsefilter) to filter out webpages, the response always includes the `webpages` and `rankingResponse` answers.
+Typically, Bing returns a subset of the answers. For example, if the query term was *sailing dinghies*, the response might include only `webPages`, `images`, and `rankingResponse`. Unless you've used [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#responsefilter) to filter out webpages, the response always includes the `webpages` and `rankingResponse` answers.
 
 ### Webpages answer
 
-The [webPages](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference#webanswer) answer contains a list of links to webpages that Bing thought were relevant to the query. Each [webpage](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference#webpage) in the list includes the page's name, url, display URL, short description of the content and the date Bing found the content.
+The [webPages](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webanswer) answer contains a list of links to webpages that Bing thought were relevant to the query. Each [webpage](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webpage) in the list includes the page's name, url, display URL, short description of the content and the date Bing found the content.
 
 ```
         {
-            "id" : "https:\/\/api.cognitive.microsoft.com\/api\/v5\/#WebPages.0",
+            "id" : "https:\/\/api.cognitive.microsoft.com\/api\/v7\/#WebPages.0",
             "name" : "Dinghy sailing - Wikipedia",
             "url" : "https:\/\/www.bing.com\/cr?IG=3A43CA5...",
             "displayUrl" : "https:\/\/en.wikipedia.org\/wiki\/Dinghy_sailing",
@@ -86,7 +86,7 @@ Use `name` and `url` to create a hyperlink that takes the user to the webpage. T
 
 ### Images answer
 
-The [images](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference#images) answer contains a list of images that Bing thought were relevant to the query. Each [image](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference#image) in the list includes the URL of the image, its size, its dimensions, and its encoding format. The image object also includes the URL of a thumbnail of the image and the thumbnail's dimensions.
+The [images](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#images) answer contains a list of images that Bing thought were relevant to the query. Each [image](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#image) in the list includes the URL of the image, its size, its dimensions, and its encoding format. The image object also includes the URL of a thumbnail of the image and the thumbnail's dimensions.
 
 ```
         {
@@ -127,7 +127,7 @@ For details about the image answer and images, see [Image Search API](../bing-im
 
 ### Related searches answer
 
-The [relatedSearches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference#searchresponse-relatedsearches) answer contains a list of the most popular related queries made by other users. Each [query](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference#query_obj) in the list includes a query string (`text`), a query string with hit highlighting characters (`displayText`), and a URL (`webSearchUrl`) to Bing's search results page for that query.
+The [relatedSearches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#searchresponse-relatedsearches) answer contains a list of the most popular related queries made by other users. Each [query](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#query_obj) in the list includes a query string (`text`), a query string with hit highlighting characters (`displayText`), and a URL (`webSearchUrl`) to Bing's search results page for that query.
 
 ```
         {
@@ -148,7 +148,7 @@ The following shows an example of the related queries usage in Bing.com.
 
 ### Videos answer
 
-The [videos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference#videos) answer contains a list of videos that Bing thought were relevant to the query. Each [video](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference#video) in the list includes the URL of the video, its duration, its dimensions, and its encoding format. The video object also includes the URL of a thumbnail of the video and the thumbnail's dimensions.
+The [videos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos) answer contains a list of videos that Bing thought were relevant to the query. Each [video](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#video) in the list includes the URL of the video, its duration, its dimensions, and its encoding format. The video object also includes the URL of a thumbnail of the video and the thumbnail's dimensions.
 
 ```
         {
@@ -201,7 +201,7 @@ For details about the video answer and videos, see [Video Search API](../bing-vi
 
 ### News answer
 
-The [news](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference#news) answer contains a list of news articles that Bing thought were relevant to the query. Each [news article](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference#newsarticle) in the list includes the article's name, description, and URL to the article on the host's website. If the article contains an image, the object includes a thumbnail of the image.
+The [news](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#news) answer contains a list of news articles that Bing thought were relevant to the query. Each [news article](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#newsarticle) in the list includes the article's name, description, and URL to the article on the host's website. If the article contains an image, the object includes a thumbnail of the image.
 
 ```
         {
@@ -236,7 +236,7 @@ For details about the news answer and news articles, see [News Search API](../bi
 
 ## Computation answer
 
-If the user enters a mathematical expression or a unit conversion query, the response may contain a [Computation](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference#computation) answer. The `computation` answer contains the normalized expression and its result.  
+If the user enters a mathematical expression or a unit conversion query, the response may contain a [Computation](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#computation) answer. The `computation` answer contains the normalized expression and its result.  
   
 A unit conversion query is a query that converts one unit to another. For example, *How many feet in 10 meters?* or *How many tablespoons in a 1/4 cup?*  
   
@@ -244,7 +244,7 @@ The following shows the `computation` answer for *How many feet in 10 meters?*
   
 ```  
 "computation" : {  
-    "id" : "https:\/\/www.bing.com\/api\/v5\/#Computation",  
+    "id" : "https:\/\/www.bing.com\/api\/v7\/#Computation",  
     "expression" : "10 meters",  
     "value" : "32.808399 feet"  
 },  
@@ -258,7 +258,7 @@ Query: (5+3)(10/2)+8
 Encoded query: %285%2B3%29%2810%2F2%29%2B8  
   
 "computation" : {  
-        "id" : "https:\/\/www.bing.com\/api\/v5\/#Computation",  
+        "id" : "https:\/\/www.bing.com\/api\/v7\/#Computation",  
         "expression" : "((5+3)*(10\/2))+8",  
         "value" : "48"  
 }  
@@ -270,7 +270,7 @@ Query: sqrt(4^2+8^2)
 Encoded query: sqrt%284^2%2B8^2%29  
   
 "computation" : {  
-        "id" : "https:\/\/www.bing.com\/api\/v5\/#Computation",  
+        "id" : "https:\/\/www.bing.com\/api\/v7\/#Computation",  
         "expression" : "sqrt((4^2)+(8^2))",  
         "value" : "8.94427191"  
 }  
@@ -282,7 +282,7 @@ Query: 30 6/8 - 18 8/16
 Encoded query: 30%206%2F8%20-%2018%208%2F16  
   
 "computation" : {  
-        "id" : "https:\/\/www.bing.com\/api\/v5\/#WolframAlpha",  
+        "id" : "https:\/\/www.bing.com\/api\/v7\/#WolframAlpha",  
         "expression" : "30 6\/8-18 8\/16",  
         "value" : "12.25"  
 }  
@@ -295,7 +295,7 @@ Query: 8^2+11^2-2*8*11*cos(37)
 Encoded query: 8^2%2B11^2-2*8*11*cos%2837%29  
   
 "computation" : {  
-        "id" : "https:\/\/www.bing.com\/api\/v5\/#Computation",  
+        "id" : "https:\/\/www.bing.com\/api\/v7\/#Computation",  
         "expression" : "(8^2)+(11^2)-(2*8*11*cos(37))",  
         "value" : "44.4401502"  
 }  
@@ -343,228 +343,10 @@ A mathematical expression may contain the following functions:
   
 Mathematical expressions that contain variables (for example, 4x+6=18, where x is the variable) are not supported.  
 
-## Entity answer
-
-The `entities` field is an [EntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entityanswer) object that contains a list of [Entity](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity) objects (see the `value` field). The list may contain a single dominant entity, multiple disambiguation entities or both. A dominant entity is an entity that Bing believes is the only entity that satisfies the request (there is no ambiguity as to which entity satisfies the request). If multiple entities could satisfy the request, the list will contain more than one disambiguation entity. For example, if the request uses the generic title of a movie franchise, the list would likely contain disambiguation entities. But, if the request specifies a specific title from the franchise, the list would likely contain a siingle dominant entity.
-
-Entities include persons such as Adam Levine and things such as banana, goldendoodle, book, or movie title. The [entityPresentationInfo](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entitypresentationinfo) field contains hints that identify the entity's type. For example, if it's a person, movie, animal, or attraction. For a list of possible types, see [Entity Types](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity-types)
-
-```
-            "entityPresentationInfo" : {
-                "entityScenario" : "DominantEntity",
-                "entityTypeHints" : ["Attraction"],
-                "entityTypeDisplayHint" : "Mountain"
-            },
-```
-
-The following shows a response that includes a dominant and disambiguation entities.
-
-```
-{
-    "_type" : "SearchResponse",
-    "queryContext" : {
-        "originalQuery" : "pike place market"
-    },
-    "entities" : {
-        "value" : [{
-            "contractualRules" : [{
-                "_type" : "ContractualRules\/LicenseAttribution",
-                "targetPropertyName" : "description",
-                "mustBeCloseToContent" : true,
-                "license" : {
-                    "name" : "CC-BY-SA",
-                    "url" : "http:\/\/creativecommons.org\/licenses\/by-sa\/3.0\/"
-                },
-                "licenseNotice" : "Text under CC-BY-SA license"
-            },
-            {
-                "_type" : "ContractualRules\/LinkAttribution",
-                "targetPropertyName" : "description",
-                "mustBeCloseToContent" : true,
-                "text" : "en.wikipedia.org",
-                "url" : "http:\/\/en.wikipedia.org\/wiki\/Pike_Place_Market"
-            },
-            {
-                "_type" : "ContractualRules\/MediaAttribution",
-                "targetPropertyName" : "image",
-                "mustBeCloseToContent" : true,
-                "url" : "http:\/\/en.wikipedia.org\/wiki\/Pike_Place_Market"
-            }],
-            "webSearchUrl" : "https:\/\/www.bing.com\/search?q=Pike%20Place%20Market...",
-            "name" : "Pike Place Market",
-            "url" : "http:\/\/www.pikeplacemarket.org\/",
-            "image" : {
-                "name" : "Pike Place Market",
-                "thumbnailUrl" : "https:\/\/www.bing.com\/th?id=A4ae343983daa4...",
-                "provider" : [{
-                    "_type" : "Organization",
-                    "url" : "http:\/\/en.wikipedia.org\/wiki\/Pike_Place_Market"
-                }],
-                "hostPageUrl" : "http:\/\/upload.wikimedia.org\/wikipedia\/commons\/7\/72\/Pike_Place...",
-                "width" : 110,
-                "height" : 110
-            },
-            "description" : "Pike Place Market is a public market overlooking the Elliott...",
-            "entityPresentationInfo" : {
-                "entityScenario" : "DominantEntity",
-                "entityTypeHints" : ["Attraction"]
-            },
-            "bingId" : "38b9431e-cf91-93be-0584-c42a3ecbfdc7"
-        },
-        {
-            "contractualRules" : [{
-                "_type" : "ContractualRules\/MediaAttribution",
-                "targetPropertyName" : "image",
-                "mustBeCloseToContent" : true,
-                "url" : "http:\/\/en.wikipedia.org\/wiki\/Pike_Place_Fish_Market"
-            }],
-            "webSearchUrl" : "https:\/\/www.bing.com\/search?q=Pike%20Place%20Fish%20Market...",
-            "name" : "Pike Place Fish Market",
-            "url" : "http:\/\/pikeplacefish.com\/",
-            "image" : {
-                "name" : "Pike Place Fish Market",
-                "thumbnailUrl" : "https:\/\/www.bing.com\/th?id=A91bdc5a1b648a695a39...",
-                "provider" : [{
-                    "_type" : "Organization",
-                    "url" : "http:\/\/en.wikipedia.org\/wiki\/Pike_Place_Fish_Market"
-                }],
-                "hostPageUrl" : "http:\/\/upload.wikimedia.org\/wikipedia\/en\/7\/7a...",
-                "width" : 50,
-                "height" : 50
-            },
-            "description" : "The Pike Place Fish Market, founded in 1930, is an open air fish market...",
-            "entityPresentationInfo" : {
-                "entityScenario" : "DisambiguationItem",
-                "entityTypeHints" : ["Organization"]
-            },
-            "bingId" : "29d4b681-227a-3924-7bb1-8a54e8666b8c"
-        }]
-    }
-}
-```
-
-The entity includes a `name`, `description`, and `image` field. When you display these fields in your user experience, you must attribute them. The `contractualRules` field contains a list of attributions that you must apply. The contractual rule identifies the field that the attribution applies to. For information about applying attribution, see [Attribution](#data-attribution).
-
-```
-            "contractualRules" : [{
-                "_type" : "ContractualRules\/LicenseAttribution",
-                "targetPropertyName" : "description",
-                "mustBeCloseToContent" : true,
-                "license" : {
-                    "name" : "CC-BY-SA",
-                    "url" : "http:\/\/creativecommons.org\/licenses\/by-sa\/3.0\/"
-                },
-                "licenseNotice" : "Text under CC-BY-SA license"
-            },
-            {
-                "_type" : "ContractualRules\/LinkAttribution",
-                "targetPropertyName" : "description",
-                "mustBeCloseToContent" : true,
-                "text" : "en.wikipedia.org",
-                "url" : "http:\/\/en.wikipedia.org\/wiki\/Mount_Rainier"
-            },
-            {
-                "_type" : "ContractualRules\/MediaAttribution",
-                "targetPropertyName" : "image",
-                "mustBeCloseToContent" : true,
-                "url" : "http:\/\/en.wikipedia.org\/wiki\/Mount_Rainier"
-            }],
-```
-
-When you display the entity information (name, description, and image), you must also use the URL in the `webSearchUrl` field to link to the Bing search results page that contains the entity.
-  
-> [!NOTE]
-> You, or a third party on your behalf, may not use, retain, store, cache, share, or distribute any data from the Entities API for the purpose of testing, developing, training, distributing or making available any non-Microsoft service or feature.  
-
-## Data attribution  
-
-Web Search API responses contain information owned by third parties. You are responsible to ensure your use is appropriate, for example by complying with any creative commons license your user experience may rely on.  
-  
-If an answer or result includes the `contractualRules`, `attributions`, or `provider` fields, you must attribute the data. If the answer does not include any of these fields, no attribution is required. If the answer includes the `contractualRules` field and the `attributions` and/or `provider` fields, you must use the contractual rules to attribute the data.  
-  
-The following example shows an entity that includes a MediaAttribution contractual rule and an Image that includes a `provider` field. The MediaAttribution rule identifies the image as the target of the rule, so you'd ignore the image's `provider` field and instead use the MediaAttribution rule to provide attribution.  
-  
-```  
-        "value" : [{
-            "contractualRules" : [
-                . . .
-                {
-                    "_type" : "ContractualRules\/MediaAttribution",
-                    "targetPropertyName" : "image",
-                    "mustBeCloseToContent" : true,
-                    "url" : "http:\/\/en.wikipedia.org\/wiki\/Space_Needle"
-                }
-            ],
-            . . .
-            "image" : {
-                "name" : "Space Needle",
-                "thumbnailUrl" : "https:\/\/www.bing.com\/th?id=A46378861201...",
-                "provider" : [{
-                    "_type" : "Organization",
-                    "url" : "http:\/\/en.wikipedia.org\/wiki\/Space_Needle"
-                }],
-                "hostPageUrl" : "http:\/\/www.citydictionary.com\/Uploaded...",
-                "width" : 110,
-                "height" : 110
-            },
-            . . .
-        }]
-```  
-  
-If a contractual rule includes the `targetPropertyName` field, the rule applies only to the targeted field. Otherwise, the rule applies to the parent object that contains the `contractualRules` field.  
-  
-  
-In the following example, the `LinkAttribution` rule includes the `targetPropertyName` field, so the rule applies to the `description` field. For rules that apply to specific fields, you must include a line immediately following the targeted data that contains a hyperlink to the provider's website. For example, to attribute the description, include a line immediately following the description text that contains a hyperlink to the data on the provider's website, in this case create a link to en.wikipedia.org.  
-  
-```  
-"entities" : {  
-    "value" : [{  
-            . . .  
-            "description" : "Peyton Williams Manning is a former American....",  
-            . . .  
-            "contractualRules" : [{  
-                    "_type" : "ContractualRules\/LinkAttribution",  
-                    "targetPropertyName" : "description",  
-                    "mustBeCloseToContent" : true,  
-                    "text" : "en.wikipedia.org",  
-                    "url" : "http:\/\/www.bing.com\/cr?IG=B8AD73..."  
-                 },  
-            . . .  
-  
-```  
-
-### License Attribution  
-
-If the list of contractual rules includes a [LicenseAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#licenseattribution) rule, you must display the notice on the line immediately following the content that the license applies to. The `LicenseAttribution` rule uses the `targetPropertyName` field to identify the property that the license applies to.  
-  
-The following shows an example that includes a `LicenseAttribution` rule.  
-  
-![License attribution](./media/licenseattribution.png)  
-  
-The license notice that you display must include a hyperlink to the website that contains information about the license. Typically, you make the name of the license a hyperlink. For example, if the notice is **Text under CC-BY-SA license** and CC-BY-SA is the name of the license, you would make CC-BY-SA a hyperlink.  
-  
-### Link and Text Attribution  
-
-The [LinkAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#linkattribution) and [TextAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#textattribution) rules are typically used to identify the provider of the data. The `targetPropertyName` field identifies the field that the rule applies to.  
-  
-To attribute the providers, include a line immediately following the content that the attributions apply to (for example, the targeted field). The line should be clearly labeled to indicate that the providers are the source of the data. For example, "Data from: en.wikipedia.org". For `LinkAttribution` rules, you must create a hyperlink to the provider's website.  
-  
-The following shows an example that includes `LinkAttribution` and `TextAttribution` rules.  
-  
-![Link text attribution](./media/linktextattribution.png)  
-
-### Media Attribution  
-
-If the entity includes an image and you display it, you must provide a click-through link to the provider's website. If the entity includes a [MediaAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#mediaattribution) rule, use the rule's URL to create the click-through link. Otherwise, use the URL included in the image's `provider` field to create the click-through link.  
-  
-The following shows an example that includes an image's `provider` field and contractual rules. Because the example includes the contractual rule, you will ignore the image's `provider` field and apply the `MediaAttribution` rule.  
-  
-![Media attribution](./media/mediaattribution.png)  
-
 
 ### TimeZone answer  
 
-If the user enters a time or date query, the response may contain a [TimeZone](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference#timezone) answer. This answer supports implicit or explicit queries. An implicit query such as *What time is it?*, returns the local time of the user's location. An explicit query such as *What time is it in Seattle?*, returns the local time of Seattle, WA.  
+If the user enters a time or date query, the response may contain a [TimeZone](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#timezone) answer. This answer supports implicit or explicit queries. An implicit query such as *What time is it?*, returns the local time of the user's location. An explicit query such as *What time is it in Seattle?*, returns the local time of Seattle, WA.  
   
 The `timeZone` answer provides the name of the location, the current UTC date and time at the specified location, and the UTC offset. If the boundary of the location is within multiple time zones, the answer contains the current UTC date and time of all time zones within the boundary. For example, because Florida State falls within two time zones, the answer contains the local date and time of both time zones.  
   
@@ -576,7 +358,7 @@ The following shows example queries that return the `timeZone` answer.
 Query: What time is it?  
   
 "timeZone" : {  
-        "id" : "https:\/\/www.bing.com\/api\/v5\/#TimeZone",  
+        "id" : "https:\/\/www.bing.com\/api\/v7\/#TimeZone",  
         "primaryCityTime" : {  
             "location" : "Redmond, Washington, United States",  
             "time" : "2015-10-27T08:38:12.1189231Z",  
@@ -589,7 +371,7 @@ Query: What time is it?
 Query: What time is it in the Pacific time zone?  
   
 "timeZone" : {  
-        "id" : "https:\/\/www.bing.com\/api\/v5\/#TimeZone",  
+        "id" : "https:\/\/www.bing.com\/api\/v7\/#TimeZone",  
         "primaryCityTime" : {  
             "location" : "Pacific Time Zone",  
             "time" : "2015-10-23T12:33:19.0728146Z",  
@@ -602,7 +384,7 @@ Query: What time is it in the Pacific time zone?
 Query: Time in Florida?  
   
 "timeZone" : {  
-        "id" : "https:\/\/www.bing.com\/api\/v5\/#TimeZone",  
+        "id" : "https:\/\/www.bing.com\/api\/v7\/#TimeZone",  
         "primaryCityTime" : {  
             "location" : "Tallahassee, Florida, United States",  
             "time" : "2015-10-23T13:04:56.6774389Z",  
@@ -620,7 +402,7 @@ Query: Time in Florida?
 Query: What time is it in the U.S.  
   
 "timeZone" : {  
-        "id" : "https:\/\/www.bing.com\/api\/v5\/#TimeZone",  
+        "id" : "https:\/\/www.bing.com\/api\/v7\/#TimeZone",  
         "primaryCityTime" : {  
             "location" : "Washington, D.C., United States",  
             "time" : "2015-10-23T15:27:59.8892745Z",  
@@ -690,11 +472,11 @@ The following shows an example of a `Translations` answer to the query, *transla
   
 ### SpellSuggestion answer
 
-If Bing determines that the user may have intended to search for something different, the response includes a [SpellSuggestions](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference#spellsuggestions) object. For example, if the user searches for *carlos pen*, Bing may determine that the user likely intended to search for Carlos Pena instead (based on past searches by others of *carlos pen*). The following shows an example spell response.  
+If Bing determines that the user may have intended to search for something different, the response includes a [SpellSuggestions](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#spellsuggestions) object. For example, if the user searches for *carlos pen*, Bing may determine that the user likely intended to search for Carlos Pena instead (based on past searches by others of *carlos pen*). The following shows an example spell response.  
   
 ```  
     "spellSuggestions" : {  
-        "id" : "https:\/\/www.bing.com\/api\/v5\/#SpellSuggestions",  
+        "id" : "https:\/\/www.bing.com\/api\/v7\/#SpellSuggestions",  
         "value" : [{  
             "text" : "carlos pena",  
             "displayText" : "carlos pena"  
@@ -717,7 +499,7 @@ The following shows how Bing uses the spelling suggestion.
 
 To get started quickly with your first request, see [Making Your First Query](./quick-start.md).
 
-Familiarize yourself with the [Web Search API Reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference). The reference contains the list of endpoints, headers, and query parameters that you'd use to request search results. It also includes definitions of the response objects. 
+Familiarize yourself with the [Web Search API Reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference). The reference contains the list of endpoints, headers, and query parameters that you'd use to request search results. It also includes definitions of the response objects. 
 
 Bing requires you to display the results in the order given. To learn how to use the ranking response to display the results, see [Ranking Results](./rank-results.md).
 
