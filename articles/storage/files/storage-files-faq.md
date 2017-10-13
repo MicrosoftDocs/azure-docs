@@ -237,7 +237,7 @@ ms.author: renash
 
 * **How to map Azure Files storage for all users as a network share without prompting them for credential?** 
 
-      Azure Files does not support either AD or Azure AD. That means you typically need to map the drive for the users. A scenario where a login script maps the drive could give someone access to the storage key without prompting them for credential. 
+    Azure Files does not support either AD or Azure AD. That means you typically need to map the drive for the users. A scenario where a login script maps the drive could give someone access to the storage key without prompting them for credential. 
    
    For more information, see the following documents:    
    
