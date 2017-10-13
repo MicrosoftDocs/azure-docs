@@ -51,7 +51,7 @@ The following section is an overview of the entire process of setting up the ini
 
 ![1][]
 
-You first set up a primary and a secondary namespace, then create a pairing. This pairing gives you an alias that you can use to connect. Because you use an alias, you do not have to change connection strings. Only new namespaces can be added to your failover pairing. Finally, you must add some trigger logic (for example, some business logic that detects if the namespace is not available, and initiates the failover). You can check for namespace availability using the [message browsing](message-browsing.md) capability of Service Bus.
+You first set up a primary and a secondary namespace, then create a pairing. This pairing gives you an alias that you can use to connect. Because you use an alias, you do not have to change connection strings. **Only new namespaces can be added to your failover pairing**. Finally, you must add some trigger logic (for example, some business logic that detects if the namespace is not available, and initiates the failover). You can check for namespace availability using the [message browsing](message-browsing.md) capability of Service Bus.
 
 After you have set up both monitoring and disaster recovery, you can look at the failover process. If the trigger initiates a failover, or you initiate the failover manually, two steps are required:
 
@@ -64,13 +64,13 @@ After you have set up both monitoring and disaster recovery, you can look at the
 
 This section describes how to build your own Service Bus Geo-disaster recovery code. To do so, you need two namespaces in independent locations; for example, South US and North Central US. The following example uses Visual Studio 2017.
 
-1.  Create a new **Console App(.Net Framework)** project in Visual Studio and give it a name; for example, **SBGeoDR**.
+1.  Create a new **Console App(.NET Framework)** project in Visual Studio and give it a name; for example, **SBGeoDR**.
 
 2.  Install the following NuGet packages:
-    1.  Microsoft.IdentityModel.Clients.ActiveDirectory
-    2.  Microsoft.Azure.Management.ServiceBus
+    *  Microsoft.IdentityModel.Clients.ActiveDirectory
+    *  Microsoft.Azure.Management.ServiceBus
 
-3. Make sure that the version of the Newtonsoft.Json NuGet package you are using is version 10.0.3.
+3. Make sure that the version of the Newtonsoft.Json NuGet package you are using is version 10.0.3 or later.
 
 3.  Add the following `using` statements to your code:
 
