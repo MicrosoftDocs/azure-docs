@@ -54,7 +54,7 @@ Log in to the [Azure portal](http://portal.azure.com).
 
 ## Upload the sample data
 
-In the Azure portal, navigate back to the storage account created in the [previous tutorial](./storage-unstructured-search.md). Then open the **data** container, and click **Upload**.
+In the Azure portal, navigate back to the storage account created in the [previous tutorial](../storage/blobs/storage-unstructured-search.md). Then open the **data** container, and click **Upload**.
 
 Click **Advanced**, enter "clinical-trials-json", and then upload all of the JSON files you downloaded.
 
