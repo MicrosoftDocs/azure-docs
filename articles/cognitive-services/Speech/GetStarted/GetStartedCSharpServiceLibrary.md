@@ -13,7 +13,7 @@ ms.author: zhouwang
 ---
 # Get started with Microsoft speech recognition service library in C&#35; for .NET Windows
 
-With Microsoft speech recognition service library, your service can utilize the power of Microsoft Speech transcription cloud to convert spoken language to text. This service-to-service library works in real time so your client app can send audio to servers in the cloud and start receiving partial recognition results back simultaneously and asynchronously.
+The service library is for developers who have their own cloud service and wish to call Microsoft Speech Recognition Service from their service. This SDK should not be used by developers who wish to call our Speech Recognition service from a device bound apps (use other client libraries or REST APIs for that).
 
 To use the C# service library, you need to install [NuGet package Microsoft.Bing.Speech](https://www.nuget.org/packages/Microsoft.Bing.Speech/). For library API reference, see the [Microsoft Speech C# Service Library](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-ServiceLibrary/master/docs/index.html).
 

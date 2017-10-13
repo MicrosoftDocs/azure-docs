@@ -34,6 +34,7 @@ Currently, the following Microsoft Speech Client Libraries are available:
 ## Additional resources
 
 - The [samples](../samples.md) page provides complete samples to use Speech Client Libraries.
+- Creating your own SDK. If you need a client library that is not yet supported, you can create your own SDK by implementing the [Speech WebSocket Protocol](../API-Reference-REST/websocketprotocol.md) on the platform and using the language of your choice.
 
 ## License
 

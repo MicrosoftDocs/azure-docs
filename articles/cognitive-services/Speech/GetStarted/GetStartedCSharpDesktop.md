@@ -15,7 +15,7 @@ ms.author: zhouwang
 
 This page shows how to develop a basic Windows application that uses Microsoft speech recognition API to convert spoken audio to text. Using the client library allows for real-time streaming, which means that when your client application sends audio to the service, it simultaneously and asynchronously receives partial recognition results back.
 
-To use the C#/.NET speech desktop library on Windows, you need to install [NuGet package Microsoft.ProjectOxford.SpeechRecognition-x86](https://www.nuget.org/packages/Microsoft.ProjectOxford.SpeechRecognition-x86/) for 32-bit platform and [NuGet packageMicrosoft.ProjectOxford.SpeechRecognition-x64](https://www.nuget.org/packages/Microsoft.ProjectOxford.SpeechRecognition-x64/) for 64-bit platform. For client library API reference, see [Microsoft Speech C# Desktop Library](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-Windows/master/docs/SpeechSDK/index.html).
+The C# desktop library can be used by developers who want to use Microsoft Speech Service from apps running on any device. To use the library, you need to install [NuGet package Microsoft.ProjectOxford.SpeechRecognition-x86](https://www.nuget.org/packages/Microsoft.ProjectOxford.SpeechRecognition-x86/) for 32-bit platform and [NuGet packageMicrosoft.ProjectOxford.SpeechRecognition-x64](https://www.nuget.org/packages/Microsoft.ProjectOxford.SpeechRecognition-x64/) for 64-bit platform. For client library API reference, see [Microsoft Speech C# Desktop Library](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-Windows/master/docs/SpeechSDK/index.html).
 
 The following sections describe how to install, build, and run the C# sample application using C# desktop library.
 

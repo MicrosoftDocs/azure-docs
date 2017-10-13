@@ -65,49 +65,21 @@ The steps you take to enable speech input in your application are a little diffe
 
 Since the Microsoft Speech Service participates in some of the states, the service protocol defines messages that help your application transition between states. Your application needs to interpret and act on these protocol messages to track and manage the speech application states.
 
-## REST speech recognition API
+## Using the speech recognition service from your apps
 
-The Microsoft [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) speech recognition API is an HTTP 1.1 protocol definition for building simple speech applications that perform speech recognition. For information about how to use the REST API, see [Get Started with REST API](GetStarted/GetStartedREST.md).
+Microsoft speech recognition service  provides two ways for developers to add Speech to their apps.
 
-The REST API is most suitable for applications where continuous user feedback is not required or for platforms that do not support the [IETF WebSocket standard](https://tools.ietf.org/html/rfc6455). The REST API has the following characteristics:
+- [REST APIs](GetStarted/GetStartedREST.md): Developers can use HTTP calls from their apps to the service for speech recognition.
+- [Client libraries](GetStarted/GetStartedClientLibraries.md): For advanced features, developers can download Microsoft Speech client libraries, and link into their apps.  The client libraries are available on various platforms (Windows, Android, iOS) using different languages (C#, Java, JavaScript, ObjectiveC).
 
-- Utterances are limited to a maximum of 15 seconds.
-- Partial results are not returned. Only the final phrase result is returned.
-- Service end-of-speech detection is not supported. Clients must determine the end of speech. 
-- A single recognition phrase result is returned to the client only after the client stops writing to the request stream.
-- Continuous recognition is not supported.
+| Use cases | [REST APIs](GetStarted/GetStartedREST.md) | [Client Libraries](GetStarted/GetStartedClientLibraries.md) |
+|-----|-----|-----|
+| Convert a short spoken audio, for example, commands (audio length < 15 s) without interim results | Yes | Yes |
+| Convert a long audio (> 15 s) | No | Yes |
+| Stream audio with interim results desired | No | Yes |
+| Understand the text converted from audio using LUIS | No | Yes |
 
-If these features are important to your application's functionality, use the [WebSocket speech recognition API](#WebSocket-speech-recognition-api).
-
-## WebSocket speech recognition API
-
-The Microsoft WebSocket speech recognition API is a service protocol definition that uses a [WebSocket](https://tools.ietf.org/html/rfc6455) for bidirectional communication. With this API, you can build full-featured speech applications that provide a rich user experience.
-
-Microsoft speech [client libraries](GetStarted/GetStartedClientLibraries.md) are using this API to provide more advanced functionalities while hiding low-level communication details to users. If your language or platform does not yet have an SDK, you can create your own implementation based on the [protocol documentation](API-Reference-REST/websocketprotocol.md).
-
-## Speech service HTTP endpoints
-
-The URI of the HTTP endpoints of Microsoft Speech Service is defined as follows:
-
-```HTTP
-https://speech.platform.bing.com/speech/recognition/<RECOGNITION_MODE>/cognitiveservices/v1?language=<LANGUAGE_TAG>&format=<OUTPUT_FORMAT>
-```
-
-`<RECOGNITION_MODE>` specifies the recognition mode, and must be of the following values: `interactive`, `conversation`, or `dictation`. It is a required part of resource path in the URI. For more information, see [recognition modes](#recognition-modes).
-
-`<LANGUAGE_TAG>` is a required parameter in the query string. It defines the target language for audio conversion. For example, `en-US` for English (United States). For more information, see [recognition languages](#recognition-languages).
-
-`<OUTPUT_FOMAT>` is an optional parameter in the query string. Its allowed values are `simple` and `detailed`. By default the service returns results in `simple` format. See [output format](#output-format) for details.
-
-Some examples of service URI are as follows.
-| Recognition mode  | Language | Output format | REST end point |
-|---|---|---|---|
-| `interactive` | pt-BR | default | https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR | 
-| `conversation` | en-US | detailed |https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed |
-| `dictation` | fr-FR | simple | https://speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR&format=simple |
-
-> [!NOTE]
-> The HTTP service endpoints are only needed when your application wants to directly talk to the speech service via REST or WebSocket protocol. If you use one of the [client libraries](GetStarted/GetStartedClientLibraries.md), you usually do not need to know which endpoint is being used. The client libraries might use different service URIs, which are only applicable for a specific client library. For more information, see the client library of your choice.
+ If your language or platform does not yet have an SDK, you can create your own implementation based on the [protocol documentation](API-Reference-REST/websocketprotocol.md).
 
 ## Recognition modes
 

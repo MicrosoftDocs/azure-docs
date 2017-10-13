@@ -22,6 +22,6 @@ Microsoft's *Speech to Text* APIs support multiple modes of speech recognition. 
 | *conversation* | Continuous recognition for transcribing conversations between humans. Users adopt a less formal speaking style and may alternate between longer sentences and shorter phrases.
 
 > [!NOTE]
-> These modes are applicable when you directly use the [REST](../concepts.md#rest-speech-recognition-api) or [WebSocket](../concepts.md#websocket-speech-recognition-api) speech protocol. The [client libraries](../GetStarted/GetStartedClientLibraries.md) use different parameters to specify recognition mode. For more information, see the client library of your choice.
+> These modes are applicable when you directly use the [REST](../concepts.md#rest-speech-recognition-api). The [client libraries](../GetStarted/GetStartedClientLibraries.md) use different parameters to specify recognition mode. For more information, see the client library of your choice.
 
 For more information, see the [Recognition Modes](../concepts.md#recognition-modes) page.
