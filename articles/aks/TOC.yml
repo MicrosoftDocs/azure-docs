@@ -53,8 +53,6 @@
     href: https://azure.microsoft.com/roadmap/
   - name: FAQ
     href: faq.md
-  - name: Templates - ACS Engine
-    href: https://github.com/Azure/acs-engine
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/container-service/
   - name: Region availability
