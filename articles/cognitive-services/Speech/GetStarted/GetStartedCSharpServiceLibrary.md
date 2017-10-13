@@ -62,13 +62,6 @@ Press Ctrl+Shift+B, or click `Build` on the ribbon menu, then select `Build Solu
 * `ShortPhrase` mode: an utterance up to 15 seconds long. As data is sent to the server, the client receives multiple partial results and one final best result.
 * `LongDictation` mode: an utterance up to 10 minutes long. As data is sent to the server, the client receives multiple partial results and multiple final results, based on where the server indicates sentence pauses.
 
-### Service URI
-
-**Recognition Mode** | Service URI |
-------|------
-Short-Form | wss://speech.platform.bing.com/api/service/recognition
-Long-Form  | wss://speech.platform.bing.com/api/service/recognition/continuous
-
 ### Supported audio formats
 
 The Speech API supports audio/wav using the following codecs:
