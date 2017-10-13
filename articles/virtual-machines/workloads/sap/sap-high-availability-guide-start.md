@@ -206,7 +206,7 @@ You will learn how to help protect **single-point-of-failure (SPOF)** components
 
 **Summary:** In this document, we discuss HA architecture of an SAP system in Azure. We discuss how we solve HA of SAP single-point-of-failure (SPOF) and redundant components, Azure infrastructure HA specific and how they reflect to SAP system components. Also, it is discussed Windows and Linux specifics. On the end, different SAP HA scenarios are covered as well.
 
-**Updated:** September 2017
+**Updated:** October 2017
 
 This guide can be found here:
 
@@ -219,7 +219,7 @@ It covers both ![Windows][Logo_Windows] **Windows** and ![Linux][Logo_Linux] **L
 
 **Summary:** In these documents, we cover the steps that you can take to deploy Azure infrastructure as preparation for SAP installation. To simplify Azure infrastructure deployment, SAP Azure Resource Manager templates are used to automate whole process.
 
-**Updated:** September 2017
+**Updated:** October 2017
 
 These guides can be found here:
 
@@ -233,7 +233,7 @@ These guides can be found here:
 
 **Summary:** In these documents, a step-by-step example of an installation and configuration of a high-availability SAP system in a Windows Server Failover Clustering cluster and Linux Cluster Framework in Azure.
 
-**Updated:** September 2017
+**Updated:** October 2017
 
 These guides can be found here:
 
