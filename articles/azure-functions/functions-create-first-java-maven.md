@@ -34,6 +34,9 @@ To develop functions app with Java, you must have the following installed:
 -  [Apache Maven](https://maven.apache.org), version 3.0 or above.
 -  [Node.js](https://nodejs.org/download/), version 8.6 or higher.
 
+> [!IMPORTANT] 
+> The JAVA_HOME environment variable must be set to the install location of the JDK to complete this quickstart.
+
 ## Install the Azure Functions Core Tools
 
 The [Azure Functions Core Tools 2.0](https://www.npmjs.com/package/azure-functions-core-tools) provide a local development environment for writing, running, and debugging Azure Functions. Install the tools with [npm](https://www.npmjs.com/), included with [Node.js](https://nodejs.org/).
@@ -61,7 +64,7 @@ mvn archetype:generate \
 ```cmd
 mvn archetype:generate ^
 	-DarchetypeGroupId=com.microsoft.azure ^
-	-DarchetypeArtifactId=azure-functions-archetype ^
+	-DarchetypeArtifactId=azure-functions-archetype
 ```
 
 Maven prompts you for values needed to finish generating the project. For _groupId_, _artifactId_, and _version_ values, see the [Maven naming conventions](https://maven.apache.org/guides/mini/guide-naming-conventions.html) reference. The _appName_ value must be unique across Azure, so Maven generates an app name based on the previously entered _artifactId_  as a default. The _packageName_ value determines the Java package for the generated function code.

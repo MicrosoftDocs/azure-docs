@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
-ms.author: cgillum
+ms.author: azfuncdf
 ---
 
 # Human interaction in Durable Functions - Phone verification sample
@@ -79,9 +79,9 @@ The user receives an SMS message with a four digit code. They have 90 seconds to
 > It may not be obvious at first, but this orchestrator function is completely deterministic. This is because the `CurrentUtcDateTime` property is used to calculate the timer expiration time, and this property returns the same value on every replay at this point in the orchestrator code. This is important to ensure that the same `winner` results from every repeated call to `Task.WhenAny`.
 
 > [!WARNING]
-> It's important to cancel timers using a `CancellationTokenSource` if we no longer need them to expire, like we do in the example above when a challenge response is accepted. For more information, see the [Durable Timers](durable-functions-timers.md) topic.
+> It's important to [cancel timers using a CancellationTokenSource](durable-functions-timers.md) if you no longer need them to expire, as in the example above when a challenge response is accepted.
 
-## Sending the SMS message
+## Send the SMS message
 
 The **E4_SendSmsChallenge** function uses the Twilio binding to send the SMS message with the 4-digit code to the end user. The *function.json* is defined as follows:
 
@@ -93,7 +93,7 @@ And here is the code that generates the 4-digit challenge code and sends the SMS
 
 This **E4_SendSmsChallenge** function only gets called once, even if the process crashes or gets replayed. This is good because you don't want the end user getting multiple SMS messages. The `challengeCode` return value is automatically persisted, so the orchestrator function always knows what the correct code is.
 
-## Running the sample
+## Run the sample
 
 Using the HTTP-triggered functions included in the sample, you can start the orchestration by sending the following HTTP POST request.
 
@@ -148,10 +148,6 @@ Content-Length: 145
 {"runtimeStatus":"Completed","input":"+1425XXXXXXX","output":false,"createdTime":"2017-06-29T19:20:49Z","lastUpdatedTime":"2017-06-29T19:22:23Z"}
 ```
 
-## Wrapping up
-
-At this point, you have a better understanding of some of the advanced capabilities of Durable Functions, notably `WaitForExternalEvent` and `CreateTimer`. You've seen how these can be combined with `Task.WaitAny` to implement a reliable timeout system, which is often useful for interacting with real people.
-
 ## Visual Studio sample code
 
 Here is the orchestration as a single C# file in a Visual Studio project:
@@ -160,6 +156,7 @@ Here is the orchestration as a single C# file in a Visual Studio project:
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Learn more about Durable Functions bindings](durable-functions-bindings.md)
+This sample has demonstrated some of the advanced capabilities of Durable Functions, notably `WaitForExternalEvent` and `CreateTimer`. You've seen how these can be combined with `Task.WaitAny` to implement a reliable timeout system, which is often useful for interacting with real people. You can learn more about how to use Durable Functions by reading a series of articles that offer in-depth coverage of specific topics.
 
+> [!div class="nextstepaction"]
+> [Go to the first article in the series](durable-functions-bindings.md)

@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
-ms.author: cgillum
+ms.author: azfuncdf
 ---
 
 # Eternal orchestrations in Durable Functions (Azure Functions)
@@ -22,7 +22,7 @@ ms.author: cgillum
 
 ## Orchestration history
 
-As explained in the [Checkpointing and Replay](durable-functions-checkpointing-and-replay.md) topic, the Durable Task Framework keeps track of the history of each function orchestration. This history grows continuously as long as the orchestrator function continues to schedule new work. If the orchestrator function goes into an infinite loop and continuously schedules work, this history could grow critically large and cause significant performance problems. The *eternal orchestration* concept was designed to mitigate these kinds of problems for applications that need infinite loops.
+As explained in [Checkpointing and Replay](durable-functions-checkpointing-and-replay.md), the Durable Task Framework keeps track of the history of each function orchestration. This history grows continuously as long as the orchestrator function continues to schedule new work. If the orchestrator function goes into an infinite loop and continuously schedules work, this history could grow critically large and cause significant performance problems. The *eternal orchestration* concept was designed to mitigate these kinds of problems for applications that need infinite loops.
 
 ## Resetting and restarting
 
@@ -84,12 +84,12 @@ public static async Task Run(
 
 If an orchestrator function needs to eventually complete, then all you need to do is *not* call `ContinueAsNew` and let the function exit.
 
-If an orchestrator function is in an infinite loop and needs to be stopped, use the [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_)> method to stop it. For more information, see the [Instance Management](durable-functions-instance-management.md).
+If an orchestrator function is in an infinite loop and needs to be stopped, use the [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_) method to stop it. For more information, see [Instance Management](durable-functions-instance-management.md).
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn how to handle versioning](durable-functions-versioning.md)
+> [Learn how to implement singleton orchestrations](durable-functions-singletons.md)
 
 > [!div class="nextstepaction"]
 > [Run a sample eternal orchestration](durable-functions-counter.md)
