@@ -70,14 +70,14 @@ Notate appId as this will be used in a later step.
 
 In the **Azure Portal**:
 
-1.  Select *Azure Active Directory* --> *App Registration*
+1.  Select **Azure Active Directory** --> **App Registration**
 2.  Search for your App Registration (ex: OCPAzureAD)
 3.  In results, click the App Registration
-4.  In Settings blade, select *Required permissions*
-5.  In Required Permissions blade, click *Add*
-6.  Click on Step 1: Select API and then click *Windows Azure Active Directory (Microsoft.Azure.ActiveDirectory)* and click *Select* at bottom
-7.  On Step 2: Select Permissions, select *Sign in and read user profile* under *Delegated Permissions* and click *Select*
-8.  Click Done
+4.  In Settings blade, select **Required permissions**
+5.  In Required Permissions blade, click **Add**
+6.  Click on Step 1: Select API and then click **Windows Azure Active Directory (Microsoft.Azure.ActiveDirectory)** and click **Select** at bottom
+7.  On Step 2: Select Permissions, select **Sign in and read user profile** under **Delegated Permissions* and click **Select**
+8.  Click **Done**
 
 ### Configure OpenShift for Azure AD Authentication
 
@@ -284,7 +284,7 @@ Example
 ssh -p 2200 clusteradmin@masterdnsixpdkehd3h.eastus.cloudapp.azure.com 
 ```
 
-Edit the /etc/ansible/hosts file and add the following lines after the Identity Provider Section (# Enable HTPasswdPasswordIdentityProvider)
+Edit the **/etc/ansible/hosts file** and add the following lines after the Identity Provider Section (# Enable HTPasswdPasswordIdentityProvider)
 
 ```
 # Setup metrics
@@ -306,11 +306,11 @@ openshift_logging_curator_nodeselector={"type":"infra"}
 openshift_master_logging_public_url=https://kibana.$ROUTING
 ```
 
-Replace $ROUTING with the string used for openshift_master_default_subdomain option in the same /etc/ansible/hosts file.
+Replace $ROUTING with the string used for **openshift_master_default_subdomain** option in the same **/etc/ansible/hosts** file.
 
 ### Azure Cloud Provider in use
 
-On the Bastion Node, SSH using the credentials provided during deployment. Issue the following command:
+On the first Master Node (Origin) or Bastion Node (OCP), SSH using the credentials provided during deployment. Issue the following command:
 
 ```
 ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
@@ -324,7 +324,7 @@ ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cl
 
 ### Azure Cloud Provider **not** in use
 
-On the Bastion Node, SSH using the credentials provided during deployment. Issue the following command:
+On the first Master Node (Origin) or Bastion Node (OCP), SSH using the credentials provided during deployment. Issue the following command:
 
 ```
 ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
