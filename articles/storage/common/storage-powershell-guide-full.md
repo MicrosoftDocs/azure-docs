@@ -36,7 +36,9 @@ It also provides links to several other PowerShell articles for Storage, such as
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-This exercise requires the Azure PowerShell module version 3.6 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). For this exercise, you can test each set of commands as you go along by using the PowerShell ISE -- put the commands into the ISE and run it in sections (highlight the commands, then F8).
+This exercise requires the Azure PowerShell module version 3.6 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). 
+
+For this exercise, you can type the commands into a regular PowerShell window, or you can use the [Windows PowerShell Integrated Scripting Environment (ISE)](/powershell/scripting/getting-started/fundamental/windows-powershell-integrated-scripting-environment--ise-) and type the commands into an editor, then test one or more commands at a time as you go through the examples. You can highlight the rows you want to execute and click Run Selected to just run those commands.
 
 For more information about storage accounts, see [Introduction to Storage](storage-introduction.md) and [About Azure storage accounts](storage-create-storage-account.md).
 
@@ -160,6 +162,10 @@ To regenerate the other key, use `key2` as the key  name instead of `key1`.
 
 Regenerate one of your keys and then retrieve it again to see the new value.
 
+> [!NOTE] 
+> You should perform careful planning before regenerating the key for a production storage account. Renegerating one or both keys will invalidate the access for any application using the key that was regenerated. For more information, please see [Renegate storage access keys](storage-create-storage-account.md#regenerate-storage-access-keys).
+
+
 ### Delete a storage account 
 
 To delete a storage account, use [Remove-AzureRmStorageAccount](/powershell/module/azurerm.storage/Remove-AzureRmStorageAccount). 
@@ -191,7 +197,8 @@ The article shows how to manage these settings using the following PowerShell cm
 
 You can configure monitoring using the [Azure portal](https://portal.azure.com), PowerShell, or programmatically using the storage client library. 
 
-[!Note: You cannot use the Azure portal to enable minute analytics, but you can enable them using PowerShell.
+> [!NOTE]
+> You cannot use the Azure portal to enable minute analytics, but you can enable them using PowerShell.
 
 * To learn how to enable and view Storage Metrics data using PowerShell, see [Enabling Azure Storage metrics and viewing metrics data](storage-enable-and-view-metrics.md#how-to-enable-metrics-using-powershell).
 
