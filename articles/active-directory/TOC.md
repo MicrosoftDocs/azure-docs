@@ -44,6 +44,7 @@
 #### [Migrate individual licensed users to group-based licensing](active-directory-licensing-group-migration-azure-portal.md)
 #### [Additional scenarios for group-based licensing](active-directory-licensing-group-advanced.md)
 #### [Azure PowerShell examples for group-based licensing](active-directory-licensing-ps-examples.md)
+#### [Reference for products and service plans in Azure AD](active-directory-licensing-product-and-service-plan-reference.md)
 ### [Manage user profiles](active-directory-users-profile-azure-portal.md)
 ### [Reset a password](active-directory-users-reset-password-azure-portal.md)
 ### [Manage user work information](active-directory-users-work-info-azure-portal.md)
@@ -65,6 +66,7 @@
 #### [Migrate individual licensed users to group-based licensing](active-directory-licensing-group-migration-azure-portal.md)
 #### [Additional scenarios for group-based licensing](active-directory-licensing-group-advanced.md)
 #### [Azure PowerShell examples for group-based licensing](active-directory-licensing-ps-examples.md)
+#### [Reference for products and service plans in Azure AD](active-directory-licensing-product-and-service-plan-reference.md)
 ### [Set up Office 365 groups expiration](active-directory-groups-lifecycle-azure-portal.md)
 ### [View all groups](active-directory-groups-view-azure-portal.md)
 ### [Enable dedicated groups](active-directory-accessmanagement-dedicated-groups.md)
@@ -137,7 +139,7 @@
 ### Tasks
 #### [Set up Azure AD registered Windows 10 devices](device-management-azuread-registered-devices-windows10-setup.md)
 #### [Set up Azure AD joined devices](device-management-azuread-joined-devices-setup.md)
-#### [Set up hybrid Azure AD joined devices](device-management-hybrid-azuread-joined-devices-setup.md) 
+#### [Set up hybrid Azure AD joined devices](device-management-hybrid-azuread-joined-devices-setup.md)
 #### [Deploy on-premises](active-directory-device-registration-on-premises-setup.md)
 #### [Azure AD join during Windows 10 first-run experience](device-management-azuread-joined-devices-frx.md)
 ### Troubleshoot
