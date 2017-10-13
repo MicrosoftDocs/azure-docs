@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/09/2017
+ms.date: 07/18/2017
 ms.author: yurid
 
 ---
@@ -96,11 +96,11 @@ On the agent machine, the events need to be sent from the syslog daemon to local
 
 [!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
-After the configuration is over, the security event will start to be ingested by OMS Security. To visualize those events, open the Log Search, type the command *CommonSecurityLog* in the search field and press ENTER. The following example shows the result of this command, notice that in this case OMS Security already ingested security logs from multiple vendors:
+After the configuration is over, the security event will start to be ingested by OMS Security. To visualize those events, open the Log Search, type the command *Type=CommonSecurityLog* in the search field and press ENTER. The following example shows the result of this command, notice that in this case OMS Security already ingested security logs from multiple vendors:
    
 ![OMS Security and Audit Baseline Assessment](./media/oms-security-connect-products/oms-security-connect-products-fig1.png)
 
-You can refine this search for one single vendor, for example, to visualize online Cisco logs, type: *CommonSecurityLog | where DeviceVendor=Cisco*. The “CommonSecurityLog” has predefined fields for any CEF header including the basic extensios, while any other extension whether it’s “Custom Extension” or not, will be inserted into "AdditionalExtensions" field. You can use the Custom Fields feature to get dedicated fields from it. 
+You can refine this search for one single vendor, for example, to visualize online Cisco logs, type: *Type=CommonSecurityLog DeviceVendor=Cisco*. The “CommonSecurityLog” has predefined fields for any CEF header including the basic extensios, while any other extension whether it’s “Custom Extension” or not, will be inserted into "AdditionalExtensions" field. You can use the Custom Fields feature to get dedicated fields from it. 
 
 ### Accessing computers missing baseline assessment
 OMS supports the domain member baseline profile on Windows Server 2008 R2 up to Windows Server 2012 R2. Windows Server 2016 baseline isn’t final yet and will be added as soon as it is published. All other operating systems scanned via OMS Security and Audit baseline assessment appear under the **Computers missing baseline assessment** section.
