@@ -36,7 +36,7 @@ The following table lists the most commonly used Microsoft Online Services produ
 - **Service Plans Included**: a list of service plans in the product. The String Id and Guid Id are listed.
 
 >[!NOTE]
->This information is accurate as of October 11th 2017. The table contains a selection of most commonly used products.
+>This information is accurate as of October 11, 2017. The table contains a selection of most commonly used products.
 
 | Product Name | String Id | Guid Id| Service Plans Included |
 | --- | --- | --- |--- |
