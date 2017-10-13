@@ -13,12 +13,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/18/2017
+ms.date: 10/13/2017
 ms.author: sngun
 
 ---
 
 # Get up and running with PowerShell in Azure Stack
+
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
 This article is a quick start to install and configure Azure Stack environment with PowerShell. This script provided in this article is scoped to by the **Azure Stack operator** only.
 
@@ -27,7 +29,10 @@ This article is a condensed version of the steps described in the [Install Power
 
 ## Set up PowerShell for AAD based deployments
 
-Sign in to your Azure Stack Development Kit, or a Windows-based external client if you are connected through VPN. Open an elevated PowerShell ISE session and run the following script:
+Sign in to your Azure Stack Development Kit, or a Windows-based external client if you are connected through VPN. Open an elevated PowerShell ISE session and run the following script (make sure to update the TenantName, ArmEndpoint, GraphAudience variables as per your environment configuration):
+
+> [!IMPORTANT]
+> The release of the AzureRM 1.2.11 PowerShell module comes with a list of breaking changes. To upgrade from the 1.2.10 version, see the migration guide at [https://aka.ms/azspowershellmigration](https://aka.ms/azspowershellmigration).
 
 ```powershell
 # Specify Azure Active Directory tenant name
@@ -57,7 +62,7 @@ Use-AzureRmProfile `
 
 Install-Module `
   -Name AzureStack `
-  -RequiredVersion 1.2.10 `
+  -RequiredVersion 1.2.11 `
   -Force 
 
 # Download Azure Stack tools from GitHub and import the connect module
@@ -76,20 +81,26 @@ cd AzureStack-Tools-master
 Import-Module `
   .\Connect\AzureStack.Connect.psm1
 
-# Configure the cloud administrator’s PowerShell environment.
+# For Azure Stack development kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
+$ArmEndpoint = "<Resource Manager endpoint for your environment>"
+
+# For Azure Stack development kit, this value is set to https://graph.windows.net/. To get this value for Azure Stack integrated systems, contact your service provider.
+$GraphAudience = "<GraphAuidence endpoint for your environment>"
+
+# Configure the Azure Stack operator’s PowerShell environment.
 Add-AzureRMEnvironment `
   -Name "AzureStackAdmin" `
-  -ArmEndpoint "https://adminmanagement.local.azurestack.external"
+  -ArmEndpoint $ArmEndpoint
 
 Set-AzureRmEnvironment `
   -Name "AzureStackAdmin" `
-  -GraphAudience "https://graph.windows.net/"
+  -GraphAudience $GraphAudience
 
 $TenantID = Get-AzsDirectoryTenantId `
   -AADTenantName $TenantName `
   -EnvironmentName AzureStackAdmin
 
-# Sign-in to the administrative portal.
+# Sign-in to the operator's portal.
 Login-AzureRmAccount `
   -EnvironmentName "AzureStackAdmin" `
   -TenantId $TenantID 
@@ -98,7 +109,7 @@ Login-AzureRmAccount `
 
 ## Set up PowerShell for AD FS based deployments 
 
-Sign in to your Azure Stack Development Kit, or a Windows-based external client if you are connected through VPN. Open an elevated PowerShell ISE session and run the following script:
+Sign in to your Azure Stack Development Kit, or a Windows-based external client if you are connected through VPN. Open an elevated PowerShell ISE session and run the following script (make sure to update the ArmEndpoint, GraphAudience variables as per your environment configuration):
 
 ```powershell
 
@@ -126,7 +137,7 @@ Use-AzureRmProfile `
 
 Install-Module `
   -Name AzureStack `
-  -RequiredVersion 1.2.10 `
+  -RequiredVersion 1.2.11 `
   -Force 
 
 # Download Azure Stack tools from GitHub and import the connect module
@@ -145,21 +156,27 @@ cd AzureStack-Tools-master
 Import-Module `
   .\Connect\AzureStack.Connect.psm1
 
+# For Azure Stack development kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
+$ArmEndpoint = "<Resource Manager endpoint for your environment>"
+
+# For Azure Stack development kit, this value is set to https://graph.local.azurestack.external/. To get this value for Azure Stack integrated systems, contact your service provider.
+$GraphAudience = "<GraphAudience endpoint for your environment>"
+
 # Configure the cloud administrator’s PowerShell environment.
 Add-AzureRMEnvironment `
   -Name "AzureStackAdmin" `
-  -ArmEndpoint "https://adminmanagement.local.azurestack.external"
+  -ArmEndpoint $ArmEndpoint
 
 Set-AzureRmEnvironment `
   -Name "AzureStackAdmin" `
-  -GraphAudience "https://graph.local.azurestack.external/" `
+  -GraphAudience $GraphAudience `
   -EnableAdfsAuthentication:$true
 
 $TenantID = Get-AzsDirectoryTenantId `
   -ADFS `
   -EnvironmentName "AzureStackAdmin"
 
-# Sign-in to the administrative portal.
+# Sign-in to the operator's portal.
 Login-AzureRmAccount `
   -EnvironmentName "AzureStackAdmin" `
   -TenantId $TenantID 
@@ -180,7 +197,7 @@ When the resource group is created, the cmdlet output has the Provisioning state
 
 * [Install and configure CLI](azure-stack-connect-cli.md)
 
-* [Develop templates](azure-stack-develop-templates.md)
+* [Develop templates](user/azure-stack-develop-templates.md)
 
 
 

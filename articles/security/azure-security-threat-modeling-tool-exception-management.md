@@ -127,10 +127,11 @@ namespace ProductStore.Filters
     }
 }
 ```
+
 There are several ways to register a Web API exception filter:
-# By action
-# By controller
-# Globally 
+- By action
+- By controller
+- Globally
 
 ### Example
 To apply the filter to a specific action, add the filter as an attribute to the action: 

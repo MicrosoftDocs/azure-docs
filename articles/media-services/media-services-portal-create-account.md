@@ -4,7 +4,7 @@ description: This tutorial walks you through the steps of creating an Azure Medi
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: c551e158-aad6-47b4-931e-b46260b3ee4c
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/10/2017
+ms.date: 09/03/2017
 ms.author: juliako
 
 ---
@@ -32,6 +32,9 @@ The Azure portal provides a way to quickly create an Azure Media Services (AMS) 
 
 This article explains some common concepts and shows how to create a Media Services account with the Azure portal.
 
+> [!NOTE]
+> For information about availability of Azure Media Services features in different regions, see [availability of AMS features across datacenters](scenarios-and-availability.md#availability).
+
 ## Concepts
 Accessing Media Services requires two associated accounts:
 
@@ -39,8 +42,8 @@ Accessing Media Services requires two associated accounts:
   
 * An Azure storage account. Storage accounts must be located in the same geographic region as the Media Services account. When you create a Media Services account, you can either choose an existing storage account in the same region, or you can create a new storage account in the same region. If you delete a Media Services account, the blobs in your related storage account are not deleted.
 
-> [!NOTE]
-> For information about availability of Azure Media Services features in different regions, see [availability of AMS features across datacenters](scenarios-and-availability.md#availability).
+  > [!NOTE]
+  > Media Services restricts the primary storage account to be a **General Purpose Storage** account with Tables, Queues. For more information about storage types, see [About Azure storage accounts](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account).
 
 ## Create an AMS account
 The steps in this section show how to create an AMS account.

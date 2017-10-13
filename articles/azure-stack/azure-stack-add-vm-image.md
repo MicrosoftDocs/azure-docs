@@ -13,13 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/10/2017
+ms.date: 09/25/2017
 ms.author: sngun
 
 ---
 # Make a custom virtual machine image available in Azure Stack
 
-Azure Stack enables cloud administrators to make custom virtual machine images available to their users. These images can be referenced by Azure Resource Manager templates or added to the
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+
+Azure Stack enables operators to make custom virtual machine images available to their users. These images can be referenced by Azure Resource Manager templates or added to the
 Azure Marketplace UI with the creation of a Marketplace item. 
 
 ## Add a VM image to marketplace with PowerShell
@@ -50,19 +52,25 @@ Now run the following steps to add the image to the Azure Stack marketplace:
    Import-Module .\ComputeAdmin\AzureStack.ComputeAdmin.psm1
    ``` 
 
-2. Sign in to your Azure Stack environment. Run the following script depending on if your Azure Stack environment is deployed by using AAD or AD FS (Make sure to replace the AAD tenant name): 
+2. Sign in to your Azure Stack environment. Run the following script depending on if your Azure Stack environment is deployed by using AAD or AD FS (Make sure to replace the AAD tenantName, GraphAudience endpoint and ArmEndpoint values as per your environment configuration): 
 
    a. **Azure Active Directory**, use the following cmdlet:
 
    ```PowerShell
-   # Create the Azure Stack cloud administrator's AzureRM environment by using the following cmdlet:
+   # For Azure Stack development kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
+   $ArmEndpoint = "<Resource Manager endpoint for your environment>"
+
+   # For Azure Stack development kit, this value is set to https://graph.windows.net/. To get this value for Azure Stack integrated systems, contact your service provider.
+   $GraphAudience = "<GraphAuidence endpoint for your environment>"
+
+   #Create the Azure Stack operator's AzureRM environment by using the following cmdlet:
    Add-AzureRMEnvironment `
      -Name "AzureStackAdmin" `
-     -ArmEndpoint "https://adminmanagement.local.azurestack.external" 
+     -ArmEndpoint $ArmEndpoint 
 
    Set-AzureRmEnvironment `
     -Name "AzureStackAdmin" `
-    -GraphAudience "https://graph.windows.net/"
+    -GraphAudience $GraphAudience
 
    $TenantID = Get-AzsDirectoryTenantId `
      -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
@@ -76,14 +84,20 @@ Now run the following steps to add the image to the Azure Stack marketplace:
    b. **Active Directory Federation Services**, use the following cmdlet:
     
    ```PowerShell
-   # Create the Azure Stack cloud administrator's AzureRM environment by using the following cmdlet:
+   # For Azure Stack development kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
+   $ArmEndpoint = "<Resource Manager endpoint for your environment>"
+
+   # For Azure Stack development kit, this value is set to https://graph.local.azurestack.external/. To get this value for Azure Stack integrated systems, contact your service provider.
+   $GraphAudience = "<GraphAuidence endpoint for your environment>"
+
+   # Create the Azure Stack operator's AzureRM environment by using the following cmdlet:
    Add-AzureRMEnvironment `
      -Name "AzureStackAdmin" `
-     -ArmEndpoint "https://adminmanagement.local.azurestack.external"
+     -ArmEndpoint $ArmEndpoint
 
    Set-AzureRmEnvironment `
      -Name "AzureStackAdmin" `
-     -GraphAudience "https://graph.local.azurestack.external/" `
+     -GraphAudience $GraphAudience `
      -EnableAdfsAuthentication:$true
 
    $TenantID = Get-AzsDirectoryTenantId `
@@ -170,7 +184,7 @@ One requirement of images is that they can be referenced by a Blob storage URI. 
 
    ![Set blob access to public](./media/azure-stack-add-vm-image/image2.png)
 
-2. Sign in to Azure Stack as a cloud administrator > From the menu, click **More services** > **Resource Providers** > select  **Compute** > **VM images** > **Add**
+2. Sign in to Azure Stack as operator > From the menu, click **More services** > **Resource Providers** > select  **Compute** > **VM images** > **Add**
 
 3. On the **Add a VM Image** blade, enter the publisher, offer, SKU, and version
    of the virtual machine image. These name segments refer to the VM
