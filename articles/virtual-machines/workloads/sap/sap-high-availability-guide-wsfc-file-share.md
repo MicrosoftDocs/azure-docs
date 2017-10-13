@@ -243,7 +243,7 @@ What is specific for this architecture is the following:
 * **SAP central services run under SAP (A)SCS instance**
 * SAP (A)SCS instance is clustered and is accessible using virtual the host name **<(A)SCSVirtualHostName>**
 * SAP GLOBAL files are placed on SMB file share and are accessed using the <SAPGLOBALHost> host name
- \\\&lt;SAPGLOBALHost&gt;\sapmnt\&lt;SID&gt;\SYS\...
+ \\\\&lt;SAPGLOBALHost&gt;\sapmnt\\&lt;SID&gt;\SYS\...
 * The SAP (A)SCS instance is installed on a local disk on both cluster nodes
 * The **<(A)SCSVirtualHostName>** network name is different from **<SAPGLOBALHost>**
 
@@ -345,7 +345,7 @@ https://blogs.technet.microsoft.com/filecab/2016/08/29/deep-dive-volumes-in-spac
 You have the possibility to deploy SAP (A)SCS instances in one cluster, with their own SAP <SID> cluster role. The SOFS file share is configured in in another cluster with another cluster role.
 
 > [!IMPORTANT]
->In this scenario, the SAP (A)SCS instance is configured to access SAP GLOBALHost using UNC path \\\&lt;SAPGLOBALHost&gt;\sapmnt\&lt;SID&gt;\SYS\...
+>In this scenario, the SAP (A)SCS instance is configured to access SAP GLOBALHost using UNC path \\\\&lt;SAPGLOBALHost&gt;\sapmnt\\&lt;SID&gt;\SYS\...
 >
 
 ![Figure 5: SAP (A)SCS instance and SOFS deployed in TWO clusters][sap-ha-guide-figure-8007]
