@@ -37,16 +37,18 @@ IoT Hub exposes the **messages/events** built-in endpoint for your back-end serv
 
 When you use the [Azure Service Bus SDK for .NET][lnk-servicebus-sdk] or the [Event Hubs - Event Processor Host][lnk-eventprocessorhost], you can use any IoT Hub connection strings with the correct permissions. Then use **messages/events** as the Event Hub name.
 
-When you use SDKs (or product integrations) that are unaware of IoT Hub, you must retrieve an Event Hub-compatible endpoint and Event Hub-compatible name from your IoT hub settings in the [Azure portal][lnk-management-portal]:
+When you use SDKs (or product integrations) that are unaware of IoT Hub, you must retrieve an Event Hub-compatible endpoint and Event Hub-compatible name from your IoT hub settings:
 
-1. In the blade for your IoT hub, click **Endpoints**.
-1. In the **Built-in endpoints** section, click **Events**. The blade contains the following values: **Event Hub-compatible endpoint**, **Event Hub-compatible name**, **Partitions**, **Retention time**, and **Consumer groups**.
+1. Sign in to the [Azure portal][lnk-management-portal] and navigate to your IoT hub.
+1. Click **Endpoints**.
+1. In the **Built-in endpoints** section, click **Events**. 
+1. A properties page opens, which contains the following values: **Event Hub-compatible endpoint**, **Event Hub-compatible name**, **Partitions**, **Retention time**, and **Consumer groups**.
 
     ![Device-to-cloud settings][img-eventhubcompatible]
 
-The IoT Hub SDK requires the IoT Hub endpoint name, which is **messages/events** as shown in the **Endpoints** blade.
+The IoT Hub SDK requires the IoT Hub endpoint name, which is **messages/events** as shown under **Endpoints**.
 
-If the SDK you are using requires a **Hostname** or **Namespace** value, remove the scheme from the **Event Hub-compatible endpoint**. For example, if your Event Hub-compatible endpoint is **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, the **Hostname** would be **iothub-ns-myiothub-1234.servicebus.windows.net**, and the **Namespace** would be **iothub-ns-myiothub-1234**.
+If the SDK you are using requires a **Hostname** or **Namespace** value, remove the scheme from the **Event Hub-compatible endpoint**. For example, if your Event Hub-compatible endpoint is **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, the **Hostname** would be **iothub-ns-myiothub-1234.servicebus.windows.net**. The **Namespace** would be **iothub-ns-myiothub-1234**.
 
 You can then use any shared access policy that has the **ServiceConnect** permissions to connect to the specified Event Hub.
 
