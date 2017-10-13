@@ -12,7 +12,7 @@ ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/08/2017
+ms.date: 10/13/2017
 ms.author: renash
 ---
 
@@ -71,9 +71,9 @@ ms.author: renash
 
     Absolutely, the Azure Files team is interested in hearing any and all feedback you have about our service. Please vote on feature requests on the [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files)! We're looking forward to delighting you with many new features.
 
-* **Can I create File Share in Premium storage?**   
+* **Can I create File Share in cool storage?**   
 
-    Premium storage account only supports Blob at this time. It does not support File shares. You need to create standard storage account. Standard storage is very competitively priced and also, recently slashed price for Standard Azure Files ever further. For more information, see [Azure Files Pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
+    Cool storage account only supports blob at this time. It does not support File shares. You need to create standard storage account. Standard storage is very competitively priced and also, recently slashed price for Standard Azure Files ever further. For more information, see [Azure Files Pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 * **I cannot access file share from on-premises?**  
 
@@ -95,11 +95,17 @@ ms.author: renash
     - Windows Server 2012 R2 SMB 3.0
     - Windows 10 SMB 3.0
 
+    For more information, see [Troubleshooter for Azure Files storage problems](https://support.microsoft.com/help/4022301/azure-file-storage-connection-creation--performance-problems).
+
+* **I cannot mount Azure File Share from On-Premises client**
+
+    To resolve this problem, use [Troubleshooter for Azure Files storage](problemshttps://support.microsoft.com/help/4022301/azure-file-storage-connection-creation--performance-problems).
+
 * **How to Map container folder on VM**? 
 
    see [Mounting an Azure file share with Azure Container Instances](https://docs.microsoft.com/en-us/azure/container-instances/container-instances-mounting-azure-files-volume).
 
-* **Can I increase the size of File Share?**
+* **Can I increase the maximum size of File Share?**
 
     No. The maximum size of a File share is 5 TB.
 
@@ -109,7 +115,7 @@ ms.author: renash
 
 * **Can I to convert to premium storage account for File share?**
 
-    No. You have to create a Standard storage account  for the File share.
+    No. Premium storage is not available on Azure file share today.
 
 ## Azure File Sync
 * **What regions are currently supported for Azure File Sync (preview)?**  
