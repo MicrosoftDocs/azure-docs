@@ -32,11 +32,11 @@ Azure Data Factory version 2 builds upon the original Azure Data Factory data mo
 - Control flows and scale
 - Deploy and run SSIS packages in Azure
 
-Following the version 1 release, we recognized that customers need to design complex, hybrid data-integration scenarios that require both data movement and processing in the cloud, on-premises, and on cloud virtual machines. These requirements bring a need to transfer and process data within secured virtual network environments and to scale out with on-demand processing power.
+Following the version 1 release, we recognized that customers need to design complex, hybrid data-integration scenarios that require both data movement and processing in the cloud, on-premises, and on cloud virtual machines (VMs). These requirements bring a need to transfer and process data within secured virtual network environments and to scale out with on-demand processing power.
 
 As data pipelines are becoming a more critical part of a business analytics strategy, we have observed that these activities require flexible scheduling to support incremental data loads and event-triggered executions. As the complexity increases, so too does the requirement for the service to support common workflow paradigms that include branching, looping, and conditional processing.
 
-With version 2, you can also migrate existing SSIS packages to the cloud. This action lifts and shifts SSIS as an Azure service that's managed within Data Factory, which utilizes a new feature of integration runtime. By spinning-up an SSIS integration runtime in version 2, you can execute, manage, monitor, and build SSIS packages in the cloud.
+With version 2, you can also migrate existing SSIS packages to the cloud. This action lifts and shifts SSIS as an Azure service that's managed within Data Factory, which utilizes a new feature of integration runtime. By spinning up an SSIS integration runtime in version 2, you can execute, manage, monitor, and build SSIS packages in the cloud.
 
 ### Control flows and scale 
 To support the diverse integration flows and patterns in the modern data warehouse, Data Factory has enabled a new, flexible, data pipeline model that is no longer tied to time-series data. With this release, you can model conditionals, branch in the control flow of a data pipeline, and explicitly pass parameters within and across these flows.
@@ -89,16 +89,16 @@ You can deploy one or many instances of integration runtime as required to move 
 For more information, see [Integration runtime in Azure Data Factory](concepts-integration-runtime.md).
 
 ## What is the limit on the number of integration runtimes?
-There is no hard limit on the number of integration runtime instances you can have in a data factory. There is, however, a limit on the number of virtual machine (VM) cores the integration runtime can use per subscription for SSIS package execution. For more information, see [Data Factory limits](../azure-subscription-service-limits.md#data-factory-limits).
+There is no hard limit on the number of integration runtime instances you can have in a data factory. There is, however, a limit on the number of VM cores that the integration runtime can use per subscription for SSIS package execution. For more information, see [Data Factory limits](../azure-subscription-service-limits.md#data-factory-limits).
 
 ## When should I use version 2 rather than version 1? 
 If you are new to Azure Data Factory, start directly with version 2. If you are already using version 1, rebuild your data factories on version 2.
 
 > [!WARNING]
-> Version 2 of Data Factory is in preview, and it is not generally available (GA). Therefore, it does not fall under the same Azure service level agreement (SLA) commitments as version 1 of Data Factory, which is in GA. 
+> Version 2 of Data Factory is in preview, and it is not in general availability (GA). Therefore, it does not fall under the same Azure service level agreement (SLA) commitments as version 1 of Data Factory, which is in GA. 
 
 ## What are the top-level concepts of version 2?
-An Azure subscription can have one or more Azure data factory instances (or data factories). Azure Data Factory contains four key components that work together as a platform on which you can compose data-driven workflows with steps to move and transform data.
+An Azure subscription can have one or more Azure Data Factory instances (or data factories). Azure Data Factory contains four key components that work together as a platform on which you can compose data-driven workflows with steps to move and transform data.
 
 ### Pipelines
 A data factory can have one or more pipelines. A pipeline is a logical grouping of activities to perform a unit of work. Together, the activities in a pipeline perform a task. For example, a pipeline can contain a group of activities that ingest data from an Azure blob and then run a Hive query on an HDInsight cluster to partition the data. The benefit is that you can use a pipeline to manage the activities as a set instead of having to manage each activity individually. You can chain together the activities in a pipeline to operate them sequentially, or you can operate them independently, in parallel.
