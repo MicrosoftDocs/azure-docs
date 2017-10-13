@@ -18,7 +18,7 @@ ms.author: yurid
 
 ---
 # Integrate security solutions in Azure Security Center
-This document helps you use to manage security solutions already connected to Azure Security Center and add new ones. 
+This document helps you to manage security solutions already connected to Azure Security Center and add new ones. 
 
 ## How security solutions are integrated
 Azure security solutions that are deployed from Security Center are automatically connected. You can also connect other security data sources, including:
@@ -42,7 +42,7 @@ The **Discovered solutions** section shows all the solutions that were added via
 
 ![Discovered solutions](./media/security-center-partner-integration/security-center-partner-integration-fig5.png)
 
-Security Center automatically discover other security solutions running in Azure. This includes Azure solutions, such as [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection), as well as partner solutions that are running in Azure. To integrate these solutions with Security Center, select **CONNECT**. 
+Security Center automatically discovers other security solutions running in Azure. This includes Azure solutions, such as [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection), as well as partner solutions that are running in Azure. To integrate these solutions with Security Center, select **CONNECT**. 
 
 ### Add data sources
 

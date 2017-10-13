@@ -18,16 +18,16 @@ ms.author: yurid
 
 ---
 # Connecting Azure Active Directory Identity Protection to Azure Security Center
-This document helps you use to configure the integration between Azure Active Directory (AD) Identity Protection and Azure Security Center.
+This document helps you to configure the integration between Azure Active Directory (AD) Identity Protection and Azure Security Center.
 
 ## Why connect Azure AD Identity Protection?
 [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) helps detect potential vulnerabilities affecting your organization’s identities. When connected, you are able to view Azure AD Identity Protection alerts in Security Center. This integration enables you to view, correlate, and investigate all security alerts related to your hybrid cloud workloads in Security Center. 
 
-## How to configure this integration?
+## How do I configure this integration?
 If your organization is already using Azure AD Identity Protection, follow the steps below to configure the integration:
 
 1. Open **Security Center** dashboard.
-2. On the left pane, click **Security Solutions**. Security Center automatically discover if Azure AD Identity Protection is enabled for your organization.
+2. On the left pane, click **Security Solutions**. Security Center automatically discovers if Azure AD Identity Protection is enabled for your organization.
 
 	![AADIP](./media/security-center-aadip-integration/security-center-aadip-integration-fig1.png)
 

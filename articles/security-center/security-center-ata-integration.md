@@ -18,12 +18,12 @@ ms.author: yurid
 
 ---
 # Connecting Microsoft Advanced Threat Analytics to Azure Security Center
-This document helps you use to configure the integration between Microsoft Advanced Threat Analytics and Azure Security Center.
+This document helps you to configure the integration between Microsoft Advanced Threat Analytics and Azure Security Center.
 
 ## Why add Advanced Threat Analytics data?
 [Advanced Threat Analytics (ATA)](https://docs.microsoft.com/advanced-threat-analytics/what-is-ata) is an on-premises platform that helps detect suspicious user behaviors. When connected, you are able to view suspicious actions detected by ATA in Security Center. This integration enables you to view, correlate, and investigate all security alerts related to your hybrid cloud workloads in Security Center. 
 
-## How to configure this integration?
+## How do I configure this integration?
 Assuming that you already have ATA installed, and working properly on-premises, follow these steps to configure this integration:
 
 1. Log on to the ATA Center, and access the ATA portal.
@@ -32,7 +32,7 @@ Assuming that you already have ATA installed, and working properly on-premises, 
 	![Syslog server](./media/security-center-ata-integration/security-center-ata-integration-fig1.png)
 
 3. In the **Syslog server endpoint** field, type 127.0.0.7 (it must be this address), and type 5114 on the port (recommended). While the port number is a recommendation, any unique port should work. Leave all other options as is, and click **Save**.
-4. Click **Notifications** in the left pane, and enable all the Syslog notifications (recommended) as shown the following image:
+4. Click **Notifications** in the left pane, and enable all the Syslog notifications (recommended) as shown in the following image:
 
 	![Notifications](./media/security-center-ata-integration/security-center-ata-integration-fig2.png)
 
@@ -47,11 +47,11 @@ Assuming that you already have ATA installed, and working properly on-premises, 
 
 	![ATA](./media/security-center-ata-integration/security-center-ata-integration-fig4.png)
 
-10. In the **Add new non-Azure computer** page select the workspace.
+10. In the **Add new non-Azure computer** page, select the workspace.
 
 	![Non-Azure](./media/security-center-ata-integration/security-center-ata-integration-fig5.png)
 
-11. In the **Direct Agent** page, download the appropriated Windows agent, and take notes of the **Workspace ID** and **Primary Key**.
+11. In the **Direct Agent** page, download the appropriate Windows agent, and take notes of the **Workspace ID** and **Primary Key**.
 
 	![Direct agent](./media/security-center-ata-integration/security-center-ata-integration-fig6.png)
 
