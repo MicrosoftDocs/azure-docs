@@ -21,7 +21,7 @@ ms.author: erikje
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-For Azure Active Directory deployments, you can register [Azure Stack](azure-stack-poc.md) with Azure to download marketplace items from Azure and to set up commerce data reporting back to Microsoft. 
+You can register [Azure Stack](azure-stack-poc.md) with Azure to download marketplace items from Azure and to set up commerce data reporting back to Microsoft. 
 
 > [!NOTE]
 >Registration is recommended because it enables you to test important Azure Stack functionality, like marketplace syndication and usage reporting. After you register Azure Stack, usage is reported to Azure commerce. You can see it under the subscription you used for registration. Azure Stack Development Kit users aren't charged for any usage they report.
@@ -75,17 +75,16 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack -Force
     ```powershell
     Add-AzsRegistration -CloudAdminCredential $YourCloudAdminCredential -AzureDirectoryTenantName $YourAzureDirectoryTenantName  -AzureSubscriptionId $YourAzureSubscriptionId -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Development 
     ```
- 
-5. At the two prompts, press Enter.
-6. In the pop-up login window, enter your Azure subscription credentials.
-
-
+5. In the pop-up login window, enter your Azure subscription credentials.
 
 ## Verify the registration
 
 1. Sign in to the administrator portal (https://adminportal.local.azurestack.external).
 2. Click **More Services** > **Marketplace Management** > **Add from Azure**.
 3. If you see a list of items available from Azure (such as WordPress), your activation was successful.
+
+> [!NOTE]
+> After registration is complete, the active warning for not registering will no longer appear.
 
 ## Next steps
 

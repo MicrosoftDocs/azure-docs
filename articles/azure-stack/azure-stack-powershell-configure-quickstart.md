@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 10/13/2017
 ms.author: sngun
 
 ---
@@ -30,6 +30,9 @@ This article is a condensed version of the steps described in the [Install Power
 ## Set up PowerShell for AAD based deployments
 
 Sign in to your Azure Stack Development Kit, or a Windows-based external client if you are connected through VPN. Open an elevated PowerShell ISE session and run the following script (make sure to update the TenantName, ArmEndpoint, GraphAudience variables as per your environment configuration):
+
+> [!IMPORTANT]
+> The release of the AzureRM 1.2.11 PowerShell module comes with a list of breaking changes. To upgrade from the 1.2.10 version, see the migration guide at [https://aka.ms/azspowershellmigration](https://aka.ms/azspowershellmigration).
 
 ```powershell
 # Specify Azure Active Directory tenant name
@@ -59,7 +62,7 @@ Use-AzureRmProfile `
 
 Install-Module `
   -Name AzureStack `
-  -RequiredVersion 1.2.10 `
+  -RequiredVersion 1.2.11 `
   -Force 
 
 # Download Azure Stack tools from GitHub and import the connect module
@@ -134,7 +137,7 @@ Use-AzureRmProfile `
 
 Install-Module `
   -Name AzureStack `
-  -RequiredVersion 1.2.10 `
+  -RequiredVersion 1.2.11 `
   -Force 
 
 # Download Azure Stack tools from GitHub and import the connect module
@@ -157,7 +160,7 @@ Import-Module `
 $ArmEndpoint = "<Resource Manager endpoint for your environment>"
 
 # For Azure Stack development kit, this value is set to https://graph.local.azurestack.external/. To get this value for Azure Stack integrated systems, contact your service provider.
-$GraphAudience = "<GraphAuidence endpoint for your environment>"
+$GraphAudience = "<GraphAudience endpoint for your environment>"
 
 # Configure the cloud administrator’s PowerShell environment.
 Add-AzureRMEnvironment `
