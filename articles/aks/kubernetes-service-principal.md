@@ -28,7 +28,7 @@ resources such as [user-defined routes](../virtual-network/virtual-networks-udr-
 and the [Layer 4 Azure Load Balancer](../load-balancer/load-balancer-overview.md).
 
 
-This article shows different options to set up a service principal for your Kubernetes cluster. For example, if you installed and set up the [Azure CLI 2.0](/cli/azure/install-az-cli2), you can run the [`az acs create`](/cli/azure/acs#create) command to create the Kubernetes cluster and the service principal at the same time.
+This article shows different options to set up a service principal for your Kubernetes cluster. For example, if you installed and set up the [Azure CLI 2.0](/cli/azure/install-az-cli2), you can run the `az aks create` command to create the Kubernetes cluster and the service principal at the same time.
 
 
 ## Requirements for the service principal
@@ -99,16 +99,16 @@ The following example shows one way to pass the parameters with the Azure CLI 2.
     ```
 
 
-## Option 2: Generate a service principal when creating the cluster with `az acs create`
+## Option 2: Generate a service principal when creating the cluster with `az aks create`
 
-If you run the [`az acs create`](/cli/azure/acs#create) command to create the Kubernetes cluster, you have the option to generate a service principal automatically.
+If you run the `az aks create` command to create the Kubernetes cluster, you have the option to generate a service principal automatically.
 
-As with other Kubernetes cluster creation options, you can specify parameters for an existing service principal when you run `az acs create`. However, when you omit these parameters, the Azure CLI creates one automatically for use with Container Service. This takes place transparently during the deployment.
+As with other Kubernetes cluster creation options, you can specify parameters for an existing service principal when you run `az aks create`. However, when you omit these parameters, the Azure CLI creates one automatically for use with Container Service. This takes place transparently during the deployment.
 
 The following command creates a Kubernetes cluster and generates both SSH keys and service principal credentials:
 
 ```console
-az acs create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-keys --orchestrator-type kubernetes
+az aks create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-keys
 ```
 
 > [!IMPORTANT]
@@ -127,9 +127,9 @@ az acs create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-
 
 * On the master and agent VMs in the Kubernetes cluster, the service principal credentials are stored in the file /etc/kubernetes/azure.json.
 
-* When you use the `az acs create` command to generate the service principal automatically, the service principal credentials are written to the file ~/.azure/acsServicePrincipal.json on the machine used to run the command.
+* When you use the `az aks create` command to generate the service principal automatically, the service principal credentials are written to the file ~/.azure/acsServicePrincipal.json on the machine used to run the command.
 
-* When you use the `az acs create` command to generate the service principal automatically, the service principal can also authenticate with an [Azure container registry](../container-registry/container-registry-intro.md) created in the same subscription.
+* When you use the `az aks create` command to generate the service principal automatically, the service principal can also authenticate with an [Azure container registry](../container-registry/container-registry-intro.md) created in the same subscription.
 
 ## Next steps
 
