@@ -3,7 +3,7 @@ title: Get started with Azure Notification Hubs using Baidu | Microsoft Docs
 description: In this tutorial, you learn how to use Azure Notification Hubs to push notifications to Android devices using Baidu.
 services: notification-hubs
 documentationcenter: android
-author: kapiteir
+author: kpiteira
 manager: erikre
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: hero-article
 ms.tgt_pltfrm: mobile-baidu
 ms.workload: mobile
 ms.date: 08/29/2017
-ms.author: kapiteir
+ms.author: kpiteira
 
 ---
 # Get started with Notification Hubs using Baidu
