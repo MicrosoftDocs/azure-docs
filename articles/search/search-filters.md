@@ -22,9 +22,9 @@ ms.author: heidist
 
 A *filter* provides criteria for selecting documents used in an Azure Search query. Unfiltered search is open-ended and inclusive of all documents in the index. Filtered search creates a slice or subset of documents for a more focused query operation. For example, a filter could restrict full text search to just those products having a specific brand or color, at price points above a certain threshold.
 
-Some search experiences impose filter requirements as part of the implementation, but you can use filters anytime you want to scope a query based on *data-related criteria* pulled from your search corpus.
+Some search experiences impose filter requirements as part of the implementation, but you can use filters anytime you want to constrain search using *value-based* criteria pulled from your search corpus (for example, scoping search to product type "books" for category "non-fiction" published by "Simon & Schuster").
 
-If your goal is instead to target search on specific *data structures* (for example, scope search to a comments field), there are alternative methods, described below.
+If instead your goal is to target search on specific data *structures* (for example, scope search to a comments field), there are alternative methods, described below.
 
 ## When to use a filter
 
