@@ -22,9 +22,9 @@ ms.author: heidist
 
 A *filter* provides criteria for selecting documents used in an Azure Search query. Unfiltered search is open-ended and inclusive of all documents in the index. Filtered search creates a slice or subset of documents for a more focused query operation. For example, a filter could restrict full text search to just those products having a specific brand or color, at price points above a certain threshold.
 
-Some search experiences impose filter requirements as part of the implementation, but you can use filters anytime you want to constrain search using *value-based* criteria pulled from your search corpus (for example, scoping search to product type "books" for category "non-fiction" published by "Simon & Schuster").
+Some search experiences impose filter requirements as part of the implementation, but you can use filters anytime you want to constrain search using *value-based* criteria (scoping search to product type "books" for category "non-fiction" published by "Simon & Schuster").
 
-If instead your goal is targeted search on specific data *structures* (for example, scoping search to a customer reviews field), there are alternative methods, described below.
+If instead your goal is targeted search on specific data *structures* (scoping search to a customer-reviews field), there are alternative methods, described below.
 
 ## When to use a filter
 
@@ -102,7 +102,7 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 
 The following examples illustrate several design patterns for filter scenarios. For more ideas, see [OData expression syntax > Examples](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#bkmk_examples).
 
-+ Standalone **$filter**, without a query string, useful when the filter expression is able to fully qualify documents of interest. Without a query string, there is no lexical or linguistic analysis, no scoring, and no ranking. The search string is empty.
++ Standalone **$filter**, without a query string, useful when the filter expression is able to fully qualify documents of interest. Without a query string, there is no lexical or linguistic analysis, no scoring, and no ranking. Notice the search string is empty.
 
    ```
    search=*&$filter=(baseRate ge 60 and baseRate lt 300) and accommodation eq 'Hotel' and city eq 'Nogales'
@@ -111,21 +111,10 @@ The following examples illustrate several design patterns for filter scenarios. 
 + Combination of query string and **$filter**, where the filter creates the subset, and the query string provides the term inputs for full text search over the filtered subset. Using a filter with a query string is the most common code pattern.
 
    ```
-   search=hotels ocean$filter=(baseRate ge 60 and baseRate lt 300) or city eq 'Los Angeles'
+   search=hotels ocean$filter=(baseRate ge 60 and baseRate lt 300) and city eq 'Los Angeles'
    ```
 
-+ "Contains" filters. Filters come with precision requirements for fully qualified, case-sensitive terms. If you want to filter on a term that appears in a verbose string field you can use the **search.ismatch** function to relax some of these restrictions.
-
-  ```
-   # search.ismatch selects documents where 'ocean' appears in any field, for a search on white sand.
-   search=white sand&$filter=search.ismatch('ocean')
-
-   # Contrast with a standard filter, which requires a field (such as tags) and exact articulation.
-   # If the tag is Ocean or ocean-front instead of 'ocean', the filter is ignored.
-   search=white sand&$filter=tags/any(t: t eq 'ocean') 
-  ```
-
-+ Multiple query-filter combinations, or defining search words to query on in separate fields ('beagles' in 'dog' or 'siamese' in 'cat'). OR'd expressions are evaluated individually, with responses from each one combined into one result sent back to the calling application. This design pattern is achieved through the search.ismatch function. You can use the non-scored version (search.ismatch) or the scored version (search.ismatchscoring).
++ Compound queries, separated by "or", each with its own filter criteria (for example, 'beagles' in 'dog' or 'siamese' in 'cat'). OR'd expressions are evaluated individually, with responses from each one combined into one response object sent back to the calling application. This design pattern is achieved through the search.ismatch function. You can use the non-scored version (search.ismatch) or the scored version (search.ismatchscoring).
 
    ```
    # Match on hostels rated higher than 4 OR 5-star motels.
@@ -139,19 +128,19 @@ Follow up with these articles for comprehensive guidance on specific use cases:
 
 + [Facet filters](search-filters-facets.md)
 + [Language filters](search-filters-language.md)
-+ [Security filters (generic)](search-filters-security-generic.md) 
++ [Security trimming](search-filters-security-generic.md) 
 
 ## Field requirements for filtering
 
 In the REST API, all fields are filterable by default but a field definition could include filterable=FALSE, which would prevent its inclusion in a filter. For more information about field definitions, see [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
-In the .NET SDK, filterable has be to be enabled.
+In the .NET SDK, the filterable attribute must be enabled.
 
 ### Reindexing requirements
 
-If a field is non-filterable and you want to make it filterable, you have to add a new field or rebuild the field. Changing a field definition alters the physical structure of the index. In Azure Search, all allowed access paths are indexed for fast query speed, which necessitates a rebuild of the data structures when field definitions change. 
+If a field is non-filterable and you want to make it filterable, you have to add a new field, or rebuild the existing field. Changing a field definition alters the physical structure of the index. In Azure Search, all allowed access paths are indexed for fast query speed, which necessitates a rebuild of the data structures when field definitions change. 
 
-Rebuilding individual fields can be fast, requiring only a merge operation that sends the existing document key and associated values to the index, leaving the remainder of each document intact. If a rebuild is required, see the following links for instructions:
+Rebuilding individual fields can be a low impact operation, requiring only a merge operation that sends the existing document key and associated values to the index, leaving the remainder of each document intact. If you encounter a rebuild requirement, see the following links for instructions:
 
  + [Indexing actions using the .NET SDK](https://docs.microsoft.com/azure/search/search-import-data-dotnet#decide-which-indexing-action-to-use)
  + [Indexing actions using the REST API](https://docs.microsoft.com/azure/search/search-import-data-rest-api#decide-which-indexing-action-to-use)
@@ -164,14 +153,6 @@ For text filters composed of strings, there is no lexical analysis or word-break
 
 Text strings are case-sensitive. There is no lower-casing of upper-cased words: `$filter=f eq 'Sunny day'` will not find 'sunny day'`.
 
-There are several mechanisms in Azure Search for creating text filters. 
-
-This description doesn’t really tell me what search.in() does. I’d explain it more like this:
-
-“
-
-Then you can get into why this is useful for security trimming.
-
 
 | Approach | Description | 
 |----------|-------------|
@@ -183,7 +164,7 @@ Then you can get into why this is useful for security trimming.
 
 Numeric fields are not `searchable` in the context of full text search. Only strings are subject to full text search. For example, if you enter 99.99 as a search term, you won't get back items priced at $99.99. Instead, you would see items that have the number 99 in string fields of the document. Thus, if you have numeric data, the assumption is that you will use them for filters, including ranges, facets, groups, and so forth. 
 
-Documents that contain numeric fields (price, size, SKU, ID) provide those values in search results if the field is marked `retreivable`. The point here is that full text search itself is not applicable to numeric data types.
+Documents that contain numeric fields (price, size, SKU, ID) provide those values in search results if the field is marked `retreivable`. The point here is that full text search itself is not applicable to numeric field types.
 
 ## Next steps
 
@@ -191,9 +172,10 @@ First, try **Search explorer** in the portal to submit queries with **$filter** 
 
     ```
     # Geo-filter returning documents within 5 kilometers of Redmond, Washington state
-    # Use count to get a number of hits returned by the query
-    # Use select to trim results, showing values for named fields only
+    # Use $count=true to get a number of hits returned by the query
+    # Use $select to trim results, showing values for named fields only
     # Use search=* for an empty query string. The filter is the sole input
+
     search=*&$count=true&$select=description,city,postCode&$filter=geo.distance(location,geography'POINT(-122.121513 47.673988)') le 5
     
     # Numeric filters use comparison like greater than (gt), less than (lt), not equal (ne)
