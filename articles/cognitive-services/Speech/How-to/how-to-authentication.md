@@ -19,7 +19,7 @@ Microsoft Speech Service supports authentication
 - using authorization token
 
 > [!NOTE]
-> The following information is applicable for developers that directly use the [REST](../concepts.md#rest-speech-recognition-api) or those who are writing their own SDKs using the [WebSocket speech protocol](../concepts.md#websocket-speech-recognition-api). Those using [client libraries](../GetStarted/GetStartedClientLibraries.md) need to follow the instructions provided by the client library.
+> The following information is applicable for developers who use the [REST APIs](../GetStarted/GetStartedREST.md) or those who are writing their own SDKs using the [WebSocket speech protocol](../API-Reference-REST/websocketprotocol.md). Those using [client libraries](../GetStarted/GetStartedClientLibraries.md) need to follow the instructions provided by the client library.
 
 ## Using subscription key
 
