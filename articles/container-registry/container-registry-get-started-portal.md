@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/08/2017
+ms.date: 10/16/2017
 ms.author: marsma
 ms.custom:
 ---
 
 # Create a container registry using the Azure portal
 
-An Azure Container Registry is a private Docker registry in Azure where you can store and manage your private Docker container images. In this quickstart, you create a Container Registry with the Azure portal.
+An Azure container registry is a private Docker registry in Azure where you can store and manage your private Docker container images. In this quickstart, you create a container registry with the Azure portal.
 
 To complete this quickstart, you must have Docker installed locally. Docker provides packages that easily configure Docker on any [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), or [Linux](https://docs.docker.com/engine/installation/#supported-platforms) system.
 
@@ -40,7 +40,7 @@ Enter values for **Registry name** and **Resource group**. The registry name mus
 
 ![Creating a container registry in the Azure portal][qs-portal-03]
 
-In this quickstart, we create a *Basic* registry. Azure Container Registry is available in several different SKUs, described briefly in the following table. For extended details on each, see [Select a registry type](container-registry-intro.md).
+In this quickstart, we create a *Basic* registry. Azure Container Registry is available in several different SKUs, described briefly in the following table. For extended details on each, see [Container registry SKUs](container-registry-skus.md).
 
 [!INCLUDE [container-registry-sku-matrix](../../includes/container-registry-sku-matrix.md)]
 
