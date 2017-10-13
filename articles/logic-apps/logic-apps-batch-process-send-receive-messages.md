@@ -154,7 +154,6 @@ Learn more about [authenticating your email credentials](../logic-apps/logic-app
 
     ![Save your logic app](./media/logic-apps-batch-process-send-receive-messages/save-batch-receiver-logic-app.png)
 
-
     > [!IMPORTANT]
     > A partition has a limit of 5,000 messages or 80 MB. 
     > If either condition is met, the batch might be released, 
