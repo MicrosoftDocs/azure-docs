@@ -13,19 +13,20 @@ ms.author: zhouwang
 ---
 # Get started with Microsoft speech recognition service library in C&#35; for .NET Windows
 
-With Microsoft speech recognition service library, your service can utilize the power of Microsoft Speech transcription cloud to convert spoken language to text. This service-to-service library works in real time so your client app can send audio to servers in the cloud and start receiving partial recognition results back simultaneously and asynchronously. For library API reference, see the [Microsoft Speech C# Service Library](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-ServiceLibrary/master/docs/index.html).
+With Microsoft speech recognition service library, your service can utilize the power of Microsoft Speech transcription cloud to convert spoken language to text. This service-to-service library works in real time so your client app can send audio to servers in the cloud and start receiving partial recognition results back simultaneously and asynchronously.
 
-This section describes how to install, build, and run the C# sample application using C# Service Library.
+To use the C# service library, you need to install [NuGet package Microsoft.Bing.Speech](https://www.nuget.org/packages/Microsoft.Bing.Speech/). For library API reference, see the [Microsoft Speech C# Service Library](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-ServiceLibrary/master/docs/index.html).
+
+This following sections describe how to install, build, and run the C# sample application using C# service Library.
 
 ## Prerequisites
 
-### Platform Requirements
+### Platform requirements
 
 The following example has been developed for Windows 8+ and .NET 4.5+ Framework using [Visual Studio 2015, Community Edition](https://www.visualstudio.com/products/visual-studio-community-vs).
 
-### Get the Service Library and Sample Application
+### Get the sample application
 
-The library is available through a [NuGet Package](https://www.nuget.org/packages/Microsoft.Bing.Speech/).
 You may clone the sample from the [Speech C# Service Library Sample](https://github.com/Microsoft/Cognitive-Speech-STT-ServiceLibrary) repository.
 
 ### Subscribe to Speech API and get a free trial subscription key
