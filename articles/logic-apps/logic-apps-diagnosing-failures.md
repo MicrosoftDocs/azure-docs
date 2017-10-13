@@ -13,7 +13,7 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: logic-apps
-ms.date: 10/18/2016
+ms.date: 10/15/2017
 ms.author: LADocs; jehollan
 ---
 
@@ -21,9 +21,6 @@ ms.author: LADocs; jehollan
 
 Your logic app generates information that can help you 
 diagnose and debug problems in your app. 
-Here are some ways that can help you find 
-the source behind problems or failures. 
-
 You can diagnose a logic app by reviewing 
 each step in the workflow through the Azure portal. 
 Or you can add some steps to a workflow for runtime debugging.
@@ -34,14 +31,6 @@ Each logic app starts with trigger. If the trigger doesn't fire,
 first check the trigger history. This history lists all the 
 trigger attempts that your logic app made and details about 
 inputs and outputs for each trigger attempt.
-
-> [!NOTE]
-> You might have multiple trigger entries with the same date and time, 
-> which happens when your logic app finds multiple items. 
-> Each time the trigger fires, the Logic Apps engine creates 
-> a logic app instance to run your workflow. By default, 
-> each instance runs in parallel so that no workflow 
-> has to wait before starting a run.
 
 1. To check whether the trigger fired, 
 on your logic app menu, choose **Overview**. Under 
@@ -55,12 +44,11 @@ on your logic app menu, choose **Overview**. Under
    ![Review trigger history](./media/logic-apps-diagnosing-failures/logic-app-trigger-history-overview.png)
 
    > [!TIP]
+   > * If you don't find the data that you expect, 
+   > try selecting **Refresh** on the toolbar.
    > * If the list shows many trigger attempts, 
    > and you can't find the entry you want, 
    > try filtering the list.
-   > 
-   > * If you don't find the data that you expect, 
-   > try selecting **Refresh** on the toolbar.
 
    Here are the possible statuses for a trigger attempt:
 
@@ -70,6 +58,13 @@ on your logic app menu, choose **Overview**. Under
    | **Skipped** | The trigger checked the endpoint but found no data. | 
    | **Failed** | An error occurred. To review any generated error messages for a failed trigger, select that trigger attempt and choose **Outputs**. For example, you might find inputs that aren't valid. | 
    ||| 
+
+   You might have multiple trigger entries with the same date and time, 
+   which happens when your logic app finds multiple items. 
+   Each time the trigger fires, the Logic Apps engine creates 
+   a logic app instance to run your workflow. By default, 
+   each instance runs in parallel so that no workflow 
+   has to wait before starting a run.
 
    > [!TIP]
    > You can recheck the trigger without waiting for the next recurrence. 
@@ -112,12 +107,11 @@ Under **Runs history**, review the run for the fired trigger.
    ![Review runs history](./media/logic-apps-diagnosing-failures/logic-app-runs-history-overview.png)
 
    > [!TIP]
+   > * If you don't find the data that you expect, 
+   > try selecting **Refresh** on the toolbar.
    > * If the list shows many runs, 
    > and you can't find the entry you want, 
    > try filtering the list.
-   > 
-   > * If you don't find the data that you expect, 
-   > try selecting **Refresh** on the toolbar.
 
    Here are the possible statuses for a run:
 
@@ -126,7 +120,7 @@ Under **Runs history**, review the run for the fired trigger.
    | **Succeeded** | All actions succeeded. <p>If any failures happened in a specific action, a following action in the workflow handled that failure. | 
    | **Failed** | At least one action failed, and no later actions in the workflow were set up to handle the failture. | 
    | **Cancelled** | The workflow was running but received a cancel request. | 
-   | **Running** | The workflow is currently running. <p>This status might happen for throttled workflows, or due to the current pricing plan. For more information, see [action limits on the pricing page](https://azure.microsoft.com/pricing/details/logic-apps/). If you set up [diagnostics logging](../logic-apps/logic-apps-monitor-your-logic-apps.md), you can also get information about any throttle events that happen. | 
+   | **Running** | The workflow is currently running. <p>This status might happen for throttled workflows, or due to the current pricing plan. For more information, see the [action limits on the pricing page](https://azure.microsoft.com/pricing/details/logic-apps/). If you set up [diagnostics logging](../logic-apps/logic-apps-monitor-your-logic-apps.md), you can also get information about any throttle events that happen. | 
    ||| 
 
 2. Review the details for each step in a specific run. 
