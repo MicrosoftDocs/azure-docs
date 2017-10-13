@@ -147,7 +147,7 @@ In this tutorial, you monitored your Kubernetes cluster with OMS. Tasks covered 
 > * Access monitoring information in the OMS portal or Azure portal
 
 
-Follow this link to see pre-built script samples for Container Service.
+Follow this link to learn more about AKS.
 
 > [!div class="nextstepaction"]
-> [Azure Container Service script samples](cli-samples.md)
+> [AKS overview](./intro-kubernetes.md)

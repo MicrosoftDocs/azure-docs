@@ -104,7 +104,7 @@ b68fed4b66b6        redis             "docker-entrypoint..."   57 seconds ago   
 
 Browse to http://localhost:8080 to see the running application.
 
-![Image of Kubernetes cluster on Azure](./media/container-service-tutorial-kubernetes-prepare-app/vote-app.png)
+![Image of Kubernetes cluster on Azure](./media/container-service-tutorial-kubernetes-prepare-app/azure-vote.png)
 
 ## Clean up resources
 
@@ -136,4 +136,4 @@ In this tutorial, an application was tested and container images created for the
 Advance to the next tutorial to learn about storing container images in an Azure Container Registry.
 
 > [!div class="nextstepaction"]
-> [Push images to Azure Container Registry](../container-service/tutorial-kubernetes-prepare-acr.md)
+> [Push images to Azure Container Registry](./tutorial-kubernetes-prepare-acr.md)
