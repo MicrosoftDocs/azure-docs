@@ -50,7 +50,7 @@ sections:
     - href: https://docs.microsoft.com/azure/container-instances/container-instances-quickstart
       title: Create a containerized app with Azure Container Instances
       image: 
-        src: https://docs.microsoft.com/azure/media/index/app-service-web.svg
+        src: https://docs.microsoft.com/media/index/containerservice.svg 
     - href: https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough
       title: Create a Kubernetes cluster for Linux Containers
       image:
