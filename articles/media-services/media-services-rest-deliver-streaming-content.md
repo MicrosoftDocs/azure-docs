@@ -2,7 +2,7 @@
 title: Publish Azure Media Services content using REST
 description: Learn how to create a locator that is used to build a streaming URL. The code uses REST API.
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: ''
 services: media-services
 documentationcenter: ''

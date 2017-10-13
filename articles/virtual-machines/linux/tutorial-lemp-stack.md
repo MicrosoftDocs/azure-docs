@@ -13,7 +13,7 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/03/2017
 ms.author: danlep
 
@@ -67,7 +67,7 @@ With NGINX installed, and port 80 open to your VM, the web server can now be acc
 Check the version of MySQL with the following command (note the capital `V` parameter):
 
 ```bash
-msql -V
+mysql -V
 ```
 
 We recommend running the following script to help secure the installation of MySQL:

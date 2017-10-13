@@ -33,9 +33,9 @@ The [Azure Active Directory user provisioning service](active-directory-saas-app
 
 ### Scenarios covered
 
-The Workday user provisioning workflows supported by the Azure AD user provisioning service enables automation of the following human resources and identity lifecycle management scenarios:
+The Workday user provisioning workflows supported by the Azure AD user provisioning service enable automation of the following human resources and identity lifecycle management scenarios:
 
-* **Hiring new employees** - When a new employee is added to Workday, a user account will be automatically created in Active Directory, Azure Active Directory, and optionally Office 365 and [other SaaS applications supported by Azure AD](active-directory-saas-app-provisioning.md), with write back of the email address to Workday.
+* **Hiring new employees** - When a new employee is added to Workday, a user account will be automatically created in Active Directory, Azure Active Directory, and optionally Office 365 and [other SaaS applications supported by Azure AD](active-directory-saas-app-provisioning.md), with write-back of the email address to Workday.
 
 * **Employee attribute and profile updates** - When an employee record is updated in Workday (such as their name, title, or manager), their user account will be automatically updated in Active Directory, Azure Active Directory, and optionally Office 365 and [other SaaS applications supported by Azure AD](active-directory-saas-app-provisioning.md).
 
@@ -58,9 +58,6 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * For user provisioning to Active Directory, a domain-joined server running Windows Service 2012 or greater is required to host the [on-premises synchronization agent](https://go.microsoft.com/fwlink/?linkid=847801)
 * [Azure AD Connect](connect/active-directory-aadconnect.md) for synchronizing between Active Directory and Azure AD
 
-> [!NOTE]
-> If your Azure AD tenant is located in Europe, please see the [Known issues](#known-issues) section below.
-
 
 ### Solution architecture
 
@@ -80,7 +77,7 @@ Once you have answers to these questions, you can plan your Workday provisioning
 
 Azure Active Directory supports pre-integrated provisioning connectors for Workday and a large number of other SaaS applications. 
 
-A single provisioning connector interfaces with the API of a single source system, and helps provision data to a single target system. Most provisioning connectors that Azure AD supports are for a single source and target system (e.g. Azure AD to ServiceNow), and can be setup by simply adding the app in question from the Azure AD app gallery (e.g. ServiceNow). 
+A single provisioning connector interfaces with the API of a single source system, and helps provision data to a single target system. Most provisioning connectors that Azure AD supports are for a single source and target system (e.g. Azure AD to ServiceNow), and can be set up by adding the app in question from the Azure AD app gallery (e.g. ServiceNow). 
 
 There is a one-to-one relationship between provisioning connector instances and app instances in Azure AD:
 
@@ -182,7 +179,7 @@ In this step, you grant to the new security group permissions for **Get** and **
 3. In the list of security policies for the System functional area, expand **Security Administration** and select the domain security policy **External Account Provisioning**.  
    
     ![Domain Security Policies](./media/active-directory-saas-workday-inbound-tutorial/IC750988.png "Domain Security Policies")  
-4. Click **Edit Permissions**, and then, on the **Edit Permissions**dialog page, add the new security group to the list of security groups with **Get** and **Put** integration permissions. 
+4. Click **Edit Permissions**, and then, on the **Edit Permissions** dialog page, add the new security group to the list of security groups with **Get** and **Put** integration permissions. 
    
     ![Edit Permission](./media/active-directory-saas-workday-inbound-tutorial/IC750989.png "Edit Permission")  
 5. Repeat step 1 above to return to the screen for selecting functional areas, and this time, search for staffing, select the **Staffing functional area** and click **OK**.
@@ -386,7 +383,7 @@ Directory, with some common expressions**
 | **Fax**      | facsimileTelephoneNumber     |     |    Create + update |
 | **FirstName**   | givenName       |     |    Create + update |
 | **Switch(\[Active\], , "0", "True", "1",)** |  accountDisabled      |     | Create + update |
-| **Mobile**  |    mobile       |     |       Written on create only |
+| **Mobile**  |    mobile       |     |       Create + update |
 | **EmailAddress**    | mail    |     |     Create + update |
 | **ManagerReference**   | manager  |     |  Create + update |
 | **WorkSpaceReference** | physicalDeliveryOfficeName    |     |  Create + update |
@@ -396,7 +393,7 @@ Directory, with some common expressions**
 | **LastName**   |   sn   |     |  Create + update |
 | **CountryRegionReference** |  st     |     | Create + update |
 | **AddressLineData**    |  streetAddress  |     |   Create + update |
-| **PrimaryWorkTelephone**  |  telephoneNumber   |     | Written on create only |
+| **PrimaryWorkTelephone**  |  telephoneNumber   |     | Create + update |
 | **BusinessTitle**   |  title     |     |  Create + update |
 | **Join("@",Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Join(".", [FirstName], [LastName]), , "([Øø])", , "oe", , ), , "[Ææ]", , "ae", , ), , "([äãàâãåáąÄÃÀÂÃÅÁĄA])", , "a", , ), , "([B])", , "b", , ), , "([CçčćÇČĆ])", , "c", , ), , "([ďĎD])", , "d", , ), , "([ëèéêęěËÈÉÊĘĚE])", , "e", , ), , "([F])", , "f", , ), , "([G])", , "g", , ), , "([H])", , "h", , ), , "([ïîìíÏÎÌÍI])", , "i", , ), , "([J])", , "j", , ), , "([K])", , "k", , ), , "([ľłŁĽL])", , "l", , ), , "([M])", , "m", , ), , "([ñńňÑŃŇN])", , "n", , ), , "([öòőõôóÖÒŐÕÔÓO])", , "o", , ), , "([P])", , "p", , ), , "([Q])", , "q", , ), , "([řŘR])", , "r", , ), , "([ßšśŠŚS])", , "s", , ), , "([TŤť])", , "t", , ), , "([üùûúůűÜÙÛÚŮŰU])", , "u", , ), , "([V])", , "v", , ), , "([W])", , "w", , ), , "([ýÿýŸÝY])", , "y", , ), , "([źžżŹŽŻZ])", , "z", , ), " ", , , "", , ), "contoso.com")**   | userPrincipalName     |     | Create + update                                                   
 | **Switch(\[Municipality\], "OU=Standard Users,OU=Users,OU=Default,OU=Locations,DC=contoso,DC=com", "Dallas", "OU=Standard Users,OU=Users,OU=Dallas,OU=Locations,DC=contoso,DC=com", "Austin", "OU=Standard Users,OU=Users,OU=Austin,OU=Locations,DC=contoso,DC=com", "Seattle", "OU=Standard Users,OU=Users,OU=Seattle,OU=Locations,DC=contoso,DC=com", “London", "OU=Standard Users,OU=Users,OU=London,OU=Locations,DC=contoso,DC=com")**  | parentDistinguishedName     |     |  Create + update |
@@ -432,6 +429,10 @@ Agent\\Modules\\AADSyncAgent
 
 * Input: Global admin username and password for your Azure AD tenant
 
+>[!IMPORTANT]
+>There is presently a known issue with global administrator credentials not working if they use a custom domain (example: admin@contoso.com). As a workaround, create and use a global administrator account with an onmicrosoft.com domain (example: admin@contoso.onmicrosoft.com)
+
+
 **Command #4**
 
 > Get-AdSyncAgentProvisioningTasks
@@ -460,22 +461,50 @@ Agent\\Modules\\AADSyncAgent
 
 > net start aadsyncagent
 
-### Part 4: Start the service
-Once parts 1-3 have been completed, you can start the provisioning service back in the Azure Management Portal.
+>[!TIP]
+>In addition to the "net" commands in Powershell, the synchronization agent service can also be started and stopped using **Services.msc**. If you get errors when running the Powershell commands, ensure that the **Microsoft Azure AD Connect Provisioning Agent** is running in **Services.msc**.
 
-1.  In the **Provisioning** tab, set the **Provisioning Status** to
-    **On**.
+![Services](./media/active-directory-saas-workday-inbound-tutorial/Services.png)  
+
+**Additional configuration for customers in the European Union**
+
+If your Azure Active Directory tenant is located in one of the EU data centers, then follow the additional steps below.
+
+1. Open **Services.msc** , and stop the **Microsoft Azure AD Connect Provisioning Agent** service.
+2. Go to the agent installation folder (example: C:\Program Files\Microsoft Azure AD Connect Provisioning Agent).
+3. Open **SyncAgnt.exe.config** in a text editor.
+4. Replace https://manage.hub.syncfabric.windowsazure.com/Management with **https://eu.manage.hub.syncfabric.windowsazure.com/Management**
+5. Replace https://provision.hub.syncfabric.windowsazure.com/Provisioning with **https://eu.provision.hub.syncfabric.windowsazure.com/Provisioning**
+6. Save the **SyncAgnt.exe.config** file.
+7. Open **Services.msc**, and start the **Microsoft Azure AD Connect Provisioning Agent** service.
+
+**Agent troubleshooting**
+
+The [Windows Event Log](https://technet.microsoft.com/en-us/library/cc722404(v=ws.11).aspx) on the Windows Server machine hosting the agent contains events for all operations performed by the agent. To view these events:
+	
+1. Open **Eventvwr.msc**.
+2. Select **Windows Logs > Application**.
+3. View all events logged under the source **AADSyncAgent**. 
+4. Check for errors and warnings.
+
+If there is a permissions problem with either the Active Directory or Azure Active Directory credentials provided in the Powershell commands, you will see an error such as this one: 
+	
+![Event logs](./media/active-directory-saas-workday-inbound-tutorial/Windows_Event_Logs.png) 
+
+
+### Part 4: Start the service
+Once parts 1-3 have been completed, you can start the provisioning service back in the Azure portal.
+
+1.  In the **Provisioning** tab, set the **Provisioning Status** to **On**.
 
 2. Click **Save**.
 
 3. This will start the initial sync, which can take a variable number of hours depending on how many users are in Workday.
 
-4. Individual sync events such as what users are being read out of
-    Workday, and then subsequently added or updated to Active Directory,
-    can be viewed in the **Audit Logs** tab. **[See the provisioning reporting guide for detailed instructions on how to read the audit logs](active-directory-saas-provisioning-reporting.md)**
+4. At any time, check the **Audit logs** tab in the Azure portal to see what actions the provisioning service has performed. The audit logs lists all individual sync events performed by the provisioning service, such as which users are being read out of Workday and then subsequently added or updated to Active Directory. **[See the provisioning reporting guide for detailed instructions on how to read the audit logs](active-directory-saas-provisioning-reporting.md)**
 
-5.  The Windows Application log on the agent machine will show all
-    operations performed via the agent.
+5.  Check the [Windows Event Log](https://technet.microsoft.com/en-us/library/cc722404(v=ws.11).aspx) on the Windows Server machine hosting the agent for any new errors or warnings. These events are viewable by launching **Eventvwr.msc** on the server and selecting **Windows Logs > Application**. All provisioning-related messages are logged under the source **AADSyncAgent**. 
+	
 
 6. One completed, it will write an audit summary report in the
     **Provisioning** tab, as shown below.
@@ -530,8 +559,7 @@ The following sections describe setting up a connection between Workday and Azur
         endpoint for your tenant. This should look like:
         https://wd3-impl-services1.workday.com/ccx/service/contoso4,
         where contoso4 is replaced with your correct tenant name and
-        wd3-impl is replaced with the correct environment string (if
-        necessary).
+        wd3-impl is replaced with the correct environment string. If this URL is not known, please work with your Workday integration partner or support representative to determine the correct URL to use.
 
    * **Notification Email –** Enter your email address, and check the
         “send email if failure occurs” checkbox.
@@ -722,7 +750,9 @@ Once parts 1-2 have been completed, you can start the provisioning service.
 
 ## Known issues
 
-* **Audit logs in European locales** - As of the release of this technical preview, there is a known issue with the [audit logs](active-directory-saas-provisioning-reporting.md) for the Workday connector apps not appearing in the [Azure portal](https://portal.azure.com) if the Azure AD tenant resides in a European data center. A fix for this issue is forthcoming. Please check this space again in the near future for updates. 
+* When running the **Add-ADSyncAgentAzureActiveDirectoryConfiguration** Powershell command, there is presently a known issue with global administrator credentials not working if they use a custom domain (example: admin@contoso.com). As a workaround, create and use a global administrator account in Azure AD with an onmicrosoft.com domain (example: admin@contoso.onmicrosoft.com).
+
+* A previous issue with audit logs not appearing in Azure AD tenants located in the European Union has been resolved. However, additional agent configuration is required for Azure AD tenants in the EU. For details, see [Part 3: Configure the on-premises synchronization agent](#Part 3: Configure the on-premises synchronization agent)
 
 ## Additional resources
 * [Tutorial: Configuring single sign-on between Workday and Azure Active Directory](active-directory-saas-workday-tutorial.md)

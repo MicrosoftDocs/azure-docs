@@ -126,11 +126,11 @@ WHERE d.FiscalYear = 2004
 ```
 We re-created `DimDate` and `DimSalesTerritory` as round-robin tables. As a result, the query showed the following query plan, which has multiple broadcast move operations: 
  
-![Round-robin query plan](media/design-guidance-for-replicated-tables/round-robin-tables-query-plan.jpg "Round-robin query plan") 
+![Round-robin query plan](media/design-guidance-for-replicated-tables/round-robin-tables-query-plan.jpg) 
 
 We re-created `DimDate` and `DimSalesTerritory` as replicated tables, and ran the query again. The resulting query plan is much shorter and does not have any broadcast moves.
 
-![Replicated query plan](media/design-guidance-for-replicated-tables/replicated-tables-query-plan.jpg "Round-robin query plan") 
+![Replicated query plan](media/design-guidance-for-replicated-tables/replicated-tables-query-plan.jpg) 
 
 
 ## Performance considerations for modifying replicated tables
@@ -199,7 +199,7 @@ SELECT TOP 1 * FROM [ReplicatedTable]
 To create a replicated table, use one of these statements:
 
 - [CREATE TABLE (Azure SQL Data Warehouse)](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
-- [CREATE TABLE AS SELECT (Azure SQL Data Warehouse](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
+- [CREATE TABLE AS SELECT (Azure SQL Data Warehouse)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
 
 For an overview of distributed tables, see [distributed tables](sql-data-warehouse-tables-distribute.md).
 

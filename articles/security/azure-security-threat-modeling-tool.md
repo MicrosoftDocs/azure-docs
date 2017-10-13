@@ -18,7 +18,7 @@ ms.author: rodsan
 
 ---
 
-# Microsoft Threat Modeling Tool 
+# Microsoft Threat Modeling Tool
 
 The Threat Modeling Tool is a core element of the Microsoft Security Development Lifecycle (SDL). It allows software architects to identify and mitigate potential security issues early, when they are relatively easy and cost-effective to resolve. As a result, it greatly reduces the total cost of development. Also, we designed the tool with non-security experts in mind, making threat modeling easier for all developers by providing clear guidance on creating and analyzing threat models. 
 
@@ -37,12 +37,26 @@ Here are some tooling capabilities and innovations, just to name a few:
 * **Designed for Developers and Centered on Software:** many approaches are centered on assets or attackers. We are centered on software. We build on activities that all software developers and architects are familiar with -- such as drawing pictures for their software architecture
 * **Focused on Design Analysis:** The term "threat modeling" can refer to either a requirements or a design analysis technique. Sometimes, it refers to a complex blend of the two. The Microsoft SDL approach to threat modeling is a focused design analysis technique
 
-## Next Steps
+## Next steps
+
+The table below contains important links to get you started with the Threat Modeling Tool:
+
+| Step  | Description                                                                                   |
+| ----- | --------------------------------------------------------------------------------------------- |
+| **1** | [Download the Threat Modeling Tool](https://aka.ms/tmtpreview)                                |
+| **2** | [Read Our getting started guide](./azure-security-threat-modeling-tool-getting-started.md)    |
+| **3** | [Get familiar with the features](./azure-security-threat-modeling-tool-feature-overview.md)   |
+| **4** | [Learn about generated threat categories](./azure-security-threat-modeling-tool-threats.md)   |
+| **5** | [Find mitigations to generated threats](./azure-security-threat-modeling-tool-mitigations.md) |
+
+## Resources
 
 Here are a few older articles still relevant to threat modeling today:
+
 * [Article on the Importance of Threat Modeling](https://msdn.microsoft.com/magazine/dd347831.aspx)
 * [Training Published by Trustworthy Computing](https://www.microsoft.com/download/details.aspx?id=16420)
 
 Check out what a few Threat Modeling Tool experts have done:
+
 * [Threats Manager](https://simoneonsecurity.com/threatsmanagersetup-v1-5-10/)
 * [Simone Curzi Security Blog](https://simoneonsecurity.com/)

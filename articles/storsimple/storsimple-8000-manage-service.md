@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/13/2017
+ms.date: 10/04/2017
 ms.author: alkohli
 
 ---
@@ -56,17 +56,22 @@ For each StorSimple Device Manager service, the following attributes exist:
 * **Subscription** – The billing subscription that is associated with your service.
 
 ## Move a service to Azure portal
-StorSimple 8000 series can be now managed in the Azure portal. If you have an existing service to manage the StorSimple devices, we recommend that you move your service to the Azure portal. The Azure classic portal for the StorSimple Manager service is not available after September 30, 2017.
+StorSimple 8000 series can be now managed in the Azure portal. If you have an existing service to manage the StorSimple devices, we recommend that you move your service to the Azure portal. The Azure classic portal for the StorSimple Manager service is not supported after September 30, 2017. If you want to move to the new Azure portal, refer [Considerations for transition](#considerations-for-transition). 
 
-The option to migrate to the Azure portal is available in phases. If you do not see an option to migrate to Azure portal but you want to move and have reviewed the impact of migration as documented in the [Considerations for transition](#considerations-for-transition), you can [submit a request](https://aka.ms/ss8000-cx-signup).
+> [!NOTE]
+> Starting October 5, 2017, your classic StorSimple device managers will automatically move to the new Azure portal. This is a phased rollout, and we will update you about the move via email and portal notifications. If you have any questions, see [FAQ: Move to Azure portal](storsimple-8000-move-azure-portal-faq.md).
 
 ### Considerations for transition
 
 Review the impact of migrating to the new Azure portal before you move the service.
 
+> [!NOTE]
+> The existing Azure Service Management (ASM) PowerShell cmdlets are not supported after you move to the new Azure portal. Update the scripts to manage your devices through the Azure Resource Manager SDK. For more information, go to the [Use Azure Resource Manager SDK-based scripts to manage StorSimple devices](storsimple-8000-automation-azurerm-scripts.md).
+> The new Azure portal supports devices running Update 3.0 or later. If your device is not up to date, we strongly recommend that you apply Update 5 as soon as possible.
+
 #### Before you transition
 
-* Your device is running Update 3.0 or later. If your device is running an older version, install the latest updates. For more information, go to [Install Update 4](storsimple-8000-install-update-4.md). If using a StorSimple Cloud Appliance (8010/8020), create a new cloud appliance with Update 4.0. 
+* Your device is running Update 3.0 or later. If your device is running an older version, install the latest updates. For more information, go to [Install Update 5](storsimple-8000-install-update-5.md). If using a StorSimple Cloud Appliance (8010/8020), you cannot update a cloud appliance. Use the latest version of software to create a new cloud appliance with Update 5.0 and then fail over to the new cloud appliance created.
 
 * Once you are transitioned to the new Azure portal, you cannot use the Azure classic portal to manage your StorSimple device.
 
@@ -84,7 +89,7 @@ Review the impact of migrating to the new Azure portal before you move the servi
 
 * You can no longer manage your devices from the classic portal.
 
-* The existing Azure Service Management (ASM) PowerShell cmdlets are not supported. Update the scripts to manage your devices through the Azure Resource Manager.
+* The existing Azure Service Management (ASM) PowerShell cmdlets are not supported. Update the scripts to manage your devices through the Azure Resource Manager. For sample scripts using Resource Manager SDK, refer the [storsimpledevicemgmttools github](https://github.com/anoobbacker/storsimpledevicemgmttools).
 
 * Your service and device configuration are retained. All your volumes and backups are also transitioned to the Azure portal.
 
@@ -92,20 +97,21 @@ Review the impact of migrating to the new Azure portal before you move the servi
 
 Perform the following steps to transition your service to the Azure portal.
 
-1. Go to your existing StorSimple Manager service in the classic portal.
+1. Go to your existing StorSimple Manager service in the new Azure portal.
+    ![More services](./media/storsimple-8000-manage-service/service-browse01.png)
+    ![Select device manager](./media/storsimple-8000-manage-service/service-browse02.png)
 
-2. You see a notification that informs you that the StorSimple Device Manager service is now available in the Azure portal. Note that in the Azure portal, the service is referred to as StorSimple Device Manager service.
-
+2. You see a notification that informs you that the StorSimple Device Manager service is now available in the Azure portal. In the Azure portal, the service is referred to as the StorSimple Device Manager service.
     ![Migration notification](./media/storsimple-8000-manage-service/service-transition1.jpg)
-
+    
     1. Ensure that you have reviewed the full impact of migration.
     2. Review the list of StorSimple Device Managers that will be moved from the classic portal.
 
 3. Click **Migrate**. The transition begins and takes a few minutes to complete.
 
-Once the transition is complete, you can manage your devices via the StorSimple Device Manager service in the Azure portal.
+Once the transition is complete, you can manage your devices via the StorSimple Device Manager service in the Azure portal. If you do not see an option to migrate to Azure portal but you want to move, you can [submit a request](https://aka.ms/ss8000-cx-signup).
 
-In the Azure portal, only the StorSimple devices running Update 3.0 and higher are supported. The devices that are running older versions have limited support. The following table summrizes which operations are supported on the device running versios prior to Update 3.0, once you have migrated from the classic to the Azure portal.
+In the Azure portal, only the StorSimple devices running Update 3.0 and higher are supported. The devices that are running older versions have limited support. After you have migrated to the Azure portal, use the following table to understand which operations are supported on devices running versions prior to Update 3.0.
 
 | Operation                                                                                                                       | Supported      |
 |---------------------------------------------------------------------------------------------------------------------------------|----------------|
@@ -243,13 +249,18 @@ These steps must be performed in the Windows PowerShell interface of your StorSi
 
 Perform the following steps to update the service data encryption on your device.
 
-#### To update the service data encryption key
+#### To update the service data encryption key on physical devices
 1. Use Windows PowerShell for StorSimple to connect to the console. Select option 1 to log on with full access.
 2. At the command prompt, type:
-   
     `Invoke-HcsmServiceDataEncryptionKeyChange – ServiceDataEncryptionKey`
 3. Provide the service data encryption key that you obtained in [Step 2: Use Windows PowerShell for StorSimple to initiate the service data encryption key change](#to-initiate-the-service-data-encryption-key-change).
 
+#### To update the service data encryption key on all the 8010/8020 cloud appliances
+1. Download and setup [Update-CloudApplianceServiceEncryptionKey.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Update-CloudApplianceServiceEncryptionKey.ps1) PowerShell script. 
+2. Open PowerShell and at the command prompt, type: 
+    `Update-CloudApplianceServiceEncryptionKey.ps1 -SubscriptionId [subscription] -TenantId [tenantid] -ResourceGroupName [resource group] -ManagerName [device manager]`
+
+This script will ensure that service data encryption key is set on all the 8010/8020 cloud appliances under the device manager.
 
 ## Next steps
 * Learn more about the [StorSimple deployment process](storsimple-8000-deployment-walkthrough-u2.md).

@@ -4,7 +4,7 @@ description: This topic lists error codes that could be returned in case an erro
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: ce4e939f-5aee-41f9-859d-e4429815e9f2

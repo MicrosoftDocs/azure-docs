@@ -4,7 +4,7 @@ description: This topic describes quotas and limitations associated with Microso
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: d4c43afd-dba8-40a2-ad92-6de54152f7ec

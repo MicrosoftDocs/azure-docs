@@ -3,7 +3,7 @@ title: Customize your sign-in page in the Azure Active Directory | Microsoft Doc
 description: Learn how to add a company branding to the Azure sign-in page
 services: active-directory
 documentationcenter: ''
-author: jeffgilb
+author: curtand
 manager: femila
 editor: ''
 
@@ -13,8 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2017
-ms.author: jeffgilb
+ms.date: 09/06/2017
+ms.author: curtand
+ms.reviewer: kexia
 custom: it-pro
 ---
 # Quickstart: Add company branding to your sign-in page in Azure AD
@@ -61,7 +62,7 @@ This appears at the bottom of the sign-in form and can be used to communicate ad
 ### Sign-in page image	
 Description | Constraints | Recommendations
 ------- | ------- | ----------
-This appears in the background of the sign-in page, is anchored to the center of the viewable space, and will scale and crop to fill the browser window.	<br>On narrow screens such as mobile phones, this image is not shown.<br>A black mask with 0.55 opacity will be applied over this image by our code when the page is loaded. | JPG or PNG<br>Image dimensions: 1920x1080 px<br>File size: &gt; 300 KB | <br>Use images where there isn't a strong subject focus. The opaque sign-in form appears over the center of this image and can cover any part of the image depending on the size of the browser window.<br>Keep the file size as small as possible to ensure quick load times. 
+This appears in the background of the sign-in page, is anchored to the center of the viewable space, and will scale and crop to fill the browser window.	<br>On narrow screens such as mobile phones, this image is not shown.<br>A black mask with 0.55 opacity will be applied over this image by our code when the page is loaded. | JPG or PNG<br>Image dimensions: 1920x1080 px<br>File size: &lt; 300 KB | <br>Use images where there isn't a strong subject focus. The opaque sign-in form appears over the center of this image and can cover any part of the image depending on the size of the browser window.<br>Keep the file size as small as possible to ensure quick load times. 
 
 ### Background Color
 Description | Constraints | Recommendations
