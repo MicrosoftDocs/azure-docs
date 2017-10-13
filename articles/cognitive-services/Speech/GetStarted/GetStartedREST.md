@@ -43,7 +43,7 @@ The next step for speech recognition is to send a POST request to the Microsoft 
 
 ### HTTP endpoints
 
-The URI of the HTTP endpoints of Microsoft Speech Service is built based on [recognition mode](../concepts.md#recognition-modes) and [recognition language](../concepts.md#recognition-languages), as described in [Speech Service Endpoints](../concepts.md#speech-service-endpoints).
+The URI of the HTTP endpoints of Microsoft Speech Service is built based on [recognition mode](../concepts.md#recognition-modes) and [recognition language](../concepts.md#recognition-languages), as described in [Speech Service HTTP Endpoints](../concepts.md#speech-service-http-endpoints).
 
 Some examples of service URI are as follows.
 | Recognition mode  | Language | Output format | REST end point |

@@ -67,13 +67,15 @@ Since the Microsoft Speech Service participates in some of the states, the servi
 
 ## REST speech recognition API
 
-The Microsoft [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) speech recognition API is an HTTP 1.1 protocol definition for building simple speech applications that perform speech recognition. This API is most suitable for applications where continuous user feedback is not required or for platforms that do not support the [IETF WebSocket standard](https://tools.ietf.org/html/rfc6455). The REST API has the following characteristics:
+The Microsoft [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) speech recognition API is an HTTP 1.1 protocol definition for building simple speech applications that perform speech recognition. For information about how to use the REST API, see [Get Started with REST API](GetStarted/GetStartedREST.md).
+
+The REST API is most suitable for applications where continuous user feedback is not required or for platforms that do not support the [IETF WebSocket standard](https://tools.ietf.org/html/rfc6455). The REST API has the following characteristics:
 
 - Utterances are limited to a maximum of 15 seconds.
 - Partial results are not returned. Only the final phrase result is returned.
 - Service end-of-speech detection is not supported. Clients must determine the end of speech. 
 - A single recognition phrase result is returned to the client only after the client stops writing to the request stream.
-- Continuous recognition is not supported. 
+- Continuous recognition is not supported.
 
 If these features are important to your application's functionality, use the [WebSocket speech recognition API](#WebSocket-speech-recognition-api).
 

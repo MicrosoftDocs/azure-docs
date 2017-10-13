@@ -17,6 +17,8 @@ To transcribe speech to text, Microsoft speech recognition API allows you to sen
 
 > [!NOTE]
 > You may not upload more than 10 seconds of audio in any one request and the total request duration cannot exceed 14 seconds.
+> [!NOTE]
+> You need to specify the chunked transfer encoding only if your directly use the [REST speech protocol](../concepts.md#rest-speech-recognition-api) to call the speech service. Applications that use the [WebSocket speech protocol](../concepts.md#webSocket-speech-recognition-api) or [client libraries](GetStarted/GetStartedClientLibraries.md) do not need to configure the chunked transfer encoding.
 
 The following code shows how to set the chunked transfer encoding and to send an audio file being chunked into 1024-byte chunks.
 
