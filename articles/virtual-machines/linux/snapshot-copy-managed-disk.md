@@ -19,8 +19,6 @@ ms.author: cynthn
 
 Take a snapshot of an OS or data disk VHD for backup or to troubleshoot VM issues. A snapshot is a full, read-only copy of a VHD. 
 
-Use either the Azure portal or the Azure CLI 2.0 to take a snapshot.
-
 ## Use Azure CLI 2.0 to take a snapshot
 
 The following example requires the Azure CLI 2.0 installed and logged into your Azure account. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
