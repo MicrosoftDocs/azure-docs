@@ -120,7 +120,7 @@ In the following tables, services that are specified as Azure Resource Manager e
 | --- | --- | --- |
 | [IoT Hub](documentation-government-services-iot-hub.md#azure-iot-hub) | Yes | Yes |
 | Event Hubs | Yes | Yes |
-| Notification Hubs | No | No (go to the [Azure classic portal](https://manage.windowsazure.us/)) |
+| Notification Hubs | Yes | Yes |
 
 ## Enterprise Integration
 
@@ -153,7 +153,6 @@ In the following tables, services that are specified as Azure Resource Manager e
 | [Site Recovery](documentation-government-services-monitoringandmanagement.md#site-recovery) | Yes | Yes |
 | Scheduler | Yes | Yes |
 | [Monitoring and Diagnostics](documentation-government-services-monitoringandmanagement.md#monitor) | Yes | Yes |
-| Azure Portal - Classic | Yes | Yes |
 | Azure Portal - Ibiza| Yes | Yes |
 | Azure Resource Manager | Yes | Yes |
 
