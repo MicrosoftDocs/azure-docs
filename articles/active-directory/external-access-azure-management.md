@@ -1,6 +1,6 @@
 ---
 title: How to grant external users authorization to access Azure
-description: Provides an overview of how to authorize users outside of your tenant (external users) access to Azure resources.
+description: Provides an overview of how to authorize users outside of your tenant (external users) to access Azure resources.
 services: active-directory
 documentationcenter: 
 author: bryanla
@@ -32,9 +32,11 @@ To grant someone from outside your organization access to manage Azure:
 
 With a nice screenshot.  
 
-## Azure B2B
+## Azure Business-to-Business (B2B) collaboration
 
-Fo
+Azure AD business-to-business (B2B) collaboration capabilities enable any organization using Azure AD to work safely and securely with users from any other organization, small or large. Those organizations can be with Azure AD or without, or even with an IT organization or without. 
+
+For more details on using Azure AD B2B capabilities, see [What is Azure AD B2B collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)
 
 ## Related content
 
