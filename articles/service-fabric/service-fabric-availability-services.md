@@ -26,7 +26,7 @@ Service Fabric services can be either stateful or stateless. A stateless service
 
 Creating a stateless service requires defining an `InstanceCount`. The instance count defines the number of instances of the stateless service's application logic that should be running in the cluster. Increasing the number of instances is the recommended way of scaling out a stateless service.
 
-When an instance of a stateless named-service fails, a new instance is created on an eligible node in the cluster. For example, a stateless service instance might fail on Node1 and be recreated on Node5.
+When an instance of a stateless named-service fails, a new instance is created on an eligible node in the cluster. For example, a stateless service instance might fail on Node1 and be re-created on Node5.
 
 ## Availability of Service Fabric stateful services
 A stateful service has a state associated with it. In Service Fabric, a stateful service is modeled as a set of replicas. Each replica is a running instance of the code of the service. The replica also has a copy of the state for that service. Read and write operations are performed at one replica, called the *Primary*. Changes to state from write operations are *replicated* to the other replicas in the replica set, called *Active Secondaries*, and applied. 
