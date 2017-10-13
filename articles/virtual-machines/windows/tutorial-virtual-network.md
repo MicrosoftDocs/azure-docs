@@ -29,7 +29,7 @@ Azure virtual machines use Azure networking for internal and external network co
 > * Control network traffic with Network Security Groups
 > * View traffic rules in action
 
-While completing this tutorial you can see these resources created:
+While completing this tutorial, you can see these resources created:
 
 ![Virtual network with two subnets](./media/tutorial-virtual-network/networktutorial.png)
 
@@ -43,7 +43,7 @@ While completing this tutorial you can see these resources created:
 - *myBackendNic* - The network interface used by *myBackendVM* to communicate with *myFrontendVM*.
 - *myBackendVM* - The VM that uses port 1433 to communicate with the *myFrontendVM*.
 
-This tutorial requires the Azure PowerShell module version 3.6 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
+This tutorial requires the Azure PowerShell module version 3.6 or later. To find the version, run `Get-Module -ListAvailable AzureRM`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
 ## Create VNet
 
@@ -286,7 +286,7 @@ In this tutorial, you created and secured Azure networks as related to virtual m
 > * Control network traffic with Network Security Groups
 > * View traffic rules in action
 
-Advance to the next tutorial to learn about monitoring securing data on virtual machines using Azure backup. .
+Advance to the next tutorial to learn about monitoring securing data on virtual machines using Azure backup.
 
 > [!div class="nextstepaction"]
 > [Back up Windows virtual machines in Azure](./tutorial-backup-vms.md)
