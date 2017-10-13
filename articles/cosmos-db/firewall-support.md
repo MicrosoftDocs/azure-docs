@@ -15,7 +15,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/22/2017
+ms.date: 10/12/2017
 ms.author: ankshah
 
 ---
@@ -62,10 +62,10 @@ In the new pane, specify whether the Azure portal can access the account, and ad
 > When you enable an IP access control policy, you need to add the IP address for the Azure portal to maintain access. The portal IP addresses are:
 > |Region|IP address|
 > |------|----------|
-> |All regions except those specified below| 104.42.195.92|
+> |All regions except those specified below|104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26|
 > |Germany|51.4.229.218|
 > |China|139.217.8.252|
-> |US Gov Arizona|52.244.48.71|
+> |US Gov|52.244.48.71|
 >
 
 ![Screenshot showing a how to configure firewall settings in the Azure portal](./media/firewall-support/azure-portal-firewall-configure.png)

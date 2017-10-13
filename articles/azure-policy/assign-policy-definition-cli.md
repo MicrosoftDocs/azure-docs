@@ -3,9 +3,9 @@ title: Use the Azure CLI to create a policy assignment to identify non-compliant
 description: Use PowerShell to create an Azure Policy assignment to identify non-compliant resources.
 services: azure-policy 
 keywords: 
-author: niniikhena
+author: Jim-Parker
 ms.author: jimpark
-ms.date: 09/20/2017
+ms.date: 10/06/2017
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
