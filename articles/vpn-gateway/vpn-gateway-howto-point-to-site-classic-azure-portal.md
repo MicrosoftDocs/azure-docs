@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/03/2017
+ms.date: 10/12/2017
 ms.author: cherylmc
 
 ---
@@ -93,7 +93,7 @@ If you don't already have a virtual network, create one. Screenshots are provide
 9. After clicking Create, a tile appears on your dashboard that will reflect the progress of your VNet. The tile changes as the VNet is being created.
 
   ![Creating virtual network tile](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/deploying150.png)
-10. Once your virtual network has been created, you see **Created** listed under **Status** on the networks page in the Azure classic portal.
+10. Once your virtual network has been created, you see **Created**.
 11. Add a DNS server (optional). After you create your virtual network, you can add the IP address of a DNS server for name resolution. The DNS server IP address that you specify should be the address of a DNS server that can resolve the names for the resources in your VNet.<br>To add a DNS server, open the settings for your virtual network, click DNS servers, and add the IP address of the DNS server that you want to use.
 
 ### <a name="gateway"></a>Part 2: Create gateway subnet and a dynamic routing gateway
