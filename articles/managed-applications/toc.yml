@@ -43,10 +43,45 @@
     href: /powershell/module/azurerm.resources
   - name: REST
     href: /rest/api/resources/
-  - name: Subscription schema
-    href: subscription-creation-schema.md
-  - name: Event schema
-    href: event-schema.md
+  - name: User interface functions
+    href: create-uidefinition-functions.md
+  - name: User interface elements
+    href: create-uidefinition-elements.md
+    items:
+    - name: Common
+      items:
+      - name: DropDown
+        href: microsoft-common-dropdown.md
+      - name: FileUpload
+        href: microsoft-common-fileupload.md
+      - name: OptionsGroup
+        href: microsoft-common-optionsgroup.md
+      - name: PasswordBox
+        href: microsoft-common-passwordbox.md
+      - name: Section
+        href: microsoft-common-section.md
+      - name: TextBox
+        href: microsoft-common-textbox.md
+    - name: Compute
+      items:
+      - name: CredentialsCombo
+        href: microsoft-compute-credentialscombo.md
+      - name: SizeSelector
+        href: microsoft-compute-sizeselector.md
+      - name: UserNameTextBox
+        href: microsoft-compute-usernametextbox.md
+    - name: Network
+      items:
+      - name: PublicIPAddressCombo
+        href: microsoft-network-publicipaddresscombo.md
+      - name: VirtualNetworkCombo
+        href: microsoft-network-virtualnetworkcombo.md
+    - name: Storage
+      items:
+      - name: MultiStorageAccountCombo
+        href: microsoft-storage-multistorageaccountcombo.md
+      - name: StorageAccountSelector
+        href: microsoft-storage-storageaccountselector.md
 - name: Resources
   items:
   - name: Azure Roadmap
