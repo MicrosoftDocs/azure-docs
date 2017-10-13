@@ -1,8 +1,28 @@
+---
+title: Support and help options for Azure Identity developers | Microsoft Docs
+description: Know how to obtain help and support for development-related questions and problems when creating application that integrate with Microsoft Azure identities (Azure Active Directory and MSA)
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mbaldwin
+editor: ''
+
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 10/13/2017
+ms.author: andret
+ms.custom: aaddev 
+
+---
 # Support and help options for developers 
 
 If you need help or support for development-related questions, use one of the following options:
 
-## 1. Search
+## Search
 
 If you have a development-related question, you may be able to find the answer you need on our documentation, our [github samples](https://github.com/azure-samples), or [Stack Overflow](https://www.stackoverflow.com).
 
@@ -17,7 +37,7 @@ Type your problem, question or error on the following search box to search on St
 </form>
 </div>
 
-## 2. Use our development support tools
+## Use our development support tools
 
 |Tool  |Description  |
 |---------|---------|
@@ -25,7 +45,7 @@ Type your problem, question or error on the following search box to search on St
 |[Error code analyzer](https://apps.dev.microsoft.com/portal/tools/errors)| Paste an error code received during sign-in or consent pages to see possible causes and remediations |
 |[Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)| Tool that lets you make requests and see responses against the Microsoft Graph API|
 
-## 3. Post a question to Stack Overflow
+## Post a question to Stack Overflow
 [![Stack Overflow](media/active-directory-develop-get-help/stackoverflow-logo.png)](https://www.stackoverflow.com)
 
 Stack Overflow is the preferred channel for development-related questions - where both members of community as Microsoft team members are directly involved on helping you to solve your problem.
@@ -41,15 +61,15 @@ If you cannot find an answer to your problem via search, submit a new question t
 |[Azure B2C](https://azure.microsoft.com/services/active-directory-b2c/)  |[[azure-ad-b2c]](http://stackoverflow.com/questions/tagged/azure-ad-b2b)|
 |[Microsoft Graph API](https://developer.microsoft.com/graph/) |[[microsoft-graph]](http://stackoverflow.com/questions/tagged/microsoft-graph)
 |Any other area related to authentication or authorization topics |[[azure-active-directory]](http://stackoverflow.com/questions/tagged/azure-active-directory)
-
 <br/>
-
 > [!TIP]
 > The following posts from Stack Overflow contain tips on how to make questions, and tips on adding source code - following these guidelines may help increase the chances for community members to assess and respond to your question quickly:  
 > - [How do I ask a good question](https://stackoverflow.com/help/how-to-ask)
 > - [How to create a Minimal, Complete, and Verifiable example](https://stackoverflow.com/help/mcve)
 
-## 4. Create a GitHub issue
+<br/>
+
+## Create a GitHub issue
 
 [![Stack Overflow](media/active-directory-develop-get-help/github-logo.png)](https://www.github.com)
 
@@ -57,7 +77,7 @@ If you cannot find an answer to your problem via search, submit a new question t
 
 - [ADAL, MSAL and Owin middleware](active-directory-authentication-libraries.md) libraries and GitHub repositories
 
-## 5. Open a support request
+## Open a support request
 
 If you need to talk to someone, you can open a support request. If you are an Azure customer, there are several support options available. To compare plans, see [this page](https://azure.microsoft.com/support/plans/). Developer support is also available for Azure customers. For information on how to purchase Developer support plans, see [this page](https://azure.microsoft.com/support/plans/developer/).
 
