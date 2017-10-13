@@ -61,15 +61,20 @@ For more information about either parameter, see [Search Documents > Request > Q
 
 ## Filters in the query pipeline
 
-A filter is a query type, one of two, where the other query type is search. A search query searches for one or more terms in all searchable fields in your index. A filter query is expressed in OData V4 syntax. A filter parser converts the expression into one or more Boolean expressions, adds them to a filter tree, which is then evaluated over filterable fields in an index. 
+Filtering occurs before search, qualifying which documents to include in downstream processing that determines relevance, scoring, ranking, and so forth. 
 
-Filters can be the sole search input (where the query string is null, as in `search=*`). When paired with a search query, filter comes first, effectively reducing the surface area of the subsequent search operation.
+At query time, a filter parser accepts criteria as input, converts the expression into atomic Boolean expressions, and builds a filter tree, which is then evaluated over filterable fields in an index.  
+
+Filters can be the sole search input (where the query string is null, as in `search=*`). When paired with a search query, filters effectively reduce the surface area of the subsequent search operation.
+
+> [!Note]
+> A *filter* is a query type, one of two, where the other query type is *search*. A search query searches for one or more terms in all searchable fields in your index. A filter query converts the expression into one or more Boolean expressions placed within a filter tree.
 
 ## Filter definition
 
-As noted, filters are OData expressions, articulated using a [subset of OData syntax supported in Azure Search](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search). 
+Filters are OData expressions, articulated using a [subset of OData V4 syntax supported in Azure Search](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search). 
 
-You can specify one filter for each **search** operation, but the filter itself can include multiple fields, multiple criteria, and if you use an **ismatch** function, multiple expressions. In a multi-part filter epxression, you can specify predicates in any order. There is no appreciable gain in performance if you try to rearrange predicates in a particular sequence.
+You can specify one filter for each **search** operation, but the filter itself can include multiple fields, multiple criteria, and if you use an **ismatch** function, multiple expressions. In a multi-part filter expression, you can specify predicates in any order. There is no appreciable gain in performance if you try to rearrange predicates in a particular sequence.
 
 The maximum limit on the filter expression is the maximum limit on the request: 16 MB for POST, 8 KB for GET.
 
