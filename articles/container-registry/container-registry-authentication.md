@@ -1,6 +1,6 @@
 ---
-title: Authenticate with an Azure container registry | Microsoft Docs
-description: How to log in to an Azure container registry using an Azure Active Directory service principal or an admin account
+title: Authenticate with an Azure container registry
+description: Authentication options for an Azure container registry, including Azure Active Directory service principals direct and registry login.
 services: container-registry
 documentationcenter: ''
 author: stevelas
@@ -15,12 +15,36 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/24/2017
+ms.date: 10/13/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
 ---
+
 # Authenticate with a private Docker container registry
-To work with container images in an Azure container registry, you log in using the `docker login` command. You can log in using either an **[Azure Active Directory service principal](../active-directory/active-directory-application-objects.md)** or a registry-specific **admin account**. This article provides more detail about these identities.
+
+There are several ways to authenticate with an Azure container registry, each of which applicable to one or more registry usage scenarios.
+
+You can manually log in to a registry to work with images directly, which we'll call [individual login](#individual-login), and your applications and container orchestrators can perform unattended, or "headless," authentication by using a [service principal](#service-principal).
+
+Anonymous access is not available on Azure container registries. For public images, you can use [Docker Hub](https://docs.docker.com/docker-hub/).
+
+## Individual login
+
+To log in to a registry and work with images directly, such as pushing and pulling images from the command line, you can use the Azure and Docker CLIs.
+
+### Azure CLI
+
+The easiest way to authenticate with your Azure container registry is with the [az acr login](/cli/azure/acr?view=azure-cli-latest#az_acr_login) command in the [Azure CLI](/cli/azure/install-azure-cli):
+
+```azurecli
+az acr login --name <acrName>
+```
+
+When you log in with `az acr login`, the CLI creates a [service principal](#service-principal) for you automatically, and uses it to seamlessly authenticate your session. Once you've logged in this way, your credentials are cached, and subsequent `docker` commands do not require a username or password.
+
+### Docker login
+
+You can log in to your container registry with the `docker login` command. You can use a username and password combination if you enable the admin account on your registry. You can use either an [Azure Active Directory service principal](../active-directory/develop/active-directory-application-objects.md), or a registry-specific **admin account**.
 
 ## Service principal
 
@@ -33,15 +57,13 @@ docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my
 Once logged in, Docker caches the credentials, so you don't need to remember the app ID.
 
 > [!TIP]
-> If you want, you can regenerate the password of a service principal by running the `az ad sp reset-credentials` command.
+> You can regenerate the password of a service principal by running the `az ad sp reset-credentials` command.
 >
 
 Service principals allow [role-based access](../active-directory/role-based-access-control-configure.md) to a registry. Available roles are:
   * Reader (pull only access).
   * Contributor (pull and push).
   * Owner (pull, push, and assign roles to other users).
-
-Anonymous access is not available on Azure Container Registries. For public images you can use [Docker Hub](https://docs.docker.com/docker-hub/).
 
 You can assign multiple service principals to a registry, which allows you to define access for different users or applications. Service principals also enable "headless" connectivity to a registry in developer or DevOps scenarios such as the following examples:
 
