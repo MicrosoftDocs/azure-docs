@@ -56,6 +56,7 @@ This article contains the release notes for Azure Storage Explorer 0.9.0 (Previe
 
 ### Known Issues
 * Storage Explorer does not support ADFS accounts.
+* Shortcut keys for "View Explorer" and "View Account Management" should be Ctrl/Cmd+Shift+E and Ctrl/Cmd+Shift+A respectively.
 * When targeting Azure Stack, uploading certain files as append blobs may fail.
 * After clicking "Cancel" on a task, it may take a while for that task to cancel. This is because we are using the cancel filter workaround described here.
 * If you choose the wrong PIN/Smartcard certificate, then you will need to restart in order to have Storage Explorer forget that decision.
