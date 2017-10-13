@@ -59,12 +59,12 @@ Once the geo-pairing is complete, the connection strings that point to the prima
 var accessKeys = await client.Namespaces.ListKeysAsync(config.PrimaryResourceGroupName,
                                                        config.PrimaryNamespace, "RootManageSharedAccessKey");
 var aliasPrimaryConnectionString = accessKeys.AliasPrimaryConnectionString;
-var aliasSecondaryConnectionString =    accessKeys.AliasSecondaryConnectionString;
+var aliasSecondaryConnectionString = accessKeys.AliasSecondaryConnectionString;
 ```
 
 ## Step 3: initiate a failover
 
-If a disaster occurs, or if you decide to initiate a failover to the secondary namespace, metadata and data start flowing into the secondary namespace. because the applications use the alias connection strings, no further action is required, as they automatically start reading and writing to and from the event hubs in the secondary namespace. 
+If a disaster occurs, or if you decide to initiate a failover to the secondary namespace, metadata and data start flowing into the secondary namespace. Because the applications use the alias connection strings, no further action is required, as they automatically start reading from and writing to the event hubs in the secondary namespace. 
 
 The following code shows how to trigger the failover:
 
@@ -77,7 +77,7 @@ Once the failover is complete and you need the data present in the primary names
 
 ## Other operations (optional)
 
-You can also break the geo-pairing or delete an alias, as shown in the following code. Note that to delete an alias, you must first break the geo-paring.
+You can also break the geo-pairing or delete an alias, as shown in the following code. Note that to delete an alias, you must first break the geo-paring:
 
 ```csharp
 // Break pairing
