@@ -29,7 +29,7 @@ As with many Azure services, the Batch service emits log events for certain reso
 
 ## Prerequisites
 * [Azure Batch account](batch-account-create-portal.md)
-* [Azure Storage account](../storage/storage-create-storage-account.md#create-a-storage-account)
+* [Azure Storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account)
   
   To persist Batch diagnostic logs, you must create an Azure Storage account where Azure will store the logs. You specify this Storage account when you [enable diagnostic logging](#enable-diagnostic-logging) for your Batch account. The Storage account you specify when you enable log collection is not the same as a linked storage account referred to in the [application packages](batch-application-packages.md) and [task output persistence](batch-task-output.md) articles.
   

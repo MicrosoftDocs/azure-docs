@@ -6,7 +6,7 @@
 # Get started
 ## [Developer guide](germany-developer-guide.md)
 ## [Sign in to the Azure Germany portal](germany-get-started-connect-with-portal.md)
-## [Connect by using PowerShell](germany-get-started-connect-with-ps.md)
+## [Connect by using Azure PowerShell](germany-get-started-connect-with-ps.md)
 ## [Connect by using CLI](germany-get-started-connect-with-cli.md)
 ## [Set up Visual Studio for Azure Germany](germany-get-started-connect-with-vs.md)
 ## [Provision a web app](germany-howto-deploy-webandmobile.md)

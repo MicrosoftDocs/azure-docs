@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na 
 ms.workload: identity   
 ms.date: 05/09/2017
 ms.author: andret
----
 
+---
 ## Create an application (Express)
 Now you need to register your application in the *Microsoft Application Registration Portal*:
 1. Register your application via the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=ios&step=configure)

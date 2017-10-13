@@ -20,7 +20,7 @@ ms.custom: H1Hack27Feb2017
 # Log Analytics search reference
 
 >[!NOTE]
-> This article describes log searches using the current query language in Log Analytics.  If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then you should refer to [the language reference for the new language](https://docs.loganalytics.io/queryLanguage/query_language.html).
+> This article describes log searches using the current query language in Log Analytics.  If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then you should refer to [the language reference for the new language](https://go.microsoft.com/fwlink/?linkid=856079).
 
 The following reference section about search language describes the general query syntax options you can use when searching for data and filtering expressions to help narrow your search. It also describes commands that you can use to take action on the data retrieved.
 

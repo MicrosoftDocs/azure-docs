@@ -50,7 +50,7 @@ Prior exposure to the following items is helpful when choosing the Event File as
 
 
 - PowerShell
-	- [Using Azure PowerShell with Azure Storage](../storage/storage-powershell-guide-full.md) - Provides comprehensive information about PowerShell and the Azure Storage service.
+	- [Using Azure PowerShell with Azure Storage](../storage/common/storage-powershell-guide-full.md) - Provides comprehensive information about PowerShell and the Azure Storage service.
 
 ## Code samples
 
@@ -191,10 +191,10 @@ The **Event File** target might experience network latency or failures while per
 
 ## Related links
 
-- [Using Azure PowerShell with Azure Storage](../storage/storage-powershell-guide-full.md).
+- [Using Azure PowerShell with Azure Storage](../storage/common/storage-powershell-guide-full.md).
 - [Azure Storage Cmdlets](http://msdn.microsoft.com/library/dn806401.aspx)
-- [Using Azure PowerShell with Azure Storage](../storage/storage-powershell-guide-full.md) - Provides comprehensive information about PowerShell and the Azure Storage service.
-- [How to use Blob storage from .NET](../storage/storage-dotnet-how-to-use-blobs.md)
+- [Using Azure PowerShell with Azure Storage](../storage/common/storage-powershell-guide-full.md) - Provides comprehensive information about PowerShell and the Azure Storage service.
+- [How to use Blob storage from .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
 - [CREATE CREDENTIAL (Transact-SQL)](http://msdn.microsoft.com/library/ms189522.aspx)
 - [CREATE EVENT SESSION (Transact-SQL)](http://msdn.microsoft.com/library/bb677289.aspx)
 - [Jonathan Kehayias' blog posts about extended events in Microsoft SQL Server](http://www.sqlskills.com/blogs/jonathan/category/extended-events/)

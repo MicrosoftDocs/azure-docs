@@ -138,7 +138,7 @@ If you have an application that is used globally, you can create hubs in differe
 Registrations from the app back end are useful when you have to authenticate clients before creating the registration. They're also useful when you have tags that must be created or modified by the app back end based on app logic. For more information, go to the [Backend Registration guidance] and [Backend Registration guidance 2] pages.
 
 ### What is the push notification delivery security model?
-Azure Notification Hubs uses a [shared access signature](../storage/storage-dotnet-shared-access-signature-part-1.md)-based security model. You can use the shared access signature tokens at the root namespace level or at the granular notification hub level. Shared access signature tokens can be set to follow different authorization rules, for example, to send message permissions or to listen for notification permissions. For more information, see the [Notification Hubs security model] document.
+Azure Notification Hubs uses a [shared access signature](../storage/common/storage-dotnet-shared-access-signature-part-1.md)-based security model. You can use the shared access signature tokens at the root namespace level or at the granular notification hub level. Shared access signature tokens can be set to follow different authorization rules, for example, to send message permissions or to listen for notification permissions. For more information, see the [Notification Hubs security model] document.
 
 ### How should I handle sensitive payload in push notifications?
 All notifications are delivered to target devices by the platform's PNS. When a notification is sent to Azure Notification Hubs, it is processed and passed to the respective PNS.

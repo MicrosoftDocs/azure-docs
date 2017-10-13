@@ -22,10 +22,10 @@ These resources can publish those events to an [Azure event grid](../event-grid/
 In turn, the event grid pushes those events to subscribers that have queues, 
 webhooks, or [event hubs](../event-hubs/event-hubs-what-is-event-hubs.md) as endpoints. 
 As a subscriber, your logic app can wait for those events from the event grid 
-before running automated workflows to perform tasks - without you writing code.
+before running automated workflows to perform tasks - without you writing any code.
 
 For example, here are some events that publishers can send 
-o subscribers through the Azure Event Grid service:
+to subscribers through the Azure Event Grid service:
 
 * Create, read, update, or delete a resource. 
 For example, you can monitor changes that might 

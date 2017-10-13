@@ -21,7 +21,7 @@ Custom Decision Service is easy to use. The easiest integration mode requires on
 
 Custom Decision Service converts your content into features for machine learning. The system uses these features to understand your content in terms of its text, images, videos, and overall sentiment. We leverage several other [Microsoft Cognitive Services](https://www.microsoft.com/cognitive-services), such as
 [Entity Linking](../entitylinking/home.md),
-[Text Analytics](../Text-Analytics/overview.md),
+[Text Analytics](../text-analytics/overview.md),
 [Emotion](../emotion/home.md), and
 [Computer Vision](../computer-vision/home.md).
 
@@ -32,7 +32,7 @@ Some common-use cases for Custom Decision Service include:
 * Optimizing ad placements or web pages that the ad directs to.
 * Ranking recommended items on a shopping website.
 
-We are currently in *free public preview*, focused on personalizing a list of articles on a website or an app. Feature extraction works best for English language content. We offer [limited functionality](../Text-Analytics/overview.md) for some other languages, such as Spanish, French, German, Portuguese, and Japanese. This documentation is revised as we are ready to advertise more functionality.
+We are currently in *free public preview*, focused on personalizing a list of articles on a website or an app. Feature extraction works best for English language content. We offer [limited functionality](../text-analytics/overview.md) for some other languages, such as Spanish, French, German, Portuguese, and Japanese. This documentation is revised as we are ready to advertise more functionality.
 
 Custom Decision Service can be applied to applications that are not in the content personalization domain. Such applications might be a good fit for a custom preview. Contact us to learn more.
 
@@ -55,8 +55,8 @@ When your user-traffic volume permits, we recommend the application-specific lea
 
 Custom Decision Service creates a deployment of the entire learning pipeline for your application. You can also access the collected data offline to derive further insights about user preferences.
 
-To use this learning mode, you need to have an [Azure storage account](../../storage/storage-create-storage-account.md) where your data is logged. When you register a new application on the portal, choose **Advanced Options**. Then enter the
-[connection string](../../storage/storage-configure-connection-string.md) for the storage account.
+To use this learning mode, you need to have an [Azure storage account](../../storage/common/storage-create-storage-account.md) where your data is logged. When you register a new application on the portal, choose **Advanced Options**. Then enter the
+[connection string](../../storage/common/storage-configure-connection-string.md) for the storage account.
 
 ## API usage modes
 

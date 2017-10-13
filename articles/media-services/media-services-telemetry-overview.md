@@ -4,7 +4,7 @@ description: This article gives an overview of Azure Media Services telemetry.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 95c20ec4-c782-4063-8042-b79f95741d28
@@ -70,7 +70,7 @@ Telemetry data is stored in aggregate in one table, "TelemetryMetrics20160321" w
 Property|Value|Examples/notes
 ---|---|---
 PartitionKey|{account ID}_{entity ID}|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66<br/<br/>The account ID is included in the partition key to simplify workflows where multiple Media Services accounts are writing to the same storage account.
-RowKey|{seconds to midnight}_{random value}|01688_00199<br/><br/>The row key starts with the number of seconds to midnight to allow top n style queries within a partition. For more information, see [this](../storage/storage-table-design-guide.md#log-tail-pattern) article. 
+RowKey|{seconds to midnight}_{random value}|01688_00199<br/><br/>The row key starts with the number of seconds to midnight to allow top n style queries within a partition. For more information, see [this](../cosmos-db/table-storage-design-guide.md#log-tail-pattern) article. 
 Timestamp|Date/Time|Auto timestamp from the Azure table 2016-09-09T22:43:42.241Z
 Type|The type of the entity providing telemetry data|Channel/StreamingEndpoint/Archive<br/><br/>Event type is just a string value.
 Name|The name of the telemetry event|ChannelHeartbeat/StreamingEndpointRequestLog

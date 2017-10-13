@@ -117,7 +117,7 @@ The input might be data from hardware (like a motion detector), a message from o
 
 The output is similar to the input, it could trigger hardware behavior (like the blinking LED), a message to other modules, or anything else (like printing to the console).
 
-Modules communicate with each other using `message` object. The **content** of a `message` is a byte array that is capable of representing any kind of data you like. **Properties** are also available in the `message` and are simply a string-to-string mapping. You may think of **properties** as the headers in an HTTP request, or the metadata of a file.
+Modules communicate with each other using `message` object. The **content** of a `message` is a byte array that is capable of representing any kind of data you like. **Properties** are also available in the `message` and are simply a string-to-string mapping. You may think of **properties** as the headers in an HTTPS request, or the metadata of a file.
 
 In order to develop an Azure IoT Edge module in JS, you need to create a new module object that implements the required methods `receive()`. At this point, you may also choose to implement the optional `create()` or `start()`, or `destroy()` methods as well. The following code snippet shows you the scaffolding of JS module object.
 

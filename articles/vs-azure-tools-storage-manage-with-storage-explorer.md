@@ -3,18 +3,18 @@ title: Get started with Storage Explorer (Preview) | Microsoft Docs
 description: Manage Azure storage resources with Storage Explorer (Preview)
 services: storage
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: cawa
+manager: paulyuk
 editor: ''
 
 ms.assetid: 1ed0f096-494d-49c4-ab71-f4164ee19ec8
 ms.service: storage
 ms.devlang: multiple
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/17/2017
-ms.author: tarcher
+ms.date: 07/17/2017
+ms.author: cawa
 
 ---
 # Get started with Storage Explorer (Preview)
@@ -39,6 +39,7 @@ In addition, you can work with storage accounts in global and national Azure:
 * [Attach to external storage](#attach-or-detach-an-external-storage-account): Manage storage resources that belong to another Azure subscription or that are under national Azure clouds by using the storage account's name, key, and endpoints.
 * [Attach a storage account by using an SAS](#attach-storage-account-using-sas): Manage storage resources that belong to another Azure subscription by using a shared access signature (SAS).
 * [Attach a service by using an SAS](#attach-service-using-sas): Manage a specific storage service (blob container, queue, or table) that belongs to another Azure subscription by using an SAS.
+* [Connect to an Azure Cosmos DB account by using a connection string](#connect-to-an-azure-cosmos-db-account-by-using-a-connection-string): Manage Cosmos DB account by using a connection string.
 
 ## Connect to an Azure subscription
 > [!NOTE]
@@ -64,7 +65,7 @@ In addition, you can work with storage accounts in global and national Azure:
 
 ## Connect to an Azure Stack subscription
 
-For information about connecting to an Azure Stack subscription, see [Connect Storage Explorer to an Azure Stack subscription](azure-stack/azure-stack-storage-connect-se.md).
+For information about connecting to an Azure Stack subscription, see [Connect Storage Explorer to an Azure Stack subscription](azure-stack/user/azure-stack-storage-connect-se.md).
 
 ## Work with local development storage
 With Storage Explorer (Preview), you can work against local storage by using the Azure Storage Emulator. This approach lets you write code against and test storage without necessarily having a storage account deployed on Azure, because the storage account is being emulated by the Azure Storage Emulator.
@@ -152,7 +153,7 @@ To attach to an external storage account, you need the account's name and key. T
 2. In the confirmation message, select **Yes** to confirm the detachment from the external storage account.
 
 ## Attach a storage account by using an SAS
-An [SAS](storage/storage-dotnet-shared-access-signature-part-1.md) lets the admin of an Azure subscription grant temporary access to a storage account without having to provide Azure subscription credentials.
+An [SAS](storage/common/storage-dotnet-shared-access-signature-part-1.md) lets the admin of an Azure subscription grant temporary access to a storage account without having to provide Azure subscription credentials.
 
 To illustrate this scenario, let's say that UserA is an admin of an Azure subscription, and UserA wants to allow UserB to access a storage account for a limited time with certain permissions:
 
@@ -219,6 +220,17 @@ In this context, a service can be a blob container, queue, or table. To generate
 
     ![Result of attaching to a shared service by using an SAS][20]
 
+## Connect to an Azure Cosmos DB account by using a connection string
+Besides manage Azure Cosmos DB accounts through Azure subscription, an alternative way of connecting to an Azure Cosmos DB is to use a connection string. Use the following steps to connect using a connection string.
+
+1. Find **Local and Attached** in the left tree, right-click **Azure Cosmos DB Accounts**, choose **Connect to Azure Cosmos DB...**
+
+    ![connect to Azure Cosmos DB by connection string][33]
+
+2. Choose Azure Cosmos DB API, paste your **Connection String**, and then click **OK** to connect Azure Cosmos DB account. For information on retrieving the connection string, see [Get the connection string](https://docs.microsoft.com/en-us/azure/cosmos-db/manage-account#get-the--connection-string).
+
+    ![connection-string][32]
+
 ## Search for storage accounts
 If you have a long list of storage accounts, a quick way to locate a particular storage account is to use the search box at the top of the left pane.
 
@@ -228,6 +240,7 @@ As you type in the search box, the left pane displays the storage accounts that 
 
 ## Next steps
 * [Manage Azure Blob Storage resources with Storage Explorer (Preview)](vs-azure-tools-storage-explorer-blobs.md)
+* [Manage Azure Cosmos DB in Azure Storage Explorer  (Preview)](./cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md)
 
 [0]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/settings-icon.png
 [1]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/add-account-link.png
@@ -256,3 +269,5 @@ As you type in the search box, the left pane displays the storage accounts that 
 [29]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/add-azure-stack-account.png
 [30]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/select-accounts-azure-stack.png
 [31]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/azure-stack-storage-account-list.png
+[32]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connection-string.PNG
+[33]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connect-to-db-by-connection-string.PNG

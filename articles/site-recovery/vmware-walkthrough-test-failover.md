@@ -30,7 +30,7 @@ Before you run a test failover we recommend that you verify the VM properties, a
 
 ## Managed disk considerations
 
-[Managed disks](../storage/storage-managed-disks-overview.md) simplify disk management for Azure VMs, by managing the storage accounts associated with the VM disks. 
+[Managed disks](../virtual-machines/windows/managed-disks-overview.md) simplify disk management for Azure VMs, by managing the storage accounts associated with the VM disks. 
 
 - When you enable protection for a VM, VM data replicates to a storage account. Managed disks are created and attached to the VM only when failover occurs.
 - Managed disks can be created only for VMs deployed using the Resource Manager model.  
@@ -82,7 +82,7 @@ After you've set everything up, run a test failover to make sure everything's wo
 - Get a quick video overview before you start:
 
 
-     >[!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/VMware-to-Azure-with-ASR-Video4-Recovery-Plan-DR-Drill-and-Failover/player]
+>[!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/VMware-to-Azure-with-ASR-Video4-Recovery-Plan-DR-Drill-and-Failover/player]
 
 
 Now, run a failover:

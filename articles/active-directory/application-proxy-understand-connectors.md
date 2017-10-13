@@ -3,7 +3,7 @@ title: Understand Azure AD Application Proxy connectors | Microsoft Docs
 description: Covers the basics about Azure AD Application Proxy connectors.
 services: active-directory
 documentationcenter: ''
-author: kgremban
+author: billmath
 manager: femila
 
 ms.assetid: 
@@ -12,8 +12,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2017
-ms.author: kgremban
+ms.date: 10/12/2017
+ms.author: billmath
 ms.reviewer: harshja
 ms.custom: it-pro
 ---
@@ -22,7 +22,7 @@ ms.custom: it-pro
 
 Connectors are what make Azure AD Application Proxy possible. They are simple, easy to deploy and maintain, and super powerful. This article discusses what connectors are, how they work, and some suggestions for how to optimize your deployment. 
 
-## What is an Application Proxy connector
+## What is an Application Proxy connector?
 
 Connectors are lightweight agents that sit on-premises and facilitate the outbound connection to the Application Proxy service. Connectors must be installed on a Windows Server that has access to the backend application. You can organize connectors into connector groups, with each group handling traffic to specific applications. Connectors load-balance automatically, and can help to optimize your network structure. 
 
@@ -65,6 +65,21 @@ Connector groups make it easier to manage large deployments. They also improve l
 
 To learn more about connector groups, see [Publish applications on separate networks and locations using connector groups](active-directory-application-proxy-connectors-azure-portal.md).
 
+## Capacity Planning 
+
+While connectors will automatically load balance within a connector group, it is also important to make sure you have planned enough capacity between connectors to handle the expected traffic volume. In general, the more users you have, the larger a machine you will need. Below is a table giving an outline of the volume different machines can handle. Please note it is all based on expected Transactions Per Second (TPS) rather than by user since usage patterns vary and cannot be used to predict load.  Also note that there will be some differences based on the size of the responses and the backend application response time - larger response sizes and slower response times will result in a lower Max TPS.
+
+|Cores|RAM|Expected Latency (MS)-P99|Max TPS|
+| ----- | ----- | ----- | ----- |
+|2|8|325|586|
+|4|16|320|1150|
+|8|32|270|1190|
+|16|64|245|1200*|
+\* This machine had a connection limit of 800. For all other machines we used the default 200 connection limit.
+ 
+>[!NOTE]
+>There is not much difference in the maximum TPS between 4, 8, and 16 core machines. The main difference between those is in the expected latency.  
+
 ## Security and networking
 
 Connectors can be installed anywhere on the network that allows them to send requests to the Application Proxy service. What's important is that the computer running the connector also has access to your apps. You can install connectors inside of your corporate network or on a virtual machine that runs in the cloud. Connectors can run within a demilitarized zone (DMZ), but it's not necessary because all traffic is outbound so your network stays secure.
@@ -84,6 +99,8 @@ Since connectors are stateless, they are not affected by the number of users or 
 The connector performance is bound by CPU and networking. CPU performance is needed for SSL encryption and decryption, while networking is important to get fast connectivity to the applications and the online service in Azure.
 
 In contrast, memory is less of an issue for connectors. The online service takes care of much of the processing and all unauthenticated traffic. Everything that can be done in the cloud is done in the cloud. 
+
+The load balancing happens between connectors of a given connector group. We do a variation of a round-robin to determine which connector in the group serves a particular request. After choosing a the connector, we maintain a session affinity between that user and application for the duration of the session. If for any reason that connector or machine become unavailable, the traffic will start going to another connector in the group. This resiliency is also why we recommend having multiple connectors.
 
 Another factor that affects performance is the quality of the networking between the connectors, including: 
 
