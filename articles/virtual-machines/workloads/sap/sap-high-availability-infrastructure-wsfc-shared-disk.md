@@ -648,10 +648,13 @@ Setting up a Windows Server Failover Clustering cluster for an SAP ASCS/SCS inst
 
   ![Figure 18: Do not select the check box][sap-ha-guide-figure-3017]
 
+  _**Figure 18:** Do **not** select the check box_
 
   You can ignore warnings about quorum and disks. You'll set the quorum and share the disk later, as described in [Installing SIOS DataKeeper Cluster Edition for SAP ASCS/SCS cluster share disk][sap-high-availability-infrastructure-wsfc-shared-disk-install-sios].
 
+  ![Figure 19: Ignore warnings about the disk quorum][sap-ha-guide-figure-3018]
 
+  _**Figure 19:** Ignore warnings about the disk quorum_
 
 
 #### <a name="e49a4529-50c9-4dcf-bde7-15a0c21d21ca"></a> Configure a Cluster File Share Witness
@@ -676,43 +679,61 @@ Configuring a cluster file share witness involves these tasks:
 
 2.  Add the cluster name object.
 
+  ![Figure 20: Assign the permissions on the share for the cluster name object][sap-ha-guide-figure-3019]
 
+  _**Figure 20:** Assign the permissions on the share for the cluster name object_
 
   Be sure that the permissions include the authority to change data in the share for the cluster name object (in our example, **pr1-ascs-vir$**).
 
 3.  To add the cluster name object to the list, select **Add**. Change the filter to check for computer objects, in addition to those shown in upper Figure.
 
+  ![Figure 21: Change the Object Types to include computers][sap-ha-guide-figure-3020]
 
+  _**Figure 21:** Change the Object Types to include computers_
 
+  ![Figure 22: Select the Computers check box][sap-ha-guide-figure-3021]
 
+  _**Figure 22:** Select the **Computers** check box_
 
 4.  Enter the cluster name object as shown in **Figure: Change the Object Types to include computers**. Because the record has already been created, you can change the permissions, as shown in **Figure: Assign the permissions on the share for the cluster name object**.
 
 5.  Select the **Security** tab of the share, and then set more detailed permissions for the cluster name object.
 
+  ![Figure 23: Set the security attributes for the cluster name object on the file share quorum][sap-ha-guide-figure-3022]
 
+  _**Figure 23:** Set the security attributes for the cluster name object on the file share quorum_
 
 #### <a name="4c08c387-78a0-46b1-9d27-b497b08cac3d"></a> Set the File Share Witness Quorum in Failover Cluster Manager
 
 1.  Open the Configure Quorum Setting Wizard.
 
+  ![Figure 24: Start the Configure Cluster Quorum Setting Wizard][sap-ha-guide-figure-3023]
 
+  _**Figure 24:** Start the Configure Cluster Quorum Setting Wizard_
 
 2.  On the **Select Quorum Configuration** page, select **Select the quorum witness**.
 
+  ![Figure 25: Quorum configurations you can choose from][sap-ha-guide-figure-3024]
 
+  _**Figure 25:** Quorum configurations you can choose from_
 
 3.  On the **Select Quorum Witness** page, select **Configure a file share witness**.
 
+  ![Figure 26: Select the file share witness][sap-ha-guide-figure-3025]
 
+  _**Figure 26:** Select the file share witness_
 
 4.  Enter the UNC path to the file share (in our example, \\domcontr-0\FSW). To see a list of the changes you can make, select **Next**.
 
+  ![Figure 27: Define the file share location for the witness share][sap-ha-guide-figure-3026]
 
+  _**Figure 27:** Define the file share location for the witness share_
 
 5.  Select the changes you want, and then select **Next**. You need to successfully reconfigure the cluster configuration as shown:  
 
+  ![Figure 28: Confirmation that you've reconfigured the cluster][sap-ha-guide-figure-3027]
 
+  _**Figure 28:** Confirmation that you've reconfigured the cluster_
 
 After installing the Windows Failover Cluster successfully, changes need to be made to some thresholds to adapt failover detection to conditions in Azure. The parameters to be changed are documented in this blog: https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/ . Assuming that your two VMs that build the Windows Cluster Configuration for ASCS/SCS are in the same SubNet, the following parameters need to be changed to these values:
 - SameSubNetDelay = 2
@@ -737,9 +758,13 @@ There are two ways to add the .NET Framework 3.5:
 
 - Use the Add Roles and Features Wizard in Windows as shown:
 
+  ![Figure 29: Install the .NET Framework 3.5 by using the Add Roles and Features Wizard][sap-ha-guide-figure-3028]
 
+  _**Figure 29:** Install the .NET Framework 3.5 by using the Add Roles and Features Wizard_
 
+  ![Figure 30: Installation progress bar when you install the .NET Framework 3.5 by using the Add Roles and Features Wizard][sap-ha-guide-figure-3029]
 
+  _**Figure 30:** Installation progress bar when you install the .NET Framework 3.5 by using the Add Roles and Features Wizard_
 
 - Use the command-line tool dism.exe. For this type of installation, you need to access the SxS directory on the Windows installation media. At an elevated command prompt, type:
 
@@ -764,23 +789,33 @@ To install SIOS DataKeeper:
 
   ![SIOS installer][sap-ha-guide-figure-3030]
 
+  ![Figure 31: First page of the SIOS DataKeeper installation][sap-ha-guide-figure-3031]
 
+  _**Figure 31:** First page of the SIOS DataKeeper installation_
 
 2.  In the dialog box, select **Yes**.
 
+  ![Figure 32: DataKeeper informs you that a service will be disabled][sap-ha-guide-figure-3032]
 
+  _**Figure 32:** DataKeeper informs you that a service will be disabled_
 
 3.  In the dialog box, we recommend that you select **Domain or Server account**.
 
+  ![Figure 33: User selection for SIOS DataKeeper][sap-ha-guide-figure-3033]
 
+  _**Figure 33:** User selection for SIOS DataKeeper_
 
 4.  Enter the domain account user name and passwords that you created for SIOS DataKeeper.
 
+  ![Figure 34: Enter the domain user name and password for the SIOS DataKeeper installation][sap-ha-guide-figure-3034]
 
+  _**Figure 34:** Enter the domain user name and password for the SIOS DataKeeper installation_
 
 5.  Install the license key for your SIOS DataKeeper instance as shown in Figure 45.
 
+  ![Figure 35: Enter your SIOS DataKeeper license key][sap-ha-guide-figure-3035]
 
+  _**Figure 35:** Enter your SIOS DataKeeper license key_
 
 6.  When prompted, restart the virtual machine.
 
@@ -790,44 +825,64 @@ After you install SIOS DataKeeper on both nodes, you need to start the configura
 
 1.  Start the DataKeeper Management and Configuration tool, and then select **Connect Server**. (this option is circled in red.)
 
+  ![Figure 36: SIOS DataKeeper Management and Configuration tool][sap-ha-guide-figure-3036]
 
+  _**Figure 36:** SIOS DataKeeper Management and Configuration tool_
 
 2.  Enter the name or TCP/IP address of the first node the Management and Configuration tool should connect to, and, in a second step, the second node.
 
+  ![Figure 37: Insert the name or TCP/IP address of the first node the Management and Configuration tool should connect to, and in a second step, the second node][sap-ha-guide-figure-3037]
 
+  _**Figure 37:** Insert the name or TCP/IP address of the first node the Management and Configuration tool should connect to, and in a second step, the second node_
 
 3.  Create the replication job between the two nodes.
 
+  ![Figure 38: Create a replication job][sap-ha-guide-figure-3038]
 
+  _**Figure 38:** Create a replication job_
 
   A wizard guides you through the process of creating a replication job.
 4.  Define the name, TCP/IP address, and disk volume of the source node.
 
+  ![Figure 39: Define the name of the replication job][sap-ha-guide-figure-3039]
 
+  _**Figure 39:** Define the name of the replication job_
 
+  ![Figure 40: Define the base data for the node, which should be the current source node][sap-ha-guide-figure-3040]
 
+  _**Figure 40:** Define the base data for the node, which should be the current source node_
 
 5.  Define the name, TCP/IP address, and disk volume of the target node.
 
+  ![Figure 41: Define the base data for the node, which should be the current target node][sap-ha-guide-figure-3041]
 
+  _**Figure 41:** Define the base data for the node, which should be the current target node_
 
 6.  Define the compression algorithms. In our example, we recommend that you compress the replication stream. Especially in resynchronization situations, the compression of the replication stream dramatically reduces resynchronization time. Note that compression uses the CPU and RAM resources of a virtual machine. As the compression rate increases, so does the volume of CPU resources used. You also can adjust this setting later.
 
 7.  Another setting you need to check is whether the replication occurs asynchronously or synchronously. *When you protect SAP ASCS/SCS configurations, you must use synchronous replication*.  
 
+  ![Figure 42: Define replication details][sap-ha-guide-figure-3042]
 
+  _**Figure 42:** Define replication details_
 
 8.  Define whether the volume that is replicated by the replication job should be represented to a Windows Server Failover Clustering cluster configuration as a shared disk. For the SAP ASCS/SCS configuration, select **Yes** so that the Windows cluster sees the replicated volume as a shared disk that it can use as a cluster volume.
 
+  ![Figure 43: Select Yes to set the replicated volume as a cluster volume][sap-ha-guide-figure-3043]
 
+  _**Figure 43:** Select **Yes** to set the replicated volume as a cluster volume_
 
   After the volume is created, the DataKeeper Management and Configuration tool shows that the replication job is active.
 
+  ![Figure 44: DataKeeper synchronous mirroring for the SAP ASCS/SCS share disk is active][sap-ha-guide-figure-3044]
 
+  _**Figure 44:** DataKeeper synchronous mirroring for the SAP ASCS/SCS share disk is active_
 
   Failover Cluster Manager now shows the disk as a DataKeeper disk, as shown:
 
+  ![Figure 45: Failover Cluster Manager shows the disk that DataKeeper replicated][sap-ha-guide-figure-3045]
 
+  _**Figure 45:** Failover Cluster Manager shows the disk that DataKeeper replicated_
 
 ## Next Steps
 
