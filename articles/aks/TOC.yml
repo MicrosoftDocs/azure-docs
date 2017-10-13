@@ -1,0 +1,75 @@
+- name: Container Service (AKS)
+  href: ./index.yml
+- name: Overview
+  items:
+  - name: Container Service (AKS)
+    href: intro-kubernetes.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Container Service (AKS)
+    href: kubernetes-walkthrough.md
+- name: Tutorials
+  items:
+  - name: 1 - Create container images
+    href: tutorial-kubernetes-prepare-app.md
+  - name: 2 - Create container registry
+    href: tutorial-kubernetes-prepare-acr.md
+  - name: 3 - Create Kubernetes cluster
+    href: tutorial-kubernetes-deploy-cluster.md
+  - name: 4 - Run application
+    href: tutorial-kubernetes-deploy-application.md
+  - name: 5 - Scale application
+    href: tutorial-kubernetes-scale.md
+  - name: 6 - Update application
+    href: tutorial-kubernetes-app-update.md
+  - name: 7 - Monitor with OMS
+    href: tutorial-kubernetes-monitor.md
+- name: Concepts
+  items:
+  - name: Service principal - Kubernetes
+    href: kubernetes-service-principal.md
+- name: How-to guides
+  items:
+  - name: Kubernetes web interface
+    href: kubernetes-ui.md
+  - name: Use Helm charts
+    href: kubernetes-helm.md
+  - name: Use Jenkins with ACS
+    href: kubernetes-jenkins.md
+  - name: Use Draft with ACS
+    href: draft-up.md
+  - name: Scale cluster
+    href: scale.md
+  - name: Monitor
+    items:
+    - name: Monitor with OMS
+      href: kubernetes-oms.md
+    - name: Monitor with Datadog
+      href: kubernetes-datadog.md
+    - name: Monitor with Sysdig
+      href: kubernetes-sysdig.md
+    - name: Monitor with CoScale
+      href: kubernetes-coscale.md
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/acs
+  - name: REST
+    href: /rest/api/container-service
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: FAQ
+    href: faq.md
+  - name: Templates - ACS Engine
+    href: https://github.com/Azure/acs-engine
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/container-service/
+  - name: Region availability
+    href: https://azure.microsoft.com/regions/services/
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-container-service
+  - name: Videos
+    href: https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest
