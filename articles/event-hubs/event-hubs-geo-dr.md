@@ -21,47 +21,71 @@ ms.author: sethm
 
 When regional datacenters experience downtime, it is critical for data processing to continue to operate in a different region or datacenter. As such, *Geo-disaster recovery* and *Geo-replication* are important features for any enterprise. Azure Event Hubs supports both Geo-disaster recovery and Geo-replication, at the namespace level. 
 
-Geo-disaster recovery attempts to recover from the loss of application functionality in regional disaster scenarios. For example, if an Azure region hosting your Event Hubs service becomes unavailable, a backup Event Hubs service exists in another region, and there is minimal disruption.
-
 The Geo-disaster recovery feature of Azure Event Hubs is a disaster recovery solution. The concepts and workflow described in this article apply to disaster scenarios, and not to transient, or temporary outages.
 
 For a detailed discussion of disaster recovery in Microsoft Azure, see [this article](/azure/architecture/resiliency/disaster-recovery-azure-applications). 
 
-## Configuration workflow
+## How it works?
+### Terminology
 
-The following section describes how to set up disaster recovery scenarios.
+**Pairing**: Establishing the disaster recovery configuration between the active region and passive region is known as ‘pairing the regions’
 
-### Initial configuration
+**Alias**: A name for a disaster recovery configuration that the user sets up. The alias provides a single stable Fully Qualified Domain Name (FQDN) connection string.
+Applications use alias connection string to connect to an Event.
 
-To begin configuring your existing or new Event Hubs namespaces for disaster recovery, provision a backup Event Hubs namespace in a different Azure region. For example, if your Event Hubs namespace is in the **South Central US** region, then you can provision a backup Event Hubs namespace in **North Central US**.
+**Meta-data**: Here refers to event hub names, consumer groups, partitions, throughput units, entities, and properties that are associated with the namespace
+[TODO:Add image content here]
 
-In this example, the South Central US Event Hubs namespace is called the *primary namespace*, while the North Central US Event Hubs namespace is called the *secondary namespace*. South Central US is called the *active region*, and North Central US is called the *passive region*.
+### Step1: Create a geo-pair
+To create a pairing between two regions, you would need a primary namespace and a secondary namespace. An alias
+is created to form the geo-pair. Once the namespaces are paired with an alias, the meta-data is replicated periodically in both the namespaces.
 
-### Normal use
+The following code snippet shows how to do this:
+```csharp
+ArmDisasterRecovery adr = await client.DisasterRecoveryConfigs.CreateOrUpdateAsync(
+                                    config.PrimaryResourceGroupName,
+                                    config.PrimaryNamespace,
+                                    config.Alias,
+                                    new ArmDisasterRecovery(){ PartnerNamespace = config.SecondaryNamespace});
+```
 
-After configuring, continue with normal usage of Event Hubs in the primary namespace. The Geo-disaster recovery feature automatically synchronizes all the metadata with the secondary Event Hubs namespace. This sync occurs within a few minutes. In this scenario, *metadata* refers to event hub names, consumer groups, partitions, throughput units, entities, and properties that are associated with the namespace.
+### Step2: Update existing clients
+Once the geo-pairing is done, the connection strings that point to the primary namespaces must now be updated to point to the alias
+connection string. Obtain the connection strings as shown below,
 
-### Disaster occurs
+```csharp
+var accessKeys = await client.Namespaces.ListKeysAsync(config.PrimaryResourceGroupName,
+                                                       config.PrimaryNamespace, "RootManageSharedAccessKey");
+var aliasPrimaryConnectionString = accessKeys.AliasPrimaryConnectionString;
+var aliasSecondaryConnectionString =    accessKeys.AliasSecondaryConnectionString;
+```
+### Step3: Initiate a failover
+In the event of disaster or you, decide to initiate a failover to the secondary namespace, metadata and data start flowing into the
+secondary namespace. Since the applications use the alias connection strings, no further action is required, as they automatically start reading and writing to and from the event hubs in the secondary namespace. 
 
-The following sequence describes a typical disaster scenario:
+The following code snippet shows how to do the failover:
+```csharp
+await client.DisasterRecoveryConfigs.FailOverAsync(config.SecondaryResourceGroupName,
+                                                   config.SecondaryNamespace, config.Alias);
+```
+Note, once the failover is done and you need the data present in the primary namespace, you must use an explicit connection to the
+event hubs in the primary namespace to extract the data.
 
-1. Some disaster occurs and the primary Event Hubs namespace goes down. At this point you want to take some mitigation action.
+### Other operations (optional)
+You can also break the geo-pairing or delete an alias, which can be done as shown in the code below
+Note: To delete an alias,you need to break the geo-paring first.
 
-2. You run code that triggers a failover of the Event Hubs namespace from primary to secondary.
+```csharp
+// Break pairing
+await client.DisasterRecoveryConfigs.BreakPairingAsync(config.PrimaryResourceGroupName,
+                                                       config.PrimaryNamespace, config.Alias);
 
-3. After failover is triggered, metadata and data starts flowing into the secondary namespace.
+// Delete alias
+// Before the alias is deleted, pairing needs to be broken
+await client.DisasterRecoveryConfigs.DeleteAsync(config.PrimaryResourceGroupName,
+                                                 config.PrimaryNamespace, config.Alias);
 
-4. Applications that had been writing and reading data to and from the event hubs in the primary namespace do not need to take any action. These applications automatically start reading and writing to and from the event hubs in the secondary namespace.
-
-### Normal processing resumes after disaster
-
-When the Azure region (and the Event Hubs namespace) is back up, if you need the data that existed in the event hubs of the primary namespace before the disaster, you must use an explicit connection to those event hubs in the namespace, and extract the data.
-
-## Terminology
-
-- **Pairing**: Establishing the disaster recovery configuration between the active region and passive region is known as *pairing* the regions.
-
-- **Alias**: A name for the disaster recovery configuration that you set up. The alias provides a stable Fully Qualified Domain Name (FQDN) connection string. Applications use this connection string to connect to an event hub in the primary namespace. In case of a disaster, you continue using the same connection string to connect to the event hub in the secondary namespace.
+```
 
 ## Considerations for public preview
 
@@ -72,50 +96,10 @@ Note the following considerations for this release:
 3. For the preview release, only metadata replication is enabled. Actual data is not replicated.
 4. With the preview release, there is no cost for enabling the feature. However, both the primary and the secondary namespaces will incur charges for the reserved throughput units.
 
-## Disaster recovery workflow
-
-The following section describes the steps for performing Geo-disaster recovery in Event Hubs.
-
-### Step 1: Create the namespaces and establish a geo-pairing
-
-1. Select the active region and create the primary namespace.
-
-2. Select the passive region and create the secondary namespace. The following guidelines apply to the secondary namespace:
-	1. The secondary namespace must not exist at the time you create the pairing.
-	2. The secondary namespace must be the same type and SKU as the primary namespace.
-	3. The two namespaces cannot be in the same region.
-	4. Changing the names of an alias is not allowed.
-	5. Changing the secondary namespace is not allowed.
-
-3.  Create an alias and provide the primary and secondary namespaces to complete the pairing.
-
-4.  Get the required connection strings on the alias to connect to your event hubs.
-
-5.  Once the namespaces are paired with an alias, the metadata is replicated periodically in both namespaces.
-
-![][1]
-
-### Step 2: Initiate a failover
-
-After this step, the secondary namespace becomes the primary namespace.
-
-1. Initiate a fail-over. This step is only performed on the secondary namespace. The geo-pairing is broken and the alias now points to the secondary namespace.
-4. Senders and receivers still connect to the event hubs using the alias. The failover does not disrupt the connection.
-5. Because the pairing is broken, the old primary namespace no longer has a replication status associated with it.
-6. The metadata synchronization between the primary and secondary namespaces also stops.
-
-![][2]
-
-### Step 3: Other operations (optional)
-
-This step stops the meta-data synchronization between the primary and the secondary namespaces. After performing this step, the geo-pairing is broken and the alias is deleted.
-
-To delete the alias, you must delete the geo-pairing. Once the pairing deletion succeeds, you can delete the alias. At that point, the connection strings for the alias are also deleted.
-
 ## Next Steps
 
-- See the Geo-disaster recovery [REST API reference here](/rest/api/eventhub/disasterrecoveryconfigs).
-- Run the Geo-disaster recovery [sample on GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/GeoDRClient).
+* The [sample on GitHub])https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/GeoDRClient) walks you through the simple workflow for creating geo-pair and initiating a failover for a disaster recovery scenario
+* The [REST API reference here](/rest/api/eventhub/disasterrecoveryconfigs) gives you the APIs for performing the Geo-DR configurations
 
 For more information about Event Hubs, visit the following links:
 
@@ -123,5 +107,3 @@ For more information about Event Hubs, visit the following links:
 * [Event Hubs FAQ](event-hubs-faq.md)
 * [Sample applications that use Event Hubs](https://github.com/Azure/azure-event-hubs/tree/master/samples)
 
-[1]:./media/event-hubs-geo-dr/eh-geodr1.png
-[2]:./media/event-hubs-geo-dr/eh-geodr2.png
