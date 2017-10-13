@@ -138,7 +138,7 @@ Gets a model by ID.
 ### Responses
 | Code | Description | Schema |
 |--------------------|--------------------|--------------------|
-| 200 | Success | [Model](#model) |
+| 200 | Success. | [Model](#model) |
 | default | Error response that describes why the operation failed. | [ErrorResponse](#errorresponse) |
 
 ## Register a manifest with the registered model and all dependencies
@@ -240,7 +240,7 @@ Creates an image as a Docker image in Azure Container Registry.
 | accountName | path | Name of the Model Management account. | Yes | string |
 | api-version | query | Version of the Microsoft.Machine.Learning resource provider API to use. | Yes | string |
 | Authorization | header | Authorization token. It should be something like "Bearer XXXXXX." | Yes | string |
-| imageRequest | body | The payload that is used to create an image. | Yes | [ImageRequest](#imagerequest) |
+| imageRequest | body | Payload that is used to create an image. | Yes | [ImageRequest](#imagerequest) |
 
 ### Responses
 | Code | Description | Headers | Schema |
@@ -590,7 +590,7 @@ The asset object that will be needed during Docker image creation.
 |Name|Description|Schema|
 |---|---|---|
 |**id**  <br>*optional*|Asset ID.|string|
-|**mimeType**  <br>*optional*|MIME type of model content. For more details about MIME type, see the [list of IANA media types](https://www.iana.org/assignments/media-types/media-types.xhtml).|string|
+|**mimeType**  <br>*optional*|MIME type of model content. For more information about MIME type, see the [list of IANA media types](https://www.iana.org/assignments/media-types/media-types.xhtml).|string|
 |**unpack**  <br>*optional*|Indicates where we need to unpack the content during Docker image creation.|boolean|
 |**url**  <br>*optional*|Asset location URL.|string|
 
@@ -599,7 +599,7 @@ The asset object that will be needed during Docker image creation.
 ### AsyncOperationState
 The async operation state.
 
-*Type* : enum (NotStarted, Running, Cancelled, Succeeded, Failed)
+*Type*: enum (NotStarted, Running, Cancelled, Succeeded, Failed)
 
 
 <a name="asyncoperationstatus"></a>
@@ -637,10 +637,10 @@ Settings for the autoscaler.
 |Name|Description|Schema|
 |---|---|---|
 |**autoscaleEnabled**  <br>*optional*|Enable or disable the autoscaler.|boolean|
-|**maxReplicas**  <br>*optional*|Maximum number of pod replicas to scale up to.  <br>**Minimum value** : `1`|integer|
-|**minReplicas**  <br>*optional*|Minimum number of pod replicas to scale down to.  <br>**Minimum value** : `0`|integer|
-|**refreshPeriodInSeconds**  <br>*optional*|Refresh time for autoscaling trigger.  <br>**Minimum value** : `1`|integer|
-|**targetUtilization**  <br>*optional*|Utilization percentage that triggers autoscaling.  <br>**Minimum value** : `0`  <br>**Maximum value** : `100`|integer|
+|**maxReplicas**  <br>*optional*|Maximum number of pod replicas to scale up to.  <br>**Minimum value**: `1`|integer|
+|**minReplicas**  <br>*optional*|Minimum number of pod replicas to scale down to.  <br>**Minimum value**: `0`|integer|
+|**refreshPeriodInSeconds**  <br>*optional*|Refresh time for autoscaling trigger.  <br>**Minimum value**: `1`|integer|
+|**targetUtilization**  <br>*optional*|Utilization percentage that triggers autoscaling.  <br>**Minimum value**: `0`  <br>**Maximum value**: `100`|integer|
 
 
 <a name="computeresource"></a>
@@ -684,7 +684,7 @@ An instance of an Azure Machine Learning deployment.
 ### DeploymentList
 An array of deployment objects.
 
-*Type* : <[Deployment](#deployment)> array
+*Type*: <[Deployment](#deployment)> array
 
 
 <a name="errordetail"></a>
@@ -750,7 +750,7 @@ A request to create an Azure Machine Learning image.
 ### ImageType
 Specifies the type of the image.
 
-*Type* : enum (Docker)
+*Type*: enum (Docker)
 
 
 <a name="manifest"></a>
@@ -783,7 +783,7 @@ An instance of an Azure Machine Learning model.
 |**createdAt**  <br>*optional*  <br>*read-only*|Model creation time (UTC).|string (date-time)|
 |**description**  <br>*optional*|Model description text.|string|
 |**id**  <br>*optional*  <br>*read-only*|Model ID.|string|
-|**mimeType**  <br>*required*|MIME type of the model content. For more details about MIME type, see the [list of IANA media types](https://www.iana.org/assignments/media-types/media-types.xhtml).|string|
+|**mimeType**  <br>*required*|MIME type of the model content. For more information about MIME type, see the [list of IANA media types](https://www.iana.org/assignments/media-types/media-types.xhtml).|string|
 |**name**  <br>*required*|Model name.|string|
 |**tags**  <br>*optional*|Model tag list.|<string> array|
 |**unpack**  <br>*optional*|Indicates whether we need to unpack the model during Docker image creation.|boolean|
@@ -798,7 +798,7 @@ The model data collection information.
 
 |Name|Description|Schema|
 |---|---|---|
-|**eventHubEnabled**  <br>*optional*|Enable a event hub for a service.|boolean|
+|**eventHubEnabled**  <br>*optional*|Enable an event hub for a service.|boolean|
 |**storageEnabled**  <br>*optional*|Enable storage for a service.|boolean|
 
 
@@ -859,9 +859,9 @@ A request to create a service.
 |**containerResourceReservation**  <br>*optional*||[ContainerResourceReservation](#containerresourcereservation)|
 |**dataCollection**  <br>*optional*||[ModelDataCollection](#modeldatacollection)|
 |**imageId**  <br>*required*|Image to create the service.|string|
-|**maxConcurrentRequestsPerContainer**  <br>*optional*|Maximum number of concurrent requests.  <br>**Minimum value** : `1`|integer|
+|**maxConcurrentRequestsPerContainer**  <br>*optional*|Maximum number of concurrent requests.  <br>**Minimum value**: `1`|integer|
 |**name**  <br>*required*|Service name.|string|
-|**numReplicas**  <br>*optional*|Number of pod replicas running at any time. Cannot be specified if Autoscaler is enabled.  <br>**Minimum value** : `0`|integer|
+|**numReplicas**  <br>*optional*|Number of pod replicas running at any time. Cannot be specified if Autoscaler is enabled.  <br>**Minimum value**: `0`|integer|
 
 
 <a name="serviceregeneratekeyrequest"></a>
@@ -895,8 +895,8 @@ The detailed status of the service.
 |**computeResource**  <br>*required*||[ComputeResource](#computeresource)|
 |**containerResourceReservation**  <br>*optional*||[ContainerResourceReservation](#containerresourcereservation)|
 |**dataCollection**  <br>*optional*||[ModelDataCollection](#modeldatacollection)|
-|**maxConcurrentRequestsPerContainer**  <br>*optional*|Maximum number of concurrent requests.  <br>**Minimum value** : `1`|integer|
-|**numReplicas**  <br>*optional*|Number of pod replicas running at any time. Cannot be specified if Autoscaler is enabled.  <br>**Minimum value** : `0`|integer|
+|**maxConcurrentRequestsPerContainer**  <br>*optional*|Maximum number of concurrent requests.  <br>**Minimum value**: `1`|integer|
+|**numReplicas**  <br>*optional*|Number of pod replicas running at any time. Cannot be specified if Autoscaler is enabled.  <br>**Minimum value**: `0`|integer|
 |**error**  <br>*optional*||[ErrorResponse](#errorresponse)|
 
 
@@ -912,8 +912,8 @@ A request to update a service.
 |**containerResourceReservation**  <br>*optional*||[ContainerResourceReservation](#containerresourcereservation)|
 |**dataCollection**  <br>*optional*||[ModelDataCollection](#modeldatacollection)|
 |**imageId**  <br>*optional*|Image to create the service.|string|
-|**maxConcurrentRequestsPerContainer**  <br>*optional*|Maximum number of concurrent requests.  <br>**Minimum value** : `1`|integer|
-|**numReplicas**  <br>*optional*|Number of pod replicas running at any time. Cannot be specified if Autoscaler is enabled.  <br>**Minimum value** : `0`|integer|
+|**maxConcurrentRequestsPerContainer**  <br>*optional*|Maximum number of concurrent requests.  <br>**Minimum value**: `1`|integer|
+|**numReplicas**  <br>*optional*|Number of pod replicas running at any time. Cannot be specified if Autoscaler is enabled.  <br>**Minimum value**: `0`|integer|
 
 
 <a name="targetruntime"></a>

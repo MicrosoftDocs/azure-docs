@@ -40,7 +40,7 @@ Use the Azure portal to provision Azure Machine Learning accounts:
 
    ![Azure Machine Learning search](media/quickstart-installation/portal-more-services.png)
 
-3. Click **+ Add** to configure a new Machine Learning Experimentation account. The detailed form opens.
+3. Select **+ Add** to configure a new Machine Learning Experimentation account. The detailed form opens.
 
    ![Machine Learning Experimentation account](media/quickstart-installation/portal-create-experimentation.png)
 
@@ -53,7 +53,7 @@ Use the Azure portal to provision Azure Machine Learning accounts:
    Resource group | _Your resource group_ | You can make a new resource group name, or you can use an existing one from your subscription.
    Location | _The region closest to your users_ | Choose the location that's closest to your users and the data resources.
    Number of seats | 2 | Enter the number of seats. This selection affects the [pricing](https://azure.microsoft.com/pricing/details/machine-learning/). The first two seats are free. Use two seats for the purposes of this quickstart. You can update the number of seats later as needed in the Azure portal.
-   Storage account | _Unique name_ | Select **Create new** and provide a name  to create a new Azure storage account, or select **Use existing** and select your existing storage account from the drop-down list. The storage account is required and is used to hold project artifacts and run history data. 
+   Storage account | _Unique name_ | Select **Create new** and provide a name to create an Azure storage account. Or, select **Use existing** and select your existing storage account from the drop-down list. The storage account is required and is used to hold project artifacts and run history data. 
    Workspace for Experimentation account | _Unique name_ | Provide a name for the new workspace. The name should be 2 to 32 characters. It should include only alphanumeric characters and the dash (-) character.
    Assign owner for the workspace | _Your account_ | Select your own account as the workspace owner.
    Create Model Management account | *check* | As part of the Experimentation account creation experience, you have the option of also creating the Machine Learning Model Management account. This resource is used when you're ready to deploy and manage your models as real-time web services. We recommend creating the Model Management account at the same time as the Experimentation account.
@@ -93,7 +93,7 @@ Install Azure Machine Learning Workbench on your computer running Windows 10, Wi
 ## Install Azure Machine Learning Workbench on macOS
 Install Azure Machine Learning Workbench on your computer running macOS Sierra.
 
-1. Install the openssl library by using [Homebrew](http://brew.sh). For more details, see [Prerequisite for .NET Core on Mac](https://docs.microsoft.com/dotnet/core/macos-prerequisites).
+1. Install the openssl library by using [Homebrew](http://brew.sh). For more information, see [Prerequisite for .NET Core on Mac](https://docs.microsoft.com/dotnet/core/macos-prerequisites).
    ```
    # install Homebrew first if you don't have it already
    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
