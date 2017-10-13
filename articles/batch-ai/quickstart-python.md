@@ -33,7 +33,11 @@ In this example, you use the MNIST database of handwritten images to train a con
 * Azure storage account - See [How to create an Azure storage account](../storage/common/storage-create-storage-account.md)
 
 * Azure Active Directory service principal credentials - See [How to create a service principal with the CLI](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md)
-
+* Register the Batch AI resource providers using Cloud Shell or Azure CLI (note: a provider registration can take up to 15 minutes).
+```
+az provider register -n Microsoft.BatchAI
+az provider register -n Microsoft.Batch
+```
 
 ## Configure credentials
 Create these parameters in your Python script, substituting your own values:
