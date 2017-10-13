@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/09/2017
+ms.date: 10/13/2017
 ms.author: billmath
 ---
 
@@ -96,11 +96,9 @@ By default, the browser automatically calculates the right zone (Internet or Int
 5. Click **OK** and **OK** again.
 
 ![Single sign-on](./media/active-directory-aadconnect-sso/sso7.png)
-
 6. Navigate to **User Configuration\Administrative Templates\Windows Components\Internet Explorer\Internet Control Panel\Security Page\Intranet Zone** and select **Allow updates to status bar via script**.
 
 ![Single sign-on](./media/active-directory-aadconnect-sso/sso11.png)
-
 7. Enable the policy setting, and click **OK**.
 
 ![Single sign-on](./media/active-directory-aadconnect-sso/sso12.png)
@@ -157,7 +155,7 @@ In Step 2, Azure AD Connect creates computer accounts (representing Azure AD) in
 
 ## Next steps
 
-- [**Technical Deep Dive**](active-directory-aadconnect-sso-how-it-works.md) - Understand how this feature works.
-- [**Frequently Asked Questions**](active-directory-aadconnect-sso-faq.md) - Answers to frequently asked questions.
-- [**Troubleshoot**](active-directory-aadconnect-troubleshoot-sso.md) - Learn how to resolve common issues with the feature.
-- [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - For filing new feature requests.
+- [Technical Deep Dive](active-directory-aadconnect-sso-how-it-works.md) - Understand how this feature works.
+- [Frequently Asked Questions](active-directory-aadconnect-sso-faq.md) - Answers to frequently asked questions.
+- [Troubleshoot](active-directory-aadconnect-troubleshoot-sso.md) - Learn how to resolve common issues with the feature.
+- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - For filing new feature requests.
