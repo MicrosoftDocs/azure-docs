@@ -99,7 +99,7 @@ Delete a resource group in the Azure portal:
 ## Use Azure Powershell
 1. Download the [Azure Powershell module version 4.0 or higher](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) on your machine.
 
-2. Run the [New-AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) cmdlet to create a five-node Service Fabric cluster secured with an X.509 certificate. The command creates a self-signed certificate and uploads it to a new key vault. The certificate is also copied to a local directory. Set the *-OS* parameter to choose the version of Windows or Linux that runs on the cluster nodes. Customize the parameters as needed. 
+2. Run the [New-AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/new-azurermservicefabriccluster) cmdlet to create a five-node Service Fabric cluster secured with an X.509 certificate. The command creates a self-signed certificate and uploads it to a new key vault. The certificate is also copied to a local directory. Set the *-OS* parameter to choose the version of Windows or Linux that runs on the cluster nodes. Customize the parameters as needed. 
 
     ```powershell
     #Provide the subscription Id
