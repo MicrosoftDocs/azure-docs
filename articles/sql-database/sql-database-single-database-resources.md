@@ -1,6 +1,6 @@
 ---
 title: Azure SQL Database single database | Microsoft Docs
-description: Manage a single Azure SQL database.
+description: Manage the service tier, performance level, and amount of storagea for a single Azure SQL database.
 services: sql-database
 documentationcenter: na
 author: CarlRabeler
