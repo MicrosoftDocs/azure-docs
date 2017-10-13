@@ -68,7 +68,7 @@ The steps to enable Log Analytics for HDInsight are the same for all HDInsight c
  
  ## Next steps
 
-For more information on log analytics, see the [Get started with a Log Analytics workspace](../log-analytics/log-analytics-get-started.md) document.
+For more information on log analytics, see the [Get started with a Log Analytics workspace](../../log-analytics/log-analytics-get-started.md) document.
 
 For more information on working with Kafka, see the following documents:
 
