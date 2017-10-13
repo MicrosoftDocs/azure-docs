@@ -3,7 +3,7 @@ title: Get started with Azure Notification Hubs using Baidu | Microsoft Docs
 description: In this tutorial, you learn how to use Azure Notification Hubs to push notifications to Android devices using Baidu.
 services: notification-hubs
 documentationcenter: android
-author: kpiteira
+author: kapiteir
 manager: erikre
 editor: ''
 
@@ -14,13 +14,12 @@ ms.topic: hero-article
 ms.tgt_pltfrm: mobile-baidu
 ms.workload: mobile
 ms.date: 08/29/2017
-ms.author: kpiteira
+ms.author: kapiteir
 
 ---
 # Get started with Notification Hubs using Baidu
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-## Overview
 Baidu cloud push is a Chinese cloud service that you can use to send push notifications to mobile devices. 
 
 As Google Play and FCM (Firebase Cloud Messaging) are not available in China, it is necessary to use different app stores and push services. Baidu is one of them, and the one currently used by Notification Hub.
@@ -165,7 +164,7 @@ Make a note of the `DefaultListenSharedAccessSignature` and `DefaultFullSharedAc
 
     ![Azure Notification Hubs - Baidu Add As A Library](./media/notification-hubs-baidu-get-started/BaiduAddAsALib.jpg)
 
-8. Open the **AndroidManifest.xml** file of your Android project and add the permissions that are required by the Baidu SDK. **Replace `YOURPACKAGENAME` with your package name.
+8. Open the **AndroidManifest.xml** file of your Android project and add the permissions that are required by the Baidu SDK. **Replace `YOURPACKAGENAME` with your package name**.
 
     ```xml
     <uses-permission android:name="android.permission.INTERNET" />
