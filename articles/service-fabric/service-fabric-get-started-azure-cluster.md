@@ -99,18 +99,7 @@ Delete a resource group in the Azure portal:
 ## Use Azure Powershell to deploy a secure Windows cluster
 1. Download the [Azure Powershell module version 4.0 or higher](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) on your machine.
 
-2. Open a Windows PowerShell window, Run the following command. 
-	
-    ```powershell
-
-    Get-Command -Module AzureRM.ServiceFabric 
-    ```
-
-    You should see an output similar to the following.
-
-    ![ps-list][ps-list]
-
-3. Login to Azure and Select the subscription to which you want to create the cluster
+2. Login to Azure and Select the subscription to which you want to create the cluster
 
     ```powershell
 
@@ -119,7 +108,7 @@ Delete a resource group in the Azure portal:
     Select-AzureRmSubscription -SubscriptionId "Subcription ID" 
     ```
 
-4. Run the following command to now create a secure cluster. Do not forget to customize the parameters. 
+3. Run the following command to now create a secure cluster. Do not forget to customize the parameters. 
 
     ```powershell
     $certpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force
@@ -134,11 +123,9 @@ Delete a resource group in the Azure portal:
     New-AzureRmServiceFabricCluster -ResourceGroupName $RGname -Location $clusterloc -ClusterSize $clustersize -VmUserName $RDPuser -VmPassword $RDPpwd -CertificateSubjectName $subname -CertificatePassword $certpwd -CertificateOutputFolder $certfolder
     ```
 
-    The command can take anywhere from 10 minutes to 30 minutes to complete, at the end of it, you should get an output similar to the following. The output has information about the certificate, the KeyVault where it was uploaded to, and the local folder where the certificate is copied. 
+    The command can take anywhere from 10 minutes to 30 minutes to complete, at the end of it, you should get an output similar to the following. The output has information about the certificate, the KeyVault where it was uploaded to, and the local folder where the certificate is copied.     
 
-    ![ps-out][ps-out]
-
-5. Copy the entire output and save to a text file as we need to refer to it. Make a note of the following information from the output. 
+4. Copy the entire output and save to a text file as we need to refer to it. Make a note of the following information from the output. 
 
     - **CertificateSavedLocalPath** : c:\mycertificates\mycluster20170504141137.pfx
     - **CertificateThumbprint** : C4C1E541AD512B8065280292A8BA6079C3F26F10
@@ -271,5 +258,3 @@ Now that you have set up a development cluster, try the following:
 [cluster-status]: ./media/service-fabric-get-started-azure-cluster/clusterstatus.png
 [service-fabric-explorer]: ./media/service-fabric-get-started-azure-cluster/sfx.png
 [cluster-delete]: ./media/service-fabric-get-started-azure-cluster/delete.png
-[ps-list]: ./media/service-fabric-get-started-azure-cluster/pslist.PNG
-[ps-out]: ./media/service-fabric-get-started-azure-cluster/psout.PNG
