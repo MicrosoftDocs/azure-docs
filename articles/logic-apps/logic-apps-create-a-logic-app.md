@@ -18,13 +18,13 @@ ms.date: 10/15/2017
 ms.author: LADocs; estfan
 ---
 
-# Automate your first workflow with a logic app
+# Automate your first workflow by creating a logic app
 
-To integrate systems and services more quickly, 
+To integrate systems and services more easily, 
 you can automate workflows and business processes with 
 [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md). 
-This quickstart introduces how easily you can build and run 
-automated workflows by showing how to create a logic app. 
+This quickstart introduces how to create logic apps so 
+that you can quickly build and run automated workflows. 
 This example app automates the steps to check for new items 
 in a website's RSS feed and send email for each new item.
 
@@ -52,10 +52,9 @@ If you don't have an Azure subscription,
 * An email account from any email provider that's 
 supported by Azure Logic Apps for sending notifications. 
 For example, you can use Office 365 Outlook, Outlook.com, 
-Gmail, or other supported email provider. 
-To find a supported email connector, 
+or Gmail. For other supported email connectors, 
 [review the connectors list](https://docs.microsoft.com/connectors/). 
-This tutorial uses Office 365 Outlook.
+This quickstart uses Office 365 Outlook.
 
   > [!TIP]
   > If you have a personal 
@@ -173,7 +172,7 @@ For example:
    select Outlook.com. 
    * For Gmail accounts, select Gmail. 
 
-   This tutorial uses Office 365 Outlook. 
+   This quickstart uses Office 365 Outlook. 
    If you use a different email provider, the steps stay the same, 
    but your UI might appear different. 
 
@@ -194,16 +193,20 @@ sign in with the username and password for your email account.
 
       When you click inside the edit box, 
       the **Add dynamic content list** opens 
-      so that you can select from available fields. 
+      so that you can select available data fields 
+      to include in your action. 
       If the dynamic content list doesn't open, 
       under the respective edit box, 
       choose **Add dynamic content**.
 
    3. From the **Add dynamic content** list, 
-   select **Feed title**, 
-   which includes the item's title in the email.
+   select **Feed title**, which includes the item's title in the email.
 
       ![Enter the email subject](./media/logic-apps-create-a-logic-app/logic-app-select-field.png)
+
+      When you're done, your subject box looks like this example:
+
+      ![Added feed title](./media/logic-apps-create-a-logic-app/added-feed-title.png)
 
       > [!NOTE] 
       > For other actions and triggers, the dynamic content list 
