@@ -274,7 +274,7 @@ New-SmbShare -Name saploc -Path c:\usr\sap -FullAccess "BUILTIN\Administrators",
 
 In this step, create the following on the SOFS cluster:
 
-* SAP GLOBALHOST file C:\ClusterStorage\Volume1\usr\sap\&lt;SID&gt;\SYS\ structure on SOFS cluster shared volume (CSV)
+* SAP GLOBALHOST file C:\ClusterStorage\Volume1\usr\sap\\&lt;SID&gt;\SYS\ structure on SOFS cluster shared volume (CSV)
 
 * Create SAPMNT file share
 
@@ -458,7 +458,7 @@ Unpack NTCLUS.SAR on one of the (A)SCS cluster nodes and run following command f
 
 The new saprc.dll will be installed on both (A)SCS cluster nodes.
 
-For more information, see [SAP Note 1596496 - How to update SAP Resource Type DLLs for Cluster Resource Monitor][1596496]. 
+For more information, see [SAP Note 1596496 - How to update SAP Resource Type DLLs for Cluster Resource Monitor][1596496].
 
 ## Create SAP <SID> Cluster Group, Network Name and IP
 
