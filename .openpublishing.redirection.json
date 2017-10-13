@@ -71,6 +71,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/expressroute/expressroute-howto-vnet-portal-classic.md",
+            "redirect_url": "/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/azure-government-developer-guide.md",
             "redirect_url": "/azure/azure-government/documentation-government-developer-guide",
             "redirect_document_id": false
@@ -368,6 +373,11 @@
         {
             "source_path": "articles/resource-group-lock-resources.md",
             "redirect_url": "/azure/azure-resource-manager/resource-group-lock-resources",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-resource-manager/resource-group-authenticate-service-principal-cli.md",
+            "redirect_url": "/cli/azure/create-an-azure-service-principal-azure-cli",
             "redirect_document_id": false
         },
         {
@@ -5404,6 +5414,21 @@
             "source_path": "articles/sql-database/sql-database-cloud-migrate-fix-compatibility-issues.md",
             "redirect_url": "/azure/sql-database/sql-database-cloud-migrate",
             "redirect_document_id": false
+        },  
+        {
+            "source_path": "articles/cognitive-services/Bing-Custom-Search/how-it-works.md",
+            "redirect_url": "/azure/cognitive-services/Bing-Custom-Search/define-your-custom-view",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/Bing-Custom-Search/quickstart.md",
+            "redirect_url": "/azure/cognitive-services/Bing-Custom-Search/quick-start",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/Bing-Custom-Search/rank-results.md",
+            "redirect_url": "/azure/cognitive-services/Bing-Custom-Search/define-your-custom-view",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/sql-database/sql-database-command-line-tools.md",
@@ -6201,11 +6226,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/cognitive-services/Bing-Spell-Check/index.md",
-            "redirect_url": "/azure/cognitive-services/Bing-Spell-Check/proof-text",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/cognitive-services/Bing-Video-Search/index.md",
             "redirect_url": "/azure/cognitive-services/Bing-Video-Search/search-the-web",
             "redirect_document_id": false
@@ -6218,21 +6238,6 @@
         {
             "source_path": "articles/cognitive-services/Custom-Speech-Service/home.md",
             "redirect_url": "/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-get-started",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/cognitive-services/Bing-Autosuggest/index.md",
-            "redirect_url": "/azure/cognitive-services/Bing-Autosuggest/get-suggested-search-terms",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/cognitive-services/Bing-Image-Search/index.md",
-            "redirect_url": "/azure/cognitive-services/Bing-Image-Search/search-the-web",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/cognitive-services/Bing-Web-Search/index.md",
-            "redirect_url": "/azure/cognitive-services/Bing-Web-Search/search-the-web",
             "redirect_document_id": false
         },
         {
@@ -13556,9 +13561,9 @@
             "redirect_document_id": false
         },
         {
-          "source_path": "articles/security-center/security-center-resolve-endpoint-protection-health-alerts.md",
-          "redirect_url": "/azure/security-center",
-          "redirect_document_id": false
+            "source_path": "articles/security-center/security-center-resolve-endpoint-protection-health-alerts.md",
+            "redirect_url": "/azure/security-center",
+            "redirect_document_id": false
         }
     ]
 }

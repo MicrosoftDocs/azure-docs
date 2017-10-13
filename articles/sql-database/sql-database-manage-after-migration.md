@@ -21,7 +21,7 @@ ms.prod_service: sql-database
 ms.component: management
 ---
 
-# How should I manage my Azure SQL database after migration
+# How should I manage my Azure SQL database after migration?
 
 *Frequently asked questions around managing your Azure SQL Database investments*
 
