@@ -32,6 +32,7 @@ ms.custom: H1Hack27Feb2017
 [ms-blog-s2d-in-azure]:https://blogs.technet.microsoft.com/filecab/2016/05/05/s2dazuretp5/
 [arm-sofs-s2d-managed-disks]:https://github.com/robotechredmond/301-storage-spaces-direct-md
 [arm-sofs-s2d-non-managed-disks]:https://github.com/Azure/azure-quickstart-templates/tree/master/301-storage-spaces-direct
+[deploy-cloud-witness]:https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
@@ -269,9 +270,7 @@ You can follow the steps:
 
 *  [Add Windows virtual machines to the domain Add registry entries on both cluster nodes of the SAP ASCS/SCS instance][sap-high-availability-infrastructure-wsfc-shared-disk-add-win-domain]
 
-* As you use Windows Server 2016, it is recommended to configure Azure Cloud witness
-
-  https://docs.microsoft.com/en-us/windows-server/failover-clustering/deploy-cloud-witness
+* As you use Windows Server 2016, it is recommended to configure [Azure Cloud witness][deploy-cloud-witness]
 
 
 ## Deploy Scale Out File Server Manually 

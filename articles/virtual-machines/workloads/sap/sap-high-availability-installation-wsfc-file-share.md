@@ -233,12 +233,12 @@ Install SAP (A)SCS instance on **BOTH** nodes of (A)SCS cluster. Install it on *
 
 To install navigate in the SAP installation tool SWPM to:
 
-Product -> DBMS -> Installation -> Application Server ABAP (or Java) -> Distributed System -> (A)SCS Instance
+&lt;Product&gt; -> &lt;DBMS&gt; -> Installation -> Application Server ABAP (or Java) -> Distributed System -> (A)SCS Instance
 
 > [!IMPORTANT]
 >Currently, file share scenario is not yet supported by SAP installation tool SWPM you **cannot use** installation path:
 >
->Product -> DBMS -> Installation -> Application Server ABAP (or Java) -> High-Availability  System -> …
+>&lt;Product&gt; -> &lt;DBMS&gt; -> Installation -> Application Server ABAP (or Java) -> High-Availability  System -> …
 >
 
 ### Remove SAPMNT and Create SAPLOC File Share
@@ -579,7 +579,7 @@ of the SAP ASCS/SCS cluster nodes, as described [here][sap-high-availability-ins
 In next step, you must install ERS (Enqueue Replication Server) instance on BOTH nodes of the (A)SCS cluster.
 The installation option can be found in SWPM menu:
 
-<Product> -> <DBMS> -> Installation -> Additional SAP System instances -> **Enqueue Replication Server Instance**
+&lt;Product&gt; -> &lt;DBMS&gt; -> Installation -> Additional SAP System instances -> **Enqueue Replication Server Instance**
 
 ## Install DBMS Instance and SAP Application Servers
 
