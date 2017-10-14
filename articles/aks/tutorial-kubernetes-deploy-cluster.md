@@ -51,7 +51,7 @@ After several minutes, the deployment completes, and returns json formatted info
 
 To connect to the Kubernetes cluster from your client computer, use [kubectl](https://kubernetes.io/docs/user-guide/kubectl/), the Kubernetes command-line client. 
 
-If you're using Azure CloudShell, kubectl is already installed. If you want to install it locally, tun the following command.
+If you're using Azure CloudShell, kubectl is already installed. If you want to install it locally, run the following command:
 
 ```azurecli
 az aks install-cli 
@@ -59,7 +59,7 @@ az aks install-cli
 
 ## Connect with kubectl
 
-To configure kubectl to connect to your Kubernetes cluster, run the following command.
+To configure kubectl to connect to your Kubernetes cluster, run the following command:
 
 ```azurecli
 az aks get-credentials --resource-group=myResourceGroup --name=myK8sCluster
