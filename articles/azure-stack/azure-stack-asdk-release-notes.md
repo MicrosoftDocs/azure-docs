@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 10/13/2017
 ms.author: helaw
 
 ---
@@ -22,7 +22,7 @@ ms.author: helaw
 
 *Applies to: Azure Stack Development Kit*
 
-These release notes provide information on new features and known issues in Azure Stack Development Kit.  If you are unsure of which version you are running, you can use the [portal to check](azure-stack-updates.md#determine-the-current-version).
+These release notes provide information on new features and known issues in Azure Stack Development Kit. If you're not sure which version you're running, you can use the [portal to check](azure-stack-updates.md#determine-the-current-version).
 
 ## Release Build 20170928.3
 
@@ -30,16 +30,12 @@ These release notes provide information on new features and known issues in Azur
 
 #### PowerShell
 
-Azure PowerShell 1.2.11 is not yet available but is tracking for a release later this week. Until that time, consider the following issues:
-* The App Service, SQL Adapter, and MYSQL Adapter Resource Providers are dependent on PowerShell 1.2.11. Therefore, they are delayed until the new version of Azure PowerShell is available.
-* Azure PowerShell 1.2.11 is referenced in the documentation, even though it is not yet available.
-* AzureStack-Tools still reference Azure PowerShell 1.2.10, and will remain that way until 1.2.11 is available.
-* Azure PS 1.2.10 can still be used with the development kit for many operations. It needs to be replaced when Azure PS 1.2.11 is available.
-
+- The release of the AzureRM 1.2.11 PowerShell module comes with a list of breaking changes. For information about upgrading from the 1.2.10 version, see the migration guide at [https://aka.ms/azspowershellmigration](https://aka.ms/azspowershellmigration).
 
 
 #### Deployment
 * You must specify a time server by IP address during deployment.  
+
 
 #### Portal
 * You may see a blank dashboard in the portal.  You can recover the dashboard by selecting the gear in the upper right of the portal, and selecting "Restore default settings".
