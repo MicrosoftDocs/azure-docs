@@ -23,7 +23,7 @@ ms.custom: mvc
 
 # Using the Kubernetes dashboard with AKS
 
-The Azure CLI can be used to start the Kubernetes Dashboard. This document walks through starting the Kubernetes dashboard and using it to run an application the AKS Kubernetes cluster. 
+The Azure CLI can be used to start the Kubernetes Dashboard. This document walks through starting the Kubernetes dashboard with the Azure CLI, and also walks through some basic dashboard operations. For more information on the Kubernetes dashboard see, (Kubernetes Web UI (Dashboard)](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/). 
 
 ## Before you begin
 
@@ -33,17 +33,17 @@ You also need the Azure CLI version 2.0.4 or later installed and configured. Run
 
 ## Start Kubernetes dashboard
 
-Use the `az aks browse` command to start the Kubernetes dashboard.
+Use the `az aks browse` command to start the Kubernetes dashboard. When running this command, replace the resource group and cluster name.
 
 ```console
-$ az acs kubernetes browse -g [Resource Group] -n [Container service instance name]
+$ az aks browse --resource-group myResourceGroup --name myK8SCluster
 ```
 
 This command creates a proxy between your development system and the Kubernetes API, and opens a web browser to the Kubernetes dashboard.
 
 ## Run an application
 
-In the Kubernetes dashboard, click **Create** button in the upper right window. Give the deployment the name `nginx` and enter `nginx:latest` for the images name. Under **Service**, select **External** and enter `80` for both the port and target port.
+In the Kubernetes dashboard, click the **Create** button in the upper right window. Give the deployment the name `nginx` and enter `nginx:latest` for the images name. Under **Service**, select **External** and enter `80` for both the port and target port.
 
 When ready, click **Deploy** to create the deployment.
 
@@ -51,11 +51,11 @@ When ready, click **Deploy** to create the deployment.
 
 ## View the application
 
-Status about the application can be seein on the Kubernetes dashboard. Once the application is running, each component will have a green checkbox next to it.
+Status about the application can be seen in on the Kubernetes dashboard. Once the application is running, each component will have a green checkbox next to it.
 
 ![Kubernetes Pods](./media/container-service-kubernetes-ui/complete-deployment.png)
 
-To see more information about the application pods, click on **Pods** in the left-hand menu, and then select the **NGINX** pod. Here you can see information such as resource consumption.
+To see more information about the application pods, click on **Pods** in the left-hand menu, and then select the **NGINX** pod. Here you can see pod specific information such as resource consumption.
 
 ![Kubernetes Resources](./media/container-service-kubernetes-ui/running-pods.png)
 
@@ -65,13 +65,13 @@ To find the IP address of the application, click on **Services** in the left-han
 
 ## Edit the application deployment
 
-In addition to creating and viewing application in the Kubernetes dashboard, you can edit and update these application deployments.
+In addition to creating and viewing applications, the Kubernetes dashboars can be used to edit and update application deployments.
 
-To edit a deployment, click **Deployments** in the left-hand menu and then select the **NGINX** deployment. Finally, select **Edit** in the upper right-hand navigation bar.
+To edit a deployment, click **Deployments** in the left-hand menu, and then select the **NGINX** deployment. Finally, select **Edit** in the upper right-hand navigation bar.
 
 ![Kubernetes Edit](./media/container-service-kubernetes-ui/view-deployment.png)
 
-Locate the spec.replica value, which should be 1, change this value to three. In doing so, you increasing the replica count of the NGINX deployment from 1 to 3.
+Locate the `spec.replica` value, which should be 1, change this value to 3. In doing so, the replica count of the NGINX deployment is increased from 1 to 3.
 
 Select **Update** when ready.
 
