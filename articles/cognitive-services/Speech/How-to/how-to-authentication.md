@@ -2,8 +2,8 @@
 title: How to Authenticate to Microsoft Speech API | Microsoft Docs
 description: How to request authentication to use Microsoft Speech API
 services: cognitive-services
-author: zhouwang
-manager: wolfma
+author: zhouwangzw
+manager: wolfma61
 
 ms.service: cognitive-services
 ms.technology: speech
@@ -17,9 +17,6 @@ Microsoft Speech Service supports authentication
 
 - using subscription key
 - using authorization token
-
-> [!NOTE]
-> The following information is applicable for developers who use the [REST APIs](../GetStarted/GetStartedREST.md) or those who are writing their own SDKs using the [WebSocket speech protocol](../API-Reference-REST/websocketprotocol.md). Those using [client libraries](../GetStarted/GetStartedClientLibraries.md) need to follow the instructions provided by the client library.
 
 ## Using subscription key
 
@@ -44,6 +41,9 @@ Host: speech.platform.bing.com
 Transfer-Encoding: chunked
 Expect: 100-continue
 ```
+
+> [!IMPORTANT]
+> If you use [client libraries](../GetStarted/GetStartedClientLibraries.md) in your application, you need to verify that you can get the authorization token with your subscription key, as described in the next section. The client libraries use the subscription key to get authorization token, and then use the token for authentication.
 
 ## Using authorization token
 

@@ -122,6 +122,9 @@
     - name: Bing Web Search
       tocHref: /azure/cognitive-services/bing-web-search/
       topicHref: /azure/cognitive-services/bing-web-search/
+    - name: Speech
+      tocHref: /azure/cognitive-services/Speech/
+      topicHref: /azure/cognitive-services/Speech/
     - name: Computer Vision
       tocHref: /azure/cognitive-services/computer-vision/
       topicHref: /azure/cognitive-services/computer-vision/

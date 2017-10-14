@@ -88,11 +88,13 @@ Clients **must** support the standard redirection mechanisms specified by the [H
 
 Clients **must** use an appropriate endpoint of the Microsoft Speech Service. The endpoint is based on recognition mode and language. Some examples are shown in the table below.
 
-| Mode | Path | Example URL |
+| Mode | Path | Service URI |
 | -----|-----|-----|
 | Interactive | /speech/recognition/interactive/cognitiveservices/v1 |https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
 | Conversation | /speech/recognition/conversation/cognitiveservices/v1 |https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US |
 | Dictation | /speech/recognition/dictation/cognitiveservices/v1 |https://speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR |
+
+For more information, see the [Service URI](../GetStarted/GetStartedREST.md#service-uri) page.
 
 ### Reporting connection errors
 

@@ -31,10 +31,16 @@ You may clone the sample from the [Speech C# Service Library Sample](https://git
 
 ### Subscribe to Speech API and get a free trial subscription key
 
-> [!IMPORTANT]
-> You must have a subscription key before using speech client libraries.
-
 Microsoft Speech API is part of Microsoft Cognitive Services on Azure(previously Project Oxford). You can get free trial subscription keys from the [Cognitive Services Subscription](https://azure.microsoft.com/en-us/try/cognitive-services/) page. After you select the Speech API, click Get API Key to get the key. It returns a primary and secondary key. Both keys are tied to the same quota, so you may use either key.
+
+> [!IMPORTANT]
+> **Get a subscription key**
+>
+> You must have a [subscription key](https://azure.microsoft.com/en-us/try/cognitive-services/) before using speech client libraries.
+>
+> **Use your subscription key**
+>
+>  With the provided C# service library sample application, you need to provide your subscription key as one of command line parameters. See more information below: [Run the sample application](#step-3-run-the-sample-application).
 
 ## Step 1: Install the sample application
 
