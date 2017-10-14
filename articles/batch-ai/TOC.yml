@@ -1,5 +1,5 @@
 - name: Batch AI
-  href: index.yml
+  href: index.md
 - name: Overview
   items:
   - name: What is Batch AI?
