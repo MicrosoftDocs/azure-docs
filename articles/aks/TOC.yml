@@ -33,6 +33,8 @@
   items:
   - name: Use Helm charts
     href: kubernetes-helm.md
+  - name: Kubernetes Dashboard
+    href: kubernetes-dashboard.md
 - name: Reference
   items:
   - name: Azure CLI

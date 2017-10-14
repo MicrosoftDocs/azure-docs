@@ -39,21 +39,31 @@ Use the `az aks browse` command to start the Kubernetes dashboard.
 $ az acs kubernetes browse -g [Resource Group] -n [Container service instance name]
 ```
 
-This command opens creates a proxy between your development system and the Kubernetes API, and opens a web browser to the Kubernetes dashboard.
+This command creates a proxy between your development system and the Kubernetes API, and opens a web browser to the Kubernetes dashboard.
 
 ## Create a Kubernetes deployment
 
 In the Kubernetes dashboard, click **Create** button in the upper right window.
 
-On the create an app form, enter `nginx` for the name and `nginx:latest` for the container image.
+![Kubernetes Create UI](./media/container-service-kubernetes-ui/create.png)
 
-Under **Service**, select **External** and enter 80 for both the port and target port.
+Give the deployment the name `hello-nginx` and enter `nginx:latest` for the images name.
 
-![Kubernetes Pod Create Dialog](./media/container-service-kubernetes-ui/create-deployment.png)
+![Kubernetes Pod Create Dialog](./media/container-service-kubernetes-ui/nginx.png)
 
-When complete, click **Deploy**.
+Under **Service**, select **External** and enter port 80. This creates an Azure load balancer rule for the application.
+
+![Kubernetes Service Create Dialog](./media/container-service-kubernetes-ui/service.png)
+
+Click **Deploy** to create the deployment.
+
+![Kubernetes Deploy](./media/container-service-kubernetes-ui/deploy.png)
 
 ## View the deployed application
+
+After you click **Deploy**, the UI shows a view of your service as it deploys:
+
+![Kubernetes Status](./media/container-service-kubernetes-ui/status.png)
 
 You can see the status of each Kubernetes object in the circle on the left-hand side of the UI, under **Pods**. If it is a partially full circle, then the object is still deploying. When an object is fully deployed, it displays a green check mark:
 
