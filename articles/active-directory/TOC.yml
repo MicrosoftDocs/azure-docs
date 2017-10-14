@@ -82,7 +82,7 @@
         href: msi-tutorial-linux-vm-access-storage.md
       - name: From a Linux VM using SAS
         href: msi-tutorial-linux-vm-access-storage-sas.md        
-    - name: Use a VM MSI to access non-Azure AD resource
+    - name: Use a VM MSI to access Azure Key Vault
       items:
       - name: From a Windows VM
         href: msi-tutorial-windows-vm-access-nonaad.md
