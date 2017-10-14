@@ -43,7 +43,7 @@ The following terms are used in this article:
 
 -  *Metadata*: Your representation of objects in Azure Service Bus. Currently we only support metadata.
 
--  *Failover*: The process of activating the secondary namespace. You must pull messages from your formerly primary namespace once it becomes available again, and then delete the namespace. To create another failover, you add a new secondary namespace to the pairing.
+-  *Failover*: The process of activating the secondary namespace. You must pull messages from your formerly primary namespace once it becomes available again, and then delete the namespace. To create another failover, you add a new secondary namespace to the pairing. If you want to reuse the former primary namespace after a failover, you must first remove all existing entities from the namespace. Make sure to receive all messages before doing so.
 
 ## Failover workflow
 
