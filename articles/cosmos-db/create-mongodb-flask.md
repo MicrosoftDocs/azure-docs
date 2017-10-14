@@ -47,7 +47,8 @@ Now let's clone a Flask-MongoDB API app from github, set the connection string, 
     git clone https://github.com/Azure-Samples/CosmosDB-Flask-Mongo-Sample.git
     ```
 3. Run the following command to install the python modules.
-    ```bash
+
+    ```bash 
     pip install -r .\requirements.txt
     ```
 4. Open the folder in Visual Studio Code.
