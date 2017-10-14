@@ -13,7 +13,7 @@ ms.author: zhouwang
 ---
 # Get started with Microsoft speech recognition API in JavaScript
 
-Microsoft speech recognition API allows you to develop applications that convert spoken audio to text. The JavaScript client library uses the Microsoft websocket based speech protocol, which allows you to keep on talking and receiving transcribed text simultaneously. This article helps you get started in using Microsoft speech recognition API in JavaScript.
+Microsoft speech recognition API allows you to develop applications that convert spoken audio to text. The JavaScript client library uses the Microsoft [Speech WebSocket Protocol](../API-Reference-REST/websocketprotocol.md), which allows you to keep on talking and receiving transcribed text simultaneously. This article helps you get started in using Microsoft speech recognition API in JavaScript.
 
 ## Prerequisites
 
