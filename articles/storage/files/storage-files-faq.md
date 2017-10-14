@@ -63,45 +63,11 @@ This article will cover some of the commonly asked questions about Azure Files f
 * **What storage redundancy options are supported by Azure Files?**  
     Azure Files currently only supports locally redundant storage (LRS) and geo-redundant storage (GRS) right now. We plan to support zone-redundant storage (ZRS) and read-access geo-redundant storage (RA-GRS) in the future, but don't have timelines to share at this time.
 
+* **What storage tiers are currently supported by Azure Files?**  
+    Azure Files currently only supports the standard storage tier. We plan to support the premium and cool storage tiers, but don't have timelines to share at this time. 
+
 * **I really want to see *x* feature added to Azure Files, can you add it?**  
     Absolutely, the Azure Files team is interested in hearing any and all feedback you have about our service. Please vote on feature requests on the [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files)! We're looking forward to delighting you with many new features.
-
-* **Can I create File Share in cool storage?**   
-    Cool storage account only supports blob at this time. It does not support File shares. You need to create standard storage account. Standard storage is very competitively priced and also, recently slashed price for Standard Azure Files ever further. For more information, see [Azure Files Pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
-
-* **I cannot access file share from on-premises?**
-    If you are trying to access the file share from your local network, the following prerequisite must be meet::
-
-    • The port 445 must be enabled by your ISP (get in touch with your ISP to enable it).
-    • on-premises client machine must have SMB 3.0 enabled.
-    • When a client accesses File storage, the SMB version used depends on the SMB version supported by the operating system. 
-    
-    The following list provides a summary of support for Windows clients.
-
-    - Windows Client SMB Version Supported
-    - Windows 7 SMB 2.1
-    - Windows Server 2008 R2 SMB 2.1
-    - Windows 8 SMB 3.0
-    - Windows Server 2012 SMB 3.0
-    - Windows Server 2012 R2 SMB 3.0
-    - Windows 10 SMB 3.0
-
-    For more information, see [Troubleshooter for Azure Files storage problems](https://support.microsoft.com/help/4022301/azure-file-storage-connection-creation--performance-problems).
-
-* **I cannot mount Azure File Share from On-Premises client**  
-    To resolve this problem, use [Troubleshooter for Azure Files storage](problemshttps://support.microsoft.com/help/4022301/azure-file-storage-connection-creation--performance-problems).
-
-* **How to Map container folder on VM**?  
-   see [Mounting an Azure file share with Azure Container Instances](https://docs.microsoft.com/en-us/azure/container-instances/container-instances-mounting-azure-files-volume).
-
-* **Can I increase the maximum size of File Share?**  
-    No. The maximum size of a File share is 5 TiB.
-
-* **Can I implement IP restrictions at File share?**  
-    Yes. For more information, see [Configure Azure Storage Firewalls and Virtual Networks](../common/storage-network-security.md)
-
-* **Can I to convert to premium storage account for File share?**  
-    No. Premium storage is not available on Azure file share today.
 
 ## Azure File Sync
 * **What regions are currently supported for Azure File Sync (preview)?**  
@@ -211,23 +177,8 @@ This article will cover some of the commonly asked questions about Azure Files f
 * **Is it possible to specify read-only or write-only permissions on folders within the share?**  
     You don't have this level of control over permissions if you mount the file share via SMB. However, you can achieve this by creating a shared access signature (SAS) via the REST API or client libraries.
 
-* **How to map Azure Files storage for all users as a network share without prompting them for credential?**   
-    Azure Files does not support either AD or Azure AD. That means you typically need to map the drive for the users. A scenario where a login script maps the drive could give someone access to the storage key without prompting them for credential. 
-   
-   For more information, see the following documents:    
-   
-   - [Get started with Azure File storage on Windows (General Information)](storage-dotnet-how-to-use-files.md )
-   - [Persisting connections to Microsoft Azure Files (Using CMDKey to persist the connections, mapping to other users)](https://blogs.msdn.microsoft.com/windowsazurestorage/2014/05/26/persisting-connections-to-microsoft-azure-files/ )
-   - [How can I Persist connections to Microsoft Azure Files for all the users? (Discussion about the limitation of the storage key)](https://serverfault.com/questions/772168/how-can-i-persist-connections-to-microsoft-azure-files-for-all-the-users)
- 
-* **Can I set different permissions of different folders in a file share?**  
-    All the folders in one file share would have the same one permission. To achieve this goal, you could try to create different file shares as a workaround, and set different permissions to these file shares. Then you can achieve the similar function.
-
-* **Can I apply domain or NTFS permissions to an Azure file share? if not, what would be the best solution for this type of scenario?**
-    There is no way to apply domain or NTFS permissions to an Azure File Share. Alternatively, A shared access signature (SAS) provides you with a way to grant limited access to objects in your storage account to other clients, without exposing your account key.
-
-* **Can I access File share using Domain account credentials?**  
-    No. Currently the Azure File Share only support Storage keys authentication. So we cannot use domain account credentials to access them.
+* **Can I implement IP restrictions for an Azure File share?**  
+    Yes, access to your Azure File share can be restricted at a storage account level. For more information, please see see [Configure Azure Storage Firewalls and Virtual Networks](../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
 
 ## On-Premises Access
 * **Do I have to use Azure ExpressRoute to connect to Azure Files or to use Azure File Sync on-premises?**  
@@ -236,18 +187,9 @@ This article will cover some of the commonly asked questions about Azure Files f
 * **How can I mount an Azure File share on my local machine?**  
     You can mount the file share via the SMB protocol as long as port 445 (TCP Outbound) is open and your client supports the SMB 3.0 protocol (for example, you're using Windows 10 or Windows Server 2016). If port 445 is blocked by your organization's policy or by your ISP, you can use Azure File Sync to access your Azure File share.
 
-* **How to mount the Files share in on-premises macOS?**  
-    See the following articles to mount Azure file share on local macOS:
-    - [Mount Azure File share over SMB with macOS](storage-how-to-use-files-mac.md)
-    - [How to connect with File Sharing on your Mac](https://support.apple.com/en-us/HT204445)
-
 ## Backup
 * **How do I back up my Azure File share?**  
-    You can use periodic share snapshots (preview) for protection against accidental deletes. You can use AzCopy, RoboCopy, or a 3rd party backup tool that can backup a mounted file share.
-
-* **How to back up and recover Files?**  
-    You can take periodic snapshots of the file share by using [share snapshot feature](storage-how-to-use-files-snapshots.md).
- 
+    You can use periodic [share snapshots (preview)](storage-how-to-use-files-snapshots.md) for protection against accidental deletes. You can use AzCopy, RoboCopy, or a 3rd party backup tool that can backup a mounted file share. 
 
 ## Share snapshots
 ### Share snapshots - general
@@ -310,6 +252,9 @@ This article will cover some of the commonly asked questions about Azure Files f
 * **What are the scale limits of Azure Files?**  
     For information on scalability and performance targets of Azure Files, see [Azure Storage Scalability and Performance Targets](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#scalability-targets-for-blobs-queues-tables-and-files).
 
+* **I need a larger file share than Azure Files currently offers... can I increase the size of my Azure File share?**  
+    No, the maximum size of an Azure File share is 5 TiB. This is currently a hard limit which cannot adjust. We are working on a solution to increase the share size to 100 TiBs, but don't have timelines to share at this time.
+
 * **How many clients can access the same file simultaneously?**  
     There is a 2000 open handles quota on a single file. Once you have 2000 open handles, you will get an error that quota is reached.
 
@@ -320,8 +265,11 @@ This article will cover some of the commonly asked questions about Azure Files f
     There is a known issue when mounting an Azure File share on Windows Server 2012 R2 and Windows 8.1 that was patched in the April 2014 cumulative update for Windows 8.1 and Windows Server 2012 R2. Please ensure that all instances of Windows Server 2012 R2 and Windows 8.1 have this patch applied for optimum performance (of course, we always recommend taking all Windows patches through Windows Update). For more information, please check out the associated KB article, [Slow performance when you access Azure Files from Windows 8.1 or Server 2012 R2](https://support.microsoft.com/kb/3114025).
 
 ## Features and Interoperability with other services
-* **Is a "File Share Witness" for a Failover Cluster one of the use cases for Azure Files?**  
+* **Can I use my Azure File share as a *File Share Witness* for my Windows Server Failover Cluster?**  
     This is not currently supported for an Azure File share. For more information on how to set this up for Azure Blob storage, see [Deploy a Cloud Witness for a Failover Cluster](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness).
+
+* **Can I mount an Azure File share on an Azure Containter Instance?**?  
+    Yes, Azure File shares are fantastic option to persist information beyond the lifetime of a container instance. For more information, please see [Mounting an Azure file share with Azure Container Instances](../../container-instances/container-instances-mounting-azure-files-volume.md).
 
 * **Is there a rename operation in the REST API?**  
     Not at this time.
