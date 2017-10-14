@@ -45,27 +45,15 @@ This command opens creates a proxy between your development system and the Kuber
 
 In the Kubernetes dashboard, click **Create** button in the upper right window.
 
-![Kubernetes Create UI](./media/container-service-kubernetes-ui/create.png)
+On the create an app form, enter `nginx` for the name and `nginx:latest` for the container image.
 
-Give it the name `hello-nginx`. Use the [`nginx` container from Docker](https://hub.docker.com/_/nginx/)
-and deploy three replicas of this web service.
+Under **Service**, select **External** and enter 80 for both the port and target port.
 
-![Kubernetes Pod Create Dialog](./media/container-service-kubernetes-ui/nginx.png)
+![Kubernetes Pod Create Dialog](./media/container-service-kubernetes-ui/create-deployment.png)
 
-Under **Service**, select **External** and enter port 80. This setting load-balances traffic to the three
-replicas.
-
-![Kubernetes Service Create Dialog](./media/container-service-kubernetes-ui/service.png)
-
-Click **Deploy** to deploy these containers and services.
-
-![Kubernetes Deploy](./media/container-service-kubernetes-ui/deploy.png)
+When complete, click **Deploy**.
 
 ## View the deployed application
-
-After you click **Deploy**, the UI shows a view of your service as it deploys:
-
-![Kubernetes Status](./media/container-service-kubernetes-ui/status.png)
 
 You can see the status of each Kubernetes object in the circle on the left-hand side of the UI, under **Pods**. If it is a partially full circle, then the object is still deploying. When an object is fully deployed, it displays a green check mark:
 
