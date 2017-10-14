@@ -57,19 +57,15 @@ Click **Deploy** to create the deployment.
 
 Status about the application can be seein on the Kubernetes dashboard. Once the application is running, each component will have a green checkbox next to it.
 
-![Kubernetes Pods](./media/container-service-kubernetes-ui/create-deployment.png)
+![Kubernetes Pods](./media/container-service-kubernetes-ui/complete-deployment.png)
 
-In the **Pods** view, you can see information about the containers in the pod as well as the CPU and memory resources used by those containers:
+To see more information about the application pods, click on **Pods** in the left-hand menu, and then select the **NGINX** pod. Here you can see information such as resource consumption.
 
-![Kubernetes Resources](./media/container-service-kubernetes-ui/resources.png)
+![Kubernetes Resources](./media/container-service-kubernetes-ui/running-pods.png)
 
-In the left navigation pane, click **Services** to view all services (there should be only one).
+To find the IP address of the application, click on **Services** in the left-hand menu, and then select the **NGINX** service.
 
-![Kubernetes Services](./media/container-service-kubernetes-ui/service-deployed.png)
-
-In that view, you should see an external endpoint (IP address) that has been allocated to your service. If you click that IP address, you should see your Nginx container running behind the load balancer.
-
-![nginx view](./media/container-service-kubernetes-ui/nginx-page.png)
+![nginx view](./media/container-service-kubernetes-ui/nginx-service.png)
 
 ## Editing the deployment
 
