@@ -43,15 +43,11 @@ This command creates a proxy between your development system and the Kubernetes 
 
 ## Run an application
 
-In the Kubernetes dashboard, click **Create** button in the upper right window.
+In the Kubernetes dashboard, click **Create** button in the upper right window. Give the deployment the name `nginx` and enter `nginx:latest` for the images name. Under **Service**, select **External** and enter `80` for both the port and target port.
 
-Give the deployment the name `nginx` and enter `nginx:latest` for the images name.
-
-Under **Service**, select **External** and enter `80` for both the port and target port.
+When ready, click **Deploy** to create the deployment.
 
 ![Kubernetes Service Create Dialog](./media/container-service-kubernetes-ui/create-deployment.png)
-
-Click **Deploy** to create the deployment.
 
 ## View the application
 
@@ -67,16 +63,16 @@ To find the IP address of the application, click on **Services** in the left-han
 
 ![nginx view](./media/container-service-kubernetes-ui/nginx-service.png)
 
-## Editing the deployment
+## Edit the application deployment
 
-In addition to viewing your objects in the UI, you can edit and update the Kubernetes API objects.
+In addition to creating and viewing application in the Kubernetes dashboard, you can edit and update these application deployments.
 
-First, click **Deployments** in the left navigation pane to see the deployment for your service.
+To edit a deployment, click **Deployments** in the left-hand menu and then select the **NGINX** deployment. Finally, select **Edit** in the upper right-hand navigation bar.
 
-Once you are in that view, click on the replica set, and then click **Edit** in the upper navigation bar:
+![Kubernetes Edit](./media/container-service-kubernetes-ui/view-deployment.png)
 
-![Kubernetes Edit](./media/container-service-kubernetes-ui/edit.png)
+Locate the spec.replica value, which should be 1, change this value to three. In doing so, you increasing the replica count of the NGINX deployment from 1 to 3.
 
-Edit the `spec.replicas` field to be `2`, and click **Update**.
+Select **Update** when ready.
 
-This causes the number of replicas to drop to two by deleting one of your pods.
+![Kubernetes Edit](./media/container-service-kubernetes-ui/edit-deployment.png)
