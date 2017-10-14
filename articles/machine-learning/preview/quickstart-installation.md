@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: hero-article
-ms.date: 09/20/2017
+ms.date: 10/13/2017
 ---
 
 # Create Azure Machine Learning preview accounts and install Azure Machine Learning Workbench
@@ -25,9 +25,7 @@ Currently the Azure Machine Learning Workbench desktop app can be installed on t
 - Windows 10
 - Windows Server 2016
 - macOS Sierra
-
->[!NOTE]
->macOS High Sierra is not supported yet.
+- macOS High Sierra
 
 ## Log in to the Azure portal
 Log in to the [Azure portal](https://portal.azure.com/).
