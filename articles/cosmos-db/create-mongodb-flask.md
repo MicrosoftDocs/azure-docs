@@ -4,7 +4,7 @@ description: Presents a Python Flask code sample you can use to connect to and q
 services: cosmos-db
 documentationcenter: ''
 author: hshapiro
-manager: dwashin
+manager: scicoria
 editor: ''
 
 ms.assetid: 
@@ -22,7 +22,7 @@ ms.author: hshapiro
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB.
 
-This quick start guide, uses the following [Flask example](https://github.com/CoolBoi567/To-Do-List---Flask-MongoDB-Example) and demonstrates how to build the app with the [Azure Cosmos DB Emulator](/local-emulator.md) instead of MongoDB.
+This quick start guide, uses the following [Flask example](https://github.com/Azure-Samples/CosmosDB-Flask-Mongo-Sample) and demonstrates how to build a simple To-DO Flask app with the [Azure Cosmos DB Emulator](/local-emulator.md) instead of MongoDB.
 
 ## Prerequisites
 
@@ -44,7 +44,7 @@ Now let's clone a Flask-MongoDB API app from github, set the connection string, 
 2. Run the following command to clone the sample repository.
 
     ```bash
-    git clone https://github.com/heatherbshapiro/To-Do-List---Flask-MongoDB-Example.git
+    git clone https://github.com/Azure-Samples/CosmosDB-Flask-Mongo-Sample.git
     ```
 3. Run the following command to install the python modules.
     ```bash
