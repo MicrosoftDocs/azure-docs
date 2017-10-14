@@ -252,7 +252,7 @@ Make sure to review these documents before starting with installation:
 
 ## Deploy VMs for SAP (A)SCS cluster, DBMS Cluster, and SAP Application Servers
 
-To preparation Azure infrastructure, you can follow the steps:
+To prepare Azure infrastructure, you can follow these steps:
 * [Prepare the infrastructure for Architectural Template 1, 2 and 3][sap-high-availability-infrastructure-wsfc-shared-disk]
 
 * [Azure virtual network][sap-high-availability-infrastructure-wsfc-shared-disk-azure-network]
