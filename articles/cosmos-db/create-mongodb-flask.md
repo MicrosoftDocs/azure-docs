@@ -130,7 +130,7 @@ If you don't want to create a fork of this repo, you can also click the deploy t
 <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
 
-[!Note]
+[!NOTE]
 If you plan to store your code in Github or other source control options, please be sure to remove your connection strings from the code. They can be set with application settings for the web app instead.
 
 ## Review SLAs in the Azure portal
