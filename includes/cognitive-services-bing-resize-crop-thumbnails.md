@@ -8,17 +8,17 @@ To resize an image, include the w (width) and h (height) query parameters in the
   
 `https://<host>/th?id=JN.5l3yzwy%2f%2fHj59U6XhssIQ&pid=Api&w=200&h=200`  
   
-If you resize the image, its aspect ratio is maintained. To maintain the aspect ratio, white padding may be added to the boarder of the image. For example, if you resize a 480x359 image to 200x200 without cropping, the full width contains the image but the height contains 25 pixels of white padding at the top and bottom of the image. The same would be true if the image was 359x480 except the left and right boarders would contain white padding. If you crop the image, white padding is not added.  
+If you resize the image, its aspect ratio is maintained. To maintain the aspect ratio, white padding may be added to the border of the image. For example, if you resize a 480x359 image to 200x200 without cropping, the full width contains the image but the height contains 25 pixels of white padding at the top and bottom of the image. The same would be true if the image was 359x480 except the left and right borders would contain white padding. If you crop the image, white padding is not added.  
   
 The following picture shows the original size of a thumbnail image (480x300).  
   
 ![Original landscape image](./media/cognitive-services-bing-resize-crop/bing-resize-crop-landscape.PNG)  
   
-The following picture shows the image resized to 200x200. The aspect ratio is maintained and the top and bottom boarders are padded with white (the black boarder is included to show the padding).  
+The following picture shows the image resized to 200x200. The aspect ratio is maintained and the top and bottom borders are padded with white (the black border is included to show the padding).  
   
 ![Resized landscape image](./media/cognitive-services-bing-resize-crop/bing-resize-crop-landscape-resized.PNG)  
   
-If you specify dimensions that are greater than the image’s original width and height, the image is padded with white on the left and top boarders.  
+If you specify dimensions that are greater than the image’s original width and height, the image is padded with white on the left and top borders.  
   
 To crop an image, include the c (crop) query parameter. The following are the possible values that you may specify.  
   
