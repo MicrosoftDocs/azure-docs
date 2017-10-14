@@ -29,6 +29,11 @@ ms.custom: H1Hack27Feb2017
 [2287140]:https://launchpad.support.sap.com/#/notes/2287140
 [2492395]:https://launchpad.support.sap.com/#/notes/2492395
 
+[sap-official-ha-file-share-document]:https://www.sap.com/documents/2017/07/f453332f-c97c-0010-82c7-eda71af511fa.html
+[s2d-in-win-2016]:https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview
+[sofs-overview]:https://technet.microsoft.com/library/hh831349(v=ws.11).aspx
+[new-in-win-2016-storage]:https://docs.microsoft.com/windows-server/storage/whats-new-in-storage
+
 [sap-installation-guides]:http://service.sap.com/instguides
 [sap-installation-guides-file-share]:https://www.sap.com/documents/2017/07/f453332f-c97c-0010-82c7-eda71af511fa.html
 [networking-limits-azure-resource-manager]:../../../azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits
@@ -437,18 +442,10 @@ Install DBMS and SAP application Servers as described earlier.
 
 ## Next Steps
 
-Official **SAP Guidelines for HA File Share**:
+* [Installation of an (A)SCS Instance on a Failover Cluster with no Shared Disks - Official SAP Guidelines for HA File Share][sap-official-ha-file-share-document]:
 
-[Installation of an (A)SCS Instance on a Failover Cluster with no Shared Disks][sap-installation-guides-file-share]
+* [Storage Spaces Direct in Windows Server 2016][s2d-in-win-2016]
 
-**Storage Spaces Direct in Windows Server 2016**
+* [Scale-Out File Server for Application Data Overview][sofs-overview]
 
-https://docs.microsoft.com/en-us/windows-server/storage/storage-spaces/storage-spaces-direct-overview
-
-**Scale-Out File Server**
-
-https://technet.microsoft.com/library/hh831349(v=ws.11).aspx
-
-**What's new in Storage in Windows Server 2016**
-
-https://docs.microsoft.com/en-us/windows-server/storage/whats-new-in-storage
+* [What's new in Storage in Windows Server 2016][new-in-win-2016-storage]
