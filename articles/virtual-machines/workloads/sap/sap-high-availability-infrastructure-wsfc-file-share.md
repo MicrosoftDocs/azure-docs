@@ -29,6 +29,10 @@ ms.custom: H1Hack27Feb2017
 [2178632]:https://launchpad.support.sap.com/#/notes/2178632
 [2243692]:https://launchpad.support.sap.com/#/notes/2243692
 
+[ms-blog-s2d-in-azure]:https://blogs.technet.microsoft.com/filecab/2016/05/05/s2dazuretp5/
+[arm-sofs-s2d-managed-disks]:https://github.com/robotechredmond/301-storage-spaces-direct-md
+[arm-sofs-s2d-non-managed-disks]:https://github.com/Azure/azure-quickstart-templates/tree/master/301-storage-spaces-direct
+
 [sap-installation-guides]:http://service.sap.com/instguides
 
 [azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
@@ -272,9 +276,8 @@ You can follow the steps:
 
 ## Deploy Scale Out File Server Manually 
 
-You can manually deploy SOFS cluster as described in this blog:  
+You can manually deploy SOFS cluster as described in the blog [Storage Spaces Direct in Azure][ms-blog-s2d-in-azure]:  
 
-https://blogs.technet.microsoft.com/filecab/2016/05/05/s2dazuretp5/  
 
 ```PowerShell
 # Set on Execution Policy  ALL cluster nodes!
@@ -318,7 +321,7 @@ Also, you can **automate** deployment of SOFS using Azure Resource Manager templ
 
 ### Using Managed Disks
 
-https://github.com/robotechredmond/301-storage-spaces-direct-md
+Azure Resource Manager template to deploy Scale-Out File Server (SOFS) with Storage Spaces Direct (S2D) and Azure Managed Disks is available on [Github][arm-sofs-s2d-managed-disks].
 
 Managed disks are recommended.
 
@@ -330,7 +333,7 @@ VM Count minimum is 2, Disk count minimum is 2 + 1 spare disk = 3, SAP GLOBAL Ho
 
 ###	Using non-managed disks
 
-https://github.com/Azure/azure-quickstart-templates/tree/master/301-storage-spaces-direct
+Azure Resource Manager template to deploy Scale-Out File Server (SOFS) with Storage Spaces Direct (S2D) and Azure Non-Managed Disks is available on [Github][arm-sofs-s2d-non-managed-disks].
 
 ![Figure 2: UI screen for SOFS Azure Resource Manager template without Managed disks][sap-ha-guide-figure-8011]
 

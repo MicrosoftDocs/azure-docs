@@ -214,12 +214,12 @@ Therefore, we have following two components of an SAP (A)SCS instance:
 
 * **SAP central services** with:
     * Two **processes**, message and enqueue server and **<(A)SCSVirtualHostName>** used to accessed these two processes
-    * **File structure** S:\usr\sap\&lt;SID&gt;\(A)SCS<InstanceNumber>
+    * **File structure** S:\usr\sap\\&lt;SID&gt;\(A)SCS<InstanceNumber>
 
 
 * **SAP GLOBAL HOST** files with **sapmnt file share**:
-    * **File structure** S:\usr\sap\&lt;SID&gt;\SYS\...
-    * **sapmnt file share**, which enables access to these global S:\usr\sap\&lt;SID&gt;\SYS\.. files using UNC path \\\<(A)SCSVirtualHostName>\sapmnt\&lt;SID&gt;\SYS\...
+    * **File structure** S:\usr\sap\\&lt;SID&gt;\SYS\...
+    * **sapmnt file share**, which enables access to these global S:\usr\sap\\&lt;SID&gt;\SYS\.. files using UNC path \\\\<(A)SCSVirtualHostName>\sapmnt\\&lt;SID&gt;\SYS\...
 
 
 
