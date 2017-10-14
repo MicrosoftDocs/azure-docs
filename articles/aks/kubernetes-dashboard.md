@@ -57,7 +57,7 @@ Click **Deploy** to create the deployment.
 
 Status about the application can be seein on the Kubernetes dashboard. Once the application is running, each component will have a green checkbox next to it.
 
-![Kubernetes Pods](./media/container-service-kubernetes-ui/pods.png)
+![Kubernetes Pods](./media/container-service-kubernetes-ui/create-deployment.png)
 
 In the **Pods** view, you can see information about the containers in the pod as well as the CPU and memory resources used by those containers:
 
