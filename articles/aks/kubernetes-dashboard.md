@@ -21,7 +21,7 @@ ms.custom: mvc
 
 ---
 
-# Using the Kubernetes web UI with AKS
+# Using the Kubernetes dashboard with AKS
 
 The Azure CLI can be used to start the Kubernetes Dashboard. This document walks through starting the Kubernetes dashboard and using it to run an application the AKS Kubernetes cluster. 
 
@@ -45,15 +45,11 @@ This command creates a proxy between your development system and the Kubernetes 
 
 In the Kubernetes dashboard, click **Create** button in the upper right window.
 
-![Kubernetes Create UI](./media/container-service-kubernetes-ui/create.png)
-
 Give the deployment the name `hello-nginx` and enter `nginx:latest` for the images name.
 
-![Kubernetes Pod Create Dialog](./media/container-service-kubernetes-ui/nginx.png)
+Under **Service**, select **External** and enter 80 for both the port and target port.
 
-Under **Service**, select **External** and enter port 80. This creates an Azure load balancer rule for the application.
-
-![Kubernetes Service Create Dialog](./media/container-service-kubernetes-ui/service.png)
+![Kubernetes Service Create Dialog](./media/container-service-kubernetes-ui/create-deployment.png)
 
 Click **Deploy** to create the deployment.
 
