@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 10/12/2016
+ms.date: 10/13/2016
 ms.author: Joe.Sack
 ms.suite: SQL
 ms.prod_service: sql-database
@@ -160,9 +160,6 @@ Azure SQL Database is compliant with a range of regulatory compliances. To view 
   ![Query Performance Insight](./media/sql-database-manage-after-migration/query-performance-insight.png)
 
 - Alternatively, you can view the metrics using Dynamic Management Views (DMVs) too - using [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) and [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database). 
-
-### How do I manage and maintain my indexes and statistics?
-You need to defrag indexes to manage space and occasionally (rarely) to increase performance. Statistics Objects have Auto Update 'ON' by default on Azure SQL Database.
 
 ### How often do I need to run consistency checks like DBCC_CHECKDB?
 DBCC_CHECKDB checks the logical and physical integrity of all objects in the database. You no longer need to do these checks because these are managed by Microsoft on Azure. For more information, see [Data Integrity in Azure SQL Database](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/)
