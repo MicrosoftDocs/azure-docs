@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 10/12/2016
+ms.date: 10/13/2016
 ms.author: Joe.Sack
 ms.suite: SQL
 ms.prod_service: sql-database
@@ -32,10 +32,11 @@ The purpose of this article is to succinctly organize resources and guidance tha
 ## Manage business continuity after migration
 
 ### How do I create and manage backups on SQL Database? 
-SQL Database automatically backs up databases for you and provides you the ability to restore to any point in time in the retention period. The retention period is 35 days for Standard and Premium databases and 7 days for Basic databases. In addition, the Long-Term Retention feature allows you to hold backup files for a longer period (up to 10 years), and restore from these backups at any point. If you wish to back up your data to an on-premise location, you could export your database to BACPAC files. 
+SQL Database automatically backs up databases for you and provides you the ability to restore to any point in time in the retention period. The retention period is 35 days for Standard and Premium databases and 7 days for Basic databases. In addition, the Long-Term Retention feature allows you to hold backup files for a longer period (up to 10 years), and restore from these backups at any point. If you wish to back up your data to an on-premise location, you could export your database to BACPAC files. Furthermore, the database backups are geo-replicated to ensure the ability to geo-restore in any region in the event of a disaster or regional catastrophe. See [Business continuity overview](sql-database-business-continuity.md).
 
 ### How do I ensure business continuity in the event of a datacenter-level disaster or a regional catastrophe? 
-SQL Database provides the capability to maintain actively geo-replicated secondary databases in another region. Configuring them in an Auto-Failover Group will ensure that the databases automatically fail over to the secondary in a disaster scenario. If an auto-failover group is not configured, then your application needs to actively monitor for a disaster and initiate a failover to the secondary. 
+
+Database backups are geo-replicated to ensure the ability to geo-restore in any region in the event of a disaster or regional catastrophe. See [Business continuity overview](sql-database-business-continuity.md). In addition, SQL Database provides the capability to maintain actively geo-replicated secondary databases in another region. Configuring them in an Auto-Failover Group will ensure that the databases automatically fail over to the secondary in a disaster scenario. If an auto-failover group is not configured, then your application needs to actively monitor for a disaster and initiate a failover to the secondary. 
 SQL Server provided me Readable Secondary Replicas, can I access the secondaries on SQL Database? 
 Yes, the ‘Active Geo Replication’ feature is used to create Readable Secondary Replicas. 
 
@@ -63,7 +64,7 @@ Express Route gives you dedicated fiber to the Azure network so that your data d
  
 2. Select which resources connect to SQL Database: 
 
-   By default, your SQL database is configured to “Allow all Azure services” to connect to it when it is provisioned. If you would not like your database to be accessible to all Azure IPs, you can disable “Allow all Azure services” and use [VNET Service Endpoints](sql-database-vnet-service-endpoint-rule-overview.md) to restrict inbound access to the database from only Azure resources that are within a given Azure VNET subnet. 
+   By default, your SQL database is configured to “Allow all Azure services” – which means all VMs in Azure may attempt to connect to the database.  Authentication of all logins still must occur. If you would not like your database to be accessible to all Azure IPs, you can disable “Allow all Azure services” and use [VNET Service Endpoints](sql-database-vnet-service-endpoint-rule-overview.md) to restrict inbound access to the database from only Azure resources that are within a given Azure VNET subnet. 
 
    ![VNET service endpoints](./media/sql-database-manage-after-migration/vnet-service-endpoints.png) 
 
@@ -159,9 +160,6 @@ Azure SQL Database is compliant with a range of regulatory compliances. To view 
   ![Query Performance Insight](./media/sql-database-manage-after-migration/query-performance-insight.png)
 
 - Alternatively, you can view the metrics using Dynamic Management Views (DMVs) too - using [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) and [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database). 
-
-### How do I manage and maintain my indexes and statistics?
-There is no need to manage and maintain indexes and statistics in the cloud. Statistics Objects have Auto Update 'ON' by default on Azure SQL Database.
 
 ### How often do I need to run consistency checks like DBCC_CHECKDB?
 DBCC_CHECKDB checks the logical and physical integrity of all objects in the database. You no longer need to do these checks because these are managed by Microsoft on Azure. For more information, see [Data Integrity in Azure SQL Database](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/)
