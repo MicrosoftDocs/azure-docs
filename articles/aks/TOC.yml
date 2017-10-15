@@ -29,6 +29,8 @@
   items:
   - name: Use Helm charts
     href: kubernetes-helm.md
+  - name: Use Draft
+    href: kubernetes-draft.md
   - name: Kubernetes Dashboard
     href: kubernetes-dashboard.md
   - name: Use service principals
