@@ -69,11 +69,11 @@ Output is similar to the following. Take note of the `appId` and `password`. The
 
 ```console
 {
-  "appId": "000000-0000-0000-0000-000000000000",
+  "appId": "7248f250-0000-0000-0000-dbdeb8400d85",
   "displayName": "azure-cli-2017-10-15-02-20-15",
   "name": "http://azure-cli-2017-10-15-02-20-15",
-  "password": "77851d2c-ad18-46c3-8ca6-cb3ebc97975a",
-  "tenant": "00000000-0000-0000-0000-000000000000"
+  "password": "77851d2c-0000-0000-0000-cb3ebc97975a",
+  "tenant": "72f988bf-0000-0000-0000-2d7cd011db47"
 }
 ```
 

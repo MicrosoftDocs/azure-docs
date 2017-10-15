@@ -25,16 +25,14 @@
     href: tutorial-kubernetes-app-update.md
   - name: 7 - Monitor with OMS
     href: tutorial-kubernetes-monitor.md
-- name: Concepts
-  items:
-  - name: Service principal for AKS
-    href: kubernetes-service-principal.md
 - name: How-to guides
   items:
   - name: Use Helm charts
     href: kubernetes-helm.md
   - name: Kubernetes Dashboard
     href: kubernetes-dashboard.md
+  - name: Use service principals
+    href: kubernetes-service-principal.md
 - name: Reference
   items:
   - name: Azure CLI
