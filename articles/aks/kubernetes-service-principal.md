@@ -50,13 +50,13 @@ An existing Azure AD service principle can be used or pre-created for use with a
 
 When using an exsisting service principle, it must meet the following requirements:
 
-**Scope**: the subscription used to deploy the cluster.
-**Role**: **Contributor**
-**Client secret**: must be a password. Currently, you can't use a service principal set up for certificate authentication.
+- Scope: the subscription used to deploy the cluster
+- Role: Contributor
+- Client secret: must be a password
 
 ## Pre-create a new SP
 
-To create the service principle with the Azure CLI, use the [az ad sp create-for-rbac]() command. The service pronciple must be scoped to the Azure subscription as seen in the following example.
+To create the service principle with the Azure CLI, use the [az ad sp create-for-rbac]() command.
 
 ```azurecli
 id=$(az account show --query id --output tsv)
