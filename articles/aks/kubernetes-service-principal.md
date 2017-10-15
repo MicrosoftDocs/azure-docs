@@ -32,14 +32,6 @@ The steps detailed in this document assume that you have created an AKS Kubernet
 
 You also need the Azure CLI version 2.0.4 or later installed and configured. Run az --version to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
 
-## Exsisting service principal
-
-You can use an existing service principal that meets the following requirements:
-
-**Scope**: the subscription used to deploy the cluster.
-**Role**: **Contributor**
-**Client secret**: must be a password. Currently, you can't use a service principal set up for certificate authentication.
-
 ## Create SP with AKS cluster
 
 To create a service principal, you must have permissions to register an application with your Azure AD tenant, and to assign the application to a role in your subscription.
@@ -57,6 +49,16 @@ az aks create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-
 ## Manually create the SP
 
 An existing Azure AD service principle can be used or pre-created for use with an AKS cluster. This is helpful when deploying a cluster form the Azure portal where you are required to provide the service principle information. 
+
+**Exsisting service principle**
+
+When using an exsisting service principle, it must meet the following requirements:
+
+**Scope**: the subscription used to deploy the cluster.
+**Role**: **Contributor**
+**Client secret**: must be a password. Currently, you can't use a service principal set up for certificate authentication.
+
+**Create a new service principle**
 
 To create the service principle with the Azure CLI, use the [az ad sp create-for-rbac]() command. 
 
@@ -76,6 +78,8 @@ Output is similar to the following. Take note of the `appId` and `password`. The
   "tenant": "72f988bf-0000-0000-0000-2d7cd011db47"
 }
 ```
+
+**Use service principle**
 
 When using a pre-created service principle, provide the `appId` and `password` as argument values to the `az aks create` command. 
 
