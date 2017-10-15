@@ -76,3 +76,10 @@ Locate the `spec.replica` value, which should be 1, change this value to 3. In d
 Select **Update** when ready.
 
 ![Kubernetes Edit](./media/container-service-kubernetes-ui/edit-deployment.png)
+
+## Next steps
+
+For more information about the Kubernetes dashboard, see the Kubernetes documentaton.
+
+> [!div class="nextstepaction"]
+> [Kubernetes Web UI Dashboard](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/)

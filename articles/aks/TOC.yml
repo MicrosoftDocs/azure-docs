@@ -27,7 +27,7 @@
     href: tutorial-kubernetes-monitor.md
 - name: Concepts
   items:
-  - name: Service principal - Kubernetes
+  - name: Service principal for AKS
     href: kubernetes-service-principal.md
 - name: How-to guides
   items:

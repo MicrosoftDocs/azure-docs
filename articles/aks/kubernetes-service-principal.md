@@ -20,53 +20,54 @@ ms.custom: mvc
 
 ---
 
-# Set up an Azure AD service principal for a Kubernetes cluster in Container Service
+# Set up an Azure AD service principal for an AKS cluster
+
+An AKS cluster requires an [Azure Active Directory service principal](../active-directory/develop/active-directory-application-objects.md) to interact with Azure APIs. The service principal is needed to dynamically manage esources such as [user-defined routes](../virtual-network/virtual-networks-udr-overview.md) and the [Layer 4 Azure Load Balancer](../load-balancer/load-balancer-overview.md).
+
+This article shows different options for setting up a service principal for your AKS cluster.
+
+## Before you begin
+
+The steps detailed in this document assume that you have created an AKS Kubernetes cluster and have established a kubectl connection with the cluster. If you need these items see, the [AKS Kubernetes quickstart](./kubernetes-walkthrough.md).
+
+You also need the Azure CLI version 2.0.4 or later installed and configured. Run az --version to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
 
 
-In Azure Container Service, a Kubernetes cluster requires an [Azure Active Directory service principal](../active-directory/develop/active-directory-application-objects.md) to interact with Azure APIs. The service principal is needed to dynamically manage
-resources such as [user-defined routes](../virtual-network/virtual-networks-udr-overview.md)
-and the [Layer 4 Azure Load Balancer](../load-balancer/load-balancer-overview.md).
+## Exsisting service principal
 
+You can use an existing service principal that meets the following requirements:
 
-This article shows different options to set up a service principal for your Kubernetes cluster. For example, if you installed and set up the [Azure CLI 2.0](/cli/azure/install-az-cli2), you can run the `az aks create` command to create the Kubernetes cluster and the service principal at the same time.
+**Scope**: the subscription used to deploy the cluster.
+**Role**: **Contributor**
+**Client secret**: must be a password. Currently, you can't use a service principal set up for certificate authentication.
 
+## Create SP with AKS cluster
 
-## Requirements for the service principal
+To create a service principal, you must have permissions to register an application with your Azure AD tenant, and to assign the application to a role in your subscription.
 
-You can use an existing Azure AD service principal that meets the following requirements, or create a new one.
+When deploying an AKS cluster with the `az aks create` command, you have the option to generate a service principal automatically.
 
-* **Scope**: the subscription used to deploy the cluster.
+As with other Kubernetes cluster creation options, you can specify parameters for an existing service principal when you run `az aks create`. However, when you omit these parameters, the Azure CLI creates one automatically for use with Container Service. This takes place transparently during the deployment.
 
-* **Role**: **Contributor**
+The following command creates a Kubernetes cluster and generates both SSH keys and service principal credentials:
 
-* **Client secret**: must be a password. Currently, you can't use a service principal set up for certificate authentication.
+```console
+az aks create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-keys
+```
 
-> [!IMPORTANT]
-> To create a service principal, you must have permissions to register an application with your Azure AD tenant, and to assign the application to a role in your subscription. To see if you have the required permissions, [check in the Portal](../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions).
->
-
-## Option 1: Create a service principal in Azure AD
+## Manually create the SP
 
 If you want to create an Azure AD service principal before you deploy your Kubernetes cluster, Azure provides several methods.
 
-The following example commands show you how to do this with the [Azure CLI 2.0](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md). You can alternatively create a service principal using [Azure PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md), the [portal](../azure-resource-manager/resource-group-create-service-principal-portal.md), or other methods.
-
 ```azurecli
-az login
-
-az account set --subscription "mySubscriptionID"
-
-az group create --name "myResourceGroup" --location "westus"
-
 az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/mySubscriptionID"
 ```
 
-Output is similar to the following (shown here redacted):
+Output is similar to the following:
 
-![Create a service principal](./media/container-service-kubernetes-service-principal/service-principal-creds.png)
-
-Highlighted are the **client ID** (`appId`) and the **client secret** (`password`) that you use as service principal parameters for cluster deployment.
-
+```console
+<sp output>
+```
 
 ### Specify service principal when creating the Kubernetes cluster
 
@@ -97,23 +98,6 @@ The following example shows one way to pass the parameters with the Azure CLI 2.
 
     az group deployment create -g "myResourceGroup" --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-acs-kubernetes/azuredeploy.json" --parameters @azuredeploy.parameters.json
     ```
-
-
-## Option 2: Generate a service principal when creating the cluster with `az aks create`
-
-If you run the `az aks create` command to create the Kubernetes cluster, you have the option to generate a service principal automatically.
-
-As with other Kubernetes cluster creation options, you can specify parameters for an existing service principal when you run `az aks create`. However, when you omit these parameters, the Azure CLI creates one automatically for use with Container Service. This takes place transparently during the deployment.
-
-The following command creates a Kubernetes cluster and generates both SSH keys and service principal credentials:
-
-```console
-az aks create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-keys
-```
-
-> [!IMPORTANT]
-> If your account doesn't have the Azure AD and subscription permissions to create a service principal, the command generates an error similar to `Insufficient privileges to complete the operation.`
->
 
 ## Additional considerations
 
