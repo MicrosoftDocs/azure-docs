@@ -23,13 +23,11 @@ ms.custom: mvc
 
 [Helm](https://github.com/kubernetes/helm/) is an open-source packaging tool that helps you install and manage the lifecycle of Kubernetes applications. Similar to Linux package managers such as Apt-get and Yum, Helm is used to manage Kubernetes charts, which are packages of preconfigured Kubernetes resources.
 
-This document steps through configuring and using helm in a Kubernetes cluster on Azure.
+This document steps through configuring and using helm in a Kubernetes cluster on AKS.
 
-## Prerequisites
+## Before you begin
 
-To complete the steps in this document, you need a Kubernetes cluster in Azure, and `kubectl` installed on your development system. Also, ensure that `kubectl` has been configured to connect to the Kubernetes cluster using the [az acs kubernetes get-credential]() command. This command downloads a configuration file that allows `kubectl` to connect to a Kubernetes cluster. This file is also used to connect Helm to the cluster.
-
-For more information on completing these tasks, see the [Kubernetes on Azure quickstart](./kubernetes-walkthrough.md).
+The steps detailed in this document assume that you have created an AKS Kubernetes cluster and have established a kubectl connection with the cluster. If you need these items see, the [AKS Kubernetes quickstart](./kubernetes-walkthrough.md).
 
 ## Install Helm CLI
 
