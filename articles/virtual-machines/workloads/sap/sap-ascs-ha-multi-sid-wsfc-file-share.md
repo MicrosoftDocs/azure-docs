@@ -199,7 +199,7 @@ In September 2016, Microsoft released a feature where you can manage multiple vi
 
 If you have an SAP deployment, you can use an internal load balancer to create a Windows cluster configuration for SAP ASCS/SCS.
 
-This article focuses on how to move from a single ASCS/SCS installation to an SAP multi-SID configuration by installing additional SAP ASCS/SCS clustered instances into an existing Windows Server Failover Clustering (WSFC) cluster with **file share**. When this process is completed, you will have configured an SAP multi-SID cluster.
+This article focuses on how to move from a single ASCS/SCS installation to an SAP multi-SID configuration by installing additional SAP ASCS/SCS clustered instances into an existing Windows Server Failover Clustering (WSFC) cluster with **file share**. When this process is completed, you have configured an SAP multi-SID cluster.
 
 > [!NOTE]
 >
@@ -210,7 +210,7 @@ This article focuses on how to move from a single ASCS/SCS installation to an SA
 >The maximum number of SAP ASCS/SCS instances in one WSFC cluster is equal to the maximum number of private front-end IPs for each Azure internal load balancer.
 >
 
-For more information about load-balancer limits, see "Private front end IP per load balancer" in [Networking limits: Azure Resource Manager][networking-limits-azure-resource-manager].
+For more information about load-balancer limits, see "Private front-end IP per load balancer" in [Networking limits: Azure Resource Manager][networking-limits-azure-resource-manager].
 
 ## Prerequisites
 
@@ -234,13 +234,13 @@ The goal is to install multiple SAP ABAP ASCS or SAP Java SCS clustered instance
 
 _**Figure 2:** SAP Multi-SID configuration in two clusters_
 
-The installation of an additional **&lt;SID2&gt;** SAP system is basically identical to installation of one <SID> system. There are two additional preparation steps need on (A)SCS cluster as well as on File Share SOFS cluster.
+The installation of an additional **&lt;SID2&gt;** SAP system is identical to installation of one <SID> system. There are two additional preparation steps need on (A)SCS cluster as well as on File Share SOFS cluster.
 
 ## Infrastructure Preparation for SAP Multi-SID Scenario
 
 ### Infrastructure Preparation on Domain Controller
 
-Create the domain group **&lt;Domain&gt;\SAP_&lt;SID2&gt;_GlobalAdmin**, e.g. with &lt;SID2&gt; = PR2. The domain group name is <Domain>\SAP_PR2_GlobalAdmin
+Create the domain group **&lt;Domain&gt;\SAP_&lt;SID2&gt;_GlobalAdmin**, for example, with &lt;SID2&gt; = PR2. The domain group name is <Domain>\SAP_PR2_GlobalAdmin
 
 ### Infrastructure Preparation on (A)SCS Cluster
 
@@ -262,7 +262,7 @@ _**Figure 3:** Multi-SID SOFS same SAP GLOBAL host name_
 
 > [!IMPORTANT]
 >For the second **SAP &lt;SID2&gt;** system, the same Volume1 and the same **&lt;SAPGlobalHost&gt;** network name are  being used.
->If we want to reuse the same **&lt;SAPGlobalHost&gt;** network name, and as we have fix **SAPMNT** share name for different SAP systems, we are forced to use the same **Volume1**.
+>If we want to reuse the same **&lt;SAPGlobalHost&gt;** network name, and as we have fixed **SAPMNT** share name for different SAP systems, we are forced to use the same **Volume1**.
 >
 >The file path for <SID2> global host is:
 >C:\ClusterStorage\\**Volume1**\usr\sap\<SID2>\SYS\
@@ -321,7 +321,7 @@ Set-Acl $UsrSAPFolder $Acl -Verbose
 
 ### Infrastructure Preparation on SOFS Cluster Using Different SAP GLOBAL Host
 
-You can configure the second SOFS e.g. the second SOFS cluster role with **&lt;SAPGlobalHost2&gt;** and different **Voulme2** for the second **&lt;SID2&gt;**.
+You can configure the second SOFS, e.g. the second SOFS cluster role with **&lt;SAPGlobalHost2&gt;** and different **Voulme2** for the second **&lt;SID2&gt;**.
 
 ![Figure 4: Multi-SID SOFS same SAP GLOBAL host name 2][sap-ha-guide-figure-8015]
 
@@ -345,7 +345,7 @@ New-Volume -StoragePoolFriendlyName S2D* -FriendlyName SAPPR2 -FileSystem CSVFS_
 
 _**Figure 5:** Second **Volume2** in Failover Cluster Manager_
 
-Create a SAP GLOBAL folder for the second **&lt;SID2&gt;** and set file security.
+Create an SAP GLOBAL folder for the second **&lt;SID2&gt;** and set file security.
 
 Execute this PowerShell script:
 
@@ -388,9 +388,9 @@ $Acl.SetAccessRule($Ar)
 Set-Acl $UsrSAPFolder $Acl -Verbose
 ```
 
-To create SAPMNT file share on **Volume2** with **&lt;SAPGlobalHost2&gt;** host name for  **&lt;SID2&gt;** , start the following Wizard in Failover Cluster Manager.
+To create SAPMNT file share on **Volume2** with **&lt;SAPGlobalHost2&gt;** host name, for second SAP **&lt;SID2&gt;** , start the following Wizard in Failover Cluster Manager.
 
-Right click on saoglobal2 SOFS cluster group and choose “Add file share”.
+Right click on saoglobal2 SOFS cluster group and choose “Add file share.”
 
 ![Figure 6: Start “Add File Share” wizard][sap-ha-guide-figure-8017]
 
