@@ -22,7 +22,7 @@ ms.custom: mvc
 
 # Set up an Azure AD service principal for an AKS cluster
 
-An AKS cluster requires an [Azure Active Directory service principal](../active-directory/develop/active-directory-application-objects.md) to interact with Azure APIs. The service principal is needed to dynamically manage esources such as [user-defined routes](../virtual-network/virtual-networks-udr-overview.md) and the [Layer 4 Azure Load Balancer](../load-balancer/load-balancer-overview.md).
+An AKS cluster requires an [Azure Active Directory service principal](../active-directory/develop/active-directory-application-objects.md) to interact with Azure APIs. The service principal is needed to dynamically manage resources such as [user-defined routes](../virtual-network/virtual-networks-udr-overview.md) and the [Layer 4 Azure Load Balancer](../load-balancer/load-balancer-overview.md).
 
 This article shows different options for setting up a service principal for your AKS cluster.
 
@@ -30,27 +30,23 @@ This article shows different options for setting up a service principal for your
 
 The steps detailed in this document assume that you have created an AKS Kubernetes cluster and have established a kubectl connection with the cluster. If you need these items see, the [AKS Kubernetes quickstart](./kubernetes-walkthrough.md).
 
+To create an Azure AD service principal, you must have permissions to register an application with your Azure AD tenant, and to assign the application to a role in your subscription. If you don't have the necisary permissions, you might need to ask your Azure AD or subscription administrator to assign the necessary permissions, or pre-create a service principal for the AKS cluster.
+
 You also need the Azure CLI version 2.0.4 or later installed and configured. Run az --version to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
 
 ## Create SP with AKS cluster
 
-To create a service principal, you must have permissions to register an application with your Azure AD tenant, and to assign the application to a role in your subscription.
-
 When deploying an AKS cluster with the `az aks create` command, you have the option to generate a service principal automatically.
 
-As with other Kubernetes cluster creation options, you can specify parameters for an existing service principal when you run `az aks create`. However, when you omit these parameters, the Azure CLI creates one automatically for use with Container Service. This takes place transparently during the deployment.
-
-The following command creates a Kubernetes cluster and generates both SSH keys and service principal credentials:
+In the following an example, and AKS cluster is created, and because a service principle is not specified, a service principle is also created for the cluster. In order to complete this operation, your account must have the proper rights for creating a service principle. 
 
 ```console
 az aks create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-keys
 ```
 
-## Manually create the SP
+## Use an exsisting SP
 
 An existing Azure AD service principle can be used or pre-created for use with an AKS cluster. This is helpful when deploying a cluster form the Azure portal where you are required to provide the service principle information. 
-
-**Exsisting service principle**
 
 When using an exsisting service principle, it must meet the following requirements:
 
@@ -58,9 +54,9 @@ When using an exsisting service principle, it must meet the following requiremen
 **Role**: **Contributor**
 **Client secret**: must be a password. Currently, you can't use a service principal set up for certificate authentication.
 
-**Create a new service principle**
+## Pre-create a new SP
 
-To create the service principle with the Azure CLI, use the [az ad sp create-for-rbac]() command. 
+To create the service principle with the Azure CLI, use the [az ad sp create-for-rbac]() command. The service pronciple must be scoped to the Azure subscription as seen in the following example.
 
 ```azurecli
 id=$(az account show --query id --output tsv)
@@ -79,7 +75,7 @@ Output is similar to the following. Take note of the `appId` and `password`. The
 }
 ```
 
-**Use service principle**
+## Use an exsisting SP
 
 When using a pre-created service principle, provide the `appId` and `password` as argument values to the `az aks create` command. 
 
@@ -95,7 +91,6 @@ If deploying an AKS cluster from the Azure portal, enter these values in the AKS
 
 When working with AKS and Azure AD service principles, keep the following in mind.
 
-* If you don't have permissions to create a service principal in your subscription, you might need to ask your Azure AD or subscription administrator to assign the necessary permissions, or ask them for a service principal to use with Azure Container Service
 * The service principal for Kubernetes is a part of the cluster configuration. However, don't use the identity to deploy the cluster.
 * Every service principal is associated with an Azure AD application. The service principal for a Kubernetes cluster can be associated with any valid Azure AD application name (for example: `https://www.contoso.org/example`). The URL for the application doesn't have to be a real endpoint.
 * When specifying the service principal **Client ID**, you can use the value of the `appId` (as shown in this article) or the corresponding service principal `name` (for example,`https://www.contoso.org/example`).
