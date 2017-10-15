@@ -194,12 +194,12 @@ that you can take to deploy high-availability SAP systems in Azure by using the 
 >
 
 
-Article will cover SAP HA on:
+Article covers SAP HA on:
 * ![Windows][Logo_Windows]  **Windows** using **Windows Failover Cluster (WSFC)** and
 
 * ![Linux][Logo_Linux] **Linux** using **Linux Cluster Framework**.
 
-You will learn how to help protect **single-point-of-failure (SPOF)** components like **SAP Central Services (ASCS)** / **SAP Central Services (SCS)** and **database management systems (DBMS)**, and **redundant components** like **SAP Application Server**, in Azure.
+You learn how to help protect **single-point-of-failure (SPOF)** components like **SAP Central Services (ASCS)** / **SAP Central Services (SCS)** and **database management systems (DBMS)**, and **redundant components** like **SAP Application Server**, in Azure.
 
 
 ## High Availability (HA) Architecture and Scenarios for SAP NetWeaver

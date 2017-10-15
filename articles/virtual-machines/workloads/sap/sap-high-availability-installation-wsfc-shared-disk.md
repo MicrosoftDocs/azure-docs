@@ -152,7 +152,7 @@ Make sure to review these documents before starting with installation:
 
 * [Azure Infrastructure Preparation for SAP HA using Windows Failover Cluster and Shared Disk for SAP (A)SCS Instance][sap-high-availability-infrastructure-wsfc-shared-disk]
 
-We won’t describe the DBMS setup because setups vary depending on the DBMS system you use. However, we assume that high-availability concerns with the DBMS are addressed with the functionalities the different DBMS vendors support for Azure. For example, Always On or database mirroring for SQL Server, and Oracle Data Guard for Oracle databases. In the scenario we use in this article, we didn't add more protection to the DBMS.
+We do not describe the DBMS setup because setups vary depending on the DBMS system you use. However, we assume that high-availability concerns with the DBMS are addressed with the functionalities the different DBMS vendors support for Azure. For example, Always On or database mirroring for SQL Server, and Oracle Data Guard for Oracle databases. In the scenario we use in this article, we didn't add more protection to the DBMS.
 
 There are no special considerations when different DBMS services interact with this kind of clustered SAP ASCS/SCS configuration in Azure.
 
@@ -242,7 +242,7 @@ Use the internal load balancer's probe functionality to make the entire cluster 
 
 To add a probe port:
 
-1.  Check the current **ProbePort** setting by running the following PowerShell command. Execute it from within one of the virtual machines in the cluster configuration.
+1.  Check the current **ProbePort** setting by running the following PowerShell command:
 
   ```PowerShell
   $SAPSID = "PR1"     # SAP <SID>
@@ -250,6 +250,8 @@ To add a probe port:
   $SAPNetworkIPClusterName = "SAP $SAPSID IP"
   Get-ClusterResource $SAPNetworkIPClusterName | Get-ClusterParameter
   ```
+
+   Execute it from within one of the virtual machines in the cluster configuration.
 
 2.  Define a probe port. The default probe port number is **0**. In our example, we use probe port **62000**.
 
@@ -259,7 +261,7 @@ To add a probe port:
 
   The port number is defined in SAP Azure Resource Manager templates. You can assign the port number in PowerShell.
 
-  To set a new ProbePort value for the **SAP <*SID*> IP** cluster resource, run the following PowerShell script. Update the PowerShell variables for your environment. After the script runs, you'll be prompted to restart the SAP cluster group to activate the changes.
+  To set a new ProbePort value for the **SAP <*SID*> IP** cluster resource, run the following PowerShell script to update the PowerShell variables for your environment:
 
   ```PowerShell
   $SAPSID = "PR1"      # SAP <SID>
@@ -326,6 +328,7 @@ To add a probe port:
   Get-ClusterResource $SAPNetworkIPClusterName | Get-ClusterParameter
 
   ```
+  After the script runs, you'll be prompted to restart the SAP cluster group to activate the changes.
 
   ![Figure 4: Probe the cluster port after you set the new value][sap-ha-guide-figure-3049]
 

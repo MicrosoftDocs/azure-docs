@@ -208,12 +208,12 @@ The Azure cloud platform doesn't offer the option to configure virtual IP addres
 _**Figure 1:** Windows Server Failover Clustering configuration in Azure without a shared disk_
 
 ### SAP (A)SCS HA With Cluster Shared Disks
-On **Windows**, an **SAP (A)SCS** instance contains not only **SAP central services**, **SAP message server** and **enqueue server processes**, but also **SAP GLOBAL HOST** files used to store central files for the whole SAP system.
+On **Windows**, an **SAP (A)SCS** instance contains not only **SAP central services**, **SAP message server**, and **enqueue server processes**, but also **SAP GLOBAL HOST** files used to store central files for the whole SAP system.
 
 Therefore, we have following two components of an SAP (A)SCS instance:
 
 * **SAP central services** with:
-    * Two **processes**, message and enqueue server and **<(A)SCSVirtualHostName>** used to accessed these two processes
+    * Two **processes**, message and enqueue server, and **<(A)SCSVirtualHostName>** used to access these two processes
     * **File structure** S:\usr\sap\\&lt;SID&gt;\(A)SCS<InstanceNumber>
 
 

@@ -209,7 +209,7 @@ ms.custom: H1Hack27Feb2017
 >
 >This is a **public preview feature**, customers must not use it for running productive SAP systems.
 >
->If you want to join the pilot program, please open a SAP support ticket in the BC-OP-NT-AZR queue.  After testing, please provide us with feedback.
+>If you want to join the pilot program, open an SAP support ticket in the BC-OP-NT-AZR queue.  After testing, provide us with feedback.
 >
 
 Windows Server Failover Clustering is the foundation of a high-availability SAP ASCS/SCS installation and DBMS in Windows.
@@ -296,24 +296,24 @@ _**Figure 4:** SOFS file share used to protect SAP GLOBAL Host files_
 **Storage Spaces Direct (S2D)**, is used as **shared disk** for SOFS, enables building highly available and scalable storage using servers with local storage. Therefore, shared storage used for SOFS, e.g. for SAP GLOBALHOST files is not a single point of failure (SPOF).
 
 > [!IMPORTANT]
->If you plan do not plan to setup disaster recovery , SOFS is recommended solution for  highly available file share in Azure.
+>If you plan to setup disaster recovery , SOFS is recommended solution for  highly available file share in Azure.
 >
 
 ### SAP Prerequisites for SOFS in Azure
 
 For the SOFS you need:
 
-* At least 2 cluster nodes for SOFS
+* At least two cluster nodes for SOFS
 
-* Each node must have at least 2 local disks
+* Each node must have at least two local disks
 
 * For the performance reason, you must use **mirroring resiliency**:
-    * **2-way** mirroring for SOFS with 2 cluster nodes
-    * **3-way** mirroring for SOFS with 3 (or more) cluster nodes
+    * **2-way** mirroring for SOFS with two cluster nodes
+    * **3-way** mirroring for SOFS with three (or more) cluster nodes
 
 
 * It is **recommended to have 3 (or more cluster) nodes for SOFS with 3-way mirroring**.
-This setup will offer more scalability and more storage resiliency than the SOFS setup with 2 cluster nodes and 2-way mirroring.
+This setup offers more scalability and more storage resiliency than the SOFS setup with 2 cluster nodes and 2-way mirroring.
 
 * You must use **Azure Premium disk**
 
@@ -337,7 +337,7 @@ For more details, see [DSv2-Series][dv2-series] and [DS-Series][ds-series] speci
 
 * SOFS Azure VMs must be deployed in **own Azure Availability Set**
 
-* There is no need to configure Azure Internal Load Balancer for SOFS file share network name e.g. <SAPGlobalHostName>, as it is done for <(A)SCSVirtualHostname> of SAP (A)SCS instance or for the DBMS. SOFS is scaling out load across all cluster nodes, so <SAPGlobalHostName> is using local IP of all cluster nodes.
+* There is no need to configure Azure Internal Load Balancer for SOFS file share network name, e.g. <SAPGlobalHostName>, as it is done for <(A)SCSVirtualHostname> of SAP (A)SCS instance or for the DBMS. SOFS is scaling out load across all cluster nodes, so <SAPGlobalHostName> is using local IP of all cluster nodes.
 
 
 > [!IMPORTANT]
@@ -346,7 +346,7 @@ For more details, see [DSv2-Series][dv2-series] and [DS-Series][ds-series] speci
 
 ### Configuring SAP (A)SCS Instances and SOFS in Two Clusters
 
-You have the possibility to deploy SAP (A)SCS instances in one cluster, with their own SAP <SID> cluster role. The SOFS file share is configured in in another cluster with another cluster role.
+You have the possibility to deploy SAP (A)SCS instances in one cluster, with their own SAP <SID> cluster role. The SOFS file share is configured in another cluster with another cluster role.
 
 > [!IMPORTANT]
 >In this scenario, the SAP (A)SCS instance is configured to access SAP GLOBALHost using UNC path \\\\&lt;SAPGLOBALHost&gt;\sapmnt\\&lt;SID&gt;\SYS\...

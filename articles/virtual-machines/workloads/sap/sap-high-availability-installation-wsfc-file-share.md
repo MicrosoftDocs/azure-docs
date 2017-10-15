@@ -203,13 +203,13 @@ Make sure to review these documents before starting with installation:
 * [Azure Infrastructure Preparation for SAP HA using **Windows Failover Cluster** and **File Shared** for SAP (A)SCS Instance][sap-high-availability-infrastructure-wsfc-file-share]
 
 
-You will need following executables / dlls from SAP:
+You need following executables / dlls from SAP:
 * SAP **Software Provisioning Manager** (**SWPM**) installation tool version **SPS21 (or higher)**.
 * Download the **latest NTCLUST.SAR** archive with new SAP cluster resource DLL. The new SAP cluster dlls supports SAP (A)SCS high availability with file share on Windows Server Failover Cluster.
 
-  For more formation on new SAP cluster resource DLL, please check this blog: [New SAP cluster resource DLL is available!][sap-blog-new-sap-cluster-resource-dll]
+  For more formation on new SAP cluster resource DLL, check this blog: [New SAP cluster resource DLL is available!][sap-blog-new-sap-cluster-resource-dll]
 
-We won’t describe the DBMS setup because setups vary depending on the DBMS system you use. However, we assume that high-availability concerns with the DBMS are addressed with the functionalities the different DBMS vendors support for Azure. For example, Always On or database mirroring for SQL Server, and Oracle Data Guard for Oracle databases. In the scenario we use in this article, we didn't add more protection to the DBMS.
+We do not describe the DBMS setup because setups vary depending on the DBMS system you use. However, we assume that high-availability concerns with the DBMS are addressed with the functionalities the different DBMS vendors support for Azure. For example, Always On or database mirroring for SQL Server, and Oracle Data Guard for Oracle databases. In the scenario we use in this article, we didn't add more protection to the DBMS.
 
 There are no special considerations when different DBMS services interact with this kind of clustered SAP ASCS/SCS configuration in Azure.
 
@@ -222,7 +222,7 @@ There are no special considerations when different DBMS services interact with t
 
 > [!IMPORTANT]
 >
->Currently, a HA setting with a file share configuration is not supported by the SAP installation tool Software Provisioning Manager (SWPM). Therefore, some manual adoption is necessary to install an SAP system, e.g. to install and cluster SAP (A)SCS instance and configure separate SAP GLOBALHOST.  
+>Currently, a HA setting with a file share configuration is not supported by the SAP installation tool Software Provisioning Manager (SWPM). Therefore, some manual adoption is necessary to install an SAP system, for example, to install and cluster SAP (A)SCS instance and configure separate SAP GLOBALHOST.  
 >
 >There is no change in other installation steps to install (and cluster) DBMS instance and SAP applications servers.
 >
@@ -272,7 +272,7 @@ New-SmbShare -Name saploc -Path c:\usr\sap -FullAccess "BUILTIN\Administrators",
 
 ## Prepare SAP GLOBAL HOST on SOFS Cluster
 
-In this step, create the following on the SOFS cluster:
+In this step, create the following volume and file share, on the SOFS cluster:
 
 * SAP GLOBALHOST file C:\ClusterStorage\Volume1\usr\sap\\&lt;SID&gt;\SYS\ structure on SOFS cluster shared volume (CSV)
 

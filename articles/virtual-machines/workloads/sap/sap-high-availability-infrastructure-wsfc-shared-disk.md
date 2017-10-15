@@ -30,6 +30,7 @@ ms.custom: H1Hack27Feb2017
 [2243692]:https://launchpad.support.sap.com/#/notes/2243692
 
 [sap-installation-guides]:http://service.sap.com/instguides
+[tuning-failover-cluster-network-thresholds]:https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/
 
 [azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
 [azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md
@@ -333,13 +334,13 @@ The database template deploys one or two virtual machines that you can use to in
 
 To set up the database multi-SID template, in the [database multi-SID template][sap-templates-3-tier-multisid-db-marketplace-image] or [database multi-SID template using Managed Disks][sap-templates-3-tier-multisid-db-marketplace-image-md], enter values for the following parameters:
 
-  -  **Sap System Id**. Enter the SAP system ID of the SAP system you want to install. The ID will be used as a prefix for the resources that are deployed.
+  -  **Sap System Id**. Enter the SAP system ID of the SAP system you want to install. The ID is be used as a prefix for the resources that are deployed.
   -  **Os Type**. Select the operating system of the virtual machines.
-  -  **Dbtype**. Select the type of the database you want to install on the cluster. Select **SQL** if you want to install Microsoft SQL Server. Select **HANA** if you plan to install SAP HANA on the virtual machines. Make sure to select the correct operating system type: select **Windows** for SQL, and select a Linux distribution for HANA. The Azure Load Balancer that is connected to the virtual machines will be configured to support the selected database type:
-    * **SQL**. The load balancer will load-balance port 1433. Make sure to use this port for your SQL Server Always On setup.
-    * **HANA**. The load balancer will load-balance ports 35015 and 35017. Make sure to install SAP HANA with instance number **50**.
-    The load balancer will use probe port 62550.
-  -  **Sap System Size**. Set the number of SAPS the new system will provide. If you are not sure how many SAPS the system will require, ask your SAP Technology Partner or System Integrator.
+  -  **Dbtype**. Select the type of the database you want to install on the cluster. Select **SQL** if you want to install Microsoft SQL Server. Select **HANA** if you plan to install SAP HANA on the virtual machines. Make sure to select the correct operating system type: select **Windows** for SQL, and select a Linux distribution for HANA. The Azure Load Balancer that is connected to the virtual machines is be configured to support the selected database type:
+    * **SQL**. The load balancer load-balance port 1433. Make sure to use this port for your SQL Server Always On setup.
+    * **HANA**. The load balancer load-balance ports 35015 and 35017. Make sure to install SAP HANA with instance number **50**.
+    The load balancer uses probe port 62550.
+  -  **Sap System Size**. Set the number of SAPS the new system provides. If you are not sure how many SAPS the system requires, ask your SAP Technology Partner or System Integrator.
   -  **System Availability**. Select **HA**.
   -  **Admin Username and Admin Password**. Create a new user that can be used to sign in to the machine.
   -  **Subnet Id**. Enter the ID of the subnet that you used during the deployment of the ASCS/SCS template, or the ID of the subnet that was created as part of the ASCS/SCS template deployment.
@@ -350,9 +351,9 @@ The application servers template deploys two or more virtual machines that can b
 
 To set up the application servers multi-SID template, in the [application servers multi-SID template][sap-templates-3-tier-multisid-apps-marketplace-image] or [application servers multi-SID template using Managed Disks][sap-templates-3-tier-multisid-apps-marketplace-image-md], enter values for the following parameters:
 
-  -  **Sap System Id**. Enter the SAP system ID of the SAP system you want to install. The ID will be used as a prefix for the resources that are deployed.
+  -  **Sap System Id**. Enter the SAP system ID of the SAP system you want to install. The ID is be used as a prefix for the resources that are deployed.
   -  **Os Type**. Select the operating system of the virtual machines.
-  -  **Sap System Size**. The number of SAPS the new system will provide. If you are not sure how many SAPS the system will require, ask your SAP Technology Partner or System Integrator.
+  -  **Sap System Size**. The number of SAPS the new system provides. If you are not sure how many SAPS the system requires, ask your SAP Technology Partner or System Integrator.
   -  **System Availability**. Select **HA**.
   -  **Admin Username and Admin Password**. Create a new user that can be used to sign in to the machine.
   -  **Subnet Id**. Enter the ID of the subnet that you used during the deployment of the ASCS/SCS template, or the ID of the subnet that was created as part of the ASCS/SCS template deployment.
@@ -368,7 +369,7 @@ In our example, the address space of the Azure virtual network is 10.0.0.0/16. T
 
 ## <a name="b22d7b3b-4343-40ff-a319-097e13f62f9e"></a> DNS IP Addresses
 
-To set the required DNS IP addresses, do the following steps.
+To set the required DNS IP addresses, do the following steps:
 
 1.  In the Azure portal, on the **DNS servers** blade, make sure that your virtual network **DNS servers** option is set to **Custom DNS**.
 2.  Select your settings based on the type of network you have. For more information, see the following resources:
@@ -547,7 +548,7 @@ _**Figure 7:** Add a virtual machine to a domain_
 
 Azure Load Balancer has an internal load balancer that closes connections when the connections are idle for a set period of time (an idle timeout). SAP work processes in dialog instances open connections to the SAP enqueue process as soon as the first enqueue/dequeue request needs to be sent. These connections usually remain established until the work process or the enqueue process restarts. However, if the connection is idle for a set period of time, the Azure internal load balancer closes the connections. This isn't a problem because the SAP work process reestablishes the connection to the enqueue process if it no longer exists. These activities are documented in the developer traces of SAP processes, but they create a large amount of extra content in those traces. It's a good idea to change the TCP/IP `KeepAliveTime` and `KeepAliveInterval` on both cluster nodes. Combine these changes in the TCP/IP parameters with SAP profile parameters, described later in the article.
 
-To add registry entries on both cluster nodes of the SAP ASCS/SCS instance, first, add these Windows registry entries on both Windows cluster nodes for SAP ASCS/SCS:
+To add registry entries on both cluster nodes of the SAP ASCS/SCS instance, first, add these Windows registry entry on both Windows cluster nodes for SAP ASCS/SCS:
 
 | Path | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
 | --- | --- |
@@ -581,7 +582,7 @@ Setting up a Windows Server Failover Clustering cluster for an SAP ASCS/SCS inst
 ### <a name="5eecb071-c703-4ccc-ba6d-fe9c6ded9d79"></a> Collect the Cluster Nodes in a Cluster Configuration
 
 1.  In the Add Role and Features Wizard, add failover clustering to both cluster nodes.
-2.  Set up the failover cluster by using Failover Cluster Manager. In Failover Cluster Manager, select **Create Cluster**, and then add only the name of the first cluster, node A. Do not add the second node yet; you'll add the second node in a later step.
+2.  Set up the failover cluster by using Failover Cluster Manager. In Failover Cluster Manager, select **Create Cluster**, and then add only the name of the first cluster, node A. Do not add the second node yet; you add the second node in a later step.
 
   ![Figure 8: Add the server or virtual machine name of the first cluster node][sap-ha-guide-figure-3007]
 
@@ -735,11 +736,12 @@ Configuring a cluster file share witness involves these tasks:
 
   _**Figure 28:** Confirmation that you've reconfigured the cluster_
 
-After installing the Windows Failover Cluster successfully, changes need to be made to some thresholds to adapt failover detection to conditions in Azure. The parameters to be changed are documented in this blog: https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/ . Assuming that your two VMs that build the Windows Cluster Configuration for ASCS/SCS are in the same SubNet, the following parameters need to be changed to these values:
+After installing the Windows Failover Cluster successfully, changes need to be made to some thresholds to adapt failover detection to conditions in Azure. The parameters to be changed are documented in the blog [Tuning Failover Cluster Network Thresholds][tuning-failover-cluster-network-thresholds]. Assuming that your two VMs that build the Windows Cluster Configuration for ASCS/SCS are in the same SubNet, the following parameters need to be changed to these values:
+
 - SameSubNetDelay = 2
 - SameSubNetThreshold = 15
 
-These settings were tested with customers and provided a good compromise to be resilient enough on the one side. On the other hand those settings were providing fast enough failover in real error conditions on SAP software or node/VM failure.
+These settings were tested with customers and provided a good compromise to be resilient enough on the one side. On the other hand, those settings were providing fast enough failover in real error conditions on SAP software or node/VM failure.
 
 ### <a name="5c8e5482-841e-45e1-a89d-a05c0907c868"></a> Install SIOS DataKeeper Cluster Edition for the SAP ASCS/SCS Cluster Share Disk
 
@@ -858,7 +860,7 @@ After you install SIOS DataKeeper on both nodes, you need to start the configura
 
   _**Figure 41:** Define the base data for the node, which should be the current target node_
 
-6.  Define the compression algorithms. In our example, we recommend that you compress the replication stream. Especially in resynchronization situations, the compression of the replication stream dramatically reduces resynchronization time. Note that compression uses the CPU and RAM resources of a virtual machine. As the compression rate increases, so does the volume of CPU resources used. You also can adjust this setting later.
+6.  Define the compression algorithms. In our example, we recommend that you compress the replication stream. Especially in resynchronization situations, the compression of the replication stream dramatically reduces resynchronization time. Compression uses the CPU and RAM resources of a virtual machine. As the compression rate increases, so does the volume of CPU resources used. You also can adjust this setting later.
 
 7.  Another setting you need to check is whether the replication occurs asynchronously or synchronously. *When you protect SAP ASCS/SCS configurations, you must use synchronous replication*.  
 

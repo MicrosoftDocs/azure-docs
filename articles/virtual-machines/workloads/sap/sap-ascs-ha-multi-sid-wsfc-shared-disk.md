@@ -209,7 +209,7 @@ In September 2016, Microsoft released a feature where you can manage multiple vi
 
 If you have an SAP deployment, you have to use an internal load balancer to create a Windows cluster configuration for SAP ASCS/SCS.
 
-This article focuses on how to move from a single ASCS/SCS installation to an SAP multi-SID configuration by installing additional SAP ASCS/SCS clustered instances into an existing Windows Server Failover Clustering (WSFC) cluster with **shared disk**. When this process is completed, you will have configured an SAP multi-SID cluster.
+This article focuses on how to move from a single ASCS/SCS installation to an SAP multi-SID configuration by installing additional SAP ASCS/SCS clustered instances into an existing Windows Server Failover Clustering (WSFC) cluster with **shared disk**. When this process is completed, you have configured an SAP multi-SID cluster.
 
 > [!NOTE]
 >
@@ -220,7 +220,7 @@ This article focuses on how to move from a single ASCS/SCS installation to an SA
 >The maximum number of SAP ASCS/SCS instances in one WSFC cluster is equal to the maximum number of private front-end IPs for each Azure internal load balancer.
 >
 
-For more information about load-balancer limits, see "Private front end IP per load balancer" in [Networking limits: Azure Resource Manager][networking-limits-azure-resource-manager].
+For more information about load-balancer limits, see "Private front-end IP per load balancer" in [Networking limits: Azure Resource Manager][networking-limits-azure-resource-manager].
 
 ## Prerequisites
 
@@ -240,7 +240,7 @@ The goal is to install multiple SAP ABAP ASCS or SAP Java SCS clustered instance
 
 ![Multiple SAP ASCS/SCS clustered instances in Azure][sap-ha-guide-figure-6002]
 
-For more information about load-balancer limits, see "Private front end IP per load balancer" in [Networking limits: Azure Resource Manager][networking-limits-azure-resource-manager].
+For more information about load-balancer limits, see "Private front-end IP per load balancer" in [Networking limits: Azure Resource Manager][networking-limits-azure-resource-manager].
 
 The complete landscape with two high-availability SAP systems would look like this:
 
@@ -268,8 +268,8 @@ You can install additional SAP ASCS/SCS instances in the existing WSFC cluster w
 
 | Virtual machine role | Virtual machine host name | Static IP address |
 | --- | --- | --- |
-| 1st cluster node for ASCS/SCS instance |pr1-ascs-0 |10.0.0.10 |
-| 2nd cluster node for ASCS/SCS instance |pr1-ascs-1 |10.0.0.9 |
+| First cluster node for ASCS/SCS instance |pr1-ascs-0 |10.0.0.10 |
+| Second cluster node for ASCS/SCS instance |pr1-ascs-1 |10.0.0.9 |
 
 ### Create a Virtual Host Name for the Clustered SAP ASCS/SCS Instance on the DNS Server
 
@@ -294,7 +294,7 @@ The procedure for creating a DNS entry is also described in detail in the main [
 
 To create more than one SAP ASCS/SCS instance in the same WSFC cluster, use PowerShell to add an IP address to an existing Azure internal load balancer. Each IP address requires its own load-balancing rules, probe port, front-end IP pool, and back-end pool.
 
-The following script adds a new IP address to an existing load balancer. Update the PowerShell variables for your environment. The script will create all needed load-balancing rules for all SAP ASCS/SCS ports.
+The following script adds a new IP address to an existing load balancer. Update the PowerShell variables for your environment. The script creates all needed load-balancing rules for all SAP ASCS/SCS ports.
 
 ```powershell
 
