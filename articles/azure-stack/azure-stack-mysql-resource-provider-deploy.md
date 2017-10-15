@@ -51,10 +51,12 @@ The system account must have the following privileges:
 
 
 2. Sign in to a host that can access the Privileged Endpoint VM.
+
     a. On Azure Stack Development Kit (ASDK) installations, sign in to the physical host.
+
     b. On multi-node systems, the host must be a system that can access the Privileged Endpoint.
 
-3. [Download the MySQL resource provider binaries file](https://aka.ms/azurestackmysqlrp) and extract it to a temporary directory.
+3. [Download the MySQL resource provider binaries file](https://aka.ms/azurestackmysqlrp) and execute the self-extractor to extract the contents to a temporary directory.
 
 4.  The Azure Stack root certificate is retrieved from the Privileged Endpoint. For ASDK, a self-signed certificate is created as part of this process. For multi-node, you must provide an appropriate certificate.
 
@@ -88,39 +90,41 @@ Here's an example you can run from the PowerShell prompt (but change the account
 
 
 ```
-# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack
-$domain = "AzureStack"
-# Extract the downloaded file by executing it and pointing to a temp directory
-$tempDir = "C:\TEMP\MySQLRP"
-# The service admin (can be AAD or ADFS)
-$serviceAdmin = "admin@mydomain.onmicrosoft.com"
-
-# Install the AzureRM.Bootstrapper module
+# Install the AzureRM.Bootstrapper module,set the profile, and install AzureRM and AzureStack modules
 Install-Module -Name AzureRm.BootStrapper -Force
-
-# Install and imports the API Version Profile required by Azure Stack into the current PowerShell session.
 Use-AzureRmProfile -Profile 2017-03-09-profile
 Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
 
-# Create the credentials needed for the deployment - local VM
-$vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
-$vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("mysqlrpadmin", $vmLocalAdminPass)
+# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack
+$domain = 'AzureStack'
+# Point to the directory where the RP installation files were extracted
+$tempDir = 'C:\TEMP\MYSQLRP'
 
-# and the Service Admin credential
+# The service admin account (can be AAD or ADFS)
+$serviceAdmin = "admin@mydomain.onmicrosoft.com"
 $AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmin, $AdminPass)
 
-# and the cloud admin credential required for Privleged Endpoint access
+# Set the credentials for the Resource Provider VM
+$vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("mysqlrpadmin", $vmLocalAdminPass)
+
+# and the cloudadmin credential required for Privleged Endpoint access
 $CloudAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domain\cloudadmin", $CloudAdminPass)
 
 # change the following as appropriate
 $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
-# Change directory to the folder where you extracted the installation files
-# and adjust the endpoints
-$tempDir\DeployMySQLProvider.ps1 -AzCredential $AdminCreds -VMLocalCredential $vmLocalAdminCreds -CloudAdminCredential $cloudAdminCreds -PrivilegedEndpoint '10.10.10.10' -DefaultSSLCertificatePassword $PfxPass -DependencyFilesLocalPath <path to certificate and other dependencies> -AcceptLicense
-
+# Run the installation script from the folder where you extracted the installation files
+# Find the ERCS01 IP address first and make sure the certificate
+# file is in the specified directory
+$tempDir\DeployMySQLProvider.ps1 -AzCredential $AdminCreds `
+  -VMLocalCredential $vmLocalAdminCreds `
+  -CloudAdminCredential $cloudAdminCreds `
+  -PrivilegedEndpoint '10.10.10.10' `
+  -DefaultSSLCertificatePassword $PfxPass -DependencyFilesLocalPath $tempDir\cert `
+  -AcceptLicense
 
  ```
 
@@ -161,7 +165,7 @@ Depending on the system performance and download speeds, installation may take a
 
 1. Sign in to the admin portal as the service administrator.
 
-2. Verify that the deployment succeeded. Browse for **Resource Groups** &gt;, click on the **system.<location>.mysqladapter** resource group and verify that all five deployments succeeded.
+2. Verify that the deployment succeeded. Browse for **Resource Groups** &gt;, click on the **system.\<location\>.mysqladapter** resource group and verify that all four deployments succeeded.
 
       ![Verify Deployment of the MySQL RP](./media/azure-stack-mysql-rp-deploy/mysqlrp-verify.png)
 
