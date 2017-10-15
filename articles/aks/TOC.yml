@@ -45,8 +45,6 @@
   items:
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
-  - name: FAQ
-    href: faq.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/container-service/
   - name: Region availability
