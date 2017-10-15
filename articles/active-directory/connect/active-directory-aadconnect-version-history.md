@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/30/2017
+ms.date: 10/03/2017
 ms.author: billmath
 
 ---
@@ -21,7 +21,10 @@ The Azure Active Directory (Azure AD) team regularly updates Azure AD Connect wi
 
 This article is designed to help you keep track of the versions that have been released, and to understand whether you need to update to the newest version or not.
 
-This is a list of related topics:
+>[!IMPORTANT]
+>Starting with build 1.1.484, Azure AD Connect introduced a regression bug which requires sysadmin permissions to upgrade the SQL database.  This bug is still present in the latest build 1.1.614.  If you are upgrading to this build, you will need sysadmin permissions.  Dbo permissions are not sufficient.  If you attempt to upgrade Azure AD Connect without having sysadmin permissions, the upgrade will fail and Azure AD Connect will no longer function correctly afterwards.  Microsoft is aware of this and is working to correct this.
+
+his is a list of related topics:
 
 
 Topic |  Details
@@ -39,6 +42,7 @@ Status: September 05 2017
 * There is a known issue with Azure AD Connect Upgrade that is affecting customers who have enabled [Seamless Single Sign-On](active-directory-aadconnect-sso.md). After Azure AD Connect is upgraded, the feature appears as disabled in the wizard, even though the feature remains enabled. A fix for this issue will be provided in future release. Customers who are concerned about this display issue can manually fix it by enabling Seamless Single Sign-On in the wizard.
 
 #### Fixed issues
+* Fixed an issue that prevented Azure AD Connect from updating the claims rules in on-premises ADFS while enabling the [msDS-ConsistencyGuid as Source Anchor](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-msds-consistencyguid-as-sourceanchor) feature. The issue occurs if you try to enable the feature for an existing Azure AD Connect deployment that has ADFS configured as the sign-in method. The issue occurs because the wizard does not prompt for ADFS credentials before trying to update the claims rules in ADFS.
 * Fixed an issue that caused Azure AD Connect to fail installation if the on-premises AD forest has NTLM disabled. The issue is due to Azure AD Connect wizard not providing fully qualified credentials when creating the security contexts required for Kerberos authentication. This causes Kerberos authentication to fail and Azure AD Connect wizard to fall back to using NTLM.
 
 ### Azure AD Connect Sync

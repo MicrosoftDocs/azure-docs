@@ -13,7 +13,7 @@ ms.devlang: cpp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/09/2017
+ms.date: 09/19/2017
 ms.author: andbuc
 
 ---
@@ -24,28 +24,28 @@ ms.author: andbuc
 
 [!INCLUDE [iot-hub-iot-edge-install-build-windows](../../includes/iot-hub-iot-edge-install-build-windows.md)]
 
-## How to run the sample
+## Run the sample
 
 The **build.cmd** script generates its output in the **build** folder in your local copy of the **iot-edge** repository. This output includes the four IoT Edge modules used in this sample.
 
-The build script places the:
+The build script creates the following files:
 
 * **logger.dll** in the **build\\modules\\logger\\Debug** folder.
 * **iothub.dll** in the **build\\modules\\iothub\\Debug** folder.
 * **identity\_map.dll** in the **build\\modules\\identitymap\\Debug** folder.
 * **simulated\_device.dll** in the **build\\modules\\simulated\_device\\Debug** folder.
 
-Use these paths for the **module path** values as shown in the following JSON settings file:
+Use these paths for the **module path** values as shown in the simulated\_device\_cloud\_upload\_win JSON settings file.
 
-The simulated\_device\_cloud\_upload\_sample process takes the path to a JSON configuration file as a command-line argument. The following example JSON file is provided in the SDK repository at **samples\\simulated\_device\_cloud\_upload\_sample\\src\\simulated\_device\_cloud\_upload\_sample\_win.json**. This configuration file works as is unless you modify the build script to place the IoT Edge modules or sample executables in non-default locations.
+The simulated\_device\_cloud\_upload sample process takes the path to a JSON configuration file as a command-line argument. The following example JSON file is provided in the SDK repository at **samples\\simulated\_device\_cloud\_upload\_sample\\src\\simulated\_device\_cloud\_upload\_win.json**. This configuration file works as is unless you modify the build script to place the IoT Edge modules or sample executables in non-default locations.
 
 > [!NOTE]
 > The module paths are relative to the directory where the simulated\_device\_cloud\_upload\_sample.exe is located. The sample JSON configuration file defaults to writing to 'deviceCloudUploadGatewaylog.log' in your current working directory.
 
-In a text editor, open the file **samples\\simulated\_device\_cloud\_upload\_sample\\src\\simulated\_device\_cloud\_upload\_win.json** in your local copy of the **iot-edge** repository. This file configures the IoT Edge modules in the sample gateway:
+In a text editor, open the file **samples\\simulated\_device\_cloud\_upload\\src\\simulated\_device\_cloud\_upload\_win.json** in your local copy of the **iot-edge** repository. This file configures the IoT Edge modules in the sample gateway:
 
 * The **IoTHub** module connects to your IoT hub. You configure it to send data to your IoT hub. Specifically, set the **IoTHubName** value to the name of your IoT hub and set the **IoTHubSuffix** value to **azure-devices.net**. Set the **Transport** value to one of: **HTTP**, **AMQP**, or **MQTT**. Currently, only **HTTP** shares one TCP connection for all device messages. If you set the value to **AMQP**, or **MQTT**, the gateway maintains a separate TCP connection to IoT Hub for each device.
-* The **mapping** module maps the MAC addresses of your simulated devices to your IoT Hub device ids. Make sure that **deviceId** values match the ids of the two devices you added to your IoT hub, and that the **deviceKey** values contain the keys of your two devices.
+* The **mapping** module maps the MAC addresses of your simulated devices to your IoT Hub device Ids. Set the **deviceId** values to the Ids of the two devices you added to your IoT hub. Set the **deviceKey** values to the keys of your two devices.
 * The **BLE1** and **BLE2** modules are the simulated devices. Note how the module MAC addresses match the addresses in the **mapping** module.
 * The **Logger** module logs your gateway activity to a file.
 * The **module path** values shown in the following example are relative to the directory where the simulated\_device\_cloud\_upload\_sample.exe is located.
@@ -99,7 +99,8 @@ In a text editor, open the file **samples\\simulated\_device\_cloud\_upload\_sam
           }
           },
           "args": {
-            "macAddress": "01:01:01:01:01:01"
+            "macAddress": "01:01:01:01:01:01",
+            "messagePeriod" : 2000
           }
         },
       {
@@ -111,7 +112,8 @@ In a text editor, open the file **samples\\simulated\_device\_cloud\_upload\_sam
           }
           },
           "args": {
-            "macAddress": "02:02:02:02:02:02"
+            "macAddress": "02:02:02:02:02:02",
+            "messagePeriod" : 2000
           }
         },
       {

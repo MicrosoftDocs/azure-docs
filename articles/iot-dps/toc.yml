@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items:
-  - name: About Azure IoT DPS
+  - name: About IoT Device Provisioning
     href: about-iot-dps.md
 - name: Quickstarts
   expanded: true
@@ -13,42 +13,36 @@
     href: quick-create-simulated-device.md
 - name: Tutorials
   items:
-  - name: 1 - Configure cloud resources
+  - name: 1 - Set up cloud resources
     href: tutorial-set-up-cloud.md
-  - name: 2 - Set up your device to connect to Azure
+  - name: 2 - Set up device
     href: tutorial-set-up-device.md
-  - name: 3 - Provision devices to a single IoT hub
+  - name: 3 - Provision a device to an IoT hub
     href: tutorial-provision-device-to-hub.md
-  - name: 4 - Provision devices to multiple, load-balanced IoT hubs
+  - name: 4 - Provision devices to multiple hubs
     href: tutorial-provision-multiple-hubs.md
-- name: How To
+- name: Concepts
   items:
-  - name: Concepts
-    items:
-    - name: Device concepts
-      href: concepts-device.md
-    - name: Service concepts
-      href: concepts-service.md
-    - name: Security concepts
-      href: concepts-security.md
-  - name: How-to guides
-    items:
-    - name: Manage device enrollments
-      href: how-to-manage-enrollments.md
-- name: Related
+  - name: Device concepts
+    href: concepts-device.md
+  - name: Service concepts
+    href: concepts-service.md
+  - name: Security concepts
+    href: concepts-security.md
+- name: How-to guides
+  items:
+  - name: Manage device enrollments
+    href: how-to-manage-enrollments.md
+  - name: Use HSM with SDK
+    href: use-hsm-with-sdk.md
+- name: Reference
+  items:
+  - name: REST
+    href: /rest/api/iot-dps
+- name: Resources
   items:
   - name: Azure IoT Hub
     href: https://azure.microsoft.com/services/iot-hub/
-  - name: Azure IoT Suite
-    href: /azure/iot-suite/
-  - name: Azure Event Hubs
-    href: https://azure.microsoft.com/services/event-hubs/
-  - name: Stream Analytics
-    href: https://azure.microsoft.com/services/stream-analytics/
-  - name: Machine Learning
-    href: https://azure.microsoft.com/services/machine-learning/
-- name: Resources
-  items:
   - name: Azure Certified for IoT device catalog
     href: https://catalog.azureiotsuite.com/
   - name: Azure IoT Developer Center
