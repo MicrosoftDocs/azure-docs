@@ -22,9 +22,9 @@ ms.custom: mvc
 
 # Use Draft with Azure Container Service and Azure Container Registry to build and deploy an application to Kubernetes
 
-[Draft](https://aka.ms/draft) is an open-source tool that makes it easy to develop container-based applications and deploy them to Kubernetes clusters without knowing much about Docker and Kubernetes -- or even installing them. Using tools like Draft let you and your teams focus on building the application with Kubernetes, not paying as much attention to infrastructure.
+[Draft](https://aka.ms/draft) is an open-source tool that makes it easy to develop container-based applications and deploy them to Kubernetes clusters without knowing much about Docker and Kubernetes. Using tools like Draft let you and your teams focus on building the application with Kubernetes, not paying as much attention to infrastructure.
 
-You can use Draft with any Docker image registry and any Kubernetes cluster, including locally. This tutorial shows how to use ACS with Kubernetes and ACR to create a live but secure developer pipeline in Kubernetes using Draft, and how to use Azure DNS to expose that developer pipeline for others to see at a domain.
+You can use Draft with any Docker image registry and any Kubernetes cluster, including locally. This tutorial shows how to use AKS with Kubernetes and ACR to create a live but secure developer pipeline in Kubernetes using Draft, and how to use Azure DNS to expose that developer pipeline for others to see at a domain.
 
 ## Prerequisites
 
@@ -39,13 +39,13 @@ The Helm CLI is a client that runs on your development system and allows you to 
 
 To install the Helm CLI on a Mac use `brew`. For additional installation options see, [Installing Helm](https://github.com/kubernetes/helm/blob/master/docs/install.md).
  
-```bash
+```console
 brew install kubernetes-helm
 ```
 
 Output:
 
-```bash
+```console
 ==> Downloading https://homebrew.bintray.com/bottles/kubernetes-helm-2.6.2.sierra.bottle.1.tar.gz
 ######################################################################## 100.0%
 ==> Pouring kubernetes-helm-2.6.2.sierra.bottle.1.tar.gz
@@ -58,58 +58,103 @@ Bash completion has been installed to:
 
 ## Install Draft
 
-```bash
+The Draft CLI is a client that runs on your development system and allows you to quicky deploy code into a Kubernetes cluster.
+
+To install the Draf CLI on a Mac use `brew`. For additional installation options see, the [Draft Install guide](https://github.com/Azure/draft/blob/master/docs/install.md).
+
+```console
 brew install draft
 ```
 
 ## Configure Draft
 
-Get ACR name and login server.
+When configuring Draft a container registry needs to be specified. In this example Azure Container Registry is used. Run the following command to get name and login server name of the ACR instance.
 
-```bash
-az acr list --resource-group myACRInstance --query "[].{Name:name,LoginServer:loginServer}" --output table
+Update the command with the resource group of your ACR instance.
+
+```console
+az acr list --resource-group <resource group> --query "[].{Name:name,LoginServer:loginServer}" --output table
 ```
 
-Get ACR password.
+The ACR instance password is also needed. Run the following command to return the ACR password.
 
-```bash
+Update the command with the name of the ACR instance.
+
+```console
 az acr credential show --name <acr name> --query "passwords[0].value" --output table
 ```
 
 Initialize Draft.
 
-```bash
+```console
 draft init
+```
+
+Output:
+
+```console
+Creating pack go...
+Pack go already exists. Skipping!
+Creating pack java...
+Pack java already exists. Skipping!
+Creating pack javascript...
+Pack javascript already exists. Skipping!
+Creating pack gradle...
+Pack gradle already exists. Skipping!
+Creating pack csharp...
+Pack csharp already exists. Skipping!
+Creating pack php...
+Pack php already exists. Skipping!
+Creating pack python...
+Pack python already exists. Skipping!
+Creating pack ruby...
+Pack ruby already exists. Skipping!
+$DRAFT_HOME has been configured at /usr/local/etc/draft.
+```
+
+During this process you will be prompted for the container registry credentials. When using an Azure Container Registry, the registry URL is the ACR login server, the username is the ACR name, and the password is the ACR password.
+
+```console
+1. Enter your Docker registry URL (e.g. docker.io/myuser, quay.io/myuser, myregistry.azurecr.io): myacr007.azurecr.io
+2. Enter your username: myACR007
+3. Enter your password:
+```
+
+Once complete, Draft will be configired in the AKS cluster and is ready to use.
+
+```console
+Draft has been installed into your Kubernetes Cluster.
+Happy Sailing!
 ```
 
 ## Build and deploy an application    
 
-```bash
+```console
 git clone https://github.com/Azure/draft
 ```
 
-```bash
+```console
 cd draft/examples/java/
 ```
 
-```bash
+```console
 draft create
 ```
 
 Output:
 
-```bash
+```console
 --> Draft detected the primary language as Java with 92.205567% certainty.
 --> Ready to sail
 ```
 
-```bash
+```console
 draft up
 ```
 
 Output:
 
-```bash
+```console
 Draft Up Started: 'open-jaguar'
 open-jaguar: Building Docker Image: SUCCESS ⚓  (28.0342s)
 open-jaguar: Pushing Docker Image: SUCCESS ⚓  (7.0647s)
@@ -122,7 +167,7 @@ open-jaguar: Build ID: 01BW3VVNZYQ5NQ8V1QSDGNVD0S
 Your container is now running in AKS. To view it, use the `draft connect` command, which creates a secured connection to the cluster's IP with a specific port for your application so that you can view it locally. If successful, look for the URL to connect to your app on the first line after the **SUCCESS** indicator.
 
 
-```bash
+```console
 draft connect
 ```
 
