@@ -14,12 +14,8 @@ ms.author: v-dotren
 # Create a pool of virtual machines with your virtual network
 
 
-When you create an Azure Batch pool, you can provision the pool in a subnet of an [Azure virtual network](../virtual-network/virtual-networks-overview.md) (VNet) that you specify. This article explains how to set up a Batch pool using the Virtual Machine Configuration in a VNet. 
+When you create an Azure Batch pool, you can provision the pool in a subnet of an [Azure virtual network](../virtual-network/virtual-networks-overview.md) (VNet) that you specify. This article explains how to set up a Batch pool in a VNet. 
 
-
-> [!NOTE]
-> It is also possible to set up a pool in the Cloud Services Configuration in a VNet. In this pool configuration, the network requirements and Batch settings are different from those described in this article. For more information about the differences, see the [Batch feature overview](batch-api-basics.md#virtual-network-vnet-and-firewall-configuration).
->
 
 
 ## Why use a VNet?
@@ -31,15 +27,15 @@ The compute nodes of an Azure Batch pool are automatically networked so that the
 
 ## Prerequisites
 
-* **Azure Active Directory (AD) authentication**. The Batch client API must use Azure AD authentication. Azure Batch support for Azure AD is documented in [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md).
+* **Authentication**. To use an Azure Resource Manager-based virtual network, the Batch client API must use Azure Active Directory (AD) authentication. Azure Batch support for Azure AD is documented in [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md). To use a classic virtual network, the 'MicrosoftAzureBatch' service principal must have the 'Classic Virtual Machine Contributor' Role-Based Access Control (RBAC) role for the specified VNet. 
 
-* **An Azure VNet**. To prepare a VNet with one or more subnets in advance, you can use the Azure portal, Azure PowerShell, the Azure Command-Line Interface 2.0, or other methods. For steps, see [Create a virtual network with multiple subnets](../virtual-network/virtual-networks-create-vnet-arm-pportal.md). 
+* **An Azure VNet**. To prepare a VNet with one or more subnets in advance, you can use the Azure portal, Azure PowerShell, the Azure Command-Line Interface (CLI), or other methods. For steps to create an Azure Resource Manager-based VNet, see [Create a virtual network with multiple subnets](../virtual-network/virtual-networks-create-vnet-arm-pportal.md). To create a classic VNet, see [Create a virtual network (classic) with multiple subnets](./virtual-network/create-virtual-network-classic.md)
 
   The VNet must meet the following requirements:
 
   - The VNet must be in the same Azure **region** and **subscription** as the Batch account.
 
-  - The VNet must be created in the Azure Resource Manager deployment model. You cannot use a classic VNet in this configuration.
+  - For pools created with a virtual machine configuration, only Azure Resource Manager-based virtual networks are supported. For pools created with a cloud services configuration, both ARM and classic virtual networks are supported. 
 
   - The subnet specified for the pool must have enough unassigned IP addresses to accommodate the number of VMs targeted for the pool. If the subnet doesn't have enough unassigned IP addresses, the pool partially allocates the compute nodes, and a resize error occurs. 
 
@@ -49,7 +45,7 @@ The compute nodes of an Azure Batch pool are automatically networked so that the
 
     [!INCLUDE [batch-virtual-netwrk-ports](../../includes/batch-virtual-network-ports.md)]
 
-
+    Also, ensure that your Azure Storage endpoint can be resolved by any custom DNS servers that serve your VNet. Specifically, a URL of the form <account>.table.core.windows.net should be resolvable. 
     
 ## Create a pool with a VNet in the portal
 
