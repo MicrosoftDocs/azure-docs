@@ -20,19 +20,22 @@ ms.author: cephalin
 ---
 # Controlling Azure web app traffic with Azure Traffic Manager
 > [!NOTE]
-> This article provides summary information for Microsoft Azure Traffic Manager as it relates to Azure App Service Web Apps. More information about Azure Traffic Manager itself can be found by visiting the links at the end of this article.
+> This article provides summary information for Microsoft Azure Traffic Manager as it relates to Azure Web Apps. More information about Azure Traffic Manager itself can be found by visiting the links at the end of this article.
 > 
 > 
 
 ## Introduction
 You can use Azure Traffic Manager to control how requests from web clients are distributed to web apps in Azure App Service. When web app endpoints are added to a Azure Traffic Manager profile, Azure Traffic Manager keeps track of the status of your web apps (running, stopped or deleted) so that it can decide which of those endpoints should receive traffic.
 
-## Load Balancing Methods
-Azure Traffic Manager uses three different load balancing methods. These are described  in the following list as they pertain to Azure web apps.
+## Routing methods
+Azure Traffic Manager uses three different routing methods. These are described  in the following list as they pertain to Azure web apps.
 
-* **Failover**: If you have web app clones in different regions, you can use this method to configure one web app to service all web client traffic, and configure another web app in a different region to service that traffic in case the first web app becomes unavailable.
-* **Round Robin**: If you have web app clones in different regions, you can use this method to distribute traffic equally across the web apps in different regions.
-* **Performance**: The Performance method distributes traffic based on the shortest round trip time to clients. The Performance method can be used for web apps within the same region or in different regions.
+* **[Priority](#priority):** Select **Priority** when you want to use a primary service endpoint for all traffic, and provide backups in case the primary or the backup endpoints are unavailable.
+* **[Weighted](#weighted):** Select **Weighted** when you want to distribute traffic across a set of endpoints, either evenly or according to weights, which you define.
+* **[Performance](#performance):** Select **Performance** when you have endpoints in different geographic locations and you want end users to use the "closest" endpoint in terms of the lowest network latency.
+* **[Geographic](#geographic):** Select **Geographic** so that users are directed to specific endpoints (Azure, External, or Nested) based on which geographic location their DNS query originates from. This empowers Traffic Manager customers to enable scenarios where knowing a user’s geographic region and routing them based on that is important. Examples include complying with data sovereignty mandates, localization of content & user experience and measuring traffic from different regions.
+
+For more information, see [Traffic Manager routing methods](../traffic-manager/traffic-manager-routing-methods.md).
 
 ## Web Apps and Traffic Manager Profiles
 To configure the control of web app traffic, you create a profile in Azure Traffic Manager that uses one of the three load balancing methods described previously, and then add the endpoints (in this case, web apps) for which you want to control traffic to the profile. Your web app status (running, stopped or deleted) is regularly communicated to the profile so that Azure Traffic Manager can direct traffic accordingly.
