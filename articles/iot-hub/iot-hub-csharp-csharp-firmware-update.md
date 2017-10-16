@@ -17,7 +17,7 @@ ms.date: 10/06/2017
 ms.author: v-jamebr
 
 ---
-# Use device management to initiate a device firmware update (.NET/Node)
+# Use device management to initiate a device firmware update (.NET/.NET)
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
 
 ## Introduction
@@ -28,7 +28,7 @@ This tutorial shows you how to:
 * Create a .NET console app that calls the firmwareUpdate direct method in the simulated device app through your IoT hub.
 * Create a simulated device app that implements a firmwareUpdate direct method. This method initiates a multi-stage process that waits to download the firmware image, downloads the firmware image, and finally applies the firmware image. During each stage of the update, the device uses the reported properties to report on progress.
 
-At the end of this tutorial, you have a Node.js console device app and a .NET (C#) console back-end app:
+At the end of this tutorial, you have a .NET (C#) console device app and a .NET (C#) console back-end app:
 
 **SimulatedDeviceFwUpdate**, which connects to your IoT hub with the device identity created earlier, receives a firmwareUpdate direct method, runs through a multi-state process to simulate a firmware update including: waiting for the image download, downloading the new image, and finally applying the image.
 
@@ -127,7 +127,7 @@ In this section, you create a .NET console app (using C#) that initiates a remot
 In this section, you will
 
 * Create a .NET console app that responds to a direct method called by the cloud
-* Trigger a simulated firmware update
+* Simulate a firmware update triggered by a backend service through a direct method
 * Use the reported properties to enable device twin queries to identify devices and when they last completed a firmware update
 
 1. In Visual Studio, add a Visual C# Windows Classic Desktop project to the current solution by using the **Console Application** project template. Name the project **SimulateDeviceFWUpdate**.
@@ -199,7 +199,7 @@ In this section, you will
 
         }
  
-9.  Add the following method to simulate waiting to download the firmware image. Update status to **waiting** and clears other firmware update properties on the twin. Typically, devices are informed of an available update and an administrator defined policy causes the device to start downloading and applying the update. This function is where the logic to enable that policy should run. 
+9.  Add the following method to simulate waiting to download the firmware image. Update status to **waiting** and clear other firmware update properties on the twin. These properties are cleared to remove any existing values from prior firmware updates. This is necessary because reported properties are sent as a PATCH operation (a delta) and not a PUT operation (a complete set of properties that replaces all of the previous values). Typically, devices are informed of an available update and an administrator defined policy causes the device to start downloading and applying the update. This function is where the logic to enable that policy should run. 
         
         static async Task waitToDownload(Twin twin, string fwUpdateUri)
         {
@@ -296,18 +296,22 @@ In this section, you will
             }
         }
 
-13. Add the following method to handle the **updateFirmware** direct method from the cloud. It extracts the URL to the firmware update from the message payload and passes it to the **doUpdate** task, which it starts on another threadpool thread. It then returns the method response to the cloud.
+13. Add the following method to handle the **updateFirmware** direct method from the cloud. It extracts the URL to the firmware update from the message payload and passes it to the **doUpdate** task, which it starts on another threadpool thread. It then immediately returns the method response to the cloud.
         
         static Task<MethodResponse> onFirmwareUpdate(MethodRequest methodRequest, object userContext)
         {
             string fwUpdateUrl = (string)JObject.Parse(methodRequest.DataAsJson)["fwPackageUri"];
-            Console.WriteLine("\nReturning response for method {0}, URI is: {1}", methodRequest.Name, fwUpdateUrl);
+            Console.WriteLine("\nMethod: {0} triggered by service, URI is: {1}", methodRequest.Name, fwUpdateUrl);
 
             Task updateTask = Task.Run(() => (doUpdate(fwUpdateUrl)));
 
             string result = "'FirmwareUpdate started.'";
             return Task.FromResult(new MethodResponse(Encoding.UTF8.GetBytes(result), 200));
         }
+> [!NOTE]
+> This method triggers the simulated update to run as a **Task** and then immediately responds to the method call, informing the service that the firmware update has been started. Update status and completion will be sent to the service through the reported properties of the device twin. We respond to the method call when starting the update, rather than after its completion, because:
+> * A real update process is very likely to take longer than the method call timeout.
+> * A real update process is very likely to require a reboot, which would re-launch this app making the **MetodRequest** object unavailable. (Updating reported properties, however, is possible even after a reboot.) 
 
 14. Finally, add the following code to the **Main** method to open the connection to your IoT hub and initialize the method listener:
    
