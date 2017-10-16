@@ -403,9 +403,10 @@ VNet requirements:
 - For pools created with a cloud service configuration, enable ports 10100, 20100, and 30100. 
 - Enable outbound connections to Azure Storage on port 443. Also, ensure that your Azure Storage endpoint can be resolved by any custom DNS servers that serve your VNET. Specifically, a URL of the form `<account>.table.core.windows.net` should be resolvable.
 
-    The following table summarizes the inbound and outbound ports that you need to enable for pools that you created with the virtual machine configuration:
+  The following table summarizes the inbound and outbound ports that you need to enable for pools that you created with the virtual machine configuration:
 
-    [!INCLUDE [batch-virtual-network-ports](../../includes/batch-virtual-network-ports.md)]
+  [!INCLUDE [batch-virtual-netwrk-ports](../../includes/batch-virtual-network-ports.md)]
+
 
 For more information about setting up a Batch pool using the virtual machine configuration in a VNet, see [Create a pool of virtual machines with your virtual network](batch-virtual-network.md).
 
