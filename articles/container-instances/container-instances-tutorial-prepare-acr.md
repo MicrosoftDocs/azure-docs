@@ -15,7 +15,7 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/24/2017
+ms.date: 09/11/2017
 ms.author: seanmck
 ms.custom: mvc
 ---
@@ -35,7 +35,7 @@ In subsequent tutorials, you deploy the container from your private registry to 
 
 ## Before you begin
 
-This tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+This tutorial requires that you are running the Azure CLI version 2.0.12 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## Deploy Azure Container Registry
 
@@ -120,7 +120,7 @@ docker push <acrLoginServer>/aci-tutorial-app:v1
 
 ## List images in Azure Container Registry
 
-To return a list of images that have been pushed to your Azure Container registry, user the [az acr repository list](/cli/azure/acr/repository#list) command. Update the command with the container registry name.
+To return a list of images that have been pushed to your Azure Container registry, use the [az acr repository list](/cli/azure/acr/repository#list) command. Update the command with the container registry name.
 
 ```azurecli
 az acr repository list --name <acrName> --output table

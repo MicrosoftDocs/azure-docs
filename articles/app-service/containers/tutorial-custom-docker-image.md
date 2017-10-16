@@ -13,13 +13,14 @@ ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/03/2017
 ms.author: cfowler
+ms.custom: mvc
 ---
 # Use a custom Docker image for Azure Web App for Containers
 
-[Web App for Containers](https://azure.microsoft.com/azure/app-service-web/app-service-linux-intro.md) provides built-in Docker images on Linux with support for specific versions, such as PHP 7.0 and Node.js 4.5. Web App for Containers leverages the Docker container technology to host both built-in images and custom images as a platform as a service. In this tutorial, you will learn how to build a custom docker image for use on Web App for Containers, which is a common pattern if there isn't a built-in image for your language, or your application requires a specific configuration which isn't provided within the built-in images.
+[Web App for Containers](app-service-linux-intro.md) provides built-in Docker images on Linux with support for specific versions, such as PHP 7.0 and Node.js 4.5. Web App for Containers leverages the Docker container technology to host both built-in images and custom images as a platform as a service. In this tutorial, you will learn how to build a custom docker image for use on Web App for Containers, which is a common pattern if there isn't a built-in image for your language, or your application requires a specific configuration which isn't provided within the built-in images.
 
 ## Prerequisites
 
@@ -523,16 +524,16 @@ The command reveals two passwords that can be used with the user name.
 }
 ```
 
-Now that you have the necessary credentials, log in to the Azure Container Registry using the `docker login` command. The URL for the registry is required to log in. Use the format `http://{azure-container-registry-name>.azureacr.io`.
+Now that you have the necessary credentials, log in to the Azure Container Registry using the `docker login` command. The server name is required to log in. Use the format `{azure-container-registry-name>.azurecr.io`.
 
 ```bash
-docker login <azure-container-registry-name>.azureacr.io --username <azure-container-registry-name> --password <password> 
+docker login <azure-container-registry-name>.azurecr.io --username <azure-container-registry-name> --password <password> 
 ```
 
-Confirm that the login succeeded. Push the image by using the `docker push` command, and tagging the image with the full URL of the registry followed by your image name and tag.
+Confirm that the login succeeded. Push the image by using the `docker push` command, and tagging the image with the name of the registry followed by your image name and tag.
 
 ```bash
-docker push http://<azure-container-registry-name>.azureacr.io/mydockerimage:v1.0.0
+docker push <azure-container-registry-name>.azurecr.io/mydockerimage:v1.0.0
 ```
 
 Verify that the push successfully added a container to the registry by listing the ACR repositories. 

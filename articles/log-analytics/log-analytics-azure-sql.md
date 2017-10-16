@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 09/26/2017
 ms.author: banders
 
 ---
@@ -40,7 +40,7 @@ The following table describes the connected sources that are supported by this s
 | [Linux agents](log-analytics-linux-agents.md) | No | Direct Linux agents are not used by the solution. |
 | [SCOM management group](log-analytics-om-agents.md) | No | A direct connection from the SCOM agent to Log Analytics is not used by the solution. |
 | [Azure storage account](log-analytics-azure-storage.md) | No | Log Analytics does not read the data from a storage account. |
-| [Azure diagnostics](log-analytics-azure-storage.md) | Yes | Azure metric data is sent to Log Analytics directly by Azure. |
+| [Azure diagnostics](log-analytics-azure-storage.md) | Yes | Azure metric and log data are sent to Log Analytics directly by Azure. |
 
 ## Prerequisites
 
@@ -58,9 +58,9 @@ Perform the following steps to add the Azure SQL Analytics solution to your work
 3. In the **Monitoring + Management** list click **See all**.
 4. In the **Recommended** list, click **More** , and then in the new list, find **Azure SQL Analytics (Preview)** and then select it.  
     ![Azure SQL Analytics solution](./media/log-analytics-azure-sql/azure-sql-solution-portal.png)
-5. In the **Azure SQL Analytics (Preview)** blade, click **Create**.  
+5. In the **Azure SQL Analytics (Preview)** pane, click **Create**.  
     ![Create](./media/log-analytics-azure-sql/portal-create.png)
-6. In the **Create new solution** blade, select the workspace that you want to add the solution to and then click **Create**.  
+6. In the **Create new solution** pane, select the workspace that you want to add the solution to and then click **Create**.  
     ![add to workspace](./media/log-analytics-azure-sql/add-to-workspace.png)
 
 
@@ -80,39 +80,71 @@ PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
 
 ## Using the solution
 
+>[!NOTE]
+> Upgrade your Log Analytics workspace to get the latest version of Azure SQL Analytics.
+>
+
 When you add the solution to your workspace, the Azure SQL Analytics tile is added to your workspace, and it appears in Overview. The tile shows the number of Azure SQL databases and Azure SQL elastic pools that the solution is connected to.
 
 ![Azure SQL Analytics tile](./media/log-analytics-azure-sql/azure-sql-sol-tile.png)
 
 ### Viewing Azure SQL Analytics data
 
-Click on the **Azure SQL Analytics** tile to open the Azure SQL Analytics dashboard. The dashboard includes the blades defined below. Each blade lists up to 15 resources (subscription, server, elastic pool, and database). Click any of the resources to open the dashboard for that specific resource. Elastic Pool or Database contains the charts with metrics for a selected resource. Click a chart to open the Log Search dialog.
+Click on the **Azure SQL Analytics** tile to open the Azure SQL Analytics dashboard. The dashboard includes the overview of all databases that are monitored through different perspectives. For different perspectives to work, you must enable proper metrics or logs on your SQL resources to be streamed to Azure Log Analytics workspace. 
 
-| Blade | Description |
-|---|---|
-| Subscriptions | List of subscriptions with number of connected servers, pools, and databases. |
-| Servers | List of servers with number of connected pools and databases. |
-| Elastic Pools | List of connected elastic pools with maximum GB and eDTU in the observed period. |
-|Databases | List of connected databases with maximum GB and DTU in the observed period.|
+![Azure SQL Analytics Overview](./media/log-analytics-azure-sql/azure-sql-sol-overview.png)
 
+Selecting any of the tiles, opens a drill-down report into the specific perspective.
+
+![Azure SQL Analytics Timeouts](./media/log-analytics-azure-sql/azure-sql-sol-timeouts.png)
+
+Each perspective, provides summaries on subscription, server, elastic pool, and database level. In addition, each perspective shows perspective specific report on the right. Selecting subscription, server, pool, or database from the list continues the drill down.
+
+| Perspective | Description |
+| --- | --- |
+| Resource by type | Perspective that counts all the resources monitored. Drill-down provides the summary of DTU and GB metrics. |
+| Insights | Provides hierarchical drill-down into Intelligent Insights. Learn more about intelligent insights. |
+| Errors | Provides hierarchical drill-down into SQL errors that happened on the databases. |
+| Timeouts | Provides hierarchical drill-down into SQL timeouts that happened on the databases. |
+| Blockings | Provides hierarchical drill-down into SQL blockings that happened on the databases. |
+| Database waits | Provides hierarchical drill-down into SQL wait statistics on the database level. Includes summaries of total waiting time and the waiting time per wait type. |
+| Query duration | Provides hierarchical drill-down into the query execution statistics such as query duration, CPU usage, Data IO usage, Log IO usage. |
+| Query waits | Provides hierarchical drill-down into the query wait statistics by wait category. |
+
+### Intelligent Insights report
+
+All Intelligent Insights collected can be visualized and accessed through the Insights perspective. [Click here to learn more about Intelligent Insights](../sql-database/sql-database-intelligent-insights.md)
+
+![Azure SQL Analytics Insights](./media/log-analytics-azure-sql/azure-sql-sol-insights.png)
+
+### Elastic Pool and Database reports
+
+Both Elastic Pools and Databases have their own specific reports which show all the data that is collected for the resource in the specified time.
+
+![Azure SQL Analytics Database](./media/log-analytics-azure-sql/azure-sql-sol-database.png)
+
+![Azure SQL Analytics Elastic Pool](./media/log-analytics-azure-sql/azure-sql-sol-pool.png)
+
+### Query reports
+
+Through Query duration and query waits perspective, you can correlate the performance of any query through the query report. This report compares the query performance across different databases and makes it easy to pinpoint databases that perform the selected query well versus ones that are slow.
+
+![Azure SQL Analytics Queries](./media/log-analytics-azure-sql/azure-sql-sol-queries.png)
 
 ### Analyze data and create alerts
 
 You can easily create alerts with the data coming from Azure SQL Database resources. Here are a couple of useful [log search](log-analytics-log-searches.md) queries that you can use for alerting:
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
-
-
 *High DTU on Azure SQL Database*
 
 ```
-Type=AzureMetrics ResourceProvider="MICROSOFT.SQL" ResourceId=*"/DATABASES/"* MetricName=dtu_consumption_percent | measure Avg(Average) by Resource interval 5minutes
+AzureMetrics | where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/DATABASES/" and MetricName=="dtu_consumption_percent" | summarize avg(Maximum) by ResourceId
 ```
 
 *High DTU on Azure SQL Database Elastic Pool*
 
 ```
-Type=AzureMetrics ResourceProvider="MICROSOFT.SQL" ResourceId=*"/ELASTICPOOLS/"* MetricName=dtu_consumption_percent | measure avg(Average) by Resource interval 5minutes
+AzureMetrics | where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/ELASTICPOOLS/" and MetricName=="dtu_consumption_percent" | summarize avg(Maximum) by ResourceId
 ```
 
 You can use these alert-based queries to alert on specific thresholds for both Azure SQL Database and elastic pools. To configure an alert for your OMS workspace:
@@ -127,25 +159,6 @@ You can use these alert-based queries to alert on specific thresholds for both A
 ![create alert in search](./media/log-analytics-azure-sql/create-alert01.png)
 6. On the **Add Alert Rule** page, configure the appropriate properties and the specific thresholds that you want and then click **Save**.  
 ![add alert rule](./media/log-analytics-azure-sql/create-alert02.png)
-
-### Act on Azure SQL Analytics data
-
-As an example, one of the most useful queries that you can perform is to compare the DTU utilization for all Azure SQL Elastic Pools across all your Azure subscriptions. Database Throughput Unit (DTU) provides a way to describe the relative capacity of a performance level of Basic, Standard, and Premium databases and pools. DTUs are based on a blended measure of CPU, memory, reads, and writes. As DTUs increase, the power offered by the performance level increases. For example, a performance level with 5 DTUs has five times more power than a performance level with 1 DTU. A maximum DTU quota applies to each server and elastic pool.
-
-By running the following Log Search query, you can easily tell if you are underutilizing or over utilizing your SQL Azure elastic pools.
-
-```
-Type=AzureMetrics ResourceId=*"/ELASTICPOOLS/"* MetricName=dtu_consumption_percent | measure avg(Average) by Resource | display LineChart
-```
-
->[!NOTE]
-> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the above query would change to the following.
->
->`search in (AzureMetrics) isnotempty(ResourceId) and "/ELASTICPOOLS/" and MetricName == "dtu_consumption_percent" | summarize AggregatedValue = avg(Average) by bin(TimeGenerated, 1h), Resource | render timechart`
-
-In the following example, you can see that one elastic pool has a high usage near 100% DTU while others have very little usage. You can investigate further to troubleshoot potential recent changes in your environment using Azure Activity logs.
-
-![Log search results - high utilization](./media/log-analytics-azure-sql/log-search-high-util.png)
 
 ## See also
 

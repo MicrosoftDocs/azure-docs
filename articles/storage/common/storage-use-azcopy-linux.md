@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2017
+ms.date: 28/9/2017
 ms.author: seguler
 
 ---
@@ -27,16 +27,17 @@ There are two versions of AzCopy that you can download. AzCopy on Linux is built
 
 The article includes commands for various releases of Ubuntu.  Use the `lsb_release -a` command to confirm your distribution release and codename. 
 
-AzCopy on Linux requires .NET Core framework on the platform. See the installation instructions on the [.NET Core](https://www.microsoft.com/net/core#linuxubuntu) page.
+AzCopy on Linux requires .NET Core framework (version 1.1.x) on the platform. See the installation instructions on the [.NET Core](https://www.microsoft.com/net/download/linux) page.
 
-As an example, let's install .NET Core on Ubuntu 16.10. For the latest installation guide, visit [.NET Core on Linux](https://www.microsoft.com/net/core#linuxubuntu) installation page.
+As an example, let's install .NET Core on Ubuntu 16.04. For the latest installation guide, visit [.NET Core on Linux](https://www.microsoft.com/net/download/linux) installation page.
 
 
 ```bash
-sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ yakkety main" > /etc/apt/sources.list.d/dotnetdev.list' 
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
+curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-xenial-prod xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
 sudo apt-get update
-sudo apt-get install dotnet-sdk-2.0.0
+sudo apt-get install dotnet-dev-1.1.4
 ```
 
 Once you have installed .NET Core, download and install AzCopy.
@@ -49,76 +50,6 @@ sudo ./install.sh
 
 You can remove the extracted files once AzCopy on Linux is installed. Alternatively if you do not have superuser privileges, you can also run AzCopy using the shell script 'azcopy' in the extracted folder. 
 
-### Alternative Installation on Ubuntu
-
-**Ubuntu 14.04**
-
-Add apt source for .Net Core:
-
-```bash
-sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ trusty main" > /etc/apt/sources.list.d/dotnetdev.list' 
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
-```
-
-Add apt source for Microsoft Linux product repository and install AzCopy:
-
-```bash
-curl https://packages.microsoft.com/config/ubuntu/14.04/prod.list > ./microsoft-prod.list
-sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
-```
-
-```bash
-sudo apt-get update
-sudo apt-get install azcopy
-```
-
-**Ubuntu 16.04**
-
-Add apt source for .Net Core:
-
-```bash
-sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list' 
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
-```
-
-Add apt source for Microsoft Linux product repository and install AzCopy:
-
-```bash
-curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > ./microsoft-prod.list
-sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
-```
-
-```bash
-sudo apt-get update
-sudo apt-get install azcopy
-```
-
-**Ubuntu 16.10**
-
-Add apt source for .Net Core:
-
-```bash
-sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ yakkety main" > /etc/apt/sources.list.d/dotnetdev.list' 
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
-```
-
-Add apt source for Microsoft Linux product repository and install AzCopy:
-
-```bash
-curl https://packages.microsoft.com/config/ubuntu/16.10/prod.list > ./microsoft-prod.list
-sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
-```
-
-```bash
-sudo apt-get update
-sudo apt-get install azcopy
-```
 
 ## Writing your first AzCopy command
 The basic syntax for AzCopy commands is:
@@ -562,7 +493,7 @@ azcopy \
 	--sync-copy
 ```
 
-When copying from File Storage to Blob Storage, the default blob type is block blob, user can specify option `/BlobType:page` to change the destination blob type.
+When copying from File Storage to Blob Storage, the default blob type is block blob, user can specify option `--blob-type page` to change the destination blob type. Available types are `page | block | append`.
 
 Note that `--sync-copy` might generate additional egress cost comparing to asynchronous copy. The recommended approach is to use this option in an Azure VM, that is in the same region as your source storage account to avoid egress cost.
 

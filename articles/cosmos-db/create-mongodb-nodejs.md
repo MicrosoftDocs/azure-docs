@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: 
 ms.service: cosmos-db
-ms.custom: quick start connect, mvc
+ms.custom: quick start connect, mvc, devcenter
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
@@ -34,6 +34,9 @@ When you are done, you will have a MEAN application (MongoDB, Express, Angular, 
 If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## Prerequisites 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
+[!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
+
 In addition to Azure CLI, you need [Node.js](https://nodejs.org/) and [Git](http://www.git-scm.com/downloads) installed locally to run `npm` and `git` commands.
 
 You should have working knowledge of Node.js. This quickstart is not intended to help you with developing Node.js applications in general.
@@ -57,6 +60,7 @@ cd mean
 npm install
 npm start
 ```
+The application will try to connect to a MongoDB source and fail, go ahead and exit the application when the output returns "[MongoError: connect ECONNREFUSED 127.0.0.1:27017]".
 
 ## Log in to Azure
 

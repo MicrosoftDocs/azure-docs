@@ -7,12 +7,14 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 10/06/2017
 ms.author: tomfitz
 ---
 # Stream big data into a data warehouse
 
 Azure [Event Grid](overview.md) is an intelligent event routing service that enables you to react to notifications from apps and services. The [Event Hubs Capture and Event Grid sample](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) shows how to use Azure Event Hubs Capture with Azure Event Grid to seamlessly migrate data from an event hub to a SQL Data Warehouse.
+
+![Application overview](media/event-grid-event-hubs-integration/overview.png)
 
 As data is sent to the event hub, Capture pulls data from the stream and generates storage blobs with the data in Avro format. When Capture generates the blob, it triggers an event. Event Grid distributes data about the event to subscribers. In this case, the event data is sent to the Azure Functions endpoint. The event data includes the path of the generated blob. The function uses that URL to retrieve the file, and send it to the data warehouse.
 
@@ -68,7 +70,7 @@ To complete this tutorial, you must have:
 
 ## Deploy the infrastructure
 
-To simplify this article, you deploy the required infrastructure with a Resource Manager template. To see the resources that are deployed, view the [template](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/EventHubsDataMigration.json).
+To simplify this article, you deploy the required infrastructure with a Resource Manager template. To see the resources that are deployed, view the [template](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/EventHubsDataMigration.json). For the preview release, Event Grid supports **westus2** and **westcentralus** regions. Use one of these regions for the resource group location.
 
 For Azure CLI, use:
 
@@ -86,7 +88,7 @@ For PowerShell, use:
 ```powershell
 New-AzureRmResourceGroup -Name rgDataMigration -Location westcentralus
 
-New-AzureRmResourceGroupDeployment -ResourceGroupName rgDataMigration -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/EventHubsDataMigration.json -eventHubNamespaceName <event-hub-namespace> -eventHubName hubdatamigration -sqlServerName <sql-server-name> -sqlServerUserName <user-name> -sqlServerDatabaseName <database-name> -storageName tf08202storage -functionAppName <app-name>
+New-AzureRmResourceGroupDeployment -ResourceGroupName rgDataMigration -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/EventHubsDataMigration.json -eventHubNamespaceName <event-hub-namespace> -eventHubName hubdatamigration -sqlServerName <sql-server-name> -sqlServerUserName <user-name> -sqlServerDatabaseName <database-name> -storageName <unique-storage-name> -functionAppName <app-name>
 ```
 
 Provide a password value when prompted.

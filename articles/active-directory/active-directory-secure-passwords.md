@@ -47,7 +47,7 @@ For information about password management based on current research, see the whi
 
 ### Dynamically banned passwords
 
-Azure AD and Microsoft Accounts safeguard password protection by dynamically banning commonly used passwords. The Azure ID Identity Protection team routinely analyzes banned password lists, preventing users from selecting commonly used passwords. This service is available to Azure AD and the Microsoft Account Service customers.
+Azure AD and Microsoft Accounts safeguard password protection by dynamically banning commonly used passwords. The Azure AD Identity Protection team routinely analyzes banned password lists, preventing users from selecting commonly used passwords. This service is available to Azure AD and the Microsoft Account Service customers.
 
 When creating passwords, it is important for administrators to encourage users to choose password phrases that include a unique combination of letters, numbers, characters, or words. This approach helps to make user passwords nearly impossible to be compromised but easier for users to remember.
 

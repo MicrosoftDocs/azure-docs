@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 ms.date: 2/24/2017
-ms.author: marsma
+ms.author: tamram
 
 ---
 # How to use Azure Blob storage from Python
@@ -30,6 +30,26 @@ This article will show you how to perform common scenarios using Blob storage. T
 [!INCLUDE [storage-blob-concepts-include](../../../includes/storage-blob-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
+
+## Download and Install Azure Storage SDK for Python
+
+Azure Storage SDK for Python requires Python 2.7, 3.3, 3.4, 3.5, or 3.6, and comes in 4 different packages: `azure-storage-blob`, `azure-storage-file`, `azure-storage-table` and `azure-storage-queue`. In this tutorial we are going to use `azure-storage-blob` package.
+ 
+### Install via PyPi
+
+To install via the Python Package Index (PyPI), type:
+
+```bash
+pip install azure-storage-blob
+```
+
+
+> [!NOTE]
+> If you are upgrading from the Azure Storage SDK for Python version 0.36 or earlier, you will first need to uninstall using `pip uninstall azure-storage` as we are no longer releasing the Storage SDK for Python in a single package.
+> 
+> 
+
+For alternative installation methods, visit the [Azure Storage SDK for Python on Github](https://github.com/Azure/azure-storage-python/).
 
 ## Create a container
 Based on the type of blob you would like to use, create a **BlockBlobService**, **AppendBlobService**, or **PageBlobService** object. The following code uses a **BlockBlobService** object. Add the following near the top of any Python file in which you wish to programmatically access Azure Block Blob Storage.
@@ -72,7 +92,7 @@ To create a block blob and upload data, use the **create\_blob\_from\_path**, **
 
 **create\_blob\_from\_path** uploads the contents of a file from the specified path, and **create\_blob\_from\_stream** uploads the contents from an already opened file/stream. **create\_blob\_from\_bytes** uploads an array of bytes, and **create\_blob\_from\_text** uploads the specified text value using the specified encoding (defaults to UTF-8).
 
-The following example uploads the contents of the **sunset.png** file into the **myblob** blob.
+The following example uploads the contents of the **sunset.png** file into the **myblockblob** blob.
 
 ```python
 from azure.storage.blob import ContentSettings
@@ -96,7 +116,7 @@ for blob in generator:
 ## Download blobs
 To download data from a blob, use **get\_blob\_to\_path**, **get\_blob\_to\_stream**, **get\_blob\_to\_bytes**, or **get\_blob\_to\_text**. They are high-level methods that perform the necessary chunking when the size of the data exceeds 64 MB.
 
-The following example demonstrates using **get\_blob\_to\_path** to download the contents of the **myblob** blob and store it to the **out-sunset.png** file.
+The following example demonstrates using **get\_blob\_to\_path** to download the contents of the **myblockblob** blob and store it to the **out-sunset.png** file.
 
 ```python
 block_blob_service.get_blob_to_path('mycontainer', 'myblockblob', 'out-sunset.png')
