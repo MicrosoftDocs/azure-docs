@@ -24,7 +24,7 @@ You can manage Key Vault in Azure Stack by using the Azure Stack portal. This ar
 
 ## Prerequisites  
 
-**You must subscribe to an offer that includes the Key Vault service.** 
+You must subscribe to an offer that includes the Key Vault service.
  
 ## Create a key vault 
 
