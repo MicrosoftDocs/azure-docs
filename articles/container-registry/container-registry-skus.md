@@ -32,8 +32,6 @@ Premium registries provide higher limits on constraints such as storage and conc
 ## Classic
 The Classic registry SKU enabled the initial release of the Azure Container Registry service in Azure. Classic registries are backed by a storage account that Azure creates in your subscription, which limits the ability for ACR to provide higher-level capabilities such as increased throughput and geo-replication. Because of its limited capabilities, we plan to deprecate the Classic SKU in the future.
 
-For pricing information on all SKUs, see [Container Registry pricing](https://azure.microsoft.com/pricing/details/container-registry/).
-
 > [!NOTE]
 > Because of the planned deprecation of the Classic registry SKU, we recommend you use Basic, Standard, or Premium for all new registries. For information about converting your existing Classic registry, see [Changing SKUs](#changing-skus).
 >
@@ -102,6 +100,10 @@ Some of the benefits of managed storage provided by Basic, Standard, and Premium
 * Container images are [encrypted at rest](../storage/common/storage-service-encryption.md).
 * Images are stored using [geo-redundant storage](../storage/common/storage-redundancy.md#geo-redundant-storage), assuring backup of your images with multi-region replication.
 * Ability to [move to between SKUs](#changing-skus), enabling higher throughput when you choose a higher-level SKU. With each SKU, ACR can meet your throughput requirements as your needs increase. The underlying implementation of how ACR achieves the desired throughput is expressed as *intent* (by selecting higher SKUs), without you having to manage the details of the implementation.
+
+## Pricing
+
+For pricing information on each of the Azure Container Registry SKUs, see [Container Registry pricing](https://azure.microsoft.com/pricing/details/container-registry/).
 
 ## Next steps
 
