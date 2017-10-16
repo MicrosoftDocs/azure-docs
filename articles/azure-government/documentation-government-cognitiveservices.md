@@ -20,6 +20,8 @@ ms.author: yujhong
 
 # Cognitive Services Quickstart – Computer Vision, Face, Translator Text APIs
 
+To see an overview of Cognitive Services on Azure Government, [click here](documentation-government-services-aiandcognitiveservices.md).
+
 ## Part 1: Access the Cognitive Services APIs
 In order to access any of the Cognitive Services APIs, you must first provision a Cognitive Services account for each of the APIs you want to access. **Cognitive Services is not yet supported in the Azure Government Portal**, but you can use Azure PowerShell to access the APIs and services. 
 
