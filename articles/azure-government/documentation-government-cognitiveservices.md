@@ -93,7 +93,9 @@ The Quickstarts below will help you to get started with the APIs available throu
     >
     
 #### Variations
-* The URI for accessing the Computer Vision API is https://(resource-group-location).api.cognitive.microsoft.us/vision/v1.0, with the difference being in the ending of ".us" and the location at the beginning of the uri.
+* The URI for accessing the Face API in Azure Government is :
+   - https://(resource-group-location).api.cognitive.microsoft.us/face/v1.0
+   - The main difference between this URI and the URI used in Commercial Azure is the ending of ".us" and the location at the beginning of the uri
 
 
 #### Analyze an Image With Computer Vision API using C# <a name="AnalyzeImage"> </a>
@@ -356,8 +358,10 @@ For more information, please see [public documentation](../cognitive-services/co
     >
     >
     
-#### Variations
-* The URI for accessing the Face API is https://(resource-group-location).api.cognitive.microsoft.us/face/v1.0, with the difference being in the ending of ".us" and the location at the beginning of the uri.
+#### Variations 
+* The URI for accessing the Face API in Azure Government is :
+   - https://(resource-group-location).api.cognitive.microsoft.us/face/v1.0
+   - The main difference between this URI and the URI used in Commercial Azure is the ending of ".us" and the location at the beginning of the uri
 
 #### Detect Faces in images with Face API using C# <a name="Detect"> </a>
 Use the [Face - Detect method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 
@@ -598,7 +602,9 @@ For more information, please see [public documentation](../cognitive-services/Fa
     >
     
 #### Variations
-* The URI for accessing the Text Translation API is https://api.microsofttranslator.us/v2/http.svc, with the difference being in the ending of ".us"
+* The URI for accessing the Text Translation API in Azure Government is: 
+   - https://api.microsofttranslator.us/v2/http.svc
+   - The only difference from the Commercial URI is the endpoint of ".us"
 * The URI for retrieving the access token to the Text Translation API is the "Endpoint" attribute that was saved in Part 1 of this quickstart, with "/IssueToken" at the end
 
 #### Text Translation Method
