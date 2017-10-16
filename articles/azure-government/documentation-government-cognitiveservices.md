@@ -21,14 +21,18 @@ ms.author: yujhong
 # Cognitive Services Quickstart – Computer Vision, Face, Translator Text APIs
 
 ## Part 1: Access the Cognitive Services APIs
-In order to access any of the Cognitive Services APIs, you must first provision a Cognitive Services account for each of the APIs you want to access.
+In order to access any of the Cognitive Services APIs, you must first provision a Cognitive Services account for each of the APIs you want to access. **Cognitive Services is not yet supported in the Azure Government Portal**, but we can use Azure PowerShell to access the APIs and services. 
 
 > [!NOTE]
 > You must go through the process of creating an account and retrieving a key(explained below) **for each** of the APIs you want to access.
 > 
 > 
+### Prerequisites
+* Install and Configure [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0)
+* Connect [PowerShell with Azure Government](documentation-government-get-started-connect-with-ps.md)
 
 ### Provision a Cognitive Services Account
+
 In the Powershell command below, replace "rg-name", "name-of-your-api", and "location-of-resourcegroup" with your relevant account information. 
 
 Replace the "type of API" tag with any of the three following APIs you want to access:
@@ -78,7 +82,17 @@ The Quickstarts below will help you to get started with the APIs available throu
 #### Prerequisites
 
 * Get the Microsoft Computer Vision API Windows SDK [here](https://github.com/Microsoft/Cognitive-vision-windows).
-* To use the Computer Vision API, you need a subscription key. You can get free subscription keys [here](https://docs.microsoft.com/en-us/azure/cognitive-services/Computer-vision/Vision-API-How-to-Topics/HowToSubscribe).
+
+* Make sure Visual Studio has been installed:
+    -   [Visual Studio 2017 version 15.3](https://www.visualstudio.com/vs/preview/), including the **Azure development** workload.
+    
+    >[!NOTE] 
+    > After you install or upgrade to Visual Studio 2017 version 15.3, you might also need to manually update the Visual Studio 		2017 tools for Azure Functions. You can update the tools from the **Tools** menu under **Extensions and Updates...** > 			**Updates** > **Visual Studio Marketplace** > **Azure Functions and Web Jobs Tools** > **Update**. 
+    >
+    >
+#### Variations
+* The URI for accessing the Computer Vision API is https://(resource-group-location).api.cognitive.microsoft.us/vision/v1.0, with the difference being in the ending of ".us" and the location at the beginning of the uri.
+
 
 #### Analyze an Image With Computer Vision API using C# <a name="AnalyzeImage"> </a>
 
@@ -93,7 +107,11 @@ With the [Analyze Image method](https://westcentralus.dev.cognitive.microsoft.co
 
 #### Analyze an image C# example request
 
-Create a new Console solution in Visual Studio, then replace Program.cs with the following code. Change the `uriBase` to use the location where you obtained your subscription keys, and replace the `subscriptionKey` value with your valid subscription key.
+1. Create a new Console solution in Visual Studio.
+2. Replace Program.cs with the following code.
+3. Change the `uriBase` to the "Endpoint" attribute that you saved from Part 1, and keep the "/analyze" after the endpoint.
+4. Replace the `subscriptionKey` value with your valid subscription key.
+5. Run the program.
 
 ```c#
 using System;
@@ -111,24 +129,16 @@ namespace VisionApp1
             // **********************************************
 
             // Replace the subscriptionKey string value with your valid subscription key.
-            const string subscriptionKey = "9f2d9860f592463e9c618fa5a67d1047";
+            const string subscriptionKey = "";
 
-            // Replace or verify the region.
-            //
-            // You must use the same region in your REST API call as you used to obtain your subscription keys.
-            // For example, if you obtained your subscription keys from the westus region, replace 
-            // "westcentralus" in the URI below with "westus".
-            //
-            // NOTE: Free trial subscription keys are generated in the westcentralus region, so if you are using
-            // a free trial subscription key, you should not need to change this region.
+            //Copy and paste the "Endpoint" attribute that you saved before into the uriBase string. Keep the "/analyze" after the endpoint.     
             const string uriBase = "https://virginia.api.cognitive.microsoft.us/vision/v1.0/analyze";
-
 
             static void Main()
             {
                 // Get the path and filename to process from the user.
                 Console.WriteLine("Analyze an image:");
-                Console.Write("Enter the path to an image you wish to analzye: ");
+                Console.Write("Enter the path to an image you wish to analyze: ");
                 string imageFilePath = Console.ReadLine();
 
                 // Execute the REST API call.
@@ -334,7 +344,16 @@ For more information, please see [public documentation](../cognitive-services/co
 ### Face API
 #### Prerequisites
 * Get the Microsoft Face API Windows SDK [here](https://www.nuget.org/packages/Microsoft.ProjectOxford.Face/)
-* Learn more about obtaining free Subscription Keys [here](https://docs.microsoft.com/azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtosubscribe)
+
+* Make sure Visual Studio has been installed:
+    -   [Visual Studio 2017 version 15.3](https://www.visualstudio.com/vs/preview/), including the **Azure development** workload.
+    
+    >[!NOTE] 
+    > After you install or upgrade to Visual Studio 2017 version 15.3, you might also need to manually update the Visual Studio 		2017 tools for Azure Functions. You can update the tools from the **Tools** menu under **Extensions and Updates...** > 			**Updates** > **Visual Studio Marketplace** > **Azure Functions and Web Jobs Tools** > **Update**. 
+    >
+    >
+#### Variations
+* The URI for accessing the Face API is https://(resource-group-location).api.cognitive.microsoft.us/face/v1.0, with the difference being in the ending of ".us" and the location at the beginning of the uri.
 
 #### Detect Faces in images with Face API using C# <a name="Detect"> </a>
 Use the [Face - Detect method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 
@@ -563,10 +582,178 @@ Response:
 ```
 For more information, please see [public documentation](../cognitive-services/Face/index.md), and [public API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for Face API.
 
+### Text Translation API 
+#### Prerequisites
+
+* Make sure Visual Studio has been installed:
+    -   [Visual Studio 2017 version 15.3](https://www.visualstudio.com/vs/preview/), including the **Azure development** workload.
+    
+    >[!NOTE] 
+    > After you install or upgrade to Visual Studio 2017 version 15.3, you might also need to manually update the Visual Studio 		2017 tools for Azure Functions. You can update the tools from the **Tools** menu under **Extensions and Updates...** > 			**Updates** > **Visual Studio Marketplace** > **Azure Functions and Web Jobs Tools** > **Update**. 
+    >
+    >
+#### Variations
+* The URI for accessing the Text Translation API is https://api.microsofttranslator.us/v2/http.svc, with the difference being in the ending of ".us"
+* The URI for retrieving the access token to the Text Translation API is the "Endpoint" attribute that was saved in Part 1 of this quickstart, with "/IssueToken" at the end
+
+#### Text Translation Method
+This sample will use the [Text Translation - Translate method](http://docs.microsofttranslator.com/text-translate.html#!/default/get_Translate) to translate a string of text from a language into another specified language. There are multiple [language codes](https://msdn.microsoft.com/en-us/library/hh456380.aspx) that can be used with the Text Translation API. 
+
+#### Text Translation C# example request
+
+The sample is written in C#. 
+
+1. Create a new Console solution in Visual Studio.
+2. Replace Program.cs with the corresponding code below.
+3. Replace the `subscriptionKey` value with the key value that you retrieved above.
+4. Create a Token.cs class and copy and paste the corresponding code below. 
+5. Run the program.
+
+You can also test out different languages and texts by replacing the "text", "from", and "to" variables in Program.cs. 
+
+```c#
+using System;
+using System.IO;
+using System.Net;
+using System.Runtime.Serialization;
+using System.Threading.Tasks;
+
+namespace TextTranslationApp1
+{
+        static class Program
+        {
+            // **********************************************
+            // *** Update or verify the following value. ***
+            // **********************************************
+
+            // Replace the subscriptionKey string value with your valid subscription key.
+            const string subscriptionKey = "";
+
+            // This is the base uri for accessing the Text Translation API. We will be testing the /translate method.
+            const string uriBase = "https://api.microsofttranslator.us/v2/http.svc/translate?";
+
+            static void Main()
+            {
+                MainAsync().Wait();
+            }
+
+            private static async Task MainAsync()
+            {
+                // Replace the "text" variable with whatever text you want to translate
+                // Replace the "from" variable with the language that the "text" string is written in
+                // Replace the "to" variable with the language that you want the text to be translated into
+
+                string text = "elephants are cute";
+                string from = "en";
+                string to = "es";
+
+                //Formulating the uri to make a GET call to the API 
+                string uri = uriBase + "text=" + text + "&from=" + from + "&to=" + to;
+
+                //Declare an instance of the Token class
+                Token token = new Token();
+                //Retrieve the token
+                string accessToken = await token.GetToken(subscriptionKey);
+                // Make the GET call
+                HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(uri);
+                httpWebRequest.Headers.Add("Authorization", accessToken);
+                //Getting the JSON response
+                using (WebResponse response = httpWebRequest.GetResponse())
+                using (Stream stream = response.GetResponseStream())
+                {
+                    DataContractSerializer dcs = new DataContractSerializer(Type.GetType("System.String"));
+                    string translation = (string)dcs.ReadObject(stream);
+                    System.Console.WriteLine("Translation for source text '{0}' from {1} to {2} is", text, from, to);
+                    Console.WriteLine(translation);
+                    Console.ReadLine();
+                }
+
+            }
+
+        }
+    }
+```
+We are now going to create a Token.cs class that will contain our method for retrieving the access token to the Text Translation API.
+Right click on your project from Solution Explorer and add "New class". Copy and paste the code below into the Token.cs class.
+
+```c#
+using System;
+using System.Net;
+using System.Net.Http;
+using System.Threading.Tasks;
+
+namespace TextTranslationApp1
+{
+    public class Token
+    {
+        /// URL of the token service
+        /// Replace this url with your endpoint (the location should be the location of your resource group) and add the "IssueToken" at the end
+        private static readonly Uri ServiceUrl = new Uri("https://virginia.api.cognitive.microsoft.us/sts/v1.0/IssueToken");
+
+        /// Name of header used to pass the subscription key to the token service
+        private const string OcpApimSubscriptionKeyHeader = "Ocp-Apim-Subscription-Key";
+
+        /// After obtaining a valid token, this class will cache it for this duration.
+        /// Use a duration of 5 minutes, which is less than the actual token lifetime of 10 minutes.
+        private static readonly TimeSpan TokenCacheDuration = new TimeSpan(0, 5, 0);
+
+        /// Cache the value of the last valid token obtained from the token service.
+        public string _storedTokenValue = string.Empty;
+
+        /// When the last valid token was obtained.
+        private DateTime _storedTokenTime = DateTime.MinValue;
+
+
+        /// Gets the HTTP status code for the most recent request to the token service.
+        public HttpStatusCode RequestStatusCode
+        {
+            get; private set;
+        }
+
+        // This method retrieves and caches an access token and generates a new one after 10 minutes, when the token expires. 
+        public async Task<string> GetToken(string SubscriptionKey)
+        {
+            if (string.IsNullOrWhiteSpace(SubscriptionKey))
+            {
+                return string.Empty;
+            }
+
+            // Re-use the cached token if there is one.
+            if ((DateTime.Now - _storedTokenTime) < TokenCacheDuration)
+            {
+                return _storedTokenValue;
+            }
+
+            using (var client = new HttpClient())
+            using (var request = new HttpRequestMessage())
+            {
+                request.Method = HttpMethod.Post;
+                request.RequestUri = ServiceUrl;
+                request.Content = new StringContent(string.Empty);
+                request.Headers.TryAddWithoutValidation(OcpApimSubscriptionKeyHeader, SubscriptionKey);
+                client.Timeout = TimeSpan.FromMinutes(10);
+                var response = await client.SendAsync(request);
+                this.RequestStatusCode = response.StatusCode;
+                response.EnsureSuccessStatusCode();
+                var token = await response.Content.ReadAsStringAsync();
+                _storedTokenTime = DateTime.Now;
+                _storedTokenValue = "Bearer " + token;
+                return _storedTokenValue;
+            }
+        }       
+    }
+}
+
+```
+#### Text Translation response
+
+An example of a successful response output from the console is shown below. 
+
+![success](./media/documentation-government-cognitiveservices-img6.png)
+
+For more information, please see [public documentation](../cognitive-services/translator/translator-info-overview.md) and [public API documentation](http://docs.microsofttranslator.com/text-translate.html) for Translator Text API.
+
 ### Next Steps
 * Subscribe to the [Azure Government blog](https://blogs.msdn.microsoft.com/azuregov/)
 * Get help on Stack Overflow by using the "[azure-gov](https://stackoverflow.com/questions/tagged/azure-gov)" tag
 * Give us feedback or request new features via the [Azure Government feedback forum](https://feedback.azure.com/forums/558487-azure-government)
-
-
-
