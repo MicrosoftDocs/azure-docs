@@ -39,6 +39,7 @@
 ## Analyze
 ### [Analyze Azure CDN usage patterns](cdn-log-analysis.md)
 #### [Core reports from Verizon](cdn-analyze-usage-patterns.md)
+#### [Custom reports from Verizon](cdn-verizon-custom-reports.md)
 #### [Azure diagnostics logs](cdn-azure-diagnostic-logs.md)
 ### Analytics tools for Azure CDN from Verizon
 #### [Generate advanced HTTP reports](cdn-advanced-http-reports.md)
