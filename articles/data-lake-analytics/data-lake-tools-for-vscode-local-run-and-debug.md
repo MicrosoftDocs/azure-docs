@@ -24,8 +24,10 @@ ms.author: jejiang
 
 ## Prerequisites
 Make sure you have the following prerequisites in place before you start these procedures:
-- Azure Data Lake Tool for Visual Studio Code. For instructions, see [Use Azure Data Lake Tools for Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md).
-- C# for Visual Studio Code (if you want to perform a U-SQL local debug).
+- Azure Data Lake Tool for Visual Studio Code. For instructions, see [Use Azure Data Lake Tools for Visual Studio Code]
+(data-lake-analytics-data-lake-tools-for-vscode.md).
+- [.NET Core SDK 2.0](https://www.microsoft.com/net/download/core). DotNet is only required for windows local debug.
+- C# for Visual Studio Code, only required for windows local debug.
 
    ![Install C# in Data Lake Tools for Visual Studio Code](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/data-lake-tools-for-vscode-install-ms-vscodecsharp.png)
    

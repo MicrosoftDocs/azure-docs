@@ -30,7 +30,7 @@ Learn the Azure Data Lake Tools for Visual Studio Code (VS Code) to create, test
 Data Lake Tools can be installed on the platforms supported by VS Code. The supported platforms include Windows, Linux, and MacOS. The different platforms have the following prerequisites:
 
 - [Visual Studio Code](https://www.visualstudio.com/products/code-vs.aspx).
-- [.NET Core SDK 2.0](https://www.microsoft.com/net/download/core).
+- [.NET Core SDK 2.0](https://www.microsoft.com/net/download/core). DotNet required for Linux and MacOS, only for windows local debug.
 - [Mono 5.2.x](http://www.mono-project.com/download/). Mono is only required for Linux and MacOS.
        
 ## Install Data Lake Tools
@@ -363,9 +363,10 @@ Another way of downloading storage files is through the right-click menu on the 
 As the same time, you can monitor the [downloading status](#check-storage-tasks-status).
 
 ## Check storage tasks' status
-Our tool supports to check the downloading, uploading status.
-1. Select Ctrl+Shift+P to open the command palette.
-2. Enter **Check Storage Tasks' Status** and the select it.
+The status displays on the bottom of the status bar when completed downloading and uploading.
+1. Click the bellow status bar, and the downloading and uploading status show in **OUTPUT** panel.
+
+   ![Data Lake Tools for Visual Studio Code Check Storage status](./media/data-lake-analytics-data-lake-tools-for-vscode/status-bar.png)
 
    ![Data Lake Tools for Visual Studio Code Check Storage status](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-status.png)
 
