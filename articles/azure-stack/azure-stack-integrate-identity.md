@@ -245,59 +245,14 @@ If you decide to manually run the commands, follow these steps:
 
 ## SPN creation
 
-There are many scenarios that require the use of a service principal name (SPN) for authentication. The following are some examples
+There are many scenarios that require the use of a service principal name (SPN) for authentication. The following are some examples:
 - CLI usage with AD FS deployment of Azure Stack
 - System Center Management Pack for Azure Stack when deployed with AD FS
 - Resource providers in Azure Stack when deployed with AD FS
 - Various applications
 - You require a non-interactive logon
 
-Requirements:
-- A certified is required.
-
-**Parameters**
-
-The following information is required as input for the automation parameters:
-
-
-|Parameter|Description|Example|
-|---------|---------|---------|
-|Name|Name for the SPN account|MyAPP|
-|ClientCertificates|Array of certificate objects|X509 certificate|
-|ClientRedirectUris<br>(Optional)|Application redirect URI|         |
-
-**Example**
-
-1. Open an elevated Windows PowerShell session, and run the following commands:
-
-   > [!NOTE]
-   > This example creates a self-signed certificate. When you run these commands in a production deployment, use Get-Certificate to retrieve the certificate object for the certificate you want to use.
-
-   ```
-   $creds = Get-Credential
-
-   $session = New-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
-
-   $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=testspn2" -KeySpec KeyExchange
-
-   Invoke-Command -Session $session -ScriptBlock { New-GraphApplication -Name 'MyApp' -ClientCertificates $using:cert}
-
-   $session|remove-pssession
-
-   ```
-
-2. After the automation finishes, it displays the required details to use the SPN. 
-
-   For example:
-
-   ```
-   ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356
-   ClientId              : 3c87e710-9f91-420b-b009-31fa9e430145
-   Thumbprint            : 30202C11BE6864437B64CE36C8D988442082A0F1
-   ApplicationName       : Azurestack-MyApp-c30febe7-1311-4fd8-9077-3d869db28342
-   PSComputerName        : azs-ercs01
-   RunspaceId            : a78c76bb-8cae-4db4-a45a-c1420613e01b
-   ```
+For more information about creating an SPN, see [Create service principal for AD FS](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-service-principals#create-service-principal-for-ad-fs).
 
 
 ## Troubleshooting

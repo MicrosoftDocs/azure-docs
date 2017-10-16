@@ -40,7 +40,7 @@ Depending on how you have deployed Azure Stack, you start by creating a service 
 If you've deployed Azure Stack using Azure AD as the identity store, you can create service principals just like you do for Azure.  This section shows you how to perform the steps through the portal.  Check that you have the [required Azure AD permissions](../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions) before beginning.
 
 ### Create service principal
-In this section, you create an application (service principal) in Azure AD that will represent your application.
+In this section, you create an application (service principal) in Azure AD that represents your application.
 
 1. Log in to your Azure Account through the [Azure portal](https://portal.azure.com).
 2. Select **Azure Active Directory** > **App registrations** > **Add**   
@@ -53,7 +53,7 @@ When programmatically logging in, you use the ID for your application and an aut
 
 1. From **App registrations** in Active Directory, select your application.
 
-2. Copy the **Application ID** and store it in your application code. The applications in the [sample applications](#sample-applications) section refer to this value as the client id.
+2. Copy the **Application ID** and store it in your application code. The applications in the [sample applications](#sample-applications) section refer to this value as the client ID.
 
      ![client id](./media/azure-stack-create-service-principal/image12.png)
 3. To generate an authentication key, select **Keys**.
@@ -87,15 +87,52 @@ When you import the module, you may receive an error that says “AzureStack.Con
 Set-ExecutionPolicy Unrestricted
 ```
 
-### Create the service principal
-You can create a Service Principal by executing the following command, making sure to update the *DisplayName* parameter:
-```powershell
-$servicePrincipal = New-AzSADGraphServicePrincipal `
- -DisplayName "<YourServicePrincipalName>" `
- -AdminCredential $(Get-Credential) `
- -AdfsMachineName "AZS-ADFS01" `
- -Verbose
-```
+Requirements:
+- A certified is required.
+
+**Parameters**
+
+The following information is required as input for the automation parameters:
+
+
+|Parameter|Description|Example|
+|---------|---------|---------|
+|Name|Name for the SPN account|MyAPP|
+|ClientCertificates|Array of certificate objects|X509 certificate|
+|ClientRedirectUris<br>(Optional)|Application redirect URI|         |
+
+**Example**
+
+1. Open an elevated Windows PowerShell session, and run the following commands:
+
+   > [!NOTE]
+   > This example creates a self-signed certificate. When you run these commands in a production deployment, use Get-Certificate to retrieve the certificate object for the certificate you want to use.
+
+   ```
+   $creds = Get-Credential
+
+   $session = New-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
+
+   $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=testspn2" -KeySpec KeyExchange
+
+   Invoke-Command -Session $session -ScriptBlock { New-GraphApplication -Name 'MyApp' -ClientCertificates $using:cert}
+
+   $session|remove-pssession
+
+   ```
+
+2. After the automation finishes, it displays the required details to use the SPN. 
+
+   For example:
+
+   ```
+   ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356
+   ClientId              : 3c87e710-9f91-420b-b009-31fa9e430145
+   Thumbprint            : 30202C11BE6864437B64CE36C8D988442082A0F1
+   ApplicationName       : Azurestack-MyApp-c30febe7-1311-4fd8-9077-3d869db28342
+   PSComputerName        : azs-ercs01
+   RunspaceId            : a78c76bb-8cae-4db4-a45a-c1420613e01b
+   ```
 ### Assign a role
 Once the Service Principal is created, you must [assign it to a role](azure-stack-create-service-principals.md#assign-role-to-service-principal)
 
