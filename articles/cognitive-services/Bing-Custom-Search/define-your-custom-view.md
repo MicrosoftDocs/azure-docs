@@ -14,7 +14,7 @@ ms.author: v-brapel
 
 # Define a custom search instance
 A Custom Search instance lets you tailor the search experience to include content only from websites that your users care about. Instead of performing a web-wide search, Bing searches only the slice of the web that interests you.
-To create your custom view of the web, use the Bing Custom Search [portal](https://customsearch.ai). For information about signing in to the portal, see [Create your first Bing Custom Search instance](https://review.docs.microsoft.com/en-us/azure/cognitive-services/bing-custom-search/quick-start?branch=release-bing-v7-merge#create-a-custom-search-instance). The portal lets you create a search instance that specifies the domains, subsites, and webpages that you want Bing to search, and those that you don’t want it to search. In addition to specifying the URLs of the content that you know about, you can also ask the portal to suggest content that you may want to add to your view. 
+To create your custom view of the web, use the Bing Custom Search [portal](https://customsearch.ai). For information about signing in to the portal, see [Create your first Bing Custom Search instance](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-custom-search/quick-start). The portal lets you create a search instance that specifies the domains, subsites, and webpages that you want Bing to search, and those that you don’t want it to search. In addition to specifying the URLs of the content that you know about, you can also ask the portal to suggest content that you may want to add to your view. 
 The following are the ways that you can define a slice of the web: 
 
 1.	Domain. A domain slice includes all content found within. For example, www.microsoft.com. Omitting 'www' causes Bing to also search the domain’s subdomains. For example, if you specify microsoft.com, Bing also returns results from support.microsoft.com or technet.microsoft.com.
@@ -33,7 +33,7 @@ When you define your custom search instance, you specify the active and blocked 
  To access each list, click on the Active and Blocked tabs in your custom search instance. 
 
 ## Active and Blocked lists 
-To specify slice of the web that you want Bing to search, click the **Active** tab and list the domains, subsites, and webpages to search. You can add a slice directly to the list or add more than one slice by uploading a text file using the upload icon.
+To specify a slice of the web that you want Bing to search, click the **Active** tab and list the domains, subsites, and webpages to search. You can add a slice directly to the list or add more than one slice by uploading a text file using the upload icon.
 
 File Upload details: 
 

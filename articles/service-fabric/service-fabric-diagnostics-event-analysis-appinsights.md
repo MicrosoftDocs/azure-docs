@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/26/2017
+ms.date: 10/15/2017
 ms.author: dekapur
 
 ---
@@ -36,6 +36,9 @@ You need the AI Instrumentation Key to configure AI with your event aggregation 
 
 ### Configuring AI with WAD
 
+>[!NOTE]
+>This is only applicable to Windows clusters at the moment.
+
 There are two primary ways to send data from WAD to Azure AI, which is achieved by adding an AI sink to the WAD configuration, as detailed in [this article](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md).
 
 #### Add an AI Instrumentation Key when creating a cluster in Azure portal
@@ -48,7 +51,7 @@ When creating a cluster, if Diagnostics is turned "On", an optional field to ent
 
 In the "WadCfg" of the Resource Manager template, add a "Sink" by including the following two changes:
 
-1. Add the sink configuration:
+1. Add the sink configuration directly after the declaring of the `DiagnosticMonitorConfiguration` is completed:
 
     ```json
     "SinksConfig": {
@@ -62,7 +65,7 @@ In the "WadCfg" of the Resource Manager template, add a "Sink" by including the 
 
     ```
 
-2. Include the Sink in the DiagnosticMonitorConfiguration by adding the following line in "DiagnosticMonitorConfiguration" of the "WadCfg":
+2. Include the Sink in the `DiagnosticMonitorConfiguration` by adding the following line in the `DiagnosticMonitorConfiguration` of the `WadCfg` (right before the `EtwProviders` are declared):
 
     ```json
     "sinks": "applicationInsights"
