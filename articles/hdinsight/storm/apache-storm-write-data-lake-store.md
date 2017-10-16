@@ -163,7 +163,7 @@ For information on using this script with your cluster, see the [Customize HDIns
     When prompted, enter the password used when creating the SSH user for the cluster. If you used a public key instead of a password, you may need to use the `-i` parameter to specify the path to the matching private key.
    
    > [!NOTE]
-   > For more information on using `scp` with HDInsight, see [Use SSH with HDInsight](./../../hdinsight-hadoop-linux-use-ssh-unix.md).
+   > For more information on using `scp` with HDInsight, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Once the upload completes, use the following to connect to the HDInsight cluster using SSH. Replace **USER** with the SSH user name you used when creating the cluster. Replace **CLUSTERNAME** with the name of the cluster.
    
@@ -171,7 +171,7 @@ For information on using this script with your cluster, see the [Customize HDIns
    
     When prompted, enter the password used when creating the SSH user for the cluster. If you used a public key instead of a password, you may need to use the `-i` parameter to specify the path to the matching private key.
    
-   For more information, see [Use SSH with HDInsight](../../hdinsight-hadoop-linux-use-ssh-unix.md).
+   For more information, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 3. Once connected, use the following command to create a file named `dev.properties`:
 

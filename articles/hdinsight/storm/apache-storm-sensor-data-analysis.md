@@ -36,7 +36,7 @@ The Azure Resource Manager template used in this document demonstrates how to cr
 * [Java and the JDK 1.7](http://www.oracle.com/technetwork/java/javase/downloads/index.html): Used to develop the Storm topology.
 * [Maven](http://maven.apache.org/what-is-maven.html): Used to build and compile the project.
 * [Git](http://git-scm.com/): Used to download the project from GitHub.
-* An **SSH** client: Used to connect to the Linux-based HDInsight clusters. For more information, see [Use SSH with HDInsight](../../hdinsight-hadoop-linux-use-ssh-unix.md).
+* An **SSH** client: Used to connect to the Linux-based HDInsight clusters. For more information, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 
 > [!IMPORTANT]
@@ -283,7 +283,7 @@ The Resource Manager template used in this document is located in a public blob 
 
 1. Click the following button to sign in to Azure and open the Resource Manager template in the Azure portal.
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-storm-cluster-in-vnet-3.6.json" target="_blank"><img src="./media/hdinsight-storm-sensor-data-analysis/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-storm-cluster-in-vnet-3.6.json" target="_blank"><img src="./media/apache-storm-sensor-data-analysis/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 2. From the **Custom deployment** section, enter the following values:
    
@@ -418,7 +418,7 @@ In your development environment, use the following steps to deploy the Storm top
    > [!NOTE]
    > It may take several minutes to upload the files.
 
-    For more information on using the `scp` and `ssh` commands with HDInsight, see [Use SSH with HDInsight](./../../hdinsight-hadoop-linux-use-ssh-unix.md)
+    For more information on using the `scp` and `ssh` commands with HDInsight, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md)
 
 3. Once the file has been uploaded, connect to the Storm cluster using SSH.
    

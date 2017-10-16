@@ -134,7 +134,7 @@ Create a directory named `eventhubspout`, and save the file into the directory.
 
 ## Configure Event Hubs
 
-Event Hubs is the data source for this example. Use the information in the "Create an event hub" section of [Get started with Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md).
+Event Hubs is the data source for this example. Use the information in the "Create an event hub" section of [Get started with Event Hubs](../../event-hubs/event-hubs-create.md).
 
 1. After the event hub has been created, view the **EventHub** blade in the Azure portal, and select **Shared access policies**. Select **+ Add** to add the following policies:
 
