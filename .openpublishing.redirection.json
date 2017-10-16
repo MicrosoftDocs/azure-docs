@@ -1261,6 +1261,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/application-insights/enable-profiler-cloud-services.md",
+            "redirect_url": "/azure/application-insights/enable-profiler-compute",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/azure-functions/functions-bindings-storage.md",
             "redirect_url": "/azure/azure-functions/functions-bindings-storage-blob",
             "redirect_document_id": false
