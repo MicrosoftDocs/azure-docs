@@ -70,22 +70,8 @@ Once complete, proceed to [assigning your application a role](azure-stack-create
 ## Create service principal for AD FS
 If you have deployed Azure Stack with AD FS, you can use PowerShell to create a service principal, assign a role for access, and sign in from PowerShell using that identity.
 
-### Before you begin
+The script is run from the privileged endpoint on an ERCS virtual machine.
 
-[Download the tools required to work with Azure Stack to your local computer.](azure-stack-powershell-download.md)
-
-### Import the Identity PowerShell module
-After you download the tools, navigate to the downloaded folder and import the Identity PowerShell module by using the following command:
-
-```PowerShell
-Import-Module .\Identity\AzureStack.Identity.psm1
-```
-
-When you import the module, you may receive an error that says “AzureStack.Connect.psm1 is not digitally signed. The script will not execute on the system”. To resolve this issue, you can set execution policy to allow running the script with the following command in an elevated PowerShell session:
-
-```PowerShell
-Set-ExecutionPolicy Unrestricted
-```
 
 Requirements:
 - A certified is required.
@@ -111,7 +97,7 @@ The following information is required as input for the automation parameters:
    ```
    $creds = Get-Credential
 
-   $session = New-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
+   $session = New-PSSession -ComputerName <IP Address of ECRS> -ConfigurationName PrivilegedEndpoint -Credential $creds
 
    $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=testspn2" -KeySpec KeyExchange
 
