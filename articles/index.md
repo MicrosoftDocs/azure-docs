@@ -161,8 +161,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/app-service-web/">Web Apps</a></li>
                                                     <li><a class="barLink" href="/azure/azure-functions/">Serverless Functions</a></li>
-                                                    <li><a class="barLink" href="/azure/container-instances/">Container Instances</a></li>
-                                                    <li><a class="barLink" href="/azure/container-service/kubernetes/">Containers with Kubernetes</a></li>
+                                                    <li><a class="barLink" href="/azure/containers/">Containers</a></li>
                                                     <li><a class="barLink" href="/azure/service-fabric/">Microservices with Service Fabric</a></li>
                                                 </ul>
                                             </div>
@@ -711,7 +710,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/bing-entities-search/overview">
+                                            <a href="/azure/cognitive-services/bing-entities-search/search-the-web">
                                                 <img src="media/index/API_Sear_BingSearch.svg" alt="" />
                                                 <p>Bing Entities Search</p>
                                             </a>

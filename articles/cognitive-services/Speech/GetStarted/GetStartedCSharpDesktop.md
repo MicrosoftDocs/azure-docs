@@ -13,22 +13,28 @@ ms.author: zhouwang
 ---
 # Getting started with Microsoft speech recognition in C&#35; for .NET on Windows
 
-This page shows how to develop a basic Windows application that uses Microsoft speech recognition API to convert spoken audio to text. Using the client library allows for real-time streaming, which means that when your client application sends audio to the service, it simultaneously and asynchronously receives partial recognition results back. This page describes use of the C# client library. For client library API reference, see [Microsoft Speech C# Desktop Library](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-Windows/master/docs/SpeechSDK/index.html).
+This page shows how to develop a basic Windows application that uses Microsoft speech recognition API to convert spoken audio to text. Using the client library allows for real-time streaming, which means that when your client application sends audio to the service, it simultaneously and asynchronously receives partial recognition results back.
 
-<a name="Prerequisites"></a>
+The C# desktop library can be used by developers who want to use Microsoft Speech Service from apps running on any device. To use the library, you need to install [NuGet package Microsoft.ProjectOxford.SpeechRecognition-x86](https://www.nuget.org/packages/Microsoft.ProjectOxford.SpeechRecognition-x86/) for 32-bit platform and [NuGet packageMicrosoft.ProjectOxford.SpeechRecognition-x64](https://www.nuget.org/packages/Microsoft.ProjectOxford.SpeechRecognition-x64/) for 64-bit platform. For client library API reference, see [Microsoft Speech C# Desktop Library](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-Windows/master/docs/SpeechSDK/index.html).
+
+The following sections describe how to install, build, and run the C# sample application using C# desktop library.
+
 ## Prerequisites
 
 ### Platform requirements
 
 The following example has been developed for Windows 8+ and .NET Framework 4.5+ using [Visual Studio 2015, Community Edition](https://www.visualstudio.com/products/visual-studio-community-vs).
 
-### Get the client library and example
+### Get the sample application
 
-You may clone the speech recognition API client library and example through [SDK](https://github.com/microsoft/cognitive-speech-stt-windows).
+You may clone the sample from the [Speech C# Desktop Library Sample](https://github.com/microsoft/cognitive-speech-stt-windows) repository.
 
 ### Subscribe to speech recognition API and get a free trial subscription key
 
-Before creating the example, you must subscribe to speech recognition API, which is part of Microsoft Cognitive Services (previously Project Oxford). For subscription and key management details, see [Subscriptions](https://www.microsoft.com/cognitive-services/en-us/sign-up). Both the primary and secondary key can be used in this tutorial.
+> [!IMPORTANT]
+> You must have a subscription key before using speech client libraries.
+
+Microsoft Speech API is part of Microsoft Cognitive Services on Azure(previously Project Oxford). You can get free trial subscription keys from the [Cognitive Services Subscription](https://azure.microsoft.com/en-us/try/cognitive-services/) page. After you select the Speech API, click Get API Key to get the key. It returns a primary and secondary key. Both keys are tied to the same quota, so you may use either key.
 
 If you want to use *Recognition with intent*, you also need to sign up [Language Understanding Intelligent Service (LUIS)](https://azure.microsoft.com/en-us/services/cognitive-services/language-understanding-intelligent-service/).
 
@@ -83,7 +89,7 @@ Event handlers are already pointed out in the code in form of code comments.
 
 ## Related topics
 
-* [Microsoft Speech SDK reference](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-Windows/master/docs/SpeechSDK/index.html)
+* [Microsoft Speech Desktop Library Reference](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-Windows/master/docs/SpeechSDK/index.html)
 * [Get started with Microsoft speech recognition API in Java on Android](GetStartedJavaAndroid.md)
 * [Get started with Microsoft speech recognition API in Objective C on iOS](Get-Started-ObjectiveC-iOS.md)
 * [Get started with Microsoft speech recognition API in JavaScript](GetStartedJSWebsockets.md)
