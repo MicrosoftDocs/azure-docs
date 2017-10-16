@@ -13,12 +13,16 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 10/2/2017
 ms.author: damaerte
 ---
 
 # Troubleshooting Azure Cloud Shell
 Known resolutions for issues in Azure Cloud Shell include:
+
+## Error: 403 RequestDisallowedByPolicy
+- **Details**: When creating a storage account through Cloud Shell, it is unsuccessful due to an Azure policy placed by your admin. Error message will include: `The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
+- **Resolution**: Contact your Azure administrator to remove or update the Azure policy denying storage creation.
 
 ## Error: 400 DisallowedOperation
  - **Details**: When using an Azure Active Directory subscription, you cannot create storage.
@@ -58,3 +62,7 @@ Known resolutions for issues in Azure Cloud Shell include:
  ``` Powershell
  Get-AzureRmVM -Name MyVM1 -ResourceGroupName MyResourceGroup | Set-AzureRmVMCustomScriptExtension -VMName MyVM1 -FileUri https://mystorageaccount.blob.core.windows.net/mycontainer/addfirerule.ps1 -Run 'addfirerule.ps1' -Name myextension
  ```
+
+ ### `dir` caches the result in Azure drive
+ - **Details**: The result of `dir` is cached in Azure drive.
+ - **Resolution**: After you create or remove a resource in the Azure drive view, run `dir -force` to update.

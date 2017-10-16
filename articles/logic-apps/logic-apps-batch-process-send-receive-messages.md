@@ -103,7 +103,7 @@ and specify criteria for releasing the batch, for example:
 4. Add another action that sends an email when the batch trigger fires. 
 Each time the batch has five items or its past 5 minutes, the logic app sends an email.
 
-   1. Under the batch trigger, choose **+ New Step** > **Add an action**.
+   1. Under the batch trigger, choose **+ New step** > **Add an action**.
 
    2. In the search box, enter "email" as your filter.
    Based on your email provider, select an email connector.
@@ -153,6 +153,12 @@ Learn more about [authenticating your email credentials](../logic-apps/logic-app
 7.  Now that you created a batch receiver logic app, save your logic app.
 
     ![Save your logic app](./media/logic-apps-batch-process-send-receive-messages/save-batch-receiver-logic-app.png)
+
+    > [!IMPORTANT]
+    > A partition has a limit of 5,000 messages or 80 MB. 
+    > If either condition is met, the batch might be released, 
+    > even when the user-defined condition is not met.
+
 
 <a name="batch-sender"></a>
 

@@ -6,8 +6,12 @@
     href: overview.md
 - name: Quickstarts
   items:
-  - name: Create and route custom events
+  - name: Create custom event - Azure CLI
     href: custom-event-quickstart.md
+  - name: Create custom event - Azure PowerShell
+    href: custom-event-quickstart-powershell.md
+  - name: Create custom event - Azure portal
+    href: custom-event-quickstart-portal.md
 - name: Tutorials
   items:
   - name: Monitor VM changes with logic apps
@@ -32,6 +36,8 @@
   items:
   - name: Azure CLI
     href: /cli/azure/eventgrid
+  - name: PowerShell
+    href: /powershell/module/azurerm.eventgrid
   - name: REST
     href: /rest/api/eventgrid
   - name: Subscription schema
