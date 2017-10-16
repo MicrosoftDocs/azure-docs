@@ -20,6 +20,10 @@ ms.author: damaerte
 # Troubleshooting Azure Cloud Shell
 Known resolutions for issues in Azure Cloud Shell include:
 
+## Error: 403 RequestDisallowedByPolicy
+- **Details**: When creating a storage account through Cloud Shell, it is unsuccessful due to an Azure policy placed by your admin. Error message will include: `The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
+- **Resolution**: Contact your Azure administrator to remove or update the Azure policy denying storage creation.
+
 ## Error: 400 DisallowedOperation
  - **Details**: When using an Azure Active Directory subscription, you cannot create storage.
  - **Resolution**: Use an Azure subscription capable of creating storage resources. Azure AD subscriptions are not able to create Azure resources.
