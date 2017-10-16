@@ -18,17 +18,16 @@ ms.date: 10/15/2017
 ms.author: LADocs; estfan
 ---
 
-# Automate your first workflow by creating a logic app
+# Automate your first workflow with a logic app
 
 To integrate systems and services more quickly for your organization, 
 you can automate workflows and business processes with 
 [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md). 
 This quickstart introduces how easily you can build 
-and run automated workflows by creating a logic app. 
-The example logic app shows how to automate a workflow that checks 
-a website RSS feed for new items and sends email for each item. 
-This example doesn't require that you write any code, 
-but you can implement other scenarios with code. 
+and run an automated workflow by creating a logic app. 
+The example app shows how to create a workflow that 
+can automatically check a website RSS feed for new items 
+and send email for each item.
 
 The finished logic app sends an email like this example:
 
@@ -68,6 +67,10 @@ This quickstart uses Office 365 Outlook.
 * A link to a website's RSS feed. This example uses the 
 [RSS feed for top stories from the Reuters website](http://feeds.reuters.com/reuters/topNews): 
 `http://feeds.reuters.com/reuters/topNews`
+
+This quickstart doesn't require writing code, 
+but Logic Apps supports other scenarios that use code, 
+for example, running your own code from a logic app with [Azure Functions](../azure-functions/functions-overview.md).
 
 ## Create a blank logic app 
 
