@@ -54,7 +54,7 @@ You must create one (or more) SQL servers and/or provide access to external SQL 
 
     If you need to provide your own certificate, you need the following certificate:
 
-    A wildcard certificate for \*.adapter.\<region\>.\<external fqdn\>. This certificate must be trusted, such as would be issued by a certificate authority. That is, the chain of trust must exist without requiring intermediate certificates. A single site certificate can be used with the explicit VM name [sqladapter] used during install.
+    A wildcard certificate for \*.dbadapter.\<region\>.\<external fqdn\>. This certificate must be trusted, such as would be issued by a certificate authority. That is, the chain of trust must exist without requiring intermediate certificates. A single site certificate can be used with the explicit VM name [sqladapter] used during install.
 
 
 5. Open a **new** elevated (administrative) PowerShell console and change to the directory where you extracted the files. Use a new window to avoid problems that may arise from incorrect PowerShell modules already loaded on the system.
