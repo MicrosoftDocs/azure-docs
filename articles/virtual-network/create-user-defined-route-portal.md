@@ -27,11 +27,11 @@ When you create subnets in a virtual network, Azure creates default [system rout
 
 ![Default routes](./media/create-user-defined-route/default-routes.png)
 
-In this tutorial, you create a virtual network with public, private, and DMZ subnets, as shown in the picture that follows. Typically web servers might be deployed to a public subnet, and an application or database server might be deployed to a private subnet. You create a virtual machine to act as a network virtual appliance in the DMZ subnet. All traffic between the public and private subnets is routed through the appliance.
+In this tutorial, you create a virtual network with public, private, and DMZ subnets, as shown in the picture that follows. Typically web servers might be deployed to a public subnet, and an application or database server might be deployed to a private subnet. You create a virtual machine to act as a network virtual appliance in the DMZ subnet. All traffic between the public and private subnets is routed through the appliance, as shown in the following picture:
 
 ![User-defined routes](./media/create-user-defined-route/user-defined-routes.png)
 
-This article provides steps to create a user-defined route through the Resource Manager deployment model, which is the deployment model we recommend using when creating user-defined routes. If you need to create a user-defined route (classic), see [Create a user-defined route (classic)](virtual-network-create-udr-classic-ps.md). If you're not familiar with Azure's deployment models, see [Understand Azure deployment models](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). To learn more about user-defined routes, see [User-defined routes overview](virtual-networks-udr-overview.md#user-defined).
+This article provides steps to create a user-defined route through the Resource Manager deployment model, which is the deployment model we recommend using when creating user-defined routes. If you need to create a user-defined route (classic), see [Create a user-defined route (classic)](virtual-network-create-udr-classic-ps.md). If you're not familiar with Azure's deployment models, see [Understand Azure deployment models](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). To learn more about user-defined routes, see [User-defined routes overview](virtual-networks-udr-overview.md#user-defined-routes).
 
 ## Prerequisite
 
@@ -104,7 +104,7 @@ To learn more about how to use the portal, PowerShell, or an Azure Resource Mana
     - Click **Create** on the **Create** blade that appears. Deployment of the virtual machine takes a few minutes.
 
     > [!NOTE]
-    > In addition to creating the virtual machine, the Azure portal creates a public IP address and assigns it to the virtual machine, by default. If you were deploying the virtual machine in a production environment, you may choose not to assign a public IP address to the virtual machine. Instead, you might access the network virtual appliance from other virtual machines within the virtual network. To learn more about public IP addresses, see [Manage a public IP address](virtual-network-public-ip-address).
+    > In addition to creating the virtual machine, the Azure portal creates a public IP address and assigns it to the virtual machine, by default. If you were deploying the virtual machine in a production environment, you may choose not to assign a public IP address to the virtual machine. Instead, you might access the network virtual appliance from other virtual machines within the virtual network. To learn more about public IP addresses, see [Manage a public IP address](virtual-network-public-ip-address.md).
 
 7. Assign a static private IP address and enable IP forwarding for the network interface the portal created in the previous step. 
     - On the **Search resources** box at the top of the page, enter *myVm-Nva*.
@@ -154,7 +154,7 @@ To learn more about how to use the portal, PowerShell, or an Azure Resource Mana
     - Click **+ Associate** in the **myRouteTable-Public - Subnets** blade.
     - Click **Virtual network** in the **Associate subnet** blade, then click **myVnet** in the **Resource** blade that appears.
     - Click **Subnet** in the **Associate subnet** blade, then click **Public** in the **Choose Subnet** blade. 
-    - Click **OK** in the **Associate subnet** blade to save the configuration. A subnet can have zero or one route table associated to it.
+    - To save the configuration, click **OK** in the **Associate subnet** blade. A subnet can have zero or one route table associated to it.
 10. Complete step 9 again, searching for **myRouteTable-Private**, creating a route with the following settings, then associating the route table to the **Private** subnet of the **myVnet** virtual network:
 
     |Setting|Value|Explanation|
@@ -164,7 +164,7 @@ To learn more about how to use the portal, PowerShell, or an Azure Resource Mana
     |Next hop type| Select **Virtual appliance**||
     |Next hop address|10.0.2.4||
 
-    Network traffic between any resources in the Private and Public subnets will now flow through the network virtual appliance. 
+    Network traffic between any resources in the Private and Public subnets flows through the network virtual appliance. 
 11. **Optional:** Create a virtual machine in the Public and Private subnets and validate that communication between the virtual machines is routed through the network virtual appliance by completing the steps in [Validate routing](#validate-routing). 
 12. **Optional**: Delete the resources that you create in this tutorial, by completing the steps in [Delete resources](#delete-resources).
 
@@ -296,7 +296,7 @@ To learn more about how to use the portal, PowerShell, or an Azure Resource Mana
         - **Ubuntu**: Run the `tracepath myvm-private` command.
       Traffic passes through 10.0.2.4 (the NVA) before reaching 10.0.1.4 (the virtual machine in the Private subnet). 
     - Complete the previous steps by connecting to the *myVm-Private* virtual machine and pinging the *myVm-Public* virtual machine. The trace route shows communication traveling through 10.0.2.4 before reaching 10.0.0.4 (the virtual machine in the Public subnet).
-    - **Optionally**: Use the next hop capability of Azure Network Watcher to validate the next hop between two virtual machines within Azure. Before using Network Watcher, you must first [create an Azure Network Watcher instance](../network-watcher/network-watcher-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for the region you want to use it in. In this tutorial, the US East region is used. Once you've enabled a Network Watcher instance for the region, enter the following command to see the next hop information between the virtual machines in the Public and Private subnets:
+    - **Optionally**: To validate the next hop between two virtual machines within Azure, use the next hop capability of Azure Network Watcher. Before using Network Watcher, you must first [create an Azure Network Watcher instance](../network-watcher/network-watcher-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for the region you want to use it in. In this tutorial, the US East region is used. Once you've enabled a Network Watcher instance for the region, enter the following command to see the next hop information between the virtual machines in the Public and Private subnets:
      
         ```azurecli-interactive
         az network watcher show-next-hop --resource-group myResourceGroup --vm myVm-Public --source-ip 10.0.0.4 --dest-ip 10.0.1.4
@@ -318,5 +318,5 @@ When you finish this tutorial, you might want to delete the resources that you c
 ## Next steps
 
 - Create a [highly available network virtual appliance](/azure/architecture/reference-architectures/dmz/nva-ha?toc=%2fazure%2fvirtual-network%2ftoc.json).
-- Network virtual appliances often have multiple network interfaces and IP addresses assigned to them. Learn how to [add network interfaces to an existing virtual machine](virtual-network-network-interface-vm.md#vm-add-nic) and [add IP addresses to an existing network interface](virtual-network-network-interface-addresses.md#add-ip-addresses). Though all virtual machine sizes can have at least two network interfaces attached to them, each virtual machine size supports a maximum number of network interfaces. To learn how many network interfaces each virtual machine size supports, see [Windows](../virtual-machines/windows/sizes?toc=%2Fazure%2Fvirtual-network%2Ftoc.json) and [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machine sizes. 
+- Network virtual appliances often have multiple network interfaces and IP addresses assigned to them. Learn how to [add network interfaces to an existing virtual machine](virtual-network-network-interface-vm.md#vm-add-nic) and [add IP addresses to an existing network interface](virtual-network-network-interface-addresses.md#add-ip-addresses). Though all virtual machine sizes can have at least two network interfaces attached to them, each virtual machine size supports a maximum number of network interfaces. To learn how many network interfaces each virtual machine size supports, see [Windows](../virtual-machines/windows/sizes.md?toc=%2Fazure%2Fvirtual-network%2Ftoc.json) and [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machine sizes. 
 - Create a user-defined route to force tunnel traffic on-premises through a [site-to-site VPN connection](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
