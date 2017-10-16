@@ -22,7 +22,7 @@ ms.author: yujhong
 
 To see an overview of Cognitive Services on Azure Government, [click here](documentation-government-services-aiandcognitiveservices.md).
 
-## Part 1: Access the Cognitive Services APIs
+## Part 1: Provision Cognitive Services Accounts
 In order to access any of the Cognitive Services APIs, you must first provision a Cognitive Services account for each of the APIs you want to access. **Cognitive Services is not yet supported in the Azure Government Portal**, but you can use Azure PowerShell to access the APIs and services. 
 
 > [!NOTE]
@@ -33,8 +33,6 @@ In order to access any of the Cognitive Services APIs, you must first provision 
 ### Prerequisites
 * Install and Configure [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0)
 * Connect [PowerShell with Azure Government](documentation-government-get-started-connect-with-ps.md)
-
-### Provision a Cognitive Services Account
 
 In the Powershell command below, replace "rg-name", "name-of-your-api", and "location-of-resourcegroup" with your relevant account information. 
 
@@ -81,8 +79,8 @@ Now you are ready to make calls to the APIs.
 ## Part 2: API Quickstarts 
 The Quickstarts below will help you to get started with the APIs available through Cognitive Services in Azure Government.
 
-### Computer Vision API
-#### Prerequisites
+## Computer Vision API
+### Prerequisites
 
 * Get the Microsoft Computer Vision API Windows SDK [here](https://github.com/Microsoft/Cognitive-vision-windows).
 
@@ -94,13 +92,13 @@ The Quickstarts below will help you to get started with the APIs available throu
     >
     >
     
-#### Variations
+### Variations
 * The URI for accessing the Face API in Azure Government is :
    - https://(resource-group-location).api.cognitive.microsoft.us/face/v1.0
    - The main difference between this URI and the URI used in Commercial Azure is the ending of ".us" and the location at the beginning of the uri
 
 
-#### Analyze an Image With Computer Vision API using C# <a name="AnalyzeImage"> </a>
+### Analyze an Image With Computer Vision API using C# <a name="AnalyzeImage"> </a>
 
 With the [Analyze Image method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa), you can extract visual features based on image content. You can upload an image or specify an image URL and choose which features to return, including:
 * A detailed list of tags related to the image content.
@@ -111,7 +109,7 @@ With the [Analyze Image method](https://westcentralus.dev.cognitive.microsoft.co
 * The category defined in this [taxonomy](https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/category-taxonomy).
 * Does the image contain adult or sexually suggestive content?
 
-#### Analyze an image C# example request
+### Analyze an image C# example request
 
 1. Create a new Console solution in Visual Studio.
 2. Replace Program.cs with the following code.
@@ -278,7 +276,7 @@ namespace VisionApp1
         }
     }
 ```
-#### Analyze an Image response
+### Analyze an Image response
 
 A successful response is returned in JSON. Following is an example of a successful response:
 
@@ -348,8 +346,8 @@ A successful response is returned in JSON. Following is an example of a successf
 ```
 For more information, please see [public documentation](../cognitive-services/computer-vision/index.md) and [public API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa) for Computer Vision API.
 
-### Face API
-#### Prerequisites
+## Face API
+### Prerequisites
 * Get the Microsoft Face API Windows SDK [here](https://www.nuget.org/packages/Microsoft.ProjectOxford.Face/)
 
 * Make sure Visual Studio has been installed:
@@ -360,12 +358,12 @@ For more information, please see [public documentation](../cognitive-services/co
     >
     >
     
-#### Variations 
+### Variations 
 * The URI for accessing the Face API in Azure Government is :
    - https://(resource-group-location).api.cognitive.microsoft.us/face/v1.0
    - The main difference between this URI and the URI used in Commercial Azure is the ending of ".us" and the location at the beginning of the uri
 
-#### Detect Faces in images with Face API using C# <a name="Detect"> </a>
+### Detect Faces in images with Face API using C# <a name="Detect"> </a>
 Use the [Face - Detect method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 
 to detect faces in an image and return face attributes including:
 * Face ID: Unique ID used in several Face API scenarios. 
@@ -373,7 +371,7 @@ to detect faces in an image and return face attributes including:
 * Landmarks: An array of 27-point face landmarks pointing to the important positions of face components.
 * Facial attributes including age, gender, smile intensity, head pose, and facial hair. 
 
-#### Face detect C# example request
+### Face detect C# example request
 
 The sample is written in C# using the Face API client library. 
 
@@ -546,7 +544,7 @@ namespace FaceApp1
     }
 }
 ```
-#### Face detect response
+### Face detect response
 
 A successful response is returned in JSON. Following is an example of a successful response: 
 
@@ -592,8 +590,8 @@ Response:
 ```
 For more information, please see [public documentation](../cognitive-services/Face/index.md), and [public API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for Face API.
 
-### Text Translation API 
-#### Prerequisites
+## Text Translation API 
+### Prerequisites
 
 * Make sure Visual Studio has been installed:
     -   [Visual Studio 2017 version 15.3](https://www.visualstudio.com/vs/preview/), including the **Azure development** workload.
@@ -603,16 +601,16 @@ For more information, please see [public documentation](../cognitive-services/Fa
     >
     >
     
-#### Variations
+### Variations
 * The URI for accessing the Text Translation API in Azure Government is: 
    - https://api.microsofttranslator.us/v2/http.svc
    - The only difference from the Commercial URI is the endpoint of ".us"
 * The URI for retrieving the access token to the Text Translation API is the "Endpoint" attribute that was saved in Part 1 of this quickstart, with "/IssueToken" at the end
 
-#### Text Translation Method
+### Text Translation Method
 This sample will use the [Text Translation - Translate method](http://docs.microsofttranslator.com/text-translate.html#!/default/get_Translate) to translate a string of text from a language into another specified language. There are multiple [language codes](https://msdn.microsoft.com/en-us/library/hh456380.aspx) that can be used with the Text Translation API. 
 
-#### Text Translation C# example request
+### Text Translation C# example request
 
 The sample is written in C#. 
 
@@ -758,7 +756,7 @@ namespace TextTranslationApp1
 }
 
 ```
-#### Text Translation response
+### Text Translation response
 
 An example of a successful response output from the console is shown below. 
 
