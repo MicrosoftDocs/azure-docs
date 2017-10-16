@@ -33,7 +33,7 @@ When you define your custom search instance, you specify the active and blocked 
  To access each list, click on the Active and Blocked tabs in your custom search instance. 
 
 ## Active and Blocked lists 
-To specify slice of the web that you want Bing to search, click the **Active** tab and list the domains, subsites, and webpages to search. You can add a slice directly to the list or add more than one slice by uploading a text file using the upload icon.
+To specify a slice of the web that you want Bing to search, click the **Active** tab and list the domains, subsites, and webpages to search. You can add a slice directly to the list or add more than one slice by uploading a text file using the upload icon.
 
 File Upload details: 
 
