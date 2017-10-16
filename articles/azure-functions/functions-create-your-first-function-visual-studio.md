@@ -36,7 +36,7 @@ To complete this tutorial, install:
 
     ![Install Visual Studio 2017 with the Azure development workload](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
     
-    [!INCLUDE [Create a project using the Azure Functions](../../includes/functions-vstools-install-note.md)] 
+[!INCLUDE [Create a project using the Azure Functions](../../includes/functions-vstools-install-note.md)] 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 
