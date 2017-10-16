@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2017
+ms.date: 10/10/2017
 ms.author: bwren
 
 ---
@@ -60,7 +60,7 @@ You can use the language converter tool in the log search page to convert each o
 Results are not sorted by default in the new query language.  Use the [sort operator](https://go.microsoft.com/fwlink/?linkid=856079) to sort your results by one or more properties.
 
 ### Question: Where did the metrics view go after I upgraded?
-The metrics view gave a graphical representation of performance data from a log search.  This view is no longer available after upgrade.
+The metrics view gave a graphical representation of performance data from a log search.  This view is no longer available after upgrade.  You can use the [render operator](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/render-operator) to format output from a query in a timechart.
 
 ### Question: Where did minify go after I upgraded?
 Minify is a feature that gives a summarized view of your search results.  After you upgrade, the Minify option no longer appears in the Log Search portal.  You can get similar functionality with the new search language using [reduce](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/reduce-operator) or [autocluster_v2](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/evaluate-operator/autocluster). 
@@ -90,6 +90,18 @@ The legacy [Log Search API](log-analytics-log-search-api.md) will no longer work
 
 ### Question: Should I use the new Advanced Analytics portal or keep using the Log Search portal?
 You can see a comparison of the two portals at [Portals for creating and editing log queries in Azure Log Analytics](log-analytics-log-search-portals.md).  Each has distinct advantages so you can choose the best one for your requirements.  It's common to write queries in the Advanced Analytics portal and paste them into other places such as View Designer.  You should read about [issues to consider](log-analytics-log-search-portals.md#advanced-analytics-portal) when doing that.
+
+
+### Question:  After upgrade, I get an error trying to run queries and am also seeing errors in my views.
+
+Your browser requires access to the following addresses to run Log Analytics queries after upgrade.  If your browser is accessing the Azure portal through a firewall, you must enable access to these addresses.
+
+| Uri | IP | Ports |
+|:---|:---|:---|
+| portal.loganalytics.io | Dynamic | 80,443 |
+| api.loganalytics.io    | Dynamic | 80,443 |
+| docs.loganalytics.io   | Dynamic | 80,443 |
+
 
 
 ## Power BI
@@ -157,11 +169,9 @@ No. The log data available to your workspace searches is not affected by the upg
 ### Question: What happens if I don't upgrade my workspace?  
 The legacy log search will be deprecated in the coming months. Workspaces that are not upgraded by that time will be upgraded automatically.
 
-### Question: I didn't choose to upgrade, but my workspace has been upgraded anyway! What happened?  
-Another admin of this workspace could have upgraded the workspace. Please note that all workspaces will be automatically upgraded when the new language reaches general availability.  
+### Question: Can I revert back after I upgrade?
+Prior to general availability, you could revert your workspace after upgrading.  Now that the new language has reached general availability, this capability has been removed as we start to retire the legacy platform.
 
-### Question: I have upgraded by mistake and now need to cancel it and restore everything back. What should I do?!  
-No problem.  We create a snapshot of your workspace before upgrade, so you can restore it. Keep in mind that searches, alerts or views you saved after the upgrade will be lost though.  To restore your workspace environment, follow the procedure at [Can I go back after I upgrade?](log-analytics-log-search-upgrade.md#can-i-go-back-after-i-upgrade)
 
 
 ## Views

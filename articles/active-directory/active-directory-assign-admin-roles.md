@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 10/10/2017
 ms.author: curtand
 
 ms.reviewer: Vince.Smith
@@ -23,7 +23,7 @@ robots: NOINDEX
 ---
 # Assigning administrator roles in Azure Active Directory
 > [!div class="op_single_selector"]
-> * [Azure portal]()
+> * [Azure portal](active-directory-assign-admin-roles-azure-portal.md)
 > * [Azure classic portal](active-directory-assign-admin-roles.md)
 >
 >
