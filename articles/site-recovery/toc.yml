@@ -157,7 +157,7 @@
     - name: Fail back from Azure
       items:
       - name: Fail back from Azure to VMware
-        href: site-recovery-failback-azure-to-vmware.md
+        href: site-recovery-how-to-failback-azure-to-vmware.md
       - name: Fail back from Azure to Hyper-V
         href: site-recovery-failback-from-azure-to-hyper-v.md
   - name: Automate
