@@ -64,7 +64,7 @@ In the hosts file, enter the following value:
 Here, 'contoso100.com' is the DNS domain name of your managed domain. 'contoso-coreos' is the hostname of the CoreOS virtual machine you are joining to the managed domain.
 
 
-## Update the SSSD configuration file on the Linux virtual machine
+## Configure the SSSD service on the Linux virtual machine
 Next, update your SSSD configuration file in ('/etc/sssd/sssd.conf') to match the following sample. Replace 'CONTOSO100.COM' with the DNS domain name of your managed domain. Make sure you specify the domain name in capital case in the conf file.
 
  ```
@@ -111,10 +111,10 @@ sudo adcli join -D CONTOSO100.COM -U bob@CONTOSO100.COM -K /etc/krb5.keytab -H c
   * Check to see if you have updated the DNS server settings for the virtual network to point to the domain controllers of the managed domain.
 >
 
-2. Start the SSSD service. In your SSH terminal, type the following command:
-    ```
-    sudo systemctl start sssd.service
-    ```
+Start the SSSD service. In your SSH terminal, type the following command:
+  ```
+  sudo systemctl start sssd.service
+  ```
 
 
 ## Verify domain join
