@@ -251,7 +251,7 @@ In this section, you create the various pages that your application displays.
    **Views\Shared\\_Layout.cshtml** file to open it in the Visual
    Studio editor.
 9. Replace all occurrences of **My ASP.NET Application** with
-   **LITWARE'S Products**.
+   **Northwind Traders Products**.
 10. Remove the **Home**, **About**, and **Contact** links. Delete the highlighted code:
     
     ![][28]
