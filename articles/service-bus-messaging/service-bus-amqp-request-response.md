@@ -22,7 +22,7 @@ ms.author: sethm
 
 This topic defines the list of Microsoft Azure Service Bus request/response-based operations. This information is based on the AMQP Management Version 1.0 working draft.  
   
-For a detailed wire-level AMQP 1.0 protocol guide, which explains how Service Bus implements and builds on the OASIS AMQP technical specification, see the [AMQP 1.0 in Azure Service Bus and Event Hubs protocol guide](service-bus-amqp-protocol-guide.md).  
+For a detailed wire-level AMQP 1.0 protocol guide, which explains how Service Bus implements and builds on the OASIS AMQP technical specification, see the [AMQP 1.0 in Azure Service Bus and Event Hubs protocol guide][AMQP 1.0 protocol guide].  
   
 ## Concepts  
   
@@ -616,7 +616,7 @@ The response message must include the following application properties:
 To learn more about AMQP and Service Bus, visit the following links:
 
 * [Service Bus AMQP overview]
-* [AMQP 1.0 support for Service Bus partitioned queues and topics]
+* [AMQP 1.0 protocol guide]
 * [AMQP in Service Bus for Windows Server]
 
 [Service Bus AMQP overview]: service-bus-amqp-overview.md
