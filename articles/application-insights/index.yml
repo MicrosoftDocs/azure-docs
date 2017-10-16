@@ -40,8 +40,8 @@ sections:
       text: Java
       href: app-insights-java-quick-start
     - image:
-        src: https://docs.microsoft.com/azure/application-insights/media/index/mobile-center.png
-      text: Mobile Center
+        src: /azure/application-insights/media/index/mobile-center.png
+      text: Mobile
       href: app-insights-mobile-center-quickstart
 - title: Step-by-step Tutorials
   items:
