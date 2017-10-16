@@ -105,7 +105,7 @@ Learn how to:
 
 * [Get started developing with Batch](../articles/batch/batch-dotnet-get-started.md)
 * [Use Azure Batch code samples](https://github.com/Azure/azure-batch-samples)
-* [Use low-priority VMs with Batch (preview)](../articles/batch/batch-low-pri-vms.md)
+* [Use low-priority VMs with Batch](../articles/batch/batch-low-pri-vms.md)
 * [Run containerized HPC workloads with Batch Shipyard](https://github.com/Azure/batch-shipyard)
 * [Use the R language with Batch](https://github.com/Azure/doAzureParallel)
 
