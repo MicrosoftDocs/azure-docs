@@ -13,7 +13,7 @@ ms.devlang: tbd
 ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 06/26/2017
+ms.date: 10/16/2017
 ms.author: sethm
 
 ---
@@ -53,7 +53,7 @@ Launch Visual Studio and create a new **Console app (.NET Framework)** project.
 
 ### Add the Service Bus NuGet package
 1. Right-click the newly created project and select **Manage NuGet Packages**.
-2. Click the **Browse** tab, search for **Microsoft Azure Service Bus**, and then select the **WindowsAzure.ServiceBus** item. Click **Install** to complete the installation, then close this dialog box.
+2. Click the **Browse** tab, search for **WindowsAzure.ServiceBus**, and then select the **WindowsAzure.ServiceBus** item. Click **Install** to complete the installation, then close this dialog box.
    
     ![Select a NuGet package][nuget-pkg]
 
@@ -175,7 +175,7 @@ Launch Visual Studio and create a new **Console app (.NET Framework)** project.
    
     ![Queue length][queue-message-receive]
 
-Congratulations! You have now created a queue, sent a message, and received a message.
+Congratulations! You have now created a queue, sent a message to that queue, and received a message from the same queue.
 
 ## Next steps
 
@@ -186,4 +186,4 @@ Check out our [GitHub repository with samples](https://github.com/Azure/azure-se
 [nuget-pkg]: ./media/service-bus-dotnet-get-started-with-queues/nuget-package.png
 [queue-message]: ./media/service-bus-dotnet-get-started-with-queues/queue-message.png
 [queue-message-receive]: ./media/service-bus-dotnet-get-started-with-queues/queue-message-receive.png
-[github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
+
