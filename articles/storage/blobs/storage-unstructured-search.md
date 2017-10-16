@@ -195,7 +195,7 @@ The **FIELD NAME** column contains the parameters. The following table provides 
 
 2. You are brought back to **Import Data**, select **OK** to complete the connection process.
 
-You've now successfully connected your blob to your search service. It will take a few minutes for the portal to show that the index is populated. However, the search service begins indexing immediately so you can begin searching right away.
+You've now successfully connected your blob to your search service. It takes a few minutes for the portal to show that the index is populated. However, the search service begins indexing immediately so you can begin searching right away.
 
 ## Search your text files
 
