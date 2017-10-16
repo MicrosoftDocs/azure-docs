@@ -18,7 +18,7 @@ When you create an Azure Batch pool, you can provision the pool in a subnet of a
 
 
 > [!NOTE]
-> It is also possible to set up a pool in the Cloud Services Configuration in a VNet. In this pool configuration, the network requirements and Batch settings are different from those described in this article. For more information about the differences, see the [Batch feature overview](batch-api-basics.md#virtual-network-vnet-and-firewall-configuration)
+> It is also possible to set up a pool in the Cloud Services Configuration in a VNet. In this pool configuration, the network requirements and Batch settings are different from those described in this article. For more information about the differences, see the [Batch feature overview](batch-api-basics.md#virtual-network-vnet-and-firewall-configuration).
 >
 
 
