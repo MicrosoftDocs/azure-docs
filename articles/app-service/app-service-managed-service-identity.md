@@ -149,7 +149,7 @@ A successful 200 OK response includes a JSON body with the following properties:
 This response is the same as the [response for the AAD service-to-service access token request](../active-directory/develop/active-directory-protocols-oauth-service-to-service.md#service-to-service-access-token-response).
 
 > [!NOTE] 
-> Environment variables are set up when the process first starts, and so after enabling Managed Service Identity for your Function App you may need to wait for a period of time, or until you've redeployed your Functions, before `MSI_ENDPOINT` and `MSI_SECRET` are availale to your code.
+> Environment variables are set up when the process first starts, so after enabling Managed Service Identity for your application you may need to restart your application, or redeploy its code, before `MSI_ENDPOINT` and `MSI_SECRET` are availale to your code.
 
 ### REST protocol examples
 An example request might look like the following:
