@@ -32,139 +32,97 @@ The **services available in Azure Government** are listed by category, as well a
 >
 
 ## Compute
-
-[Azure Government Compute Documentation](documentation-government-compute.md)
-
-### Generally Available
-
-- [Virtual Machines](documentation-government-compute.md#virtual-machines) 
-- [Batch](documentation-government-compute.md#batch) 
-- [Cloud Services](documentation-government-compute.md#cloud-services) 
-- [Virtual Machine Scale Sets](documentation-government-compute.md#virtual-machine-scale-sets) 
-- [** Functions](documentation-government-compute.md#azure-functions) 
-- [Service Fabric](documentation-government-compute.md#service-fabric) 
-
-### Preview
-- [** Azure Container Service](documentation-government-compute.md#azure-container-service)
-
+| Generally Available | Preview |
+| --- | --- |
+| [Virtual Machines](documentation-government-compute.md#virtual-machines) | [Azure Container Service **](documentation-government-compute.md#azure-container-service) |
+| [Batch](documentation-government-compute.md#batch) | |
+| [Cloud Services](documentation-government-compute.md#cloud-services) | |
+| [Virtual Machine Scale Sets](documentation-government-compute.md#virtual-machine-scale-sets) | |
+| [Functions**](documentation-government-compute.md#azure-functions) | |
+| [Service Fabric](documentation-government-compute.md#service-fabric) | |
 
 ## Networking
-
-[Azure Government Networking Documentation](documentation-government-networking.md)
-
-### Generally Available
-
-- [ExpressRoute](documentation-government-networking.md#expressroute-private-connectivity) 
-- [Virtual Network](documentation-government-networking.md#support-for-virtual-network)
-- [Load Balancer](documentation-government-networking.md#support-for-load-balancer)
-- [Traffic Manager](documentation-government-networking.md#support-for-traffic-manger)
-- [VPN Gateway](documentation-government-networking.md#support-for-vpn-gateway) 
-- [Application Gateway](documentation-government-networking.md#support-for-application-gateway)
-
-### Preview
-
-- [Network Watcher](documentation-government-networking.md#support-for-network-watcher) 
+| Generally Available | Preview |
+| --- | --- |
+| [ExpressRoute](documentation-government-networking.md#expressroute-private-connectivity) | [Network Watcher](documentation-government-networking.md#support-for-network-watcher) | 
+| [Virtual Network](documentation-government-networking.md#support-for-virtual-network) | |
+| [Load Balancer](documentation-government-networking.md#support-for-load-balancer) | |
+| [Traffic Manager](documentation-government-networking.md#support-for-traffic-manger) | |
+| [VPN Gateway](documentation-government-networking.md#support-for-vpn-gateway) | |
+| [Application Gateway](documentation-government-networking.md#support-for-application-gateway) | |
 
 ## Storage
-
-[Azure Government Storage Documentation](documentation-government-services-storage.md)
-
-### Generally Available
-
-- [Blob storage](documentation-government-services-storage.md#azure-storage) 
-- [Table storage](documentation-government-services-storage.md#azure-storage)
-- [Queue storage](documentation-government-services-storage.md#azure-storage)
-- [File storage](documentation-government-services-storage.md#azure-storage)
-- [Disk storage](documentation-government-services-storage.md#azure-storage) 
-- [StorSimple](documentation-government-services-storage.md)
-- [Import/Export](documentation-government-services-storage.md#azure-importexport) 
+| Generally Available | Preview |
+| --- | --- |
+| [Blob storage](documentation-government-services-storage.md#azure-storage) | |
+| [Table storage](documentation-government-services-storage.md#azure-storage) | |
+| [Queue storage](documentation-government-services-storage.md#azure-storage) | |
+| [File storage](documentation-government-services-storage.md#azure-storage) | |
+| [Disk storage](documentation-government-services-storage.md#azure-storage) | |
+| [StorSimple](documentation-government-services-storage.md) | |
+| [Import/Export](documentation-government-services-storage.md#azure-importexport) | |
 
 ## Web + Mobile
-
-[Azure Government Web and Mobile Documentation](documentation-government-services-webandmobile.md)
-
-### Generally Available
-- [App Service: Web Apps](documentation-government-services-webandmobile.md#app-services)
-- [App Service: API Apps](documentation-government-services-webandmobile.md#app-services) 
-- [App Service: Mobile Apps](documentation-government-services-webandmobile.md#app-services) 
-- [Media Services](documentation-government-services-media.md) 
-
-### Preview 
-- [API Management](documentation-government-services-webandmobile.md#api-management)
+| Generally Available | Preview |
+| --- | --- |
+| [App Service: Web Apps](documentation-government-services-webandmobile.md#app-services) |[API Management](documentation-government-services-webandmobile.md#api-management) |
+| [App Service: Mobile Apps](documentation-government-services-webandmobile.md#app-services) | |
+| [Media Services](documentation-government-services-media.md) | |
 
 ## Databases
-
-[Azure Government Databases Documentation](documentation-government-services-database.md)
-
-### Generally Available
-
-- [SQL Database](documentation-government-services-database.md#sql-database) 
-- [SQL Data Warehouse](documentation-government-services-database.md#sql-data-warehouse)
-- [SQL Server Stretch Database](documentation-government-services-database.md#sql-server-stretch-database)
-- [Azure Cosmos DB](documentation-government-services-database.md#azure-cosmos-db)
-- [Azure Redis Cache](documentation-government-services-database.md#azure-redis-cache) 
+| Generally Available | Preview |
+| --- | --- |
+| [SQL Database](documentation-government-services-database.md#sql-database) | |
+| [SQL Data Warehouse](documentation-government-services-database.md#sql-data-warehouse) | |
+| [SQL Server Stretch Database](documentation-government-services-database.md#sql-server-stretch-database) | |
+| [Azure Cosmos DB](documentation-government-services-database.md#azure-cosmos-db) | |
+| [Azure Redis Cache](documentation-government-services-database.md#azure-redis-cache) | |
 
 ## Data + Analytics
-
-[Azure Government Data and Analytics Documentation](documentation-government-services-dataandanalytics.md)
-
-### Generally Available
-
-- [HDInsight](documentation-government-services-dataandanalytics.md#hdinsight) 
-- [** Power BI Pro](documentation-government-services-dataandanalytics.md#power-bi) 
-- [** Power BI Embedded](documentation-government-services-dataandanalytics.md#power-bi-embedded)
-- [Azure Analysis Services](documentation-government-services-dataandanalytics.md#azure-analysis-services)
+| Generally Available | Preview |
+| --- | --- |
+| [HDInsight](documentation-government-services-dataandanalytics.md#hdinsight) | |
+| [Power BI Pro**](documentation-government-services-dataandanalytics.md#power-bi) | |
+| [Azure Analysis Services](documentation-government-services-dataandanalytics.md#azure-analysis-services) | |
 
 ## AI + Cognitive Services 
-
-[Azure Government AI and Cognitive Services Documentation](documentation-government-services-aiandcognitiveservices.md) 
-
-### Preview
-- [** Cognitive Services](documentation-government-services-aiandcognitiveservices.md) 
+| Generally Available | Preview |
+| --- | --- |
+| | [Cognitive Services**](documentation-government-services-aiandcognitiveservices.md) |
 
 ## Internet of Things
-
-[Azure Government IoT Documentation](documentation-government-services-iot-hub.md)
-
-### Generally Available 
-
-- [IoT Hub](documentation-government-services-iot-hub.md#azure-iot-hub)
-- [Azure Event Hubs](documentation-government-services-iot-hub.md#azure-event-hubs)
-- [** Azure Notification Hubs](documentation-government-services-iot-hub.md#azure-notification-hubs)
+| Generally Available | Preview |
+| --- | --- |
+| [IoT Hub](documentation-government-services-iot-hub.md#azure-iot-hub)| |
+| [Azure Event Hubs](documentation-government-services-iot-hub.md#azure-event-hubs) | |
+| [Azure Notification Hubs**](documentation-government-services-iot-hub.md#azure-notification-hubs) | |
 
 ## Enterprise Integration
-
-### Generally Available
-
-- [Service Bus](documentation-government-networking.md#support-for-service-bus)
-- [StorSimple](documentation-government-services-storage.md) 
-- [SQL Server Stretch Database](documentation-government-services-database.md#sql-server-stretch-database)
+| Generally Available | Preview |
+| --- | --- |
+| [Service Bus](documentation-government-networking.md#support-for-service-bus)| |
+| [StorSimple](documentation-government-services-storage.md) | |
+| [SQL Server Stretch Database](documentation-government-services-database.md#sql-server-stretch-database) | |
 
 ## Security + Identity
-
-[Azure Government Security and Identity Documentation](documentation-government-services-securityandidentity.md)
-
-### Generally Available 
-
-- [Azure Active Directory](documentation-government-services-securityandidentity.md#azure-active-directory)
-- [Azure Active Directory Premium](documentation-government-services-securityandidentity.md#azure-active-directory-premium) 
-- [Key Vault](documentation-government-services-securityandidentity.md#key-vault) 
-- [Azure Multi-Factor Authentication](documentation-government-services-securityandidentity.md#azure-multi-factor-authentication)
+| Generally Available | Preview |
+| --- | --- |
+| [Azure Active Directory](documentation-government-services-securityandidentity.md#azure-active-directory) | |
+| [Azure Active Directory Premium](documentation-government-services-securityandidentity.md#azure-active-directory-premium) | |
+| [Key Vault](documentation-government-services-securityandidentity.md#key-vault) | |
+| [Azure Multi-Factor Authentication](documentation-government-services-securityandidentity.md#azure-multi-factor-authentication) | |
 
 ## Monitoring + Management
-
-[Azure Government Monitoring and Management Documentation](documentation-government-services-monitoringandmanagement.md)
-
-### Generally Available
-
-- [Automation](documentation-government-services-monitoringandmanagement.md#automation)
-- [Backup](documentation-government-services-backup.md) 
-- [Log Analytics](documentation-government-services-monitoringandmanagement.md#log-analytics)
-- [Site Recovery](documentation-government-services-monitoringandmanagement.md#site-recovery) 
-- [Scheduler](documentation-government-services-monitoringandmanagement.md#scheduler) 
-- [Monitoring and Diagnostics](documentation-government-services-monitoringandmanagement.md#monitor)
-- [Azure Portal - Ibiza](documentation-government-services-monitoringandmanagement.md#azure-portal)
-- [Azure Resource Manager](documentation-government-services-monitoringandmanagement.md#azure-resource-manager)
+| Generally Available | Preview |
+| --- | --- |
+| [Automation](documentation-government-services-monitoringandmanagement.md#automation)| |
+| [Backup](documentation-government-services-backup.md) | |
+| [Log Analytics](documentation-government-services-monitoringandmanagement.md#log-analytics) | |
+| [Site Recovery](documentation-government-services-monitoringandmanagement.md#site-recovery) | | 
+| [Scheduler](documentation-government-services-monitoringandmanagement.md#scheduler) | |
+| [Monitoring and Diagnostics](documentation-government-services-monitoringandmanagement.md#monitor) | |
+| [Azure Portal - Ibiza](documentation-government-services-monitoringandmanagement.md#azure-portal) | |
+| [Azure Resource Manager](documentation-government-services-monitoringandmanagement.md#azure-resource-manager) | |
 
 
 ## Next steps
