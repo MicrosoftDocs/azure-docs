@@ -209,7 +209,7 @@ sign in with the username and password for your email account.
 
       ![Enter the email subject](./media/logic-apps-create-a-logic-app/logic-app-select-field.png)
 
-      When you're done, your subject box looks like this example:
+      When you're done, the email subject looks like this example:
 
       ![Added feed title](./media/logic-apps-create-a-logic-app/added-feed-title.png)
 
