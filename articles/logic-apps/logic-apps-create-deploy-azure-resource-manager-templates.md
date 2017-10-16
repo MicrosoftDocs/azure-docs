@@ -29,12 +29,13 @@ and [Azure Resource Manager template structure and syntax](../azure-resource-man
 
 ## Define the logic app
 
-The template uses parameter values for the logic app name (```logicAppName```) 
-and a location to ping for testing (```testUri```). The template also sets 
-the location for the logic app to the same location as the Azure resource group. 
-
 This example logic app definition runs once an hour, 
 and pings the location specified in the `testUri` parameter.
+The template uses parameter values for the logic app name (```logicAppName```) 
+and the location to ping for testing (```testUri```). Learn more about 
+[defining these parameters in your template](#define-parameters). 
+The template also sets the location for the logic app to the same 
+location as the Azure resource group. 
 
 ``` json
 {
@@ -80,6 +81,8 @@ and pings the location specified in the `testUri` parameter.
     }
 }
 ``` 
+
+<a name="define-parameters"></a>
 
 ### Define parameters
 
