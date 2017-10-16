@@ -26,7 +26,7 @@ you can automate workflows and business processes with
 This quickstart introduces how easily you can build 
 and run automated workflows by creating a logic app. 
 The example logic app shows how to automate a workflow that checks 
-a website RSS feed for new items and sends email for each new item.
+a website RSS feed for new items and sends email for each item.
 
 The finished logic app sends an email like this example:
 
