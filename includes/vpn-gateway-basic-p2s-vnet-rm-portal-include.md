@@ -9,7 +9,7 @@ To create a VNet in the Resource Manager deployment model by using the Azure por
   ![Select Resource Manager](./media/vpn-gateway-basic-p2s-vnet-rm-portal-include/resourcemanager250.png "Select Resource Manager")
 4. On the **Create virtual network** page, configure the VNet settings. When you fill in the fields, the red exclamation mark becomes a green check mark when the characters entered in the field are valid. There may be values that are auto-filled. If so, replace the values with your own. The **Create virtual network** page looks similar to the following example:
 
-  ![Field validation](./media/vpn-gateway-basic-p2s-vnet-rm-portal-include/createp2sgvnet.png "Field validation")
+  ![Field validation](./media/vpn-gateway-basic-p2s-vnet-rm-portal-include/vnetp2s.png "Field validation")
 5. **Name**: Enter the name for your Virtual Network.
 6. **Address space**: Enter the address space. If you have multiple address spaces to add, add your first address space. You can add additional address spaces later, after creating the VNet.
 7. **Subnet name**: Add the subnet name and subnet address range. You can add additional subnets later, after creating the VNet.
