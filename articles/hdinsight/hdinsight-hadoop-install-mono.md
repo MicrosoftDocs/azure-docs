@@ -63,7 +63,7 @@ You have learned how to upgrade or install a specific version of Mono on HDInsig
 
 * [Use .NET for streaming MapReduce on HDInsight](hdinsight-hadoop-dotnet-csharp-mapreduce-streaming.md)
 * [Use .NET with Hive and Pig on HDInsight](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
-* [Develop C# solutions with Storm on HDInsight](hdinsight-storm-develop-csharp-visual-studio-topology.md)
+* [Develop C# solutions with Storm on HDInsight](storm/apache-storm-develop-csharp-visual-studio-topology.md)
 * [Migrate .NET solutions to Linux-based HDInsight](hdinsight-hadoop-migrate-dotnet-to-linux.md)
 
 For more information on using script actions, see [Customize Linux-based HDInsight clusters using script action](hdinsight-hadoop-customize-cluster-linux.md)

@@ -75,7 +75,7 @@ Azure HDInsight currently provides the following cluster types, each with a set 
 | --- | --- |
 | [Hadoop](hdinsight-hadoop-introduction.md) |Batch query and analysis of stored data |
 | [HBase](hdinsight-hbase-overview.md) |Processing for large amounts of schemaless, NoSQL data |
-| [Storm](hdinsight-storm-overview.md) |Real-time event processing |
+| [Storm](storm/apache-storm-overview.md) |Real-time event processing |
 | [Spark](hdinsight-apache-spark-overview.md) |In-memory processing, interactive queries, micro-batch stream processing |
 | [Kafka (Preview)](kafka/apache-kafka-introduction.md) | A distributed streaming platform that can be used to build real-time streaming data pipelines and applications |
 | [R Server](hdinsight-hadoop-r-server-overview.md) |Various big data statistics, predictive modeling, and machine learning capabilities |
@@ -239,7 +239,7 @@ If your solution requires technologies that are spread across multiple HDInsight
 
 For more information on using an Azure virtual network with HDInsight, see [Extend HDInsight with Azure virtual networks](hdinsight-extend-hadoop-virtual-network.md).
 
-For an example of using two cluster types within an Azure virtual network, see [Analyze sensor data with Storm and HBase](hdinsight-storm-sensor-data-analysis.md). For more information about using HDInsight with a virtual network, including specific configuration requirements for the virtual network, see [Extend HDInsight capabilities by using Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md).
+For an example of using two cluster types within an Azure virtual network, see [Analyze sensor data with Storm and HBase](storm/apache-storm-sensor-data-analysis.md). For more information about using HDInsight with a virtual network, including specific configuration requirements for the virtual network, see [Extend HDInsight capabilities by using Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md).
 
 ## Troubleshoot access control issues
 
