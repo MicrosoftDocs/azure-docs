@@ -17,7 +17,7 @@ ms.date: 03/04/2017
 ms.author: sngun
 
 ---
-# Introduction to Azure Key Vault in Azure Stack
+# Introduction to Key Vault in Azure Stack
 
 ## Prerequisites 
 
@@ -25,7 +25,7 @@ ms.author: sngun
 * [PowerShell is configured for use with Azure Stack](azure-stack-powershell-configure-user.md).
  
 ## Key Vault basics
-Azure Key Vault in Azure Stack helps safeguard cryptographic keys and secrets that cloud applications and services use. By using Key Vault, you can encrypt keys and secrets, such as:
+Key Vault in Azure Stack helps safeguard cryptographic keys and secrets that cloud applications and services use. By using Key Vault, you can encrypt keys and secrets, such as:
    * Authentication keys 
    * Storage account keys
    * Data encryption keys
@@ -66,6 +66,6 @@ The following scenarios describe how Key Vault can help meet the needs of develo
 
 ## Next steps
 
-* [Manage Key Vault in Azure Stack by using the Azure portal](azure-stack-kv-manage-portal.md)  
+* [Manage Key Vault in Azure Stack by using the operator portal](azure-stack-kv-manage-portal.md)  
 * [Manage Key Vault in Azure Stack by using PowerShell](azure-stack-kv-manage-powershell.md)
 

@@ -1,6 +1,6 @@
 ---
-title: Manage Azure Key Vault in Azure Stack by using PowerShell | Microsoft Docs
-description: Learn how to manage Azure Key Vault in Azure Stack by using PowerShell
+title: Manage Key Vault in Azure Stack by using PowerShell | Microsoft Docs
+description: Learn how to manage Key Vault in Azure Stack by using PowerShell
 services: azure-stack
 documentationcenter: ''
 author: SnehaGunda
@@ -18,7 +18,7 @@ ms.author: sngun
 
 ---
 
-# Manage Azure Key Vault in Azure Stack by using PowerShell
+# Manage Key Vault in Azure Stack by using PowerShell
 
 This article helps you get started to create and manage Key Vault in Azure Stack by using PowerShell. The Key Vault PowerShell cmdlets described in this article are available as a part of the Azure PowerShell SDK. The following sections describe the PowerShell cmdlets that are required to:
    - Create a vault. 

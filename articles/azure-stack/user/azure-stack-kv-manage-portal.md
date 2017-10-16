@@ -1,6 +1,6 @@
 ---
-title: Manage Azure Key Vault in Azure Stack by using the Azure portal | Microsoft Docs
-description: Learn how to manage Azure Key Vault in Azure Stack by using the Azure portal
+title: Manage Key Vault in Azure Stack by using the operator portal | Microsoft Docs
+description: Learn how to manage Key Vault in Azure Stack by using the operator portal
 services: azure-stack
 documentationcenter: ''
 author: SnehaGunda
@@ -18,9 +18,9 @@ ms.author: sngun
 
 ---
 
-# Manage Azure Key Vault in Azure Stack by using the Azure portal
+# Manage Key Vault in Azure Stack by using the operator portal
 
-You can manage Azure Key Vault in Azure Stack by using the Azure Stack portal. This article helps you get started to create and manage a key vault in Azure Stack. 
+You can manage Key Vault in Azure Stack by using the Azure Stack portal. This article helps you get started to create and manage a key vault in Azure Stack. 
 
 ## Prerequisites  
 
@@ -34,7 +34,7 @@ You can manage Azure Key Vault in Azure Stack by using the Azure Stack portal. T
 
     ![Key Vault screen](media/azure-stack-kv-manage-portal/image1.png)  
 
-3. Under **Create Key Vault**, assign a **Name** for your vault. Vault names can contain only alphanumeric characters and the special-character hyphen (-). They shouldn’t start with a number.  
+3. Under the **Create Key Vault** pane, assign a **Name** for your vault. Vault names can contain only alphanumeric characters and the special-character hyphen (-). They shouldn’t start with a number.  
 
 4. Choose a **Subscription** from the list of available subscriptions. All subscriptions that offer the Key Vault service are displayed in the drop-down list.  
 
@@ -60,9 +60,9 @@ After you create a vault, use the following steps to create and manage keys and 
 
 2. From the dashboard, select **All resources**, select the key vault that you created earlier, and then select the **Keys** tile.  
 
-3. Under **Keys**, select **Add**. 
+3. Under the **Keys** pane, select **Add**. 
 
-4. Under **Create a key**, from the list of **Options**, choose the method that you want to use to create a key. You can **Generate** a new key, **Upload** an existing key, or use **Restore Backup** to select a backup of a key.  
+4. Under the **Create a key** pane, from the list of **Options**, choose the method that you want to use to create a key. You can **Generate** a new key, **Upload** an existing key, or use **Restore Backup** to select a backup of a key.  
 
 5. Enter a **Name** for your key. The key name can contain only alphanumeric characters and the special character hyphen (-).  
 
@@ -70,7 +70,7 @@ After you create a vault, use the following steps to create and manage keys and 
 
 7. Select **Create** to start the deployment.  
 
-After the key is successfully created, you can select it under **Keys**  and view or modify its properties. The properties section contains the **Key Identifier**, which is a Uniform Resource Identifier (URI) by which external applications can access this key. To limit operations on this key, configure the settings under **Permitted operations**.
+After the key is successfully created, you can select it under **Keys** and view or modify its properties. The properties section contains the **Key Identifier**, which is a Uniform Resource Identifier (URI) by which external applications can access this key. To limit operations on this key, configure the settings under **Permitted operations**.
 
 ![URI key](media/azure-stack-kv-manage-portal/image4.png)  
 
