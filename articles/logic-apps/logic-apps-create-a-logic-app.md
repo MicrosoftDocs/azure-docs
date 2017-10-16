@@ -23,10 +23,10 @@ ms.author: LADocs; estfan
 To integrate systems and services more quickly, 
 you can automate workflows and business processes with 
 [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md). 
-This quickstart introduces how you can easily you can 
-build and run automated workflows by creating a logic app. 
-This example automates a workflow that checks a website RSS feed 
-for new items and sends email for each new item.
+This quickstart introduces how easily you can build 
+and run automated workflows by creating a logic app. 
+The example logic app shows how to automate a workflow that checks 
+a website RSS feed for new items and sends email for each new item.
 
 The finished logic app sends an email like this example:
 
