@@ -383,33 +383,12 @@ A combined approach is typically used for handling a variable, but ongoing, load
 
 ## Virtual network (VNet) and firewall configuration 
 
-When you provision a pool of compute nodes in Batch, you can associate the pool with a subnet of an Azure [virtual network (VNet)](../virtual-network/virtual-networks-overview.md). To learn more about creating a VNet with subnets, see [Create an Azure virtual network with subnets](../virtual-network/virtual-networks-create-vnet-arm-pportal.md). 
-
-VNet requirements:
-
-* The virtual network must be in the same Azure **region** and **subscription** as the Azure Batch account.
-
-* For pools created with a virtual machine configuration, only Azure Resource Manager (ARM)-based virtual networks are supported. For pools created with a cloud services configuration, both ARM and classic virtual networks are supported. 
-
-* To use an ARM-based network, the Batch client API must use [Azure Active Directory authentication](batch-aad-auth.md). To use a classic virtual network, the 'MicrosoftAzureBatch' service principal must have the 'Classic Virtual Machine Contributor' Role-Based Access Control (RBAC) role for the specified virtual network. 
-
-* The specified subnet should have enough free **IP addresses** to accommodate the total number of target nodes; that is, the sum of the `targetDedicatedNodes` and `targetLowPriorityNodes` properties of the pool. If the subnet doesn't have enough free IP addresses, the Batch service partially allocates the compute nodes in the pool and returns a resize error.
-
-* The specified subnet must allow communication from the Batch service to be able to schedule tasks on the compute nodes. If communication to the compute nodes is denied by a **Network Security Group (NSG)** associated with the VNet, then the Batch service sets the state of the compute nodes to **unusable**.
-
-* If the specified VNet has associated **Network Security Groups (NSGs)** and/or a **firewall**, then a few reserved system ports must be enabled for inbound communication:
-
-- For pools created with a virtual machine configuration, enable ports 29876 and 29877, as well as port 22 for Linux and port 3389 for Windows. 
-- For pools created with a cloud service configuration, enable ports 10100, 20100, and 30100. 
-- Enable outbound connections to Azure Storage on port 443. Also, ensure that your Azure Storage endpoint can be resolved by any custom DNS servers that serve your VNET. Specifically, a URL of the form `<account>.table.core.windows.net` should be resolvable.
-
-  The following table summarizes the inbound and outbound ports that you need to enable for pools that you created with the virtual machine configuration:
-
-  [!INCLUDE [batch-virtual-netwrk-ports](../../includes/batch-virtual-network-ports.md)]
+When you provision a pool of compute nodes in Batch, you can associate the pool with a subnet of an Azure [virtual network (VNet)](../virtual-network/virtual-networks-overview.md).  
 
 
-For more information about setting up a Batch pool using the virtual machine configuration in a VNet, see [Create a pool of virtual machines with your virtual network](batch-virtual-network.md).
+[!INCLUDE [batch-virtual-network-ports](../../includes/batch-virtual-network-ports.md)]
 
+For more information about setting up a Batch pool in a VNet, see [Create a pool of virtual machines with your virtual network](batch-virtual-network.md).
 
 ## Scaling compute resources
 With [automatic scaling](batch-automatic-scaling.md), you can have the Batch service dynamically adjust the number of compute nodes in a pool according to the current workload and resource usage of your compute scenario. This allows you to lower the overall cost of running your application by using only the resources you need, and releasing those you don't need.
