@@ -130,7 +130,7 @@ Follow up with these articles for comprehensive guidance on specific use cases:
 
 + [Facet filters](search-filters-facets.md)
 + [Language filters](search-filters-language.md)
-+ [Security trimming](search-filters-security-generic.md) 
++ [Security trimming](search-security-trimming-for-azure-search.md) 
 
 ## Field requirements for filtering
 
@@ -163,7 +163,7 @@ Text strings are case-sensitive. There is no lower-casing of upper-cased words: 
 
 | Approach | Description | 
 |----------|-------------|
-| [search.in()](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | A function providing comma-delimited list of strings for a given field. The strings comprise the filter criteria, which are applied to every field in scope for the query. <br/><br/>`search.in(f, ‘a, b, c’)` is semantically equivalent to `f eq ‘a’ or f eq ‘b’ or f eq ‘c’`, except that it executes much faster when the list of values is large.<br/><br/>We recommend the **search.in** function for [security filters](search-filters-security-generic.md) and for any filters composed of raw text to be matched on values in a given field. This approach is designed for speed. You can expect subsecond response time for hundreds to thousands of values. While there is no explicit limit on the number of items you can pass to the function, latency increases in proportion to the number of strings you provide. | 
+| [search.in()](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | A function providing comma-delimited list of strings for a given field. The strings comprise the filter criteria, which are applied to every field in scope for the query. <br/><br/>`search.in(f, ‘a, b, c’)` is semantically equivalent to `f eq ‘a’ or f eq ‘b’ or f eq ‘c’`, except that it executes much faster when the list of values is large.<br/><br/>We recommend the **search.in** function for [security filters](search-security-trimming-for-azure-search.md) and for any filters composed of raw text to be matched on values in a given field. This approach is designed for speed. You can expect subsecond response time for hundreds to thousands of values. While there is no explicit limit on the number of items you can pass to the function, latency increases in proportion to the number of strings you provide. | 
 | [search.ismatch()](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | A function that allows you to mix full-text search operations with strictly Boolean filter operations in the same filter expression. It enables use of a multiple query-filter combinations in one request. You can also use it for a *contains* filter to filter on a partial string within a larger string. |  
 | [$filter=field operator string](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | A user-defined expression composed of fields, operators, and values. | 
 
@@ -177,26 +177,26 @@ Documents that contain numeric fields (price, size, SKU, ID) provide those value
 
 First, try **Search explorer** in the portal to submit queries with **$filter** parameters. The [real-estate-sample index](search-get-started-portal.md) provides interesting results for the following filtered queries when you paste them into the search bar:
 
-    ```
-    # Geo-filter returning documents within 5 kilometers of Redmond, Washington state
-    # Use $count=true to get a number of hits returned by the query
-    # Use $select to trim results, showing values for named fields only
-    # Use search=* for an empty query string. The filter is the sole input
+```
+# Geo-filter returning documents within 5 kilometers of Redmond, Washington state
+# Use $count=true to get a number of hits returned by the query
+# Use $select to trim results, showing values for named fields only
+# Use search=* for an empty query string. The filter is the sole input
 
-    search=*&$count=true&$select=description,city,postCode&$filter=geo.distance(location,geography'POINT(-122.121513 47.673988)') le 5
-    
-    # Numeric filters use comparison like greater than (gt), less than (lt), not equal (ne)
-    # Include "and" to filter on multiple fields (baths and bed)
-    # Full text search is on John Leclerc, matching on John or Leclerc
-    
-    search=John Leclerc&$count=true&$select=source,city,postCode,baths,beds&$filter=baths gt 3 and beds gt 4
-    
-    # Text filters can also use comparison operators
-    # Wrap text in single or double quotes and use the correct case
-    # Full text search is on John Leclerc, matching on John or Leclerc
-    
-    search=John Leclerc&$count=true&$select=source,city,postCode,baths,beds&$filter=city gt 'Seattle'
-    ```
+search=*&$count=true&$select=description,city,postCode&$filter=geo.distance(location,geography'POINT(-122.121513 47.673988)') le 5
+
+# Numeric filters use comparison like greater than (gt), less than (lt), not equal (ne)
+# Include "and" to filter on multiple fields (baths and bed)
+# Full text search is on John Leclerc, matching on John or Leclerc
+
+search=John Leclerc&$count=true&$select=source,city,postCode,baths,beds&$filter=baths gt 3 and beds gt 4
+
+# Text filters can also use comparison operators
+# Wrap text in single or double quotes and use the correct case
+# Full text search is on John Leclerc, matching on John or Leclerc
+
+search=John Leclerc&$count=true&$select=source,city,postCode,baths,beds&$filter=city gt 'Seattle'
+```
 
 To work with more examples, see [OData Filter Expression Syntax > Examples](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#bkmk_examples).
 
