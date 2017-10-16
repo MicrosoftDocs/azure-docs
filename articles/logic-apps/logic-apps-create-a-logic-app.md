@@ -211,11 +211,6 @@ sign in with the username and password for your email account.
       ![Added feed title](./media/logic-apps-create-a-logic-app/added-feed-title.png)
 
       > [!NOTE] 
-      > For other actions and triggers, the dynamic content list 
-      > doesn't show the full list of fields. 
-      > In these cases, the dynamic content list shows 
-      > the **See more** link so you can view more fields.
-      > 
       > If you select a field that contains an array, 
       > such as **categories-item**, the designer automatically 
       > adds a "For each" loop around the action that references that field. 
@@ -235,16 +230,12 @@ sign in with the username and password for your email account.
 
       > [!TIP]
       > To add blank lines in an edit box, press Shift + Enter. 
-      > To close the **Dynamic content** list, 
-      > choose **Add dynamic content**, 
-      > which appears under the respective edit 
-      > box that currently has focus.
-
+      
 5. Save your work. On the designer toolbar, choose **Save**.
 
    ![Completed logic app](./media/logic-apps-create-a-logic-app/save-complete-logic-app.png)
 
-## Test your logic app
+## Run your logic app workflow
 
 To manually start your logic app, 
 on the designer toolbar bar, choose **Run**. 
@@ -253,15 +244,15 @@ to run on the schedule that you set up.
 
 ![Run logic app](./media/logic-apps-create-a-logic-app/run-complete-logic-app.png)
 
-If the RSS trigger finds new items, 
+If the RSS feed has new items, 
 your logic app sends an email for each new item. 
-If your logic app doesn't find any new items, 
-the logic app skips the step that sends email 
-and waits for the next interval before checking again. 
-
-Here is an example Outlook email that this logic app sends:
+For example, here is a sample Outlook email that this logic app sends:
 
 ![Email sent for new RSS feed item](./media/logic-apps-create-a-logic-app/rss-feed-email.png)
+
+If the feed doesn't have new items, 
+your logic app skips the step that sends email 
+and waits for the next interval before checking again. 
 
 > [!TIP]
 > If you don't get any emails, check your junk email folder. 
