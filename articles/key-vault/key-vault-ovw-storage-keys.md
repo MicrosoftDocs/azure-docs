@@ -102,7 +102,7 @@ Key Vault needs permissions to *list* and *regenerate* keys for a storage accoun
     
      or
      
-    `Get-AzureRmADServicePrincipal -SearchString "AzureKeyVault"`
+    `Get-AzureRmADServicePrincipal -SearchString "Azure Key Vault"`
 
 - Assign Storage Key Operator role to Azure Key Vault Identity: 
 
