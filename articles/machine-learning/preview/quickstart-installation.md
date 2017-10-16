@@ -18,8 +18,9 @@ Azure Machine Learning is an integrated, end-to-end data science and advanced an
 
 This quickstart shows you how to create experimentation and model management accounts in Azure Machine Learning Preview. It also shows you how to install the Azure Machine Learning Workbench desktop application and CLI tools. Next, you take a quick tour of Azure Machine Learning Preview features by using the [Iris flower dataset](https://en.wikipedia.org/wiki/iris_flower_data_set) to build a model that predicts the type of iris based on some of its physical characteristics.  
 
-## Prerequisites
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+## Prerequisites
 
 Currently, you can install the Azure Machine Learning Workbench desktop app on only the following operating systems: 
 - Windows 10
@@ -169,7 +170,7 @@ Let's run a script on your local computer.
 6. Repeat steps 2 to 4 several times. Each time, use different argument values that range from **10** to **0.001**.
 
 ## View run history
-1. Browse to the **Runs** view, and select **iris_sklearn.py** in the run list. The run history dashboard for **iris_sklearn.py** opens. It shows every run that was executed on **iris_sklearn.py**. 
+1. Go to the **Runs** view, and select **iris_sklearn.py** in the run list. The run history dashboard for **iris_sklearn.py** opens. It shows every run that was executed on **iris_sklearn.py**. 
 
    ![Run history dashboard](media/quickstart-installation/run_view.png)
 
