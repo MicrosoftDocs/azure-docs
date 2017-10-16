@@ -195,7 +195,7 @@ The **FIELD NAME** column contains the parameters. The following table provides 
 
 2. You are brought back to **Import Data**, select **OK** to complete the connection process.
 
-You've now successfully connected your blob to your search service. The search service begins indexing immediately and you can begin searching right away.
+You've now successfully connected your blob to your search service. It will take a few minutes for the portal to show that the index is populated. However, the search service begins indexing immediately so you can begin searching right away.
 
 ## Search your text files
 
@@ -229,7 +229,7 @@ Enter "Myopia" in the **Query string** field and select **Search**. Initiating a
 
 You can also create queries that search by system properties using the `$select` parameter. Enter `$select=metadata_storage_name` into the query string and press enter, returning only that particular field.
     
-The query string is directly modifying the URL, so spaces are not permitted. To search multiple fields, use a comma, such as: `$select=metadata_storage_name,metadata_storage_size`
+The query string is directly modifying the URL, so spaces are not permitted. To search multiple fields, use a comma, such as: `$select=metadata_storage_name,metadata_storage_path`
     
 The `$select` parameter can only be used with fields that are marked retrievable when defining your index.
 
