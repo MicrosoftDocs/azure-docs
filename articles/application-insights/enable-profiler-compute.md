@@ -1,17 +1,17 @@
 ---
-title: Enable Azure Application Insights Profiler on ASP.NET applications | Microsoft Docs
-description: Learn how to set up the Profiler on an ASP.NET application on Azure.
+title: Enable Application Insights Profiler for Azure Compute applications | Microsoft Docs
+description: Learn how to set up the Profiler on an application running in Azure Compute.
 services: application-insights
 documentationcenter: ''
-author: CFreemanwa
+author: ramach
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
-ms.author: bwren
+ms.date: 10/16/2017
+ms.author: ramach
 
 ---
 
@@ -84,7 +84,8 @@ Your application should be configured to send telemetry data to an Application I
   }
   ```
 
->**Note**: Calling `StartOperation<RequestTelemetry>` within another `StartOperation<RequestTelemetry>` scope is not supported. You can use `StartOperation<DependencyTelemetry>` in the nested scope instead. Example:  
+> [!NOTE]  
+> Calling `StartOperation<RequestTelemetry>` within another `StartOperation<RequestTelemetry>` scope is not supported. You can use `StartOperation<DependencyTelemetry>` in the nested scope instead. Example:  
 
 ```csharp
 using (var getDetailsOperation = client.StartOperation<RequestTelemetry>("GetProductDetails"))
@@ -175,10 +176,11 @@ If you can't find the file, please refer to [this guide](https://docs.microsoft.
   </WadCfg>
   ```
 
->**Note**: If `diagnostics.wadcfgx` file also contains another sink of type `ApplicationInsights`, then all three of these instrumentation keys must match:  
->  * the instrumentation key used by your application
->  * the instrumentation key used by the `ApplicationInsights` sink
->  * the instrumentation key used by the `ApplicationInsightsProfiler` sink
+> [!NOTE]  
+> If `diagnostics.wadcfgx` file also contains another sink of type `ApplicationInsights`, then all three of these instrumentation keys must match:  
+>  * the instrumentation key used by your application  
+>  * the instrumentation key used by the `ApplicationInsights` sink  
+>  * the instrumentation key used by the `ApplicationInsightsProfiler` sink  
 >
 >The actual instrumentation key value used by the `ApplicationInsights` sink can be found in the `ServiceConfiguration.*.cscfg` files.  
 >After Visual Studio 15.5 Azure SDK release, only the instrumentation keys used by the application and `ApplicationInsightsProfiler` sink will need to match each other.
