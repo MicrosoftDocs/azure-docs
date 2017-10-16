@@ -198,12 +198,12 @@ The article shows how to manage these settings using the following PowerShell cm
 You can configure monitoring using the [Azure portal](https://portal.azure.com), PowerShell, or programmatically using the storage client library. 
 
 > [!NOTE]
-> You cannot use the Azure portal to enable minute analytics, but you can enable them using PowerShell.
+> You can enable minute analytics using PowerShell. This capability is not available in the portal.
+>
 
 * To learn how to enable and view Storage Metrics data using PowerShell, see [Enabling Azure Storage metrics and viewing metrics data](storage-enable-and-view-metrics.md#how-to-enable-metrics-using-powershell).
 
-* To learn how to enable and retrieve Storage Logging data using PowerShell, see [How to enable Storage Logging using PowerShell]
-(/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data#how-to-enable-storage-logging-using-powershell) and [Finding your Storage Logging log data](/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data#finding-your-storage-logging-log-data).
+* To learn how to enable and retrieve Storage Logging data using PowerShell, see [How to enable Storage Logging using PowerShell](/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data#how-to-enable-storage-logging-using-powershell) and [Finding your Storage Logging log data](/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data#finding-your-storage-logging-log-data).
 
 * For detailed information on using Storage Metrics and Storage Logging to troubleshoot storage issues, see [Monitoring, Diagnosing, and Troubleshooting Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md).
 
@@ -211,9 +211,9 @@ You can configure monitoring using the [Azure portal](https://portal.azure.com),
 
 Now that you understand how to manage your storage account with PowerShell, the following articles show you how to use PowerShell to access the data objects in the storage account.
 
-* [How to manage blobs with PowerShell] (../blobs/storage-how-to-use-blobs-powershell.md)
-* [How to manage files with PowerShell] (../files/storage-how-to-use-files-powershell.md)
-* [How to manage queues with PowerShell] (../queues/storage-powershell-how-to-use-queues.md)
+* [How to manage blobs with PowerShell](../blobs/storage-how-to-use-blobs-powershell.md)
+* [How to manage files with PowerShell](../files/storage-how-to-use-files-powershell.md)
+* [How to manage queues with PowerShell](../queues/storage-powershell-how-to-use-queues.md)
 
 <!--## Government Cloud and China Cloud
 
