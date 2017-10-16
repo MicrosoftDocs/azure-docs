@@ -30,7 +30,7 @@ Mono version 4.2.1 is included with HDInsight version 3.5. For more information 
 For more information on compatibility between Mono and .NET, see the [Mono compatibility (http://www.mono-project.com/docs/about-mono/compatibility/)](http://www.mono-project.com/docs/about-mono/compatibility/) document.
 
 > [!IMPORTANT]
-> The SCP.NET framework is compatible with Mono. For more information on using SCP.NET with Mono, see [Use Visual Studio to develop C# topologies for Apache Storm on HDInsight](hdinsight-storm-develop-csharp-visual-studio-topology.md).
+> The SCP.NET framework is compatible with Mono. For more information on using SCP.NET with Mono, see [Use Visual Studio to develop C# topologies for Apache Storm on HDInsight](storm/apache-storm-develop-csharp-visual-studio-topology.md).
 
 ## Automated portability analysis
 
@@ -75,4 +75,4 @@ For more information on accessing logs, see the following documents:
 
 * [Use C# user-defined functions with Hive and Pig](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
 
-* [Develop C# topologies for Storm on HDInsight](hdinsight-storm-develop-csharp-visual-studio-topology.md)
+* [Develop C# topologies for Storm on HDInsight](storm/apache-storm-develop-csharp-visual-studio-topology.md)
