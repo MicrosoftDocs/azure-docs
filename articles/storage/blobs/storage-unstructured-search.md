@@ -249,7 +249,7 @@ In this tutorial, you learned about searching unstructured data using Azure Sear
 > * Create a Search Service
 > * Using the Search Service to search your container
 
-Follow this link to learn more about indexing documents.
+Follow this link to learn more about indexing documents with Azure Search.
 
 > [!div class="nextstepaction"]
 > [Indexing Documents in Azure Blob Storage with Azure Search](../../search/search-howto-indexing-azure-blob-storage.md)
