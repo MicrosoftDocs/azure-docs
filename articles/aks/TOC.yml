@@ -1,4 +1,4 @@
-- name: Container Service (AKS)
+- name: Kubernetes on Azure
   href: ./index.yml
 - name: Overview
   items:
