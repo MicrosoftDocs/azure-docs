@@ -1,6 +1,6 @@
 ---
-title: Block access to Enterprise applications in the Azure portal that don't use modern authentication | Microsoft Docs
-description: Learn how to block access to Enterprise applications in the Azure portal that don't use modern authentication.
+title: Set up SharePoint Online and Exchange Online for Azure Active Directory conditional access | Microsoft Docs
+description: Learn how to set up SharePoint Online and Exchange Online for Azure Active Directory conditional access.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -19,51 +19,143 @@ ms.reviewer: calebb
 
 ---
 
-# Block access to Enterprise applications in the Azure portal that don't use modern authentication
+# Set up SharePoint Online and Exchange Online for Azure Active Directory conditional access 
 
-With [Azure Active Directory (Azure AD) conditional access](active-directory-conditional-access-azure-portal.md), you can control how authorized users can access your Enterprise applications. You can only use Azure AD conditional access for applications that use [modern authentication](https://support.office.com/article/Using-Office-365-modern-authentication-with-Office-clients-776c0036-66fd-41cb-8928-5495c0f9168a). 
+With [Azure Active Directory (Azure AD) conditional access](active-directory-conditional-access-azure-portal.md), you can control how users access your cloud apps. If you want to use conditional access to control access to SharePoint and Exchange online, you need to:
 
-This topic explains, how you can block access to applications that don't use modern authentication.   
+- Review whether your conditional access scenario is supported
+- Prevent client apps from bypassing the enforcement of your conditional access policies.   
+
+This article explains, how you can address both cases.
 
 
-## Control access in Office 365 SharePoint Online
+## What you need to know
 
-You can disable legacy protocols for SharePoint access by using the Set-SPOTenant cmdlet. Use this cmdlet to prevent Office clients that use non-modern authentication protocols from accessing SharePoint Online resources.
+You can use Azure AD conditional access to protect cloud apps when an authentication attempt comes from:
 
-**Example command**:
-    `Set-SPOTenant -LegacyAuthProtocolsEnabled $false`
+- A web browser
 
-## Control access in Office 365 Exchange Online
+- A client app that uses [modern authentication](https://support.office.com/article/Using-Office-365-modern-authentication-with-Office-clients-776c0036-66fd-41cb-8928-5495c0f9168a)
 
-Exchange supports two main categories of protocols. Review the following options, and then select the policy that is right for your organization.
+- Exchange ActiveSync 
 
-* **Exchange ActiveSync**. By default, conditional access policies for multi-factor authentication and location are not enforced for Exchange ActiveSync. You need to protect access to these services either by configuring Exchange ActiveSync policy directly, or by blocking Exchange ActiveSync by using Active Directory Federation Services (AD FS) rules.
-* **Legacy protocols**. You can block legacy protocols with AD FS. This blocks access to older Office clients, such as Office 2013 without modern authentication enabled, and earlier versions of Office.
+Some cloud apps also support legacy authentication protocols. This applies, for example, to SharePoint Online and Exchange Online. When a client app can use a legacy authentication protocol to access a cloud app, Azure AD cannot enforce a conditional access policy on this access attempt. To prevent a client app from bypassing the enforcement of policies, you should check whether it is possible to only enable modern authentication on the affected cloud apps. 
 
-### Use AD FS to block legacy protocol
-You can use the following example issuance authorization rules to block legacy protocol access at the AD FS level. Choose from two common configurations.
+Examples for client apps conditional access does not apply to are:
 
-#### Option 1: Allow Exchange ActiveSync, and allow legacy apps, but only on the intranet
-By applying the following three rules to the AD FS relying party trust for Microsoft Office 365 Identity Platform, Exchange ActiveSync traffic, and browser and modern authentication traffic, have access. Legacy apps are blocked from the extranet.
+- Office 2010 and earlier
 
-##### Rule 1
+- Office 2013 when modern authentication is not enabled
+
+
+
+ 
+## Control access to SharePoint Online
+
+In addition to modern authentication, SharePoint Online also supports legacy authentication protocols. If the legacy authentication protocols are enabled, your conditional access policies for SharePoint are not enforced for clients that don't use modern authentication.
+
+You can disable legacy authentication protocols for SharePoint access by using the **[Set-SPOTenant](https://technet.microsoft.com/library/fp161390.aspx)** cmdlet: 
+
+	Set-SPOTenant -LegacyAuthProtocolsEnabled $false
+
+## Control access to Exchange Online
+
+When you set up conditional access policies for Exchange Online, you need to review the following:
+
+- Exchange ActiveSync
+
+- Legacy authentication protocols
+
+
+
+### Exchange ActiveSync
+
+While Exchange Active Sync supports modern authentication, there are some limitations regarding the support for conditional access scenarios:
+
+- You can only configure the device platforms condition  
+
+    ![Device platforms](./media/active-directory-conditional-access-no-modern-authentication/05.png)
+
+- Setting the multi-factor authentication requirement is not supported  
+
+    ![Conditional access](./media/active-directory-conditional-access-no-modern-authentication/01.png)
+
+To effectively protect access to Exchange Online from Exchange ActiveSync, you can:
+
+- Configure a supported conditional access policy by following these steps:
+
+    a. Select just **Office 365 Exchange Online** as cloud app.  
+
+    ![Conditional access](./media/active-directory-conditional-access-no-modern-authentication/04.png)
+
+    b. Select **Exchange Active Sync** as **client app**, and then select **Apply policy only to supported platforms**.  
+
+    ![Device platforms](./media/active-directory-conditional-access-no-modern-authentication/03.png)
+
+- Block Exchange ActiveSync by using Active Directory Federation Services (AD FS) rules.
+
+        @RuleName = "Block Exchange ActiveSync"
+        c1:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application", Value == "Microsoft.Exchange.ActiveSync"]
+        => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "false");
+
+
+
+
+### Legacy authentication protocols
+
+In addition to modern authentication, Exchange Online also supports legacy authentication protocols. If legacy authentication protocols are enabled, your conditional access policies for Exchange Online are not enforced for clients that don't use modern authentication.
+
+You can disable legacy authentication protocols for Exchange Online by setting AD FS rules. This blocks access from:
+
+- Older Office clients, such as Office 2013 that don't have modern authentication enabled 
+
+- Earlier versions of Office
+
+
+## Set up AD FS rules
+
+You can use the following issuance authorization rules to enable or block traffic at the AD FS level. 
+
+### Block legacy traffic from the extranet
+
+By applying the following three rules: 
+
+- You enable access for:
+    - Exchange ActiveSync traffic
+    - Browser traffic
+    - Modern authentication traffic
+- You block access for: 
+    - Legacy client apps from the extranet
+
+**Rule 1:**
+
     @RuleName = "Allow all intranet traffic"
     c1:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "true"]
     => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 
-##### Rule 2
+**Rule 2:**
+
     @RuleName = "Allow Exchange ActiveSync"
     c1:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application", Value == "Microsoft.Exchange.ActiveSync"]
     => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 
-##### Rule 3
+**Rule 3:**
+
     @RuleName = "Allow extranet browser and browser dialog traffic"
     c1:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] &&
     c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value =~ "(/adfs/ls)|(/adfs/oauth2)"]
     => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 
-#### Option 2: Allow Exchange ActiveSync, and block legacy apps
-By applying the following three rules to the AD FS relying party trust for Microsoft Office 365 Identity Platform, Exchange ActiveSync traffic, and browser and modern authentication traffic, have access. Legacy apps are blocked from any location.
+### Block legacy traffic from anywhere
+
+By applying the following three rules:
+
+- You enable access for: 
+    - Exchange ActiveSync traffic
+    - Browser traffic
+    - Modern authentication traffic
+- You block access for: 
+    - Legacy apps from any location
 
 ##### Rule 1
     @RuleName = "Allow all intranet traffic only for browser and modern authentication clients"

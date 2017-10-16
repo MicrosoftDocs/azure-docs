@@ -5,19 +5,20 @@
 ## [Quickstart for PowerShell](quickstart-powershell.md)
 
 # Concepts
-## [Features & Tools in Bash](features.md)
-## [Features & Tools in PowerShell](features-powershell.md)
+## [Features & tools in Bash](features.md)
+## [Features & tools in PowerShell](features-powershell.md)
 ## [Limitations](limitations.md)
 ## [Troubleshooting](troubleshooting.md)
 
 # How-to
-## [Persisting Storage](persisting-shell-storage.md)
-## [Using the Window](using-the-shell-window.md)
+## [Persisting storage in Bash](persisting-shell-storage.md)
+## [Persisting storage in PowerShell](persisting-shell-storage-powershell.md)
+## [Using the window](using-the-shell-window.md)
 
 # [Pricing](pricing.md)
 
 # Reference
-## [Azure CLI 2.0](/cli/azure)
+## [Azure CLI](/cli/azure)
 ## [Azure PowerShell](/powershell/azure)
 
 # Resources

@@ -22,7 +22,7 @@ This capability is useful for content stores that collect arbitrary text, where 
 
 You must have JSON documents in this format: id, text
 
-Document size must be under 10 KB per document, and you can have up to 1,000 items (IDs) per collection. The collection is submitted in the body of the request. The following is an example of content you might submit for language detection.
+Document size must be under 5,000 characters per document, and you can have up to 1,000 items (IDs) per collection. The collection is submitted in the body of the request. The following is an example of content you might submit for language detection.
 
    ```
     {

@@ -1,7 +1,7 @@
 ---
 title: Azure Cloud Shell (Preview) troubleshooting | Microsoft Docs
-description: Troubleshooting of Azure Cloud Shell
-services: 
+description: Troubleshooting Azure Cloud Shell
+services: azure
 documentationcenter: ''
 author: maertendMSFT
 manager: angelc
@@ -13,38 +13,52 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2017
-ms.author: maertendMSFT
+ms.date: 10/2/2017
+ms.author: damaerte
 ---
 
 # Troubleshooting Azure Cloud Shell
-Known resolutions for issues in Azure Cloud Shell:
+Known resolutions for issues in Azure Cloud Shell include:
 
-## An error about [MissingSubscriptionRegistration](media/troubleshooting/storageRP-error.jpg) occurs during persistent storage creation
-  - **Details**: The selected subscription does not have Storage RP registered.
-  - **Resolution**: [Register your Storage resource provider](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-common-deployment-errors#noregisteredproviderfound)
+## Error: 400 DisallowedOperation
+ - **Details**: When using an Azure Active Directory subscription, you cannot create storage.
+ - **Resolution**: Use an Azure subscription capable of creating storage resources. Azure AD subscriptions are not able to create Azure resources.
 
-## [TODO]
-When using an Azure Active Directory subscription, I cannot create storage due to Error: 400 DisallowedOperation. To resolve this, please use an Azure subscription capable of creating storage resources. AD subscriptions are not able to create Azure resources.
-
-
-## PowerShell Resolutions
+## PowerShell resolutions
 
 ### No $Home directory persistence
   - **Details**: Any application (such as: git, vim, and others) that writes data to $Home will not be persisted across PowerShell sessions.
-  - **Resolution**: In your PowerShell profile, create a symbolic link to application specific folder in `clouddrive` to $Home
-  [TODO] Add an example
+  - **Resolution**: In your PowerShell profile, create a symbolic link to application specific folder in `clouddrive` to $Home.
 
 ### Ctrl+C doesn't exit out of a Cmdlet prompt
-
-[TODO] from an issue
+ - **Details**: When attemtping to exit a Cmdlet prompt, `Ctrl+C` does not exit the prompt.
+ - **Resolution**: To exit the prompt, press `Ctrl+C` then `Enter`.
 
 ### GUI applications are not supported
-  - **Details**: If a user tries to launch a GUI app (for example, git clone a 2FA enabled private repo. It pops up a 2FA authentication dialog box), the prompt does not return.
+  - **Details**: If a user launches a GUI app, the prompt does not return.  For example, when a user uses `git` to close a private repo that is two factor authentication enabled, a dialog box is displayed for the two factor authentication code.
   - **Resolution**: `Ctrl+C` to exit the command.
 
 ### Get-Help -online does not open the help page
- - **Details**: If a user types `Get-Help Find-Module -online`, one sees an error message such as:\
+ - **Details**: If a user types `Get-Help Find-Module -online`, one sees an error message such as:
  `Starting a browser to display online Help failed. No program or browser is associated to open the URI http://go.microsoft.com/fwlink/?LinkID=398574.`
  - **Resolution**: Copy the url and open it manually on your browser.
  
+### Troubleshooting remote management of Azure VMs
+ - **Details**: Due to the default Windows Firewall settings for WinRM the user may see the following error:
+ `Ensure the WinRM service is running. Remote Desktop into the VM for the first time and ensure it can be discovered.`
+ - **Resolution**:  Make sure your VM is running. You can run `Get-AzureRmVM -Status` to find out the VM Status.  Next, add a new firewall rule on the remote VM to allow WinRM connections from any subnet, for example,
+
+ ``` Powershell
+ New-NetFirewallRule -Name 'WINRM-HTTP-In-TCP-PSCloudShell' -Group 'Windows Remote Management' -Enabled True -Protocol TCP -LocalPort 5985 -Direction Inbound -Action Allow -DisplayName 'Windows Remote Management - PSCloud (HTTP-In)' -Profile Public
+ ```
+ You can use [Azure custom script extension][customex] to avoid logon to your remote VM for adding the new firewall rule.
+ You can save the above script to a file, say `addfirerule.ps1`, and upload it to your Azure storage container.
+ Then try the following command:
+
+ ``` Powershell
+ Get-AzureRmVM -Name MyVM1 -ResourceGroupName MyResourceGroup | Set-AzureRmVMCustomScriptExtension -VMName MyVM1 -FileUri https://mystorageaccount.blob.core.windows.net/mycontainer/addfirerule.ps1 -Run 'addfirerule.ps1' -Name myextension
+ ```
+
+ ### `dir` caches the result in Azure drive
+ - **Details**: The result of `dir` is cached in Azure drive.
+ - **Resolution**: After you create or remove a resource in the Azure drive view, run `dir -force` to update.

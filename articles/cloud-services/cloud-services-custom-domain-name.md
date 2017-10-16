@@ -38,7 +38,7 @@ Do you already understand what CNAME and A records are? [Jump past the explanati
 <p/>
 
 > [!NOTE]
-> The procedures in this task apply to Azure Cloud Services. For App Services, see [this](../app-service-web/web-sites-custom-domain-name.md). For storage accounts, see [this](../storage/blobs/storage-custom-domain-name.md).
+> The procedures in this task apply to Azure Cloud Services. For App Services, see [this](../app-service/app-service-web-tutorial-custom-domain.md). For storage accounts, see [this](../storage/blobs/storage-custom-domain-name.md).
 > 
 > 
 

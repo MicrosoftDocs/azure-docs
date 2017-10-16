@@ -73,6 +73,7 @@ Currently, the following Azure services have built-in handler support for Event 
 * Logic Apps
 * Azure Automation
 * WebHooks
+* Microsoft Flow
 
 Other Azure services will be added this year.
 
