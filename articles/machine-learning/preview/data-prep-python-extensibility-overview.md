@@ -309,7 +309,7 @@ def transform(df, index):
 
 ## DataPrepError  
 ### Error values  
-In Data Preparation, the concept of Error values exists. Their creation and reason for existence is covered here <link to error values doc>. 
+In Data Preparation, the concept of Error values exists. 
 
 It's possible to encounter Error values in custom Python code. They are instances of a Python class called `DataPrepError`. This class wraps a Python exception and has a couple of properties. The properties contain information about the error that occurred when the original value was processed, as well as the original value. 
 
