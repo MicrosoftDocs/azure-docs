@@ -6945,6 +6945,11 @@
             "redirect_url": "/azure/service-fabric/service-fabric-testability-overview",
             "redirect_document_id": false
         },
+		{
+            "source_path": "articles/site-recovery/site-recovery-failback-azure-to-vmware.md",
+            "redirect_url": "site-recovery-how-to-failback-azure-to-vmware",
+            "redirect_document_id": false
+        },
         {
             "source_path": "articles/site-recovery/site-recovery-architecture-vmware-to-azure.md",
             "redirect_url": "vmware-walkthrough-architecture",
