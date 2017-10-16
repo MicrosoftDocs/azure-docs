@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2017
+ms.date: 10/16/2017
 ms.author: jeedes
 
 ---
@@ -150,7 +150,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	a. In the **How would you like to configure your SAML IDP?**, Select **Automatic** from the dropdown.
 
-	b. Paste the **Metadata URL** which you have generated in the prvious steps into the  **Metadata URL** textbox.
+	b. Paste the **Metadata URL**, which you have generated in the previous steps into the  **Metadata URL** textbox.
 
 	c. Click **Save**.
 
@@ -174,7 +174,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	c. In the Azure portal, on the **Configure single sign-on at GoToMeeting** dialog page, copy the **SAML Entity ID** value, and then paste it into the **Identity Provider Entity ID** textbox.
 
-	d. Extract the certificate from the downloaded metadata file. to upload extracted certificate click **Upload certificate**.
+	d. Extract the X509Certificate from the downloaded metadata file and upload this certificate by clicking on **Upload certificate**.
 
 	e. Click **Save**.
 
