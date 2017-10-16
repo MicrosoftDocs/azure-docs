@@ -1,5 +1,5 @@
 - name: Azure Storage Documentation
-  href: ../index.yml
+  href: /storage/
 - name: Overview
   items:
   - name: Introduction
