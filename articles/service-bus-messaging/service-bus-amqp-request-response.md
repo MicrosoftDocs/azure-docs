@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/27/2017
+ms.date: 10/16/2017
 ms.author: sethm
 
 ---
@@ -28,7 +28,7 @@ For a detailed wire-level AMQP 1.0 protocol guide, which explains how Service Bu
   
 ### Entity description  
 
-An entity description refers to either a Service Bus [QueueDescription Class](/dotnet/api/microsoft.servicebus.messaging.queuedescription), [TopicDescription Class](/dotnet/api/microsoft.servicebus.messaging.topicdescription), or [SubscriptionDescription Class](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) object.  
+An entity description refers to either a Service Bus [QueueDescription class](/dotnet/api/microsoft.servicebus.messaging.queuedescription), [TopicDescription class](/dotnet/api/microsoft.servicebus.messaging.topicdescription), or [SubscriptionDescription class](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) object.  
   
 ### Brokered message  
 
@@ -620,5 +620,5 @@ To learn more about AMQP and Service Bus, visit the following links:
 * [AMQP in Service Bus for Windows Server]
 
 [Service Bus AMQP overview]: service-bus-amqp-overview.md
-[AMQP 1.0 support for Service Bus partitioned queues and topics]: service-bus-partitioned-queues-and-topics-amqp-overview.md
+[AMQP 1.0 protocol guide]: service-bus-amqp-protocol-guide.md
 [AMQP in Service Bus for Windows Server]: https://msdn.microsoft.com/library/dn574799.asp
