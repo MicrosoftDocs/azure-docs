@@ -14,7 +14,7 @@ ms.custom: mvc
 
 # Search unstructured data in cloud storage
 
-In this tutorial, you learn how to search unstructured data using Azure search using data stored in Azure blobs. Unstructured data is data that either is not organized in a pre-defined manner or does not have a data model. An example would be a .txt file.
+In this tutorial, you learn how to search unstructured data using [Azure Search](../../search/search-what-is-azure-search.md) using data stored in Azure blobs. Unstructured data is data that either is not organized in a pre-defined manner or does not have a data model. An example would be a .txt file.
 
 In this tutorial you learn how to:
 
@@ -239,7 +239,7 @@ You have now completed this tutorial and have a searchable set of unstructured d
 
 ## Next steps
 
-In this tutorial, you learned about searching unstructured data using Azure search, such as how to:
+In this tutorial, you learned about searching unstructured data using Azure Search, such as how to:
 
 > [!div class="checklist"]
 > * Create a resource group
@@ -252,4 +252,4 @@ In this tutorial, you learned about searching unstructured data using Azure sear
 Follow this link to learn more about search.
 
 > [!div class="nextstepaction"]
-> [What is Azure Search](../../search/search-what-is-azure-search.md)
+> [What is Azure Search](../../search/search-howto-indexing-azure-blob-storage.md)
