@@ -25,15 +25,15 @@ you can automate workflows and business processes with
 [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md). 
 This quickstart introduces how easily you can build 
 and run an automated workflow by creating a logic app. 
-The example app shows how to create a workflow that 
-can automatically check a website RSS feed for new items 
-and send email for each item.
+The example app shows how to automate a workflow that 
+checks a website RSS feed for new items 
+and sends email for each item.
 
-The finished logic app sends an email like this example:
+This sample logic app sends an email like this example:
 
 ![Email sent for new RSS feed item](./media/logic-apps-create-a-logic-app/rss-feed-email.png)
 
-And here is the high-level logic app that you build in this quickstart:
+And here is the high-level logic app workflow that you build:
 
 ![Overview - logic app example](./media/logic-apps-create-a-logic-app/logic-app-simple-overview.png)
 
