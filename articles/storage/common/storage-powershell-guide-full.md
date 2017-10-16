@@ -226,8 +226,6 @@ To access the Government cloud of the China datacenters, you have to use some sp
 
 ## Next Steps
 
-In this how-to article, you leaned about basic storage account management with PowerShell, including hot to: 
-
 This how-to article covers common operations using the management plane cmdlets to manage storage accounts. You learn how to: 
 
 > [!div class="checklist"]
