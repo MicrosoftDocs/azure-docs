@@ -148,11 +148,12 @@ This example checks the feed every five minutes.
    ![Save your logic app](./media/logic-apps-create-a-logic-app/save-logic-app.png)
 
    Your logic app is now live but doesn't do anything other than 
-   check the RSS feed. So, let's add actions to the workflow.
+   check the RSS feed. So, let's add an action that responds when the trigger fires.
 
 ## Add an action to send email
 
-Now add an [action](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts) 
+Now that you have a trigger, add an 
+[action](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts) 
 that sends email when a new item appears in the RSS feed. 
 Your workflow performs this action after the trigger fires.
 
