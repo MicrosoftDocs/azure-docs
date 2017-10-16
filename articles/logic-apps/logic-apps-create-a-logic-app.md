@@ -43,7 +43,7 @@ In this quickstart, you learn how to:
 > * Create a blank logic app.
 > * Add a trigger to start the workflow when a new item appears in the RSS feed.
 > * Add an action to send email with details about the RSS feed item.
-> * Test your logic app.
+> * Run your logic app workflow.
 
 If you don't have an Azure subscription, 
 [sign up for a free Azure account](https://azure.microsoft.com/free/) before you begin.
