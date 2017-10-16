@@ -1,5 +1,23 @@
-## Integrating your ILB ASE with an Application Gateway ##
+---
+title: Integrating your ILB ASE with an Azure Application Gateway
+description: Walkthrough on how to integrate an app in your ILB ASE with your Azure Application Gateway
+services: app-service
+documentationcenter: na
+author: ccompy
+manager: stefsch
 
+ms.assetid: a6a74f17-bb57-40dd-8113-a20b50ba3050
+ms.service: app-service
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/17/2017
+ms.author: ccompy
+---
+# Integrating your ILB ASE with an Application Gateway #
+
+## Introduction ##
 The [Azure App Service Environment(ASE)](./intro.md) is a deployment of the Azure App Service in the subnet of a customer's Azure Virtual Network. It can be deployed with a public or private endpoint for app access. The Azure Application Gateway is a virtual appliance that provides layer 7 load balancing, SSL offloading and WAF protection. It can listen on a public IP address and route traffic to your application endpoint. The following information describes how to integrate a WAF configured Application Gateway with an app on an ILB ASE.  
 
 The integration of the Application Gateway with the ILB ASE is at an app level.  That is to say that when you configure the two together you are doing it for specific apps in your ILB ASE and not for all of the apps in your ILB ASE. This is important because it means that you can expose just what you want in your ILB ASE while keeping the rest secure. Among other use cases, this enables hosting secure multi-tenant applications in a single ILB ASE. A multi-tier application on an ILB ASE with an Application Gateway will logically look like this diagram. 
@@ -21,6 +39,8 @@ For details on how to create an ILB ASE please read the document [Creating and u
 
 This guide assumes you want an Application Gateway in the same Azure Virtual Network that the ASE is deployed into. Before starting the Application Gateway creation, note the subnet that you will use to host the Application Gateway. Pick a subnet that is not the GatewaySubnet or the subnet used by the ILB ASE.
 If you put the Application Gateway in the GatewaySubnet then you will be unable to create a Virtual Network gateway later. You also cannot put it into the subnet used by your ILB ASE. 
+
+## Steps to configure ##
 
 1. From within the Azure portal go to **New > Network > Application Gateway** 
 	a. Provide:
@@ -65,12 +85,7 @@ If you put the Application Gateway in the GatewaySubnet then you will be unable 
 
 There is information on setting custom domain names for your web apps here [customdomain]. The big difference though with an app in an ILB ASE is that there isn't any validation on the domain name.  Since you own the DNS that manages the app endpoints you can put whatever you want in there so there isn't validation that you own the DNS name in the public DNS.  but then you need to set that DNS name up with your app.  
 
-
-<!-- LINKS -->
-[appgw] http://docs.microsoft.com/azure/application-gateway/application-gateway-introduction
-[customdomain] ../app-service-web-tutorial-custom-domain.md
-
-<!-- IMAGES -->
+<!--IMAGES-->
 [1]: ./media/integrate-with-application-gateway/appgw-highlevel.png
 [2]: ./media/integrate-with-application-gateway/appgw-createbasics.png
 [3]: ./media/integrate-with-application-gateway/appgw-createsettings.png
@@ -80,3 +95,7 @@ There is information on setting custom domain names for your web apps here [cust
 [7]: ./media/integrate-with-application-gateway/appgw-publicip.png
 [8]: ./media/integrate-with-application-gateway/appgw-customdomainname.png
 [9]: ./media/integrate-with-application-gateway/appgw-iplist.png
+
+<!--LINKS-->
+[appgw]: http://docs.microsoft.com/azure/application-gateway/application-gateway-introduction
+[customdomain]: ../app-service-web-tutorial-custom-domain.md
