@@ -21,7 +21,7 @@ ms.author: sngun
 
 ## Prerequisites 
 
-* **You must subscribe to an offer that includes the Azure Key Vault service.**  
+* You must subscribe to an offer that includes the Azure Key Vault service.  
 * [PowerShell is configured for use with Azure Stack](azure-stack-powershell-configure-user.md).
  
 ## Key Vault basics
