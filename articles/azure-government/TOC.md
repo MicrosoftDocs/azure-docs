@@ -19,6 +19,7 @@
 ## [Web App Quickstart](documentation-government-howto-deploy-webandmobile.md)
 ## [Functions Quickstart](documentation-government-functions.md)
 ## [Cognitive Services Quickstart](documentation-government-cognitiveservices.md)
+## [Virtual Machines Quickstart](documentation-government-quickstarts-vm.md) 
 
 # How To
 ## Plan
