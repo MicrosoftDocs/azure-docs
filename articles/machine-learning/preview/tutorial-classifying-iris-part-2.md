@@ -33,6 +33,10 @@ This tutorial uses the timeless [Iris flower dataset](https://en.wikipedia.org/w
 ## Prerequisites
 You should complete the first part of this tutorial series. Follow the [Prepare data tutorial](tutorial-classifying-iris-part-1.md) to create Azure Machine Learning resources and install the Azure Machine Learning Workbench application prior to beginning the steps in this tutorial.
 
+Optionally, you can experiment with running scripts against a local Docker container. To do so, you will need a Docker engine (Community Edition is sufficient) installed and started locally on your Windows or macOS machine. Read more about [Docker installation instruction](https://docs.docker.com/engine/installation/).
+
+If you want to experiment with dispatching script to run in a Docker container in a remote Azure VM, or an HDInsight Spark cluster, you can follow [instructions to create an Ubuntu-based Azure Data Science Virtual Machine, or HDI Cluster](how-to-create-dsvm-hdi.md).
+
 ## Review iris_sklearn.py and configuration files
 1. Launch the **Azure Machine Learning Workbench** application, and open the **myIris** project you created in the previous part of the tutorial series.
 
@@ -50,7 +54,7 @@ You should complete the first part of this tutorial series. Follow the [Prepare 
    - Loads the data prep package **iris.dprep** to create a [pandas DataFrame](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html). 
 
         >[!NOTE]
-        >We are using the `iris.dprep` data prep package that comes with the sample project, which should be the same as teh `iris-1.dprep` file you built in part 1 of this tutorial.
+        >We are using the `iris.dprep` data prep package that comes with the sample project, which should be the same as the `iris-1.dprep` file you built in part 1 of this tutorial.
 
    - Adds random features to make the problem more difficult to solve. (Randomness is necessary because Iris is a small dataset that can be easily classified with near 100% accuracy.)
 

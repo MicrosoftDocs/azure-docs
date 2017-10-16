@@ -4,7 +4,7 @@ title: Azure Stack User Documentation
 metadata:
   document_id: cbf798da-6f1a-7d4d-7707-5d5e02589e22
   title: Azure Stack Documentation - Tutorials, API Reference
-  description: Learn how to use Azure Stack preview to deliver Azure services from your datacenter. Learn and demonstrate features from a proof of concept environment.
+  description: Learn how to use Azure Stack services and how to build apps for Azure Stack.
   services: azure-stack
   author: carolz
   manager: carolz
@@ -12,12 +12,12 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 09/23/2017
+  ms.date: 10/02/2017
   ms.author: carolz
 abstract:
-  description: Azure Stack is a hybrid cloud platform that lets you use Azure services from your company's or service provider's datacenter. As a developer, you can build apps on Azure Stack. You can then deploy them to Azure Stack, to Azure, or you can build truly hybrid apps that leverage the connectivity between an Azure Stack cloud and Azure.  Learn how to create resources and deploy apps with our quickstarts and tutorials.
+  description: Azure Stack is a hybrid cloud platform that lets you use Azure services from your company's or service provider's datacenter. As a developer, you can build apps on Azure Stack. You can then deploy them to Azure Stack, to Azure, or you can build truly hybrid apps that leverage the connectivity between an Azure Stack cloud and Azure. Learn how to create resources and deploy apps with our quickstarts and tutorials.<br/><br/>If you're an Azure Stack operator who manages the infrastructure and offers services, see our <a href="/azure/azure-stack/">operator documentation</a>.
 sections:
-- title: Quickstart
+- title: 5-Minute Quickstarts
   items:
   - type: paragraph
     text: 'Learn how to deploy a Windows virtual machine on Azure Stack:'
@@ -53,10 +53,10 @@ sections:
         src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/cli.svg
       text: CLI
       href: azure-stack-quick-create-vm-linux-cli.md
-- title: Step-by-step tutorials
+- title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: 'Deploy applications across both Azure and Azure Stack:'
+    text: 'Deploy applications across both Azure and Azure Stack.'
   - type: list
     style: ordered
     items:
@@ -68,4 +68,4 @@ sections:
     className: cardsD
     items:
     - title: Command-Line
-      html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.9">Azure Stack PowerShell</a></p>
+      html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.10">Azure Stack PowerShell</a></p><p><a href="/cli/azure/?view=azure-cli-2017-03-09-profile">Azure Stack CLI</a></p>
