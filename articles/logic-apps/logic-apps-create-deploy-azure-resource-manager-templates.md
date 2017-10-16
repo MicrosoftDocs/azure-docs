@@ -27,28 +27,14 @@ customize the template to meet your requirements. Learn more about the
 [Resource Manager template for logic apps](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json) 
 and [Azure Resource Manager template structure and syntax](../azure-resource-manager/resource-group-authoring-templates.md).
 
-## Define the parameters
+## Define the logic app
 
-[!INCLUDE [app-service-logic-deploy-parameters](../../includes/app-service-logic-deploy-parameters.md)]
-
-This template uses parameter values for the logic app name (```logicAppName```) 
+The template uses parameter values for the logic app name (```logicAppName```) 
 and a location to ping for testing (```testUri```). The template also sets 
 the location for the logic app to the same location as the Azure resource group. 
 
-Here are the parameters in the template:
-
-| Parameter | Description | JSON definition example | 
-| --------- | ----------- | ----------------------- | 
-| `logicAppName` | Defines the name of the logic app that template creates. | "logicAppName": { "type": "string", "metadata": { "description": "myExampleLogicAppName" } } |
-| `testUri` | Defines the location to ping for testing. | "testUri": { "type": "string", "defaultValue": "http://azure.microsoft.com/en-us/status/feed/"} | 
-||||
-
-## Define the logic app resource
-
 This example logic app definition runs once an hour, 
-and pings the location specified in the `testUri` parameter. 
-Learn more about [REST API for Logic Apps Workflow definition and properties](https://docs.microsoft.com/rest/api/logic/workflows) 
-and [building on logic app definitions with JSON](logic-apps-author-definitions.md).
+and pings the location specified in the `testUri` parameter.
 
 ``` json
 {
@@ -94,6 +80,21 @@ and [building on logic app definitions with JSON](logic-apps-author-definitions.
     }
 }
 ``` 
+
+### Define parameters
+
+[!INCLUDE [app-service-logic-deploy-parameters](../../includes/app-service-logic-deploy-parameters.md)]
+
+Here are descriptions for the parameters in the template:
+
+| Parameter | Description | JSON definition example | 
+| --------- | ----------- | ----------------------- | 
+| `logicAppName` | Defines the name of the logic app that template creates. | "logicAppName": { "type": "string", "metadata": { "description": "myExampleLogicAppName" } } |
+| `testUri` | Defines the location to ping for testing. | "testUri": { "type": "string", "defaultValue": "http://azure.microsoft.com/en-us/status/feed/"} | 
+||||
+
+Learn more about [REST API for Logic Apps Workflow definition and properties](https://docs.microsoft.com/rest/api/logic/workflows) 
+and [building on logic app definitions with JSON](logic-apps-author-definitions.md).
 
 ## Deploy logic apps automatically
 
