@@ -69,12 +69,12 @@ In your Data Lake Store, create a new folder and grant your VM MSI permission to
 1.  In the Azure portal, click **Data Lake Store** in the left-hand navigation.
 2.  Click the Data Lake Store you want to use for this tutorial.
 3.  Click **Data Explorer** in the command bar.
-4.  The root folder of the Data Lake Store will be selected.  Click **Access** in the command bar.
+4.  The root folder of the Data Lake Store is selected.  Click **Access** in the command bar.
 5.  Click **Add**.  In the **Select** field, enter the name of your VM, for example **DevTestVM**.  Click to select your VM from the search results, then click **Select**.
 6.  Click **Select Permissions**.  Select **Read** and **Execute**, add to **This folder**, and add as **An access permission only**.  Click **Ok**.  The permission should be added successfully.
 7.  Close the **Access** blade.
 8.  For this tutorial, create a new folder.  Click **New Folder** in the command bar, and give the new folder a name, for example **TestFolder**.  Click **Ok**.
-9.  Click on the folder you just created, then click **Access** in the command bar.
+9.  Click on the folder you created, then click **Access** in the command bar.
 10.  Similar to step 5, click **Add**, in the **Select** field enter the name of your VM, select it and click **Select**.
 11.  Similar to step 6, click **Select Permissions**, select **Read**, **Write**, and **Execute**, add to **This folder**, and add as **An access permission entry and a default permission entry**.  Click **Ok**.  The permission should be added successfully.
 
@@ -82,12 +82,12 @@ Your VM MSI can now perform all operations on files in the folder you created.  
 
 ## Get an access token using the VM MSI and use it to call the Azure Data Lake Store filesystem
 
-Azure Data Lake Store natively supports Azure AD authentication, so it can directly accept access tokens obtained using MSI.  To authenticate to the Data Lake Store filesystem you send an access token issued by Azure AD to your Data Lake Store filesystem endpoint, in an Authorization header in the format "Bearer <ACCESS-TOKEN-VALUE>".  To learn more about Data Lake Store support for Azure AD authenication, read [Authentication with Data Lake Store using Azure Active Directory](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory)
+Azure Data Lake Store natively supports Azure AD authentication, so it can directly accept access tokens obtained using MSI.  To authenticate to the Data Lake Store filesystem you send an access token issued by Azure AD to your Data Lake Store filesystem endpoint, in an Authorization header in the format "Bearer <ACCESS-TOKEN-VALUE>".  To learn more about Data Lake Store support for Azure AD authentication, read [Authentication with Data Lake Store using Azure Active Directory](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory)
 
 > [!NOTE]
 > The Data Lake Store filesystem client SDKs do not yet support Managed Service Identity.  This tutorial will be updated when support is added to the SDK.
 
-In this tutorial you will authenticate to the Data Lake Store filesystem REST API using PowerShell to make REST requests.
+In this tutorial, you authenticate to the Data Lake Store filesystem REST API using PowerShell to make REST requests.
 
 1.	In the portal, navigate to **Virtual Machines**, go to your Windows VM, and in the **Overview** click **Connect**.
 2.	Enter in your **Username** and **Password** for which you added when you created the Windows VM. 
@@ -116,7 +116,7 @@ In this tutorial you will authenticate to the Data Lake Store filesystem REST AP
       Invoke-WebRequest -Uri https://<YOUR-ADLS-NAME>.azuredatalakestore.net/webhdfs/v1/?op=LISTSTATUS -Headers @{Authorization="Bearer $AccessToken"}
    ```
    
-   A successful response will look like this:
+   A successful response looks like:
 
    ```powershell
       StatusCode        : 200
@@ -146,13 +146,13 @@ In this tutorial you will authenticate to the Data Lake Store filesystem REST AP
        echo "Test file." > Test1.txt
     ```
 
-7.  Using PowerShell's `Invoke-WebRequest`, make a request to your Data Lake Store's REST endpoint to upload the file to the folder you created earlier.  This request will take two steps.  In the first step, you make a request and get a redirection to where the file should be uploaded.  In the second step, you actually upload the file.  Remember to set the name of the folder and file appropriately if you used different values than in this tutorial. 
+7.  Using PowerShell's `Invoke-WebRequest`, make a request to your Data Lake Store's REST endpoint to upload the file to the folder you created earlier.  This request takes two steps.  In the first step, you make a request and get a redirection to where the file should be uploaded.  In the second step, you actually upload the file.  Remember to set the name of the folder and file appropriately if you used different values than in this tutorial. 
 
     ```powershell
        $HdfsRedirectResponse = Invoke-WebRequest -Uri https://<YOUR-ADLS-NAME>.azuredatalakestore.net/webhdfs/v1/TestFolder/Test1.txt?op=CREATE -Method PUT -Headers @{Authorization="Bearer $AccessToken"} -Infile Test1.txt -MaximumRedirection 0
     ```
 
-    If you inspect the value of `$HdfsRedirectResponse` it should look like this:
+    If you inspect the value of `$HdfsRedirectResponse` it should look like the following response:
 
     ```powershell
        PS C:\> $HdfsRedirectResponse
@@ -178,7 +178,7 @@ In this tutorial you will authenticate to the Data Lake Store filesystem REST AP
        Invoke-WebRequest -Uri $HdfsRedirectResponse.Headers.Location -Method PUT -Headers @{Authorization="Bearer $AccessToken"} -Infile Test1.txt -MaximumRedirection 0
     ```
 
-    A successful response will look like this:
+    A successful response look like:
 
     ```powershell
        StatusCode        : 201
@@ -206,7 +206,7 @@ Congratulations!  You've authenticated to the Data Lake Store filesystem using a
 - For an overview of MSI, see [Managed Service Identity overview](../active-directory/msi-overview.md).
 - For management operations Data Lake Store uses Azure Resource Manager.  For more information on using a VM MSI to authenticate to Resource Manager, read [Use a Linux VM Managed Service Identity (MSI) to access Resource Manager](https://docs.microsoft.com/azure/active-directory/msi-tutorial-linux-vm-access-arm).
 - Learn more about [Authentication with Data Lake Store using Azure Active Directory](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory).
-- Learn more about [Filesystem operations on Azure Data Lake Store using REST API](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-data-operations-rest-api) or the or [WebHDFS FileSystem APIs](https://docs.microsoft.com/rest/api/datalakestore/webhdfs-filesystem-apis).
+- Learn more about [Filesystem operations on Azure Data Lake Store using REST API](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-data-operations-rest-api) or the [WebHDFS FileSystem APIs](https://docs.microsoft.com/rest/api/datalakestore/webhdfs-filesystem-apis).
 - Learn more about [Access Control in Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-access-control).
 
 Use the following comments section to provide feedback and help us refine and shape our content.

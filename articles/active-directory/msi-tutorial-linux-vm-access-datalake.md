@@ -39,7 +39,7 @@ For this tutorial, we create a new Linux VM. You can also enable MSI on an exist
 
 1. Click the **New** button found on the upper left-hand corner of the Azure portal.
 2. Select **Compute**, and then select **Ubuntu Server 16.04 LTS**.
-3. Enter the virtual machine information. For **Authentication type**, select **SSH public key** or **Password**. The created credentials will allow you to login to the VM.
+3. Enter the virtual machine information. For **Authentication type**, select **SSH public key** or **Password**. The created credentials allow you to log in to the VM.
 
     ![Alt image text](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
@@ -53,12 +53,12 @@ A Virtual Machine MSI enables you to get access tokens from Azure AD without you
 
 1. Select the **Virtual Machine** that you want to enable MSI on.
 2. On the left navigation bar click **Configuration**.
-3. You will see **Managed Service Identity**. To register and enable the MSI, select **Yes**, if you wish to disable it, choose No.
+3. You see **Managed Service Identity**. To register and enable the MSI, select **Yes**, if you wish to disable it, choose No.
 4. Ensure you click **Save** to save the configuration.
 
     ![Alt image text](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
-5. If you wish to check which extensions are on this **Linux VM**, click **Extensions**. If MSI is enabled, the **ManagedIdentityExtensionforLinux** will appear on the list.
+5. If you wish to check which extensions are on this **Linux VM**, click **Extensions**. If MSI is enabled, the **ManagedIdentityExtensionforLinux** appears on the list.
 
     ![Alt image text](media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
 
@@ -71,12 +71,12 @@ In your Data Lake Store, create a new folder and grant your VM MSI permission to
 1.  In the Azure portal, click **Data Lake Store** in the left-hand navigation.
 2.  Click the Data Lake Store you want to use for this tutorial.
 3.  Click **Data Explorer** in the command bar.
-4.  The root folder of the Data Lake Store will be selected.  Click **Access** in the command bar.
+4.  The root folder of the Data Lake Store is selected.  Click **Access** in the command bar.
 5.  Click **Add**.  In the **Select** field, enter the name of your VM, for example **DevTestVM**.  Click to select your VM from the search results, then click **Select**.
 6.  Click **Select Permissions**.  Select **Read** and **Execute**, add to **This folder**, and add as **An access permission only**.  Click **Ok**.  The permission should be added successfully.
 7.  Close the **Access** blade.
 8.  For this tutorial, create a new folder.  Click **New Folder** in the command bar, and give the new folder a name, for example **TestFolder**.  Click **Ok**.
-9.  Click on the folder you just created, then click **Access** in the command bar.
+9.  Click on the folder you created, then click **Access** in the command bar.
 10.  Similar to step 5, click **Add**, in the **Select** field enter the name of your VM, select it and click **Select**.
 11.  Similar to step 6, click **Select Permissions**, select **Read**, **Write**, and **Execute**, add to **This folder**, and add as **An access permission entry and a default permission entry**.  Click **Ok**.  The permission should be added successfully.
 
@@ -84,24 +84,24 @@ Your VM MSI can now perform all operations on files in the folder you created.  
 
 ## Get an access token using the VM MSI and use it to call the Azure Data Lake Store filesystem
 
-Azure Data Lake Store natively supports Azure AD authentication, so it can directly accept access tokens obtained using MSI.  To authenticate to the Data Lake Store filesystem you send an access token issued by Azure AD to your Data Lake Store filesystem endpoint, in an Authorization header in the format "Bearer <ACCESS-TOKEN-VALUE>".  To learn more about Data Lake Store support for Azure AD authenication, read [Authentication with Data Lake Store using Azure Active Directory](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory)
+Azure Data Lake Store natively supports Azure AD authentication, so it can directly accept access tokens obtained using MSI.  To authenticate to the Data Lake Store filesystem you send an access token issued by Azure AD to your Data Lake Store filesystem endpoint, in an Authorization header in the format "Bearer <ACCESS-TOKEN-VALUE>".  To learn more about Data Lake Store support for Azure AD authentication, read [Authentication with Data Lake Store using Azure Active Directory](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory)
 
-In this tutorial you will authenticate to the Data Lake Store filesystem REST API using CURL to make REST requests.
+In this tutorial, you authenticate to the Data Lake Store filesystem REST API using CURL to make REST requests.
 
 > [!NOTE]
 > The Data Lake Store filesystem client SDKs do not yet support Managed Service Identity.  This tutorial will be updated when support is added to the SDK.
 
-To complete these steps, you will need an SSH client. If you are using Windows, you can use the SSH client in the [Windows Subsystem for Linux](https://msdn.microsoft.com/commandline/wsl/about). 
+To complete these steps, you need an SSH client. If you are using Windows, you can use the SSH client in the [Windows Subsystem for Linux](https://msdn.microsoft.com/commandline/wsl/about). 
 
 1. In the portal, navigate to your Linux VM and in the **Overview**, click **Connect**.  
 2. **Connect** to the VM with the SSH client of your choice. 
-3. In the terminal window, using CURL, make a request to the local MSI endpoint to get an access token for the Data Lake Store filecystem.  The resource identifier for Data Lake Store is "https://datalake.azure.net/".  It is important to include the trailing slash in the resource identifier.
+3. In the terminal window, using CURL, make a request to the local MSI endpoint to get an access token for the Data Lake Store filesystem.  The resource identifier for Data Lake Store is "https://datalake.azure.net/."  It is important to include the trailing slash in the resource identifier.
     
     ```bash
     curl http://localhost:50342/oauth2/token --data "resource=https://datalake.azure.net/" -H Metadata:true   
     ```
     
-    A successful response returns the access token you will use to authenticate to Data Lake Store:
+    A successful response returns the access token you use to authenticate to Data Lake Store:
 
     ```bash
        {"access_token":"eyJ0eXAiOiJ...",
@@ -119,7 +119,7 @@ To complete these steps, you will need an SSH client. If you are using Windows, 
        curl https://<YOUR-ADLS-NAME>.azuredatalakestore.net/webhdfs/v1/?op=LISTSTATUS -H "Authorization: Bearer <ACCESS-TOKEN>"
     ```
     
-    A successful response will look like this:
+    A successful response looks like:
 
     ```bash
        {"FileStatuses":{"FileStatus":[{"length":0,"pathSuffix":"TestFolder","type":"DIRECTORY","blockSize":0,"accessTime":1507934941392,"modificationTime":1508105430590,"replication":0,"permission":"770","owner":"bd0e76d8-ad45-4fe1-8941-04a7bf27f071","group":"bd0e76d8-ad45-4fe1-8941-04a7bf27f071"}]}}
@@ -131,13 +131,13 @@ To complete these steps, you will need an SSH client. If you are using Windows, 
        echo "Test file." > Test1.txt
     ```
 
-6.  Using CURL, make a request to your Data Lake Store filesystem REST endpoint to upload the file to the folder you created earlier.  The upload involves a redirect, and CURL will follow the redirect automatically. 
+6.  Using CURL, make a request to your Data Lake Store filesystem REST endpoint to upload the file to the folder you created earlier.  The upload involves a redirect, and CURL follows the redirect automatically. 
 
     ```bash
        curl -i -X PUT -L -T Test1.txt -H "Authorization: Bearer <ACCESS-TOKEN>" 'https://<YOUR-ADLS-NAME>.azuredatalakestore.net/webhdfs/v1/<FOLDER-NAME>/Test1.txt?op=CREATE' 
     ```
 
-    A successful response will look like this:
+    A successful response looks like:
 
     ```bash
        HTTP/1.1 100 Continue
@@ -181,7 +181,7 @@ Congratulations!  You've authenticated to the Data Lake Store filesystem using a
 - For an overview of MSI, see [Managed Service Identity overview](../active-directory/msi-overview.md).
 - For management operations Data Lake Store uses Azure Resource Manager.  For more information on using a VM MSI to authenticate to Resource Manager, read [Use a Linux VM Managed Service Identity (MSI) to access Resource Manager](https://docs.microsoft.com/azure/active-directory/msi-tutorial-linux-vm-access-arm).
 - Learn more about [Authentication with Data Lake Store using Azure Active Directory](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory).
-- Learn more about [Filesystem operations on Azure Data Lake Store using REST API](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-data-operations-rest-api) or the or [WebHDFS FileSystem APIs](https://docs.microsoft.com/rest/api/datalakestore/webhdfs-filesystem-apis).
+- Learn more about [Filesystem operations on Azure Data Lake Store using REST API](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-data-operations-rest-api) or the [WebHDFS FileSystem APIs](https://docs.microsoft.com/rest/api/datalakestore/webhdfs-filesystem-apis).
 - Learn more about [Access Control in Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-access-control).
 
 Use the following comments section to provide feedback and help us refine and shape our content.
