@@ -142,7 +142,7 @@ queue and displays status information about the queue.
 5. From the **New ASP.NET Project** dialog box, in the **Select a template** list, click **MVC**.
    
    ![][12]
-6. Still in the **New ASP.NET Project** dialog box, click the **Change Authentication** button. In the **Change Authentication** dialog box, click **No Authentication**, and then click **OK**. For this tutorial, you're deploying an app that doesn't need a user login.
+6. Still in the **New ASP.NET Project** dialog box, click the **Change Authentication** button. In the **Change Authentication** dialog box, ensure that **No Authentication** is selected, and then click **OK**. For this tutorial, you're deploying an app that doesn't need a user login.
    
     ![][16]
 7. Back in the **New ASP.NET Project** dialog box, click **OK** to create the project.
@@ -450,7 +450,7 @@ submissions. This example uses the **Worker Role with Service Bus Queue** Visual
 To learn more about Service Bus, see the following resources:  
 
 * [Service Bus fundamentals](service-bus-fundamentals-hybrid-solutions.md)
-* [How to Use Service Bus Queues][sbacomqhowto]
+* [Get started using Service Bus queues][sbacomqhowto]
 * [Service Bus service page][sbacom]  
 
 To learn more about multi-tier scenarios, see:  
