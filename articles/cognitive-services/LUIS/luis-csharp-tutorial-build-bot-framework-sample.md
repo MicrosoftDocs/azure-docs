@@ -39,7 +39,7 @@ The steps in this tutorial are summarized here. More details will be given in th
 * View the bot's response
 
 >[!NOTE]
-If you choose to secure your bot or work with a bot that is not local to your computer, you will need to create a [Bot Framework developer account][BFPortal] and [register][RegisterInstructions] your bot. Learn more about the [Bot Framework][BotFramework].
+If you choose to secure your bot or work with a bot that is not local to your computer, you need to create a [Bot Framework developer account][BFPortal] and [register][RegisterInstructions] your bot. Learn more about the [Bot Framework][BotFramework].
 
 >[!NOTE]
 BotBuilder is used as an NuGet dependency in the LUIS sample bot application. You don’t have to do anything in order to get the dependency. It is already included for you.
@@ -50,18 +50,18 @@ The [Bot Framework Emulator][Github-BotFramework-Emulator-Download] is available
 ## Clone or download the BotBuilder-Samples Repository
  [BotBuilder-Samples][Github-BotBuilder-Samples] is a Github repository with more samples beyond just the LUIS bot. The subfolder you need for this tutorial is [./CSharp/Intelligence-LUIS][Github-BotBuilder-Samples-LUIS].
 
-Clone or download the repository to your computer. You will edit and run the CSharp/Intelligence-LUIS sample found in this repository.
+Clone or download the repository to your computer. You edit and run the CSharp/Intelligence-LUIS sample found in this repository.
 
 ## Create a new LUIS Application from the application definition file
 Create a [luis.ai][LUIS-website] account and log in.
 
-In order to get a new LUIS application set up for the bot, you need to import the **LuisBot.json** file found at ./BotBuilder-Samples/CSharp/Intelligence-LUIS folder. The file contains the application definition for the LUIS app the sample bot will use.
+In order to get a new LUIS application set up for the bot, you need to import the **LuisBot.json** file found at ./BotBuilder-Samples/CSharp/Intelligence-LUIS folder. The file contains the application definition for the LUIS app the sample bot uses.
 
 1. On the **My Apps** page  of the [LUIS web page][LUIS-website], click **Import App**.
 2. In the **Import new app** dialog box, click **Choose file** and upload the LuisBot.json file. Name your application "Hotel Finder", and Click **Import**. <!--    ![A new app form](./Images/NewApp-Form.JPG) -->It may take a few minutes for LUIS to extract the intents and entities from the JSON file. When the import is complete, LUIS opens the Dashboard page of the Hotel Finder app<!-- which looks like the following screen-->. 
 3. Once the app is imported, you need to change the [Assigned endpoint key][AssignedEndpointDoc] on the Publish App page to your Azure LUIS subscription. Then publish the app. Copy your endpoint URL which contains your LUIS app ID and your LUIS subscription ID.
 
-The URL looks something like the following: 
+The URL looks something like the following URL: 
 
 ```
 # LUIS endpoint URL
@@ -88,7 +88,7 @@ https://westus.api.cognitive.microsoft.com
 
 
 ## Set the LUIS endpoint in the LUIS Sample Bot
-In Visual Studio, set your LUIS application credentials. Open the the `RootLuisDialog.cs` file and change the `LuisModel` attribute settings for the app ID, subscription ID, and domain:
+In Visual Studio, set your LUIS application credentials. Open the `RootLuisDialog.cs` file and change the `LuisModel` attribute settings for the app ID, subscription ID, and domain:
 
 ```
 [LuisModel("a0be191c-ebe0-4153-a4c3-d880b9c5d753", "a237d6bc86cd4562bf67b09dff44d2e6", domain: "westus.api.cognitive.microsoft.com")]
@@ -97,26 +97,26 @@ public class RootLuisDialog : LuisDialog<object>
 ```
 
 ## Start the Bot
-From Visual Studio, start the LUIS bot sample. A browser windows will open including the URL with a port number. The port number, such as 3979, is necessary for the next step.
+From Visual Studio, start the LUIS bot sample. A browser window will open including the URL with a port number. The port number, such as 3979, is necessary for the next step.
 
 ## Start the Bot Emulator
 Start the Bot Framework emulator.
 
-The Bot Emulator needs the sample bot's endpoint such as http://localhost:3979/api/messages. Enter that into the address bar at the top of the emulator. It will ask you for the Bot's application id and password. You don't need those if the bot is local to your computer, so click on CONNECT. 
+The Bot Emulator needs the sample bot's endpoint such as http://localhost:3979/api/messages. Enter that into the address bar at the top of the emulator. It asks you for the Bot's application ID and password. You don't need those values if the bot is local to your computer, so click on CONNECT. 
 
-If you see the following connection error in the log, the Bot Emulator can not find your bot. 
+If you see the following connection error in the log, the Bot Emulator cannot find your bot. 
 
 ```
 POST connect ECONNREFUSED 127.0.0.1:3979
 ```
 
-If you see this successful HTTP response in the log, the Bot emulator is successfully connect to the LUIS sample bot:
+If you see this successful HTTP response in the log, the Bot emulator connected to the LUIS sample bot:
 ```
 POST 202 [conversationUpdate] 
 ```
 
 ## Ask the bot a question
-In the bottom bar of the emulator ask:
+In the bottom bar of the emulator, enter:
 
 ```
 Search hotels in Seattle
@@ -124,7 +124,7 @@ Search hotels in Seattle
 The bot should respond with suggestions for hotels.
 
 ## See the bot's response
-In the left panel of the emulator is the response your user would see for suggested hotels. 
+In the left panel of the emulator, the user sees suggested hotels. 
 
 In the right panel, the HTTP conversation between the bot emulator and the LUIS sample bot is shown.
 
