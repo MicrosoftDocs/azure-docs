@@ -23,7 +23,7 @@ By default, no virtual machine images are available in the Azure Stack Marketpla
 
 * [Download the image from the Azure Marketplace](#add-the-image-by-downloading-it-from-the-azure-marketplace). Use this option if you are operating in a connected scenario and you have registered your Azure Stack instance with Azure.
 
-* [Add the image by using PowerShell](#add-the-image-by-using-powershell). Use this option if you have deployed Azure Stack in an unconnected scenario, or in scenarios with limited connectivity.
+* [Add the image by using PowerShell](#add-the-image-by-using-powershell). Use this option if you have deployed Azure Stack in a disconnected scenario, or in scenarios with limited connectivity.
 
 ## Add the image by downloading it from the Azure Marketplace
 
@@ -51,7 +51,7 @@ Run the following prerequisites, either from the [development kit](azure-stack-c
 
 ### Add the image to the Azure Stack Marketplace
    
-1. To import the Azure Stack Connect and ComputeAdmin modules, use the following commands:
+1. Import the Azure Stack Connect and ComputeAdmin modules by using the following commands:
 
    ```powershell
    Set-ExecutionPolicy RemoteSigned
@@ -144,7 +144,7 @@ To ensure that the Windows Server 2016 VM image has the latest cumulative update
 |location |No |Specifies the location to which the Windows Server 2016 image should be published.|
 |IncludeLatestCU|No|Applies the latest Windows Server 2016 cumulative update to the new VHD.|
 |CUUri |No |Sets the Windows Server 2016 cumulative update to run from a specific URI. |
-|CUPath |No |Sets the Windows Server 2016 cumulative update to run from a local path. This option is helpful if you have deployed the Azure Stack instance in an unconnected environment.|
+|CUPath |No |Sets the Windows Server 2016 cumulative update to run from a local path. This option is helpful if you have deployed the Azure Stack instance in a disconnected environment.|
 
 ## Next steps
 
