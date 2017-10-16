@@ -1,6 +1,6 @@
 ﻿---
-title: Deploy your Azure IoT Suite connected factory gateway | Microsoft Docs
-description: How to deploy a gateway on either Windows or Linux to enable connectivity to the connected factory preconfigured solution.
+title: Use the Azure IoT Suite connected factory OPC publisher | Microsoft Docs
+description: How to build and deploy the connected factory OPC publisher reference implementation.
 services: ''
 suite: iot-suite
 documentationcenter: na
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/24/2017
+ms.date: 10/16/2017
 ms.author: dobett
 
 ---
