@@ -34,15 +34,15 @@ Filters are foundational to several search experiences, including "find near me"
 
 The following conditions point to a filter solution:
 
-1. Use a filter if the search experience comes with a filter requirement:
+1. Use a filter to slice your index based on data values in the index. Given a schema with city, housing type, and amenities, you might create a filter to explicitly select documents that satisfy your criteria (in Seattle, condos, waterfront). 
+
+  A full text search with the same inputs is likely to produce similar results, but a filter offers precision and can be defined by the developer. In a custom application, you might want to build filter pages to create a context for the search experience you are offering.
+
+2. Use a filter if the search experience comes with a filter requirement:
 
  * [Faceted navigation](search-faceted-navigation.md) uses a filter to pass back the facet category selected by the user.
  * Geo-search uses a filter to pass coordinates of the current location in "find near me" apps. 
  * Security filters pass security identifiers as filter criteria, where a match in the index serves as a proxy for access rights to the document.
-
-2. Use a filter to slice your index based on data values in the index. Given a schema with city, housing type, and amenities, you might create a filter to explicitly select documents that satisfy your criteria (in Seattle, condos, waterfront). You can make criteria so expressive that it returns a single match.
-
-  A full text search with the same inputs is likely to produce similar results, but a filter offers precision and can be defined by the developer. In a custom application, you might want to build filter pages to create a context for the search experience you are offering.
 
 3. Use a filter to prioritize, sort, group, or order by numeric data. 
 
@@ -61,14 +61,11 @@ For more information about either parameter, see [Search Documents > Request > Q
 
 ## Filters in the query pipeline
 
-Filtering occurs before search, qualifying which documents to include in downstream processing that determines relevance, scoring, ranking, and so forth. 
+Filtering occurs before search, qualifying which documents to include in downstream processing for document retrieval and relevance scoring. When paired with a search string, the filter effectively reduces the surface area of the subsequent search operation.
 
 At query time, a filter parser accepts criteria as input, converts the expression into atomic Boolean expressions, and builds a filter tree, which is then evaluated over filterable fields in an index.  
 
-Filters can be the sole search input (where the query string is null, as in `search=*`). When paired with a search query, filters effectively reduce the surface area of the subsequent search operation.
-
-> [!Note]
-> A *filter* is a query type, one of two, where the other query type is *search*. A search query searches for one or more terms in all searchable fields in your index. A filter query converts the expression into one or more Boolean expressions placed within a filter tree.
+Filters can be used independently of search as the sole input (for example, when the query string is null, as in `search=*`). You can make criteria so expressive that it returns a single match.
 
 ## Filter definition
 
@@ -137,9 +134,14 @@ Follow up with these articles for comprehensive guidance on specific use cases:
 
 ## Field requirements for filtering
 
-In the REST API, all fields are filterable by default but a field definition could include filterable=FALSE, which would prevent its inclusion in a filter. For more information about field definitions, see [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index).
+In the REST API, filterable is *on* by default. Filterable fields increases index size; be sure to set `filterable=FALSE` for fields that you don't plan to actually use in a filter. For more information about settings for field definitions, see [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
-In the .NET SDK, the filterable attribute must be enabled.
+In the .NET SDK, the filterable is *off* by default. The API for setting the filterable property is [IsFilterable](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.isfilterableattribute). In the example below, its set on the BaseRate field definition.
+
+```csharp
+    [IsFilterable, IsSortable, IsFacetable]
+    public double? BaseRate { get; set; }
+```
 
 ### Reindexing requirements
 
@@ -162,7 +164,7 @@ Text strings are case-sensitive. There is no lower-casing of upper-cased words: 
 | Approach | Description | 
 |----------|-------------|
 | [search.in()](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | A function providing comma-delimited list of strings for a given field. The strings comprise the filter criteria, which are applied to every field in scope for the query. <br/><br/>`search.in(f, ‘a, b, c’)` is semantically equivalent to `f eq ‘a’ or f eq ‘b’ or f eq ‘c’`, except that it executes much faster when the list of values is large.<br/><br/>We recommend the **search.in** function for [security filters](search-filters-security-generic.md) and for any filters composed of raw text to be matched on values in a given field. This approach is designed for speed. You can expect subsecond response time for hundreds to thousands of values. While there is no explicit limit on the number of items you can pass to the function, latency increases in proportion to the number of strings you provide. | 
-| [search.ismatch()](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | A function that allows you to mix full-text search operations with strictly Boolean filter operations in the same filter expression. It enables use of a multiple query-filter combinations in one request. You can also use it for a *contains* filter to filter on a partial string within a larger string. <br/><br/>Requires the [Full Lucene parser](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search). |  
+| [search.ismatch()](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | A function that allows you to mix full-text search operations with strictly Boolean filter operations in the same filter expression. It enables use of a multiple query-filter combinations in one request. You can also use it for a *contains* filter to filter on a partial string within a larger string. |  
 | [$filter=field operator string](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | A user-defined expression composed of fields, operators, and values. | 
 
 ## Numeric filter fundamentals

@@ -66,16 +66,13 @@
 #### [Overview](search-filters.md)
 #### [Facet filters](search-filters-facets.md)
 #### [Language filters](search-filters-language.md)
-#### [Security trimming](search-filters-security-generic.md)
+#### [Security trimming](search-security-trimming-for-azure-search.md)
 #### [Expression syntax reference](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
 ### [Paging results](search-pagination-page-layout.md)
 ### [Scoring](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
 ### [Suggestions](https://docs.microsoft.com/rest/api/searchservice/suggesters)
 ### [Faceted navigation](search-faceted-navigation.md)
 ### [Synonyms preview](search-synonyms.md)
-### [Security filters](search-security-trimming-for-azure-search.md)
-# Reference
-
 ## [.NET](/dotnet/api/?term=microsoft.azure.search)
 ## [.NET (Management)](/dotnet/api/?term=microsoft.azure.management.search)
 ## [Python (Management)](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html)
