@@ -54,7 +54,7 @@ You must create one (or more) SQL servers and/or provide access to external SQL 
 
     If you need to provide your own certificate, you need the following certificate:
 
-    A wildcard certificate for \*.dbadapter.\<region\>.\<external fqdn\>. This certificate must be trusted, such as would be issued by a certificate authority. That is, the chain of trust must exist without requiring intermediate certificates. A single site certificate can be used with the explicit VM name [sqladapter] used during install.
+    A wildcard certificate for \*.adapter.\<region\>.\<external fqdn\>. This certificate must be trusted, such as would be issued by a certificate authority. That is, the chain of trust must exist without requiring intermediate certificates. A single site certificate can be used with the explicit VM name [sqladapter] used during install.
 
 
 5. Open a **new** elevated (administrative) PowerShell console and change to the directory where you extracted the files. Use a new window to avoid problems that may arise from incorrect PowerShell modules already loaded on the system.
@@ -79,7 +79,7 @@ The script performs these steps:
 Here's an example you can run from the PowerShell prompt (but change the account information and passwords as needed):
 
 ```
-# Install the AzureRM.Bootstrapper module,set the profile, and install AzureRM and AzureStack modules
+# Install the AzureRM.Bootstrapper module, set the profile, and install AzureRM and AzureStack modules
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2017-03-09-profile
 Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
@@ -121,7 +121,7 @@ You can specify these parameters in the command line. If you do not, or any para
 
 | Parameter Name | Description | Comment or Default Value |
 | --- | --- | --- |
-| **CloudAdminCredential** | The credential for the cloud administrator, necessary for accessing the Privleged Endpoint. | _required_ |
+| **CloudAdminCredential** | The credential for the cloud administrator, necessary for accessing the Privileged Endpoint. | _required_ |
 | **AzCredential** | Provide the credentials for the Azure Stack Service Admin account. Use the same credentials as you used for deploying Azure Stack). | _required_ |
 | **VMLocalCredential** | Define the credentials for the local administrator account of the SQL resource provider VM. | _required_ |
 | **PrivilegedEndpoint** | Provide the IP address or DNS Name of the Privleged Endpoint. |  _required_ |

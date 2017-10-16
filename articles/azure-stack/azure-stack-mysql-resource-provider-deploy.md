@@ -90,7 +90,7 @@ Here's an example you can run from the PowerShell prompt (but change the account
 
 
 ```
-# Install the AzureRM.Bootstrapper module,set the profile, and install AzureRM and AzureStack modules
+# Install the AzureRM.Bootstrapper module, set the profile, and install AzureRM and AzureStack modules
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2017-03-09-profile
 Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
@@ -140,7 +140,7 @@ You can specify these parameters in the command line. If you do not, or any para
 | **CloudAdminCredential** | The credential for the cloud administrator, necessary for accessing the Privleged Endpoint. | _required_ |
 | **AzCredential** | Provide the credentials for the Azure Stack Service Admin account. Use the same credentials as you used for deploying Azure Stack). | _required_ |
 | **VMLocalCredential** | Define the credentials for the local administrator account of the MySQL resource provider VM. | _required_ |
-| **PrivilegedEndpoint** | Provide the IP address or DNS Name of the Privleged Endpoint. |  _required_ |
+| **PrivilegedEndpoint** | Provide the IP address or DNS Name of the Privileged Endpoint. |  _required_ |
 | **DependencyFilesLocalPath** | Path to a local share containing [mysql-connector-net-6.9.9.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.9.9.msi). If you provide one, the certificate file must be placed in this directory as well. | _optional_ (_mandatory_ for multi-node) |
 | **DefaultSSLCertificatePassword** | The password for the .pfx certificate | _required_ |
 | **MaxRetryCount** | Define how many times you want to retry each operation if there is a failure.| 2 |
