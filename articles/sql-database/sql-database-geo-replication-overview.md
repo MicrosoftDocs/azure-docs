@@ -1,6 +1,6 @@
 ---
 title: Failover groups and active geo-replication - Azure SQL Database | Microsoft Docs
-description: Auto-failover groups with active geo-replication enables you to set up four seplicas of your database in any of the Azure datacenters and autoomatically failover in the event of an outage.
+description: Use auto-failover groups with active geo-replication and enable autoomatic failover in the event of an outage.
 services: sql-database
 documentationcenter: na
 author: anosov1960
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: NA
-ms.date: 07/10/2017
+ms.date: 10/11/2017
 ms.author: sashan
 
 ---
@@ -62,7 +62,7 @@ The active geo-replication feature provides the following essential capabilities
 * **Readable secondary databases**: An application can access a secondary database for read-only operations using the same or different security principals used for accessing the primary database. The secondary databases operate in snapshot isolation mode to ensure replication of the updates of the primary (log replay) is not delayed by queries executed on the secondary.
 
    > [!NOTE]
-   > The log replay is delayed on the secondary database if there are schema updates that it is receiving from the Primary that require a schema lock on the secondary database. 
+   > The log replay is delayed on the secondary database if there are schema updates on the Primary. The latter requires a schema lock on the secondary database. 
    > 
 
 * **Multiple readable secondaries**: Two or more secondary databases increase redundancy and level of protection for the primary database and application. If multiple secondary databases exist, the application remains protected even if one of the secondary databases fails. If there is only one secondary database, and it fails, the application is exposed to higher risk until a new secondary database is created.
@@ -172,7 +172,7 @@ As discussed previously, auto-failover groups (in-preview) and active geo-replic
 | [Create or Update Database (createMode=Restore)](/rest/api/sql/Databases/CreateOrUpdate) |Creates, updates, or restores a primary or a secondary database. |
 | [Get Create or Update Database Status](/rest/api/sql/Databases/CreateOrUpdate) |Returns the status during a create operation. |
 | [Set Secondary Database as Primary (Planned Failover)](/rest/api/sql/replicationlinks/failover) |Sets which replica database is primary by failing over from the current primary replica database. |
-| [Set Secondary Database as Primary (Unplanned Failover)](https://docs.microsoft.com/rest/api/sql/replicationlinks#failoverallowdataloss) |Sets which replica database is primary by failing over from the current primary replica database. This operation might result in data loss. |
+| [Set Secondary Database as Primary (Unplanned Failover)](/rest/api/sql/replicationlinks/failoverallowdataloss) |Sets which replica database is primary by failing over from the current primary replica database. This operation might result in data loss. |
 | [Get Replication Link](/rest/api/sql/replicationlinks/get) |Gets a specific replication link for a given SQL database in a geo-replication partnership. It retrieves the information visible in the sys.geo_replication_links catalog view. |
 | [Replication Links - List By Database](/rest/api/sql/replicationlinks/listbydatabase) | Gets all replication links for a given SQL database in a geo-replication partnership. It retrieves the information visible in the sys.geo_replication_links catalog view. |
 | [Delete Replication Link](/rest/api/sql/databases/delete) | Deletes a database replication link. Cannot be done during failover. |

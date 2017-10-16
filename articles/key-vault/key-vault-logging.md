@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 07/19/2017
-ms.author: cabailey
+ms.date: 09/27/2017
+ms.author: barclayn
 
 ---
 # Azure Key Vault Logging
