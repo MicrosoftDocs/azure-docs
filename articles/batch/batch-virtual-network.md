@@ -25,7 +25,7 @@ When you create an Azure Batch pool, you can provision the pool in a subnet of a
 ## Why use a VNet?
 
 
-The compute nodes of an Azure Batch pool are automatically networked so that they can communicate with each other. However, by default, the nodes cannot communicate with virtual machines that are not part of the Batch pool, such as a license server or a file server. To allow pool compute nodes to communicate securely with a license server or file server, you can provision the pool in a subnet of an Azure virtual network (VNet) that you specify. 
+The compute nodes of an Azure Batch pool are automatically networked so that they can communicate with each other. However, by default, the nodes cannot communicate with virtual machines that are not part of the Batch pool, such as a license server or a file server. To allow pool compute nodes to communicate securely with other virtual machines, or with an on-premises network, you can provision the pool in a subnet of an Azure virtual network (VNet) that you specify. 
 
 
 
