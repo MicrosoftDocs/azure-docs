@@ -16,25 +16,22 @@ ms.date: 10/13/2017
 ms.author: cshoe
 ms.custom: aaddev
 ---
-# Get started with web APIs for Node.js
+# Secure Node.js Web API with Azure Active Directory
 
-Azure Active Directory (AAD) provides a flexible service used to secure API endpoints while allowing connections through a wide array of clients. This article demonstrates how to set up Azure Active Directory secured  endpoints in REST-based application. By the end of this article you learn to protect a [Restify](http://restify.com/) API endpoint with [Passport](http://passportjs.org/) using the [passport-azure-ad](https://github.com/AzureAD/passport-azure-ad) module to handle communication to AAD. 
+This article demonstrates how to secure a [Restify](http://restify.com/) API endpoint with [Passport](http://passportjs.org/) using the [passport-azure-ad](https://github.com/AzureAD/passport-azure-ad) module to handle communication with Azure Active Directory (AAD). 
 
-> [!NOTE] This document only covers the concerns of the API - specifically securing endpoints. The concerns of signing in and out and retaining authentication tokens are implemented in the context of a client application. For details surrounding implementing clients, review the articles found in the [Next steps section](#next-steps).
-> 
->
+The scope of this tutorial covers the concerns regarding securing API endpoints. The concerns of signing in and out and retaining authentication tokens are implemented in the context of a client application. For details surrounding client implementation, review [Node.js web app sign-in and sign-out with Azure AD](active-directory-devquickstarts-openidconnect-nodejs.md).
 
-[The full code sample associated with this article is available on GitHub](https://github.com/Azure-Samples/node-active-directory-get-started).
+The full code sample associated with this article is available on [GitHub](https://github.com/Azure-Samples/active-directory-node-webapi-basic).
 
-## Get started
-This simple server application requires a few package dependencies to support Restify and Passport as well as account information that is passed to AAD.
+## Create the sample project
+This server application requires a few package dependencies to support Restify and Passport as well as account information that is passed to AAD.
 
-### Package dependencies
-To begin, copy the following code and add it into a file named `package.json`:
+To begin, add the following code into a file named `package.json`:
 
 ```Shell
 {
-  "name": "active-directory-webapi-nodejs",
+  "name": "node-aad-demo",
   "version": "0.0.1",
   "scripts": {
     "start": "node app.js"
@@ -48,55 +45,55 @@ To begin, copy the following code and add it into a file named `package.json`:
 }
 ```
 
-Once `package.json` is created, then type `npm install` in your command prompt to install the package dependencies. With this foundation set, the next step is to define the configuration values used by Azure Active Directory to handle authentication and authorization operations.
+Once `package.json` is created, run `npm install` in your command prompt to install the package dependencies. 
 
-### Configuration values
+### Configure the project to use Active Directory
 
-To get started configuring the application, there are a few account-specific values you must obtain from either the [Azure portal](https://portal.azure.com) or the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
+To get started configuring the application, there are a few account-specific values you can obtain the Azure CLI. The easiest way to get started with the CLI is to use the Azure Cloud Shell.
 
-> [!NOTE] If you haven't yet, you need to [register an application with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-app-registration)
->
->
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+Enter the following command in the cloud shell: 
+
+```azurecli-interactive
+az ad app create --display-name node-aad-demo --homepage http://localhost --identifier-uris http://node-aad-demo
+```
+
+The arguments for the command include:
+
+| Argument  | Description |
+|---------|---------|
+|`display-name` | Friendly name of the registration |
+|`homepage` | Url where users can sign in and use your application |
+|`identifier-uris` | Space separated unique URIs that Azure AD can use for this application |
 
 Before you can connect to Azure Active Directory, you need the following information:
 
 | Name  | Description | Variable Name in Config File |
 | ------------- | ------------- | ------------- |
-| Tenant Name  | The tenant name you want to use for authentication.  | `tenantName`  |
-| Client ID  | The Client ID is the OAuth term used for the AAD _Application ID_. |  `clientID`  |
-| Client Secret  | The client secret is the OAuth term used for an _Application Key_, which you can generate in AAD. | `clientSecret` |
+| Tenant Name  | Tenant name you want to use for authentication | `tenantName`  |
+| Client ID  | Client ID is the OAuth term used for the AAD _Application ID_. |  `clientID`  |
 
-Once you have your account-specific information, create a new file named `config.js` and replace your values with the bracketed tokens:
+From the registration response in the Azure Cloud Shell, copy the `appId` value and create a new file named `config.js`. Next, paste in the following code and replace your values with the bracketed tokens:
 
 ```JavaScript
 const tenantName    = <YOUR_TENANT_NAME>;
-const clientID      = <YOUR_CLIENT_ID>;
-const clientSecret  = <YOUR_CLIENT_SECRET>;
+const clientID      = <YOUR_APP_ID_FROM_CLOUD_SHELL>;
 const serverPort    = 3000;
 
 module.exports.serverPort = serverPort;
 
 module.exports.credentials = {
   identityMetadata: `https://login.microsoftonline.com/${tenantName}.onmicrosoft.com/.well-known/openid-configuration`, 
-  clientID: clientID,
-  responseType: 'code id_token',  
-  clientSecret: clientSecret, 
-  validateIssuer: true,
-  useCookieInsteadOfSession: true,
-  cookieEncryptionKeys: [ 
-    { 'key': '12345678901234567890123456789012', 'iv': '123456789012' },
-    { 'key': 'abcdefghijklmnopqrstuvwxyzabcdef', 'iv': 'abcdefghijkl' }
-  ]
+  clientID: clientID
 };
 ```
-As this module is interpreted, your values are fed into the appropriate settings required to interact with AAD. For more information regarding the individual configuration settings, review [passport-azure-ad](https://github.com/AzureAD/passport-azure-ad#5-usage) module.
-
-Now that the package and project configuration settings are defined you can begin to implement the server.
+For more information regarding the individual configuration settings, review [passport-azure-ad](https://github.com/AzureAD/passport-azure-ad#5-usage) module.
 
 ## Implement the server
 The [passport-azure-ad](https://github.com/AzureAD/passport-azure-ad#5-usage) module  features two authentication strategies: [OIDC](https://github.com/AzureAD/passport-azure-ad#51-oidcstrategy) and [Bearer](https://github.com/AzureAD/passport-azure-ad#52-bearerstrategy) strategies. The server implemented in this article uses the Bearer strategy to secure the API endpoint.
 
-### Project dependencies
+## Step 1: Import dependencies
 Create a new file named `app.js` and paste in the following text:
 
 ```JavaScript
@@ -117,14 +114,14 @@ In this section of code:
 
 - The `passport` and `passport-azure-ad` modules are responsible for handling the heavy lifting when communicating with AAD.
 
-- The `config` variable is initialized with your configuration information.
+- The `config` variable is initialized with values from the `config.js` file created in the previous step.
 
 - An array is created for `authenticatedUserTokens` to store user tokens as they are passed into secured endpoints.
 
 - The `serverPort` is either defined from the process environment's port or from the configuration file.
 
-### Authentication strategy
-As you secure an endpoint, you must provide a strategy responsible for determining whether or not the current request originates from an authenticated user. Here the `authenticatonStrategy` variable is an instance of the `passport-azure-ad` `BearerStrategy` class:
+### Step 2: Instantiate an authentication strategy
+As you secure an endpoint, you must provide a strategy responsible for determining whether or not the current request originates from an authenticated user. Here the `authenticatonStrategy` variable is an instance of the `passport-azure-ad` `BearerStrategy` class. Add the following code after the `require` statements.
 
 ```JavaScript
 const authenticationStrategy = new BearerStrategy(config.credentials, (token, done) => {
@@ -139,13 +136,13 @@ const authenticationStrategy = new BearerStrategy(config.credentials, (token, do
 ```
 This implementation uses auto-registration by adding authentication tokens into the `authenticatedUserTokens` array if they do not already exist.
 
-Once the new instance of the strategy is created, you must pass it into Passport via the `use` method:
+Once the new instance of the strategy is created, you must pass it into Passport via the `use` method by adding the following code to `app.js`.
 
 ```JavaScript
 passport.use(authenticationStrategy);
 ```
 
-### Server configuration
+### Step 3: Server configuration
 With the authentication strategy defined, you can now set up the Restify server with some basic default settings and set to use Passport for security.
 
 ```JavaScript
@@ -157,7 +154,7 @@ server.use(passport.session());
 This server is initialized and configured to parse authorization headers and then set to use Passport.
 
 
-### Routes
+### Step 4: Define routes
 You can now define routes and decide which to secure with AAD. This project includes two routes where the root level is open and the `/api` route is set to require authentication.
 
 In `app.js` add the following code for the root level route:
@@ -187,10 +184,6 @@ server.listen(serverPort);
 ```
 
 ## Run the sample
-
-> [!NOTE] The code snippets in this section use server port 3000. If you have configured your server to use a different port, make sure to change the value as you copy and paste the `curl` statements in this section.
->
->
 
 Now that the configuration and server is implemented you can start the server by opening up a command prompt and entering:
 
