@@ -29,8 +29,6 @@ The [Best practices for insulating applications against Service Bus outages and 
 
 A *disaster* is defined as the permanent, or longer-term loss of a Service Bus [scale unit](service-bus-architecture.md#service-bus-scale-units) or datacenter. The datacenter may or may not become available again, or may be down for hours or days. Examples of such disasters are fire, flooding, or earthquake. A disaster that becomes permanent might cause the loss of some messages or other data. However, in most cases there should be no data loss and messages can be recovered once the data center is back up.
 
-A *disaster* is defined as the permanent, or at least for a longer time span loss of a Service Bus scale unit or datacenter. The datacenter may or may not become available again, or may be down for hours or days. A disaster which would be permanent might cause the loss of some messages or other data. Examples of such disasters are fire, flooding, or earthquake. In most cases there should be no data loss and messages can be recovered once the data center is back up.
-
 The Geo-disaster recovery feature of Azure Service Bus is a disaster recovery solution. The concepts and workflow described in this article apply to disaster scenarios, and not to transient, or temporary outages.  
 
 ## Basic concepts and terms
