@@ -52,7 +52,7 @@ Bash completion has been installed to:
 🍺  /usr/local/Cellar/kubernetes-helm/2.6.2: 50 files, 132.4MB
 ```
 
-## Configure Helm Tiller
+## Configure Helm
 
 Tiller is a server-side component that runs on the Kubernetes cluster. Tiler manages the lifecycle of Kubernetes applications that have been run using Helm charts. 
 
@@ -117,7 +117,7 @@ Hang tight while we grab the latest from your chart repositories...
 Update Complete. ⎈ Happy Helming!⎈ 
 ```
 
-## Deploy a Helm chart 
+## Run Helm charts 
  
 To deploy a Nginx ingress controller chart, use the [helm install](https://docs.helm.sh/helm/#helm-install) command.
 
@@ -151,7 +151,7 @@ tufted-ocelot-nginx-ingress-default-backend  1        1        1           1    
 
 For more information on using an NGINX ingress controller with Kubernetes, see [NGINX Ingress Controller](https://github.com/kubernetes/ingress/tree/master/controllers/nginx).
 
-## List installed Helm charts
+## List Helm charts
 
 To see a list of charts installed on your cluster, type:
 

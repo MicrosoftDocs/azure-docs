@@ -20,11 +20,11 @@ ms.author: rasquill
 ms.custom: mvc
 ---
 
-# Use Draft with Azure Container Service and Azure Container Registry to build and deploy an application to Kubernetes
+# Use Draft with Azure Container Service (AKS)
 
-[Draft](https://aka.ms/draft) is an open-source tool that makes it easy to develop container-based applications and deploy them to Kubernetes clusters without knowing much about Docker and Kubernetes. Using tools like Draft let you and your teams focus on building the application with Kubernetes, not paying as much attention to infrastructure.
+Draft is an open source tool that helps package and run code in a Kubernetes cluster. Draft is targeted at the development iteration cycle; as the code is being developed, but before committing to version control. With Draft, you can quickly redeploy to Kubernetes as code changes occurs. For more information on Draft, see the [Draft documentation on Github](https://github.com/Azure/draft/tree/master/docs).
 
-You can use Draft with any Docker image registry and any Kubernetes cluster, including locally. This tutorial shows how to use AKS with Kubernetes and ACR to create a live but secure developer pipeline in Kubernetes using Draft, and how to use Azure DNS to expose that developer pipeline for others to see at a domain.
+This document details using Draft with an Azure Container Service (AKS) Kubernetes cluster.
 
 ## Prerequisites
 
@@ -127,7 +127,7 @@ Draft has been installed into your Kubernetes Cluster.
 Happy Sailing!
 ```
 
-## Build and deploy an application    
+## Run an application    
 
 ```console
 git clone https://github.com/Azure/draft
@@ -162,7 +162,7 @@ open-jaguar: Releasing Application: SUCCESS ⚓  (4.5056s)
 open-jaguar: Build ID: 01BW3VVNZYQ5NQ8V1QSDGNVD0S
 ```
 
-## Securely view your application
+## Test the application
 
 Your container is now running in AKS. To view it, use the `draft connect` command, which creates a secured connection to the cluster's IP with a specific port for your application so that you can view it locally. If successful, look for the URL to connect to your app on the first line after the **SUCCESS** indicator.
 
@@ -184,6 +184,8 @@ SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further detail
 ```
 
 In the preceding example, you could type `curl -s http://localhost:46143` to receive the reply, `Hello World, I'm Java!`. When you CTRL+ or CMD+C (depending on your OS environment), the secure tunnel is torn down and you can continue iterating.
+
+## Deploy application
 
 ## Next steps
 

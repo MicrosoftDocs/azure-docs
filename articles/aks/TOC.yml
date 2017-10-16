@@ -27,13 +27,13 @@
     href: tutorial-kubernetes-monitor.md
 - name: How-to guides
   items:
-  - name: Use Helm charts
+  - name: Use Helm
     href: kubernetes-helm.md
   - name: Use Draft
     href: kubernetes-draft.md
-  - name: Kubernetes Dashboard
+  - name: Use Kubernetes dashboard
     href: kubernetes-dashboard.md
-  - name: Use service principals
+  - name: Create service principals
     href: kubernetes-service-principal.md
 - name: Reference
   items:

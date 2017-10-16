@@ -63,7 +63,7 @@ To find the IP address of the application, click on **Services** in the left-han
 
 ![nginx view](./media/container-service-kubernetes-ui/nginx-service.png)
 
-## Edit the application deployment
+## Edit the application
 
 In addition to creating and viewing applications, the Kubernetes dashboars can be used to edit and update application deployments.
 
