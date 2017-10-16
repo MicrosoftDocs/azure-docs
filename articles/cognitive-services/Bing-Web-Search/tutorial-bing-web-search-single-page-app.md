@@ -264,7 +264,7 @@ function handleBingResponse() {
 
 Much of the code in both of the preceding functions is dedicated to error handling. Errors may occur at the following stages:
 
-|Stage|Potential rror(s)|Handled by|
+|Stage|Potential error(s)|Handled by|
 |-|-|-|
 |Building JavaScript request object|Invalid URL|`try`/`catch` block|
 |Making the request|Network errors, aborted connections|`error` and `abort` event handlers|
