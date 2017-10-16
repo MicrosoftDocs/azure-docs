@@ -82,19 +82,40 @@ Once the affected region recovers from the outage, all the affected Cosmos DB ac
 
 **What happens if a write region has an outage?**
 
-If the affected region is the current write region for a given Cosmos DB account, then the region will be automatically marked as offline. Then, an alternative region is promoted as the write region each affected Cosmos DB account. You can fully control the region selection order for your Cosmos DB accounts via the Azure portal or [programmatically](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_FailoverPriorityChange). 
+If the affected region is the current write region and automatic failover is enabled for a given Cosmos DB account, then the region will be automatically marked as offline. Then, an alternative region is promoted as the write region for the affected Cosmos DB account. You can enable automatic failover and fully control the region selection order for your Cosmos DB accounts via the Azure portal or [programmatically](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_FailoverPriorityChange). 
 
 ![Failover priorities for Azure Cosmos DB](./media/regional-failover/failover-priorities.png)
 
-During automatic failovers, Cosmos DB automatically chooses the next write region for a given Cosmos DB account based on the specified priority order. 
+During automatic failovers, Cosmos DB automatically chooses the next write region for a given Cosmos DB account based on the specified priority order. Application can use the WriteEndpoint property of DocumentClient to detect the change in write region.
 
 ![Write region failures in Azure Cosmos DB](./media/regional-failover/write-region-failures.png)
 
 Once the affected region recovers from the outage, all the affected Cosmos DB accounts in the region are automatically recovered by the service. 
 
-* Cosmos DB accounts with their previous write region in the affected region will stay in an offline mode with read availability even after the recovery of the region. 
-* You can query this region to compute any unreplicated writes during the outage by comparing with the data available in the current write region. Based on the needs of your application, you can perform merge and/or conflict resolution and write the final set of changes back to the current write region. 
-* Once you've completed merging changes, you can bring the affected region back online by removing and readding the region to your Cosmos DB account. Once the region is added back, you can configure it back as the write region by performing a manual failover via the Azure portal or [programmatically](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_CreateOrUpdate).
+* Data present in the previous write region that could not be replicated to read regions during the outage, will be published as conflict feed. Applications can read the conflict feed, resolve the conflicts based on application specific logic and write the updated data back to the Cosmos DB account as appropriate. 
+* The previous write region will be recreated as a read region and brought back online automatically. 
+* You can re configure above onlined region as the write region by performing a manual failover via the Azure portal or [programmatically](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_CreateOrUpdate).
+
+Below code snippet illustrates how to process conflicts once the affected region recovers from the outage.
+
+```cs
+string conflictsFeedContinuationToken = null;
+do
+{
+    FeedResponse<Conflict> conflictsFeed = client.ReadConflictFeedAsync(collectionLink,
+        new FeedOptions { RequestContinuation = conflictsFeedContinuationToken }).Result;
+
+    foreach (Conflict conflict in conflictsFeed)
+    {
+        Document doc = conflict.GetResource<Document>();
+        Console.WriteLine("Conflict record ResourceId = {0} ResourceType= {1}", conflict.ResourceId, conflict.ResourceType);
+
+        // Perform application specific logic to process the conflict record / resource
+    }
+
+    conflictsFeedContinuationToken = conflictsFeed.ResponseContinuation;
+} while (conflictsFeedContinuationToken != null);
+```
 
 ## <a id="ManualFailovers"></a>Manual Failovers
 
