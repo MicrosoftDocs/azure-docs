@@ -33,7 +33,7 @@ The compute nodes of an Azure Batch pool are automatically networked so that the
 
 * **Azure Active Directory (AD) authentication**. The Batch client API must use Azure AD authentication. Azure Batch support for Azure AD is documented in [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md).
 
-* **An Azure VNet**. To prepare a VNet with one or more subnets in advance, you can use the Azure portal, Azure PowerShell, the Azure Command-Line Interface 2.0, or other methods. For steps, see [Create a virtual network with multiple subnets](..virtual-network/virtual-networks-create-vnet-arm-pportal.md). 
+* **An Azure VNet**. To prepare a VNet with one or more subnets in advance, you can use the Azure portal, Azure PowerShell, the Azure Command-Line Interface 2.0, or other methods. For steps, see [Create a virtual network with multiple subnets](../virtual-network/virtual-networks-create-vnet-arm-pportal.md). 
 
   The VNet must meet the following requirements:
 

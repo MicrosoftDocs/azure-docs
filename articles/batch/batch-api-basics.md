@@ -407,6 +407,8 @@ VNet requirements:
 
     [!INCLUDE [batch-virtual-network-ports](../../includes/batch-virtual-network-ports.md)]
 
+For more information about setting up a Batch pool using the virtual machine configuration in a VNet, see [Create a pool of virtual machines with your virtual network](batch-virtual-network.md).
+
 
 ## Scaling compute resources
 With [automatic scaling](batch-automatic-scaling.md), you can have the Batch service dynamically adjust the number of compute nodes in a pool according to the current workload and resource usage of your compute scenario. This allows you to lower the overall cost of running your application by using only the resources you need, and releasing those you don't need.
