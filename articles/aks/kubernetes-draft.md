@@ -90,34 +90,12 @@ Initialize Draft.
 draft init
 ```
 
-Output:
-
-```console
-Creating pack go...
-Pack go already exists. Skipping!
-Creating pack java...
-Pack java already exists. Skipping!
-Creating pack javascript...
-Pack javascript already exists. Skipping!
-Creating pack gradle...
-Pack gradle already exists. Skipping!
-Creating pack csharp...
-Pack csharp already exists. Skipping!
-Creating pack php...
-Pack php already exists. Skipping!
-Creating pack python...
-Pack python already exists. Skipping!
-Creating pack ruby...
-Pack ruby already exists. Skipping!
-$DRAFT_HOME has been configured at /usr/local/etc/draft.
-```
-
 During this process you will be prompted for the container registry credentials. When using an Azure Container Registry, the registry URL is the ACR login server, the username is the ACR name, and the password is the ACR password.
 
 ```console
-1. Enter your Docker registry URL (e.g. docker.io/myuser, quay.io/myuser, myregistry.azurecr.io): myacr007.azurecr.io
-2. Enter your username: myACR007
-3. Enter your password:
+1. Enter your Docker registry URL (e.g. docker.io/myuser, quay.io/myuser, myregistry.azurecr.io): <ACR Login Server>
+2. Enter your username: <ACR Name>
+3. Enter your password: <ACR Password>
 ```
 
 Once complete, Draft will be configired in the AKS cluster and is ready to use.
@@ -127,15 +105,21 @@ Draft has been installed into your Kubernetes Cluster.
 Happy Sailing!
 ```
 
-## Run an application    
+## Run an application
 
+The Draft repository include several sample applications that can be used to demo Draft. Create a cloned copy of the repo.
+ 
 ```console
 git clone https://github.com/Azure/draft
 ```
 
+Change to the Java examples directory.
+
 ```console
 cd draft/examples/java/
 ```
+
+This command creates the artifacts that are used to run the application in a Kubernetes cluster. These items include a Dockerfile, a Helm chart, and a `draft.toml` file which is a Draft configuration file.
 
 ```console
 draft create
@@ -147,6 +131,8 @@ Output:
 --> Draft detected the primary language as Java with 92.205567% certainty.
 --> Ready to sail
 ```
+
+To run the application on a Kubernetes cluster, use the `draft up` command. This command uploads the application code and the configuration files to the Kubernetes cluster, runs the Dockerfile to create a container image, pushes the image to the container registry, and finally runs the Helm chart to start the application.
 
 ```console
 draft up
@@ -164,8 +150,9 @@ open-jaguar: Build ID: 01BW3VVNZYQ5NQ8V1QSDGNVD0S
 
 ## Test the application
 
-Your container is now running in AKS. To view it, use the `draft connect` command, which creates a secured connection to the cluster's IP with a specific port for your application so that you can view it locally. If successful, look for the URL to connect to your app on the first line after the **SUCCESS** indicator.
+To test the application, use the `draft connect` command. Draft connect proxies a connection to the Kubernetes pod allowing a secure local connection. When complete, the application can be accessed on the provided URL.
 
+In some cases, it can take a few minutes for the container image to be download and that application to start. If you receive an error when accessing the application, retry the connection.
 
 ```console
 draft connect
@@ -182,8 +169,6 @@ SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further detail
 == Spark has ignited ...
 >> Listening on 0.0.0.0:4567
 ```
-
-In the preceding example, you could type `curl -s http://localhost:46143` to receive the reply, `Hello World, I'm Java!`. When you CTRL+ or CMD+C (depending on your OS environment), the secure tunnel is torn down and you can continue iterating.
 
 ## Deploy application
 
