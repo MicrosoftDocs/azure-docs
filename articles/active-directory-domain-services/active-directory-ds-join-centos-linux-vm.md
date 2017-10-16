@@ -59,7 +59,7 @@ In the hosts file, enter the following value:
 ```
 127.0.0.1 contoso-centos.contoso100.com contoso-centos
 ```
-Here, 'contoso100.com' is the DNS domain name of your managed domain. 'contoso-centos' is the hostname of the RHEL virtual machine you are joining to the managed domain.
+Here, 'contoso100.com' is the DNS domain name of your managed domain. 'contoso-centos' is the hostname of the CentOS virtual machine you are joining to the managed domain.
 
 
 ## Install required packages on the Linux virtual machine
@@ -112,9 +112,9 @@ You should get a message ("Successfully enrolled machine in realm") when the mac
 
 
 ## Verify domain join
-Verify whether the machine has been successfully joined to the managed domain. Connect to the domain joined RHEL VM using a different SSH connection. Use a domain user account and then check to see if the user account is resolved correctly.
+Verify whether the machine has been successfully joined to the managed domain. Connect to the domain joined CentOS VM using a different SSH connection. Use a domain user account and then check to see if the user account is resolved correctly.
 
-1. In your SSH terminal, type the following command to connect to the domain joined RHEL virtual machine using SSH. Use a domain account that belongs to the managed domain (for example, 'bob@CONTOSO100.COM' in this case.)
+1. In your SSH terminal, type the following command to connect to the domain joined CentOS virtual machine using SSH. Use a domain account that belongs to the managed domain (for example, 'bob@CONTOSO100.COM' in this case.)
     ```
     ssh -l bob@CONTOSO100.COM contoso-centos.contoso100.com
     ```
