@@ -26,6 +26,10 @@ After you enable CDN for your application, you can monitor CDN usage, check the 
 
 As an Azure CDN user with a Verizon standard or a Verizon premium profile, you can view Verizon Core Reports in the Verizon supplemental portal. The Verizon supplemental portal offers a variety of graphs and views and is accessible via the **Manage** option from the Azure portal. For more information, see [Core Reports from Verizon](cdn-analyze-usage-patterns.md).
 
+## Verizon Custom Reports
+
+As an Azure CDN user with a Verizon standard or a Verizon premium profile, you can view Verizon Custom Reports in the Verizon supplemental portal. The Verizon supplemental portal offers a variety of graphs and views and is accessible via the **Manage** option from the Azure portal. For more information, see [Custom Reports from Verizon](cdn-verizon-custom-reports.md).
+
 ## Core analytics via Azure diagnostic logs
 
 Core analytics is available for all CDN endpoints belonging to Verizon (Standard and Premium) and Akamai (Standard) CDN profiles. Azure diagnostics logs allow core analytics to be exported to Azure storage, event hubs, or Operations Management Suite (OMS) Log Analytics. OMS Log Analytics offers a solution with graphs that are user-configurable and customizable. For more information, see [Azure diagnostic logs](cdn-azure-diagnostic-logs.md).
