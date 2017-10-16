@@ -88,7 +88,7 @@ These commands are built on top of PowerShell remoting and require PowerShell co
 
 |**Category**    |**Name**                                 |
 |----------------|-----------------------------------------|
-|Azure tools     |[Azure PowerShell (4.3.1)](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.3.1) |
+|Azure tools     |[Azure PowerShell (4.4.0)](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.4.0)<br> [Azure CLI (2.0.18)](https://docs.microsoft.com/en-us/cli/azure/overview)|
 |Text editors    |vim<br> nano                             |
 |Package Manager |PowerShellGet<br> PackageManagement<br> npm<br> pip |
 |Source control  |git                                      |
@@ -106,5 +106,6 @@ These commands are built on top of PowerShell remoting and require PowerShell co
 
 ## Next steps
 
-[Quickstart with PowerShell in Cloud Shell](quickstart-powershell.md) <br>
+[Quickstart with PowerShell in Cloud Shell](quickstart-powershell.md)
+
 [Learn about Azure PowerShell](https://docs.microsoft.com/powershell/azure/)
