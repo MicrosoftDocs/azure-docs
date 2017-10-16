@@ -121,7 +121,7 @@ In this tutorial, you authenticate to the Data Lake Store filesystem REST API us
    ```powershell
    StatusCode        : 200
    StatusDescription : OK
-   Content           : {"FileStatuses":{"FileStatus":[{"length":0,"pathSuffix":"TestFolder","type":"DIRECTORY", "blockSize":0,"accessTime":1507934941392, "modificationTime":1507944835699,"replication":0, "permission":"770","ow...
+   Content           : {"FileStatuses":{"FileStatus":[{"length":0,"pathSuffix":"TestFolder","type":"DIRECTORY", "blockSize":0,"accessTime":1507934941392, "modificationTime":1507944835699,"replication":0, "permission":"770","ow..."
    RawContent        : HTTP/1.1 200 OK
                        Pragma: no-cache
                        x-ms-request-id: b4b31e16-e968-46a1-879a-3474aa7d4528
