@@ -308,7 +308,5 @@ Confirm that you want to delete your logic app, then choose **Delete**.
 
 ## Next steps
 
-Learn how to build logic apps from prebuilt templates.
-
 > [!div class="nextstepaction"]
-> [Create logic app workflows from templates](../logic-apps/logic-apps-create-logic-apps-from-templates.md)
+> [Create logic app workflows from prebuilt templates](../logic-apps/logic-apps-create-logic-apps-from-templates.md)
