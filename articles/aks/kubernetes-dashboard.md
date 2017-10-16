@@ -65,7 +65,7 @@ To find the IP address of the application, click on **Services** in the left-han
 
 ## Edit the application
 
-In addition to creating and viewing applications, the Kubernetes dashboars can be used to edit and update application deployments.
+In addition to creating and viewing applications, the Kubernetes dashboard can be used to edit and update application deployments.
 
 To edit a deployment, click **Deployments** in the left-hand menu, and then select the **NGINX** deployment. Finally, select **Edit** in the upper right-hand navigation bar.
 
@@ -79,7 +79,7 @@ Select **Update** when ready.
 
 ## Next steps
 
-For more information about the Kubernetes dashboard, see the Kubernetes documentaton.
+For more information about the Kubernetes dashboard, see the Kubernetes documentation.
 
 > [!div class="nextstepaction"]
 > [Kubernetes Web UI Dashboard](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/)

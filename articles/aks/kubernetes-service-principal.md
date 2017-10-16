@@ -30,7 +30,7 @@ This article shows different options for setting up a service principal for your
 
 The steps detailed in this document assume that you have created an AKS Kubernetes cluster and have established a kubectl connection with the cluster. If you need these items see, the [AKS Kubernetes quickstart](./kubernetes-walkthrough.md).
 
-To create an Azure AD service principal, you must have permissions to register an application with your Azure AD tenant, and to assign the application to a role in your subscription. If you don't have the necisary permissions, you might need to ask your Azure AD or subscription administrator to assign the necessary permissions, or pre-create a service principal for the AKS cluster.
+To create an Azure AD service principal, you must have permissions to register an application with your Azure AD tenant, and to assign the application to a role in your subscription. If you don't have the necessary permissions, you might need to ask your Azure AD or subscription administrator to assign the necessary permissions, or pre-create a service principal for the AKS cluster.
 
 You also need the Azure CLI version 2.0.4 or later installed and configured. Run az --version to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
 
@@ -44,11 +44,11 @@ In the following an example, and AKS cluster is created, and because a service p
 az aks create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-keys
 ```
 
-## Use an exsisting SP
+## Use an existing SP
 
 An existing Azure AD service principle can be used or pre-created for use with an AKS cluster. This is helpful when deploying a cluster form the Azure portal where you are required to provide the service principle information. 
 
-When using an exsisting service principle, it must meet the following requirements:
+When using an existing service principle, it must meet the following requirements:
 
 - Scope: the subscription used to deploy the cluster
 - Role: Contributor
@@ -75,7 +75,7 @@ Output is similar to the following. Take note of the `appId` and `password`. The
 }
 ```
 
-## Use an exsisting SP
+## Use an existing SP
 
 When using a pre-created service principle, provide the `appId` and `password` as argument values to the `az aks create` command. 
 

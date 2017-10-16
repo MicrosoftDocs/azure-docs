@@ -30,7 +30,7 @@ This document details using Draft with an Azure Container Service (AKS) Kubernet
 
 The steps detailed in this document assume that you have created an AKS Kubernetes cluster and have established a kubectl connection with the cluster. If you need these items see, the [AKS Kubernetes quickstart](./kubernetes-walkthrough.md).
 
-You will also need an Azure Container Registry. For instructions on deploying an ACR instance, see the [Azure Container Registry Quickstart](../container-registry/container-registry-get-started-azure-cli.md).
+You also need an Azure Container Registry. For instructions on deploying an ACR instance, see the [Azure Container Registry Quickstart](../container-registry/container-registry-get-started-azure-cli.md).
 
 
 ## Install Helm
@@ -60,7 +60,7 @@ Bash completion has been installed to:
 
 The Draft CLI is a client that runs on your development system and allows you to quicky deploy code into a Kubernetes cluster.
 
-To install the Draf CLI on a Mac use `brew`. For additional installation options see, the [Draft Install guide](https://github.com/Azure/draft/blob/master/docs/install.md).
+To install the Draft CLI on a Mac use `brew`. For additional installation options see, the [Draft Install guide](https://github.com/Azure/draft/blob/master/docs/install.md).
 
 ```console
 brew install draft
@@ -68,7 +68,7 @@ brew install draft
 
 ## Configure Draft
 
-When configuring Draft a container registry needs to be specified. In this example Azure Container Registry is used. Run the following command to get name and login server name of the ACR instance.
+When configuring Draft, a container registry needs to be specified. In this example Azure Container Registry is used. Run the following command to get name and login server name of the ACR instance.
 
 Update the command with the resource group of your ACR instance.
 
@@ -90,7 +90,7 @@ Initialize Draft.
 draft init
 ```
 
-During this process you will be prompted for the container registry credentials. When using an Azure Container Registry, the registry URL is the ACR login server, the username is the ACR name, and the password is the ACR password.
+During this process, you are prompted for the container registry credentials. When using an Azure Container Registry, the registry URL is the ACR login server, the username is the ACR name, and the password is the ACR password.
 
 ```console
 1. Enter your Docker registry URL (e.g. docker.io/myuser, quay.io/myuser, myregistry.azurecr.io): <ACR Login Server>
@@ -98,7 +98,7 @@ During this process you will be prompted for the container registry credentials.
 3. Enter your password: <ACR Password>
 ```
 
-Once complete, Draft will be configired in the AKS cluster and is ready to use.
+Once complete, Draft is configured in the AKS cluster and is ready to use.
 
 ```console
 Draft has been installed into your Kubernetes Cluster.
@@ -107,7 +107,7 @@ Happy Sailing!
 
 ## Run an application
 
-The Draft repository include several sample applications that can be used to demo Draft. Create a cloned copy of the repo.
+The Draft repository includes several sample applications that can be used to demo Draft. Create a cloned copy of the repo.
  
 ```console
 git clone https://github.com/Azure/draft
@@ -119,7 +119,7 @@ Change to the Java examples directory.
 cd draft/examples/java/
 ```
 
-This command creates the artifacts that are used to run the application in a Kubernetes cluster. These items include a Dockerfile, a Helm chart, and a `draft.toml` file which is a Draft configuration file.
+This command creates the artifacts that are used to run the application in a Kubernetes cluster. These items include a Dockerfile, a Helm chart, and a `draft.toml` file, which is a Draft configuration file.
 
 ```console
 draft create
