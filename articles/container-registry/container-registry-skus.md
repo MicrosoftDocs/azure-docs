@@ -32,6 +32,8 @@ Premium registries provide higher limits on constraints such as storage and conc
 ## Classic
 The Classic registry SKU enabled the initial release of the Azure Container Registry service in Azure. Classic registries are backed by a storage account that Azure creates in your subscription, which limits the ability for ACR to provide higher-level capabilities such as increased throughput and geo-replication. Because of its limited capabilities, we plan to deprecate the Classic SKU in the future.
 
+For pricing information on all SKUs, see [Container Registry pricing](https://azure.microsoft.com/pricing/details/container-registry/).
+
 > [!NOTE]
 > Because of the planned deprecation of the Classic registry SKU, we recommend you use Basic, Standard, or Premium for all new registries. For information about converting your existing Classic registry, see [Changing SKUs](#changing-skus).
 >
