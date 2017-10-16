@@ -20,7 +20,7 @@ ms.author: sngun
 
 # Manage API version profiles in Azure Stack
 
-The API Apps feature of Azure App Service version profiles provides a way to manage version differences between Azure and Azure Stack. An API version profile is a set of AzureRM PowerShell modules with specific API versions. Each cloud platform has a set of supported API version profiles. For example, Azure Stack supports a specific, dated profile version, such as **2017-03-09-profile**, and Azure supports the *latest* API version profile. When you install a profile, the AzureRM PowerShell modules that correspond to the specified profile are installed.
+The API feature of Azure App Service version profiles provides a way to manage version differences between Azure and Azure Stack. An API version profile is a set of AzureRM PowerShell modules with specific API versions. Each cloud platform has a set of supported API version profiles. For example, Azure Stack supports a specific, dated profile version, such as **2017-03-09-profile**, and Azure supports the *latest* API version profile. When you install a profile, the AzureRM PowerShell modules that correspond to the specified profile are installed.
 
 ## Install the PowerShell module required to use API version profiles
 
@@ -50,7 +50,7 @@ Install-AzureRMProfile -Profile 2017-03-09-profile
 Use the **Use-AzureRmProfile** cmdlet to install and import modules that are associated with an API version profile. You can import only one API version profile in a PowerShell session. To import a different API version profile, you must open a new PowerShell session. The **Use-AzureRMProfile** cmdlet runs the following tasks:  
 1. Checks to see if the PowerShell modules associated with the specified API version profile are installed in the current scope.  
 2. Downloads and installs the modules if they are not already installed.   
-3. Installs and imports the modules into the current PowerShell session. 
+3. Imports the modules into the current PowerShell session. 
 
 ```PowerShell
 # Installs and imports the specified API version profile into the current PowerShell session.
