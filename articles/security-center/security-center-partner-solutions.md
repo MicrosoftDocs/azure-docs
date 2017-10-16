@@ -45,10 +45,10 @@ To monitor the health status of connected security solutions and perform basic m
 
 2. Select **VIEW** for additional information and options, which includes:
 
-  - **Solution console** which opens the management experience for this solution.
-  - **Link VM** which opens the Link Applications blade. Here you can connect resources to the partner solution.
+  - **Solution console**. Opens the management experience for this solution.
+  - **Link VM**. Opens the Link Applications blade. Here you can connect resources to the partner solution.
   - **Delete solution**.
-  - **Configure** which lets you configure the solution.
+  - **Configure**.
 
    ![Partner solution detail][3]
 
