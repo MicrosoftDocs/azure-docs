@@ -23,8 +23,8 @@ ms.author: sngun
 
 To manage resources, you must first connect to the Azure Stack Development Kit. In this article, we describe the steps that you take to connect to the development kit. You can use one of the following connection options:
 
-* [Remote Desktop Connection](#connect-with-remote-desktop). When you connect by using Remote Desktop Connection, a single concurrent user can quickly connect from the development kit.
-* [Virtual private network (VPN)](#connect-with-vpn). When you connect by using a VPN, multiple concurrent users can connect from clients outside the Azure Stack infrastructure (requires setup).
+* [Remote Desktop Connection](#connect-with-remote-desktop). When you connect by using Remote Desktop Connection, a single user can quickly connect from the development kit.
+* [Virtual private network (VPN)](#connect-with-vpn). When you connect by using a VPN, multiple users can concurrently connect from clients outside the Azure Stack infrastructure (requires setup).
 
 <a name="connect-to-azure-stack-with-remote-desktop"></a>
 ##  Connect to Azure Stack by using Remote Desktop Connection
