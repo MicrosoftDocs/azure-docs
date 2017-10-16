@@ -200,7 +200,7 @@ You can use a Spark cluster to run Spark jobs on data that is stored in a Data L
 
 
 ### Use Data Lake Store in a Storm topology
-You can use the Data Lake Store to write data from a Storm topology. For instructions on how to achieve this scenario, see [Use Azure Data Lake Store with Apache Storm with HDInsight](../hdinsight/hdinsight-storm-write-data-lake-store.md).
+You can use the Data Lake Store to write data from a Storm topology. For instructions on how to achieve this scenario, see [Use Azure Data Lake Store with Apache Storm with HDInsight](../hdinsight/storm/apache-storm-write-data-lake-store.md).
 
 ## See also
 * [PowerShell: Create an HDInsight cluster to use Data Lake Store](data-lake-store-hdinsight-hadoop-use-powershell.md)

@@ -385,9 +385,9 @@ Now that you have successfully created an HDInsight cluster, use the following t
 * [Develop Java applications for HBase on HDInsight](hdinsight-hbase-build-java-maven-linux.md)
 
 ### Storm clusters
-* [Develop Java topologies for Storm on HDInsight](hdinsight-storm-develop-java-topology.md)
-* [Use Python components in Storm on HDInsight](hdinsight-storm-develop-python-topology.md)
-* [Deploy and monitor topologies with Storm on HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
+* [Develop Java topologies for Storm on HDInsight](storm/apache-storm-develop-java-topology.md)
+* [Use Python components in Storm on HDInsight](storm/apache-storm-develop-python-topology.md)
+* [Deploy and monitor topologies with Storm on HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md)
 
 ### Spark clusters
 * [Create a standalone application using Scala](hdinsight-apache-spark-create-standalone-application.md)
