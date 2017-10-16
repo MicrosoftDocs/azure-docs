@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2017
+ms.date: 10/16/2017
 ms.author: chackdan
 
 ---
@@ -65,7 +65,7 @@ To learn how to set up certificate security in a cluster for a standalone Window
 For clusters running on Azure, you also can secure access to management endpoints by using Azure Active Directory (Azure AD). To learn how to create the required Azure AD artifacts, how to populate them when you create the cluster, and how to connect to the clusters afterward, see [Set up a cluster by using an Azure Resource Manager template](service-fabric-cluster-creation-via-arm.md).
 
 ## Security recommendations
-For Azure clusters, for node-to-node security, we recommend that you use Azure AD security to authenticate clients and certificates.
+For Azure clusters, for client-to-node security, we recommend that you use Azure AD security or use dedicated certificates for client access.
 
 For standalone Windows Server clusters, if you have Windows Server 2012 R2 and Windows Active Directory, we recommend that you use Windows security with group Managed Service Accounts. Otherwise, use Windows security with Windows accounts.
 
