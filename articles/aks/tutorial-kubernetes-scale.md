@@ -49,7 +49,7 @@ kubectl get pods
 
 Output:
 
-```bash
+```console
 NAME                               READY     STATUS    RESTARTS   AGE
 azure-vote-back-2549686872-4d2r5   1/1       Running   0          31m
 azure-vote-front-848767080-tf34m   1/1       Running   0          31m
@@ -69,7 +69,7 @@ kubectl get pods
 
 Output:
 
-```bash
+```console
 NAME                                READY     STATUS    RESTARTS   AGE
 azure-vote-back-2606967446-nmpcf    1/1       Running   0          15m
 azure-vote-front-3309479140-2hfh0   1/1       Running   0          3m
@@ -108,7 +108,7 @@ kubectl get hpa
 
 Output:
 
-```bash
+```console
 NAME               REFERENCE                     TARGETS    MINPODS   MAXPODS   REPLICAS   AGE
 azure-vote-front   Deployment/azure-vote-front   0% / 50%   3         10        3          2m
 ```

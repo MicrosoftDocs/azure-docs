@@ -35,13 +35,13 @@ The Helm CLI is a client that runs on your development system and allows you to 
 
 To install the Helm CLI on a Mac use `brew`. For additional installation options see, [Installing Helm](https://github.com/kubernetes/helm/blob/master/docs/install.md).
  
-```bash
+```console
 brew install kubernetes-helm
 ```
 
 Output:
 
-```bash
+```console
 ==> Downloading https://homebrew.bintray.com/bottles/kubernetes-helm-2.6.2.sierra.bottle.1.tar.gz
 ######################################################################## 100.0%
 ==> Pouring kubernetes-helm-2.6.2.sierra.bottle.1.tar.gz
@@ -60,13 +60,13 @@ Tiller is pre-installed on Kubernetes clusters in Azure, however the [helm init]
 
 The [helm init](https://docs.helm.sh/helm/#helm-init) command is also used to connect the Helm CLI with the Kubernetes cluster using a Kubernetes configuration file.
 
-```bash
+```console
 helm init --upgrade
 ```
 
 Output:
 
-```bash
+```console
 $HELM_HOME has been configured at /Users/neilpeterson/.helm.
 Warning: Tiller is already installed in the cluster.
 (Use --client-only to suppress this message, or --upgrade to upgrade Tiller to the current version.)
@@ -77,13 +77,13 @@ Happy Helming!
 
 Helm charts are used to deploy applications into a Kubernetes cluster. To search for pre-created Helm charts, use the [helm search](https://docs.helm.sh/helm/#helm-search) command.
 
-```bash 
+```console 
 helm search 
 ```
 
 The output looks similar to, however with many more charts.
 
-```bash
+```console
 NAME                         	VERSION	DESCRIPTION                                       
 stable/acs-engine-autoscaler 	2.0.0  	Scales worker nodes within agent pools            
 stable/artifactory           	6.1.0  	Universal Repository Manager supporting all maj...
@@ -104,13 +104,13 @@ stable/datadog               	0.8.0  	DataDog Agent
 
 To update the list charts, use the [helm repo update](https://docs.helm.sh/helm/#helm-repo-update) command.
 
-```bash 
+```console 
 helm repo update 
 ```
 
 Output:
 
-```bash
+```console
 Hang tight while we grab the latest from your chart repositories...
 ...Skip local chart repository
 ...Successfully got an update from the "stable" chart repository
@@ -121,13 +121,13 @@ Update Complete. ⎈ Happy Helming!⎈
  
 To deploy a Nginx ingress controller chart, use the [helm install](https://docs.helm.sh/helm/#helm-install) command.
 
-```bash
+```console
 helm install stable/nginx-ingress 
 ```
 
 The output looks similar to the following however include much more information including instructions on how to use the Kubernetes deployment.
 
-```bash
+```console
 NAME:   tufted-ocelot
 LAST DEPLOYED: Thu Oct  5 00:48:04 2017
 NAMESPACE: default
@@ -155,13 +155,13 @@ For more information on using an NGINX ingress controller with Kubernetes, see [
 
 To see a list of charts installed on your cluster, type:
 
-```bash
+```console
 helm list 
 ```
 
 Output:
 
-```bash
+```console
 NAME         	REVISION	UPDATED                 	STATUS  	CHART              	NAMESPACE
 bilging-ant  	1       	Thu Oct  5 00:11:11 2017	DEPLOYED	nginx-ingress-0.8.7	default 
 ```

@@ -94,7 +94,7 @@ kubectl get nodes
 
 Output:
 
-```bash
+```console
 NAME                    STATUS                     AGE       VERSION
 k8s-agent-14ad53a1-0    Ready                      10m       v1.6.6
 k8s-agent-14ad53a1-1    Ready                      10m       v1.6.6
@@ -176,7 +176,7 @@ kubectl create -f azure-vote.yml
 
 Output:
 
-```bash
+```console
 deployment "azure-vote-back" created
 service "azure-vote-back" created
 deployment "azure-vote-front" created
@@ -195,13 +195,13 @@ kubectl get service azure-vote-front --watch
 
 Initially the *EXTERNAL-IP* for the *azure-vote-front* service appears as *pending*.
   
-```bash
+```console
 azure-vote-front   10.0.34.242   <pending>     80:30676/TCP   7s
 ```
 
 Once the *EXTERNAL-IP* address has changed from *pending* to an *IP address*, use `CTRL-C` to stop the kubectl watch process. 
 
-```bash
+```console
 azure-vote-front   10.0.34.242   52.179.23.131   80:30676/TCP   2m
 ```
 

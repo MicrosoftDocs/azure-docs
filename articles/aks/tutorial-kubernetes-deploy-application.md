@@ -53,7 +53,7 @@ az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginSe
 
 The manifest file has been pre-created with a login server name of `microsoft`. Open the file with any text editor. In this example, the file is opened with `vi`.
 
-```bash
+```console
 vi azure-vote-all-in-one-redis.yml
 ```
 
@@ -77,7 +77,7 @@ kubectl create -f azure-vote-all-in-one-redis.yml
 
 Output:
 
-```bash
+```console
 deployment "azure-vote-back" created
 service "azure-vote-back" created
 deployment "azure-vote-front" created
@@ -96,7 +96,7 @@ kubectl get service azure-vote-front --watch
 
 Initially, the **EXTERNAL-IP** for the `azure-vote-front` service appears as `pending`. Once the EXTERNAL-IP address has changed from `pending` to an `IP address`, use `CTRL-C` to stop the kubectl watch process.
 
-```bash
+```console
 NAME               CLUSTER-IP    EXTERNAL-IP   PORT(S)        AGE
 azure-vote-front   10.0.42.158   <pending>     80:31873/TCP   1m
 azure-vote-front   10.0.42.158   52.179.23.131 80:31873/TCP   2m

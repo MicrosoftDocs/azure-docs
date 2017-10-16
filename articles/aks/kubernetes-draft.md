@@ -66,6 +66,16 @@ To install the Draft CLI on a Mac use `brew`. For additional installation option
 brew install draft
 ```
 
+Output:
+
+```console
+==> Installing draft from azure/draft
+==> Downloading https://azuredraft.blob.core.windows.net/draft/draft-v0.7.0-darwin-amd64.tar.gz
+Already downloaded: /Users/neilpeterson/Library/Caches/Homebrew/draft-0.7.0.tar.gz
+==> /usr/local/Cellar/draft/0.7.0/bin/draft init --client-only
+🍺  /usr/local/Cellar/draft/0.7.0: 6 files, 61.2MB, built in 1 second
+```
+
 ## Configure Draft
 
 When configuring Draft, a container registry needs to be specified. In this example Azure Container Registry is used. Run the following command to get name and login server name of the ACR instance.
@@ -170,7 +180,7 @@ SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further detail
 >> Listening on 0.0.0.0:4567
 ```
 
-## Deploy application
+When finished testing the application use `CTRL-C` to stop the proxy connection.
 
 ## Next steps
 
