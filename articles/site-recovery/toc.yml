@@ -51,6 +51,8 @@
     href: concepts-physical-to-azure-architecture.md
   - name: Hyper-V to secondary site architecture
     href: concepts-hyper-v-to-secondary-architecture.md
+  - name: Azure to Azure support matrix
+    href: site-recovery-support-matrix-azure-to-azure.md
   - name: On-premises to Azure support matrix
     href: site-recovery-support-matrix-to-azure.md
   - name: On-premises to secondary site support matrix
@@ -155,7 +157,7 @@
     - name: Fail back from Azure
       items:
       - name: Fail back from Azure to VMware
-        href: site-recovery-failback-azure-to-vmware.md
+        href: site-recovery-how-to-failback-azure-to-vmware.md
       - name: Fail back from Azure to Hyper-V
         href: site-recovery-failback-from-azure-to-hyper-v.md
   - name: Automate
