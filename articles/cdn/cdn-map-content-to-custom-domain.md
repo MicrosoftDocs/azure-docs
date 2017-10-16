@@ -27,7 +27,7 @@ If you do not already have a custom domain, you must first purchase one with a d
 	- Option 2: Mapping of your custom domain to the CDN endpoint by using cdnverify 
 3. [Enable the CNAME record mapping in Azure](#step-3-enable-the-cname-record-mapping-in-azure)
 4. [Verify that the custom subdomain references your CDN endpoint](#step-4-verify-that-the-custom-subdomain-references-your-cdn-endpoint)
-5. [(Optional) Map the permanent custom domain to the CDN endpoint](#step-5-optional-map-the-permanent-custom-domain-to-the-cdn-endpoint)
+5. [(Dependent step) Map the permanent custom domain to the CDN endpoint](#step-5-dependent-step-map-the-permanent-custom-domain-to-the-cdn-endpoint)
 
 ## Step 1: Access DNS records by using your domain provider
 
@@ -92,9 +92,9 @@ After you have completed the registration of your custom domain, verify that the
 2. In your browser, navigate to the address of the blob by using the custom domain. For example, if your custom domain is `cdn.contoso.com`, the URL to the cached blob should be similar to the following URL: `http://cdn.contoso.com/mypubliccontainer/acachedblob.jpg`.
 
 
-## Step 5 (Optional): Map the permanent custom domain to the CDN endpoint
+## Step 5 (Dependent step): Map the permanent custom domain to the CDN endpoint
 
-If you are using the temporary **cdnverify** subdomain and have verified that it works, you can then map your permanent custom domain to the CDN endpoint.
+This step is dependent on step 2, option 2 (Mapping with the **cdnverify** subdomain). If you are using the temporary **cdnverify** subdomain and have verified that it works, you can then map your permanent custom domain to the CDN endpoint.
 
 1. On your domain provider's web site, create a CNAME DNS record to map your permanent custom domain to the CDN endpoint. Your CNAME mapping entry should be in this format: 
  
