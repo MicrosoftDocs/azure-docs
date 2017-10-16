@@ -42,7 +42,7 @@ The following high-level workflow is typical of nearly all applications and serv
 The following sections discuss these and the other resources of Batch that enable your distributed computational scenario.
 
 > [!NOTE]
-> You need a [Batch account](#account) to use the Batch service. Most Batch solutions also use an assocated [Azure Storage][azure_storage] account for file storage and retrieval. 
+> You need a [Batch account](#account) to use the Batch service. Most Batch solutions also use an associated [Azure Storage][azure_storage] account for file storage and retrieval. 
 >
 >
 
