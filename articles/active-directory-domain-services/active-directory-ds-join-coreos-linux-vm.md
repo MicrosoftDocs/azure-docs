@@ -35,7 +35,7 @@ Provision a CoreOS virtual machine in Azure, using any of the following methods:
 * [Azure CLI](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
-The steps in this article have been performed using the **CoreOS Linux (Stable)** virtual machine image in Azure.
+This article uses the **CoreOS Linux (Stable)** virtual machine image in Azure.
 
 > [!IMPORTANT]
 > * Deploy the virtual machine into the **same virtual network in which you have enabled Azure AD Domain Services**.
@@ -65,7 +65,7 @@ Here, 'contoso100.com' is the DNS domain name of your managed domain. 'contoso-c
 
 
 ## Configure the SSSD service on the Linux virtual machine
-Next, update your SSSD configuration file in ('/etc/sssd/sssd.conf') to match the following sample. Replace 'CONTOSO100.COM' with the DNS domain name of your managed domain. Make sure you specify the domain name in capital case in the conf file.
+Next, update your SSSD configuration file in ('/etc/sssd/sssd.conf') to match the following sample:
 
  ```
  [sssd]
@@ -93,6 +93,7 @@ Next, update your SSSD configuration file in ('/etc/sssd/sssd.conf') to match th
  krb5_server = contoso100.com
  krb5_realm = CONTOSO100.COM
  ```
+Replace 'CONTOSO100.COM' with the DNS domain name of your managed domain. Make sure you specify the domain name in capital case in the conf file.
 
 
 ## Join the Linux virtual machine to the managed domain
