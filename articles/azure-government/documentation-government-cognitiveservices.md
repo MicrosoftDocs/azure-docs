@@ -21,12 +21,13 @@ ms.author: yujhong
 # Cognitive Services Quickstart – Computer Vision, Face, Translator Text APIs
 
 ## Part 1: Access the Cognitive Services APIs
-In order to access any of the Cognitive Services APIs, you must first provision a Cognitive Services account for each of the APIs you want to access. **Cognitive Services is not yet supported in the Azure Government Portal**, but we can use Azure PowerShell to access the APIs and services. 
+In order to access any of the Cognitive Services APIs, you must first provision a Cognitive Services account for each of the APIs you want to access. **Cognitive Services is not yet supported in the Azure Government Portal**, but you can use Azure PowerShell to access the APIs and services. 
 
 > [!NOTE]
 > You must go through the process of creating an account and retrieving a key(explained below) **for each** of the APIs you want to access.
 > 
 > 
+
 ### Prerequisites
 * Install and Configure [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0)
 * Connect [PowerShell with Azure Government](documentation-government-get-started-connect-with-ps.md)
@@ -90,6 +91,7 @@ The Quickstarts below will help you to get started with the APIs available throu
     > After you install or upgrade to Visual Studio 2017 version 15.3, you might also need to manually update the Visual Studio 		2017 tools for Azure Functions. You can update the tools from the **Tools** menu under **Extensions and Updates...** > 			**Updates** > **Visual Studio Marketplace** > **Azure Functions and Web Jobs Tools** > **Update**. 
     >
     >
+    
 #### Variations
 * The URI for accessing the Computer Vision API is https://(resource-group-location).api.cognitive.microsoft.us/vision/v1.0, with the difference being in the ending of ".us" and the location at the beginning of the uri.
 
@@ -271,6 +273,7 @@ namespace VisionApp1
             }
         }
     }
+```
 #### Analyze an Image response
 
 A successful response is returned in JSON. Following is an example of a successful response:
@@ -352,6 +355,7 @@ For more information, please see [public documentation](../cognitive-services/co
     > After you install or upgrade to Visual Studio 2017 version 15.3, you might also need to manually update the Visual Studio 		2017 tools for Azure Functions. You can update the tools from the **Tools** menu under **Extensions and Updates...** > 			**Updates** > **Visual Studio Marketplace** > **Azure Functions and Web Jobs Tools** > **Update**. 
     >
     >
+    
 #### Variations
 * The URI for accessing the Face API is https://(resource-group-location).api.cognitive.microsoft.us/face/v1.0, with the difference being in the ending of ".us" and the location at the beginning of the uri.
 
@@ -592,6 +596,7 @@ For more information, please see [public documentation](../cognitive-services/Fa
     > After you install or upgrade to Visual Studio 2017 version 15.3, you might also need to manually update the Visual Studio 		2017 tools for Azure Functions. You can update the tools from the **Tools** menu under **Extensions and Updates...** > 			**Updates** > **Visual Studio Marketplace** > **Azure Functions and Web Jobs Tools** > **Update**. 
     >
     >
+    
 #### Variations
 * The URI for accessing the Text Translation API is https://api.microsofttranslator.us/v2/http.svc, with the difference being in the ending of ".us"
 * The URI for retrieving the access token to the Text Translation API is the "Endpoint" attribute that was saved in Part 1 of this quickstart, with "/IssueToken" at the end
