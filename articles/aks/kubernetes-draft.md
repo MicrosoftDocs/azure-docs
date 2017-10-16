@@ -182,6 +182,79 @@ SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further detail
 
 When finished testing the application use `CTRL-C` to stop the proxy connection.
 
+## Expose application publically
+
+When testing an application in Kubernetes, you may want to make the application available on the internet. This can be done using a Kuebrentes service with a type of LoadBalancer or an ingress controller. This document will detail using a Kuebrentes service. 
+
+For more information on Kubernetes services see, [Kubernetes service]( https://kubernetes.io/docs/concepts/services-networking/service/#type-loadbalancer).
+
+For more information on ingress controllers see, [Kubernetes ingress resource]( https://kubernetes.io/docs/concepts/services-networking/ingress/).
+
+
+First, the Draft pack needs to be updated to specify that a service with a type `LoadBalancer` should be created. To do so, update the service type in the `values.yaml` file.
+
+```console
+vi chart/java/values.yaml
+```
+
+Locate the `service.type` property and update the value from `ClusterIP` to `LoadBalancer`.
+
+```yaml
+replicaCount: 2
+image:
+  repository: openjdk
+  tag: 8-jdk-alpine
+  pullPolicy: IfNotPresent
+service:
+  name: java
+  type: LoadBalancer
+  externalPort: 80
+  internalPort: 4567
+resources:
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+  ```
+
+  Run `draft up` to re-run the application.
+
+  ```console
+  draft up
+  ```
+
+It can take few minutes for the Service to return a public IP address. To monitor progress use the `kubectl get service` command with a watch.
+
+```console
+kubectl get service -w
+```
+
+Initially, the *EXTERNAL-IP* for the service appears as `pending`.
+
+```console
+deadly-squid-java   10.0.141.72   <pending>     80:32150/TCP   14m
+```
+
+Once the EXTERNAL-IP address has changed from `pending` to an `IP address`, use `CTRL-C` to stop the kubectl watch process.
+
+```console
+deadly-squid-java   10.0.141.72   52.175.224.118   80:32150/TCP   17m
+```
+
+To see the application, browse to the external IP address.
+
+```console
+curl 52.175.224.118
+```
+
+Output:
+
+```console
+Hello World, I'm Java
+```
+
 ## Next steps
 
 For more information about using Draft, see the Draft documentation on GitHub.

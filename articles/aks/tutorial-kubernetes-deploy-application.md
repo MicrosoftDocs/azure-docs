@@ -94,12 +94,16 @@ To monitor progress, use the [kubectl get service](https://kubernetes.io/docs/us
 kubectl get service azure-vote-front --watch
 ```
 
-Initially, the **EXTERNAL-IP** for the `azure-vote-front` service appears as `pending`. Once the EXTERNAL-IP address has changed from `pending` to an `IP address`, use `CTRL-C` to stop the kubectl watch process.
+Initially the *EXTERNAL-IP* for the *azure-vote-front* service appears as *pending*.
+  
+```console
+azure-vote-front   10.0.34.242   <pending>     80:30676/TCP   7s
+```
+
+Once the *EXTERNAL-IP* address has changed from *pending* to an *IP address*, use `CTRL-C` to stop the kubectl watch process. 
 
 ```console
-NAME               CLUSTER-IP    EXTERNAL-IP   PORT(S)        AGE
-azure-vote-front   10.0.42.158   <pending>     80:31873/TCP   1m
-azure-vote-front   10.0.42.158   52.179.23.131 80:31873/TCP   2m
+azure-vote-front   10.0.34.242   52.179.23.131   80:30676/TCP   2m
 ```
 
 To see the application, browse to the external IP address.
