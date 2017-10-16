@@ -36,9 +36,9 @@ You also need the Azure CLI version 2.0.4 or later installed and configured. Run
 
 ## Create SP with AKS cluster
 
-When deploying an AKS Kubernetes cluster with the `az aks create` command, you have the option to generate a service principal automatically.
+When deploying an AKS Kubernetes cluster with the `az aks create` command, you have the option to automatically generate a service principal.
 
-In the following an example, and AKS cluster is created, and because a service principle is not specified, a service principle is also created for the cluster. In order to complete this operation, your account must have the proper rights for creating a service principle. 
+In the following an example, and AKS cluster is created, and because an exsisting service principle is not specified, a service principle is created for the cluster. In order to complete this operation, your account must have the proper rights for creating a service principle. 
 
 ```console
 az aks create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-keys

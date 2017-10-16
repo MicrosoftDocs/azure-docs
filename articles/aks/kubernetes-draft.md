@@ -3,8 +3,8 @@ title: Use Draft with AKS and Azure Container Registry | Microsoft Docs
 description: Use Draft with AKS and Azure Container Registry
 services: container-service
 documentationcenter: ''
-author: squillace
-manager: gamonroy
+author: neilpeterson
+manager: timlt
 editor: ''
 tags: draft, helm, aks, azure-container-service
 keywords: Docker, Containers, microservices, Kubernetes, Draft, Azure
@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2017
-ms.author: rasquill
+ms.date: 10/16/2017
+ms.author: nepeters
 ms.custom: mvc
 ---
 
 # Use Draft with AKS
 
-Draft is an open source tool that helps package and run code in a Kubernetes cluster. Draft is targeted at the development iteration cycle; as the code is being developed, but before committing to version control. With Draft, you can quickly redeploy to Kubernetes as code changes occurs. For more information on Draft, see the [Draft documentation on Github](https://github.com/Azure/draft/tree/master/docs).
+Draft is an open source tool that helps package and run code in a Kubernetes cluster. Draft is targeted at the development iteration cycle; as the code is being developed, but before committing to version control. With Draft, you can quickly redeploy an application to Kubernetes as code changes occur. For more information on Draft, see the [Draft documentation on Github](https://github.com/Azure/draft/tree/master/docs).
 
-This document details using Draft with a Kubernetes cluster in AKS.
+This document details using Draft with a Kubernetes cluster on AKS.
 
 ## Prerequisites
 
@@ -78,29 +78,29 @@ Already downloaded: /Users/neilpeterson/Library/Caches/Homebrew/draft-0.7.0.tar.
 
 ## Configure Draft
 
-When configuring Draft, a container registry needs to be specified. In this example Azure Container Registry is used. Run the following command to get name and login server name of the ACR instance.
+When configuring Draft, a container registry needs to be specified. In this example Azure Container Registry is used. 
 
-Update the command with the resource group of your ACR instance.
+Run the following command to get name and login server name of the ACR instance. Update the command with the resource group of your ACR instance.
 
 ```console
 az acr list --resource-group <resource group> --query "[].{Name:name,LoginServer:loginServer}" --output table
 ```
 
-The ACR instance password is also needed. Run the following command to return the ACR password.
+The ACR instance password is also needed. 
 
-Update the command with the name of the ACR instance.
+Run the following command to return the ACR password. Update the command with the name of the ACR instance.
 
 ```console
 az acr credential show --name <acr name> --query "passwords[0].value" --output table
 ```
 
-Initialize Draft.
+Initialize Draft with the `draft init` command.
 
 ```console
 draft init
 ```
 
-During this process, you are prompted for the container registry credentials. When using an Azure Container Registry, the registry URL is the ACR login server, the username is the ACR name, and the password is the ACR password.
+During this process, you are prompted for the container registry credentials. When using an Azure Container Registry, the registry URL is the ACR login server name, the username is the ACR instance name, and the password is the ACR password.
 
 ```console
 1. Enter your Docker registry URL (e.g. docker.io/myuser, quay.io/myuser, myregistry.azurecr.io): <ACR Login Server>
@@ -129,7 +129,7 @@ Change to the Java examples directory.
 cd draft/examples/java/
 ```
 
-This command creates the artifacts that are used to run the application in a Kubernetes cluster. These items include a Dockerfile, a Helm chart, and a `draft.toml` file, which is a Draft configuration file.
+Use the `draft create` command to start the process. This command creates the artifacts that are used to run the application in a Kubernetes cluster. These items include a Dockerfile, a Helm chart, and a `draft.toml` file, which is the Draft configuration file.
 
 ```console
 draft create
@@ -142,7 +142,7 @@ Output:
 --> Ready to sail
 ```
 
-To run the application on a Kubernetes cluster, use the `draft up` command. This command uploads the application code and the configuration files to the Kubernetes cluster, runs the Dockerfile to create a container image, pushes the image to the container registry, and finally runs the Helm chart to start the application.
+To run the application on a Kubernetes cluster, use the `draft up` command. This command uploads the application code and configuration files to the Kubernetes cluster. It then runs the Dockerfile to create a container image, pushes the image to the container registry, and finally runs the Helm chart to start the application.
 
 ```console
 draft up
@@ -160,7 +160,7 @@ open-jaguar: Build ID: 01BW3VVNZYQ5NQ8V1QSDGNVD0S
 
 ## Test the application
 
-To test the application, use the `draft connect` command. Draft connect proxies a connection to the Kubernetes pod allowing a secure local connection. When complete, the application can be accessed on the provided URL.
+To test the application, use the `draft connect` command. This command proxies a connection to the Kubernetes pod allowing a secure local connection. When complete, the application can be accessed on the provided URL.
 
 In some cases, it can take a few minutes for the container image to be download and that application to start. If you receive an error when accessing the application, retry the connection.
 
@@ -249,6 +249,58 @@ Output:
 
 ```console
 Hello World, I'm Java
+```
+
+## Itterate on the application
+
+Now that Draft has been configured, the application is running in Kubernetes, you are set for code iteration. Each time you would like to test updated code, run the `draft up` command to update the running application. 
+
+For this example, update the Java hello world application.
+
+```console
+vi src/main/java/helloworld/Hello.java
+```
+
+Update the Hello World text.
+
+```java
+package helloworld;
+
+import static spark.Spark.*;
+
+public class Hello {
+    public static void main(String[] args) {
+        get("/", (req, res) -> "Hello World, I'm Java - Draft Rocks!");
+    }
+}
+```
+
+Run the `draft up` command to redeploy the application.
+
+```console
+draft up
+```
+
+Output
+
+```console
+Draft Up Started: 'deadly-squid'
+deadly-squid: Building Docker Image: SUCCESS ⚓  (18.0813s)
+deadly-squid: Pushing Docker Image: SUCCESS ⚓  (7.9394s)
+deadly-squid: Releasing Application: SUCCESS ⚓  (6.5005s)
+deadly-squid: Build ID: 01BWK8C8X922F5C0HCQ8FT12RR
+```
+
+Finally, view the application to see the updates.
+
+```console
+curl 52.175.224.118
+```
+
+Output:
+
+```console
+Hello World, I'm Java - Draft Rocks!
 ```
 
 ## Next steps

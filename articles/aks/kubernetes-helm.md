@@ -58,7 +58,7 @@ Tiller is a server-side component that runs on the Kubernetes cluster. Tiler man
 
 Tiller is pre-installed on Kubernetes clusters in Azure, however the [helm init](https://docs.helm.sh/helm/#helm-init) command can be used to validate that Tiller is running the latest version. 
 
-The [helm init](https://docs.helm.sh/helm/#helm-init) command is also used to connect the Helm CLI with the Kubernetes cluster using a Kubernetes configuration file.
+The [helm init](https://docs.helm.sh/helm/#helm-init) command is also used to connect the Helm client with the Kubernetes cluster.
 
 ```console
 helm init --upgrade
@@ -119,13 +119,13 @@ Update Complete. ⎈ Happy Helming!⎈
 
 ## Run Helm charts 
  
-To deploy a Nginx ingress controller chart, use the [helm install](https://docs.helm.sh/helm/#helm-install) command.
+To deploy a Nginx ingress controller, use the [helm install](https://docs.helm.sh/helm/#helm-install) command.
 
 ```console
 helm install stable/nginx-ingress 
 ```
 
-The output looks similar to the following however include much more information including instructions on how to use the Kubernetes deployment.
+The output looks similar to the following however includes much more information including instructions on how to use the Kubernetes deployment.
 
 ```console
 NAME:   tufted-ocelot
@@ -153,7 +153,7 @@ For more information on using an NGINX ingress controller with Kubernetes, see [
 
 ## List Helm charts
 
-To see a list of charts installed on your cluster, type:
+To see a list of charts installed on your cluster, use the [helm list](https://docs.helm.sh/helm/#helm-list) command.
 
 ```console
 helm list 
