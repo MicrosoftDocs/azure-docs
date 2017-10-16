@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 07/04/2017
+ms.date: 10/16/2017
 ms.author: pratshar
 
 ---
@@ -26,10 +26,6 @@ This article provides information and instructions for doing a test failover or 
 Post any comments or questions at the bottom of this article, or on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 Test failover is run to validate your replication strategy or perform a disaster recovery drill without any data loss or downtime. Doing a test failover doesn't have any impact on the ongoing replication or on your production environment. Test failover can be done either on a virtual machine or a [recovery plan](site-recovery-create-recovery-plans.md). When triggering a test failover, you need to specify the network to which test virtual machines would connect to. Once a test failover is triggered, you can track progress in the **Jobs** page.  
-
-
-## Supported scenarios
-Test failover is supported in all deployment scenarios other than [legacy VMware site to Azure](site-recovery-vmware-to-azure-classic-legacy.md). Test failover is also not supported when virtual machine has been failed over to Azure.  
 
 
 ## Run a test failover
