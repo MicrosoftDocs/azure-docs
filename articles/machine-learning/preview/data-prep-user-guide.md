@@ -44,7 +44,7 @@ Error values propagate. After an error value occurs, it propagates in most cases
 * Use a Python expression to conditionally operate on error values. For more information, see the [section on Python extensions](data-prep-python-extensibility-overview.md).
 
 ### Sampling
-A Data Source file takes in raw data from one or more sources, either from the local file system or a remote location. The Sample block allows you to specify whether to work with a subset of the data by generating samples. Operating on a sample of the data rather than a large data set often leads to better performance when you carry out operations in later steps.
+A Data Source file takes in raw data from one or more sources, either from the local file system or a remote location. The Sample block allows you to specify whether to work with a subset of the data by generating samples. Operating on a sample of the data rather than a large dataset often leads to better performance when you carry out operations in later steps.
 
 For each Data Source file, multiple samples can be generated and stored. However, only one sample can be set as the active sample. You can create, edit, or delete samples in the Data Source wizard or by editing the Sample block. Any Data Preparation files that reference a data source inherently use the sample specified in the Data Source file.
 
@@ -72,7 +72,7 @@ This strategy can be applied only to local files, taking the full file into the 
 
 ### Fork, merge, and append
 
-When you apply a filter over a data set, the operation splits the data into two result sets: one set represents records that succeed in the filter, and another set is for the records that fail. In either case, the user can choose which result set to display. The user can discard the other data set or place it in a new data flow. The latter option is referred to as forking.
+When you apply a filter over a dataset, the operation splits the data into two result sets: one set represents records that succeed in the filter, and another set is for the records that fail. In either case, the user can choose which result set to display. The user can discard the other dataset or place it in a new data flow. The latter option is referred to as forking.
 
 To fork: 
 1. Select a column, right-click, and select the **Filter** column.
@@ -84,14 +84,14 @@ To fork:
 4. Following **Conditions**, select **Create Dataflow Containing the Filtered Out Rows** to fork the non-display result set into a new data flow.
 
 
-This practice is often used to separate out a set of data that requires additional preparation. After wrangling the forked data set, it's common to merge the data with the result set in the original data flow. To perform a merge (the reverse of a fork operation), use one of the following actions:
+This practice is often used to separate out a set of data that requires additional preparation. After wrangling the forked dataset, it's common to merge the data with the result set in the original data flow. To perform a merge (the reverse of a fork operation), use one of the following actions:
 
 - **Append Rows**. Merge two or more data flows vertically (row-wise). 
 - **Append Columns**. Merge two or more data flows horizontally (column-wise).
 
 
 >[!NOTE]
->AppendColumns fails if a column collision occurs.
+>Append Columns fails if a column collision occurs.
 
 
 After a merge operation, one or more data flows are referenced by a source data flow. Data Preparation notifies you with a notification in the lower-right corner of the app, beneath the list of steps.
@@ -100,12 +100,12 @@ After a merge operation, one or more data flows are referenced by a source data 
 Any operation on the referenced data flow requires the parent data flow to refresh the sample used from the referenced data flow. In that event, a confirmation dialog box replaces the data flow reference notification in the lower-right corner. That dialog box confirms that you need to refresh the data flow to synchronize with changes to any dependency data flows.
 
 ### List of appendices 
-[Appendix 2: Supported data sources](data-prep-appendix2-supported-data-sources.md)  
-[Appendix 3: Supported transforms](data-prep-appendix3-supported-transforms.md)  
-[Appendix 4: Supported inspectors](data-prep-appendix4-supported-inspectors.md)  
-[Appendix 5: Supported destinations](data-prep-appendix5-supported-destinations.md)  
-[Appendix 6: Sample filter expressions in Python](data-prep-appendix6-sample-filter-expressions-python.md)  
-[Appendix 7: Sample transform data flow expressions in Python](data-prep-appendix7-sample-transform-data-flow-python.md)  
-[Appendix 8: Sample data sources in Python](data-prep-appendix8-sample-source-connections-python.md)  
-[Appendix 9: Sample destination connections in Python](data-prep-appendix9-sample-destination-connections-python.md)  
-[Appendix 10: Sample column transforms in Python](data-prep-appendix10-sample-custom-column-transforms-python.md)  
+* [Supported data sources](data-prep-appendix2-supported-data-sources.md)  
+* [Supported transforms](data-prep-appendix3-supported-transforms.md)  
+* [Supported inspectors](data-prep-appendix4-supported-inspectors.md)  
+* [Supported destinations](data-prep-appendix5-supported-destinations.md)  
+* [Sample filter expressions in Python](data-prep-appendix6-sample-filter-expressions-python.md)  
+* [Sample transform data flow expressions in Python](data-prep-appendix7-sample-transform-data-flow-python.md)  
+* [Sample data sources in Python](data-prep-appendix8-sample-source-connections-python.md)  
+* [Sample destination connections in Python](data-prep-appendix9-sample-destination-connections-python.md)  
+* [Sample column transforms in Python](data-prep-appendix10-sample-custom-column-transforms-python.md)  
