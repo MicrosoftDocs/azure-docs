@@ -35,7 +35,7 @@ The compute nodes of an Azure Batch pool are automatically networked so that the
 
 * **An Azure VNet**. To prepare a VNet with one or more subnets in advance, you can use the Azure portal, Azure PowerShell, the Azure Command-Line Interface 2.0, or other methods. For steps, see [Create a virtual network with multiple subnets](..virtual-network/virtual-networks-create-vnet-arm-pportal.md). 
 
-The VNet must meet the following requirements:
+  The VNet must meet the following requirements:
 
   - The VNet must be in the same Azure **region** and **subscription** as the Batch account.
 
@@ -45,15 +45,15 @@ The VNet must meet the following requirements:
 
   - The VNet must allow communication from the Batch service to be able to schedule tasks on the compute nodes. This can be verified by checking if the VNet has any associated network security groups (NSGs). If communication to the compute nodes in the specified subnet is denied by an NSG, then the Batch service sets the state of the compute nodes to **unusable**. 
 
-* **Enable inbound and outbound ports**. If the specified VNet has associated Network Security Groups (NSGs) and/or a firewall, configure the inbound and outbound ports as shown in the following tables:
+  - If the specified VNet has associated Network Security Groups (NSGs) and/or a firewall, configure the inbound and outbound ports as shown in the following tables:
 
- [!INCLUDE [batch-virtual-netwrk-ports](../../includes/batch-virtual-network-ports.md)]
+    [!INCLUDE [batch-virtual-netwrk-ports](../../includes/batch-virtual-network-ports.md)]
 
 
     
 ## Create a pool with a VNet in the portal
 
-Once you have created your virtual network and assigned a subnet to it you can create a Batch pool with that virtual network. Follow these steps to create a pool from the Azure portal: 
+Once you have created your VNet and assigned a subnet to it, you can create a Batch pool with that VNet. Follow these steps to create a pool from the Azure portal: 
 
 
 
