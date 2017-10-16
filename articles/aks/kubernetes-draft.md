@@ -182,13 +182,9 @@ SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further detail
 
 When finished testing the application use `CTRL-C` to stop the proxy connection.
 
-## Expose application publically
+## Expose application
 
-When testing an application in Kubernetes, you may want to make the application available on the internet. This can be done using a Kuebrentes service with a type of LoadBalancer or an ingress controller. This document will detail using a Kuebrentes service. 
-
-For more information on Kubernetes services see, [Kubernetes service]( https://kubernetes.io/docs/concepts/services-networking/service/#type-loadbalancer).
-
-For more information on ingress controllers see, [Kubernetes ingress resource]( https://kubernetes.io/docs/concepts/services-networking/ingress/).
+When testing an application in Kubernetes, you may want to make the application available on the internet. This can be done using a Kuebrentes service with a type of [LoadBalancer](https://kubernetes.io/docs/concepts/services-networking/service/#type-loadbalancer) or an [ingress controller](https://kubernetes.io/docs/concepts/services-networking/ingress/). This document will detail using a Kuebrentes service. 
 
 
 First, the Draft pack needs to be updated to specify that a service with a type `LoadBalancer` should be created. To do so, update the service type in the `values.yaml` file.
