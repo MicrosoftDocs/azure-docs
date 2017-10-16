@@ -2,12 +2,12 @@
   href: ./index.yml
 - name: Overview
   items:
-  - name: Container Service (AKS)
+  - name: AKS overview
     href: intro-kubernetes.md
 - name: Quickstarts
   expanded: true
   items:
-  - name: Container Service (AKS)
+  - name: AKS quickstart
     href: kubernetes-walkthrough.md
 - name: Tutorials
   items:

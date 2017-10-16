@@ -1,12 +1,12 @@
 ---
-title: Azure Container Service tutorial - Prepare App | Microsoft Docs
-description: Azure Container Service tutorial - Prepare App 
+title: AKS tutorial - Prepare App | Microsoft Docs
+description: AKS tutorial - Prepare App 
 services: container-service
 documentationcenter: ''
 author: neilpeterson
 manager: timlt
 editor: ''
-tags: acs, azure-container-service
+tags: aks, azure-container-service
 keywords: Docker, Containers, Micro-services, Kubernetes, DC/OS, Azure
 
 ms.assetid: 
@@ -33,7 +33,7 @@ Once completed, the following application is accessible in your local developmen
 
 ![Image of Kubernetes cluster on Azure](./media/container-service-tutorial-kubernetes-prepare-app/azure-vote.png)
 
-In subsequent tutorials, the container image is uploaded to an Azure Container Registry, and then run in an AKS cluster.
+In subsequent tutorials, the container image is uploaded to an Azure Container Registry, and then run in an AKS Kubernetes cluster.
 
 ## Before you begin
 

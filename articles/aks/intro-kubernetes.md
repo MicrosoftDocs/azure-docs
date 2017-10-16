@@ -6,7 +6,7 @@ documentationcenter: ''
 author: gabrtv
 manager: timlt
 editor: ''
-tags: acs, azure-container-service
+tags: aks, azure-container-service
 keywords: Kubernetes, Docker, Containers, Microservices, Azure
 
 ms.assetid:
@@ -42,10 +42,6 @@ Kubernetes automates deployment, scaling, and management of containerized applic
 * Secret and configuration management
 * Storage orchestration
 * Batch execution
-
-Architectural diagram of Kubernetes deployed via Azure Container Service:
-
-![Azure Container Service configured to use Kubernetes.](media/acs-intro/kubernetes.png)
 
 ## Videos
 

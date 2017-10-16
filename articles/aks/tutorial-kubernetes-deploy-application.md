@@ -1,12 +1,12 @@
 ---
-title: Azure Container Service tutorial - Deploy Application | Microsoft Docs
-description: Azure Container Service tutorial - Deploy Application
+title: AKS tutorial - Deploy Application | Microsoft Docs
+description: AKS tutorial - Deploy Application
 services: container-service
 documentationcenter: ''
 author: neilpeterson
 manager: timlt
 editor: ''
-tags: acs, azure-container-service
+tags: aks, azure-container-service
 keywords: Docker, Containers, Micro-services, Kubernetes, DC/OS, Azure
 
 ms.assetid: 
@@ -108,7 +108,7 @@ To see the application, browse to the external IP address.
 
 ## Next steps
 
-In this tutorial, the Azure vote application was deployed to an Azure Container Service Kubernetes cluster. Tasks completed include:  
+In this tutorial, the Azure vote application was deployed to a Kubernetes cluster in AKS. Tasks completed include:  
 
 > [!div class="checklist"]
 > * Download Kubernetes manifest files

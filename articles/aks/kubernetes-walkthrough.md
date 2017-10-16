@@ -1,12 +1,12 @@
 ---
 title: Quickstart - Azure Kubernetes cluster for Linux | Microsoft Docs
-description: Quickly learn to create a Kubernetes cluster for Linux containers in Azure Container Service with the Azure CLI.
+description: Quickly learn to create a Kubernetes cluster for Linux containers in AKS with the Azure CLI.
 services: container-service
 documentationcenter: ''
 author: neilpeterson
 manager: timlt
 editor: ''
-tags: acs, azure-container-service, kubernetes
+tags: aks, azure-container-service, kubernetes
 keywords: ''
 
 ms.assetid: 8da267e8-2aeb-4c24-9a7a-65bdca3a82d6
@@ -20,9 +20,9 @@ ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc, devcenter
 ---
 
-# Deploy an AKS cluster
+# Deploy an AKS Kubernetes cluster
 
-In this quickstart, an AKS cluster is deployed using the Azure CLI. A multi-container application consisting of web front end and a Redis instance is then run on the cluster. Once completed, the application is accessible over the internet. 
+In this quickstart, an AKS Kubernetes cluster is deployed using the Azure CLI. A multi-container application consisting of web front end and a Redis instance is then run on the cluster. Once completed, the application is accessible over the internet. 
 
 ![Image of browsing to Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
@@ -57,7 +57,7 @@ Output:
 }
 ```
 
-## Create AKS cluster
+## Create AKS Kubernetes cluster
 
 The following example creates a cluster named *myK8sCluster* with three agent nodes.
 
@@ -226,7 +226,7 @@ In this quick start, pre-created container images have been used to create a Kub
 
 In this quick start, you deployed a Kubernetes cluster and deployed a multi-container application to it. 
 
-To learn more about Azure Container Service, and walk through a complete code to deployment example, continue to the Kubernetes cluster tutorial.
+To learn more about AKS, and walk through a complete code to deployment example, continue to the Kubernetes cluster tutorial.
 
 > [!div class="nextstepaction"]
-> [Manage an AKS cluster](./tutorial-kubernetes-prepare-app.md)
+> [Manage an AKS Kubernetes cluster](./tutorial-kubernetes-prepare-app.md)

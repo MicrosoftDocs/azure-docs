@@ -1,12 +1,12 @@
 ---
-title: Azure Container Service tutorial - Deploy Cluster | Microsoft Docs
-description: Azure Container Service tutorial - Deploy Cluster
+title: AKS tutorial - Deploy Cluster | Microsoft Docs
+description: AKS tutorial - Deploy Cluster
 services: container-service
 documentationcenter: ''
 author: neilpeterson
 manager: timlt
 editor: ''
-tags: acs, azure-container-service
+tags: aks, azure-container-service
 keywords: Docker, Containers, Micro-services, Kubernetes, DC/OS, Azure
 
 ms.assetid: 
@@ -22,10 +22,10 @@ ms.custom: mvc
 
 # Deploy an Azure Container Service (AKS) cluster 
 
-Kubernetes provides a distributed platform for containerized applications. With Azure Container Service, provisioning of a production ready Kubernetes cluster is simple and quick. In this tutorial, part 3 of 7, an Azure Container Service Kubernetes cluster is deployed. Steps completed include:
+Kubernetes provides a distributed platform for containerized applications. With AKS, provisioning of a production ready Kubernetes cluster is simple and quick. In this tutorial, part 3 of 7, a Kubernetes cluster is deployed in AKS. Steps completed include:
 
 > [!div class="checklist"]
-> * Deploying a Kubernetes ACS cluster
+> * Deploying a Kubernetes AKS cluster
 > * Installation of the Kubernetes CLI (kubectl)
 > * Configuration of kubectl
 
@@ -45,7 +45,7 @@ az aks create --resource-group myResourceGroup --name myK8sCluster --generate-ss
 
 In some cases, such as with a limited trial, an Azure subscription has limited access to Azure resources. If the deployment fails due to limited available cores, reduce the default agent count by adding `--agent-count 1` to the create command. 
 
-After several minutes, the deployment completes, and returns json formatted information about the ACS deployment.
+After several minutes, the deployment completes, and returns json formatted information about the AKS deployment.
 
 ## Install the kubectl CLI
 
@@ -80,14 +80,14 @@ k8s-myk8scluster-36346190-1   Ready     44m       v1.7.7
 k8s-myk8scluster-36346190-2   Ready     49m       v1.7.7
 ```
 
-At tutorial completion, you have an ACS Kubernetes cluster ready for workloads. In subsequent tutorials, a multi-container application is deployed to this cluster, scaled out, updated, and monitored.
+At tutorial completion, you have an AKS Kubernetes cluster ready for workloads. In subsequent tutorials, a multi-container application is deployed to this cluster, scaled out, updated, and monitored.
 
 ## Next steps
 
-In this tutorial, an Azure Container Service Kubernetes cluster was deployed. The following steps were completed:
+In this tutorial, a Kubernetes cluster was deployed in AKS. The following steps were completed:
 
 > [!div class="checklist"]
-> * Deployed a Kubernetes ACS cluster
+> * Deployed a Kubernetes AKS cluster
 > * Installed the Kubernetes CLI (kubectl)
 > * Configured kubectl
 

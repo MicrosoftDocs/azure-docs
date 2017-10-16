@@ -1,12 +1,12 @@
 ---
-title: Use Draft with Azure Container Service and Azure Container Registry | Microsoft Docs
-description: Create an ACS Kubernetes cluster and an Azure Container Registry to create your first application in Azure with Draft.
+title: Use Draft with AKS and Azure Container Registry | Microsoft Docs
+description: Use Draft with AKS and Azure Container Registry
 services: container-service
 documentationcenter: ''
 author: squillace
 manager: gamonroy
 editor: ''
-tags: draft, helm, acs, azure-container-service
+tags: draft, helm, aks, azure-container-service
 keywords: Docker, Containers, microservices, Kubernetes, Draft, Azure
 
 
@@ -20,11 +20,11 @@ ms.author: rasquill
 ms.custom: mvc
 ---
 
-# Use Draft with Azure Container Service (AKS)
+# Use Draft with AKS
 
 Draft is an open source tool that helps package and run code in a Kubernetes cluster. Draft is targeted at the development iteration cycle; as the code is being developed, but before committing to version control. With Draft, you can quickly redeploy to Kubernetes as code changes occurs. For more information on Draft, see the [Draft documentation on Github](https://github.com/Azure/draft/tree/master/docs).
 
-This document details using Draft with an Azure Container Service (AKS) Kubernetes cluster.
+This document details using Draft with a Kubernetes cluster in AKS.
 
 ## Prerequisites
 
@@ -108,7 +108,7 @@ During this process, you are prompted for the container registry credentials. Wh
 3. Enter your password: <ACR Password>
 ```
 
-Once complete, Draft is configured in the AKS cluster and is ready to use.
+Once complete, Draft is configured in the Kubernetes cluster and is ready to use.
 
 ```console
 Draft has been installed into your Kubernetes Cluster.

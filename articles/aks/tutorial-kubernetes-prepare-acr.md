@@ -1,12 +1,12 @@
 ---
-title: Azure Container Service tutorial - Prepare ACR | Microsoft Docs
-description: Azure Container Service tutorial - Prepare ACR
+title: AKS tutorial - Prepare ACR | Microsoft Docs
+description: AKS tutorial - Prepare ACR
 services: container-service
 documentationcenter: ''
 author: neilpeterson
 manager: timlt
 editor: ''
-tags: acs, azure-container-service
+tags: aks, azure-container-service
 keywords: Docker, Containers, Micro-services, Kubernetes, DC/OS, Azure
 
 ms.assetid: 
@@ -29,7 +29,7 @@ Azure Container Registry (ACR) is an Azure-based, private registry, for Docker c
 > * Tagging a container image for ACR
 > * Uploading the image to ACR
 
-In subsequent tutorials, this ACR instance is integrated with an Azure Container Service Kubernetes cluster. 
+In subsequent tutorials, this ACR instance is integrated with a Kubernetes cluster in AKS. 
 
 ## Before you begin
 
@@ -158,7 +158,7 @@ At tutorial completion, the container image has been stored in a private Azure C
 
 ## Next steps
 
-In this tutorial, an Azure Container Registry was prepared for use in an ACS Kubernetes cluster. The following steps were completed:
+In this tutorial, an Azure Container Registry was prepared for use in an AKS Kubernetes cluster. The following steps were completed:
 
 > [!div class="checklist"]
 > * Deployed an Azure Container Registry instance

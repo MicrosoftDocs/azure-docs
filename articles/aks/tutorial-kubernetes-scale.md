@@ -1,12 +1,12 @@
 ---
-title: Azure Container Service tutorial - Scale Application | Microsoft Docs
-description: Azure Container Service tutorial - Scale Application
+title: AKS tutorial - Scale Application | Microsoft Docs
+description: AKS tutorial - Scale Application
 services: container-service
 documentationcenter: ''
 author: dlepow
 manager: timlt
 editor: ''
-tags: acs, azure-container-service
+tags: aks, azure-container-service
 keywords: Docker, Containers, Micro-services, Kubernetes, Azure
 
 ms.assetid: 
@@ -22,7 +22,7 @@ ms.custom: mvc
 
 # Scale Kubernetes pods and AKS infrastructure
 
-If you've been following the tutorials, you have a working Kubernetes cluster in Azure Container Service and you deployed the Azure Voting app. 
+If you've been following the tutorials, you have a working Kubernetes cluster in AKS and you deployed the Azure Voting app. 
 
 In this tutorial, part five of seven, you scale out the pods in the app and try pod autoscaling. You also learn how to scale the number of Azure VM agent nodes to change the cluster's capacity for hosting workloads. Tasks completed include:
 

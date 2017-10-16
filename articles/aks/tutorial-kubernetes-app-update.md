@@ -1,12 +1,12 @@
 ---
-title: Azure Container Service tutorial - Update application | Microsoft Docs
-description: Azure Container Service tutorial - Update Application
+title: AKS tutorial - Update application | Microsoft Docs
+description: AKS tutorial - Update Application
 services: container-service
 documentationcenter: ''
 author: neilpeterson
 manager: timlt
 editor: ''
-tags: acs, azure-container-service
+tags: aks, azure-container-service
 keywords: Docker, Containers, Micro-services, Kubernetes, DC/OS, Azure
 
 ms.assetid: 
