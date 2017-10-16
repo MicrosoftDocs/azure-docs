@@ -1,5 +1,5 @@
 - name: Bing Custom Search Documentation
-  href: ../index.md
+  href: index.md
 - name: Overview
   items:
     - name: Customize your search
@@ -20,7 +20,7 @@
         href: call-endpoint-csharp.md
       - name: Java
         href: call-endpoint-java.md
-      - name: NodeJs
+      - name: Node.js
         href: call-endpoint-nodejs.md 
       - name: Python
         href: call-endpoint-python.md 
@@ -43,4 +43,4 @@
   - name: Subscription key
     href: https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api
   - name: Try it!
-    href: https://dev.cognitive.microsoft.com/docs/services/56b43eeccf5ff8098cef3807/operations/56b4447dcf5ff8098cef380d
+    href: https://aka.ms/bingcustomsearchtryit
