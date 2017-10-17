@@ -1,0 +1,52 @@
+- name: Azure Migrate Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: About Azure Migrate
+    href: migrate-overview.md
+- name: Tutorials
+  items:
+  - name: Azure VMs
+  - href: tutorial-assessment-vmware.md
+- name: Concepts
+  items:
+  - name: Assessment calculations
+    href: concepts-assessment-calculation.md
+- name: How-To Guides
+  items:
+  - name: Create an assessment group
+    href: how-to-create-a-group.md
+  - name: Create an assessment using machine dependencies
+    href: how-to-create-group-machine-dependencies.md
+  - name: Create an assessment using group dependencies
+    href: how-to-create-group-dependencies.md
+  - name: Modify assessment settings
+    href: how-to-modify-assessment.md
+  - name: Tag VMs in vCenter
+    href: how-to-tag-v-center.md
+  - name: Troubleshoot Azure Migrate
+    href: troubleshooting-general.md
+  - name: Set up REST APIs
+    href: how-to-set-up-rest-api.md
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/vm
+  - name: PowerShell
+    href: /powershell/azureps-cmdlets-docs
+  - name: .NET
+    href: /dotnet/api/microsoft.azure.management.compute
+  - name: Java
+    href: /java/api
+  - name: Node.js
+    href: https://azure.microsoft.com/develop/nodejs/#azure-sdk
+  - name: Python
+    href: https://azure.microsoft.com/develop/python/
+  - name: REST
+    href: /rest/api/compute
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
