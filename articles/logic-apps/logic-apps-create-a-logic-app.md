@@ -286,6 +286,21 @@ resources where you don't want to incur charges or don't want to keep.
 To delete all resources that you created for this quickstart, 
 delete the Azure resource group that you created for this logic app. 
 
+### Delete resource group
+
+If you don't want to keep anything related to your logic app, 
+delete the resource group that you created for this quickstart 
+and all related resources. Learn more about 
+[how to manage Azure resource groups](../azure-resource-manager/resource-group-portal.md#manage-resources).
+
+1. On the Azure menu, choose **Resource groups**.
+
+2. Choose the resource group that you want to delete. 
+On the resource group menu, choose **Overview**, if not already selected. 
+
+3. Review all the resources in the group that you want to delete. 
+When you're ready, choose **Delete resource group** on the resource group toolbar.
+
 ### Turn off logic app
 
 To stop running your logic app without deleting your work, 
@@ -318,21 +333,6 @@ On the toolbar, choose **Delete**.
 
 2. Confirm that you want to delete your logic app, 
 then choose **Delete**.
-
-### Delete resource group
-
-If you don't want to keep anything related to your logic app, 
-delete the resource group that you created for this quickstart 
-and all related resources. Learn more about 
-[how to manage Azure resource groups](../azure-resource-manager/resource-group-portal.md#manage-resources).
-
-1. On the Azure menu, choose **Resource groups**.
-
-2. Choose the resource group that you want to delete. 
-On the resource group menu, choose **Overview**, if not already selected. 
-
-3. Review all the resources in the group that you want to delete. 
-When you're ready, choose **Delete resource group** on the resource group toolbar.
 
 ## Get support
 
