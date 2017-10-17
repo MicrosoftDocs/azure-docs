@@ -18,13 +18,13 @@ ms.author: ccompy
 # Integrating your ILB ASE with an Application Gateway #
 
 ## Introduction ##
-The [Azure App Service Environment(ASE)](./intro.md) is a deployment of the Azure App Service in the subnet of a customer's Azure Virtual Network. It can be deployed with a public or private endpoint for app access. The Azure Application Gateway is a virtual appliance that provides layer 7 load balancing, SSL offloading, and WAF protection. It can listen on a public IP address and route traffic to your application endpoint. The following information describes how to integrate a WAF configured Application Gateway with an app on an ILB ASE.  
+The [Azure App Service Environment (ASE)](./intro.md) is a deployment of the Azure App Service in the subnet of a customer's Azure Virtual Network. It can be deployed with a public or private endpoint for app access. The Azure Application Gateway is a virtual appliance that provides layer 7 load balancing, SSL offloading, and WAF protection. It can listen on a public IP address and route traffic to your application endpoint. The following information describes how to integrate a WAF configured Application Gateway with an app on an ILB ASE.  
 
-The integration of the Application Gateway with the ILB ASE is at an app level.  When you configure the two together you are doing it for specific apps in your ILB ASE and not for all of the apps in your ILB ASE. This is important because it means that you can expose just what you want in your ILB ASE while keeping the rest secure. This enables hosting secure multi-tenant applications in a single ILB ASE. A multi-tier application on an ILB ASE with an Application Gateway looks like this diagram: 
+The integration of the Application Gateway with the ILB ASE is at an app level.  When you configure the two together you are doing it for specific apps in your ILB ASE and not for all of the apps in your ILB ASE. This enables hosting secure multi-tenant applications in a single ILB ASE.  
 
 ![Application Gateway pointing to app on an ILB ASE][1]
 
-To set this up, you end up with a custom domain name that points to the public IP address of your Application Gateway, which will then send the request to your ILB ASE.  In this document, you will
+In this walkthrough, you will:
 
 * create an Application Gateway
 * configure the Application Gateway to point to an app on your ILB ASE
@@ -35,7 +35,7 @@ To integrate your Application Gateway with your ILB ASE, you need:
 
 * an ILB ASE
 * an app running in the ILB ASE
-* an internet routable domain name to be used with your app in the ILB ASE.  This has to be set as a custom domain name for your app.  
+* an internet routable domain name to be used with your app in the ILB ASE
 * the ILB address used by your ILB ASE (This is in the ASE portal under Settings -> IP Addresses)
 
 	![IP addresses used by your ILB ASE][9]
