@@ -22,7 +22,7 @@ ms.custom: H1Hack27Feb2017, mvc, devcenter
 
 # Deploy an Azure Container Service (AKS) cluster
 
-In this quickstart, an AKS Kubernetes cluster is deployed using the Azure CLI. A multi-container application consisting of web front end and a Redis instance is then run on the cluster. Once completed, the application is accessible over the internet. 
+In this quickstart, an AKS cluster is deployed using the Azure CLI. A multi-container application consisting of web front end and a Redis instance is then run on the cluster. Once completed, the application is accessible over the internet. 
 
 ![Image of browsing to Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
