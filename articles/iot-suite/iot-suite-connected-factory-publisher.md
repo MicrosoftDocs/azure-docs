@@ -52,7 +52,7 @@ To build the application, you need the [.NET Core SDK 1.1.](https://docs.microso
 
 Open the `OpcPublisher.sln` project with Visual Studio 2017 and build the solution by hitting F7.
 
-## As Docker container
+### As Docker container
 
 To build the application as a Windows Docker container, use the `Dockerfile.Windows` configuration file.
 
@@ -68,7 +68,7 @@ Docker also enables you to build directly from a git repository. You can build a
 
 `docker build -t <your-container-name> .https://github.com/Azure/iot-edge-opc-publisher`
 
-# Configure the OPC UA nodes to publish
+## Configure the OPC UA nodes to publish
 
 To configure which OPC UA nodes should have their values published to Azure IoT Hub, create a JSON formatted configuration file. The default name for this configuration file is `publishednodes.json`. The application updates and saves this configuration file when it uses the OPC UA server methods **PublishNode** or **UnpublishNode**.
 
@@ -119,9 +119,9 @@ The syntax of the configuration file is as follows:
 ]
 ```
 
-# Run the application
+## Run the application
 
-## Command-line options
+### Command-line options
 
 To see the complete usage of the application, use the `--help` command-line option. The following example shows the structure of a command:
 
@@ -319,7 +319,7 @@ Typically, you specify the IoT Hub owner connection string only on the first sta
 
 On subsequent calls, the connection string is read from platform's certificate store and reused. If you specify the connection string on each start, the device in the IoT Hub device registry is removed and recreated each time.
 
-## Native on Windows
+### Native on Windows
 
 To run the application natively on Windows, open the `OpcPublisher.sln` project with Visual Studio 2017, build the solution, and publish it. You can start the application in the **Target directory** you have published to with:
 
@@ -327,7 +327,7 @@ To run the application natively on Windows, open the `OpcPublisher.sln` project 
 dotnet OpcPublisher.dll <applicationname> [<IoT Hubconnectionstring>] [options]
 ```
 
-## Use a self-built container
+### Use a self-built container
 
 To run the application in a self-built container, build and then start your own container:
 
@@ -335,7 +335,7 @@ To run the application in a self-built container, build and then start your own 
 docker run <your-container-name> <applicationname> [<IoT Hubconnectionstring>] [options]
 ```
 
-## Use a container from hub.docker.com
+### Use a container from hub.docker.com
 
 There is a prebuilt container available on DockerHub. To start it, run the following command:
 
@@ -343,9 +343,9 @@ There is a prebuilt container available on DockerHub. To start it, run the follo
 docker run microsoft/iot-edge-opc-publisher <applicationname> [<IoT Hubconnectionstring>] [options]
 ```
 
-## Important when using a container
+### Important when using a container
 
-### Access to the Publisher OPC UA server
+#### Access to the Publisher OPC UA server
 
 The Publisher OPC UA server by default listens on port 62222. To expose this inbound port in a container, you need to use the `docker run` option `-p`:
 
@@ -353,7 +353,7 @@ The Publisher OPC UA server by default listens on port 62222. To expose this inb
 docker run -p 62222:62222 microsoft/iot-edge-opc-publisher <applicationname> [<IoT Hubconnectionstring>] [options]
 ```
 
-### Enable intercontainer name resolution
+#### Enable intercontainer name resolution
 
 To enable name resolution from within the container to other containers, you must:
 
@@ -370,7 +370,7 @@ docker run --network iot_edge --name publisher microsoft/iot-edge-opc-publisher 
 
 The container can now be reached by other containers over the network using the name `publisher`.
 
-### Assign a hostname
+#### Assign a hostname
 
 Publisher uses the hostname of the machine it is running on for certificate and endpoint generation. Docker chooses a random hostname unless you set one with the `-h` option. Here an example to set the internal hostname of the container to `publisher`:
 
@@ -378,21 +378,21 @@ Publisher uses the hostname of the machine it is running on for certificate and 
 docker run -h publisher microsoft/iot-edge-opc-publisher <applicationname> [<IoT Hubconnectionstring>] [options]
 ```
 
-### Using bind mounts (shared filesystem)
+#### Using bind mounts (shared filesystem)
 
 In some scenarios, you want to read configuration information from, or write log files to, locations on the host instead of using the container file system. To configure this behavior, use the `-v` option of `docker run` in the bind mount mode.
 
-### Store for X509 certificates
+#### Store for X509 certificates
 
 Storing X509 certificates does not work with bind mounts, because the permissions of the path to the store need to be `rw` for the owner. Instead you need to use the `-v` option of `docker run` in the volume mode.
 
-# Debug the application
+## Debug the application
 
-## Native on Windows
+### Native on Windows
 
 Open the `OpcPublisher.sln` project with Visual Studio 2017 and start debugging the app by hitting F5.
 
-## In a docker container
+### In a docker container
 
 Visual Studio 2017 supports debugging applications in a Docker container by using `docker-compose`. However, this method does not allow you to pass command-line parameters.
 
