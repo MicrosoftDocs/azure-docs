@@ -211,7 +211,7 @@ The last part of the workflow is to trigger an email when the sentiment is score
 
     ![Add a condition to the logic app.](media/functions-twitter-email/condition.png)
 
-3. In **IF YES, DO NOTHING**, click **Add an action**, search for `outlook.com`, click **Send an email**, and sign in to your Outlook.com account.
+3. In **IF TRUE**, click **Add an action**, search for `outlook.com`, click **Send an email**, and sign in to your Outlook.com account.
     
     ![Choose an action for the condition.](media/functions-twitter-email/outlook.png)
 
@@ -220,7 +220,7 @@ The last part of the workflow is to trigger an email when the sentiment is score
 
 4. In the **Send an email** action, use the email settings as specified in the table. 
 
-    ![Configure the email for the send an email action.](media/functions-twitter-email/sendEmail.png)
+    ![Configure the email for the send an email action.](media/functions-twitter-email/send_email.png)
 
     | Setting      |  Suggested value   | Description  |
     | ----------------- | ------------ | ------------- |
