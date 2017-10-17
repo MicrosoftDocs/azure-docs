@@ -30,7 +30,7 @@ Using RBAC in the Azure environment requires:
 * Have the Owner role of the Azure subscription
 * Have access to the [Azure portal](https://portal.azure.com)
 * Make sure to have the following Resource Providers registered for the user subscription: **Microsoft.Authorization**. For more information on how to register the resource providers, see [Resource Manager providers, regions, API versions and schemas](/azure-resource-manager/resource-manager-supported-services.md).
-<!---Loc Comment: Link [Resource Manager providers, regions, API versions and schemas] is broken with an error message "404 - Content Not Found--->
+<!---Loc Comment: Link [Resource Manager providers, regions, API versions and schemas] is broken with an error message "404 - Content Not Found---->
 
 > [!NOTE]
 > Office 365 subscriptions or Azure Active Directory licenses (for example: Access to Azure Active Directory) provisioned from the O365 portal don't quality for using RBAC.
@@ -75,7 +75,7 @@ After selecting the subscription, the admin user must click **Access Control (IA
 ![add new user in access control IAM feature in Azure portal](./media/role-based-access-control-create-custom-roles-for-internal-external-users/2.png)
 
 The next step is to select the role to be assigned and the user whom the RBAC role will be assigned to. In the **Role** dropdown menu the admin user sees only the built-in RBAC roles which are available in Azure. For more detailed explanations of each role and their assignable scopes, see [Built-in roles for Azure Role-Based Access Control](/active-directory/role-based-access-built-in-roles.md).
-<!---Loc Comment: Link [Built-in roles for Azure Role-Based Access Control] is broken with an error message "404 - Content Not Found--->
+<!---Loc Comment: Link [Built-in roles for Azure Role-Based Access Control] is broken with an error message "404 - Content Not Found---->
 
 The admin user then needs to add the email address of the external user. The expected behavior is for the external user to not show up in the existing tenant. After the external user has been invited, he will be visible under **Subscriptions > Access Control (IAM)** with all the current users which are currently assigned an RBAC role at the Subscription scope.
 
