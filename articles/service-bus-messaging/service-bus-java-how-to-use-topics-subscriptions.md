@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 06/28/2017
+ms.date: 10/17/2017
 ms.author: sethm
 
 ---
@@ -21,8 +21,7 @@ ms.author: sethm
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-This guide describes how to use Service Bus topics and subscriptions. The samples are written in Java and use the [Azure SDK for Java][Azure SDK for Java]. The scenarios covered include **creating topics and subscriptions**, **creating subscription filters**, **sending messages to a topic**, **receiving messages from a subscription**, and
-**deleting topics and subscriptions**.
+This guide describes how to use Service Bus topics and subscriptions. The samples are written in Java and use the [Azure SDK for Java][Azure SDK for Java]. The scenarios covered include **creating topics and subscriptions**, **creating subscription filters**, **sending messages to a topic**, **receiving messages from a subscription**, and **deleting topics and subscriptions**.
 
 ## What are Service Bus topics and subscriptions?
 Service Bus topics and subscriptions support a *publish/subscribe*
@@ -52,7 +51,7 @@ applications.
 
 ## Create a service namespace
 To begin using Service Bus topics and subscriptions in Azure,
-you must first create a namespace, which provides
+you must first create a *namespace*, which provides
 a scoping container for addressing Service Bus resources within your
 application.
 
@@ -351,8 +350,8 @@ Now that you've learned the basics of Service Bus queues, see [Service Bus queue
 [Azure SDK for Java]: http://azure.microsoft.com/develop/java/
 [Azure Toolkit for Eclipse]: ../azure-toolkit-for-eclipse.md
 [Service Bus queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
-[SqlFilter]: /dotnet/api/microsoft.servicebus.messaging.sqlfilter 
-[SqlFilter.SqlExpression]: /dotnet/api/microsoft.servicebus.messaging.sqlfilter#Microsoft_ServiceBus_Messaging_SqlFilter_SqlExpression
+[SqlFilter]: /dotnet/api/microsoft.azure.servicebus.filters.sqlfilter
+[SqlFilter.SqlExpression]: /dotnet/api/microsoft.azure.servicebus.filters.sqlfilter.sqlexpression
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
 
 [0]: ./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-13.png
