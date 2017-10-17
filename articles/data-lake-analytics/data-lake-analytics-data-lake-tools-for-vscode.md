@@ -27,9 +27,11 @@ Learn the Azure Data Lake Tools for Visual Studio Code (VS Code) to create, test
 
 ## Prerequisites
 
-Data Lake Tools can be installed on the platforms supported by VS Code. The supported platforms include Windows, Linux, and MacOS. The different platforms have the following prerequisites:
+Azure Data Lake Tools for VSCode supports Windows, Linux and MacOS.  
 
 - [Visual Studio Code](https://www.visualstudio.com/products/code-vs.aspx).
+
+For MacOS and Linux:
 - [.NET Core SDK 2.0](https://www.microsoft.com/net/download/core). 
 - [Mono 5.2.x](http://www.mono-project.com/download/).
 
