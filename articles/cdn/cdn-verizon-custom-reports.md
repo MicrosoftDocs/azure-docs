@@ -35,7 +35,7 @@ By using Verizon Custom Reports via the Manage portal for Verizon profiles, you 
     ![CDN management portal - Custom reports menu](./media/cdn-reports/cdn-custom-reports.png)
 
 ## Edge CNAMES
-The Edge CNAMES custom report provides hits and data-transferred statistics for edge CNAMEs on which custom report logging has been enabled. An edge CNAME is a user-friendly URL, which can be used instead of a CDN URL. 
+The Edge CNAMES custom report provides hits and data-transferred statistics for edge CNAMEs on which custom report logging has been enabled. Edge CNAMEs consist of Azure CDN endpoints and custom domain URLs. 
 
 Custom report data logging begins one hour after you enable an edge CNAME's custom reporting capability. You can view report data by generating an Edge CNAMEs report for a specific platform or for all platforms. The coverage for this report is limited to the edge CNAMEs for which custom report data was collected during the specified time period. The edge CNAMEs report consists of a graph and data table for the top 10 edge CNAMEs according to the metric defined in the Metrics option. 
 
@@ -54,9 +54,13 @@ Generate a custom report by defining the following report options:
    - Cache Status: Organizes statistics by cache status.
 
 
-Select a date range, such as **Today** or **This Week**, from the drop-down list or enter a custom date range. Click **Go** to generate the report.
+To set the date range for the report, you can either select a pre-defined date range, such as **Today** or **This Week**, from the drop-down list or you can select **Custom** and manually enter a date range by clicking the calendar icons. 
+
+After you have selected the date range, click **Go** to generate the report.
 
 You can export the data in Excel format by clicking the Excel symbol to the right of the **Go** button.
+
+![CNAMEs report](./media/cdn-reports/cdn-cnames-report.png)
 
 ## Considerations
 Reports can be generated only within the last 18 months.
