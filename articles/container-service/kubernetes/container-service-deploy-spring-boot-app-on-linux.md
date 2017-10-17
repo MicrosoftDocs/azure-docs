@@ -129,6 +129,9 @@ The following steps walk you through using the Azure portal to create an Azure C
          <id>wingtiptoysregistry</id>
          <username>wingtiptoysregistry</username>
          <password>AbCdEfGhIjKlMnOpQrStUvWxYz</password>
+         <configuration>
+            <email>foo@foo.bar</email>
+         </configuration>
       </server>
    </servers>
    ```
