@@ -378,7 +378,7 @@ To participate in the Preview for Load Balancer Standard SKU and its companion P
 3. Please complete the preview sign-up by re-registering your subscription with the resource provider:
 
     ```powershell
-    Register-AzureRmProvider -ProviderNamespace Microsoft.Network
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
     ```
     
 
