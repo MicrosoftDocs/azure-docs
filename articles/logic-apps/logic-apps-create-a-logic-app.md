@@ -215,10 +215,13 @@ sign in with the username and password for your email account.
       ![Added feed title](./media/logic-apps-create-a-logic-app/added-feed-title.png)
 
       > [!NOTE] 
-      > If you select a field that contains an array, 
+      > If you happen to select a field that contains an array, 
       > such as **categories-item**, the designer automatically 
       > adds a "For each" loop around the action that references that field. 
-      > That way, your logic app can perform that action on each array item.
+      > That way, your logic app can perform that action on each array item. 
+      >
+      > To remove the loop, choose the ellipses (**...**) 
+      > on the loop's title bar, then choose **Delete**.
 
    4. In the **Body** box, enter the content for the email body. 
    For this example, enter this text and select these fields:
