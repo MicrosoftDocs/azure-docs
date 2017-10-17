@@ -122,7 +122,7 @@ If you created your Kubernetes cluster using default commands in the previous tu
 The following example increases the number of agent nodes to 4 in the Kubernetes cluster named *myK8sCluster*. The command takes a couple of minutes to complete.
 
 ```azurecli 
-az aks scale --resource-group=myResourceGroup --name=myK8SCluster --new-agent-count 4
+az aks scale --resource-group=myResourceGroup --name=myK8SCluster --agent-count 4
 ```
 
 The command output shows the number of agent nodes in the value of `agentPoolProfiles:count`:

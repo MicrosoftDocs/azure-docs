@@ -95,10 +95,10 @@ kubectl get nodes
 Output:
 
 ```console
-NAME                    STATUS                     AGE       VERSION
-k8s-agent-14ad53a1-0    Ready                      10m       v1.6.6
-k8s-agent-14ad53a1-1    Ready                      10m       v1.6.6
-k8s-agent-14ad53a1-2    Ready                      10m       v1.6.6
+NAME                          STATUS    ROLES     AGE       VERSION
+k8s-myk8scluster-36346190-0   Ready     agent     2m        v1.7.7
+k8s-myk8scluster-36346190-1   Ready     agent     2m        v1.7.7
+k8s-myk8scluster-36346190-2   Ready     agent     2m        v1.7.7
 ```
 
 ## Run the application
@@ -196,13 +196,14 @@ kubectl get service azure-vote-front --watch
 Initially the *EXTERNAL-IP* for the *azure-vote-front* service appears as *pending*.
   
 ```console
-azure-vote-front   10.0.34.242   <pending>     80:30676/TCP   7s
+NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
+azure-vote-front   LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 ```
 
 Once the *EXTERNAL-IP* address has changed from *pending* to an *IP address*, use `CTRL-C` to stop the kubectl watch process. 
 
 ```console
-azure-vote-front   10.0.34.242   52.179.23.131   80:30676/TCP   2m
+azure-vote-front   LoadBalancer   10.0.37.27   52.175.236.185   80:30572/TCP   2m
 ```
 
 You can now browse to the external IP address to see the Azure Vote App.
