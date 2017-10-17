@@ -1,13 +1,13 @@
-- name: Kubernetes on Azure
+- name: Container Service (AKS)
   href: ./index.yml
 - name: Overview
   items:
-  - name: AKS overview
+  - name: Container Service (AKS)
     href: intro-kubernetes.md
 - name: Quickstarts
   expanded: true
   items:
-  - name: AKS quickstart
+  - name: Container Service (AKS)
     href: kubernetes-walkthrough.md
 - name: Tutorials
   items:
@@ -27,9 +27,9 @@
     href: tutorial-kubernetes-monitor.md
 - name: How-to guides
   items:
-  - name: Use Helm
+  - name: Run applications with Helm
     href: kubernetes-helm.md
-  - name: Use Draft
+  - name: Test applications with Draft
     href: kubernetes-draft.md
   - name: Use Kubernetes dashboard
     href: kubernetes-dashboard.md
