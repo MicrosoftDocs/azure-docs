@@ -391,7 +391,7 @@ To participate in the Preview for Load Balancer Standard SKU and its companion P
     
 2. The above operation can take up to 10 minutes to complete.  You can check the status of the operation with the following command:
 
-    ```powershell
+    ```cli
     az feature show --name AllowLBPreview --namespace Microsoft.Network
     ```
     
@@ -410,7 +410,7 @@ To participate in the Preview for Load Balancer Standard SKU and its companion P
     
 3. Please complete the preview sign-up by re-registering your subscription with the resource provider:
 
-    ```powershell
+    ```cli
     az provider register --namespace Microsoft.Network
     ```
 
