@@ -82,8 +82,8 @@ Logstash is used to flatten the JSON formatted flow logs to a flow tuple level. 
             container => "insights-logs-networksecuritygroupflowevent"
             registry_create_policy => "start_over"
             codec => "json"
-            file_head_bytes => 21
-            file_tail_bytes => 9
+            file_head_bytes => 12
+            file_tail_bytes => 2
             # Possible options: `do_not_break`, `with_head_tail`, `without_head_tail`
             break_json_down_policy  => 'with_head_tail'
             break_json_batch_count => 2
