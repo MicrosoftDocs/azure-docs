@@ -35,16 +35,16 @@ Follow these steps to create an Azure Database for MySQL server:
 
     **Setting** | **Suggested value** | **Field description** 
     ---|---|---
-    Server name | myserver4demo | A unique name that identifies your Azure Database for MySQL server. The domain name *mysql.database.azure.com* is appended to the server name you provide. The server name can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain from 3 to 63 characters.
-    Subscription | Your subscription | The Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you get billed for the resource.
-    Resource group | myresourcegroup | A new or existing resource group name.
+    Server name | Unique server name | Choose a unique name that identifies your Azure Database for MySQL server. For example, myserver4demo. The domain name *mysql.database.azure.com* is appended to the server name you provide. The server name can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain from 3 to 63 characters.
+    Subscription | Your subscription | Select the Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you get billed for the resource.
+    Resource group | myresourcegroup | Provide a new or existing resource group name.
     Server admin login | myadmin | A sign-in account to use when you're connecting to the server. The admin sign-in name cannot be **azure_superuser**, **admin**, **administrator**, **root**, **guest**, or **public**.
-    Password | *Your choice* | A new password for the server admin account. It must contain from 8 to 128 characters. Your password must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers (0-9), and non-alphanumeric characters (!, $, #, %, and so on).
-    Confirm password | *Your choice*| The confirmed admin account password.
-    Location | *The region closest to your users*| The location that is closest to your users or other Azure applications.
+    Password | *Your choice* | Provide a new password for the server admin account. It must contain from 8 to 128 characters. Your password must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers (0-9), and non-alphanumeric characters (!, $, #, %, and so on).
+    Confirm password | *Your choice*| Confirm the admin account password.
+    Location | *The region closest to your users*| Choose the location that is closest to your users or other Azure applications.
     Version | *The latest version*| The latest version (unless you have specific requirements that require another version).
-    Pricing tier | **Basic**, **50 Compute Units**, **50 GB** | The service tier and performance level for your new database. Select **Basic tier** in the tab at the top. Select the left end of the **Compute Units** slider to adjust the value to the lowest amount that's available for this Quickstart. Select **Ok** to save the pricing tier selection. For more information, see the following screenshot.
-    Pin to dashboard | Check | Enables easy tracking of your server on the front dashboard page of your Azure portal.
+    Pricing tier | **Basic**, **50 Compute Units**, **50 GB** | Choose the service tier and performance level for your new database. Select **Basic tier** in the tab at the top. Select the left end of the **Compute Units** slider to adjust the value to the lowest amount that's available for this Quickstart. Select **Ok** to save the pricing tier selection. For more information, see the following screenshot.
+    Pin to dashboard | Check | Check this to enable easy tracking of your server on the front dashboard page of your Azure portal.
 
     > [!IMPORTANT]
     > The server admin sign-in and password that you specify here are required to sign in to the server and its databases later in this Quickstart. Remember or record this information for later use.
@@ -71,6 +71,8 @@ The Azure Database for MySQL service creates a firewall at the server level. It 
     Rule name | Start IP | End IP 
     ---|---|---
     AllowAllIps |  0.0.0.0 | 255.255.255.255
+    
+    Allowing all IP addresses is not secure. This example is provided for simplicity, but in a real-world scenario, you need to know the precise IP address ranges to add for your applications and users. 
 
 4. On the upper toolbar of the **Connection security** page, select **Save**. Wait until the notification appears stating that the update has finished successfully before you continue. 
 
