@@ -25,7 +25,7 @@ An Azure Batch pool has settings to allow compute nodes to communicate with each
 
 
 
-## Prerequistes
+## Prerequisites
 
 * **Authentication**. To use an Azure VNet, the Batch client API must use Azure Active Directory (AD) authentication. Azure Batch support for Azure AD is documented in [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md). 
 
@@ -54,7 +54,7 @@ Once you have created your VNet and assigned a subnet to it, you can create a Ba
 
 You might have requirements in your organization to redirect (force) Internet-bound traffic from the subnet back to your on-premises location for inspection and logging. You may have enabled forced tunneling for the subnets in your VNet. 
 
-To ensure that your Azure Batch pool compute nodes can work in a VNet that has forced tunneling enabled, you must add the following [user-defined routes](../virtual-network/virtual-networks-udr-overview.md) for that subnet:
+To ensure that your Azure Batch pool compute nodes work in a VNet that has forced tunneling enabled, you must add the following [user-defined routes](../virtual-network/virtual-networks-udr-overview.md) for that subnet:
 
 * The Batch service needs to communicate with pool compute nodes for scheduling tasks. To enable this communication, add a user-defined route for each IP address used by the Batch service in the region where your Batch account exists. To obtain the list of IP addresses of the Batch service, please contact Azure Support.
 
