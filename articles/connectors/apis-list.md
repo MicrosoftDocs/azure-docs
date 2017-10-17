@@ -305,9 +305,9 @@ Are we missing a connector topic, or any details you think are important? If yes
 [YouTubeicon]: ./media/apis-list/youtube.png
 
 <!-- Primitive Icons -->
-[API/Web-Appicon]: ./media/apis-list/api.png
+[API/Web-Appicon]: ./media/apis-list/appservices.png
 [Azure-Functionsicon]: ./media/apis-list/function.png
-[CallLogicApp-icon]: ./media/apis-list/CallLogicApp.png
+[CallLogicApp-icon]: ./media/apis-list/calllogicapp.png
 [Delayicon]: ./media/apis-list/delay.png
 [HTTPicon]: ./media/apis-list/http.png
 [HTTP-Requesticon]: ./media/apis-list/request.png
