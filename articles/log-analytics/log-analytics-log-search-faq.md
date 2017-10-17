@@ -92,6 +92,18 @@ The legacy [Log Search API](log-analytics-log-search-api.md) will no longer work
 You can see a comparison of the two portals at [Portals for creating and editing log queries in Azure Log Analytics](log-analytics-log-search-portals.md).  Each has distinct advantages so you can choose the best one for your requirements.  It's common to write queries in the Advanced Analytics portal and paste them into other places such as View Designer.  You should read about [issues to consider](log-analytics-log-search-portals.md#advanced-analytics-portal) when doing that.
 
 
+### Question:  After upgrade, I get an error trying to run queries and am also seeing errors in my views.
+
+Your browser requires access to the following addresses to run Log Analytics queries after upgrade.  If your browser is accessing the Azure portal through a firewall, you must enable access to these addresses.
+
+| Uri | IP | Ports |
+|:---|:---|:---|
+| portal.loganalytics.io | Dynamic | 80,443 |
+| api.loganalytics.io    | Dynamic | 80,443 |
+| docs.loganalytics.io   | Dynamic | 80,443 |
+
+
+
 ## Power BI
 
 ### Question: Does anything change with PowerBI integration?

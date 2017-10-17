@@ -44,8 +44,8 @@ Use Data Lake Tools for Visual Studio to deploy and manage Storm topologies. Dat
 Before you go to the following examples, [install and try Data Lake Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md). 
 
 Examples of tasks you can do with Visual Studio and Data Lake Tools for Visual Studio:
-* [Deploy and manage Storm topologies from Visual Studio](hdinsight-storm-deploy-monitor-topology-linux.md)
-* [Develop C# topologies for Storm using Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md). The bits include example templates for Storm topologies you can connect to databases, such as Azure Cosmos DB and SQL Database.
+* [Deploy and manage Storm topologies from Visual Studio](storm/apache-storm-deploy-monitor-topology-linux.md)
+* [Develop C# topologies for Storm using Visual Studio](storm/apache-storm-develop-csharp-visual-studio-topology.md). The bits include example templates for Storm topologies you can connect to databases, such as Azure Cosmos DB and SQL Database.
 
 ## Visual Studio and the .NET SDK 
 

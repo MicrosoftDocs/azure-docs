@@ -232,7 +232,7 @@ If you have a workflow that uses a C# application, validate these applications i
 
 | On Windows-based, I use... | On Linux-based... |
 | --- | --- |
-| Storm Dashboard |The Storm Dashboard is not available. See [Deploy and Manage Storm topologies on Linux-based HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md) for ways to submit topologies |
+| Storm Dashboard |The Storm Dashboard is not available. See [Deploy and Manage Storm topologies on Linux-based HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md) for ways to submit topologies |
 | Storm UI |The Storm UI is available at https://CLUSTERNAME.azurehdinsight.net/stormui |
 | Visual Studio to create, deploy, and manage C# or hybrid topologies |Visual Studio can be used to create, deploy, and manage C# (SCP.NET) or hybrid topologies on Linux-based Storm on HDInsight. It can only be used with clusters created after 10/28/2016. |
 
