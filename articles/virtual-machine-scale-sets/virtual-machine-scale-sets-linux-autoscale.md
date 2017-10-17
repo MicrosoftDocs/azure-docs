@@ -100,7 +100,7 @@ The following example defines the rule to scale out the number of VM instances. 
 
 
 ## Create a rule to automatically scale in
-On an evening or weekend, your application demand may decrease. If this decreased load is consistent over a period of time, you can configure auto scale rules to decrease the number of VM instances in the scale set. This scale in action reduces the cost to run your scale set as you only run the number of instances required to meet the current demand.
+On an evening or weekend, your application demand may decrease. If this decreased load is consistent over a period of time, you can configure auto scale rules to decrease the number of VM instances in the scale set. This scale-in action reduces the cost to run your scale set as you only run the number of instances required to meet the current demand.
 
 Create another rule that decreases the number of VM instances in a scale set when the average CPU load then drops below 30% over a 5-minute period. The following example defines the rule to scale out the number of VM instances. The *metricResourceUri* uses the variables previously defined for the subscription ID, resource group name, and scale set name:
 
@@ -215,12 +215,12 @@ To create auto scale rules based on a schedule rather than host metrics, use the
 
 
 ## Use in-guest metrics of App Insights
-In these examples, basic host metrics for CPU or memory usage were used. These host metrics allow you to quickly create auto scale rules without the need to configure the collection of additional metrics. For more granular control over the metrics used to automatically scale your scale in or out, you can also use one of the following methods:
+In these examples, basic host metrics for CPU or memory usage were used. These host metrics allow you to quickly create auto scale rules without the need to configure the collection of additional metrics. For more granular control over the metrics used to automatically scale your scale set in or out, you could use one of the following methods:
 
 - **In-guest VM metrics with the Azure diagnostics extension**
     - The Azure diagnostics extension is an agent that runs inside a VM instance. The agent monitors and saves performance metrics to Azure storage. These performance metrics contain more detailed information about the status of the VM, such as *AverageReadTime* for disks or *PercentIdleTime* for CPU. You can create auto scale rules based on a more detailed awareness of the VM performance, not just the percentage of CPU usage or memory consumption.
     - To use the Azure diagnostics extension, you must create Azure storage accounts for your VM instances, install the Azure diagnostics agent, then configure the VMs to stream specific performance counters to the storage account.
-    - For more information, see how to enable the Azure diagnostics extension on a [Linux VM](../virtual-machines/linux/diagnostic-extension.md) or [Windows VM](../virtual-machines/windows/ps-extensions-diagnostics.md).
+    - For more information, see the articles for how to enable the Azure diagnostics extension on a [Linux VM](../virtual-machines/linux/diagnostic-extension.md) or [Windows VM](../virtual-machines/windows/ps-extensions-diagnostics.md).
 - **Application-level metrics with App Insights**
     - To gain more visibility in to the performance of your applications, you can use Application Insights. You install a small instrumentation package in your application that monitors the app and sends telemetry to Azure. You can monitor metrics such as the response times of your application, the page load performance, and the session counts. These application metrics can be used to create auto scale rules at a granular and embedded level as you trigger rules based on actionable insights that may impact the customer experience.
     - For more information about App Insights, see [What is Application Insights](../application-insights/app-insights-overview.md).

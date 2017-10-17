@@ -21,7 +21,7 @@ ms.author: iainfou
 # Automatically scale machines in a virtual machine scale set with Azure PowerShell
 When you create a scale set, you define the number of VM instances that you wish to run. As your application demand changes, you can automatically increase or decrease the number of VM instances. The ability to auto scale lets you keep up with customer demand or respond to application performance changes throughout the lifecycle of your app.
 
-This article shows you how to create auto scale rules with the Azure CLI 2.0 that monitor the performance of the VM instances in your scale set. These auto scale rules increase or decrease the number of VM instances in response to these performance metrics. You can also complete these steps with the [Azure CLI 2.0](virtual-machine-scale-sets-linux-autoscale.md).
+This article shows you how to create auto scale rules with Azure PowerShell that monitor the performance of the VM instances in your scale set. These auto scale rules increase or decrease the number of VM instances in response to these performance metrics. You can also complete these steps with the [Azure CLI 2.0](virtual-machine-scale-sets-linux-autoscale.md).
 
 
 ## Prerequisites
@@ -76,7 +76,7 @@ $myRuleScaleOut = New-AzureRmAutoscaleRule `
 
 
 ## Create a rule to automatically scale in
-On an evening or weekend, your application demand may decrease. If this decreased load is consistent over a period of time, you can configure auto scale rules to decrease the number of VM instances in the scale set. This scale in action reduces the cost to run your scale set as you only run the number of instances required to meet the current demand.
+On an evening or weekend, your application demand may decrease. If this decreased load is consistent over a period of time, you can configure auto scale rules to decrease the number of VM instances in the scale set. This scale-in action reduces the cost to run your scale set as you only run the number of instances required to meet the current demand.
 
 Create a rule with [New-AzureRmAutoscaleRule](/powershell/module/AzureRM.Insights/New-AzureRmAutoscaleRule) that decreases the number of VM instances in a scale set when the average CPU load then drops below 30% over a 5-minute period. When the rule triggers, the number of VM instances is decreased by 20%.The following example creates an object named *myRuleScaleDown* that holds this scale up rule. The *-MetricResourceId* uses the variables previously defined for the subscription ID, resource group name, and scale set name:
 
@@ -137,7 +137,7 @@ To create auto scale rules based on a schedule rather than host metrics, use the
 
 
 ## Use in-guest metrics of App Insights
-In these examples, basic host metrics for CPU or memory usage were used. These host metrics allow you to quickly create auto scale rules without the need to configure the collection of additional metrics. For more granular control over the metrics used to automatically scale your scale in or out, you can also use one of the following methods:
+In these examples, basic host metrics for CPU or memory usage were used. These host metrics allow you to quickly create auto scale rules without the need to configure the collection of additional metrics. For more granular control over the metrics used to automatically scale your scale set in or out, you could use one of the following methods:
 
 - **In-guest VM metrics with the Azure diagnostics extension**
     - The Azure diagnostics extension is an agent that runs inside a VM instance. The agent monitors and saves performance metrics to Azure storage. These performance metrics contain more detailed information about the status of the VM, such as *AverageReadTime* for disks or *PercentIdleTime* for CPU. You can create auto scale rules based on a more detailed awareness of the VM performance, not just the percentage of CPU usage or memory consumption.
