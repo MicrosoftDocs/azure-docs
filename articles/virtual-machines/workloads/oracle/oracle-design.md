@@ -112,8 +112,7 @@ The following diagram shows the total I/O of read and write. There were 59 GB re
 
 #### 2. Choose a VM
 
-Based on the information that you collected from the AWR report, the next step is to choose a VM of a similar size that meets your requirements. You can find a list of available VMs in the article [Memory optimized](https://docs.microsoft.com/azure/virtual-machinFine tune es/virtual-machines-windows-sizes-memory).
-<!---Loc Comment: [Memory optimized] leads to page 404 error--->
+Based on the information that you collected from the AWR report, the next step is to choose a VM of a similar size that meets your requirements. You can find a list of available VMs in the article [Memory optimized](../../linux/sizes-memory.md).
 
 #### 3. Fine-tune the VM sizing with a similar VM series based on the ACU
 
