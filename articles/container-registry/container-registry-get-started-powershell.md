@@ -7,13 +7,12 @@ author: neilpeterson
 manager: timlt
 editor: tysonn
 
-
 ms.service: container-registry
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/07/2017
+ms.date: 10/08/2017
 ms.author: nepeters
 ---
 
@@ -47,8 +46,8 @@ Create an ACR instance using the [New-AzureRMContainerRegistry](/powershell/modu
 
 The name of the registry **must be unique**. In the following example *myContainerRegistry007* is used. Update this to a unique value.
 
-```PowerShell
-$Registry = New-AzureRMContainerRegistry -ResourceGroupName "myResourceGroup" -Name "myContainerRegistry007" -EnableAdminUser -Sku Basic
+```powershell
+$registry = New-AzureRMContainerRegistry -ResourceGroupName "myResourceGroup" -Name "myContainerRegistry007" -EnableAdminUser -Sku Basic
 ```
 
 ## Log in to ACR
@@ -56,13 +55,13 @@ $Registry = New-AzureRMContainerRegistry -ResourceGroupName "myResourceGroup" -N
 Before pushing and pulling container images, you must log in to the ACR instance. First, use the [Get-AzureRmContainerRegistryCredential](/powershell/module/containerregistry/get-azurermcontainerregistrycredential) command to get the admin credentials for the ACR instance.
 
 ```powershell
-$creds = Get-AzureRmContainerRegistryCredential -Registry $Registry
+$creds = Get-AzureRmContainerRegistryCredential -Registry $registry
 ```
 
 Next, use the [docker login](https://docs.docker.com/engine/reference/commandline/login/) command to log in to the ACR instance.
 
 ```bash
-docker login $Registry.LoginServer -u $creds.Username -p $creds.Password
+docker login $registry.LoginServer -u $creds.Username -p $creds.Password
 ```
 
 The command returns a 'Login Succeeded' message once completed.
@@ -77,7 +76,7 @@ docker pull microsoft/aci-helloworld
 
 The image must be tagged with the ACR login server name. Run the [Get-AzureRmContainerRegistry](/powershell/module/containerregistry/Get-AzureRmContainerRegistry) command to return the login server name of the ACR instance.
 
-```powershell`
+```powershell
 Get-AzureRmContainerRegistry | Select Loginserver
 ```
 

@@ -43,14 +43,27 @@ The next step for speech recognition is to send a POST request to the Microsoft 
 
 ### HTTP endpoints
 
-The URI of the HTTP endpoints of Microsoft Speech Service is built based on [recognition mode](../concepts.md#recognition-modes) and [recognition language](../concepts.md#recognition-languages), as described in [Speech Service Endpoints](../concepts.md#speech-service-endpoints).
+The URI of the HTTP endpoints for REST API is defined based on [recognition mode](../concepts.md#recognition-modes) and [recognition language](../concepts.md#recognition-languages):
+
+```HTTP
+https://speech.platform.bing.com/speech/recognition/<RECOGNITION_MODE>/cognitiveservices/v1?language=<LANGUAGE_TAG>&format=<OUTPUT_FORMAT>
+```
+
+`<RECOGNITION_MODE>` specifies the recognition mode, and must be of the following values: `interactive`, `conversation`, or `dictation`. It is a required resource path in the URI. For more information, see [recognition modes](../concepts.md#recognition-modes).
+
+`<LANGUAGE_TAG>` is a required parameter in the query string. It defines the target language for audio conversion. For example, `en-US` for English (United States). For more information, see [recognition languages](../concepts.md#recognition-languages).
+
+`<OUTPUT_FOMAT>` is an optional parameter in the query string. Its allowed values are `simple` and `detailed`. By default the service returns results in `simple` format. See [output format](../concepts.md#output-format) for details.
 
 Some examples of service URI are as follows.
 | Recognition mode  | Language | Output format | REST end point |
 |---|---|---|---|
-| interactive | pt-BR | default | https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR | 
-| conversation | en-US | detailed | https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed |
-| dictation | fr-FR | simple | https://speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR&format=simple |
+| `interactive` | pt-BR | default | https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
+| `conversation` | en-US | detailed |https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed |
+| `dictation` | fr-FR | simple | https://speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR&format=simple |
+
+> [!NOTE]
+> The HTTP service endpoints are only needed when your application uses REST APIs to call the speech service. If you use one of the [client libraries](GetStartedClientLibraries.md), you usually do not need to know which endpoint is being used. The client libraries might use different service URIs, which are only applicable for the specific client library. For more information, see the client library of your choice.
 
 ### Request headers
 
@@ -224,7 +237,7 @@ The Speech REST API has some limitations:
 - It only supports audio stream up to 15 seconds.
 - REST API does not support intermediate results during recognition. Users receive only the final recognition result.
 
-To remove these limitations, you can use Microsoft speech [client libraries](GetStartedClientLibraries.md) or directly work with [Speech Websocket Protocol](../API-Reference-REST/websocketprotocol.md).
+To remove these limitations, you can use Microsoft speech [client libraries](GetStartedClientLibraries.md) or directly work with [Speech WebSocket Protocol](../API-Reference-REST/websocketprotocol.md).
 
 ## What's next
 

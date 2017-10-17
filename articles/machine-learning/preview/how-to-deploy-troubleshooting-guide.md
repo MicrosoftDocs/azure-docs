@@ -10,13 +10,35 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 10/05/2017
+ms.date: 10/09/2017
 ---
 
-# Model management troubleshooting
+# Troubleshooting service deployment and environment setup
+The following information can help determine the cause of errors when setting up the model management environment.
+
+## Model management environment
+### Owner permission required
+You must have owner permission on the Azure subscription to register the Machine Learning Compute.
+
+You also need owner permission to set up a cluster for deployment of your web services.
+
+### Resource availability
+You need to have enough resources available in your subscription so you can provision the environment resources.
+
+### Subscription Caps
+Your subscription may have a cap on billing which could prevent you from provisioning the environment resources. Removet that cap to enable provisioning.
+
+### Enable debug and verbose options
+Use the `--debug` and  `--verbose` flags in the setup command to show debug and trace information as the environment is being provisioned.
+
+```
+az ml env setup -l <loation> -n <name> -c --debug --verbose 
+```
+
+## Service deployment
 The following information can help determine the cause of errors during deployment or when calling the web service.
- 
-## 1. Service logs
+
+### Service logs
 The `logs` option of the service CLI provides log data from Docker and Kubernetes.
 
 ```
@@ -29,7 +51,7 @@ For additional log settings, use the `--help` (or `-h`) option.
 az ml service logs realtime -h
 ```
 
-## 2. Debug and Verbose options
+### Debug and Verbose options
 Use the `--debug` flag to show debug logs as the service is being deployed.
 
 ```
@@ -42,7 +64,7 @@ Use the `--verbose` flag to see additional details as the service is being deplo
 az ml service create realtime -m <modelfile>.pkl -f score.py -n <service name> -r python --verbose
 ```
 
-## 3. App Insights
+### Enable request logging in App Insights
 Set the `-l` flag to true when creating a web service to enable request level logging. The request logs are written to the App Insights instance for your environment in Azure. Search for this instance using the environment name you used when using the `az ml env setup` command.
 
 - Set `-l` to true when creating the service.
@@ -51,7 +73,7 @@ Set the `-l` flag to true when creating a web service to enable request level lo
 - Or go to `Analytics` > `Exceptions` > `exceptions take | 10`.
 
 
-## 4. Error handling in script
+### Add error handling in scoring script
 Use exception handling in your `scoring.py` script's **run** function to return the error message as part of your web service output.
 
 Python example:
@@ -62,7 +84,7 @@ Python example:
         return(str(e))
 ```
 
-## 5. Other common problems
+## Other common problems
 - If the `env setup` command fails, make sure you have enough cores available in your subscription.
 - Do not use the underscore ( _ ) in the web service name (as in *my_webservice*).
 - Retry if you get a **502 Bad Gateway** error when calling the web service. It normally means the container hasn't been deployed to the cluster yet.
