@@ -28,7 +28,8 @@
 ### Connect a physical device
 #### [C on Windows](iot-suite-connecting-devices.md)
 #### [C on Linux](iot-suite-connecting-devices-linux.md)
-#### [Node.js](iot-suite-connecting-devices-node.md)
+#### [Node.js (generic)](iot-suite-connecting-devices-node.md)
+#### [Node.js on Raspberry Pi](iot-suite-connecting-pi-node.md)
 
 ### Concepts
 #### [Remote monitoring architecture](iot-suite-remote-monitoring-sample-walkthrough.md)
