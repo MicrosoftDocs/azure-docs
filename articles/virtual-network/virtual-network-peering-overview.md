@@ -118,7 +118,7 @@ You can also troubleshoot your connectivity to a virtual machine in a peered vir
 
 ## Limits
 
-There are limits on the number of peerings that are allowed for a single virtual network. The default number of peerings is 50. You can increase the number of peerings. For more information, review the [Azure networking limits](../azure-subscription-service-limits.md#networking-limits).
+There are limits on the number of peerings that are allowed for a single virtual network. For details, see [Azure networking limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
 ## Pricing
 
