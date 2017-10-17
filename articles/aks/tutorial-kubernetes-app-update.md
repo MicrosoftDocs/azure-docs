@@ -1,5 +1,5 @@
 ---
-title: AKS tutorial - Update application | Microsoft Docs
+title: Kubernertes on Azure tutorial - Update application | Microsoft Docs
 description: AKS tutorial - Update Application
 services: container-service
 documentationcenter: ''

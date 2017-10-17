@@ -1,5 +1,5 @@
 ---
-title: AKS tutorial - Scale Application | Microsoft Docs
+title: Kubernertes on Azure tutorial  - Scale Application | Microsoft Docs
 description: AKS tutorial - Scale Application
 services: container-service
 documentationcenter: ''

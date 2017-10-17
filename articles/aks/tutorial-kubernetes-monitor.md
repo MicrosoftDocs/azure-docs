@@ -1,5 +1,5 @@
 ---
-title: AKS tutorial - Monitor Kubernetes | Microsoft Docs
+title: Kubernertes on Azure tutorial  - Monitor Kubernetes | Microsoft Docs
 description: AKS tutorial - Monitor Kubernetes with Microsoft Operations Management Suite (OMS)
 services: container-service
 documentationcenter: ''

@@ -184,7 +184,7 @@ When finished testing the application use `CTRL-C` to stop the proxy connection.
 
 ## Expose application
 
-When testing an application in Kubernetes, you may want to make the application available on the internet. This can be done using a Kuebrentes service with a type of [LoadBalancer](https://kubernetes.io/docs/concepts/services-networking/service/#type-loadbalancer) or an [ingress controller](https://kubernetes.io/docs/concepts/services-networking/ingress/). This document will detail using a Kuebrentes service. 
+When testing an application in Kubernetes, you may want to make the application available on the internet. This can be done using a Kubernetes service with a type of [LoadBalancer](https://kubernetes.io/docs/concepts/services-networking/service/#type-loadbalancer) or an [ingress controller](https://kubernetes.io/docs/concepts/services-networking/ingress/). This document details using a Kubernetes service. 
 
 
 First, the Draft pack needs to be updated to specify that a service with a type `LoadBalancer` should be created. To do so, update the service type in the `values.yaml` file.
