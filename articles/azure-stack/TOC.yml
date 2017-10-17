@@ -53,8 +53,12 @@
     items:
     - name: Integrate DNS
       href: azure-stack-integrate-dns.md
+    - name: Identity
+      href: azure-stack-integrate-identity.md
     - name: Publish endpoints
-      href: azure-stack-integrate-endpoints.md  
+      href: azure-stack-integrate-endpoints.md
+    - name: Security
+      href: azure-stack-integrate-security.md
   - name: Manage
     items:
     - name: Region management
@@ -206,7 +210,7 @@
 - name: Reference
   items:
   - name: Azure Stack PowerShell
-    href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.9
+    href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.10
 - name: Resources
   items:
   - name: Azure Roadmap

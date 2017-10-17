@@ -12,17 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/23/2017
+ms.date: 10/06/2017
 ms.author: bwren
 
 ---
 
 # Transitioning to Azure Log Analytics new query language
-
-> [!NOTE]
-> You can read more about the new Log Analytics query language and get the procedure to upgrade your workspace at Upgrade your [Azure Log Analytics workspace to new log search](log-analytics-log-search-upgrade.md).
-
-This article provides assistance on transitioning to the new query language for Log Analytics if you're already familiar with the legacy language.
+Log Analytics recently implemented a new query language.  This article provides assistance on transitioning to this language for Log Analytics if you're already familiar with the legacy language and still need some assistance.
 
 ## Language converter
 
