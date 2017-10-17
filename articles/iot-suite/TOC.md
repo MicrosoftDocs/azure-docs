@@ -1,6 +1,6 @@
 # Overview
 ## [IoT architecture concepts](iot-suite-what-is-azure-iot.md)
-## [Azure IoT Hub, Suite, and Central](iot-suite-options.md)
+## [Compare Azure IoT options](iot-suite-options.md)
 ## [Preconfigured solutions overview](iot-suite-what-are-preconfigured-solutions.md)
 
 # Get Started
