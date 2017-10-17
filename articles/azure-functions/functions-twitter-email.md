@@ -44,29 +44,28 @@ In this tutorial, you learn how to:
 + This topic uses as its starting point the resources created in [Create your first function from the Azure portal](functions-create-first-azure-function.md).  
 If you haven't already done so, complete these steps now to create your function app.
 
-## Create a Cognitive Services account
+## Create a Cognitive Services Resource
 
-A Cognitive Services account is required to detect the sentiment of tweets being monitored.
+The Cognitive Services APIs are available in Azure as individual resources. Use the Text Analytics API to detect the sentiment of the tweets being monitored.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 2. Click the **New** button found on the upper left-hand corner of the Azure portal.
 
-3. Click **Data + Analytics** > **Cognitive  Services**. Then, use the settings as specified in the table, accept the terms, and check **Pin to dashboard**.
+3. Click **AI + Analytics** > **Text Analytics API**. Then, use the settings as specified in the table, accept the terms, and check **Pin to dashboard**.
 
-    ![Create Cognitive account page](media/functions-twitter-email/cog_svcs_account.png)
+    ![Create Cognitive resource page](media/functions-twitter-email/cog_svcs_resource.png)
 
     | Setting      |  Suggested value   | Description                                        |
     | --- | --- | --- |
     | **Name** | MyCognitiveServicesAccnt | Choose a unique account name. |
-    | **API type** | Text Analytics API | API used to analyze text.  |
-    | **Location** | West US | Currently, only **West US** is available for text analytics. |
+    | **Location** | West US | Use the location nearest you. |
     | **Pricing tier** | F0 | Start with the lowest tier. If you run out of calls, scale to a higher tier.|
     | **Resource group** | myResourceGroup | Use the same resource group for all services in this tutorial.|
 
-4. Click **Create** to create your account. After the account is created, click your new Cognitive Services account pinned to the dashboard. 
+4. Click **Create** to create your resource. After it is created, select your new Cognitive Services resource pinned to the dashboard. 
 
-5. In the account, click **Keys**, and then copy the value of **Key 1** and save it. You use this key to connect the logic app to your Cognitive Services account. 
+5. In the left navigation column, click **Keys**, and then copy the value of **Key 1** and save it. You use this key to connect the logic app to your Cognitive Services account. 
  
     ![Keys](media/functions-twitter-email/keys.png)
 
@@ -74,11 +73,24 @@ A Cognitive Services account is required to detect the sentiment of tweets being
 
 Functions provides a great way to offload processing tasks in a logic apps workflow. This tutorial uses an HTTP triggered function to process tweet sentiment scores from Cognitive Services and return a category value.  
 
-1. Expand your function app, click the **+** button next to **Functions**, click the **HTTPTrigger** template. Type `CategorizeSentiment` for the function **Name** and click **Create**.
+1. Click the **New** button and select **Compute** > **Function App**. Then, use the settings as specified in the table below. Accept the terms, then select **Pin to dashboard**.
+
+![Create Azure Function page](media/functions-twitter-email/create_fun.png)
+
+| Setting      |  Suggested value   | Description       |
+| --- | --- | --- |
+| **Name** | MyFunctionApp | Choose a unique account name. |
+| **Resource group** | myResourceGroup | Use the same resource group for all services in this tutorial.|
+| **Hosting plan** | Consumption Plan | This defines your cost and usage allocations.
+| **Location** | West US | Use the location nearest you. |
+| **Storage** | Create New | Automatically generates a new storage account.|
+| **Pricing tier** | F0 | Start with the lowest tier. If you run out of calls, scale to a higher tier.|
+
+2. Select your functions app from your dashboard and expand your function, click the **+** button next to **Functions**, click the **HTTPTrigger** template. Type `CategorizeSentiment` for the function **Name** and click **Create**.
 
     ![Function Apps blade, Functions +](media/functions-twitter-email/add_fun.png)
 
-2. Replace the contents of the run.csx file with the following code, then click **Save**:
+3. Replace the contents of the run.csx file with the following code, then click **Save**:
 
     ```c#
     using System.Net;
@@ -107,7 +119,7 @@ Functions provides a great way to offload processing tasks in a logic apps workf
     ```
     This function code returns a color category based on the sentiment score received in the request. 
 
-3. To test the function, click **Test** at the far right to expand the Test tab. Type a value of `0.2` for the **Request body**, and then click **Run**. A value of **RED** is returned in the body of the response. 
+4. To test the function, click **Test** at the far right to expand the Test tab. Type a value of `0.2` for the **Request body**, and then click **Run**. A value of **RED** is returned in the body of the response. 
 
     ![Test the function in the Azure portal](./media/functions-twitter-email/test.png)
 
