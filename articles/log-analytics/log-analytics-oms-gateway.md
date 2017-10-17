@@ -75,6 +75,9 @@ The OMS Gateway is available in the following languages:
 - Russian
 - Spanish (International)
 
+### Supported encryption protocols
+The OMS Gateway only supports Transport Layer Security (TLS) 1.0, 1.1 and 1.2.  It does not support Secure Sockets Layer (SSL).
+
 ## Download the OMS Gateway
 
 There are three ways to get the latest version of the OMS Gateway Setup file.
