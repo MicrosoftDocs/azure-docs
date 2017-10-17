@@ -163,9 +163,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	b. As **SSO - Single Sign-on Mode**, select **Optional**, and then click **Save**.
 
 	> [!NOTE]
-	> **Optional** mode is for testing only, once you are happy with the configuration **Required** mode to enforce all users to authenticate using Azure AD.
+	> **Optional** mode is for testing only. Once you are happy with the configuration, Select **Required** mode to enforce all users to authenticate using Azure AD.
 
-	c. Open the downloaded certificate in notepad, copy the certificate content without the first line (-----BEGIN CERTIFICATE-----) and the last line (-----END CERTIFICATE-----), paste it into the **SSO-x.509 Certificate** textbox, and then click **Save**.
+	c. Open the downloaded certificate in notepad, copy the certificate content without the first line (-----**BEGIN CERTIFICATE**-----) and the last line (-----**END CERTIFICATE**-----), paste it into the **SSO-x.509 Certificate** textbox, and then click **Save**.
 		
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
