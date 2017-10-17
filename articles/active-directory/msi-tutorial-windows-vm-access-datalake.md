@@ -112,10 +112,15 @@ In this tutorial, you authenticate to the Data Lake Store filesystem REST API us
 
 5. Using PowerShell's `Invoke-WebRequest', make a request to your Data Lake Store's REST endpoint to list the folders in the root folder.  This is a simple way to check everything is configured correctly.  It is important the string "Bearer" in the Authorization header has a capital "B".  You can find the name of your Data Lake Store in the **Overview** section of the Data Lake Store blade in the Azure portal.
 
-   ```powershell
-   Invoke-WebRequest -Uri https://\<YOUR-ADLS-NAME\>.azuredatalakestore.net/webhdfs/v1/?op=LISTSTATUS -Headers @{Authorization="Bearer $AccessToken"}
-   ```
+```powershell
+Invoke-WebRequest -Uri https://&lt;YOUR-ADLS-NAME&gt;.azuredatalakestore.net/webhdfs/v1/?op=LISTSTATUS -Headers @{Authorization="Bearer $AccessToken"}
+```
    
+```powershell
+Invoke-WebRequest -Uri https://&ltYOUR-ADLS-NAME&gt.azuredatalakestore.net/webhdfs/v1/?op=LISTSTATUS -Headers @{Authorization="Bearer $AccessToken"}
+```
+
+
    A successful response looks like:
 
    ```powershell
@@ -148,7 +153,7 @@ In this tutorial, you authenticate to the Data Lake Store filesystem REST API us
 7. Using PowerShell's `Invoke-WebRequest`, make a request to your Data Lake Store's REST endpoint to upload the file to the folder you created earlier.  This request takes two steps.  In the first step, you make a request and get a redirection to where the file should be uploaded.  In the second step, you actually upload the file.  Remember to set the name of the folder and file appropriately if you used different values than in this tutorial. 
 
    ```powershell
-   $HdfsRedirectResponse = Invoke-WebRequest -Uri https://\<YOUR-ADLS-NAME\>.azuredatalakestore.net/webhdfs/v1/TestFolder/Test1.txt?op=CREATE -Method PUT -Headers @{Authorization="Bearer $AccessToken"} -Infile Test1.txt -MaximumRedirection 0
+   $HdfsRedirectResponse = Invoke-WebRequest -Uri https://<YOUR-ADLS-NAME>.azuredatalakestore.net/webhdfs/v1/TestFolder/Test1.txt?op=CREATE -Method PUT -Headers @{Authorization="Bearer $AccessToken"} -Infile Test1.txt -MaximumRedirection 0
    ```
 
    If you inspect the value of `$HdfsRedirectResponse` it should look like the following response:
