@@ -27,51 +27,17 @@ When you create subnets in a virtual network, Azure creates default [system rout
 
 ![Default routes](./media/create-user-defined-route/default-routes.png)
 
-In this tutorial, you create a virtual network with public, private, and DMZ subnets, as shown in the picture that follows. Typically web servers might be deployed to a public subnet, and an application or database server might be deployed to a private subnet. You create a virtual machine to act as a network virtual appliance in the DMZ subnet. All traffic between the public and private subnets is routed through the appliance, as shown in the following picture:
+In this tutorial, you create a virtual network with public, private, and DMZ subnets, as shown in the picture that follows. Typically web servers might be deployed to a public subnet, and an application or database server might be deployed to a private subnet. You create a virtual machine to act as a network virtual appliance in the DMZ subnet, and optionally, create a virtual machine in each subnet that communicate through the network virtual appliance. All traffic between the public and private subnets is routed through the appliance, as shown in the following picture:
 
 ![User-defined routes](./media/create-user-defined-route/user-defined-routes.png)
 
 This article provides steps to create a user-defined route through the Resource Manager deployment model, which is the deployment model we recommend using when creating user-defined routes. If you need to create a user-defined route (classic), see [Create a user-defined route (classic)](virtual-network-create-udr-classic-cli.md). If you're not familiar with Azure's deployment models, see [Understand Azure deployment models](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). To learn more about user-defined routes, see [User-defined routes overview](virtual-networks-udr-overview.md#user-defined-routes).
 
-## Prerequisite
-
-This tutorial requires an existing virtual network with two subnets. Click the **Try it** button in the box that follows, to quickly create a virtual network. Clicking the **Try it** button opens the [Azure Cloud Shell](../cloud-shell/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Though the Cloud Shell runs a PowerShell or Bash shell, in this tutorial, the Bash shell is used. The Bash shell has the Azure command-line interface installed. If prompted by the Cloud Shell, log in to Azure using your [Azure account](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). If you don't have an Azure account, you can sign up for a [free trial](https://azure.microsoft.com/offers/ms-azr-0044p). To create the virtual network used in this tutorial, click the **Copy** button in the following box, then paste the script into the Azure Cloud Shell:
-
-```azurecli-interactive
-#!/bin/bash
-
-#Set variables used in the script.
-rgName="myResourceGroup"
-location="eastus"
-
-# Create a resource group.
-az group create \
-  --name $rgName \
-  --location $location
-
-# Create a virtual network with one subnet named Public.
-az network vnet create \
-  --name myVnet \
-  --resource-group $rgName \
-  --address-prefixes 10.0.0.0/16 \
-  --subnet-name Public \
-  --subnet-prefix 10.0.0.0/24
-
-# Create an additional subnet named Private in the virtual network.
-az network vnet subnet create \
-  --name Private \
-  --address-prefix 10.0.1.0/24 \
-  --vnet-name myVnet \
-  --resource-group $rgName
-```
-
-To learn more about how to use the portal, PowerShell, or an Azure Resource Manager template to create a virtual network, see [Create a virtual network](virtual-networks-create-vnet-arm-pportal.md).
-
 ## Create routes and network virtual appliance
 
 Azure CLI commands are the same, whether you execute the commands from Windows, Linux, or macOS. However, there are scripting differences between operating system shells. The scripts in the following steps execute in a require installation and execution of Azure CLI commands in a Bash shell. You can either [Install and configure the Azure CLI](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json) on your PC, or just click the **Try it** button in any of the scripts to execute the scripts in the Azure Cloud Shell.
  
-1. **Prerequisite**: Create a virtual network with two subnets by completing the steps in [Prerequisite](#Prerequisite).
+1. **Prerequisite**: Create a virtual network with two subnets by completing the steps in [Create a virtual network](#create-a-virtual-network).
 2. If running the Azure CLI from your computer, log in to Azure with the `az login` command. If using the Cloud Shell, you're automatically logged in.
 3. Set a few variables used throughout the remaining steps:
 
@@ -91,7 +57,7 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
       --resource-group $rgName
     ```
 
-5. Create the NVA virtual machine. Assign static public and private IP addresses to the network interface the CLI creates. Static addresses don't change for the life of the virtual machine. The NVA can be a virtual machine running the Linux or Windows operating system. If you create a Windows virtual machine, change the password for the *AdminPassword* variable in the script that follows before executing it. Copy the script for either operating system and paste it into your CLI session to create the virtual machine:
+5. Create the NVA virtual machine. Assign static public and private IP addresses to the network interface the CLI creates. Static addresses don't change for the life of the virtual machine. The NVA can be a virtual machine running the Linux or Windows operating system. To create the virtual machine, copy the script for either operating system and paste it into the CLI. If creating a Windows VM, paste the script into a text editor, change the value for the *AdminPassword* variable, then paste the modified text into your CLI.
 
     **Linux**
 
@@ -205,7 +171,7 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
 
     The following scripts create two virtual machines, one in the *Public* subnet, and one in the *Private* subnet. The scripts also enable IP forwarding for the network interface within the operating system of the NVA to enable the operating system to route traffic through the network interface. A production NVA typically inspects the traffic before routing it, but in this tutorial, the simple NVA just routes the traffic without inspecting it. 
 
-    Click the **Copy** button in the **Linux** or **Windows** scripts that follow and paste the script contents into a text editor. Change the password for the *adminPassword* variable, then paste the script into the Azure Cloud Shell. Run the script for the operating system you selected when you created the network virtual appliance in step 6 of [Create routes and network virtual appliance](#create-routes-and-network-virtual-appliance). 
+    Click the **Copy** button in the **Linux** or **Windows** scripts that follow and paste the script contents into a text editor. Change the password for the *adminPassword* variable, then paste the script into the Azure Cloud Shell. Run the script for the operating system you selected when you created the network virtual appliance in step 5 of [Create routes and network virtual appliance](#create-routes-and-network-virtual-appliance). 
 
     **Linux**
 
@@ -336,6 +302,40 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
 
 > [!NOTE]
 > To illustrate the concepts in this tutorial, public IP addresses are assigned to the virtual machines in the Public and Private subnets, and all network port access is enabled within Azure for both virtual machines. When creating virtual machines for production use, you may not assign public IP addresses to them and may filter network traffic to the Private subnet by deploying a network virtual appliance in front of it, or by assigning a network security group to the subnets, network interface, or both. To learn more about network security groups, see [Network security groups](virtual-networks-nsg.md).
+
+## Create a virtual network
+
+This tutorial requires an existing virtual network with two subnets. Click the **Try it** button in the box that follows, to quickly create a virtual network. Clicking the **Try it** button opens the [Azure Cloud Shell](../cloud-shell/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Though the Cloud Shell runs PowerShell or a Bash shell, in this section, the Bash shell is used to create the virtual network. The Bash shell has the Azure command-line interface installed. If prompted by the Cloud Shell, log in to Azure using your [Azure account](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). If you don't have an Azure account, you can sign up for a [free trial](https://azure.microsoft.com/offers/ms-azr-0044p). To create the virtual network used in this tutorial, click the **Copy** button in the following box, then paste the script into the Azure Cloud Shell:
+
+```azurecli-interactive
+#!/bin/bash
+
+#Set variables used in the script.
+rgName="myResourceGroup"
+location="eastus"
+
+# Create a resource group.
+az group create \
+  --name $rgName \
+  --location $location
+
+# Create a virtual network with one subnet named Public.
+az network vnet create \
+  --name myVnet \
+  --resource-group $rgName \
+  --address-prefixes 10.0.0.0/16 \
+  --subnet-name Public \
+  --subnet-prefix 10.0.0.0/24
+
+# Create an additional subnet named Private in the virtual network.
+az network vnet subnet create \
+  --name Private \
+  --address-prefix 10.0.1.0/24 \
+  --vnet-name myVnet \
+  --resource-group $rgName
+```
+
+To learn more about how to use the portal, PowerShell, or an Azure Resource Manager template to create a virtual network, see [Create a virtual network](virtual-networks-create-vnet-arm-pportal.md).
 
 ## Delete resources
 

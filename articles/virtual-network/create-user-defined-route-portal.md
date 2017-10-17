@@ -27,57 +27,28 @@ When you create subnets in a virtual network, Azure creates default [system rout
 
 ![Default routes](./media/create-user-defined-route/default-routes.png)
 
-In this tutorial, you create a virtual network with public, private, and DMZ subnets, as shown in the picture that follows. Typically web servers might be deployed to a public subnet, and an application or database server might be deployed to a private subnet. You create a virtual machine to act as a network virtual appliance in the DMZ subnet. All traffic between the public and private subnets is routed through the appliance, as shown in the following picture:
+In this tutorial, you create a virtual network with public, private, and DMZ subnets, as shown in the picture that follows. Typically web servers might be deployed to a public subnet, and an application or database server might be deployed to a private subnet. You create a virtual machine to act as a network virtual appliance in the DMZ subnet, and optionally, create a virtual machine in each subnet that communicate through the network virtual appliance. All traffic between the public and private subnets is routed through the appliance, as shown in the following picture:
 
 ![User-defined routes](./media/create-user-defined-route/user-defined-routes.png)
 
 This article provides steps to create a user-defined route through the Resource Manager deployment model, which is the deployment model we recommend using when creating user-defined routes. If you need to create a user-defined route (classic), see [Create a user-defined route (classic)](virtual-network-create-udr-classic-ps.md). If you're not familiar with Azure's deployment models, see [Understand Azure deployment models](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). To learn more about user-defined routes, see [User-defined routes overview](virtual-networks-udr-overview.md#user-defined-routes).
 
-## Prerequisite
-
-This tutorial requires an existing virtual network with two subnets. Click the **Try it** button in the box that follows, to quickly create a virtual network. Clicking the **Try it** button opens the [Azure Cloud Shell](../cloud-shell/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Though the Cloud Shell runs a PowerShell or Bash shell, in this tutorial, the Bash shell is used. The Bash shell has the Azure command-line interface installed. If prompted by the Cloud Shell, log in to Azure using your [Azure account](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). If you don't have an Azure account, you can sign up for a [free trial](https://azure.microsoft.com/offers/ms-azr-0044p). To create the virtual network used in this tutorial, click the **Copy** button in the following box, then paste the script into the Azure Cloud Shell:
-
-```azurecli-interactive
-#!/bin/bash
-
-#Set variables used in the script.
-rgName="myResourceGroup"
-location="eastus"
-
-# Create a resource group.
-az group create \
-  --name $rgName \
-  --location $location
-
-# Create a virtual network with one subnet named Public.
-az network vnet create \
-  --name myVnet \
-  --resource-group $rgName \
-  --address-prefixes 10.0.0.0/16 \
-  --subnet-name Public \
-  --subnet-prefix 10.0.0.0/24
-
-# Create an additional subnet named Private in the virtual network.
-az network vnet subnet create \
-  --name Private \
-  --address-prefix 10.0.1.0/24 \
-  --vnet-name myVnet \
-  --resource-group $rgName
-```
-
-To learn more about how to use the portal, PowerShell, or an Azure Resource Manager template to create a virtual network, see [Create a virtual network](virtual-networks-create-vnet-arm-pportal.md).
-
 ## Create routes and network virtual appliance
 
-1. **Prerequisite**: Create a virtual network with two subnets by completing the steps in [Prerequisite](#Prerequisite).
+1. **Prerequisite**: Create a virtual network with two subnets by completing the steps in [Create a virtual network](#create-a-virtual-network).
 2. After you've created the virtual network, in an Internet browser, go to the [Azure portal](https://portal.azure.com). Log in using your [Azure account](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account).
 3. On the **Search resources** box at the top of the portal, enter *myResourceGroup*. Click **myResourceGroup** when it appears in the search results. The resource group was created as part of the prerequisite.
-4. Click **myVnet** in the **myresourcegroup** blade that appears.
+4. Click **myVnet**, as shown in the following picture:
+
+    ![Network interface settings](./media/create-user-defined-route/virtual-network.png)
+
 5. Create a subnet for the network virtual appliance:
  
-    - Click **Subnets** under **SETTINGS** on the left side of the blade.
-    - Click **+ Subnet** in the **myVnet - Subnets** blade that appears.
-    - Enter the following values on the **Add subnet** blade that appears, then click **OK**:
+    - Under **myVnet**, click **Subnets** under **SETTINGS** on the left side.
+    - Click **+ Subnet**, as shown in the following picture:
+
+        ![Subnets](./media/create-user-defined-route/subnets.png) 
+    - Enter the following values under **Add subnet**, then click **OK**:
 
         |Setting|Value|
         |-----|-----|
@@ -86,7 +57,7 @@ To learn more about how to use the portal, PowerShell, or an Azure Resource Mana
 
 6. Create a network virtual appliance virtual machine:
 
-    - On the left side of the portal, click **+ New**, then click **Compute**, and then click any operating system. In this tutorial, **Windows Server 2016 Datacenter** is selected, as an example, but for this tutorial, you can also select Ubuntu.
+    - On the left side of the portal, click **+ New**, then click **Compute**, and then click **Windows Server 2016 Datacenter** or **Ubuntu Server 16.04 LTS**.
     - Enter the following values on the **Basics** blade that appears, then click **OK**.
 
         |Setting|Value|
@@ -109,24 +80,24 @@ To learn more about how to use the portal, PowerShell, or an Azure Resource Mana
 7. Assign a static private IP address and enable IP forwarding for the network interface the portal created in the previous step. 
     - On the **Search resources** box at the top of the page, enter *myVm-Nva*.
     - Click **myVm-Nva** when it appears in the search results.
-    - Click **Networking** under **SETTINGS** on the left side of the blade.
-    - Click the name of the network interface in the **myVm-Nva - Network interfaces** blade that appears. The name is **myvm-nva***X*, where *X* is a number assigned by the portal.
-    - Click **IP configurations** under **SETTINGS** in the blade that appears for the network interface, as shown in the following picture:
+    - Click **Networking** under **SETTINGS** on the left side.
+    - Click the name of the network interface under **myVm-Nva - Network interfaces**. The name is **myvm-nva***X*, where *X* is a number assigned by the portal.
+    - Click **IP configurations** under **SETTINGS** for the network interface, as shown in the following picture:
 
         ![Network interface settings](./media/create-user-defined-route/network-interface-settings.png)
         
     - Click **Enabled** for the **IP forwarding** setting, then click **Save**. IP forwarding must be enabled for each network interface that receives traffic not addressed to an IP address assigned to it. Enabling IP forwarding disables Azure's source/destination check for the network interface.
     - Click **ipconfig1** in the list of IP configurations.
-    - Click **Static** for **Assignment** of the private IP address in the **ipconfig1** blade that appears, as shown in the following picture:
+    - Click **Static** for **Assignment** of the private IP address under **ipconfig1**, as shown in the following picture:
 
         ![IP configuration](./media/create-user-defined-route/ip-configuration.png)
-    - As shown in the previous picture, enter *10.0.2.4* in the **IP address** box. Assigning a static IP address to the network interface ensures that the address doesn't change for the life of the virtual machine the network interface is attached to. The address entered is not currently assigned to another resource in the DMZ subnet that the network interface is in. 
-    - To save the configuration, click **Save** on the **ipconfig1** blade. Don't close the blade until you receive a notification in the portal that the network interface was saved.
+    - As shown in the previous picture, enter *10.0.2.4* under **IP address** in the **Private IP address settings**. Assigning a static IP address to the network interface ensures that the address doesn't change for the life of the virtual machine the network interface is attached to. The address entered is not currently assigned to another resource in the DMZ subnet that the network interface is in. 
+    - To save the configuration, click **Save** under **ipconfig1**. Don't close the ipconfig1 box until you receive a notification in the portal that the network interface is saved.
  
 8. Create two route tables. Route tables contain zero or more routes:
 
     - On the left side of the portal, click **+New** > **Networking** > **Route table**.
-    - On the **Create a route table** blade, enter the following values, and then click **Create**:
+    - Enter the following values under **Create a route table**, and then click **Create**:
 
         |Setting|Value|
         |---|---|
@@ -139,8 +110,8 @@ To learn more about how to use the portal, PowerShell, or an Azure Resource Mana
 9. Add routes to the *myRouteTable-Public* route table and associate the route table to the *Public* subnet:
 
     - On the **Search resources** box at the top of the portal, enter *myRouteTable-Public*. Click **myRouteTable-Public** when it appears in the search results.
-    - Click **Routes** in the list of **SETTINGS** on the left side of the **myRouteTable-Public** blade that appears.
-    - Click **+ Add** in the **myRouteTable-Public - Routes** blade.
+    - Under **myRouteTable-Public**, click **Routes** in the list of **SETTINGS**.
+    - Click **+ Add** under **myRouteTable-Public - Routes**.
     -  By default, Azure routes traffic between all subnets within a virtual network. Create a route to change Azure's default routing so that traffic from the *Public* subnet is routed through the NVA, instead of directly to the *Private* subnet. Enter the following values on the **Add route** blade that appears, and then click **OK**:
 
         |Setting|Value|Explanation|
@@ -150,11 +121,11 @@ To learn more about how to use the portal, PowerShell, or an Azure Resource Mana
         |Next hop type| Select **Virtual appliance**||
         |Next hop address|10.0.2.4| The static private IP address of the network interface attached to the network virtual appliance. The only hop type you can specify an address for is **Virtual appliance**.|
 
-    - Click **Subnets** under **Settings** of the **myRouteTable-Public** blade. 
-    - Click **+ Associate** in the **myRouteTable-Public - Subnets** blade.
-    - Click **Virtual network** in the **Associate subnet** blade, then click **myVnet** in the **Resource** blade that appears.
-    - Click **Subnet** in the **Associate subnet** blade, then click **Public** in the **Choose Subnet** blade. 
-    - To save the configuration, click **OK** in the **Associate subnet** blade. A subnet can have zero or one route table associated to it.
+    - Under **myRouteTable-Public**, click **Subnets** under **Settings**. 
+    - Click **+ Associate** under **myRouteTable-Public - Subnets**.
+    - Click **Virtual network** under **Associate subnet**, then click **myVnet**.
+    - Click **Subnet** under **Associate subnet**, then click **Public** under **Choose Subnet**. 
+    - To save the configuration, click **OK** under **Associate subnet**. A subnet can have zero or one route table associated to it.
 10. Complete step 9 again, searching for **myRouteTable-Private**, creating a route with the following settings, then associating the route table to the **Private** subnet of the **myVnet** virtual network:
 
     |Setting|Value|Explanation|
@@ -306,6 +277,40 @@ To learn more about how to use the portal, PowerShell, or an Azure Resource Mana
 
 > [!NOTE]
 > To illustrate the concepts in this tutorial, public IP addresses are assigned to the virtual machines in the Public and Private subnets, and all network port access is enabled within Azure for both virtual machines. When creating virtual machines for production use, you may not assign public IP addresses to them and may filter network traffic to the Private subnet by deploying a network virtual appliance in front of it, or by assigning a network security group to the subnets, network interface, or both. To learn more about network security groups, see [Network security groups](virtual-networks-nsg.md).
+
+## Create-a-virtual-network
+
+This tutorial requires an existing virtual network with two subnets. Click the **Try it** button in the box that follows, to quickly create a virtual network. Clicking the **Try it** button opens the [Azure Cloud Shell](../cloud-shell/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Though the Cloud Shell runs PowerShell or a Bash shell, in this section, the Bash shell is used to create the virtual network. The Bash shell has the Azure command-line interface installed. If prompted by the Cloud Shell, log in to Azure using your [Azure account](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). If you don't have an Azure account, you can sign up for a [free trial](https://azure.microsoft.com/offers/ms-azr-0044p). To create the virtual network used in this tutorial, click the **Copy** button in the following box, then paste the script into the Azure Cloud Shell:
+
+```azurecli-interactive
+#!/bin/bash
+
+#Set variables used in the script.
+rgName="myResourceGroup"
+location="eastus"
+
+# Create a resource group.
+az group create \
+  --name $rgName \
+  --location $location
+
+# Create a virtual network with one subnet named Public.
+az network vnet create \
+  --name myVnet \
+  --resource-group $rgName \
+  --address-prefixes 10.0.0.0/16 \
+  --subnet-name Public \
+  --subnet-prefix 10.0.0.0/24
+
+# Create an additional subnet named Private in the virtual network.
+az network vnet subnet create \
+  --name Private \
+  --address-prefix 10.0.1.0/24 \
+  --vnet-name myVnet \
+  --resource-group $rgName
+```
+
+To learn more about how to use the portal, PowerShell, or an Azure Resource Manager template to create a virtual network, see [Create a virtual network](virtual-networks-create-vnet-arm-pportal.md).
 
 ## Delete resources
 
