@@ -97,6 +97,7 @@
 #### [Latencies](active-directory-reporting-latencies-azure-portal.md)
 #### [Notifications](active-directory-reporting-notifications.md)
 #### [Sign-in activity error codes](active-directory-reporting-activity-sign-ins-errors.md)
+#### [Multi-factor authentication](active-directory-reporting-activity-sign-ins-mfa.md)
 ### Troubleshoot
 #### [Missing audit data](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [Missing data in downloads](active-directory-reporting-troubleshoot-missing-data-download.md)
