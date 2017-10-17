@@ -29,7 +29,7 @@ Azure App Service on Azure Stack has a number of pre-requisite steps that must b
 - Create an Azure Active Directory application
 - Create an Active Directory Federation Services application
 
-## Download the Azure App Service on Azure Stack Installer and Helper Scripts helper scripts
+## Download the Azure App Service on Azure Stack Installer and Helper Scripts
 
 1. Download the [App Service on Azure Stack deployment helper scripts](https://aka.ms/appsvconmashelpers).
 2. Download the [App Service on Azure Stack installer](https://aka.ms/appsvconmasinstaller).
@@ -267,7 +267,7 @@ Administrators must configure SSO to:
 Follow these steps:
 
 1. Open a PowerShell instance as azurestack\cloudadmin.
-2. Go to the location of the scripts downloaded and extracted in the [prerequisite step](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started#download-the-azure-app-service-on-azure-stack-installer-and-helper-scripts-helper-scripts).
+2. Go to the location of the scripts downloaded and extracted in the [prerequisite step](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started#download-the-azure-app-service-on-azure-stack-installer-and-helper-scripts).
 3. [Install Azure Stack PowerShell](azure-stack-powershell-install.md).
 4. Run the **Create-AADIdentityApp.ps1** script. When you're prompted for your Azure AD tenant ID, enter the Azure AD tenant ID you're using for your Azure Stack deployment, for example, myazurestack.onmicrosoft.com.
 5. In the **Credential** window, enter your Azure AD service admin account and password. Click **OK**.
