@@ -204,6 +204,11 @@ When deciding which option to use, the trade-offs are between manageability, gra
 
 ### Whitelist the Azure datacenter IP ranges
 To whitelist the Azure datacenter IP ranges, please see the [Azure website](http://www.microsoft.com/en-us/download/details.aspx?id=41653) for details on the IP ranges, and instructions.
+Alternatively, you can use service tags to allow connections to storage of the specific region using [Service Tags](../virtual-network/security-overview.md#service-tags). Make sure that rule which allows access to storage account is having higher priority than rule blocking internet access. 
+![NSG with storage tags for a region](./media/backup-azure-vms-prepare/storage-tags-with-nsg.png)
+
+> [!WARNING]
+> Storage tags are available only in specific regions and are in preview. For list of regions, refer to [Service tags for Storage](../virtual-network/security-overview.md#service-tags)
 
 ### Using an HTTP proxy for VM backups
 When backing up a VM, the backup extension on the VM sends the snapshot management commands to Azure Storage using an HTTPS API. Route the backup extension traffic through the HTTP proxy since it is the only component configured for access to the public Internet.
