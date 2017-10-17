@@ -1,6 +1,6 @@
 ---
 title: Create a Windows VM running a .Net Core app with IIS and SQL Azure | Microsoft Docs
-description: Tutorial - install a Azure SQL, IIS, .Net Core stack on a Windows virtual machine. Optionally, install a two-tier .Net Core app that runs on the stack ans an example.
+description: Tutorial - install a Azure SQL, IIS, .Net Core stack on a Windows virtual machine. 
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -19,9 +19,9 @@ ms.author: cynthn
 ms.custom: mvc
 ---
 
-# Tutorial install the IIS, SQL,.Net Core stack on an Windows VM
+# Tutorial install the IIS, SQL,.Net Core stack on a Windows VM
 
-In this tutorial, we will install an Azure SQL, IIS, ,NET Core stack. Optionally, we will then install a two-tier music store .Net Core application to exercise the stack as an example.
+In this tutorial, we install an Azure SQL, IIS, .NET Core stack. 
 
 > [!div class="checklist"]
 > * Create an Azure SQL VM
@@ -32,16 +32,16 @@ In this tutorial, we will install an Azure SQL, IIS, ,NET Core stack. Optionally
 
 ## Create a IIS VM 
 
-We will use the [New-AzVM] cmdlet to quickly create a Windows Server 2016 VM and then install IIS and the .NET Framework. The IIS and SQL VMs will share a resource group and virtual network, so we will create variables for those names.
+In this example, we use the [New-AzVM] cmdlet to quickly create a Windows Server 2016 VM and then install IIS and the .NET Framework. The IIS and SQL VMs share a resource group and virtual network, so we will create variables for those names.
 
 ```azurepowershell-interactive
 
-$vNet = myIISSQLvNet
-$resourceGroup = myIISSQLGroup
-New-AzVm -Name myIISVM -ResourceGroupName $resourceGroup -VirtualNetworkName $vNet 
+$vNetName = "myIISSQLvNet"
+$resourceGroup = "myIISSQLGroup"
+New-AzVm -Name myIISVM -ResourceGroupName $resourceGroup -VirtualNetworkName $vNetName 
 ```
 
-Install IIS and the .NET framwork using the custom script extension.
+Install IIS and the .NET framework using the custom script extension.
 
 ```azurepowershell-interactive
 
@@ -51,13 +51,13 @@ Set-AzureRmVMExtension -ResourceGroupName $resourceGroup `
     -Publisher Microsoft.Compute `
     -ExtensionType CustomScriptExtension `
     -TypeHandlerVersion 1.4 `
-    -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server,Web-Asp-Net45,NET-Framework-Features}' `
+    -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server,Web-Asp-Net45,NET-Framework-Features"}' `
     -Location EastUS
 ```
 
 ## Azure SQL VM
 
-We will be using a pre-configured Azure marketplace image of a SQL server simplicity. 
+We use a pre-configured Azure marketplace image of a SQL server to create the SQL VM. 
 
 ```azurepowershell-interactive
 
@@ -81,11 +81,11 @@ The following script creates a fully configured VM named *myVM* that you can use
 
 ```
 
-# Create user object. You will get a pop-up prompting you to enter the credentials for the VM.
+# Create user object. You get a pop-up prompting you to enter the credentials for the VM.
 $cred = Get-Credential -Message "Enter a username and password for the virtual machine."
 
 # Create a subnet configuration
-
+$vNet = Get-AzureRmVirtualNetwork -Name $vNetName -ResourceGroupName $resourceGroup
 Add-AzureRmVirtualNetworkSubnetConfig -Name mySQLSubnet -VirtualNetwork $vNet -AddressPrefix "10.0.2.0/24"
 $vNet | Set-AzureRmVirtualNetwork
 
