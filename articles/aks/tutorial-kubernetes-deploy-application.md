@@ -20,7 +20,7 @@ ms.author: nepeters
 ms.custom: mvc
 ---
 
-# Run applications in Kubernetes
+# Run applications in Azure Container Service (AKS)
 
 In this tutorial, part four of seven, a sample application is deployed into a Kubernetes cluster. Steps completed include:
 

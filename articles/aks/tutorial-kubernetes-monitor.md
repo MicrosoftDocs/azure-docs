@@ -20,7 +20,7 @@ ms.author: danlep
 ms.custom: mvc
 ---
 
-# Monitor a Kubernetes cluster with Operations Management Suite
+# Monitor a Azure Container Service (AKS) cluster with Operations Management Suite
 
 Monitoring your Kubernetes cluster and containers is critical, especially when you manage a production cluster at scale with multiple apps. 
 
