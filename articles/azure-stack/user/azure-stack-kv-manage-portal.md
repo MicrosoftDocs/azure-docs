@@ -1,6 +1,6 @@
 ---
-title: Manage Key Vault in Azure Stack by using the operator portal | Microsoft Docs
-description: Learn how to manage Key Vault in Azure Stack by using the operator portal
+title: Manage Key Vault in Azure Stack by using the portal | Microsoft Docs
+description: Learn how to manage Key Vault in Azure Stack by using the portal
 services: azure-stack
 documentationcenter: ''
 author: SnehaGunda
@@ -18,7 +18,7 @@ ms.author: sngun
 
 ---
 
-# Manage Key Vault in Azure Stack by using the operator portal
+# Manage Key Vault in Azure Stack by using the portal
 
 You can manage Key Vault in Azure Stack by using the Azure Stack portal. This article helps you get started to create and manage a key vault in Azure Stack. 
 
