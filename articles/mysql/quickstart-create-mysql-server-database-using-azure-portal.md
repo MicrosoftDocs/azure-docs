@@ -9,7 +9,7 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.custom: mvc
 ms.topic: hero-article
-ms.date: 08/15/2017
+ms.date: 10/16/2017
 ---
 
 # Create an Azure Database for MySQL server by using the Azure portal
@@ -105,20 +105,20 @@ Let's first use the [mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) 
     To connect to an Azure Database for MySQL server with the mysql utility, use the following format:
 
     ```bash
-    mysql --host <yourserver> --user <server admin login> --password
+    mysql --host <fully qualified servername> --user <serveradminlogin@servername> -p
     ```
 
     For example, the following command connects to our example server:
 
     ```azurecli-interactive
-    mysql --host myserver4demo.mysql.database.azure.com --user myadmin@myserver4demo --password
+    mysql --host myserver4demo.mysql.database.azure.com --user myadmin@myserver4demo -p
     ```
 
     mysql parameter |Suggested value|Description
     ---|---|---
     --host | *Server name* | The server name value that you used earlier when you created the Azure Database for MySQL server. Our example server is **myserver4demo.mysql.database.azure.com**. Use the fully qualified domain name (**\*.mysql.database.azure.com**) as shown in the example. If you don't remember your server name, follow the steps in the previous section to get the connection information. 
     --user | *Server admin login name* |The server admin login username that you supplied when you created the Azure Database for MySQL server earlier. If you don't remember the username, follow the steps in the previous section to get the connection information. The format is *username@servername*.
-    --password | *Wait until prompted* |The same password that you provided when you created the server. Note that the typed password characters are not shown on the bash prompt when you type them. After you've entered the password, select **Enter**.
+    -p | *Wait until prompted* |When prompted, provide the same password that you provided when you created the server. Note that the typed password characters are not shown on the bash prompt when you type them. After you've entered the password, select **Enter**.
 
    After it's connected, the mysql utility displays a `mysql>` prompt at which you can type commands. 
 
@@ -178,7 +178,9 @@ To connect to the server by using the GUI tool MySQL Workbench, take the followi
 
 1.	Open the MySQL Workbench application on your client computer. You can download and install MySQL Workbench from [Download MySQL Workbench](https://dev.mysql.com/downloads/workbench/).
 
-2.	In the **Setup New Connection** dialog box, enter the following information on the **Parameters** tab:
+2. Create a new connection. Click the plus (+) icon beside the **MySQL Connections** heading.
+
+3. In the **Setup New Connection** dialog box, enter your server connection information on the **Parameters** tab. Placeholder values are shown as an example. Replace the Hostname, Username, and Password with your own values.
 
     ![Set up new connection](./media/quickstart-create-mysql-server-database-using-azure-portal/setup-new-connection.png)
 
@@ -191,7 +193,7 @@ To connect to the server by using the GUI tool MySQL Workbench, take the followi
     Username |  *Server admin login name* | The server admin sign-in information that you supplied when you created the Azure Database for MySQL server earlier. Our example username is **myadmin@myserver4demo**. If you don't remember the username, follow the steps in the previous section to get the connection information. The format is *username@servername*.
     Password | *Your password* | Select the **Store in Vault...** button to save the password. |
 
-3. Select **Test Connection** to test whether all parameters are  configured correctly. Then select **OK** to save the connection. 
+4. Select **Test Connection** to test whether all parameters are  configured correctly. Then select **OK** to save the connection. 
 
     > [!NOTE]
     > SSL is enforced by default on your server and requires extra configuration  to connect successfully. For more information, see [Configure SSL connectivity in your application to securely connect to Azure Database for MySQL](./howto-configure-ssl.md). To disable SSL for this Quickstart, go to the Azure portal. Then select the Connection security page to disable the **Enforce SSL** connection toggle button.
