@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 10/13/2017
+ms.date: 10/17/2017
 ms.author: cshoe
 ms.custom: aaddev
 ---
@@ -51,7 +51,7 @@ Once `package.json` is created, run `npm install` in your command prompt to inst
 
 To get started configuring the application, there are a few account-specific values you can obtain the Azure CLI. The easiest way to get started with the CLI is to use the Azure Cloud Shell.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
 Enter the following command in the cloud shell: 
 
@@ -235,4 +235,4 @@ As stated in the introduction, you must implement a client counterpart to connec
 
 For code-based examples, you may clone client applications in [iOS](https://github.com/MSOpenTech/azure-activedirectory-library-for-ios) and [Android](https://github.com/MSOpenTech/azure-activedirectory-library-for-android).
 
-[!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
+[!INCLUDE [active-directory-devquickstarts-additional-resources](../../../../includes/active-directory-devquickstarts-additional-resources.md)]
