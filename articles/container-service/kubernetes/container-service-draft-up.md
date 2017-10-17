@@ -195,7 +195,7 @@ $ helm install stable/traefik --name ingress
 Now set a watch on the `ingress` controller to capture the external IP value when it is deployed. This IP address will be the one [mapped to your deployment domain](#wire-up-deployment-domain) in the next section.
 
 ```bash
-kubectl get svc -w
+$ kubectl get svc -w
 NAME                          CLUSTER-IP     EXTERNAL-IP     PORT(S)                      AGE
 ingress-traefik               10.0.248.104   13.64.108.240   80:31046/TCP,443:32556/TCP   1h
 kubernetes                    10.0.0.1       <none>          443/TCP                      7h
