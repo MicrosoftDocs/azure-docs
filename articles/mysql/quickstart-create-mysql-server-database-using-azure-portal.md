@@ -178,7 +178,9 @@ To connect to the server by using the GUI tool MySQL Workbench, take the followi
 
 1.	Open the MySQL Workbench application on your client computer. You can download and install MySQL Workbench from [Download MySQL Workbench](https://dev.mysql.com/downloads/workbench/).
 
-2.	In the **Setup New Connection** dialog box, enter the following information on the **Parameters** tab:
+2. Create a new connection. Click the plus (+) icon beside the **MySQL Connections** heading.
+
+3. In the **Setup New Connection** dialog box, enter the following information on the **Parameters** tab:
 
     ![Set up new connection](./media/quickstart-create-mysql-server-database-using-azure-portal/setup-new-connection.png)
 
@@ -191,7 +193,7 @@ To connect to the server by using the GUI tool MySQL Workbench, take the followi
     Username |  *Server admin login name* | The server admin sign-in information that you supplied when you created the Azure Database for MySQL server earlier. Our example username is **myadmin@myserver4demo**. If you don't remember the username, follow the steps in the previous section to get the connection information. The format is *username@servername*.
     Password | *Your password* | Select the **Store in Vault...** button to save the password. |
 
-3. Select **Test Connection** to test whether all parameters are  configured correctly. Then select **OK** to save the connection. 
+4. Select **Test Connection** to test whether all parameters are  configured correctly. Then select **OK** to save the connection. 
 
     > [!NOTE]
     > SSL is enforced by default on your server and requires extra configuration  to connect successfully. For more information, see [Configure SSL connectivity in your application to securely connect to Azure Database for MySQL](./howto-configure-ssl.md). To disable SSL for this Quickstart, go to the Azure portal. Then select the Connection security page to disable the **Enforce SSL** connection toggle button.
