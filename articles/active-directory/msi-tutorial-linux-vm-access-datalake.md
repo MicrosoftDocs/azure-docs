@@ -84,7 +84,7 @@ Your VM MSI can now perform all operations on files in the folder you created.  
 
 ## Get an access token using the VM MSI and use it to call the Azure Data Lake Store filesystem
 
-Azure Data Lake Store natively supports Azure AD authentication, so it can directly accept access tokens obtained using MSI.  To authenticate to the Data Lake Store filesystem you send an access token issued by Azure AD to your Data Lake Store filesystem endpoint, in an Authorization header in the format "Bearer \<ACCESS-TOKEN-VALUE\>".  To learn more about Data Lake Store support for Azure AD authentication, read [Authentication with Data Lake Store using Azure Active Directory](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory)
+Azure Data Lake Store natively supports Azure AD authentication, so it can directly accept access tokens obtained using MSI.  To authenticate to the Data Lake Store filesystem you send an access token issued by Azure AD to your Data Lake Store filesystem endpoint, in an Authorization header in the format "Bearer \<ACCESS_TOKEN_VALUE\>".  To learn more about Data Lake Store support for Azure AD authentication, read [Authentication with Data Lake Store using Azure Active Directory](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory)
 
 In this tutorial, you authenticate to the Data Lake Store filesystem REST API using CURL to make REST requests.
 
@@ -116,7 +116,7 @@ To complete these steps, you need an SSH client. If you are using Windows, you c
 4. Using CURL, make a request to your Data Lake Store filesystem REST endpoint to list the folders in the root folder.  This is a simple way to check everything is configured correctly.  Copy the value of the access token from the previous step.  It is important the string "Bearer" in the Authorization header has a capital "B".  You can find the name of your Data Lake Store in the **Overview** section of the Data Lake Store blade in the Azure portal.
 
    ```bash
-   curl https://<YOUR-ADLS-NAME>.azuredatalakestore.net/webhdfs/v1/?op=LISTSTATUS -H "Authorization: Bearer <ACCESS-TOKEN>"
+   curl https://<YOUR_ADLS_NAME>.azuredatalakestore.net/webhdfs/v1/?op=LISTSTATUS -H "Authorization: Bearer <ACCESS_TOKEN>"
    ```
     
    A successful response looks like:
@@ -134,7 +134,7 @@ To complete these steps, you need an SSH client. If you are using Windows, you c
 6. Using CURL, make a request to your Data Lake Store filesystem REST endpoint to upload the file to the folder you created earlier.  The upload involves a redirect, and CURL follows the redirect automatically. 
 
    ```bash
-   curl -i -X PUT -L -T Test1.txt -H "Authorization: Bearer <ACCESS-TOKEN>" 'https://<YOUR-ADLS-NAME>.azuredatalakestore.net/webhdfs/v1/<FOLDER-NAME>/Test1.txt?op=CREATE' 
+   curl -i -X PUT -L -T Test1.txt -H "Authorization: Bearer <ACCESS_TOKEN>" 'https://<YOUR_ADLS_NAME>.azuredatalakestore.net/webhdfs/v1/<FOLDER_NAME>/Test1.txt?op=CREATE' 
    ```
 
     A successful response looks like:

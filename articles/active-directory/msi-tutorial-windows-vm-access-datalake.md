@@ -82,7 +82,7 @@ Your VM MSI can now perform all operations on files in the folder you created.  
 
 ## Get an access token using the VM MSI and use it to call the Azure Data Lake Store filesystem
 
-Azure Data Lake Store natively supports Azure AD authentication, so it can directly accept access tokens obtained using MSI.  To authenticate to the Data Lake Store filesystem you send an access token issued by Azure AD to your Data Lake Store filesystem endpoint, in an Authorization header in the format "Bearer <ACCESS-TOKEN-VALUE>".  To learn more about Data Lake Store support for Azure AD authentication, read [Authentication with Data Lake Store using Azure Active Directory](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory)
+Azure Data Lake Store natively supports Azure AD authentication, so it can directly accept access tokens obtained using MSI.  To authenticate to the Data Lake Store filesystem you send an access token issued by Azure AD to your Data Lake Store filesystem endpoint, in an Authorization header in the format "Bearer <ACCESS_TOKEN_VALUE>".  To learn more about Data Lake Store support for Azure AD authentication, read [Authentication with Data Lake Store using Azure Active Directory](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory)
 
 > [!NOTE]
 > The Data Lake Store filesystem client SDKs do not yet support Managed Service Identity.  This tutorial will be updated when support is added to the SDK.
@@ -148,7 +148,7 @@ In this tutorial, you authenticate to the Data Lake Store filesystem REST API us
 7. Using PowerShell's `Invoke-WebRequest`, make a request to your Data Lake Store's REST endpoint to upload the file to the folder you created earlier.  This request takes two steps.  In the first step, you make a request and get a redirection to where the file should be uploaded.  In the second step, you actually upload the file.  Remember to set the name of the folder and file appropriately if you used different values than in this tutorial. 
 
    ```powershell
-   $HdfsRedirectResponse = Invoke-WebRequest -Uri https://<YOUR-ADLS-NAME>.azuredatalakestore.net/webhdfs/v1/TestFolder/Test1.txt?op=CREATE -Method PUT -Headers @{Authorization="Bearer $AccessToken"} -Infile Test1.txt -MaximumRedirection 0
+   $HdfsRedirectResponse = Invoke-WebRequest -Uri https://<YOUR_ADLS_NAME>.azuredatalakestore.net/webhdfs/v1/TestFolder/Test1.txt?op=CREATE -Method PUT -Headers @{Authorization="Bearer $AccessToken"} -Infile Test1.txt -MaximumRedirection 0
    ```
 
    If you inspect the value of `$HdfsRedirectResponse` it should look like the following response:
