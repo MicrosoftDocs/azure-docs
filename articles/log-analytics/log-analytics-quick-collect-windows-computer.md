@@ -53,15 +53,19 @@ Before installing the Microsoft Monitoring Agent for Windows, you need the works
 The following steps install and configure the agent for Log Analytics in Azure and Azure Government cloud using setup for the Microsoft Monitoring Agent on your computer.  
 
 1. On the **Windows Servers** page, select the appropriate **Download Windows Agent** version to download depending on the processor architecture of the Windows operating system.
-2. Run Setup to install the agent on a computer that you want to manage.
-2. On the Welcome page, click **Next**.
-3. On the License Terms page, read the license and then click **I Agree**.
-4. On the Destination Folder page, change or keep the default installation folder and then click **Next**.
-5. On the Agent Setup Options page, choose to connect the agent to Azure Log Analytics (OMS) and then click **Next**.   
-6. Paste the **Workspace ID** and **Workspace Key (Primary Key)** that you copied earlier and then click **Next**.<br><br> ![paste Workspace ID and Primary Key](./media/log-analytics-windows-agents/connect-workspace.png)<br><br>
-6. On the Ready to Install page, review your choices and then click **Install**.
-7. On the Configuration completed successfully page, click **Finish**.
-8. When complete, the **Microsoft Monitoring Agent** appears in **Control Panel**. You can review your configuration and verify that the agent is connected to Log Analytics. When connected, the agent displays a message stating: **The Microsoft Monitoring Agent has successfully connected to the Microsoft Operations Management Suite service.**
+2. Run Setup to install the agent on your computer.
+2. On the **Welcome** page, click **Next**.
+3. On the **License Terms** page, read the license and then click **I Agree**.
+4. On the **Destination Folder** page, change or keep the default installation folder and then click **Next**.
+5. On the **Agent Setup Options** page, choose to connect the agent to Azure Log Analytics (OMS) and then click **Next**.   
+6. On the **Azure Log Analytics** page, perform the following:
+   1. Paste the **Workspace ID** and **Workspace Key (Primary Key)** that you copied earlier.  If the computer should report to a Log Analytics workspace in Azure Government cloud, select **Azure US Government** from the **Azure Cloud** drop-down list.  
+   2. If the computer needs to communicate through a proxy server to the Log Analytics service, click **Advanced** and provide the URL and port number of the proxy server.  If your proxy server requires authentication, type the username and password to authenticate with the proxy server and then click **Next**.  
+7. Click **Next** once you have completed providing the necessary configuration settings.<br><br> ![paste Workspace ID and Primary Key](/media/log-analytics-quick-connect-windows-computer/log-analytics-mma-setup-laworkspace.png)<br><br>
+8. On the **Ready to Install** page, review your choices and then click **Install**.
+9. On the **Configuration completed successfully** page, click **Finish**.
+
+When complete, the **Microsoft Monitoring Agent** appears in **Control Panel**. You can review your configuration and verify that the agent is connected to Log Analytics. When connected, on the **Azure Log Analytics (OMS)** tab, the agent displays a message stating: **The Microsoft Monitoring Agent has successfully connected to the Microsoft Operations Management Suite service.**<br><br> ![MMA connection status to Log Analytics](/media/log-analytics-quick-connect-windows-computer/log-analytics-mma-laworkspace-status.png)
 
 ## Configure agent to communicate with a proxy server
 
@@ -71,6 +75,7 @@ Perform the following steps if your Windows computers need to communicate throug
 2. Open **Microsoft Monitoring Agent**.
 3. Click the **Proxy Settings** tab.<br><br> ![proxy settings tab](media/log-analytics-windows-agents/proxy-direct-agent-proxy.png)<br><br>
 4. Select **Use a proxy server** and type the URL and port number. If your proxy server requires authentication, type the username and password to authenticate with the proxy server.
+5. You can review your configuration and verify that the agent is connected to Log Analytics. When connected, the agent displays a message stating: **The Microsoft Monitoring Agent has successfully connected to the Microsoft Operations Management Suite service.**
 
 ## Collect event and performance data
 Log Analytics can collect events from the Windows event log and performance counters that you specify for longer term analysis and reporting, and take action when a particular condition is detected.  Follow these steps to configure collection of events from the Windows event log, and several common performance counters to start with.  
