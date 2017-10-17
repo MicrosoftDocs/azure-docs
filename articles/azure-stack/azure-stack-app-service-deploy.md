@@ -78,7 +78,7 @@ To deploy App Service resource provider, follow these steps:
 
     ![App Service Installer](media/azure-stack-app-service-deploy/image05.png)
 
-9. For each of the three certificate file boxes, click **Browse** and navigate to the appropriate certificate file. You must also provide the password for each certificate. These certificates are the ones that you created in the [Create required certificates step](azure-stack-app-service-deploy.md#create-the-required-certificates). Click **Next** after entering all the information.
+9. For each of the three certificate file boxes, click **Browse** and navigate to the appropriate certificate file. You must provide the password for each certificate. These certificates are the ones that you created in the [Create required certificates step](azure-stack-app-service-deploy.md#create-the-required-certificates). Click **Next** after entering all the information.
 
     | Box | Certificate file name example |
     | --- | --- |
