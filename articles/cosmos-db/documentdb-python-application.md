@@ -397,13 +397,13 @@ Azure Cosmos DB locally, we're going to create a web.config file, update the fil
 7. In the **Create App Service** dialog box, enter the name for your web app along with your **Subscription**, **Resource Group**, and **App Service Plan**, then click **Create**.
    
     ![Screen shot of the Microsoft Azure Web Apps Window window](./media/documentdb-python-application/cosmos-db-python-create-app-service.png)
-8. In a few seconds, Visual Studio finishs copying your files to the server and display "The page cannot be displayed because an internal server error has occurred." on the `http://<your app service>.azurewebsites.net/` page.
+8. In a few seconds, Visual Studio finishes copying your files to the server and displays "The page cannot be displayed because an internal server error has occurred." on the `http://<your app service>.azurewebsites.net/` page.
 
 9. In the Azure portal, open your new App Service account, then in the navigation menu, scroll down to the **Development Tools** section, select **Extensions**, then click **+ Add**.
 
-10. In the **Choose extension**, scroll down to the most recent Python 2.7 installation and select the x86 or x64 bit option, then click **OK** to accept the legal terms.  
+10. In the **Choose extension** page, scroll down to the most recent Python 2.7 installation and select the x86 or x64 bit option, then click **OK** to accept the legal terms.  
    
-11. Use the Kudu console, which you can browse to at `https://<your app service name>.scm.azurewebsites.net/DebugConsole` to install the packages listed in your app's `requirements.txt` file. To do this, in the Kudu Diagnostic Console, navigate to your Python folder `D:\home\Python27` then run the following command as described in the [Kudu console](/visual-studio/python/managing-python-on-azure-app-service.md#azure-app-service-kudu-console) section:
+11. Use the Kudu console, which you can browse to at `https://<your app service name>.scm.azurewebsites.net/DebugConsole`, to install the packages listed in your app's `requirements.txt` file. To do this, in the Kudu Diagnostic Console, navigate to your Python folder `D:\home\Python27` then run the following command as described in the [Kudu console](/visual-studio/python/managing-python-on-azure-app-service.md#azure-app-service-kudu-console) section:
 
     ```
     D:\home\Python27>python -m pip install --upgrade -r /home/site/wwwroot/requirements.txt
@@ -419,7 +419,7 @@ Azure Cosmos DB locally, we're going to create a web.config file, update the fil
     ![Results of publishing Bottle, Flask, and Django apps to App Service](./media/documentdb-python-application/python-published-app-services.png)
 
     > [!Tip] 
-    > If the web page does not appear, or you still get the "The page cannot be displayed because an internal server error has occurred." message, open the web.config file in Kudo and add ` <httpErrors errorMode="Detailed"></httpErrors>` to the system.webServer section. This will provided detailed error output to the browser. 
+    > If the web page does not appear, or you still get the "The page cannot be displayed because an internal server error has occurred." message, open the web.config file in Kudo and add ` <httpErrors errorMode="Detailed"></httpErrors>` to the system.webServer section, then refresh the page. This will provided detailed error output to the browser. 
 
 ## Troubleshooting
 If this is the first Python app you've run on your computer, ensure that the following folders (or the equivalent installation locations) are included in your PATH variable:
