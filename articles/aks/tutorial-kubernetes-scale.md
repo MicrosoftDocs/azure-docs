@@ -20,7 +20,7 @@ ms.author: danlep
 ms.custom: mvc
 ---
 
-# Scale Kubernetes pods and AKS infrastructure
+# Scale Kubernetes pods and Azure Container Service (AKS) infrastructure
 
 If you've been following the tutorials, you have a working Kubernetes cluster in AKS and you deployed the Azure Voting app. 
 
