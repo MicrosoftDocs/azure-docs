@@ -35,7 +35,7 @@ This article describes how to set up the REST API for [Azure Migrate](migrate-ov
 
 ## Create an assessment
 
-This example shows you how to create an assessment with the REST API/
+This example shows you how to create an assessment with the REST API.
 
 ```C:\>armclient get /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/AzMigrate/providers/Microsoft.Migrate/projects/proj-ab/groups/msexpense/assessments/assessment_4_25_2017_21_53_3?api-version=2017-05-10-privatepreview ```
 
