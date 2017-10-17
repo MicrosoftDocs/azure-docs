@@ -53,13 +53,13 @@ If you don't have an Azure subscription,
 
    ![Provide logic app details](./media/logic-apps-create-logic-apps-from-templates/logic-app-settings.png)
 
-   | Setting | Suggested value | Description | 
-   | ------- | --------------- | ----------- | 
+   | Setting | Value | Description | 
+   | ------- | ----- | ----------- | 
    | **Name** | *your-logic-app-name* | Provide a unique logic app name. | 
    | **Subscription** | *your-Azure-subscription-name* | Select the Azure subscription that you want to use. | 
-   | **Resource group** | *your-Azure-resource-group-name* | Create or select an [Azure resource group](../azure-resource-manager/resource-group-overview.md) for organizing related Azure resources. | 
+   | **Resource group** | *your-Azure-resource-group-name* | Create or select an [Azure resource group](../azure-resource-manager/resource-group-overview.md) for this logic app and to organize all resources associated with this app. | 
    | **Location** | *your-Azure-datacenter-region* | Select the datacenter region for deploying your logic app, for example, West US. | 
-   | **Log Analytics** | Off | Turn on diagnostic logging for your logic app, but for this quickstart, keep the **Off** setting. | 
+   | **Log Analytics** | **Off** (default) or **On** | Turn on [diagnostic logging](../logic-apps/logic-apps-monitor-your-logic-apps.md#turn-on-diagnostics-logging-for-your-logic-app) for your logic app through [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Requires that you already have an [Operations Management Suite](../azure/operations-management-suite/operations-management-suite-overview.md) workspace. | 
    |||| 
 
 4. When you're ready, select **Pin to dashboard**. 
@@ -122,8 +122,8 @@ you are prompted to perform any of these steps:
 8. Continue building your logic app.
 
    > [!NOTE] 
-   > Many templates include connectors that might have 
-   > already pre-populated required properties. 
+   > Many templates include connectors that might 
+   > already have prepopulated required properties. 
    > However, some templates might still require that you provide 
    > values before you can properly deploy the logic app. 
    > If you try to deploy without completing the missing property fields, 
