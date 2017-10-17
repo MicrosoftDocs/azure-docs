@@ -14,7 +14,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 08/02/2017
+ms.date: 10/16/2017
 ms.author: mimig
 
 ---
