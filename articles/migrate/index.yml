@@ -3,18 +3,18 @@ documentType: LandingData
 title: Azure Migrate Documentation
 metadata:
   title: Azure Migrate Documentation - Tutorials, API Reference | Microsoft Docs
-  meta.description: Learn how to assess on-premises machines for migration to Azure
-  services: migrate
+  description: Learn how to assess on-premises machines for migration to Azure
+  services: migration-planner
   author: czeumault
   manager: carolz
-  ms.service: migrate
+  ms.service: migration-planner
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 09/26/2017
+  ms.date: 10/17/2017
   ms.author: carolz
 abstract:
-  description: Azure Migrate helps you assess the suitability of on-premises machines for migration to Azure, and provides cost estimations for running the machines as Azure VMs.
+  description: Azure Migrate helps you to assess the suitability of on-premises machines for migration to Azure, and provides cost estimations for running Azure VMs.
 sections:
 - title: Step-by-Step Tutorials
   items:
