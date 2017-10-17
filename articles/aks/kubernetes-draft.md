@@ -20,7 +20,7 @@ ms.author: nepeters
 ms.custom: mvc
 ---
 
-# Use Draft with AKS
+# Use Draft with Azure Container Service (AKS)
 
 Draft is an open source tool that helps package and run code in a Kubernetes cluster. Draft is targeted at the development iteration cycle; as the code is being developed, but before committing to version control. With Draft, you can quickly redeploy an application to Kubernetes as code changes occur. For more information on Draft, see the [Draft documentation on Github](https://github.com/Azure/draft/tree/master/docs).
 

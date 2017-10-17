@@ -20,7 +20,7 @@ ms.custom: mvc
 
 ---
 
-# Set up an Azure AD service principal for an AKS Kubernetes cluster
+# Service principals with Azure Container Service (AKS)
 
 An AKS Kubernetes cluster requires an [Azure Active Directory service principal](../active-directory/develop/active-directory-application-objects.md) to interact with Azure APIs. The service principal is needed to dynamically manage resources such as [user-defined routes](../virtual-network/virtual-networks-udr-overview.md) and the [Layer 4 Azure Load Balancer](../load-balancer/load-balancer-overview.md).
 
