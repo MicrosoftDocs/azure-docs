@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2017
+ms.date: 10/18/2017
 ms.author: jeedes
 
 ---
@@ -34,7 +34,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with Achieve3000, you need the following items:
 
 - An Azure AD subscription
-- A Achieve3000 single-sign on enabled subscription
+- An Achieve3000 single sign-on enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -84,7 +84,7 @@ To configure and test Azure AD single sign-on with Achieve3000, you need to comp
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Create a Achieve3000 test user](#create-a-achieve3000-test-user)** - to have a counterpart of Britta Simon in Achieve3000 that is linked to the Azure AD representation of user.
+3. **[Create an Achieve3000 test user](#create-an-achieve3000-test-user)** - to have a counterpart of Britta Simon in Achieve3000 that is linked to the Azure AD representation of user.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
@@ -106,18 +106,24 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Achieve3000 Domain and URLs single sign-on information](./media/active-directory-saas-achieve3000-tutorial/tutorial_achieve3000_url1.png)
 
-    a. In the **Identifier** textbox, type a URL: `achieve3000-saml-trunk`
+    In the **Identifier** textbox,
 
-	b. In the **Reply URL** textbox, type a URL: `https://trunk-saml.achieve3000.com/saml/SSO`
+    a. For the testing environment, type the URL: `achieve3000-saml-trunk`
+
+    b. For the production environment, type the URL: `achieve3000-saml`
 
 4. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
 	![Achieve3000 Domain and URLs single sign-on information](./media/active-directory-saas-achieve3000-tutorial/tutorial_achieve3000_url.png)
 
-    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://trunk-saml.achieve3000.com/district/<nickname>`
+    In the **Sign-on URL** textbox, 
+
+    a. For the testing environment, type a URL using the following pattern: `https://trunk-saml.achieve3000.com/district/<nickname>`
+
+    b. For the production environment, ype a URL using the following: pattern: `https://saml.achieve3000.com/district/<nickname>`
 	 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [Achieve3000 Client support team](https://www.achieve3000.com/contact-us/) to get these values. 
+	> This value is not real. Update the value with the actual Sign-On URL. Contact [Achieve3000 Client support team](https://www.achieve3000.com/contact-us/) to get the value. 
 
 5. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
@@ -164,7 +170,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     d. Click **Create**.
  
-### Create a Achieve3000 test user
+### Create an Achieve3000 test user
 
 In this section, you create a user called Britta Simon in Achieve3000. Work with [Achieve3000 support team](https://www.achieve3000.com/contact-us/) to add the users in the Achieve3000 platform. Users must be created and activated before you use single sign-on. 
 
