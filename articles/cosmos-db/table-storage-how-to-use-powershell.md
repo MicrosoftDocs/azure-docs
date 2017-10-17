@@ -31,9 +31,9 @@ This how-to article covers common Table storage operations. You learn how to:
 > * Delete table entities
 > * Delete a table
 
-This how-to includes instructions for creating a storage account in a new resource group so you can easily remove it at the end. If you'd rather use an existing storage account, you can do that instead.
+This how-to article includes instructions for creating a storage account in a new resource group so you can easily remove it at the end. If you'd rather use an existing storage account, you can do that instead.
 
-The examples require Azure PowerShell module version 4.4.0 or later. In a PowerShell window, run `Get-Module -ListAvailable AzureRM` to find the version. If nothing is listed, or you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps. If you do the install using the instructions on that page, it will also install the storage table cmdlets that you need.
+The examples require Azure PowerShell module version 4.4.0 or later. In a PowerShell window, run `Get-Module -ListAvailable AzureRM` to find the version. If nothing is listed, or you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps. If you do the install using the instructions on that page, it installs the storage table cmdlets that you need.
 
 > [NOTE]
 > These PowerShell commands should work for both classic Table Storage and Cosmos DB Tables. For more information, see [Azure RM Storage Tables PowerShell module for Cosmos DB Tables](https://blogs.technet.microsoft.com/paulomarques/2017/05/23/azure-rm-storage-tables-powershell-module-now-includes-support-for-cosmos-db-tables/).
@@ -49,7 +49,7 @@ Login-AzureRmAccount
 
 ## Retrieve list of locations
 
-If you don't know which location you want to use, you can list the available locations. After the list is displayed, find the one you want to use. This tutorial will use **eastus**. Store this in the variable **location** for future use.
+If you don't know which location you want to use, you can list the available locations. After the list is displayed, find the one you want to use. These examples use **eastus**. Store this value in the variable **location** for future use.
 
 ```powershell
 Get-AzureRmLocation | select Location 
@@ -122,7 +122,7 @@ You may define up to 252 custom properties for an entity. For more information, 
 
 **ROBIN** CHECK THE ENTITY LINKS
 
-Add entities to a table using [Add-StorageTableRow](/powershell/module/azure.storage/Add-StorageTableRow). This uses partition keys with values "partition1" and "partition2", and rowkeys equal to state abbreviations. This was an arbitrary choice to make the example clear.
+Add entities to a table using [Add-StorageTableRow](/powershell/module/azure.storage/Add-StorageTableRow). These examples use partition keys with values "partition1" and "partition2", and row keys equal to state abbreviations. These values were chosen arbitrarily to make the example clear.
 
 ```powershell
 $partitionKey1 = "partition1"
@@ -162,7 +162,8 @@ To retrieve all entities, use [Get-AzureStorageTableRowAll](/powershell/module/a
 ```powershell
 Get-AzureStorageTableRowAll -table $storagetable | ft
 ```
-Using the data and query above yields results similar to the following:
+
+This yields results similar to the following table.
 
 | id | username | partition | rowkey |
 |----|---------|---------------|----|
@@ -179,7 +180,8 @@ To retrieve all entities in a specific partition, use [Get-AzureStorageTableRowB
 ```powershell
 Get-AzureStorageTableRowByPartitionKey -table $storageTable -partitionKey $partitionKey1 | ft
 ```
-The results look similar to the following:
+The results look similar to the following table.
+
 | id | username | partition | rowkey |
 |----|---------|---------------|----|
 | 1 | Chris | partition1 | CA |
@@ -197,7 +199,7 @@ Get-AzureStorageTableRowByColumnName -table $storageTable `
     -operator Equal
 ```
 
-This retrieves one record.
+This query retrieves one record.
 
 id          : 1
 username    : Chris
@@ -213,7 +215,7 @@ s
 Get-AzureStorageTableRowByCustomFilter -table $storageTable -customFilter "(id eq 1)"
 ```
 
-This retrieves one record.
+This query retrieves one record.
 
 id          : 1
 username    : Chris
@@ -227,7 +229,7 @@ These are three steps for updating entities. First, retrieve the entity to be ch
 
 * Retrieve the entity using a custom filter.
 
-Update the entity with username = 'Jessie' to have username = 'Jessie2'. This also shows another way to create a custom filter using the .NET types. 
+Update the entity with username = 'Jessie' to have username = 'Jessie2'. This example also shows another way to create a custom filter using the .NET types. 
 
 ```powershell
 # Create a filter and get the entity to be updated.
@@ -247,7 +249,7 @@ Get-AzureStorageTableRowByCustomFilter -table $storageTable `
     -customFilter "(username eq 'Jessie2')"
 ```
 
-This shows the Jessie2 record.
+The results show the Jessie2 record.
 
 id          : 2
 username    : Jessie2
@@ -299,7 +301,7 @@ Get-AzureStorageTable –Context $Ctx | select Name
 
 ## Clean up resources
 
-If you created a new resource group and a new table in that group, you can remove all of the assets you have created in this exercise by removing the resource group. This deletes all resources contained within the group as well as the resource group itself.
+If you created a new resource group and a new table in that group, you can remove all of the assets you have created in this exercise by removing the resource group. This command deletes all resources contained within the group as well as the resource group itself.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name $resourceGroup
