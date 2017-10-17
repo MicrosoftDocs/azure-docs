@@ -114,7 +114,7 @@ Start with creating a Spark cluster on HDInsight. See [QuickStart: create a Spar
 * [Website log analysis using Spark in HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
 ### Create and run applications
-* [Create a standalone application using Scala](hdinsight-apache-spark-create-standalone-application.md)
+* [Create a standalone application using Scala](spark/apache-spark-create-standalone-application.md)
 * [Run jobs remotely on a Spark cluster using Livy](hdinsight-apache-spark-livy-rest-interface.md)
 
 ### Tools and extensions

@@ -374,5 +374,5 @@ For more examples of using Spark to work with data and services in Azure, see th
 
 For information on creating and running Spark applications, see the following documents:
 
-* [Create a standalone application using Scala](hdinsight-apache-spark-create-standalone-application.md)
+* [Create a standalone application using Scala](spark/apache-spark-create-standalone-application.md)
 * [Run jobs remotely on a Spark cluster using Livy](hdinsight-apache-spark-livy-rest-interface.md)

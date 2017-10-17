@@ -227,7 +227,7 @@ If you have any feedback, or if you encounter any other problems when using this
 * [Website log analysis using Spark in HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
 ### Creating and running applications
-* [Create a standalone application using Scala](hdinsight-apache-spark-create-standalone-application.md)
+* [Create a standalone application using Scala](spark/apache-spark-create-standalone-application.md)
 * [Run jobs remotely on a Spark cluster using Livy](hdinsight-apache-spark-livy-rest-interface.md)
 
 ### Tools and extensions
