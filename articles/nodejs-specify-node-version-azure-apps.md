@@ -41,6 +41,8 @@ Since 0.6.22 is not one of the versions available in the hosting environment, th
 
 ## Versioning Websites with App Settings
 If you are hosting the application in a Website, you can set the environment variable **WEBSITE_NODE_DEFAULT_VERSION** to the desired version.
+Note: You could add the app setting as part of the site resource itself, following the pattern in this [sample] (https://github.com/davidebbo/AzureWebsitesSamples/blob/331e48636a0d5b2d9b22c68961196b7040d0ab81/ARMTemplates/FunctionsWebDeploy.json#L44-L67).
+
 
 ## Versioning Cloud Services with PowerShell
 If you are hosting the application in a Cloud Service, and are deploying the application using Azure PowerShell, you can override the default Node.js version by using the **Set-AzureServiceProjectRole** PowerShell cmdlet. For example:
