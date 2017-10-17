@@ -283,7 +283,6 @@ Are we missing a connector topic, or any details you think are important? If yes
 [Common-Data-Serviceicon]: ./media/apis-list/runtimeservice.png
 [Salesforceicon]: ./media/apis-list/salesforce.png
 [SAPicon]: ./media/apis-list/sap.png
-[Schedule-icon]: ./media/apis-list/schedule.svg
 [SendGridicon]: ./media/apis-list/sendgrid.png
 [Service-Busicon]: ./media/apis-list/servicebus.png
 [SFTPicon]: ./media/apis-list/sftp.png
