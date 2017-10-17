@@ -124,6 +124,11 @@ The following steps walk you through using the Azure portal to create an Azure C
 1. Add your Azure Container Registry access settings from the previous section of this tutorial to the `<servers>` collection in the *settings.xml* file; for example:
 
    ```xml
+   <settings>
+       <pluginGroups>
+           <pluginGroup>com.spotify</pluginGroup>
+       </pluginGroups>
+   </settings>
    <servers>
       <server>
          <id>wingtiptoysregistry</id>
