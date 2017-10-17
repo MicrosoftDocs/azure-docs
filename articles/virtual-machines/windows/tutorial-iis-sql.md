@@ -59,24 +59,6 @@ Set-AzureRmVMExtension -ResourceGroupName $resourceGroup `
 
 We use a pre-configured Azure marketplace image of a SQL server to create the SQL VM. 
 
-```azurepowershell-interactive
-
-$vNet = myIISSQLvNet
-$resourceGroup = myIISSQLGroup
-New-AzVm -Name mySQLVM -ImageName SQL2016-WS2016 -ResourceGroupName myIISSQLGroup -VirtualNetworkName myIISSQLvNet
-
-# Create an inbound network security group rule for port 80 
-$nsgRuleIIS = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleIIS  -Protocol Tcp `
-  -Direction Inbound -Priority 1010 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
-  -DestinationPortRange 80 -Access Allow
-
-```
-
-Add-AzureRmVirtualNetworkSubnetConfig -Name SQLSubnet -VirtualNetwork $vNet -AddressPrefix "10.0.2.0/24"
-$vNet | Set-AzureRmVirtualNetwork
-	
-	
-
 The following script creates a fully configured VM named *myVM* that you can use for the rest of this tutorial.
 
 ```
@@ -87,7 +69,7 @@ $cred = Get-Credential -Message "Enter a username and password for the virtual m
 # Create a subnet configuration
 $vNet = Get-AzureRmVirtualNetwork -Name $vNetName -ResourceGroupName $resourceGroup
 Add-AzureRmVirtualNetworkSubnetConfig -Name mySQLSubnet -VirtualNetwork $vNet -AddressPrefix "10.0.2.0/24"
-$vNet | Set-AzureRmVirtualNetwork
+Set-AzureRmVirtualNetwork -VirtualNetwork $vNet
 
 
 # Create a public IP address and specify a DNS name
