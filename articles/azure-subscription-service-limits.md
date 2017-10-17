@@ -137,9 +137,24 @@ The following limits apply when using the Azure Resource Manager and Azure Resou
 
 ### Storage limits
 For additional details on storage account limits, see [Azure Storage Scalability and Performance Targets](storage/common/storage-scalability-targets.md).
+
 <!--like # storage accts --> 
-#### Storage Service limits
 [!INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
+
+#### Azure Blob storage limits
+[!INCLUDE [storage-blobs-scale-targets](../includes/storage-blobs-scale-targets.md)]
+
+#### Azure Files storage limits
+[!INCLUDE [storage-files-scale-targets](../includes/storage-files-scale-targets.md)]
+
+##### Azure File Sync storage limits
+[!INCLUDE [storage-sync-files-scale-targets](../includes/storage-sync-scale-targets.md)]
+
+#### Azure Queue storage limits
+[!INCLUDE [storage-queues-scale-targets](../includes/storage-queues-scale-targets.md)]
+
+#### Azure Table storage limits
+[!INCLUDE [storage-tables-scale-targets](../includes/storage-tables-scale-targets.md)]
 
 <!-- conceptual info about disk limits -- applies to unmanaged and managed -->
 #### Virtual machine disk limits 

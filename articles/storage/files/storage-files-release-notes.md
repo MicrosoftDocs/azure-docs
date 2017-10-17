@@ -33,20 +33,6 @@ The following versions are supported by Azure File Sync:
 ## Agent version 1.1.0.0
 The following release notes are for agent version 1.1.0.0 which was released on September 9, 2017. This release marks the initial Preview release of Azure File Sync!
 
-### Tested and scale targets
-We have tested up to the following limits: 
-
-| Resource | Tested limit | Hard limit |
-|----------|--------------|------------|
-| Storage Sync Services per subscription | 15 Storage Sync Services | No |
-| Sync Groups per Storage Sync Service | 20 Sync Groups | No |
-| Cloud Endpoints per Sync Group | 1 Cloud Endpoint | Yes |
-| Server Endpoints per Sync Group | 50 Server Endpoints | No |
-| Server Endpoints per server | 5-15 Server Endpoints | Yes, but varies based on configuration |
-| Endpoint size | 4 TiB | No |
-| File system objects (directories and files) per Sync Group | 6 million objects |No |
-| File size | 100 GiB | No |
-
 ### Agent installation and server configuration
 For more information on how to install and configure the Azure File Sync agent with a Windows Server, see [Planning for an Azure File Sync (preview) deployment](storage-sync-files-planning.md) and [How to deploy Azure File Sync (preview)](storage-sync-files-deployment-guide.md).
 

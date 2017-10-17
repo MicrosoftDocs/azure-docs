@@ -33,8 +33,22 @@ This topic describes the scalability and performance topics for Microsoft Azure 
 
 If the needs of your application exceed the scalability targets of a single storage account, you can build your application to use multiple storage accounts, and partition your data objects across those storage accounts. See [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/) for information on volume pricing.
 
-## Scalability targets for blobs, queues, tables, and files
+## Scalability targets for a storage account
 [!INCLUDE [azure-storage-limits](../../../includes/azure-storage-limits.md)]
+
+## Azure Blob storage scale targets
+[!INCLUDE [storage-blobs-scale-targets](../../../includes/storage-blobs-scale-targets.md)]
+
+## Azure Files scale targets
+For more information on the scale and performance targets for Azure Files and Azure File Sync, please see [Azure Files scalability and performance targets](../files/storage-files-scale-targets.md).
+
+[!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
+
+### Azure File Sync scale targets
+[!INCLUDE [storage-sync-files-scale-targets](../../../includes/storage-sync-files-scale-targets.md)]
+
+## Azure Queue storage scale targets
+[!INCLUDE [storage-queues-scale-targets](../../../includes/storage-queues-scale-targets.md)]
 
 <!-- conceptual info about disk limits -- applies to unmanaged and managed -->
 ## Scalability targets for virtual machine disks
