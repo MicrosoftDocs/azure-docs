@@ -93,7 +93,7 @@ Use the following information to install and configure the solution.
 3. In the OMS portal, you'll see a new tile titled **Network Performance Monitor** with the message *Solution requires additional configuration*. Click on the tile to navigate to the **Deployment** tab and select the protocol to use for making the synthetic transactions for monitoring your network.  Review [Choose the right protocol-ICMP or TCP](#choose-the-right-protocol-icmp-or-tcp) to help you choose the right protocol suited for your network.<br><br> ![solution requires protocol selection](media/log-analytics-network-performance-monitor/log-analytics-netmon-perf-welcome.png)<br><br>
 
 4. After choosing the protocol you will be redirected to the **OMS overview** page. While the solution aggregates data from your network, the Network Performance Monitor overview tile will display the message stating *Data aggregation in progress*.<br><br> ![solution is aggregating data](media/log-analytics-network-performance-monitor/log-analytics-netmon-tile-status-01.png)<br><br>
-5. Once the data is collected and indexed, the overview tile will change and indicate you need to perform additional configuration.<br><br> ![solution tile requires additional configuration](media/og-analytics-network-performance-monitor/log-analytics-netmon-tile-status-02.png)<br><br>
+5. Once the data is collected and indexed, the overview tile will change and indicate you need to perform additional configuration.<br><br> ![solution tile requires additional configuration](media/log-analytics-network-performance-monitor/log-analytics-netmon-tile-status-02.png)<br><br>
 6. Click on the tile and start configuring the solution as instructed below.
 
 
