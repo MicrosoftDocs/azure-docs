@@ -22,23 +22,22 @@ ms.custom: mvc
 
 # Use Draft with Azure Container Service (AKS)
 
-Draft is an open source tool that helps package and run code in a Kubernetes cluster. Draft is targeted at the development iteration cycle; as the code is being developed, but before committing to version control. With Draft, you can quickly redeploy an application to Kubernetes as code changes occur. For more information on Draft, see the [Draft documentation on Github](https://github.com/Azure/draft/tree/master/docs).
+Draft is an open-source tool that helps package and run code in a Kubernetes cluster. Draft is targeted at the development iteration cycle; as the code is being developed, but before committing to version control. With Draft, you can quickly redeploy an application to Kubernetes as code changes occur. For more information on Draft, see the [Draft documentation on Github](https://github.com/Azure/draft/tree/master/docs).
 
 This document details using Draft with a Kubernetes cluster on AKS.
 
 ## Prerequisites
 
-The steps detailed in this document assume that you have created an AKS Kubernetes cluster and have established a kubectl connection with the cluster. If you need these items see, the [AKS Kubernetes quickstart](./kubernetes-walkthrough.md).
+The steps detailed in this document assume that you have created an AKS Kubernetes cluster and have established a kubectl connection with the cluster. If you need these items, see the [AKS Kubernetes quickstart](./kubernetes-walkthrough.md).
 
-You also need an Azure Container Registry. For instructions on deploying an ACR instance, see the [Azure Container Registry Quickstart](../container-registry/container-registry-get-started-azure-cli.md).
-
+You also need a private Docker registry in Azure Container Registry (ACR). For instructions on deploying an ACR instance, see the [Azure Container Registry Quickstart](../container-registry/container-registry-get-started-azure-cli.md).
 
 ## Install Helm
 
-The Helm CLI is a client that runs on your development system and allows you to start, stop, and manage applications with Helm charts. 
+The Helm CLI is a client that runs on your development system and allows you to start, stop, and manage applications with Helm charts.
 
-To install the Helm CLI on a Mac use `brew`. For additional installation options see, [Installing Helm](https://github.com/kubernetes/helm/blob/master/docs/install.md).
- 
+To install the Helm CLI on a Mac, use `brew`. For additional installation options, see [Installing Helm](https://github.com/kubernetes/helm/blob/master/docs/install.md).
+
 ```console
 brew install kubernetes-helm
 ```
@@ -78,15 +77,15 @@ Already downloaded: /Users/neilpeterson/Library/Caches/Homebrew/draft-0.7.0.tar.
 
 ## Configure Draft
 
-When configuring Draft, a container registry needs to be specified. In this example Azure Container Registry is used. 
+When configuring Draft, a container registry needs to be specified. In this example Azure Container Registry is used.
 
-Run the following command to get name and login server name of the ACR instance. Update the command with the resource group of your ACR instance.
+Run the following command to get the name and login server name of your ACR instance. Update the command with the name of the resource group containing your ACR instance.
 
 ```console
 az acr list --resource-group <resource group> --query "[].{Name:name,LoginServer:loginServer}" --output table
 ```
 
-The ACR instance password is also needed. 
+The ACR instance password is also needed.
 
 Run the following command to return the ACR password. Update the command with the name of the ACR instance.
 
@@ -118,7 +117,7 @@ Happy Sailing!
 ## Run an application
 
 The Draft repository includes several sample applications that can be used to demo Draft. Create a cloned copy of the repo.
- 
+
 ```console
 git clone https://github.com/Azure/draft
 ```
@@ -162,7 +161,7 @@ open-jaguar: Build ID: 01BW3VVNZYQ5NQ8V1QSDGNVD0S
 
 To test the application, use the `draft connect` command. This command proxies a connection to the Kubernetes pod allowing a secure local connection. When complete, the application can be accessed on the provided URL.
 
-In some cases, it can take a few minutes for the container image to be download and that application to start. If you receive an error when accessing the application, retry the connection.
+In some cases, it can take a few minutes for the container image to be downloaded and the application to start. If you receive an error when accessing the application, retry the connection.
 
 ```console
 draft connect
@@ -180,11 +179,11 @@ SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further detail
 >> Listening on 0.0.0.0:4567
 ```
 
-When finished testing the application use `CTRL-C` to stop the proxy connection.
+When finished testing the application use `Control+C` to stop the proxy connection.
 
 ## Expose application
 
-When testing an application in Kubernetes, you may want to make the application available on the internet. This can be done using a Kubernetes service with a type of [LoadBalancer](https://kubernetes.io/docs/concepts/services-networking/service/#type-loadbalancer) or an [ingress controller](https://kubernetes.io/docs/concepts/services-networking/ingress/). This document details using a Kubernetes service. 
+When testing an application in Kubernetes, you may want to make the application available on the internet. This can be done using a Kubernetes service with a type of [LoadBalancer](https://kubernetes.io/docs/concepts/services-networking/service/#type-loadbalancer) or an [ingress controller](https://kubernetes.io/docs/concepts/services-networking/ingress/). This document details using a Kubernetes service.
 
 
 First, the Draft pack needs to be updated to specify that a service with a type `LoadBalancer` should be created. To do so, update the service type in the `values.yaml` file.
@@ -233,7 +232,7 @@ Initially, the *EXTERNAL-IP* for the service appears as `pending`.
 deadly-squid-java   10.0.141.72   <pending>     80:32150/TCP   14m
 ```
 
-Once the EXTERNAL-IP address has changed from `pending` to an `IP address`, use `CTRL-C` to stop the kubectl watch process.
+Once the EXTERNAL-IP address has changed from `pending` to an `IP address`, use `Control+C` to stop the kubectl watch process.
 
 ```console
 deadly-squid-java   10.0.141.72   52.175.224.118   80:32150/TCP   17m
@@ -251,9 +250,9 @@ Output:
 Hello World, I'm Java
 ```
 
-## Itterate on the application
+## Iterate on the application
 
-Now that Draft has been configured, the application is running in Kubernetes, you are set for code iteration. Each time you would like to test updated code, run the `draft up` command to update the running application. 
+Now that Draft has been configured and the application is running in Kubernetes, you are set for code iteration. Each time you would like to test updated code, run the `draft up` command to update the running application.
 
 For this example, update the Java hello world application.
 
