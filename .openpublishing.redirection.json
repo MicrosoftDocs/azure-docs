@@ -7035,6 +7035,11 @@
             "redirect_url": "site-recovery-vmware-to-azure",
             "redirect_document_id": false
         },
+	    {
+            "source_path": "articles/site-recovery/site-recovery-vmware-to-azure-classic-legacy.md",
+            "redirect_url": "site-recovery-vmware-to-azure",
+            "redirect_document_id": false
+        },
         {
             "source_path": "articles/site-recovery/site-recovery-vmware-to-azure.md",
             "redirect_url": "vmware-walkthrough-overview",
