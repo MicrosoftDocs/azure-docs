@@ -21,7 +21,7 @@ ms.author: iainfou
 # Automatically scale machines in a virtual machine scale set with the Azure CLI 2.0
 When you create a scale set, you define the number of VM instances that you wish to run. As your application demand changes, you can automatically increase or decrease the number of VM instances. The ability to auto scale lets you keep up with customer demand or respond to application performance changes throughout the lifecycle of your app.
 
-This articles shows you how to create auto scale rules with the Azure CLI 2.0 that monitor the performance of the VM instances in your scale set. These auto scale rules increase or decrease the number of VM instances in response to these performanc metrics. You can also complete these steps with [Azure PowerShell](virtual-machine-scale-sets-windows-autoscale.md).
+This article shows you how to create auto scale rules with the Azure CLI 2.0 that monitor the performance of the VM instances in your scale set. These auto scale rules increase or decrease the number of VM instances in response to these performance metrics. You can also complete these steps with [Azure PowerShell](virtual-machine-scale-sets-windows-autoscale.md).
 
 
 ## Prerequisites
@@ -227,7 +227,7 @@ In these examples, basic host metrics for CPU or memory usage were used. These h
 
 
 ## Next steps
-In this article, you learned how to use auto scale rules to scale horizontally and increase or decrease the *number* of VM instances in your scale set. You can also scale vertically to increase or decrease the VM instance *size*. For more information, see [Vertical autoscale with Virtual Machine Scale sets](virtual-machine-scale-sets-vertical-scale-reprovision.md).
+In this article, you learned how to use auto scale rules to scale horizontally and increase or decrease the *number* of VM instances in your scale set. You can also scale vertically to increase or decrease the VM instance *size*. For more information, see [Vertical autoscale with virtual machine scale sets](virtual-machine-scale-sets-vertical-scale-reprovision.md).
 
 For information on how to manage your VM instances, see [Manage virtual machine scale sets with Azure PowerShell](virtual-machine-scale-sets-windows-manage.md).
 
