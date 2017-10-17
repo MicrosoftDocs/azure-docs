@@ -30,7 +30,7 @@ To perform the tasks listed in this article, you need:
 
 
 ## Setup Azure PowerShell
-Follow the instructions in the [Overview of Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azurermps-4.4.0) article to setup Azure PowerShell on your machine.
+Follow the instructions in the [Overview of Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azurermps-4.4.0) article to set up Azure PowerShell on your machine.
 
 
 ## Download the Azure quick-start template for domain join
@@ -44,12 +44,12 @@ Download the following files to your local machine:
 ## Customize the quick-start template
 This Resource Manager template deploys a Windows Server 2016 virtual machine. If you would like to deploy a different Windows Server version, update the **windowsOSVersion** field in the **azuredeploy.json** file.
 
-Open the **azuredeploy.parameters.json** file in a text editor and customize the following fields to match your desired deployment:
+Open the **azuredeploy.parameters.json** file in a text editor and customize the following fields:
 1. **existingVNETName**: Specify the virtual network in which you have deployed your Azure AD Domain Services managed domain.
 2. **existingSubnetName**: Specify the subnet within the virtual network where you would like to deploy this virtual machine. Do not select the gateway subnet in the virtual network. Also, do not select the dedicated subnet in which your managed domain is deployed.
 3. **domainToJoin**: Specify the DNS domain name of your managed domain.
 4. **domainUsername**: Specify the user account name on your managed domain that should be used to join the VM to the managed domain.
-5. **domainPassword**: Specify the password of the domain user account referred to by the 'domainUsername' parameter above.
+5. **domainPassword**: Specify the password of the domain user account referred to by the 'domainUsername' parameter.
 6. **vmAdminUsername**: Specify a local administrator account name for the virtual machine.
 7. **vmAdminPassword**: Specify a local administrator password for the virtual machine. Provide a strong local administrator password for the virtual machine to protect against password brute-force attacks.
 8. **dnsLabelPrefix**: Specify the hostname for the virtual machine being provisioned. For example, 'contoso-win'.
