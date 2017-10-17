@@ -18,9 +18,11 @@ ms.author: ccompy
 # Integrating your ILB ASE with an Application Gateway #
 
 ## Introduction ##
-The [Azure App Service Environment (ASE)](./intro.md) is a deployment of the Azure App Service in the subnet of a customer's Azure Virtual Network. It can be deployed with a public or private endpoint for app access. The Azure Application Gateway is a virtual appliance that provides layer 7 load balancing, SSL offloading, and WAF protection. It can listen on a public IP address and route traffic to your application endpoint. The following information describes how to integrate a WAF configured Application Gateway with an app on an ILB ASE.  
+The [Azure App Service Environment (ASE)](./intro.md) is a deployment of the Azure App Service in the subnet of a customer's Azure Virtual Network. It can be deployed with a public or private endpoint for app access. The deployment of the ASE with a private endpoint is called an ILB ASE.  
+The Azure Application Gateway is a virtual appliance that provides layer 7 load balancing, SSL offloading, and WAF protection. It can listen on a public IP address and route traffic to your application endpoint. 
+The following information describes how to integrate a WAF configured Application Gateway with an app on an ILB ASE.  
 
-The integration of the Application Gateway with the ILB ASE is at an app level.  When you configure the two together you are doing it for specific apps in your ILB ASE and not for all of the apps in your ILB ASE. This enables hosting secure multi-tenant applications in a single ILB ASE.  
+The integration of the Application Gateway with the ILB ASE is at an app level.  When you configure the Application Gateway with your ILB ASE, you are doing it for specific apps in your ILB ASE. This enables hosting secure multi-tenant applications in a single ILB ASE.  
 
 ![Application Gateway pointing to app on an ILB ASE][1]
 
