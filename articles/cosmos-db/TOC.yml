@@ -268,6 +268,8 @@
             href: table-storage-how-to-use-python.md
           - name: Ruby
             href: table-storage-how-to-use-ruby.md
+          - name: PowerShell
+            href: table-storage-how-to-use-powershell.md
     - name: Change feed
       href: change-feed.md
     - name: Geospatial
