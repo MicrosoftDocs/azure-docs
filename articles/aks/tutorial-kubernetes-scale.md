@@ -125,21 +125,22 @@ The following example increases the number of agent nodes to 4 in the Kubernetes
 az aks scale --resource-group=myResourceGroup --name=myK8SCluster --agent-count 4
 ```
 
-The command output shows the number of agent nodes in the value of `agentPoolProfiles:count`:
+The ouput will be similar to:
 
-```azurecli
-{
-  "agentPoolProfiles": [
-    {
-      "count": 4,
-      "dnsPrefix": "myK8SCluster-myK8SCluster-e44f25-k8s-agents",
-      "fqdn": "",
-      "name": "agentpools",
-      "vmSize": "Standard_D2_v2"
-    }
-  ],
-...
-
+```console
+"agentPoolProfiles": [
+  {
+    "count": 4,
+    "dnsPrefix": null,
+    "fqdn": null,
+    "name": "myK8sCluster",
+    "osDiskSizeGb": null,
+    "osType": "Linux",
+    "ports": null,
+    "storageProfile": "ManagedDisks",
+    "vmSize": "Standard_D2_v2",
+    "vnetSubnetId": null
+  }
 ```
 
 ## Next steps
