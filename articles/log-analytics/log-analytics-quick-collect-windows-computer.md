@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2017
+ms.date: 10/16/2017
 ms.author: magoedte
 
 ---
@@ -35,7 +35,7 @@ Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.co
   * Select the **Location** your VMs are deployed to.  For additional information, see which [regions Log Analytics is available in](https://azure.microsoft.com/regions/services/).
   * You can choose from three different **pricing tiers** in Log Analytics, but for this quickstart you are going to select the **free** tier.  For additional information about the particular tiers, see [Log Analytics Pricing Details](https://azure.microsoft.com/pricing/details/log-analytics/).
 
-        ![Create Log Analytics resource blade](./media/log-analytics-quick-collect-azurevm/create-loganalytics-workspace-01.png)<br>  
+        ![Create Log Analytics resource blade](media/log-analytics-quick-collect-azurevm/create-loganalytics-workspace-01.png)<br>  
 3. After providing the required information on the **OMS Workspace** pane, click **OK**.  
 
 While the information is verified and the workspace is created, you can track its progress under **Notifications** from the menu. 
@@ -69,14 +69,13 @@ Perform the following steps if your Windows computers need to communicate throug
 
 1. Open **Control Panel**.
 2. Open **Microsoft Monitoring Agent**.
-3. Click the **Proxy Settings** tab.  
-    ![proxy settings tab](./media/log-analytics-windows-agents/proxy-direct-agent-proxy.png)
+3. Click the **Proxy Settings** tab.<br><br> ![proxy settings tab](media/log-analytics-windows-agents/proxy-direct-agent-proxy.png)<br><br>
 4. Select **Use a proxy server** and type the URL and port number. If your proxy server requires authentication, type the username and password to authenticate with the proxy server.
 
 ## Collect event and performance data
 Log Analytics can collect events from the Windows event log and performance counters that you specify for longer term analysis and reporting, and take action when a particular condition is detected.  Follow these steps to configure collection of events from the Windows event log, and several common performance counters to start with.  
 
-1. Select **Advanced settings**.<br> ![Log Analytics Advance Settings](media/log-analytics-quick-collect-azurevm/log-analytics-advanced-settings-01.png)<br> 
+1. Select **Advanced settings**.<br><br> ![Log Analytics Advance Settings](media/log-analytics-quick-collect-azurevm/log-analytics-advanced-settings-01.png)<br><br> 
 3. Select **Data**, and then select **Windows Event Logs**.  
 4. You add an event log by typing in the name of the log.  Type **System** and then click the plus sign **+**.  
 5. In the table, check the severities **Error** and **Warning**.   
