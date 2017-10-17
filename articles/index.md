@@ -668,7 +668,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/translator/">
+                                            <a href="/azure/cognitive-services/translator/translator-info-overview">
                                                 <img src="media/index/cognitive-services-translator.svg" alt="" />
                                                 <p>Translator Text API</p>
                                             </a>
