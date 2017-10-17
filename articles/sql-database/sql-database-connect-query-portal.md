@@ -45,13 +45,13 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 2. On the SQL database page for your database, click **Tools** on the toolbar. The Tools page opens.
 
-    ![tools menu](./media/sql-database-get-started-portal/tools-menu.png)
+    ![tools menu](./media/sql-database-connect-query-portal/tools-menu.png)
 
 3. Click **Query editor (preview)**, click the **Preview terms** checkbox, and then click **OK**. The Query editor page opens.
 
 4. Click **Login** and then, when prompted, select **SQL Server authentication** and then provide the server admin login and password you provided when creating the database.
 
-    ![login](./media/sql-database-get-started-portal/login.png) 
+    ![login](./media/sql-database-connect-query-portal/login-menu.png) 
 
 5. Click **OK to login**.
 
@@ -69,7 +69,7 @@ Configuring an Active Directory administrator enables you to use a single identi
 
 3. In the Active Directory admin blade, click the **Set admin** command, and select the user or group that will be the Active Directory administrator.
 
-    ![select active directory](./media/sql-database-aad-authentication/select-active-directory.png) 
+    ![select active directory](./media/sql-database-connect-query-portal/select-active-directory.png) 
 
 4. At the top of the Active Directory admin blade, click the **Save** command to set your Active Directory administrator.
 
@@ -89,7 +89,7 @@ After you are authenticated, type the following query in the Query editor pane t
 
 Click **Run** and then review the query results in the **Results** pane.
 
-![query editor results](./media/sql-database-get-started-portal/query-editor-results.png)
+![query editor results](./media/sql-database-connect-query-portal/query-editor-results.png)
 
 ## Insert data using Query Editor
 
