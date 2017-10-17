@@ -33,7 +33,7 @@ The benefits of using virtual network peering include:
 * Traffic going through virtual network peerings is completely private. It goes through the Microsoft backbone network and no public internet or gateways involved.
 * A low-latency, high-bandwidth connection between resources in different virtual networks.
 * The ability to use resources in one virtual network from another virtual network once peered.
-* Vrtual network peering helps you transfer data across Azure subscriptions, deployment models, and across Azure regions (preview).
+* Virtual network peering helps you transfer data across Azure subscriptions, deployment models, and across Azure regions (preview).
 * The ability to peer virtual networks created through the Azure Resource Manager or to peer one virtual network created through Resource Manager to a virtual network created through the classic deployment model. Read the [Understand Azure deployment models](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) article to learn more about the differences between the two Azure deployment models.
 
 ## <a name="requirements-constraints"></a>Requirements and constraints
