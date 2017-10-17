@@ -24,7 +24,6 @@ This article describes:
 
 * The different permissions that you can grant to a back-end app to access your provisioning service.
 * The authentication process and the tokens it uses to verify permissions.
-* How to scope credentials to limit access to specific resources.
 
 ### When to use
 
@@ -34,15 +33,9 @@ You must have appropriate permissions to access any of the provisioning service 
 
 You can grant [permissions](#iot-dps-permissions) in the following ways:
 
-* **Shared access authorization policies**. Shared access policies can grant any combination of [permissions](#iot-dps-permissions). You can define policies in the [Azure portal][lnk-management-portal], or programmatically by using the [Device Provisioning Service' REST APIs][lnk-resource-provider-apis]. A newly created provisioning service has the following default policy:
+* **Shared access authorization policies**. Shared access policies can grant any combination of [permissions](#iot-dps-permissions). You can define policies in the [Azure portal][lnk-management-portal], or programmatically by using the [Device Provisioning Service REST APIs][lnk-resource-provider-apis]. A newly created provisioning service has the following default policy:
 
   * **provisioningserviceowner**: Policy with all permissions.
-  
-<!-- TBD: Provide examples here using the above policies.
- For example, in a typical device provisioning solution:
-
-* 
--->
 
 > [!NOTE]
 > See [permissions](#iot-dps-permissions) for detailed information.
@@ -54,9 +47,7 @@ Azure IoT Hub Device Provisioning Service grants access to endpoints by verifyin
 > [!NOTE]
 > The Device Provisioning Service resource provider is secured through your Azure subscription, as are all providers in the [Azure Resource Manager][lnk-azure-resource-manager].
 
-<!-- TBD:
 For more information about how to construct and use security tokens, see [IoT Hub security tokens][lnk-sas-tokens].
--->
 
 HTTP is the only supported protocol, and it implements authentication by including a valid token in the **Authorization** request header.
 
@@ -68,37 +59,31 @@ HTTP is the only supported protocol, and it implements authentication by includi
 
 
 ## Security tokens
-<!--TBD: Fix the references to Azure IoT SDKs to refer to IoT DPS SDKs-->
-The Device Provisioning Service uses security tokens to authenticate devices and services to avoid sending keys on the wire. Additionally, security tokens are limited in time validity and scope. [Azure IoT SDKs][lnk-sdks] automatically generate tokens without requiring any special configuration. Some scenarios do require you to generate and use security tokens directly. Such scenarios include:
-
-* The direct use of the HTTP surface.
+The Device Provisioning Service uses security tokens to authenticate services to avoid sending keys on the wire. Additionally, security tokens are limited in time validity and scope. [Azure IoT SDKs][lnk-sdks] automatically generate tokens without requiring any special configuration. Some scenarios do require you to generate and use security tokens directly. Such scenarios include the direct use of the HTTP surface.
 
 ### Security token structure
 
-You use security tokens to grant time-bounded access to devices and services to specific functionality in IoT DPS. To get authorization to connect to IoT DPS, services must send security tokens signed with either a shared access or symmetric key.
+You use security tokens to grant time-bounded access for services to specific functionality in IoT Device Provisioning Service. To get authorization to connect to the provisioning service, services must send security tokens signed with either a shared access or symmetric key.
 
 A token signed with a shared access key grants access to all the functionality associated with the shared access policy permissions. 
 
 The security token has the following format:
 
-`SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`
+`SharedAccessSignature sig={signature}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`
 
 Here are the expected values:
 
 | Value | Description |
 | --- | --- |
-| {signature} |An HMAC-SHA256 signature string of the form: `{URL-encoded-resourceURI} + "\n" + expiry`. **Important**: The key is decoded from base64 and used as key to perform the HMAC-SHA256 computation. |
-| {resourceURI} |URI prefix (by segment) of the endpoints that can be accessed with this token, starting with host name of the IoT DPS (no protocol). For example, `mydps.azure-devices-provisioning.net` |
+| {signature} |An HMAC-SHA256 signature string of the form: `{URL-encoded-resourceURI} + "\n" + expiry`. **Important**: The key is decoded from base64 and used as key to perform the HMAC-SHA256 computation.|
 | {expiry} |UTF8 strings for number of seconds since the epoch 00:00:00 UTC on 1 January 1970. |
-| {URL-encoded-resourceURI} |Lower case URL-encoding of the lower case resource URI |
+| {URL-encoded-resourceURI} | Lower case URL-encoding of the lower case resource URI. URI prefix (by segment) of the endpoints that can be accessed with this token, starting with host name of the IoT Device Provisioning Service (no protocol). For example, `mydps.azure-devices-provisioning.net`. |
 | {policyName} |The name of the shared access policy to which this token refers. |
 
 **Note on prefix**: The URI prefix is computed by segment and not by character. For example `/a/b` is a prefix for `/a/b/c` but not for `/a/bc`.
 
 The following Node.js snippet shows a function called **generateSasToken** that computes the token from the inputs `resourceUri, signingKey, policyName, expiresInMins`. The next sections detail how to initialize the different inputs for the different token use cases.
 
-<!-- TBD: Check if the following snippets are correct for this article
--->
 ```nodejs
 var generateSasToken = function(resourceUri, signingKey, policyName, expiresInMins) {
     resourceUri = encodeURIComponent(resourceUri);
@@ -113,10 +98,9 @@ var generateSasToken = function(resourceUri, signingKey, policyName, expiresInMi
     hmac.update(toSign);
     var base64UriEncoded = encodeURIComponent(hmac.digest('base64'));
 
-    // Construct autorization string
+    // Construct authorization string
     var token = "SharedAccessSignature sr=" + resourceUri + "&sig="
-    + base64UriEncoded + "&se=" + expires;
-    if (policyName) token += "&skn="+policyName;
+    + base64UriEncoded + "&se=" + expires + "&skn="+ policyName;
     return token;
 };
 ```
@@ -139,24 +123,22 @@ def generate_sas_token(uri, key, policy_name, expiry=3600):
     rawtoken = {
         'sr' :  uri,
         'sig': signature,
-        'se' : str(int(ttl))
+        'se' : str(int(ttl)),
+        'skn' : policy_name
     }
-
-    if policy_name is not None:
-        rawtoken['skn'] = policy_name
 
     return 'SharedAccessSignature ' + urlencode(rawtoken)
 ```
 
 > [!NOTE]
-> Since the time validity of the token is validated on IoT Hub machines, the drift on the clock of the machine that generates the token must be minimal.
+> Since the time validity of the token is validated on IoT Device Provisioning Service machines, the drift on the clock of the machine that generates the token must be minimal.
 
 
 ### Use security tokens from service components
 
 Service components can only generate security tokens using shared access policies granting the appropriate permissions as explained previously.
 
-Here is the service functions exposed on the endpoints:
+Here are the service functions exposed on the endpoints:
 
 | Endpoint | Functionality |
 | --- | --- |
@@ -164,33 +146,33 @@ Here is the service functions exposed on the endpoints:
 | `{your-service}.azure-devices-provisioning.net/enrollmentGroups` |Provides operations for managing device enrollment groups. |
 | `{your-service}.azure-devices-provisioning.net/registrations/{id}` |Provides operations for retrieving and managing the status of device registrations. |
 
-<!-- TBD: [RV] I rewrote this example using a fictious policy named 'enrollmentread'.Such a policy is not created by default. The user needs to be given steps to create such a policy via portal -->
-As an example, a service generating using the pre-created shared access policy called **provisioningserviceowner** would create a token with the following parameters:
+## <!-- TBD: [RV] I rewrote this example using a fictious policy named 'enrollmentread'.Such a policy is not created by default. The user needs to be given steps to create such a policy via portal -->
+As an example, a service generated using a pre-created shared access policy called **enrollmentread** would create a token with the following parameters:
 
-* resource URI: `{your-service}.azure-devices-provisioning.net`,
+* resource URI: `{mydps}.azure-devices-provisioning.net`,
 * signing key: one of the keys of the `enrollmentread` policy,
 * policy name: `enrollmentread`,
 * any expiration time.
 
 ```nodejs
-var endpoint ="myservice.azure-devices-provisioning.net";
+var endpoint ="mydps.azure-devices-provisioning.net";
 var policyName = 'enrollmentread'; 
 var policyKey = '...';
 
 var token = generateSasToken(endpoint, policyKey, policyName, 60);
 ```
 
-The result, which would grant access to read all device identities, would be:
+The result, which would grant access to read all enrollment records, would be:
 
 `SharedAccessSignature sr=mydps.azure-devices-provisioning.net&sig=JdyscqTpXdEJs49elIUCcohw2DlFDR3zfH5KqGJo4r4%3D&se=1456973447&skn=enrollmentread`
 
 ## Reference topics:
 
-The following reference topics provide you with more information about controlling access to your IoT DPS.
+The following reference topics provide you with more information about controlling access to your IoT Device Provisioning Service.
 
 ## Device Provisioning Service permissions
 
-The following table lists the permissions you can use to control access to your IoT DPS.
+The following table lists the permissions you can use to control access to your IoT Device Provisioning Service.
 
 | Permission | Notes |
 | --- | --- |
@@ -200,7 +182,6 @@ The following table lists the permissions you can use to control access to your 
 | **RegistrationStatusRead** |Grants read access to the device registration status. <br/>This permission is used by back-end cloud services. |
 | **RegistrationStatusWrite**  |Grants delete access to the device registration status. <br/>This permission is used by back-end cloud services. |
 
-<!--TBD: Fix the links in the next 2 sections-->
 ## Additional reference material
 
 Other reference topics in the IoT Hub developer guide include:
@@ -209,20 +190,6 @@ Other reference topics in the IoT Hub developer guide include:
 * [Throttling and quotas][lnk-quotas] describes the quotas and throttling behaviors that apply to the IoT Hub service.
 * [Azure IoT device and service SDKs][lnk-sdks] lists the various language SDKs you can use when you develop both device and service apps that interact with IoT Hub.
 * [IoT Hub query language][lnk-query] describes the query language you can use to retrieve information from IoT Hub about your device twins and jobs.
-
-## Next steps
-
-Now you have learned how to control access IoT Hub, you may be interested in the following IoT Hub developer guide topics:
-
-* [Use device twins to synchronize state and configurations][lnk-devguide-device-twins]
-* [Invoke a direct method on a device][lnk-devguide-directmethods]
-* [Schedule jobs on multiple devices][lnk-devguide-jobs]
-
-If you would like to try out some of the concepts described in this article, you may be interested in the following IoT Hub tutorials:
-
-* [Get started with Azure IoT Hub][lnk-getstarted-tutorial]
-* [How to send cloud-to-device messages with IoT Hub][lnk-c2d-tutorial]
-* [How to process IoT Hub device-to-cloud messages][lnk-d2c-tutorial]
 
 <!-- links and images -->
 
