@@ -18,31 +18,31 @@ ms.author: ccompy
 # Integrating your ILB ASE with an Application Gateway #
 
 ## Introduction ##
-The [Azure App Service Environment(ASE)](./intro.md) is a deployment of the Azure App Service in the subnet of a customer's Azure Virtual Network. It can be deployed with a public or private endpoint for app access. The Azure Application Gateway is a virtual appliance that provides layer 7 load balancing, SSL offloading and WAF protection. It can listen on a public IP address and route traffic to your application endpoint. The following information describes how to integrate a WAF configured Application Gateway with an app on an ILB ASE.  
+The [Azure App Service Environment(ASE)](./intro.md) is a deployment of the Azure App Service in the subnet of a customer's Azure Virtual Network. It can be deployed with a public or private endpoint for app access. The Azure Application Gateway is a virtual appliance that provides layer 7 load balancing, SSL offloading, and WAF protection. It can listen on a public IP address and route traffic to your application endpoint. The following information describes how to integrate a WAF configured Application Gateway with an app on an ILB ASE.  
 
-The integration of the Application Gateway with the ILB ASE is at an app level.  That is to say that when you configure the two together you are doing it for specific apps in your ILB ASE and not for all of the apps in your ILB ASE. This is important because it means that you can expose just what you want in your ILB ASE while keeping the rest secure. Among other use cases, this enables hosting secure multi-tenant applications in a single ILB ASE. A multi-tier application on an ILB ASE with an Application Gateway will logically look like this diagram. 
+The integration of the Application Gateway with the ILB ASE is at an app level.  When you configure the two together you are doing it for specific apps in your ILB ASE and not for all of the apps in your ILB ASE. This is important because it means that you can expose just what you want in your ILB ASE while keeping the rest secure. This enables hosting secure multi-tenant applications in a single ILB ASE. A multi-tier application on an ILB ASE with an Application Gateway looks like this diagram: 
 
 ![Application Gateway pointing to app on an ILB ASE][1]
 
-To set this up, you will end up with a custom domain name that points to the public IP address of your Application Gateway which will then send the request to your ILB ASE.  In this document you will
+To set this up, you end up with a custom domain name that points to the public IP address of your Application Gateway, which will then send the request to your ILB ASE.  In this document, you will
 
 * create an Application Gateway
 * configure the Application Gateway to point to an app on your ILB ASE
 * configure your app to honor the custom domain name
 * edit your public DNS hostname that points to your Application Gateway
 
-To integrate your Application Gateway with your ILB ASE you need:
+To integrate your Application Gateway with your ILB ASE, you need:
 
 * an ILB ASE
 * an app running in the ILB ASE
-* an internet routable domain name to be used with your app in thee ILB ASE.  This has to be set as a custom domain name for your app.  
+* an internet routable domain name to be used with your app in the ILB ASE.  This has to be set as a custom domain name for your app.  
 * the ILB address used by your ILB ASE (This is in the ASE portal under Settings -> IP Addresses)
 
 	![IP addresses used by your ILB ASE][9]
 	
-* a public DNS name that will be later pointed to your application gateway 
+* a public DNS name that is used later to point to your application gateway 
 
-For details on how to create an ILB ASE please read the document [Creating and using an ILB ASE](./ilbase.md)
+For details on how to create an ILB ASE read the document [Creating and using an ILB ASE][ilbase]
 
 This guide assumes you want an Application Gateway in the same Azure Virtual Network that the ASE is deployed into. Before starting the Application Gateway creation, note the subnet that you will use to host the Application Gateway. Pick a subnet that is not the GatewaySubnet or the subnet used by the ILB ASE.
 If you put the Application Gateway in the GatewaySubnet then you will be unable to create a Virtual Network gateway later. You also cannot put it into the subnet used by your ILB ASE. 
@@ -50,6 +50,7 @@ If you put the Application Gateway in the GatewaySubnet then you will be unable 
 ## Steps to configure ##
 
 1. From within the Azure portal, go to **New > Network > Application Gateway** 
+
 	a. Provide:
 	
 		a. Name of the Application Gateway
@@ -69,7 +70,7 @@ If you put the Application Gateway in the GatewaySubnet then you will be unable 
 		e. Configure for HTTP or HTTPS. If configuring for HTTPS you need to provide a PFX certificate
 		f. Select Web application fireway settings. Here you can enable the firewall and also set it for either Detection or Prevention as you see fit.
 	
-	c. In the summary section review and select **Ok**. It can take a little more than 30 minutes for your Application Gateway to complete setup.  
+	c. In the summary section review, select **Ok**. It can take a little more than 30 minutes for your Application Gateway to complete setup.  
 	
 	![New application gateway creation settings][3]
 
@@ -93,7 +94,7 @@ If you put the Application Gateway in the GatewaySubnet then you will be unable 
 
 ![Set custom domain name on the app][8]
 
-There is information on setting custom domain names for your web apps here [Setting custom domain names for your web app][custom-domain]. The big difference with an app in an ILB ASE is that there isn't any validation on the domain name.  Since you own the DNS that manages the app endpoints, you can put whatever you want in there. The custom domain name you add in this case does not need to be in your DNS, but it does still need to be configured with your app. 
+There is information on setting custom domain names for your web apps here [Setting custom domain names for your web app][custom-domain]. The difference with an app in an ILB ASE and that document, is that there isn't any validation on the domain name.  Since you own the DNS that manages the app endpoints, you can put whatever you want in there. The custom domain name you add in this case does not need to be in your DNS, but it does still need to be configured with your app. 
 
 After setup is completed and you have allowed a short amount of time for your DNS changes to propagate, then you can access your app by the custom domain name you created. 
 
@@ -111,3 +112,4 @@ After setup is completed and you have allowed a short amount of time for your DN
 <!--LINKS-->
 [appgw]: http://docs.microsoft.com/azure/application-gateway/application-gateway-introduction
 [custom-domain]: ../app-service-web-tutorial-custom-domain.md
+[ilbase]: ./create-ilb-ase.md
