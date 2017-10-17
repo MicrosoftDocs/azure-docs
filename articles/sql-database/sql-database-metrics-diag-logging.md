@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2017
-ms.author: veljko-msft 
+ms.author: vvasic
 
 ---
 # Azure SQL Database metrics and diagnostics logging 
@@ -326,8 +326,8 @@ Learn more about [Query Store runtime statistics data](https://docs.microsoft.co
 |TimeGenerated [UTC]|Time stamp when the log was recorded.|
 |Type|Always: AzureDiagnostics|
 |ResourceProvider|Name of the resource provider. Always: MICROSOFT.SQL|
-|Category|Name of the category. Always: QueryStoreRuntimeStatistics|
-|OperationName|Name of the operation. Always: QueryStoreRuntimeStatisticsEvent|
+|Category|Name of the category. Always: QueryStoreWaitStatistics|
+|OperationName|Name of the operation. Always: QueryStoreWaitStatisticsEvent|
 |Resource|Name of the resource.|
 |ResourceType|Name of the resource type. Always: SERVERS/DATABASES|
 |SubscriptionId|Subscription GUID that the database belongs to.|
@@ -364,8 +364,8 @@ Learn more about [Query Store wait statistics data](https://docs.microsoft.com/e
 |TimeGenerated [UTC]|Time stamp when the log was recorded.|
 |Type|Always: AzureDiagnostics|
 |ResourceProvider|Name of the resource provider. Always: MICROSOFT.SQL|
-|Category|Name of the category. Always: QueryStoreRuntimeStatistics|
-|OperationName|Name of the operation. Always: QueryStoreRuntimeStatisticsEvent|
+|Category|Name of the category. Always: Errors|
+|OperationName|Name of the operation. Always: ErrorEvent|
 |Resource|Name of the resource.|
 |ResourceType|Name of the resource type. Always: SERVERS/DATABASES|
 |SubscriptionId|Subscription GUID that the database belongs to.|
@@ -393,8 +393,8 @@ Learn more about [SQL Server error messages](https://msdn.microsoft.com/en-us/li
 |TimeGenerated [UTC]|Time stamp when the log was recorded.|
 |Type|Always: AzureDiagnostics|
 |ResourceProvider|Name of the resource provider. Always: MICROSOFT.SQL|
-|Category|Name of the category. Always: QueryStoreRuntimeStatistics|
-|OperationName|Name of the operation. Always: QueryStoreRuntimeStatisticsEvent|
+|Category|Name of the category. Always: DatabaseWaitStatistics|
+|OperationName|Name of the operation. Always: DatabaseWaitStatisticsEvent|
 |Resource|Name of the resource.|
 |ResourceType|Name of the resource type. Always: SERVERS/DATABASES|
 |SubscriptionId|Subscription GUID that the database belongs to.|
@@ -422,8 +422,8 @@ Learn more about [database wait statistics](https://docs.microsoft.com/en-us/sql
 |TimeGenerated [UTC]|Time stamp when the log was recorded.|
 |Type|Always: AzureDiagnostics|
 |ResourceProvider|Name of the resource provider. Always: MICROSOFT.SQL|
-|Category|Name of the category. Always: QueryStoreRuntimeStatistics|
-|OperationName|Name of the operation. Always: QueryStoreRuntimeStatisticsEvent|
+|Category|Name of the category. Always: Timeouts|
+|OperationName|Name of the operation. Always: TimeoutEvent|
 |Resource|Name of the resource.|
 |ResourceType|Name of the resource type. Always: SERVERS/DATABASES|
 |SubscriptionId|Subscription GUID that the database belongs to.|
@@ -445,8 +445,8 @@ Learn more about [database wait statistics](https://docs.microsoft.com/en-us/sql
 |TimeGenerated [UTC]|Time stamp when the log was recorded.|
 |Type|Always: AzureDiagnostics|
 |ResourceProvider|Name of the resource provider. Always: MICROSOFT.SQL|
-|Category|Name of the category. Always: QueryStoreRuntimeStatistics|
-|OperationName|Name of the operation. Always: QueryStoreRuntimeStatisticsEvent|
+|Category|Name of the category. Always: Blocks|
+|OperationName|Name of the operation. Always: BlockEvent|
 |Resource|Name of the resource.|
 |ResourceType|Name of the resource type. Always: SERVERS/DATABASES|
 |SubscriptionId|Subscription GUID that the database belongs to.|
