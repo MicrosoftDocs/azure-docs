@@ -1,0 +1,54 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Kubernetes on Azure
+metadata:
+  document_id: 
+  title: Azure Container Service (AKS) Documentation - Tutorials, API Reference | Microsoft Docs
+  meta.description: AKS allows you to quickly deploy a production ready Kubernetes cluster in Azure. Learn how to use AKS with these quickstarts, tutorials, and samples.
+  services: container-service
+  author: carolz
+  manager: carolz
+  ms.service: container-service
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 07-21-2017
+  ms.author: carolz
+abstract:
+  description: Azure Container Service (AKS) allows you to quickly deploy a production ready Kubernetes cluster. Learn how to use AKS with these quickstarts, tutorials, and samples.
+sections:
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: 'Learn how to deploy a Kubernetes cluster on AKS:'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: https://docs.microsoft.com/media/logos/logo_linux.svg
+      text: Create a Kubernetes cluster on AKS
+      href: /azure/aks/kubernetes-walkthrough
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: 'Learn how to deploy, manage, and update applications on an AKS Kubertnetes cluster.'
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/aks/tutorial-kubernetes-prepare-app">Create container images from an application</a>
+    - html: <a href="/azure/container-service/aks/tutorial-kubernetes-prepare-acr">Upload container images to the Azure Container Registry</a>
+    - html: <a href="/azure/container-service/aks/tutorial-kubernetes-deploy-cluster">Deploy a Kubernetes cluster in AKS</a>
+    - html: <a href="/azure/container-service/aks/tutorial-kubernetes-deploy-application">Run your container images in Kubernetes</a>
+    - html: <a href="/azure/container-service/aks/tutorial-kubernetes-scale">Scale an application and Kubernetes infrastructure</a>
+    - html: <a href="/azure/container-service/aks/tutorial-kubernetes-app-update">Update an application running in Kubernetes</a>
+    - html: <a href="/azure/container-service/aks/tutorial-kubernetes-monitor">Monitor Kubernetes with OMS</a>
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Command line
+      html: <p><a href="/cli/azure/acs">Azure CLI</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/container-service">REST API</a></p>
