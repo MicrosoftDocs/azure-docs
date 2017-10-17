@@ -271,7 +271,7 @@ This article will cover some of the commonly asked questions about Azure Files f
 * <a id="cluster-witness"></a>**Can I use my Azure File share as a *File Share Witness* for my Windows Server Failover Cluster?**  
     This is not currently supported for an Azure File share. For more information on how to set this up for Azure Blob storage, see [Deploy a Cloud Witness for a Failover Cluster](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness).
 
-* <a id="containers"></a>**Can I mount an Azure File share on an Azure Containter Instance?**?  
+* <a id="containers"></a>**Can I mount an Azure File share on an Azure Container Instance?**?  
     Yes, Azure File shares are fantastic option to persist information beyond the lifetime of a container instance. For more information, please see [Mounting an Azure file share with Azure Container Instances](../../container-instances/container-instances-mounting-azure-files-volume.md).
 
 * <a id="rest-rename"></a>**Is there a rename operation in the REST API?**  
