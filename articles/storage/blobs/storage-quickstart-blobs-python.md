@@ -49,7 +49,7 @@ First, create a new general-purpose storage account to use for this quickstart.
 After your storage account is created, it is pinned to the dashboard. Click on it to open it. Under **SETTINGS**, click **Access keys**. Select a key and copy the storage account name to the clipboard, then paste it into Notepad for later use.
 
 ## Download the sample application
-The sample application used in this quickstart is a basic python application.  
+The [sample application](https://github.com/Azure-Samples/storage-blobs-python-quickstart.git) used in this quickstart is a basic Python application.  
 
 Use [git](https://git-scm.com/) to download a copy of the application to your development environment. 
 
@@ -57,7 +57,7 @@ Use [git](https://git-scm.com/) to download a copy of the application to your de
 git clone https://github.com/Azure-Samples/storage-blobs-python-quickstart.git 
 ```
 
-This command clones the repository to your local git folder. To open the python program, look for the storage-blobs-python-quickstart folder, and example.py file.  
+This command clones the repository to your local git folder. To open the Python program, look for the storage-blobs-python-quickstart folder, and example.py file.  
 
 ## Configure your storage connection string
 In the application, you must provide your storage account name and account key to create a `BlockBlobService` object. Open the `example.py` file from the Solution Explorer in your IDE. Replace the **accountname** and **accountkey** values with your account name and key. 
@@ -177,7 +177,7 @@ os.remove(full_path_to_file2)
 
 ## Next steps
  
-In this quickstart, you learned how to transfer files between a local disk and Azure Blob storage using Python. To learn more about working with Blob storage, continue to the Blob storage How-to.
+In this quickstart, you learned how to transfer files between a local disk and Azure blob storage using Python. To learn more about working with blob storage, continue to the Blob storage How-to.
 
 > [!div class="nextstepaction"]
 > [Blob Storage Operations How-To](./storage-python-how-to-use-blob-storage.md)
