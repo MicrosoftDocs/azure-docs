@@ -251,7 +251,7 @@ You can browse to share snapshots and view differences between two snapshots by 
 You cannot delete a share that has share snapshot. To be able to delete the share, you must first delete all its share snapshots.
 
 ### Delete a share snapshot by using the portal  
-In the portal, you can go to your file share blade and use the **Delete** button to delete one or more share snapshots:
+In the portal, you can go to your file share blade and use the **Delete** button to delete one or more share snapshots.
 
 >   ![Delete button](./media/storage-snapshots-delete/portal-snapshots-delete.png)
 
