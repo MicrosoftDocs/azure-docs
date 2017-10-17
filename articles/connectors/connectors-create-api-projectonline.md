@@ -33,9 +33,9 @@ To create Logic apps with ProjectOnline, you must first create a **connection** 
 > [!INCLUDE [Steps to create a connection to ProjectOnline](../../includes/connectors-create-api-projectonline.md)]
 > 
 
-## View the swagger
+## Connector-specific details
 
-See the [swagger details](/connectors/projectonline/).
+View any triggers and actions defined in the swagger, and also see any limits in the [connector details](/connectors/projectonline/).
 
 ## More connectors
 Go back to the [APIs list](apis-list.md).

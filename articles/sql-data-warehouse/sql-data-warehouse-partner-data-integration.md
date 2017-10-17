@@ -3,7 +3,7 @@ title: SQL Data Warehouse data integration partners | Microsoft Docs
 description: Lists of third-party partners with data integration solutions that support Azure SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
-author: jrowlandjones
+author: kevinvngo
 manager: jhubbard
 editor: ''
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: partners
 ms.date: 01/30/2017
-ms.author: jrj;barbkess
+ms.author: kevin;barbkess
 
 ---
 # SQL Data Warehouse data integration partners
@@ -29,7 +29,7 @@ To create your end-to-end data warehouse solution, choose from a wide variety of
 | ![Bryte Systems][3] |**Bryte Systems**<br>Bryte Systems automates data transfer to SQL Data Warehouse from various databases and sources. Bryte Systems specializes in data movement and integration technologies. They build scalable cloud-based data warehouses and data lakes to uncover insights. |[Marketplace][bryte_systems_marketplace]<br>[Website][bryte_systems_azure_website] | |
 | ![Informatica][4] |**Informatica Cloud Services for Azure – Pay-As-You-Go**<br> Optimize the value of your Azure Services and derive actionable insights out of all your hybrid data sets with Informatica Cloud Services for Azure – Pay-As-You-Go. Informatica Cloud offers a best-in-class solution for Data integration, Cloud Analytics, Application Integration and Data Management. With self-service data migration, integration and management capabilities customers can quickly and reliably import, export, synchronize, and schedule petabytes of data to Azure from a variety of sources such as SaaS applications, Hadoop-based data lakes, and other on-prem data sources (Oracle, SAP).  Informatica Cloud Services for Azure provides native, high volume, high performance connectivity to Azure SQL Data Warehouse, Sgl Database, Blob Storage, Data Lake Store, and DocumentDB. |[Marketplace][informatica_Cloud_Services_marketplace]<br>[Free trial][informatica_cloud_free_trial]<br>[Config guide][informatica_cloud_services_config]<br>[Website][informatica_Cloud_Services_website]<br>[Datasheet][informatica_cloud_datasheet]<br>[Twitter][informatica_cloud_twitter]<br>[YouTube][informatica_cloud_youtube] | |
 | ![Informatica][4] |**Informatica PowerCenter**<br>Informatica is one of the world’s most recognizable independent providers of data integration software. PowerCenter forms the foundation for all your data integration initiatives. Use PowerCenter for analytics, data warehousing, application migration, consolidation, or data governance. |[Marketplace (Standard)][informatica_PowerCenter_std_marketplace]<br>[Marketplace (Advanced)][informatica_PowerCenter_adv_marketplace]<br>[Website][informatica_PowerCenter_website]<br>[Datasheet][informatica_powercenter_datasheet]<br>[Twitter][informatica_powercenter_twitter]<br>[YouTube][informatica_powercenter_youtube] | |
-| ![Redgate][5] |**Redgate Data Platform Studio (Preview)**<br>Redgate’s Data Platform Studio provides a simple and reliable way to migrate on-premise SQL databases to Azure SQL Data Warehouse. It’s engineered to make smart decisions for a fully automated migration, and is free to use for one-off migrations. |[Website][redgate_website]<br>[Twitter][redgate_twitter]<br>[YouTube][redgate_youtube] |[![Redgate video](./media/sql-data-warehouse-partner-data-integration/redgate_video.jpg)](https://www.youtube.com/watch?v=IR9HNvnU46s) |
+| ![Redgate][5] |**Redgate Data Platform Studio (Preview)**<br>Redgate’s Data Platform Studio provides a simple and reliable way to migrate on-premises SQL databases to Azure SQL Data Warehouse. It’s engineered to make smart decisions for a fully automated migration, and is free to use for one-off migrations. |[Website][redgate_website]<br>[Twitter][redgate_twitter]<br>[YouTube][redgate_youtube] |[![Redgate video](./media/sql-data-warehouse-partner-data-integration/redgate_video.jpg)](https://www.youtube.com/watch?v=IR9HNvnU46s) |
 | ![SnapLogic][6] |**SnapLogic**<br>The SnapLogic integration platform as a service (iPaaS) enables customers to quickly transfer data into and out of Microsoft Azure SQL Data Warehouse.  SnapLogic offers the ability to integrate hundreds of applications, services, and IoT scenarios in one solution. Deliver fast, effective insights in the cloud, on-premises or in hybrid mode with SnapLogic! |[Marketplace][snaplogic_marketplace]<br>[Website][snaplogic_website]<br>[Datasheet][snaplogic_datasheet]<br>[Twitter][snaplogic_twitter]<br>[YouTube][snaplogic_youtube] |[![Snaplogic video](./media/sql-data-warehouse-partner-data-integration/snaplogic_video.jpg)](https://www.youtube.com/watch?v=YiJCwObOh5Y) |
 
 ## Next Steps

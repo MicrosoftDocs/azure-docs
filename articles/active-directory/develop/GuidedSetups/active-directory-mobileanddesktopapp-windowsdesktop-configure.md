@@ -15,6 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
+ms.custom: aaddev
 
 ---
 
@@ -30,7 +31,7 @@ Now you need to register your application in the *Microsoft Application Registra
 1. Go to the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/portal/register-app) to register an application
 2. Enter a name for your application and your email 
 3. Make sure the option for Guided Setup is unchecked
-4. Click `Add Platforms`, then select `Native Application` and hit Save
+4. Click `Add Platform`, then select `Native Application` and hit Save
 5. Copy the GUID in Application ID, go back to Visual Studio, open `App.xaml.cs` and replace `your_client_id_here` with the Application ID you just registered:
 
 ```csharp

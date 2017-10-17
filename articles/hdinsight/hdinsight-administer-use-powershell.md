@@ -1,5 +1,5 @@
 ---
-title: Manage Hadoop clusters in HDInsight with PowerShell | Microsoft Docs
+title: Manage Hadoop clusters in HDInsight with PowerShell - Azure | Microsoft Docs
 description: Learn how to perform administrative tasks for the Hadoop clusters in HDInsight using Azure PowerShell.
 services: hdinsight
 editor: cgronlun
@@ -15,18 +15,18 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 08/25/2017
 ms.author: jgao
 
 ---
 # Manage Hadoop clusters in HDInsight by using Azure PowerShell
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Azure PowerShell is a powerful scripting environment that you can use to control and automate the deployment and management of your workloads in Azure. In this article, you will learn how to manage Hadoop clusters in Azure HDInsight by using a local Azure PowerShell console through the use of Windows PowerShell. For the list of the HDInsight PowerShell cmdlets, see [HDInsight cmdlet reference][hdinsight-powershell-reference].
+Azure PowerShell can be used to control and automate the deployment and management of your workloads in Azure. In this article, you learn how to manage Hadoop clusters in Azure HDInsight by using Azure PowerShell. For the list of the HDInsight PowerShell cmdlets, see [HDInsight cmdlet reference][hdinsight-powershell-reference].
 
 **Prerequisites**
 
-Before you begin this article, you must have the following:
+Before you begin this article, you must have the following items:
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
@@ -37,7 +37,9 @@ If you have installed Azure PowerShell version 0.9x, you must uninstall it befor
 
 To check the version of the installed PowerShell:
 
-    Get-Module *azure*
+```powershell
+Get-Module *azure*
+```
 
 To uninstall the older version, run Programs and Features in the control panel.
 
@@ -47,21 +49,29 @@ See [Create Linux-based clusters in HDInsight using Azure PowerShell](hdinsight-
 ## List clusters
 Use the following command to list all clusters in the current subscription:
 
-    Get-AzureRmHDInsightCluster
+```powershell
+Get-AzureRmHDInsightCluster
+```
 
 ## Show cluster
 Use the following command to show details of a specific cluster in the current subscription:
 
-    Get-AzureRmHDInsightCluster -ClusterName <Cluster Name>
+```powershell
+Get-AzureRmHDInsightCluster -ClusterName <Cluster Name>
+```
 
 ## Delete clusters
 Use the following command to delete a cluster:
 
-    Remove-AzureRmHDInsightCluster -ClusterName <Cluster Name>
+```powershell
+Remove-AzureRmHDInsightCluster -ClusterName <Cluster Name>
+```
 
-You can also delete a cluster by removing the resource group that contains the cluster. Please note, this will delete all the resources in the group including the default storage account.
+You can also delete a cluster by removing the resource group that contains the cluster. Deleting a resource group deletes all the resources in the group including the default storage account.
 
-    Remove-AzureRmResourceGroup -Name <Resource Group Name>
+```powershell
+Remove-AzureRmResourceGroup -Name <Resource Group Name>
+```
 
 ## Scale clusters
 The cluster scaling feature allows you to change the number of worker nodes used by a cluster that is running in Azure HDInsight without having to re-create the cluster.
@@ -77,14 +87,17 @@ The impact of changing the number of data nodes for each type of cluster support
 
     You can seamlessly increase the number of worker nodes in a Hadoop cluster that is running without impacting any pending or running jobs. New jobs can also be submitted while the operation is in progress. Failures in a scaling operation are gracefully handled so that the cluster is always left in a functional state.
 
-    When a Hadoop cluster is scaled down by reducing the number of data nodes, some of the services in the cluster are restarted. This causes all running and pending jobs to fail at the completion of the scaling operation. You can, however, resubmit the jobs once the operation is complete.
+    When a Hadoop cluster is scaled down by reducing the number of data nodes, some of the services in the cluster are restarted. Restarting services causes all running and pending jobs to fail at the completion of the scaling operation. You can, however, resubmit the jobs once the operation is complete.
 * HBase
 
-    You can seamlessly add or remove nodes to your HBase cluster while it is running. Regional Servers are automatically balanced within a few minutes of completing the scaling operation. However, you can also manually balance the regional servers by logging in to the headnode of cluster and running the following commands from a command prompt window:
+    You can seamlessly add or remove nodes to your HBase cluster while it is running. Regional Servers are automatically balanced within a few minutes of completing the scaling operation. However, you can also manually balance the regional servers by logging in to the headnode of cluster, and then run the following commands from a command prompt window:
 
-        >pushd %HBASE_HOME%\bin
-        >hbase shell
-        >balancer
+    ```bash
+    >pushd %HBASE_HOME%\bin
+    >hbase shell
+    >balancer
+    ```
+
 * Storm
 
     You can seamlessly add or remove data nodes to your Storm cluster while it is running. But after a successful completion of the scaling operation, you will need to rebalance the topology.
@@ -94,7 +107,7 @@ The impact of changing the number of data nodes for each type of cluster support
   * Storm web UI
   * Command-line interface (CLI) tool
 
-    Please refer to the [Apache Storm documentation](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) for more details.
+    Refer to the [Apache Storm documentation](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) for more details.
 
     The Storm web UI is available on the HDInsight cluster:
 
@@ -102,14 +115,18 @@ The impact of changing the number of data nodes for each type of cluster support
 
     Here is an example how to use the CLI command to rebalance the Storm topology:
 
-        ## Reconfigure the topology "mytopology" to use 5 worker processes,
-        ## the spout "blue-spout" to use 3 executors, and
-        ## the bolt "yellow-bolt" to use 10 executors
-        $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
+    ```cli
+    ## Reconfigure the topology "mytopology" to use 5 worker processes,
+    ## the spout "blue-spout" to use 3 executors, and
+    ## the bolt "yellow-bolt" to use 10 executors
+    $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
+    ```
 
 To change the Hadoop cluster size by using Azure PowerShell, run the following command from a client machine:
 
-    Set-AzureRmHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <NewSize>
+```powershell
+Set-AzureRmHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <NewSize>
+```
 
 
 ## Grant/revoke access
@@ -123,52 +140,73 @@ HDInsight clusters have the following HTTP web services (all of these services h
 
 By default, these services are granted for access. You can revoke/grant the access. To revoke:
 
-    Revoke-AzureRmHDInsightHttpServicesAccess -ClusterName <Cluster Name>
+```powershell
+Revoke-AzureRmHDInsightHttpServicesAccess -ClusterName <Cluster Name>
+```
 
 To grant:
 
-    $clusterName = "<HDInsight Cluster Name>"
+```powershell
+$clusterName = "<HDInsight Cluster Name>"
 
-    # Credential option 1
-    $hadoopUserName = "admin"
-    $hadoopUserPassword = "<Enter the Password>"
-    $hadoopUserPW = ConvertTo-SecureString -String $hadoopUserPassword -AsPlainText -Force
-    $credential = New-Object System.Management.Automation.PSCredential($hadoopUserName,$hadoopUserPW)
+# Credential option 1
+$hadoopUserName = "admin"
+$hadoopUserPassword = "<Enter the Password>"
+$hadoopUserPW = ConvertTo-SecureString -String $hadoopUserPassword -AsPlainText -Force
+$credential = New-Object System.Management.Automation.PSCredential($hadoopUserName,$hadoopUserPW)
 
-    # Credential option 2
-    #$credential = Get-Credential -Message "Enter the HTTP username and password:" -UserName "admin"
+# Credential option 2
+#$credential = Get-Credential -Message "Enter the HTTP username and password:" -UserName "admin"
 
-    Grant-AzureRmHDInsightHttpServicesAccess -ClusterName $clusterName -HttpCredential $credential
+Grant-AzureRmHDInsightHttpServicesAccess -ClusterName $clusterName -HttpCredential $credential
+```
 
 > [!NOTE]
-> By granting/revoking the access, you will reset the cluster user name and password.
+> By granting/revoking the access, you reset the cluster user name and password.
 >
 >
 
-This can also be done via the Portal. See [Administer HDInsight by using the Azure portal][hdinsight-admin-portal].
+Granting and revoking access can also be done via the portal. See [Administer HDInsight by using the Azure portal][hdinsight-admin-portal].
 
 ## Update HTTP user credentials
-It is the same procedure as [Grant/revoke HTTP access](#grant/revoke-access).If the cluster has been granted the HTTP access, you must first revoke it.  And then grant the access with new HTTP user credentials.
+It is the same procedure as [Grant/revoke HTTP access](#grant/revoke-access). If the cluster has been granted the HTTP access, you must first revoke it.  And then grant the access with new HTTP user credentials.
 
 ## Find the default storage account
-The following Powershell script demonstrates how to get the default storage account name and the default storage account key for a cluster.
+The following PowerShell script demonstrates how to get the default storage account name and the related information:
 
-    $clusterName = "<HDInsight Cluster Name>"
+```powershell
+#Login-AzureRmAccount
+$clusterName = "<HDInsight Cluster Name>"
 
-    $cluster = Get-AzureRmHDInsightCluster -ClusterName $clusterName
-    $resourceGroupName = $cluster.ResourceGroup
-    $defaultStorageAccountName = ($cluster.DefaultStorageAccount).Replace(".blob.core.windows.net", "")
+$clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
+$storageInfo = $clusterInfo.DefaultStorageAccount.split('.')
+$defaultStoreageType = $storageInfo[1]
+$defaultStorageName = $storageInfo[0]
+
+echo "Default Storage account name: $defaultStorageName"
+echo "Default Storage account type: $defaultStoreageType"
+
+if ($defaultStoreageType -eq "blob")
+{
     $defaultBlobContainerName = $cluster.DefaultStorageContainer
     $defaultStorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName)[0].Value
     $defaultStorageAccountContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccountName -StorageAccountKey $defaultStorageAccountKey
 
+    echo "Default Blob container name: $defaultBlobContainerName"
+    echo "Default Storage account key: $defaultStorageAccountKey"
+}
+```
+
+
 ## Find the resource group
 In the Resource Manager mode, each HDInsight cluster belongs to an Azure resource group.  To find the resource group:
 
-    $clusterName = "<HDInsight Cluster Name>"
+```powershell
+$clusterName = "<HDInsight Cluster Name>"
 
-    $cluster = Get-AzureRmHDInsightCluster -ClusterName $clusterName
-    $resourceGroupName = $cluster.ResourceGroup
+$cluster = Get-AzureRmHDInsightCluster -ClusterName $clusterName
+$resourceGroupName = $cluster.ResourceGroup
+```
 
 
 ## Submit jobs

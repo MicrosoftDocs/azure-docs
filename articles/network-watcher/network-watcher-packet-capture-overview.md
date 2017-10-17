@@ -3,7 +3,7 @@ title: Introduction to Packet capture in Azure Network Watcher | Microsoft Docs
 description: This page provides an overview of the Network Watcher packet capture capability
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
+ms.author: jdial
 
 ---
 
@@ -33,7 +33,7 @@ To reduce the information you capture to only the information you want, the foll
 
 |Property|Description|
 |---|---|
-|**Maximum bytes per packet (bytes)** | The number of bytes from each packet that are captured, all bytes are captured if left blank. The number of bytes from each packet that are captured, all bytes are captured if left blank. If you need only the IPv4 header – indicate 60 here |
+|**Maximum bytes per packet (bytes)** | The number of bytes from each packet that are captured, all bytes are captured if left blank. The number of bytes from each packet that are captured, all bytes are captured if left blank. If you need only the IPv4 header – indicate 34 here |
 |**Maximum bytes per session (bytes)** | Total number of bytes in that are captured, once the value is reached the session ends.|
 |**Time limit (seconds)** | Sets a time constraint on the packet capture session. The default value is 18000 seconds or 5 hours.|
 

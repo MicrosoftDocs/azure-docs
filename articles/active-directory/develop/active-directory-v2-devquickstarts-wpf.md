@@ -3,7 +3,7 @@ title: Azure Active Directory v2.0 .NET Native App | Microsoft Docs
 description: How to build a .NET native app that signs users in with both personal Microsoft Account and work or school accounts.
 services: active-directory
 documentationcenter: ''
-author: dstrockis
+author: jmprieur
 manager: mbaldwin
 editor: ''
 
@@ -14,7 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/30/2016
-ms.author: dastrock; vittorib
+ms.author: jmprieur
+ms.custom: aaddev
 
 ---
 # Add sign-in to a Windows Desktop app

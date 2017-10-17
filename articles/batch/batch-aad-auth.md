@@ -3,7 +3,7 @@ title: Use Azure Active Directory to authenticate Azure Batch service solutions 
 description: Batch supports Azure AD for authentication from the Batch service.
 services: batch
 documentationcenter: .net
-author: tamram
+author: v-dotren
 manager: timlt
 editor: ''
 tags: 
@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 04/27/2017
+ms.date: 09/28/2017
 ms.author: tamram
 ---
 
@@ -28,13 +28,6 @@ When using Azure AD authentication with Azure Batch, you can authenticate in one
 - By using a **service principal** to authenticate an unattended application. A service principal defines the policy and permissions for an application in order to represent the application when accessing resources at runtime.
 
 To learn more about Azure AD, see the [Azure Active Directory Documentation](https://docs.microsoft.com/azure/active-directory/).
-
-## Authentication and pool allocation mode
-
-When you create a Batch account, you can specify where pools created for that account should be allocated. You can choose to allocate pools either in the default Batch service subscription or in a user subscription. Your choice affects how you authenticate access to resources in that account.
-
-- **Batch service subscription**. By default, Batch pools are allocated in a Batch service subscription. If you choose this option, you can authenticate access to resources in that account either with [Shared Key](https://docs.microsoft.com/rest/api/batchservice/authenticate-requests-to-the-azure-batch-service) or with Azure AD.
-- **User subscription.** You can choose to allocate Batch pools in a user subscription that you specify. If you choose this option, you must authenticate with Azure AD.
 
 ## Endpoints for authentication
 
@@ -104,10 +97,10 @@ Once you've [registered your application](#register-your-application-with-an-azu
 3. Open the **Settings** blade for your application. In the **API Access** section, select **Required permissions**.
 4. In the **Required permissions** blade, click the **Add** button.
 5. In step 1, search for the Batch API. Search for each of these strings until you find the API:
-    a. **MicrosoftAzureBatch**.
-    b. **Microsoft Azure Batch**. Newer Azure AD tenants may use this name.
-    c. **ddbf3205-c6bd-46ae-8127-60eb93363864** is the ID for the Batch API. 
-6. Once you find the Batch API, select **Microsoft Azure Batch (MicrosoftAzureBatch)**, and click the **Select** button.
+    1. **MicrosoftAzureBatch**.
+    2. **Microsoft Azure Batch**. Newer Azure AD tenants may use this name.
+    3. **ddbf3205-c6bd-46ae-8127-60eb93363864** is the ID for the Batch API. 
+6. Once you find the Batch API, select it and click the **Select** button.
 6. In step 2, select the check box next to **Access Azure Batch Service** and click the **Select** button.
 7. Click the **Done** button.
 

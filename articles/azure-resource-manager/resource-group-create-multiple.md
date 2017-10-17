@@ -13,12 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/24/2017
+ms.date: 06/26/2017
 ms.author: tomfitz
 
 ---
 # Deploy multiple instances of a resource or property in Azure Resource Manager templates
 This topic shows you how to iterate in your Azure Resource Manager template to create multiple instances of a resource, or multiple instances of a property on a resource.
+
+If you need to add logic to your template that enables you to specify whether a resource is deployed, see [Conditionally deploy resource](#conditionally-deploy-resource).
 
 ## Resource iteration
 To create multiple instances of a resource type, add a `copy` element to the resource type. In the copy element, you specify the number of iterations and a name for this loop. The count value must be a positive integer and cannot exceed 800. Resource Manager creates the resources in parallel. Therefore, the order in which they are created is not guaranteed. To create iterated resources in sequence, see [Serial copy](#serial-copy). 
@@ -345,6 +347,52 @@ You can use resource and property iteration together. Reference the property ite
 }
 ```
 
+You can only include one copy element in the properties for each resource. To specify an iteration loop for more than one property, define multiple objects in the copy array. Each object is iterated separately. For example, to create multiple instances of both the `frontendIPConfigurations` property and the `loadBalancingRules` property on a load balancer, define both objects in a single copy element: 
+
+```json
+{
+    "name": "[variables('loadBalancerName')]",
+    "type": "Microsoft.Network/loadBalancers",
+    "properties": {
+        "copy": [
+          {
+              "name": "frontendIPConfigurations",
+              "count": 2,
+              "input": {
+                  "name": "[concat('loadBalancerFrontEnd', copyIndex('frontendIPConfigurations', 1))]",
+                  "properties": {
+                      "publicIPAddress": {
+                          "id": "[variables(concat('publicIPAddressID', copyIndex('frontendIPConfigurations', 1)))]"
+                      }
+                  }
+              }
+          },
+          {
+              "name": "loadBalancingRules",
+              "count": 2,
+              "input": {
+                  "name": "[concat('LBRuleForVIP', copyIndex('loadBalancingRules', 1))]",
+                  "properties": {
+                      "frontendIPConfiguration": {
+                          "id": "[variables(concat('frontEndIPConfigID', copyIndex('loadBalancingRules', 1)))]"
+                      },
+                      "backendAddressPool": {
+                          "id": "[variables('lbBackendPoolID')]"
+                      },
+                      "protocol": "tcp",
+                      "frontendPort": "[variables(concat('frontEndPort' copyIndex('loadBalancingRules', 1))]",
+                      "backendPort": "[variables(concat('backEndPort' copyIndex('loadBalancingRules', 1))]",
+                      "probe": {
+                          "id": "[variables('lbProbeID')]"
+                      }
+                  }
+              }
+          }
+        ],
+        ...
+    }
+}
+```
 
 ## Depend on resources in a loop
 You specify that a resource is deployed after another resource by using the `dependsOn` element. To deploy a resource that depends on the collection of resources in a loop, provide the name of the copy loop in the dependsOn element. The following example shows how to deploy three storage accounts before deploying the Virtual Machine. The full Virtual Machine definition is not shown. Notice that the copy element has name set to `storagecopy` and the dependsOn element for the Virtual Machines is also set to `storagecopy`.
@@ -431,6 +479,29 @@ The following example shows the implementation:
     ...
 }]
 ```
+
+## Conditionally deploy resource
+
+To specify whether a resource is deployed, use the `condition` element. The value for this element resolves to true or false. When the value is true, the resource is deployed. When the value is false, the resource is not deployed. For example, to specify whether a new storage account is deployed or an existing storage account is used, use:
+
+```json
+{
+    "condition": "[equals(parameters('newOrExisting'),'new')]",
+    "type": "Microsoft.Storage/storageAccounts",
+    "name": "[variables('storageAccountName')]",
+    "apiVersion": "2017-06-01",
+    "location": "[resourceGroup().location]",
+    "sku": {
+        "name": "[variables('storageAccountType')]"
+    },
+    "kind": "Storage",
+    "properties": {}
+}
+```
+
+For an example of using a new or existing resource, see [New or existing condition template](https://github.com/rjmax/Build2017/blob/master/Act1.TemplateEnhancements/Chapter05.ConditionalResources.NewOrExisting.json).
+
+For an example of using a password or SSH key to deploy virtual machine, see [Username or SSH condition template](https://github.com/rjmax/Build2017/blob/master/Act1.TemplateEnhancements/Chapter05.ConditionalResourcesUsernameOrSsh.json).
 
 ## Next steps
 * If you want to learn about the sections of a template, see [Authoring Azure Resource Manager Templates](resource-group-authoring-templates.md).

@@ -9,11 +9,11 @@ editor: tysonn
 
 ms.assetid: 8e7d868e-00f3-4e8b-9a9e-f23365abf6ac
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-=article
-ms.date: 04/05/2017
+ms.topic: hero-article
+ms.date: 06/14/2017
 ms.author: raynew
 
 ---
@@ -37,7 +37,7 @@ If you want to migrate machines to Azure (without failback), learn more in [this
 Follow the article to complete these deployment steps:
 
 
-1. [Learn more](site-recovery-components.md#hyper-v-to-azure) about the architecture for this deployment. In addition, [learn about](site-recovery-hyper-v-azure-architecture.md) how Hyper-V replication works in Site Recovery.
+1. [Learn more](site-recovery-components.md) about the architecture for this deployment. In addition, [learn about](site-recovery-hyper-v-azure-architecture.md) how Hyper-V replication works in Site Recovery.
 2. Verify prerequisites and limitations.
 3. Set up Azure network and storage accounts.
 4. Prepare the on-premises VMM server and Hyper-V hosts.
@@ -55,7 +55,7 @@ Follow the article to complete these deployment steps:
 **Support requirement** | **Details**
 --- | ---
 **Azure** | Learn about [Azure requirements](site-recovery-prereq.md#azure-requirements).
-**On-premises servers** | [Learn more](site-recovery-prereq.md#disaster-recovery-of-hyper-v-virtual-machines-in-virtual-machine-manager-clouds-to-azure) about requirements for the on-premises VMM server and Hyper-V hosts.
+**On-premises servers** | [Learn more](site-recovery-prereq.md#disaster-recovery-of-hyper-v-vms-in-vmm-clouds-to-azure) about requirements for the on-premises VMM server and Hyper-V hosts.
 **On-premises Hyper-V VMs** | VMs you want to replicate should be running a [supported operating system](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions), and conform with [Azure prerequisites](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 **Azure URLs** | The VMM server needs access to these URLs:<br/><br/> [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]<br/><br/> If you have IP address-based firewall rules, ensure they allow communication to Azure.<br/></br> Allow the [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653), and the HTTPS (443) port.<br/></br> Allow IP address ranges for the Azure region of your subscription, and for West US (used for Access Control and Identity Management).
 
@@ -77,8 +77,8 @@ You need an Azure network to which Azure VMs created after failover will connect
 Azure networks used by Site Recovery can't be [moved](../azure-resource-manager/resource-group-move-resources.md) within the same, or across different, subscriptions.
 
 ### Set up an Azure storage account
-* You need a standard/premium Azure storage account to hold data replicated to Azure.[Premium storage](../storage/storage-premium-storage.md) is  used for virtual machines that need a consistently high IO performance, and low latency to host IO intensive workloads. If you want to use a premium account to store replicated data, you also need a standard storage account to store replication logs that capture ongoing changes to on-premises data. The account must be in the same region as the Recovery Services vault.
-* Depending on the resource model you want to use for failed over Azure VMs, you set up an account in [Resource Manager mode](../storage/storage-create-storage-account.md) or [classic mode](../storage/storage-create-storage-account-classic-portal.md).
+* You need a standard/premium Azure storage account to hold data replicated to Azure.[Premium storage](../storage/common/storage-premium-storage.md) is  used for virtual machines that need a consistently high IO performance, and low latency to host IO intensive workloads. If you want to use a premium account to store replicated data, you also need a standard storage account to store replication logs that capture ongoing changes to on-premises data. The account must be in the same region as the Recovery Services vault.
+* Depending on the resource model you want to use for failed over Azure VMs, you set up an account in [Resource Manager mode](../storage/common/storage-create-storage-account.md) or [classic mode](../storage/common/storage-create-storage-account.md).
 * We recommend that you set up an account before you begin. If you don't, you need to do it during Site Recovery deployment.
 - Note that storage accounts used by Site Recovery can't be [moved](../azure-resource-manager/resource-group-move-resources.md) within the same, or across different, subscriptions.
 
@@ -160,6 +160,12 @@ Install the Azure Site Recovery Provider on the VMM server, and register the ser
 
      ![internet](./media/site-recovery-vmm-to-azure/provider13.PNG)
 7. Accept or modify the location of an SSL certificate that’s automatically generated for data encryption. This certificate is used if you enable data encryption for a cloud protected by Azure in the Azure Site Recovery portal. Keep this certificate safe. When you run a failover to Azure you’ll need it to decrypt, if data encryption is enabled.
+
+	> [!NOTE]
+	> It is recommended to use the encryption capability provided by Azure for encrypting data at rest, instead of using the data
+	> encryption option provided by Azure Site Recovery. The encryption capability provided by Azure can be turned on for a storage	 	 > account and helps achieve better performance as the encryption/decryption is handled by Azure storage.
+	> [Learn more about Storage service encryption from Azure](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption).
+	
 8. In **Server name**, specify a friendly name to identify the VMM server in the vault. In a cluster configuration, specify the VMM cluster role name.
 9. Enable **Sync cloud metadata**, if you want to synchronize metadata for all clouds on the VMM server with the vault. This action only needs to happen once on each server. If you don't want to synchronize all clouds, you can leave this setting unchecked and synchronize each cloud individually in the cloud properties in the VMM console. Click **Register** to complete the process.
 
@@ -212,7 +218,7 @@ Specify the Azure storage account to be used for replication, and the Azure netw
    ![Storage](./media/site-recovery-vmm-to-azure/gs-createstorage.png)
 
 
-   * If you want to create a storage account using the classic model, do that in the Azure portal. [Learn more](../storage/storage-create-storage-account-classic-portal.md)
+   * If you want to create a storage account using the classic model, do that in the Azure portal. [Learn more](../storage/common/storage-create-storage-account.md)
    * If you’re using a premium storage account for replicated data, set up an additional standard storage account, to store replication logs that capture ongoing changes to on-premises data.
 5. If you haven't created an Azure network, and you want to create one using Resource Manager, click **+Network** to do that inline. On the **Create virtual network** blade specify a network name, address range, subnet details, subscription, and location. The network should be in the same location as the Recovery Services vault.
 
@@ -252,7 +258,7 @@ Here's what happens when network mapping begins:
 3. In **Copy frequency**, specify how often you want to replicate delta data after the initial replication (every 30 seconds, 5 or 15 minutes).
 
 	> [!NOTE]
-	>  A 30 second frequency isn't supported when replicating to premium storage. The limitation is determined by the number of snapshots per blob (100) supported by premium storage. [Learn more](../storage/storage-premium-storage.md#snapshots-and-copy-blob)
+	>  A 30 second frequency isn't supported when replicating to premium storage. The limitation is determined by the number of snapshots per blob (100) supported by premium storage. [Learn more](../storage/common/storage-premium-storage.md#snapshots-and-copy-blob)
 
 4. In **Recovery point retention**, specify in hours how long the retention window will be for each recovery point. Protected machines can be recovered to any point within a window.
 5. In **App-consistent snapshot frequency**, specify how frequently (1-12 hours) recovery points containing application-consistent snapshots will be created. Hyper-V uses two types of snapshots — a standard snapshot that provides an incremental snapshot of the entire virtual machine, and an application-consistent snapshot that takes a point-in-time snapshot of the application data inside the virtual machine. Application-consistent snapshots use Volume Shadow Copy Service (VSS) to ensure that applications are in a consistent state when the snapshot is taken. Note that if you enable application-consistent snapshots, it will affect the performance of applications running on source virtual machines. Ensure that the value you set is less than the number of additional recovery points you configure.
@@ -298,7 +304,7 @@ Now enable replication as follows:
 3. In **Target**, select the subscription, post-failover deployment model, and the storage account you're using for replicated data.
 
     ![Enable replication](./media/site-recovery-vmm-to-azure/enable-replication-target.png)
-4. Select the storage account you want to use. If you want to use a different storage account than those you have, you can [create one](#set-up-an-azure-storage-account). If you’re using a premium storage account for replicated data, you need to select  an additional standard storage account to store replication logs that capture ongoing changes to on-premises data.To create a storage account using the Resource Manager model click **Create new**. If you want to create a storage account using the classic model, do that [in the Azure portal](../storage/storage-create-storage-account-classic-portal.md). Then click **OK**.
+4. Select the storage account you want to use. If you want to use a different storage account than those you have, you can [create one](#set-up-an-azure-storage-account). If you’re using a premium storage account for replicated data, you need to select  an additional standard storage account to store replication logs that capture ongoing changes to on-premises data.To create a storage account using the Resource Manager model click **Create new**. If you want to create a storage account using the classic model, do that [in the Azure portal](../storage/common/storage-create-storage-account.md). Then click **OK**.
 5. Select the Azure network and subnet to which Azure VMs will connect, when they're created after failover. Select **Configure now for selected machines**, to apply the network setting to all machines you select for protection. Select **Configure later**, to select the Azure network per machine. If you want to use a different network from those you have, you can [create one](#set-up-an-azure-network). To create a network using the Resource Manager model click **Create new**. If you want to create a network using the classic model, do that [in the Azure portal](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Select a subnet if applicable. Then click **OK**.
 6. In **Virtual Machines** > **Select virtual machines**, click and select each machine you want to replicate. You can only select machines for which replication can be enabled. Then click **OK**.
 
@@ -427,6 +433,14 @@ Where:
 * **/Credentials**: Mandatory parameter that specifies where the registration key file is located.  
 * **/FriendlyName**: Mandatory parameter for the name of the Hyper-V host server that appears in the Azure Site Recovery portal.
 * * **/EncryptionEnabled**: Optional parameter when you're replicating Hyper-V VMs in VMM clouds to Azure. Specify if you want to encrypt virtual machines in Azure (at rest encryption). Ensure that the name of the file has a **.pfx** extension. Encryption is off by default.
+
+	> [!NOTE]
+	> It is recommended to use the encryption capability provided by Azure for encrypting data at rest, instead of using 
+	> the encryption option (EncryptionEnabled option) provided by Azure Site Recovery. The encryption capability provided by Azure 
+	> can be turned on for a storage account and helps achieve better performance as the encryption/decryption is done by Azure  
+	> storage.
+	> [Learn more about Storage service encryption in Azure](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption).
+	
 * **/proxyAddress**: Optional parameter that specifies the address of the proxy server.
 * **/proxyport**: Optional parameter that specifies the port of the proxy server.
 * **/proxyUsername**: Optional parameter that specifies the proxy user name (if proxy requires authentication).

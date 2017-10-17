@@ -3,7 +3,7 @@ title: Get started with Azure Key Vault | Microsoft Docs
 description: Use this tutorial to help you get started with Azure Key Vault to create a hardened container in Azure, to store and manage cryptographic keys and secrets in Azure.
 services: key-vault
 documentationcenter: ''
-author: cabailey
+author: barclayn
 manager: mbaldwin
 tags: azure-resource-manager
 
@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/24/2016
-ms.author: cabailey
+ms.date: 10/16/2017
+ms.author: barclayn
 
 ---
 # Get started with Azure Key Vault
@@ -101,7 +101,7 @@ Your Azure account is now authorized to perform any operations on this key vault
 >
 
 ## <a id="add"></a>Add a key or secret to the key vault
-If you want Azure Key Vault to create a software-protected key for you, use the [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurermkeyvaultkey) cmdlet, and type the following:
+If you want Azure Key Vault to create a software-protected key for you, use the [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurekeyvaultkey) cmdlet, and type the following:
 
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey' -Destination 'Software'
 

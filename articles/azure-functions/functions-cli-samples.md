@@ -4,18 +4,19 @@ description: Azure CLI Samples - Azure Functions
 services: functions
 documentationcenter: functions
 author: syntaxc4
-manager: erikre
+manager: cfowler
 editor: ggailey777
 tags: azure-service-management
 
 ms.assetid: 577d2f13-de4d-40d2-9dfc-86ecc79f3ab0
 ms.service: functions
 ms.devlang: na
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: functions
 ms.date: 04/11/2017
-ms.author: cfowler, glenga
+ms.author: glenga
+ms.custom: mvc
 ---
 # Azure CLI Samples
 

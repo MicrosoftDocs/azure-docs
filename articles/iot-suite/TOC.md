@@ -37,7 +37,7 @@
 ## [Device information in the remote monitoring solution](iot-suite-remote-monitoring-device-info.md)
 ## [Deploy a gateway for connected factory](iot-suite-connected-factory-gateway-deployment.md)
 ## [Customize connected factory](iot-suite-connected-factory-customize.md)
-
+## [Use the OPC publisher for connected factory](iot-suite-connected-factory-publisher.md)
 # Reference
 ## [Security architecture](iot-security-architecture.md)
 ## [Security best practices](iot-security-best-practices.md)
@@ -51,8 +51,11 @@
 ## [Machine Learning](/azure/machine-learning/)
 
 # Resources
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [FAQ](iot-suite-faq.md)
+## [Connected factory FAQ](iot-suite-faq-cf.md)
 ## [IoT Suite learning path](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 
 
 

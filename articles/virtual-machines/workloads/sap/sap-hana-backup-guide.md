@@ -68,7 +68,7 @@ is enabled, after takeover to the secondary side, the log backups will automatic
 
 ### Why SAP HANA backup?
 
-Azure storage offers availability and reliability out of the box (see [Introduction to Microsoft Azure Storage](../../../storage/storage-introduction.md) for more information about Azure storage).
+Azure storage offers availability and reliability out of the box (see [Introduction to Microsoft Azure Storage](../../../storage/common/storage-introduction.md) for more information about Azure storage).
 
 The minimum for &quot;backup&quot; is to rely on the Azure SLAs, keeping the SAP HANA data and log files on Azure VHDs attached to the SAP HANA server VM. This approach covers VM failures, but not potential damage to the SAP HANA data and log files, or logical errors like deleting data or files by accident. Backups are also required for compliance or legal reasons. In short, there is always a need for SAP HANA backups.
 
@@ -118,7 +118,7 @@ Azure Backup service uses Azure VM extensions to take care of the file system co
 The SAP HANA article [Planning Your Backup and Recovery Strategy](https://help.sap.com/saphelp_hanaplatform/helpdata/en/ef/085cd5949c40b788bba8fd3c65743e/content.htm) states a basic plan to do backups:
 
 - Storage snapshot (daily)
-- Complete data backup using file or backing (once a week)
+- Complete data backup using file or bacint format (once a week)
 - Automatic log backups
 
 Optionally, one could go completely without storage snapshots; they could be replaced by HANA delta backups, like incremental or differential backups (see [Delta Backups](https://help.sap.com/saphelp_hanaplatform/helpdata/en/c3/bb7e33bb571014a03eeabba4e37541/content.htm)).
@@ -166,7 +166,7 @@ On Microsoft Azure, a customer could use the IaaS VM encryption feature to encry
 
 Azure Backup service can handle encrypted VMs/disks (see [How to back up and restore encrypted virtual machines with Azure Backup](../../../backup/backup-azure-vms-encryption.md)).
 
-Another option would be to maintain the SAP HANA VM and its disks without encryption, and store the SAP HANA backup files in a storage account for which encryption was enabled (see [Azure Storage Service Encryption for Data at Rest](../../../storage/storage-service-encryption.md)).
+Another option would be to maintain the SAP HANA VM and its disks without encryption, and store the SAP HANA backup files in a storage account for which encryption was enabled (see [Azure Storage Service Encryption for Data at Rest](../../../storage/common/storage-service-encryption.md)).
 
 ## Test setup
 

@@ -11,11 +11,11 @@ tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 5/22/2017
-ms.author: xujing
+ms.date: 5/26/2017
+ms.author: xujing;genli
 
 ---
 # Understand common error messages when you manage Windows virtual machines in Azure

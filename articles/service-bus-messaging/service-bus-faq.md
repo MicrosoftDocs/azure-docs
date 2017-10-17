@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/02/2017
-ms.author: sethm;jotaub
+ms.date: 08/07/2017
+ms.author: sethm
 
 ---
 # Service Bus FAQ
-This article answers some frequently asked questions about Microsoft Azure Service Bus. You can also visit the [Azure Support FAQ](http://go.microsoft.com/fwlink/?LinkID=185083) for general Azure pricing and support information.
+This article answers some frequently asked questions about Microsoft Azure Service Bus. You can also visit the [Azure Support FAQs](http://go.microsoft.com/fwlink/?LinkID=185083) for general Azure pricing and support information.
 
 ## General questions about Azure Service Bus
 ### What is Azure Service Bus?
@@ -56,7 +56,7 @@ This section answers some frequently-asked questions about the Service Bus prici
 
 The [Service Bus pricing and billing](service-bus-pricing-billing.md) article explains the billing meters in Service Bus, and for information about Service Bus pricing options, see [Service Bus pricing details](https://azure.microsoft.com/pricing/details/service-bus/).
 
-You can also visit the [Azure Support FAQ](http://go.microsoft.com/fwlink/?LinkID=185083) for general Azure pricing information. 
+You can also visit the [Azure Support FAQs](http://go.microsoft.com/fwlink/?LinkID=185083) for general Azure pricing information. 
 
 ### How do you charge for Service Bus?
 For complete information about Service Bus pricing, please see [Service Bus pricing details][Pricing overview]. In addition to the prices noted, you are charged for associated data transfers for egress outside of the data center in which your application is provisioned.

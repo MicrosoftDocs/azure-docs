@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Export to SQL from Azure Application Insights | Microsoft Docs'
 description: Continuously export Application Insights data to SQL using Stream Analytics.
 services: application-insights
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2015
-ms.author: cfreeman
+ms.author: bwren
 
 ---
 # Walkthrough: Export to SQL from Application Insights using Stream Analytics

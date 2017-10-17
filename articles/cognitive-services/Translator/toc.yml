@@ -20,3 +20,7 @@
     href: http://docs.microsofttranslator.com/speech-translate.html
   - name: Translator Text API reference
     href: http://docs.microsofttranslator.com/text-translate.html
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/

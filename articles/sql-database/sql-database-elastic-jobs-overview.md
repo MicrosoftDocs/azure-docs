@@ -1,6 +1,6 @@
 ---
 title: Managing scaled-out cloud databases | Microsoft Docs
-description: Illustrates the elastic database job service
+description: Use the elastic database job service to execute a script across a group of databases.
 metakeywords: azure sql database elastic databases
 services: sql-database
 documentationcenter: ''
@@ -9,7 +9,7 @@ author: ddove
 
 ms.assetid: 6fa47cf2-1162-4534-a206-6e2d95b78580
 ms.service: sql-database
-ms.custom: multiple databases
+ms.custom: scale out apps
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na

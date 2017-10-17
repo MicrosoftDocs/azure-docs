@@ -1,9 +1,8 @@
-> [!NOTE]
-> An App Service plan represents the collection of physical resources used to host your apps. All applications assigned to an App Service plan share the resources defined by it. This sharing allows you to save money when hosting multiple apps.
->
-> App Service plans define:
-> * Region (North Europe, East US, and Southeast Asia, etc.)
-> * Instance Size (Small, Medium, Large)
-> * Scale Count (one to 20 instances by default)
-> * SKU (Free, Shared, Basic, Standard, Premium)
-> 
+An [App Service plan](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) specifies the location, size, and features of the web server farm that hosts your app. You can save money when hosting multiple apps by configuring the web apps to share a single App Service plan.
+
+App Service plans define:
+
+* Region (for example: North Europe, East US, or Southeast Asia)
+* Instance size (small, medium, or large)
+* Scale count (1 to 20 instances)
+* SKU (Free, Shared, Basic, Standard, or Premium)

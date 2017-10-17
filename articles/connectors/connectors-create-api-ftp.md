@@ -83,8 +83,9 @@ The logic app also has been configured with an action to get the contents of the
 
 You can now add another action such as the [SQL Server - insert row](connectors-create-api-sqlazure.md) action to insert the contents of the new or modified file into a SQL database table.  
 
-## View the swagger
-See the [swagger details](/connectors/ftpconnector/). 
+## Connector-specific details
+
+View any triggers and actions defined in the swagger, and also see any limits in the [connector details](/connectors/ftpconnector/). 
 
 ## Next Steps
 [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md)

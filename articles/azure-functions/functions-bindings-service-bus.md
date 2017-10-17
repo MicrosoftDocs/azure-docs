@@ -4,7 +4,7 @@ description: Understand how to use Azure Service Bus triggers and bindings in Az
 services: functions
 documentationcenter: na
 author: christopheranderson
-manager: erikre
+manager: cfowler
 editor: ''
 tags: ''
 keywords: azure functions, functions, event processing, dynamic compute, serverless architecture
@@ -16,7 +16,7 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/01/2017
-ms.author: chrande; glenga
+ms.author: glenga
 
 ---
 # Azure Functions Service Bus bindings
@@ -79,7 +79,7 @@ Note the following:
 * **Single-threading** - By default, the Functions runtime processes multiple messages concurrently. To direct the runtime 
   to process only a single queue or topic message at a time, set `serviceBus.maxConcurrentCalls` to 1 in *host.json*. 
   For information about *host.json*, see [Folder Structure](functions-reference.md#folder-structure) and 
-  [host.json](https://git
+  [host.json](https://github
   .com/Azure/azure-webjobs-sdk-script/wiki/host.json).
 * **Poison message handling** - Service Bus does its own poison message handling, which can't be controlled or configured 
   in Azure Functions configuration or code. 
@@ -187,7 +187,7 @@ The Service Bus queue and topic output for a function use the following JSON obj
         "topicName" : "<Name of the topic>",
         "subscriptionName" : "<Name of the subscription>",
         "connection" : "<Name of app setting that has your topic's connection string - see below>",
-        "accessRights" : "<Access rights for the connection string - see below>"
+        "accessRights" : "<Access rights for the connection string - see below>",
         "type" : "serviceBus",
         "direction" : "out"
     }

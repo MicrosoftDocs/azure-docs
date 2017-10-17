@@ -3,7 +3,7 @@ title: Load data from SQL Server into Azure SQL Data Warehouse (SSIS) | Microsof
 description: Shows you how to create a SQL Server Integration Services (SSIS) package to move data from a wide variety of data sources to SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
-author: douglaslms
+author: ckarst
 manager: jhubbard
 editor: ''
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: loading
 ms.date: 03/30/2017
-ms.author: douglasl;barbkess
+ms.author: cakarst;douglasl;barbkess
 
 
 ---

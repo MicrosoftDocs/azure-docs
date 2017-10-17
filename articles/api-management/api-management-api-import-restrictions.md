@@ -3,7 +3,7 @@ title: Restrictions and known issues in Azure API Management API import | Micros
 description: Details of known issues and restrictions on import into Azure API Management using the Open API, WSDL or WADL formats.
 services: api-management
 documentationcenter: ''
-author: mattfarm
+author: vladvino
 manager: vlvinogr
 editor: ''
 

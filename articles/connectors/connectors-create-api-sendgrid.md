@@ -36,9 +36,9 @@ To create Logic apps with SendGrid, you must first create a **connection** then 
 
 After you create the connection, you can use it to execute the actions and listen for the triggers.
 
-## View the swagger
+## Connector-specific details
 
-View any triggers, actions, and limits in the [swagger details](/connectors/sendgrid/).
+View any triggers and actions defined in the swagger, and also see any limits in the [connector details](/connectors/sendgrid/).
 
 ## More connectors
 Go back to the [APIs list](apis-list.md).

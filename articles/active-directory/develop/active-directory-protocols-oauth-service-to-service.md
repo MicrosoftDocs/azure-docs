@@ -3,7 +3,7 @@ title: Azure AD Service to Service Auth using OAuth2.0 | Microsoft Docs
 description: This article describes how to use HTTP messages to implement service to service authentication using the OAuth2.0 client credentials grant flow.
 services: active-directory
 documentationcenter: .net
-author: priyamohanram
+author: navyasric
 manager: mbaldwin
 editor: ''
 
@@ -14,7 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
-ms.author: priyamo
+ms.author: nacanuma
+ms.custom: aaddev
 
 ---
 # Service to service calls using client credentials (shared secret or certificate)
@@ -72,91 +73,13 @@ A service-to-service access token request with a certificate contains the follow
 | grant_type |required |Specifies the requested response type. In a Client Credentials Grant flow, the value must be **client_credentials**. |
 | client_id |required |Specifies the Azure AD client id of the calling web service. To find the calling application's client ID, in the [Azure portal](https://portal.azure.com), click **Active Directory**, switch directory, click the application. The client_id is the *Application ID* |
 | client_assertion_type |required |The value must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
-| client_assertion |required | An assertion (a JSON Web Token) that you need to create and sign with the certificate you registered as credentials for your application. See the following details on how to register your certificate and the format of the assertion.|
+| client_assertion |required | An assertion (a JSON Web Token) that you need to create and sign with the certificate you registered as credentials for your application. Read about [certificate credentials](active-directory-certificate-credentials.md) to learn how to register your certificate and the format of the assertion.|
 | resource | required |Enter the App ID URI of the receiving web service. To find the App ID URI, in the Azure portal, click **Active Directory**, click the directory, click the application, and then click **Configure**. |
 
 Notice that the parameters are almost the same as in the case of the request by shared secret except that
 the client_secret parameter is replaced by two parameters: a client_assertion_type and client_assertion.
 
-#### Format of the assertion
-To compute the assertion, you probably want to use one of the many [JSON Web Token](https://jwt.io/) libraries in the language of your choice. The information carried by the token is:
-
-##### Header
-
-| Parameter |  Remark |
-| --- | --- | --- |
-| `alg` | Should be **RS256** |
-| `typ` | Should be **JWT** |
-| `x5t` | Should be the X.509 Certificate SHA-1 thumbprint |
-
-##### Claims (Payload)
-
-| Parameter |  Remark |
-| --- | --- | --- |
-| `aud` | Audience: Should be **https://login.microsoftonline/*tenant_Id*/oauth2/token** |
-| `exp` | Expiration date |
-| `iss` | Issuer: should be the client_id (Application Id of the client service) |
-| `jti` | GUID: the JWT ID |
-| `nbf` | Not Before: date before which the token cannot be used |
-| `sub` | Subject: As for `iss`, should be the client_id (Application Id of the client service) |
-
-##### Signature
-The signature is computed applying the certificate as described in the [JSON Web Token RFC7519 specification](https://tools.ietf.org/html/rfc7519)
-
-##### Example of a decoded JWT assertion
-```
-{
-  "alg": "RS256",
-  "typ": "JWT",
-  "x5t": "gx8tGysyjcRqKjFPnd7RFwvwZI0"
-}
-.
-{
-  "aud": "https: //login.microsoftonline.com/contoso.onmicrosoft.com/oauth2/token",
-  "exp": 1484593341,
-  "iss": "97e0a5b7-d745-40b6-94fe-5f77d35c6e05",
-  "jti": "22b3bb26-e046-42df-9c96-65dbd72c1c81",
-  "nbf": 1484592741,  
-  "sub": "97e0a5b7-d745-40b6-94fe-5f77d35c6e05"
-}
-.
-"Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
-
-```
-
-##### Example of encoded JWT assertion
-The following string is an example of encoded assertion. If you look carefully, you notice three sections separated by dots (.).
-The first section encodes the header, the second the payload, and the last is the signature computed with the certificates from the content of the first two sections.
-```
-"eyJhbGciOiJSUzI1NiIsIng1dCI6Imd4OHRHeXN5amNScUtqRlBuZDdSRnd2d1pJMCJ9.eyJhdWQiOiJodHRwczpcL1wvbG9naW4ubWljcm9zb2Z0b25saW5lLmNvbVwvam1wcmlldXJob3RtYWlsLm9ubWljcm9zb2Z0LmNvbVwvb2F1dGgyXC90b2tlbiIsImV4cCI6MTQ4NDU5MzM0MSwiaXNzIjoiOTdlMGE1YjctZDc0NS00MGI2LTk0ZmUtNWY3N2QzNWM2ZTA1IiwianRpIjoiMjJiM2JiMjYtZTA0Ni00MmRmLTljOTYtNjVkYmQ3MmMxYzgxIiwibmJmIjoxNDg0NTkyNzQxLCJzdWIiOiI5N2UwYTViNy1kNzQ1LTQwYjYtOTRmZS01Zjc3ZDM1YzZlMDUifQ.
-Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
-```
-
-#### Register your certificate with Azure AD
-To associate the certificate credential with the client application in Azure AD, you need to edit the application manifest.
-Having hold of a certificate, you need to compute:
-- `$base64Thumbprint`, which is the base64 encoding of the certificate Hash
-- `$base64Value`, which is the base64 encoding of the certificate raw data
-
-you also need to provide a GUID to identify the key in the application manifest (`$keyId`)
-
-In the Azure portal app registration for the client application, click **Manifest**, and **Download**.
-Open the manifest if your favorite text editor, and replace the *keyCredentials* property with your new certificate information using the following schema:
-```
-"keyCredentials": [
-    {
-        "customKeyIdentifier": "$base64Thumbprint",
-        "keyId": "$keyid",
-        "type": "AsymmetricX509Cert",
-        "usage": "Verify",
-        "value":  "$base64Value"
-    }
-]
-```
-Save the edits to the application manifest, and upload it back into Azure AD by clicking **Manifest** and then **Upload**. The keyCredentials property is multi-valued, so you may upload multiple certificates for richer key management.
-
-
-#### Example of request
+#### Example
 The following HTTP POST requests an access token for the https://service.contoso.com/ web service with a certificate. The `client_id` identifies the web service that requests the access token.
 
 ```

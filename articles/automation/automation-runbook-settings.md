@@ -3,7 +3,7 @@ title: Runbook settings | Microsoft Docs
 description: Describes the configuration settings for a runbook in Azure Automation and how to change them using both the Azure Management Portal and Windows PowerShell.
 services: automation
 documentationcenter: ''
-author: mgoedtel
+author: eslesar
 manager: stevenka
 editor: tysonn
 

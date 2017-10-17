@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
+ms.custom: aaddev
 
 ---
 # Should I use the v2.0 endpoint?
@@ -76,6 +77,8 @@ In this case, you're referring to a DNS subdomain of login.contoso.com. If you w
 `https://login-west.contoso.com`  
 
 You can add the latter two because they are subdomains of the first redirect URI, contoso.com. This limitation will be removed in an upcoming release.
+
+Also note, you can have only 20 reply URLs for a particular application.
 
 To learn how to register an app in the Application Registration Portal, see [How to register an app with the v2.0 endpoint](active-directory-v2-app-registration.md).
 

@@ -1,5 +1,5 @@
 ---
-title: What is Apache Hive and HiveQL- Azure HDInsight | Microsoft Docs
+title: What is Apache Hive and HiveQL - Azure HDInsight | Microsoft Docs
 description: Apache Hive is a data warehouse system for Hadoop. You can query data stored in Hive using HiveQL, which similar to Transact-SQL. In this document, learn how to use Hive and HiveQL with Azure HDInsight.
 keywords: hiveql,what is hive,hadoop hiveql,how to use hive,learn hive,what is hive
 services: hdinsight
@@ -11,16 +11,16 @@ tags: azure-portal
 
 ms.assetid: 2c10f989-7636-41bf-b7f7-c4b67ec0814f
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/12/2017
+ms.date: 08/03/2017
 ms.author: larryfr
 
 ---
-# What is Apache Hive and HiveQL on Azure HDInsight
+# What is Apache Hive and HiveQL on Azure HDInsight?
 
 [Apache Hive](http://hive.apache.org/) is a data warehouse system for Hadoop. Hive enables data summarization, querying, and analysis of data. Hive queries are written in HiveQL, which is a query language similar to SQL.
 
@@ -28,7 +28,7 @@ Hive allows you to project structure on largely unstructured data. After you def
 
 HDInsight provides several cluster types, which are tuned for specific workloads. The following cluster types are most often used for Hive queries:
 
-* __Interactive Hive__: A Hadoop cluster that provides [Low Latency Analytical Processing (LLAP)](https://cwiki.apache.org/confluence/display/Hive/LLAP) functionality to improve response times for interactive queries. For more information, see the [Start with Interactive Hive in HDInsight](hdinsight-hadoop-use-interactive-hive.md) document.
+* __Interactive Query__: A Hadoop cluster that provides [Low Latency Analytical Processing (LLAP)](https://cwiki.apache.org/confluence/display/Hive/LLAP) functionality to improve response times for interactive queries. For more information, see the [Start with Interactive Query in HDInsight](hdinsight-hadoop-use-interactive-hive.md) document.
 
 * __Hadoop__: A Hadoop cluster that is tuned for batch processing workloads. For more information, see the [Start with Hadoop in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md) document.
 
@@ -49,7 +49,7 @@ Use the following table to discover how to use Hive with HDInsight:
 | [Windows PowerShell](hdinsight-hadoop-use-hive-powershell.md) |&nbsp; |✔ |Linux or Windows* |Windows |
 
 > [!IMPORTANT]
-> \* Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+> \* Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 >
 > If you are using a Windows-based HDInsight cluster, you can use the [Query console](hdinsight-hadoop-use-hive-query-console.md) from your browser or [Remote Desktop](hdinsight-hadoop-use-hive-remote-desktop.md) to run Hive queries.
 
@@ -190,7 +190,7 @@ To aid in debugging jobs ran using Tez, HDInsight provides the following web UIs
 
 [LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP) (sometimes known as Live Long and Process) is a new feature in Hive 2.0 that allows in-memory caching of queries. LLAP makes Hive queries much faster, up to [26x faster than Hive 1.x in some cases](https://hortonworks.com/blog/announcing-apache-hive-2-1-25x-faster-queries-much/).
 
-HDInsight provides LLAP in the Interactive Hive cluster type. For more information, see the [Start with Interactive Hive](hdinsight-hadoop-use-interactive-hive.md) document.
+HDInsight provides LLAP in the Interactive Query cluster type. For more information, see the [Start with Interactive Query](hdinsight-hadoop-use-interactive-hive.md) document.
 
 ## Hive jobs and SQL Server Integration Services
 

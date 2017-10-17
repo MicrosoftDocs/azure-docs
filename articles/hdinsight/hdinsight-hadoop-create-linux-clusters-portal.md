@@ -1,5 +1,5 @@
 ---
-title: Create Azure HDInsight (Hadoop) clusters using a web browser | Microsoft Docs
+title: Create Hadoop clusters using a web browser - Azure HDInsight | Microsoft Docs
 description: Learn how to create Hadoop, HBase, Storm, or Spark clusters on Linux for HDInsight using a web browser and the Azure preview portal.
 services: hdinsight
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/10/2017
+ms.date: 08/28/2017
 ms.author: nitinme
 
 ---
@@ -32,6 +32,9 @@ The Azure portal is a web-based management tool for services and resources hoste
 
 ## Create clusters
 The Azure portal exposes most of the cluster properties. Using Azure Resource Manager template, you can hide a lot of details. For more information, see [Create Linux-based Hadoop clusters in HDInsight using Azure Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
+
+[!INCLUDE [secure-transfer-enabled-storage-account](../../includes/hdinsight-secure-transfer.md)]
+
 
 1. Sign in to the [Azure  portal](https://portal.azure.com).
 2. Click **+**, click **Intelligence + Analytics**, and then click **HDInsight**.
