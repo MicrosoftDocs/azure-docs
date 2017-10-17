@@ -180,7 +180,7 @@ To connect to the server by using the GUI tool MySQL Workbench, take the followi
 
 2. Create a new connection. Click the plus (+) icon beside the **MySQL Connections** heading.
 
-3. In the **Setup New Connection** dialog box, enter the following information on the **Parameters** tab:
+3. In the **Setup New Connection** dialog box, enter your server connection information on the **Parameters** tab. Placeholder values are shown as an example. Replace the Hostname, Username, and Password with your own values.
 
     ![Set up new connection](./media/quickstart-create-mysql-server-database-using-azure-portal/setup-new-connection.png)
 
