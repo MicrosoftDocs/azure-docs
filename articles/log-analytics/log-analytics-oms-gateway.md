@@ -264,7 +264,7 @@ The following table shows the event IDs and descriptions for OMS Gateway Log eve
 | 104 |Not an HTTP CONNECT command |
 | 105 |Destination server is not in allowed list or the destination port is not secure port (443) <br> <br> Ensure that the MMA agent on your Gateway server and the agents communicating with the Gateway are connected to the same Log Analytics workspace. |
 | 105 |ERROR TcpConnection – Invalid Client certificate: CN=Gateway <br><br> Ensure that: <br>    <br> &#149; You are using a Gateway with version number 1.0.395.0 or greater. <br> &#149; The MMA agent on your Gateway server and the agents communicating with the Gateway are connected to the same Log Analytics workspace. |
-| 106 |The OMS Gateway only supports TLS 1.0, TLS 1.1 and 1.2.  It does not support SSL. For any unsupported TLS/SSL protocol version, OMS Gateway generates event ID 106|
+| 106 |The OMS Gateway only supports TLS 1.0, TLS 1.1 and 1.2.  It does not support SSL. For any unsupported TLS/SSL protocol version, OMS Gateway generates event ID 106.|
 | 107 |The TLS session has been verified |
 
 **Performance counters to collect**
