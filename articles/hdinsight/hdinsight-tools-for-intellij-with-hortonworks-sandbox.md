@@ -156,9 +156,9 @@ To submit a project to an emulator:
 
 - For a video about HDInsight Tools for IntelliJ, see [Introduce HDInsight Tools for IntelliJ for Spark development](https://www.youtube.com/watch?v=YTZzYVgut6c).
 
-- Learn how to [remotely debug Spark applications on an HDInsight cluster with Azure Toolkit for IntelliJ through SSH](hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh.md).
+- Learn how to [remotely debug Spark applications on an HDInsight cluster with Azure Toolkit for IntelliJ through SSH](spark/apache-spark-intellij-tool-debug-remotely-through-ssh.md).
 
-- Learn how to [use HDInsight Tools in Azure Toolkit for IntelliJ to debug Spark applications remotely on an HDInsight Spark Linux cluster](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md).
+- Learn how to [use HDInsight Tools in Azure Toolkit for IntelliJ to debug Spark applications remotely on an HDInsight Spark Linux cluster](spark/apache-spark-intellij-tool-plugin-debug-jobs-remotely.md).
 
 - Learn how to [Use HDInsight Tools in Azure Toolkit for Eclipse to create Spark applications](hdinsight-apache-spark-eclipse-tool-plugin.md).
 
