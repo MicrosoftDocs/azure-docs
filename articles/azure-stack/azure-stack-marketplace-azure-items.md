@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 8/11/2017
+ms.date: 10/17/2017
 ms.author: erikje
 
 ---
@@ -135,6 +135,7 @@ Microsoft Azure Stack supports the following Azure marketplace items:
 | ![](media/azure-stack-marketplace-azure-items/suitecrm.png) | [SuiteCRM](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.suitecrm?tab=Overview) | Popular Enterprise-grade CRM application. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/testlink.png) | [TestLink](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.testlink?tab=Overview) | Test management software facilitating quality assurance. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/tikiwikicmsgroupware.png) | [Tiki Wiki CMS Groupware](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.tikiwikicmsgroupware?tab=Overview) | Fully featured wiki platform. | Bitnami |
+| ![](media/azure-stack-marketplace-azure-items/tinytinyrss.png) | [Tiny Tiny RSS](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.tinytinyrss?tab=Overview) | Flexible Spen Source web-based news feed and aggregator. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/tomcat.png) | [Tomcat](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.tom-cat?tab=Overview) | Popular platform implementing specifications from Java Community. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/trac.png) | [Trac](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.trac?tab=Overview) | Enhanced wiki and issue tracking system. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/typo3.png) | [Typo3](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.typo3?tab=Overview) | Fully flexible CMS. | Bitnami |
@@ -145,11 +146,17 @@ Microsoft Azure Stack supports the following Azure marketplace items:
 | ![](media/azure-stack-marketplace-azure-items/x2enginesalescrm.png) | [X2Engine Sales CRM](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.x2enginesalescrm?tab=Overview) | Compact marketing, sales, and customer service application. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/xoops.png) | [Xoops](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.xoops?tab=Overview) | CMS and Web Portal Program that creates dynamic websites.
 | ![](media/azure-stack-marketplace-azure-items/zurmo.png) | [Zurmo](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.zurmo?tab=Overview) | Open Source CRM system: Mobile, Social, and Gamified. | Bitnami |
+| ![](media/azure-stack-marketplace-azure-items/chefautomate.png) | [Chef Automate](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/chef-software.chef-automate?tab=Overview) | Build, deploy, and manage with Chef Automate, the Continuous Automation Platform. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 8 "Jessie" with backports kernel](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/credativ.Debian8backports?tab=Overview) | Debian GNU/Linux is one of the most popular Linux distributions. | credativ |
 | ![](media/azure-stack-marketplace-azure-items/kemp.png) | [LoadMaster Load Balancer ADC Content Switch](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/kemptech.vlm-azure?tab=Overview) | Layer 4-7 Application Delivery Controller (ADC) Load Balancer, Content Switch, and Traffic Manager. | KEMP Technologies Inc. |
 | ![](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-based 6.9](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/RogueWave.CentOSbased69?tab=Overview) | This distribution of Linux is based on CentOS and is provided by Rogue Wave Software. | Rogue Wave Software (formerly OpenLogic)  |
 | ![](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-based 7.3](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/RogueWave.CentOSbased73?tab=Overview) | This distribution of Linux is based on CentOS and is provided by Rogue Wave Software. | Rogue Wave Software (formerly OpenLogic) |
+| ![](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 12 SP3 (BYOS) ](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/SUSE.SUSELinuxEnterpriseServer12SP3BringYourOwnSubscription?tab=Overview) | SUSE Linux Enterprise Server 12 SP3. | SUSE |
 | ![](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Manager 3.0 Proxy (BYOS) ](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/SUSE.SUSEManager30ProxyBringYourOwnSubscription?tab=Overview) | Best-in-class open source infrastructure management. | SUSE |
+| ![](media/azure-stack-marketplace-azure-items/trendmicro.png) | [Deep Security Agent for Linux](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/TrendMicroDeepSecurity.dsa-linux?tab=Overview) | Trend Micro Deep Security extension for Linux. | Trend Micro |
+| ![](media/azure-stack-marketplace-azure-items/trendmicro.png) | [Deep Security Agent for Windows](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/TrendMicroDeepSecurity.dsa-windows-arm?tab=Overview) | Trend Micro Deep Security extension for Windows. | Trend Micro |
+| ![](media/azure-stack-marketplace-azure-items/zerodown.png) | [ZeroDown Software Tool ](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/zerodown_software.zerodown-software-tool-7_1?tab=Overview) | ZeroDown Software Tool v7.1 - Migrate + HA. | SUSE |
+
 
 ### Next steps
 [Download a marketplace item](azure-stack-download-azure-marketplace-item.md)
