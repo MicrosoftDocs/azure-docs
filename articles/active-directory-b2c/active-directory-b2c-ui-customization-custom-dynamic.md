@@ -1,6 +1,6 @@
 ---
 title: 'Azure Active Directory B2C: Customize the Azure AD B2C user interface (UI) dynamically by using custom policies'
-description: How to support multiple branding experiences with HTML/CSS content that changes dynamically at runtime
+description: Support multiple branding experiences with HTML5/CSS content that changes dynamically at runtime.
 services: active-directory-b2c
 documentationcenter: ''
 author: yoelhor
@@ -99,7 +99,7 @@ Your custom HTML5 template is based on the Azure AD B2C built-in HTML5 template.
 
 6. If the *unified.cshtml* file is not open already, double-click the file to open it, and then clear the file contents.
 
-7. For this walkthrough, we remove the reference to layout-page. Add following code snippet to _unified.cshtml_
+7. For this walkthrough, we remove the reference to layout-page. Add the following code snippet to _unified.cshtml_:
 
     ```C#
     @{
