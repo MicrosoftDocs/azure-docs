@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2017
+ms.date: 10/16/2017
 ms.author: bradsev
 
 ---
@@ -26,31 +26,32 @@ This document provides instructions on how to create data science projects in Az
 ## What is the Team Data Science Process?
 The TDSP is an agile, iterative, data science process for executing and delivering advanced analytics solutions. It's designed to improve the collaboration and efficiency of data science teams in enterprise organizations. It supports these objectives with four key components:
 
-   * A standard [data science lifecycle](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/lifecycle-detail.md) definition.
+   * A standard [data science lifecycle](../team-data-science-process/lifecycle.md) definition.
    * A standardized project structure, [project documentation, and reporting templates](https://github.com/Azure/Azure-TDSP-ProjectTemplate).
-   * An infrastructure and resources for project execution, such as a compute and storage infrastructure, and code repositories.
+   * An infrastructure and resources for project execution, such as, respectively, a compute and storage infrastructure and code repositories.
    * [Tools and utilities](https://github.com/Azure/Azure-TDSP-Utilities) for data science project tasks, such as:
-      - Collaborative version control and code review
+      - Collaborative version control
+      - Code review
       - Data exploration and modeling
       - Work planning
 
-For a more complete discussion of the TDSP, see the [Team Data Science Process overview](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/README.md).
+For a more complete discussion of the TDSP, see the [Team Data Science Process overview](../team-data-science-process/overview.md).
 
 ## Why should you use the TDSP structure and templates?
-Standardization of the structure, lifecycle, and documentation of data science projects is key to facilitating effective collaboration on data science teams. The ability to create Machine Learning projects with a TDSP template provides a framework for coordinated teamwork.
+Standardization of the structure, lifecycle, and documentation of data science projects is key to facilitating effective collaboration on data science teams. Create machine learning projects with the TDSP template to provide such a framework for coordinated teamwork.
 
-We previously released a [GitHub repository for the TDSP project structure and templates](https://github.com/Azure/Azure-TDSP-ProjectTemplate) to help achieve these objectives. But it was not possible, until now, to instantiate the TDSP structure and templates within a data science tool. It's now possible to create a Machine Learning project that instantiates the TDSP structure and documentation templates. 
+We previously released a [GitHub repository for the TDSP project structure and templates](https://github.com/Azure/Azure-TDSP-ProjectTemplate) to help achieve these objectives. But it was not possible, until now, to instantiate the TDSP structure and templates within a data science tool. It's now possible to create a machine learning project that instantiates the TDSP structure and documentation templates. 
 
 ## Things to note before creating a new project
-Note or review the following *before* you create a new project:
+Review the following items *before* you create a new project:
 * Review the TDSP Machine Learning [template](https://aka.ms/tdspamlgithubrepo).
 * The contents (other than what is already present in the "docs" folder) are required to be less than 25 MB in size. See the note that follows this list.
 * The sample\_data folder is only for small data files (less than 5 MB) with which you can test your code or start early development.
 * Storing files, such as Word and PowerPoint files, can increase the size of the "docs" folder substantially. We advise that you to find a collaborative Wiki, [SharePoint](https://products.office.com/en-us/sharepoint/collaboration), or other collaborative resource to store such files.
-* For how to handle large files and outputs in Machine Learning, read [Persisting changes and dealing with large files](http://aka.ms/aml-largefiles).
+* To learn how to handle large files and outputs in Machine Learning, read [Persisting changes and dealing with large files](http://aka.ms/aml-largefiles).
 
 > [!NOTE]
-> Be sure that other than the readme.md file, all documentation-related content (text, markdowns, images, and other document files) that is *not* used during project execution resides in the folder named "docs" (all lowercase). The "docs" folder is a special folder ignored by Machine Learning execution so that the contents in this folder don't get copied to compute targets unnecessarily. Objects in this folder also don’t count toward the 25-MB cap for the project size. The "docs" folder, for example, is the place to store large image files needed in your documentation. These files are still tracked by Git through the run history. 
+> All documentation-related content (text, markdowns, images, and other document files) that is *not* used during project execution, other than the readme.md file, must reside in the folder named "docs" (all lowercase). The "docs" folder is a special folder ignored by Machine Learning execution so that the contents in this folder don't get copied to compute targets unnecessarily. Objects in this folder also don’t count toward the 25 MB cap for the project size. The "docs" folder, for example, is the place to store large image files needed in your documentation. These files are still tracked by Git through the run history. 
 
 ## Instantiate the TDSP structure and templates from the Machine Learning template gallery
 To create a new project with the TDSP structure and documentation templates, complete the following procedures.
@@ -78,7 +79,7 @@ To create a new project, open Azure Machine Learning. Under **Projects** on the 
 
 
 ## Examine the TDSP project structure
-After your new project is created, you can examine its structure (see the left panel in the following figure). It contains all the aspects of standardized documentation for business understanding. These items include the stages of the TDSP lifecycle, data location, definitions, and the architecture of this documentation template. 
+After your new project has been created, you can examine its structure (see the left panel in the following figure). It contains all the aspects of standardized documentation for business understanding. These items include the stages of the TDSP lifecycle, data location, definitions, and the architecture of this documentation template. 
 
 The structure shown is derived from the TDSP structure that is published in [TDSP project structure, documents, and artifact templates](https://github.com/Azure/Azure-TDSP-ProjectTemplate), with some modifications. For example, several of the document templates are merged into one markdown, namely, [ProjectReport](https://aka.ms/tdspamlgithubrepoprojectreport). 
 
@@ -92,7 +93,7 @@ The TDSP project template contains the following top-level folders:
 
 
 ## Use the TDSP structure and templates
-You need to add project-specific information to the structure and templates. You're expected to populate these with code and the information necessary to execute and deliver your project. The [ProjectReport](https://aka.ms/tdspamlgithubrepoprojectreport) file is a template that you need to modify with information relevant to your project. It comes with a set of questions that help you fill out the information for each of the four stages of the [TDSP lifecycle](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/lifecycle-detail.md).
+You need to add project-specific information to the structure and templates. You're expected to populate these with the code and the information necessary to execute and deliver your project. The [ProjectReport](https://aka.ms/tdspamlgithubrepoprojectreport) file is a template that you need to modify with information relevant to your project. It comes with a set of questions that help you fill out the information for each of the four stages of the [TDSP lifecycle](../team-data-science-process/lifecycle.md).
 
 An example of what a project structure looks like during execution or after completion is shown in the left panel in the following figure. This project is from the [Team Data Science Process sample project: Classify incomes from US census data in Azure Machine Learning](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) sample project.
 
