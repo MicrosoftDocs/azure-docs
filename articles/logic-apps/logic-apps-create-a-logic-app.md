@@ -89,7 +89,7 @@ for example, running your own code from a logic app with [Azure Functions](../az
    | ------- | --------------- | ----------- | 
    | **Name** | *your-logic-app-name* | Provide a unique logic app name. | 
    | **Subscription** | *your-Azure-subscription-name* | Select the Azure subscription that you want to use. | 
-   | **Resource group** | *your-Azure-resource-group-name* | Create or select an [Azure resource group](../azure-resource-manager/resource-group-overview.md) for organizing related Azure resources. | 
+   | **Resource group** | *your-Azure-resource-group-name* | Create an [Azure resource group](../azure-resource-manager/resource-group-overview.md) for this logic app and to organize all resources associated with this app. | 
    | **Location** | *your-Azure-datacenter-region* | Select the datacenter region for deploying your logic app, for example, West US. | 
    | **Log Analytics** | Off | Turn on diagnostic logging for your logic app, but for this quickstart, keep the **Off** setting. | 
    |||| 
@@ -109,8 +109,8 @@ Choose **Create**.
    Under the video, you can find templates for common logic app patterns. 
    This quickstart builds your logic app from scratch. 
 
-5. Scroll past the introduction video and common triggers to **Templates**. 
-Choose **Blank Logic App**.
+5. Scroll past the introduction video and common triggers. 
+Under **Templates**, choose **Blank Logic App**.
 
    ![Choose blank logic app template](./media/logic-apps-create-a-logic-app/choose-logic-app-template.png)
 
@@ -138,12 +138,14 @@ This example checks the feed every five minutes.
 
    ![Set up trigger with RSS feed, frequency, and interval](./media/logic-apps-create-a-logic-app/rss-trigger-setup.png)
 
+   Logic Apps creates a connection to the RSS feed.
+
    > [!TIP]
    > To simplify your view in the designer, 
    > you can collapse and hide a shape's details - 
    > just click inside the shape's title bar.
 
-3. Save your work. On the designer toolbar, choose **Save**.
+3. Save your work. On the designer toolbar, choose **Save**. 
 
    ![Save your logic app](./media/logic-apps-create-a-logic-app/save-logic-app.png)
 
@@ -186,6 +188,8 @@ For example:
 
 3. When you're prompted for credentials, 
 sign in with the username and password for your email account. 
+
+   Logic Apps creates a connection to your email account.
 
 4. Now specify the data that you want to include in the email. 
 
@@ -274,11 +278,20 @@ automated workflows for integrating systems and services.
 
 Your logic app continues running and possibly incurring charges 
 on your Azure subscription until you turn off or delete your app. 
-When you're done, make sure that you disable 
-or delete any resources where you don't want to incur charges.
+Also, when you create connections for your logic app, 
+those connections remain, even after you delete your logic app. 
 
-* To stop running your logic app without deleting your work, 
-disable your app. On your logic app menu, choose **Overview**. 
+When you're done, make sure that you disable or delete any 
+resources where you don't want to incur charges or don't want to keep. 
+To delete all resources that you created for this quickstart, 
+delete the Azure resource group that you created for this logic app. 
+
+### Turn off logic app
+
+To stop running your logic app without deleting your work, 
+disable your app. 
+
+On your logic app menu, choose **Overview**. 
 On the toolbar, choose **Disable**.
 
   ![Turn off your logic app](./media/logic-apps-create-a-logic-app/turn-off-disable-logic-app.png)
@@ -288,16 +301,38 @@ On the toolbar, choose **Disable**.
   > try returning to the Azure dashboard, 
   > and reopen your logic app.
 
-* To permanently delete your logic app, on the logic app menu, 
-choose **Overview**. On the toolbar, choose **Delete**. 
-Confirm that you want to delete your logic app, then choose **Delete**.
+### Delete logic app
 
-  ![Delete your logic app](./media/logic-apps-create-a-logic-app/delete-logic-app.png)
+You can delete just your logic app, but keep all other related resources, 
+like the connections that you created.
 
-  > [!TIP]
-  > If you don't see the logic app menu, 
-  > try returning to the Azure dashboard, 
-  > and reopen your logic app.
+1. On the logic app menu, choose **Overview**. 
+On the toolbar, choose **Delete**. 
+
+   ![Delete your logic app](./media/logic-apps-create-a-logic-app/delete-logic-app.png)
+
+   > [!TIP]
+   > If you don't see the logic app menu, 
+   > try returning to the Azure dashboard, 
+   > and reopen your logic app.
+
+2. Confirm that you want to delete your logic app, 
+then choose **Delete**.
+
+### Delete resource group
+
+If you don't want to keep anything related to your logic app, 
+delete the resource group that you created for this quickstart 
+and all related resources. Learn more about 
+[how to manage Azure resource groups](../azure-resource-manager/resource-group-portal.md#manage-resources).
+
+1. On the Azure menu, choose **Resource groups**.
+
+2. Choose the resource group that you want to delete. 
+On the resource group menu, choose **Overview**, if not already selected. 
+
+3. Review all the resources in the group that you want to delete. 
+When you're ready, choose **Delete resource group** on the resource group toolbar.
 
 ## Get support
 
