@@ -55,17 +55,17 @@ The following shows the answers that the JSON response may contain.  For a list 
         "totalEstimatedMatches": 667000000,
         "value": [
             {
-            "id": "https://cognitivegblppe.azure-api.net/api/v7/#WebPages.0",
-            "name": "Contosos - Official Home Page",
-            "url": "http://www.contoso.com/en-us",
-            "displayUrl": ...,
-            "snippet": "At contoso our mission and values ...",            
-            "dateLastCrawled": "2017-09-29T22:32:00",
-            "openGraphImage": {
-                "contentUrl": ...,
-                "width": 0,
-                "height": 0
-            }
+                "id": "https://cognitivegblppe.azure-api.net/api/v7/#WebPages.0",
+                "name": "Contosos - Official Home Page",
+                "url": "http://www.contoso.com/en-us",
+                "displayUrl": ...,
+                "snippet": "At contoso our mission and values ...",            
+                "dateLastCrawled": "2017-09-29T22:32:00",
+                "openGraphImage": {
+                    "contentUrl": ...,
+                    "width": 0,
+                    "height": 0
+                }
             },
             {
                 ...
