@@ -383,9 +383,9 @@ A combined approach is typically used for handling a variable, but ongoing, load
 
 ## Virtual network (VNet) and firewall configuration 
 
-When you provision a pool of compute nodes in Batch, you can associate the pool with a subnet of an Azure [virtual network (VNet)](../virtual-network/virtual-networks-overview.md).  
+When you provision a pool of compute nodes in Batch, you can associate the pool with a subnet of an Azure [virtual network (VNet)](../virtual-network/virtual-networks-overview.md). To use an Azure VNet, the Batch client API must use Azure Active Directory (AD) authentication. Azure Batch support for Azure AD is documented in [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md).  
 
-
+### VNet requirements
 [!INCLUDE [batch-virtual-network-ports](../../includes/batch-virtual-network-ports.md)]
 
 For more information about setting up a Batch pool in a VNet, see [Create a pool of virtual machines with your virtual network](batch-virtual-network.md).

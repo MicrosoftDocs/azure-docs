@@ -11,7 +11,7 @@ ms.date: 10/16/2017
 ms.author: v-dotren
 ---
 
-# Create a pool of virtual machines with your virtual network
+# Create an Azure Batch pool in a virtual network
 
 
 When you create an Azure Batch pool, you can provision the pool in a subnet of an [Azure virtual network](../virtual-network/virtual-networks-overview.md) (VNet) that you specify. This article explains how to set up a Batch pool in a VNet. 
@@ -21,14 +21,17 @@ When you create an Azure Batch pool, you can provision the pool in a subnet of a
 ## Why use a VNet?
 
 
-The compute nodes of an Azure Batch pool are automatically networked so that they can communicate with each other. However, by default, the nodes cannot communicate with virtual machines that are not part of the Batch pool, such as a license server or a file server. To allow pool compute nodes to communicate securely with other virtual machines, or with an on-premises network, you can provision the pool in a subnet of an Azure VNet. 
+An Azure Batch pool has settings to allow compute nodes to communicate with each other - for example, to run multi-instance tasks. These settings do not require a separate VNet. However, by default, the nodes cannot communicate with virtual machines that are not part of the Batch pool, such as a license server or a file server. To allow pool compute nodes to communicate securely with other virtual machines, or with an on-premises network, you can provision the pool in a subnet of an Azure VNet. 
 
 
 
-## VNet requirements
+## Prerequistes
 
-To prepare a VNet with one or more subnets in advance, you can use the Azure portal, Azure PowerShell, the Azure Command-Line Interface (CLI), or other methods. For steps to create an Azure Resource Manager-based VNet, see [Create a virtual network with multiple subnets](../virtual-network/virtual-networks-create-vnet-arm-pportal.md). To create a classic VNet, see [Create a virtual network (classic) with multiple subnets](../virtual-network/create-virtual-network-classic.md).
+* **Authentication**. To use an Azure VNet, the Batch client API must use Azure Active Directory (AD) authentication. Azure Batch support for Azure AD is documented in [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md). 
 
+* **An Azure VNet**. To prepare a VNet with one or more subnets in advance, you can use the Azure portal, Azure PowerShell, the Azure Command-Line Interface (CLI), or other methods. To create an Azure Resource Manager-based VNet, see [Create a virtual network with multiple subnets](../virtual-network/virtual-networks-create-vnet-arm-pportal.md). To create a classic VNet, see [Create a virtual network (classic) with multiple subnets](../virtual-network/create-virtual-network-classic.md).
+
+### VNet requirements
 [!INCLUDE [batch-virtual-network-ports](../../includes/batch-virtual-network-ports.md)]
     
 ## Create a pool with a VNet in the portal
@@ -49,13 +52,13 @@ Once you have created your VNet and assigned a subnet to it, you can create a Ba
 
 ## User-defined routes for forced tunneling
 
-You might have requirements in your organization to redirect (force) Internet-bound traffic from the subnet back to your on-premises location for inspection and logging. You can configure forced tunneling in the subnet by adding [user-defined routes](../virtual-network/virtual-networks-udr-overview.md).
+You might have requirements in your organization to redirect (force) Internet-bound traffic from the subnet back to your on-premises location for inspection and logging. You may have enabled forced tunneling for the subnets in your VNet. 
 
-To enable forced tunneling for the VNet selected for the Batch pool, add user-defined routes for the following:
+To ensure that your Azure Batch pool compute nodes can work in a VNet that has forced tunneling enabled, you must add the following [user-defined routes](../virtual-network/virtual-networks-udr-overview.md) for that subnet:
 
-* The IP addresses needed for the Batch service to communicate with pool VMs. For the list of addresses, please contact Azure Support.
+* The Batch service needs to communicate with pool compute nodes for scheduling tasks. To enable this communication, add a user-defined route for each IP address used by the Batch service in the region where your Batch account exists. To obtain the list of IP addresses of the Batch Service, please contact Azure Support.
 
-* Azure Storage addresses. 
+* Ensure that outbound traffic to Azure Storage (specifically, URLs of the form `<account>.table.core.windows.net`, `<account>.queue.core.windows.net`, and `<account>.blob.core.windows.net`) is not blocked via your on-premises network appliance.
     
 ## Next steps
 

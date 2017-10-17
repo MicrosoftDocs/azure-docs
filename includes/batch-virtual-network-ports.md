@@ -1,18 +1,14 @@
+- The VNet must be in the same Azure **region** and **subscription** as the Batch account.
 
-The VNet must meet the following requirements:
-
-  - The VNet must be in the same Azure **region** and **subscription** as the Batch account.
-
-  - For pools created with a virtual machine configuration, only Azure Resource Manager (ARM)-based virtual networks are supported. For pools created with a cloud services configuration, both ARM and classic virtual networks are supported. 
+- For pools created with a virtual machine configuration, only Azure Resource Manager-based VNets are supported. For pools created with a cloud services configuration, only classic VNets are supported. 
   
-  - To use an Azure Resource Manager-based VNet, the Batch client API must use Azure Active Directory (AD) authentication. Azure Batch support for Azure AD is documented in [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md). To use a classic VNet, the `'`MicrosoftAzureBatch`'` service principal must have the `Classic Virtual Machine Contributor` Role-Based Access Control (RBAC) role for the specified VNet. 
+- To use a classic VNet, the `MicrosoftAzureBatch` service principal must have the `Classic Virtual Machine Contributor` Role-Based Access Control (RBAC) role for the specified VNet. 
 
-  - The subnet specified for the pool must have enough unassigned IP addresses to accommodate the number of VMs targeted for the pool; that is, the sum of the `targetDedicatedNodes` and `targetLowPriorityNodes` properties of the pool. If the subnet doesn't have enough unassigned IP addresses, the pool partially allocates the compute nodes, and a resize error occurs. 
+- The subnet specified for the pool must have enough unassigned IP addresses to accommodate the number of VMs targeted for the pool; that is, the sum of the `targetDedicatedNodes` and `targetLowPriorityNodes` properties of the pool. If the subnet doesn't have enough unassigned IP addresses, the pool partially allocates the compute nodes, and a resize error occurs. 
 
-  - The VNet must allow communication from the Batch service to be able to schedule tasks on the compute nodes. This can be verified by checking if the VNet has any associated network security groups (NSGs). If communication to the compute nodes in the specified subnet is denied by an NSG, then the Batch service sets the state of the compute nodes to **unusable**. 
+- The VNet must allow communication from the Batch service to be able to schedule tasks on the compute nodes. This can be verified by checking if the VNet has any associated network security groups (NSGs). If communication to the compute nodes in the specified subnet is denied by an NSG, then the Batch service sets the state of the compute nodes to **unusable**. 
 
-  - If the specified VNet has associated Network Security Groups (NSGs) and/or a firewall, configure the inbound and outbound ports as shown in the following tables:
-
+- If the specified VNet has associated Network Security Groups (NSGs) and/or a firewall, configure the inbound and outbound ports as shown in the following tables:
 
 
   |    Destination Port(s)    |    Source IP address      |    Does Batch add NSGs?    |    Required for VM to be usable?    |    Action from user   |
@@ -25,4 +21,4 @@ The VNet must meet the following requirements:
   |------------------------|-------------------|----------------------------|-------------------------------------|------------------------|
   |    443    |    Azure Storage    |    No    |    Yes    |    If you add any NSGs, then ensure that this port is open to outbound   traffic.    |
 
-  Also, ensure that your Azure Storage endpoint can be resolved by any custom DNS servers that serve your VNet. Specifically, a URL of the form `<account>.table.core.windows.net` should be resolvable. 
+  Also, ensure that your Azure Storage endpoint can be resolved by any custom DNS servers that serve your VNet. Specifically, URLs of the form `<account>.table.core.windows.net`, `<account>.queue.core.windows.net`, and `<account>.blob.core.windows.net` should be resolvable. 
