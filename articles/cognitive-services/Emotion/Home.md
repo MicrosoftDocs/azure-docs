@@ -14,6 +14,10 @@ ms.author: anroth
 
 # Emotion API
 
+> [!IMPORTANT]
+> Video API Preview will end on October 30th, 2017 - Instead try the new [Video Indexer API Preview](https://azure.microsoft.com/en-us/services/cognitive-services/video-indexer/) by easily extracting insights from 
+videos & enhance content discovery experiences such as search results by detecting spoken words, faces, characters, and emotions. [Learn more](https://docs.microsoft.com/en-us/azure/cognitive-services/video-indexer/video-indexer-overview).
+
 Welcome to the Microsoft Emotion API, which allows you to build more personalized apps with Microsoft’s cutting edge cloud-based emotion recognition algorithm.
 
 ### Emotion Recognition
