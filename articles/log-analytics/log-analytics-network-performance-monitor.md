@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2017
+ms.date: 10/17/2017
 ms.author: banders
 
 ---
@@ -90,20 +90,19 @@ Use the following information to install and configure the solution.
 
 2. Add the Network Performance Monitor solution to your workspace from [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview) or by using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).  
    ![Network Performance Monitor symbol](./media/log-analytics-network-performance-monitor/npm-symbol.png)
-3. In the OMS portal, you'll see a new tile titled **Network Performance Monitor** with the message *Solution requires additional configuration*. You'll need to configure the solution to add networks based on subnetworks and nodes that are discovered by agents. Click **Network Performance Monitor** to start configuring the default network.  
-   ![solution requires additional configuration](./media/log-analytics-network-performance-monitor/npm-config.png)
+3. In the OMS portal, you'll see a new tile titled **Network Performance Monitor** with the message *Solution requires additional configuration*. Click on the tile to navigate to the **Deployment** tab and select the protocol to use for making the synthetic transactions for monitoring your network.  Review [Choose the right protocol-ICMP or TCP](#choose-the-right-protocol-icmp-or-tcp) to help you choose the right protocol suited for your network.<br><br> ![solution requires protocol selection](media/log-analytics-network-performance-monitor/log-analytics-netmon-perf-welcome.png)<br><br>
 
-### Configure the solution with a default network
-On the configuration page, you'll see a single network named **Default**. When you haven't defined any networks, all the automatically-discovered subnets are placed in the Default network.
+4. After choosing the protocol you will be redirected to the **OMS overview** page. While the solution aggregates data from your network, the Network Performance Monitor overview tile will display the message stating *Data aggregation in progress*.<br><br> ![solution is aggregating data](media/log-analytics-network-performance-monitor/log-analytics-netmon-tile-status-01.png)<br><br>
+5. Once the data is collected and indexed, the overview tile will change and indicate you need to perform additional configuration.<br><br> ![solution tile requires additional configuration](media/og-analytics-network-performance-monitor/log-analytics-netmon-tile-status-02.png)<br><br>
+6. Click on the tile and start configuring the solution as instructed below.
 
-Whenever you create a network, you add a subnet to it and that subnet is removed from the Default network. If you delete a network, all its subnets are automatically returned to the Default network.
-
-In other words, the Default network is the container for all the subnets that are not contained in any user-defined network. You cannot edit or delete the Default network. It always remains in the system. However, you can create as many networks as you need.
-
-In most cases, the subnets in your organization will be arranged in more than one network and you should create one or more networks to logically group your subnets.
 
 ### Create new networks
-A network in Network Performance Monitor is a container for subnets. You can create a network with any name that you want and add subnets to the network. For example, you can create a network named *Building1* and then add subnets, or you can create a network named *DMZ* and then add all subnets belonging to demilitarized zone to this network.
+A network in Network Performance Monitor is a logical container for subnets. You can create a network with a friendly name and add subnets to it according to your business logic. For example, you can create a network named *London* and add all the subnets in your London datacenter, or a network named *ContosoFrontEnd* and add all subnets serving the front end of your app named Contoso to this network.
+On the configuration page, you'll see a network named **Default** in the Networks tab. If you haven't created any networks, all the automatically-discovered subnets are placed in the Default network.
+Whenever you create a network, you add a subnet to it and that subnet is removed from the Default network. If you delete a network, all its subnets are automatically returned to the Default network.
+Thus, the Default network acts as a container for all the subnets that are not contained in any user-defined network. You cannot edit or delete the Default network. It always remains in the system. However, you can create as many custom networks as you need.
+In most cases, the subnets in your organization will be arranged in more than one network and you should create one or more networks to group your subnets as per your business logic
 
 #### To create a new network
 1. Click **Add network** and then type the network name and description.
@@ -144,16 +143,21 @@ All the nodes that have an agent installed on them are listed in the **Nodes** t
    ![enable node monitoring](./media/log-analytics-network-performance-monitor/npm-enable-node-monitor.png)
 
 ### Set monitoring rules
-Network Performance Monitor generates health events about the connectivity between a pair of nodes or subnetwork or network links when a threshold is breached. These thresholds can be learned automatically by the system or you can configure them custom alert rules.
+Network Performance Monitor generates health events when the threshold of the performance of network connections between 2 subnetworks or between 2 networks is breached. These thresholds can be learned automatically by the system or you can provide custom thresholds.
+The system automatically creates a Default rule which generates a health event whenever loss or latency between any pair of network/subnetwork links breaches the system-learned threshold. This helps the solution monitor your network infrastructure until you haven’t created any monitoring rules explicitly. If the Default rule is enabled, all the nodes send synthetic transactions to all the other nodes that you have enabled for monitoring. The default rule is useful in case of small networks, for example, in a scenario where you have a small number of servers running a microservice and you want to make sure that all o the servers have connectivity to each other.
 
-The *Default rule* is created by the system and it creates a health event whenever loss or latency between any pair of networks or subnetwork links breaches the system-learned threshold. You can choose to disable the default rule and create custom monitoring rules
+>[!NOTE]
+>It is highly recommended that you disable the default rule and create custom monitoring rules, especially in case of large networks where you are using a large number of nodes for monitoring. This will reduce the traffic generated by the solution and help you organize the monitoring of your network.
+
+Create custom monitoring rules according to your business logic. For example, if you want to monitor performance of the network connectivity of 2 office sites to headquarter, then group all the subnets in office site1 in network O1, all the subnets in office site2 in network O2 and all the subnets in the headquarter in network H. Create 2 monitoring rules-one between O1 and H and the other between O2 and H.
+
 
 #### To create custom monitoring rules
 1. Click **Add Rule** in the **Monitor** tab and enter the rule name and description.
 2. Select the pair of network or subnetwork links to monitor from the lists.
 3. First select the network in which the first subnetwork/s of interest is contained from the network dropdown, and then select the subnetwork/s from the corresponding subnetwork dropdown.
    Select **All subnetworks** if you want to monitor all the subnetworks in a network link. Similarly select the other subnetwork/s of interest. And, you can click **Add Exception** to exclude monitoring for particular subnetwork links from the selection you've made.
-4. Choose between ICMP and TCP protocols for executing synthetic transactions.
+4. [Choose between ICMP and TCP protocols](#choose-the-right-protocol-icmp-or-tcp) for executing synthetic transactions.
 5. If you don't want to create health events for the items you've selected, then clear **Enable health monitoring on the links covered by this rule**.
 6. Choose monitoring conditions.
    You can set custom thresholds for health event generation by typing threshold values. Whenever the value of the condition goes above its selected threshold for the selected network/subnetwork pair, a health event is generated.
@@ -188,7 +192,7 @@ You can use PowerShell scripts to configure firewall rules on your computers run
 In contrast, ICMP does not operate using port. In most enterprise scenarios, ICMP traffic is permitted through the firewalls to allow you to use network diagnostics tools like the Ping utility. So, if you can Ping one machine from another, then you can use the ICMP protocol without having to configure firewalls manually.
 
 > [!NOTE]
-> In case you are not sure what protocol to use, choose ICMP to start with. If you are not satisfied with the results, you can always switch to TCP later.
+> Some firewalls may block ICMP which may lead to retransmission resulting in large number of events in your security information and event management system. Make sure the protocol that you choose is not blocked by a network firewall/NSG, otherwise NPM will not be able to monitor the network segment.  Because of this, recommended that you use TCP for monitoring. You should use ICMP in scenarios where you are not able to use TCP, such as when you are using Windows client based nodes (since TCP raw sockets are not allowed in Windows clients) or your network firewall/NSG is blocking TCP.
 
 
 #### How to switch the protocol
@@ -201,8 +205,6 @@ If you chose to use ICMP during deployment, you can switch to TCP at any time by
 3.	Click **Save** to apply the setting.
 
 Even if the default rule is using a specific protocol, you can create new rules with a different protocol. You can even create a mix of rules where some of the rules use ICMP and another uses TCP.
-
-
 
 
 ## Data collection details
