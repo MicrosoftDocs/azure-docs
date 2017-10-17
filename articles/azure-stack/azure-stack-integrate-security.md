@@ -5,7 +5,7 @@ services: azure-stack
 author: troettinger
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/13/2017
+ms.date: 10/17/2017
 ms.author: victorh
 keywords:
 ---
