@@ -15,7 +15,7 @@ ms.custom: H1Hack27Feb2017
 
 ---
 
-# Azure IoT options
+# Compare Azure IoT options
 
 The article [Azure and the Internet of Things](iot-suite-what-is-azure-iot.md) describes a typical IoT solution architecture with the following layers:
 
@@ -50,7 +50,6 @@ Choosing your Azure IoT product is a critical part of planning your IoT solution
 | Skill level                 | Medium-High. You need Java or .NET skills to customize the solution back end. You need JavaScript skills to customize the visualization. | Low. You need modeling skills to customize the solution. No coding skills are required. |
 | Get started experience | Preconfigured solutions implement common IoT scenarios. Can be deployed in minutes. | Templates provide pre-built models. Can be deployed in minutes. |
 | Pricing                | You can fine-tune the services to control the cost. | Simple, predictable pricing structure. |
-| Example | Manufacturing company wants to create a smart factory. The company wants to connect multiple brownfield devices to perform commands and to drive aggregated insights in a back-end system. | Power generator manufacturer wants to sell connected generators. The generators send telemetry, state, and events to the cloud where the data is analyzed and actions can be taken. |
 
 The decision of which product to use to build your IoT solution is ultimately determined by:
 
