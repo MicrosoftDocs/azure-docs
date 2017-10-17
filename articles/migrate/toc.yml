@@ -7,7 +7,7 @@
 - name: Tutorials
   items:
   - name: Azure VMs
-  - href: tutorial-assessment-vmware.md
+    href: tutorial-assessment-vmware.md
 - name: Concepts
   items:
   - name: Assessment calculations
