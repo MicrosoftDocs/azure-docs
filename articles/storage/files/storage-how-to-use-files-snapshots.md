@@ -72,8 +72,7 @@ $snapshot=$share.Snapshot()
 
 ## Common share snapshot operations
 
-You can enumerate the share snapshots associated with your file share using "Previous Versions" integration in Windows, through REST, Client Library, PowerShell, and Portal. Once the Azure File share is mounted, you can view all the previous versions of the file using SMB "Previous Versions" integration. Once the Azure
-File share is mounted, you can view all the previous versions of the directory using SMB "Previous Versions" integration. In the following few sections you will learn how to use Azure portal, Windows and Azure CLI 2.0 to list, browse and restore share snapshots.
+You can enumerate the share snapshots associated with your file share using "Previous Versions" tab in Windows, through REST, Client Library, PowerShell, and Portal. Once the Azure File share is mounted, you can view all the previous versions of the file using "Previous Versions" tab in Windows. In the following sections you will learn how to use Azure portal, Windows and Azure CLI 2.0 to list, browse and restore share snapshots.
 
 ### Share snapshot operations in portal
 
