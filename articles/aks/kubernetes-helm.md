@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2017
+ms.date: 10/17/2017
 ms.author: nepeters
 ms.custom: mvc
 
 ---
 # Use Helm with Azure Container Service (AKS)
 
-[Helm](https://github.com/kubernetes/helm/) is an open-source packaging tool that helps you install and manage the lifecycle of Kubernetes applications. Similar to Linux package managers such as Apt-get and Yum, Helm is used to manage Kubernetes charts, which are packages of preconfigured Kubernetes resources.
+[Helm](https://github.com/kubernetes/helm/) is an open-source packaging tool that helps you install and manage the lifecycle of Kubernetes applications. Similar to Linux package managers such as *APT* and *Yum*, Helm is used to manage Kubernetes charts, which are packages of preconfigured Kubernetes resources.
 
-This document steps through configuring and using helm in a Kubernetes cluster on AKS.
+This document steps through configuring and using Helm in a Kubernetes cluster on AKS.
 
 ## Before you begin
 
@@ -31,10 +31,10 @@ The steps detailed in this document assume that you have created an AKS Kubernet
 
 ## Install Helm CLI
 
-The Helm CLI is a client that runs on your development system and allows you to start, stop, and manage applications with Helm charts. 
+The Helm CLI is a client that runs on your development system and allows you to start, stop, and manage applications with Helm charts.
 
 To install the Helm CLI on a Mac use `brew`. For additional installation options see, [Installing Helm](https://github.com/kubernetes/helm/blob/master/docs/install.md).
- 
+
 ```console
 brew install kubernetes-helm
 ```
@@ -54,9 +54,9 @@ Bash completion has been installed to:
 
 ## Configure Helm
 
-Tiller is a server-side component that runs on the Kubernetes cluster. Tiler manages the lifecycle of Kubernetes applications that have been run using Helm charts. 
+Tiller is a server-side component that runs on the Kubernetes cluster. Tiller manages the lifecycle of Kubernetes applications that have been run using Helm charts.
 
-Tiller is pre-installed on Kubernetes clusters in Azure, however the [helm init](https://docs.helm.sh/helm/#helm-init) command can be used to validate that Tiller is running the latest version. 
+Tiller is pre-installed on Kubernetes clusters in Azure, however the [helm init](https://docs.helm.sh/helm/#helm-init) command can be used to validate that Tiller is running the latest version.
 
 The [helm init](https://docs.helm.sh/helm/#helm-init) command is also used to connect the Helm client with the Kubernetes cluster.
 
@@ -73,39 +73,40 @@ Warning: Tiller is already installed in the cluster.
 Happy Helming!
 ```
 
-## Find Helm charts 
+## Find Helm charts
 
 Helm charts are used to deploy applications into a Kubernetes cluster. To search for pre-created Helm charts, use the [helm search](https://docs.helm.sh/helm/#helm-search) command.
 
-```console 
-helm search 
+```console
+helm search
 ```
 
-The output looks similar to, however with many more charts.
+The output looks similar to the following, however with many more charts.
 
 ```console
-NAME                         	VERSION	DESCRIPTION                                       
-stable/acs-engine-autoscaler 	2.0.0  	Scales worker nodes within agent pools            
+NAME                         	VERSION	DESCRIPTION
+stable/acs-engine-autoscaler 	2.0.0  	Scales worker nodes within agent pools
 stable/artifactory           	6.1.0  	Universal Repository Manager supporting all maj...
-stable/aws-cluster-autoscaler	0.3.1  	Scales worker nodes within autoscaling groups.    
-stable/buildkite             	0.2.0  	Agent for Buildkite                               
-stable/centrifugo            	2.0.0  	Centrifugo is a real-time messaging server.       
+stable/aws-cluster-autoscaler	0.3.1  	Scales worker nodes within autoscaling groups.
+stable/buildkite             	0.2.0  	Agent for Buildkite
+stable/centrifugo            	2.0.0  	Centrifugo is a real-time messaging server.
 stable/chaoskube             	0.5.0  	Chaoskube periodically kills random pods in you...
 stable/chronograf            	0.3.0  	Open-source web application written in Go and R...
-stable/cluster-autoscaler    	0.2.0  	Scales worker nodes within autoscaling groups.    
+stable/cluster-autoscaler    	0.2.0  	Scales worker nodes within autoscaling groups.
 stable/cockroachdb           	0.5.0  	CockroachDB is a scalable, survivable, strongly...
-stable/concourse             	0.7.0  	Concourse is a simple and scalable CI system.     
+stable/concourse             	0.7.0  	Concourse is a simple and scalable CI system.
 stable/consul                	0.4.1  	Highly available and distributed service discov...
 stable/coredns               	0.5.0  	CoreDNS is a DNS server that chains middleware ...
-stable/coscale               	0.2.0  	CoScale Agent                                     
-stable/dask-distributed      	2.0.0  	Distributed computation in Python                 
-stable/datadog               	0.8.0  	DataDog Agent  
+stable/coscale               	0.2.0  	CoScale Agent
+stable/dask-distributed      	2.0.0  	Distributed computation in Python
+stable/datadog               	0.8.0  	DataDog Agent
+...
 ```
 
-To update the list charts, use the [helm repo update](https://docs.helm.sh/helm/#helm-repo-update) command.
+To update the list of charts, use the [helm repo update](https://docs.helm.sh/helm/#helm-repo-update) command.
 
-```console 
-helm repo update 
+```console
+helm repo update
 ```
 
 Output:
@@ -114,18 +115,18 @@ Output:
 Hang tight while we grab the latest from your chart repositories...
 ...Skip local chart repository
 ...Successfully got an update from the "stable" chart repository
-Update Complete. ⎈ Happy Helming!⎈ 
+Update Complete. ⎈ Happy Helming!⎈
 ```
 
-## Run Helm charts 
- 
-To deploy a Nginx ingress controller, use the [helm install](https://docs.helm.sh/helm/#helm-install) command.
+## Run Helm charts
+
+To deploy a NGINX ingress controller, use the [helm install](https://docs.helm.sh/helm/#helm-install) command.
 
 ```console
-helm install stable/nginx-ingress 
+helm install stable/nginx-ingress
 ```
 
-The output looks similar to the following however includes much more information including instructions on how to use the Kubernetes deployment.
+The output looks similar to the following, but includes additional information such as instructions on how to use the Kubernetes deployment.
 
 ```console
 NAME:   tufted-ocelot
@@ -147,6 +148,7 @@ tufted-ocelot-nginx-ingress-default-backend  10.0.34.132  <none>       80/TCP   
 NAME                                         DESIRED  CURRENT  UP-TO-DATE  AVAILABLE  AGE
 tufted-ocelot-nginx-ingress-controller       1        1        1           0          5s
 tufted-ocelot-nginx-ingress-default-backend  1        1        1           1          5s
+...
 ```
 
 For more information on using an NGINX ingress controller with Kubernetes, see [NGINX Ingress Controller](https://github.com/kubernetes/ingress/tree/master/controllers/nginx).
@@ -156,16 +158,16 @@ For more information on using an NGINX ingress controller with Kubernetes, see [
 To see a list of charts installed on your cluster, use the [helm list](https://docs.helm.sh/helm/#helm-list) command.
 
 ```console
-helm list 
+helm list
 ```
 
 Output:
 
 ```console
 NAME         	REVISION	UPDATED                 	STATUS  	CHART              	NAMESPACE
-bilging-ant  	1       	Thu Oct  5 00:11:11 2017	DEPLOYED	nginx-ingress-0.8.7	default 
+bilging-ant  	1       	Thu Oct  5 00:11:11 2017	DEPLOYED	nginx-ingress-0.8.7	default
 ```
-  
+
 ## Next steps
 
 For more information about managing Kubernetes charts, see the Helm documentation.
