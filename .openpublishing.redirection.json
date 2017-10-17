@@ -6955,6 +6955,46 @@
             "redirect_url": "site-recovery-how-to-failback-azure-to-vmware",
             "redirect_document_id": false
         },
+		{
+            "source_path": "articles/site-recovery/site-recovery-vmm-to-vmm-classic.md",
+            "redirect_url": "tutorial-vmm-to-vmm",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/site-recovery-vmm-to-vmm-classic-legacy.md",
+            "redirect_url": "tutorial-vmm-to-vmm",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/site-recovery-vmm-to-azure-classic.md",
+            "redirect_url": "tutorial-hyper-v-to-azure",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/site-recovery-runbook-automation-classic.md",
+            "redirect_url": "site-recovery-runbook-automation",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/site-recovery-hyper-v-site-to-azure-classic.md",
+            "redirect_url": "tutorial-hyper-v-to-azure",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/site-recovery-failback-azure-to-vmware-classic.md",
+            "redirect_url": "site-recovery-how-to-failback-azure-to-vmware",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/site-recovery-failback-azure-to-vmware-classic-legacy.md",
+            "redirect_url": "site-recovery-how-to-failback-azure-to-vmware",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/site-recovery-vmware-setup-azure-ps-classic.md",
+            "redirect_url": "site-recovery-vmware-setup-azure-ps-resource-manager",
+            "redirect_document_id": false
+        },
         {
             "source_path": "articles/site-recovery/site-recovery-architecture-vmware-to-azure.md",
             "redirect_url": "vmware-walkthrough-architecture",
@@ -6992,6 +7032,11 @@
         },
         {
             "source_path": "articles/site-recovery/site-recovery-vmware-to-azure-classic.md",
+            "redirect_url": "site-recovery-vmware-to-azure",
+            "redirect_document_id": false
+        },
+	    {
+            "source_path": "articles/site-recovery/site-recovery-vmware-to-azure-classic-legacy.md",
             "redirect_url": "site-recovery-vmware-to-azure",
             "redirect_document_id": false
         },
