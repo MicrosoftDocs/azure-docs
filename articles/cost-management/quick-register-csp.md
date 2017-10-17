@@ -46,6 +46,19 @@ As a CSP partner, you can register with Azure Cost Management by Cloudyn. Your r
 7. Under **Invite other stakeholders**, you can add users by typing their email addresses. When complete, click **Next**. It takes about two hours for all your billing data to get added to Cloudyn.
 8. Click **Go to Cloudyn** to open the Cloudyn portal and then on the **Cloud Accounts Management** page, you should see your registered CSP account information.
 
+## Configure indirect CSP access in Cloudyn
+
+By default, the Partner Center API is only accessible to direct CSPs. However, a direct CSP provider can configure access for their indirect CSP customers or partners using entity groups in Cloudyn.
+
+To enable access for indirect CSP customers or partners, follow the steps in [Create a trial registration](#create-a-trial-registration) to set up a trial registration. Next, complete the following steps to segment indirect CSP data by using Cloudyn entity groups. Then, assign the appropriate user permissions to the entity groups.
+
+1. Create an entity group with the information at [Create entities](tutorial-user-access.md#create-entities).
+2. Follow the steps at [Assigning subscriptions to Cost Entities](https://support.cloudyn.com/hc/en-us/articles/115005139425-Video-Assigning-subscriptions-to-Cost-Entities). Associate the indirect CSP customer’s account and their Azure subscriptions to the entity that you create previously.
+3. Follow the steps at [Create a user with admin access](tutorial-user-access.md#create-a-user-with-admin-access) to create a user account with Admin access. Then, ensure the user account has admin access to the specific entities that you created previously for the indirect account.
+
+Indirect CSP partners sign in to the Cloudyn portal using the accounts that you created for them.
+
+
 [!INCLUDE [cost-management-create-account-view-data](../../includes/cost-management-create-account-view-data.md)]
 
 ## Next steps
