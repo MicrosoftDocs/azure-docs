@@ -21,7 +21,7 @@ ms.author: iainfou
 # Automatically scale machines in a virtual machine scale set with the Azure CLI 2.0
 When you create a scale set, you define the number of VM instances that you wish to run. As your application demand changes, you can automatically increase or decrease the number of VM instances. The ability to auto scale lets you keep up with customer demand or respond to application performance changes throughout the lifecycle of your app.
 
-This article shows you how to create auto scale rules with the Azure CLI 2.0 that monitor the performance of the VM instances in your scale set. These auto scale rules increase or decrease the number of VM instances in response to these performance metrics. You can also complete these steps with [Azure PowerShell](virtual-machine-scale-sets-windows-autoscale.md).
+This article shows you how to create auto scale rules with the Azure CLI 2.0 that monitor the performance of the VM instances in your scale set. These auto scale rules increase or decrease the number of VM instances in response to these performance metrics. You can also complete these steps with [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md) or in the [Azure portal](virtual-machine-scale-sets-autoscale-portal.md).
 
 
 ## Prerequisites
