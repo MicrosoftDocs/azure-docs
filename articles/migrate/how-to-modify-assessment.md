@@ -1,29 +1,28 @@
 ---
-title: Modify Azure Migration Planner assessment settings for on-premises VMware VMs | Microsoft Docs
+title: Modify Azure Migrate assessment settings | Microsoft Docs
 description: Describes how to set up and run an assessment for migrating VMware VMs to Azure using the Azure Migration Planner
-services: migration-planner
+services: migrate
 documentationcenter: ''
 author: rayne-wiselman
 manager: carmonm
 editor: ''
 
 ms.assetid: a068b9c7-5f87-4fe1-90b9-3be48d91aa3f
-ms.service: site-recovery
+ms.service: migrate
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/05/2017
+ms.date: 09/26/2017
 ms.author: raynew
 
 ---
-# Modify assessment values for VMware VM migration
+# Modify assessment settings
 
-[Azure Migration Planner](migration-planner-overview.md) runs assessments for migration to Azure using default settings.
+[Azure Migration Planner](migrate-overview.md) runs assessments for migration to Azure using default settings.
 
 After running an assessment, follow the instructions in this article if you want to modify those defaults.
 
-Post any comments or questions at the bottom of this article.
 
 ## Edit assessment values
 
@@ -45,8 +44,8 @@ Post any comments or questions at the bottom of this article.
 **Offer** | Azure offers that apply. | Only [pay-as-you-go](https://azure.microsoft.com/offers/ms-azr-0003p/) is currently available.
 **Currency** | Billing currency | Only US dollars are currently supported.
 **Stage** | Indicates whether you want to maintain the assessment status in order to review it with stakeholders. | The default setting is **In progress**. You can move it to **Under review** after you start the review, and then to **Approved** after the review is done.
-po
+
 
 ## Next steps
 
-[Learn more](assessment-calculation.md) about how assessments are calculated.
+[Learn more](concepts-assessment-calculation.md) about how assessments are calculated.
