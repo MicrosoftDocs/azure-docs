@@ -66,7 +66,7 @@ This first script works with the Azure Stack certificate authority to create fou
 Run the script on the Azure Stack Development Kit host and ensure that you're running PowerShell as azurestack\CloudAdmin.
 
 1. In a PowerShell session running as azurestack\CloudAdmin, execute the Create-AppServiceCerts.ps1 script from the folder where you extracted the helper scripts. The script creates four certificates in the same folder as the create certificates script that App Service needs.
-2. Enter a password to secure the .pfx files, and make a note of it. You'll need to enter it in the App Service on Azure Stack installer.
+2. Enter a password to secure the .pfx files, and make a note of it. You must enter it in the App Service on Azure Stack installer.
 
 #### Create-AppServiceCerts.ps1 parameters
 
@@ -129,14 +129,14 @@ In a PowerShell session running as azurestack\CloudAdmin, execute the Get-AzureS
 
 ## Prepare the File Server
 
-Azure App Service requires the use of a file server. For production deployments this must be configured to be Highly Available and capable of handling failures.
+Azure App Service requires the use of a file server. For production deployments, the File Server must be configured to be Highly Available and capable of handling failures.
 
 For use with Azure Stack Development Kit deployments only, you can use this example Azure Resource Manager Deployment Template to deploy a configured single node file server: https://aka.ms/appsvconmasdkfstemplate.
 
 ### Provision groups and accounts in Active Directory
 
 >[!NOTE]
-> Execute all the below commands, when configuring the File Server, in an Administrator Command Prompt session.  **Do NOT use PowerShell.**
+> Execute all the following commands, when configuring the File Server, in an Administrator Command Prompt session.  **Do NOT use PowerShell.**
 
 1. Create the following Active Directory global security groups:
     - FileShareOwners
@@ -267,12 +267,12 @@ Administrators must configure SSO to:
 Follow these steps:
 
 1. Open a PowerShell instance as azurestack\cloudadmin.
-2. Go to the location of the scripts downloaded and extracted in the [prerequisite step](azure-stack-app-service-before-you-get-started#download-the-azure-app-service-on-azure-stack-installer-and-helper-scripts-helper-scripts).
+2. Go to the location of the scripts downloaded and extracted in the [prerequisite step](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started#download-the-azure-app-service-on-azure-stack-installer-and-helper-scripts-helper-scripts).
 3. [Install Azure Stack PowerShell](azure-stack-powershell-install.md).
-4. Tun the **Create-AADIdentityApp.ps1** script. When you're prompted for your Azure AD tenant ID, enter the Azure AD tenant ID you're using for your Azure Stack deployment, for example, myazurestack.onmicrosoft.com.
+4. Run the **Create-AADIdentityApp.ps1** script. When you're prompted for your Azure AD tenant ID, enter the Azure AD tenant ID you're using for your Azure Stack deployment, for example, myazurestack.onmicrosoft.com.
 5. In the **Credential** window, enter your Azure AD service admin account and password. Click **OK**.
 6. Enter the certificate file path and certificate password for the [certificate created earlier](azure-stack-app-service-deploy.md). The certificate created for this step by default is sso.appservice.local.azurestack.external.pfx.
-7. The script creates a new application in the tenant Azure AD. Make note of the Application ID that's returned in the PowerShell output. You will need this information during installation.
+7. The script creates a new application in the tenant Azure AD. Make note of the Application ID that's returned in the PowerShell output. You need this information during installation.
 8. Open a new browser window, and sign in to the Azure portal (portal.azure.com) as the **Azure Active Directory Service Admin**.
 9. Open the Azure AD resource provider.
 10. Click **App Registrations**.
@@ -312,7 +312,7 @@ Follow these steps:
 | Create-ADFSIdentityApp.ps1  parameter | Required/optional | Default value | Description |
 | --- | --- | --- | --- |
 | AdminArmEndpoint | Required | Null | The admin Azure Resource Manager endpoint. For example, adminmanagement.local.azurestack.external. |
-| PrivilegedEndpoint | Required | Null | Priviliged endpoint. For example, AzS-ERCS01. |
+| PrivilegedEndpoint | Required | Null | Privileged endpoint. For example, AzS-ERCS01. |
 | CloudAdminCredential | Required | Null | Azure Stack cloudadmin domain account credential. For example, Azurestack\CloudAdmin. |
 | CertificateFilePath | Required | Null | Path to identity application's certificate PFX file. |
 | CertificatePassword | Required | Null | Password used to protect the certificate private key. |
