@@ -1,5 +1,5 @@
 ---
-title: Azure AD Node.js Getting Started | Microsoft Docs
+title: Azure Acitve Directory Node.js Getting Started | Microsoft Docs
 description: How to build a Node.js REST web API that integrates with Azure AD for authentication.
 services: active-directory
 documentationcenter: nodejs
@@ -20,7 +20,7 @@ ms.custom: aaddev
 
 This article demonstrates how to secure a [Restify](http://restify.com/) API endpoint with [Passport](http://passportjs.org/) using the [passport-azure-ad](https://github.com/AzureAD/passport-azure-ad) module to handle communication with Azure Active Directory (AAD). 
 
-The scope of this tutorial covers the concerns regarding securing API endpoints. The concerns of signing in and out and retaining authentication tokens are implemented in the context of a client application. For details surrounding client implementation, review [Node.js web app sign-in and sign-out with Azure AD](active-directory-devquickstarts-openidconnect-nodejs.md).
+The scope of this tutorial covers the concerns regarding securing API endpoints. The concerns of signing in and out and retaining authentication tokens are implemented in the context of a client application. For details surrounding a client implementation, review [Node.js web app sign-in and sign-out with Azure AD](active-directory-devquickstarts-openidconnect-nodejs.md).
 
 The full code sample associated with this article is available on [GitHub](https://github.com/Azure-Samples/active-directory-node-webapi-basic).
 
@@ -59,7 +59,7 @@ Enter the following command in the cloud shell:
 az ad app create --display-name node-aad-demo --homepage http://localhost --identifier-uris http://node-aad-demo
 ```
 
-The arguments for the command include:
+The arguments for the `create` command include:
 
 | Argument  | Description |
 |---------|---------|
@@ -74,11 +74,11 @@ Before you can connect to Azure Active Directory, you need the following informa
 | Tenant Name  | Tenant name you want to use for authentication | `tenantName`  |
 | Client ID  | Client ID is the OAuth term used for the AAD _Application ID_. |  `clientID`  |
 
-From the registration response in the Azure Cloud Shell, copy the `appId` value and create a new file named `config.js`. Next, paste in the following code and replace your values with the bracketed tokens:
+From the registration response in the Azure Cloud Shell, copy the `appId` value and create a new file named `config.js`. Next, add in the following code and replace your values with the bracketed tokens:
 
 ```JavaScript
-const tenantName    = <YOUR_TENANT_NAME>;
-const clientID      = <YOUR_APP_ID_FROM_CLOUD_SHELL>;
+const tenantName    = //<YOUR_TENANT_NAME>;
+const clientID      = //<YOUR_APP_ID_FROM_CLOUD_SHELL>;
 const serverPort    = 3000;
 
 module.exports.serverPort = serverPort;
@@ -112,7 +112,7 @@ In this section of code:
 
 - The `restify` and `restify-plugins` modules are referenced in order to set up a Restify server.
 
-- The `passport` and `passport-azure-ad` modules are responsible for handling the heavy lifting when communicating with AAD.
+- The `passport` and `passport-azure-ad` modules are responsible for communicating with AAD.
 
 - The `config` variable is initialized with values from the `config.js` file created in the previous step.
 
@@ -136,14 +136,14 @@ const authenticationStrategy = new BearerStrategy(config.credentials, (token, do
 ```
 This implementation uses auto-registration by adding authentication tokens into the `authenticatedUserTokens` array if they do not already exist.
 
-Once the new instance of the strategy is created, you must pass it into Passport via the `use` method by adding the following code to `app.js`.
+Once a new instance of the strategy is created, you must pass it into Passport via the `use` method. Add the following code to `app.js` to use the strategy in Passport.
 
 ```JavaScript
 passport.use(authenticationStrategy);
 ```
 
 ### Step 3: Server configuration
-With the authentication strategy defined, you can now set up the Restify server with some basic default settings and set to use Passport for security.
+With the authentication strategy defined, you can now set up the Restify server with some basic settings and set to use Passport for security.
 
 ```JavaScript
 const server = restify.createServer({ name: 'Azure Active Directroy with Node.js Demo' });
@@ -166,7 +166,7 @@ server.get('/', (req, res, next) => {
 });
 ```
 
-The root route allows all requests through the route and returns a message that includes a command to test the `/api` route. By contrast, the `/api` route is locked down using [`passport.authenticate`](http://passportjs.org/docs/authenticate).
+The root route allows all requests through the route and returns a message that includes a command to test the `/api` route. By contrast, the `/api` route is locked down using [`passport.authenticate`](http://passportjs.org/docs/authenticate). Add the following code after the root route.
 
 ```JavaScript
 server.get('/api', passport.authenticate('oauth-bearer', { session: false }), (req, res, next) => {
@@ -185,7 +185,7 @@ server.listen(serverPort);
 
 ## Run the sample
 
-Now that the configuration and server is implemented you can start the server by opening up a command prompt and entering:
+Now that the server is implemented, you can start the server by opening up a command prompt and enter:
 
 ```Shell
 npm start
