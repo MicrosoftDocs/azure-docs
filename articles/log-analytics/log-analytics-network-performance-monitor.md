@@ -94,8 +94,7 @@ Use the following information to install and configure the solution.
 
 4. After choosing the protocol you will be redirected to the **OMS overview** page. While the solution aggregates data from your network, the Network Performance Monitor overview tile will display the message stating *Data aggregation in progress*.<br><br> ![solution is aggregating data](media/log-analytics-network-performance-monitor/log-analytics-netmon-tile-status-01.png)<br><br>
 5. Once the data is collected and indexed, the overview tile will change and indicate you need to perform additional configuration.<br><br> ![solution tile requires additional configuration](media/log-analytics-network-performance-monitor/log-analytics-netmon-tile-status-02.png)<br><br>
-6. Click on the tile and start configuring the solution as instructed below.
-
+6. Click on the tile and start configuring the solution following the steps below.
 
 ### Create new networks
 A network in Network Performance Monitor is a logical container for subnets. You can create a network with a friendly name and add subnets to it according to your business logic. For example, you can create a network named *London* and add all the subnets in your London datacenter, or a network named *ContosoFrontEnd* and add all subnets serving the front end of your app named Contoso to this network.
