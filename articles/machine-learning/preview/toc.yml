@@ -118,6 +118,8 @@
       href: scenario-tdsp-biomedical-recognition.md  
     - name: Classify US incomes - TDSP project
       href: scenario-tdsp-classifying-us-incomes.md
+    - name: Image classification using CNTK
+      href: scenario-image-classification-using-cntk.md     
 - name: Reference
   items:  
   - name: Data preparation
