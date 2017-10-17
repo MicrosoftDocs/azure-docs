@@ -219,7 +219,7 @@ sign in with the username and password for your email account.
       > such as **categories-item**, the designer automatically 
       > adds a "For each" loop around the action that references that field. 
       > That way, your logic app can perform that action on each array item. 
-      >
+      > 
       > To remove the loop, choose the ellipses (**...**) 
       > on the loop's title bar, then choose **Delete**.
 
