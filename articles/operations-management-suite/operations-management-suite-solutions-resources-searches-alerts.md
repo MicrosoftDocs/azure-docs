@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/12/2017
+ms.date: 10/16/2017
 ms.author: bwren
 
 ms.custom: H1Hack27Feb2017
@@ -50,7 +50,7 @@ All Log Analytics resources defined in a Resource Manager template have a proper
 | Workspace version | API version | Sample query |
 |:---|:---|:---|
 | v1 (legacy)   | 2015-11-01-preview | Type=Event EventLevelName = Error             |
-| v2 (upgraded) | 2017-03-03-preview | Event &#124; where EventLevelName == "Error"  |
+| v2 (upgraded) | 2017-03-15-preview | Event &#124; where EventLevelName == "Error"  |
 
 Note the following for which workspaces are supported by different versions.
 

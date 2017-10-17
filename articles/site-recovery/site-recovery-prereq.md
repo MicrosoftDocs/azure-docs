@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/23/2017
-ms.author: rajanaki
+ms.author: raynew
 ---
 
 #  Prerequisites for replication from on-premises to Azure by using Site Recovery
