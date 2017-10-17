@@ -70,7 +70,7 @@ The following procedure is an example you can use to configure Azure Storage Exp
 
 You can use various programming languages to access a storage account. Use the following documentation to pick an example that matches your language:
 
-[https://azure.microsoft.com/en-us/resources/samples/?term=storage+account](https://azure.microsoft.com/en-us/resources/samples/?term=storage+account)
+[https://azure.microsoft.com/resources/samples/?term=storage+account](https://azure.microsoft.com/resources/samples/?term=storage+account)
 
 ## Device access auditing
 
