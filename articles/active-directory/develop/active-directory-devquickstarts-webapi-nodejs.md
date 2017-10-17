@@ -1,5 +1,5 @@
 ---
-title: Azure Acitve Directory Node.js Getting Started | Microsoft Docs
+title: Azure Active Directory Node.js Getting Started | Microsoft Docs
 description: How to build a Node.js REST web API that integrates with Azure AD for authentication.
 services: active-directory
 documentationcenter: nodejs
@@ -20,7 +20,7 @@ ms.custom: aaddev
 
 This article demonstrates how to secure a [Restify](http://restify.com/) API endpoint with [Passport](http://passportjs.org/) using the [passport-azure-ad](https://github.com/AzureAD/passport-azure-ad) module to handle communication with Azure Active Directory (AAD). 
 
-The scope of this tutorial covers the concerns regarding securing API endpoints. The concerns of signing in and out and retaining authentication tokens are implemented in the context of a client application. For details surrounding a client implementation, review [Node.js web app sign-in and sign-out with Azure AD](active-directory-devquickstarts-openidconnect-nodejs.md).
+The scope of this tutorial covers the concerns regarding securing API endpoints. The concerns of signing in and retaining authentication tokens are not implemented here and are the responsibility of a client application. For details surrounding a client implementation, review [Node.js web app sign-in and sign-out with Azure AD](active-directory-devquickstarts-openidconnect-nodejs.md).
 
 The full code sample associated with this article is available on [GitHub](https://github.com/Azure-Samples/active-directory-node-webapi-basic).
 
@@ -51,7 +51,7 @@ Once `package.json` is created, run `npm install` in your command prompt to inst
 
 To get started configuring the application, there are a few account-specific values you can obtain the Azure CLI. The easiest way to get started with the CLI is to use the Azure Cloud Shell.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 Enter the following command in the cloud shell: 
 
@@ -71,7 +71,7 @@ Before you can connect to Azure Active Directory, you need the following informa
 
 | Name  | Description | Variable Name in Config File |
 | ------------- | ------------- | ------------- |
-| Tenant Name  | Tenant name you want to use for authentication | `tenantName`  |
+| Tenant Name  | [Tenant name](active-directory-howto-tenant.md) you want to use for authentication | `tenantName`  |
 | Client ID  | Client ID is the OAuth term used for the AAD _Application ID_. |  `clientID`  |
 
 From the registration response in the Azure Cloud Shell, copy the `appId` value and create a new file named `config.js`. Next, add in the following code and replace your values with the bracketed tokens:
@@ -235,4 +235,4 @@ As stated in the introduction, you must implement a client counterpart to connec
 
 For code-based examples, you may clone client applications in [iOS](https://github.com/MSOpenTech/azure-activedirectory-library-for-ios) and [Android](https://github.com/MSOpenTech/azure-activedirectory-library-for-android).
 
-[!INCLUDE [active-directory-devquickstarts-additional-resources](../../../../includes/active-directory-devquickstarts-additional-resources.md)]
+[!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
