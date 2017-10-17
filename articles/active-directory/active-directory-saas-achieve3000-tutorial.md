@@ -120,7 +120,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     a. For the testing environment, type a URL using the following pattern: `https://trunk-saml.achieve3000.com/district/<nickname>`
 
-    b. For the production environment, ype a URL using the following: pattern: `https://saml.achieve3000.com/district/<nickname>`
+    b. For the production environment, type a URL using the following: pattern: `https://saml.achieve3000.com/district/<nickname>`
 	 
 	> [!NOTE] 
 	> This value is not real. Update the value with the actual Sign-On URL. Contact [Achieve3000 Client support team](https://www.achieve3000.com/contact-us/) to get the value. 
