@@ -41,8 +41,8 @@ Internal infrastructure VIPs are not listed because they’re not required for p
 |Graph|`Graph.[Region].[External FQDN]`|HTTPS|443|
 |Certificate revocation list|`Crl.[Region].[External FQDN]`|HTTP|80|
 |DNS|`*.[Region].[External FQDN]`|TCP & UDP|53|
-|Key Vault (user)|`*.vault.[Region].[External FQDN]`|TCP<br>TCP|443<br>12490|
-|Key Vault (administrator)|`*.adminvault.[Region].[External FQDN]`|TCP<br>TCP|443<br>12492|
+|Key Vault (user)|`*.vault.[Region].[External FQDN]`|TCP<br>TCP|443|
+|Key Vault (administrator)|`*.adminvault.[Region].[External FQDN]`|TCP<br>TCP|443|
 |Storage Queue|`*.queue.[Region].[External FQDN]`|HTTP<br>HTTPS|80<br>443|
 |Storage Table|`*.table.[Region].[External FQDN]`|HTTP<br>HTTPS|80<br>443|
 |Storage Blob|`*.blob.[Region].[External FQDN]`|HTTP<br>HTTPS|80<br>443|
