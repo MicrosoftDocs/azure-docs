@@ -20,18 +20,18 @@ When a user talks to your bot with a phrase such as "Search hotels in Seattle", 
 
 In the Bot Framework Emulator, you can see what is happening from the user's view as well as the HTTP request/response log in the log panel.
 
-#### Prerequisites
+## Prerequisites
 The tutorial assumes you have the following before you begin the next steps:
 
-* the latest version of [Visual Studio][VisualStudio] installed 
-* an Azure LUIS Subscription
+* The latest version of [Visual Studio][VisualStudio] installed 
+* An Azure LUIS subscription
 
-## Outline of Steps
+## Outline of steps
 The steps in this tutorial are summarized here. More details will be given in the following sections for these steps. 
 
 * Download and install the [Bot Framework emulator][Github-BotFramework-Emulator-Download].
 * Download the [BotBuilder-Samples][Github-BotBuilder-Samples] repository. This has the LUIS app definition file as well as the LUIS sample bot.
-* In [luis.ai][LUIS-website], create & publish a LUIS app from a file provided in BotBuilder-Samples. Publishing the app gives you the app's LUIS endpoint. This will be the URL that the bot calls. 
+* In [luis.ai][LUIS-website], create and publish a LUIS app from a file provided in BotBuilder-Samples. Publishing the app gives you the app's LUIS endpoint. This will be the URL that the bot calls. 
 * In Visual Studio, edit the BotBuilder-Samples LUIS bot's RootLuisDialog.cs for the LUIS endpoint.
 * In Visual Studio, start the BotBuilder-Samples LUIS bot. Note the port, such as 3979
 * Start the Bot Framework Emulator. Enter the URL for the bot, such as http://localhost:3979/api/messages.
@@ -39,16 +39,14 @@ The steps in this tutorial are summarized here. More details will be given in th
 * View the bot's response
 
 >[!NOTE]
-If you choose to secure your bot or work with a bot that is not local to your computer, you need to create a [Bot Framework developer account][BFPortal] and [register][RegisterInstructions] your bot. Learn more about the [Bot Framework][BotFramework].
-
->[!NOTE]
-BotBuilder is used as an NuGet dependency in the LUIS sample bot application. You don’t have to do anything in order to get the dependency. It is already included for you.
+* If you choose to secure your bot or work with a bot that is not local to your computer, you need to create a [Bot Framework developer account][BFPortal] and [register][RegisterInstructions] your bot. Learn more about the [Bot Framework][BotFramework].
+* Bot Builder is used as an NuGet dependency in the LUIS sample bot application. You don’t have to do anything in order to get the dependency. It is already included for you.
 
 ## Download and install the Bot Emulator
-The [Bot Framework Emulator][Github-BotFramework-Emulator-Download] is available on Github. Download and install the correct version for your operating system. Note where the application is on your computer so you can start it in a later step.
+The [Bot Framework Emulator][Github-BotFramework-Emulator-Download] is available on GitHub. Download and install the correct version for your operating system. Note where the application is on your computer so you can start it in a later step.
 
-## Clone or download the BotBuilder-Samples Repository
- [BotBuilder-Samples][Github-BotBuilder-Samples] is a Github repository with more samples beyond just the LUIS bot. The subfolder you need for this tutorial is [./CSharp/Intelligence-LUIS][Github-BotBuilder-Samples-LUIS].
+## Clone or download the BotBuilder-Samples repository
+ [BotBuilder-Samples][Github-BotBuilder-Samples] is a GitHub repository with more samples beyond just the LUIS bot. The subfolder you need for this tutorial is [./CSharp/Intelligence-LUIS][Github-BotBuilder-Samples-LUIS].
 
 Clone or download the repository to your computer. You edit and run the CSharp/Intelligence-LUIS sample found in this repository.
 
@@ -87,7 +85,7 @@ https://westus.api.cognitive.microsoft.com
 ```
 
 
-## Set the LUIS endpoint in the LUIS Sample Bot
+## Set the LUIS endpoint in the LUIS sample bot
 In Visual Studio, set your LUIS application credentials. Open the `RootLuisDialog.cs` file and change the `LuisModel` attribute settings for the app ID, subscription ID, and domain:
 
 ```
@@ -96,7 +94,7 @@ In Visual Studio, set your LUIS application credentials. Open the `RootLuisDialo
 public class RootLuisDialog : LuisDialog<object>
 ```
 
-## Start the Bot
+## Start the bot
 From Visual Studio, start the LUIS bot sample. A browser window will open including the URL with a port number. The port number, such as 3979, is necessary for the next step.
 
 ## Start the Bot Emulator
@@ -152,8 +150,8 @@ Log
 [13:12:03] <- POST 200 Reply[event] Debug Event 
 ```
 
-## See the LUIS Response while running the bot
-The BotBuilder SDK uses the LUIS endpoint API you set in the **RootLuisDialog.cs** file in the class level attribute **LuisModel**. The LuisModel is defined as: 
+## See the LUIS response while running the bot
+The Bot Builder SDK uses the LUIS endpoint API you set in the **RootLuisDialog.cs** file in the class level attribute **LuisModel**. The LuisModel is defined as: 
 
 ```
 public LuisModelAttribute(string modelID, string subscriptionKey, LuisApiVersion apiVersion = LuisApiVersion.V2, string domain = null, bool log = true, bool spellCheck = false, bool staging = false, bool verbose = false);

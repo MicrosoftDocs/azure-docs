@@ -20,18 +20,18 @@ When a user talks to your bot with a phrase such as "Search hotels in Seattle", 
 
 In the Bot Framework Emulator, you can see what is happening from the user's view as well as the HTTP request/response log in the log panel.
 
-#### Prerequisites
+## Prerequisites
 The tutorial assumes you have the following before you begin the next steps:
 
-* the latest version of [Node.js][NodeJs] installed 
-* an Azure LUIS Subscription
+* The latest version of [Node.js][NodeJs] installed 
+* An Azure LUIS subscription
 
-## Outline of Steps
+## Outline of steps
 The steps in this tutorial are summarized here. More details will be given in the following sections for these steps. 
 
 * Download and install the [Bot Framework emulator][Github-BotFramework-Emulator-Download].
 * Download the [BotFramework-Samples][Github-BotBuilder-Samples] repository. This has the LUIS app definition file as well as the LUIS sample bot.
-* In [luis.ai][LUIS-website], create & publish a LUIS app from a file provided in BotFramework-Samples. Publishing the app gives you the app's LUIS endpoint. This will be the URL that the bot calls. 
+* In [luis.ai][LUIS-website], create and publish a LUIS app from a file provided in BotFramework-Samples. Publishing the app gives you the app's LUIS endpoint. This will be the URL that the bot calls. 
 * In a code editor, edit the BotFramework-Samples LUIS bot's .env for the LUIS endpoint.
 * From a command line/terminal, start the BotFramework-Samples LUIS bot. Note the port, such as 3978
 * Start the Bot Framework Emulator. Enter the URL for the bot, such as http://localhost:3978/api/messages.
@@ -39,20 +39,18 @@ The steps in this tutorial are summarized here. More details will be given in th
 * View the bot's response
 
 >[!NOTE]
-If you choose to secure your bot or work with a bot that is not local to your computer, you need to create a [Bot Framework developer account][BFPortal] and [register][RegisterInstructions] your bot. Learn more about the [Bot Framework][BotFramework].
-
->[!NOTE]
-BotBuilder is used as an NPM dependency in the LUIS sample bot application. You don’t have to do anything other than the typical "npm install" in order to get the dependency. 
+* If you choose to secure your bot or work with a bot that is not local to your computer, you need to create a [Bot Framework developer account][BFPortal] and [register][RegisterInstructions] your bot. Learn more about the [Bot Framework][BotFramework].
+* Bot Builder is used as an NPM dependency in the LUIS sample bot application. You don’t have to do anything other than the typical "npm install" in order to get the dependency. 
 
 ## Download and install the Bot Emulator
-The [Bot Framework Emulator][Github-BotFramework-Emulator-Download] is available on Github. Download and install the correct version for your operating system. Note where the application is on your computer so you can start it in a later step.
+The [Bot Framework Emulator][Github-BotFramework-Emulator-Download] is available on GitHub. Download and install the correct version for your operating system. Note where the application is on your computer so you can start it in a later step.
 
-## Clone or download the BotFramework-Samples Repository
- [BotBuilder-Samples][Github-BotBuilder-Samples] is a Github repository with more samples beyond just the LUIS bot. The subfolder you need for this tutorial is [./Node/Intelligence-LUIS][Github-BotBuilder-Samples-LUIS].
+## Clone or download the BotFramework-Samples repository
+ [BotBuilder-Samples][Github-BotBuilder-Samples] is a GitHub repository with more samples beyond just the LUIS bot. The subfolder you need for this tutorial is [./Node/Intelligence-LUIS][Github-BotBuilder-Samples-LUIS].
 
 Clone or download the repository to your computer. You edit and run the Node/Intelligence-LUIS sample found in this repository.
 
-## Create a new LUIS Application from the application definition file
+## Create a new LUIS application from the application definition file
 Create a [luis.ai][LUIS-website] account and log in.
 
 In order to get a new LUIS application set up for the bot, you need to import the **LuisBot.json** file found at ./BotBuilder-Samples/Node/Intelligence-LUIS folder. The file contains the application definition for the LUIS app the sample bot uses.
@@ -61,7 +59,7 @@ In order to get a new LUIS application set up for the bot, you need to import th
 2. In the **Import new app** dialog box, click **Choose file** and upload the LuisBot.json file. Name your application "Hotel Finder", and Click **Import**. <!--    ![A new app form](./Images/NewApp-Form.JPG) -->It may take a few minutes for LUIS to extract the intents and entities from the JSON file. When the import is complete, LUIS opens the Dashboard page of the Hotel Finder app<!-- which looks like the following screen-->. 
 3. Once the app is imported, you need to change the Assigned endpoint key on the Publish App page to your Azure LUIS subscription. Then publish the app to get the endpoint API URL. You need to copy the URL, you need to paste that URL as an environment variable in the next step.
 
-## Set the LUIS endpoint in the LUIS Sample Bot
+## Set the LUIS endpoint in the LUIS sample bot
 In a code editor, set the LUIS_MODEL_URL environment variable and comment out the security variables. 
 
 1. Open the `.env` file and change `LUIS_MODEL_URL` to the LUIS endpoint URL from the previous step.
@@ -76,7 +74,7 @@ LUIS_MODEL_URL=https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/2c2afc3
 ```
 These environment variables are for security to a remote bot so you do not need them.
 
-## Start the Bot
+## Start the bot
 From a command line, at the root of the LUIS sample bot, install the node dependencies and start the LUIS Sample. 
 
 Install the node dependencies:
@@ -189,8 +187,8 @@ SearchHotels - Session.send()
 SearchHotels - waterfall() step 2 of 2
 ```
 
-## See the LUIS Response while running the bot
-The BotBuilder SDK uses the LUIS endpoint API you set in the **.env** file when creating the recognizer. After creating the recognizer, it is set on the **bot** object.
+## See the LUIS response while running the bot
+The Bot Builder SDK uses the LUIS endpoint API you set in the **.env** file when creating the recognizer. After creating the recognizer, it is set on the **bot** object.
 
 ```
 // app.js - register LUIS endpoint API
