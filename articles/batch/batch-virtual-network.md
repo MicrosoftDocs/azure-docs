@@ -56,7 +56,7 @@ You might have requirements in your organization to redirect (force) Internet-bo
 
 To ensure that your Azure Batch pool compute nodes can work in a VNet that has forced tunneling enabled, you must add the following [user-defined routes](../virtual-network/virtual-networks-udr-overview.md) for that subnet:
 
-* The Batch service needs to communicate with pool compute nodes for scheduling tasks. To enable this communication, add a user-defined route for each IP address used by the Batch service in the region where your Batch account exists. To obtain the list of IP addresses of the Batch Service, please contact Azure Support.
+* The Batch service needs to communicate with pool compute nodes for scheduling tasks. To enable this communication, add a user-defined route for each IP address used by the Batch service in the region where your Batch account exists. To obtain the list of IP addresses of the Batch service, please contact Azure Support.
 
 * Ensure that outbound traffic to Azure Storage (specifically, URLs of the form `<account>.table.core.windows.net`, `<account>.queue.core.windows.net`, and `<account>.blob.core.windows.net`) is not blocked via your on-premises network appliance.
     
