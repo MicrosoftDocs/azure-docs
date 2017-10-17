@@ -27,9 +27,9 @@
     href: tutorial-kubernetes-monitor.md
 - name: How-to guides
   items:
-  - name: Use Helm
+  - name: Run applications with Helm
     href: kubernetes-helm.md
-  - name: Use Draft
+  - name: Test applications with Draft
     href: kubernetes-draft.md
   - name: Use Kubernetes dashboard
     href: kubernetes-dashboard.md
