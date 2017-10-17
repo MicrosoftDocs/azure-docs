@@ -4,8 +4,8 @@ description: 'When your company configures Azure Multi-Factor Authentication, yo
 services: multi-factor-authentication
 keywords: how to use azure directory, active directory in the cloud, active directory tutorial
 documentationcenter: ''
-author: kgremban
-manager: femila
+author: barlanmsft
+manager: angrobe
 editor: pblachar
 
 ms.assetid: 46f83a6a-dbdd-4375-8dc4-e7ea77c16357
@@ -14,8 +14,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2017
-ms.author: kgremban
+ms.date: 09/12/2017
+ms.author: barlan
 ms.custom: end-user
 experiment_id: 833be599-1785-4f
 ---
