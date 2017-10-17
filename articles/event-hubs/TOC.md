@@ -22,6 +22,7 @@
 
 # How to
 ## Plan and design
+### [Geo-disaster recovery and Geo-replication](event-hubs-geo-dr.md)
 ### [Event Hubs Dedicated](event-hubs-dedicated-overview.md)
 ### [Authentication and security model overview](event-hubs-authentication-and-security-model-overview.md)
 ### [Availability and consistency](event-hubs-availability-and-consistency.md)
