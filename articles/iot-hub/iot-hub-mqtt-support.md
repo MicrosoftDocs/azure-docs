@@ -79,7 +79,15 @@ To use the MQTT protocol directly, your client *must* connect over TLS/SSL. Atte
 
 In order to establish a TLS connection, you may need to download and reference the DigiCert Baltimore Root Certificate. This is the certificate that Azure uses to secure the connection, and can be found in the [Azure-iot-sdk-c repository][lnk-sdk-c-certs]. More information about these certificates can be found on [Digicert's website][lnk-digicert-root-certs].
 
-An example of how to implement this using the Python version of the [Paho MQTT library][lnk-paho] by the Eclipse Foundation might look like this:
+An example of how to implement this using the Python version of the [Paho MQTT library][lnk-paho] by the Eclipse Foundation might look like the following.
+
+First, install the Paho library from your command-line environment:
+
+```
+>pip install paho-mqtt
+```
+
+Then, implement the client in a Python script:
 
 ```
 from paho.mqtt import client as mqtt
@@ -87,7 +95,7 @@ import ssl
   
 path_to_root_cer = "...local\\path\\to\\digicert.cer"
 device_id = "<device id from device registry>"
-sas_token = "<generated SAS token>
+sas_token = "<generated SAS token>"
 subdomain = "<iothub subdomain>"
 
 client = mqtt.Client(client_id=device_id, protocol=mqtt.MQTTv311)
