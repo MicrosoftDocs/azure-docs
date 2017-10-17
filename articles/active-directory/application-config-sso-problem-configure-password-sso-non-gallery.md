@@ -105,6 +105,11 @@ To configure **Password-based Single Sign-on** for an application using **manual
 
 16. Follow the on screen instructions to use the Access Panel.
 
+> [!NOTE]
+> For an app that uses two-paged sign in, pass in a string to the fields on the first page to continue using the **manual sign-in field capture** on the next page.
+> 
+> 
+
 ## I see a “We couldn’t find any sign-in fields at that URL” error
 
 You see this error when automatic detection of sign-in fields fails. To resolve this issue, try manual sign-in field detection by following the steps in the [How to manually capture sign-in fields for an application](#how-to-manually-capture-sign-in-fields-for-an-application) section.
