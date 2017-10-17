@@ -86,11 +86,11 @@ installed.
 
 For instructions on how to install the Azure CLI see [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-Once the Azure CLI has been installed, the Batch extension can be installed using the
+Once the Azure CLI has been installed, the latest version of the Batch extension can be installed using the
 following CLI command:
 
 ```azurecli
-az component update --add batch-extensions --allow-third-party
+az extension add --source https://github.com/Azure/azure-batch-cli-extensions/releases/download/azure-batch-cli-extensions-2.0.0/azure_batch_cli_extensions-2.0.0-py2.py3-none-any.whl
 ```
 
 For more information about the Batch extension, see [Microsoft Azure Batch CLI Extensions for Windows, Mac and Linux](https://github.com/Azure/azure-batch-cli-extensions#microsoft-azure-batch-cli-extensions-for-windows-mac-and-linux).
