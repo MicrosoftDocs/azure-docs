@@ -63,7 +63,7 @@ If you haven't done so already, install Node.js version 4.0.0 or later on your R
 1. Use the following command to install the binaries:
 
     ```sh
-    sudo tar -C /usr/local --strip-components 1 -xzf node-v6.11-4-linux-armv7l.tar.gz
+    sudo tar -C /usr/local --strip-components 1 -xzf node-v6.11.4-linux-armv7l.tar.gz
     ```
 
 1. Use the following command to verify you have installed Node.js v6.11.4 successfully:

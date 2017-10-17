@@ -63,15 +63,11 @@ The following steps show you how to prepare your Raspberry Pi for building a C a
 1. Use the following commands to install the IoT Hub client libraries:
 
     ```sh
-    sudo add-apt-repository ppa:aziotsdklinux/ppa-azureiot
+    grep -q -F 'deb http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' /etc/apt/sources.list || sudo sh -c "echo 'deb http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' >> /etc/apt/sources.list"
+    grep -q -F 'deb-src http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' /etc/apt/sources.list || sudo sh -c "echo 'deb-src http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' >> /etc/apt/sources.list"
+    sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys FDA6A393E4C2257F
     sudo apt-get update
-    sudo apt-get install -y azure-iot-sdk-c-dev
-    ```
-
-1. Use the following command to verify you have installed Node.js v6.11.4 successfully:
-
-    ```sh
-    node --version
+    sudo apt-get install -y azure-iot-sdk-c-dev cmake libcurl4-openssl-dev git-core
     ```
 
 1. Clone the Parson JSON parser to your Raspberry Pi using the following commands:
