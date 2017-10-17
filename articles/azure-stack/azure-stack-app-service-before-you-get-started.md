@@ -131,7 +131,7 @@ In a PowerShell session running as azurestack\CloudAdmin, execute the Get-AzureS
 
 Azure App Service requires the use of a file server. For production deployments this must be configured to be Highly Available and capable of handling failures.
 
-For use with Azure Stack Development Kit deployments only, you can use this example ARM Deployment Template to deploy a single node file server: https://aka.ms/appsvconmasdkfstemplate.
+For use with Azure Stack Development Kit deployments only, you can use this example Azure Resource Manager Deployment Template to deploy a configured single node file server: https://aka.ms/appsvconmasdkfstemplate.
 
 ### Provision groups and accounts in Active Directory
 
@@ -159,16 +159,22 @@ For use with Azure Stack Development Kit deployments only, you can use this exam
 On a workgroup, run net and WMIC commands to provision groups and accounts.
 
 1. Run the following commands to create the FileShareOwner and FileShareUser accounts. Replace <password> with your own values.
-    - net user FileShareOwner <password> /add /expires:never /passwordchg:no
-    - net user FileShareUser <password> /add /expires:never /passwordchg:no
+``` DOS
+net user FileShareOwner <password> /add /expires:never /passwordchg:no
+net user FileShareUser <password> /add /expires:never /passwordchg:no
+```
 2. Set the passwords for the accounts to never expire by running the following WMIC commands:
-    - WMIC USERACCOUNT WHERE "Name='FileShareOwner'" SET PasswordExpires=FALSE
-    - WMIC USERACCOUNT WHERE "Name='FileShareUser'" SET PasswordExpires=FALSE
+``` DOS
+WMIC USERACCOUNT WHERE "Name='FileShareOwner'" SET PasswordExpires=FALSE
+WMIC USERACCOUNT WHERE "Name='FileShareUser'" SET PasswordExpires=FALSE
+```
 3. Create the local groups FileShareUsers and FileShareOwners, and add the accounts in the first step to them.
-    - net localgroup FileShareUsers /add
-    - net localgroup FileShareUsers FileShareUser /add
-    - net localgroup FileShareOwners /add
-    - net localgroup FileShareOwners FileShareOwner /add
+``` DOS
+net localgroup FileShareUsers /add
+net localgroup FileShareUsers FileShareUser /add
+net localgroup FileShareOwners /add
+net localgroup FileShareOwners FileShareOwner /add
+```
 
 ### Provision the content share
 
@@ -178,7 +184,7 @@ The content share contains tenant web site content. The procedure to provision t
 
 On a single file server, run the following commands at an elevated command prompt. Replace the value for <C:\WebSites> with the corresponding paths in your environment.
 
-```powershell
+```DOS
 set WEBSITES_SHARE=WebSites
 set WEBSITES_FOLDER=<C:\WebSites>
 md %WEBSITES_FOLDER%
@@ -194,7 +200,7 @@ In order for Windows Remote Management to work properly, you must add the FileSh
 
 Run the following commands at an elevated command prompt on the File Server or on every File Server Failover Cluster node. Replace the value for <DOMAIN> with the domain name you want to use.
 
-```powershell
+```DOS
 set DOMAIN=<DOMAIN>
 net localgroup Administrators %DOMAIN%\FileShareOwners /add
 ```
@@ -203,7 +209,7 @@ net localgroup Administrators %DOMAIN%\FileShareOwners /add
 
 Run the following command at an elevated command prompt on the File Server.
 
-```powershell
+```DOS
 net localgroup Administrators FileShareOwners /add
 ```
 
@@ -212,7 +218,7 @@ net localgroup Administrators FileShareOwners /add
 Run the following commands at an elevated command prompt on the File Server or on the File Server Failover Cluster node, which is the current cluster resource owner. Replace values in italics with values specific to your environment.
 
 #### Active Directory
-```powershell
+```DOS
 set DOMAIN=<DOMAIN>
 set WEBSITES_FOLDER=<C:\WebSites>
 icacls %WEBSITES_FOLDER% /reset
@@ -224,7 +230,7 @@ icacls %WEBSITES_FOLDER% /grant *S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
 ```
 
 #### Workgroup
-```powershell
+```DOS
 set WEBSITES_FOLDER=<C:\WebSites>
 icacls %WEBSITES_FOLDER% /reset
 icacls %WEBSITES_FOLDER% /grant Administrators:(OI)(CI)(F)
@@ -278,7 +284,7 @@ Follow these steps:
 | --- | --- | --- | --- |
 | DirectoryTenantName | Required | Null | Azure AD tenant ID. Provide the GUID or string, for example, myazureaaddirectory.onmicrosoft.com |
 | AdminArmEndpoint | Required | Null | The Admin Azure Resource Manager Endpoint, for example adminmanagement.local.azurestack.external |
-| TenantARMEndpoint | Required | Null | Tenant resource manager endpoint, for example: management.local.azurestack.external |
+| TenantARMEndpoint | Required | Null | Tenant Azure Resource Manager Endpoint, for example: management.local.azurestack.external |
 | AzureStackAdminCredential | Required | Null | Azure AD Service Admin Credential |
 | CertificateFilePath | Required | Null | Path to the identity application certificate file generated earlier. |
 | CertificatePassword | Required | Null | Password used to protect the certificate private key. |
