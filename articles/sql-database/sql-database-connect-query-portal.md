@@ -37,7 +37,7 @@ This quick start uses as its starting point the resources created in one of thes
 Log in to the [Azure portal](https://portal.azure.com/).
 
 
-## Connect to your database using SQL Authentication
+## Connect using SQL Authentication
 > [!NOTE]
 > Make sure that the "Allow access to Azure Services" option is set to "ON" in your SQL Server firewall settings. This option gives the SQL Query Editor access to your databases and data warehouses.
 
@@ -56,7 +56,7 @@ Log in to the [Azure portal](https://portal.azure.com/).
 5. Click **OK to login**.
 
 
-## Connect to your database using Azure Active Directory Authentication
+## Connect using Azure AD
 
 Configuring an Active Directory administrator enables you to use a single identity to login to the Azure portal and your SQL database. Follow the steps below to configure an active directory admin for the SQL Server you created.
 
@@ -76,7 +76,7 @@ Configuring an Active Directory administrator enables you to use a single identi
 Navigate to the SQL database you would like to query, click the **Tools command** on the toolbar, and select the **Query editor (preview)** option. The Query editor page opens and automatically connects you to the database.
 
 
-## Query your database with Query Editor
+## Run query using Query Editor
 
 After you are authenticated, type the following query in the Query editor pane to query for the top 20 products by category.
 
@@ -91,7 +91,7 @@ Click **Run** and then review the query results in the **Results** pane.
 
 ![query editor results](./media/sql-database-get-started-portal/query-editor-results.png)
 
-## Insert data into your database using Query Editor
+## Insert data using Query Editor
 
 Use the following code to insert a new product into the SalesLT.Product table using the [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL statement.
 
@@ -119,7 +119,7 @@ Use the following code to insert a new product into the SalesLT.Product table us
 
 2. On the toolbar, click **Run**  to insert a new row in the Product table.
 
-## Update data using query
+## Update data using Query Editor
 
 Use the following code to update the new product that you previously added using the [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL statement.
 
@@ -166,6 +166,4 @@ There are a few things to know when working with the Query Editor while it remai
 
 ## Next steps
 
-- To learn about creating and managing servers and databases with Transact-SQL, see [Learn about Azure SQL Database servers and databases](sql-database-servers-databases.md).
-- To connect and query using Visual Studio Code, see [Connect and query with Visual Studio Code](sql-database-connect-query-vscode.md).
-- To learn how to troubleshoot performance issues in your database, see [Troubleshoot performance issues and optimize your database](sql-database-performance-tutorial.md).
+- To learn about the Transact-SQL supported in Azure SQL databases, see [Transact-SQL differences in SQL database](sql-database-transact-sql-information.md).
