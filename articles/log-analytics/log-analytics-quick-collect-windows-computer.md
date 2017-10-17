@@ -70,7 +70,8 @@ When complete, the **Microsoft Monitoring Agent** appears in **Control Panel**. 
 ## Collect event and performance data
 Log Analytics can collect events from the Windows event log and performance counters that you specify for longer term analysis and reporting, and take action when a particular condition is detected.  Follow these steps to configure collection of events from the Windows event log, and several common performance counters to start with.  
 
-1. Select **Advanced settings**.<br><br> ![Log Analytics Advance Settings](media/log-analytics-quick-collect-azurevm/log-analytics-advanced-settings-01.png)<br><br> 
+1. In the Azure portal, click **More services** found on the lower left-hand corner. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.
+2. Select **Advanced settings**.<br><br> ![Log Analytics Advance Settings](media/log-analytics-quick-collect-azurevm/log-analytics-advanced-settings-01.png)<br><br> 
 3. Select **Data**, and then select **Windows Event Logs**.  
 4. You add an event log by typing in the name of the log.  Type **System** and then click the plus sign **+**.  
 5. In the table, check the severities **Error** and **Warning**.   
@@ -82,8 +83,8 @@ Log Analytics can collect events from the Windows event log and performance coun
 ## View data collected
 Now that you have enabled data collection, lets run a simple log search example to see some data from the target computer.  
 
-1. In the Azure portal, navigate to Log Analytics and select the workspace created earlier.
-2. Click the **Log Search** tile and on the Log Search pane, in the query field type `Perf` and then hit enter or click the search button to the right of the query field.<br><br> ![Log Analytics log search query example](media/log-analytics-quick-collect-linux-computer/log-analytics-portal-queryexample.png)<br><br> For example, the query in the following image returned 735 Performance records.<br><br> ![Log Analytics log search result](media/log-analytics-quick-collect-linux-computer/log-analytics-search-perf.png)
+1. In the Azure portal, under the selected workspace, click the **Log Search** tile.  
+2. On the Log Search pane, in the query field type `Perf` and then hit enter or click the search button to the right of the query field.<br><br> ![Log Analytics log search query example](media/log-analytics-quick-collect-linux-computer/log-analytics-portal-queryexample.png)<br><br> For example, the query in the following image returned 735 Performance records.<br><br> ![Log Analytics log search result](media/log-analytics-quick-collect-windows-computer/log-analytics-search-perf.png)
 
 ## Clean up resources
 When no longer needed, you can remove the agent from the Windows computer and delete the Log Analytics workspace.  
