@@ -111,8 +111,8 @@ Now run the following steps to add the image to the Azure Stack marketplace:
      -EnableAdfsAuthentication:$true
 
    $TenantID = Get-AzsDirectoryTenantId `
-     -ADFS 
-     -EnvironmentName AzureStackAdmin 
+     -ADFS `
+     -EnvironmentName "AzureStackAdmin" 
 
    Login-AzureRmAccount `
      -EnvironmentName "AzureStackAdmin" `
