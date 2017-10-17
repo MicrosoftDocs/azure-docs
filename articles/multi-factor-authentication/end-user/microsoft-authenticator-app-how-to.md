@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 10/17/2017
 ms.author: barlan
 ms.reviewer: librown
 ms.custom: H1Hack27Feb2017, end-user
@@ -91,7 +91,7 @@ For a personal Microsoft account (one that you use to sign in to Outlook.com, Xb
 ### Add an account to the app using your device's fingerprint or facial recognition capabilities
 Your organization may require a PIN to complete the verification challenge. The Microsoft Authenticator app can use your device's fingerprint or facial recognition capabilities instead of a PIN. To set this up on your first verification in the app, you will see an option to use Touch ID (for iOS) or fingerprint identification instead. 
 
-<!--fix this up--> Setting up Touch ID with Microsoft Authenticator is simple. You complete a normal verification challenge with a PIN. If your device supports Touch ID, Microsoft Authenticator sets it up automatically for that account.
+To set up Touch ID for Microsoft Authenticator, you need to complete a normal verification challenge with a PIN. Microsoft Authenticator will automatically set it up for devices that support Touch ID. 
 
 ![Verification of Touch ID setup](./media/authenticator-app-how-to/touchid1.png)
 
