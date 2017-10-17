@@ -67,7 +67,7 @@ Both [Intellij IDEA](https://www.jetbrains.com/idea/download) and the [Eclipse I
 
 These articles show how: 
 * Intellij IDEA: [Create Spark applications using the Azure Toolkit for Intellij plug-in and the Scala SDK.](hdinsight-apache-spark-intellij-tool-plugin.md)
-* Eclipse IDE or Scala IDE for Eclipse: [Create Spark applications and the Azure Toolkit for Eclipse](hdinsight-apache-spark-eclipse-tool-plugin.md) 
+* Eclipse IDE or Scala IDE for Eclipse: [Create Spark applications and the Azure Toolkit for Eclipse](spark/apache-spark-eclipse-tool-plugin.md) 
 
 
 ## Notebooks on Spark for data scientists 

@@ -138,4 +138,4 @@ If you created an HDInsight cluster with Data Lake Store as additional storage a
 
 * [Create a standalone Scala application to run on Apache Spark cluster](spark/apache-spark-create-standalone-application.md)
 * [Use HDInsight Tools in Azure Toolkit for IntelliJ to create Spark applications for HDInsight Spark Linux cluster](hdinsight-apache-spark-intellij-tool-plugin.md)
-* [Use HDInsight Tools in Azure Toolkit for Eclipse to create Spark applications for HDInsight Spark Linux cluster](hdinsight-apache-spark-eclipse-tool-plugin.md)
+* [Use HDInsight Tools in Azure Toolkit for Eclipse to create Spark applications for HDInsight Spark Linux cluster](spark/apache-spark-eclipse-tool-plugin.md)
