@@ -30,6 +30,9 @@ Get answers to frequently asked questions about virtual machine scale sets in Az
 
 For best practices for Autoscale, see [Best practices for autoscaling virtual machines](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-autoscale-best-practices).
 
+###  Is possible to have a public static IP address for a VM in a VM Scale Set?
+No, this is not supported. The idea with VM Scale Sets is that they are easy to scale. Public IPs being static does not fit as instances are to be constantly scaled up or down.
+
 ### Where do I find metric names for autoscaling that uses host-based metrics?
 
 For metric names for autoscaling that uses host-based metrics, see [Supported metrics with Azure Monitor](https://azure.microsoft.com/documentation/articles/monitoring-supported-metrics/).
