@@ -145,7 +145,7 @@ For additional details on storage account limits, see [Azure Storage Scalability
 [!INCLUDE [storage-blob-scale-targets](../includes/storage-blob-scale-targets.md)]
 
 #### Azure Files limits
-For additional details on Azure Files limits, see [Azure Files scalability and performance targets](storage/files/storage-files-scale-target.md).
+For additional details on Azure Files limits, see [Azure Files scalability and performance targets](storage/files/storage-files-scale-targets.md).
 
 [!INCLUDE [storage-files-scale-targets](../includes/storage-files-scale-targets.md)]
 
