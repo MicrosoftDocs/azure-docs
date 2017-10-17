@@ -1,24 +1,17 @@
-
 ---
 title: Image Classification using CNTK inside Azure Machine Learning Workbench | Microsoft Docs
-description: Train, evaluate, and deploy a custom image classification model using CNTK.
+description: Train, evaluate, and deploy a custom image classification model using Azure ML Workbench.
 services: machine-learning
 documentationcenter: ''
 author: pabuehle
-manager: tihazen
-editor: pabuehle
-ms.assetid:
-ms.service: machine-learning
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.custom: mvc
-ms.date: 10/17/2017
 ms.author: pabuehle
-ms.manager: tihazen
-ms.reviewer: mawah, marhamil
+ms.reviewer: mawah, marhamil, mldocs
+ms.service: machine-learning
+ms.topic: article
+ms.date: 10/17/2017
 ---
+
+
 # Image Classification using Azure Machine Learning workbench
 
 A large number of problems in the computer vision domain can be solved using image classification approaches.
@@ -314,64 +307,3 @@ Some key highlights of this example are:
 [1] Alex Krizhevsky, Ilya Sutskever, and Geoffrey E. Hinton, [_ImageNet Classification with Deep Convolutional
 Neural Networks_](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf). NIPS 2012.  
 [2] Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun, [_Deep Residual Learning for Image Recognition_](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf). CVPR 2016.
-
-
-
-
-
-
-
-
-# ======== OLD TEXT ========
-
-
-
-
-#AML Workbench Image Classification demo code
-
-
-###Description:
-- This code runs inside AML Workbench, by e.g. clicking on the "run" button.
-- Functionality: local training and evaluation, visualization of results inside a Jupyter notebook, deployment to local and cloud including load testing using Jupyter notebooks.
-- NOTE: This is not the final user experience, but a repo for Michael, Nimisha and me to work towards the ignite demo. Hence some things are not as polished as they could be.
-
-###Note how the project consists of two directories.
-- Called "..code": is where all scripts are. This directory has to be less than 25 Mbytes, since a copy is created every time a script is run. Hence, files written during code execution (using relative path) will not be copied back into the original directory.
-- Called "..data": this is where the images are downloaded to, and where all other temporary files are written and read from.
-
-###Installation:
-- Create AML Workbench project:
-    - Create new project inside the AML Workbench App with project name e.g. "imgClassification" and point at "<dir>\viennaImgClassTutorial\" as project directory. This has to be an empty directory otherwise Workbench will complain.
-    - Then press "create" button. See screenshot "createNewProject.jpg" in the same directory as this readme file, and also shown in the markdown rendering below.
-    - Next delete all files and folder in the "imgClassification" directory (EXCEPT for hidden directories), and then move all files and folders from "vienna_img_class_code" to "imgClassification".
-    - WARNING: the "imgClassification" directory is not allowed to exceed 25Mbytes (a restricion by AML Workbench since it creates a temporary copy of this folder for each script run). Hence, all big files (such
-           as large wheel installation files) should not exist in the "imgClassification" directory.
-![Create new project screenshot](./createNewProject.jpg)
-
-- Install missing packages to the local Python environment. To do this, open the command prompt from within the AML Workbench (menu tab "File") and execute these commands:
-	- Windows:
-		 - pip install https://cntk.ai/PythonWheel/GPU/cntk-2.0-cp35-cp35m-win_amd64.whl  
-		 - Download opencv from http://www.lfd.uci.edu/~gohlke/pythonlibs/ and then run e.g. "pip install opencv_python-3.3.0-cp35-cp35m-win_amd64.whl"
-		 - conda install matplotlib
-		 - conda install numpy   #numpy update might be needed if "import matplotlib" throws an error
-		 - conda install pillow
-		 - conda install -c conda-forge bqplot
-
-	- Linux (NOT TESTED):
-		 - pip install https://cntk.ai/PythonWheel/GPU/cntk-2.0-cp35-cp35m-linux_x86_64.whl
-		 - conda install opencv
-		 - conda install matplotlib
-		 - conda install numpy   #numpy update might be needed if "import matplotlib" throws an error
-		 - conda install pillow
-		 - conda install -c conda-forge bqplot
-
-- Update "rootDir" in Parameters.py to point to the "vienna_img_class_data" directory, e.g. rootDir = "C:/Users/pabuehle/Desktop/viennaImgClassTutorial/vienna_img_class_data/". Setting an absolute path is unfortunately necessary since AML Workbench executes code in a temporary directory, and this is the only way to read/save data from the "vienna_img_class_data" directory.
-
-
-Finally, qualitative visualizations are produced for each image in the test set (see figure below).  The highest score and respective class is shown (here: 'dotted' with score 1.67), in green if the class of the image was correctly predicted, and red otherwise.
-
-<p align="center">
-<img src="media/scenario-image-classification-using-cntk/visualization_script_6.png" alt="alt text" width="300"/>
-</p>
-
-Up to now our focus was on training a model and evaluating its performance. Hence all steps were performed one-by-one, and intermediate results were written to and loaded from disk. During scoring, given one or more images, it would be preferable to perform all steps in-memory. Exactly this is done in script `deploymain.py`: it loads a given image, runs the DNN using the image as input, optionally evaluates the trained SVM, and finally outputs a score for each of the labels.
