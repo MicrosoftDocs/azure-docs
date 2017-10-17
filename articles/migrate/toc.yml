@@ -1,4 +1,4 @@
-- name: Azure Migrate Documentation
+- name: Azure Migrate documentation
   href: index.yml
 - name: Overview
   items:
@@ -12,7 +12,7 @@
   items:
   - name: Assessment calculations
     href: concepts-assessment-calculation.md
-- name: How-To Guides
+- name: How-to guides
   items:
   - name: Create an assessment group
     href: how-to-create-a-group.md
