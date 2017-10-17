@@ -75,7 +75,7 @@ Functions provides a great way to offload processing tasks in a logic apps workf
 
 1. Click the **New** button and select **Compute** > **Function App**. Then, use the settings as specified in the table below. Accept the terms, then select **Pin to dashboard**.
 
-![Create Azure Function page](media/functions-twitter-email/create_fun.png)
+![Create Azure Function App](media/functions-twitter-email/create_fun.png)
 
 | Setting      |  Suggested value   | Description       |
 | --- | --- | --- |
