@@ -142,13 +142,15 @@ For additional details on storage account limits, see [Azure Storage Scalability
 [!INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
 
 #### Azure Blob storage limits
-[!INCLUDE [storage-blobs-scale-targets](../includes/storage-blobs-scale-targets.md)]
+[!INCLUDE [storage-blob-scale-targets](../includes/storage-blob-scale-targets.md)]
 
-#### Azure Files storage limits
+#### Azure Files limits
+For additional details on Azure Files limits, see [Azure Files scalability and performance targets](storage/files/storage-files-scale-target.md).
+
 [!INCLUDE [storage-files-scale-targets](../includes/storage-files-scale-targets.md)]
 
 ##### Azure File Sync storage limits
-[!INCLUDE [storage-sync-files-scale-targets](../includes/storage-sync-scale-targets.md)]
+[!INCLUDE [storage-sync-files-scale-targets](../includes/storage-sync-files-scale-targets.md)]
 
 #### Azure Queue storage limits
 [!INCLUDE [storage-queues-scale-targets](../includes/storage-queues-scale-targets.md)]

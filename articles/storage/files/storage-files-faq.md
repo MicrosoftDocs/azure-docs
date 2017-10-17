@@ -253,7 +253,7 @@ This article will cover some of the commonly asked questions about Azure Files f
 
 ## Scale and Performance
 * <a id="files-scale-limits"></a>**What are the scale limits of Azure Files?**  
-    For information on scalability and performance targets of Azure Files, see [Azure Storage Scalability and Performance Targets](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#scalability-targets-for-blobs-queues-tables-and-files).
+    For information on scalability and performance targets of Azure Files, see [Azure Files scalability and performance targets](storage-files-scale-targets.md).
 
 * <a id="need-larger-share"></a>**I need a larger file share than Azure Files currently offers... can I increase the size of my Azure File share?**  
     No, the maximum size of an Azure File share is 5 TiB. This is currently a hard limit which we cannot adjust. We are working on a solution to increase the share size to 100 TiBs, but don't have timelines to share at this time.

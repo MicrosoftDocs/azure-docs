@@ -37,7 +37,7 @@ If the needs of your application exceed the scalability targets of a single stor
 [!INCLUDE [azure-storage-limits](../../../includes/azure-storage-limits.md)]
 
 ## Azure Blob storage scale targets
-[!INCLUDE [storage-blobs-scale-targets](../../../includes/storage-blobs-scale-targets.md)]
+[!INCLUDE [storage-blob-scale-targets](../../../includes/storage-blob-scale-targets.md)]
 
 ## Azure Files scale targets
 For more information on the scale and performance targets for Azure Files and Azure File Sync, please see [Azure Files scalability and performance targets](../files/storage-files-scale-targets.md).
