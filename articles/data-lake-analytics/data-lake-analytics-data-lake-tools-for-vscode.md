@@ -35,8 +35,6 @@ For MacOS and Linux:
 - [.NET Core SDK 2.0](https://www.microsoft.com/net/download/core). 
 - [Mono 5.2.x](http://www.mono-project.com/download/).
 
-**DotNet** and **Mono** are only required for MacOS and Linux.
-
 ## Install Data Lake Tools
 
 After you install the prerequisites, you can install Data Lake Tools for VS Code.
