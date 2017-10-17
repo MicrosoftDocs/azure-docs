@@ -143,7 +143,7 @@ To deploy App Service resource provider, follow these steps:
 
 2. In the overview under status, check to see that the **Status** shows **All roles are ready**.
 
-    ![App Service Installer](media/azure-stack-app-service-deploy/image12.png)    
+    ![App Service Management](media/azure-stack-app-service-deploy/image12.png)    
 
 ## Test drive App Service on Azure Stack
 
