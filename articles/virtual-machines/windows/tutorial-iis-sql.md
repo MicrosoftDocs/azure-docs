@@ -24,173 +24,99 @@ ms.custom: mvc
 In this tutorial, we will install an Azure SQL, IIS, ,NET Core stack. Optionally, we will then install a two-tier music store .Net Core application to exercise the stack as an example.
 
 > [!div class="checklist"]
-> * Create an Azure SQL server and database
+> * Create an Azure SQL VM
 > * Create a VM 
 > * Install IIS and the .NET Core SDK on the VM
-> * Configure the VM to run a sample web app
-> * Connect to the web app to see it running
 
-You can explore sources for the Music Store sample app that we use in this tutorial by looking at the public repo on [GitHub](https://github.com/MicrosoftDocs/MusicStoreSample).
 
-## Create a resource group
 
-Create a [resource group](../../azure-resource-manager/resource-group-overview.md) using the [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) command. The following example creates a resource group named *myResourceGroup* in the *East US* location.
+## Create a IIS VM 
 
-```powershell
-$location = "eastus"
-$resourceGroup = "myResourceGroup"
-New-AzureRmResourceGroup -Name $resourceGroup -Location $location
+We will use the [New-AzVM] cmdlet to quickly create a Windows Server 2016 VM and then install IIS and the .NET Framework. The IIS and SQL VMs will share a resource group and virtual network, so we will create variables for those names.
+
+```azurepowershell-interactive
+
+$vNet = myIISSQLvNet
+$resourceGroup = myIISSQLGroup
+New-AzVm -Name myIISVM -ResourceGroupName $resourceGroup -VirtualNetworkName $vNet 
 ```
 
-## Azure SQL
+Install IIS and the .NET framwork using the custom script extension.
 
-We will be using Azure SQL in this tutorial for simplicity. Azure handles all patching and updating of the SQL code base seamlessly and abstracts away all management of the underlying infrastructure.
+```azurepowershell-interactive
 
-Define variables for creating the SQL server and a database. Replace the values with your own.
+Set-AzureRmVMExtension -ResourceGroupName $resourceGroup `
+    -ExtensionName IIS `
+    -VMName myIISVM `
+    -Publisher Microsoft.Compute `
+    -ExtensionType CustomScriptExtension `
+    -TypeHandlerVersion 1.4 `
+    -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server,Web-Asp-Net45,NET-Framework-Features}' `
+    -Location EastUS
+```
 
-```powershell
-# The logical server name: Use a random value or replace with your own value (do not capitalize)
-$sqlserver = "sqlserver"
-# Set an admin login and password 
-$user = "SQLAdmin"
-$password = "<password>"
+## Azure SQL VM
+
+We will be using a pre-configured Azure marketplace image of a SQL server simplicity. 
+
+```azurepowershell-interactive
+
+$vNet = myIISSQLvNet
+$resourceGroup = myIISSQLGroup
+New-AzVm -Name mySQLVM -ImageName SQL2016-WS2016 -ResourceGroupName myIISSQLGroup -VirtualNetworkName myIISSQLvNet
+
+# Create an inbound network security group rule for port 80 
+$nsgRuleIIS = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleIIS  -Protocol Tcp `
+  -Direction Inbound -Priority 1010 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
+  -DestinationPortRange 80 -Access Allow
 
 ```
 
-
-Create an [Azure SQL Database logical server](../../sql-database/sql-database-features.md) using the [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) command. A logical server contains a group of databases managed as a group. 
-
-```powershell
-New-AzureRmSqlServer -ResourceGroupName $resourceGroup `
-    -ServerName $sqlserver `
-    -Location $location `
-    -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $user, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
-```
-
-Create an [Azure SQL Database server-level firewall rule](sql-database-firewall-configure.md) using the [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule) command. A server-level firewall rule allows access through the SQL Database service firewall. In the following example, the firewall is only opened for other Azure resources. 
-
-```powershell
-New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourceGroup `
-    -ServerName $sqlserver `
-    -FirewallRuleName "AllowSome" -StartIpAddress 0.0.0.0 -EndIpAddress 0.0.0.0
-```
-
-Create an empty database named **musicstore** for an application to store data.
-
-```powershell
-New-AzureRmSqlDatabase  -ResourceGroupName $resourceGroup `
-    -ServerName $sqlServer `
-    -DatabaseName musicstore `
-    -RequestedServiceObjectiveName "S0"
-```
-
-## Create a VM
+Add-AzureRmVirtualNetworkSubnetConfig -Name SQLSubnet -VirtualNetwork $vNet -AddressPrefix "10.0.2.0/24"
+$vNet | Set-AzureRmVirtualNetwork
+	
+	
 
 The following script creates a fully configured VM named *myVM* that you can use for the rest of this tutorial.
 
 ```
-# Create a variable for the VM name
-$vmName = "myVM"
 
 # Create user object. You will get a pop-up prompting you to enter the credentials for the VM.
 $cred = Get-Credential -Message "Enter a username and password for the virtual machine."
 
 # Create a subnet configuration
-$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
 
-# Create a virtual network
-$vnet = New-AzureRmVirtualNetwork -ResourceGroupName $resourceGroup -Location $location `
-  -Name MYvNET -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
+Add-AzureRmVirtualNetworkSubnetConfig -Name mySQLSubnet -VirtualNetwork $vNet -AddressPrefix "10.0.2.0/24"
+$vNet | Set-AzureRmVirtualNetwork
+
 
 # Create a public IP address and specify a DNS name
-$pip = New-AzureRmPublicIpAddress -ResourceGroupName $resourceGroup -Location $location `
+$pip = New-AzureRmPublicIpAddress -ResourceGroupName $resourceGroup -Location eastus `
   -Name "mypublicdns$(Get-Random)" -AllocationMethod Static -IdleTimeoutInMinutes 4
 
 # Create an inbound network security group rule for port 3389
 $nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleRDP  -Protocol Tcp `
   -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
   -DestinationPortRange 3389 -Access Allow
- 
-# Create an inbound network security group rule for port 80 
-$nsgRuleIIS = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleIIS  -Protocol Tcp `
-  -Direction Inbound -Priority 1010 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
-  -DestinationPortRange 80 -Access Allow
+
 
 # Create a network security group
-$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $resourceGroup -Location $location `
-  -Name myNetworkSecurityGroup -SecurityRules $nsgRuleRDP,$nsgRuleIIS
+$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName myIISSQLGroup -Location eastus `
+  -Name myNetworkSecurityGroup -SecurityRules $nsgRuleRDP
 
 # Create a virtual network card and associate with public IP address and NSG
-$nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName $resourceGroup -Location $location `
+$nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName myIISSQLGroup -Location eastus `
   -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
 
 # Create a virtual machine configuration
-$vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize Standard_D1 | `
-Set-AzureRmVMOperatingSystem -Windows -ComputerName $vmName -Credential $cred | `
-Set-AzureRmVMSourceImage -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2016-Datacenter -Version latest | `
+$vmConfig = New-AzureRmVMConfig -VMName mySQLVM -VMSize Standard_D1 | `
+Set-AzureRmVMOperatingSystem -Windows -ComputerName mySQLVM -Credential $cred | `
+Set-AzureRmVMSourceImage -PublisherName MicrosoftSQLServer -Offer SQL2014SP2-WS2012R2 -Skus Enterprise -Version latest | `
 Add-AzureRmVMNetworkInterface -Id $nic.Id
 
 # Create the VM
-New-AzureRmVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
+New-AzureRmVM -ResourceGroupName myIISSQLGroup -Location eastus -VM $vmConfig
 ```
-
-
-## Install IIS and the .NET Core SDK
-
-Connect to the VM using the IP address by typing the following at PowerShell prompt on your local computer:
-
-```powershell
-mstsc /v:($pip.IpAddress)
-```
-
-Open a PowerShell prompt inside the VM and run the following cmdlets to install IIS and the .NET Core SDK.
-
-```powershell
-# Create a folder to hold downloaded files.
-New-Item -ItemType Directory c:\temp
-
-# Install IIS and the IIS management tools on the VM.
-Install-WindowsFeature web-server -IncludeManagementTools
-
-# Download and install the .NET Core SDK on the VM.
-Invoke-WebRequest https://go.microsoft.com/fwlink/?linkid=848827 -outfile c:\temp\dotnet-dev-win-x64.1.0.4.exe 
-Start-Process c:\temp\dotnet-dev-win-x64.1.0.4.exe -ArgumentList '/quiet' -Wait
-
-Invoke-WebRequest https://go.microsoft.com/fwlink/?LinkId=817246 -outfile c:\temp\DotNetCore.WindowsHosting.exe
-Start-Process c:\temp\DotNetCore.WindowsHosting.exe -ArgumentList '/quiet' -Wait
-
-
-```
-
-This process may take a while. 
-
-## Optional: Install a sample .NET application
-
-Use the custom script extension to install a sample app from GitHub. We pass the path to a [configuration file](https://raw.githubusercontent.com/MicrosoftDocs/MusicStoreSample/master/support-scripts/create-music-store.ps1) into [Set-AzureRmVMCustomScriptExtension](/powershell/module/azurerm.compute/set-azurermvmcustomscriptextension) to download and configure the sample application. To configure the .Net application on the VM, we need to provide the full path to the SQL server instance, the user name, and password to the script. 
-
-```powershell
-$sqlfqdn = ($sqlserver + '.database.windows.net')
-Set-AzureRmVMCustomScriptExtension -ResourceGroupName $resourceGroup `
-    -VMName $vmName `
-    -Location $location `
-    -FileUri https://raw.githubusercontent.com/MicrosoftDocs/MusicStoreSample/master/support-scripts/create-music-store.ps1 `
-    -Run "create-music-store.ps1 -user $user -password $password -sqlserver $sqlfqdn" `
-    -Name MusicStoreExtension
-```
-
-For more information on how to use the Custom Script Extension, see [How to customize a Windows virtual machine in Azure](tutorial-automate-vm-deployment.md).
-
-## Test the application
-
-Get the public IP address from PowerShell.
-
-```powershell
-$pip.IpAddress
-```
-
-Open a browser and type in the public IP address for the VM to see the .NET Core app in action.
-
-![Default page for the Music Store .NET Core app](./media/tutorial-iis-sql/musicstore.png) 
 
 
 
