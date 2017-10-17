@@ -53,6 +53,8 @@
     items:
     - name: Integrate DNS
       href: azure-stack-integrate-dns.md
+    - name: Identity
+      href: azure-stack-integrate-identity.md
     - name: Publish endpoints
       href: azure-stack-integrate-endpoints.md  
   - name: Manage
