@@ -43,7 +43,7 @@ The following diagram shows data flow from direct agents to OMS using the gatewa
 
 The following diagram shows data flow from an Operations Manager management group to OMS.   
 
-![Operations Manager communication with OMS diagram](./media/log-analytics-oms-gateway/oms-omsgateway-opsmgrconnect.png)
+![Operations Manager communication with OMS diagram](./media/log-analytics-oms-gateway/log-analytics-agent-opsmgrconnect.png)
 
 ## Prerequisites
 
