@@ -34,7 +34,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with OnTrack, you need the following items:
 
 - An Azure AD subscription
-- A OnTrack single sign-on enabled subscription
+- An OnTrack single sign-on enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -84,7 +84,7 @@ To configure and test Azure AD single sign-on with OnTrack, you need to complete
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Create a OnTrack test user](#create-a-ontrack-test-user)** - to have a counterpart of Britta Simon in OnTrack that is linked to the Azure AD representation of user.
+3. **[Create an OnTrack test user](#create-an-ontrack-test-user)** - to have a counterpart of Britta Simon in OnTrack that is linked to the Azure AD representation of user.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
@@ -181,7 +181,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     d. Click **Create**.
  
-### Create a OnTrack test user
+### Create an OnTrack test user
 
 In this section, you create a user called Britta Simon in OnTrack. Work with [OnTrack support team](http://www.insigniagroup.com/get-started) to add the users in the OnTrack platform. Users must be created and activated before you use single sign-on.
 
