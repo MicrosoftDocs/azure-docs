@@ -1,6 +1,6 @@
 ---
 title: Failover groups and active geo-replication - Azure SQL Database | Microsoft Docs
-description: Auto-failover groups with active geo-replication enables you to set up four seplicas of your database in any of the Azure datacenters and autoomatically failover in the event of an outage.
+description: Use auto-failover groups with active geo-replication and enable autoomatic failover in the event of an outage.
 services: sql-database
 documentationcenter: na
 author: anosov1960

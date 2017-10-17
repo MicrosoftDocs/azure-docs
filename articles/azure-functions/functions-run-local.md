@@ -3,7 +3,7 @@ title: Develop and run Azure functions locally | Microsoft Docs
 description: Learn how to code and test Azure functions on your local computer before you run them on Azure Functions.
 services: functions
 documentationcenter: na
-author: lindydonna
+author: ggailey777
 manager: cfowler
 editor: ''
 
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 10/12/2017
 ms.author: glenga
 
 ---
@@ -139,7 +139,7 @@ Settings in the local.settings.json file are only used by Functions tools when r
 
 When no valid storage connection string is set for **AzureWebJobsStorage**, the following error message is shown:  
 
->Missing value for AzureWebJobsStorage in local.settings.json. This is required for all triggers other than HTTP. You can run 'func azure functionary fetch-app-settings <functionAppName>' or specify a connection string in local.settings.json.
+>Missing value for AzureWebJobsStorage in local.settings.json. This is required for all triggers other than HTTP. You can run 'func azure functionapp fetch-app-settings <functionAppName>' or specify a connection string in local.settings.json.
   
 [!INCLUDE [Note to not use local storage](../../includes/functions-local-settings-note.md)]
 
@@ -263,13 +263,13 @@ curl --request POST http://localhost:7071/api/MyHttpTrigger --data '{"name":"Azu
 Note that you can make GET requests from a browser passing data in the query string. For all other HTTP methods, you must use cURL, Fiddler, Postman, or a similar HTTP testing tool.  
 
 #### Non-HTTP triggered functions
-For all kinds of functions other than HTTP triggers and webhooks, you can test your functions locally by calling an administration endpoint. Calling this endpoint on the local server triggers the function. You can optionally pass test data to the execution. This functionality is similar to the **Test** tab in the Azure portal.  
+For all kinds of functions other than HTTP triggers and webhooks, you can test your functions locally by calling an administration endpoint. Calling this endpoint with an HTTP POST request on the local server triggers the function. You can optionally pass test data to the execution in the body of the POST request. This functionality is similar to the **Test** tab in the Azure portal.  
 
-You call the following administrator endpoint to trigger non-HTTP functions with an HTTP POST request:
+You call the following administrator endpoint to trigger non-HTTP functions:
 
     http://localhost:{port}/admin/functions/{function_name}
 
-Although you To pass test data to the administrator endpoint of a function, you must supply the data in the body of a POST request message. The message body is required to have the following JSON format:
+To pass test data to the administrator endpoint of a function, you must supply the data in the body of a POST request message. The message body is required to have the following JSON format:
 
 ```JSON
 {
