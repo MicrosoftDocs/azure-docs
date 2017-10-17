@@ -35,7 +35,16 @@ sections:
     - image:
         src: https://docs.microsoft.com/en-us/azure/app-service-web/media/index/logo_java.svg
       text: Java
-      href: https://docs.microsoft.com/en-us/azure/azure-toolkit-for-intellij-hello-world-web-app-linux?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+      href: https://docs.microsoft.com/en-us/azure/azure-toolkit-for-intellij-hello-world-web-app-linux?toc=/azure/app-service/containers/toc.json
+  - type: paragraph
+    text: 'Learn how to deploy continuously:'
+  - type: list
+    style: icon48
+    items: 
+    - image:
+        src: https://docs.microsoft.com/en-us/azure/media/index/logo_vs-team-services.svg
+      text: VSTS
+      href: https://docs.microsoft.com/en-us/vsts/build-release/apps/cd/deploy-docker-webapp??toc=/vsts/deploy-azure/toc.json&bc=/vsts/deploy-azure/breadcrumb/toc.json
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
@@ -56,7 +65,7 @@ sections:
     className: spaced noBullet
     items:
     - html: <a href="/en-us/powershell/azureps-cmdlets-docs">Azure PowerShell</a>
-    - html: <a href="/cli/azure/appservice">Azure CLI 2.0</a>
+    - html: <a href="/cli/azure/appservice">Azure CLI</a>
 - title: Reference
   items:
   - type: list
@@ -68,4 +77,4 @@ sections:
     - title: Languages
       html: <p><a href="/en-us/dotnet/api">.NET</a></p><p><a href="/en-us/java/api/">Java</a></p>
     - title: REST
-      html: <p><a href="/en-us/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="/cli/azure/appservice">Azure CLI 2.0</a></p>
+      html: <p><a href="/en-us/rest/api/appservice">REST API Reference</a></p>

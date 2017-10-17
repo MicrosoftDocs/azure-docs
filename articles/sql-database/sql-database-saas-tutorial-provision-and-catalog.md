@@ -1,6 +1,6 @@
 ---
 title: Provision new tenants in a multi-tenant app that uses Azure SQL Database | Microsoft Docs
-description: "Learn how to provision and catalog new tenants in the Wingtip SaaS app"
+description: "Learn how to provision and catalog new tenants in an Azure SQL Database multi-tenant SaaS app"
 keywords: sql database tutorial
 services: sql-database
 documentationcenter: ''
@@ -19,7 +19,7 @@ ms.date: 08/11/2017
 ms.author: sstein
 
 ---
-# Provision new tenants and register them in the catalog
+# Learn how to provision and catalog new tenants and register them in the catalog
 
 In this tutorial, you learn about the provision and catalog SaaS patterns, and how they are implemented in the Wingtip SaaS application. You create and initialize new tenant databases, and register them in the application’s tenant catalog. The catalog is a database that maintains the mapping between the SaaS application's many tenants and their data. The catalog plays an important role directing application requests to the correct database.  
 

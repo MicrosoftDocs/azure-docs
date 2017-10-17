@@ -4,7 +4,7 @@ description: How to use Docker and Compose on Linux virtual machines with the Az
 services: virtual-machines-linux
 documentationcenter: ''
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -14,7 +14,7 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/11/2017
+ms.date: 09/26/2017
 ms.author: iainfou
 
 ---
@@ -31,13 +31,13 @@ When you use the Docker VM extension, your VM is automatically set up as a Docke
 ### Create Docker host with Azure CLI 2.0
 Install the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) and log in to an Azure account using [az login](/cli/azure/#login).
 
-First, create a resource group for your Docker environment with [az group create](/cli/azure/group#create). The following example creates a resource group named *myResourceGroup* in the *westus* location:
+First, create a resource group for your Docker environment with [az group create](/cli/azure/group#create). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
 
 ```azurecli
-az group create --name myResourceGroup --location westus
+az group create --name myResourceGroup --location eastus
 ```
 
-Next, deploy a VM with [az group deployment create](/cli/azure/group/deployment#create) that includes the Azure Docker VM extension from [this Azure Resource Manager template on GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Provide your own values for *newStorageAccountName*, *adminUsername*, *adminPassword*, and *dnsNameForPublicIP*:
+Next, deploy a VM with [az group deployment create](/cli/azure/group/deployment#create) that includes the Azure Docker VM extension from [this Azure Resource Manager template on GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Provide your own unique values for *newStorageAccountName*, *adminUsername*, *adminPassword*, and *dnsNameForPublicIP*:
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
@@ -64,10 +64,21 @@ When this command returns *Succeeded*, the deployment has finished and you can S
 
 
 ## Verify that Compose is installed
-Once the deployment is finished, SSH to your new Docker host using the DNS name you provided during deployment. You can use  `az vm show -g myResourceGroup -n myDockerVM -d --query [fqdns] -o tsv` to view details of your VM, including the DNS name.
+To view details of your VM, including the DNS name, use [az vm show](/cli/azure/vm#show):
+
+```azurecli
+az vm show \
+    --resource-group myResourceGroup \
+    --name myDockerVM \
+    --show-details \
+    --query [fqdns] \
+    --output tsv
+```
+
+SSH to your new Docker host. Provide your own DNS name as follows:
 
 ```bash
-ssh azureuser@mypublicdns.westus.cloudapp.azure.com
+ssh azureuser@mypublicdns.eastus.cloudapp.azure.com
 ```
 
 To check that Compose is installed on the VM, run the following command:
@@ -85,19 +96,13 @@ You see output similar to *docker-compose 1.6.2, build 4d72027*.
 ## Create a docker-compose.yml configuration file
 Next you create a `docker-compose.yml` file, which is just a text configuration file, to define the Docker containers to run on the VM. The file specifies the image to run on each container (or it could be a build from a Dockerfile), necessary environment variables and dependencies, ports, and the links between containers. For details on yml file syntax, see [Compose file reference](https://docs.docker.com/compose/compose-file/).
 
-Create the *docker-compose.yml* file as follows:
+Create a *docker-compose.yml* file. Use your favorite text editor to add some data to the file. The following example creates the file with a prompt for `sensible-editor` to pick an editor that you wish to use:
 
 ```bash
-touch docker-compose.yml
+sensible-editor docker-compose.yml
 ```
 
-Use your favorite text editor to add some data to the file. The following example uses the *vi* editor:
-
-```bash
-vi docker-compose.yml
-```
-
-Paste the following example into your text file. This configuration uses images from the [DockerHub Registry](https://registry.hub.docker.com/_/wordpress/) to install WordPress (the open source blogging and content management system) and a linked backend MariaDB SQL database. Enter your own *MYSQL_ROOT_PASSWORD* as follows:
+Paste the following example into your Docker Compose file. This configuration uses images from the [DockerHub Registry](https://registry.hub.docker.com/_/wordpress/) to install WordPress (the open source blogging and content management system) and a linked backend MariaDB SQL database. Enter your own *MYSQL_ROOT_PASSWORD* as follows:
 
 ```sh
 wordpress:
@@ -141,7 +146,7 @@ azureuser_db_1          docker-entrypoint.sh mysqld      Up      3306/tcp
 azureuser_wordpress_1   docker-entrypoint.sh apach ...   Up      0.0.0.0:80->80/tcp
 ```
 
-You can now connect to WordPress directly on the VM on port 80. Open a web browser and enter the DNS name of your VM (such as `http://mypublicdns.westus.cloudapp.azure.com`). You should now see the WordPress start screen, where you can complete the installation and get started with the application.
+You can now connect to WordPress directly on the VM on port 80. Open a web browser and enter the DNS name of your VM (such as `http://mypublicdns.eastus.cloudapp.azure.com`). You should now see the WordPress start screen, where you can complete the installation and get started with the application.
 
 ![WordPress start screen][wordpress_start]
 

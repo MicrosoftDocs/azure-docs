@@ -52,14 +52,14 @@ To mount an Azure file share as a volume in Azure Container Instances, you need 
 If you used the script above, the storage account name was created with a random value at the end. To query the final string (including the random portion), use the following commands:
 
 ```azurecli-interactive
-STORAGE_ACCOUNT=$(az storage account list --resource-group myResourceGroup --query "[?contains(name,'mystorageaccount')].[name]" -o tsv)
+STORAGE_ACCOUNT=$(az storage account list --resource-group $ACI_PERS_RESOURCE_GROUP --query "[?contains(name,'$ACI_PERS_STORAGE_ACCOUNT_NAME')].[name]" -o tsv)
 echo $STORAGE_ACCOUNT
 ```
 
 The share name is already known (it is *acishare* in the script above), so all that remains is the storage account key, which can be found using the following command:
 
 ```azurecli-interactive
-STORAGE_KEY=$(az storage account keys list --resource-group myResourceGroup --account-name $STORAGE_ACCOUNT --query "[0].value" -o tsv)
+STORAGE_KEY=$(az storage account keys list --resource-group $ACI_PERS_RESOURCE_GROUP --account-name $STORAGE_ACCOUNT --query "[0].value" -o tsv)
 echo $STORAGE_KEY
 ```
 
@@ -71,7 +71,7 @@ Create a key vault with the Azure CLI:
 
 ```azurecli-interactive
 KEYVAULT_NAME=aci-keyvault
-az keyvault create -n $KEYVAULT_NAME --enabled-for-template-deployment -g myResourceGroup
+az keyvault create -n $KEYVAULT_NAME --enabled-for-template-deployment -g $ACI_PERS_RESOURCE_GROUP
 ```
 
 The `enabled-for-template-deployment` switch allows Azure Resource Manager to pull secrets from your key vault at deployment time.
@@ -198,5 +198,5 @@ You can use a tool like the [Microsoft Azure Storage Explorer](http://storageexp
 
 ## Next steps
 
-- Deploy for your first container using the Azure Container Instances [quick start](container-instances-quickstart.md)
+- Deploy for your first container using the Azure Container Instances [quickstart](container-instances-quickstart.md)
 - Learn about the [relationship between Azure Container Instances and container orchestrators](container-instances-orchestrator-relationship.md)

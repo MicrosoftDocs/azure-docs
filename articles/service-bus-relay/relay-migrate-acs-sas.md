@@ -17,7 +17,7 @@ ms.author: sethm
 
 ---
 
-# Migrate from AAD Access Control Service to Shared Access Signature authorization
+# Migrate from Azure Active Directory Access Control Service to Shared Access Signature authorization
 
 Azure Relay applications historically had a choice of using two different authorization models: the [Shared Access Signature (SAS)](../service-bus-messaging/service-bus-sas.md) token model provided directly by the Relay service, and a federated model where the management of authorization rules is managed inside by the [Azure Active Directory](/azure/active-directory/) Access Control Service (ACS), and tokens obtained from ACS are passed to Relay for authorizing access to the desired features.
 
@@ -25,7 +25,7 @@ The ACS authorization model has long been superseded by [SAS authorization](../s
 
 SAS has the advantage in that it is not immediately dependent on another service, but can be used directly from a client without any intermediaries by giving the client access to the SAS rule name and rule key. SAS can also be easily integrated with an approach in which a client has to first pass an authorization check with another service and then is issued a token. The latter approach is similar to the ACS usage pattern, but enables issuing access tokens based on application-specific conditions that are difficult to express in ACS.
 
-For all existing applications that are dependent on ACS, we urge customers to migrate their applications to rely on SAS instead. Azure Relay will stop accepting ACS tokens on or after September 15, 2018.
+For all existing applications that are dependent on ACS, we urge customers to migrate their applications to rely on SAS instead.
 
 ## Migration scenarios
 

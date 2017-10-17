@@ -1,6 +1,6 @@
 ---
 title: Azure SQL Database performance tuning guidance | Microsoft Docs
-description: This article can help you determine which service tier to choose for your application. It also recommends ways to tune your application to get the most from Azure SQL Database.
+description: Learn about using recommendations to improve Azure SQL Database query performance.
 services: sql-database
 documentationcenter: na
 author: CarlRabeler
