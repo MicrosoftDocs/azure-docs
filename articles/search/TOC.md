@@ -1,6 +1,8 @@
 # [Overview](search-what-is-azure-search.md)
 ## [What is Azure Search?](search-what-is-azure-search.md)
+
 # Get Started
+
 ## [Choose a SKU](search-sku-tier.md)
 ## [Create a service](search-create-service-portal.md)
 ## [Create an index](search-what-is-an-index.md)
@@ -15,18 +17,21 @@
 ### [Azure portal](search-explorer.md)
 ### [.NET](search-query-dotnet.md)
 ### [REST](search-query-rest-api.md)
+
 # Tutorials
+
 ## [.NET](search-howto-dotnet-sdk.md)
 ## [.NET synonyms preview](search-synonyms-tutorial-sdk.md)
 ## [Portal](search-get-started-portal.md)
 ## [Node.js](search-get-started-nodejs.md)
 ## [Java](search-get-started-java.md)
+
 # How to
+
 ## Plan and design
 ### [Service limits](search-limits-quotas-capacity.md)
 ### [Service scalability](search-capacity-planning.md)
 ### [Design patterns for multitenancy](search-modeling-multitenant-saas-applications.md)
-
 ## Develop
 ### [API versions](search-api-versions.md)
 ### [Upgrade the SDK](search-dotnet-sdk-migration.md)
@@ -34,7 +39,6 @@
 ### [Model complex data types](search-howto-complex-data-types.md)
 ### [Handle concurrent updates](search-howto-concurrency.md)
 ### [Code samples](https://azure.microsoft.com/resources/samples/?service=search)
-
 ## Manage
 ### Administer Azure Search
 #### [Azure portal](search-manage.md)
@@ -73,6 +77,9 @@
 ### [Suggestions](https://docs.microsoft.com/rest/api/searchservice/suggesters)
 ### [Faceted navigation](search-faceted-navigation.md)
 ### [Synonyms preview](search-synonyms.md)
+
+# Reference
+
 ## [.NET](/dotnet/api/?term=microsoft.azure.search)
 ## [.NET (Management)](/dotnet/api/?term=microsoft.azure.management.search)
 ## [Python (Management)](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html)
