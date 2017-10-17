@@ -78,7 +78,7 @@ To deploy App Service in a disconnected environment, you must first create an of
 
     ![App Service Installer](media/azure-stack-app-service-deploy/image03.png)
 
-8. Enter the information for your file share and then click **Next**. The address of the file share must use the Fully Qualified Domain Name of your File Server, for example \\appservicefileserver.local.cloudapp.azurestack.external\websites, or the IP Address, for example \\10.0.0.1\websites.
+8. Enter the information for your file share and then click **Next**. The address of the file share must use the Fully Qualified Domain Name of your File Server, for example \\\appservicefileserver.local.cloudapp.azurestack.external\websites, or the IP Address, for example \\\10.0.0.1\websites.
 
     ![App Service Installer](media/azure-stack-app-service-deploy/image04.png)
 
