@@ -133,6 +133,9 @@ Azure Blob Storage supports block blobs and page blobs. In the majority of cases
 To upload a file to a block blob, get a container reference and use it to get a block blob reference. Once you have a blob reference, you can upload any stream of data to it by calling the **upload_from_stream** method. This operation will create the blob if it didn't previously exist, or overwrite it if it does exist. The following example shows how to upload a blob into a container and assumes that the container was already created.  
 
 ```cpp
+#include <cpprest/filestream.h>
+#include <cpprest/containerstream.h>
+
 // Retrieve storage account from connection string.
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
