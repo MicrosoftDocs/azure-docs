@@ -24,9 +24,9 @@ In this article, you'll learn how to create, manage, and delete Azure Files shar
 
 ## Create a share snapshot
 
-You can create a share snapshot by using the Azure portal, PowerShell, CLI, the REST API, or any Azure Storage SDK. The following sections describe how to create a share snapshot by using the portal, CLI, and PowerShell. 
+You can create a share snapshot by using the Azure portal, PowerShell, Azure CLI, the REST API, or any Azure Storage SDK. The following sections describe how to create a share snapshot by using the portal, CLI, and PowerShell. 
 
-You can take a share snapshot of a file share while it is in use. However, share snapshots capture only data that has been already written to Azure file share at the time that the share snapshot command is issued. This might exclude any data that has been cached by any applications or the operating system.
+You can take a share snapshot of a file share while it is in use. However, share snapshots capture only data that has already been written to Azure file share at the time that the share snapshot command is issued. This might exclude any data that has been cached by any applications or the operating system.
 
 ### Create a share snapshot by using the portal  
 To create a point-in-time share snapshot, go to your file share in the portal and select **Create a snapshot**.
@@ -133,11 +133,11 @@ Select **Restore** to copy the contents of the entire directory recursively at t
  ![Restore button in warning message](./media/storage-snapshots-list-browse/snapshot-windows-restore.png)
 
 ### File share snapshot operations in Azure CLI 2.0
-You can use Azure CI 2.0 to perform operations such as listing share snapshots, browsing to share snapshot content, restoring or downloading files from share snapshots, or deleting share snapshots.
+You can use Azure CLI 2.0 to perform operations such as listing share snapshots, browsing to share snapshot content, restoring or downloading files from share snapshots, or deleting share snapshots.
 
 #### List share snapshots
 
-You can list share snapshots of a particular share by using [`az storage share list`](/cli/azure/storage/share?view=azure-cli-latest#az_storage_share_list) with `--include-snapshots`:
+You can list snapshots of a particular share by using [`az storage share list`](/cli/azure/storage/share?view=azure-cli-latest#az_storage_share_list) with `--include-snapshots`:
 
 ```azurecli-interactive 
 az storage share list --include-snapshots
