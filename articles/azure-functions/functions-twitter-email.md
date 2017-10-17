@@ -30,7 +30,7 @@ This tutorial shows you how to use Functions with Logic Apps and Microsoft Cogni
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a Cognitive Services account.
+> * Create a Cognitive Services API Resource.
 > * Create a function that categorizes tweet sentiment.
 > * Create a logic app that connects to Twitter.
 > * Add sentiment detection to the logic app. 
@@ -65,7 +65,7 @@ The Cognitive Services APIs are available in Azure as individual resources. Use 
 
 4. Click **Create** to create your resource. After it is created, select your new Cognitive Services resource pinned to the dashboard. 
 
-5. In the left navigation column, click **Keys**, and then copy the value of **Key 1** and save it. You use this key to connect the logic app to your Cognitive Services account. 
+5. In the left navigation column, click **Keys**, and then copy the value of **Key 1** and save it. You use this key to connect the logic app to your Cognitive Services API. 
  
     ![Keys](media/functions-twitter-email/keys.png)
 
@@ -86,13 +86,13 @@ Functions provides a great way to offload processing tasks in a logic apps workf
 | **Storage** | Create New | Automatically generates a new storage account.|
 | **Pricing tier** | F0 | Start with the lowest tier. If you run out of calls, scale to a higher tier.|
 
-2. Select your functions app from your dashboard and expand your function, click the **+** button next to **Functions**, click the **HTTPTrigger** template. Type `CategorizeSentiment` for the function **Name** and click **Create**.
+2. Select your functions app from your dashboard and expand your function, click the **+** button next to **Functions**, click the **Webhook + API**, **CSharp**, then **Create This Function**. This will create a function using the HTTPTrigger C# template. Your code will appear in a new window as `run.csx`
 
     ![Function Apps blade, Functions +](media/functions-twitter-email/add_fun.png)
 
-3. Replace the contents of the run.csx file with the following code, then click **Save**:
+3. Replace the contents of the `run.csx` file with the following code, then click **Save**:
 
-    ```c#
+    ```csharp
     using System.Net;
     
     public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
@@ -123,7 +123,7 @@ Functions provides a great way to offload processing tasks in a logic apps workf
 
     ![Test the function in the Azure portal](./media/functions-twitter-email/test.png)
 
-Now you have a function that categorizes sentiment scores. Next, you create a logic app that integrates your function with your Twitter and Cognitive Services accounts. 
+Now you have a function that categorizes sentiment scores. Next, you create a logic app that integrates your function with your Twitter and Cognitive Services API. 
 
 ## Create a logic app   
 
@@ -133,7 +133,7 @@ Now you have a function that categorizes sentiment scores. Next, you create a lo
  
 4. Then, type a **Name** like `TweetSentiment`,  use the settings as specified in the table, accept the terms, and check **Pin to dashboard**.
 
-    ![Create logic app in the Azure portal](./media/functions-twitter-email/new_logicApp.png)
+    ![Create logic app in the Azure portal](./media/functions-twitter-email/new_logic_app.png)
 
     | Setting      |  Suggested value   | Description                                        |
     | ----------------- | ------------ | ------------- |
@@ -161,7 +161,7 @@ First, create a connection to your Twitter account. The logic app polls for twee
 
     | Setting      |  Suggested value   | Description                                        |
     | ----------------- | ------------ | ------------- |
-    | **Search text** | #Azure | Use a hashtag that is popular enough to generate new tweets in the chosen interval. When using the Free tier and your hashtag is too popular, you can quickly use up the transactions in your Cognitive Services account. |
+    | **Search text** | #Azure | Use a hashtag that is popular enough to generate new tweets in the chosen interval. When using the Free tier and your hashtag is too popular, you can quickly use up the transaction quota in your Cognitive Services API. |
     | **Frequency** | Minute | The frequency unit used for polling Twitter.  |
     | **Interval** | 15 | The time elapsed between Twitter requests, in frequency units. |
 
@@ -179,7 +179,7 @@ Now your app is connected to Twitter. Next, you connect to text analytics to det
 
     ![Detect Sentiment](media/functions-twitter-email/detect_sent.png)
 
-3. Type a connection name such as `MyCognitiveServicesConnection`, paste the key for your Cognitive Services account that you saved, and click **Create**.  
+3. Type a connection name such as `MyCognitiveServicesConnection`, paste the key for your Cognitive Services API that you saved, and click **Create**.  
 
 4. Click **Text to analyze** > **Tweet text**, and then click **Save**.  
 
@@ -255,7 +255,7 @@ Now that the workflow is complete, you can enable the logic app and see the func
         return req.CreateResponse(HttpStatusCode.OK, category);
 
     > [!IMPORTANT]
-    > After you have completed this tutorial, you should disable the logic app. By disabling the app, you avoid being charged for executions and using up the transactions in your Cognitive Services account.
+    > After you have completed this tutorial, you should disable the logic app. By disabling the app, you avoid being charged for executions and using up the transactions in your Cognitive Services API.
 
 Now you have seen how easy it is to integrate Functions into a Logic Apps workflow.
 
@@ -270,7 +270,7 @@ To disable the logic app, click **Overview** and then click **Disable** at the t
 In this tutorial, you learned how to:
 
 > [!div class="checklist"]
-> * Create a Cognitive Services account.
+> * Create a Cognitive Services API Resource.
 > * Create a function that categorizes tweet sentiment.
 > * Create a logic app that connects to Twitter.
 > * Add sentiment detection to the logic app. 
