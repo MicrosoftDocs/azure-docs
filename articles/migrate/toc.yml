@@ -30,20 +30,10 @@
     href: how-to-set-up-rest-api.md
 - name: Reference
   items:
-  - name: Azure CLI
-    href: /cli/azure/vm
   - name: PowerShell
-    href: /powershell/azureps-cmdlets-docs
-  - name: .NET
-    href: /dotnet/api/microsoft.azure.management.compute
-  - name: Java
-    href: /java/api
-  - name: Node.js
-    href: https://azure.microsoft.com/develop/nodejs/#azure-sdk
-  - name: Python
-    href: https://azure.microsoft.com/develop/python/
+    href: /powershell/module/azurerm.siterecovery
   - name: REST
-    href: /rest/api/compute
+    href: https://msdn.microsoft.com/library/mt750497
 - name: Resources
   items:
   - name: Azure Roadmap
