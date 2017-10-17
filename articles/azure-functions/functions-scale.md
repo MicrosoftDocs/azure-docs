@@ -3,7 +3,7 @@ title: Azure Functions hosting plans comparison | Microsoft Docs
 description: Learn how to choose between Azure Functions Consumption plan and App Service plan.
 services: functions
 documentationcenter: na
-author: lindydonna
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
