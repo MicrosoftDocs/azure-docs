@@ -54,6 +54,10 @@ Generate a custom report by defining the following report options:
    - Cache Status: Organizes statistics by cache status.
 
 
+Select a date range, such as **Today** or **This Week**, from the drop-down list or enter a custom date range. Click **Go** to generate the report.
+
+You can export the data in Excel format by clicking the Excel symbol to the right of the **Go** button.
+
 ## Considerations
 Reports can be generated only within the last 18 months.
 
