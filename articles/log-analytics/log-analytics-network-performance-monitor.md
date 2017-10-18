@@ -88,8 +88,7 @@ Use the following information to install and configure the solution.
     >[!NOTE]
     >The agents for Windows server operating systems support both TCP and ICMP as the protocols for synthetic transaction. However, the agents for Windows client operating systems only support ICMP as the protocol for synthetic transaction.
 
-2. Add the Network Performance Monitor solution to your workspace from [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview) or by using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).  
-   ![Network Performance Monitor symbol](./media/log-analytics-network-performance-monitor/npm-symbol.png)
+2. Add the Network Performance Monitor solution to your workspace from [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview) or by using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).<br><br> ![Network Performance Monitor symbol](./media/log-analytics-network-performance-monitor/npm-symbol.png)  
 3. In the OMS portal, you'll see a new tile titled **Network Performance Monitor** with the message *Solution requires additional configuration*. Click on the tile to navigate to the **Deployment** tab and select the protocol to use for making the synthetic transactions for monitoring your network.  Review [Choose the right protocol-ICMP or TCP](#choose-the-right-protocol-icmp-or-tcp) to help you choose the right protocol suited for your network.<br><br> ![solution requires protocol selection](media/log-analytics-network-performance-monitor/log-analytics-netmon-perf-welcome.png)<br><br>
 
 4. After choosing the protocol you will be redirected to the **OMS overview** page. While the solution aggregates data from your network, the Network Performance Monitor overview tile will display the message stating *Data aggregation in progress*.<br><br> ![solution is aggregating data](media/log-analytics-network-performance-monitor/log-analytics-netmon-tile-status-01.png)<br><br>
@@ -106,8 +105,7 @@ In most cases, the subnets in your organization will be arranged in more than on
 #### To create a new network
 1. Click **Add network** and then type the network name and description.
 2. Select one or more subnets, and then click **Add**.
-3. Click **Save** to save the configuration.  
-   ![add network](./media/log-analytics-network-performance-monitor/npm-add-network.png)
+3. Click **Save** to save the configuration.<br><br> ![add network](./media/log-analytics-network-performance-monitor/npm-add-network.png)
 
 ### Wait for data aggregation
 After you've saved the configuration for first time, the solution starts collecting network packet loss and latency information between the nodes where agents are installed. This process can take a while, sometimes over 30 minutes. During this state, the Network Performance Monitor tile in the overview page displays a message stating *Data aggregation in process*.
@@ -129,8 +127,7 @@ All subnets where at least one agent was installed are listed on the **Subnetwor
 1. Select or clear the box next to the **subnetwork ID** and then ensure that **Use for Monitoring** is selected or cleared, as appropriate. You can select or clear multiple subnets. When disabled, subnetworks are not monitored as the agents will be updated to stop pinging other agents.
 2. Choose the nodes that you want to monitor for a particular subnetwork by selecting the subnetwork from the list and moving the required nodes between the lists containing unmonitored and monitored nodes.
    You can add a custom **description** to the subnetwork, if you like.
-3. Click **Save** to save the configuration.  
-   ![edit subnet](./media/log-analytics-network-performance-monitor/npm-edit-subnet.png)
+3. Click **Save** to save the configuration.<br><br> ![edit subnet](./media/log-analytics-network-performance-monitor/npm-edit-subnet.png)
 
 ### Choose nodes to monitor
 All the nodes that have an agent installed on them are listed in the **Nodes** tab.
@@ -138,8 +135,7 @@ All the nodes that have an agent installed on them are listed in the **Nodes** t
 #### To enable or disable monitoring for nodes
 1. Select or clear the nodes that you want to monitor or stop monitoring.
 2. Click **Use for Monitoring**, or clear it, as appropriate.
-3. Click **Save**.  
-   ![enable node monitoring](./media/log-analytics-network-performance-monitor/npm-enable-node-monitor.png)
+3. Click **Save**.<br><br> ![enable node monitoring](./media/log-analytics-network-performance-monitor/npm-enable-node-monitor.png)
 
 ### Set monitoring rules
 Network Performance Monitor generates health events when the threshold of the performance of network connections between 2 subnetworks or between 2 networks is breached. These thresholds can be learned automatically by the system or you can provide custom thresholds.
@@ -160,8 +156,7 @@ Create custom monitoring rules according to your business logic. For example, if
 5. If you don't want to create health events for the items you've selected, then clear **Enable health monitoring on the links covered by this rule**.
 6. Choose monitoring conditions.
    You can set custom thresholds for health event generation by typing threshold values. Whenever the value of the condition goes above its selected threshold for the selected network/subnetwork pair, a health event is generated.
-7. Click **Save** to save the configuration.  
-   ![create custom monitoring rule](./media/log-analytics-network-performance-monitor/npm-monitor-rule.png)
+7. Click **Save** to save the configuration.<br><br> ![create custom monitoring rule](./media/log-analytics-network-performance-monitor/npm-monitor-rule.png)
 
 After you save a monitoring rule, you can integrate that rule with Alert Management by clicking **Create Alert**. An alert rule is automatically created with the search query and other required parameters automatically filled-in. Using an alert rule, you can receive email-based alerts, in addition to the existing alerts within NPM. Alerts can also trigger remedial actions with runbooks or they can integrate with existing service management solutions using webhooks. You can click **Manage Alert** to edit the alert settings.
 
@@ -191,7 +186,10 @@ You can use PowerShell scripts to configure firewall rules on your computers run
 In contrast, ICMP does not operate using port. In most enterprise scenarios, ICMP traffic is permitted through the firewalls to allow you to use network diagnostics tools like the Ping utility. So, if you can Ping one machine from another, then you can use the ICMP protocol without having to configure firewalls manually.
 
 > [!NOTE]
-> Some firewalls may block ICMP which may lead to retransmission resulting in large number of events in your security information and event management system. Make sure the protocol that you choose is not blocked by a network firewall/NSG, otherwise NPM will not be able to monitor the network segment.  Because of this, recommended that you use TCP for monitoring. You should use ICMP in scenarios where you are not able to use TCP, such as when you are using Windows client based nodes (since TCP raw sockets are not allowed in Windows clients) or your network firewall/NSG is blocking TCP.
+> Some firewalls may block ICMP, which may lead to retransmission resulting in large number of events in your security information and event management system. Make sure the protocol that you choose is not blocked by a network firewall/NSG, otherwise NPM will not be able to monitor the network segment.  Because of this, we recommended that you use TCP for monitoring. 
+> You should use ICMP in scenarios where you are not able to use TCP, such as when:
+> * You are using Windows client based nodes, since TCP raw sockets are not allowed in Windows client
+> * Your network firewall/NSG blocks TCP.
 
 
 #### How to switch the protocol
@@ -289,20 +287,14 @@ All data that is exposed graphically through the Network Performance Monitor das
 ## Investigate the root cause of a health alert
 Now that you've read about Network Performance Monitor, let's look at a simple investigation into the root-cause for a health event.
 
-1. On the Overview page, you'll get a quick snapshot of the health of your network by observing the **Network Performance Monitor** tile. Notice that out of the 6 subnetworks links being monitored, 2 are unhealthy. This warrants investigation. Click the tile to view the solution dashboard.  
-   ![Network Performance Monitor tile](./media/log-analytics-network-performance-monitor/npm-investigation01.png)
-2. In the example image below, you'll notice that there is a health event a network link that is unhealthy. You decide to investigate the issue and click on the **DMZ2-DMZ1** network link to find out the root of the problem.  
-   ![unhealthy network link example](./media/log-analytics-network-performance-monitor/npm-investigation02.png)
-3. The drill-down page shows all the subnetwork links in **DMZ2-DMZ1** network link. You'll notice that for both the subnetwork links, the latency has crossed the threshold making the network link unhealthy. You can also see the latency trends of both the subnetwork links. You can use the time selection control in the graph to focus on the required time range. You can see the time of the day when latency has reached its peak. You can later search the logs for this time period to investigate the issue. Click **View node links** to drill-down further.  
-   ![unhealthy subnet links example](./media/log-analytics-network-performance-monitor/npm-investigation03.png)
-4. Similar to the previous page, the drill-down page for the particular subnetwork link lists down its constituent node links. You can perform similar actions  here as you did in the previous step. Click **View topology** to view the topology between the 2 nodes.  
-   ![unhealthy node links example](./media/log-analytics-network-performance-monitor/npm-investigation04.png)
-5. All the paths between the 2 selected nodes are plotted in the topology map. You can visualize the hop-by-hop topology of routes between two nodes on the topology map. It gives you a clear picture of how many routes exist between the two nodes and what paths the data packets are taking. Network performance bottlenecks are marked in red color. You can locate a faulty network connection or a faulty network device by looking at red colored elements on the topology map.  
-   ![unhealthy topology view example](./media/log-analytics-network-performance-monitor/npm-investigation05.png)
+1. On the Overview page, you'll get a quick snapshot of the health of your network by observing the **Network Performance Monitor** tile. Notice that out of the 6 subnetworks links being monitored, 2 are unhealthy. This warrants investigation. Click the tile to view the solution dashboard.<br><br> ![Network Performance Monitor tile](./media/log-analytics-network-performance-monitor/npm-investigation01.png)  
+2. In the example image below, you'll notice that there is a health event a network link that is unhealthy. You decide to investigate the issue and click on the **DMZ2-DMZ1** network link to find out the root of the problem.<br><br> ![unhealthy network link example](./media/log-analytics-network-performance-monitor/npm-investigation02.png)  
+3. The drill-down page shows all the subnetwork links in **DMZ2-DMZ1** network link. You'll notice that for both the subnetwork links, the latency has crossed the threshold making the network link unhealthy. You can also see the latency trends of both the subnetwork links. You can use the time selection control in the graph to focus on the required time range. You can see the time of the day when latency has reached its peak. You can later search the logs for this time period to investigate the issue. Click **View node links** to drill-down further.<br><br> ![unhealthy subnet links example](./media/log-analytics-network-performance-monitor/npm-investigation03.png) 
+4. Similar to the previous page, the drill-down page for the particular subnetwork link lists down its constituent node links. You can perform similar actions  here as you did in the previous step. Click **View topology** to view the topology between the 2 nodes.<br><br> ![unhealthy node links example](./media/log-analytics-network-performance-monitor/npm-investigation04.png)  
+5. All the paths between the 2 selected nodes are plotted in the topology map. You can visualize the hop-by-hop topology of routes between two nodes on the topology map. It gives you a clear picture of how many routes exist between the two nodes and what paths the data packets are taking. Network performance bottlenecks are marked in red color. You can locate a faulty network connection or a faulty network device by looking at red colored elements on the topology map.<br><br> ![unhealthy topology view example](./media/log-analytics-network-performance-monitor/npm-investigation05.png)  
 6. The loss, latency, and the number of hops in each path can be reviewed in the **Action** pane. Use the scrollbar to view the details of those unhealthy paths.  Use the filters to select the paths with the unhealthy hop so that the topology for only the selected paths is plotted. You can use your mouse wheel to zoom in or out of the topology map.
 
-   In the below image you can clearly see the root-cause of the problem areas to the specific section of the network by looking at the paths and hops in red color. Clicking on a node in the topology map reveals the properties of the node, including the FQDN, and IP address. Clicking on a hop shows the IP address of the hop.  
-   ![unhealthy topology - path details example](./media/log-analytics-network-performance-monitor/npm-investigation06.png)
+   In the below image you can clearly see the root-cause of the problem areas to the specific section of the network by looking at the paths and hops in red color. Clicking on a node in the topology map reveals the properties of the node, including the FQDN, and IP address. Clicking on a hop shows the IP address of the hop.<br><br> ![unhealthy topology - path details example](./media/log-analytics-network-performance-monitor/npm-investigation06.png)
 
 ## Provide feedback
 
