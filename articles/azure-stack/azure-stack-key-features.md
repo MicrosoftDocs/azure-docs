@@ -141,5 +141,5 @@ In-development builds will provide the following benefits:
 - Other improvements
 
 ## Next steps
-[Deploy Azure Stack Development Kit](azure-stack-deploy.md)
+[Deploy Azure Stack Development Kit](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-run-powershell-script)
 
