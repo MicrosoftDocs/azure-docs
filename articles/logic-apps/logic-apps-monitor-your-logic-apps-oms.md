@@ -131,13 +131,23 @@ select the row for a logic app or a status.
 
    ![View runs for a logic app or a status](media/logic-apps-monitor-your-logic-apps-oms/logic-app-run-details.png)
 
-   The tracked properties column allows you to view the tracked properties or perform a string based search on the content. The json shows tracked properties grouped by actions for the chosen logic app run. Learn more about [how to add tracked properties to your logic app.] (logic-apps-monitor-your-logic-apps#azure-diagnostics-event-settings-and-details)
+   There are two advanced options on this page:
+   * **Tracked properties:**
+     This column provides tracked properties, grouped by actions, for the chosen logic app. Choose **View** to see the tracked properties. The tracked properties are searchable via column filter.
+   
+     ![View tracked properties for a logic app](media/logic-apps-monitor-your-logic-apps-oms/logic-app-tracked-properties.png)
+
+     The first appearance of any newly added tracked properties may take 10-15 minutes.
+
+     Learn more about [how to add tracked properties to your logic app.](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-event-settings-and-details)
  
-   ![View tracked properties for a logic app](media/logic-apps-monitor-your-logic-apps-oms/logic-app-tracked-properties.png)
+        
+   * **Resubmit:**
+     You can resubmit one or more failed or successful or running logic app runs.To Resubmit,select the runs via checkbox and choose **Resubmit**. 
 
-   You can also Resubmit logic app runs from this UI.To Resubmit one or more logic app runs, select the runs via checkbox and choose **Resubmit**. 
+     ![Resubmit logic app runs](media/logic-apps-monitor-your-logic-apps-oms/logic-app-resubmit.png)
 
-   ![Resubmit logic app runs](media/logic-apps-monitor-your-logic-apps-oms/logic-app-resubmit.png)
+    
 
 4. To filter these results, you can perform 
 both client-side and server-side filtering.
@@ -156,16 +166,20 @@ both client-side and server-side filtering.
      ![Change the time window](media/logic-apps-monitor-your-logic-apps-oms/change-interval.png)
  
 5. To view all the actions and their details for a specific run, 
-select a row, which opens the Log Search page. 
+select a row for a logic app run.
 
+   Here is an example that shows all the actions for a specific logic app run:
+
+   ![View actions for a logic app run](media/logic-apps-monitor-your-logic-apps-oms/logic-app-action-details.png)
+   
+6. For any page, to view the query that renders the results or to see all results, choose **See All** from that page, which opens the Log Search page.
+   
    * To view this information in a table, choose **Table**.
    * To change the query, you can edit the query string in the search bar. 
    For a better experience, choose **Advanced Analytics**.
 
      ![View actions and details for a logic app run](media/logic-apps-monitor-your-logic-apps-oms/log-search-page.png)
-
-6. To view the query behind the UI or to see all results, choose **See All** from any page, which opens the Log Search page.
-
+     
      Here on the Azure Log Analytics page, 
      you can update queries and view the results from the table. 
      This query uses [Kusto query language](https://docs.loganalytics.io/docs/Language-Reference), 
