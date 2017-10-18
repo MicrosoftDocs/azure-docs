@@ -1,3 +1,26 @@
+---
+title: Upgrade an Azure Container Service (AKS) cluster | Microsoft Docs
+description: Upgrade an Azure Container Service (AKS) cluster
+services: container-service
+documentationcenter: ''
+author: gabrtv
+manager: timlt
+editor: ''
+tags: aks, azure-container-service
+keywords: Kubernetes, Docker, Containers, Microservices, Azure
+
+ms.assetid:
+ms.service: container-service
+ms.devlang: na
+ms.topic: overview
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 10/16/2017
+ms.author: gamonroy
+ms.custom: mvc
+
+---
+
 # Upgrade an Azure Container Service (AKS) cluster
 
 Azure Container Service (AKS) makes it easy to perform common management tasks including scaling Kubernetes clusters.
@@ -7,7 +30,7 @@ Azure Container Service (AKS) makes it easy to perform common management tasks i
 Before upgrading a cluster, use the `az aks get-versions` command to check which Kubernetes releases are available for upgrade.
 
 ```azurecli-interactive
-az aks get-versions -n myK8sCluster -g myResourceGroup -o table
+az aks get-versions --name myK8sCluster --resource-group myResourceGroup --output table
 ```
 
 Output:
@@ -18,10 +41,10 @@ Name          ResourceGroup    MasterVersion   MasterUpgrades  AgentPoolVersion 
 myK8sCluster  myResourceGroup  1.7.7           1.8.0, 1.8.1    1.7.7              1.8.0, 1.8.1
 ```
 
-We have two versions available for upgrade: 1.8.0 and 1.8.1.  We can use the `az aks upgrade` command to upgrade to the latest available version.  During the upgrade process, nodes will be carefully [cordoned and drained](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/) to minimize disruption to running applications.
+We have two versions available for upgrade: 1.8.0 and 1.8.1.  We can use the `az aks upgrade` command to upgrade to the latest available version.  During the upgrade process, nodes are carefully [cordoned and drained](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/) to minimize disruption to running applications.
 
 ```azurecli-interactive
-az aks upgrade -n myK8sCluster -g myResourceGroup --kubernetes-version 1.8.1
+az aks upgrade --name myK8sCluster --resource-group myResourceGroup --kubernetes-version 1.8.1
 ```
 
 Output:
@@ -83,7 +106,7 @@ Output:
 You can now confirm the upgrade was successful with the `az aks show` command.
 
 ```azurecli-interactive
-az aks show -n myK8sCluster -g myResourceGroup -o table
+az aks show --name myK8sCluster --resource-group myResourceGroup --output table
 ```
 
 ## Next steps
