@@ -79,13 +79,13 @@ The [Functions Quickstart for Government](documentation-government-functions.md)
 
 ## Azure Container Service
 This service is available for Preview in Azure Government. 
-For details on this service and how to use it, see [Azure Container Service documentation](../container-service.md). 
+For details on this service and how to use it, see [Azure Container Service documentation](../container-service/index.yml). 
 
 ### Variations
 Azure Container Service does not yet have Portal support in Azure Government. 
 
 ## Service Fabric
-For details on this service and how to use it, see [Azure Service Fabric documentation](../service-fabric.md).
+For details on this service and how to use it, see [Azure Service Fabric documentation](../service-fabric/service-fabric-overview.md).
 
 ## Next Steps
 For supplemental information and updates, subscribe to the
