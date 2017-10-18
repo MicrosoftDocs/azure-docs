@@ -14,6 +14,9 @@ ms.author: chbryant
 
 # Get Started with Video API in C&#35;
 
+> [!IMPORTANT]
+> Video API Preview will end on October 30, 2017. Try the new [Video Indexer API](https://azure.microsoft.com/services/cognitive-services/video-indexer/) Preview to easily extract insights from videos and to enhance content discovery experiences, such as search results, by detecting spoken words, faces, characters, and emotions. [Learn more](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview).
+
 Explore a basic Windows application that uses Microsoft Cognitive Services (formerly Project Oxford) Video API to stabilize videos, recognize motion tracking and detecting faces in a video. The below example lets you submit a locally stored file in mp4, mov, or wmv formats. You can use this open source example as a template for building your own app for Windows using the Video API and WPF (Windows Presentation Foundation), a part of .NET Framework.
 
 ## <a name="Prerequisites"></a>Prerequisites  
