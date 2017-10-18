@@ -115,7 +115,7 @@ To run queries, we use sample data that is by default available in the storage a
 In this article you learned how to run interactive queries in Spark using Jupyter notebook. Advance to the next article to see how the data you registered in Spark can be pulled into a BI analytics tool such as Power BI and Tableau. 
 
 > [!div class="nextstepaction"]
->[Spark BI using data visualization tools with Azure HDInsight](../hdinsight-apache-spark-use-bi-tools.md)
+>[Spark BI using data visualization tools with Azure HDInsight](apache-spark-use-bi-tools.md)
 
 
 

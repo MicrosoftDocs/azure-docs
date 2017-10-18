@@ -151,12 +151,12 @@ Jupyter notebooks on Spark HDInsight clusters are supported only on Google Chrom
 The new kernels are in evolving stage and will mature over time. This could also mean that APIs could change as these kernels mature. We would appreciate any feedback that you have while using these new kernels. This is useful in shaping the final release of these kernels. You can leave your comments/feedback under the **Comments** section at the bottom of this article.
 
 ## <a name="seealso"></a>See also
-* [Overview: Apache Spark on Azure HDInsight](../hdinsight-apache-spark-overview.md)
+* [Overview: Apache Spark on Azure HDInsight](apache-spark-overview.md)
 
 ### Scenarios
-* [Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](../hdinsight-apache-spark-use-bi-tools.md)
+* [Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](apache-spark-use-bi-tools.md)
 * [Spark with Machine Learning: Use Spark in HDInsight for analyzing building temperature using HVAC data](apache-spark-ipython-notebook-machine-learning.md)
-* [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](../hdinsight-apache-spark-machine-learning-mllib-ipython.md)
+* [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](apache-spark-machine-learning-mllib-ipython.md)
 * [Spark Streaming: Use Spark in HDInsight for building real-time streaming applications](apache-spark-eventhub-streaming.md)
 * [Website log analysis using Spark in HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
@@ -167,10 +167,10 @@ The new kernels are in evolving stage and will mature over time. This could also
 ### Tools and extensions
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applications](apache-spark-intellij-tool-plugin.md)
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Use Zeppelin notebooks with a Spark cluster on HDInsight](../hdinsight-apache-spark-zeppelin-notebook.md)
+* [Use Zeppelin notebooks with a Spark cluster on HDInsight](apache-spark-zeppelin-notebook.md)
 * [Use external packages with Jupyter notebooks](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Install Jupyter on your computer and connect to an HDInsight Spark cluster](apache-spark-jupyter-notebook-install-locally.md)
 
 ### Manage resources
-* [Manage resources for the Apache Spark cluster in Azure HDInsight](../hdinsight-apache-spark-resource-manager.md)
+* [Manage resources for the Apache Spark cluster in Azure HDInsight](apache-spark-resource-manager.md)
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight](apache-spark-job-debugging.md)

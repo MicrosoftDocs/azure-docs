@@ -186,6 +186,6 @@ Here are some issues that you might run into while using Livy for remote job sub
 
 ## Next step
 
-* [Manage resources for the Apache Spark cluster in Azure HDInsight](../hdinsight-apache-spark-resource-manager.md)
+* [Manage resources for the Apache Spark cluster in Azure HDInsight](apache-spark-resource-manager.md)
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight](apache-spark-job-debugging.md)
 
