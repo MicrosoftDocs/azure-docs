@@ -99,6 +99,13 @@ The Service Fabric Load Balancer reports a warning when it detects a node capaci
 * **Property**: Starts with **Capacity**.
 * **Next steps**: Check the provided metrics and view the current capacity on the node.
 
+### Node capacity mismatch for resource governance metrics
+System.Hosting reports a warning when first service package that uses [resource governance](service-fabric-resource-governance.md) registers on a node which defined capacities in the cluster manifest are larger than the real node capacities for resource governance metrics (memory and cpu cores).
+
+* **SourceId**: System.Hosting
+* **Property**: ResourceGovernance
+* **Next steps**: Update the cluster manifest with correct node capacities for these metrics or do not specify them at all and let Service Fabric to automatically detect available resources.
+
 ## Application system health reports
 **System.CM**, which represents the Cluster Manager service, is the authority that manages information about an application.
 
@@ -812,6 +819,13 @@ System.Hosting reports an error if validation during the upgrade fails or if the
 * **SourceId**: System.Hosting
 * **Property**: Uses the prefix **FabricUpgradeValidation** and contains the upgrade version.
 * **Description**: Points to the error encountered.
+
+### Undefined node capacity for resource governance metrics
+System.Hosting reports a warning whenever service package that uses [resource governance](service-fabric-resource-governance.md) registers on a node which capacities are not defined in the cluster manifest for resource governance metrics and config for automatical detection is turned off.
+
+* **SourceId**: System.Hosting
+* **Property**: ResourceGovernance
+* **Next steps**: The preferred way to overcome this problem is to enable config for automatical detection of available resources. Another way is to update the cluster manifest and specify node capacities for these metrics.
 
 ## Next steps
 [View Service Fabric health reports](service-fabric-view-entities-aggregated-health.md)
