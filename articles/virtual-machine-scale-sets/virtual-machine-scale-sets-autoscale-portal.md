@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2017
+ms.date: 10/18/2017
 ms.author: iainfou
 
 ---
@@ -30,7 +30,6 @@ To create auto scale rules, you need an existing virtual machine scale set. You 
 
 ## Create a rule to automatically scale out
 If your application demand increases, the load on the VM instances in your scale set increases. If this increased load is consistent, rather than just a brief demand, you can configure auto scale rules to increase the number of VM instances in the scale set. When these VM instances are created and your applications are deployed, the scale set starts to distribute traffic to them through the load balancer. You control what metrics to monitor, such as CPU or memory, how long the application load must meet a given threshold, and how many VM instances to add to the scale set.
-
 
 1. Open the Azure portal and select **Resource groups** from the menu on the left-hand size of the dashboard.
 2. Select the resource group that contains your scale set, then choose your scale set from the list of resources.
@@ -92,7 +91,7 @@ Your auto scale profile must define a minimum, maximum, and default number of VM
 
 
 ## Monitor number of instances in a scale set
-To see the number, and status, of VM instances, select Instances from the menu on the left-hand side of the scale set window. The status indicates if the VM instance is provisioning as the scale set automatically scales out, or is deprovisioning as the scale automatically scales in.
+To see the number, and status, of VM instances, select **Instances** from the menu on the left-hand side of the scale set window. The status indicates if the VM instance is provisioning as the scale set automatically scales out, or is deprovisioning as the scale automatically scales in.
 
 ![View a list of scale set VM instances](media/virtual-machine-scale-sets-autoscale-portal/view-instances.png)
 
@@ -100,7 +99,25 @@ To see the number, and status, of VM instances, select Instances from the menu o
 ## Auto scale based on a schedule
 The previous examples automatically scaled a scale set in or out based on basic host metrics such as CPU or memory usage. You can also create auto scale rules based on schedules. These schedule-based rules allow you to automatically scale out the number of VM instances ahead of an anticipated increase in application demand, such as core work hours, and then automatically scale in the number of instances at a time that you anticipate less demand, such as the weekend.
 
-To create auto scale rules based on a schedule rather than host metrics, use the Azure portal. Schedule-based rules cannot currently be created with Azure PowerShell.
+1. Choose **Scaling** from the menu on the left-hand side of the scale set window. To delete the existing auto scale rules created in the previous examples, choose the trash can icon.
+
+    ![Delete the existing auto scale rules](media/virtual-machine-scale-sets-autoscale-portal/delete-rules.png)
+
+2. Choose to **Add a scale condition**. Select the pencil icon next to rule name, and provide a name such as *Scale out during each work day*.
+
+    ![Rename the default auto scale rule](media/virtual-machine-scale-sets-autoscale-portal/rename-rule.png)
+
+3. Select the radio button to **Scale to a specific instance count**.
+4. To scale up the number of instances, enter *10* as the instance count.
+5. Choose **Repeat specific days** for the **Schedule** type.
+6. Select all the work days, Monday through Friday.
+7. Choose the appropriate timezone, then specify a **Start time** of *09:00*.
+8. Choose to **Add a scale condition** again. Repeat the process to create a schedule named *Scale in during the evening* that scales to *3* instances, repeats every week day, and starts at *18:00*.
+9. To apply your schedule-based auto scale rules, select **Save**.
+
+    ![Create auto scale rules that scale on a schedule](media/virtual-machine-scale-sets-autoscale-portal/schedule-autoscale.PNG)
+
+To see how your auto scale rules are applied, select the **Run history** across the top of the **Scaling** window. The graph and events list shows how the auto scale rules trigger and the number of VM instances in your scale increase or decrease. You can also select **Instances** from the menu on the left-hand side of the scale set window as noted in the preceding section.
 
 
 ## Use in-guest metrics of App Insights

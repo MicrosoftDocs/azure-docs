@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2017
+ms.date: 10/18/2017
 ms.author: iainfou
 
 ---
@@ -31,9 +31,9 @@ To make it easier to create the auto scale rules, define some variables for your
 
 ```azurecli
 sub=$(az account show --query id -o tsv)
-resourcegroup_name = "myResourceGroup"
-scaleset_name = "myScaleSet"
-location_name = "eastus"
+resourcegroup_name="myResourceGroup"
+scaleset_name="myScaleSet"
+location_name="eastus"
 ```
 
 ## Define an auto scale profile
@@ -56,22 +56,22 @@ The start of the auto scale profile defines the default, minimum, and maximum sc
 ## Create a rule to automatically scale out
 If your application demand increases, the load on the VM instances in your scale set increases. If this increased load is consistent, rather than just a brief demand, you can configure auto scale rules to increase the number of VM instances in the scale set. When these VM instances are created and your applications are deployed, the scale set starts to distribute traffic to them through the load balancer. You control what metrics to monitor, such as CPU or memory, how long the application load must meet a given threshold, and how many VM instances to add to the scale set.
 
-Let's create a rule that increases the number of VM instances in a scale set when the average CPU load is greater than 60% over a 5-minute period. When the rule triggers, the number of VM instances is increased by 20%. In scale sets with a small number of VM instances, you could set the `type` to *ChangeCount* and increase the `value` by *1* or *2* instances. In scale sets with a large number of VM instances, an increase of 10% or 20% VM instances may be more appropriate.
+Let's create a rule that increases the number of VM instances in a scale set when the average CPU load is greater than 70% over a 10-minute period. When the rule triggers, the number of VM instances is increased by 20%. In scale sets with a small number of VM instances, you could set the `type` to *ChangeCount* and increase the `value` by *1* or *2* instances. In scale sets with a large number of VM instances, an increase of 10% or 20% VM instances may be more appropriate.
 
 The following parameters are used for this rule:
 
-| Parameter         | Explanation                                                                                                          | Value          |
-|-------------------|----------------------------------------------------------------------------------------------------------------------|----------------|
-| *metricName*      | The performance metric to monitor and apply scale set actions on.                                                    | Percentage CPU |
-| *timeGrain*       | How often the metrics are collected for analysis.                                                                    | 1 minute       |
-| *timeAggregation* | Defines how the collected metrics should be aggregated for analysis.                                                 | Average        |
-| *timeWindow*      | The amount of time monitored before the metric and threshold values are compared.                                    | 5 minutes      |
-| *operator*        | Operator used to compare the metric data against the threshold.                                                      | Greater Than   |
-| *threshold*       | The value that causes the auto scale rule to trigger an action.                                                      | 60%            |
-| *direction*       | Defines if the scale set should scale up or down when the rule applies.                                              | Increase       |
-| *type*            | Indicates that the number of VM instances should be changed by a percentage amount.                                  | Percent Change |
-| *value*           | How many VM instances should be scaled up or down when the rule applies.                                             | 20             |
-| *cooldown*        | The amount of time to wait before the rule is applied again so that the auto scale actions have time to take effect. | 5 minutes      |
+| Parameter         | Explanation                                                                                                          | Value           |
+|-------------------|----------------------------------------------------------------------------------------------------------------------|-----------------|
+| *metricName*      | The performance metric to monitor and apply scale set actions on.                                                    | Percentage CPU  |
+| *timeGrain*       | How often the metrics are collected for analysis.                                                                    | 1 minute        |
+| *timeAggregation* | Defines how the collected metrics should be aggregated for analysis.                                                 | Average         |
+| *timeWindow*      | The amount of time monitored before the metric and threshold values are compared.                                    | 10 minutes      |
+| *operator*        | Operator used to compare the metric data against the threshold.                                                      | Greater Than    |
+| *threshold*       | The value that causes the auto scale rule to trigger an action.                                                      | 70%             |
+| *direction*       | Defines if the scale set should scale up or down when the rule applies.                                              | Increase        |
+| *type*            | Indicates that the number of VM instances should be changed by a percentage amount.                                  | Percent Change  |
+| *value*           | How many VM instances should be scaled up or down when the rule applies.                                             | 20              |
+| *cooldown*        | The amount of time to wait before the rule is applied again so that the auto scale actions have time to take effect. | 5 minutes       |
 
 The following example defines the rule to scale out the number of VM instances. The *metricResourceUri* uses the variables previously defined for the subscription ID, resource group name, and scale set name:
 
@@ -84,10 +84,10 @@ The following example defines the rule to scale out the number of VM instances. 
     "metricResourceLocation": "'$location_name'",
     "timeGrain": "PT1M",
     "statistic": "Average",
-    "timeWindow": "PT5M",
+    "timeWindow": "PT10M",
     "timeAggregation": "Average",
     "operator": "GreaterThan",
-    "threshold": 60
+    "threshold": 70
   },
   "scaleAction": {
     "direction": "Increase",
@@ -102,7 +102,7 @@ The following example defines the rule to scale out the number of VM instances. 
 ## Create a rule to automatically scale in
 On an evening or weekend, your application demand may decrease. If this decreased load is consistent over a period of time, you can configure auto scale rules to decrease the number of VM instances in the scale set. This scale-in action reduces the cost to run your scale set as you only run the number of instances required to meet the current demand.
 
-Create another rule that decreases the number of VM instances in a scale set when the average CPU load then drops below 30% over a 5-minute period. The following example defines the rule to scale out the number of VM instances. The *metricResourceUri* uses the variables previously defined for the subscription ID, resource group name, and scale set name:
+Create another rule that decreases the number of VM instances in a scale set when the average CPU load then drops below 30% over a 10-minute period. The following example defines the rule to scale out the number of VM instances. The *metricResourceUri* uses the variables previously defined for the subscription ID, resource group name, and scale set name:
 
 ```json
 {
@@ -113,7 +113,7 @@ Create another rule that decreases the number of VM instances in a scale set whe
     "metricResourceLocation": "'$location_name'",
     "timeGrain": "PT1M",
     "statistic": "Average",
-    "timeWindow": "PT5M",
+    "timeWindow": "PT10M",
     "timeAggregation": "Average",
     "operator": "LessThan",
     "threshold": 30
@@ -141,7 +141,7 @@ az monitor autoscale-settings create \
       "notifications": [],
       "profiles": [
         {
-          "name": "Auto created scale condition",
+          "name": "Auto scale by percentage based on CPU usage",
           "capacity": {
             "minimum": "2",
             "maximum": "10",
@@ -156,7 +156,7 @@ az monitor autoscale-settings create \
                 "metricResourceLocation": "'$location_name'",
                 "timeGrain": "PT1M",
                 "statistic": "Average",
-                "timeWindow": "PT5M",
+                "timeWindow": "PT10M",
                 "timeAggregation": "Average",
                 "operator": "GreaterThan",
                 "threshold": 70
@@ -176,7 +176,7 @@ az monitor autoscale-settings create \
                 "metricResourceLocation": "'$location_name'",
                 "timeGrain": "PT1M",
                 "statistic": "Average",
-                "timeWindow": "PT5M",
+                "timeWindow": "PT10M",
                 "timeAggregation": "Average",
                 "operator": "LessThan",
                 "threshold": 30
@@ -211,7 +211,113 @@ az vmss list-instances \
 ## Auto scale based on a schedule
 The previous examples automatically scaled a scale set in or out based on basic host metrics such as CPU or memory usage. You can also create auto scale rules based on schedules. These schedule-based rules allow you to automatically scale out the number of VM instances ahead of an anticipated increase in application demand, such as core work hours, and then automatically scale in the number of instances at a time that you anticipate less demand, such as the weekend.
 
-To create auto scale rules based on a schedule rather than host metrics, use the Azure portal. Schedule-based rules cannot currently be created with the Azure CLI.
+To use schedule-based auto scale rules, create a JSON profile that defines the number of VM instances to run for a fixed start and end time window. The following example defines a rule to scale out to *10* instances at *9* A.M each work day (Monday through Friday).
+
+```json
+{
+  "name": "Scale out during each work day",
+  "capacity": {
+      "minimum": "10",
+      "maximum": "10",
+      "default": "10"
+  },
+  "rules": [],
+  "recurrence": {
+      "frequency": "Week",
+      "schedule": {
+          "timeZone": "Pacific Standard Time",
+          "days": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday"
+          ],
+          "hours": [
+              9
+          ],
+          "minutes": [
+              0
+          ]
+      }
+  }
+}
+```
+
+To scale in during the evening, you would would create another rule that specifies a lower number of VM instances at a start time.
+
+The following complete example defines the rules to scale out and then scale in, then applies the auto scale profile with [az monitor autoscale-settings create](/cli/azure/monitor/autoscale-settings#az_monitor_autoscale_settings_create). This example overwrites the metric-based auto scale rules created in the previous examples. The *metricResourceUri* uses the variables previously defined for the subscription ID, resource group name, and scale set name:
+
+```azurecli
+az monitor autoscale-settings create \
+    --resource-group myResourceGroup \
+    --name autoscale \
+    --parameters '{"autoscale_setting_resource_name": "autoscale",
+      "enabled": true,
+      "location": "'$location_name'",
+      "notifications": [],
+      "profiles": [
+        {
+          "name": "Scale out during each work day",
+          "capacity": {
+            "minimum": "10",
+            "maximum": "10",
+            "default": "10"
+          },
+          "rules": [],
+          "recurrence": {
+            "frequency": "Week",
+            "schedule": {
+              "timeZone": "Pacific Standard Time",
+              "days": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday"
+              ],
+              "hours": [
+                9
+              ],
+              "minutes": [
+                0
+              ]
+            }
+          }
+        },
+        {
+          "name": "Scale in during the evening",
+          "capacity": {
+            "minimum": "3",
+            "maximum": "3",
+            "default": "3"
+          },
+          "rules": [],
+          "recurrence": {
+            "frequency": "Week",
+            "schedule": {
+              "timeZone": "Pacific Standard Time",
+              "days": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday"
+              ],
+              "hours": [
+                18
+              ],
+              "minutes": [
+                0
+              ]
+            }
+          }
+        }
+      ],
+      "tags": {},
+      "target_resource_uri": "/subscriptions/'$sub'/resourceGroups/'$resourcegroup_name'/providers/Microsoft.Compute/virtualMachineScaleSets/'$scaleset_name'"
+    }'
+```
 
 
 ## Use in-guest metrics of App Insights
