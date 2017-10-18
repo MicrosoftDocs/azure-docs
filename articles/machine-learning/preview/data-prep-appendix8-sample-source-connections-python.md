@@ -1,6 +1,6 @@
 ---
-title: Example additional source data connections possible with Azure Machine Learning Data Preparation  | Microsoft Docs
-description: This document provides a a set of examples of source data connections possible with Azure ML data prep
+title: Example additional source data connections possible with Azure Machine Learning data preparation  | Microsoft Docs
+description: This document provides a set of examples of source data connections that are possible with Azure Machine Learning data preparation
 services: machine-learning
 author: euangMS
 ms.author: euang
@@ -14,24 +14,24 @@ ms.topic: article
 ms.date: 09/11/2017
 ---
 # Sample of custom source connections (Python) 
-Before reading this appendix read [Python Extensibility Overview](data-prep-python-extensibility-overview.md)
+Before reading this appendix, read [Python extensibility overview](data-prep-python-extensibility-overview.md).
 
 ## Loading data from data.world
 
 ### Prerequisites
 
 #### Register yourself at data.world
-An API token is needed that you obtain from data.world website.
+You need an API token is from the data.world website.
 
 #### Install data.world library
 
-Open the Azure Machine Learning Workbench command-line interface from _File->Open command-line interface_
+Open the Azure Machine Learning Workbench command-line interface by selecting **File > Open command-line interface**.
 
 ```console
 pip install git+git://github.com/datadotworld/data.world-py.git
 ```
 
-Then run `dw configure` on the command line, which prompts you for your token. When you enter your token, a .dw/ directory is created in your home directory and your token is stored there.
+Next, run `dw configure` on the command line, which prompts you for your token. When you enter your token, a .dw/ directory is created in your home directory and your token is stored there.
 
 ```
 API token (obtained at: https://data.world/settings/advanced): <enter API token here>
@@ -40,24 +40,24 @@ Now you should be able to import data.world libraries.
 
 #### Load data into data preparation
 
-Create a new script-based data flow and use the following script to load the data from data.world
+Create a new script-based data flow. Then use the following script to load the data from data.world.
 
 ```python
 #paths = df['Path'].tolist()
 
 import datadotworld as dw
 
-#load the dataset
+#Load the dataset.
 lds = dw.load_dataset('data-society/the-simpsons-by-the-data')
 
-#Load specific data frame from the dataset
+#Load specific data frame from the dataset.
 df = lds.dataframes['simpsons_episodes']
 
 ```
 
 ## Load CosmosDB data into data preparation
 
-Create a new script-based data flow and use the following script to load the data from CosmosDB (the libraries will first need to be installed see the reference document linked above)
+Create a new script-based data flow. and then use the following script to load the data from CosmosDB. (The libraries need to be installed first. For more information, see the previous reference document that we link to.)
 
 ```python
 import pydocumentdb
@@ -72,7 +72,7 @@ config = {
     'DOCUMENTDB_COLLECTION': '<collectionname>'
 };
 
-# Initialize the Python DocumentDB client
+# Initialize the Python DocumentDB client.
 client = document_client.DocumentClient(config['ENDPOINT'], {'masterKey': config['MASTERKEY']})
 
 # Read databases and take first since id should not be duplicated.
