@@ -111,13 +111,13 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     b. In the **Identifier** textbox, type the value: `achieve3000-saml`
 
 	> [!NOTE] 
-	> This value is not real. Update the value with the actual Sign-On URL. Contact [Achieve3000 Client support team](https://www.achieve3000.com/contact-us/) to get the value. 
+	> The Sign-On URL value is not real. Update the value with the actual Sign-On URL. Contact [Achieve3000 Client support team](https://www.achieve3000.com/contact-us/) to get the value. 
 
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
 	![The Certificate download link](./media/active-directory-saas-achieve3000-tutorial/tutorial_achieve3000_certificate.png) 
 
-5. Achieve3000 application expect the unique **studentID** value in the Name Identifier claim. Customer can map the correct value for the Name Identifier claim. In this case we have mapped the **user.mail** for the demo purpose. But according to your local settings you should map the correct value for it.   
+5. Achieve3000 application expects the unique **studentID** value in the Name Identifier claim. Customer can map the correct value for the Name Identifier claim. In this case, we have mapped the **user.mail** for the demo purpose. But according to your unique identifier, you should map the correct value for it.   
 
 	![Configure Single Sign-On attb](./media/active-directory-saas-achieve3000-tutorial/tutorial_achieve3000_attribute.png)
 
