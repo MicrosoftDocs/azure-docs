@@ -355,6 +355,9 @@ The following table provides a comparison of limits and abilities between the Ba
 
 To participate in the Preview for Load Balancer Standard SKU and its companion Public IP Standard SKU, register your subscription to gain access using either Azure CLI 2.0 or PowerShell.  Please follow these 3 steps below:
 
+>[!NOTE]
+>Registration of the Load Balancer Standard feature may take up to an hour to become effective globally. If you wish to use Load Balancer Standard with [Availability Zones](https://aka.ms/availabilityzones) and [HA Ports](https://aka.ms/haports), a separate sign-up is required for these previews.  Please follow the respective instructions.
+
 ### Sign up using Azure CLI 2.0
 
 1. Register the feature with the provider
@@ -412,13 +415,7 @@ To participate in the Preview for Load Balancer Standard SKU and its companion P
     ```powershell
     Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
     ```
-   
->[!NOTE]
->Registration of the Load Balancer Standard feature may take up to an hour to become effective globally.
-
->[!NOTE]
->If you wish to use Load Balancer Standard with [Availability Zones](https://aka.ms/availabilityzones) and [HA Ports](https://aka.ms/haports), a separate sign-up is required for these previews.  Please follow the respective instructions.
-
+ 
 ## Pricing
 
 Load Balancer Standard SKU is billed based on rules configured and data processed.  No charges are incurred during the Preview period.  Review the [Load Balancer](https://aka.ms/lbpreviewpricing) and [Public IP](https://aka.ms/lbpreviewpippricing) pricing pages for more information.
