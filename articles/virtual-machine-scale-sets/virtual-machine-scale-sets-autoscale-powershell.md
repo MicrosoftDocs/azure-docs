@@ -136,18 +136,6 @@ The previous examples automatically scaled a scale set in or out with basic host
 To create auto scale rules based on a schedule rather than host metrics, use the Azure portal. Schedule-based rules cannot currently be created with Azure PowerShell.
 
 
-## Use in-guest metrics of App Insights
-In these examples, basic host metrics for CPU or memory usage were used. These host metrics allow you to quickly create auto scale rules without the need to configure the collection of additional metrics. For more granular control over the metrics used to automatically scale your scale set in or out, you could use one of the following methods:
-
-- **In-guest VM metrics with the Azure diagnostics extension**
-    - The Azure diagnostics extension is an agent that runs inside a VM instance. The agent monitors and saves performance metrics to Azure storage. These performance metrics contain more detailed information about the status of the VM, such as *AverageReadTime* for disks or *PercentIdleTime* for CPU. You can create auto scale rules based on a more detailed awareness of the VM performance, not just the percentage of CPU usage or memory consumption.
-    - To use the Azure diagnostics extension, you must create Azure storage accounts for your VM instances, install the Azure diagnostics agent, then configure the VMs to stream specific performance counters to the storage account.
-    - For more information, see how to enable the Azure diagnostics extension on a [Windows VM](../virtual-machines/windows/ps-extensions-diagnostics.md) or a [Linux VM](../virtual-machines/linux/diagnostic-extension.md).
-- **Application-level metrics with App Insights**
-    - To gain more visibility in to the performance of your applications, you can use Application Insights. You install a small instrumentation package in your application that monitors the app and sends telemetry to Azure. You can monitor metrics such as the response times of your application, the page load performance, and the session counts. These application metrics can be used to create auto scale rules at a granular and embedded level as you trigger rules based on actionable insights that may impact the customer experience.
-    - For more information about App Insights, see [What is Application Insights](../application-insights/app-insights-overview.md).
-
-
 ## Next steps
 In this article, you learned how to use auto scale rules to scale horizontally and increase or decrease the *number* of VM instances in your scale set. You can also scale vertically to increase or decrease the VM instance *size*. For more information, see [Vertical autoscale with Virtual Machine Scale sets](virtual-machine-scale-sets-vertical-scale-reprovision.md).
 

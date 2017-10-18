@@ -25,13 +25,11 @@
 #### [Use the Azure portal](virtual-machine-scale-sets-autoscale-portal.md)
 #### [Use the Azure CLI 2.0](virtual-machine-scale-sets-autoscale-cli.md)
 #### [Use Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
-#### [Advanced usage with App Insights](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
+#### [Advanced auto scale](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Applications on scale sets](virtual-machine-scale-sets-deploy-app.md)
 ### [Use data disks with scale sets](virtual-machine-scale-sets-attached-disks.md)
 ### [Work with large scale sets](virtual-machine-scale-sets-placement-groups.md)
 ### [Convert a scale set template to use managed disk](virtual-machine-scale-sets-convert-template-to-md.md)
-
-
 
 ## Manage
 ### [Windows scale set using Azure PowerShell](virtual-machine-scale-sets-windows-manage.md)
