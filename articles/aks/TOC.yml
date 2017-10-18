@@ -33,7 +33,7 @@
     href: upgrade-cluster.md
   - name: Run applications with Helm
     href: kubernetes-helm.md
-  - name: Test applications with Draft
+  - name: Develop applications with Draft
     href: kubernetes-draft.md
   - name: Use Kubernetes dashboard
     href: kubernetes-dashboard.md

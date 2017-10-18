@@ -33,7 +33,7 @@ The steps detailed in this document assume that you have created an AKS Kubernet
 
 The Helm CLI is a client that runs on your development system and allows you to start, stop, and manage applications with Helm charts.
 
-To install the Helm CLI on a Mac use `brew`. For additional installation options see, [Installing Helm](https://github.com/kubernetes/helm/blob/master/docs/install.md).
+If you're using Azure CloudShell, kubectl is already installed. To install the Helm CLI on a Mac use `brew`. For additional installation options see, [Installing Helm](https://github.com/kubernetes/helm/blob/master/docs/install.md).
 
 ```console
 brew install kubernetes-helm
@@ -60,7 +60,7 @@ Tiller is pre-installed on Kubernetes clusters in Azure, however the [helm init]
 
 The [helm init](https://docs.helm.sh/helm/#helm-init) command is also used to connect the Helm client with the Kubernetes cluster.
 
-```console
+```azurecli-interactive
 helm init --upgrade
 ```
 
@@ -77,7 +77,7 @@ Happy Helming!
 
 Helm charts are used to deploy applications into a Kubernetes cluster. To search for pre-created Helm charts, use the [helm search](https://docs.helm.sh/helm/#helm-search) command.
 
-```console
+```azurecli-interactive
 helm search
 ```
 
@@ -105,7 +105,7 @@ stable/datadog               	0.8.0  	DataDog Agent
 
 To update the list of charts, use the [helm repo update](https://docs.helm.sh/helm/#helm-repo-update) command.
 
-```console
+```azurecli-interactive
 helm repo update
 ```
 
@@ -122,7 +122,7 @@ Update Complete. ⎈ Happy Helming!⎈
 
 To deploy a NGINX ingress controller, use the [helm install](https://docs.helm.sh/helm/#helm-install) command.
 
-```console
+```azurecli-interactive
 helm install stable/nginx-ingress
 ```
 
@@ -157,7 +157,7 @@ For more information on using an NGINX ingress controller with Kubernetes, see [
 
 To see a list of charts installed on your cluster, use the [helm list](https://docs.helm.sh/helm/#helm-list) command.
 
-```console
+```azurecli-interactive
 helm list
 ```
 
