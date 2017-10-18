@@ -53,8 +53,12 @@
     items:
     - name: Integrate DNS
       href: azure-stack-integrate-dns.md
+    - name: Identity
+      href: azure-stack-integrate-identity.md
     - name: Publish endpoints
-      href: azure-stack-integrate-endpoints.md  
+      href: azure-stack-integrate-endpoints.md
+    - name: Security
+      href: azure-stack-integrate-security.md
   - name: Manage
     items:
     - name: Region management
@@ -139,10 +143,10 @@
         href: azure-stack-mysql-resource-provider-deploy.md
       - name: Deploy SQL resource provider
         href: azure-stack-sql-resource-provider-deploy.md
-      - name: Create SQL databases
-        href: azure-stack-sql-resource-provider-databases.md
       - name: Add hosting servers
         href: azure-stack-sql-resource-provider-hosting-servers.md
+      - name: Create SQL databases
+        href: azure-stack-sql-resource-provider-databases.md
     - name: Offer App Service as PaaS
       items:
       - name: App Service on Azure Stack overview
@@ -206,7 +210,7 @@
 - name: Reference
   items:
   - name: Azure Stack PowerShell
-    href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.9
+    href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.10
 - name: Resources
   items:
   - name: Azure Roadmap

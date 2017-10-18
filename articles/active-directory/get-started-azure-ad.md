@@ -10,10 +10,11 @@ ms.reviewer: jsnow
 ms.date: 10/04/2017
 ms.topic: article
 ms.prod:
-ms.service: azure
+ms.service: active-directory
+ms.workload: identity
 ms.technology:
 ms.assetid:
-service: active-directory
+services: active-directory
 custom: it-pro
 
 # optional metadata
