@@ -66,7 +66,7 @@ output "vmss_public_ip" {
 
 ## Define the network infrastructure in a template
 
-In this step you'll create the following network infrastructure in a new Azure resource group: 
+In this step you create the following network infrastructure in a new Azure resource group: 
 
   - One VNET with the address space of 10.0.0.0/16 
   - One subnet with the address space of 10.0.2.0/24
@@ -271,7 +271,7 @@ resource "azurerm_virtual_machine_scale_set" "vmss" {
 }
 ```
 
-Add the following code to `variables.tf` to customize the deployment:
+Customize the deployment by adding the following code to `variables.tf`:
 
 ```tf 
 variable "application_port" {
@@ -309,13 +309,11 @@ The content of the resource group should look like:
 
 Open a browser and connect to the FQDN that was returned by the command. 
 
-## Add a SSH jumpbox to the existing network 
+## Add an SSH jumpbox to the existing network 
 
-This optional step enables SSH access to the instances of the virtual machine scale set through a jumpbox.
-
-You will add the following resources to your existing deployment:
-- A network interface connected to the same subnet than the virtual machine scale set
-- A virtual machine with this network interface
+In this step you configure the following resources:
+- A network interface connected to the same subnet as the virtual machine scale set.
+- A virtual machine connected with this network interface. This 'jumpbox' is is remotely accessible. Once connected, you can SSH to any of the virtual machines in the scale set.
 
 Add the following code to the end of the `vmss.tf` file:
 
@@ -407,7 +405,8 @@ Deploy the jumpbox.
 terraform apply 
 ```
 
-Once the deployment has completed, the content of the resource group should look like this:
+Once the deployment has completed, the content of the resource group looks like:
+
 ![Terraform vm scaleset resource group](./media/tf-create-create-vmss-step8.png)
 
 ## Next Steps

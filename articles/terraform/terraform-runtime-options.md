@@ -8,7 +8,7 @@ ms.date: 10/04/2017
 ms.topic: article
 ---
 
-# Use Terraform with Azure Cloud Shell
+# Azure Terraform development environments
 
 Terraform works great from a Bash command line such as macOS Terminal or Bash on Windows or Linux. Running your Terraform configurations in the Bash experience of the [Azure Cloud Shell](/azure/cloud-shell/overview) has some unique advantages that simplify development and getting started. 
 
@@ -45,7 +45,7 @@ Instructions for installing Terraform are [here.](https://www.terraform.io/intro
 
 Each Terraform module requires credentials to access your Azure subscription. These lines may be added to your main.tf:
 
-```
+```tf
 # Configure the Microsoft Azure Provider
 provider "azurerm" {
   subscription_id = "..."
@@ -55,11 +55,11 @@ provider "azurerm" {
 }
 ```
 
-Alternately, you could use environment variables to store your credentials and reference them in your .tf file. Details are documented [here.](https://www.terraform.io/docs/configuration/variables.html#environment-variables)
+Alternately, you could use environment variables to store your credentials and reference them in your `.tf` file. Details are documented [here](https://www.terraform.io/docs/configuration/variables.html#environment-variables).
 
-A third alternative is to use a variables file. Put the variables file into your .gitignore so it doesn't get checked into source control. Details are [here.](https://www.terraform.io/docs/configuration/variables.html#variable-files)
+A third alternative is to use a variables file. Put the variables file into your `.gitignore` so it doesn't get checked into source control. Details are [here](https://www.terraform.io/docs/configuration/variables.html#variable-files).
 
-You will probably benefit from installing the Azure CLI v2.0 as well. It's a great tool for testing things using lower level capabilities and for checking your work, along with the using the portal for that purpose. Instructions for installation are [here.](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
+You will probably benefit from installing the Azure CLI v2.0 as well. It's a great tool for testing things using lower-level capabilities and for checking your work, along with the using the portal for that purpose. Instructions for installation are [here.](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
 
 ## Using Bash on Windows with Terraform
 
