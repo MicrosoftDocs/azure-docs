@@ -3,7 +3,7 @@ title: Work with triggers and bindings in Azure Functions | Microsoft Docs
 description: Learn how to use triggers and bindings in Azure Functions to connect your code execution to online events and cloud-based services.
 services: functions
 documentationcenter: na
-author: lindydonna
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -16,7 +16,7 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/30/2017
-ms.author: donnam
+ms.author: glenga
 
 ---
 
@@ -39,21 +39,21 @@ The following table shows the triggers and bindings that are supported with Azur
 
 ### Example: queue trigger and table output binding
 
-Suppose you want to write a new row to Azure Table Storage whenever a new message appears in Azure Queue Storage. This scenario can be implemented using an Azure Queue trigger and a Table output binding. 
+Suppose you want to write a new row to Azure Table Storage whenever a new message appears in Azure Queue Storage. This scenario can be implemented using an Azure Queue trigger and an Azure Table Storage output binding. 
 
-A queue trigger requires the following information in the **Integrate** tab:
+An Azure Queue Storage trigger requires the following information in the **Integrate** tab:
 
-* The name of the app setting that contains the storage account connection string for the queue
+* The name of the app setting that contains the Azure Storage account connection string for the Azure Queue Storage
 * The queue name
 * The identifier in your code to read the contents of the queue message, such as `order`.
 
 To write to Azure Table Storage, use an output binding with the following details:
 
-* The name of the app setting that contains the storage account connection string for the table
+* The name of the app setting that contains the Azure Storage account connection string for the Azure Table Storage
 * The table name
 * The identifier in your code to create output items, or the return value from the function.
 
-Bindings use app settings for connection strings to enforce the best practice that *function.json* does not contain service secrets.
+Bindings use connection strings values stored in the app settings to enforce the best practice that *function.json* does not contain service secrets and instead simply contain the names of the app settings.
 
 Then, use the identifiers you provided to integrate with Azure Storage in your code.
 
@@ -164,7 +164,7 @@ public static Task<string> Run(WorkItem input, TraceWriter log)
 {
     string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
     log.Info($"C# script processed queue message. Item={json}");
-    return json;
+    return Task.FromResult(json);
 }
 ```
 
@@ -187,7 +187,7 @@ let Run(input: WorkItem, log: TraceWriter) =
 
 ## Binding dataType property
 
-In .NET, use the types to define the data type for input data. For instance, use `string` to bind to the text of a queue trigger and a byte array to read as binary.
+In .NET, use the types to define the data type for input data. For instance, use `string` to bind to the text of a queue trigger, a byte array to read as binary and a custom type to deserialize to a POCO object.
 
 For languages that are dynamically typed such as JavaScript, use the `dataType` property in the binding definition. For example, to read the content of an HTTP request in binary format, use the type `binary`:
 
@@ -209,7 +209,7 @@ App settings are also useful whenever you want to change configuration based on 
 
 App settings are resolved whenever a value is enclosed in percent signs, such as `%MyAppSetting%`. Note that the `connection` property of triggers and bindings is a special case and automatically resolves values as app settings. 
 
-The following example is a queue trigger that uses an app setting `%input-queue-name%` to define the queue to trigger on.
+The following example is an Azure Queue Storage trigger that uses an app setting `%input-queue-name%` to define the queue to trigger on.
 
 ```json
 {
@@ -229,7 +229,7 @@ The following example is a queue trigger that uses an app setting `%input-queue-
 
 In addition to the data payload provided by a trigger (such as the queue message that triggered a function), many triggers provide additional metadata values. These values can be used as input parameters in C# and F# or properties on the `context.bindings` object in JavaScript. 
 
-For example, a queue trigger supports the following properties:
+For example, an Azure Storage Queue trigger supports the following properties:
 
 * QueueTrigger - triggering message content if a valid string
 * DequeueCount
@@ -241,7 +241,7 @@ For example, a queue trigger supports the following properties:
 
 Details of metadata properties for each trigger are described in the corresponding reference topic. Documentation is also available in the **Integrate** tab of the portal, in the **Documentation** section below the binding configuration area.  
 
-For example, since blob triggers have some delays, you can use a queue trigger to run your function (see [Blob Storage Trigger](functions-bindings-storage-blob.md#storage-blob-trigger). The queue message would contain the blob filename to trigger on. Using the `queueTrigger` metadata property, you can specify this behavior all in your configuration, rather than your code.
+For example, since blob triggers have some delays, you can use a queue trigger to run your function (see [Blob Storage Trigger](functions-bindings-storage-blob.md#storage-blob-trigger)). The queue message would contain the blob filename to trigger on. Using the `queueTrigger` metadata property, you can specify this behavior all in your configuration, rather than your code.
 
 ```json
   "bindings": [
@@ -345,7 +345,7 @@ For example, the following *function.json* uses a property called `BlobName` fro
       "name": "info",
       "type": "httpTrigger",
       "direction": "in",
-      "webHookType": "genericJson",
+      "webHookType": "genericJson"
     },
     {
       "name": "blobContents",
@@ -417,7 +417,8 @@ For more information on a specific binding, see the following articles:
 - [Table storage](functions-bindings-storage-table.md)
 - [Event Hub](functions-bindings-event-hubs.md)
 - [Service Bus](functions-bindings-service-bus.md)
-- [Cosmos DB](functions-bindings-documentdb.md)
+- [Azure Cosmos DB](functions-bindings-documentdb.md)
+- [Microsoft Graph](functions-bindings-microsoft-graph.md)
 - [SendGrid](functions-bindings-sendgrid.md)
 - [Twilio](functions-bindings-twilio.md)
 - [Notification Hubs](functions-bindings-notification-hubs.md)

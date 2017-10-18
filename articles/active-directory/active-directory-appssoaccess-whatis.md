@@ -3,7 +3,7 @@ title: What is application access and single sign-on with Azure Active Directory
 description: Use Azure Active Directory to enable single sign-on to all of the SaaS and web applications that you need for business.
 services: active-directory
 documentationcenter: ''
-author: asmalser-msft
+author: curtand
 manager: femila
 editor: ''
 
@@ -13,9 +13,10 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
-ms.author: curyand
-
+ms.date: 09/11/2017
+ms.author: curtand
+ms.reviewer: asmalser
+ms.custom: it-pro
 ---
 # What is application access and single sign-on with Azure Active Directory?
 Single sign-on means being able to access all of the applications and resources that you need to do business, by signing in only once using a single user account. Once signed in, you can access all of the applications you need without being required to authenticate (e.g. type a password) a second time.
@@ -107,7 +108,7 @@ Once you’ve found your application, you can get started by follow the step-by-
 ### Application not in the gallery?
 If your application is not found in the Azure AD application gallery, then you have these options:
 
-* **Add an unlisted app you are using** - Use the Custom category in the app gallery within the Azure management portal to connect an unlisted application that your organization is using. You can add any application that supports SAML 2.0 as a federated app, or any application that has an HTML-based sign-in page as a password SSO app. For more details, see this article on [adding your own application](active-directory-saas-custom-apps.md).
+* **Add an unlisted app you are using** - Use the Custom category in the app gallery within the Azure management portal to connect an unlisted application that your organization is using. You can add any application that supports SAML 2.0 as a federated app, or any application that has an HTML-based sign-in page as a password SSO app. For more details, see this article on [adding your own application](application-config-sso-how-to-configure-federated-sso-non-gallery.md).
 * **Add your own app you are developing** - If you have developed the application yourself, follow the guidelines in the Azure AD developer documentation to implement federated single sign-on or provisioning using the Azure AD graph API. For more information, see these resources:
   
   * [Authentication Scenarios for Azure AD](active-directory-authentication-scenarios.md)

@@ -3,7 +3,7 @@ title: Troubleshooting common Azure Automation issues | Microsoft Docs
 description: This article provides information to help troubleshoot and fix common Azure Automation errors.
 services: automation
 documentationcenter: ''
-author: mgoedtel
+author: eslesar
 manager: stevenka
 editor: tysonn
 tags: top-support-issue
@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/26/2017
+ms.date: 09/22/2017
 ms.author: sngun; v-reagie
 
 ---
@@ -115,8 +115,8 @@ If you want to use more than 500 minutes of processing per month you will need t
 
 1. Sign in to your Azure subscription  
 2. Select the Automation account you wish to upgrade  
-3. Click on **Settings** > **Pricing tier and Usage** > **Pricing tier**  
-4. On the **Choose your pricing tier** blade, select **Basic**    
+3. Click on **Settings** > **Pricing**.
+4. Click **Enable** on page bottom to upgrade your account to the **Basic** tier.
 
 ### Scenario: Cmdlet not recognized when executing a runbook
 **Error:**
@@ -135,10 +135,10 @@ Any of the following solutions will fix the problem:
 
 ### Scenario: A long running runbook consistently fails with the exception: "The job cannot continue running because it was repeatedly evicted from the same checkpoint".
 **Reason for the error:**
-This is by design behavior due to the "Fair Share" monitoring of processes within Azure Automation, which automatically suspends a runbook if it executes longer than 3 hours. However, the error message returned does not provide "what next" options. A runbook can be suspended for a number of reasons. Suspends happen mostly due to errors. For example, an uncaught exception in a runbook, a network failure, or a crash on the Runbook Worker running the runbook, will all cause the runbook to be suspended and start from its last checkpoint when resumed.
+This behavior is by design due to the "Fair Share" monitoring of processes within Azure Automation, which automatically suspends a runbook if it executes longer than three hours. However, the error message returned does not provide "what next" options. A runbook can be suspended for a number of reasons. Suspends happen mostly due to errors. For example, an uncaught exception in a runbook, a network failure, or a crash on the Runbook Worker running the runbook, will all cause the runbook to be suspended and start from its last checkpoint when resumed.
 
 **Troubleshooting tips:**
-The documented solution to avoid this issue is to use Checkpoints in a workflow.  To learn more refer to [Learning PowerShell Workflows](automation-powershell-workflow.md#checkpoints).  A more thorough explanation of "Fair Share" and Checkpoint can be found in this blog article [Using Checkpoints in Runbooks](https://azure.microsoft.com/en-us/blog/azure-automation-reliable-fault-tolerant-runbook-execution-using-checkpoints/).
+The documented solution to avoid this issue is to use Checkpoints in a workflow.  To learn more, refer to [Learning PowerShell Workflows](automation-powershell-workflow.md#checkpoints).  A more thorough explanation of "Fair Share" and Checkpoint can be found in this blog article [Using Checkpoints in Runbooks](https://azure.microsoft.com/en-us/blog/azure-automation-reliable-fault-tolerant-runbook-execution-using-checkpoints/).
 
 ## Common errors when importing modules
 ### Scenario: Module fails to import or cmdlets can't be executed after importing
@@ -154,7 +154,7 @@ Some common reasons that a module might not successfully import to Azure Automat
 * The **New-AzureRmAutomationModule** cmdlet is being used to upload the module, and you have not given the full storage path or have not loaded the module by using a publicly accessible URL.  
 
 **Troubleshooting tips:**  
-Any of the following solutions will fix the problem:  
+Any of the following solutions fix the problem:  
 
 * Make sure that the module follows the following format:  
   ModuleName.Zip **->** ModuleName or Version Number **->** (ModuleName.psm1, ModuleName.psd1)
@@ -167,14 +167,14 @@ Any of the following solutions will fix the problem:
 The node has a report with **Failed** status and containing the error "The attempt to get the action from server https://``<url>``//accounts/``<account-id>``/Nodes(AgentId=``<agent-id>``)/GetDscAction failed because a valid configuration ``<guid>`` cannot be found.”
 
 **Reason for the error:**
-This error typically occurs when the node is assigned to a configuration name (e.g. ABC) instead of a node configuration name (e.g. ABC.WebServer).  
+This error typically occurs when the node is assigned to a configuration name (for example, ABC) instead of a node configuration name (for example, ABC.WebServer).  
 
 **Troubleshooting tips:**  
 
 * Make sure that you are assigning the node with "node configuration name" and not the "configuration name".  
 * You can assign a node configuration to a node using Azure portal or with a PowerShell cmdlet.
 
-  * In order to assign a node configuration to a node using Azure portal, open the **DSC Nodes** blade, then select a node and click on **Assign node configuration** button.  
+  * In order to assign a node configuration to a node using Azure portal, open the **DSC Nodes** page, then select a node and click on **Assign node configuration** button.  
   * In order to assign a node configuration to a node using PowerShell cmdlet, use **Set-AzureRmAutomationDscNode** cmdlet
 
 ### Scenario:  No node configurations (MOF files) were produced when a configuration is compiled
@@ -182,10 +182,10 @@ This error typically occurs when the node is assigned to a configuration name (e
 Your DSC compilation job suspends with the error: “Compilation completed successfully, but no node configuration .mofs were generated”.
 
 **Reason for the error:**
-When the expression following the **Node** keyword in the DSC configuration evaluates to $null then no node configurations will be produced.    
+When the expression following the **Node** keyword in the DSC configuration evaluates to $null then no node configurations are produced.    
 
 **Troubleshooting tips:**  
-Any of the following solutions will fix the problem:  
+Any of the following solutions fix the problem:  
 
 * Make sure that the expression next to the **Node** keyword in the configuration definition is not evaluating to $null.  
 * If you are passing ConfigurationData when compiling the configuration, make sure that you are passing the expected values that the configuration requires from [ConfigurationData](automation-dsc-compile.md#configurationdata).

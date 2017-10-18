@@ -1,4 +1,3 @@
-﻿---
 title: Azure Protect personal data at rest with encryption | Microsoft Docs
 description: This article is part of a series helping you use Azure to protect personal data
 services: security
@@ -29,21 +28,20 @@ Encryption at rest is designed to prevent the attacker from accessing the unencr
 
 A large cruise company, headquartered in the United States, is expanding its operations to offer itineraries in the Mediterranean, and Baltic seas, as well as the British Isles. To support those efforts, it has acquired several smaller cruise lines based in Italy, Germany, Denmark, and the U.K.
 
-The company uses Microsoft Azure to store corporate data in the cloud. This may include employee and/or customer information such as:
+The company uses Microsoft Azure to store corporate data in the cloud. This may include customer and/or employee information such as:
 
 - addresses
 - phone numbers
 - tax identification numbers
-- medical information
 - credit card information
 
-The company must protect the privacy of employee and customer data while making data accessible to those departments that need it. (such as payroll and reservations departments)
+The company must protect the privacy of customer and employee data while making data accessible to those departments that need it. (such as payroll and reservations departments)
 
 The cruise line also maintains a large database of reward and loyalty program members that includes personal information to track relationships with current and past customers.
 
 ### Problem statement
 
-The company must protect the privacy of employees’ and customers’ personal data while making data accessible to those departments that need it (such as payroll and reservations departments). This personal data is stored outside of the corporate-controlled data center and is not under the company’s physical control.
+The company must protect the privacy of customers' and employees’ personal data while making data accessible to those departments that need it (such as payroll and reservations departments). This personal data is stored outside of the corporate-controlled data center and is not under the company’s physical control.
 
 ### Company goal
 

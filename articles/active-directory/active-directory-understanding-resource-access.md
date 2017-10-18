@@ -12,21 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2017
+ms.date: 09/07/2017
 ms.author: curtand
 
 ms.custom: oldportal;it-pro;
 
 ---
 # Understanding resource access in Azure
-> [!IMPORTANT]
-> Microsoft recommends that you manage Azure AD using the [Azure AD admin center](https://aad.portal.azure.com) in the Azure portal instead of using the Azure classic portal referenced in this article. The Azure portal provides [role-based access control](role-based-access-control-configure.md) so Azure resources can be managed more precisely.
-> 
-> 
 
-In October 2013, the Azure classic portal and Service Management APIs were integrated with Azure Active Directory in order to lay the groundwork for improving the user experience for managing access to Azure resources. Azure Active Directory already provides great capabilities such as user management, on-premises directory sync, multi-factor authentication, and application access control. Naturally, these should also be made available for managing Azure resources across-the-board.
-
-Access control in Azure starts from a billing perspective. The owner of an Azure account, accessed by visiting the  [Azure Accounts Center](https://account.windowsazure.com/subscriptions), is the Account Administrator (AA). Subscriptions are a container for billing, but they also act as a security boundary: each subscription has a Service Administrator (SA) who can add, remove, and modify Azure resources in that subscription by using the [Azure classic portal](https://manage.windowsazure.com/). The default SA of a new subscription is the AA, but the AA can change the SA in the Azure Accounts Center.
+Access control in Azure starts from a billing perspective. The owner of an Azure account, accessed by visiting the  [Azure Accounts Center](https://account.windowsazure.com/subscriptions), is the Account Administrator (AA). Subscriptions are a container for billing, but they also act as a security boundary: each subscription has a Service Administrator (SA) who can add, remove, and modify Azure resources in that subscription by using the [Azure portal](https://portal.azure.com/). The default SA of a new subscription is the AA, but the AA can change the SA in the Azure Accounts Center.
 
 <br><br>![Azure Accounts][1]
 

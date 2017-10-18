@@ -172,6 +172,10 @@ via ClusterConfig.json for Standalone deployments or Template.json for Azure hos
 
 Balancing and activity thresholds are both tied to a specific metric - balancing is triggered only if both the Balancing Threshold and Activity Threshold is exceeded for the same metric.
 
+> [!NOTE]
+> When not specified, the Balancing Threshold for a metric is 1, and the Activity Threshold is 0. This means that the Cluster Resource Manager will try to keep that metric perfectly balanced for any given load. If you are using custom metrics it is recommended that you explicitly define your own balancing and activity thresholds for your metrics. 
+>
+
 ## Balancing services together
 Whether the cluster is imbalanced or not is a cluster-wide decision. However, the way we go about fixing it is moving individual service replicas and instances around. This makes sense, right? If memory is stacked up on one node, multiple replicas or instances could be contributing to it. Fixing the imbalance could require moving any of the stateful replicas or stateless instances that use the imbalanced metric.
 

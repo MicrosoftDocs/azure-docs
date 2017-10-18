@@ -4,7 +4,7 @@ description: How-to use Stream Analytics operation logs
 keywords: service logs
 services: stream-analytics
 documentationcenter: ''
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 
@@ -15,27 +15,27 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: jeffstok
+ms.author: samacha
 
 ---
 # Debug Stream Analytics jobs using service and operation logs
 All Azure services supply operational logging messages to users to record details related to management operations. In Azure Stream Analytics, this information can be used for debugging purposes such as viewing job status, job progress, and failure messages to track the progress of a job over time, from start to processing to output.
 
-## Find operation logs in the Azure Management portal
+## Find operation logs in the Azure portal
 Operation Logs can be accessed in two ways:  
 
 * Dashboard of the Stream Analytics job  
-* Management Services in the Azure Classic portal  
+* Management Services in the Azure classic portal  
 
 ## Dashboard of the Stream Analytics job
-A link to the corresponding logs of a Stream Analytics job is displayed on the job’s Dashboard tab. If you click on that link, it will set the filters in a way that it shows latest logs for that specific job.
+A link to the corresponding logs of a Stream Analytics job is displayed on the job’s Dashboard tab. If you click on that link, it sets the filters in a way that it shows latest logs for that specific job.
 
   ![Select Management Services logs](./media/stream-analytics-operation-logs/01-stream-analytics-operation-logs.png)  
 
 ## Management Services
-To manually navigate to the Operation Logs for Stream Analytics and other services in the Azure Classic portal:
+To manually navigate to the Operation Logs for Stream Analytics and other services in the Azure classic portal:
 
-1. Click on **Management Services** in the [Azure Classic portal](https://manage.windowsazure.com).
+1. Click on **Management Services** in the [Azure classic portal](https://manage.windowsazure.com).
 2. Select **Stream Analytics** for **Type** and the name of the job for **Service Name**.  
    
    ![Select Stream Analytics](./media/stream-analytics-operation-logs/02-stream-analytics-operation-logs.png)  
@@ -45,14 +45,14 @@ To find operational logs for your Stream Analytics job in the Azure portal, Clic
 
   ![Azure portal Select Stream Analytics](./media/stream-analytics-operation-logs/06-stream-analytics-operation-logs.png)  
 
-This will open a blade showing events from the last 7 days for all resources in your subscription.  You can filter to see events of a specify type or time frame by clicking the **Filter** command.
+This opens a display showing events from the last seven days for all resources in your subscription.  You can filter to see events of a specify type or time frame by clicking the **Filter** command.
 
   ![Azure portal Select Stream Analytics](./media/stream-analytics-operation-logs/07-stream-analytics-operation-logs.png)  
 
 ## Get log details
 You can filter by Time Range and Status to view the logs for your job.
 
-In the Azure Management portal, click on the **Details** button at the bottom of the window to view more details about a selected event. 
+In the Azure portal, click on the **Details** button at the bottom of the window to view more details about a selected event. 
 
   ![Select Details](./media/stream-analytics-operation-logs/03-stream-analytics-operation-logs.png)  
 
@@ -60,12 +60,12 @@ In the Azure portal, click on a log entry to see the detailed events inside it.
 
   ![Azure portal Select Details](./media/stream-analytics-operation-logs/08-stream-analytics-operation-logs.png)  
 
-From there, you can open the **Detail** blade by clicking on the event.
+From there, you can open the **Detail** display by clicking on the event.
 
   ![Azure portal Select Details](./media/stream-analytics-operation-logs/09-stream-analytics-operation-logs.png)  
 
 ## Debug a failed job
-In the Azure Management portal, click on the Search icon and type ‘failed’. This gives a result of all logs with failures. 
+In the Azure portal, click on the Search icon and type ‘failed’. This gives a result of all logs with failures. 
 
   ![Debugging a failed job](./media/stream-analytics-operation-logs/04-stream-analytics-operation-logs.png)  
 

@@ -53,7 +53,7 @@ The table below lists the property names and their description needed for creati
 </tr>
 <tr>
 <td>Path Prefix Pattern</td>
-<td>The file path used to write your files within the specified Data Lake Store Account. <BR>{date}, {time}<BR>Example 1: folder1/logs/{date}/{time}<BR>Example 2: folder1/logs/{date}</td>
+<td>File naming will follow the following convention: <BR>{Path Prefix Pattern}/schemaHashcode_Guid_Number.extension <BR> <BR>Example output files:<BR>Myoutput/20170901/00/45434_gguid_1.csv <BR>Myoutput/20170901/01/45434_gguid_1.csv <BR> <BR>Also, here are the situations, where a new file is created:<BR>1. Change in output schema <BR>2. External or Internal restart of a job<BR><BR>Additionally, if the file path pattern does not contain a trailing “/”, the last pattern in the file path will be treated as a filename prefix.<BR><BR>Example:<BR>For the path pattern: folder1/logs/HH, the generated file may look like: folder1/logs/02_134343_gguid_1.csv</td>
 </tr>
 <tr>
 <td>Date Format [<I>optional</I>]</td>
@@ -77,7 +77,7 @@ The table below lists the property names and their description needed for creati
 </tr>
 <tr>
 <td>Format</td>
-<td>Only applicable for JSON serialization. Line separated specifies that the output will be formatted by having each JSON object separated by a new line. Array specifies that the output will be formatted as an array of JSON objects.</td>
+<td>Only applicable for JSON serialization. Line separated specifies that the output will be formatted by having each JSON object separated by a new line. Array specifies that the output will be formatted as an array of JSON objects. This array will be closed only when the job stops or Stream Analytics has moved on to the next time window. In general, it is preferable to use line separated JSON, since it doesn't require any special handling while the output file is still being written to.</td>
 </tr>
 </tbody>
 </table>
@@ -133,7 +133,7 @@ The table below lists the property names and their description for creating a bl
 </tr>
 <tr>
 <td>Path Prefix Pattern [optional]</td>
-<td>The file path used to write your blobs within the specified container.<BR>Within the path, you may choose to use one or more instances of the following 2 variables to specify the frequency that blobs are written:<BR>{date}, {time}<BR>Example 1: cluster1/logs/{date}/{time}<BR>Example 2: cluster1/logs/{date}</td>
+<td>The file path pattern used to write your blobs within the specified container. <BR> In the path pattern, you may choose to use one or more instances of the following 2 variables to specify the frequency that blobs are written: <BR> {date}, {time} <BR> Example 1: cluster1/logs/{date}/{time} <BR> Example 2: cluster1/logs/{date} <BR> <BR> File naming will follow the following convention: <BR> {Path Prefix Pattern}/schemaHashcode_Guid_Number.extension <BR> <BR> Example output files: <BR> Myoutput/20170901/00/45434_gguid_1.csv <BR> Myoutput/20170901/01/45434_gguid_1.csv <BR> <BR> Also, here are the situations, where a new file is created: <BR> 1. Current file exceeds the maximum permissible number of blocks (currently 50,000) <BR> 2. Change in output schema <BR> 3. External or internal restart of a job  </td>
 </tr>
 <tr>
 <td>Date Format [optional]</td>
@@ -178,7 +178,7 @@ There are a few parameters that are needed to configure Event Hub data streams a
 | Event Serialization Format |Serialization format for output data.  JSON, CSV, and Avro are supported. |
 | Encoding |For CSV and JSON, UTF-8 is the only supported encoding format at this time |
 | Delimiter |Only applicable for CSV serialization. Stream Analytics supports a number of common delimiters for serializing data in CSV format. Supported values are comma, semicolon, space, tab and vertical bar. |
-| Format |Only applicable for JSON type. Line separated specifies that the output will be formatted by having each JSON object separated by a new line. Array specifies that the output will be formatted as an array of JSON objects. |
+| Format |Only applicable for JSON serialization. Line separated specifies that the output will be formatted by having each JSON object separated by a new line. Array specifies that the output will be formatted as an array of JSON objects. This array will be closed only when the job stops or Stream Analytics has moved on to the next time window. In general, it is preferable to use line separated JSON, since it doesn't require any special handling while the output file is still being written to. |
 
 ## Power BI
 [Power BI](https://powerbi.microsoft.com/) can be used as an output for a Stream Analytics job to provide for a rich visualization experience of analysis results. This capability can be used for operational dashboards, report generation and metric driven reporting.
@@ -263,7 +263,7 @@ The table below lists the property names and their description for creating a ta
 | Partition Key |The name of the output column containing the partition key. The partition key is a unique identifier for the partition within a given table that forms the first part of an entity's primary key. It is a string value that may be up to 1 KB in size. |
 | Row Key |The name of the output column containing the row key. The row key is a unique identifier for an entity within a given partition. It forms the second part of an entity’s primary key. The row key is a string value that may be up to 1 KB in size. |
 | Batch Size |The number of records for a batch operation. Typically the default is sufficient for most jobs, refer to the [Table Batch Operation spec](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx) for more details on modifying this setting. |
-
+ 
 ## Service Bus Queues
 [Service Bus Queues](https://msdn.microsoft.com/library/azure/hh367516.aspx) offer a First In, First Out (FIFO) message delivery to one or more competing consumers. Typically, messages are expected to be received and processed by the receivers in the temporal order in which they were added to the queue, and each message is received and processed by only one message consumer.
 
@@ -294,11 +294,11 @@ The table below lists the property names and their description for creating a ta
 | Topic Policy Name |When you create a Topic, you can also create shared access policies on the Topic Configure tab. Each shared access policy will have a name, permissions that you set, and access keys |
 | Topic Policy Key |The Shared Access key used to authenticate access to the Service Bus namespace |
 | Event Serialization Format |Serialization format for output data.  JSON, CSV, and Avro are supported. |
-| Encoding |If CSV or JSON format, an encoding must be specified. UTF-8 is the only supported encoding format at this time |
+ | Encoding |If CSV or JSON format, an encoding must be specified. UTF-8 is the only supported encoding format at this time |
 | Delimiter |Only applicable for CSV serialization. Stream Analytics supports a number of common delimiters for serializing data in CSV format. Supported values are comma, semicolon, space, tab and vertical bar. |
 
 ## Azure Cosmos DB
-[Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) is a fully-managed NoSQL document database service that offers query and transactions over schema-free data, predictable and reliable performance, and rapid development.
+[Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) is a globally distributed, multi-model database service that offers limitless elastic scale around the globe, rich query and automatic indexing over schema-agnostic data models, guaranteed low latency, and industry-leading comprehensive SLAs.
 
 The below list details the property names and their description for creating an Azure Cosmos DB output.
 
@@ -311,6 +311,23 @@ The below list details the property names and their description for creating an 
   2\) MyCollection{partition} – Such collections must exist– "MyCollection0”, “MyCollection1”, “MyCollection2” and so on.  
 * **Partition Key** – Optional. This is only needed if you are using a {parition} token in your collection name pattern. The name of the field in output events used to specify the key for partitioning output across collections. For single collection output, any arbitrary output column can be used e.g. PartitionId.  
 * **Document ID** – Optional. The name of the field in output events used to specify the primary key on which insert or update operations are based.  
+
+## Azure Functions (In Preview)
+Azure Functions is a serverless compute service that enables you to run code on-demand without having to explicitly provision or manage infrastructure. It lets you implement code that is triggered by events occurring in Azure or third-party services.  This ability of Azure Functions to respond to triggers makes it a natural output for a Azure Stream Analytics. This output adapter allows users to connect Stream Analytics to Azure Functions, and run a script or piece of code in response to a variety of events.
+
+Azure Stream Analytics invokes Azure Functions via HTTP triggers. The new Azure Function Output adapter is available with the following configurable properties:
+
+| Property Name | Description |
+| --- | --- |
+| Function App |Name of your Azure Functions App |
+| Function |Name of the function in your Azure Functions App |
+| Max Batch Size |This property can be used to set the maximum size for each output batch that will be sent to your Azure Function. By default, this value is 256 KB |
+| Max Batch Count  |As the name indicates, this property lets you specify the maximum number of events in each batch that gets sent to Azure Functions. The default max batch count value is 100 |
+| Key |If you want to use an Azure Function from another subscription, you can do so by providing the key to access your function |
+
+Note that when Azure Stream Analytics receives 413 (http Request Entity Too Large) exception from Azure function, it reduces the size of the batches it sends to Azure Functions. In your Azure function code, use this exception to make sure that Azure Stream Analytics doesn’t send oversized batches. Also, please make sure that the max batch count and size values used in the function are consistent with the values entered in the Stream Analytics portal. 
+
+Also, in a situation where there is no event landing in a time window, no output is generated. As a result, computeResult function will not be called. This behavior is consistent with the built-in windowed aggregate functions.
 
 
 ## Get help

@@ -1,6 +1,6 @@
 ---
 title: 'Troubleshoot Azure Backup failure: Guest Agent Status Unavailable | Microsoft Docs'
-description: 'Symptoms, causes, and resolutions of Azure Backup failures related to error: Could not communicate with the VM agent'
+description: 'Symptoms, causes, and resolutions of Azure Backup failures related to agent, extension, disks'
 services: backup
 documentationcenter: ''
 author: genlin
@@ -13,8 +13,8 @@ ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/17/2017
+ms.topic: troubleshooting
+ms.date: 09/08/2017
 ms.author: genli;markgal;
 ---
 
@@ -63,6 +63,13 @@ After you register and schedule a VM for the Azure Backup service, Backup initia
 ##### Cause 4: [The snapshot status cannot be retrieved or a snapshot cannot be taken](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
 ##### Cause 5: [The backup extension fails to update or load](#the-backup-extension-fails-to-update-or-load)
 
+## The specified Disk configuration is not supported
+
+Currently Azure Backup doesn’t support disk sizes [greater than 1023GB](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm). 
+- If you have disks greater than 1 TB , [attach new disks](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) which are less than 1 TB <br>
+- Then, copy the data from disk greater than 1TB into newly created disk(s) of size less than 1TB. <br>
+- Ensure that all data has been copied and remove the disks greater than 1TB
+- Initiate the backup
 
 ## Causes and Solutions
 

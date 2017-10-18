@@ -3,7 +3,7 @@ title: "Azure Analysis Services tutorial lesson 13: Deploy | Microsoft Docs"
 description:  Describes how to deploy the tutorial project to Azure Analysis Services.
 services: analysis-services
 documentationcenter: ''
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: ''
 tags: ''
@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 07/17/2017
+ms.date: 09/20/2017
 ms.author: owend
 ---
 # Lesson 13: Deploy

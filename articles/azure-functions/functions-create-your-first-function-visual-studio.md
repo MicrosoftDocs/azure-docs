@@ -1,4 +1,3 @@
-
 ---
 title: Create your first function in Azure using Visual Studio | Microsoft Docs
 description: Create and publish a simple HTTP triggered function to Azure by using Azure Functions Tools for Visual Studio. 
@@ -16,14 +15,14 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 07/05/2017
+ms.date: 10/16/2017
 ms.author: glenga
-ms.custom: mvc
+ms.custom: mvc, devcenter
 
 ---
 # Create your first function using Visual Studio
 
-Azure Functions lets you execute your code in a serverless environment without having to first create a VM or publish a web application.
+Azure Functions lets you execute your code in a [serverless](https://azure.microsoft.com/overview/serverless-computing/) environment without having to first create a VM or publish a web application.
 
 In this topic, you learn how to use the Visual Studio 2017 tools for Azure Functions to create and test a "hello world" function locally. You will then publish the function code to Azure. These tools are available as part of the Azure development workload in Visual Studio 2017 version 15.3, or a later version.
 
@@ -33,12 +32,11 @@ In this topic, you learn how to use the Visual Studio 2017 tools for Azure Funct
 
 To complete this tutorial, install:
 
-* [Visual Studio 2017 version 15.3](https://www.visualstudio.com/vs/preview/), including the **Azure development** workload.
+* [Visual Studio 2017 version 15.3](https://www.visualstudio.com/vs/preview/) or a later version, including the **Azure development** workload.
 
     ![Install Visual Studio 2017 with the Azure development workload](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
     
-    >[!NOTE]  
-    After you install or upgrade to Visual Studio 2017 version 15.3, you might also need to manually update the Visual Studio 2017 tools for Azure Functions. You can update the tools from the **Tools** menu under **Extensions and Updates...** > **Updates** > **Visual Studio Marketplace** > **Azure Functions and Web Jobs Tools** > **Update**. 
+[!INCLUDE [Create a project using the Azure Functions](../../includes/functions-vstools-install-note.md)] 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 
@@ -72,7 +70,7 @@ Azure Functions Core Tools lets you run Azure Functions project on your local de
 
     ![Azure local runtime](./media/functions-create-your-first-function-visual-studio/functions-vstools-f5.png)
 
-3. Paste the URL for the HTTP request into your browser's address bar. Append the query string `&name=<yourname>` to this URL and execute the request. The following shows the response in the browser to the local GET request returned by the function: 
+3. Paste the URL for the HTTP request into your browser's address bar. Append the query string `?name=<yourname>` to this URL and execute the request. The following shows the response in the browser to the local GET request returned by the function: 
 
     ![Function localhost response in the browser](./media/functions-create-your-first-function-visual-studio/functions-test-local-browser.png)
 
@@ -88,7 +86,7 @@ You must have a function app in your Azure subscription before you can publish y
 
 ## Test your function in Azure
 
-1. Copy the base URL of the function app from the Publish profile page. Replace the `localhost:port` portion of the URL you used when testing the function locally with the new base URL. As before, make sure to append the query string `&name=<yourname>` to this URL and execute the request.
+1. Copy the base URL of the function app from the Publish profile page. Replace the `localhost:port` portion of the URL you used when testing the function locally with the new base URL. As before, make sure to append the query string `?name=<yourname>` to this URL and execute the request.
 
     The URL that calls your HTTP triggered function looks like this:
 
