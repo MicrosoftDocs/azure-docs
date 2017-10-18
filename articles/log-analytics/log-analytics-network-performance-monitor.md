@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 10/18/2017
 ms.author: banders
 
 ---
@@ -189,7 +189,7 @@ In contrast, ICMP does not operate using port. In most enterprise scenarios, ICM
 > Some firewalls may block ICMP, which may lead to retransmission resulting in large number of events in your security information and event management system. Make sure the protocol that you choose is not blocked by a network firewall/NSG, otherwise NPM will not be able to monitor the network segment.  Because of this, we recommended that you use TCP for monitoring. 
 > You should use ICMP in scenarios where you are not able to use TCP, such as when:
 > * You are using Windows client based nodes, since TCP raw sockets are not allowed in Windows client
-> * Your network firewall/NSG blocks TCP.
+> * Your network firewall/NSG blocks TCP
 
 
 #### How to switch the protocol
