@@ -190,7 +190,7 @@ Remote Desktop connection authorization policies (RD CAPs) specify the requireme
 8. In the **Shared Secret** dialog box, enter a shared secret, and then click **OK**. Ensure you record this shared secret and store the record securely.
 
  >[!NOTE]
- >Shared secret is used to establish trust between the RADIUS servers and clients. Create a long and complex password.
+ >Shared secret is used to establish trust between the RADIUS servers and clients. Create a long and complex secret.
  >
 
  ![Shared Secret](./media/nps-extension-remote-desktop-gateway/image11.png)
