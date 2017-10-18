@@ -50,6 +50,9 @@ For more information on the scale and performance targets for Azure Files and Az
 ## Azure Queue storage scale targets
 [!INCLUDE [storage-queues-scale-targets](../../../includes/storage-queues-scale-targets.md)]
 
+## Azure Table storage scale targets
+[!INCLUDE [storage-table-scale-targets](../../../includes/storage-tables-scale-targets.md)]
+
 <!-- conceptual info about disk limits -- applies to unmanaged and managed -->
 ## Scalability targets for virtual machine disks
 [!INCLUDE [azure-storage-limits-vm-disks](../../../includes/azure-storage-limits-vm-disks.md)]
