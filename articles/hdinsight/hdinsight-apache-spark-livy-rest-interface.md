@@ -72,7 +72,7 @@ Livy provides high-availability for Spark jobs running on the cluster. Here is a
 * Jupyter notebooks for HDInsight are powered by Livy in the backend. If a notebook is running a Spark job and the Livy service gets restarted, the notebook continues to run the code cells. 
 
 ## Show me an example
-In this section, we look at examples to use Livy Spark to submit batch job, monitor the progress of the job, and then delete it. The application we use in this example is the one developed in the article [Create a standalone Scala application and to run on HDInsight Spark cluster](hdinsight-apache-spark-create-standalone-application.md). The steps here assume that:
+In this section, we look at examples to use Livy Spark to submit batch job, monitor the progress of the job, and then delete it. The application we use in this example is the one developed in the article [Create a standalone Scala application and to run on HDInsight Spark cluster](spark/apache-spark-create-standalone-application.md). The steps here assume that:
 
 * You have already copied over the application jar to the storage account associated with the cluster.
 * You have CuRL installed on the computer where you are trying these steps.
