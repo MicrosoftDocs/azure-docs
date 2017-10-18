@@ -120,7 +120,7 @@ Review the details on the **Logic Apps Management** tile.
 2. To view a summary with more details about your logic app runs, 
 choose the **Logic Apps Management** tile.
 
-   Here, your logic app runs are grouped by name or by execution status.You also have a view to see details about the failures in actions or triggers for the logic app runs.
+   Here, your logic app runs are grouped by name or by execution status.You can also see details about the failures in actions or triggers for the logic app runs.
 
    ![Status summary for your logic app runs](media/logic-apps-monitor-your-logic-apps-oms/logic-apps-runs-summary.png)
    
@@ -190,3 +190,4 @@ select a row for a logic app run.
 ## Next steps
 
 * [Monitor B2B messages](../logic-apps/logic-apps-monitor-b2b-message.md)
+
