@@ -50,7 +50,7 @@ As we can see Service Fabric placed the new replica for partition **P3** of serv
 This time Service Fabric has activated a new copy of 'MyServicePackage' which starts a new copy of 'MyCodePackage' and replicas from both partitions of service **fabric:/App2/ServiceA** (i.e. **P4** & **P5**) are placed in this new copy 'MyCodePackage'.
 
 ## Shared process model
-What we saw above is the default hosting model provided by Service Fabric and is referred to as **Shared Process** model. In this model, for a given *application*, only one copy of a given *ServicePackage* is activated on a *Node* (which starts all the *CodePackages* contained in it) and all the replicas of all services of a given  *ServiceType* are placed in the *CodePackage* that registers that *ServiceType*. In other words, all the replicas of all services of a given *ServiceType* share the same process.
+What we saw above is the default hosting model provided by Service Fabric and is referred to as **Shared Process** model. In this model, for a given *application*, only one copy of a given *ServicePackage* is activated on a *Node* (which starts all the *CodePackages* contained in it) and all the replicas of all services of a given  *ServiceType* are placed in the *CodePackage* that registers that *ServiceType*. In other words, all the replicas of all services on a node of a given *ServiceType* share the same process.
 
 ## Exclusive process model
 The other hosting model provided by Service Fabric is **Exclusive Process** model. In this model, on a given *Node*, for placing each replica, Service Fabric activates a new copy of *ServicePackage* (which starts all the *CodePackages* contained in it) and replica is placed in the *CodePackage* that registered the *ServiceType* of the service to which replica belongs. In other words, each replica lives in its own dedicated process. 
@@ -118,7 +118,7 @@ An active copy of a *ServicePackage* on a node is referred as [deployed service 
 >
 > - If **ServicePackageActivationId** is omitted it defaults to 'empty string'. If a deployed service package that was activated under **Shared Process** model is present, then operation will be performed on it, otherwise the operation will fail.
 >
-> - It is not recommended to query once and cache **ServicePackageActivationId** as it is dynamically generated and can change for various reasons. Before performing an operation that needs **ServicePackageActivationId**, you should first query the list of [deployed service packages][p3] on a node and then use *ServicePackageActivationId** from query result to perform the original operation.
+> - It is not recommended to query once and cache **ServicePackageActivationId** as it is dynamically generated and can change for various reasons. Before performing an operation that needs **ServicePackageActivationId**, you should first query the list of [deployed service packages][p3] on a node and then use **ServicePackageActivationId** from query result to perform the original operation.
 >
 >
 
@@ -138,7 +138,7 @@ Both these hosting models have its pros and cons and user needs to evaluate whic
 ## Exclusive process model and application model considerations
 The recommended way to model your application in Service Fabric is to keep one *ServiceType* per *ServicePackage* and this model works well for most of the applications. 
 
-However, to enable special scenarios where one *ServiceType* per *ServicePackage* may not be desirable, functionally, Service Fabric allows to have more than one *ServiceType* per *ServicePackage* (and one *CodePackage* can register more than one *ServiceType*). Following are some of the scenarios where these configurations can be useful:
+Intended for certain use cases, Service Fabric also allows more than one *ServiceType* per *ServicePackage* (and one *CodePackage* can register more than one *ServiceType*). The following are some of the scenarios where these configurations can be useful:
 
 - You want to optimize OS resource utilization by spawning fewer processes and having higher replica density per process.
 - Replicas from different ServiceTypes need to share some common data that has a high initialization or memory cost.
