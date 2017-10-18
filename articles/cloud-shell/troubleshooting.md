@@ -30,7 +30,7 @@ Known resolutions for issues in Azure Cloud Shell include:
 
 ## Terminal output - Error: Failed to connect terminal: websocket cannot be established. Press `Enter` to reconnect.
  - **Details**: Cloud Shell requires the ability to establish a websocket connection to Cloud Shell infrastructure.
- - **Resolution**: Ensure you are able to send https requests and websocket requests to any *.console.azure.com domain.
+ - **Resolution**: Check you have configured your network settings to enable sending https requests and websocket requests to domains at *.console.azure.com.
 
 ## PowerShell resolutions
 
