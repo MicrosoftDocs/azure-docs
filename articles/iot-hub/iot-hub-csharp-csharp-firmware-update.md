@@ -25,14 +25,14 @@ In the [Get started with device management][lnk-dm-getstarted] tutorial, you saw
 
 This tutorial shows you how to:
 
-* Create a .NET console app that calls the firmwareUpdate direct method in the simulated device app through your IoT hub.
-* Create a simulated device app that implements a firmwareUpdate direct method. This method initiates a multi-stage process that waits to download the firmware image, downloads the firmware image, and finally applies the firmware image. During each stage of the update, the device uses the reported properties to report on progress.
+* Create a .NET console app that calls the **firmwareUpdate** direct method in the simulated device app through your IoT hub.
+* Create a simulated device app that implements a **firmwareUpdate** direct method. This method initiates a multi-stage process that waits to download the firmware image, downloads the firmware image, and finally applies the firmware image. During each stage of the update, the device uses the reported properties to report on progress.
 
 At the end of this tutorial, you have a .NET (C#) console device app and a .NET (C#) console back-end app:
 
-**SimulatedDeviceFwUpdate**, which connects to your IoT hub with the device identity created earlier, receives a firmwareUpdate direct method, runs through a multi-state process to simulate a firmware update including: waiting for the image download, downloading the new image, and finally applying the image.
+* **SimulatedDeviceFwUpdate**, which connects to your IoT hub with the device identity created earlier, receives the **firmwareUpdate** direct method, runs through a multi-state process to simulate a firmware update including: waiting for the image download, downloading the new image, and finally applying the image.
 
-**TriggerFWUpdate**, which calls a direct method in the simulated device app, displays the response, and periodically (every 500ms) displays the updated reported properties.
+* **TriggerFWUpdate**, which uses the service SDK to remotely invoke the **firmwareUpdate** direct method on the simulated device, displays the response, and periodically (every 500ms) displays the updated reported properties.
 
 To complete this tutorial, you need the following:
 
@@ -52,7 +52,7 @@ In this section, you create a .NET console app (using C#) that initiates a remot
 
     ![New Visual C# Windows Classic Desktop project][img-createserviceapp]
 
-2. In Solution Explorer, right-click the **TriggerFWUpdate** project, and then click **Manage NuGet Packages...**.
+2. In Solution Explorer, right-click the **TriggerFWUpdate** project, and then click **Manage NuGet Packages**.
 3. In the **NuGet Package Manager** window, select **Browse**, search for **microsoft.azure.devices**, select **Install** to install the **Microsoft.Azure.Devices** package, and accept the terms of use. This procedure downloads, installs, and adds a reference to the [Azure IoT service SDK][lnk-nuget-service-sdk] NuGet package and its dependencies.
 
     ![NuGet Package Manager window][img-servicenuget]
@@ -61,14 +61,14 @@ In this section, you create a .NET console app (using C#) that initiates a remot
         using Microsoft.Azure.Devices;
         using Microsoft.Azure.Devices.Shared;
         
-5. Add the following fields to the **Program** class. Replace the multiple placeholder values with the IoT Hub connection string for the hub that you created in the previous section and the Id of your device.
+5. Add the following fields to the **Program** class. Replace the multiple placeholder values with the IoT Hub connection string for the hub that you created in the previous section and the ID of your device.
    
         static RegistryManager registryManager;
         static string connString = "{iot hub connection string}";
         static ServiceClient client;
         static string targetDevice = "{deviceIdForTargetDevice}";
         
-6. Add the following method to the **Program** class. This method polls the device twin for updated status every 500 milliseconds. It writes to the console only when status has actually changed. For this sample, to prevent consuming extra IoT Hub messages in your subscription, polling stops when the device reports a status of "applyComplete" or an error.  
+6. Add the following method to the **Program** class. This method polls the device twin for updated status every 500 milliseconds. It writes to the console only when status has actually changed. For this sample, to prevent consuming extra IoT Hub messages in your subscription, polling stops when the device reports a status of **applyComplete** or an error.  
    
         public static async Task QueryTwinFWUpdateReported(DateTime startTime)
         {
@@ -124,7 +124,7 @@ In this section, you create a .NET console app (using C#) that initiates a remot
 9. Build the solution.
 
 ## Create a simulated device app
-In this section, you will
+In this section, you:
 
 * Create a .NET console app that responds to a direct method called by the cloud
 * Simulate a firmware update triggered by a backend service through a direct method
@@ -134,7 +134,7 @@ In this section, you will
    
     ![New Visual C# Windows Classic device app][img-createdeviceapp]
     
-2. In Solution Explorer, right-click the **SimulateDeviceFWUpdate** project, and then click **Manage NuGet Packages...**.
+2. In Solution Explorer, right-click the **SimulateDeviceFWUpdate** project, and then click **Manage NuGet Packages**.
 3. In the **NuGet Package Manager** window, select **Browse** and search for **microsoft.azure.devices.client**. Select **Install** to install the **Microsoft.Azure.Devices.Client** package, and accept the terms of use. This procedure downloads, installs, and adds a reference to the [Azure IoT device SDK][lnk-nuget-client-sdk] NuGet package and its dependencies.
    
     ![NuGet Package Manager window Client app][img-clientnuget]
@@ -373,4 +373,5 @@ To learn how to extend your IoT solution and schedule method calls on multiple d
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [lnk-rpi-implementation]: https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm/pi_device
+[lnk-nuget-client-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/
 [lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
