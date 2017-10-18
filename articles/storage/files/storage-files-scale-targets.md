@@ -36,7 +36,7 @@ The parent resource for an Azure File share is an Azure storage account. A stora
 ## Azure File Sync scale targets
 With Azure File Sync, we have tried as much as possible to design for limitless usage, however this is not always possible. The below table indicates the boundaries of our testing and which targets are actually hard limits:
 
-[!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
+[!INCLUDE [storage-sync-files-scale-targets](../../../includes/storage-sync-files-scale-targets.md)]
 
 ## See also
 - [Planning for an Azure Files deployment](storage-files-planning.md)
