@@ -3,8 +3,8 @@ title: Using Terraform with Azure
 description: Introduction to using Terraform to vesion and deploy Azure infrastructure.
 services: 
 keywords: Don’t add or edit keywords without consulting your SEO champ.
-author: rloutlaw, binderjoe
-ms.author: routlaw, binderjoe
+author:  binderjoe
+ms.author:  binderjoe
 ms.date: 10/12/2017
 ms.topic: article
 ---

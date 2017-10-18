@@ -295,7 +295,7 @@ terraform plan
 ```
 
 The output of the command should look like the following.
-![Terraform add vmss plan](./media/tf-create-vmss-step6.png)
+![Terraform add vmss plan](./media/tf-create-vmss-step6-plan884d3aefd9708a711bc09a66e85eb149c23a3ccff959655ec00418168b2bd481.png)
 
 Then deploy the additional resources in Azure: 
 
@@ -305,7 +305,7 @@ terraform apply
 
 The content of the resource group should look like:
 
-![Terraform vm scaleset resource group](./media/tf-create-create-vmss-step6-apply.png)
+![Terraform vm scaleset resource group](./media/tf-create-vmss-step6-apply.png)
 
 Open a browser and connect to the FQDN that was returned by the command. 
 

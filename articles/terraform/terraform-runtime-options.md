@@ -16,7 +16,7 @@ This concepts article details exactly what's provided in the Cloud Shell for Ter
 
 ## Using Azure Cloud Shell with Terraform
 
-Setting up Azure Cloud Shell is documented [here](azure/cloud-shell/quickstart) and takes about 5 minutes in total.  As part of setting up Azure Cloud Shell for the first time, you give the ok to set up storage. The following screenshots show examples of what you get:
+Setting up Azure Cloud Shell is documented [here](/azure/cloud-shell/quickstart) and takes about fives minutes.  As part of setting up Azure Cloud Shell for the first time, you give the ok to set up storage. The following screenshots show examples of what you get:
 
 A new storage account in a resource group named something like "cloud-shell-storage-region":
 ![New Storage Account](https://golivearmstorage.blob.core.windows.net/public/newStorageAccount.png)
@@ -74,7 +74,7 @@ Follow the instructions in the section above: [Configuring your Environment]().
 Instructions for installing Terraform are [here.](https://www.terraform.io/intro/getting-started/install.html) Select the package for your OS (Linux). Reference the section above to configure your environment: [Configuring your Environment]().
 
 
-What's Next:
+## Next steps
 
-[Create a small VM cluster using the Module Registry](./tutorial_vm_cluster_module_registry.md)
-[Create a small VM cluster using custom HCL](./tutorial_vm_cluster_hcl.md)
+[Create a small VM cluster using the Module Registry](terraform-create-vm-cluster-module.md)
+[Create a small VM cluster using custom HCL](terraform-create-vm-cluster-with-infrastructure.md)

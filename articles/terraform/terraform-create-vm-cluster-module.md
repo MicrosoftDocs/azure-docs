@@ -18,7 +18,7 @@ ms.author:
 
 # Create a VM cluster with Terraform using the Module Registry
 
-This article walks you through creating a small VM cluster with the Terraform [Azure compute module]((https://registry.terraform.io/modules/Azure/compute/azurerm/1.0.2). In this tutorial you learn how to: 
+This article walks you through creating a small VM cluster with the Terraform [Azure compute module](https://registry.terraform.io/modules/Azure/compute/azurerm/1.0.2). In this tutorial you learn how to: 
 
 > [!div class="checklist"]
 > * Set up authentication with Azure
@@ -104,4 +104,4 @@ Run `terraform apply` to provision the VMs on Azure.
 ## Next steps
 
 - Browse the list of [Azure Terraform modules](https://registry.terraform.io/modules/Azure)
-- Create a [virtual machine scale set with Terraform](terraform-create-vm-scaleset-network-disks-hcl)
+- Create a [virtual machine scale set with Terraform](terraform-create-vm-scaleset-network-disks-hcl.md)
