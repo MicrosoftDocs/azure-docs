@@ -108,7 +108,7 @@ You must have the following:
 * [Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](hdinsight-apache-spark-use-bi-tools.md)
 * [Spark with Machine Learning: Use Spark in HDInsight for analyzing building temperature using HVAC data](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 * [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
-* [Spark Streaming: Use Spark in HDInsight for building real-time streaming applications](hdinsight-apache-spark-eventhub-streaming.md)
+* [Spark Streaming: Use Spark in HDInsight for building real-time streaming applications](spark/apache-spark-eventhub-streaming.md)
 * [Website log analysis using Spark in HDInsight](spark/apache-spark-custom-library-website-log-analysis.md)
 
 ### Create and run applications
@@ -119,7 +119,7 @@ You must have the following:
 
 * [Use external python packages with Jupyter notebooks in Apache Spark clusters on HDInsight Linux](hdinsight-apache-spark-python-package-installation.md)
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applications](hdinsight-apache-spark-intellij-tool-plugin.md)
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely](spark/apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Use Zeppelin notebooks with a Spark cluster on HDInsight](hdinsight-apache-spark-zeppelin-notebook.md)
 * [Kernels available for Jupyter notebook in Spark cluster for HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 * [Install Jupyter on your computer and connect to an HDInsight Spark cluster](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
