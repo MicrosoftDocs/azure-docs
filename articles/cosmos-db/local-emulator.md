@@ -81,16 +81,24 @@ You can download and install the Azure Cosmos DB Emulator from the [Microsoft Do
 
 The Azure Cosmos DB Emulator can be run on Docker for Windows. The Emulator does not work on Docker for Oracle Linux.
 
-Once you have [Docker for Windows](https://www.docker.com/docker-windows) installed and switched to Windows containers, you can pull the Emulator image from Docker Hub by running the following command from your favorite shell (cmd.exe, PowerShell, etc.).
+Once you have [Docker for Windows](https://www.docker.com/docker-windows) installed and switched to Windows containers, you can pull the Emulator image from Docker Hub by running the following command from your favorite shell.
 
-```      
+```     
 docker pull microsoft/azure-cosmosdb-emulator 
 ```
 To start the image, run the following commands.
 
-``` 
-md %LOCALAPPDATA%\CosmosDBEmulatorCert 2>nul
+
+From the command line:
+```cmd 
+md %LOCALAPPDATA%\CosmosDBEmulatorCert 2>null
 docker run -v %LOCALAPPDATA%\CosmosDBEmulatorCert:c:\CosmosDBEmulator\CosmosDBEmulatorCert -P -t -i -m 2GB microsoft/azure-cosmosdb-emulator 
+```
+
+From PowerShell:
+```powershell
+md $env:LOCALAPPDATA\CosmosDBEmulatorCert 2>null
+docker run -v $env:LOCALAPPDATA\CosmosDBEmulatorCert:c:\CosmosDBEmulator\CosmosDBEmulatorCert -P -t -i -m 2GB microsoft/azure-cosmosdb-emulator 
 ```
 
 The response looks similar to the following:
@@ -117,7 +125,7 @@ powershell .\importcert.ps1
 ```
 
 
-## Start the Emulator
+## Running on Windows
 
 To start the Azure Cosmos DB Emulator, select the Start button or press the Windows key. Begin typing **Azure Cosmos DB Emulator**, and select the emulator from the list of applications. 
 
@@ -131,7 +139,7 @@ The Azure Cosmos DB Emulator is installed by default to the `C:\Program Files\Az
 
 ## Start Data Explorer
 
-When the Azure Cosmos DB emulator launches it will automatically open the Azure Cosmos DB Data Explorer in your browser. The address will appear as [https://localhost:8081/_explorer/index.html](https://localhost:8081/_explorer/index.html). If you close the explorer and would like to re-open it later, you can either open the URL in your browser or launch it from the Azure Cosmos DB Emulator in the Windows Tray Icon as shown below.
+When the Azure Cosmos DB emulator launches it automatically opens the Azure Cosmos DB Data Explorer in your browser. The address appears as [https://localhost:8081/_explorer/index.html](https://localhost:8081/_explorer/index.html). If you close the explorer and would like to re-open it later, you can either open the URL in your browser or launch it from the Azure Cosmos DB Emulator in the Windows Tray Icon as shown below.
 
 ![Azure Cosmos DB local emulator data explorer launcher](./media/local-emulator/database-local-emulator-data-explorer-launcher.png)
 
