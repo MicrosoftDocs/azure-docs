@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2017
+ms.date: 10/18/2017
 ms.author: yurid
 
 ---
@@ -75,6 +75,8 @@ In the **Select VMs**, review the list of recommended VMs and uncheck any you do
 - **EXPLOITABLE**: a warning icon will indicate if the applications could be used by an attacker to bypass application whitelisting. It is strongly recommended that these applications will be reviewed prior to their approval. 
 
 Once you finish your selections, click **Create** button. By default, Security Center always enables application control in *Audit* mode. After validating that the whitelist has not had any adverse effects on your workload, you can change to *Enforce* mode.
+
+Security Center is relying on a minimum of two weeks of data in order to create a baseline and populate the unique recommendations per group of VMs. This means that new customers of Security Center standard tier should expect a behavior in which at first their groups of VMs will appear under the *no recommendation* tab.
 
 > [!NOTE]
 > As a security best practice, Security Center will always try to create a publisher rule for the applications that should be whitelisted, and only if an application doesn’t have a publisher information (aka not signed), a path rule will be created for the full path of the specific EXE.
@@ -144,7 +146,7 @@ The list contains:
 - **NAME**: the name of the subscription and resource group.
 - **VMs**: the number of virtual machines in the resource group.
 
-## See also
+## Next steps
 In this document, you learned how to use adaptive application control in Azure Security Center to whitelist applications running in Azure VMs. To learn more about Azure Security Center, see the following:
 
 * [Managing and responding to security alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Learn how to manage alerts, and respond to security incidents in Security Center.
