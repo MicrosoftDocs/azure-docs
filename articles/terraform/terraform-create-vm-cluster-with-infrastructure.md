@@ -51,7 +51,7 @@ provider "azurerm" {
 
 ## Create the template
 
-Create a new Terraform template named `main.tf` with the following code. You can edit the commented out options in the template by removing the `#` to allow the allocated disks in the cluster to be removed when the virtual machines are deleted.
+Create a new Terraform template named `main.tf` with the following code: 
 
 ```tf
 resource "azurerm_resource_group" "test" {
