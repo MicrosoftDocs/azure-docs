@@ -66,7 +66,7 @@ output "vmss_public_ip" {
 
 ## Define the network infrastructure in a template
 
-In this step you create the following network infrastructure in a new Azure resource group: 
+In this step, you create the following network infrastructure in a new Azure resource group: 
 
   - One VNET with the address space of 10.0.0.0/16 
   - One subnet with the address space of 10.0.2.0/24
@@ -311,9 +311,9 @@ Open a browser and connect to the FQDN that was returned by the command.
 
 ## Add an SSH jumpbox to the existing network 
 
-In this step you configure the following resources:
+In this step, you configure the following resources:
 - A network interface connected to the same subnet as the virtual machine scale set.
-- A virtual machine connected with this network interface. This 'jumpbox' is is remotely accessible. Once connected, you can SSH to any of the virtual machines in the scale set.
+- A virtual machine connected with this network interface. This 'jumpbox' is remotely accessible. Once connected, you can SSH to any of the virtual machines in the scale set.
 
 Add the following code to the end of the `vmss.tf` file:
 
