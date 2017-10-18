@@ -198,7 +198,7 @@ az monitor autoscale-settings create \
 
 
 ## Monitor number of instances in a scale set
-To see the number, and status, of VM instances, you can view a list of instances in your scale set with [az vmss list-instances](/cli/azure/vmss#az_vmss_list_instances). The status indicates if the VM instance is provisioning as the scale set automatically scales out, or is deprovisioning as the scale automatically scales in. The following example views the VM instance status for the scale set named *myScaleSet* in the resource group named *myResourceGroup*:
+To see the number and status of VM instances, view a list of instances in your scale set with [az vmss list-instances](/cli/azure/vmss#az_vmss_list_instances). The status indicates if the VM instance is provisioning as the scale set automatically scales out, or is deprovisioning as the scale automatically scales in. The following example views the VM instance status for the scale set named *myScaleSet* in the resource group named *myResourceGroup*:
 
 ```azurecli
 az vmss list-instances \
@@ -209,7 +209,7 @@ az vmss list-instances \
 
 
 ## Auto scale based on a schedule
-The previous examples automatically scaled a scale set in or out based on basic host metrics such as CPU or memory usage. You can also create auto scale rules based on schedules. These schedule-based rules allow you to automatically scale out the number of VM instances ahead of an anticipated increase in application demand, such as core work hours, and then automatically scale in the number of instances at a time that you anticipate less demand, such as the weekend.
+The previous examples automatically scaled a scale set in or out with basic host metrics such as CPU or memory usage. You can also create auto scale rules based on schedules. These schedule-based rules allow you to automatically scale out the number of VM instances ahead of an anticipated increase in application demand, such as core work hours, and then automatically scale in the number of instances at a time that you anticipate less demand, such as the weekend.
 
 To use schedule-based auto scale rules, create a JSON profile that defines the number of VM instances to run for a fixed start and end time window. The following example defines a rule to scale out to *10* instances at *9* A.M each work day (Monday through Friday).
 
@@ -244,7 +244,7 @@ To use schedule-based auto scale rules, create a JSON profile that defines the n
 }
 ```
 
-To scale in during the evening, you would would create another rule that specifies a lower number of VM instances at a start time.
+To scale in during the evening, create another rule that specifies a lower number of VM instances and an appropriate start time.
 
 The following complete example defines the rules to scale out and then scale in, then applies the auto scale profile with [az monitor autoscale-settings create](/cli/azure/monitor/autoscale-settings#az_monitor_autoscale_settings_create). This example overwrites the metric-based auto scale rules created in the previous examples. The *metricResourceUri* uses the variables previously defined for the subscription ID, resource group name, and scale set name:
 

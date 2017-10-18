@@ -21,7 +21,7 @@ ms.author: iainfou
 # Automatically scale machines in a virtual machine scale set with Azure PowerShell
 When you create a scale set, you define the number of VM instances that you wish to run. As your application demand changes, you can automatically increase or decrease the number of VM instances. The ability to auto scale lets you keep up with customer demand or respond to application performance changes throughout the lifecycle of your app.
 
-This article shows you how to create auto scale rules with Azure PowerShell that monitor the performance of the VM instances in your scale set. These auto scale rules increase or decrease the number of VM instances in response to these performance metrics. You can also complete these steps with the [Azure CLI 2.0](virtual-machine-scale-sets-autoscale-linux.md) or in the [Azure portal](virtual-machine-scale-sets-autoscale-portal.md).
+This article shows you how to create auto scale rules with Azure PowerShell that monitor the performance of the VM instances in your scale set. These auto scale rules increase or decrease the number of VM instances in response to these performance metrics. You can also complete these steps with the [Azure CLI 2.0](virtual-machine-scale-sets-autoscale-cli.md) or in the [Azure portal](virtual-machine-scale-sets-autoscale-portal.md).
 
 
 ## Prerequisites
@@ -123,7 +123,7 @@ Add-AzureRmAutoscaleSetting `
 
 
 ## Monitor number of instances in a scale set
-To see the number, and status, of VM instances, you can view a list of instances in your scale set with [Get-AzureRmVmssVM](/powershell/module/AzureRM.Compute/Get-AzureRmVmssVM). The status indicates if the VM instance is provisioning as the scale set automatically scales out, or is deprovisioning as the scale automatically scales in. The following example views the VM instance status for the scale set named *myScaleSet* in the resource group named *myResourceGroup*:
+To see the number and status of VM instances, view a list of instances in your scale set with [Get-AzureRmVmssVM](/powershell/module/AzureRM.Compute/Get-AzureRmVmssVM). The status indicates if the VM instance is provisioning as the scale set automatically scales out, or is deprovisioning as the scale automatically scales in. The following example views the VM instance status for the scale set named *myScaleSet* in the resource group named *myResourceGroup*:
 
 ```powershell
 Get-AzureRmVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
@@ -131,7 +131,7 @@ Get-AzureRmVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleS
 
 
 ## Auto scale based on a schedule
-The previous examples automatically scaled a scale set in or out based on basic host metrics such as CPU or memory usage. You can also create auto scale rules based on schedules. These schedule-based rules allow you to automatically scale out the number of VM instances ahead of an anticipated increase in application demand, such as core work hours, and then automatically scale in the number of instances at a time that you anticipate less demand, such as the weekend.
+The previous examples automatically scaled a scale set in or out with basic host metrics such as CPU or memory usage. You can also create auto scale rules based on schedules. These schedule-based rules allow you to automatically scale out the number of VM instances ahead of an anticipated increase in application demand, such as core work hours, and then automatically scale in the number of instances at a time that you anticipate less demand, such as the weekend.
 
 To create auto scale rules based on a schedule rather than host metrics, use the Azure portal. Schedule-based rules cannot currently be created with Azure PowerShell.
 
