@@ -458,7 +458,7 @@ Learn more about [database wait statistics](https://docs.microsoft.com/en-us/sql
 |lock_mode_s|Lock mode used by the query.|
 |resource_owner_type_s|Owner of the lock.|
 |blocked_process_filtered_s|Blocked process report XML.|
-|duration_d|Duration of the lock in milliseconds.|
+|duration_d|Duration of the lock in microseconds.|
 
 ### Intelligent Insights dataset
 Learn more about the [Intelligent Insights log format](sql-database-intelligent-insights-use-diagnostics-log.md).
