@@ -120,7 +120,7 @@ Review the details on the **Logic Apps Management** tile.
 2. To view a summary with more details about your logic app runs, 
 choose the **Logic Apps Management** tile.
 
-   Here, your logic app runs are grouped by name or by execution status.You can also see details about the failures in actions or triggers for the logic app runs.
+   Here, your logic app runs are grouped by name or by execution status. You can also see details about the failures in actions or triggers for the logic app runs.
 
    ![Status summary for your logic app runs](media/logic-apps-monitor-your-logic-apps-oms/logic-apps-runs-summary.png)
    
@@ -133,17 +133,14 @@ select the row for a logic app or a status.
 
    There are two advanced options on this page:
    * **Tracked properties:**
-     This column provides tracked properties, grouped by actions, for the chosen logic app. Choose **View** to see the tracked properties. The tracked properties are searchable via column filter.
+     This column shows tracked properties, which are grouped by actions, for the logic app. To view the tracked properties, choose **View**. You can search the tracked properties by using the column filter.
    
      ![View tracked properties for a logic app](media/logic-apps-monitor-your-logic-apps-oms/logic-app-tracked-properties.png)
 
-     The first appearance of any newly added tracked properties may take 10-15 minutes.
-
-     Learn more about [how to add tracked properties to your logic app.](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-event-settings-and-details)
+     Any newly added tracked properties might take 10-15 minutes before they appear first time.Learn [how to add tracked properties to your logic app](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-event-settings-and-details).
  
-        
-   * **Resubmit:**
-     You can resubmit one or more failed or successful or running logic app runs.To Resubmit,select the runs via checkbox and choose **Resubmit**. 
+  
+   * **Resubmit:** You can resubmit one or more failed or successful or running logic app runs.To Resubmit,select the runs via checkbox and choose **Resubmit**. 
 
      ![Resubmit logic app runs](media/logic-apps-monitor-your-logic-apps-oms/logic-app-resubmit.png)
 
@@ -172,7 +169,9 @@ select a row for a logic app run.
 
    ![View actions for a logic app run](media/logic-apps-monitor-your-logic-apps-oms/logic-app-action-details.png)
    
-6. For any page, to view the query that renders the results or to see all results, choose **See All** from that page, which opens the Log Search page.
+6. On any results page, to view the query behind the results or to see all results, choose **See All**, which opens the Log Search page.
+   
+   ![See All on Results pages](media/logic-apps-monitor-your-logic-apps-oms/logic-app-seeall.png)
    
    * To view this information in a table, choose **Table**.
    * To change the query, you can edit the query string in the search bar. 
