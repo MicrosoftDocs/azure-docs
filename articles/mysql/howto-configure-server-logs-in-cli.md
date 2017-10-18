@@ -50,4 +50,4 @@ az mysql server-logs download --name 20170414-myserver4demo-mysql.log --resource
 ```
 
 ## Next Steps
-- Learn about (server logs in Azure Database for MySQL)[concepts-server-logs.md]
+- Learn about [server logs in Azure Database for MySQL](concepts-server-logs.md)
