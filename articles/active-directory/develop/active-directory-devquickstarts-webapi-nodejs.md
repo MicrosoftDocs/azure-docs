@@ -88,12 +88,12 @@ module.exports.credentials = {
   clientID: clientID
 };
 ```
-For more information regarding the individual configuration settings, review [passport-azure-ad](https://github.com/AzureAD/passport-azure-ad#5-usage) module.
+For more information regarding the individual configuration settings, review the [passport-azure-ad](https://github.com/AzureAD/passport-azure-ad#5-usage) module documentation.
 
 ## Implement the server
 The [passport-azure-ad](https://github.com/AzureAD/passport-azure-ad#5-usage) module  features two authentication strategies: [OIDC](https://github.com/AzureAD/passport-azure-ad#51-oidcstrategy) and [Bearer](https://github.com/AzureAD/passport-azure-ad#52-bearerstrategy) strategies. The server implemented in this article uses the Bearer strategy to secure the API endpoint.
 
-## Step 1: Import dependencies
+### Step 1: Import dependencies
 Create a new file named `app.js` and paste in the following text:
 
 ```JavaScript
@@ -231,8 +231,7 @@ Unauthorized
 Now that you have created a secure API, you can implement a client that is able to pass authentication tokens to the API.
 
 ## Next steps
-As stated in the introduction, you must implement a client counterpart to connect to the server that handles signing in, signing out and managing tokens. For more information, please review [Node.js web app sign-in and sign-out with Azure AD](active-directory-devquickstarts-openidconnect-nodejs.md).
+As stated in the introduction, you must implement a client counterpart to connect to the server that handles signing in, signing out and managing tokens. For code-based examples, you may refer to the client applications in [iOS](https://github.com/MSOpenTech/azure-activedirectory-library-for-ios) and [Android](https://github.com/MSOpenTech/azure-activedirectory-library-for-android). For a step-by-step tutorial refer to the following article:
 
-For code-based examples, you may clone client applications in [iOS](https://github.com/MSOpenTech/azure-activedirectory-library-for-ios) and [Android](https://github.com/MSOpenTech/azure-activedirectory-library-for-android).
-
-[!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
+> [!div class="nextstepaction"]
+> [Node.js web app sign-in and sign-out with Azure AD](active-directory-devquickstarts-openidconnect-nodejs.md)
