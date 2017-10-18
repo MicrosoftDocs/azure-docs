@@ -23,30 +23,8 @@ This article describes how Azure Automation runbooks can be used to manage your 
 
 This article applies to StorSimple 8000 series devices running in Azure portal only.
 
-## Sample runbooks
 
-The following sample runbooks are available to automate various StorSimple jobs.
-
-#### Table of Azure Resource Manager SDK-based sample runbooks
-
-| Azure Resource Manager Script                    | Description                                                                                                                                                                                                       |
-|--------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Authorize-ServiceEncryptionRollover.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Authorize-ServiceEncryptionRollover.ps1)          | This script allows you to authorize your StorSimple device to change the service data encryption key.                                                                                                           |
-| [Create-StorSimpleCloudAppliance.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Create-StorSimpleCloudAppliance.ps1)              | This script creates an 8010 or an 8020 StorSimple Cloud Appliance. The cloud appliance can then be configured and registered with your StorSimple Data Manager service.                                                       |
-| [CreateOrUpdate-Volume.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/CreateOrUpdate-Volume.ps1)                        | This script creates or modifies StorSimple volumes.                                                                                                                                                             |
-| [Get-DeviceBackup.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Get-DeviceBackup.ps1)                             | This script lists all the backups for a device registered with your StorSimple Device Manager service.                                                                                                          |
-| [Get-DeviceBackupPolicy.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Get-DeviceBackupPolicy.ps1)                       | This script all the backup policies for your StorSimple device.                                                                                                                                                 |
-| [Get-DeviceJobs.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Get-DeviceJobs.ps1)                               | This script gets all the StorSimple jobs running on your StorSimple Device Manager service.                                                                                                                     |
-| [Get-DeviceUpdateAvailability.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Get-DeviceUpdateAvailability.ps1)                 | This script scans the Update server and lets you know if updates are available to install on your StorSimple device.                                                                                          |
-| [Install-DeviceUpdate.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Install-DeviceUpdate.ps1)                         | This script installs the available updates on your StorSimple device.                                                                                                                                           |
-| [Manage-CloudSnapshots.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Manage-CloudSnapshots.ps1)                        | This script starts a manual cloud snapshot and deletes cloud snapshots older than specified retention days.                                                                                                   |
-| [Monitor-Backups.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Monitor-Backups.ps1)                              | This Azure Automation Runbook PowerShell script reports the status of all backup jobs.                                                                                                              |
-| [Remove-DeviceBackup.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Remove-DeviceBackup.ps1)                          | This script deletes a single backup object.                                                                                                                                                           |
-| [Start-DeviceBackupJob.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Start-DeviceBackupJob.ps1)                        | This script starts a manual backup on your StorSimple device.                                                                                                                                       |
-| [Update-CloudApplianceServiceEncryptionKey.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Update-CloudApplianceServiceEncryptionKey.ps1)    | This script updates the service data encryption key for all the 8010/8020 StorSimple Cloud Appliances registered with your StorSimple Device Manager service.                                     |
-| [Verify-BackupScheduleAndBackup.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Verify-BackupScheduleAndBackup.ps1)               | This script highlights the missing backups after analyzing all the schedules associated with backup policies. It also verifies the backup catalog with the list of available backups.             |
-
-## Configure and run Azure runbook
+## Configure, add, and run Azure runbook
 
 This section takes an example Windows PowerShell script for StorSimple and details the various steps required to import the script into a runbook and then publish and execute the runbook.
 
@@ -60,9 +38,9 @@ Before you begin, ensure that you have:
 
 For more information about using Azure PowerShell, go to [Get started with using Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/get-started-azureps?view=azurermps-4.4.0).
 
-### Run Azure PowerShell script
+### Create automation runbook module in Azure PowerShell
 
-The script and the corresponding runbook used in this example lists the status of all the backup jobs on a StorSimple device. Perform the following steps to configure, import, publish, and then execute the runbook.
+To create an automation module for the StorSimple 8000 series device management, perform the following steps.
 
 1. Launch Azure PowerShell. Create a new folder and change directory to the new folder.
 
@@ -90,12 +68,39 @@ The script and the corresponding runbook used in this example lists the status o
         wget https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Monitor-Backups.ps1 -Out Monitor-Backups.ps1
 
     ```
+5. Create an Azure Automation Runbook Module for StorSimple 8000 Series device management. On the Windows Powershell window, type the following commands.
 
-5. Create an Azure Automation account with Azure RunAs Account in the Azure portal. To do so, click got to **Azure marketplace > Everything** and then search for **Automation**. Select **Automation accounts**.
+    ```
+            # set path variables
+            $downloadDir = "C:\scripts\StorSimpleSDKTools"
+            $moduleDir = "$downloadDir\AutomationModule\Microsoft.Azure.Management.StorSimple8000Series"
+
+            #don't change the folder name "Microsoft.Azure.Management.StorSimple8000Series"
+            mkdir "$moduleDir"
+            copy "$downloadDir\Microsoft.IdentityModel.Clients.ActiveDirectory.2.28.3\lib\net45\Microsoft.IdentityModel.Clients.ActiveDirectory*.dll" $moduleDir
+            copy "$downloadDir\Microsoft.Rest.ClientRuntime.Azure.3.3.7\lib\net452\Microsoft.Rest.ClientRuntime.Azure*.dll" $moduleDir
+            copy "$downloadDir\Microsoft.Rest.ClientRuntime.2.3.8\lib\net452\Microsoft.Rest.ClientRuntime*.dll" $moduleDir
+            copy "$downloadDir\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json*.dll" $moduleDir
+            copy "$downloadDir\Microsoft.Rest.ClientRuntime.Azure.Authentication.2.2.9-preview\lib\net45\Microsoft.Rest.ClientRuntime.Azure.Authentication*.dll" $moduleDir
+            copy "$downloadDir\Microsoft.Azure.Management.Storsimple8000series.1.0.0\lib\net452\Microsoft.Azure.Management.Storsimple8000series*.dll" $moduleDir
+
+            #Don't change the name of the Archive
+            compress-Archive -Path "$moduleDir" -DestinationPath Microsoft.Azure.Management.StorSimple8000Series.zip
+
+    ```
+
+6. Verify that an automation module zip file is created in `C:\scripts\StorSimpleSDKTools`.
+
+    ![verify-automation-module](./media/storsimple-8000-automation-azurerm-runbook/verify-automation-module.png)
+
+### Import, publish, and run Automation runbook
+
+1. Create an Azure Automation account with Azure RunAs Account in the Azure portal. To do so, go
+to **Azure marketplace > Everything** and then search for **Automation**. Select **Automation accounts**.
 
     ![search-automation](./media/storsimple-8000-automation-azurerm-runbook/automation1.png)
 
-6. In the **Add Automation Account** blade:
+2. In the **Add Automation Account** blade:
 
     1. Supply the **Name** of your Automation account.
     2. Select the **Subscription** linked to your StorSimple Device Manager service.
@@ -108,50 +113,27 @@ The script and the corresponding runbook used in this example lists the status o
 
     After the automation account is successfully created, you are notified. For more information on how to create an Automation account, go to [Create a Run As account](https://docs.microsoft.com/azure/automation/automation-create-runas-account).
 
-7. Create an Azure Automation Runbook Module for StorSimple 8000 Series device management. On the Windows Powershell window, type the following commands.
+3. To 
 
-```
-        # set path variables
-        $downloadDir = "C:\scripts\StorSimpleSDKTools"
-        $moduleDir = "$downloadDir\AutomationModule\Microsoft.Azure.Management.StorSimple8000Series"
+3. In the newly created account, go to **Shared Resources > Modules** and click **+ Add module**.
 
-        #don't change the folder name "Microsoft.Azure.Management.StorSimple8000Series"
-        mkdir "$moduleDir"
-        copy "$downloadDir\Microsoft.IdentityModel.Clients.ActiveDirectory.2.28.3\lib\net45\Microsoft.IdentityModel.Clients.ActiveDirectory*.dll" $moduleDir
-        copy "$downloadDir\Microsoft.Rest.ClientRuntime.Azure.3.3.7\lib\net452\Microsoft.Rest.ClientRuntime.Azure*.dll" $moduleDir
-        copy "$downloadDir\Microsoft.Rest.ClientRuntime.2.3.8\lib\net452\Microsoft.Rest.ClientRuntime*.dll" $moduleDir
-        copy "$downloadDir\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json*.dll" $moduleDir
-        copy "$downloadDir\Microsoft.Rest.ClientRuntime.Azure.Authentication.2.2.9-preview\lib\net45\Microsoft.Rest.ClientRuntime.Azure.Authentication*.dll" $moduleDir
-        copy "$downloadDir\Microsoft.Azure.Management.Storsimple8000series.1.0.0\lib\net452\Microsoft.Azure.Management.Storsimple8000series*.dll" $moduleDir
-
-        #Don't change the name of the Archive
-        compress-Archive -Path "$moduleDir" -DestinationPath Microsoft.Azure.Management.StorSimple8000Series.zip
-
-```
-
-Verify that an Automation module zip file is created in C:\scripts\StorSimpleSDKTools.
-
-![verify-automation-module](./media/storsimple-8000-automation-azurerm-runbook/verify-automation-module.png)
-
-8. In the newly created account, go to **Shared Resources > Modules** and click **+ Add module**.
-
-9. In the **Add module** blade, browse to the location of the zipped module, and select and open the module. Click **OK**.
+4. In the **Add module** blade, browse to the location of the zipped module, and select and open the module. Click **OK**.
 
     ![add-module](./media/storsimple-8000-automation-azurerm-runbook/add-module.png)
 
-10. Go to **Process Automation > Runbooks and click + Add a runbook**. In the **Add runbook** blade, click **Import an existing runbook**. Point to the Windows PowerShell script file for the **Runbook file**. The runbook type will be automatically selected. Provide a name and an optional description for the runbook. Click **Create**.
+5. Go to **Process Automation > Runbooks and click + Add a runbook**. In the **Add runbook** blade, click **Import an existing runbook**. Point to the Windows PowerShell script file for the **Runbook file**. The runbook type will be automatically selected. Provide a name and an optional description for the runbook. Click **Create**.
 
     ![add-module](./media/storsimple-8000-automation-azurerm-runbook/import-runbook.png)
 
-11. The runbook is added to the list of runbooks. Select and click this runbook.
+6. The runbook is added to the list of runbooks. Select and click this runbook.
 
     ![click-new-runbook](./media/storsimple-8000-automation-azurerm-runbook/verify-runbook-created.png)
 
-12. Edit the runbook, click **Test pane**, and then provide the parameters such as name of your StorSimple Device Manager service, name of the StorSimple device and the subscription. **Start** the test. The report is generated when the run is complete.
+7. Edit the runbook, click **Test pane**, and then provide the parameters such as name of your StorSimple Device Manager service, name of the StorSimple device and the subscription. **Start** the test. The report is generated when the run is complete.
 
     ![test-runbook](./media/storsimple-8000-automation-azurerm-runbook/test-runbook.png)
 
-13. Inspect the output from the runbook in the test pane. If satisfied, close the pane. Click **Publish** and when prompted for confirmation, confirm and publish the runbook.
+8. Inspect the output from the runbook in the test pane. If satisfied, close the pane. Click **Publish** and when prompted for confirmation, confirm and publish the runbook.
 
     ![publish-runbook](./media/storsimple-8000-automation-azurerm-runbook/publish-runbook.png)
 
