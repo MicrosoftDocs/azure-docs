@@ -113,27 +113,29 @@ to **Azure marketplace > Everything** and then search for **Automation**. Select
 
     After the automation account is successfully created, you are notified. For more information on how to create an Automation account, go to [Create a Run As account](https://docs.microsoft.com/azure/automation/automation-create-runas-account).
 
-3. To 
+3. To ensure that the automation account created can access the StorSimple Device Manager service, you need to assign appropriate permissions to the automation account. Go to **Access control** in your StorSimple Device Manager service. Click **+ Add** and provide the name of your Azure Automation Account. **Save** the settings.
 
-3. In the newly created account, go to **Shared Resources > Modules** and click **+ Add module**.
+    ![add-permissions-automation-account](./media/storsimple-8000-automation-azurerm-runbook/goto-add-roles.png)
 
-4. In the **Add module** blade, browse to the location of the zipped module, and select and open the module. Click **OK**.
+4. In the newly created account, go to **Shared Resources > Modules** and click **+ Add module**.
+
+5. In the **Add module** blade, browse to the location of the zipped module, and select and open the module. Click **OK**.
 
     ![add-module](./media/storsimple-8000-automation-azurerm-runbook/add-module.png)
 
-5. Go to **Process Automation > Runbooks and click + Add a runbook**. In the **Add runbook** blade, click **Import an existing runbook**. Point to the Windows PowerShell script file for the **Runbook file**. The runbook type will be automatically selected. Provide a name and an optional description for the runbook. Click **Create**.
+6. Go to **Process Automation > Runbooks and click + Add a runbook**. In the **Add runbook** blade, click **Import an existing runbook**. Point to the Windows PowerShell script file for the **Runbook file**. The runbook type will be automatically selected. Provide a name and an optional description for the runbook. Click **Create**.
 
     ![add-module](./media/storsimple-8000-automation-azurerm-runbook/import-runbook.png)
 
-6. The runbook is added to the list of runbooks. Select and click this runbook.
+7. The runbook is added to the list of runbooks. Select and click this runbook.
 
     ![click-new-runbook](./media/storsimple-8000-automation-azurerm-runbook/verify-runbook-created.png)
 
-7. Edit the runbook, click **Test pane**, and then provide the parameters such as name of your StorSimple Device Manager service, name of the StorSimple device and the subscription. **Start** the test. The report is generated when the run is complete.
+8. Edit the runbook, click **Test pane**, and then provide the parameters such as name of your StorSimple Device Manager service, name of the StorSimple device and the subscription. **Start** the test. The report is generated when the run is complete.
 
     ![test-runbook](./media/storsimple-8000-automation-azurerm-runbook/test-runbook.png)
 
-8. Inspect the output from the runbook in the test pane. If satisfied, close the pane. Click **Publish** and when prompted for confirmation, confirm and publish the runbook.
+9. Inspect the output from the runbook in the test pane. If satisfied, close the pane. Click **Publish** and when prompted for confirmation, confirm and publish the runbook.
 
     ![publish-runbook](./media/storsimple-8000-automation-azurerm-runbook/publish-runbook.png)
 
