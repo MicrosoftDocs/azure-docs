@@ -32,7 +32,7 @@ In this tutorial, we install an Azure SQL, IIS, .NET Core stack.
 
 ## Create a IIS VM 
 
-In this example, we use the [New-AzVM] cmdlet to quickly create a Windows Server 2016 VM and then install IIS and the .NET Framework. The IIS and SQL VMs share a resource group and virtual network, so we will create variables for those names.
+In this example, we use the New-AzVM cmdlet in the PowerShell Cloud Shell to quickly create a Windows Server 2016 VM and then install IIS and the .NET Framework. The IIS and SQL VMs share a resource group and virtual network, so we will create variables for those names.
 
 ```azurepowershell-interactive
 
@@ -57,7 +57,7 @@ Set-AzureRmVMExtension -ResourceGroupName $resourceGroup `
 
 ## Azure SQL VM
 
-We use a pre-configured Azure marketplace image of a SQL server to create the SQL VM. 
+We use a pre-configured Azure marketplace image of a SQL server to create the SQL VM. We first create the VM, then we install the SQL Server Extension on the VM. 
 
 The following script creates a fully configured VM named *myVM* that you can use for the rest of this tutorial.
 
@@ -68,7 +68,7 @@ $cred = Get-Credential -Message "Enter a username and password for the virtual m
 
 # Create a subnet configuration
 $vNet = Get-AzureRmVirtualNetwork -Name $vNetName -ResourceGroupName $resourceGroup
-Add-AzureRmVirtualNetworkSubnetConfig -Name mySQLSubnet -VirtualNetwork $vNet -AddressPrefix "10.0.2.0/24"
+Add-AzureRmVirtualNetworkSubnetConfig -Name mySQLSubnet -VirtualNetwork $vNet -AddressPrefix "192.168.2.0/24"
 Set-AzureRmVirtualNetwork -VirtualNetwork $vNet
 
 
@@ -83,11 +83,11 @@ $nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroupR
 
 
 # Create a network security group
-$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName myIISSQLGroup -Location eastus `
+$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $resourceGroup -Location eastus `
   -Name myNetworkSecurityGroup -SecurityRules $nsgRuleRDP
 
 # Create a virtual network card and associate with public IP address and NSG
-$nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName myIISSQLGroup -Location eastus `
+$nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName $resourceGroup -Location eastus `
   -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
 
 # Create a virtual machine configuration
@@ -97,10 +97,14 @@ Set-AzureRmVMSourceImage -PublisherName MicrosoftSQLServer -Offer SQL2014SP2-WS2
 Add-AzureRmVMNetworkInterface -Id $nic.Id
 
 # Create the VM
-New-AzureRmVM -ResourceGroupName myIISSQLGroup -Location eastus -VM $vmConfig
+New-AzureRmVM -ResourceGroupName $resourceGroup -Location eastus -VM $vmConfig
 ```
 
+Now use [Set-AzureRmVMSqlServerExtension](/powershell/module/azurerm.compute/set-azurermvmsqlserverextension) to add the [SQL Server entension](/sql/virtual-machines-windows-sql-server-agent-extension.md) to the SQL VM.
 
+```azurepowershell-interactive
+Set-AzureRmVMSqlServerExtension -ResourceGroupName $resourceGroup -VMName mySQLVM -name "SQLExtension"
+```
 
 ## Next steps
 
