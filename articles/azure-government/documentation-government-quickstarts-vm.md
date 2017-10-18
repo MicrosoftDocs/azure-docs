@@ -20,7 +20,7 @@ ms.author: yujhong
 # VM Quickstart for Azure Government
 This quickstart will help you get started using Virtual Machines on Azure Government. Using VMs with Azure Government is similar to using it with the Azure commercial platform, with a [few exceptions](documentation-government-compute.md#virtual-machines).
 
-To learn more about Azure Virtual Machines, click [here](https://docs.microsoft.com/azure/virtual-machines/).
+To learn more about Azure Virtual Machines, click [here](../virtual-machines.md).
 
 ## Part 1: Virtual Network
 
@@ -66,7 +66,7 @@ Before completing this section you must have:
 + An active Azure Government subscription.
 If you don't have an Azure Government subscription, create a [free account](https://azure.microsoft.com/overview/clouds/government/) before you begin.
 + A Virtual Network running on Azure Government.
-If you don't already have a Virtual Network, complete the ["Create a new Virtual Network"]() section above.
+If you don't already have a Virtual Network, complete the "Create a new Virtual Network" section above.
 
 ### Create a new Virtual Machine
 
