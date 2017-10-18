@@ -63,7 +63,7 @@ While we created a high-fidelity local emulation of the actual Azure Cosmos DB s
 > [!NOTE]
 > At this time the Data Explorer in the emulator only supports the creation of DocumentDB API collections and MongoDB collections. The Data Explorer in the emulator does not currently support the creation of tables and graphs. 
 
-## Differences between the Azure Cosmos DB Emulator and Azure Cosmos DB 
+## Differences between the Emulator and the service 
 Because the Azure Cosmos DB Emulator provides an emulated environment running on a local developer workstation, there are some differences in functionality between the emulator and an Azure Cosmos DB account in the cloud:
 
 * The Azure Cosmos DB Emulator supports only a single fixed account and a well-known master key.  Key regeneration is not possible in the Azure Cosmos DB Emulator.
