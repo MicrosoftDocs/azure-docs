@@ -6,6 +6,7 @@ keywords: cloud app discovery, managing applications
 documentationcenter: ''
 author: curtand
 manager: femila
+tags: ignite
 
 ms.assetid: db968bf5-22ae-489f-9c3e-14df6e1fef0a
 ms.service: active-directory
@@ -13,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 10/18/2017
 ms.author: curtand
 ms.reviewer: nigu
 
@@ -56,8 +57,7 @@ It can take anywhere from a few minutes to several hours to generate reports dep
 
 ## Using traffic logs for Cloud App Discovery
 
-Cloud App Discovery uses the data in your traffic logs. The more detail you can add in your
-log, the better visibility you get. Cloud App Discovery requires web-traffic data with the following attributes:
+Cloud App Discovery uses the data in your traffic logs. The more detail you can add in your log, the better visibility you get. Cloud App Discovery requires web-traffic data with the following attributes:
 
 * Date of the transaction
 * Source IP address
@@ -68,7 +68,7 @@ log, the better visibility you get. Cloud App Discovery requires web-traffic dat
 * Amount of uploaded or downloaded data, for insights about patterns of cloud app usage
 * Action taken (allowed/blocked)
 
-Cloud App Discovery cannot show or analyze attributes that are not included in your logs. For example, **Cisco ASA Firewall** standard log format does not contain the **Amount of uploaded bytes per transaction**, **Username**, or **Target URL** but only the destination IP address. Thus, you might have less visibility into the cloud apps from this data source. For Cisco ASA firewalls, set the information level to 6.1.
+Cloud App Discovery can't show or analyze attributes that are not included in your logs. For example, **Cisco ASA Firewall** standard log format does not contain the **Amount of uploaded bytes per transaction**, **Username**, or **Target URL** but only the destination IP address. Thus, you might have less visibility into the cloud apps from this data source. For Cisco ASA firewalls, set the information level to 6.1.
 
 In order to successfully generate a Cloud App Discovery report, your traffic logs must meet the following conditions:
 
