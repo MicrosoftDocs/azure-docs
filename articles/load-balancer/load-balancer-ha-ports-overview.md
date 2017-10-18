@@ -124,14 +124,14 @@ To participate in the Preview of the HA ports feature in Load Balancer Standard 
 
 Following are the supported configurations or exceptions for HA Ports:
 
-- A single frontend IP Configuration can have a single DSR Load Balancer rule with HA Ports, or it can have a single non-DSR load balancer rule with HA ports (all ports). It cannot have both.
-- A single Network Interface IP configuration can only have one non-DSR load balancer rule with HA ports. No other rules can be configured for this ipconfig.
-- A single Network Interface IP configuration can have one or more DSR load balancer rules with HA ports, provided all of their respective frontend ip configurations are unique.
-- If all of the load balancing rules are HA Ports (DSR only), or, all of the rules are non-HA port (DSR & non-DSR), two (or more) Load Balancer rules pointing to the same backend pool can co-exist. Two such LB rules cannot co-exist if there is a combination of HA Ports and non-HA Ports rules.
+- A single frontend IP Configuration can have a single DSR Load Balancer rule with HA Ports, or it can have a single non-DSR load balancer rule with HA Ports. It cannot have both.
+- A single Network Interface IP configuration can only have one non-DSR load balancer rule with HA Ports. No other rules can be configured for this ipconfig.
+- A single Network Interface IP configuration can have one or more DSR load balancer rules with HA Ports, provided all of their respective frontend IP configurations are unique.
+- If all of the load balancing rules are HA Ports (DSR only), or, all of the rules are non-HA Ports (DSR & non-DSR), two (or more) Load Balancer rules pointing to the same backend pool can co-exist. Two such load balancing rules cannot co-exist if there is a combination of HA Ports and non-HA Ports rules.
 - HA Ports is not available for IPv6.
 
 
-## Next Steps
+## Next steps
 
 - [Configure HA Ports on an internal Load Balancer Standard](load-balancer-configure-ha-ports.md)
 - [Learn about Load Balancer Standard preview](https://aka.ms/lbpreview)
