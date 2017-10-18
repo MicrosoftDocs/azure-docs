@@ -160,45 +160,26 @@ PS C:\scripts\StorSimpleSDKTools> wget https://dist.nuget.org/win-x86-commandlin
 impleSDKTools\nuget.exe
 PS C:\scripts\StorSimpleSDKTools> C:\scripts\StorSimpleSDKTools\nuget.exe install Microsoft.Azure.Management.Storsimple8
 000series
-Feeds used:
-  https://api.nuget.org/v3/index.json
-
-  GET https://api.nuget.org/v3/registration3-gz-semver2/microsoft.azure.management.storsimple8000series/index.json
-  OK https://api.nuget.org/v3/registration3-gz-semver2/microsoft.azure.management.storsimple8000series/index.json 283ms
 
 -------------------------------------------
 CUT              CUT  
 -------------------------------------------
-
-Adding package 'Microsoft.Azure.Management.Storsimple8000series.1.0.0' to folder 'C:\scripts\StorSimpleSDKTools'
-Added package 'Microsoft.Azure.Management.Storsimple8000series.1.0.0' to folder 'C:\scripts\StorSimpleSDKTools'
 Successfully installed 'Microsoft.Azure.Management.Storsimple8000series 1.0.0' to C:\scripts\StorSimpleSDKTools
 Executing nuget actions took 1.77 sec
 PS C:\scripts\StorSimpleSDKTools> C:\scripts\StorSimpleSDKTools\nuget.exe install Microsoft.IdentityModel.Clients.Active
 Directory -Version 2.28.3
-Feeds used:
-  C:\Users\alkohli\.nuget\packages\
-  https://api.nuget.org/v3/index.json
 
 -------------------------------------------
 CUT              CUT  
 -------------------------------------------
-
-Installing Microsoft.IdentityModel.Clients.ActiveDirectory 2.28.3.
-Adding package 'Microsoft.IdentityModel.Clients.ActiveDirectory.2.28.3' to folder 'C:\scripts\StorSimpleSDKTools'
-Added package 'Microsoft.IdentityModel.Clients.ActiveDirectory.2.28.3' to folder 'C:\scripts\StorSimpleSDKTools'
 Successfully installed 'Microsoft.IdentityModel.Clients.ActiveDirectory 2.28.3' to C:\scripts\StorSimpleSDKTools
 Executing nuget actions took 927.64 ms
 PS C:\scripts\StorSimpleSDKTools> C:\scripts\StorSimpleSDKTools\nuget.exe install Microsoft.Rest.ClientRuntime.Azure.Aut
 hentication -Version 2.2.9-preview
-Feeds used:
-  C:\Users\alkohli\.nuget\packages\
-  https://api.nuget.org/v3/index.json
 
 -------------------------------------------
 CUT              CUT  
 -------------------------------------------
-
 Successfully installed 'Microsoft.Rest.ClientRuntime.Azure.Authentication 2.2.9-preview' to C:\scripts\StorSimpleSDKTool
 s
 Executing nuget actions took 717.48 ms
@@ -213,14 +194,12 @@ PS C:\scripts\StorSimpleSDKTools>             #don't change the folder name "Mic
 ries"
 PS C:\scripts\StorSimpleSDKTools>             mkdir "$moduleDir"
 
-
     Directory: C:\scripts\StorSimpleSDKTools\AutomationModule
 
 
 Mode                LastWriteTime         Length Name
 ----                -------------         ------ ----
 d-----       10/18/2017   8:48 AM                Microsoft.Azure.Management.StorSimple8000Series
-
 
 PS C:\scripts\StorSimpleSDKTools>             copy "$downloadDir\Microsoft.IdentityModel.Clients.ActiveDirectory.2.28.3\
 lib\net45\Microsoft.IdentityModel.Clients.ActiveDirectory*.dll" $moduleDir
@@ -243,7 +222,6 @@ PS C:\scripts\StorSimpleSDKTools>
 -------------------------------------------
 
 ```
-
 
 ## Next steps
 
