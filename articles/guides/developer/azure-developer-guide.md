@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2017
+ms.date: 10/18/2017
 ms.author: glenga
 
 ---
@@ -115,11 +115,10 @@ Most applications must store data, so regardless of how you decide to host your 
 
     >**Get started**: Choose from one of these types storage: [blobs](../../storage/blobs/storage-dotnet-how-to-use-blobs.md), [tables](../../cosmos-db/table-storage-how-to-use-dotnet.md),     [queues](../../storage/queues/storage-dotnet-how-to-use-queues.md), or [files](../../storage/files/storage-dotnet-how-to-use-files.md).
 
--   **Azure DocumentDB**: A fully managed and scalable NoSQL database service, which features SQL queries over object data. You can access DocumentDB by using existing MongoDB drivers.
-	>**When to use:** When your application needs to be able to execute SQL queries over JSON documents, or if you’re using MongoDB.
+-   **Azure Cosmos DB**: A globally distributed, multi-model database service that enables you to elastically scale throughput and storage across any number of geographical regions with a comprehensive SLA. 
+	>**When to use:** When your application needs document, table, or graph databases, including MongoDB databases, with multiple well-defined consistency models. 
 
-    >**Get started**: [Build a DocumentDB C# console application](../../documentdb/documentdb-get-started.md). If you’re a MongoDB developer, see [DocumentDB protocol support for
-    MongoDB](../../documentdb/documentdb-protocol-mongodb.md).
+    >**Get started**: [Build an Azure Cosmos DB web app](../../cosmos-db/create-documentdb-dotnet.md). If you’re a MongoDB developer, see [Build a MongoDB web app with Azure Cosmos DB](../../cosmos-db/create-mongodb-dotnet.md).
 
 You can use [Azure Data Factory](../../data-factory/introduction.md) to move existing on-premises data to Azure. If you aren't ready to move data to the cloud, [Hybrid Connections](../../biztalk-services/integration-hybrid-connection-overview.md) in BizTalk Services lets you connect your App Service hosted app to on-premises resources. You can also connect to Azure data and storage services from your on-premises applications.
 
