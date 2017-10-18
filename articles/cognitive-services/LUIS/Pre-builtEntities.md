@@ -324,6 +324,11 @@ The **builtin.datetimeV2** entity's `resolution` field has a `values` array that
 
 -->
 
+The **builtin.datetimeV2** supports dates between the following ranges.
+
+| Min | Max |
+|----------|-------------|
+| 1st January 1900   | 31st December 2099 |
 
 ### Ambiguous dates
 

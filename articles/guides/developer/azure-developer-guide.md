@@ -121,7 +121,7 @@ Most applications must store data, so regardless of how you decide to host your 
     >**Get started**: [Build a DocumentDB C# console application](../../documentdb/documentdb-get-started.md). If you’re a MongoDB developer, see [DocumentDB protocol support for
     MongoDB](../../documentdb/documentdb-protocol-mongodb.md).
 
-You can use [Azure Data Factory](../../data-factory/data-factory-introduction.md) to move existing on-premises data to Azure. If you aren't ready to move data to the cloud, [Hybrid Connections](../../biztalk-services/integration-hybrid-connection-overview.md) in BizTalk Services lets you connect your App Service hosted app to on-premises resources. You can also connect to Azure data and storage services from your on-premises applications.
+You can use [Azure Data Factory](../../data-factory/introduction.md) to move existing on-premises data to Azure. If you aren't ready to move data to the cloud, [Hybrid Connections](../../biztalk-services/integration-hybrid-connection-overview.md) in BizTalk Services lets you connect your App Service hosted app to on-premises resources. You can also connect to Azure data and storage services from your on-premises applications.
 
 #### Docker support
 
