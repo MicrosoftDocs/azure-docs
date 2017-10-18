@@ -38,7 +38,7 @@ To integrate your Application Gateway with your ILB ASE, you need:
 * an ILB ASE
 * an app running in the ILB ASE
 * an internet routable domain name to be used with your app in the ILB ASE
-* the ILB address used by your ILB ASE (This is in the ASE portal under Settings -> IP Addresses)
+* the ILB address used by your ILB ASE (This is in the ASE portal under **Settings -> IP Addresses**)
 
 	![IP addresses used by your ILB ASE][9]
 	
@@ -46,8 +46,8 @@ To integrate your Application Gateway with your ILB ASE, you need:
 
 For details on how to create an ILB ASE read the document [Creating and using an ILB ASE][ilbase]
 
-This guide assumes you want an Application Gateway in the same Azure Virtual Network that the ASE is deployed into. Before starting the Application Gateway creation, note the subnet that you will use to host the Application Gateway. Pick a subnet that is not the GatewaySubnet or the subnet used by the ILB ASE.
-If you put the Application Gateway in the GatewaySubnet then you will be unable to create a Virtual Network gateway later. You also cannot put it into the subnet used by your ILB ASE. 
+This guide assumes you want an Application Gateway in the same Azure Virtual Network that the ASE is deployed into. Before starting the Application Gateway creation, pick or create a subnet that you will use to host the Application Gateway. You should use a subnet that is not the one named GatewaySubnet, or the subnet used by the ILB ASE.
+If you put the Application Gateway in the GatewaySubnet then you will be unable to create a Virtual Network gateway later. You also cannot put it into the subnet used by your ILB ASE as the ASE is the only thing that can be in its subnet.
 
 ## Steps to configure ##
 
@@ -55,26 +55,26 @@ If you put the Application Gateway in the GatewaySubnet then you will be unable 
 
 	a. Provide:
 	
-		a. Name of the Application Gateway
-		b. Select WAF
-		c. Select the same subscription used for the ASE VNet
-		d. Create or select the resource group
-		e. Select the Location the ASE VNet is in
+	* Name of the Application Gateway
+	* Select WAF
+	* Select the same subscription used for the ASE VNet
+	* Create or select the resource group
+	* Select the Location the ASE VNet is in
 
 	![New application gateway creation basics][2]
 	
 	b. In the Settings area set
 	
-		a. The ASE VNet
-		b. The subnet the Application Gateway needs to be deployed into. Do no use the GatewaySubnet as it will prevent the creation of VPN gateways
-		c. Select Public
-		d. Select a public IP address. If you do not have one then create one at this time
-		e. Configure for HTTP or HTTPS. If configuring for HTTPS you need to provide a PFX certificate
-		f. Select Web application fireway settings. Here you can enable the firewall and also set it for either Detection or Prevention as you see fit.
+	* The ASE VNet
+	* The subnet the Application Gateway needs to be deployed into. Do no use the GatewaySubnet as it will prevent the creation of VPN gateways
+	* Select Public
+	* Select a public IP address. If you do not have one then create one at this time
+	* Configure for HTTP or HTTPS. If configuring for HTTPS you need to provide a PFX certificate
+	* Select Web application fireway settings. Here you can enable the firewall and also set it for either Detection or Prevention as you see fit.
+
+	![New application gateway creation settings][3]
 	
 	c. In the summary section review, select **Ok**. It can take a little more than 30 minutes for your Application Gateway to complete setup.  
-	
-	![New application gateway creation settings][3]
 
 2. After your Application Gateway completes setup, go into your Application Gateway portal. Select **Backend pool**.  Add the ILB address for your ILB ASE.
 
