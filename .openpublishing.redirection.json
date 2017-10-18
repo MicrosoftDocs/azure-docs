@@ -13592,7 +13592,7 @@
         },
         {
             "source_path": "articles/hdinsight/hdinsight-release-notes-archive.md",
-            "redirect_url": "/azure/hdinsight/hdinsight-release-notes.md",
+            "redirect_url": "/azure/hdinsight/hdinsight-release-notes",
             "redirect_document_id": false
         }
     ]
