@@ -63,7 +63,7 @@ If you put the Application Gateway in the GatewaySubnet then you will be unable 
 
 	![New application gateway creation basics][2]
 	
-	b. In the Settings area set
+	b. In the Settings area set:
 	
 	* The ASE VNet
 	* The subnet the Application Gateway needs to be deployed into. Do no use the GatewaySubnet as it will prevent the creation of VPN gateways
