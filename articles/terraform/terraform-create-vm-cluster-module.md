@@ -18,7 +18,7 @@ ms.author:
 
 # Create a VM cluster with Terraform using the Module Registry
 
-This article walks you through creating a small VM cluster with Terraform using the Azure `compute` module found in the [Terraform Registry](https://registry.terraform.io/modules/Azure/compute/azurerm/1.0.2). In this tutorial you learn how to: 
+This article walks you through creating a small VM cluster with the Terraform [Azure compute module]((https://registry.terraform.io/modules/Azure/compute/azurerm/1.0.2). In this tutorial you learn how to: 
 
 > [!div class="checklist"]
 > * Set up authentication with Azure
@@ -26,14 +26,14 @@ This article walks you through creating a small VM cluster with Terraform using 
 > * Visualize the changes with plan
 > * Apply the configuration to create the VM cluster
 
-For more on Terraform, see the [Terraform documentation](https://www.terraform.io/docs/index.html).
+For more information on Terraform, see the [Terraform documentation](https://www.terraform.io/docs/index.html).
 
 ## Set up authentication with Azure
 
- Review [Install Terraform and configure access to Azure](/azure/virtual-machines/linux/terraform-install-configure) and use the service principal values to populate a new file `azureProviderAndCreds.tf` in an empty directory.
-
 > [!TIP]
-> You don't need to perform this step if you [create environment variables](/azure/virtual-machines/linux/terraform-install-configure#set-environment-variables) for these values or run this tutorial in the [Azure Cloud Shell](/azure/cloud-shell/overview).
+> If you [use Terraform environment variables](/azure/virtual-machines/linux/terraform-install-configure#set-environment-variables) or run this tutorial in the [Azure Cloud Shell](/azure/cloud-shell/overview), skip this step.
+
+ Review [Install Terraform and configure access to Azure](/azure/virtual-machines/linux/terraform-install-configure) to create an Azure service principal. Use this service principal to populate a new file `azureProviderAndCreds.tf` in an empty directory with the following code
 
 ```tf
 variable subscription_id {}
@@ -84,15 +84,13 @@ output "vm_private_ips" {
 }
 ```
 
-Run `terraform init` in your configuration directory. You should see output similar to this, with version >=0.10.6 of Terraform:
+Run `terraform init` in your configuration directory. Using a Terraform version of at least 0.10.6 shows the following output:
 
 ![Terraform Init](media/terraformInitWithModules.png)
 
-You will see the lines showing the downloads when there is a module you haven't referenced yet or an updated module.
-
 ## Visualize the changes with plan
 
-Run `terraform plan` to preview the virtual machine compute infrastructure that will be created with the template.
+Run `terraform plan` to preview the virtual machine infrastructure created by the template.
 
 ![Terraform Plan](media/terraformPlanVmsWithModules.png)
 
