@@ -20,14 +20,16 @@ ms.author: kumud
 
 # High Availability Ports overview (Preview)
 
-The Standard SKU of Azure Load Balancer introduces a new ability to load balance TCP and UDP flows on all ports simultaneously. An HA Ports rule is configured on an internal Load Balancer by setting the frontend and backend ports to **0** and protocol to **All**.  The internal Load Balancer will now balance all flows irrespective of port number.
+The Standard SKU of Azure Load Balancer introduces a new ability to load balance TCP and UDP flows on all ports simultaneously when using an internal Load Balancer. 
 
 >[!NOTE]
 > High Availability Ports feature is available with Load Balancer Standard and currently in preview. During preview, the feature may not have the same level of availability and reliability as features that are in general availability release. For more information, see [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It is necessary to sign up for the Load Balancer Standard Preview to use HA Ports with Load Balancer Standard resources. Follow the instructions for sign-up in addition to Load Balancer [Standard Preview](https://aka.ms/lbpreview#preview-sign-up) as well.
 
-This configuration reduces configuration complexity by providing a single LB rule to load balance all TCP and UDP flows arriving on all ports of an internal Load Balancer frontend. The load balancing decision is made per flow based on the five-tuple of Source IP Address, Source Port, Destination IP Address, Destination Port, and Protocol.
+An HA Ports rule is a variant of a load balancing rule configured on an internal Load Balancer Standard.  Scenarios are simplified by providing a single LB rule to load balance all TCP and UDP flows arriving on all ports of an internal Load Balancer Standard frontend. The load balancing decision is made per flow based on the five-tuple of Source IP Address, Source Port, Destination IP Address, Destination Port, and Protocol.
 
-One of the critical scenarios HA ports enables is the high availability deployment of the Network Virtual Appliances in Azure virtual networks. In addition, another common scenario that HA ports enables is load balancing for a range of ports. 
+HA Ports enables critical scenarios such as high availability and scale for Network Virtual Appliances (NVA) inside virtual networks as well as other scenarios where a large number of ports must be load balanced. 
+
+HA Ports is configured by setting the frontend and backend ports to **0** and protocol to **All**.  The internal Load Balancer resource will now balance all TCP and UDP flows irrespective of port number.
 
 ## Why use high HA ports
 
