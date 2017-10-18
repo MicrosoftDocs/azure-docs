@@ -54,23 +54,70 @@ HA ports is currently available in the following regions:
 
 ## Preview sign-up
 
-To participate in the Preview of the HA ports feature in Load Balancer Standard SKU, register your subscription to gain access using either PowerShell or Azure CLI 2.0.
-
-- Sign up using PowerShell
-
-    ```powershell
-    Register-AzureRmProviderFeature -FeatureName AllowILBAllPortsRule -ProviderNamespace Microsoft.Network
-    ```
-
-- Sign up using Azure CLI 2.0
-
-    ```cli
-    az feature register --name AllowILBAllPortsRule --namespace Microsoft.Network 
-    ```  
-
+To participate in the Preview of the HA ports feature in Load Balancer Standard SKU, register your subscription to gain access using either Azure CLI 2.0 or PowerShell.  Please follow these 3 steps below:
 
 >[!NOTE]
 >To use this feature, you must also sign-up for Load Balancer [Standard Preview](https://aka.ms/lbpreview#preview-sign-up) in addition to HA Ports. Registration of the HA Ports or Load Balancer Standard previews may take up to an hour.
+
+
+### Sign up using Azure CLI 2.0
+
+1. Register the feature with the provider
+    ```cli
+    az feature register --name AllowILBAllPortsRule --namespace Microsoft.Network
+    ```
+    
+2. The above operation can take up to 10 minutes to complete.  You can check the status of the operation with the following command:
+
+    ```cli
+    az feature show --name AllowILBAllPortsRule --namespace Microsoft.Network
+    ```
+    
+    Please proceed to step 3 when the feature registration state returns 'Registered' as shown below:
+   
+    ```json
+    {
+       "id": "/subscriptions/foo/providers/Microsoft.Features/providers/Microsoft.Network/features/AllowLBPreview",
+       "name": "Microsoft.Network/AllowILBAllPortsRule",
+       "properties": {
+          "state": "Registered"
+       },
+       "type": "Microsoft.Features/providers/features"
+    }
+    ```
+    
+3. Please complete the preview sign-up by re-registering your subscription with the resource provider:
+
+    ```cli
+    az provider register --namespace Microsoft.Network
+    ```
+    
+### Sign up using PowerShell
+
+1. Register the feature with the provider
+    ```powershell
+    Register-AzureRmProviderFeature -FeatureName AllowILBAllPortsRule -ProviderNamespace Microsoft.Network
+    ```
+    
+2. The above operation can take up to 10 minutes to complete.  You can check the status of the operation with the following command:
+
+    ```powershell
+    Get-AzureRmProviderFeature -FeatureName AllowILBAllPortsRule -ProviderNamespace Microsoft.Network
+    ```
+    Please proceed to step 3 when the feature registration state returns 'Registered' as shown below:
+   
+    ```
+    FeatureName          ProviderName      RegistrationState
+    -----------          ------------      -----------------
+    AllowILBAllPortsRule Microsoft.Network Registered
+    ```
+    
+3. Please complete the preview sign-up by re-registering your subscription with the resource provider:
+
+    ```powershell
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+    ```
+
 
 ## Limitations
 
