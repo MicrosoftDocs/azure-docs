@@ -21,7 +21,7 @@ ms.author: nitinme
 ---
 # Debug Apache Spark jobs running on Azure HDInsight
 
-In this article you will learn how to track and debug Spark jobs running on HDInsight clusters using the YARN UI, Spark UI, and the Spark History Server. For this article, we will start a Spark job using a notebook available with the Spark cluster, **Machine learning: Predictive analysis on food inspection data using MLLib**. You can use the steps below to track an application that you submitted using any other approach as well, for example, **spark-submit**.
+In this article, you learn how to track and debug Spark jobs running on HDInsight clusters using the YARN UI, Spark UI, and the Spark History Server. For this article, we start a Spark job using a notebook available with the Spark cluster, **Machine learning: Predictive analysis on food inspection data using MLLib**. You can use the steps below to track an application that you submitted using any other approach as well, for example, **spark-submit**.
 
 ## Prerequisites
 You must have the following:
@@ -110,13 +110,13 @@ Once a job is completed, the information about the job is persisted in the Spark
 
 * [Spark with Machine Learning: Use Spark in HDInsight for analyzing building temperature using HVAC data](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 * [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
-* [Website log analysis using Spark in HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
+* [Website log analysis using Spark in HDInsight](spark/apache-spark-custom-library-website-log-analysis.md)
 * [Application Insight telemetry data analysis using Spark in HDInsight](hdinsight-spark-analyze-application-insight-logs.md)
 * [Use Caffe on Azure HDInsight Spark for distributed deep learning](hdinsight-deep-learning-caffe-spark.md)
 
 ### For Spark developers
 
-* [Create a standalone application using Scala](hdinsight-apache-spark-create-standalone-application.md)
+* [Create a standalone application using Scala](spark/apache-spark-create-standalone-application.md)
 * [Run jobs remotely on a Spark cluster using Livy](hdinsight-apache-spark-livy-rest-interface.md)
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applications](hdinsight-apache-spark-intellij-tool-plugin.md)
 * [Spark Streaming: Use Spark in HDInsight for building real-time streaming applications](spark/apache-spark-eventhub-streaming.md)
