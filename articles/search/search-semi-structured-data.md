@@ -22,7 +22,7 @@ In this part we cover how to:
 > * Use the Azure Search Service to search your index
 
 > [!NOTE]
-> "JSON array support is a preview feature in Azure Search. It is not currently available in the portal. For this reason, we're using the preview REST API which provides this feature, and a REST client tool to call the API."
+> "JSON array support is a preview feature in Azure Search. It is not currently available in the portal. For this reason, we're using the preview REST API, which provides this feature, and a REST client tool to call the API."
 
 ## Prerequisites
 
