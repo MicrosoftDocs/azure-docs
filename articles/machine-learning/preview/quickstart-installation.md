@@ -1,6 +1,6 @@
 ---
-title: Installation quickstart for Azure Machine Learning services | Microsoft Docs
-description: This quickstart shows how to create Azure Machine Learning resources, and how to install Azure Machine Learning Workbench.
+title: Installation Quickstart for Azure Machine Learning services | Microsoft Docs
+description: This Quickstart shows how to create Azure Machine Learning resources, and how to install Azure Machine Learning Workbench.
 services: machine-learning
 author: hning86
 ms.author: haining, raymondl, chhavib
@@ -16,7 +16,7 @@ ms.date: 09/20/2017
 # Create Azure Machine Learning Preview accounts and install Azure Machine Learning Workbench
 Azure Machine Learning is an integrated, end-to-end data science and advanced analytics solution. It helps professional data scientists to prepare data, develop experiments, and deploy models at cloud scale.
 
-This quickstart shows you how to create experimentation and model management accounts in Azure Machine Learning Preview. It also shows you how to install the Azure Machine Learning Workbench desktop application and CLI tools. Next, you take a quick tour of Azure Machine Learning Preview features by using the [Iris flower dataset](https://en.wikipedia.org/wiki/iris_flower_data_set) to build a model that predicts the type of iris based on some of its physical characteristics.  
+This Quickstart shows you how to create experimentation and model management accounts in Azure Machine Learning Preview. It also shows you how to install the Azure Machine Learning Workbench desktop application and CLI tools. Next, you take a quick tour of Azure Machine Learning Preview features by using the [Iris flower dataset](https://en.wikipedia.org/wiki/iris_flower_data_set) to build a model that predicts the type of iris based on some of its physical characteristics.  
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -53,7 +53,7 @@ Use the Azure portal to provision Azure Machine Learning accounts:
    Subscription | _Your subscription_ |Choose the Azure subscription that you want to use for your experiment. If you have multiple subscriptions, choose the appropriate subscription in which the resource is billed.
    Resource group | _Your resource group_ | You can make a new resource group name, or you can use an existing one from your subscription.
    Location | _The region closest to your users_ | Choose the location that's closest to your users and the data resources.
-   Number of seats | 2 | Enter the number of seats. This selection affects the [pricing](https://azure.microsoft.com/pricing/details/machine-learning/). The first two seats are free. Use two seats for the purposes of this quickstart. You can update the number of seats later as needed in the Azure portal.
+   Number of seats | 2 | Enter the number of seats. This selection affects the [pricing](https://azure.microsoft.com/pricing/details/machine-learning/). The first two seats are free. Use two seats for the purposes of this Quickstart. You can update the number of seats later as needed in the Azure portal.
    Storage account | _Unique name_ | Select **Create new** and provide a name to create an Azure storage account. Or, select **Use existing** and select your existing storage account from the drop-down list. The storage account is required and is used to hold project artifacts and run history data. 
    Workspace for Experimentation account | _Unique name_ | Provide a name for the new workspace. The name should be 2 to 32 characters. It should include only alphanumeric characters and the dash (-) character.
    Assign owner for the workspace | _Your account_ | Select your own account as the workspace owner.
