@@ -1,4 +1,4 @@
-- name: Container Service (AKS)
+- name: Azure Container Service (AKS)
   href: ./index.yml
 - name: Overview
   items:
@@ -7,7 +7,7 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create AKS cluster
+  - name: Create an AKS cluster
     href: kubernetes-walkthrough.md
 - name: Tutorials
   items:
@@ -27,6 +27,10 @@
     href: tutorial-kubernetes-monitor.md
 - name: How-to guides
   items:
+  - name: Scale an AKS cluster
+    href: scale-cluster.md
+  - name: Upgrade an AKS cluster
+    href: upgrade-cluster.md
   - name: Run applications with Helm
     href: kubernetes-helm.md
   - name: Test applications with Draft
