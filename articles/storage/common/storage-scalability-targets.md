@@ -36,6 +36,8 @@ If the needs of your application exceed the scalability targets of a single stor
 ## Scalability targets for a storage account
 [!INCLUDE [azure-storage-limits](../../../includes/azure-storage-limits.md)]
 
+[!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
+
 ## Azure Blob storage scale targets
 [!INCLUDE [storage-blob-scale-targets](../../../includes/storage-blob-scale-targets.md)]
 
@@ -67,9 +69,6 @@ See [Windows VM sizes](../../virtual-machines/windows/sizes.md?toc=%2fazure%2fvi
 [!INCLUDE [azure-storage-limits-vm-disks-standard](../../../includes/azure-storage-limits-vm-disks-standard.md)]
 
 [!INCLUDE [azure-storage-limits-vm-disks-premium](../../../includes/azure-storage-limits-vm-disks-premium.md)]
-
-## Scalability targets for Azure resource manager
-[!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
 
 ## Partitions in Azure Storage
 Every object that holds data that is stored in Azure Storage (blobs, messages, entities, and files) belongs to a partition, and is identified by a partition key. The partition determines how Azure Storage load balances blobs, messages, entities, and files across servers to meet the traffic needs of those objects. The partition key is unique and is used to locate a blob, message, or entity.
