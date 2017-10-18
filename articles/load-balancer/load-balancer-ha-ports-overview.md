@@ -45,7 +45,7 @@ HA Ports provide several advantages for NVA HA scenarios:
 - n-active and active-passive scenarios
 - eliminating the need for complex solutions like Zookeeper nodes for monitoring appliances
 
-The following example presents a hub-and-spoke virtual network deployment, with the spokes force tunneling their traffic to the hub virtual network and via the NVA before leaving the trusted space. The NVAs are behind an Internal Load Balancer with HA Ports configuration, thus can process all the traffic and forward accordingly. 
+The following example presents a hub-and-spoke virtual network deployment, with the spokes force tunneling their traffic to the hub virtual network and through the NVA before leaving the trusted space. The NVAs are behind an internal Load Balancer Standard with HA Ports configuration.  All traffic can be processed and forward accordingly. 
 
 ![ha ports example](./media/load-balancer-ha-ports-overview/nvaha.png)
 
@@ -55,7 +55,7 @@ If you are using Network Virtual Appliances, please confirm with the respective 
 
 ### Load balancing large numbers of ports
 
-Azure customers who are faced with application scenarios where large numbers of ports are used concurrently can also take advantage of this load balancing rule to simplify the construction of their scenario.  HA Ports can be used like a load balancing rule for a range of ports rather than a load balancing rule for every port.
+Azure customers who are faced with application scenarios where large numbers of ports are used concurrently can also take advantage of this load balancing rule to simplify the construction of their scenario.  HA Ports can be used as a single load balancing rule for a range of ports rather than individual load balancing rules, one for every port.  This can greatly simplify the configuration as well as unlock scenarios previously not possible where very large numbers of rules would have been needed.
 
 These scenarios can now be addressed using this rule with an internal [Load Balancer Standard](https://aka.ms/lbpreview).
 
