@@ -20,8 +20,8 @@ ms.author: robinsh
 # Perform Azure Table storage operations with Azure PowerShell 
 
 
-> [NOTE]
-> This article was written for basic Azure Table storage. However, these PowerShell commands should work for both classic Table Storage and the premium offering for Azure Storage Tables that is part of Cosmos DB Tables. For more information, see [Azure RM Storage Tables PowerShell module for Cosmos DB Tables](https://blogs.technet.microsoft.com/paulomarques/2017/05/23/azure-rm-storage-tables-powershell-module-now-includes-support-for-cosmos-db-tables/).
+> [!NOTE]
+> This article was written for basic Azure Table storage. However, these PowerShell commands should work for both basic Table Storage and the premium offering for Azure Storage Tables that is part of Cosmos DB Tables. For more information, see [Azure RM Storage Tables PowerShell module for Cosmos DB Tables](https://blogs.technet.microsoft.com/paulomarques/2017/05/23/azure-rm-storage-tables-powershell-module-now-includes-support-for-cosmos-db-tables/).
 >
 
 Azure Table Storage is a NoSQL datastore, which you can use to store and query huge sets of structured, non-relational data. The main components of the service are tables, entities, and properties. A table is a collection of entities. An entity is a set of properties. Each entity can have up to 252 properties, which are all name-value pairs. This article assumes that you are already familiar with the Azure Table Storage Service concepts. For detailed information, see [Understanding the Table Service Data Model](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model) and [Get started with Azure Table storage using .NET](table-storage-how-to-use-dotnet.md).
@@ -110,18 +110,18 @@ $storageTable = Get-AzureStorageTable –Name $tableName –Context $ctx
 
 ## Managing table entities
 
-Now that you have a table, let's look at how to manage entities in the table. 
-
-### Add table entities
+Now that you have a table, let's look at how to manage entities, or rows, in the table. 
 
 An entity can have up to 255 properties, including 3 system properties: **PartitionKey**, **RowKey**, and **Timestamp**. You are responsible for inserting and updating the values of **PartitionKey** and **RowKey**. The server manages the value of **Timestamp**, which cannot be modified. Together the **PartitionKey** and **RowKey** uniquely identify every entity within a table.
 
 * **PartitionKey**: Determines the partition that the entity is stored in.
 * **RowKey**: Uniquely identifies the entity within the partition.
 
-You may define up to 252 custom properties for an entity. For more information, see [Understanding the Table Service Data Model](http://msdn.microsoft.com/library/azure/dd179338.aspx).
+You may define up to 252 custom properties for an entity. For more information, see [Understanding the Table Service Data Model](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model).
 
-Add entities to a table using Add-StorageTableRow. These examples use partition keys with values "partition1" and "partition2", and row keys equal to state abbreviations. The properties in each entity are username and id. 
+### Add table entities
+
+Add entities to a table using **Add-StorageTableRow**. These examples use partition keys with values "partition1" and "partition2", and row keys equal to state abbreviations. The properties in each entity are username and id. 
 
 ```powershell
 $partitionKey1 = "partition1"
@@ -151,14 +151,14 @@ Add-StorageTableRow `
 
 ### Query the table entities
 
-There are several different ways to query the entities in a table. 
+There are several different ways to query the entities in a table.
 
 #### Retrieve all entities
 
-To retrieve all entities, use Get-AzureStorageTableRowAll.
+To retrieve all entities, use **Get-AzureStorageTableRowAll**.
 
 ```powershell
-Get-AzureStorageTableRowAll -table $storagetable | ft
+Get-AzureStorageTableRowAll -table $storageTable | ft
 ```
 
 This yields results similar to the following table.
@@ -172,7 +172,7 @@ This yields results similar to the following table.
 
 #### Retrieve entities for a specific partition
 
-To retrieve all entities in a specific partition, use Get-AzureStorageTableRowByPartitionKey.
+To retrieve all entities in a specific partition, use **Get-AzureStorageTableRowByPartitionKey**.
 
 ```powershell
 Get-AzureStorageTableRowByPartitionKey -table $storageTable -partitionKey $partitionKey1 | ft
@@ -186,17 +186,18 @@ The results look similar to the following table.
 
 #### Retrieve entities for a specific value in a specific column
 
-To retrieve entities where the value in a specific column equals a specified value, use Get-AzureStorageTableRowByColumnName.
+To retrieve entities where the value in a specific column equals a particular value, use **Get-AzureStorageTableRowByColumnName**.
 
 ```powershell
 Get-AzureStorageTableRowByColumnName -table $storageTable `
     -columnName "username" `
-    -value "Chris" 
+    -value "Chris" `
     -operator Equal
 ```
 
 This query retrieves one record.
 
+|field|value|
 |----|----|
 | id | 1 |
 | username | Chris |
@@ -205,14 +206,17 @@ This query retrieves one record.
 
 #### Retrieve entities using a custom filter 
 
-To retrieve entities using a custom filter, use Get-AzureStorageTableRowByCustomFilter.
-s
+To retrieve entities using a custom filter, use **Get-AzureStorageTableRowByCustomFilter**.
+
 ```powershell
-Get-AzureStorageTableRowByCustomFilter -table $storageTable -customFilter "(id eq 1)"
+Get-AzureStorageTableRowByCustomFilter `
+    -table $storageTable `
+    -customFilter "(id eq 1)"
 ```
 
 This query retrieves one record.
 
+|field|value|
 |----|----|
 | id | 1 |
 | username | Chris |
@@ -221,16 +225,18 @@ This query retrieves one record.
 
 ### Updating entities 
 
-These are three steps for updating entities. First, retrieve the entity to be changed. Second, make the change. Third, commit the change using Get-Update-AzureStorageTableRow.
+These are three steps for updating entities. First, retrieve the entity to be changed. Second, make the change. Third, commit the change using **Update-AzureStorageTableRow**.
 
-Update the entity with username = 'Jessie' to have username = 'Jessie2'. This example also shows another way to create a custom filter using the .NET types. 
+Update the entity with username = 'Jessie' to have username = 'Jessie2'. This example also shows another way to create a custom filter using .NET types. 
 
 ```powershell
 # Create a filter and get the entity to be updated.
 [string]$filter = `
     [Microsoft.WindowsAzure.Storage.Table.TableQuery]::GenerateFilterCondition("username",`
     [Microsoft.WindowsAzure.Storage.Table.QueryComparisons]::Equal,"Jessie")
-$user = Get-AzureStorageTableRowByCustomFilter -table $storageTable -customFilter $filter
+$user = Get-AzureStorageTableRowByCustomFilter `
+    -table $storageTable `
+    -customFilter $filter
 
 # Change the entity.
 $user.username = "Jessie2" 
@@ -245,6 +251,7 @@ Get-AzureStorageTableRowByCustomFilter -table $storageTable `
 
 The results show the Jessie2 record.
 
+|field|value|
 |----|----|
 | id | 2 |
 | username | Jessie2 |
@@ -253,11 +260,11 @@ The results show the Jessie2 record.
 
 ### Deleting table entities
 
-You can delete one entity at a time, or all entities in the table with one command.
+You can delete one entity or all entities in the table.
 
 #### Deleting one entity
 
-To delete a single entity, get a reference to that entity and pipe it into Remove-AzureStorageTableRow.
+To delete a single entity, get a reference to that entity and pipe it into **Remove-AzureStorageTableRow**.
 
 ```powershell
 # Set filter.
@@ -266,11 +273,13 @@ To delete a single entity, get a reference to that entity and pipe it into Remov
   [Microsoft.WindowsAzure.Storage.Table.QueryComparisons]::Equal,"Jessie2")
 
 # Retrieve entity to be deleted, then pipe it into the remove cmdlet.
-$userToDelete = Get-AzureStorageTableRowByCustomFilter -table $storageTable -customFilter 
+$userToDelete = Get-AzureStorageTableRowByCustomFilter `
+    -table $storageTable `
+    -customFilter 
 $userToDelete | Remove-AzureStorageTableRow -table $storageTable 
 
 # Retrieve entities from table and see that Jessie2 has been deleted.
-Get-AzureStorageTableRowAll -table $storagetable | ft
+Get-AzureStorageTableRowAll -table $storageTable | ft
 ```
 
 #### Delete all rows in the table 
@@ -283,7 +292,7 @@ Get-AzureStorageTableRowAll `
     -table $storageTable | Remove-AzureStorageTableRow -table $storageTable 
 
 # List entities in the table (there won't be any).
-Get-AzureStorageTableRowAll -table $storagetable | ft
+Get-AzureStorageTableRowAll -table $storageTable | ft
 ```
 
 ## Delete a table
@@ -293,7 +302,7 @@ To delete a table, use [Remove-AzureStorageTable](/powershell/module/azure.stora
 ```powershell
 Remove-AzureStorageTable –Name $tableName –Context $ctx
 
-# Retrieve the list of tables to verify our table has been removed.
+# Retrieve the list of tables to verify the table has been removed.
 Get-AzureStorageTable –Context $Ctx | select Name
 ```
 
@@ -321,6 +330,6 @@ For more information, please see the following articles.
 
 * [Storage PowerShell cmdlets](/powershell/module/azurerm.storage#storage)
 
-* [Working with Azure Storage Tables from PowerShell](https://blogs.technet.microsoft.com/paulomarques/2017/01/17/working-with-azure-storage-tables-from-powershell/).
+* [Working with Azure Storage Tables from PowerShell](https://blogs.technet.microsoft.com/paulomarques/2017/01/17/working-with-azure-storage-tables-from-powershell/)
 
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
