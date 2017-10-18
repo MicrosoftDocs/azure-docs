@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2017
+ms.date: 10/19/2017
 ms.author: jeedes
 
 ---
@@ -102,38 +102,48 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
  
 	![Single sign-on dialog box](./media/active-directory-saas-achieve3000-tutorial/tutorial_achieve3000_samlbase.png)
 
-3. On the **Achieve3000 Domain and URLs** section, perform the following steps if you wish to configure the application in IDP initiated mode:
-
-	![Achieve3000 Domain and URLs single sign-on information](./media/active-directory-saas-achieve3000-tutorial/tutorial_achieve3000_url1.png)
-
-    In the **Identifier** textbox,
-
-    a. For the testing environment, type the URL: `achieve3000-saml-trunk`
-
-    b. For the production environment, type the URL: `achieve3000-saml`
-
-4. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
+3. On the **Achieve3000 Domain and URLs** section, perform the following steps:
 
 	![Achieve3000 Domain and URLs single sign-on information](./media/active-directory-saas-achieve3000-tutorial/tutorial_achieve3000_url.png)
 
-    In the **Sign-on URL** textbox, 
+    a. In the **Sign-on URL** textbox, type a URL using the following: pattern: `https://saml.achieve3000.com/district/<District Identifier>`
 
-    a. For the testing environment, type a URL using the following pattern: `https://trunk-saml.achieve3000.com/district/<nickname>`
+    b. In the **Identifier** textbox, type the value: `achieve3000-saml`
 
-    b. For the production environment, type a URL using the following: pattern: `https://saml.achieve3000.com/district/<nickname>`
-	 
 	> [!NOTE] 
 	> This value is not real. Update the value with the actual Sign-On URL. Contact [Achieve3000 Client support team](https://www.achieve3000.com/contact-us/) to get the value. 
 
-5. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
+4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
 	![The Certificate download link](./media/active-directory-saas-achieve3000-tutorial/tutorial_achieve3000_certificate.png) 
 
-6. Click **Save** button.
+5. Achieve3000 application expect the unique **studentID** value in the Name Identifier claim. Customer can map the correct value for the Name Identifier claim. In this case we have mapped the **user.mail** for the demo purpose. But according to your local settings you should map the correct value for it.   
+
+	![Configure Single Sign-On attb](./media/active-directory-saas-achieve3000-tutorial/tutorial_achieve3000_attribute.png)
+
+6. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the image and perform the following steps:
+	
+	| Attribute Name | Attribute Value |
+	| ------------------- | -------------------- |    
+	| studentID 			  | user.mail |
+
+	a. Click **Add attribute** to open the **Add Attribute** dialog.
+
+	![Configure Single Sign-On Add](./media/active-directory-saas-achieve3000-tutorial/tutorial_officespace_04.png)
+
+	![Configure Single Sign-On Addattb](./media/active-directory-saas-achieve3000-tutorial/tutorial_attribute_05.png)
+
+	b. In the **Name** textbox, type the attribute name shown for that row.
+
+	c. From the **Value** list, type the attribute value shown for that row.
+	
+	d. Click **Ok**.
+
+7. Click **Save** button.
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-achieve3000-tutorial/tutorial_general_400.png)
 	
-7. To configure single sign-on on **Achieve3000** side, you need to send the downloaded **Metadata XML** to [Achieve3000 support team](https://www.achieve3000.com/contact-us/). They set this setting to have the SAML SSO connection set properly on both sides.
+8. To configure single sign-on on **Achieve3000** side, you need to send the downloaded **Metadata XML** to [Achieve3000 support team](https://www.achieve3000.com/contact-us/). They set this setting to have the SAML SSO connection set properly on both sides.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
