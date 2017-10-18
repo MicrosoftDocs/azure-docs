@@ -1,6 +1,6 @@
 ---
-title: Azure Files share snapshot (preview) overview | Microsoft Docs
-description: Azure Files share snapshot is a read-only version of an Azure file share that's taken at a point in time. After a share snapshot is created, it can be read, copied, or deleted, but not modified. Share snapshots provide a way to back up the share as it appears at a moment in time.
+title: Overview of share snapshots for Azure Files (preview) | Microsoft Docs
+description: A share snapshot is a read-only version of an Azure Files share that's taken at a point in time, as a way to back up the share.
 services: storage
 documentationcenter: .net
 author: renash
@@ -18,7 +18,7 @@ ms.author: renash
 
 ---
 
-# Azure Files share snapshot (preview) overview
+# Overview of share snapshots for Azure Files (preview)
 Azure Files provides the capability to take share snapshots of file shares. Share snapshots (preview) capture the share state at that point in time. In this article, we describe what capabilities share snapshots provide and how you can take advantage of them in your custom use case.
 
 
@@ -26,17 +26,15 @@ Azure Files provides the capability to take share snapshots of file shares. Shar
 
 ### Protection against application error and data corruption
 
-Applications that use Azure file shares perform operations such as writing, reading, storage, transmission, and processing. If an application is misconfigured
-or an unintentional bug is introduced, accidental overwrite or damage can happen to a few blocks. To help protect against these scenarios, you can take a share snapshot before you deploy new application code. If a bug or application error is introduced with the new deployment, you can go back to a previous version of your data on that file share. 
+Applications that use file shares perform operations such as writing, reading, storage, transmission, and processing. If an application is misconfigured or an unintentional bug is introduced, accidental overwrite or damage can happen to a few blocks. To help protect against these scenarios, you can take a share snapshot before you deploy new application code. If a bug or application error is introduced with the new deployment, you can go back to a previous version of your data on that file share. 
 
 ### Protection against accidental deletions or unintended changes
 
-Imagine that you're working on a text file in a file share. After the text file is closed, you lose
-the ability to undo your changes. In these cases, you then need to recover a previous version of the file. You can use share snapshots to recover previous versions of the file if it's accidentally renamed or deleted.
+Imagine that you're working on a text file in a file share. After the text file is closed, you lose the ability to undo your changes. In these cases, you then need to recover a previous version of the file. You can use share snapshots to recover previous versions of the file if it's accidentally renamed or deleted.
 
 ### General backup purposes
 
-After you create an Azure file share, you can periodically create a share snapshot of the file share to use it for data backup. A share snapshot, when taken periodically, helps maintain previous versions of data that can be used for future audit requirements or disaster recovery.
+After you create a file share, you can periodically create a share snapshot of the file share to use it for data backup. A share snapshot, when taken periodically, helps maintain previous versions of data that can be used for future audit requirements or disaster recovery.
 
 ## Capabilities
 
@@ -100,6 +98,6 @@ Before you deploy the share snapshot scheduler, carefully consider your share sn
 Share snapshots provide only file-level protection. Share snapshots don't prevent fat-finger deletions on a file share or storage account. To help protect a storage account from accidental deletions, you can lock the storage account or the resource group.
 
 ## Next steps
-* [Work with Azure Files share snapshots](storage-how-to-use-files-snapshots.md)
+* [Work with share snapshots](storage-how-to-use-files-snapshots.md)
 * [Share snapshot FAQ](storage-files-faq.md)
 
