@@ -31,7 +31,7 @@ sections:
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: 'Learn how to deploy, manage, and update applications on an AKS Kubertnetes cluster.'
+    text: 'Learn how to deploy, manage, and update applications on an AKS cluster.'
   - type: list
     style: ordered
     items:
