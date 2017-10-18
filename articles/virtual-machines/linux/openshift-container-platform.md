@@ -183,6 +183,6 @@ az group delete --name myResourceGroup
 
 ## Next steps
 
-- [Monitor OpenShift with OMS](./openshift-oms.md)
+- [Post Deployment Tasks](./openshift-post-deployment.md)
 - [Troubleshooting OpenShift Deployment](./openshift-troubleshooting.md)
 - [Getting Started with OpenShift Container Platform](https://docs.openshift.com/container-platform/3.6/getting_started/index.html)
