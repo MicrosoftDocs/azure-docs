@@ -114,7 +114,7 @@ $actionWebhook = New-AzureRmAlertRuleWebhook -ServiceUri https://example.com
 Add-AzureRmMetricAlertRule -Name vmcpu_gt_1 -Location "USGov Virginia" -ResourceGroup myrg1 -TargetResourceId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.ClassicCompute/virtualMachines/my_vm1 -MetricName "Percentage CPU" -Operator GreaterThan -Threshold 1 -WindowSize 00:05:00 -TimeAggregationOperator Average -Actions $actionEmail, $actionWebhook -Description "alert on CPU > 1%" 
 ```
 
-For more information on using PowerShell, please see [public documentation](../monitoring-and-diagnostics/insights-powershell-samples.md#create-alert-rules).
+For more information on using PowerShell, please see [public documentation](../monitoring-and-diagnostics/insights-powershell-samples.md).
 
 ## Log Analytics
 Log Analytics is generally available in Azure Government.
