@@ -34,7 +34,7 @@ You must subscribe to an offer that includes the Azure Key Vault service.
 
     ![Key Vault screen](media/azure-stack-kv-manage-portal/image1.png)  
 
-3. Under the **Create Key Vault** pane, assign a **Name** for your vault. Vault names can contain only alphanumeric characters and the special-character hyphen (-). They shouldn’t start with a number.  
+3. In the **Create Key Vault** pane, assign a **Name** for your vault. Vault names can contain only alphanumeric characters and the special-character hyphen (-). They shouldn’t start with a number.  
 
 4. Choose a **Subscription** from the list of available subscriptions. All subscriptions that offer the Key Vault service are displayed in the drop-down list.  
 
@@ -46,7 +46,7 @@ You must subscribe to an offer that includes the Azure Key Vault service.
 
 7. Choose one of the existing **Access policies** or create a new one. An access policy allows you to grant permissions for a user, application, or a security group to perform operations with this vault.  
 
-8. Optionally, choose an **Advanced access policy** to enable features, like access to virtual machines (VM) for deployment, access to Resource Manager for template deployment, and access to Azure Disk Encryption for volume encryption. 
+8. Optionally, choose an **Advanced access policy** to enable features, like access to virtual machines (VMs) for deployment, access to Resource Manager for template deployment, and access to Azure Disk Encryption for volume encryption. 
   
 9.	After you configure the settings, select **OK**, and then select **Create**. This starts the key vault deployment. 
 
@@ -60,9 +60,9 @@ After you create a vault, use the following steps to create and manage keys and 
 
 2. From the dashboard, select **All resources**, select the key vault that you created earlier, and then select the **Keys** tile.  
 
-3. Under the **Keys** pane, select **Add**. 
+3. In the **Keys** pane, select **Add**. 
 
-4. Under the **Create a key** pane, from the list of **Options**, choose the method that you want to use to create a key. You can **Generate** a new key, **Upload** an existing key, or use **Restore Backup** to select a backup of a key.  
+4. In the **Create a key** pane, from the list of **Options**, choose the method that you want to use to create a key. You can **Generate** a new key, **Upload** an existing key, or use **Restore Backup** to select a backup of a key.  
 
 5. Enter a **Name** for your key. The key name can contain only alphanumeric characters and the special character hyphen (-).  
 
@@ -85,7 +85,7 @@ After the key is successfully created, you can select it under **Keys** and view
 
 5. Enter a **Name** for the secret. The secret name can contain only alphanumeric characters and the special character hyphen (-).  
 
-6. Optionally, specify the **Content type**, and configure values for the **Set activation date** and **Set expiration date** for the secret.  
+6. Optionally, specify the **Content type**, and configure values for **Set activation date** and **Set expiration date** for the secret.  
 
 7. Select **Create** to start the deployment.  
 
