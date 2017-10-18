@@ -35,9 +35,9 @@ If the OpenShift cluster does not deploy successfully, there are some troublesho
 
 For Exit Codes 7 - 10, the OpenShift Cluster did install but the Azure Cloud Provider configuration failed. You can SSH to the Master Node (Origin) or Bastion Node (Container Platform) and from there SSH to each of the nodes in the cluster and fix the issues.
 
-A common cause for the failures with Exit Codes 7 - 9 is the Service Principal did not have proper permissions to the Subscription or the Resource Group. If this is indeed the issue, then assign the correct permissions and manually re-run the script that failed an all subsequent scripts.
-Be sure to restart the service that failed (e.g. systemctl restart atomic-openshift-node.service) before executing the scripts again.
+A common cause for the failures with Exit Codes 7 - 9 is the Service Principal did not have proper permissions to the Subscription or the Resource Group. If this is indeed the issue, then assign the correct permissions and manually rerun the script that failed an all subsequent scripts.
+Be sure to restart the service that failed (for example, systemctl restart atomic-openshift-node.service) before executing the scripts again.
 
-For further troubleshooting, please SSH into your Master Node on port 2200 (Origin) or Bastion Node on port 22 (Container Platform). You will need to be root (sudo su -) and then navigate to the following directory: /var/lib/waagent/custom-script/download
+For further troubleshooting, SSH into your Master Node on port 2200 (Origin) or Bastion Node on port 22 (Container Platform). You need to be root (sudo su -) and then navigate to the following directory: /var/lib/waagent/custom-script/download
 
-You should see a folder named '0' and '1'. In each of these folders, you will see two files, stderr and stdout. You can look through these files to determine where the failure occurred.
+You should see a folder named '0' and '1'. In each of these folders, you see two files, stderr and stdout. You can look through these files to determine where the failure occurred.

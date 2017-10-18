@@ -51,15 +51,15 @@ Since customer "owns" the entire platform, they can install in their on-premises
 
 Red Hat managed **multi-tenant** OpenShift (using Container Platform). Red Hat manages all the underlying infrastructure (VMs, OpenShift cluster, networking, storage, etc.). 
 
-Customer deployes containers but has no control on which hosts the containers run. Since it is multi-tenant, containers may be co-located on same VM hosts as containers from other customers. Cost is per container.
+Customer deploys containers but has no control on which hosts the containers run. Since it is multi-tenant, containers may be co-located on same VM hosts as containers from other customers. Cost is per container.
 
 ## OpenShift Dedicated
 
-Red Hat managed **single-tenant** OpenShift (using Container Platform). Red Hat manages all the underlying infrastructure (VMs, OpenShift cluster, networking, storage, etc.). The cluster is specific to one customer and runs in a public cloud (AWS, Google, Azure - coming in early 2018). Starting cluster includes 4 Application Nodes for $48K / year (upfront payment for an entire year).
+Red Hat managed **single-tenant** OpenShift (using Container Platform). Red Hat manages all the underlying infrastructure (VMs, OpenShift cluster, networking, storage, etc.). The cluster is specific to one customer and runs in a public cloud (AWS, Google, Azure - coming in early 2018). Starting cluster includes four Application Nodes for $48K / year (upfront payment for an entire year).
 
 ## OpenShift in Azure
 
-Of the 4 offerings covered, two are available for customers to deploy into Azure on their own - OpenShift Origin and OpenShift Container Platform.
+Of the four offerings covered, two are available for customers to deploy into Azure on their own - OpenShift Origin and OpenShift Container Platform.
 
 ## Next Steps
 

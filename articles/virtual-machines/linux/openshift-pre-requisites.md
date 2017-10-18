@@ -24,7 +24,7 @@ When deploying OpenShift in Azure, there are a few common pre-requisites regardl
 
 The installation of OpenShift is done via Ansible playbooks. Ansible uses SSH to connect to all the hosts that will be part of the cluster in order to complete installation steps.
 When the SSH connection is initiated to the remote hosts, there is no way to enter a passphrase. For this reason, the Private Key cannot have a passphrase associated with it or deployment will fail.
-Since all the VMs are deployed via ARM templates, the same Public Key is used for access to all VMs. We need to inject the corresponding Private Key into the VM that is executing all the playbooks as well.
+Since all the VMs are deployed via Resource Manager templates, the same Public Key is used for access to all VMs. We need to inject the corresponding Private Key into the VM that is executing all the playbooks as well.
 In order to do this securely, we use an Azure Key Vault to pass the Private Key into the VM.
 
 If there is a need for persistent storage for containers, then Persistent Volumes (PV) are needed. These PVs need to be backed by some form of persistent storage. OpenShift supports Azure disks (VHDs) for this capability but Azure must first be configured as the Cloud Provider. 
@@ -34,8 +34,8 @@ In this model, OpenShift will:
 - Mount the VHD to a VM and format the volume
 - Mount the volume to the Pod
 
-For this to work, OpenShift needs permissions to perform the above tasks in Azure. To achieve this, a Service Principal is needed. The Service Principal (SP) is a security account in Azure Active Directory that is granted permissions to resources.
-The Service Principal will need to have access to the Storage Accounts and VMs that make up the cluster. If all OpenShift cluster resources are deployed to a single Resource Group, the SP can be granted permissions to that Resource Group.
+For this to work, OpenShift needs permissions to perform the previous tasks in Azure. To achieve this, a Service Principal is needed. The Service Principal (SP) is a security account in Azure Active Directory that is granted permissions to resources.
+The Service Principal needs to have access to the Storage Accounts and VMs that make up the cluster. If all OpenShift cluster resources are deployed to a single Resource Group, the SP can be granted permissions to that Resource Group.
 
 This guide describes how to create the artifacts associated with the Pre-requisites. In this tutorial you learn how to:
 
@@ -90,7 +90,7 @@ ssh-keygen -f ~/.ssh/openshift_rsa -t rsa -N ''
 For more information on SSH keys on Windows, [How to create SSH keys on Windows](/azure/virtual-machines/linux/ssh-from-windows).
 
 ## Store SSH private key in Key Vault
-The OpenShift deployment uses the SSH key you created to secure access to the OpenShift master. To enable the deployment to securely retrieve the SSH key, store the key in Key Vault using the following command.
+The OpenShift deployment uses the SSH key you created to secure access to the OpenShift master. To enable the deployment to securely retrieve the SSH key, store the key in Key Vault using the following command:
 
 ```azurecli
 az keyvault secret set --vault-name keyvault --name keysecret --file ~/.ssh/openshift.rsa

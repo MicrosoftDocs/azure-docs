@@ -21,7 +21,7 @@ ms.author: haroldw
 # Deploy OpenShift Origin in Azure
 
 There are multiple ways to deploy OpenShift Origin in Azure. You can manually deploy all the necessary Azure infrastructure components and then follow the OpenShift Origin [documentation](https://docs.openshift.org/3.6/welcome/index.html).
-You can also use an existing ARM Template that simplifies the deployment of the OpenShift Origin cluster. Once such template is located [here](https://github.com/Microsoft/openshift-origin).
+You can also use an existing Resource Manager template that simplifies the deployment of the OpenShift Origin cluster. Once such template is located [here](https://github.com/Microsoft/openshift-origin).
 
 ## Deploy using the OpenShift Origin template
 
@@ -103,7 +103,7 @@ az group deployment create -g myResourceGroup --name myOpenShiftCluster \
       --parameters @./azuredeploy.parameters.json
 ```
 
-The deployment will take at least 25 minutes to complete depending on the total number of nodes deployed. The URL of the OpenShift console and DNS name of the OpenShift master is printed to the terminal when the deployment completes.
+The deployment takes at least 25 minutes to complete depending on the total number of nodes deployed. The URL of the OpenShift console and DNS name of the OpenShift master is printed to the terminal when the deployment completes.
 
 ```json
 {
@@ -114,7 +114,7 @@ The deployment will take at least 25 minutes to complete depending on the total 
 
 ## Connect to the OpenShift cluster
 
-When the deployment completes, connect to the OpenShift console using the browser using the `OpenShift Console Uri`. Alternatively, you can connect to the OpenShift master using the following command.
+When the deployment completes, connect to the OpenShift console using the browser using the `OpenShift Console Uri`. Alternatively, you can connect to the OpenShift master using the following command:
 
 ```bash
 $ ssh -p 2200 clusteradmin@myopenshiftmaster.cloudapp.azure.com
