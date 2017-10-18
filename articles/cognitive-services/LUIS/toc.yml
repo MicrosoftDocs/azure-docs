@@ -11,6 +11,8 @@
     href: luis-get-started-create-app.md
   - name: Call a LUIS endpoint
     items:
+    - name: Call a LUIS app using Node.js
+      href: luis-get-started-node-get-intent.md
     - name: Call a LUIS app using client-side JavaScript
       href: luis-get-started-js-get-intent.md
     - name: Call a LUIS app using C#
@@ -23,6 +25,8 @@
   items: 
   - name: Integrate LUIS with a bot using Node.js
     href: luis-nodejs-tutorial-build-bot-framework-sample.md
+  - name: Integrate LUIS with a bot using C#
+    href: luis-csharp-tutorial-build-bot-framework-sample.md
 - name: Concepts
   items: 
   - name: Intents

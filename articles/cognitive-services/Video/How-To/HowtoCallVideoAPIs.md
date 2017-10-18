@@ -1,4 +1,4 @@
-﻿---
+---
 title: Call Video APIs in Microsoft Cognitive Services | Microsoft Docs
 description: Get guidance for calling Video APIs, with samples in C# using the Video API client library.
 services: cognitive-services
@@ -14,6 +14,8 @@ ms.author: chbryant
 
 # How to Call Video APIs
 
+> [!IMPORTANT]
+> Video API Preview will end on October 30, 2017. Try the new [Video Indexer API](https://azure.microsoft.com/services/cognitive-services/video-indexer/) Preview to easily extract insights from videos and to enhance content discovery experiences, such as search results, by detecting spoken words, faces, characters, and emotions. [Learn more](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview).
 
 The samples are written in C# using the Video API client library.
 

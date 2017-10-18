@@ -22,7 +22,7 @@ ms.author: kumud
 The Azure Load Balancer Standard SKU and Public IP Standard SKU together enable you to build highly scalable and reliable architectures.  Applications using Load Balancer Standard can take advantage of new capabilities in addition to low latency, high throughput, and scale for millions of flows for all TCP and UDP applications.
 
 >[!NOTE]
-> Load Balancer Standard SKU is currently in Preview. During preview, the feature may not have the same level of availability and reliability as features that are in general availability release. For more information, see [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Use the Generally Available [Load Balancer Basic SKU](load-balancer-overview.md) for your production services.  Features associated with this preview, [Availability Zones](https://aka.ms/availabilityzones) and [HA Ports](https://aka.ms/haports), a require separate sign-up at this time. Please follow the respective instructions for sign-up in addition to Load Balancer [Standard Preview](#preview-sign-up).
+> Load Balancer Standard SKU is currently in Preview. During preview, the feature may not have the same level of availability and reliability as features that are in general availability release. For more information, see [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Use the Generally Available [Load Balancer Basic SKU](load-balancer-overview.md) for your production services.  Features associated with this preview, [Availability Zones](https://aka.ms/availabilityzones) and [HA Ports](https://aka.ms/haports), a require separate sign-up at this time. Please follow the respective instructions in addition to Load Balancer [Standard Preview sign-up](#preview-sign-up).
 
 ## Why use Load Balancer Standard
 
@@ -353,26 +353,69 @@ The following table provides a comparison of limits and abilities between the Ba
 
 ## Preview sign-up
 
-To participate in the Preview for Load Balancer Standard SKU and its companion Public IP Standard SKU, register your subscription to gain access using either PowerShell or Azure CLI 2.0.
+To participate in the Preview for Load Balancer Standard SKU and its companion Public IP Standard SKU, register your subscription to gain access using either Azure CLI 2.0 or PowerShell.  Please follow these 3 steps below:
 
-- Sign up using PowerShell
+>[!NOTE]
+>Registration of the Load Balancer Standard feature may take up to an hour to become effective globally. If you wish to use Load Balancer Standard with [Availability Zones](https://aka.ms/availabilityzones) and [HA Ports](https://aka.ms/haports), a separate sign-up is required for these previews.  Please follow the respective instructions.
 
-    ```powershell
-    Register-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
-    ```
+### Sign up using Azure CLI 2.0
 
-- Sign up using Azure CLI 2.0
-
+1. Register the feature with the provider
     ```cli
     az feature register --name AllowLBPreview --namespace Microsoft.Network
     ```
+    
+2. The above operation can take up to 10 minutes to complete.  You can check the status of the operation with the following command:
 
->[!NOTE]
->Registration of the Load Balancer Standard feature may take up to an hour.
+    ```cli
+    az feature show --name AllowLBPreview --namespace Microsoft.Network
+    ```
+    
+    Please proceed to step 3 when the feature registration state returns 'Registered' as shown below:
+   
+    ```json
+    {
+       "id": "/subscriptions/foo/providers/Microsoft.Features/providers/Microsoft.Network/features/AllowLBPreview",
+       "name": "Microsoft.Network/AllowLBPreview",
+       "properties": {
+          "state": "Registered"
+       },
+       "type": "Microsoft.Features/providers/features"
+    }
+    ```
+    
+3. Please complete the preview sign-up by re-registering your subscription with the resource provider:
 
->[!NOTE]
->If you wish to use Load Balancer Standard with [Availability Zones](https://aka.ms/availabilityzones) and [HA Ports](https://aka.ms/haports), a separate sign-up is required for these previews.  Please follow the respective instructions.
+    ```cli
+    az provider register --namespace Microsoft.Network
+    ```
+    
+### Sign up using PowerShell
 
+1. Register the feature with the provider
+    ```powershell
+    Register-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
+    ```
+    
+2. The above operation can take up to 10 minutes to complete.  You can check the status of the operation with the following command:
+
+    ```powershell
+    Get-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
+    ```
+    Please proceed to step 3 when the feature registration state returns 'Registered' as shown below:
+   
+    ```
+    FeatureName    ProviderName      RegistrationState
+    -----------    ------------      -----------------
+    AllowLBPreview Microsoft.Network Registered
+    ```
+    
+3. Please complete the preview sign-up by re-registering your subscription with the resource provider:
+
+    ```powershell
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+    ```
+ 
 ## Pricing
 
 Load Balancer Standard SKU is billed based on rules configured and data processed.  No charges are incurred during the Preview period.  Review the [Load Balancer](https://aka.ms/lbpreviewpricing) and [Public IP](https://aka.ms/lbpreviewpippricing) pricing pages for more information.
