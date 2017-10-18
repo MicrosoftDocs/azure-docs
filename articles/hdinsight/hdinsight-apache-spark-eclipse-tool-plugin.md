@@ -42,9 +42,9 @@ Use HDInsight Tools in Azure Toolkit for Eclipse to develop Spark applications w
 
 ## Install HDInsight Tools in Azure Toolkit for Eclipse and the Scala plug-in
 ### Install HDInsight Tools
-HDInsight Tools for Eclipse is available as part of Azure Toolkit for Eclipse. For installation instructions, see [Installing Azure Toolkit for Eclipse](../azure-toolkit-for-eclipse-installation.md).
+HDInsight Tool for Eclipse is available as part of Azure Toolkit for Eclipse. For installation instructions, see [Installing Azure Toolkit for Eclipse](../azure-toolkit-for-eclipse-installation.md).
 ### Install the Scala plug-in
-When you open Eclipse, HDInsight Tools automatically detects whether you installed the Scala plug-in. Select **OK** to continue, and then follow the instructions to install the plug-in from the Eclipse Marketplace.
+When you open Eclipse, HDInsight Tool automatically detects whether you installed the Scala plug-in. Select **OK** to continue, and then follow the instructions to install the plug-in from the Eclipse Marketplace.
 
 ![Automatic installation of the Scala plug-in](./media/hdinsight-apache-spark-eclipse-tool-plugin/auto-install-scala.png)
 
@@ -83,7 +83,7 @@ When you open Eclipse, HDInsight Tools automatically detects whether you install
    * In the **Spark Library** area, you can use maven to configure Spark application, and our tool integrates the proper version for Spark SDK and Scala SDK. You can also download and add Spark SDK by manually.
 
    ![New HDInsight Scala Project dialog box](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-hdi-scala-app-3.png)
-5. Due to known issue, you need comfirm the scala version again after clicking **Next**. Make sure the scala version close to the selection for the step 4.
+5. Due to known issue, you need confirm the scala version again after clicking **Next**. Make sure the scala version close to the selection for the step 4.
 
    ![comfirm-scala-library](./media/hdinsight-apache-spark-eclipse-tool-plugin/comfirm-scala-library-container.png)
 6. In the next dialog box, select the **Libraries** tab and keep the defaults, and then select **Finish**. 
@@ -140,7 +140,7 @@ You can perform various operations by using HDInsight Tools, including accessing
 
    ![Job view node](./media/hdinsight-apache-spark-intellij-tool-plugin/job-view-node.png)
 
-2. Select the **Jobs** node. HDInsight Tools automatically reminder you install the **E(fx)clipse** plug-in if Java version is lower than **1.8**. Select **OK** to continue, and then follow the wizard to install it from the Eclipse Marketplace and restart Eclipse. 
+2. Select the **Jobs** node. If Java version is lower than **1.8**, HDInsight Tools automatically reminder you install the **E(fx)clipse** plug-in. Select **OK** to continue, and then follow the wizard to install it from the Eclipse Marketplace and restart Eclipse. 
 
    ![Install E(fx)clipse](./media/hdinsight-apache-spark-eclipse-tool-plugin/auto-install-efxclipse.png)
 
@@ -176,7 +176,7 @@ You can perform various operations by using HDInsight Tools, including accessing
 2. When you're prompted, enter the admin credentials for the cluster. You specified these while provisioning the cluster.
 
 ### Manage Azure subscriptions
-By default, HDInsight Tools in Azure Toolkit for Eclipse lists the Spark clusters from all your Azure subscriptions. If necessary, you can specify the subscriptions for which you want to access the cluster. 
+By default, HDInsight Tool in Azure Toolkit for Eclipse lists the Spark clusters from all your Azure subscriptions. If necessary, you can specify the subscriptions for which you want to access the cluster. 
 
 1. In Azure Explorer, right-click the **Azure** root node, and then select **Manage Subscriptions**. 
 2. In the dialog box, clear the check boxes for the subscription that you don't want to access, and then select **Close**. You can also select **Sign Out** if you want to sign out of your Azure subscription.
@@ -187,7 +187,7 @@ You can use HDInsight Tools in Azure Toolkit for Eclipse to run Spark Scala appl
 ### Prerequisite
 While you're running the local Spark Scala application on a Windows computer, you might get an exception as explained in [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356). This exception occurs because **WinUtils.exe** is missing in Windows. 
 
-To resolve this error, you must [download the executable](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) to a location like **C:\WinUtils\bin**. You must then add the environment variable **HADOOP_HOME** and set the value of the variable to **C\WinUtils**.
+To resolve this error, you need [download the executable](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) to a location like **C:\WinUtils\bin**, and then add the environment variable **HADOOP_HOME** and set the value of the variable to **C\WinUtils**.
 
 ### Run a local Spark Scala application
 1. Start Eclipse and create a project. In the **New Project** dialog box, make the following choices, and then select **Next**.
@@ -197,7 +197,7 @@ To resolve this error, you must [download the executable](http://public-repo-1.h
 
    ![New Project dialog box](./media/hdinsight-apache-spark-eclipse-tool-plugin/hdi-spark-app-local-run.png)
    
-2. To provide the project details, follow steps 3 through 6 from the earlier section [Set up a Spark Scala project for an HDInsight Spark cluster](#set-up-a-spark-scala-project-for-an-hdinsight-spark-cluster).
+2. To provide the project details, follow steps 3 through 6 from the earlier section [Setup a Spark Scala project for an HDInsight Spark cluster](#set-up-a-spark-scala-project-for-an-hdinsight-spark-cluster).
 
 3. The template adds a sample code (**LogQuery**) under the **src** folder that you can run locally on your computer.
    
@@ -226,7 +226,7 @@ If you have any feedback, or if you encounter any other problems when using this
 * [Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](hdinsight-apache-spark-use-bi-tools.md)
 * [Spark with Machine Learning: Use Spark in HDInsight for analyzing building temperature using HVAC data](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 * [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
-* [Spark Streaming: Use Spark in HDInsight for building real-time streaming applications](hdinsight-apache-spark-eventhub-streaming.md)
+* [Spark Streaming: Use Spark in HDInsight for building realtime streaming applications](hdinsight-apache-spark-eventhub-streaming.md)
 * [Website log analysis using Spark in HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
 ### Creating and running applications
