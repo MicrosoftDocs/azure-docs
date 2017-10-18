@@ -64,7 +64,7 @@ To troubleshoot issues where no passwords are synchronized:
 7. In the sub menu, select **Password Synchronization does not work at all**.
 
 ### Understand the results of the troubleshooting task
-The diagnostic cmdlet performs the following checks:
+The troubleshooting task performs the following checks:
 
 * Validates that the password synchronization feature is enabled for your Azure AD tenant.
 
@@ -86,7 +86,7 @@ The following diagram illustrates the results of the cmdlet for a single-domain,
 
 ![Diagnostic output for password synchronization](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/phsglobalgeneral.png)
 
-The rest of this section describes specific results that are returned by the cmdlet and corresponding issues.
+The rest of this section describes specific results that are returned by the task and corresponding issues.
 
 #### Password synchronization feature isn't enabled
 If you haven't enabled password synchronization by using the Azure AD Connect wizard, the following error is returned:
@@ -140,7 +140,7 @@ To troubleshoot issues for a specific user object:
 7. In the sub menu, select **Password is not synchronized for a specific user account**.
 
 ### Understand the results of the troubleshooting task
-The diagnostic cmdlet performs the following checks:
+The troubleshooting task performs the following checks:
 
 * Examines the state of the Active Directory object in the Active Directory connector space, Metaverse, and Azure AD connector space.
 
