@@ -2,7 +2,7 @@
 
 - For pools created with a virtual machine configuration, only Azure Resource Manager-based VNets are supported. For pools created with a cloud services configuration, only classic VNets are supported. 
   
-- To use a classic VNet, the `MicrosoftAzureBatch` service principal must have the `Classic Virtual Machine Contributor` Role-Based Access Control (RBAC) role for the specified VNet. 
+- To use a classic VNet, the `MicrosoftAzureBatch` service principal must have the `Classic Virtual Machine Contributor` Role-Based Access Control (RBAC) role for the specified VNet. However, to use an Azure Resource Manager-based VNet, no additional permission setup is required.
 
 - The subnet specified for the pool must have enough unassigned IP addresses to accommodate the number of VMs targeted for the pool; that is, the sum of the `targetDedicatedNodes` and `targetLowPriorityNodes` properties of the pool. If the subnet doesn't have enough unassigned IP addresses, the pool partially allocates the compute nodes, and a resize error occurs. 
 
