@@ -84,6 +84,6 @@ For your PC, we recommend signing in with Windows Hello on Windows 10 using your
 At this time, we are not developing this functionality for the Microsoft Authenticator on Windows Phone. 
 
 ## Next steps
-If you haven't downloaded the Microsoft Authenticator app, check it out. The app is available for [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), and phone sign-in is available on the Microsoft Authenticator app for [Android](http://go.microsoft.com/fwlink/?Linkid=825072) and [IOS](http://go.microsoft.com/fwlink/?Linkid=825073).
+If you haven't downloaded the Microsoft Authenticator app, check it out. The app is available for [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), and phone sign-in is available on the Microsoft Authenticator app for [Android](http://go.microsoft.com/fwlink/?Linkid=825072) and [iOS](http://go.microsoft.com/fwlink/?Linkid=825073).
 
 If you have questions about the app in general, take a look at the [Microsoft Authenticator FAQs](microsoft-authenticator-app-faq.md)
