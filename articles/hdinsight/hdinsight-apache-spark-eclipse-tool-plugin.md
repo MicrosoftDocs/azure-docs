@@ -15,7 +15,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 10/20/2017
 ms.author: nitinme
 
 ---
@@ -37,7 +37,7 @@ Use HDInsight Tools in Azure Toolkit for Eclipse to develop Spark applications w
 * Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 * Oracle Java Development Kit version 8, which is used for the Eclipse IDE runtime. You can download it from the [Oracle website](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 * Eclipse IDE. This article uses Eclipse Neon. You can install it from the [Eclipse website](https://www.eclipse.org/downloads/).
-* Spark SDK. You can download it from [GitHub](http://go.microsoft.com/fwlink/?LinkID=723585&clcid=0x409).
+
 
 
 ## Install HDInsight Tools in Azure Toolkit for Eclipse and the Scala plug-in
@@ -80,10 +80,13 @@ When you open Eclipse, HDInsight Tools automatically detects whether you install
 4. In the **New HDInsight Scala Project** dialog box, provide the following values, and then select **Next**:
    * Enter a name for the project.
    * In the **JRE** area, make sure that **Use an execution environment JRE** is set to **JavaSE-1.7** or later.
-   * Make sure that the Spark SDK is set to the location where you downloaded the SDK. The link to the download location is included in the [prerequisites](#prerequisites) earlier in this article. You can also download the SDK from the link in the dialog box.
+   * In the **Spark Library** area, you can use maven to configure Spark application, and our tool integrates the proper version for Spark SDK and Scala SDK. You can also download and add Spark SDK by manually.
 
    ![New HDInsight Scala Project dialog box](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-hdi-scala-app-3.png)
-5. In the next dialog box, select the **Libraries** tab and keep the defaults, and then select **Finish**. 
+5. Due to known issue, you need comfirm the scala version again after clicking **Next**. Make sure the scala version close to the selection for the step 4.
+
+   ![comfirm-scala-library](./media/hdinsight-apache-spark-eclipse-tool-plugin/comfirm-scala-library-container.png)
+6. In the next dialog box, select the **Libraries** tab and keep the defaults, and then select **Finish**. 
    
    ![Libraries tab](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-hdi-scala-app-4.png)
   
@@ -137,7 +140,7 @@ You can perform various operations by using HDInsight Tools, including accessing
 
    ![Job view node](./media/hdinsight-apache-spark-intellij-tool-plugin/job-view-node.png)
 
-2. Select the **Jobs** node. HDInsight Tools automatically detects whether you installed the E(fx)clipse plug-in. Select **OK** to continue, and then follow the instructions to install the Eclipse Marketplace and restart Eclipse.
+2. Select the **Jobs** node. HDInsight Tools automatically reminder you install the **E(fx)clipse** plug-in if Java version is lower than **1.8**. Select **OK** to continue, and then follow the wizard to install it from the Eclipse Marketplace and restart Eclipse. 
 
    ![Install E(fx)clipse](./media/hdinsight-apache-spark-eclipse-tool-plugin/auto-install-efxclipse.png)
 
@@ -207,7 +210,7 @@ To resolve this error, you must [download the executable](http://public-repo-1.h
 ## Known problems
 To submit an application to Azure Data Lake Store, select **Interactive** mode during the Azure sign-in process. If you select **Automated** mode, you might get an error.
 
-![Interactive sign-in](./media/hdinsight-apache-spark-eclipse-tool-plugin/interactive-authentication.png)
+   ![Interactive sign-in](./media/hdinsight-apache-spark-eclipse-tool-plugin/interactive-authentication.png)
 
 You can choose an Azure Data Lake cluster to submit your application with any sign-in method.
 
