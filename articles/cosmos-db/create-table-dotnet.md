@@ -95,7 +95,6 @@ Let's make a quick review of what's happening in the app. Open the Program.cs fi
    table.Execute(retrieveOperation);
    ```
    
-   
    ```csharp
    TableOperation deleteOperation = TableOperation.Delete(items[i]);
    table.Execute(deleteOperation);
