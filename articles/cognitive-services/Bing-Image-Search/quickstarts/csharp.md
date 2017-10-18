@@ -18,7 +18,7 @@ The Bing Image Search API provides an experience similar to Bing.com/Images by l
 
 This article includes a simple console application that performs a Bing Image Search API query and displays the returned raw search results, which are in JSON format. While this application is written in C#, the API is a RESTful Web service compatible with any programming language that can make HTTP requests and parse JSON. 
 
-The example program uses .NET Core classes only and runs on Windows using the .NET CLR or on Linux or Mac OS X using [Mono](http://www.mono-project.com/).
+The example program uses .NET Core classes only and runs on Windows using the .NET CLR or on Linux or macOS using [Mono](http://www.mono-project.com/).
 
 ## Prerequisites
 
