@@ -137,9 +137,28 @@ The following limits apply when using the Azure Resource Manager and Azure Resou
 
 ### Storage limits
 For additional details on storage account limits, see [Azure Storage Scalability and Performance Targets](storage/common/storage-scalability-targets.md).
+
 <!--like # storage accts --> 
-#### Storage Service limits
 [!INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
+
+[!INCLUDE [azure-storage-limits-azure-resource-manager](../includes/azure-storage-limits-azure-resource-manager.md)]
+
+#### Azure Blob storage limits
+[!INCLUDE [storage-blob-scale-targets](../includes/storage-blob-scale-targets.md)]
+
+#### Azure Files limits
+For additional details on Azure Files limits, see [Azure Files scalability and performance targets](storage/files/storage-files-scale-targets.md).
+
+[!INCLUDE [storage-files-scale-targets](../includes/storage-files-scale-targets.md)]
+
+#### Azure File Sync limits
+[!INCLUDE [storage-sync-files-scale-targets](../includes/storage-sync-files-scale-targets.md)]
+
+#### Azure Queue storage limits
+[!INCLUDE [storage-queues-scale-targets](../includes/storage-queues-scale-targets.md)]
+
+#### Azure Table storage limits
+[!INCLUDE [storage-tables-scale-targets](../includes/storage-tables-scale-targets.md)]
 
 <!-- conceptual info about disk limits -- applies to unmanaged and managed -->
 #### Virtual machine disk limits 
@@ -156,9 +175,6 @@ See [Virtual machine sizes](virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtu
 [!INCLUDE [azure-storage-limits-vm-disks-standard](../includes/azure-storage-limits-vm-disks-standard.md)]
 
 [!INCLUDE [azure-storage-limits-vm-disks-premium](../includes/azure-storage-limits-vm-disks-premium.md)]
-
-#### Storage Resource Provider limits
-[!INCLUDE [azure-storage-limits-azure-resource-manager](../includes/azure-storage-limits-azure-resource-manager.md)]
 
 ### Cloud Services limits
 [!INCLUDE [azure-cloud-services-limits](../includes/azure-cloud-services-limits.md)]
