@@ -73,7 +73,7 @@ These articles show how:
 ## Notebooks on Spark for data scientists 
 Apache Spark clusters in HDInsight include Zeppelin notebooks and kernels that can be used with Jupyter notebooks. 
 
-* [Learn how to use kernels on Spark clusters with Jupyter notebooks to test Spark applications](hdinsight-apache-spark-zeppelin-notebook.md)
+* [Learn how to use kernels on Spark clusters with Jupyter notebooks to test Spark applications](spark/apache-spark-zeppelin-notebook.md)
 * [Learn how to use Zeppelin notebooks on Spark clusters to run Spark jobs](spark/apache-spark-jupyter-notebook-kernels.md) 
 
 
