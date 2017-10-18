@@ -69,11 +69,9 @@ To create a SQL Server 2017 Azure VM with one of these pay-per-usage images, see
 | Ubuntu | [SQL Server 2017 Web Azure VM](https://portal.azure.com/#create/Microsoft.SQLServer2017WebonUbuntuServer1604LTS)<br/>[SQL Server 2017 Standard Azure VM](https://portal.azure.com/#create/Microsoft.SQLServer2017StandardonUbuntuServer1604LTS)<br/>[SQL Server 2017 Enterprise Azure VM](https://portal.azure.com/#create/Microsoft.SQLServer2017EnterpriseonUbuntuServer1604LTS) |
 
 > [!IMPORTANT]
-> When you create a SQL Server virtual machine in the Azure portal, the estimated monthly cost displayed on the **Choose a size** blade does not include SQL Server licensing costs. This is the cost of the VM alone.
+> When you create a SQL Server virtual machine in the portal, the **Choose a size** window shows an estimated cost. It is important to note that this estimate is only the compute costs for running the VM along with any Windows licensing costs for Windows VMs. It does not include additional SQL Server licensing costs for Web, Standard, and Enterprise editions. It also does not include any additional licensing costs for third-party Linux operating systems for Linux VMs. To get the most accurate pricing estimate, select your operating system and SQL Server edition on the pricing page for [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) and [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 >
 > ![Choose VM size blade](./media/virtual-machines-windows-sql-server-pricing-guidance/sql-vm-choose-size-pricing-estimate.png)
->
->For the free-licensed Express and Developer editions of SQL Server, this is the total estimated cost. But for Web, Standard, and Enterprise, find the additional SQL licensing costs on the Azure pricing pages for [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) and [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/). On the pricing page, select your target edition of SQL Server.
 
 ### Bring your own license (BYOL)
 
