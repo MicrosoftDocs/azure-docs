@@ -57,6 +57,7 @@ Tools for Developing and Deploying Applications on Kubernetes (Azure OpenDev, Ju
 >
 >
 
-## Next steps
+Learn more about deploying and managing AKS with the AKS quickstart.
 
-Explore the [Kubernetes Quickstart](./kubernetes-walkthrough.md) to begin exploring Azure Container Service today.
+> [!div class="nextstepaction"]
+> [AKS Tutorial](./kubernetes-walkthrough.md)

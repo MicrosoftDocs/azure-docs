@@ -27,6 +27,10 @@
     href: tutorial-kubernetes-monitor.md
 - name: How-to guides
   items:
+  - name: Scale an AKS cluster
+    href: scale-cluster.md
+  - name: Upgrade an AKS cluster
+    href: upgrade-cluster.md
   - name: Run applications with Helm
     href: kubernetes-helm.md
   - name: Test applications with Draft
