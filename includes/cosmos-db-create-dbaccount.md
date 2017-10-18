@@ -12,18 +12,16 @@
     Subscription|*Your subscription*|The Azure subscription that you want to use for this Azure Cosmos DB account. 
     Resource Group|*Enter the same unique name as provided above in ID*|The new resource-group name for your account. For simplicity, you can use the same name as your ID. 
     Location|*Choose the region closest to your users*|The geographic location in which to host your Azure Cosmos DB account. Choose the location that's closest to your users to give them the fastest access to the data.
+    Enable geo-redundancy| Leave blank | This creates a replicated version of your database in a second (paired) region. Leave this blank.  
+    Pin to dashboard | Check | Select this box so that your new database account is added to your portal dashboard for easy access.
+
+    Then click **Create**.
 
     ![The new account blade for Azure Cosmos DB](./media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-2.png)
 
-4. Leave the check boxes blank, and click **Create**.
+4. The account creation takes a few minutes. During account creation the portal displays the **Deploying Azure Cosmos DB** tile.
 
-    The account creation takes a few minutes, 
+    ![The Azure portal Notifications pane](./media/cosmos-db-create-dbaccount/deploying-cosmos-db.png)
 
-5. The account creation takes a few minutes. To watch the status click the **Notifications** icon ![The notification icon](./media/cosmos-db-create-dbaccount/notification-icon.png) .
+    Once the account is created, the **Congratulations! Your Azure Cosmos DB account was created** page is displayed. 
 
-    ![The Azure portal Notifications pane](./media/cosmos-db-create-dbaccount-graph/azure-documentdb-nosql-notification.png)
-
-6.  When the Notifications window indicates the deployment succeeded, close the notification window and open the new account from the **All Resources** tile on the Dashboard. 
-
-    ![The Azure Cosmos DB account on the All Resources tile](./media/cosmos-db-create-dbaccount/all-resources.png)
- 
