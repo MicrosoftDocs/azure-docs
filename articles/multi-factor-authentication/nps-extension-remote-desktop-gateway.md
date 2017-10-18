@@ -141,7 +141,7 @@ The script performs the following actions:
 * Grants access to the certificate’s private key to the network user
 * Restarts Network Policy Server service
 
-If you want to use your own certificates, you need to associate the public key of your certificate to the service principle on Azure AD, and so on.
+If you want to use your own certificates, you need to associate the public key of your certificate to the service principal on Azure AD, and so on.
 
 To use the script, provide the extension with your Azure AD Admin credentials and the Azure AD tenant ID that you copied earlier. Run the script on each NPS server where you installed the NPS extension. Then do the following:
 
