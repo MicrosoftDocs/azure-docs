@@ -33,7 +33,7 @@ The steps detailed in this document assume that you have created an AKS Kubernet
 
 The Helm CLI is a client that runs on your development system and allows you to start, stop, and manage applications with Helm charts.
 
-If you're using Azure CloudShell, kubectl is already installed. To install the Helm CLI on a Mac use `brew`. For additional installation options see, [Installing Helm](https://github.com/kubernetes/helm/blob/master/docs/install.md).
+If you're using Azure CloudShell, the Helm CLI is already installed. To install the Helm CLI on a Mac use `brew`. For additional installation options see, [Installing Helm](https://github.com/kubernetes/helm/blob/master/docs/install.md).
 
 ```console
 brew install kubernetes-helm
