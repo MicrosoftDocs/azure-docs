@@ -1,4 +1,4 @@
-The following limits apply when performing management operations using the Azure Resource Manager only
+The following limits apply when performing management operations using the Azure Resource Manager only.
 
 | Resource | Default Limit |
 | --- | --- |
