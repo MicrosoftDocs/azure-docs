@@ -25,7 +25,7 @@ The Standard SKU of Azure Load Balancer introduces high availability (HA) ports 
 >[!NOTE]
 > High Availability Ports feature is available with Load Balancer Standard and currently in preview. During preview, the feature may not have the same level of availability and reliability as features that are in general availability release. For more information, see [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It is necessary to sign up for the Load Balancer Standard Preview to use HA Ports with Load Balancer Standard resources. Please follow the instructions for sign-up in addition to Load Balancer [Standard Preview](https://aka.ms/lbpreview#preview-sign-up) as well.
 
-The load balancing algorithm still remains the same and the destination is selected based in the five touples <Source IP Address, Source Port, Destination IP Address, Destination Port, Protocol>. But this configuration allows for a single LB rule to process all available traffic, and reduces configuration complexity as well as any limits imposed by the maximum number of Load Balancing rules that one can add.
+This configuration reduces configuration complexity by providing a single LB rule to load balance all TCP and UDP flows arriving on all ports of an internal Load Balancer frontend. The load balancing decision is made per flow based on the five tuple of Source IP Address, Source Port, Destination IP Address, Destination Port, and Protocol.
 
 One of the critical scenarios HA ports enables is the high availability deployment of the Network Virtual Appliances in Azure virtual networks. In addition, another common scenario that HA ports enables is load balancing for a range of ports. 
 
@@ -44,13 +44,7 @@ Figure 1 - Hub-and-spoke virtual network with NVAs deployed in HA mode
 
 ## Region availability
 
-HA ports is currently available in the following regions:
-- East US 2
-- Central US
-- North Europe
-- West Central US
-- West Europe
-- Southeast Asia 
+HA ports is available in the [same regions as Load Balancer Standard](https://aka.ms/lbpreview#region-availability).  
 
 ## Preview sign-up
 
@@ -132,5 +126,6 @@ Following are the supported configurations or exceptions for HA Ports:
 
 ## Next Steps
 
-[Configure HA Ports on an Internal Load balancer](load-balancer-configure-ha-ports.md)
+- [Configure HA Ports on an internal Load Balancer Standard](load-balancer-configure-ha-ports.md)
+- [Learn about Load Balancer Standard preview](https://aka.ms/lbpreview)
 
