@@ -7,7 +7,7 @@ manager: timlt
 ms.service: search
 ms.topic: tutorial
 ms.date: 10/12/2017
-ms.author: rogara
+ms.author: v-rogara
 ms.custom: mvc
 ---
 
