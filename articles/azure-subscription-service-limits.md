@@ -141,7 +141,7 @@ For additional details on storage account limits, see [Azure Storage Scalability
 <!--like # storage accts --> 
 [!INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
 
-[!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
+[!INCLUDE [azure-storage-limits-azure-resource-manager](../includes/azure-storage-limits-azure-resource-manager.md)]
 
 #### Azure Blob storage limits
 [!INCLUDE [storage-blob-scale-targets](../includes/storage-blob-scale-targets.md)]
