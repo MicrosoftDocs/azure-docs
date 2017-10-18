@@ -106,7 +106,7 @@ With the [Analyze Image method](https://westcentralus.dev.cognitive.microsoft.co
 * The coordinates, gender, and age of any faces contained in the image.
 * The ImageType (clip art or a line drawing).
 * The dominant color, the accent color, or whether an image is black & white.
-* The category defined in this [taxonomy](https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/category-taxonomy).
+* The category defined in this [taxonomy](../cognitive-services/computer-vision/category-taxonomy.md).
 * Does the image contain adult or sexually suggestive content?
 
 ### Analyze an image C# example request
