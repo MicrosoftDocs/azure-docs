@@ -1,6 +1,6 @@
 ---
-title: Set up Cloud App Discovery in Azure Active Directory | Microsoft Docs
-description: Provides information about finding and managing applications with Cloud App Discovery, what are the benefits and how it works.
+title: Set up the Cloud App Discovery service in Azure Active Directory | Microsoft Docs
+description: Find and manage applications with Cloud App DiscoveryTo provide ongoing information on cloud use and shadow IT.
 services: active-directory
 keywords: cloud app discovery, managing applications
 documentationcenter: ''
@@ -22,13 +22,12 @@ ms.reviewer: nigu
 
 # Set up Cloud App Discovery in Azure AD
 
-The new Cloud App Discovery enhancements in Azure AD are now available with an Azure Active Directory Premium P1 license. These enhancements are based on integration with Microsoft Cloud App Security. Cloud App Discovery compares your traffic logs to the Cloud App Security catalog of over 15,000 cloud apps to provide you with ongoing information on cloud use and shadow IT. 
+Cloud App Discovery in Azure AD is now based on integration with data available from Microsoft Cloud App Security. To provide ongoing information on cloud use and shadow IT, Cloud App Discovery compares your traffic logs to the Cloud App Security catalog of over 15,000 cloud apps. This article describes the setup process and contains links to the detailed information for each step. It also describes firewall and proxy information and log file support.
 
 ## Prerequisites
 
-Your organization must have an Azure AD Premium P1 license to use the product. For more information, see [Azure Active Directory pricing](https://azure.microsoft.com/pricing/details/active-directory/).
-
-To set up Cloud App Discovery, you must be a Global Administrator or a Security Reader in Azure Active Directory. A user who is assigned an admin role has the same permissions across all of the cloud apps to which your organization has subscribed.
+* Your organization must have an Azure AD Premium P1 license to use the product. For more information, see [Azure Active Directory pricing](https://azure.microsoft.com/pricing/details/active-directory/).
+* To set up Cloud App Discovery, you must be a Global Administrator or a Security Reader in Azure Active Directory.
 
 ## Setup steps
 
