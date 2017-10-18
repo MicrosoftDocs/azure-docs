@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/24/2017
+ms.date: 10/17/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
 
@@ -82,21 +82,21 @@ Once the affected region recovers from the outage, all the affected Cosmos DB ac
 
 **What happens if a write region has an outage?**
 
-If the affected region is the current write region and automatic failover is enabled for a given Cosmos DB account, then the region will be automatically marked as offline. Then, an alternative region is promoted as the write region for the affected Cosmos DB account. You can enable automatic failover and fully control the region selection order for your Cosmos DB accounts via the Azure portal or [programmatically](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_FailoverPriorityChange). 
+If the affected region is the current write region and automatic failover is enabled for the Azure Cosmos DB account, then the region is automatically marked as offline. Then, an alternative region is promoted as the write region for the affected Azure Cosmos DB account. You can enable automatic failover and fully control the region selection order for your Azure Cosmos DB accounts via the Azure portal or [programmatically](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_FailoverPriorityChange). 
 
 ![Failover priorities for Azure Cosmos DB](./media/regional-failover/failover-priorities.png)
 
-During automatic failovers, Cosmos DB automatically chooses the next write region for a given Cosmos DB account based on the specified priority order. Application can use the WriteEndpoint property of DocumentClient to detect the change in write region.
+During automatic failovers, Azure Cosmos DB automatically chooses the next write region for a given Azure Cosmos DB account based on the specified priority order. Applications can use the WriteEndpoint property of DocumentClient class to detect the change in write region.
 
 ![Write region failures in Azure Cosmos DB](./media/regional-failover/write-region-failures.png)
 
 Once the affected region recovers from the outage, all the affected Cosmos DB accounts in the region are automatically recovered by the service. 
 
-* Data present in the previous write region that could not be replicated to read regions during the outage, will be published as conflict feed. Applications can read the conflict feed, resolve the conflicts based on application specific logic and write the updated data back to the Cosmos DB account as appropriate. 
-* The previous write region will be recreated as a read region and brought back online automatically. 
-* You can re configure above onlined region as the write region by performing a manual failover via the Azure portal or [programmatically](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_CreateOrUpdate).
+* Data present in the previous write region that was not replicated to read regions during the outage is published as a conflict feed. Applications can read the conflict feed, resolve the conflicts based on application specific logic, and write the updated data back to the Azure Cosmos DB account as appropriate. 
+* The previous write region is recreated as a read region and brought back online automatically. 
+* You can reconfigure read region that was brought back online automatically as the write region by performing a manual failover via the Azure portal or [programmatically](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_CreateOrUpdate).
 
-Below code snippet illustrates how to process conflicts once the affected region recovers from the outage.
+The following code snippet illustrates how to process conflicts after the affected region recovers from the outage.
 
 ```cs
 string conflictsFeedContinuationToken = null;
