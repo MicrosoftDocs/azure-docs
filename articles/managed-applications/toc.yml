@@ -6,22 +6,15 @@
   - name: Choose between management options
 - name: Quickstarts
   items:
-  - name: Publish and deploy managed application
+  - name: Create managed application with Azure CLI
+    href: managed-apps-quickstart-cli.md
 - name: Tutorials
   items:
-  - name: Publishers
-    items:
-    - name: Publish marketplace app
-      href: publish-marketplace-app.md
-    - name: Publish service catalog app
-      href: publish-service-catalog-app.md
-    - name: Maintain managed app
-  - name: Consumers
-    items:
-    - name: Deploy marketplace app 
-      href: consume-marketplace-app.md
-    - name: Deploy service catalog app
-      href: consume-service-catalog-app.md
+  - name: Create service catalog application
+    href: publish-service-catalog-app.md
+  - name: Create marketplace application
+    href: publish-marketplace-app.md
+  - name: Maintain managed application
 - name: Samples
   items:
   - name: Azure CLI
