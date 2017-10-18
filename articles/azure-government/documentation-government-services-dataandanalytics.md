@@ -21,7 +21,7 @@ ms.author: jglixon
 This article outlines the data and analytics services, variations, and considerations for the Azure Government environment.
 
 ## HDInsight
-HDInsight on Linux Standard is generally available in Azure Government. You can see a demo on how to build data-centric solutions on Azure Government using HDInsight <a href=https://channel9.msdn.com/Blogs/Azure/Cognitive-Services-HDInsight-and-Power-BI-on-Azure-Government/>here</a>.
+HDInsight on Linux Standard is generally available in Azure Government. You can see a demo on how to build data-centric solutions on Azure Government using [HDInsight](https://channel9.msdn.com/Blogs/Azure/Cognitive-Services-HDInsight-and-Power-BI-on-Azure-Government).
 
 HDInsight on Linux Premium is coming soon.
 
