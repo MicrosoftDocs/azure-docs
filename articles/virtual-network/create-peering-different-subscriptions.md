@@ -155,7 +155,6 @@ Instead of installing the CLI and its dependencies, you can use the Azure Cloud 
       --scope /subscriptions/<SubscriptionA-Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/VirtualNetworks/myVnetA
     ```
     
-	 The permission assignment for UserB is not a requirement. Peering can be established even if users individually raise peering requests for their respective virtual networks, as long as the requests match. Adding a privileged user of myVNetB as a network contributor in the local virtual network makes it easier to do the setup.
 3. Log out of Azure as UserA using the `az logout` command, then log in to Azure as UserB. The account you log in with must have the necessary permissions to create a virtual network peering. See the [Permissions](#permissions) section of this article for details.
 4. Create myVnetB. Copy the script contents in step 2 to a text editor on your PC. Replace `<SubscriptionA-Id>` with the ID of SubscriptionB. Change 10.0.0.0/16 to 10.1.0.0/16, change all As to B, and all Bs to A. Copy the modified script, paste it in to your CLI session, and press `Enter`. 
 5. Log out of Azure as UserB and log in to Azure as UserA.
@@ -229,7 +228,6 @@ This tutorial uses different accounts for each subscription. If you're using an 
       -Scope /subscriptions/<SubscriptionA-Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/VirtualNetworks/myVnetA
    	```
 
-	The permission assignment for UserB is not a requirement. Peering can be established even if users individually raise peering requests for their respective virtual networks, as long as the requests match. Adding a privileged user of the other virtual network as a user in the local virtual network makes it easier to do the setup.
 5. Log out UserA from Azure and log in UserB. The account you log in with must have the necessary permissions to create a virtual network peering. See the [Permissions](#permissions) section of this article for details.
 6. Copy the script contents in step 4 to a text editor on your PC. Replace `<SubscriptionA-Id>` with the ID for subscription B. Change 10.0.0.0/16 to 10.1.0.0/16. Change all As to B and all Bs to A. To execute the script, copy the modified script, paste into PowerShell, and then press `Enter`.
 7. Log out UserB from Azure and log in UserA.
