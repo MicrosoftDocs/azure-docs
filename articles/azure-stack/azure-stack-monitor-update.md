@@ -44,6 +44,7 @@ You can also determine whether the cmdlets are available  programmatically by qu
 
    $pepSession = New-PSSession -ComputerName <Prefix>-ercs01 -Credential $cred -ConfigurationName PrivilegedEndpoint 
    ```
+   When prompted for credentials, use the &lt;*Azure Stack domain*&gt;\cloudadmin account, or an account that's a member of the CloudAdmins group. Enter the same password that was provided during installation for the AzureStackAdmin domain administrator account.
 
 2. Get the full list of commands that are available in the privileged endpoint. 
 
@@ -91,6 +92,7 @@ $cred = Get-Credential
 
 $pepSession = New-PSSession -ComputerName <Prefix>-ercs01 -Credential $cred -ConfigurationName PrivilegedEndpoint 
 ```
+ When prompted for credentials, use the &lt;*Azure Stack domain*&gt;\cloudadmin account, or an account that's a member of the CloudAdmins group. Enter the same password that was provided during installation for the AzureStackAdmin domain administrator account.
 
 ### Get high-level status of the current update run 
 
