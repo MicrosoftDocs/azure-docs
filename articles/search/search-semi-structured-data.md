@@ -32,7 +32,7 @@ To complete this tutorial:
 * Install a REST client and understand how to construct an HTTP request
 
 
-## Setup the REST client
+## Set up the REST client
 
 To complete this tutorial you need a REST client. For the purposes of this tutorial, we are using [Postman](https://www.getpostman.com/). Feel free to use a different REST client if you're already comfortable with a particular one.
 
