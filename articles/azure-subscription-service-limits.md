@@ -149,7 +149,7 @@ For additional details on Azure Files limits, see [Azure Files scalability and p
 
 [!INCLUDE [storage-files-scale-targets](../includes/storage-files-scale-targets.md)]
 
-##### Azure File Sync storage limits
+#### Azure File Sync limits
 [!INCLUDE [storage-sync-files-scale-targets](../includes/storage-sync-files-scale-targets.md)]
 
 #### Azure Queue storage limits
