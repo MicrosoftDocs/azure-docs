@@ -41,7 +41,7 @@ The following information identifies the Azure Government boundary for Azure SQL
 For details on this service and how to use it, see [Azure SQL Data Warehouse documentation](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md).
 
 ## SQL Server Stretch Database
-For details on this service and how to use it, see [Azure SQL Server Stretch Database documentation](../sql-server-stretch-database.md)
+For details on this service and how to use it, see [Azure SQL Server Stretch Database documentation](../sql-server-stretch-database/index.md)
 
 ## Azure Cosmos DB
 For details on this service and how to use it, see [Azure Cosmos DB documentation](../cosmos-db/index.yml).
