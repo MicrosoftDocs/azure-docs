@@ -31,7 +31,7 @@ To run the CLI, you need [Node.js](https://nodejs.org/) installed on your local 
 To install the CLI, run the following command in your command-line environment:
 
 ```cmd/sh
-npm install iot-soution -g
+npm install iot-solution -g
 ```
 
 ## Sign in to the CLI
@@ -55,17 +55,23 @@ When you deploy the preconfigured solution, there are several options that confi
 
 ## Deploy the preconfigured solution
 
+### Example: deploy .NET version
+
 The following example shows how to deploy the basic, .NET version of the remote monitoring preconfigured solution:
 
 ```cmd/sh
 pcs -t remotemonitoring -s basic -r dotnet
 ```
 
+### Example: deploy Java version
+
 The following example shows how to deploy the standard, Java version of the remote monitoring preconfigured solution:
 
 ```cmd/sh
 pcs -t remotemonitoring -s standard -r java
 ```
+
+### pcs command options
 
 When you run the `pcs` command to deploy a solution, you are asked for:
 
