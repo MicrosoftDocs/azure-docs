@@ -54,7 +54,7 @@ Following Azure Active Directory Premium features are currently not available in
   * Intune enabled Conditional Access scenarios
 
 ## Azure Multi-Factor Authentication
-For details on this service and how to use it, see the [Azure Multi-Factor Authentication Documentation](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/multi-factor-authentication). 
+For details on this service and how to use it, see the [Azure Multi-Factor Authentication Documentation](../multi-factor-authentication/multi-factor-authentication.md). 
 
 ## Next Steps
 For supplemental information and updates, subscribe to the
