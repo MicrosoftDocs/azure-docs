@@ -353,8 +353,43 @@ The following table provides a comparison of limits and abilities between the Ba
 
 ## Preview sign-up
 
-To participate in the Preview for Load Balancer Standard SKU and its companion Public IP Standard SKU, register your subscription to gain access using either PowerShell or Azure CLI 2.0.  Please follow these 3 steps below:
+To participate in the Preview for Load Balancer Standard SKU and its companion Public IP Standard SKU, register your subscription to gain access using either Azure CLI 2.0 or PowerShell.  Please follow these 3 steps below:
 
+>[!NOTE]
+>Registration of the Load Balancer Standard feature may take up to an hour to become effective globally. If you wish to use Load Balancer Standard with [Availability Zones](https://aka.ms/availabilityzones) and [HA Ports](https://aka.ms/haports), a separate sign-up is required for these previews.  Please follow the respective instructions.
+
+### Sign up using Azure CLI 2.0
+
+1. Register the feature with the provider
+    ```cli
+    az feature register --name AllowLBPreview --namespace Microsoft.Network
+    ```
+    
+2. The above operation can take up to 10 minutes to complete.  You can check the status of the operation with the following command:
+
+    ```cli
+    az feature show --name AllowLBPreview --namespace Microsoft.Network
+    ```
+    
+    Please proceed to step 3 when the feature registration state returns 'Registered' as shown below:
+   
+    ```json
+    {
+       "id": "/subscriptions/foo/providers/Microsoft.Features/providers/Microsoft.Network/features/AllowLBPreview",
+       "name": "Microsoft.Network/AllowLBPreview",
+       "properties": {
+          "state": "Registered"
+       },
+       "type": "Microsoft.Features/providers/features"
+    }
+    ```
+    
+3. Please complete the preview sign-up by re-registering your subscription with the resource provider:
+
+    ```cli
+    az provider register --namespace Microsoft.Network
+    ```
+    
 ### Sign up using PowerShell
 
 1. Register the feature with the provider
@@ -378,48 +413,9 @@ To participate in the Preview for Load Balancer Standard SKU and its companion P
 3. Please complete the preview sign-up by re-registering your subscription with the resource provider:
 
     ```powershell
-    Register-AzureRmProvider -ProviderNamespace Microsoft.Network
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
     ```
-    
-
-### Sign up using Azure CLI 2.0
-
-1. Register the feature with the provider
-    ```cli
-    az feature register --name AllowLBPreview --namespace Microsoft.Network
-    ```
-    
-2. The above operation can take up to 10 minutes to complete.  You can check the status of the operation with the following command:
-
-    ```powershell
-    az feature show --name AllowLBPreview --namespace Microsoft.Network
-    ```
-    
-    Please proceed to step 3 when the feature registration state returns 'Registered' as shown below:
-   
-    ```json
-    {
-       "id": "/subscriptions/foo/providers/Microsoft.Features/providers/Microsoft.Network/features/AllowLBPreview",
-       "name": "Microsoft.Network/AllowLBPreview",
-       "properties": {
-          "state": "Registered"
-       },
-       "type": "Microsoft.Features/providers/features"
-    }
-    ```
-    
-3. Please complete the preview sign-up by re-registering your subscription with the resource provider:
-
-    ```powershell
-    az provider register --namespace Microsoft.Network
-    ```
-
->[!NOTE]
->Registration of the Load Balancer Standard feature may take up to an hour to become effective globally.
-
->[!NOTE]
->If you wish to use Load Balancer Standard with [Availability Zones](https://aka.ms/availabilityzones) and [HA Ports](https://aka.ms/haports), a separate sign-up is required for these previews.  Please follow the respective instructions.
-
+ 
 ## Pricing
 
 Load Balancer Standard SKU is billed based on rules configured and data processed.  No charges are incurred during the Preview period.  Review the [Load Balancer](https://aka.ms/lbpreviewpricing) and [Public IP](https://aka.ms/lbpreviewpippricing) pricing pages for more information.
