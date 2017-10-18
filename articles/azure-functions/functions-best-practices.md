@@ -15,7 +15,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 06/13/2017
+ms.date: 10/16/2017
 ms.author: glenga
 
 ms.custom: H1Hack27Feb2017
@@ -24,7 +24,7 @@ ms.custom: H1Hack27Feb2017
 
 # Optimize the performance and reliability of Azure Functions
 
-This article provides guidance to improve the performance and reliability of your function apps. 
+This article provides guidance to improve the performance and reliability of your [serverless](https://azure.microsoft.com/overview/serverless-computing/) function apps. 
 
 
 ## Avoid long running functions

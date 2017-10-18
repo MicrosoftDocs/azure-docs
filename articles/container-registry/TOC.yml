@@ -19,6 +19,14 @@
     href: ../container-instances/container-instances-tutorial-prepare-app.md
   - name: Azure Container Service
     href: ../container-service/kubernetes/container-service-tutorial-kubernetes-prepare-app.md
+  - name: Service Fabric
+    href: ../service-fabric/service-fabric-tutorial-create-container-images.md
+- name: Concepts
+  items:
+  - name: Container registry SKUs
+    href: container-registry-skus.md
+  - name: Geo-replication (preview)
+    href: container-registry-geo-replication.md
 - name: How-to guides
   items:
   - name: Push and pull an image
@@ -41,8 +49,8 @@
     href: /powershell/module/azurerm.containerregistry
 - name: Resources
   items:
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
+  - name: Roadmap
+    href: https://aka.ms/acr/roadmap
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/container-registry/
   - name: Region availability

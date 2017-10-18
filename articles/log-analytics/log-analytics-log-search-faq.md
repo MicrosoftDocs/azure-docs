@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2017
+ms.date: 10/17/2017
 ms.author: bwren
 
 ---
@@ -26,6 +26,10 @@ This article includes frequently asked questions and known issues regarding the 
 
 ### Question: I have a lot of alert rules. Do I need to create them again in the new language after I upgrade?  
 No, your alert rules are automatically converted to the new search language during upgrade.  
+
+### Question: I have alert rules with webhook and runbook actions. Will these continue to work when I upgrade?
+
+No, there are some changes in the webhook and runbook actions that might require you to make changes on how you process the payload. We’ve made these changes to standardize the various output formats and reduce the size of the payload. Details on these formats are in [Add actions to alert rules in Log Analytics](log-analytics-alerts-actions.md).
 
 
 ## Computer groups
@@ -56,7 +60,7 @@ You can use the language converter tool in the log search page to convert each o
 Results are not sorted by default in the new query language.  Use the [sort operator](https://go.microsoft.com/fwlink/?linkid=856079) to sort your results by one or more properties.
 
 ### Question: Where did the metrics view go after I upgraded?
-The metrics view gave a graphical representation of performance data from a log search.  This view is no longer available after upgrade.
+The metrics view gave a graphical representation of performance data from a log search.  This view is no longer available after upgrade.  You can use the [render operator](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/render-operator) to format output from a query in a timechart.
 
 ### Question: Where did minify go after I upgraded?
 Minify is a feature that gives a summarized view of your search results.  After you upgrade, the Minify option no longer appears in the Log Search portal.  You can get similar functionality with the new search language using [reduce](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/reduce-operator) or [autocluster_v2](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/evaluate-operator/autocluster). 
@@ -88,6 +92,18 @@ The legacy [Log Search API](log-analytics-log-search-api.md) will no longer work
 You can see a comparison of the two portals at [Portals for creating and editing log queries in Azure Log Analytics](log-analytics-log-search-portals.md).  Each has distinct advantages so you can choose the best one for your requirements.  It's common to write queries in the Advanced Analytics portal and paste them into other places such as View Designer.  You should read about [issues to consider](log-analytics-log-search-portals.md#advanced-analytics-portal) when doing that.
 
 
+### Question:  After upgrade, I get an error trying to run queries and am also seeing errors in my views.
+
+Your browser requires access to the following addresses to run Log Analytics queries after upgrade.  If your browser is accessing the Azure portal through a firewall, you must enable access to these addresses.
+
+| Uri | IP | Ports |
+|:---|:---|:---|
+| portal.loganalytics.io | Dynamic | 80,443 |
+| api.loganalytics.io    | Dynamic | 80,443 |
+| docs.loganalytics.io   | Dynamic | 80,443 |
+
+
+
 ## Power BI
 
 ### Question: Does anything change with PowerBI integration?
@@ -97,10 +113,12 @@ Yes.  Once your workspace has been upgraded then the process for exporting Log A
 There is currently a size limit of 8 MB for a Log Analytics query that can be exported to Power BI.  This limit will be increased soon.
 
 
-##PowerShell cmdlets
+## PowerShell cmdlets
 
 ### Question: Does the Log Search PowerShell cmdlet get updated after I upgrade?
-The [Get-AzureRmOperationalInsightsSearchResults](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/Get-AzureRmOperationalInsightsSearchResults) has not yet been upgraded to the new search language.  Continue to use the legacy query language with this cmdlet, even after you upgrade your workspace.  Updated documentation will become available for the cmdlet when it's updated.
+The [Get-AzureRmOperationalInsightsSearchResults](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/Get-AzureRmOperationalInsightsSearchResults) will be deprecated when the upgrade of all workspaces is complete.  Use the [Invoke-LogAnalyticsQuery cmdlet](https://dev.loganalytics.io/documentation/Tools/PowerShell-Cmdlets) to perform log searches in upgraded workspaces.
+
+
 
 
 ## Resource Manager templates
@@ -153,11 +171,9 @@ No. The log data available to your workspace searches is not affected by the upg
 ### Question: What happens if I don't upgrade my workspace?  
 The legacy log search will be deprecated in the coming months. Workspaces that are not upgraded by that time will be upgraded automatically.
 
-### Question: I didn't choose to upgrade, but my workspace has been upgraded anyway! What happened?  
-Another admin of this workspace could have upgraded the workspace. Please note that all workspaces will be automatically upgraded when the new language reaches general availability.  
+### Question: Can I revert back after I upgrade?
+Prior to general availability, you could revert your workspace after upgrading.  Now that the new language has reached general availability, this capability has been removed as we start to retire the legacy platform.
 
-### Question: I have upgraded by mistake and now need to cancel it and restore everything back. What should I do?!  
-No problem.  We create a snapshot of your workspace before upgrade, so you can restore it. Keep in mind that searches, alerts or views you saved after the upgrade will be lost though.  To restore your workspace environment, follow the procedure at [Can I go back after I upgrade?](log-analytics-log-search-upgrade.md#can-i-go-back-after-i-upgrade)
 
 
 ## Views

@@ -82,7 +82,9 @@
       - name: Manage updates overview
         href: azure-stack-updates.md
       - name: Apply updates
-        href: azure-stack-apply-updates.md      
+        href: azure-stack-apply-updates.md
+      - name: Monitor update status
+        href: azure-stack-monitor-update.md      
     - name: Monitor health and alerts
       href: azure-stack-monitor-health.md
     - name: Manage network resources
@@ -93,6 +95,8 @@
       href: azure-stack-manage-windows-azure-pack.md
     - name: Replace hardware
       items:
+      - name: Node actions
+        href: azure-stack-node-actions.md
       - name: Replace disk
         href: azure-stack-replace-disk.md
   - name: Security, compliance & identity
@@ -137,10 +141,16 @@
         href: azure-stack-mysql-resource-provider-deploy.md
       - name: Deploy SQL resource provider
         href: azure-stack-sql-resource-provider-deploy.md
+      - name: Create SQL databases
+        href: azure-stack-sql-resource-provider-databases.md
+      - name: Add hosting servers
+        href: azure-stack-sql-resource-provider-hosting-servers.md
     - name: Offer App Service as PaaS
       items:
       - name: App Service on Azure Stack overview
         href: azure-stack-app-service-overview.md
+      - name: Capacity planning
+        href: azure-stack-app-service-capacity-planning.md
       - name: Before you get started
         href: azure-stack-app-service-before-you-get-started.md
       - name: Deploy App Service resource provider

@@ -27,23 +27,23 @@
     href: overview-general-concepts.md
 - name: How-to guides
   items:  
-  - name: Use Machine Learning Workbench
+  - name: Use Workbench
     items:
-    - name: Working with Python IDEs
+    - name: Work with Python IDEs
       href: how-to-configure-your-IDE.md
     - name: Use Jupyter notebooks      
       href: how-to-use-jupyter-notebooks.md
-    - name: Integrate with a Git repo
+    - name: Integrate with Git repos
       href: using-git-ml-project.md
-    - name: Structure a project with TDSP
+    - name: Structure projects with TDSP
       href: how-to-use-tdsp-in-azure-ml.md
-    - name: How to do roaming and collaboration
+    - name: Roaming and collaboration
       href: roaming-and-collaboration.md
-  - name: Use Visual Studio tools
+  - name: Use Visual Studio Code Tools for AI
     href: quickstart-visual-studio-tools.md
   - name: Configure compute environment
     items: 
-    - name: Configure execution targets
+    - name: Configure experimentation
       href: experiment-execution-configuration.md    
     - name: Create DSVM and HDI Spark cluster
       href: how-to-create-dsvm-hdi.md
@@ -51,13 +51,14 @@
       href: how-to-use-gpu.md    
   - name: Acquire and understand data
     items:    
-    - name: Access data with the Data Source Wizard
+    - name: Add data source
       href: data-source-wizard.md
-    - name: Get started with data preparation
-      href: data-prep-getting-started.md
     - name: Data preparation guide
+      href: data-prep-getting-started.md
+    - name: Advanced data preparation
       href: data-prep-user-guide.md
     - name: Data preparation transformations
+      href: data-prep-appendix3-supported-transforms.md
       items:
       - name: Combine columns by example
         href: data-prep-combine-columns-by-example.md
@@ -73,13 +74,13 @@
       href: tutorial-iris-azure-cli.md
     - name: Track run history and model metrics
       href: how-to-use-run-history-model-metrics.md    
-    - name: How to find runs with the best accuracy and lowest duration
+    - name: Find run with the best accuracy
       href: how-to-find-best-accuracy-cli.md
     - name: Read and write files
       href: how-to-read-write-files.md
-    - name: MMLSpark library
+    - name: Use MMLSpark library
       href: how-to-use-mmlspark.md
-  - name: Deploy models
+  - name: Operationalize models
     items:
     - name: Set up Model Management
       href: deployment-setup-configuration.md
@@ -89,8 +90,10 @@
       href: model-management-service-deploy.md
     - name: Consume a web service
       href: model-management-consumption.md  
-    - name: How to use model data collection
+    - name: Collect model data
       href: how-to-use-model-data-collection.md
+    - name: Deployment troubleshooting guide
+      href: how-to-deploy-troubleshooting-guide.md
   - name: Real-world examples
     items:
     - name: Document collection analysis
@@ -123,8 +126,6 @@
       href: data-prep-python-extensibility-overview.md
     - name: Supported data sources
       href: data-prep-appendix2-supported-data-sources.md
-    - name: Supported transforms
-      href: data-prep-appendix3-supported-transforms.md
     - name: Supported inspectors
       href: data-prep-appendix4-supported-inspectors.md
     - name: Supported data destinations
@@ -133,7 +134,7 @@
       href: data-prep-supported-runtime-data-environments.md
     - name: Sample of filter expressions in Python
       href: data-prep-appendix6-sample-filter-expressions-python.md
-    - name: Sample of custom DataFlow transforms in Python
+    - name: Sample of custom data flow transforms in Python
       href: data-prep-appendix7-sample-transform-data-flow-python.md
     - name: Sample of source connections in Python
       href: data-prep-appendix8-sample-source-connections-python.md
@@ -145,7 +146,7 @@
       href: data-prep-python-execution-api.md
   - name: Experimentation    
     items:
-    - name: Execution configuration
+    - name: Experimentation Service configuration
       href: experiment-execution-configuration-reference.md
     - name: Logging API
       href: reference-logging-api.md
@@ -157,11 +158,15 @@
       href: model-management-cli-reference.md
     - name: Model data collection API
       href: model-data-collection-api-reference.md
+  - name: Release notes
+    items:
+    - name: Sprint 0 - October 2017
+      href: release-notes-sprint-0.md
 - name: Resources
   items:  
-  - name: FAQ
+  - name: Frequently asked questions
     href: frequently-asked-questions.md
-  - name: Known issues and troubleshooting guide
+  - name: Known issues and troubleshooting
     href: known-issues-and-troubleshooting-guide.md
   - name: Team Data Science Process documentation
     href: ../team-data-science-process/overview.md
@@ -172,7 +177,7 @@
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/machine-learning/
   - name: MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/home?forum=MachineLearning
+    href: https://social.msdn.microsoft.com/Forums/windowsdesktop/home?forum=MachineLearning
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-machine-learning
   - name: Videos
