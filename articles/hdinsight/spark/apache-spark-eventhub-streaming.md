@@ -383,7 +383,7 @@ You should see an output like the following:
 
 
 ### Run the applications to receive the events into an Azure SQL database table
-Before running this step, make sure you have an Azure SQL database created. For instructions, see [Create a SQL database in minutes](../sql-database/sql-database-get-started-portal.md). To complete this section, you need values for database name, database server name, and the database administrator credentials as parameters. You do not need to create the database table though. The Spark streaming application creates that for you.
+Before running this step, make sure you have an Azure SQL database created. For instructions, see [Create a SQL database in minutes](../../sql-database/sql-database-get-started-portal.md). To complete this section, you need values for database name, database server name, and the database administrator credentials as parameters. You do not need to create the database table though. The Spark streaming application creates that for you.
 
 Open a command prompt, navigate to the directory where you installed CURL, and run the following command:
 
