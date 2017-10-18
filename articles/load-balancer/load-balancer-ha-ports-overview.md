@@ -31,16 +31,19 @@ HA Ports enables critical scenarios such as high availability and scale for Netw
 
 HA Ports is configured by setting the frontend and backend ports to **0** and protocol to **All**.  The internal Load Balancer resource will now balance all TCP and UDP flows irrespective of port number.
 
-## Why use high HA ports
+## Why use HA ports
+
+### Network Virtual Appliances
 
 Azure customers rely heavily on the network virtual appliances (NVAs) for securing their workloads from multiple types of security threats. In addition, the NVAs must be reliable, highly available, and scale-out for demand.
+
+You can now achieve high availability for your HA deployments by simply adding NVAs to the backend pool of the Azure internal Load Balancer and configuring an HA Ports Load Balancer rule.
 
 HA Ports provide several advantages for NVA HA scenarios:
 - faster failover to healthy instances
 - higher performance with scale-out to n-active instances
-- eliminating the need for more complex solutions like active-passive scenarios with Zookeeper nodes
-
-You can now achieve high availability for your HA deployments by simply adding NVAs to the backend pool of the Azure internal Load Balancer and configuring an HA Ports Load Balancer rule.
+- n-active and active-passive scenarios
+- eliminating the need for complex solutions like Zookeeper nodes for monitoring appliances
 
 The following example presents a hub-and-spoke virtual network deployment, with the spokes force tunneling their traffic to the hub virtual network and via the NVA before leaving the trusted space. The NVAs are behind an Internal Load Balancer with HA Ports configuration, thus can process all the traffic and forward accordingly. 
 
@@ -48,6 +51,13 @@ The following example presents a hub-and-spoke virtual network deployment, with 
 
 Figure 1 - Hub-and-spoke virtual network with NVAs deployed in HA mode
 
+If you are using Network Virtual Appliances, please confirm with the respective provider how to best use HA Ports and which scenarios are supported.
+
+### Load balancing large numbers of ports
+
+Azure customers who are faced with application scenarios where large numbers of ports are used concurrently can also take advantage of this load balancing rule to simplify the construction of their scenario.  HA Ports can be used like a load balancing rule for a range of ports rather than a load balancing rule for every port.
+
+These scenarios can now be addressed using this rule with an internal [Load Balancer Standard](https://aka.ms/lbpreview).
 
 ## Region availability
 
@@ -59,7 +69,6 @@ To participate in the Preview of the HA ports feature in Load Balancer Standard 
 
 >[!NOTE]
 >To use this feature, you must also sign-up for Load Balancer [Standard Preview](https://aka.ms/lbpreview#preview-sign-up) in addition to HA Ports. Registration of the HA Ports or Load Balancer Standard previews may take up to an hour.
-
 
 ### Sign up using Azure CLI 2.0
 
