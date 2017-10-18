@@ -133,11 +133,13 @@ namespace VisionApp1
             // **********************************************
 
             // Replace the subscriptionKey string value with your valid subscription key.
-            const string subscriptionKey = "";
+            const string subscriptionKey = "<subscription key>";
 
-            //Copy and paste the "Endpoint" attribute that you saved before into the uriBase string. Keep the "/analyze" after the endpoint.     
-            const string uriBase = "https://virginia.api.cognitive.microsoft.us/vision/v1.0/analyze";
-
+            //Copy and paste the "Endpoint" attribute that you saved before into the uriBase string "/analyze" at the end. 
+            //Example: https://virginia.api.cognitive.microsoft.us/vision/v1.0/analyze
+  
+            const string uriBase = "<endpoint>/analyze";
+            
             static void Main()
             {
                 // Get the path and filename to process from the user.
@@ -398,13 +400,13 @@ namespace FaceApp1
         // **********************************************
         // *** Update or verify the following values. ***
         // **********************************************
-
+         
         // Replace the subscriptionKey string value with your valid subscription key.
-        const string subscriptionKey = "";
+        const string subscriptionKey = "<subscription key>";
 
-        //Copy and paste the "Endpoint" attribute that you saved before into the uriBase string. Keep the "/detect" after the endpoint.  
-    
-        const string uriBase ="https://virginia.api.cognitive.microsoft.us/face/v1.0/detect";
+        //Copy and paste the "Endpoint" attribute that you saved before into the uriBase string "/detect" at the end. 
+        //Example: https://virginia.api.cognitive.microsoft.us/face/v1.0/detect
+        const string uriBase ="<endpoint>/detect";
 
         static void Main()
         {
@@ -638,7 +640,7 @@ namespace TextTranslationApp1
             // **********************************************
 
             // Replace the subscriptionKey string value with your valid subscription key.
-            const string subscriptionKey = "";
+            const string subscriptionKey = "<subscription key>";
 
             // This is the base uri for accessing the Text Translation API. We will be testing the /translate method.
             const string uriBase = "https://api.microsofttranslator.us/v2/http.svc/translate?";
