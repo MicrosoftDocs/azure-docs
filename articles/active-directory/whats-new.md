@@ -20,18 +20,7 @@ ms.reviewer: dhanyahk
 ---
 # What's new in Azure Active Directory
 
-## September 2017
 
-**Type:** Changed feature  
-**Service Category:** Microsoft Identity Manager  
-**Product Capability:** Identity Lifecycle Management  
-
-
-A hotfix rollup package (build 4.4.1642.0) is available as of September 25, 2017, for Microsoft Identity Manager (MIM) 2016 2016 Service Pack 1 (SP1). This roll-up package resolves issues and adds improvements.  This is a cumulative update that replaces all MIM 2016 SP1 updates up to build 4.4.1459.0 for Microsoft Identity Manager 2016. To apply this update, you must have Microsoft Identity Manager 2016 build 4.4.1302.0.  Read more at 
-
-https://support.microsoft.com/en-us/help/4021562 
-
----
 
 ## October 2017
 
@@ -135,5 +124,18 @@ What's available?
 
  As part of the transition to the new admin console, we have made available 2 new APIs for retrieving Azure AD Activity Logs. The new set of APIs provide richer filtering and sorting functionality in addition to providing richer audit and sign-in activities. The data previously available through the security reports can now be accessed through the Identity Protection risk events API in Microsoft Graph.
 
+
+---
+
+## September 2017
+
+**Type:** Changed feature  
+**Service Category:** Microsoft Identity Manager  
+**Product Capability:** Identity Lifecycle Management  
+
+
+A hotfix rollup package (build 4.4.1642.0) is available as of September 25, 2017, for Microsoft Identity Manager (MIM) 2016 2016 Service Pack 1 (SP1). This roll-up package resolves issues and adds improvements.  This is a cumulative update that replaces all MIM 2016 SP1 updates up to build 4.4.1459.0 for Microsoft Identity Manager 2016. To apply this update, you must have Microsoft Identity Manager 2016 build 4.4.1302.0.  Read more at 
+
+https://support.microsoft.com/en-us/help/4021562 
 
 ---
