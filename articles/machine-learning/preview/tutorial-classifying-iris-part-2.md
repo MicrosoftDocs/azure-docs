@@ -283,7 +283,7 @@ To execute your script in a Docker container on a remote Linux machine, you need
    ```
    
    >[!NOTE]
-   >The IP Address area can also be publicly addressable FQDN (fully qualified domain name), such as `vm-name.southcentralus.cloudapp.azure.com`. It is a good practice to add FQDN to your DSVM and use it here instead of IP address, since you might turn off the VM at some point to save on cost. Additionally, the next time you start the VM, the IP address might have changed.
+   >The IP address can also be a publicly addressable FQDN (fully qualified domain name), such as `vm-name.southcentralus.cloudapp.azure.com`. It is a good practice to add FQDN to your DSVM and use it here instead of an IP address, since you might turn off the VM at some point to save on cost. Additionally, the next time you start the VM, the IP address might have changed.
 
    Next, run the following command the construct the Docker image in the VM to get it ready for running the scripts.
    
