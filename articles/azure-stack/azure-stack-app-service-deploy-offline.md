@@ -13,7 +13,7 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 10/17/2017
 ms.author: anwestg
 
 ---
@@ -48,7 +48,7 @@ To deploy App Service in a disconnected environment, you must first create an of
 
 ## Complete the offline installation of App Service on Azure Stack
 
-1. On the disconnected Azure Stack host machine, run appservice.exe as azurestack\administrator.
+1. On the disconnected Azure Stack host machine, run appservice.exe as azurestack\clouadmin.
 
 2. Click **Advanced** > **Complete offline installation**.
 
@@ -69,7 +69,7 @@ To deploy App Service in a disconnected environment, you must first create an of
 7. On the next page:
     1. Click the **Connect** button next to the **Azure Stack Subscriptions** box.
         - If you're using Azure Active Directory (Azure AD), enter your Azure AD admin account and password that you provided when you deployed Azure Stack. Click **Sign In**.
-        - If you're using Active Directory Federation Services (AD FS), provide your admin account. For example, azurestackadmin@azurestack.local. Enter your password, and click **Sign In**.
+        - If you're using Active Directory Federation Services (AD FS), provide your admin account. For example, cloudadmin@azurestack.local. Enter your password, and click **Sign In**.
     2. In the **Azure Stack Subscriptions** box, select your subscription.
     3. In the **Azure Stack Locations** box, select the location that corresponds to the region you're deploying to. For example, select **local** if your deploying to the Azure Stack Development Kit.
     4. Enter a **Resource Group Name** for your App Service deployment. By default, it's set to **APPSERVICE\<MOBILE\>**.
@@ -78,7 +78,7 @@ To deploy App Service in a disconnected environment, you must first create an of
 
     ![App Service Installer](media/azure-stack-app-service-deploy/image03.png)
 
-8. Enter the information for your file share and then click **Next**.
+8. Enter the information for your file share and then click **Next**. The address of the file share must use the Fully Qualified Domain Name of your File Server, for example \\\appservicefileserver.local.cloudapp.azurestack.external\websites, or the IP Address, for example \\\10.0.0.1\websites.
 
     ![App Service Installer](media/azure-stack-app-service-deploy/image04.png)
 
@@ -107,20 +107,25 @@ To deploy App Service in a disconnected environment, you must first create an of
 
     ![App Service Installer](media/azure-stack-app-service-deploy/image07.png)    
 
-12. Review the role instance and SKU options. The defaults are populated with the minimum recommended instance SKUs for each role. A summary of core and memory requirements is provided to help plan your deployment. After you make your selections, click **Next**.
+12. Review the role instance and SKU options. The defaults are populated with the minimum number of instance and the minimum SKU for each role in an ASDK Deployment. A summary of core and memory requirements is provided to help plan your deployment. After you make your selections, click **Next**.
 
-    | Role | Recommended minimum instances | Recommended minimum SKU | Notes |
+     > [!NOTE]
+     > For production deployments, following the guidance in [Capacity planning for Azure App Service server roles in Azure Stack](azure-stack-app-service-capacity-planning.md).
+     > 
+     >
+
+    | Role | Minimum instances | Minimum SKU | Notes |
     | --- | --- | --- | --- |
     | Controller | 1 | Standard_A1 - (1 Core, 1792 MB) | Manages and maintains the health of the App Service cloud. |
     | Management | 1 | Standard_A2 - (2 Cores, 3584 MB) | Manages the App Service Azure Resource Manager and API endpoints, portal extensions (admin, tenant, Functions portal), and the data service. To support failover, increased the recommended instances to 2. |
     | Publisher | 1 | Standard_A1 - (1 Core, 1792 MB) | Publishes content via FTP and web deployment. |
     | FrontEnd | 1 | Standard_A1 - (1 Core, 1792 MB) | Routes requests to App Service applications. |
-    | Shared Worker | 1 | Standard_A1 - (1 Core, 1792 MB) | Hosts web or API applications and Azure Functions apps. TYou might want to add more instances. As an operator, you can define your offering and choose any SKU tier. The tiers must have a minimum of one core. |
+    | Shared Worker | 1 | Standard_A1 - (1 Core, 1792 MB) | Hosts web or API applications and Azure Functions apps. You might want to add more instances. As an operator, you can define your offering and choose any SKU tier. The tiers must have a minimum of one core. |
 
     ![App Service Installer](media/azure-stack-app-service-deploy/image08.png)    
 
     > [!NOTE]
-    > In the technical previews, the App Service resource provider installer also deploys a Standard A1 instance to operate as a simple file server to support Azure Resource Manager. This instance remains for the single-node development kit. For production workloads, at general availability the App Service installer enables the use of a high-availability file server.
+    > **Windows Server 2016 Core is not a supported platform image for use with Azure App Service on Azure Stack**.
 
 13. In the **Select Platform Image** box, choose your deployment Windows Server 2016 virtual machine image from those available in the compute resource provider for the App Service cloud. Click **Next**.
 
@@ -147,19 +152,11 @@ To deploy App Service in a disconnected environment, you must first create an of
 
 ## Validate the App Service on Azure Stack installation
 
-1. In the Azure Stack admin portal, browse to the resource group created by the installer. By default, this group is **APPSERVICE-LOCAL**.
+1. In the Azure Stack admin portal, go to **Administration - App Service**.
 
-2. Locate **CN0-VM**. To connect to the VM, click **Connect** on the **Virtual Machine** blade.
+2. In the overview under status, check to see that the **Status** shows **All roles are ready**.
 
-3. On the desktop of this VM, double-click **Web Cloud Management Console**.
-
-4. Go to **Managed Servers**.
-
-5. When all the machines display **Ready** for one or more Workers, proceed to step 6.
-
-6. Close the remote desktop machine, and return to the machine where you executed the App Service installer.
-
-    ![App Service Installer](media/azure-stack-app-service-deploy/managed-servers.png)    
+    ![App Service Management](media/azure-stack-app-service-deploy/image12.png)    
 
 
 ## Test drive App Service on Azure Stack
