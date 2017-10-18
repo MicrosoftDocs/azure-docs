@@ -31,8 +31,9 @@ Go through [Supported operating systems](backup-azure-arm-vms-prepare.md#support
 
 ### Why can't I see my VM in configure backup wizard?
 In Configure backup wizard, Azure Backup only lists VMs that are:
-* Not already protected - You can verify the backup status of a VM by going to VM blade and checking Backup status from Settings Menu . Learn more on how to [Check backup status of a VM](backup-azure-vms-first-look-arm.md#configure-the-backup-job-from-the-vm-management-blade)
-* Belongs to same region as VM
+  * Not already protected 
+      You can verify the backup status of a VM by going to VM blade and checking Backup status from Settings Menu . Learn more on how to [Check backup status of a VM](backup-azure-vms-first-look-arm.md#configure-the-backup-job-from-the-vm-management-blade)
+  * Belongs to same region as VM
 
 ## Backup
 ### Will on-demand backup job follow same retention schedule as scheduled backups?
@@ -45,19 +46,19 @@ You need to give permissions for Azure Backup service to access Key Vault. You c
 Yes, backups work seamlessly and no need to reconfigure backup. 
 
 ### My VM is shut down. Will an on-demand or a scheduled backup work?
-Yes. Even when a machine is shut down backups work and the recovery point will be marked as Crash consistent. For more details, refer to the data consistency section in [this article](backup-azure-vms-introduction.md#how-does-azure-back-up-virtual-machines)
+Yes. Even when a machine is shut down backups work and the recovery point is marked as Crash consistent. For more details, see the data consistency section in [this article](backup-azure-vms-introduction.md#how-does-azure-back-up-virtual-machines)
 
 ## Restore
 ### How do I decide between restoring disks versus full VM restore?
-Think of Azure full VM restore as a way of quick create option for restored VM. Restore VM option will change the names of disks, containers used by those disks, public IP addresses and network interface names. This is to maintain the uniqueness of resources getting created as part of VM creation. It will also not add the VM to availability set. 
+Think of Azure full VM restore as a quick create option. Restore VM option changes the names of disks, containers used by those disks, public IP addresses and network interface names. The change is required to maintain the uniqueness of resources created during VM creation. But it will not add the VM to availability set. 
 
 Use restore disks to:
-* Customize the VM that gets created from point in time configuration like changing the size from backup configuration
-* Add configurations, which are not present at the time of backup 
-* Control the naming convention for resources getting created
-* Add VM to availability set
-* You have any configuration which can be achieved only using PowerShell/a declarative template definition
+  * Customize the VM that gets created from point in time configuration like changing the size
+  * Add configurations, which are not present at the time of backup 
+  * Control the naming convention for resources getting created
+  * Add VM to availability set
+  * For any other configuration which can be achieved only by using PowerShell/a declarative template definition
 
 ## Manage VM backups
 ### What happens when I change a backup policy on VM(s)?
-When a new policy is applied on VM(s), schedule and retention of the new policy is followed. If retention is extended, existing recovery points are marked to keep them as per new policy. If retention is reduced, they are marked for pruning in the next cleanup job and will be deleted. 
+When a new policy is applied on VM(s), schedule and retention of the new policy is followed. If retention is extended, existing recovery points are marked to keep them as per new policy. If retention is reduced, they are marked for pruning in the next cleanup job and subsequently deleted. 
