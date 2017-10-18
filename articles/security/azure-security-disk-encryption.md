@@ -61,7 +61,7 @@ The solution does not support the following scenarios, features, and technology:
 * Disabling encryption on an OS drive for Linux IaaS VMs
 * Disabling encryption on a data drive if the OS drive is encrypted for Linux Iaas VMs
 * IaaS VMs that are created by using the classic VM creation method
-* Enable encryption on Windows and Linux IaaS VMs customer custom images is NOT supported. Enable enccryption on Linux LVM OS disk is not supported currently. This support will come soon.
+* Enable encryption on Windows and Linux IaaS VMs customer custom images is NOT supported. Enable encryption on Linux LVM OS disk is not supported currently. This support will come soon.
 * Integration with your on-premises Key Management Service
 * Azure Files (shared file system), Network File System (NFS), dynamic volumes, and Windows VMs that are configured with software-based RAID systems
 * Backup and restore of encrypted VMs, encrypted without key encryption key.
