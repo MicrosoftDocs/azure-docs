@@ -1,5 +1,5 @@
 ---
-title: Azure File Sync release notes | Microsoft Docs
+title: Azure File Sync agent release notes | Microsoft Docs
 description: Azure File Sync release notes
 services: storage
 documentationcenter: ''
@@ -17,8 +17,10 @@ ms.date: 10/08/2017
 ms.author: wgries
 ---
 
-# Azure File Sync release notes
+# Azure File Sync agent release notes
 Azure File Sync (preview) allows you to centralize your organization's file shares in Azure Files without giving up the flexibility, performance, and compatibility of an on-premises file server. It does this by transforming your Windows Servers into a quick cache of your Azure File share. You can use any protocol available on Windows Server to access your data locally (including SMB, NFS, and FTPS) and you can have as many caches as you need across the world.
+
+This article covers the release notes for supported versions of the Azure File Sync agent.
 
 ## Supported versions
 The following versions are supported by Azure File Sync:
@@ -70,14 +72,6 @@ The following items do not sync, but the rest of the system will continue to ope
 - Deleting a large number of directories from a server at once (over 10,000) may cause sync failures - delete directories in batches of less than 10,000 and make sure the delete operations sync successfully before deleting the next batch.
 - Not supported at the root of a volume.
 - Do not store an OS or application paging file within a server endpoint.
-        
-### Cloud Endpoints
-- Direct changes to data in an Azure file share may take up to 24 hours to sync to servers, so we recommend treating Azure File shares used with Azure File Sync as read only for now.
-- Certain (obscure) characters that are supported by NTFS and SMB are not supported by Azure Files (see naming conventions) and in some cases this can cause a file to be uploaded to Azure but fail to sync from there to another server and can even prevent other files from syncing properly - if you think you may have hit this issue we can help you identify the offending file and it will need to be deleted manually from the server and then from the Azure file share to allow sync to resume properly.
-- The storage account containing the Azure File share must be located in the same region where you deploy the Storage Sync Service.
- 
-### Azure portal
-- Pinning a Storage Sync Service to the dashboard works, but the tile is not yet functional.
  
 ### Cloud tiering
 - In order to ensure that files can be recalled correctly, the system may not automatically tier new or changed files for up to 32 hours, including first-time tiering after configuring a new Server Endpoint - we provide a PowerShell cmdlet to tier on-demand so you can evaluate tiering more efficiently without waiting for the background process.
