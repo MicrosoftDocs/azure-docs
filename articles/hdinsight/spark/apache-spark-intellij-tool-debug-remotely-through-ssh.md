@@ -17,7 +17,7 @@ ms.tgt_pltfrm:
 ms.devlang: 
 ms.topic: article
 ms.date: 08/24/2017
-ms.author: Jenny Jiang
+ms.author: jejiang
 
 ---
 # Debug Spark applications on an HDInsight cluster with Azure Toolkit for IntelliJ through SSH
