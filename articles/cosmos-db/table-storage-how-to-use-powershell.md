@@ -313,7 +313,7 @@ In this how-to article, you learned about common Table storage operations with P
 > * Create a table
 > * Retrieve a table
 > * Add table entities
-> * Querying a table
+> * Query a table
 > * Delete table entities
 > * Delete a table
 
