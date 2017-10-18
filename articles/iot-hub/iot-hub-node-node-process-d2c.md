@@ -17,7 +17,7 @@ ms.date: 10/17/2017
 ms.author: v-masebo
 
 ---
-# Process IoT Hub device-to-cloud messages (Java)
+# Process IoT Hub device-to-cloud messages (Node)
 
 [!INCLUDE [iot-hub-selector-process-d2c](../../includes/iot-hub-selector-process-d2c.md)]
 
@@ -27,7 +27,7 @@ This tutorial builds on the code shown in the [Get started with IoT Hub] tutoria
 
 At the end of this tutorial, you run three Node.js console apps:
 
-* **SimulatedDevice**, a modified version of the app created in the [Get started with IoT Hub] tutorial, sends data-point device-to-cloud messages every second, and interactive device-to-cloud messages every 10 seconds. This app uses the AMQP protocol to communicate with IoT Hub.
+* **SimulatedDevice**, a modified version of the app created in the [Get started with IoT Hub] tutorial, sends data-point device-to-cloud messages every second, and interactive device-to-cloud messages every 10 seconds. This app uses the MQTT protocol to communicate with IoT Hub.
 * **ReadDeviceToCloudMessages** displays the telemetry sent by your device app.
 * **ReadCriticalQueue** de-queues the critical messages from the Service Bus queue attached to the IoT hub.
 
@@ -213,7 +213,7 @@ To learn more about message routing in IoT Hub, see [Send and receive messages w
 
 <!-- Links -->
 
-[lnk-sb-queues-node]: ../service-bus-messaging/service-bus-node-how-to-use-queues.md
+[lnk-sb-queues-node]: ../service-bus-messaging/service-bus-nodejs-how-to-use-queues.md
 
 [Azure Storage]: https://azure.microsoft.com/documentation/services/storage/
 [Azure Service Bus]: https://azure.microsoft.com/documentation/services/service-bus/
