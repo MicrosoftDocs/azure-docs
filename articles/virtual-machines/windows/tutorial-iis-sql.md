@@ -1,6 +1,6 @@
 ---
-title: Create a Windows VM running a .Net Core app with IIS and SQL Azure | Microsoft Docs
-description: Tutorial - install a Azure SQL, IIS, .Net Core stack on a Windows virtual machine. 
+title: Create VMs running an IIS and SQL stack | Microsoft Docs
+description: Tutorial - install a Azure SQL, IIS, .Net stack on a Windows virtual machines. 
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -14,19 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 08/29/2017
+ms.date: 010/18/2017
 ms.author: cynthn
 ms.custom: mvc
 ---
 
 # Tutorial install the IIS, SQL,.Net Core stack on a Windows VM
 
-In this tutorial, we install an Azure SQL, IIS, .NET Core stack. 
+In this tutorial, we install an Azure SQL, IIS, .NET stack using Azure PowerShell. 
 
 > [!div class="checklist"]
-> * Create an Azure SQL VM
-> * Create a VM 
+> * Create a VM using New-AzVM
 > * Install IIS and the .NET Core SDK on the VM
+> * Create an Azure SQL VM
+> * Install the SQL Server extension
 
 
 
@@ -59,10 +60,8 @@ Set-AzureRmVMExtension -ResourceGroupName $resourceGroup `
 
 We use a pre-configured Azure marketplace image of a SQL server to create the SQL VM. We first create the VM, then we install the SQL Server Extension on the VM. 
 
-The following script creates a fully configured VM named *myVM* that you can use for the rest of this tutorial.
 
 ```
-
 # Create user object. You get a pop-up prompting you to enter the credentials for the VM.
 $cred = Get-Credential -Message "Enter a username and password for the virtual machine."
 
@@ -87,7 +86,7 @@ $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $resourceGroup -Locati
   -Name myNetworkSecurityGroup -SecurityRules $nsgRuleRDP
 
 # Create a virtual network card and associate with public IP address and NSG
-$nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName $resourceGroup -Location eastus `
+$nic = New-AzureRmNetworkInterface -Name mySQLNic -ResourceGroupName $resourceGroup -Location eastus `
   -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
 
 # Create a virtual machine configuration
@@ -100,7 +99,7 @@ Add-AzureRmVMNetworkInterface -Id $nic.Id
 New-AzureRmVM -ResourceGroupName $resourceGroup -Location eastus -VM $vmConfig
 ```
 
-Now use [Set-AzureRmVMSqlServerExtension](/powershell/module/azurerm.compute/set-azurermvmsqlserverextension) to add the [SQL Server entension](/sql/virtual-machines-windows-sql-server-agent-extension.md) to the SQL VM.
+Use [Set-AzureRmVMSqlServerExtension](/powershell/module/azurerm.compute/set-azurermvmsqlserverextension) to add the [SQL Server extension](/sql/virtual-machines-windows-sql-server-agent-extension.md) to the SQL VM.
 
 ```azurepowershell-interactive
 Set-AzureRmVMSqlServerExtension -ResourceGroupName $resourceGroup -VMName mySQLVM -name "SQLExtension"
@@ -111,12 +110,10 @@ Set-AzureRmVMSqlServerExtension -ResourceGroupName $resourceGroup -VMName mySQLV
 In this tutorial, you created a two-tier .Net Core sample music store application. You learned how to:
 
 > [!div class="checklist"]
-> * Create an Azure SQL server and database
-> * Create a VM 
+> * Create a VM using New-AzVM
 > * Install IIS and the .NET Core SDK on the VM
-> * Configure the VM to run a sample web app
-> * Connect to the web app to see it running
-
+> * Create an Azure SQL VM
+> * Install the SQL Server extension
 
 Advance to the next tutorial to learn how to secure IIS web server with SSL certificates.
 
