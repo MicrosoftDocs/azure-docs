@@ -18,21 +18,17 @@ In this two-part tutorial series, you learn how to search semi-structured and un
 In this part we cover how to:
 
 > [!div class="checklist"]
-> * Create and populate an index inside an Azure Search Service
-> * Use the Azure Search Service to search your index
-
-> [!NOTE]
-> "JSON array support is a preview feature in Azure Search. It is not currently available in the portal. For this reason, we're using the preview REST API which provides this feature, and a REST client tool to call the API."
+> * Create an Azure Search Service using the REST API
+> * Use the Azure Search Service to search your container
 
 ## Prerequisites
 
 To complete this tutorial:
 * Complete the [previous tutorial](../storage/blobs/storage-unstructured-search.md)
-    * This tutorial uses the storage account and search service created in the previous tutorial
-* Install a REST client and understand how to construct an HTTP request
+* Install a REST client
+* Gain familiarity with REST API queries
 
-
-## Setup the REST client
+## Setup
 
 To complete this tutorial you need a REST client. For the purposes of this tutorial, we are using [Postman](https://www.getpostman.com/). Feel free to use a different REST client if you're already comfortable with a particular one.
 
@@ -68,7 +64,7 @@ After the upload completes, the files should appear in their own subfolder insid
 
 ## Connect your search service to your container
 
-We are using Postman to make three API calls to your search service in order to create a data source, an index, and an indexer. The data source includes a pointer to your storage account and your JSON data. Your search service makes the connection when loading the data.
+We are using the REST API to perform the connection because the UI does not currently support JSON indexing.
 
 The query string must contain **api-version=2016-09-01-Preview** and each call should return a **201 Created**. The generally available api-version does not yet have the capability to handle json as a jsonArray, currently only the preview api-version does.
 
@@ -285,4 +281,4 @@ In this tutorial, you learned about searching semi-structured data using Azure s
 Follow this link to learn more about search.
 
 > [!div class="nextstepaction"]
-> [Indexing Documents in Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
+> [What is Azure Search](search-what-is-azure-search.md)

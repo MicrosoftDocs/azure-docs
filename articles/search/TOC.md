@@ -19,6 +19,7 @@
 ## [.NET](search-howto-dotnet-sdk.md)
 ## [.NET synonyms preview](search-synonyms-tutorial-sdk.md)
 ## [Portal](search-get-started-portal.md)
+## [Search Semi-Structured Data](search-semi-structured-data.md)
 ## [Node.js](search-get-started-nodejs.md)
 ## [Java](search-get-started-java.md)
 # How to
