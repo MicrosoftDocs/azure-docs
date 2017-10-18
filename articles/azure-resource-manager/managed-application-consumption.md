@@ -96,7 +96,7 @@ az managedapp create --name ravtestappliance401 --location "westcentralus"
 * **appliance-definition-Id**: The resource ID of the managed application definition created in the preceding step. To obtain this ID, run the following command:
 
   ```azurecli
-  az appliance definition show -n ravtestAppDef1 -g ravApplianceRG2
+  az managedapp definition show -n ravtestAppDef1 -g ravApplianceRG2
   ```
 
   This command returns the managed application definition. You need the value of the ID property.
