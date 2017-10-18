@@ -118,7 +118,7 @@ If you created an HDInsight cluster with Data Lake Store as additional storage a
 			# Register the data fram as a table to run queries against
 			hvacdf.registerTempTable("hvac")
 
-6. Because you are using a PySpark kernel, you can now directly run a SQL query on the temporary table **hvac** that you just created by using the `%%sql` magic. For more information about the `%%sql` magic, as well as other magics available with the PySpark kernel, see [Kernels available on Jupyter notebooks with Spark HDInsight clusters](hdinsight-apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
+6. Because you are using a PySpark kernel, you can now directly run a SQL query on the temporary table **hvac** that you just created by using the `%%sql` magic. For more information about the `%%sql` magic, as well as other magics available with the PySpark kernel, see [Kernels available on Jupyter notebooks with Spark HDInsight clusters](spark/apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
 
 		%%sql
 		SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
@@ -137,5 +137,5 @@ If you created an HDInsight cluster with Data Lake Store as additional storage a
 ## Next steps
 
 * [Create a standalone Scala application to run on Apache Spark cluster](spark/apache-spark-create-standalone-application.md)
-* [Use HDInsight Tools in Azure Toolkit for IntelliJ to create Spark applications for HDInsight Spark Linux cluster](hdinsight-apache-spark-intellij-tool-plugin.md)
+* [Use HDInsight Tools in Azure Toolkit for IntelliJ to create Spark applications for HDInsight Spark Linux cluster](spark/apache-spark-intellij-tool-plugin.md)
 * [Use HDInsight Tools in Azure Toolkit for Eclipse to create Spark applications for HDInsight Spark Linux cluster](spark/apache-spark-eclipse-tool-plugin.md)

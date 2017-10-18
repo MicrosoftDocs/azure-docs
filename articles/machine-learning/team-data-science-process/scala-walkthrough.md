@@ -40,7 +40,7 @@ The setup steps and code in this article are for Azure HDInsight 3.4 Spark 1.6. 
 
 ## Prerequisites
 * You must have an Azure subscription. If you do not already have one, [get an Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* You need an Azure HDInsight 3.4 Spark 1.6 cluster to complete the following procedures. To create a cluster, see the instructions in [Get started: Create Apache Spark on Azure HDInsight](../../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md). Set the cluster type and version on the **Select Cluster Type** menu.
+* You need an Azure HDInsight 3.4 Spark 1.6 cluster to complete the following procedures. To create a cluster, see the instructions in [Get started: Create Apache Spark on Azure HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Set the cluster type and version on the **Select Cluster Type** menu.
 
 ![HDInsight cluster type configuration](./media/scala-walkthrough/spark-cluster-on-portal.png)
 
@@ -83,7 +83,7 @@ The Spark kernel provides some predefined “magics,” which are special comman
 * `%%local` specifies that the code in subsequent lines will be executed locally. The code must be valid Scala code.
 * `%%sql -o <variable name>` executes a Hive query against `sqlContext`. If the `-o` parameter is passed, the result of the query is persisted in the `%%local` Scala context as a Spark data frame.
 
-For more information about the kernels for Jupyter notebooks and their predefined "magics" that you call with `%%` (for example, `%%local`), see [Kernels available for Jupyter notebooks with HDInsight Spark Linux clusters on HDInsight](../../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md).
+For more information about the kernels for Jupyter notebooks and their predefined "magics" that you call with `%%` (for example, `%%local`), see [Kernels available for Jupyter notebooks with HDInsight Spark Linux clusters on HDInsight](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md).
 
 ### Import libraries
 Import the Spark, MLlib, and other libraries you'll need by using the following code.
