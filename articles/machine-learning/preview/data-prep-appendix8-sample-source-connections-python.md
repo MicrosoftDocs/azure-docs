@@ -16,7 +16,7 @@ ms.date: 09/11/2017
 # Sample of custom source connections (Python) 
 Before reading this appendix, read [Python extensibility overview](data-prep-python-extensibility-overview.md).
 
-## Loading data from data.world
+## Load data from data.world
 
 ### Prerequisites
 

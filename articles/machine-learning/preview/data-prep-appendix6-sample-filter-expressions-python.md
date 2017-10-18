@@ -18,7 +18,7 @@ ms.date: 09/11/2017
 Before reading this appendix, read [Python extensibility overview](data-prep-python-extensibility-overview.md).
 
 ## Filter with equivalence test
-Filter in only those rows the where value of (numeric) Col2 is greater than 4. 
+Filter in only those rows where the value of (numeric) Col2 is greater than 4. 
 
 ```python
     row["Col2"] > 4

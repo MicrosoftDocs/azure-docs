@@ -38,7 +38,7 @@ For numeric columns, this inspector provides a variety of different stats about 
 - None
 
 ## Histogram 
-Computes and displays a Histogram of a single numeric column. The default number of buckets is calculated using Scott’s Rule, but the rule can be overridden via the options.
+Computes and displays a histogram of a single numeric column. The default number of buckets is calculated using Scott’s Rule. However, the rule can be overridden via the options.
 
 This Inspector supports the halo effect.
 
@@ -54,7 +54,7 @@ This Inspector supports the halo effect.
 This inspector supports filtering via buckets, which can include single or multi-select buckets. Apply filters as previously described.
 
 ## Value counts
-This inspector presents a frequency table of values for the column that is currently selected. The default display is for the top six values. The limit can be changed to any number, or can be set to count from the bottom instead of the top. This inspector supports the halo effect.
+This inspector presents a frequency table of values for the column that is currently selected. The default display is for the top six values. You can change the limit to any number, however. You can also set the display to count from the bottom instead of the top. This inspector supports the halo effect.
 
 ### Options 
 - Number of top values
@@ -108,4 +108,4 @@ A map with points that are plotted, assuming that latitude and longitude have be
 ### Actions
 This inspector supports filtering via point selection on the map. Press the **Ctrl** key, and then click and drag with the mouse to form a square around the points. Then apply filters as previously described.
 
-It's possible to quickly size the map to show only the possible points by pressing the **E** on the left side of the map.
+You can quickly size the map to show only the possible points by pressing the **E** on the left side of the map.

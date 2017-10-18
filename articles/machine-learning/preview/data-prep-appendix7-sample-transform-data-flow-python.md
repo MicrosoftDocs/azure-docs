@@ -15,7 +15,7 @@ ms.date: 09/11/2017
 ---
 
 # Sample of custom data flow transforms (Python) 
-The name of this transform in the menu is **Transform Dataflow (Script)**. Before reading this appendix, read [Python extensibility overview](data-prep-python-extensibility-overview.md).
+The name of the transform in the menu is **Transform Dataflow (Script)**. Before reading this appendix, read [Python extensibility overview](data-prep-python-extensibility-overview.md).
 
 ## Transform frame
 ### Create a new column dynamically 
@@ -54,11 +54,11 @@ Fill down requires two transforms. It assumes data that looks like the following
 |              |San Antonio|
 |              |Houston    |
 
-First, create an 'Add Column (Script)' transform that contains the following code
+First, create an Add Column (Script) transform that contains the following code:
 ```python
     row['State'] if len(row['State']) > 0 else None
 ```
-Now create a Transform Data Flow (Script) transform that contains the following code
+Now create a Transform Data Flow (Script) transform that contains the following code:
 ```python
     df = df.fillna( method='pad')
 ```
