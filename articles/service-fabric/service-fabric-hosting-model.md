@@ -23,7 +23,7 @@ Before proceeding further, make sure that you are familiar with [Service Fabric 
 > [!NOTE]
 > In this article, for simplicity, unless explicitly mentioned:
 >
-> - All uses of word *replica* refers to both a replica of a stateful service or an instance of a statless service.
+> - All uses of word *replica* refers to both a replica of a stateful service or an instance of a stateless service.
 > - *CodePackage* is treated equivalent to *ServiceHost* process that registers a *ServiceType* and hosts replicas of services of that *ServiceType*.
 >
 
