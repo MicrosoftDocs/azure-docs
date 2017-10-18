@@ -116,7 +116,7 @@ An active copy of a *ServicePackage* on a node is referred as [deployed service 
 >
 > - Under **Exclusive Process** hosting model, on a given *node*, for a given *application*, one or more copies of a *ServicePackage* can be active. Each activation has a *non-empty* **ServicePackageActivationId** and needs to be specified while performing deployed service package related operations. 
 >
-> - If **ServicePackageActivationId** is ommited it defaults to 'empty string'. If a deployed service package that was activated under **Shared Process** model is present, then operation will be performed on it, otherwise the operation will fail.
+> - If **ServicePackageActivationId** is omitted it defaults to 'empty string'. If a deployed service package that was activated under **Shared Process** model is present, then operation will be performed on it, otherwise the operation will fail.
 >
 > - It is not recommended to query once and cache **ServicePackageActivationId** as it is dynamically generated and can change for various reasons. Before performing an operation that needs **ServicePackageActivationId**, you should first query the list of [deployed service packages][p3] on a node and then use *ServicePackageActivationId** from query result to perform the original operation.
 >
