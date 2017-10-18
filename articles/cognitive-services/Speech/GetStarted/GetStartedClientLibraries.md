@@ -1,4 +1,4 @@
----
+l---
 title: Get Started with Microsoft Speech Client Libraries | Microsoft Docs
 description: Use the Microsoft Speech Client libraries in Microsoft Cognitive Services to develop applications that convert spoken audio to text.
 services: cognitive-services
@@ -27,13 +27,14 @@ Currently, the following Microsoft Speech Client Libraries are available:
 
 - [JavaScript library](GetStartedJSWebsockets.md)
 
-- [Java bibrary for Android](GetStartedJavaAndroid.md)
+- [Java library for Android](GetStartedJavaAndroid.md)
 
 - [ObjectiveC library for iOS](Get-Started-ObjectiveC-iOS.md)
 
 ## Additional resources
 
 - The [samples](../samples.md) page provides complete samples to use Speech Client Libraries.
+- Creating your own SDK. If you need a client library that is not yet supported, you can create your own SDK by implementing the [Speech WebSocket Protocol](../API-Reference-REST/websocketprotocol.md) on the platform and using the language of your choice.
 
 ## License
 

@@ -22,7 +22,6 @@ ms.author: robinsh
 
 [!INCLUDE [storage-try-azure-tools-files](../../../includes/storage-try-azure-tools-files.md)]
 
-## About this tutorial
 This tutorial will demonstrate the basics of using Python to develop applications or services that use Azure Files to store file data. In this tutorial, we will create a simple console application and show how to perform basic actions with Python and Azure Files:
 
 * Create Azure File shares
@@ -125,7 +124,7 @@ Finally, to delete a file, call `delete_file`.
 file_service.delete_file('myshare', None, 'myfile')
 ```
 
-## Create share snapshot
+## Create share snapshot (preview)
 You can create a point in time copy of your entire file share.
 
 ```python
@@ -140,7 +139,7 @@ metadata = {"foo": "bar"}
 snapshot = file_service.snapshot_share(share_name, metadata=metadata)
 ```
 
-## List shares and snapshots
+## List shares and snapshots 
 You can list all the snapshots for a particular share.
 
 ```python

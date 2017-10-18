@@ -1,6 +1,6 @@
 ---
-title: How to use Azure Files share snapshot | Microsoft Docs
-description: Use Azure Files share snapshot. Azure Files share snapshot is a read-only version of a an Azure Files share that's taken at a point in time. Once a share snapshot has been created, it can be read, copied, or deleted, but not modified. Share snapshots provide a way to back up the share as it appears at a moment in time.
+title: How to use Azure File share snapshot (preview) | Microsoft Docs
+description: Use Azure File share snapshot. Azure File share snapshots are a read-only version of an Azure File share taken at a point in time. Once a share snapshot has been created, it can be read, copied, or deleted, but not modified. Share snapshots provide a way to back up the share as it appears at a moment in time.
 services: storage
 documentationcenter: .net
 author: renash
@@ -15,21 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2017
 ms.author: renash
-
 ---
 
-# Work with file share snapshots
-
-Azure Files share snapshot is a read-only version of a an Azure Files share that's taken at a point in time. Once a share snapshot has been created, it can be read, copied, or deleted, but not modified. Share snapshots provide a way to back up the share as it appears at a moment in time. In this article we will learn about how to create, manage and delete Azure Files share snapshots. To learn more about share snapshot, see at [share snapshot overview](storage-snapshots-files.md) or [snapshot FAQ](storage-files-faq.md)
+# Work with Azure File share snapshots (preview)
+Azure Files share snapshots (preview) are a read-only version of an Azure File share taken at a point in time. Once a share snapshot has been created, it can be read, copied, or deleted, but not modified. Share snapshots provide a way to back up the share as it appears at a moment in time. In this article we will learn about how to create, manage and delete Azure Files share snapshots. To learn more about share snapshot, see at [share snapshot overview](storage-snapshots-files.md) or [snapshot FAQ](storage-files-faq.md)
 
 ## Create Azure Files share snapshots
 
 You can create a share snapshot using Portal, Powershell, CLI, REST or any Storage SDK. The following few sections will tell you how to create a share snapshot using Portal, CLI and Powershell. 
 
-You can take a share snapshot of a file share while it is in use. However, share snapshots
-only capture data that has been already written to Azure File share at the time
-the share snapshot command is issued. This might exclude any data that has been cached
-by any applications or the operating system.
+You can take a share snapshot of a file share while it is in use. However, share snapshots only capture data that has been already written to Azure File share at the time the share snapshot command is issued. This might exclude any data that has been cached by any applications or the operating system.
 
 ### Create share snapshot using portal  
 You can simply navigate to your file share in the portal and select `Create a Snapshot` button to create a point in time share snapshot.
@@ -74,13 +69,10 @@ $share.IsSnapshot
 $snapshot=$share.Snapshot()
 
 ```
-## List share snapshots, browse share snapshot contents and restore from snapshots
 
-You can enumerate the share snapshots associated with your file share using
-“Previous Versions” integration in Windows, through REST, Client Library, PowerShell, and Portal. Once the Azure File share is mounted, you can view all the previous
-versions of the file using SMB “Previous Versions” integration. Once the Azure
-File share is mounted, you can view all the previous versions of the directory
-using SMB “Previous Versions” integration. In the following few sections you will learn how to use Azure portal, Windows and Azure CLI 2.0 to list, browse and restore share snapshots.
+## Common share snapshot operations
+
+You can enumerate the share snapshots associated with your file share using "Previous Versions" tab in Windows, through REST, Client Library, PowerShell, and Portal. Once the Azure File share is mounted, you can view all the previous versions of the file using "Previous Versions" tab in Windows. In the following sections you will learn how to use Azure portal, Windows and Azure CLI 2.0 to list, browse and restore share snapshots.
 
 ### Share snapshot operations in portal
 

@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
-ms.author: cgillum
+ms.author: azfuncdf
 ---
 
 # Durable Functions overview (Azure Functions)
@@ -126,7 +126,7 @@ Content-Type: application/json
 
 Because the state is managed by the Durable Functions runtime, you don't have to implement your own status tracking mechanism.
 
-Even though the Durable Functions extension has built-in webhooks for managing long-running orchestrations, you can implement this pattern yourself using your own function triggers (such as HTTP, queue, or Event Hub) and the `orchestrationClient` binding.
+Even though the Durable Functions extension has built-in webhooks for managing long-running orchestrations, you can implement this pattern yourself using your own function triggers (such as HTTP, queue, or Event Hub) and the `orchestrationClient` binding. For example, you could use a queue message to trigger termination.  Or you could use an HTTP trigger protected by an Azure Active Directory authentication policy instead of the built-in webhooks that use a generated key for authentication. 
 
 ```cs
 // HTTP-triggered function to start a new orchestrator function instance.
@@ -157,7 +157,7 @@ The following diagram illustrates a function that runs in an infinite loop while
 
 ![Stateful singleton diagram](media/durable-functions-overview/stateful-singleton.png)
 
-While Durable Functions is not an implementation of the actor model, orchestrator functions do have many of the same runtime characteristics. For example, they are long-running (possibly endless), stateful, reliable, single-threaded, location-transparent, and globally addressable. This makes orchestrator functions useful for "actor"-like scenarios without the need for a separate framework.
+While Durable Functions is not an implementation of the actor model, orchestrator functions do have many of the same runtime characteristics. For example, they are long-running (possibly endless), stateful, reliable, single-threaded, location-transparent, and globally addressable. This makes orchestrator functions useful for "actor"-like scenarios.
 
 Ordinary functions are stateless and therefore not suited to implement a stateful singleton pattern. However, the Durable Functions extension makes the stateful singleton pattern relatively trivial to implement. The following code is a simple orchestrator function that implements a counter.
 
@@ -235,28 +235,9 @@ The use of Event Sourcing by this extension is transparent. Under the covers, th
 
 Once an orchestration function is given more work to do (for example, a response message is received or a durable timer expires), the orchestrator wakes up again and re-executes the entire function from the start in order to rebuild the local state. If during this replay the code tries to call a function (or do any other async work), the Durable Task Framework consults with the *execution history* of the current orchestration. If it finds that the activity function has already executed and yielded some result, it replays that function's result, and the orchestrator code continues running. This continues happening until the function code gets to a point where either it is finished or it has scheduled new async work.
 
-## Orchestrator code constraints
+### Orchestrator code constraints
 
-The replay behavior creates constraints on the type of code that can be written in an orchestrator function:
-
-* Orchestrator code must be **deterministic**. It will be replayed multiple times and must produce the same result each time. For example, no direct calls to get the current date/time, get random numbers, generate random GUIDs, or call into remote endpoints.
-
-  If orchestrator code needs to get the current date/time, it should use the [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) API, which is safe for replay.
-
-  Non-deterministic operations must be done in activity functions. This includes any interaction with other input or output bindings. This ensures that any non-deterministic values will be generated once on the first execution and saved into the execution history. Subsequent executions will then use the saved value automatically.
-
-* Orchestrator code should be **non-blocking**. For example, no `Thread.Sleep` or equivalent APIs.
-
-  If an orchestrator needs to delay, it can use the [CreateTimer](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CreateTimer_) API.
-
-* Orchestrator code must **never initiate any async operation** except by using the [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) API. For example, no `Task.Run`, `Task.Delay` or `HttpClient.SendAsync`. The Durable Task Framework executes orchestrator code on a single thread and cannot interact with any other threads that could be scheduled by other async APIs.
-
-* **Infinite loops should be avoided** in orchestrator code. Because the Durable Task Framework saves execution history as the orchestration function progresses, an infinite loop could cause an orchestrator instance to run out of memory. For infinite loop scenarios, use APIs such as [ContinueAsNew](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_ContinueAsNew_) to restart the function execution and discard previous execution history.
-
-While these constraints may seem daunting at first, in practice they are easy to follow. Where possible, the Durable Task Framework attempts to detect violations of the above rules and throws a `NonDeterministicOrchestrationException`. However, this detection behavior is best-effort, and orchestrator code should never depend on it.
-
-> [!NOTE]
-> All of these rules apply only to functions triggered by the `orchestrationTrigger` binding. Activity functions triggered by the `activityTrigger` binding, and functions that use the `orchestrationClient` binding, have no such limitations.
+The replay behavior creates constraints on the type of code that can be written in an orchestrator function. For example, orchestrator code must be deterministic, as it will be replayed multiple times and must produce the same result each time. The complete list of constraints can be found in the [Orchestrator code constraints](durable-functions-checkpointing-and-replay.md#orchestrator-code-constraints) section of the **Checkpointing and restart** article.
 
 ## Language support
 
@@ -280,14 +261,14 @@ Because of the replay behavior of the Durable Task Framework dispatcher, you can
 
 The Durable Functions extension uses Azure Storage queues, tables, and blobs to persist execution history state and trigger function execution. The default storage account for the function app can be used, or you can configure a separate storage account. You might want a separate account due to storage throughput limits. The orchestrator code you write does not need to (and should not) interact with the entities in these storage accounts. The entities are managed directly by the Durable Task Framework as an implementation detail.
 
-Orchestrator functions schedule activity functions and receive their responses via internal queue messages. When a function app runs in the Azure Functions Consumption plan, these queues are monitored by the [Azure Functions Scale Controller](functions-scale.md#how-the-consumption-plan-works) and new compute instances are added as needed. When scaled out to multiple VMs, an orchestrator function may run on one VM while activity functions it calls run on several different VMs. You can find more details on the scale behavior of Durable Functions in the [Performance and scale](durable-functions-perf-and-scale.md) topic.
+Orchestrator functions schedule activity functions and receive their responses via internal queue messages. When a function app runs in the Azure Functions Consumption plan, these queues are monitored by the [Azure Functions Scale Controller](functions-scale.md#how-the-consumption-plan-works) and new compute instances are added as needed. When scaled out to multiple VMs, an orchestrator function may run on one VM while activity functions it calls run on several different VMs. You can find more details on the scale behavior of Durable Functions in [Performance and scale](durable-functions-perf-and-scale.md).
 
 Table storage is used to store the execution history for orchestrator accounts. Whenever an instance rehydrates on a particular VM, it fetches its execution history from table storage so that it can rebuild its local state. One of the convenient things about having the history available in Table storage is that you can take a look and see the history of your orchestrations using tools such as [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 
 ![Azure Storage Explorer screen shot](media/durable-functions-overview/storage-explorer.png)
 
 > [!WARNING]
-> While it's easy and convenient to see execution history in table storage, you should avoid taking any dependency on this table, as the specifics of its usage may change prior to the general availability of the Durable Functions extension.
+> While it's easy and convenient to see execution history in table storage, avoid taking any dependency on this table. It may change as the Durable Functions extension evolves.
 
 ## Known issues and FAQ
 
@@ -296,7 +277,7 @@ In general, all known issues should be tracked in the [GitHub issues](https://gi
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Continue reading Durable Functions topics](durable-functions-bindings.md)
+> [Continue reading Durable Functions documentation](durable-functions-bindings.md)
 
 > [!div class="nextstepaction"]
 > [Install the Durable Functions extension and samples](durable-functions-install.md)

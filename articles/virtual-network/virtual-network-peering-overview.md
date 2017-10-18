@@ -33,7 +33,7 @@ The benefits of using virtual network peering include:
 * Traffic going through virtual network peerings is completely private. It goes through the Microsoft backbone network and no public internet or gateways involved.
 * A low-latency, high-bandwidth connection between resources in different virtual networks.
 * The ability to use resources in one virtual network from another virtual network once peered.
-* Vrtual network peering helps you transfer data across Azure subscriptions, deployment models, and across Azure regions (preview).
+* Virtual network peering helps you transfer data across Azure subscriptions, deployment models, and across Azure regions (preview).
 * The ability to peer virtual networks created through the Azure Resource Manager or to peer one virtual network created through Resource Manager to a virtual network created through the classic deployment model. Read the [Understand Azure deployment models](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) article to learn more about the differences between the two Azure deployment models.
 
 ## <a name="requirements-constraints"></a>Requirements and constraints
@@ -88,15 +88,15 @@ When the virtual networks that are sharing a single Azure ExpressRoute connectio
 
 Virtual network peering is a privileged operation. It’s a separate function under the VirtualNetworks namespace. A user can be given specific rights to authorize peering. A user who has read-write access to the virtual network inherits these rights automatically.
 
-A user who is either an admin or a privileged user of the peering ability can initiate a peering operation on another virtual network. The minimum level of permission required is Netwqork Contributor. If there is a matching request for peering on the other side, and if other requirements are met, the peering is established.
+A user who is either an admin or a privileged user of the peering ability can initiate a peering operation on another virtual network. The minimum level of permission required is Network Contributor. If there is a matching request for peering on the other side, and if other requirements are met, the peering is established.
 
-For example, if you were peering virtual networks named myvirtual networkA and myvirtual networkB, your account must be assigned the following minimum role or permissions for each virtual network:
+For example, if you were peering virtual networks named myVirtualNetworkA and myVirtualNetworkB, your account must be assigned the following minimum role or permissions for each virtual network:
 
 |Virtual network|Deployment model|Role|Permissions|
 |---|---|---|---|
-|myvirtual networkA|Resource Manager|[Network Contributor](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
+|myVirtualNetworkA|Resource Manager|[Network Contributor](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
 | |Classic|[Classic Network Contributor](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|N/A|
-|myvirtual networkB|Resource Manager|[Network Contributor](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
+|myVirtualNetworkB|Resource Manager|[Network Contributor](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
 ||Classic|[Classic Network Contributor](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Microsoft.ClassicNetwork/virtualNetworks/peer|
 
 ## Monitor
@@ -118,7 +118,7 @@ You can also troubleshoot your connectivity to a virtual machine in a peered vir
 
 ## Limits
 
-There are limits on the number of peerings that are allowed for a single virtual network. The default number of peerings is 50. You can increase the number of peerings. For more information, review the [Azure networking limits](../azure-subscription-service-limits.md#networking-limits).
+There are limits on the number of peerings that are allowed for a single virtual network. For details, see [Azure networking limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
 ## Pricing
 

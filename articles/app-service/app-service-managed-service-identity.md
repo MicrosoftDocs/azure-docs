@@ -26,6 +26,10 @@ This topic shows you how to create a managed app identity for App Service and Az
 
 Creating an app with an identity requires an additional property to be set on the application.
 
+> [!NOTE] 
+> Only the primary slot for a site will receive the identity. Managed service identities for deployment slots are not yet supported.
+
+
 ### Using the Azure portal
 
 To set up a managed service identity in the portal, you will first create an application as normal and then enable the feature.
@@ -143,6 +147,9 @@ A successful 200 OK response includes a JSON body with the following properties:
 
 
 This response is the same as the [response for the AAD service-to-service access token request](../active-directory/develop/active-directory-protocols-oauth-service-to-service.md#service-to-service-access-token-response).
+
+> [!NOTE] 
+> Environment variables are set up when the process first starts, so after enabling Managed Service Identity for your application you may need to restart your application, or redeploy its code, before `MSI_ENDPOINT` and `MSI_SECRET` are available to your code.
 
 ### REST protocol examples
 An example request might look like the following:

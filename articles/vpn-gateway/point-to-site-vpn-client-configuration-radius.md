@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 10/16/2017
 ms.author: cherylmc
 
 ---
@@ -46,7 +46,7 @@ Make sure that all connecting users have username/password credentials that can 
 Create the VPN client configuration using the following command:
 
 ```powershell 
-New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -VirtualNetworkGatewayName "VNet1GW" -AuthenticationMethod "EapMSChapv2"
+New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapMSChapv2"
 ```
  
 After running the command, it will return a link. Copy and paste the link to a web browser to download a zipped file, called 'VpnClientConfiguration.zip'. Unzip the file to see the following folders: 
@@ -60,7 +60,7 @@ You can retrieve client configuration files that you have already created. The '
 To retrieve previously generated client configuration files, use the following command:
 
 ```powershell
-Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -VirtualNetworkGatewayName "VNet1GW"
+Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW"
 ```
  
 ### <a name="adwincli"></a>Set up a Windows VPN client
@@ -119,7 +119,7 @@ You can create VPN client configuration files for RADIUS certificate authenticat
 Create the VPN client configuration using the following command:
  
 ```powershell
-New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -VirtualNetworkGatewayName "VNet1GW" -AuthenticationMethod "EapTls" -RadiusRootCert <full path name of .cer file containing the RADIUS root> -ClientRootCert <full path name of .cer file containing the client root>
+New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapTls" -RadiusRootCert <full path name of .cer file containing the RADIUS root> -ClientRootCert <full path name of .cer file containing the client root>
 ```
 
 The cmdlet result returns a link. Copy and paste the link to a web browser to download a zipped file, called 'VpnClientConfiguration.zip'. Unzip the file to see the following folders:
@@ -132,7 +132,7 @@ You can retrieve client configuration files that you have already created. The '
 To retrieve previously generated client configuration files, use the following command:
 
 ```powershell
-Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -VirtualNetworkGatewayName "VNet1GW"
+Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW"
 ```
  
 ### <a name="certwincli"></a>Set up a Windows VPN Client

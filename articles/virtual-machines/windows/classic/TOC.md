@@ -1,5 +1,5 @@
 # Overview
-## [About virtual machines](../../virtual-machines-windows-about.md)
+## [About virtual machines](../../virtual-machines-windows-about.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ## [Disks and VHDs](../about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Virtual Networks](../../../virtual-network/virtual-networks-overview.md)
 ## [FAQ](faq.md)
@@ -91,9 +91,9 @@
 ## [.NET](/dotnet/api/microsoft.azure.management.compute)
 ## [Author Resource Manager templates](../../../resource-group-authoring-templates.md)
 ## [Community templates](https://azure.microsoft.com/documentation/templates)
-## [Compute REST](/rest/api/compute)
-## [Network REST](/rest/api)
-## [Storage REST](/rest/api/storageservices)
+## [Compute REST](https://msdn.microsoft.com/library/jj157206.aspx)
+## [Network REST](https://msdn.microsoft.com/library/jj157182.aspx)
+## [Storage REST](https://msdn.microsoft.com/library/ee460790.aspx)
 
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=compute)
