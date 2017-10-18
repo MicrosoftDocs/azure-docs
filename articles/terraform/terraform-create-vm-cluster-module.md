@@ -33,7 +33,7 @@ For more information on Terraform, see the [Terraform documentation](https://www
 > [!TIP]
 > If you [use Terraform environment variables](/azure/virtual-machines/linux/terraform-install-configure#set-environment-variables) or run this tutorial in the [Azure Cloud Shell](/azure/cloud-shell/overview), skip this step.
 
- Review [Install Terraform and configure access to Azure](/azure/virtual-machines/linux/terraform-install-configure) to create an Azure service principal. Use this service principal to populate a new file `azureProviderAndCreds.tf` in an empty directory with the following code
+ Review [Install Terraform and configure access to Azure](/azure/virtual-machines/linux/terraform-install-configure) to create an Azure service principal. Use this service principal to populate a new file `azureProviderAndCreds.tf` in an empty directory with the following code:
 
 ```tf
 variable subscription_id {}
@@ -97,7 +97,7 @@ Run `terraform plan` to preview the virtual machine infrastructure created by th
 
 ## Create the virtual machines with apply
 
-Run `terraform apply` to provision the VMs on Azure:
+Run `terraform apply` to provision the VMs on Azure.
 
 ![Terraform Apply](media/terraformApplyVmsWithModules.png)
 

@@ -18,7 +18,7 @@ ms.author:
 
 # Create a VM cluster with Terraform using Terraform modules and custom HCL
 
-This tutorial demonstrates creating a small compute cluster using the [Hashicorp Configuration Language](https://www.terraform.io/docs/configuration/syntax.html) (HCL). The configuration creates a load balancer, 2 Linux VMs in an [availability set](/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy), and all necessary networking resources.
+This tutorial demonstrates creating a small compute cluster using the [Hashicorp Configuration Language](https://www.terraform.io/docs/configuration/syntax.html) (HCL). The configuration creates a load balancer, two Linux VMs in an [availability set](/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy), and all necessary networking resources.
 
 In this tutorial you will:
 
@@ -30,10 +30,10 @@ In this tutorial you will:
 
 ## Set up authentication with Azure
 
- Review [Install Terraform and configure access to Azure](/azure/virtual-machines/linux/terraform-install-configure) and use the service principal values to populate a new file `azureProviderAndCreds.tf` in an empty directory.
-
 > [!TIP]
-> You don't need to perform this step if you [create environment variables](/azure/virtual-machines/linux/terraform-install-configure#set-environment-variables) for these values or run this tutorial in the [Azure Cloud Shell](/azure/cloud-shell/overview).
+> If you [use Terraform environment variables](/azure/virtual-machines/linux/terraform-install-configure#set-environment-variables) or run this tutorial in the [Azure Cloud Shell](/azure/cloud-shell/overview), skip this step.
+
+ Review [Install Terraform and configure access to Azure](/azure/virtual-machines/linux/terraform-install-configure) to create an Azure service principal. Use this service principal to populate a new file `azureProviderAndCreds.tf` in an empty directory with the following code:
 
 ```tf
 variable subscription_id {}
@@ -194,14 +194,14 @@ resource "azurerm_virtual_machine" "test" {
 
 ## Visualize the changes with plan
 
-Run `terraform plan` to preview the virtual machine infrastructure that will be created with the template.
+Run `terraform plan` to preview the virtual machine infrastructure created by the template.
 
 ![Terraform Plan](media/terraformPlanVmsWithModules.png)
 
 
 ## Create the virtual machines with apply
 
-Run `terraform apply` to provision the VM cluster on Azure:
+Run `terraform apply` to provision the VM cluster on Azure.
 
 ![Terraform Apply](media/terraformApplyVmsWithModules.png)
 
