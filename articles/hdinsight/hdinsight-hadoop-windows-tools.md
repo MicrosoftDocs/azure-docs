@@ -66,7 +66,7 @@ Both [Intellij IDEA](https://www.jetbrains.com/idea/download) and the [Eclipse I
 * Develop and run a Scala Spark application locally.
 
 These articles show how: 
-* Intellij IDEA: [Create Spark applications using the Azure Toolkit for Intellij plug-in and the Scala SDK.](hdinsight-apache-spark-intellij-tool-plugin.md)
+* Intellij IDEA: [Create Spark applications using the Azure Toolkit for Intellij plug-in and the Scala SDK.](spark/apache-spark-intellij-tool-plugin.md)
 * Eclipse IDE or Scala IDE for Eclipse: [Create Spark applications and the Azure Toolkit for Eclipse](spark/apache-spark-eclipse-tool-plugin.md) 
 
 
@@ -74,7 +74,7 @@ These articles show how:
 Apache Spark clusters in HDInsight include Zeppelin notebooks and kernels that can be used with Jupyter notebooks. 
 
 * [Learn how to use kernels on Spark clusters with Jupyter notebooks to test Spark applications](hdinsight-apache-spark-zeppelin-notebook.md)
-* [Learn how to use Zeppelin notebooks on Spark clusters to run Spark jobs](hdinsight-apache-spark-jupyter-notebook-kernels.md) 
+* [Learn how to use Zeppelin notebooks on Spark clusters to run Spark jobs](spark/apache-spark-jupyter-notebook-kernels.md) 
 
 
 ## Run Linux-based tools and technologies on Windows

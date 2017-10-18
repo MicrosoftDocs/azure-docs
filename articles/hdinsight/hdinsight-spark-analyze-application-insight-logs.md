@@ -28,7 +28,7 @@ Learn how to use Spark on HDInsight to analyze Application Insight telemetry dat
 
 * An application that is configured to use Application Insights.
 
-* Familiarity with creating a Linux-based HDInsight cluster. For more information, see [Create Spark on HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
+* Familiarity with creating a Linux-based HDInsight cluster. For more information, see [Create Spark on HDInsight](spark/apache-spark-jupyter-spark-sql.md).
 
   > [!IMPORTANT]
   > The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -367,7 +367,7 @@ To add the Azure Storage Account to an existing cluster, use the information in 
 For more examples of using Spark to work with data and services in Azure, see the following documents:
 
 * [Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](hdinsight-apache-spark-use-bi-tools.md)
-* [Spark with Machine Learning: Use Spark in HDInsight for analyzing building temperature using HVAC data](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
+* [Spark with Machine Learning: Use Spark in HDInsight for analyzing building temperature using HVAC data](spark/apache-spark-ipython-notebook-machine-learning.md)
 * [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Spark Streaming: Use Spark in HDInsight for building streaming applications](spark/apache-spark-eventhub-streaming.md)
 * [Website log analysis using Spark in HDInsight](spark/apache-spark-custom-library-website-log-analysis.md)
@@ -375,4 +375,4 @@ For more examples of using Spark to work with data and services in Azure, see th
 For information on creating and running Spark applications, see the following documents:
 
 * [Create a standalone application using Scala](spark/apache-spark-create-standalone-application.md)
-* [Run jobs remotely on a Spark cluster using Livy](hdinsight-apache-spark-livy-rest-interface.md)
+* [Run jobs remotely on a Spark cluster using Livy](spark/apache-spark-livy-rest-interface.md)

@@ -84,7 +84,7 @@ Start the streaming application and run until a termination signal is received.
 
 For details on the Spark Stream API, along with the event sources, transformations, and output operations it supports see [Spark Streaming Programming Guide](https://people.apache.org/~pwendell/spark-releases/latest/streaming-programming-guide.html).
 
-The following sample application is self-contained, so you can run it inside a [Jupyter Notebook](hdinsight-apache-spark-jupyter-notebook-kernels.md). In the example, we create a mock data source in the class DummySource that outputs the value of a counter and the current time in milliseconds every five seconds. We create a new StreamingContext object that has a batch interval of 30 seconds. Every time a batch is created, it examines the RDD produced, converts it to a Spark DataFrame and creates a temporary table over the DataFrame.
+The following sample application is self-contained, so you can run it inside a [Jupyter Notebook](spark/apache-spark-jupyter-notebook-kernels.md). In the example, we create a mock data source in the class DummySource that outputs the value of a counter and the current time in milliseconds every five seconds. We create a new StreamingContext object that has a batch interval of 30 seconds. Every time a batch is created, it examines the RDD produced, converts it to a Spark DataFrame and creates a temporary table over the DataFrame.
 
     class DummySource extends org.apache.spark.streaming.receiver.Receiver[(Int, Long)](org.apache.spark.storage.StorageLevel.MEMORY_AND_DISK_2) {
 
@@ -204,10 +204,10 @@ You typically build your Spark Streaming application locally and then deploy it 
 
 ![Example Window with Temperature Events After Sliding](./media/hdinsight-spark-streaming-overview/hdinsight-spark-streaming-livy.png)
 
-The status of all applications can also be checked with a GET request against a LIVY endpoint. Finally, you can terminate a running application by issuing a DELETE request against the LIVE endpoint. For details on the LIVY API, see [Remote jobs with LIVY](hdinsight-apache-spark-livy-rest-interface.md)
+The status of all applications can also be checked with a GET request against a LIVY endpoint. Finally, you can terminate a running application by issuing a DELETE request against the LIVE endpoint. For details on the LIVY API, see [Remote jobs with LIVY](spark/apache-spark-livy-rest-interface.md)
 
 ## Next steps
 
 * [Create an Apache Spark Cluster in HDInsight](hdinsight-hadoop-create-linux-clusters-portal.md)
 * [Spark Streaming Programming Guide](https://people.apache.org/~pwendell/spark-releases/latest/streaming-programming-guide.html)
-* [Launch Spark jobs remotely with LIVY](hdinsight-apache-spark-livy-rest-interface.md)
+* [Launch Spark jobs remotely with LIVY](spark/apache-spark-livy-rest-interface.md)

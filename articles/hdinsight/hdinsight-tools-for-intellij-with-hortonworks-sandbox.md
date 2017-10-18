@@ -152,7 +152,7 @@ To submit a project to an emulator:
 
 ## Next steps
 
-- Learn how to [use HDInsight Tools in Azure Toolkit for IntelliJ to create Spark applications for an HDInsight Spark Linux cluster](hdinsight-apache-spark-intellij-tool-plugin.md).
+- Learn how to [use HDInsight Tools in Azure Toolkit for IntelliJ to create Spark applications for an HDInsight Spark Linux cluster](spark/apache-spark-intellij-tool-plugin.md).
 
 - For a video about HDInsight Tools for IntelliJ, see [Introduce HDInsight Tools for IntelliJ for Spark development](https://www.youtube.com/watch?v=YTZzYVgut6c).
 
