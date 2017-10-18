@@ -353,34 +353,7 @@ The following table provides a comparison of limits and abilities between the Ba
 
 ## Preview sign-up
 
-To participate in the Preview for Load Balancer Standard SKU and its companion Public IP Standard SKU, register your subscription to gain access using either PowerShell or Azure CLI 2.0.  Please follow these 3 steps below:
-
-### Sign up using PowerShell
-
-1. Register the feature with the provider
-    ```powershell
-    Register-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
-    ```
-    
-2. The above operation can take up to 10 minutes to complete.  You can check the status of the operation with the following command:
-
-    ```powershell
-    Get-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
-    ```
-    Please proceed to step 3 when the feature registration state returns 'Registered' as shown below:
-   
-    ```
-    FeatureName    ProviderName      RegistrationState
-    -----------    ------------      -----------------
-    AllowLBPreview Microsoft.Network Registered
-    ```
-    
-3. Please complete the preview sign-up by re-registering your subscription with the resource provider:
-
-    ```powershell
-    Register-AzureRmProvider -ProviderNamespace Microsoft.Network
-    ```
-    
+To participate in the Preview for Load Balancer Standard SKU and its companion Public IP Standard SKU, register your subscription to gain access using either Azure CLI 2.0 or PowerShell.  Please follow these 3 steps below:
 
 ### Sign up using Azure CLI 2.0
 
@@ -413,7 +386,33 @@ To participate in the Preview for Load Balancer Standard SKU and its companion P
     ```cli
     az provider register --namespace Microsoft.Network
     ```
+    
+### Sign up using PowerShell
 
+1. Register the feature with the provider
+    ```powershell
+    Register-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
+    ```
+    
+2. The above operation can take up to 10 minutes to complete.  You can check the status of the operation with the following command:
+
+    ```powershell
+    Get-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
+    ```
+    Please proceed to step 3 when the feature registration state returns 'Registered' as shown below:
+   
+    ```
+    FeatureName    ProviderName      RegistrationState
+    -----------    ------------      -----------------
+    AllowLBPreview Microsoft.Network Registered
+    ```
+    
+3. Please complete the preview sign-up by re-registering your subscription with the resource provider:
+
+    ```powershell
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+    ```
+   
 >[!NOTE]
 >Registration of the Load Balancer Standard feature may take up to an hour to become effective globally.
 
