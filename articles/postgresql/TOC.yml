@@ -53,6 +53,8 @@
       href: concepts-extensions.md
     - name: Server logs
       href: concepts-server-logs.md
+    - name: High availability
+      href: concepts-high-availability.md
   - name: Resources
     items:
     - name: Pricing tiers
