@@ -58,7 +58,7 @@ The SDKs and integrations that you can use with Event Hub-compatible endpoints t
 
 * [Java Event Hubs client](https://github.com/Azure/azure-event-hubs-java).
 * [Apache Storm spout](../hdinsight/storm/apache-storm-develop-csharp-event-hub-topology.md). You can view the [spout source](https://github.com/apache/storm/tree/master/external/storm-eventhubs) on GitHub.
-* [Apache Spark integration](../hdinsight/hdinsight-apache-spark-eventhub-streaming.md).
+* [Apache Spark integration](../hdinsight/spark/apache-spark-eventhub-streaming.md).
 
 ## Next steps
 

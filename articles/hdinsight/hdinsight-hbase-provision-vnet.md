@@ -243,7 +243,7 @@ To use this information in a Java application, you can follow the steps in [Use 
 ## Next steps
 In this tutorial, you learned how to create an HBase cluster. To learn more, see:
 
-* [Get started with HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
+* [Get started with HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [Use empty edge nodes in HDInsight](hdinsight-apps-use-edge-node.md)
 * [Configure HBase replication in HDInsight](hdinsight-hbase-replication.md)
 * [Create Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
@@ -279,12 +279,12 @@ In this tutorial, you learned how to create an HBase cluster. To learn more, see
 
 [hdinsight-customize-cluster]: hdinsight-hadoop-customize-cluster.md
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
-[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
+[hdinsight-get-started]: hadoop/apache-hadoop-linux-tutorial-get-started.md
 [hdinsight-storage-powershell]: ../hdinsight-hadoop-use-blob-storage.md#powershell
 [hdinsight-analyze-flight-delay-data]: hdinsight-analyze-flight-delay-data.md
 [hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
-[hdinsight-use-sqoop]: hdinsight-use-sqoop.md
-[hdinsight-power-query]: hdinsight-connect-excel-power-query.md
+[hdinsight-use-sqoop]:hadoop/hdinsight-use-sqoop.md
+[hdinsight-power-query]:hadoop/apache-hadoop-connect-excel-power-query.md
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
 [hdinsight-hbase-replication-dns]: hdinsight-hbase-geo-replication-configure-DNS.md
 

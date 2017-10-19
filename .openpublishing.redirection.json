@@ -13599,6 +13599,11 @@
             "source_path": "articles/virtual-network/virtual-networks-multiple-nics.md",
             "redirect_url": "/azure/virtual-network/virtual-network-deploy-multinic-classic-ps",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/hdinsight/hdinsight-release-notes-archive.md",
+            "redirect_url": "/azure/hdinsight/hdinsight-release-notes",
+            "redirect_document_id": false
         }
     ]
 }
