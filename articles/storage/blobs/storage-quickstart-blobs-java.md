@@ -82,7 +82,7 @@ Run the sample by pressing ctrl+F11 in Eclipse.
 Location of file: C:\Users\<user>\Documents\results.txt
 File has been written
 URI of blob is: http://myexamplesacct.blob.core.windows.net/quickstartblobs/results.txt
-The program has completed succesfully.
+The program has completed successfully.
 Press any key in the console to delete the sample files, example container, and exit the application.
 ```
 
