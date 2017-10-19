@@ -26,19 +26,25 @@ The following tables list the standard PostgreSQL extensions that are currently 
 > [!div class="mx-tableFixed"]
 | **Extension** | **Description** |
 |---|---|
+| [chkpass](https://www.postgresql.org/docs/9.6/static/chkpass.html) | Provides a data type for auto-encrypted passwords |
 | [citext](https://www.postgresql.org/docs/9.6/static/citext.html) | Provides a case-insensitive character string type |
+| [cube](https://www.postgresql.org/docs/9.6/static/cube.html) | Provides a data type for multidimensional cubes |
 | [hstore](https://www.postgresql.org/docs/9.6/static/hstore.html) | Provides a data type for storing sets of key/value pairs |
+| [isn](https://www.postgresql.org/docs/9.6/static/isn.html) | Provides data types for international product numbering standards |
+| [ltree](https://www.postgresql.org/docs/9.6/static/ltree.html) | Provides a data type for hierarchical tree-like structures |
 
 ### Functions extensions
 
 > [!div class="mx-tableFixed"]
 | **Extension** | **Description** |
 |---|---|
+| [earthdistance](https://www.postgresql.org/docs/9.6/static/earthdistance.html) | Provides a means to calculate great-circle distances on the surface of the Earth. |
 | [fuzzystrmatch](https://www.postgresql.org/docs/9.6/static/fuzzystrmatch.html) | Provides several functions to determine similarities and distance between strings. |
 | [intarray](https://www.postgresql.org/docs/9.6/static/intarray.html) | Provides functions and operators for manipulating null-free arrays of integers. |
 | [pgcrypto](https://www.postgresql.org/docs/9.6/static/pgcrypto.html) | Provides cryptographic functions. |
 | [pg\_partman](https://pgxn.org/dist/pg_partman/doc/pg_partman.html) | Manages partitioned tables by time or ID. |
 | [pg\_trgm](https://www.postgresql.org/docs/9.6/static/pgtrgm.html) | Provides functions and operators for determining the similarity of alphanumeric text based on trigram matching. |
+| [tablefunc](https://www.postgresql.org/docs/9.6/static/tablefunc.html) | Provides functions that manipulate whole tables, including crosstab. |
 | [uuid-ossp](https://www.postgresql.org/docs/9.6/static/uuid-ossp.html) | Generates universally unique identifiers (UUIDs). |
 
 ### Full-text search extensions
@@ -46,6 +52,7 @@ The following tables list the standard PostgreSQL extensions that are currently 
 > [!div class="mx-tableFixed"]
 | **Extension** | **Description** |
 |---|---|
+| [dict\_int](https://www.postgresql.org/docs/9.6/static/dict-int.html) | Provides a text search dictionary template for integers. |
 | [unaccent](https://www.postgresql.org/docs/9.6/static/unaccent.html) | A text search dictionary that removes accents (diacritic signs) from lexemes. |
 
 ### Index Types extensions
@@ -71,6 +78,8 @@ The following tables list the standard PostgreSQL extensions that are currently 
 | [pg\_buffercache](https://www.postgresql.org/docs/9.6/static/pgbuffercache.html) | Provides a means for examining what's happening in the shared buffer cache in real time. |
 | [pg\_prewarm](https://www.postgresql.org/docs/9.6/static/pgprewarm.html) | Provides a way to load relation data into the buffer cache. |
 | [pg\_stat\_statements](https://www.postgresql.org/docs/9.6/static/pgstatstatements.html) | Provides a means for tracking execution statistics of all SQL statements executed by a server. |
+| [pgrowlocks](https://www.postgresql.org/docs/9.6/static/pgrowlocks.html) | Provides a means for showing row-level locking information. |
+| [pgstattuple](https://www.postgresql.org/docs/9.6/static/pgstattuple.html) | Provides a means for showing tuple-level statistics. |
 | [postgres\_fdw](https://www.postgresql.org/docs/9.6/static/postgres-fdw.html) | Foreign-data wrapper used to access data stored in external PostgreSQL servers. |
 
 ### PostGIS
