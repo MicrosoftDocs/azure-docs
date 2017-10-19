@@ -1705,7 +1705,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Disk Storage</h3>
-                                                    <p>Disks storage for VMs</p>
+                                                    <p>Disk storage for VMs</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1743,7 +1743,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>File Storage</h3>
-                                                    <p>Simple, distributed, cross platform file system</p>
+                                                    <p>Simple, distributed, cross-platform file system</p>
                                                 </div>
                                             </div>
                                         </div>
