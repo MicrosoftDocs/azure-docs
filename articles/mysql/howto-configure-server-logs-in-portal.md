@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 10/19/2017
 ---
 
-# Configure and Access Server Logs in Azure Portal
+# Configure and access server logs in Azure portal
 
 You can configure, list, and download the [Azure Database for MySQL server logs](concept-server-logs.md) from the Azure portal.
 
@@ -27,17 +27,19 @@ Configure access to the MySQL slow query log.
 2. Select your Azure Database for MySQL server.
 
 3. Under the **Monitoring** section in the sidebar, select **Server Logs**. 
-   ![Select Server logs, Click to configure](./media/howto-configure-server-logs-in-portal/3-select-server-logs-configure.png)
+   ![Select Server logs, Click to configure](./media/howto-configure-server-logs-in-portal/1-select-server-logs-configure.png)
 
 4. Select the heading **Click here to enable logs and configure log parameters** to see the server parameters.
 
-5. Click **Show more** to see an extended list of available parameters.  For more information on the definitions of parameters, see the MySQL documentation on [Logs](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html) .
+5. Select the **Show more** expander to see an extended list of available parameters. 
 
-   ![Click show more for longer list](./media/howto-configure-server-logs-in-portal/4-show-more.png)
+   For more information on the definitions of parameters, see the MySQL documentation on [Logs](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html).
+
+   ![Click show more for longer list](./media/howto-configure-server-logs-in-portal/2-show-more.png)
 
 6. All changes you make in this session are highlighted in purple. Once you have changed the parameters, you can click **Save**. Or you can **Discard** your changes. 
 
-   ![Click save or discard](./media/howto-configure-server-logs-in-portal/5-save-discard.png)
+   ![Click save or discard](./media/howto-configure-server-logs-in-portal/3-save-discard.png)
 
 7. Return to the list of logs by clicking the close button (X) on the **Server Parameters** page.
 
@@ -50,10 +52,10 @@ Once logging begins, you can view a list of available logs and download individu
 
 3. Under the **Monitoring** section in the sidebar, select **Server Logs**. The page shows a list of your log files, as shown:
 
-   ![List of Logs](./media/howto-configure-server-logs-in-portal/3-server-logs-list.png)
+   ![List of Logs](./media/howto-configure-server-logs-in-portal/4-server-logs-list.png)
 
    > [!TIP]
-   > The naming convention of the log is **mysql-slow-< your server name>-yyyymmddhh.log** The date and time used in the file name is the time is when the log was issued. Logs files are rotated every 24 hours or 7.5 GB, whichever comes first.
+   > The naming convention of the log is **mysql-slow-< your server name>-yyyymmddhh.log**. The date and time used in the file name is the time is when the log was issued. Logs files are rotated every 24 hours or 7.5 GB, whichever comes first.
 
 4. If needed, use the **search box** to quickly narrow down to a specific log based on date/time. The search is on the name of the log.
 
@@ -62,7 +64,7 @@ Once logging begins, you can view a list of available logs and download individu
    ![Click download icon](./media/howto-configure-server-logs-in-portal/5-download.png)
 
 
-## Next Steps
+## Next steps
 - See [Access Server Logs in CLI](howto-configure-server-logs.md) to learn how to download logs programmatically.
 - Learn more about [Server Logs](concepts-server-logs.md) in Azure Database for MySQL. 
 - For more information about the parameter definitions and MySQL logging, see the MySQL documentation on [Logs](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html).
