@@ -76,15 +76,15 @@ In the **Azure Portal**:
 4.  In Settings blade, select **Required permissions**
 5.  In Required Permissions blade, click **Add**
 
-![App Registration](media/openshift-post-deployment/appregistration.jpg)
+![App Registration](media/openshift-post-deployment/appregistration.png)
 
 6.  Click on Step 1: Select API and then click **Windows Azure Active Directory (Microsoft.Azure.ActiveDirectory)** and click **Select** at bottom
 
-![App Registration](media/openshift-post-deployment/appregistrationselectapi.jpg)
+![App Registration](media/openshift-post-deployment/appregistrationselectapi.png)
 
 7.  On Step 2: Select Permissions, select **Sign in and read user profile** under **Delegated Permissions** and click **Select**
 
-![App Registration](media/openshift-post-deployment/appregistrationaccess.jpg)
+![App Registration](media/openshift-post-deployment/appregistrationaccess.png)
 
 8.  Click **Done**
 

@@ -28,14 +28,14 @@ OpenShift includes Kubernetes for container orchestration and management. It add
 - Easy deployment and scaling
 - Long-term life-cycle maintenance for teams and applications
 
-## OpenShift Offerings
-
 There are multiple offerings of OpenShift of which two are available to run in Azure.
 
 - OpenShift Origin
 - OpenShift Container Platform
 - OpenShift Online
 - OpenShift Dedicated
+
+Of the four offerings covered, two are available for customers to deploy into Azure on their own - OpenShift Origin and OpenShift Container Platform.
 
 ## OpenShift Origin
 
@@ -56,10 +56,6 @@ Customer deploys containers but has no control on which hosts the containers run
 ## OpenShift Dedicated
 
 Red Hat managed **single-tenant** OpenShift (using Container Platform). Red Hat manages all the underlying infrastructure (VMs, OpenShift cluster, networking, storage, etc.). The cluster is specific to one customer and runs in a public cloud (AWS, Google, Azure - coming in early 2018). Starting cluster includes four Application Nodes for $48K / year (upfront payment for an entire year).
-
-## OpenShift in Azure
-
-Of the four offerings covered, two are available for customers to deploy into Azure on their own - OpenShift Origin and OpenShift Container Platform.
 
 ## Next Steps
 

@@ -37,17 +37,13 @@ In this model, OpenShift will:
 For this to work, OpenShift needs permissions to perform the previous tasks in Azure. To achieve this, a Service Principal is needed. The Service Principal (SP) is a security account in Azure Active Directory that is granted permissions to resources.
 The Service Principal needs to have access to the Storage Accounts and VMs that make up the cluster. If all OpenShift cluster resources are deployed to a single Resource Group, the SP can be granted permissions to that Resource Group.
 
-This guide describes how to create the artifacts associated with the Pre-requisites. In this tutorial you learn how to:
+This guide describes how to create the artifacts associated with the Pre-requisites.
 
 > [!div class="checklist"]
 > * Create a KeyVault to manage SSH keys for the OpenShift cluster.
 > * Create a Service Principal for use by the Azure Cloud Provider.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-This quick start requires the Azure CLI version 2.0.8 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## Log in to Azure 
 Log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions or click **Try it** to use Cloud Shell.
