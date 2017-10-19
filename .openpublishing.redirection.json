@@ -6976,11 +6976,6 @@
             "redirect_document_id": false
         },
 		{
-            "source_path": "articles/site-recovery/azure-to-azure-walkthrough-network.md",
-            "redirect_url": "azure-to-azure-tutorial-enable-replication",
-            "redirect_document_id": false
-        },
-		{
             "source_path": "articles/site-recovery/azure-to-azure-walkthrough-overview.md",
             "redirect_url": "azure-to-azure-tutorial-enable-replication",
             "redirect_document_id": false
@@ -7255,11 +7250,6 @@
         },
 		{
             "source_path": "articles/site-recovery/vmm-to-vmm-walkthrough-enable-replication.md",
-            "redirect_url": "tutorial-vmm-to-vmm",
-            "redirect_document_id": false
-        },
-		{
-            "source_path": "articles/site-recovery/vmm-to-vmm-walkthrough-network.md",
             "redirect_url": "tutorial-vmm-to-vmm",
             "redirect_document_id": false
         },
