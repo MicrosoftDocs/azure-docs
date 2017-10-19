@@ -610,7 +610,7 @@ For more information, please see [public documentation](../cognitive-services/Fa
 * The URI for retrieving the access token to the Text Translation API is the "Endpoint" attribute that was saved in Part 1 of this quickstart, with "/IssueToken" at the end
 
 ### Text Translation Method
-This sample will use the [Text Translation - Translate method](http://docs.microsofttranslator.com/text-translate.html#!/default/get_Translate) to translate a string of text from a language into another specified language. There are multiple [language codes](https://msdn.microsoft.com/en-us/library/hh456380.aspx) that can be used with the Text Translation API. 
+This sample will use the [Text Translation - Translate method](http://docs.microsofttranslator.com/text-translate.html#!/default/get_Translate) to translate a string of text from a language into another specified language. There are multiple [language codes](https://msdn.microsoft.com/library/hh456380.aspx) that can be used with the Text Translation API. 
 
 ### Text Translation C# example request
 
