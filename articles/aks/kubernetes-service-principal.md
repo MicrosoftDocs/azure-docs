@@ -32,7 +32,7 @@ The steps detailed in this document assume that you have created an AKS Kubernet
 
 To create an Azure AD service principal, you must have permissions to register an application with your Azure AD tenant, and to assign the application to a role in your subscription. If you don't have the necessary permissions, you might need to ask your Azure AD or subscription administrator to assign the necessary permissions, or pre-create a service principal for the Kubernetes cluster.
 
-You also need the Azure CLI version 2.0.4 or later installed and configured. Run az --version to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
+You also need the Azure CLI version 2.0.20 or later installed and configured. Run az --version to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ## Create SP with AKS cluster
 
@@ -40,7 +40,7 @@ When deploying an AKS Kubernetes cluster with the `az aks create` command, you h
 
 In the following an example, and AKS cluster is created, and because an exsisting service principle is not specified, a service principle is created for the cluster. In order to complete this operation, your account must have the proper rights for creating a service principle. 
 
-```console
+```
 az aks create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-keys
 ```
 
@@ -65,7 +65,7 @@ az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/$id"
 
 Output is similar to the following. Take note of the `appId` and `password`. These values are used when creating an AKS cluster.
 
-```console
+```
 {
   "appId": "7248f250-0000-0000-0000-dbdeb8400d85",
   "displayName": "azure-cli-2017-10-15-02-20-15",

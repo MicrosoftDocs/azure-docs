@@ -71,7 +71,7 @@ kubectl get nodes
 
 Output:
 
-```console
+```
 NAME                          STATUS    AGE       VERSION
 k8s-myk8scluster-36346190-0   Ready     49m       v1.7.7
 ```

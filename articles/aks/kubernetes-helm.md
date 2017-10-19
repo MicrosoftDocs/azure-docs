@@ -35,13 +35,13 @@ The Helm CLI is a client that runs on your development system and allows you to 
 
 If you're using Azure CloudShell, the Helm CLI is already installed. To install the Helm CLI on a Mac use `brew`. For additional installation options see, [Installing Helm](https://github.com/kubernetes/helm/blob/master/docs/install.md).
 
-```console
+```
 brew install kubernetes-helm
 ```
 
 Output:
 
-```console
+```
 ==> Downloading https://homebrew.bintray.com/bottles/kubernetes-helm-2.6.2.sierra.bottle.1.tar.gz
 ######################################################################## 100.0%
 ==> Pouring kubernetes-helm-2.6.2.sierra.bottle.1.tar.gz
@@ -62,7 +62,7 @@ helm init --client-only
 
 Output:
 
-```console
+```
 $HELM_HOME has been configured at /Users/neilpeterson/.helm.
 Not installing Tiller due to 'client-only' flag having been set
 Happy Helming!
@@ -78,7 +78,7 @@ helm search
 
 The output looks similar to the following, however with many more charts.
 
-```console
+```
 NAME                         	VERSION	DESCRIPTION
 stable/acs-engine-autoscaler 	2.0.0  	Scales worker nodes within agent pools
 stable/artifactory           	6.1.0  	Universal Repository Manager supporting all maj...
@@ -106,7 +106,7 @@ helm repo update
 
 Output:
 
-```console
+```
 Hang tight while we grab the latest from your chart repositories...
 ...Skip local chart repository
 ...Successfully got an update from the "stable" chart repository
@@ -123,7 +123,7 @@ helm install stable/nginx-ingress
 
 The output looks similar to the following, but includes additional information such as instructions on how to use the Kubernetes deployment.
 
-```console
+```
 NAME:   tufted-ocelot
 LAST DEPLOYED: Thu Oct  5 00:48:04 2017
 NAMESPACE: default
@@ -158,7 +158,7 @@ helm list
 
 Output:
 
-```console
+```
 NAME         	REVISION	UPDATED                 	STATUS  	CHART              	NAMESPACE
 bilging-ant  	1       	Thu Oct  5 00:11:11 2017	DEPLOYED	nginx-ingress-0.8.7	default
 ```

@@ -30,7 +30,7 @@ This quickstart assumes a basic understanding of Kubernetes concepts, for detail
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.20 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli). 
 
 ## Create a resource group
 
@@ -92,7 +92,7 @@ kubectl get nodes
 
 Output:
 
-```console
+```
 NAME                          STATUS    ROLES     AGE       VERSION
 k8s-myk8scluster-36346190-0   Ready     agent     2m        v1.7.7
 ```
@@ -172,7 +172,7 @@ kubectl create -f azure-vote.yml
 
 Output:
 
-```console
+```
 deployment "azure-vote-back" created
 service "azure-vote-back" created
 deployment "azure-vote-front" created
@@ -191,14 +191,14 @@ kubectl get service azure-vote-front --watch
 
 Initially the *EXTERNAL-IP* for the *azure-vote-front* service appears as *pending*.
   
-```console
+```
 NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
 azure-vote-front   LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 ```
 
 Once the *EXTERNAL-IP* address has changed from *pending* to an *IP address*, use `CTRL-C` to stop the kubectl watch process. 
 
-```console
+```
 azure-vote-front   LoadBalancer   10.0.37.27   52.175.236.185   80:30572/TCP   2m
 ```
 

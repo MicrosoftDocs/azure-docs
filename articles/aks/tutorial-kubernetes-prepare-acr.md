@@ -35,7 +35,7 @@ In subsequent tutorials, this ACR instance is integrated with a Kubernetes clust
 
 In the [previous tutorial](./tutorial-kubernetes-prepare-app.md), a container image was created for a simple Azure Voting application. If you have not created the Azure Voting app image, return to [Tutorial 1 – Create container images](./tutorial-kubernetes-prepare-app.md).
 
-This tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+This tutorial requires that you are running the Azure CLI version 2.0.20 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli). 
 
 ## Deploy Azure Container Registry
 
@@ -69,13 +69,13 @@ The command returns a 'Login Succeeded’ message once completed.
 
 To see a list of current images, use the [docker images](https://docs.docker.com/engine/reference/commandline/images/) command.
 
-```console
+```
 docker images
 ```
 
 Output:
 
-```console
+```
 REPOSITORY                   TAG                 IMAGE ID            CREATED             SIZE
 azure-vote-front             latest              4675398c9172        13 minutes ago      694MB
 redis                        latest              a1b99da73d05        7 days ago          106MB
@@ -92,19 +92,19 @@ az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginSe
 
 Now, tag the `azure-vote-front` image with the loginServer of the container registry. Also, add `:redis-v1` to the end of the image name. This tag indicates the image version.
 
-```console
+```
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:redis-v1
 ```
 
 Once tagged, run [docker images] (https://docs.docker.com/engine/reference/commandline/images/) to verify the operation.
 
-```console
+```
 docker images
 ```
 
 Output:
 
-```console
+```
 REPOSITORY                                           TAG                 IMAGE ID            CREATED             SIZE
 azure-vote-front                                     latest              eaf2b9c57e5e        8 minutes ago       716 MB
 mycontainerregistry082.azurecr.io/azure-vote-front   redis-v1            eaf2b9c57e5e        8 minutes ago       716 MB
@@ -118,7 +118,7 @@ Push the `azure-vote-front` image to the registry.
 
 Using the following example, replace the ACR loginServer name with the loginServer from your environment.
 
-```console
+```
 docker push <acrLoginServer>/azure-vote-front:redis-v1
 ```
 

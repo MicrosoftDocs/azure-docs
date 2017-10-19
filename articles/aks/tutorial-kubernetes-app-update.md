@@ -48,13 +48,13 @@ For this tutorial, a change is made to the application, and the updated applicat
 
 The application source code can be found inside of the `azure-vote` directory. Open the `config_file.cfg` file with any code or text editor. In this example `vi` is used.
 
-```console
+```
 vi azure-vote/azure-vote/config_file.cfg
 ```
 
 Change the values for `VOTE1VALUE` and `VOTE2VALUE`, and then save the file.
 
-```console
+```
 # UI Configurations
 TITLE = 'Azure Voting App'
 VOTE1VALUE = 'Blue'
@@ -68,7 +68,7 @@ Save and close the file.
 
 Use [docker-compose](https://docs.docker.com/compose/) to re-create the front-end image and run the updated application. The `--build` argument is used to instruct Docker Compose to re-create the application image.
 
-```console
+```
 docker-compose up --build -d
 ```
 
@@ -90,13 +90,13 @@ az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginSe
 
 Use [docker tag](https://docs.docker.com/engine/reference/commandline/tag/) to tag the image. Replace `<acrLoginServer>` with your Azure Container Registry login server name or public registry hostname. Also notice that the image version is updated to `redis-v2`.
 
-```console
+```
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:redis-v2
 ```
 
 Use [docker push](https://docs.docker.com/engine/reference/commandline/push/) to upload the image to your registry. Replace `<acrLoginServer>` with your Azure Container Registry login server name.
 
-```console
+```
 docker push <acrLoginServer>/azure-vote-front:redis-v2
 ```
 
@@ -104,13 +104,13 @@ docker push <acrLoginServer>/azure-vote-front:redis-v2
 
 To ensure maximum uptime, multiple instances of the application pod must be running. Verify this configuration with the [kubectl get pod](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) command.
 
-```console
+```
 kubectl get pod
 ```
 
 Output:
 
-```console
+```
 NAME                               READY     STATUS    RESTARTS   AGE
 azure-vote-back-217588096-5w632    1/1       Running   0          10m
 azure-vote-front-233282510-b5pkz   1/1       Running   0          10m
@@ -139,7 +139,7 @@ kubectl get pod
 
 Output:
 
-```console
+```
 NAME                               READY     STATUS    RESTARTS   AGE
 azure-vote-back-2978095810-gq9g0   1/1       Running   0          5m
 azure-vote-front-1297194256-tpjlg   1/1       Running   0         1m
