@@ -124,7 +124,7 @@ For more information on service principals, see [Create an Azure service princip
 
 ## Next steps
 
-In this tutorial, you learned how to:
+This article covered the following topics:
 > [!div class="checklist"]
 > * Create a KeyVault to manage SSH keys for the OpenShift cluster.
 > * Create a Service Principal for use by the Azure Cloud Provider.
