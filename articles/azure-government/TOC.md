@@ -15,11 +15,11 @@
 
 
 # Quickstarts
-## [Azure Storage Quickstart](documentation-government-get-started-connect-to-storage.md)
-## [Web App Quickstart](documentation-government-howto-deploy-webandmobile.md)
-## [Functions Quickstart](documentation-government-functions.md)
-## [Cognitive Services Quickstart](documentation-government-cognitiveservices.md)
-## [Virtual Machines Quickstart](documentation-government-quickstarts-vm.md) 
+## [Azure Storage](documentation-government-get-started-connect-to-storage.md)
+## [Web App](documentation-government-howto-deploy-webandmobile.md)
+## [Functions](documentation-government-functions.md)
+## [Cognitive Services](documentation-government-cognitiveservices.md)
+## [Virtual Machines](documentation-government-quickstarts-vm.md) 
 
 # How To
 ## Plan
