@@ -21,9 +21,9 @@ ms.author: magoedte;banders
 
 ![Wire Data symbol](./media/log-analytics-wire-data/wire-data2-symbol.png)
 
-Wire data is consolidated network and performance data from computers with OMS agents on Windows-connected and Linux-connected computers, including those monitored with Operations Manager. Network data is combined with your other log data to help you correlate data.
+Wire data is consolidated network and performance data collected from Windows-connected and Linux-connected computers with the OMS agent, including those monitored by Operations Manager in your environment. Network data is combined with your other log data to help you correlate data.
 
-In addition to OMS agents, the Wire Data solution uses Microsoft Dependency Agents that you install on computers in your IT infrastructure. Dependency Agents monitor network data sent to and from your computers for network levels 2-3 in the [OSI model](https://en.wikipedia.org/wiki/OSI_model), including the various protocols and ports used. Data is then sent to Log Analytics using agents.  
+In addition to the OMS agent, the Wire Data solution uses Microsoft Dependency Agents that you install on computers in your IT infrastructure. Dependency Agents monitor network data sent to and from your computers for network levels 2-3 in the [OSI model](https://en.wikipedia.org/wiki/OSI_model), including the various protocols and ports used. Data is then sent to Log Analytics using agents.  
 
 > [!NOTE]
 > You cannot add the previous version of the Wire Data solution to new workspaces. If you have the original Wire Data solution enabled, you can continue to use it. However, to use Wire Data 2.0, you must first remove the original version.
