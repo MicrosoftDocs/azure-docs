@@ -35,7 +35,6 @@ Download| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615
 Status: October 19 2017
 
 ### Azure AD Connect
-
 #### Fixed issues
 * Fixed an issue with the *Change user sign-in* task in Azure AD Connect wizard:
 
@@ -53,7 +52,7 @@ Status: October 19 2017
 
 * Fixed an issue that caused Azure AD Connect upgrade to fail with error "*Unable to upgrade the Synchronization Service*". Further, the Synchronization Service can no longer start with event error "*The service was unable to start because the version of the database is newer than the version of the binaries installed*". The issue occurs when the administrator performing the upgrade does not have sysadmin privilege to the SQL server that is being used by Azure AD Connect. With this fix, Azure AD Connect only requires the administrator to have db_owner privilege to the ADSync database during upgrade.
 
-* Fixed an Azure AD Connect Upgrade issue that affected customers who have enabled Seamless Single Sign-On. After Azure AD Connect is upgraded, Seamless Single Sign-On incorrectly appears as disabled in Azure AD Connect wizard, even though the feature remains enabled and fully functional. With this fix, the feature now appears correctly as enabled in the wizard.
+* Fixed an Azure AD Connect Upgrade issue that affected customers who have enabled [Seamless Single Sign-On](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso). After Azure AD Connect is upgraded, Seamless Single Sign-On incorrectly appears as disabled in Azure AD Connect wizard, even though the feature remains enabled and fully functional. With this fix, the feature now appears correctly as enabled in the wizard.
 
 * Fixed an issue that caused Azure AD Connect wizard to always show the “*Configure Source Anchor*” prompt on the *Ready to Configure* page, even if no changes related to Source Anchor were made.
 
@@ -66,7 +65,8 @@ Status: October 19 2017
 * Added logic to simplify the steps required to set up Azure AD Connect with Microsoft Germany Cloud. Previously, you are required to update specific registry keys on the Azure AD Connect server for it to work correctly with Microsoft Germany Cloud, as described in this article. Now, Azure AD Connect can automatically detect if your tenant is in Microsoft Germany Cloud based on the global administrator credentials provided during setup.
 
 ### Azure AD Connect Sync
-Note: The Synchronization Service has a WMI interface that lets you develop your own custom scheduler. This interface is now deprecated and will be removed from future versions of Azure AD Connect shipped after June 30, 2018. Customers who want to customize synchronization schedule should use the built-in scheduler (https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-scheduler).
+>[!NOTE]
+> Note: The Synchronization Service has a WMI interface that lets you develop your own custom scheduler. This interface is now deprecated and will be removed from future versions of Azure AD Connect shipped after June 30, 2018. Customers who want to customize synchronization schedule should use the [built-in scheduler (https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-scheduler).
 
 #### Fixed issues
 * When Azure AD Connect wizard creates the AD Connector account required to synchronize changes from on-premises Active Directory, it does not correctly assign the account the permission required to read PublicFolder objects. This issue affects both Express installation and Custom installation. This change fixes the issue.
@@ -79,9 +79,8 @@ Note: The Synchronization Service has a WMI interface that lets you develop your
 * Previously, if you tried to enable Password Hash Synchronization, Azure AD Connect does not verify whether the AD Connector account has required permissions to synchronize password hashes from on-premises AD. Now, Azure AD Connect wizard will verify and warn you if the AD Connector account does not have sufficient permissions.
 
 ### AD FS Management
-
 #### Fixed issue
-* Fixed an issue related to the msDS-ConsistencyGuid as Source Anchor feature. This issue affects customers who have configured *Federation with AD FS* as the user sign-in method. When you execute *Configure Source Anchor* task in the wizard, Azure AD Connect switches to using *ms-DS-ConsistencyGuid as source attribute for immutableId. As part of this change, Azure AD Connect attempts to update the claim rules for ImmutableId in AD FS. However, this step failed because Azure AD Connect did not have the administrator credentials required to configure AD FS. With this fix, Azure AD Connect now prompts you to enter the administrator credentials for AD FS when you execute the *Configure Source Anchor* task.
+* Fixed an issue related to the use of [msDS-ConsistencyGuid as Source Anchor](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-msds-consistencyguid-as-sourceanchor) feature. This issue affects customers who have configured *Federation with AD FS* as the user sign-in method. When you execute *Configure Source Anchor* task in the wizard, Azure AD Connect switches to using *ms-DS-ConsistencyGuid as source attribute for immutableId. As part of this change, Azure AD Connect attempts to update the claim rules for ImmutableId in AD FS. However, this step failed because Azure AD Connect did not have the administrator credentials required to configure AD FS. With this fix, Azure AD Connect now prompts you to enter the administrator credentials for AD FS when you execute the *Configure Source Anchor* task.
 
 
 
