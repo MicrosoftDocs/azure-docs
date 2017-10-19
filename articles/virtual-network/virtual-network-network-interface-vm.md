@@ -99,12 +99,12 @@ Complete the following steps from a Windows command prompt:
     ping 192.168.3.4 -S 192.168.2.4
     ```
 
-    > [NOTE!]
-    > You may need to open ICMP through the Windows firewall of the device you're pinging with the following command:
-        ```
-        netsh advfirewall firewall add rule name=Allow-ping protocol=icmpv4 dir=in action=allow
-        ```
-
+    You may need to open ICMP through the Windows firewall of the device you're pinging with the following command:
+  
+      ```
+      netsh advfirewall firewall add rule name=Allow-ping protocol=icmpv4 dir=in action=allow
+      ```
+  
 5. To confirm the added route is in the route table, enter the `route print` command, which returns output similar to the following text:
 
     ```
@@ -115,11 +115,11 @@ Complete the following steps from a Windows command prompt:
               0.0.0.0          0.0.0.0      192.168.2.1      192.168.2.4   5015
     ```
 
-    The route with 192.168.1.1 as the gateway, is the route that is there by default for the primary network interface. The route with 192.168.2.1, is the route you added.
+    The route listed with *192.168.1.1* under **Gateway**, is the route that is there by default for the primary network interface. The route with *192.168.2.1* under **Gateway**, is the route you added.
 
 ### Linux
 
-Since the default behavior uses weak host routing, we recommend restricting secondary network interface traffic between resources in the same subnet. If you require connectivity outside the subnet however, you should enable policy based routing, to ensure that the ingress and egress traffic uses the same network interface.
+Since the default behavior uses weak host routing, we recommend restricting secondary network interface traffic between resources in the same subnet. If you require communication outside the subnet for secondary network interfaces, you should enable policy-based routing, to ensure that the ingress and egress traffic use the same network interface.
 
 > [!WARNING]
 > If a network interface has a private IPv6 address assigned to it, you can only add the network interface to the virtual machine when creating the virtual machine. You cannot attach more than one network interface to the virtual machine when you create the virtual machine, or after the virtual machine is created, as long as an IPv6 address is assigned to a network interface attached to a virtual machine. See [Network interface IP addresses](virtual-network-network-interface-addresses.md) to learn more about assigning IP addresses to network interfaces.
