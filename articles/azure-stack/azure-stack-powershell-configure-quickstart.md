@@ -142,7 +142,6 @@ Install-Module `
 
 # Download Azure Stack tools from GitHub and import the connect module.
 cd \
-
 invoke-webrequest `
   https://github.com/Azure/AzureStack-Tools/archive/master.zip `
   -OutFile master.zip
@@ -191,7 +190,7 @@ Now that you’ve configured PowerShell, you can test the configuration by creat
 New-AzureRMResourceGroup -Name "ContosoVMRG" -Location Local
 ```
 
-After the resource group has been created, the Provisioning state property is set to **Succeeded**.
+After the resource group has been created, the **Provisioning state** property  is set to **Succeeded**.
 
 ## Next steps
 
