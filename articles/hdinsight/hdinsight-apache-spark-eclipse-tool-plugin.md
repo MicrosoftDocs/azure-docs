@@ -80,15 +80,14 @@ When you open Eclipse, HDInsight Tool automatically detects whether you installe
 4. In the **New HDInsight Scala Project** dialog box, provide the following values, and then select **Next**:
    * Enter a name for the project.
    * In the **JRE** area, make sure that **Use an execution environment JRE** is set to **JavaSE-1.7** or later.
-   * In the **Spark Library** area, you can use maven to configure Spark application, and our tool integrates the proper version for Spark SDK and Scala SDK. You can also download and add Spark SDK by manually.
+   * In the **Spark Library** area, you can choose **Use Maven to configure Spark SDK** option.  Our tool integrates the proper version for Spark SDK and Scala SDK. You can also choose **Add Spark SDK manually** option, download and add Spark SDK by manually.
 
    ![New HDInsight Scala Project dialog box](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-hdi-scala-app-3.png)
-5. Due to known issue, you need confirm the scala version again after clicking **Next**. Make sure the scala version close to the selection for the step 4.
+5. Due to known issue, you need confirm the scala version again after clicking **Next**. Make sure the scala version is close to the selection for the step 4.
 
    ![comfirm-scala-library](./media/hdinsight-apache-spark-eclipse-tool-plugin/comfirm-scala-library-container.png)
-6. In the next dialog box, select the **Libraries** tab and keep the defaults, and then select **Finish**. 
+6. In the next dialog box, select **Finish**. 
    
-   ![Libraries tab](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-hdi-scala-app-4.png)
   
 ## Create a Scala application for an HDInsight Spark cluster
 
