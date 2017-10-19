@@ -35,11 +35,11 @@ You can use either of the following options to perform the steps outlined in thi
 * **Azure cross-platform command-line interface**: [Install and configure](https://azure.microsoft.com/documentation/articles/xplat-cli-install/)
 
 
-## Option 1: Provision a new Windows Server VM and join it a managed domain
-**Quick start template name**: [201-vm-domain-join](https://azure.microsoft.com/en-us/resources/templates/201-vm-domain-join/)
+## Option 1: Provision a new Windows Server VM and join it to a managed domain
+**Quick start template name**: [201-vm-domain-join](https://azure.microsoft.com/resources/templates/201-vm-domain-join/)
 
 To deploy a Windows Server virtual machine and join it to a managed domain, perform the following steps:
-1. Navigate to the [quick start template](https://azure.microsoft.com/en-us/resources/templates/201-vm-domain-join/).
+1. Navigate to the [quick start template](https://azure.microsoft.com/resources/templates/201-vm-domain-join/).
 2. Click **Deploy to Azure**.
 3. In the **Custom deployment** page, provide the required information to provision the virtual machine.
 4. Select the **Azure subscription** in which to provision the virtual machine. Pick the same Azure subscription in which you have enabled Azure AD Domain Services.
@@ -67,10 +67,10 @@ After the deployment completes successfully, your newly provisioned Windows virt
 
 
 ## Option 2: Join an existing Windows Server VM to a managed domain
-**Quick start template**: [201-vm-domain-join-existing](https://azure.microsoft.com/en-us/resources/templates/201-vm-domain-join-existing/)
+**Quick start template**: [201-vm-domain-join-existing](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/)
 
 To join an existing Windows Server virtual machine to a managed domain, perform the following steps:
-1. Navigate to the [quick start template](https://azure.microsoft.com/en-us/resources/templates/201-vm-domain-join-existing/).
+1. Navigate to the [quick start template](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/).
 2. Click **Deploy to Azure**.
 3. In the **Custom deployment** page, provide the required information to provision the virtual machine.
 4. Select the **Azure subscription** in which to provision the virtual machine. Pick the same Azure subscription in which you have enabled Azure AD Domain Services.
@@ -93,7 +93,7 @@ After the deployment completes successfully, the specified Windows virtual machi
 
 
 ## Related Content
-* [Overview of Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azurermps-4.4.0)
-* [Azure quick-start template - Domain join a new VM](https://azure.microsoft.com/en-us/resources/templates/201-vm-domain-join/)
-* [Azure quick-start template - Domain join existing VMs](https://azure.microsoft.com/en-us/resources/templates/201-vm-domain-join-existing/)
+* [Overview of Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.4.0)
+* [Azure quick-start template - Domain join a new VM](https://azure.microsoft.com/resources/templates/201-vm-domain-join/)
+* [Azure quick-start template - Domain join existing VMs](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/)
 * [Deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
