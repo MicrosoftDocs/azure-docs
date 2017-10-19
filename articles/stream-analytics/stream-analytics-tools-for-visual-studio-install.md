@@ -25,7 +25,7 @@ Learn how to use [Stream Analytics tools for Visual Studio](https://docs.microso
 
 ## Install
 ### Visual Studio 2017
-* Download [Visual Studio 2017 (15.3 or above)](https://www.visualstudio.com/). Enterprise (Ultimate/Premium), Professional, and Community editions are supported; Express edition is not supported. 
+* Download [Visual Studio 2017 (15.3 or above)](https://www.visualstudio.com/). Enterprise (Ultimate/Premium), Professional, and Community editions are supported. Express edition is not supported. 
 * Stream Analytics tools are part of the **Azure development** and **Data storage and processing** workloads in Visual Studio 2017. Enable either one of these two workloads as part of your Visual Studio installation.
 
 Enable the **Data storage and processing** workload as shown:
@@ -38,7 +38,7 @@ Enable the **Azure development** workload as shown:
 
 
 ### Visual Studio 2013, 2015
-* Install Visual Studio 2015 or Visual Studio 2013 Update 4. Enterprise (Ultimate/Premium), Professional, and Community editions are supported; Express edition is not supported. 
+* Install Visual Studio 2015 or Visual Studio 2013 Update 4. Enterprise (Ultimate/Premium), Professional, and Community editions are supported. Express edition is not supported. 
 * Install the Microsoft Azure SDK for .NET version 2.7.1 or above by using the [Web platform installer](http://www.microsoft.com/web/downloads/platform.aspx).
 * Install [Azure Stream Analytics tools for Visual Studio](http://aka.ms/asatoolsvs).
 
@@ -59,7 +59,7 @@ The installed Stream Analytics tools for Visual Studio check for new versions au
 Double-click the Visual Studio installer, and select **Modify**. Clear the **Azure Data Lake and Stream Analytics Tools** check box from either the **Data storage and processing** workload or the **Azure development** workload.
 
 ### Visual Studio 2013, 2015
-Go to the Control Panel, and uninstall **Microsoft Azure Data Lake and Stream Analytics tools for Visual Studio**.
+Go to Control Panel, and uninstall **Microsoft Azure Data Lake and Stream Analytics tools for Visual Studio**.
 
 
 

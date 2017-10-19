@@ -36,7 +36,7 @@ After completing this tutorial, you will be able to:
 You need the following prerequisites to complete this tutorial:
 
 * Finish the steps up to "Create a Stream Analytics job" in the tutorial [Build an IoT solution by using Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics). 
-* Install Visual Studio 2017, Visual Studio 2015, or Visual Studio 2013 Update 4. Enterprise (Ultimate/Premium), Professional, and Community editions are supported; Express edition is not supported. 
+* Install Visual Studio 2017, Visual Studio 2015, or Visual Studio 2013 Update 4. Enterprise (Ultimate/Premium), Professional, and Community editions are supported. Express edition is not supported. 
 * Follow the [installation instructions](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install) to install Stream Analytics tools for Visual Studio.
 
 ## Create a Stream Analytics project
@@ -81,11 +81,11 @@ The project **Toll** is generated in **Solution Explorer**.
    
 10. In the pop-up window, choose **Stream Analytics Input**, and change the **Name** to **ExitStream.json**. Select **Add**.
    
-   ![Add New Item](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-03.png)
+    ![Add New Item](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-03.png)
    
 11. Double-click **ExitStream.json** in the project, and follow the same steps as the entry stream to fill in the fields. For **Event Hub Name**, be sure to enter **exit**, as shown in the following screenshot:
    
-   ![ExitStream settings](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-04.png)
+    ![ExitStream settings](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-04.png)
    
    Now you have defined two input streams.
    
@@ -95,7 +95,7 @@ The project **Toll** is generated in **Solution Explorer**.
    
 12. Right-click the **Inputs** node in the project, and then follow the same process for the stream inputs. For **Source Type**, select **Reference data**, and for **Input Alias**, enter **Registration**.
    
-   ![Registration settings](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-06.png)
+    ![Registration settings](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-06.png)
    
 13. Select the **Storage** account that contains the option with **TollData**. The container name is **TollData**, and the **Path Pattern** is **registration.json**. This file name is case sensitive and should be lowercase.
 
@@ -139,7 +139,9 @@ Now that you have written your first Stream Analytics query, test it by using sa
 This folder contains the following files:
 
 • Entry.json
+
 • Exit.json
+
 • Registration.json
 
 ## Question: Number of vehicles entering a toll booth
@@ -240,24 +242,24 @@ Expand your job node, and double-click on the **Job View** node to open a job vi
 
 ## Export an existing job to a project
 There are two ways you can export an existing job to a project.
-1. In **Server Explorer**, under the **Stream Analytics Jobs** node, right-click the job node. Select **Export to New Stream Analytics Project**.
+* In **Server Explorer**, under the **Stream Analytics Jobs** node, right-click the job node. Select **Export to New Stream Analytics Project**.
    
    ![Export to New Stream Analytics Project](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-export-job-01.png)
    
    The generated project appears in **Solution Explorer**.
    
-   ![Solution Explorer job](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-export-job-02.png)
+    ![Solution Explorer job](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-export-job-02.png)
    
-2. In the job view, select **Generate Project**.
+* In the job view, select **Generate Project**.
    
    ![Generate Project](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-export-job-03.png)
    
 ## Known issues and limitations
  
 * Local testing doesn't work if your query has geo-spatial functions.
-* No editor support for adding or changing JavaScript UDF.
+* Editor support isn't available for adding or changing JavaScript UDF.
 * Local testing doesn't support saving output in JSON format. 
-* No support for Power BI output and ADLS output.
+* Support isn't available for Power BI output and ADLS output.
 
 
 

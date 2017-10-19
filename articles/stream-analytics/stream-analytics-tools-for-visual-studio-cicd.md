@@ -38,11 +38,13 @@ Like the standard Visual Studio MSBuild experience, to build a project you have 
 
 When a Stream Analytics Visual Studio project builds successfully, it generates the following two Azure Resource Manager template files under the **bin/[Debug/Retail]/Deploy** folder: 
 
-* Resource Manager template file
-*       [ProjectName].JobTemplate.json 
+*  Resource Manager template file
 
-* Resource Manager parameters file
-*       [ProjectName].JobTemplate.parameters.json   
+       [ProjectName].JobTemplate.json 
+
+*  Resource Manager parameters file
+
+       [ProjectName].JobTemplate.parameters.json   
 
 The default parameters in the parameters.json file are from the settings in your Visual Studio project. If you want to deploy to another environment, replace the parameters accordingly.
 
