@@ -162,7 +162,7 @@ The impact of changing the number of data nodes varies for each type of cluster 
     >balancer
     ```
 
-    For more information on using the HBase shell, see [Get started with an Apache HBase example in HDInsight](hdinsight-hbase-tutorial-get-started-linux.md).
+    For more information on using the HBase shell, see [Get started with an Apache HBase example in HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md).
 
 * Storm
 

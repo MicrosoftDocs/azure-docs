@@ -53,7 +53,7 @@ The following are available for specific cluster types:
 
 | Service | Port | Protocol | Cluster type | Description |
 | --- | --- | --- | --- | --- |
-| Stargate |443 |HTTPS |HBase |HBase REST API. See [Get started using HBase](hdinsight-hbase-tutorial-get-started-linux.md) |
+| Stargate |443 |HTTPS |HBase |HBase REST API. See [Get started using HBase](hbase/apache-hbase-tutorial-get-started-linux.md) |
 | Livy |443 |HTTPS |Spark |Spark REST API. See [Submit Spark jobs remotely using Livy](spark/apache-spark-livy-rest-interface.md) |
 | Storm |443 |HTTPS |Storm |Storm web UI. See [Deploy and manage Storm topologies on HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md) |
 

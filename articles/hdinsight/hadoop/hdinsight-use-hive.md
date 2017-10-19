@@ -34,7 +34,7 @@ HDInsight provides several cluster types, which are tuned for specific workloads
 
 * __Spark__: Apache Spark has built-in functionality for working with Hive. For more information, see the [Start with Spark on HDInsight](../spark/apache-spark-jupyter-spark-sql.md) document.
 
-* __HBase__: HiveQL can be used to query data stored in HBase. For more information, see the [Start with HBase on HDInsight](../hdinsight-hbase-tutorial-get-started-linux.md) document.
+* __HBase__: HiveQL can be used to query data stored in HBase. For more information, see the [Start with HBase on HDInsight](../hbase/apache-hbase-tutorial-get-started-linux.md) document.
 
 ## How to use Hive
 

@@ -74,7 +74,7 @@ Azure HDInsight currently provides the following cluster types, each with a set 
 | Cluster type | Functionality |
 | --- | --- |
 | [Hadoop](hadoop/apache-hadoop-introduction.md) |Batch query and analysis of stored data |
-| [HBase](hdinsight-hbase-overview.md) |Processing for large amounts of schemaless, NoSQL data |
+| [HBase](hbase/apache-hbase-overview.md) |Processing for large amounts of schemaless, NoSQL data |
 | [Storm](storm/apache-storm-overview.md) |Real-time event processing |
 | [Spark](spark/apache-spark-overview.md) |In-memory processing, interactive queries, micro-batch stream processing |
 | [Kafka (Preview)](kafka/apache-kafka-introduction.md) | A distributed streaming platform that can be used to build real-time streaming data pipelines and applications |
