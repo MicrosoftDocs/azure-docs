@@ -23,12 +23,12 @@ ms.custom:
 
 An Azure container registry is a private Docker registry deployed in Azure that you can keep network-close to your deployments. In this set of three tutorial articles, you learn how to use geo-replication to deploy an ASP.NET Core web application running in a Linux container to two [Web App for Containers](../app-service/containers/index.yml) instances. You'll see how Azure automatically deploys the image to each Web App instance from the closest geo-replicated repository.
 
-In this tutorial article, part one of a three-part series, you:
+In this tutorial, part one of a three-part series, you:
 
 > [!div class="checklist"]
 > * Create a geo-replicated Azure container registry
 > * Clone application source code from GitHub
-> * Create a container image from application source
+> * Build a Docker container image from application source
 > * Push the container image to your registry
 
 In subsequent tutorials, you deploy the container from your private registry to a web app running in two Azure regions. You then update the code in the application, and update both Web App instances with a single `docker push` to your registry.
@@ -63,7 +63,7 @@ Select **Create** to deploy the ACR instance.
 
 ![Creating a container registry in the Azure portal][tut-portal-02]
 
-Throughout the rest of this tutorial, we use `<acrName>` as a placeholder for the container registry name that you chose.
+Throughout the rest of this tutorial, we use `<acrName>` as a placeholder for the container **Registry name** that you chose.
 
 > [!TIP]
 > Because Azure container registries are typically long-lived resources that are used across multiple container hosts, we recommend that you create your registry in its own resource group. As you configure geo-replicated registries and webhooks, these additional resources are placed in the same resource group.
@@ -71,7 +71,7 @@ Throughout the rest of this tutorial, we use `<acrName>` as a placeholder for th
 
 ## Configure geo-replication
 
-Now that you have a Premium registry you can configure geo-replication. Your web app, which you configure in the next tutorial to run in two regions, can pull its container images from the nearest registry.
+Now that you have a Premium registry, you can configure geo-replication. Your web app, which you configure in the next tutorial to run in two regions, can then pull its container images from the nearest registry.
 
 Log in to the Azure portal at http://portal.azure.com, then navigate to your Azure Container Registry and select **Replications** under **SERVICES**:
 
@@ -81,7 +81,7 @@ A map is displayed showing green hexagons representing Azure regions available f
 
  ![Region map in the Azure portal][tut-map-01]
 
-Replicate your registry to the East US region selecting its green hexagon, then select **Create** under **Create replication**:
+Replicate your registry to the East US region by selecting its green hexagon, then select **Create** under **Create replication**:
 
  ![Create replication UI in the Azure portal][tut-portal-04]
 
@@ -120,9 +120,9 @@ The Dockerfile included in the sample shows how the container is built. It start
 
 ```dockerfile
 FROM microsoft/aspnetcore:2.0 AS base
-# Update <acrname> with the name of your registry
+# Update <acrName> with the name of your registry
 # Example: uniqueregistryname.azurecr.io
-ENV DOCKER_REGISTRY <acrname>.azurecr.io
+ENV DOCKER_REGISTRY <acrMame>.azurecr.io
 WORKDIR /app
 EXPOSE 80
 
@@ -216,15 +216,13 @@ Because you've configured your registry for geo-replication, your image is autom
 
 ## Next steps
 
-In this tutorial, an Azure Container Registry was created, and a container image was pushed.
-
-The following steps were completed:
+In this tutorial, you created a private, geo-replicated container registry, built a container image, and then pushed that image to your registry. By following the steps in this tutorial, you:
 
 > [!div class="checklist"]
-> * Deploying an Azure Container Registry
-> * Update the image to reference the registry
-> * Tagging container image for the registry
-> * Uploading image to the registry
+> * Created a geo-replicated Azure container registry
+> * Cloned application source code from GitHub
+> * Built a Docker container image from application source
+> * Pushed the container image to your registry
 
 Advance to the next tutorial to learn about deploying your container to multiple Azure App Service instances, using geo-replication to serve the images locally.
 
