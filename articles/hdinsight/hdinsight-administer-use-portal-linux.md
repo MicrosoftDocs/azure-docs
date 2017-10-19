@@ -340,7 +340,7 @@ The **Usage** section of the HDInsight cluster blade displays information about 
 
 ## Connect to a cluster
 
-* [Use Hive with HDInsight](hdinsight-hadoop-use-hive-ambari-view.md)
+* [Use Hive with HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md)
 * [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 ## Next steps
@@ -355,7 +355,7 @@ In this article, you have learned some basic administrative functions. To learn 
 * [Use Hive in HDInsight](hdinsight-use-hive.md)
 * [Use Pig in HDInsight](hdinsight-use-pig.md)
 * [Use Sqoop in HDInsight](hdinsight-use-sqoop.md)
-* [Get Started with Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
+* [Get Started with Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [What version of Hadoop is in Azure HDInsight?](hdinsight-component-versioning.md)
 
 [azure-portal]: https://portal.azure.com

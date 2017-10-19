@@ -25,7 +25,7 @@ Azure PowerShell is a scripting environment that you can use to control and auto
 Examples of tasks you can do with PowerShell:
 
 * [Create clusters using PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
-* [Run Hive queries using PowerShell](hdinsight-hadoop-use-hive-powershell.md)
+* [Run Hive queries using PowerShell](hadoop/apache-hadoop-use-hive-powershell.md)
 * [Manage clusters with PowerShell](hdinsight-administer-use-powershell.md)
 
 Follow steps to [install and configure Azure Powershell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) to get the latest version. If you have scripts that need to be modified to use the new cmdlets for Azure Resource Manager, see [Migrate to Azure Resource Manager-based development tools for HDInsight clusters](hdinsight-hadoop-development-using-azure-resource-manager.md).
@@ -35,7 +35,7 @@ The following utilities have a web UI that runs in a browser:
 * **[Azure Cloud Shell (preview)](https://docs.microsoft.com/azure/cloud-shell/quickstart)** is an interactive, command-line shell that runs in your browser and from within the Azure portal.
 * **[Ambari Web UI](hdinsight-hadoop-manage-ambari.md)** is a management and monitoring utility available in the Azure portal that can be used to manage different kinds of jobs, such as:
     * [Use Ambari with the REST API](hdinsight-hadoop-manage-ambari-rest-api.md)
-    * [Hive View in Ambari](hdinsight-hadoop-use-hive-ambari-view.md)
+    * [Hive View in Ambari](hadoop/apache-hadoop-use-hive-ambari-view.md)
     * [Tez View in Ambari](hdinsight-debug-ambari-tez-view.md)
 
 ## Data Lake (Hadoop) Tools for Visual Studio
@@ -53,8 +53,8 @@ You can use Visual Studio with the .NET SDK to manage clusters and develop big d
 
 Examples of tasks you can do with the .NET SDK in Visual Studio:
 * [Create clusters and work in HDInsight from a .NET Framework application](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
-* [Run Hive queries using the .NET SDK](hdinsight-hadoop-use-hive-dotnet-sdk.md)
-* [Use C# user-defined functions with Hive and Pig streaming on Hadoop](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
+* [Run Hive queries using the .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)
+* [Use C# user-defined functions with Hive and Pig streaming on Hadoop](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
 
 > TIP 
 >If you're running .NET solutions with Windows-based HDInsight clusters, it's a good time to plan a migration to Linux-based clusters. For more information, see [Migrate .NET solution for Windows-based HDInsight to Linux-based HDInsight](hdinsight-hadoop-migrate-dotnet-to-linux.md).

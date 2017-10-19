@@ -173,7 +173,7 @@ After you have set up the cluster with Data Lake Store as your storage, refer to
 
 ### Run a Hive query against data in a Data Lake Store (as primary storage)
 
-To run a Hive query, use the Hive views interface in the Ambari portal. For instructions on how to use Ambari Hive views, see [Use the Hive View with Hadoop in HDInsight](../hdinsight/hdinsight-hadoop-use-hive-ambari-view.md).
+To run a Hive query, use the Hive views interface in the Ambari portal. For instructions on how to use Ambari Hive views, see [Use the Hive View with Hadoop in HDInsight](../hdinsight/hadoop/apache-hadoop-use-hive-ambari-view.md).
 
 When you work with data in a Data Lake Store, there are a few strings to change.
 

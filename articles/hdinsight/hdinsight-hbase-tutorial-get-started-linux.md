@@ -157,7 +157,7 @@ You can query data in HBase tables by using Hive. In this section, you create a 
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin
     ```
 
-    For more information about Beeline, see [Use Hive with Hadoop in HDInsight with Beeline](hdinsight-hadoop-use-hive-beeline.md).
+    For more information about Beeline, see [Use Hive with Hadoop in HDInsight with Beeline](hadoop/apache-hadoop-use-hive-beeline.md).
        
 3. Run the following HiveQL script  to create a Hive table that maps to the HBase table. Make sure that you have created the sample table referenced earlier in this tutorial by using the HBase shell before you run this statement.
 

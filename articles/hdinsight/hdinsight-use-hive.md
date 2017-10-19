@@ -30,7 +30,7 @@ HDInsight provides several cluster types, which are tuned for specific workloads
 
 * __Interactive Query__: A Hadoop cluster that provides [Low Latency Analytical Processing (LLAP)](https://cwiki.apache.org/confluence/display/Hive/LLAP) functionality to improve response times for interactive queries. For more information, see the [Start with Interactive Query in HDInsight](hdinsight-hadoop-use-interactive-hive.md) document.
 
-* __Hadoop__: A Hadoop cluster that is tuned for batch processing workloads. For more information, see the [Start with Hadoop in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md) document.
+* __Hadoop__: A Hadoop cluster that is tuned for batch processing workloads. For more information, see the [Start with Hadoop in HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md) document.
 
 * __Spark__: Apache Spark has built-in functionality for working with Hive. For more information, see the [Start with Spark on HDInsight](spark/apache-spark-jupyter-spark-sql.md) document.
 
@@ -42,11 +42,11 @@ Use the following table to discover how to use Hive with HDInsight:
 
 | **Use this method** if you want... | ...an **interactive** shell | ...**batch** processing | ...with this **cluster operating system** | ...from this **client operating system** |
 |:--- |:---:|:---:|:--- |:--- |
-| [Hive View](hdinsight-hadoop-use-hive-ambari-view.md) |✔ |✔ |Linux |Any (browser based) |
-| [Beeline client](hdinsight-hadoop-use-hive-beeline.md) |✔ |✔ |Linux |Linux, Unix, Mac OS X, or Windows |
-| [REST API](hdinsight-hadoop-use-hive-curl.md) |&nbsp; |✔ |Linux or Windows* |Linux, Unix, Mac OS X, or Windows |
+| [Hive View](hadoop/apache-hadoop-use-hive-ambari-view.md) |✔ |✔ |Linux |Any (browser based) |
+| [Beeline client](hadoop/apache-hadoop-use-hive-beeline.md) |✔ |✔ |Linux |Linux, Unix, Mac OS X, or Windows |
+| [REST API](hadoop/apache-hadoop-use-hive-curl.md) |&nbsp; |✔ |Linux or Windows* |Linux, Unix, Mac OS X, or Windows |
 | [HDInsight tools for Visual Studio](hdinsight-hadoop-use-hive-visual-studio.md) |&nbsp; |✔ |Linux or Windows* |Windows |
-| [Windows PowerShell](hdinsight-hadoop-use-hive-powershell.md) |&nbsp; |✔ |Linux or Windows* |Windows |
+| [Windows PowerShell](hadoop/apache-hadoop-use-hive-powershell.md) |&nbsp; |✔ |Linux or Windows* |Windows |
 
 > [!IMPORTANT]
 > \* Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -97,11 +97,11 @@ For more information, see the [Hive Internal and External Tables Intro][cindygro
 
 Hive can also be extended through **user-defined functions (UDF)**. A UDF allows you to implement functionality or logic that isn't easily modeled in HiveQL. For an example of using UDFs with Hive, see the following documents:
 
-* [Use a Java user-defined function with Hive](hdinsight-hadoop-hive-java-udf.md)
+* [Use a Java user-defined function with Hive](hadoop/apache-hadoop-hive-java-udf.md)
 
 * [Use a Python user-defined function with Hive and Pig](hdinsight-python.md)
 
-* [Use a C# user-defined function with Hive and Pig](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
+* [Use a C# user-defined function with Hive and Pig](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
 
 * [How to add a custom Hive user-defined function to HDInsight](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
 

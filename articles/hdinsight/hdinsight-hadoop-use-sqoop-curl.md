@@ -122,7 +122,7 @@ For information on other ways you can work with Hadoop on HDInsight:
 For other HDInsight articles involving curl:
  
 * [Create Hadoop clusters using the Azure REST API](hdinsight-hadoop-create-linux-clusters-curl-rest.md)
-* [Run Hive queries with Hadoop in HDInsight using REST](hdinsight-hadoop-use-hive-curl.md)
+* [Run Hive queries with Hadoop in HDInsight using REST](hadoop/apache-hadoop-use-hive-curl.md)
 * [Run MapReduce jobs with Hadoop on HDInsight using REST](hdinsight-hadoop-use-mapreduce-curl.md)
 * [Run Pig jobs with Hadoop on HDInsight using cURL](hdinsight-hadoop-use-pig-curl.md)
 

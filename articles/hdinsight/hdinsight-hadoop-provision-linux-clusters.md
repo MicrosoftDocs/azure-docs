@@ -73,7 +73,7 @@ Azure HDInsight currently provides the following cluster types, each with a set 
 
 | Cluster type | Functionality |
 | --- | --- |
-| [Hadoop](hdinsight-hadoop-introduction.md) |Batch query and analysis of stored data |
+| [Hadoop](hadoop/apache-hadoop-introduction.md) |Batch query and analysis of stored data |
 | [HBase](hdinsight-hbase-overview.md) |Processing for large amounts of schemaless, NoSQL data |
 | [Storm](storm/apache-storm-overview.md) |Real-time event processing |
 | [Spark](spark/apache-spark-overview.md) |In-memory processing, interactive queries, micro-batch stream processing |
@@ -247,6 +247,6 @@ If you run into issues with creating HDInsight clusters, see [access control req
 
 ## Next steps
 
-- [What are HDInsight, the Hadoop ecosystem, and Hadoop clusters?](hdinsight-hadoop-introduction.md)
-- [Get started using Hadoop in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
+- [What are HDInsight, the Hadoop ecosystem, and Hadoop clusters?](hadoop/apache-hadoop-introduction.md)
+- [Get started using Hadoop in HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 - [Work in Hadoop on HDInsight from a Windows PC](hdinsight-hadoop-windows-tools.md)

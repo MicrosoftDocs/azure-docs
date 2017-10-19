@@ -64,9 +64,9 @@ For more information, see [Hadoop Streaming](http://hadoop.apache.org/docs/r1.2.
 
 For examples of using Hadoop streaming with HDInsight, see the following documents:
 
-* [Develop C# MapReduce jobs](hdinsight-hadoop-dotnet-csharp-mapreduce-streaming.md)
+* [Develop C# MapReduce jobs](hadoop/apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
 
-* [Develop Python MapReduce jobs](hdinsight-hadoop-streaming-python.md)
+* [Develop Python MapReduce jobs](hadoop/apache-hadoop-streaming-python.md)
 
 ## <a id="data"></a>Example data
 
@@ -152,9 +152,9 @@ public class WordCount {
 
 For instructions to write your own MapReduce applications, see the following documents:
 
-* [Develop Java MapReduce applications for HDInsight](hdinsight-develop-deploy-java-mapreduce-linux.md)
+* [Develop Java MapReduce applications for HDInsight](hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md)
 
-* [Develop Python MapReduce applications for HDInsight](hdinsight-hadoop-streaming-python.md)
+* [Develop Python MapReduce applications for HDInsight](hadoop/apache-hadoop-streaming-python.md)
 
 ## <a id="run"></a>Run the MapReduce
 
@@ -174,9 +174,9 @@ HDInsight can run HiveQL jobs by using various methods. Use the following table 
 
 To learn more about working with data in HDInsight, see the following documents:
 
-* [Develop Java MapReduce programs for HDInsight](hdinsight-develop-deploy-java-mapreduce-linux.md)
+* [Develop Java MapReduce programs for HDInsight](hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md)
 
-* [Develop Python streaming MapReduce programs for HDInsight](hdinsight-hadoop-streaming-python.md)
+* [Develop Python streaming MapReduce programs for HDInsight](hadoop/apache-hadoop-streaming-python.md)
 
 * [Develop Scalding MapReduce jobs with Apache Hadoop on HDInsight](hdinsight-hadoop-mapreduce-scalding.md)
 
@@ -186,8 +186,8 @@ To learn more about working with data in HDInsight, see the following documents:
 
 
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
-[hdinsight-develop-mapreduce-jobs]: hdinsight-develop-deploy-java-mapreduce-linux.md
+[hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md
+[hdinsight-develop-mapreduce-jobs]: hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 

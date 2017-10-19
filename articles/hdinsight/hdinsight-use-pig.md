@@ -60,7 +60,7 @@ For an example of using UDFs with Pig, see the following documents:
 
 * [Use DataFu with Pig in HDInsight](hdinsight-hadoop-use-pig-datafu-udf.md) - DataFu is a collection of useful UDFs maintained by Apache
 * [Use Python with Pig and Hive in HDInsight](hdinsight-python.md)
-* [Use C# with Hive and Pig in HDInsight](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
+* [Use C# with Hive and Pig in HDInsight](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
 
 ## <a id="data"></a>Example data
 

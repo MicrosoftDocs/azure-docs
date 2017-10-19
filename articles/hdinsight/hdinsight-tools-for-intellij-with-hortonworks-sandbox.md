@@ -24,13 +24,13 @@ ms.author: jgao
 
 Learn how to use HDInsight Tools for IntelliJ to develop Apache Scala applications, and then test the applications on [Hortonworks Sandbox](http://hortonworks.com/products/sandbox/) running on your computer. 
 
-[IntelliJ IDEA](https://www.jetbrains.com/idea/) is a Java integrated development environment (IDE) for developing computer software. After you develop and test your applications on Hortonworks Sandbox, you can move the applications to [Azure HDInsight](hdinsight-hadoop-introduction.md).
+[IntelliJ IDEA](https://www.jetbrains.com/idea/) is a Java integrated development environment (IDE) for developing computer software. After you develop and test your applications on Hortonworks Sandbox, you can move the applications to [Azure HDInsight](hadoop/apache-hadoop-introduction.md).
 
 ## Prerequisites
 
 Before you begin this tutorial, you must have the following items:
 
-- Hortonworks Data Platform (HDP) 2.4 on Hortonworks Sandbox running on your local computer. To set up HDP, see [Get started in the Hadoop ecosystem with a Hadoop sandbox on a virtual machine](hdinsight-hadoop-emulator-get-started.md). 
+- Hortonworks Data Platform (HDP) 2.4 on Hortonworks Sandbox running on your local computer. To set up HDP, see [Get started in the Hadoop ecosystem with a Hadoop sandbox on a virtual machine](hadoop/apache-hadoop-emulator-get-started.md). 
     > [!NOTE]
     > HDInsight Tools for IntelliJ has been tested only with HDP 2.4. To get HDP 2.4, expand **Hortonworks Sandbox Archive** on the [Hortonworks Sandbox downloads site](http://hortonworks.com/downloads/#sandbox).
 

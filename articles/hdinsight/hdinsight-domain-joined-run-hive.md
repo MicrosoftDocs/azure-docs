@@ -77,7 +77,7 @@ In this section, you will create two Ranger policies for accessing hivesampletab
    * Permissions: select
 
 ## Create Hive ODBC data source
-The instructions can be found in [Create Hive ODBC data source](hdinsight-connect-excel-hive-odbc-driver.md).  
+The instructions can be found in [Create Hive ODBC data source](hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md).  
 
     Property|Description
     ---|---
@@ -138,6 +138,6 @@ To test the second policy (read-hivesampletable-devicemake) you created in the l
 * For configuring a Domain-joined HDInsight cluster, see [Configure Domain-joined HDInsight clusters](hdinsight-domain-joined-configure.md).
 * For managing a Domain-joined HDInsight clusters, see [Manage Domain-joined HDInsight clusters](hdinsight-domain-joined-manage.md).
 * For running Hive queries using SSH on Domain-joined HDInsight clusters, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
-* For Connecting Hive using Hive JDBC, see [Connect to Hive on Azure HDInsight using the Hive JDBC driver](hdinsight-connect-hive-jdbc-driver.md)
-* For connecting Excel to Hadoop using Hive ODBC, see [Connect Excel to Hadoop with the Microsoft Hive ODBC drive](hdinsight-connect-excel-hive-odbc-driver.md)
-* For connecting Excel to Hadoop using Power Query, see [Connect Excel to Hadoop by using Power Query](hdinsight-connect-excel-power-query.md)
+* For Connecting Hive using Hive JDBC, see [Connect to Hive on Azure HDInsight using the Hive JDBC driver](hadoop/apache-hadoop-connect-hive-jdbc-driver.md)
+* For connecting Excel to Hadoop using Hive ODBC, see [Connect Excel to Hadoop with the Microsoft Hive ODBC drive](hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md)
+* For connecting Excel to Hadoop using Power Query, see [Connect Excel to Hadoop by using Power Query](hadoop/apache-hadoop-connect-excel-power-query.md)

@@ -32,7 +32,7 @@ Learn how to submit MapReduce jobs using HDInsight .NET SDK. HDInsight clusters 
 ## Prerequisites
 Before you begin this article, you must have the following items:
 
-* **A Hadoop cluster in HDInsight**. See [Get started using Linux-based Hadoop in HDInsight](./hdinsight-hadoop-linux-tutorial-get-started.md).
+* **A Hadoop cluster in HDInsight**. See [Get started using Linux-based Hadoop in HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 * **Visual Studio 2013/2015/2017**.
 
 ## Submit MapReduce jobs using HDInsight .NET SDK
@@ -169,7 +169,7 @@ When the job completes successfully, the application prints the content of the o
 ## Next steps
 In this article, you have learned several ways to create an HDInsight cluster. To learn more, see the following articles:
 
-* For submitting a Hive job, see [Run Hive queries using HDInsight .NET SDK](hdinsight-hadoop-use-hive-dotnet-sdk.md).
+* For submitting a Hive job, see [Run Hive queries using HDInsight .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md).
 * For creating HDInsight clusters, see [Create Linux-based Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 * For managing HDInsight clusters, see [Manage Hadoop clusters in HDInsight](hdinsight-administer-use-portal-linux.md).
 * For learning the HDInsight .NET SDK, see [HDInsight .NET SDK reference](https://msdn.microsoft.com/library/mt271028.aspx).
