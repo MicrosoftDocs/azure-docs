@@ -1,6 +1,6 @@
 ---
-title: Supported combinations of execution and data environments for Azure Machine Learning Data Preparation | Microsoft Docs
-description: This document provides a complete list of supported combinations of different runtimes and data sources for Azure Machine Learning Data Preparation
+title: Supported combinations of execution and data environments for Azure Machine Learning Data Preparations | Microsoft Docs
+description: This document provides a complete list of supported combinations of different runtimes and data sources for Azure Machine Learning Data Preparations
 services: machine-learning
 author: euangMS
 ms.author: euang

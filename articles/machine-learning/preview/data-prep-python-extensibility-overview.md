@@ -1,5 +1,5 @@
 ---
-title: Use Python extensibility with Azure Machine Learning Data Preparation | Microsoft Docs
+title: Use Python extensibility with Azure Machine Learning Data Preparations | Microsoft Docs
 description: This document provides an overview and some detailed examples of how to use Python code to extend the functionality of data preparation
 services: machine-learning
 author: euangMS
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 09/07/2017
 ---
 
-# Data Preparation Python extensions
-As a way of filling in functionality gaps between built-in features, Azure Machine Learning Data Preparation includes extensibility at multiple levels. In this document, we outline the extensibility via Python script. 
+# Data Preparations Python extensions
+As a way of filling in functionality gaps between built-in features, Azure Machine Learning Data Preparations includes extensibility at multiple levels. In this document, we outline the extensibility via Python script. 
 
 ## Custom code steps 
-Data Preparation has the following custom steps where users can write code:
+Data Preparations has the following custom steps where users can write code:
 
 * File Reader*
 * Writer*
@@ -90,7 +90,7 @@ import scipy as sp
   
 
 ## Install new packages
-To use a package that's not installed by default, you first need to install it into the environments that Data Preparation uses. This installation needs to be done both on your local machine and on any compute targets you want to run on.
+To use a package that's not installed by default, you first need to install it into the environments that Data Preparations uses. This installation needs to be done both on your local machine and on any compute targets you want to run on.
 
 To install your packages in a compute target, you have to modify the conda_dependencies.yml file located in the aml_config folder under the root of your project.
 
@@ -309,9 +309,9 @@ def transform(df, index):
 
 ## DataPrepError  
 ### Error values  
-In Data Preparation, the concept of Error values exists. 
+In Data Preparations, the concept of error values exists. 
 
-It's possible to encounter Error values in custom Python code. They are instances of a Python class called `DataPrepError`. This class wraps a Python exception and has a couple of properties. The properties contain information about the error that occurred when the original value was processed, as well as the original value. 
+It's possible to encounter error values in custom Python code. They are instances of a Python class called `DataPrepError`. This class wraps a Python exception and has a couple of properties. The properties contain information about the error that occurred when the original value was processed, as well as the original value. 
 
 
 ### DataPrepError class definition
@@ -320,7 +320,7 @@ class DataPrepError(Exception):
     def __bool__(self): 
         return False 
 ``` 
-The creation of a DataPrepError in Data Preparation's Python framework generally looks like this: 
+The creation of a DataPrepError in Data Preparations' Python framework generally looks like this: 
 ```python 
 DataPrepError({ 
    'message':'Cannot convert to numeric value', 
