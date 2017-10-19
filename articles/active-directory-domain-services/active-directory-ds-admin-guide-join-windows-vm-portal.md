@@ -46,7 +46,7 @@ Perform the following steps to create a Windows virtual machine joined to the vi
 
     > [!TIP]
     > **Pick the right virtual network and subnet.**
-    > Select either the virtual network in which your managed domain is deployed or a virtual network that is connected to it using virtual network peering. If you select a different virtual network, you will not be able to join the virtual network to the managed domain.
+    > Select either the virtual network in which your managed domain is deployed or a virtual network that is connected to it using virtual network peering. If you select an unconnected virtual network, you cannot join the virtual machine to the managed domain.
     > We recommend deploying your managed domain into a dedicated subnet. Therefore, do not pick the subnet in which you've enabled your managed domain.
 
 7. On the **Purchase** page, review the settings and click **OK** to deploy the virtual machine.
@@ -117,7 +117,7 @@ If you get to the dialog box that asks for credentials to join the domain, you d
 Refer to the following steps if you're having trouble with credentials and are unable to join the domain.
 
 * Try using the UPN format to specify credentials. If there are multiple users with the same UPN prefix in your tenant or if your UPN prefix is overly long, the SAMAccountName for your account may be auto-generated. Therefore, the SAMAccountName format for your account may be different from what you expect or use in your on-premises domain.
-* Try to use the credentials of a user account that belongs to the 'AAD DC Administrators' group to join machines to the managed domain.
+* Try to use the credentials of a user account that belongs to the 'AAD DC Administrators' group.
 * Ensure that you have [enabled password synchronization](active-directory-ds-getting-started-password-sync.md) in accordance with the steps outlined in the Getting Started guide.
 * Ensure that you use the UPN of the user as configured in Azure AD (for example, 'bob@domainservicespreview.onmicrosoft.com') to sign in.
 * Ensure that you have waited long enough for password synchronization to complete as specified in the Getting Started guide.
