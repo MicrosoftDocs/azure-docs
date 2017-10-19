@@ -1,5 +1,5 @@
 ---
-title: Azure Container Registry tutorial - Prepare ACR
+title: Azure Container Registry tutorial - Prepare a geo-replicated Azure container registry
 description: Create an Azure container registry, configure geo-replication, prepare a Docker image, and deploy it to the registry. Part one of a three-part series.
 services: container-registry
 documentationcenter: ''
@@ -19,7 +19,7 @@ ms.author: marsma
 ms.custom:
 ---
 
-# Deploy and use Azure Container Registry
+# Prepare a geo-replicated Azure container registry
 
 An Azure container registry is a private Docker registry deployed in Azure that you can keep network-close to your deployments. In this set of three tutorial articles, you learn how to use geo-replication to deploy an ASP.NET Core web application running in a Linux container to two [Web App for Containers](../app-service/containers/index.yml) instances. You'll see how Azure automatically deploys the image to each Web App instance from the closest geo-replicated repository.
 
@@ -41,7 +41,7 @@ This tutorial assumes a basic understanding of core Docker concepts such as cont
 
 To complete this tutorial, you need a Docker development environment. Docker provides packages that easily configure Docker on any [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), or [Linux](https://docs.docker.com/engine/installation/#supported-platforms) system.
 
-Azure Cloud Shell does not include the Docker components required to complete every step this tutorial. Therefore, we recommend using a full Docker development environment.
+Azure Cloud Shell does not include the Docker components required to complete every step this tutorial. Therefore, we recommend a local installation of the Azure CLI and Docker development environment.
 
 ## Create a container registry
 

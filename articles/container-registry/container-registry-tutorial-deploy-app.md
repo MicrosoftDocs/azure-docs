@@ -21,17 +21,19 @@ ms.custom:
 
 # Deploy Web App from Azure Container Registry
 
-This is part three of a four-part tutorial. In the [previous step](./container-registry-tutorial-prepare-acr.md), a container image was created for a web application. In this tutorial, the image is deployed to Azure App Services in two regions. ACR Geo-replication will be configured in the same two regions, enabling local registry pull. If you have not created the container image, return to [Tutorial 1 – Geo-replicate Azure Container Registry tutorial - Prepare Azure Container Registry](./container-registry-tutorial-prepare-acr.md).
+This is part two of a three-part tutorial series. In [part one](container-registry-tutorial-prepare-acr.md), a private, geo-replicated container registry was created, and a container image was built from source and pushed to the registry. In this article, you deploy the container into two Web App instances in two different Azure regions to take advantage of the network-close aspect of the geo-replicated registry.
 
-Steps to complete include:
+If you haven't yet created a geo-replicated registry and pushed the image of the containerized sample application to the registry, return to the first tutorial in the series, [Prepare a geo-replicated Azure container registry](container-registry-tutorial-prepare-acr.md).
+
+In this article, part two of the series, you:
 
 > [!div class="checklist"]
-> * Deploy an image to Azure App Services
-> * Convert the Container Registry to Premium
-> * Geo-replicate an additional region
+> * Deploy an image to Azure App Service
+> * View the application
 > * Deploy a secondary Azure App Service
+> * View the application
 
-In subsequent tutorials, you push a change to the registry, viewing the change in multiple regions, from multiple registry replicas.
+In the next part of the series, you update the application, then push a new container image to the registry to see geo-replication in action, viewing the change automatically reflected in both Web App instances.
 
 ## Deploy to Azure App Services
 
