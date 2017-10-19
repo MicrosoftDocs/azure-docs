@@ -20,9 +20,9 @@ ms.author: mimig
 ---
 # Azure Cosmos DB: Create a document database using Java and the Azure portal
 
-Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
+Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. Using Azure Cosmos DB, you can quickly create and query managed document, table, and graph databases.
 
-This quickstart creates a document database using the Azure portal tools for Azure Cosmos DB. This quickstart also shows you how to quickly create a Java console app using the [DocumentDB Java API](documentdb-sdk-java.md). The instructions in this quickstart can be followed on any operating system that is capable of running Java. By completing this quickstart you'll be familiar with creating and modifying document database resources in either the UI or programatically, whichever is your preference.
+This quickstart creates a document database using the Azure portal tools for Azure Cosmos DB. This quickstart also shows you how to quickly create a Java console app using the [DocumentDB Java API](documentdb-sdk-java.md). The instructions in this quickstart can be followed on any operating system that is capable of running Java. By completing this quickstart you'll be familiar with creating and modifying document database resources in either the UI or programmatically, whichever is your preference.
 
 ## Prerequisites
 
@@ -77,7 +77,7 @@ You can now add data to your new collection using Data Explorer.
 
 You can now use queries in Data Explorer to retrieve and filter your data.
 
-1. See that by default, the query is set to `SELECT * FROM c`, which retrieves and displays all documents in the collection. 
+1. See that by default, the query is set to `SELECT * FROM c`. This default query retrieves and displays all documents in the collection. 
 
     ![Default query in Data Explorer is `SELECT * FROM c`](./media/create-documentdb-java/azure-cosmosdb-data-explorer-query.png)
 
@@ -93,13 +93,13 @@ That completes our work in Data Explorer. Before we move on to working with code
 
 Now let's switch to working with code. Let's clone a DocumentDB API app from GitHub, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
 
-1. Open a git terminal window, such as git bash, and use the `cd` command to change to a folder where you want to install the sample app. 
+1. Open a git terminal window, such as git bash, and use the `cd` command to change to a folder to install the sample app. 
 
     ```bash
     cd "C:\git-samples"
     ```
 
-2. Run the following command to clone the sample repository. This creates a copy of the sample app on your computer.
+2. Run the following command to clone the sample repository. This command creates a copy of the sample app on your computer.
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-documentdb-java-getting-started.git
@@ -107,7 +107,7 @@ Now let's switch to working with code. Let's clone a DocumentDB API app from Git
 
 ## Review the code
 
-This step is optional. If you're interested in learning how the database resources are created in the code, you can review the snippets below, which are all taken from the `Program.java` file installed in the C:\git-samples\azure-cosmos-db-documentdb-java-getting-started\src\GetStarted folder. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-string). 
+This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. The snippets are all taken from the `Program.java` file installed in the C:\git-samples\azure-cosmos-db-documentdb-java-getting-started\src\GetStarted folder. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-string). 
 
 * The `DocumentClient` class is initialized. The [DocumentClient](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client) provides client-side logical representation for the Azure Cosmos DB database service. This client is used to configure and execute requests against the service.
 
@@ -138,7 +138,7 @@ This step is optional. If you're interested in learning how the database resourc
     this.client.createCollection(databaseLink, collectionInfo, requestOptions);
     ```
 
-* Some documents are created usiong the [createDocument](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client.createdocument) method.
+* Some documents are created using the [createDocument](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client.createdocument) method.
 
     ```java
     // Any Java object within your code can be serialized into JSON and written to Azure Cosmos DB
@@ -171,13 +171,13 @@ This step is optional. If you're interested in learning how the database resourc
 
 ## Update your connection string
 
-Now go back to the Azure portal to get your connection string information and copy it into the app. This will enable your app to communicate with your hosted database.
+Now go back to the Azure portal to get your connection string information and copy it into the app. This enables your app to communicate with your hosted database.
 
 1. In the [Azure portal](http://portal.azure.com/), click **Keys**. 
 
     Use the copy buttons on the right side of the screen to copy the URI value.
 
-    ![View and copy an access key in the Azure portal, Keys blade](./media/create-documentdb-java/keys.png)
+    ![View and copy an access key in the Azure portal, Keys page](./media/create-documentdb-java/keys.png)
 
 2. Open the `Program.java` file from C:\git-samples\azure-cosmos-db-documentdb-java-getting-started\src\GetStarted folder. 
 
@@ -207,13 +207,13 @@ Now go back to the Azure portal to get your connection string information and co
 
 3. In the git terminal window, run `mvn exec:java -D exec.mainClass=GetStarted.Program` to start the Java application.
 
-    In the terminal window, you'll receive a notification that the FamilyDB database was created. Press a key to create the collection, then switch to the Data Explorer and you'll see that it now contains a FamilyDB database.
+    The terminal window displays a notification that the FamilyDB database was created. Press a key to create the collection, then switch to the Data Explorer and you'll see that it now contains a FamilyDB database.
     
     Continue to press keys to create the documents and then perform a query.
     
     At the end of the program, all the resources from this app are deleted from your account so that you don't incur any charges. 
 
-    ![View and copy an access key in the Azure portal, Keys blade](./media/create-documentdb-java/console-output.png)
+    ![Console output](./media/create-documentdb-java/console-output.png)
 
 
 ## Review SLAs in the Azure portal
