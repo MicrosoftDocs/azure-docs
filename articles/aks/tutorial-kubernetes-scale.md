@@ -41,7 +41,7 @@ If you have not done these steps, and would like to follow along, return to the 
 
 ## Scale AKS nodes
 
-If you created your Kubernetes cluster using the commands in the previous tutorial, it has one agent nodes. You can adjust the number of agents manually if you plan more or fewer container workloads on your cluster.
+If you created your Kubernetes cluster using the commands in the previous tutorial, it has one agent node. You can adjust the number of agents manually if you plan more or fewer container workloads on your cluster.
 
 The following example increases the number of agent nodes to three in the Kubernetes cluster named *myK8sCluster*. The command takes a couple of minutes to complete.
 
@@ -49,7 +49,7 @@ The following example increases the number of agent nodes to three in the Kubern
 az aks scale --resource-group=myResourceGroup --name=myK8SCluster --agent-count 3
 ```
 
-The ouput will be similar to:
+The output is similar to:
 
 ```console
 "agentPoolProfiles": [

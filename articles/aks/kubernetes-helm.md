@@ -54,7 +54,7 @@ Bash completion has been installed to:
 
 ## Configure Helm
 
-The [helm init](https://docs.helm.sh/helm/#helm-init) command is used to install Helm componenets in a Kubernetes cluster and make client side configurations. Helm is pre-installed in AKS clusters, so only the client side configuration is needed. Run the following command to configure the Helm client.
+The [helm init](https://docs.helm.sh/helm/#helm-init) command is used to install Helm components in a Kubernetes cluster and make client-side configurations. Helm is pre-installed in AKS clusters, so only the client-side configuration is needed. Run the following command to configure the Helm client.
 
 ```azurecli-interactive
 helm init --client-only
@@ -115,7 +115,7 @@ Update Complete. ⎈ Happy Helming!⎈
 
 ## Run Helm charts
 
-To deploy a NGINX ingress controller, use the [helm install](https://docs.helm.sh/helm/#helm-install) command.
+To deploy an NGINX ingress controller, use the [helm install](https://docs.helm.sh/helm/#helm-install) command.
 
 ```azurecli-interactive
 helm install stable/nginx-ingress
