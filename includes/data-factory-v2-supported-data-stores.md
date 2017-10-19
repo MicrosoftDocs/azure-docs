@@ -9,6 +9,8 @@
 | &nbsp; |[Azure Table storage](../articles/data-factory/connector-azure-table-storage.md) |✓ |✓ |✓ |✓  |
 | **Databases** |[Amazon Redshift](../articles/data-factory/connector-amazon-redshift.md) |✓ | |✓ |✓  |
 | &nbsp; |[DB2](../articles/data-factory/connector-db2.md) |✓ | |✓ |✓  |
+| &nbsp; |[Informix](../articles/data-factory/connector-odbc.md#ibm-informix-source) |✓ | | |✓  |
+| &nbsp; |[Microsoft Access](../articles/data-factory/connector-odbc.md#microsoft-access-source) |✓ | | |✓  |
 | &nbsp; |[MySQL](../articles/data-factory/connector-mysql.md) |✓ | | |✓  |
 | &nbsp; |[Oracle](../articles/data-factory/connector-oracle.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[PostgreSQL](../articles/data-factory/connector-postgresql.md) |✓ | | |✓  |
@@ -26,9 +28,9 @@
 | &nbsp; |[SFTP](../articles/data-factory/connector-sftp.md) |✓ | |✓ |✓  |
 | **Others** |[Dynamics 365](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓ | |✓ |✓  |
 | &nbsp; |[Dynamics CRM](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓ | |✓ |✓  |
+| &nbsp; |[GE Historian](../articles/data-factory/connector-odbc.md#ge-historian-source) |✓ | | |✓  |
 | &nbsp; |[Generic HTTP](../articles/data-factory/connector-http.md) |✓ | |✓ |✓  |
 | &nbsp; |[Generic OData](../articles/data-factory/connector-odata.md) |✓ | |✓ |✓  |
 | &nbsp; |[Generic ODBC](../articles/data-factory/connector-odbc.md) |✓ |✓ | |✓  |
 | &nbsp; |[Salesforce](../articles/data-factory/connector-salesforce.md) |✓ | |✓ |✓  |
 | &nbsp; |[Web Table (HTML table)](../articles/data-factory/connector-web-table.md) |✓ | |✓ |✓  |
-| &nbsp; |[GE Historian](../articles/data-factory/connector-odbc.md#ge-historian-source) |✓ | | |✓  |
