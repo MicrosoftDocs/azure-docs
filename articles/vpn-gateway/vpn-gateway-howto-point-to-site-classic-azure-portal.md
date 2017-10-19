@@ -32,7 +32,7 @@ This article shows you how to create a VNet with a Point-to-Site connection in t
 
 A Point-to-Site (P2S) VPN gateway lets you create a secure connection to your virtual network from an individual client computer. Point-to-Site VPN connections are useful when you want to connect to your VNet from a remote location, such when you are telecommuting from home or a conference. A P2S VPN is also a useful solution to use instead of a Site-to-Site VPN when you have only a few clients that need to connect to a VNet. 
 
-P2S uses the Secure Socket Tunneling Protocol (SSTP), which is an SSL-based VPN protocol. A P2S VPN connection is established by starting it from the client computer.
+For the classic deployment model, P2S uses the Secure Socket Tunneling Protocol (SSTP), which is an SSL-based VPN protocol. A P2S VPN connection is established by starting it from the client computer. The classic deployment model supports Windows clients. See the [FAQ](#faq) for specific details. In order to support non-Windows VPN clients, your VNet must be created using the Resource Manager deployment model. The Resource Manager deployment model supports IKEv2 VPN, in addition to SSTP. For instructions, see the [Azure portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md) or [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md) articles.
 
 
 ![Point-to-Site-diagram](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/point-to-site-connection-diagram.png)
