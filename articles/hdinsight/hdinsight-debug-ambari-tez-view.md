@@ -27,7 +27,7 @@ The Ambari Web UI for HDInsight contains a Tez view that can be used to understa
 
 ## Prerequisites
 
-* A Linux-based HDInsight cluster. For steps on creating a cluster, see [Get started using Linux-based HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
+* A Linux-based HDInsight cluster. For steps on creating a cluster, see [Get started using Linux-based HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 * A modern web browser that supports HTML5.
 
 ## Understanding Tez

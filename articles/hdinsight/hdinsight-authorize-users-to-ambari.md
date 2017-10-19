@@ -143,6 +143,6 @@ We have assigned our Azure AD domain user "hiveuser2" to the *Cluster User* role
 
 * [Configure Hive policies in Domain-joined HDInsight](hdinsight-domain-joined-run-hive.md)
 * [Manage Domain-joined HDInsight clusters](hdinsight-domain-joined-manage.md)
-* [Use the Hive View with Hadoop in HDInsight](hdinsight-hadoop-use-hive-ambari-view.md)
+* [Use the Hive View with Hadoop in HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md)
 
 <!-- * [Synchronize Azure AD users to the cluster](hdinsight-sync-aad-users-to-cluster.md) -->

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Monitor and manage Hadoop with Ambari REST API - Azure HDInsight | Microsoft Docs
 description: Learn how to use Ambari to monitor and manage Hadoop clusters in Azure HDInsight. In this document, you will learn how to use the Ambari REST API included with HDInsight clusters.
 services: hdinsight
@@ -36,7 +36,7 @@ Ambari is provided by default with Linux-based HDInsight clusters.
 ## How to use the Ambari REST API
 
 > [!IMPORTANT]
-> The information and examples in this document require an HDInsight cluster that uses Linux operating system. For more information, see [Get started with HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
+> The information and examples in this document require an HDInsight cluster that uses Linux operating system. For more information, see [Get started with HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
 The examples in this document are provided for both the Bourne shell (bash) and PowerShell. The bash examples were tested with GNU bash 4.3.11, but should work with other Unix shells. The PowerShell examples were tested with PowerShell 5.0, but should work with PowerShell 3.0 or higher.
 
