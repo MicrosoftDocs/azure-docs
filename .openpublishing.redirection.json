@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path": "articles/active-directory/cloudappdiscovery-overview.md",
+            "redirect_url": "/azure/active-directory/cloudappdiscovery-get-started",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/virtual-machines/linux/impactful-maintenance.md",
             "redirect_url": "/azure/virtual-machines/linux/planned-maintenance",
             "redirect_document_id": false
@@ -4195,6 +4200,11 @@
             "redirect_url": "https://docs.microsoft.com/en-us/azure/log-analytics",
             "redirect_document_id": false
         },
+		{
+            "source_path": "articles/log-analytics/log-analytics-azure-vm-extension.md",
+            "redirect_url": "https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-quick-collect-azurevm",
+            "redirect_document_id": false
+        },
         {
             "source_path": "articles/machine-learning/machine-learning-apps-text-analytics.md",
             "redirect_url": "../cognitive-services/cognitive-services-text-analytics-quick-start",
@@ -6235,6 +6245,11 @@
             "redirect_url": "/azure/cognitive-services/Bing-Video-Search/search-the-web",
             "redirect_document_id": false
         },
+		{
+            "source_path": "articles/cognitive-services/Speech/index.md",
+            "redirect_url": "/azure/cognitive-services/Speech/Home",
+            "redirect_document_id": false
+        },
         {
             "source_path": "articles/cognitive-services/Custom-Speech-Service/index.md",
             "redirect_url": "/azure/cognitive-services/Custom-Speech-Service/cognitive-services-custom-speech-home",
@@ -6955,6 +6970,46 @@
             "redirect_url": "site-recovery-how-to-failback-azure-to-vmware",
             "redirect_document_id": false
         },
+		{
+            "source_path": "articles/site-recovery/site-recovery-vmm-to-vmm-classic.md",
+            "redirect_url": "tutorial-vmm-to-vmm",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/site-recovery-vmm-to-vmm-classic-legacy.md",
+            "redirect_url": "tutorial-vmm-to-vmm",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/site-recovery-vmm-to-azure-classic.md",
+            "redirect_url": "tutorial-hyper-v-to-azure",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/site-recovery-runbook-automation-classic.md",
+            "redirect_url": "site-recovery-runbook-automation",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/site-recovery-hyper-v-site-to-azure-classic.md",
+            "redirect_url": "tutorial-hyper-v-to-azure",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/site-recovery-failback-azure-to-vmware-classic.md",
+            "redirect_url": "site-recovery-how-to-failback-azure-to-vmware",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/site-recovery-failback-azure-to-vmware-classic-legacy.md",
+            "redirect_url": "site-recovery-how-to-failback-azure-to-vmware",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/site-recovery-vmware-setup-azure-ps-classic.md",
+            "redirect_url": "site-recovery-vmware-setup-azure-ps-resource-manager",
+            "redirect_document_id": false
+        },
         {
             "source_path": "articles/site-recovery/site-recovery-architecture-vmware-to-azure.md",
             "redirect_url": "vmware-walkthrough-architecture",
@@ -6992,6 +7047,11 @@
         },
         {
             "source_path": "articles/site-recovery/site-recovery-vmware-to-azure-classic.md",
+            "redirect_url": "site-recovery-vmware-to-azure",
+            "redirect_document_id": false
+        },
+	    {
+            "source_path": "articles/site-recovery/site-recovery-vmware-to-azure-classic-legacy.md",
             "redirect_url": "site-recovery-vmware-to-azure",
             "redirect_document_id": false
         },
@@ -13593,6 +13653,11 @@
         {
             "source_path": "articles/virtual-network/virtual-networks-create-nsg-arm-portal.md",
             "redirect_url": "/azure/virtual-network/virtual-networks-create-nsg-arm-pportal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-functions/functions-create-an-azure-connected-function.md",
+            "redirect_url": "/azure/azure-functions/functions-create-storage-queue-triggered-function",
             "redirect_document_id": false
         },
         {

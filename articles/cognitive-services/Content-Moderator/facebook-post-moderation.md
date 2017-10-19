@@ -1,6 +1,6 @@
 ---
-title: Facebook page moderation with Azure Content Moderator | Microsoft Docs
-description: Moderate Facebook posts with machine-learning based Content Moderator
+title: Facebook content moderation with Azure Content Moderator | Microsoft Docs
+description: Moderate Facebook pages with machine-learning based Content Moderator
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -12,9 +12,9 @@ ms.date: 09/18/2017
 ms.author: sajagtap
 ---
 
-# Moderate Facebook posts with Content Moderator
+# Facebook content moderation with Content Moderator
 
-In this tutorial, we learn how to use machine-learning-based Content Moderator to mdoerate Facebook pages.
+In this tutorial, we learn how to use machine-learning-based Content Moderator to help moderate Facebook pages.
 
 The tutorial guides you through these steps:
 

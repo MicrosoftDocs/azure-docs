@@ -1,9 +1,9 @@
 ---
-title: Microsoft Speech API in Cognitive Services | Microsoft Docs
+title: Microsoft Speech Service | Microsoft Docs
 description: Use Microsoft Speech API to add speech-driven actions to your apps, including real-time interaction with users.
 services: cognitive-services
 author: zhouwangzw
-manager: wolfma61
+manager: wolfma
 
 ms.service: cognitive-services
 ms.technology: speech
