@@ -204,6 +204,6 @@ Use the following PowerShell script to upload the files, run the job, and view t
 
 Now that you have learned how to use streaming MapRedcue jobs with HDInsight, use the following links to explore other ways to work with Azure HDInsight.
 
-* [Use Hive with HDInsight](../hdinsight-use-hive.md)
-* [Use Pig with HDInsight](../hdinsight-use-pig.md)
-* [Use MapReduce jobs with HDInsight](../hdinsight-use-mapreduce.md)
+* [Use Hive with HDInsight](hdinsight-use-hive.md)
+* [Use Pig with HDInsight](hdinsight-use-pig.md)
+* [Use MapReduce jobs with HDInsight](hdinsight-use-mapreduce.md)

@@ -41,7 +41,7 @@ The following are new features and updates in the Azure SDK for .NET 2.5.1.
   * (Public Preview) Keyword auto-completion and IntelliSense support for Hive. To help you author Hive scripts, HDInsight Tools for Visual Studio added keyword auto-completion and IntelliSense support for Hive.
   * Storm support. You can now use HDInsight Tools for Visual Studio to develop Storm topologies/Spouts/Bolts in C#. You can then submit the developed topology to a Storm cluster and see the topology/bolt/spout status. You can use system logs and customer logs to troubleshoot your Storm topologies/Bolts/Spouts. You can also use existing JAVA assets in Storm on HDInsight.
     
-    For more information, see [Get started using HDInsight Hadoop Tools for Visual Studio](../hdinsight/hdinsight-hadoop-visual-studio-tools-get-started.md).
+    For more information, see [Get started using HDInsight Hadoop Tools for Visual Studio](../hdinsight/hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 
 ## <a id="known_issues_2_5_1"></a>Azure SDK for .NET 2.5.1 known issues and limitations
 * Azure API Apps is visible as a deployment target for Mobile Apps. Web Apps should be the only destination for Mobile Apps until a subsequent release. 

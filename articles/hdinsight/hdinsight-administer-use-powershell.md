@@ -220,11 +220,11 @@ See [Run Hive queries using PowerShell](hadoop/apache-hadoop-use-hive-powershell
 
 **To submit Pig jobs**
 
-See [Run Pig jobs using PowerShell](hdinsight-hadoop-use-pig-powershell.md).
+See [Run Pig jobs using PowerShell](hadoop/apache-hadoop-use-pig-powershell.md).
 
 **To submit Sqoop jobs**
 
-See [Use Sqoop with HDInsight](hdinsight-use-sqoop.md).
+See [Use Sqoop with HDInsight](hadoop/hdinsight-use-sqoop.md).
 
 **To submit Oozie jobs**
 
@@ -249,13 +249,13 @@ See [Upload data to HDInsight][hdinsight-upload-data].
 [hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-provision-custom-options]: hdinsight-hadoop-provision-linux-clusters.md#configuration
-[hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
+[hdinsight-submit-jobs]:hadoop/submit-apache-hadoop-jobs-programmatically.md
 
 [hdinsight-admin-cli]: hdinsight-administer-use-command-line.md
 [hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
-[hdinsight-use-hive]: hdinsight-use-hive.md
-[hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
+[hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
+[hdinsight-use-mapreduce]:hadoop/hdinsight-use-mapreduce.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-flight]: hdinsight-analyze-flight-delay-data.md
 

@@ -237,7 +237,7 @@ This script prompts you for the cluster login account name and password, along w
 
 ## Next steps
 
-For more information on using MapReduce with HDInsight, see [Use MapReduce with HDInsight](../hdinsight-use-mapreduce.md).
+For more information on using MapReduce with HDInsight, see [Use MapReduce with HDInsight](hdinsight-use-mapreduce.md).
 
 For information on using C# with Hive and Pig, see [Use a C# user-defined function with Hive and Pig](apache-hadoop-hive-pig-udf-dotnet-csharp.md).
 

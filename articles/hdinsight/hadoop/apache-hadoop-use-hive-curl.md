@@ -144,12 +144,12 @@ Learn how to use the WebHCat REST API to run Hive queries with Hadoop on Azure H
 
 For general information on Hive with HDInsight:
 
-* [Use Hive with Hadoop on HDInsight](../hdinsight-use-hive.md)
+* [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
 
 For information on other ways you can work with Hadoop on HDInsight:
 
-* [Use Pig with Hadoop on HDInsight](../hdinsight-use-pig.md)
-* [Use MapReduce with Hadoop on HDInsight](../hdinsight-use-mapreduce.md)
+* [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
+* [Use MapReduce with Hadoop on HDInsight](hdinsight-use-mapreduce.md)
 
 If you are using Tez with Hive, see the following documents for debugging information:
 
@@ -177,7 +177,7 @@ For more information on the REST API used in this document, see the [WebHCat ref
 
 
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
-[hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
+[hdinsight-submit-jobs]:submit-apache-hadoop-jobs-programmatically.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
 
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx

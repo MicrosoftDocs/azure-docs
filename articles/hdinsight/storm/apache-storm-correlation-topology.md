@@ -27,7 +27,7 @@ In this document, you learn how to create a basic C# Storm topology that tracks 
 
 ## Prerequisites
 
-* Visual Studio and the HDInsight tools for Visual Studio. For more information, see [Get started using the HDInsight tools for Visual Studio](../hdinsight-hadoop-visual-studio-tools-get-started.md).
+* Visual Studio and the HDInsight tools for Visual Studio. For more information, see [Get started using the HDInsight tools for Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 
 * Apache Storm on HDInsight cluster (Windows-based).
 

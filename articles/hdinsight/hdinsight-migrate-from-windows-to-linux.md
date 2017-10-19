@@ -187,8 +187,8 @@ Pig and MapReduce workloads are similar on Linux-based clusters. However, Linux-
 Linux-based HDInsight does not provide remote desktop functionality. Instead, you can use SSH to remotely connect to the cluster head nodes. For more information, see the following documents:
 
 * [Use Hive with SSH](hdinsight-hadoop-use-hive-ssh.md)
-* [Use Pig with SSH](hdinsight-hadoop-use-pig-ssh.md)
-* [Use MapReduce with SSH](hdinsight-hadoop-use-mapreduce-ssh.md)
+* [Use Pig with SSH](hadoop/apache-hadoop-use-pig-ssh.md)
+* [Use MapReduce with SSH](hadoop/apache-hadoop-use-mapreduce-ssh.md)
 
 ### Hive
 

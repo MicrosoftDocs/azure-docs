@@ -119,7 +119,7 @@ You can download a complete version of the project created in this tutorial from
 
 * The [Azure .NET SDK](http://azure.microsoft.com/downloads/).
 
-* The [HDInsight tools for Visual Studio](../hdinsight-hadoop-visual-studio-tools-get-started.md).
+* The [HDInsight tools for Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 
 * Java JDK 1.8 or later on your development environment. JDK downloads are available from [Oracle](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 
@@ -149,7 +149,7 @@ Event Hubs is the data source for this example. Use the information in the "Crea
 
 ## Configure the EventHubWriter
 
-1. If you have not already installed the latest version of the HDInsight tools for Visual Studio, see [Get started using HDInsight tools for Visual Studio](../hdinsight-hadoop-visual-studio-tools-get-started.md).
+1. If you have not already installed the latest version of the HDInsight tools for Visual Studio, see [Get started using HDInsight tools for Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 
 2. Download the solution from [eventhub-storm-hybrid](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub).
 

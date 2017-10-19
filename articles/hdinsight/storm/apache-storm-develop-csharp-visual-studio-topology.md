@@ -54,7 +54,7 @@ You can develop C# topologies with SCP.NET by using one of the following version
 
 ## Install Data Lake tools for Visual Studio
 
-To install Data Lake tools for Visual Studio, follow the steps in [Get started using Data Lake tools for Visual Studio](../hdinsight-hadoop-visual-studio-tools-get-started.md).
+To install Data Lake tools for Visual Studio, follow the steps in [Get started using Data Lake tools for Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 
 ## Install Java
 
@@ -761,9 +761,9 @@ For more ways to work with HDInsight and more Storm on HDInsight samples, see th
 
 **Apache Hadoop on HDInsight**
 
-* [Use Hive with Hadoop on HDInsight](../hdinsight-use-hive.md)
-* [Use Pig with Hadoop on HDInsight](../hdinsight-use-pig.md)
-* [Use MapReduce with Hadoop on HDInsight](../hdinsight-use-mapreduce.md)
+* [Use Hive with Hadoop on HDInsight](../hadoop/hdinsight-use-hive.md)
+* [Use Pig with Hadoop on HDInsight](../hadoop/hdinsight-use-pig.md)
+* [Use MapReduce with Hadoop on HDInsight](../hadoop/hdinsight-use-mapreduce.md)
 
 **Apache HBase on HDInsight**
 

@@ -376,9 +376,9 @@ If you run into issues with creating HDInsight clusters, see [access control req
 Now that you have successfully created an HDInsight cluster, use the following to learn how to work with your cluster. 
 
 ### Hadoop clusters
-* [Use Hive with HDInsight](hdinsight-use-hive.md)
-* [Use Pig with HDInsight](hdinsight-use-pig.md)
-* [Use MapReduce with HDInsight](hdinsight-use-mapreduce.md)
+* [Use Hive with HDInsight](hadoop/hdinsight-use-hive.md)
+* [Use Pig with HDInsight](hadoop/hdinsight-use-pig.md)
+* [Use MapReduce with HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
 ### HBase clusters
 * [Get started with HBase on HDInsight](hdinsight-hbase-tutorial-get-started-linux.md)
@@ -398,7 +398,7 @@ Now that you have successfully created an HDInsight cluster, use the following t
 
 ### Run jobs
 * [Run Hive jobs in HDInsight using .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)
-* [Run Pig jobs in HDInsight using .NET SDK](hdinsight-hadoop-use-pig-dotnet-sdk.md)
-* [Run Sqoop jobs in HDInsight using .NET SDK](hdinsight-hadoop-use-sqoop-dotnet-sdk.md)
+* [Run Pig jobs in HDInsight using .NET SDK](hadoop/apache-hadoop-use-pig-dotnet-sdk.md)
+* [Run Sqoop jobs in HDInsight using .NET SDK](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md)
 * [Run Oozie jobs in HDInsight](hdinsight-use-oozie.md)
 

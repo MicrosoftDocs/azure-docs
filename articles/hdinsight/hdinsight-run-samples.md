@@ -35,13 +35,13 @@ A set of samples are provided to help you get started running MapReduce jobs on 
 Much additional documentation exists on the web for Hadoop-related technologies, such as Java-based MapReduce programming and streaming, and documentation about the cmdlets that are used in Windows PowerShell scripting. For more information about these resources, see:
 
 * [Develop Java MapReduce programs for Hadoop in HDInsight](hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md)
-* [Submit Hadoop jobs in HDInsight](hdinsight-submit-hadoop-jobs-programmatically.md)
+* [Submit Hadoop jobs in HDInsight](hadoop/submit-apache-hadoop-jobs-programmatically.md)
 * [Introduction to Azure HDInsight][hdinsight-introduction]
 
 Nowadays, many people choose Hive and Pig over MapReduce.  For more information, see:
 
-* [Use Hive in HDInsight](hdinsight-use-hive.md)
-* [Use Pig in HDInsight](hdinsight-use-pig.md)
+* [Use Hive in HDInsight](hadoop/hdinsight-use-hive.md)
+* [Use Pig in HDInsight](hadoop/hdinsight-use-pig.md)
 
 **Prerequisites**:
 
@@ -983,7 +983,7 @@ public class TeraSort extends Configured implements Tool {
 
 [hdinsight-sdk-documentation]: https://msdn.microsoft.com/library/azure/dn479185.aspx
 
-[hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
+[hdinsight-submit-jobs]: hadoop/submit-apache-hadoop-jobs-programmatically.md
 [hdinsight-introduction]:hadoop/apache-hadoop-introduction.md
 
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
@@ -996,8 +996,8 @@ public class TeraSort extends Configured implements Tool {
 [hdinsight-sample-pi-estimator]: #hdinsight-sample-pi-estimator
 [hdinsight-sample-wordcount]: #hdinsight-sample-wordcount
 
-[hdinsight-use-hive]: hdinsight-use-hive.md
-[hdinsight-use-pig]: hdinsight-use-pig.md
+[hdinsight-use-hive]: hadoop/hdinsight-use-hive.md
+[hdinsight-use-pig]: hadoop/hdinsight-use-pig.md
 
 [streamreader]: http://msdn.microsoft.com/library/system.io.streamreader.aspx
 [console-writeline]: http://msdn.microsoft.com/library/system.console.writeline
