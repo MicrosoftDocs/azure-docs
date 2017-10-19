@@ -36,10 +36,8 @@
 ## Connected factory
 ### [Deploy a gateway for connected factory](iot-suite-connected-factory-gateway-deployment.md)
 ### [Customize connected factory](iot-suite-connected-factory-customize.md)
-
+### [Use the OPC publisher for connected factory](iot-suite-connected-factory-publisher.md)
 ## [Permissions on azureiotsuite.com](iot-suite-permissions.md)
-
-
 
 # Reference
 ## [Developer Reference Guide](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)

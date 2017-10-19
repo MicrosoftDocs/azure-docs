@@ -1,6 +1,6 @@
 ---
-title: How to find runs with the best accuracy and lowest duration in Azure Machine Learning Workbench | Microsoft Docs
-description: An end-to-end use case to find best accuracy through CLI using Azure Machine Learning Workbench
+title: Find runs with the best accuracy and lowest duration in Azure Machine Learning Workbench | Microsoft Docs
+description: An end-to-end use case to find best accuracy through CLI by using Azure Machine Learning Workbench
 services: machine-learning
 author: totekp
 ms.author: kefzhou
@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 09/29/2017
 ---
-# How to find runs with the best accuracy and lowest duration
-Given multiple runs, one use case is to find runs with the best accuracy. One approach is to use the command line interface (CLI) with a [JMESPath](http://jmespath.org/) query. For more information on using JMESPath in the Azure CLI, see [this article](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest). In the following example, four runs are created with accuracy values of 0, 0.98, 1, and 1. Runs are filtered if they are in the range `[MaxAccuracy-Threshold, MaxAccuracy]` where `Threshold = .03`.
+# Find runs with the best accuracy and lowest duration
+Given multiple runs, one use case is to find runs with the best accuracy. One approach is to use the command-line interface (CLI) with a [JMESPath](http://jmespath.org/) query. For more information on how to use JMESPath in the Azure CLI, see [Use JMESPath queries with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest). In the following example, four runs are created with accuracy values of 0, 0.98, 1, and 1. Runs are filtered if they are in the range `[MaxAccuracy-Threshold, MaxAccuracy]` where `Threshold = .03`.
 
 ## Sample data
-If you don't have existing runs with an `Accuracy` value, the steps below will generate runs for querying:
+If you don't have existing runs with an `Accuracy` value, the following steps generate runs for querying.
 
-First, create a python file in the workbench, name it `log_accuracy.py`, and paste in the following code:
+First, create a Python file in the Azure Machine Learning Workbench, name it `log_accuracy.py`, and paste in the following code:
 ```python
 from azureml.logging import get_azureml_logger
 
@@ -40,22 +40,22 @@ for value in accuracy_values:
     os.system('az ml experiment submit -c local ./log_accuracy.py {}'.format(value))
 ```
 
-Lastly, open the CLI through workbench and run command `python run.py` to submit four experiments. After the script finishes, you should see four more runs in the `Run History` tab.
+Lastly, open the CLI through Workbench and run the command `python run.py` to submit four experiments. After the script finishes, you should see four more runs in the `Run History` tab.
 
-## Querying the run history
+## Query the run history
 The first command finds the max accuracy value.
 ```powershell
 az ml history list --query '@[?Accuracy != null] | max_by(@, &Accuracy).Accuracy'
 ```
 
-Using this max accuracy value of `1` and a threshold value of `0.03`, the second command will filter runs using `Accuracy` then sort runs by `duration` ascending.
+Using this max accuracy value of `1` and a threshold value of `0.03`, the second command filters runs by using `Accuracy` and then sorts runs by `duration` ascending.
 ```powershell
 az ml history list --query '@[?Accuracy >= sum(`[1, -0.03]`)] | sort_by(@, &duration)'
 ```
 > [!NOTE]
-> If you want a strict upper bound check, the query format will be ``@[?Accuracy >= sum(`[$max_accuracy_value, -$threshold]`) && Accuracy <= `$max_accuracy_value`]``
+> If you want a strict upper-bound check, the query format is ``@[?Accuracy >= sum(`[$max_accuracy_value, -$threshold]`) && Accuracy <= `$max_accuracy_value`]``
 
-If you use Powershell, the code below will use local variables to store threshold and max accuracy.
+If you use PowerShell, the following code uses local variables to store threshold and max accuracy:
 ```powershell
 $threshold = 0.03
 $max_accuracy_value = az ml history list --query '@[?Accuracy != null] | max_by(@, &Accuracy).Accuracy'
@@ -64,4 +64,4 @@ az ml history list --query $find_runs_query
 ```
 
 ## Next steps
-- For more information on logging, see [How to Use Run History and Model Metrics in Azure Machine Learning Workbench](how-to-use-run-history-model-metrics.md).    
+For more information on logging, see [How to use run history and model metrics in Azure Machine Learning Workbench](how-to-use-run-history-model-metrics.md).    

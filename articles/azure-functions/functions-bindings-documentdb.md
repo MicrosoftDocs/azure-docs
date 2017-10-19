@@ -213,7 +213,7 @@ In this example, the queue trigger provides a parameter `departmentId`.A queue m
     "direction": "in",
     "databaseName": "MyDb",
     "collectionName": "MyCollection",
-    "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}"
+    "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}",
     "connection": "CosmosDBConnection"
 }
 ```

@@ -82,7 +82,9 @@
       - name: Manage updates overview
         href: azure-stack-updates.md
       - name: Apply updates
-        href: azure-stack-apply-updates.md      
+        href: azure-stack-apply-updates.md
+      - name: Monitor update status
+        href: azure-stack-monitor-update.md      
     - name: Monitor health and alerts
       href: azure-stack-monitor-health.md
     - name: Manage network resources
