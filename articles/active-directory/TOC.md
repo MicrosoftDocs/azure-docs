@@ -5,6 +5,8 @@
 ## [Choose a hybrid identity solution](choose-hybrid-identity-solution.md)
 ## [Associate Azure subscriptions](active-directory-how-subscriptions-associated-directory.md)
 ## [FAQs](active-directory-faq.md)
+## [What's New](whats-new.md)
+
 
 # Get started
 ## [Get started with Azure AD](get-started-azure-ad.md)
