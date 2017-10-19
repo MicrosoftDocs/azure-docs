@@ -171,14 +171,10 @@ To create the release definition in VSTS:
 3. Choose the release link in the popup message. For example: "Release **Release-1** has been created."
 4. Open the **Logs** tab to watch the release console output.
 5. In your browser, open the URL of one of the servers you added to your deployment group. For example, enter `http://{your-server-ip-address}`
-6. In the release definition, uncheck the **Enabled** checkbox in the **Control Options**
-   section of the settings for the Azure Resource Group Deployment task.
-   For future deployments to the existing deployment group, you do not need
-   to re-execute this task.
-7. Go to the source Git repository and modify the contents of the **h1** heading in the file 
+6. Go to the source Git repository and modify the contents of the **h1** heading in the file 
    [app/views/index.jade](https://github.com/azooinmyluggage/fabrikam-node/blob/master/app/views/index.jade).
-8. **Commit** your change.
-9. After a few minutes, you will see a new release created in the **Releases** 
+7. **Commit** your change.
+8. After a few minutes, you will see a new release created in the **Releases** 
    page of VSTS or TFS. Open the release to see the deployment taking place. Congratulations!
 
 ## Next Steps
