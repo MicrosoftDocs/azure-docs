@@ -73,7 +73,7 @@ To learn about tips that can help you use the cmdlets, such as how parameter val
 1. Create an Azure Resource Manager resource group if you don't have one already
 
         New-AzureRmResourceGroup -Name #ResourceGroupName -Location #location
-2. Create a new Recovery Services vault and save the created ASR vault object in a variable (will be used later). You can also retrieve the ASR vault object post creation using the Get-AzureRMRecoveryServicesVault cmdlet:-
+2. Create a new Recovery Services vault and save the Recovery Services vault object in a variable (will be used later). You can also retrieve the vault object post creation using the Get-AzureRMRecoveryServicesVault cmdlet:-
 
         $vault = New-AzureRmRecoveryServicesVault -Name #vaultname -ResouceGroupName #ResourceGroupName -Location #location
 
@@ -128,7 +128,7 @@ To learn about tips that can help you use the cmdlets, such as how parameter val
         $policyresult = New-AzureRmSiteRecoveryPolicy -Name $policyname -ReplicationProvider $RepProvider -ReplicationFrequencyInSeconds $Replicationfrequencyinseconds -RecoveryPoints $recoverypoints -ApplicationConsistentSnapshotFrequencyInHours $AppConsistentSnapshotFrequency -Authentication $AuthMode -ReplicationPort $AuthPort -ReplicationMethod $InitialRepMethod
 
     > [!NOTE]
-    > The VMM cloud can contain Hyper-V hosts running different versions of Windows Server (as mentioned in the Hyper-V prerequisites), but the replication policy is OS version specific. If you have different hosts running on different operating system versions, then create separate replication policies for each type of OS version. For eg: If you have five hosts running on Windows Servers 2012 and three on Windows Server 2012 R2, create two replication polices – one for each type of operating system versions.
+    > The VMM cloud can contain Hyper-V hosts running different versions of Windows Server (as mentioned in the Hyper-V prerequisites), but the replication policy is OS version specific. If you have different hosts running on different operating system versions, then create separate replication policies for each type of OS version. For example, if you have five hosts running on Windows Servers 2012 and three on Windows Server 2012 R2, create two replication policies – one for each type of operating system versions.
 
 1. Get the primary protection container (primary VMM Cloud) and recovery protection container (recovery VMM Cloud) by running the following commands:
 
@@ -166,7 +166,7 @@ To check the completion of the operation, follow the steps in [Monitor Activity]
 1. The first command gets servers for the current Azure Site Recovery vault. The command stores the Microsoft Azure Site Recovery servers in the $Servers array variable.
 
         $Servers = Get-AzureRmSiteRecoveryServer
-2. The below commands get the site recovery network for the source VMM server and the target VMM server.
+2. The following command get the Site Recovery network for the source VMM server and the target VMM server.
 
         $PrimaryNetworks = Get-AzureRmSiteRecoveryNetwork -Server $Servers[0]        
 
@@ -184,7 +184,7 @@ To check the completion of the operation, follow the steps in [Monitor Activity]
 1. The below command gets the list of storage classifications into $storageclassifications variable.
 
         $storageclassifications = Get-AzureRmSiteRecoveryStorageClassification
-2. The below commands get the source classification into $SourceClassificaion variable and target classification into $TargetClassification variable.
+2. The following commands get the source classification into $SourceClassificaion variable and target classification into $TargetClassification variable.
 
         $SourceClassificaion = $storageclassifications[0]
 
