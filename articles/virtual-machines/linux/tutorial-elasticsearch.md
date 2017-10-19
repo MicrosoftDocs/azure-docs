@@ -219,7 +219,7 @@ Open port 5601 from the Azure CLI to allow remote access to the Kibana console:
 az vm open-port --port 5601 --resource-group myResourceGroup --name myVM
 ```
 
-Open up the Kibana console and select **Create** to generate a default index based on the syslog data you sent to Elasticsearch in the previous step. 
+Open up the Kibana console and select **Create** to generate a default index based on the syslog data you sent to Elasticsearch earlier. 
 
 ![Browse Syslog events in Kibana](media/elasticsearch-install/kibana-index.png)
 
