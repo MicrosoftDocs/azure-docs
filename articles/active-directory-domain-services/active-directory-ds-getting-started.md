@@ -59,19 +59,13 @@ In the **Basics** page of the wizard, you can specify the DNS domain name for th
 
    * You have an existing cloud service with that name on the virtual network.
 
-3. Choose the **type of virtual network**. By default, the **Resource Manager** virtual network type is selected. We recommend using this type of virtual network for all newly created managed domains.
+3. Select the Azure **Subscription** in which you would like to create the managed domain.
 
-    > [!TIP]
-    > **Classic virtual networks are not supported for new deployments.** Classic virtual networks are not supported for new deployments. Existing managed domains deployed in classic virtual networks continue to be supported. We will provide the ability to migrate an existing managed domain from a classic virtual network to a resource manager virtual network in the near future.
-    >
+4. Select the **Resource group** to which the managed domain should belong. You can choose either the **Create new** or **Use existing** options to select the resource group.
 
-4. Select the Azure **Subscription** in which you would like to create the managed domain.
+5. Choose the Azure **Location** in which the managed domain should be created. On the **Network** page of the wizard, you see only virtual networks that belong to the location you have selected.
 
-5. Select the **Resource group** to which the managed domain should belong. You can choose either the **Create new** or **Use existing** options to select the resource group.
-
-6. Choose the Azure **Location** in which the managed domain should be created. On the **Network** page of the wizard, you see only virtual networks that belong to the location you have selected.
-
-7. When you are done, click **OK** to move on to the **Network** page of the wizard.
+6. When you are done, click **OK** to move on to the **Network** page of the wizard.
 
 
 ## Next step
