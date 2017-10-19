@@ -29,10 +29,25 @@ ms.reviewer: dhanyahk
 **Product Capability:** SSO  
 
 
-Azure Active Directory supports automatic sign-in field detection for any application which renders an HTML username and password field.  These steps are documented at How to automatically capture sign-in fields for an application. This capability can be found by adding a “Non-Gallery” application from “Enterprise Applications” at http://aad.portal.azure.com, subsequently configuring the “Single Sign-on” mode on this new application to “Password-based Single Sign-on”, entering a web URL, and then saving the page.
+Azure Active Directory supports automatic sign-in field detection for applications that render an HTML username and password field.  These steps are documented in [How to automatically capture sign-in fields for an application](application-config-sso-problem-configure-password-sso-non-gallery#how-to-manually-capture-sign-in-fields-for-an-application.md#how-to-automatically-capture-sign-in-fields-for-an-application). You can find this capability by adding a *Non-Gallery* application on the **Enterprise Applications** page in the [Azure portal](http://aad.portal.azure.com). Additionally, you can configure the **Single Sign-on** mode on this new application to **Password-based Single Sign-on**, entering a web URL, and then saving the page.
  
 Due to a service issue, this functionality was temporarily disabled for a period of time. The issue has been resolved and the automatic sign-in field detection is available again.
 
+
+
+---
+**Type:** New feature  
+**Service Category:** MFA  
+**Product Capability:** Identity Security & Protection  
+
+
+In the world we live in, multi-Factor authentication (MFA) is an essential part of protecting your organization. The identity team at Microsoft is evolving multi-factor authentication to make credentials more adaptive and the experience more seamless. Today I’m happy to announce two important steps in this journey: 
+
+- Integration of multi-factor challenge results directly into the Azure AD sign-in report, including programmatic access to MFA results
+
+- Deeper integration of MFA configuration into the core Azure AD configuration experience in the Azure portal
+
+With this public preview, MFA management and reporting are an integrated part of the core Azure AD configuration experience, allowing you to manage the MFA Management portal functionality within the Azure AD experience.
 
 
 ---
@@ -41,16 +56,17 @@ Due to a service issue, this functionality was temporarily disabled for a period
 **Product Capability:** Governance  
 
 
-Azure AD Terms of Use provides a simple method organizations can use to present information to end users. This ensures users see relevant disclaimers for legal or compliance requirements.
+Azure **AD Terms of Use** provides you with a simple method to present information to end users. This ensures that users see relevant disclaimers for legal or compliance requirements.
 
- 
+You can use Azure AD Terms of Use in the following scenarios:
 
-Azure AD Terms of Use can be used in the following scenarios:+
+- General terms of use for all users in your organization. 
 
-General terms of use for all users in your organization. 
-Specific terms of use based on a user's attributes (ex. doctors vs nurses or domestic vs international employees, done by dynamic groups). 
-Specific terms of use for accessing high business impact apps, like Salesforce.
-Read more at https://docs.microsoft.com/en-us/azure/active-directory/active-directory-tou
+- Specific terms of use based on a user's attributes (ex. doctors vs nurses or domestic vs international employees, done by dynamic groups). 
+
+- Specific terms of use for accessing high business impact apps, like Salesforce.
+
+For more information, see [Azure Active Directory Terms of Use](active-directory-tou.md).
 
 
 ---
@@ -59,11 +75,9 @@ Read more at https://docs.microsoft.com/en-us/azure/active-directory/active-dire
 **Product Capability:** Privileged Identity Management  
 
 
-With Azure Active Directory Privileged Identity Management (PIM), you can now manage, control, and monitor access to Azure Resources (Preview) within your organization. This includes Subscriptions, Resource Groups, and even Virtual Machines. Any resource within the Azure portal that leverages the Azure Role Based Access Control (RBAC) functionality can take advantage of all the great security and lifecycle management capabilities Azure AD PIM has to offer, and some great new features we plan to bring to Azure AD roles soon.
+With Azure Active Directory Privileged Identity Management (PIM), you can now manage, control, and monitor access to Azure Resources (Preview) within your organization. This includes subscriptions, resource groups, and even virtual machines. All resources within the Azure portal that leverage the Azure Role Based Access Control (RBAC) functionality can take advantage of all the great security and lifecycle management capabilities Azure AD PIM has to offer, and some great new features we plan to bring to Azure AD roles soon.
 
- 
-
-Read more at https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/azure-pim-resource-rbac
+For more information, see [PIM for Azure resources](active-directory/privileged-identity-management/azure-pim-resource-rbac.md).
 
 
 ---
@@ -74,19 +88,15 @@ Read more at https://docs.microsoft.com/en-us/azure/active-directory/privileged-
 
 What's new in Azure AD?
 
- 
+Access reviews (preview) enable organizations to efficiently manage group memberships and access to enterprise applications: 
 
- 
+- You can recertify guest user access, using access reviews of their access to applications and memberships of groups, with insights that enable reviewers to efficiently decide whether guests should have continued access.
 
-Access reviews (preview) enable organizations to efficiently manage group memberships and access to enterprise applications. 
-
-You can recertify guest user access, using access reviews of their access to applications and memberships of groups, with insights that enable reviewers to efficiently decide whether guests should have continued access.
-
-You can recertify employees access to applications and group memberships with access reviews.
+- You can recertify employees access to applications and group memberships with access reviews.
 
 You can collect the access review controls into programs relevant for your organization to track reviews for compliance or risk-sensitive applications.
 
-Learn more at https://docs.microsoft.com/en-us/azure/active-directory/active-directory-azure-ad-controls-access-reviews-overview
+For more information, see [Azure AD access reviews](active-directory-azure-ad-controls-access-reviews-overview.md).
 
 
 ---
@@ -95,17 +105,11 @@ Learn more at https://docs.microsoft.com/en-us/azure/active-directory/active-dir
 **Product Capability:** SSO  
 
 
-Ability to hide third party applications from My Apps and the Office 365 launcher
+**Ability to hide third party applications from My Apps and the Office 365 launcher**
 
+You can now better manage apps that show up on your user portals through a new **hide app** property. This helps with cases where app tiles are showing up for backend services or duplicate tiles and end up cluttering user's app launchers. The toggle is located on the properties section of the third-party app and is labeled **Visible to user?**. You can also hide an app programmatically through PowerShell. 
 
-Customers can now better manage apps that show up on their user portals through a new hide app property. This helps with cases where app tiles are showing up for backend services or duplicate tiles and end up cluttering user's app launchers. The toggle is located on the properties section of the third-party app and is labeled "Visible to user?". The app can also be hidden programmatically through PowerShell. Learn more at:
-https://docs.microsoft.com/en-us/azure/active-directory/active-directory-coreapps-hide-third-party-app 
-
-
-
- 
-
-
+For more information, see [Hide a third-party application from user's experience in Azure Active Directory](active-directory-coreapps-hide-third-party-app.md). 
 
 ---
 **Type:** Plan for change  
@@ -113,14 +117,11 @@ https://docs.microsoft.com/en-us/azure/active-directory/active-directory-coreapp
 **Product Capability:** Identity Lifecycle Management  
 
 
-Description: Deprecating Azure AD reports (beta version) APIs  under “https://graph.windows.net/<tenant-name>/reports/” node
-
+**Deprecating Azure AD reports (beta version) APIs  under the  `https://graph.windows.net/<tenant-name>/reports/` node**
 
 With the general availability of the new Azure Active Directory Administration console and new APIs now available for both activity and security reports, the report APIs under "/reports" endpoint will be retired on December 10th , 2017. 
 
-
-
-What's available?
+**What's available?**
 
  As part of the transition to the new admin console, we have made available 2 new APIs for retrieving Azure AD Activity Logs. The new set of APIs provide richer filtering and sorting functionality in addition to providing richer audit and sign-in activities. The data previously available through the security reports can now be accessed through the Identity Protection risk events API in Microsoft Graph.
 
@@ -134,8 +135,8 @@ What's available?
 **Product Capability:** Identity Lifecycle Management  
 
 
-A hotfix rollup package (build 4.4.1642.0) is available as of September 25, 2017, for Microsoft Identity Manager (MIM) 2016 2016 Service Pack 1 (SP1). This roll-up package resolves issues and adds improvements.  This is a cumulative update that replaces all MIM 2016 SP1 updates up to build 4.4.1459.0 for Microsoft Identity Manager 2016. To apply this update, you must have Microsoft Identity Manager 2016 build 4.4.1302.0.  Read more at 
+A hotfix rollup package (build 4.4.1642.0) is available as of September 25, 2017, for Microsoft Identity Manager (MIM) 2016 2016 Service Pack 1 (SP1). This roll-up package resolves issues and adds improvements.  This is a cumulative update that replaces all MIM 2016 SP1 updates up to build 4.4.1459.0 for Microsoft Identity Manager 2016. To apply this update, you must have: `Microsoft Identity Manager 2016 build 4.4.1302.0.` 
 
-https://support.microsoft.com/en-us/help/4021562 
+For more information, see [Hotfix rollup package (build 4.4.1642.0) is available for Microsoft Identity Manager 2016 SP1](https://support.microsoft.com/en-us/help/4021562). 
 
 ---
