@@ -71,7 +71,7 @@ You can now add data to your new collection using Data Explorer.
 
     ![Copy in json data and click Save in Data Explorer in the Azure portal](./media/create-documentdb-java/azure-cosmosdb-data-explorer-save-document.png)
 
-3.  Create and save one more document where you `id` to 2, and change the other properties as you see fit. Your new documents can have any structure you want as Azure Cosmos DB doesn't impose any schema on your data.
+3.  Create and save one more document where you change `id` to 2, and change the other properties as you see fit. Your new documents can have any structure you want as Azure Cosmos DB doesn't impose any schema on your data.
 
 ## Query your data
 
@@ -109,7 +109,7 @@ Now let's switch to working with code. Let's clone a DocumentDB API app from Git
 
 This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. The snippets are all taken from the `Program.java` file installed in the C:\git-samples\azure-cosmos-db-documentdb-java-getting-started\src\GetStarted folder. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-string). 
 
-* The `DocumentClient` class is initialized. The [DocumentClient](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client) provides client-side logical representation for the Azure Cosmos DB database service. This client is used to configure and execute requests against the service.
+* `DocumentClient` initialization. The [DocumentClient](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client) provides client-side logical representation for the Azure Cosmos DB database service. This client is used to configure and execute requests against the service.
 
     ```java
     this.client = new DocumentClient("https://FILLME.documents.azure.com",
@@ -118,7 +118,7 @@ This step is optional. If you're interested in learning how the database resourc
             ConsistencyLevel.Session);
     ```
 
-* A new [Database](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._database) is created.
+* [Database](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._database) creation.
 
     ```java
     Database database = new Database();
@@ -127,7 +127,7 @@ This step is optional. If you're interested in learning how the database resourc
     this.client.createDatabase(database, null);
     ```
 
-* A new [DocumentCollection](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_collection) is created.
+* [DocumentCollection](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_collection) creation.
 
     ```java
     DocumentCollection collectionInfo = new DocumentCollection();
@@ -138,7 +138,7 @@ This step is optional. If you're interested in learning how the database resourc
     this.client.createCollection(databaseLink, collectionInfo, requestOptions);
     ```
 
-* Some documents are created using the [createDocument](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client.createdocument) method.
+* Document creation by using the [createDocument](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client.createdocument) method.
 
     ```java
     // Any Java object within your code can be serialized into JSON and written to Azure Cosmos DB
@@ -151,7 +151,7 @@ This step is optional. If you're interested in learning how the database resourc
     this.client.createDocument(collectionLink, family, new RequestOptions(), true);
     ```
 
-* A SQL query over JSON is performed using the [queryDocuments](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client.querydocuments) method.
+* SQL queries over JSON are performed using the [queryDocuments](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client.querydocuments) method.
 
     ```java
     FeedOptions queryOptions = new FeedOptions();
@@ -175,15 +175,15 @@ Now go back to the Azure portal to get your connection string information and co
 
 1. In the [Azure portal](http://portal.azure.com/), click **Keys**. 
 
-    Use the copy buttons on the right side of the screen to copy the URI value.
+    Use the copy buttons on the right side of the screen to copy the top value, the URI.
 
     ![View and copy an access key in the Azure portal, Keys page](./media/create-documentdb-java/keys.png)
 
 2. Open the `Program.java` file from C:\git-samples\azure-cosmos-db-documentdb-java-getting-started\src\GetStarted folder. 
 
-3. Paste the URI value from the portal over `"https://FILLME.documents.azure.com"`
+3. Paste the URI value from the portal over `https://FILLME.documents.azure.com`.
 
-4. Go back to portal and copy the PRIMARY KEY value as shown in step 1. Paste the PRIMARY KEY value from the portal over `FILLME`. 
+4. Go back to portal and copy the PRIMARY KEY value as shown in the screenshot. Paste the PRIMARY KEY value from the portal over `FILLME`. 
 
     The getStartedDemo method should now look similar to this: 
     

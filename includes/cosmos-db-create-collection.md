@@ -10,7 +10,7 @@ You can now use the Data Explorer tool in the Azure portal to create a database 
 
     Setting|Suggested value|Description
     ---|---|---
-    Database|Tasks|Enter *Tasks* as the name for the new database. Database names must contain from 1 through 255 characters, and they cannot contain /, \\, #, ?, or a trailing space.
+    Database id|Tasks|Enter *Tasks* as the name for the new database. Database names must contain from 1 through 255 characters, and they cannot contain /, \\, #, ?, or a trailing space.
     Collection id|Items|Enter *Items* as the name for your new collection. Collection ids have the same character requirements as database names.
     Storage capacity| Fixed (10 GB)|Use the default value of **Fixed (10 GB)**. This value is the storage capacity of the database.
     Throughput|400 RU|Change the throughput to 400 request units per second (RU/s). If you want to reduce latency, you can scale up the throughput later.
@@ -18,6 +18,6 @@ You can now use the Data Explorer tool in the Azure portal to create a database 
 
     Click **OK**.
 
-    Data Explorer displays the new Database and collection.
+    Data Explorer displays the new database and collection.
 
     ![The Azure portal Data Explorer, showing the new database and collection](./media/cosmos-db-create-collection/azure-cosmos-db-new-collection.png)

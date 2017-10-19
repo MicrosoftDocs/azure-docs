@@ -1,6 +1,6 @@
 The throughput, storage, availability, latency, and consistency of your collection are monitored in the Azure portal. Let's take a quick look at these metrics. 
 
-1. Click **Metrics**, under **Monitoring** in the navigation menu.
+1. Click **Metrics** in the navigation menu.
 
    ![Metrics in the Azure portal](./media/cosmos-db-tutorial-review-slas/metrics.png)
 
