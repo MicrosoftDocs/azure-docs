@@ -21,11 +21,11 @@ ms.author: sethm
 
 Service Bus metrics gives you the state of resources in your Azure subscription. With a rich set of metrics data, you can assess the overall health of your Service Bus resources, not only at the namespace level, but also at the entity level. These statistics can be important as they help you to monitor the state of Service Bus. Metrics can also help troubleshoot root-cause issues without needing to contact Azure support.
 
-Azure Monitor provides unified user interfaces for monitoring across various Azure services. For more information, see [Monitoring in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md).
+Azure Monitor provides unified user interfaces for monitoring across various Azure services. For more information, see [Monitoring in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md) and the [Retrieve Azure Monitor metrics with .NET](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) sample on GitHub.
 
 ## Access metrics
 
-Azure Monitor provides multiple ways to access metrics. You can either access metrics through the [Azure portal](https://portal.azure.com), or use the Azure Monitor APIs (REST and .NET) and analysis solutions such as Operation Management Suite and Event Hubs. For more information, see [Azure Monitor metrics](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Azure Monitor provides multiple ways to access metrics. You can either access metrics through the [Azure portal](https://portal.azure.com), or use the Azure Monitor APIs (REST and .NET) and analysis solutions such as Operation Management Suite and Event Hubs. For more information, see [Azure Monitor metrics](../monitoring-and-diagnostics/monitoring-overview-metrics.md#access-metrics-via-the-rest-api).
 
 Metrics are enabled by default, and you can access the most recent 30 days of data. If you need to retain data for a longer period of time, you can archive metrics data to an Azure Storage account. This is configured in [diagnostic settings](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) in Azure Monitor.
 
@@ -54,102 +54,42 @@ All metrics values are sent to Azure Monitor every minute. The time granularity 
 
 Counts the number of data and management operations requests.
 
-|Metric name|Description|
-|---|---|
-|Incoming Requests (preview)|The number of requests made to the Service Bus service over a specified period.
-Unit: Count
-AggregationType: Total
-Dimension: EntityName|
-
-|Metric name|Description|
-|---|---|
-|Successful Requests (preview)|The number of successful requests made to the Service Bus service over a specified period.
-Unit: Count
-AggregationType: Total
-Dimension: EntityName|
-
-|Metric name|Description|
-|---|---|
-|Server Errors (preview)|The number of requests not processed due to an error in the Service Bus service over a specified period.
-Unit: Count
-AggregationType: Total
-Dimension: EntityName|
-
-|Metric name|Description|
-|---|---|
-|User Errors (preview)|The number of requests not processed due to user errors over a specified period. 
-Unit: Count
-AggregationType: Total
-Dimension: EntityName|
-
-|Metric name|Description|
-|---|---|
-|Throttled Requests (preview)|The number of requests that were throttled because the usage was exceeded. 
-Unit: Count
-AggregationType: Total
-Dimension: EntityName|
+| Metric Name | Description |
+| ------------------- | ----------------- |
+| Incoming Requests (preview) | The number of requests made to the Service Bus service over a specified period. <br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
+|Successful Requests (preview)|The number of successful requests made to the Service Bus service over a specified period.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
+|Server Errors (preview)|The number of requests not processed due to an error in the Service Bus service over a specified period.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
+|User Errors (preview)|The number of requests not processed due to user errors over a specified period.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
+|Throttled Requests (preview)|The number of requests that were throttled because the usage was exceeded.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
 
 ## Message metrics
 
-|Metric name|Description|
-|---|---|
-|Incoming Messages (preview)|The number of events or messages sent to Service Bus over a specified period.
-Unit: Count
-AggregationType: Total
-Dimension: EntityName|
-
-|Metric name|Description|
-|---|---|
-|Outgoing Messages (preview)|The number of events or messages received from Service Bus over a specified period.
-Unit: Count
-AggregationType: Total
-Dimension: EntityName|
+| Metric Name | Description |
+| ------------------- | ----------------- |
+|Incoming Messages (preview)|The number of events or messages sent to Service Bus over a specified period.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
+|Outgoing Messages (preview)|The number of events or messages received from Service Bus over a specified period.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
 
 ## Connection metrics
 
-|Metric name|Description|
-|---|---|
-|ActiveConnections (preview)|The number of active connections on a namespace as well as on an entity.
-Unit: Count
-AggregationType: Total
-Dimension: EntityName|
-
-|Metric name|Description|
-|---|---|
-|Connections Opened (preview)|The number of open connections.
-Unit: Count
-AggregationType: Total
-Dimension: EntityName|
-
-|Metric name|Description|
-|---|---|
-|Connections Closed (preview)|The number of closed connections.
-Unit: Count
-AggregationType: Total
-Dimension: EntityName|
+| Metric Name | Description |
+| ------------------- | ----------------- |
+|ActiveConnections (preview)|The number of active connections on a namespace as well as on an entity.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
+|Connections Opened (preview)|The number of open connections.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
+|Connections Closed (preview)|The number of closed connections.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName |
 
 ## Memory usage metrics
 
-|Metric name|Description|
-|---|---|
-|CPU usage per namespace (preview)|The percentage CPU usage of the namespace.
-Unit: Percent
-AggregationType: Maximum
-Dimension: EntityName|
-
-|Metric name|Description|
-|---|---|
-|Memory size usage per namespace (preview)|The percentage memory usage of the namespace.
-Unit: Percent
-AggregationType: Maximum
-Dimension: EntityName|
+| Metric Name | Description |
+| ------------------- | ----------------- |
+|CPU usage per namespace (preview)|The percentage CPU usage of the namespace.<br/><br/> Unit: Percent <br/> Aggregation Type: Maximum <br/> Dimension: EntityName|
+|Memory size usage per namespace (preview)|The percentage memory usage of the namespace.<br/><br/> Unit: Percent <br/> Aggregation Type: Maximum <br/> Dimension: EntityName|
 
 ## Metrics dimensions
 
 Azure Service Bus supports the following dimensions for metrics in Azure Monitor. Adding dimensions to your metrics is optional. If you do not add dimensions, metrics are specified at the namespace level. 
 
 |Dimension name|Description|
-|---|---|
+| ------------------- | ----------------- |
 |EntityName| Service Bus supports messaging entities under the namespace.|
 
 ## Next steps
