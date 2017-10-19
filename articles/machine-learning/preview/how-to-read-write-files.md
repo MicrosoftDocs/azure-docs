@@ -20,7 +20,7 @@ Before you can execute on a target, you must copy the project folder to the comp
 The purpose of this design is to ensure the isolation, reproducibility, and portability of the execution. If you execute the same script twice, on the same or another compute target, you receive the same results. The changes made during the first execution shouldn't affect those in the second execution. With this design, you can treat compute targets as stateless computation resources, each having no affinity to the jobs that are executed after they are finished.
 
 ## Challenges
-Even though this design provides the benefits of portability and repeatability, it also brings some unique challenges:
+Even though this design provides the benefits of portability and repeatability, it also brings some unique challenges.
 
 ### Persisting state changes
 If your script modifies the state of the compute context, the changes are not persisted for your next execution, and they're not propagated back to the client machine automatically. 
@@ -119,9 +119,9 @@ nativeSharedDirectory: ~/.azureml/share
 ...
 ```
 >[!IMPORTANT]
->The **sharedVolumes** property must be set to *true* when you use the `AZUREML_NATIVE_SHARE_DIRECTORY` environment variable to access the shared folder; otherwise, the execution fails.
+>The **sharedVolumes** property must be set to *true* when you use the `AZUREML_NATIVE_SHARE_DIRECTORY` environment variable to access the shared folder. Otherwise, the execution fails.
 
-The code running in the Docker container always sees this shared folder as */azureml-share/*. The folder path, as seen by the Docker container, is not configurable. Do not use this folder name in your code. Instead, always use the environment variable name `AZUREML_NATIVE_SHARE_DIRECTORY` to refer to this folder. It is mapped to a local folder on the Docker host machine or compute context. The base directory of this local folder is the configurable value of the `nativeSharedDirectory` setting in the *.compute* file. The local path of the shared folder on the host machine, if you use the default value above, is the following:
+The code running in the Docker container always sees this shared folder as */azureml-share/*. The folder path, as seen by the Docker container, is not configurable. Do not use this folder name in your code. Instead, always use the environment variable name `AZUREML_NATIVE_SHARE_DIRECTORY` to refer to this folder. It is mapped to a local folder on the Docker host machine or compute context. The base directory of this local folder is the configurable value of the `nativeSharedDirectory` setting in the *.compute* file. The local path of the shared folder on the host machine, if you use the default value, is the following:
 ```
 # Windows
 C:\users\<username>\.azureml\share\<exp_acct_name>\<workspace_name>\<proj_name>\
@@ -141,7 +141,7 @@ You can place input data directly in these folders and expect that your local or
 For more information, see [Azure Machine Learning Workbench execution configuration files](experiment-execution-configuration-reference.md).
 
 >[!NOTE]
->The `AZUREML_NATIVE_SHARE_DIRECTORY` environment variable is not supported in an HDInsight compute context. However, it is easy to achieve the same result by explicitly using an absolute Windows Azure Storage Blob (WASB) path to read from and write to the attached Blob storage.
+>The `AZUREML_NATIVE_SHARE_DIRECTORY` environment variable is not supported in an HDInsight compute context. However, it is easy to achieve the same result by explicitly using an absolute Azure Blob storage path to read from and write to the attached blob storage.
 
 ## Option 3: Use external durable storage
 
