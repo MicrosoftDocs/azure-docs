@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/26/2017
+ms.date: 10/19/2017
 ms.author: billmath
 ---
 
@@ -24,7 +24,7 @@ This article helps you find troubleshooting information about common issues rega
 
 - In a few cases, enabling Seamless SSO can take up to 30 minutes.
 - Edge browser support is not available.
-- License activation on Office clients, especially in shared computer scenarios, causes extra sign-in prompts for users.
+- Launching Office clients, especially in shared computer scenarios, cause extra sign-in prompts for users. Users will have to frequently enter their usernames, but not passwords.
 - Seamless SSO doesn't work in private browsing mode on Firefox. And 
 - Seamless SSO doesn't work in Internet Explorer when Enhanced Protection mode is turned on.
 - Seamless SSO doesn't work on mobile browsers on iOS and Android.
