@@ -13,6 +13,11 @@ ms.author: anroth
 ---
 
 # How to Analyze Videos in Real-time
+
+> [!IMPORTANT]
+> Video API Preview will end on October 30th, 2017. Try the new [Video Indexer API Preview](https://azure.microsoft.com/services/cognitive-services/video-indexer/) to easily extract insights from 
+videos and to enhance content discovery experiences, such as search results, by detecting spoken words, faces, characters, and emotions. [Learn more](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview).
+
 This guide will demonstrate how to perform near-real-time analysis on frames taken from a live video stream. The basic components in such a system are:
 - Acquire frames from a video source
 - Select which frames to analyze
