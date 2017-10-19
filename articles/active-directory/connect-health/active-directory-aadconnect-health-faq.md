@@ -53,6 +53,10 @@ Example:
 | 4 | 76 | 1 AD FS server, 1 AD FS proxy, and 2 domain controllers |
 | 5 | 101 | 1 Azure AD Connect server, 1 AD FS server, 1 AD FS proxy, and 2 domain controllers |
 
+**Q: Does Azure AD Connect Health support Azure Germany Cloud?**
+
+Azure AD Connect Health has an [installation](active-directory-aadconnect-health-agent-install.md) for Azure Germany. All the data for German Cloud customers is kept within Azure Germany Cloud.
+
 
 ## Installation questions
 
