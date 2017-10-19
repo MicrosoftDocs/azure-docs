@@ -162,4 +162,4 @@ After failing-over the replica virtual machine might have an IP address that isn
 The [Networking Infrastructure Setup for Microsoft Azure as a Disaster Recovery Site](http://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) blog post explains how to setup the required Azure networking infrastructure when retaining IP addresses isn’t a requirement. It starts with describing the application and then look at how to setup networking on-premises and on Azure and then concluding with how to do a test failover and a planned failover.
 
 ## Next steps
-[Learn](site-recovery-vmm-to-vmm.md#prepare-for-network-mapping) how Site Recovery maps source and target networks when a VMM server is being used to manage the primary site.
+Learn about [network mapping](site-recovery-network-mapping.md).
