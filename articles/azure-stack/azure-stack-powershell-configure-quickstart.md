@@ -1,5 +1,5 @@
 ---
-title: Install and configure PowerShell for Azure Stack Quickstart  | Microsoft Docs
+title: Install and configure PowerShell for Azure Stack quickstart  | Microsoft Docs
 description: Learn about installing and configuring PowerShell for Azure Stack.
 services: azure-stack
 documentationcenter: ''
@@ -22,17 +22,17 @@ ms.author: sngun
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-This Quickstart helps you to install and configure an Azure Stack environment with PowerShell. The script that we provide in this article is scoped to the **Azure Stack operator** only.
+This quickstart helps you to install and configure an Azure Stack environment with PowerShell. The script that we provide in this article is scoped to the **Azure Stack operator** only.
 
 This article is a condensed version of the steps that are described in the [Install PowerShell]( azure-stack-powershell-install.md), [Download tools]( azure-stack-powershell-download.md), and [Configure the Azure Stack operator's PowerShell environment]( azure-stack-powershell-configure-admin.md) articles. By using the scripts in this topic, you can set up PowerShell for Azure Stack environments that are deployed with Azure Active Directory or Active Directory Federation Services.  
 
 
 ## Set up PowerShell for Azure Active Directory-based deployments
 
-Sign in to your Azure Stack Development Kit, or a Windows-based external client if you are connected through VPN. Open an elevated PowerShell ISE session, and then run the following script (make sure to update the **TenantName**, **ArmEndpoint**, and **GraphAudience** variables as per your environment configuration):
+Sign in to your Azure Stack Development Kit, or a Windows-based external client if you are connected through VPN. Open an elevated PowerShell ISE session, and then run the following script. Make sure to update the **TenantName**, **ArmEndpoint**, and **GraphAudience** variables as necesssary for your environment configuration):
 
 > [!IMPORTANT]
-> The release of the AzureRM 1.2.11 PowerShell module comes with a list of breaking changes. To upgrade from the 1.2.10 version, see the migration guide at [https://aka.ms/azspowershellmigration](https://aka.ms/azspowershellmigration).
+> The release of the AzureRM 1.2.11 PowerShell module comes with a list of breaking changes. To upgrade from the 1.2.10 version, see the [migration guide](https://aka.ms/azspowershellmigration).
 
 ```powershell
 # Specify Azure Active Directory tenant name.
