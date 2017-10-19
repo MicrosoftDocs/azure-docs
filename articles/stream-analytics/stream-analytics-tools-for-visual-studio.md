@@ -138,11 +138,9 @@ Now that you have written your first Stream Analytics query, test it by using sa
 
 This folder contains the following files:
 
-• Entry.json
-
-• Exit.json
-
-• Registration.json
+* Entry.json
+* Exit.json
+* Registration.json
 
 ## Question: Number of vehicles entering a toll booth
 In the project, double-click **Script.asaql** to open the script in the editor. Paste the script in the previous section into the editor. The query editor supports IntelliSense, syntax coloring, and an error marker.
