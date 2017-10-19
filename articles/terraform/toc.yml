@@ -17,8 +17,12 @@
       href: terraform-create-vm-cluster-module.md
     - name: Create a VM cluster with the Cloud Shell
       href: terraform-create-vm-cluster-with-infrastructure.md
-    - name: Provision VM scale set with infrasturcture
+    - name: Provision VM scale set with infrastructure
       href: terraform-create-vm-scaleset-network-disks-hcl.md
+- name: Concepts
+  items:
+    - name: Terraform runtime environments
+      href: terraform-runtime-options.md
 - name: Samples
   items:
     - name: Configuration templates

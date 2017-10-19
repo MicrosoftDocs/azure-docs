@@ -1,7 +1,8 @@
 ---
-title: Use Terraform to plan and create a networked Azure VM scale set with managed disks using the HCL.
+title: Use Terraform and create an Azure VM scale set using HCL.
 description: Use Terraform to configure and version an Azure virtual machine scale set complete with a virtual network and managed attached disks.
 keywords: terraform, devops, scale set, virtual machine, network, storage, modules
+ms.service: virtual-machines-linux
 author: dcaro
 ms.author: dcaro
 ms.date: 10/04/2017

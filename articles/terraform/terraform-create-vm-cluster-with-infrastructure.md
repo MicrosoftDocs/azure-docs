@@ -1,22 +1,17 @@
 ---
 title: Use Terraform modules to create a load balanced Linux VM infrastructure  on Azure
 description: Learn how to use Terraform modules to create a Linux virtual machine cluster with a load balancer in Azure
-services: virtual-machines-windows
-documentationcenter: virtual-machines
-author: 
-manager: 
-editor: na
-tags: azure-resource-manager
-ms.service: virtual-machines-windows
-ms.devlang: na
+keywords: terraform, devops, virtual machine, network, modules
+author: rloutlaw
+manager: justhe
+ms.service: virtual-machines-linux
+ms.custom: devops
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure
-ms.date: 10/12/2017
-ms.author: 
+ms.date: 10/19/2017
+ms.author: routlaw
 ---
 
-# Create a VM cluster with Terraform using Terraform modules and custom HCL
+# Create a VM cluster with Terraform using custom HCL
 
 This tutorial demonstrates creating a small compute cluster using the [Hashicorp Configuration Language](https://www.terraform.io/docs/configuration/syntax.html) (HCL). The configuration creates a load balancer, two Linux VMs in an [availability set](/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy), and all necessary networking resources.
 
