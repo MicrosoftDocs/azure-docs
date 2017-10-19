@@ -24,7 +24,23 @@ ms.reviewer: dhanyahk
 
 ## October 2017
 
-**Type:** Fixed (bug fixes)  
+**Type:** Plan for change  
+**Service Category:** Reporting  
+**Product Capability:** Identity Lifecycle Management  
+
+
+**Deprecating Azure AD reports (beta version) APIs  under the  `https://graph.windows.net/<tenant-name>/reports/` node**
+
+The Azure portal provides you with:
+
+- A new Azure Active Directory administration console 
+- New APIs for activity and security reports
+ 
+Due to these new capabilities, the report APIs under the **/reports** endpoint will be retired on December 10, 2017. 
+
+---
+
+**Type:** Fixed   
 **Service Category:** My Apps  
 **Product Capability:** SSO  
 
@@ -33,9 +49,8 @@ Azure Active Directory supports automatic sign-in field detection for applicatio
  
 Due to a service issue, this functionality was temporarily disabled for a period of time. The issue has been resolved and the automatic sign-in field detection is available again.
 
-
-
 ---
+
 **Type:** New feature  
 **Service Category:** MFA  
 **Product Capability:** Identity Security & Protection  
@@ -111,28 +126,11 @@ You can now better manage apps that show up on your user portals through a new *
 
 For more information, see [Hide a third-party application from user's experience in Azure Active Directory](active-directory-coreapps-hide-third-party-app.md). 
 
----
-**Type:** Plan for change  
-**Service Category:** Reporting  
-**Product Capability:** Identity Lifecycle Management  
-
-
-**Deprecating Azure AD reports (beta version) APIs  under the  `https://graph.windows.net/<tenant-name>/reports/` node**
-
-The Azure portal provides you with:
-
-- A new Azure Active Directory administration console 
-- New APIs for activity and security reports
- 
-Due to these new capabilities, the report APIs under the **/reports** endpoint will be retired on December 10, 2017. 
-
 
 **What's available?**
 
  As part of the transition to the new admin console, we have made 2 new APIs for retrieving Azure AD Activity Logs available. The new set of APIs provide richer filtering and sorting functionality in addition to providing richer audit and sign-in activities. The data previously available through the security reports can now be accessed through the Identity Protection risk events API in Microsoft Graph.
 
-
----
 
 ## September 2017
 
