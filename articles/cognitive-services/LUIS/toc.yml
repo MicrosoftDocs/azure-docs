@@ -25,6 +25,8 @@
   items: 
   - name: Integrate LUIS with a bot using Node.js
     href: luis-nodejs-tutorial-build-bot-framework-sample.md
+  - name: Integrate LUIS with a bot using C#
+    href: luis-csharp-tutorial-build-bot-framework-sample.md
 - name: Concepts
   items: 
   - name: Intents

@@ -28,8 +28,6 @@
     href: tutorials/spellcheck-source.md
 - name: How-to guides
   items:
-    - name: Spell check text strings
-      href: proof-text.md
     - name: Upgrade from v5 to v7
       href: bing-spell-check-upgrade-guide-v5-to-v7.md
     - name: Use and display requirements
