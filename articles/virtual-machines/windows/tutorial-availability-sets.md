@@ -183,6 +183,10 @@ Get-AzureRmVMSize `
    -ResourceGroupName myResourceGroupAvailability  
 ```
 
+## Check Azure Advisor 
+
+
+
 ## Next steps
 
 In this tutorial, you learned how to:
