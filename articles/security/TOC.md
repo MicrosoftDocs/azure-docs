@@ -95,6 +95,7 @@
 ## [Azure security MVP program](azure-security-mvp.md)
 ## [Cybersecurity consulting](azure-security-cyber-services.md)
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
+## [Security Recommendations for Azure Marketplace images](security-recommendations-azure-marketplace-images.md)
 ## Scenarios
 ### [Manage personal data in Azure](manage-personal-data-azure.md)
 ### [Discover, identify, and classify personal data in Azure](how-to-discover-classify-personal-data-azure.md)

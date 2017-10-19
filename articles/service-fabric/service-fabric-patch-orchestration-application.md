@@ -92,10 +92,10 @@ To enable the repair manager service using [Azure Resource Manager template](htt
     ```json
     "fabricSettings": [
         ...      
-        ],
-        "addonFeatures": [
-            "RepairManager"
-        ],
+    ],
+    "addonFeatures": [
+        "RepairManager"
+    ],
     ```
 
 3. After you have updated your cluster template with these changes, apply them and let the upgrade finish. You can now see the repair manager system service running in your cluster. It is called `fabric:/System/RepairManagerService` in the system services section in the Service Fabric Explorer. 
@@ -117,15 +117,15 @@ To enable the repair manager service:
     }
     ```
 
-2. Now enable repair manager service by adding the following `addonFeaturres` section after the `fabricSettings` section as shown below:
+2. Now enable repair manager service by adding the following `addonFeatures` section after the `fabricSettings` section as shown below:
 
     ```json
     "fabricSettings": [
         ...      
-        ],
-        "addonFeatures": [
-            "RepairManager"
-        ],
+    ],
+    "addonFeatures": [
+        "RepairManager"
+    ],
     ```
 
 3. Update your cluster manifest with these changes, using the updated cluster manifest [create a new cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-for-windows-server) or [upgrade the cluster configuration](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade-windows-server#Upgrade-the-cluster-configuration). Once the cluster is running with updated cluster manifest, you can now see the repair manager system service running in your cluster, which is called `fabric:/System/RepairManagerService`, under system services section in the Service Fabric explorer.
