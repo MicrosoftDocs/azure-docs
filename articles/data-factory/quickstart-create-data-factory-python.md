@@ -10,7 +10,7 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm:
-ms.devlang: dotnet
+ms.devlang: python
 ms.topic: hero-article
 ms.date: 09/19/2017
 ms.author: jingwang
