@@ -50,7 +50,7 @@ If you have an approved **Microsoft Developer Center** account, but have not pre
 2. Go to [https://cloudpartner.azure.com/](https://cloudpartner.azure.com/).
 3. If you are a new user and signing in to the Publishing portal for the first time, then you must sign in with the same email ID as your developer center account. Now, developer center account and publishing portal account are linked.
 
-You can later add the other members of the company as a [co-admin](../marketplace-publishing/marketplace-publishing-accounts-creation-registration#4-steps-to-add-a-co-admin-in-the-publishing-portal) in the publishing portal. If you are added as a co-admin in the publishing portal, you can sign in with your co-admin account.
+You can later add the other members of the company as a [co-admin](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md#4-steps-to-add-a-co-admin-in-the-publishing-portal) in the publishing portal. If you are added as a co-admin in the publishing portal, you can sign in with your co-admin account.
 
 > [!TIP]
 > The participation policies are described on the [Azure website](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
@@ -133,13 +133,13 @@ The next step is to add SKUs for your offer.
 
 	c. **Description**: Enter a detailed description about the SKU.
 
-	d. **SKU Type**: The allowed values are **Managed Application** and **Solution Templates**. For this case, select **Managed Application**.
+	d. **SKU Type**: The allowed values are *Managed Application* and *Solution Templates*. For this case, select *Managed Application*.
 
-    e. Select the countries where the managed application is available.
+    e. **Country/Region availability**: Select the countries where the managed application is available.
 
-     ![Select countries](./media/managed-application-author-marketplace/select-country.png)
+      ![Select countries](./media/managed-application-author-marketplace/select-country.png)
 
-    f. Provide a price. You must select the available countries before setting the price.
+    f. **Pricing**: Provide a price for managment of the application. Select the available countries before setting the price.
 
 4. Add a new package. Fill out the **Package Details** section on the following form:
 
