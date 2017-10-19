@@ -25,7 +25,7 @@ Azure Monitor provides unified user interfaces for monitoring across various Azu
 
 ## Access metrics
 
-Azure Monitor provides multiple ways to access metrics. You can either access metrics through the [Azure portal](https://portal.azure.com), or use the Azure Monitor APIs (REST and .NET) and analysis solutions such as Operation Management Suite and Event Hubs. For more information, see [Azure Monitor metrics](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Azure Monitor provides multiple ways to access metrics. You can either access metrics through the [Azure portal](https://portal.azure.com), or use the Azure Monitor APIs (REST and .NET) and analysis solutions such as Operation Management Suite and Event Hubs. For more information, see [Azure Monitor metrics](../monitoring-and-diagnostics/monitoring-overview-metrics.md#access-metrics-via-the-rest-api).
 
 Metrics are enabled by default, and you can access the most recent 30 days of data. If you need to retain data for a longer period of time, you can archive metrics data to an Azure Storage account. This is configured in [diagnostic settings](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) in Azure Monitor.
 
@@ -54,141 +54,54 @@ All metrics values are sent to Azure Monitor every minute. The time granularity 
 
 Counts the number of data and management operations requests.
 
-|Metric name|Description|
-|---|---|
-|Incoming Requests (preview)|The number of requests made to the Azure Event Hubs service over a specified period.
-Unit: Count
-AggregationType: Total
-Dimension: EntityName|
-
-|Metric name|Description|
-|---|---|
-|Successful Requests (preview)|The number of successful requests made to the Azure Event Hubs service over a specified period.
-Unit: Count
-AggregationType: Total
-Dimension: EntityName|
-
-|Metric name|Description|
-|---|---|
-|Server Errors (preview)|The number of requests not processed due to an error in the Azure Event Hubs service over a specified period.
-Unit: Count
-AggregationType: Total
-Dimension: EntityName|
-
-|Metric name|Description|
-|---|---|
-|User Errors (preview)|The number of requests not processed due to user errors over a specified period. 
-Unit: Count
-AggregationType: Total
-Dimension: EntityName|
-
-|Metric name|Description|
-|---|---|
-|Throttled Requests (preview)|The number of requests that were throttled because the throughput unit usage was exceeded. 
-Unit: Count
-AggregationType: Total
-Dimension: EntityName|
-
-|Metric name|Description|
-|---|---|
-|Quota Exceeded Errors (preview)|The number of requests exceeded the available quota. See [this article](event-hubs-quotas.md) for more information about Event Hubs quotas.
-Unit: Count
-AggregationType: Total
-Dimension: EntityName|
+| Metric Name | Description |
+| ------------------- | ----------------- |
+| Incoming Requests (preview) | The number of requests made to the Azure Event Hubs service over a specified period. <br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName |
+| Successful Requests (preview)   | The number of successful requests made to the Azure Event Hubs service over a specified period. <br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName |
+| Server Errors (preview) | The number of requests not processed due to an error in the Azure Event Hubs service over a specified period. <br/><br/>Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName |
+|User Errors (preview)|The number of requests not processed due to user errors over a specified period.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
+|Throttled Requests (preview)|The number of requests that were throttled because the throughput unit usage was exceeded.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
+|Quota Exceeded Errors (preview)|The number of requests exceeded the available quota. See [this article](event-hubs-quotas.md) for more information about Event Hubs quotas.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
 
 ## Throughput metrics
 
-|Metric name|Description|
-|---|---|
-|Throttled Requests (preview)|The number of requests that were throttled because the throughput unit usage was exceeded. 
-Unit: Count
-AggregationType: Total
-Dimension: EntityName|
+| Metric Name | Description |
+| ------------------- | ----------------- |
+|Throttled Requests (preview)|The number of requests that were throttled because the throughput unit usage was exceeded.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
 
 ## Message metrics
 
-|Metric name|Description|
-|---|---|
-|Incoming Messages (preview)|The number of events or messages sent to Event Hubs over a specified period.
-Unit: Count
-AggregationType: Total
-Dimension: EntityName|
-
-|Metric name|Description|
-|---|---|
-|Outgoing Messages (preview)|The number of events or messages retrieved from Event Hubs over a specified period.
-Unit: Count
-AggregationType: Total
-Dimension: EntityName|
-
-|Metric name|Description|
-|---|---|
-|Incoming Bytes (preview)|The number of bytes sent to the Azure Event Hubs service over a specified period.
-Unit: Bytes
-AggregationType: Total
-Dimension: EntityName|
-
-|Metric name|Description|
-|---|---|
-|Outgoing Bytes (preview)|The number of bytes retrieved from the Azure Event Hubs service over a specified period.
-Unit: Bytes
-AggregationType: Total
-Dimension: EntityName|
+| Metric Name | Description |
+| ------------------- | ----------------- |
+|Incoming Messages (preview)|The number of events or messages sent to Event Hubs over a specified period.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
+|Outgoing Messages (preview)|The number of events or messages retrieved from Event Hubs over a specified period.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
+|Incoming Bytes (preview)|The number of bytes sent to the Azure Event Hubs service over a specified period.<br/><br/> Unit: Bytes <br/> Aggregation Type: Total <br/> Dimension: EntityName|
+|Outgoing Bytes (preview)|The number of bytes retrieved from the Azure Event Hubs service over a specified period.<br/><br/> Unit: Bytes <br/> Aggregation Type: Total <br/> Dimension: EntityName|
 
 ## Connection metrics
 
-|Metric name|Description|
-|---|---|
-|ActiveConnections (preview)|The number of active connections on a namespace as well as on an entity.
-Unit: Count
-AggregationType: Total
-Dimension: EntityName|
-
-|Metric name|Description|
-|---|---|
-|Connections Opened (preview)|The number of open connections.
-Unit: Count
-AggregationType: Total
-Dimension: EntityName|
-
-|Metric name|Description|
-|---|---|
-|Connections Closed (preview)|The number of closed connections.
-Unit: Count
-AggregationType: Total
-Dimension: EntityName|
+| Metric Name | Description |
+| ------------------- | ----------------- |
+|ActiveConnections (preview)|The number of active connections on a namespace as well as on an entity.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
+|Connections Opened (preview)|The number of open connections.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
+|Connections Closed (preview)|The number of closed connections.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
 
 ## Event Hubs Capture metrics
 
 You can monitor Event Hubs Capture metrics when you enable the Capture feature for your event hubs. The following metrics describe what you can monitor with Capture enabled.
 
-|Metric name|Description|
-|---|---|
-|Capture Backlog (Preview)|The number of bytes that are yet to be captured to the chosen destination.
-Unit: Bytes
-AggregationType: Total
-Dimension: EntityName|
-
-|Metric name|Description|
-|---|---|
-|Captured Messages (Preview)|The number of messages or events that are captured to the chosen destination over a specified period.
-Unit: Count
-AggregationType: Total
-Dimension: EntityName|
-
-|Metric name|Description|
-|---|---|
-|Captured Bytes (Preview)|The number of bytes that are captured to the chosen destination over a specified period.
-Unit: Bytes
-AggregationType: Total
-Dimension: EntityName|
+| Metric Name | Description |
+| ------------------- | ----------------- |
+|Capture Backlog (Preview)|The number of bytes that are yet to be captured to the chosen destination.<br/><br/> Unit: Bytes <br/> Aggregation Type: Total <br/> Dimension: EntityName|
+|Captured Messages (Preview)|The number of messages or events that are captured to the chosen destination over a specified period.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
+|Captured Bytes (Preview)|The number of bytes that are captured to the chosen destination over a specified period.<br/><br/> Unit: Bytes <br/> Aggregation Type: Total <br/> Dimension: EntityName|
 
 ## Metrics dimensions
 
 Azure Event Hubs supports the following dimensions for metrics in Azure Monitor. Adding dimensions to your metrics is optional. If you do not add dimensions, metrics are specified at the namespace level. 
 
-|Dimension name|Description|
-|---|---|
+| Metric Name | Description |
+| ------------------- | ----------------- |
 |EntityName| Event Hubs supports the event hub entities under the namespace.|
 
 ## Next steps
