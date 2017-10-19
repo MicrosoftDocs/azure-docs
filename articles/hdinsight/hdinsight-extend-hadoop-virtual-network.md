@@ -294,6 +294,7 @@ If you use network security groups or user-defined routes, you must allow traffi
     | &nbsp; | UK South | 51.140.47.39</br>51.140.52.16 | 443 | Inbound |
     | United States | Central US | 13.67.223.215</br>40.86.83.253 | 443 | Inbound |
     | &nbsp; | North Central US | 157.56.8.38</br>157.55.213.99 | 443 | Inbound |
+    | &nbsp; | East US 2 EUAP | 52.138.65.49</br>52.138.66.134 | 443 | Inbound |
     | &nbsp; | West Central US | 52.161.23.15</br>52.161.10.167 | 443 | Inbound |
     | &nbsp; | West US 2 | 52.175.211.210</br>52.175.222.222 | 443 | Inbound |
 

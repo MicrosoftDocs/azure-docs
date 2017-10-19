@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/06/2017
+ms.date: 10/19/2017
 ms.author: bwren
 
 ms.custom: H1Hack27Feb2017
@@ -114,7 +114,7 @@ Runbook actions start the runbook using a [webhook](../automation/automation-web
 You cannot directly populate any parameters of the runbook, but the [$WebhookData parameter](../automation/automation-webhooks.md) will include the details of the alert, including the results of the log search that created it.  The runbook will need to define **$WebhookData** as a parameter for it to access the properties of the alert.  The alert data is available in json format in a single property called **SearchResults** in the **RequestBody** property of **$WebhookData**.  This will have with the properties in the following table.
 
 >[!NOTE]
-> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the runbook payload has changed.  Details of the format are in [Azure Log Analytics REST API](https://aka.ms/loganalyticsapiresponse).  You can see an example in [Samples](#sample-payload) below.
+> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the runbook payload has changed.  Details of the format are in [Azure Log Analytics REST API](https://aka.ms/loganalyticsapiresponse).  You can see an example in [Samples](#sample-payload) below.  A sample runbook to parse this new format will be published here soon.
 
 | Node | Description |
 |:--- |:--- |
