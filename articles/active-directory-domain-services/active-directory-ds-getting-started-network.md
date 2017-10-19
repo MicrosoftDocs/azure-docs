@@ -29,10 +29,10 @@ The next configuration task is to create an Azure virtual network and a dedicate
 
 1. Click **Virtual network** to select a virtual network.
     > [!NOTE]
-    > **Classic virtual networks are not supported for new deployments.** Classic virtual networks are not supported for new deployments. Existing managed domains deployed in classic virtual networks continue to be supported. We will provide the ability to migrate an existing managed domain from a classic virtual network to a resource manager virtual network in the near future.
+    > **Classic virtual networks are not supported for new deployments.** Classic virtual networks are not supported for new deployments. Existing managed domains deployed in classic virtual networks continue to be supported. We will provide the ability to migrate an existing managed domain from a classic virtual network to a Resource Manager virtual network in the near future.
     >
 
-2. On the **Choose virtual network** blade, you see all existing virtual networks. You see only the virtual networks that belong to the resource group and Azure location you have selected on the **Basics** wizard page.
+2. On the **Choose virtual network** page, you see all existing virtual networks. You see only the virtual networks that belong to the resource group and Azure location you have selected on the **Basics** wizard page.
 3. Choose the virtual network in which Azure AD Domain Services should be enabled. You can either pick an existing virtual network or create a new one.
 
   > [!TIP]
