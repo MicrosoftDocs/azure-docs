@@ -14,11 +14,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/15/2017
+ms.date: 10/20/2017
 ms.author: LADocs; estfan
 ---
 
-# Automate your first workflow with a logic app
+# Automate your first workflow to process data with a logic app
 
 To integrate systems and services more quickly for your organization, 
 you can automate workflows and business processes with 
