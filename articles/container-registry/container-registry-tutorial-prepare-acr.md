@@ -3,7 +3,7 @@ title: Azure Container Registry tutorial - Prepare ACR
 description: Create an Azure container registry, configure geo-replication, prepare a Docker image, and deploy it to the registry. Part one of a three-part series.
 services: container-registry
 documentationcenter: ''
-author: stevelas
+author: mmacy
 manager: balans
 editor: mmacy
 tags: acr, azure-container-registry, geo-replication
@@ -15,7 +15,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2017
-ms.author: stevelas
+ms.author: marsma
 ms.custom:
 ---
 
