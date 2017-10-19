@@ -142,8 +142,8 @@ select the row for a logic app or a status.
    * **Resubmit:** You can resubmit one or more logic app runs that failed, succeeded, or are still running. Select the checkboxes for the runs that you want to resubmit, and choose **Resubmit**. 
 
      ![Resubmit logic app runs](media/logic-apps-monitor-your-logic-apps-oms/logic-app-resubmit.png)
- 
-  4. To filter these results, you can perform both client-side and server-side filtering.
+
+4. To filter these results, you can perform both client-side and server-side filtering.
 
    * Client-side filter: For each column, 
    choose the filters that you want. 
