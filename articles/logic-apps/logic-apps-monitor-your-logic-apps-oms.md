@@ -138,15 +138,12 @@ select the row for a logic app or a status.
      ![View tracked properties for a logic app](media/logic-apps-monitor-your-logic-apps-oms/logic-app-tracked-properties.png)
 
      Any newly added tracked properties might take 10-15 minutes before they appear first time. Learn [how to add tracked properties to your logic app](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-event-settings-and-details).
- 
-  
+   
    * **Resubmit:** You can resubmit one or more logic app runs that failed, succeeded, or are still running. Select the checkboxes for the runs that you want to resubmit, and choose **Resubmit**. 
 
      ![Resubmit logic app runs](media/logic-apps-monitor-your-logic-apps-oms/logic-app-resubmit.png)
-    
-
-4. To filter these results, you can perform 
-both client-side and server-side filtering.
+ 
+ 4. To filter these results, you can perform both client-side and server-side filtering.
 
    * Client-side filter: For each column, 
    choose the filters that you want. 
