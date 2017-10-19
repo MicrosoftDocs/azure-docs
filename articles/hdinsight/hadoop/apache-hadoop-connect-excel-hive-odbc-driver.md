@@ -37,7 +37,7 @@ It is also possible to connect the data associated with an HDInsight cluster and
 
 Before you begin this article, you must have the following items:
 
-* **An HDInsight cluster**. To create one, see [Get started with Azure HDInsight][hdinsight-get-started].
+* **An HDInsight cluster**. To create one, see [Get started with Azure HDInsight](apache-hadoop-linux-tutorial-get-started.md).
 * **A workstation** with Office 2013 Professional Plus, Office 365 Pro Plus, Excel 2013 Standalone, or Office 2010 Professional Plus.
 
 ## Install Microsoft Hive ODBC driver
@@ -112,8 +112,6 @@ In this article, you learned how to use the Microsoft Hive ODBC driver to retrie
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-upload-data]: ../hdinsight-upload-data.md
 [hdinsight-power-query]: ../hdinsight-connect-excel-power-query.md
-[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
-
 [hive-odbc-driver-download]: http://go.microsoft.com/fwlink/?LinkID=286698
 
 
