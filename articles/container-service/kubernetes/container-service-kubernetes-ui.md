@@ -23,6 +23,8 @@ ms.custom: mvc
 
 # Using the Kubernetes web UI with Azure Container Service
 
+[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+
 ## Prerequisites
 This walkthrough assumes that you have [created a Kubernetes cluster using Azure Container Service](container-service-kubernetes-walkthrough.md).
 
