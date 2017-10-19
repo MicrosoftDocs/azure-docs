@@ -155,7 +155,7 @@ Adding new machines to existing replication groups is supported. To do so, selec
 Yes. You can read more about throttling bandwidth in the deployment articles:
 
 * [Capacity planning for replicating VMware VMs and physical servers](site-recovery-plan-capacity-vmware.md)
-* [Capacity planning for replicating Hyper-V VMs to Azure](ssite-recovery-capacity-planning-for-hyper-v-replication.md)
+* [Capacity planning for replicating Hyper-V VMs to Azure](site-recovery-capacity-planning-for-hyper-v-replication.md)
 
 ## Failover
 ### If I'm failing over to Azure, how do I access the Azure virtual machines after failover?
