@@ -16,13 +16,13 @@ ms.date: 10/19/2017
 ms.author: robinsh
 ---
 
-# How to connect to Azure Storage with PowerShell for the independent clouds
+# How to connect to the Azure independent clouds using PowerShell
 
 Most people use Azure Public Cloud for their global Azure deployment. There are also some independent deployments of Microsoft Azure for reasons of sovereignty and so on. These independent deployments are referred to as "environments". These are the available environments:
 
 * [Azure Government Cloud](https://azure.microsoft.com/features/gov/)
 * [Azure China Cloud operated by 21Vianet in China](http://www.windowsazure.cn/)
-* [Azure Germany Cloud](../../germany/germanywelcome.md).
+* [Azure Germany Cloud](../../germany/germany-welcome.md)
 
 ## Accessing storage
 
@@ -48,13 +48,13 @@ Follow these steps to get you started:
 
     For the Government cloud, use AzureUSGovernment instead of AzureChinaCloud. For the German Cloud, use AzureGermanCloud.
 
-From here forward, you can retrieve the list of locations, create a storage account, and manage you storage accounts as described in the article[Using Azure PowerShell with Azure Storage](storage-powershell-guide-full.md).
+From here forward, you can retrieve the list of locations, create a storage account, and manage your storage accounts as described in the article [Using Azure PowerShell with Azure Storage](storage-powershell-guide-full.md).
 
 ## Next steps
 
 * [Persisting user logins across PowerShell sessions](/powershell/azure/context-persistence)
-* [Azure Government storage](../../azure/azure-government/documentation-government-services-storage.md)
-* [Connect to Azure Government with PowerShell](../../azure/azure-government/documentation-government-get-started-connect-with-ps.md)
+* [Azure Government storage](../../azure-government/documentation-government-services-storage.md)
+* [Connect to Azure Government Cloud with PowerShell](../../azure-government/documentation-government-get-started-connect-with-ps.md)
 * [Microsoft Azure Government Developer Guide](../../azure-government/documentation-government-developer-guide.md)
-* [Developer Notes for Azure in China Applications](https://msdn.microsoft.com/library/azure/dn578439.aspx)
-* [Azure Germany Documentation](../../germany/germanywelcome.md)
+* [Developer Notes for Azure China Applications](https://msdn.microsoft.com/library/azure/dn578439.aspx)
+* [Azure Germany Documentation](../../germany/germany-welcome.md)
