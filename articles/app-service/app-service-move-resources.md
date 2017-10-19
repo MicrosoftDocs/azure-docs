@@ -1,5 +1,5 @@
 ---
-title: Move a Web App to another resource group
+title: Move an Azure Web App to another resource group | Microsoft Docs
 description: Describes the scenarios where you can move Web Apps and App Services from one Resource Group to another.
 services: app-service
 documentationcenter: ''
@@ -17,12 +17,10 @@ ms.date: 10/19/2017
 ms.author: zarizvi
 
 ---
-# Move a Web App to another resource group
+# Move an Azure Web App to another resource group
 You can move a Web App and/or its related resources to another resource group in the same subscription, or to a resource group in a different subscription. This is done as part of standard resource management in Azure. For more information, see [Move Azure resources to new subscription or resource group](../azure-resource-manager/resource-group-move-resources.md).
 
-## Limitations when moving Web Apps
-
-### Within the same subscription
+## Limitations when moving within the same subscription
 
 When moving a Web App _within the same subscription_, you cannot move the uploaded SSL certificates. However, you can move a Web App to the new resource group without moving its uploaded SSL certificate, and your app's SSL functionality still works. 
 
@@ -32,7 +30,7 @@ If you want to move the SSL certificate with the Web App, follow these steps:
 2.	Move the Web App.
 3.	Upload the certificate to the moved Web App.
 
-### Across subscriptions
+## Limitations when moving across subscriptions
 
 When moving a Web App _across subscriptions_, the following limitations apply:
 
