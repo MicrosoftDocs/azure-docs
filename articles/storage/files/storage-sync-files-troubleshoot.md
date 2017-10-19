@@ -23,7 +23,7 @@ Azure File Sync (preview) allows you to centralize your organization's file shar
 This article is designed to help you troubleshoot and resolve issues encountered with your Azure File Sync deployment. Failing that, this guide illustrates how to collect important logs from the system to aid in a deeper investigation of the issues. The following options are available for getting support for Azure File Sync:
 
 - Microsoft Support: To create a new support case, navigate to the "Help + support" tab on the Azure portal and click "New support request".
-- [Azure Storage Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazuredata)
+- [Azure Storage Forum](https://social.msdn.microsoft.com/Forums/home?forum=windowsazuredata)
 
 ## How to troubleshoot agent installation failures
 If the Azure File Sync agent installation is failing, run the following command from an elevated command prompt to enable logging during the agent installation:
@@ -69,6 +69,9 @@ Reset-StorageSyncServer
 
 > [!Note]  
 > If the server is part of a cluster, there is an optional `Reset-StorageSyncServer -CleanClusterRegistration` parameter that will also remove the cluster registration. This switch should be used when the last node in the cluster is unregistered.
+
+## When registering a server I get numerous "web site not trusted" responses, why?
+This error occurs because the **Enhanced Internet Explorer Security** policy is enabled during server registration. For more information on how to properly disable the **Enhanced Internet Explorer Security** policy, see [Prepare Windows Servers for use with Azure File Sync](storage-sync-files-deployment-guide.md#prepare-windows-servers-for-use-with-azure-file-sync) and [How to deploy Azure File Sync (preview)](storage-sync-files-deployment-guide.md).
 
 ## How to troubleshoot sync not working on a server
 If sync is failing on a server, perform the following:
