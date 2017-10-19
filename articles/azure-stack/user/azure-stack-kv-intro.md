@@ -47,7 +47,7 @@ The operator can then provide developers with Uniform Resource Identifiers (URIs
 Developers can also manage the keys directly, by using APIs. For more information, see the Key Vault developer's guide.
 
 ## Scenarios
-The following scenarios describe how Key Vault can help meet the needs of developers and security administrators:
+The following scenarios describe how Key Vault can help meet the needs of developers and security administrators.
 
 ### Developer for an Azure Stack application
 **Problem:** I want to write an application for Azure Stack that uses keys for signing and encryption. I want these keys to be external from my application, so that the solution is suitable for an application that is geographically distributed.
