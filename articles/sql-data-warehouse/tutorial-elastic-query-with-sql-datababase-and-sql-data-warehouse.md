@@ -118,7 +118,11 @@ In the next few steps we will create a table in our data warehouse instance with
    ,   [CustomerID] [int] NOT NULL 
    ) 
    WITH 
-   (DATA_SOURCE = EnterpriseDwSrc)
+   (
+     	DATA_SOURCE = EnterpriseDwSrc
+   	SCHEMA_NAME = N'dbo',
+   	OBJECT_NAME = N'OrderInformation'
+   )
    ```
 
 5. Observe that you now have an external table definition in your **SQL database instance**.
