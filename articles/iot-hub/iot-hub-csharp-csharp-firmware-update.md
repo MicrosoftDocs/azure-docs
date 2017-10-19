@@ -102,34 +102,34 @@ In this section, you create a .NET console app (using C#) that initiates a remot
         
 7. Add the following method to the **Program** class:
 
-        ```csharp   
-        public static async Task StartFirmwareUpdate()
-        {
-            client = ServiceClient.CreateFromConnectionString(connString);
-            CloudToDeviceMethod method = new CloudToDeviceMethod("firmwareUpdate");
-            method.ResponseTimeout = TimeSpan.FromSeconds(30);
-            method.SetPayloadJson(
-                @"{
-                    fwPackageUri : 'https://someurl'
-                }");
+    ```csharp   
+    public static async Task StartFirmwareUpdate()
+    {
+        client = ServiceClient.CreateFromConnectionString(connString);
+        CloudToDeviceMethod method = new CloudToDeviceMethod("firmwareUpdate");
+        method.ResponseTimeout = TimeSpan.FromSeconds(30);
+        method.SetPayloadJson(
+            @"{
+               fwPackageUri : 'https://someurl'
+            }");
 
-            CloudToDeviceMethodResult result = await client.InvokeDeviceMethodAsync(targetDevice, method);
+        CloudToDeviceMethodResult result = await client.InvokeDeviceMethodAsync(targetDevice, method);
 
-            Console.WriteLine("Invoked firmware update on device.");
-        }
-        ```
+        Console.WriteLine("Invoked firmware update on device.");
+    }
+    ```
 
 8. Finally, add the following lines to the **Main** method. This creates a registry manager to read the device twin with, starts the polling task on a worker thread, and then triggers the firmware update.
    
-        ```csharp   
-            registryManager = RegistryManager.CreateFromConnectionString(connString);
+    ```csharp   
+    registryManager = RegistryManager.CreateFromConnectionString(connString);
 
-            Task queryTask = Task.Run(() => (QueryTwinFWUpdateReported(DateTime.Now)));
+    Task queryTask = Task.Run(() => (QueryTwinFWUpdateReported(DateTime.Now)));
 
-            StartFirmwareUpdate().Wait();
-            Console.WriteLine("Press ENTER to exit.");
-            Console.ReadLine();
-        ```
+    StartFirmwareUpdate().Wait();
+    Console.WriteLine("Press ENTER to exit.");
+    Console.ReadLine();
+    ```
         
 9. Build the solution.
 
@@ -150,194 +150,193 @@ In this section, you:
     ![NuGet Package Manager window Client app][img-clientnuget]
 4. Add the following `using` statements at the top of the **Program.cs** file:
    
-        ```csharp   
-        using Newtonsoft.Json.Linq;
-        using Microsoft.Azure.Devices.Client;
-        using Microsoft.Azure.Devices.Shared;
-        ```
+    ```csharp   
+    using Newtonsoft.Json.Linq;
+    using Microsoft.Azure.Devices.Client;
+    using Microsoft.Azure.Devices.Shared;
+    ```
 
 5. Add the following fields to the **Program** class. Replace the placeholder value with the device connection string that you noted in the **Create a device identity** section.
    
-        ```csharp   
-        static string DeviceConnectionString = "HostName=<yourIotHubName>.azure-devices.net;DeviceId=<yourIotDeviceName>;SharedAccessKey=<yourIotDeviceAccessKey>";
-        static DeviceClient Client = null;
-        ```
+    ```csharp   
+    static string DeviceConnectionString = "HostName=<yourIotHubName>.azure-devices.net;DeviceId=<yourIotDeviceName>;SharedAccessKey=<yourIotDeviceAccessKey>";
+    static DeviceClient Client = null;
+    ```
 
 6. Add the following method to report status back to the cloud through the device twin: 
 
-        ```csharp   
-        static async Task reportFwUpdateThroughTwin(Twin twin, TwinCollection fwUpdateValue)
+    ```csharp   
+    static async Task reportFwUpdateThroughTwin(Twin twin, TwinCollection fwUpdateValue)
+    {
+        try
         {
-            try
-            {
-                TwinCollection patch = new TwinCollection();
-                TwinCollection iothubDM = new TwinCollection();
+            TwinCollection patch = new TwinCollection();
+            TwinCollection iothubDM = new TwinCollection();
 
-                iothubDM["firmwareUpdate"] = fwUpdateValue;
-                patch["iothubDM"] = iothubDM;
+            iothubDM["firmwareUpdate"] = fwUpdateValue;
+            patch["iothubDM"] = iothubDM;
 
-                await Client.UpdateReportedPropertiesAsync(patch);
-                Console.WriteLine("Twin state reported: {0}", fwUpdateValue["status"]);
-            }
-            catch 
-            {
-                Console.WriteLine("Error updating device twin");
-                throw;
-            }
+            await Client.UpdateReportedPropertiesAsync(patch);
+            Console.WriteLine("Twin state reported: {0}", fwUpdateValue["status"]);
         }
-        ```
+        catch 
+        {
+            Console.WriteLine("Error updating device twin");
+            throw;
+        }
+    }
+    ```
 
 7. Add the following method to simulate downloading the firmware image:
         
-       ```csharp   
-        static async Task<byte[]> simulateDownloadImage(string imageUrl)
-        {
-            var image = "[fake image data]";
+    ```csharp   
+    static async Task<byte[]> simulateDownloadImage(string imageUrl)
+    {
+        var image = "[fake image data]";
 
-            Console.WriteLine("Downloading image from " + imageUrl);
+        Console.WriteLine("Downloading image from " + imageUrl);
 
-            await Task.Delay(4000);
+        await Task.Delay(4000);
 
-            return Encoding.ASCII.GetBytes(image);
+        return Encoding.ASCII.GetBytes(image);
             
-        }
-        ```
-
+    }
+    ```
 
 8. Add the following method to simulate applying the firmware image to the device:
         
-       ```csharp   
-        static async Task simulateApplyImage(byte[] imageData)
+    ```csharp   
+    static async Task simulateApplyImage(byte[] imageData)
+    {
+        if (imageData == null)
         {
-            if (imageData == null)
-            {
-                throw new ArgumentNullException();
-            }
-
-            await Task.Delay(4000);
-
+            throw new ArgumentNullException();
         }
-        ```
+
+        await Task.Delay(4000);
+
+    }
+    ```
  
 9.  Add the following method to simulate waiting to download the firmware image. Update status to **waiting** and clear other firmware update properties on the twin. These properties are cleared to remove any existing values from prior firmware updates. This is necessary because reported properties are sent as a PATCH operation (a delta) and not a PUT operation (a complete set of properties that replaces all of the previous values). Typically, devices are informed of an available update and an administrator defined policy causes the device to start downloading and applying the update. This function is where the logic to enable that policy should run. 
         
-       ```csharp   
-        static async Task waitToDownload(Twin twin, string fwUpdateUri)
-        {
-            var now = DateTime.Now;
-            TwinCollection status = new TwinCollection();
-            status["fwPackageUri"] = fwUpdateUri;
-            status["status"] = "waiting";
-            status["error"] = null;
-            status["startedWaitingTime"] = DateTime.Now;
-            status["downloadCompleteTime"] = null;
-            status["startedApplyingImage"] = null;
-            status["lastFirmwareUpdate"] = null;
+    ```csharp   
+    static async Task waitToDownload(Twin twin, string fwUpdateUri)
+    {
+        var now = DateTime.Now;
+        TwinCollection status = new TwinCollection();
+        status["fwPackageUri"] = fwUpdateUri;
+        status["status"] = "waiting";
+        status["error"] = null;
+        status["startedWaitingTime"] = DateTime.Now;
+        status["downloadCompleteTime"] = null;
+        status["startedApplyingImage"] = null;
+        status["lastFirmwareUpdate"] = null;
 
-            await reportFwUpdateThroughTwin(twin, status);
+        await reportFwUpdateThroughTwin(twin, status);
 
-            await Task.Delay(2000);
-        }
-        ```
+        await Task.Delay(2000);
+    }
+    ```
 
 10. Add the following method to perform the download. It updates the status to **downloading** through the device twin, calls the simulate download method, and reports a status of **downloadComplete** or **downloadFailed** through the twin depending on the results of the download operation. 
         
-       ```csharp   
-        static async Task<byte[]> downloadImage(Twin twin, string fwUpdateUri)
+    ```csharp   
+    static async Task<byte[]> downloadImage(Twin twin, string fwUpdateUri)
+    {
+        try
         {
-            try
-            {
-                TwinCollection statusUpdate = new TwinCollection();
-                statusUpdate["status"] = "downloading";
-                await reportFwUpdateThroughTwin(twin, statusUpdate);
+            TwinCollection statusUpdate = new TwinCollection();
+            statusUpdate["status"] = "downloading";
+            await reportFwUpdateThroughTwin(twin, statusUpdate);
 
-                byte[] imageData = await simulateDownloadImage(fwUpdateUri);
+            byte[] imageData = await simulateDownloadImage(fwUpdateUri);
 
-                statusUpdate = new TwinCollection();
-                statusUpdate["status"] = "downloadComplete";
-                statusUpdate["downloadCompleteTime"] = DateTime.Now;
-                await reportFwUpdateThroughTwin(twin, statusUpdate);
-                return imageData;
-            }
-            catch (Exception ex)
-            {
-                TwinCollection statusUpdate = new TwinCollection();
-                statusUpdate["status"] = "downloadFailed";
-                statusUpdate["error"] = new TwinCollection();
-                statusUpdate["error"]["code"] = ex.GetType().ToString();
-                statusUpdate["error"]["message"] = ex.Message;
-                await reportFwUpdateThroughTwin(twin, statusUpdate);
-                throw;
-            }
+            statusUpdate = new TwinCollection();
+            statusUpdate["status"] = "downloadComplete";
+            statusUpdate["downloadCompleteTime"] = DateTime.Now;
+            await reportFwUpdateThroughTwin(twin, statusUpdate);
+            return imageData;
         }
-        ```
+        catch (Exception ex)
+        {
+            TwinCollection statusUpdate = new TwinCollection();
+            statusUpdate["status"] = "downloadFailed";
+            statusUpdate["error"] = new TwinCollection();
+            statusUpdate["error"]["code"] = ex.GetType().ToString();
+            statusUpdate["error"]["message"] = ex.Message;
+            await reportFwUpdateThroughTwin(twin, statusUpdate);
+            throw;
+        }
+    }
+    ```
 
 11. Add the following method to apply the image. It updates the status to **applying** through the device twin, calls the simulate apply image method, and updates status to **applyComplete** or **applyFailed** through the twin depending on the results of the apply operation. 
         
-       ```csharp   
-        static async Task applyImage(Twin twin, byte[] imageData)
+    ```csharp   
+    static async Task applyImage(Twin twin, byte[] imageData)
+    {
+        try
         {
-            try
-            {
-                TwinCollection statusUpdate = new TwinCollection();
-                statusUpdate["status"] = "applying";
-                statusUpdate["startedApplyingImage"] = DateTime.Now;
-                await reportFwUpdateThroughTwin(twin, statusUpdate);
+            TwinCollection statusUpdate = new TwinCollection();
+            statusUpdate["status"] = "applying";
+            statusUpdate["startedApplyingImage"] = DateTime.Now;
+            await reportFwUpdateThroughTwin(twin, statusUpdate);
 
-                await simulateApplyImage(imageData);
+            await simulateApplyImage(imageData);
 
-                statusUpdate = new TwinCollection();
-                statusUpdate["status"] = "applyComplete";
-                statusUpdate["lastFirmwareUpdate"] = DateTime.Now;
-                await reportFwUpdateThroughTwin(twin, statusUpdate);
-            }
-            catch (Exception ex)
-            {
-                TwinCollection statusUpdate = new TwinCollection();
-                statusUpdate["status"] = "applyFailed";
-                statusUpdate["error"] = new TwinCollection();
-                statusUpdate["error"]["code"] = ex.GetType().ToString();
-                statusUpdate["error"]["message"] = ex.Message;
-                await reportFwUpdateThroughTwin(twin, statusUpdate);
-                throw;
-            }
+            statusUpdate = new TwinCollection();
+            statusUpdate["status"] = "applyComplete";
+            statusUpdate["lastFirmwareUpdate"] = DateTime.Now;
+            await reportFwUpdateThroughTwin(twin, statusUpdate);
         }
-        ```
+        catch (Exception ex)
+        {
+            TwinCollection statusUpdate = new TwinCollection();
+            statusUpdate["status"] = "applyFailed";
+            statusUpdate["error"] = new TwinCollection();
+            statusUpdate["error"]["code"] = ex.GetType().ToString();
+            statusUpdate["error"]["message"] = ex.Message;
+            await reportFwUpdateThroughTwin(twin, statusUpdate);
+            throw;
+        }
+    }
+    ```
 
 12. Add the following method to sequence the firmware update operation from waiting to download the image through applying the image to the device:
         
-       ```csharp   
-        static async Task doUpdate(string fwUpdateUrl)
+    ```csharp   
+    static async Task doUpdate(string fwUpdateUrl)
+    {
+        try
         {
-            try
-            {
-                Twin twin = await Client.GetTwinAsync();
-                await waitToDownload(twin, fwUpdateUrl);
-                byte[] imageData = await downloadImage(twin, fwUpdateUrl);
-                await applyImage(twin, imageData);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine();
-                Console.WriteLine("Error during update: {0}", ex.Message);
-            }
+            Twin twin = await Client.GetTwinAsync();
+            await waitToDownload(twin, fwUpdateUrl);
+            byte[] imageData = await downloadImage(twin, fwUpdateUrl);
+            await applyImage(twin, imageData);
         }
-        ```
+        catch (Exception ex)
+        {
+            Console.WriteLine();
+            Console.WriteLine("Error during update: {0}", ex.Message);
+        }
+    }
+    ```
 
 13. Add the following method to handle the **updateFirmware** direct method from the cloud. It extracts the URL to the firmware update from the message payload and passes it to the **doUpdate** task, which it starts on another threadpool thread. It then immediately returns the method response to the cloud.
         
-       ```csharp   
-        static Task<MethodResponse> onFirmwareUpdate(MethodRequest methodRequest, object userContext)
-        {
-            string fwUpdateUrl = (string)JObject.Parse(methodRequest.DataAsJson)["fwPackageUri"];
-            Console.WriteLine("\nMethod: {0} triggered by service, URI is: {1}", methodRequest.Name, fwUpdateUrl);
+    ```csharp   
+    static Task<MethodResponse> onFirmwareUpdate(MethodRequest methodRequest, object userContext)
+    {
+        string fwUpdateUrl = (string)JObject.Parse(methodRequest.DataAsJson)["fwPackageUri"];
+        Console.WriteLine("\nMethod: {0} triggered by service, URI is: {1}", methodRequest.Name, fwUpdateUrl);
 
-            Task updateTask = Task.Run(() => (doUpdate(fwUpdateUrl)));
+        Task updateTask = Task.Run(() => (doUpdate(fwUpdateUrl)));
 
-            string result = "'FirmwareUpdate started.'";
-            return Task.FromResult(new MethodResponse(Encoding.UTF8.GetBytes(result), 200));
-        }
-        ```
+        string result = "'FirmwareUpdate started.'";
+        return Task.FromResult(new MethodResponse(Encoding.UTF8.GetBytes(result), 200));
+    }
+    ```
 > [!NOTE]
 > This method triggers the simulated update to run as a **Task** and then immediately responds to the method call, informing the service that the firmware update has been started. Update status and completion will be sent to the service through the reported properties of the device twin. We respond to the method call when starting the update, rather than after its completion, because:
 > * A real update process is very likely to take longer than the method call timeout.
@@ -345,29 +344,29 @@ In this section, you:
 
 14. Finally, add the following code to the **Main** method to open the connection to your IoT hub and initialize the method listener:
    
-        ```csharp   
-        try
-        {
-            Console.WriteLine("Connecting to hub");
-            Client = DeviceClient.CreateFromConnectionString(DeviceConnectionString, TransportType.Mqtt);
-                
-            // setup callback for "firmware update" method
-            Client.SetMethodHandlerAsync("firmwareUpdate", onFirmwareUpdate, null).Wait();
-            Console.WriteLine("Waiting for firmware update direct method call\n Press enter to exit.");
-            Console.ReadLine();
+    ```csharp   
+    try
+    {
+        Console.WriteLine("Connecting to hub");
+        Client = DeviceClient.CreateFromConnectionString(DeviceConnectionString, TransportType.Mqtt);
+        
+        // setup callback for "firmware update" method
+        Client.SetMethodHandlerAsync("firmwareUpdate", onFirmwareUpdate, null).Wait();
+        Console.WriteLine("Waiting for firmware update direct method call\n Press enter to exit.");
+        Console.ReadLine();
 
-            Console.WriteLine("Exiting...");
+        Console.WriteLine("Exiting...");
 
-            // as a good practice, remove the firmware update handler
-            Client.SetMethodHandlerAsync("firmwareUpdate", null, null).Wait();
-            Client.CloseAsync().Wait();
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine();
-            Console.WriteLine("Error in sample: {0}", ex.Message);
-        }
-        ```
+        // as a good practice, remove the firmware update handler
+        Client.SetMethodHandlerAsync("firmwareUpdate", null, null).Wait();
+        Client.CloseAsync().Wait();
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine();
+        Console.WriteLine("Error in sample: {0}", ex.Message);
+    }
+    ```
         
 15. Build the solution.       
 
