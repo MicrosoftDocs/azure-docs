@@ -4,7 +4,7 @@ description: Create an Azure container registry, configure geo-replication, prep
 services: container-registry
 documentationcenter: ''
 author: mmacy
-manager: balans
+manager: timlt
 editor: mmacy
 tags: acr, azure-container-registry, geo-replication
 keywords: Docker, Containers, Registry, Azure
@@ -14,7 +14,7 @@ ms.devlang:
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/31/2017
+ms.date: 10/24/2017
 ms.author: marsma
 ms.custom:
 ---
