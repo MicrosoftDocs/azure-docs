@@ -139,7 +139,7 @@ The next step is to add SKUs for your offer.
 
       ![Select countries](./media/managed-application-author-marketplace/select-country.png)
 
-    f. **Pricing**: Provide a price for managment of the application. Select the available countries before setting the price.
+    f. **Pricing**: Provide a price for management of the application. Select the available countries before setting the price.
 
 4. Add a new package. Fill out the **Package Details** section on the following form:
 
