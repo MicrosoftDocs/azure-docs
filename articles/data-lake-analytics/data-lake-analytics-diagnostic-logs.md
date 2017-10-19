@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/03/2017
+ms.date: 07/31/2017
 ms.author: larryfr
 
 ---
@@ -45,10 +45,10 @@ Diagnostic logging allows you to collect data access audit trails. These logs pr
 
      * Select **Stream to an Event Hub** to stream log data to an Azure Event Hub. Use this option if you have a downstream processing pipeline that is analyzing incoming logs in real time. If you select this option, you must provide the details for the Azure Event Hub you want to use.
 
-     * Select __Send to Log Analytics__ to send the data to the Log Analytics service. Use this if you want to use Log Analytics to gather and analyze logs.
-   * Specify whether you want to get audit logs or request logs or both.  A request log captures every API request, and an audit log records all operations that are triggered by that API request.
+     * Select __Send to Log Analytics__ to send the data to the Log Analytics service. Use this option if you want to use Log Analytics to gather and analyze logs.
+   * Specify whether you want to get audit logs or request logs or both.  A request log captures every API request. An audit log records all operations that are triggered by that API request.
 
-   * For __Archive to a storage account__, specify the number of days for which the data will be retained.
+   * For __Archive to a storage account__, specify the number of days to retain the data.
 
    * Click __Save__.
 
@@ -70,19 +70,19 @@ Once you have enabled diagnostic settings, you can return to the __Diagnostics l
     ![log entries](./media/data-lake-analytics-diagnostic-logs/diagnostic-log-entries.png)
 
    * Request logs capture every API request made on the Data Lake Analytics account.
-   * Audit Logs are similar to request Logs but provide a much more detailed breakdown of the operations being performed on the Data Lake Analytics account. For example, a single upload API call in a request log can result in multiple "Append" operations in its audit log.
+   * Audit Logs are similar to request Logs but provide a much more detailed breakdown of the operations. For example, a single upload API call in a request log can result in multiple "Append" operations in its audit log.
 
 3. Click the **Download** link for a log entry to download that log.
 
-### Use the Azure Data Lake Storage account that contains log data
+### Use the Azure Storage account that contains log data
 
-1. Open the Azure Data Lake Storage account blade associated with Data Lake Analytics for logging, and then click __Blobs__. The **Blob service** blade lists two containers.
+1. Open the Azure Storage account blade associated with Data Lake Analytics for logging, and then click __Blobs__. The **Blob service** blade lists two containers.
 
     ![View diagnostic logging](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs-storage-account.png "View diagnostic logs")
 
    * The container **insights-logs-audit** contains the audit logs.
    * The container **insights-logs-requests** contains the request logs.
-2. Within these containers, the logs are stored under the following structure.
+2. Within these containers, the logs are stored under the following structure:
 
         resourceId=/
           SUBSCRIPTIONS/
@@ -230,7 +230,7 @@ Here's a sample entry in the JSON-formatted audit log. Each blob has one root ob
 | Parallelism |String |The number of Data Lake Analytics units requested for this job during submission |
 
 > [!NOTE]
-> **SubmitTime**, **StartTime**, **EndTime** and **Parallelism** provide information on an operation, and only contain a value if that operation has started or completed. For example, **SubmitTime** only contains a value after **operationName** has the value **JobSubmitted**.
+> **SubmitTime**, **StartTime**, **EndTime**, and **Parallelism** provide information on an operation. These entries only contain a value if that operation has started or completed. For example, **SubmitTime** only contains a value after **operationName** has the value **JobSubmitted**.
 
 ## Process the log data
 

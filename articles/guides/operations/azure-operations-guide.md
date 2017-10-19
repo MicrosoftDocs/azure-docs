@@ -85,8 +85,6 @@ Services for hosting and running application workload:
 
 -   Azure Batch (for large-scale parallel and batch compute jobs)
 
--   Azure RemoteApp
-
 -   Azure Service Fabric
 
 -   Azure Container Service
@@ -370,7 +368,7 @@ Finally, as with the management of any computer system, you should provide secur
 
 ## Azure Storage
 
-Azure Storage is a Microsoft-managed service that provides durable, scalable, and redundant storage. You can add an Azure storage account as a resource to any resource group by using any resource deployment method. Azure includes four storage types: Blob storage, File Storage, Table storage, and Queue storage. When deploying a storage account, two account types are available, general-purpose and blob storage. A general-purpose storage account gives you access to all four storage types. Blob storage accounts are similar to general-purpose accounts, but contain specialized blobs that include hot and cold access tiers. For more information on blob storage, see [Azure Blob storage](../../storage/storage-blob-storage-tiers.md).
+Azure Storage is a Microsoft-managed service that provides durable, scalable, and redundant storage. You can add an Azure storage account as a resource to any resource group by using any resource deployment method. Azure includes four storage types: Blob storage, File Storage, Table storage, and Queue storage. When deploying a storage account, two account types are available, general-purpose and blob storage. A general-purpose storage account gives you access to all four storage types. Blob storage accounts are similar to general-purpose accounts, but contain specialized blobs that include hot and cold access tiers. For more information on blob storage, see [Azure Blob storage](../../storage/blobs/storage-blob-storage-tiers.md).
 
 Azure storage accounts can be configured with different levels of redundancy:
 
@@ -396,7 +394,7 @@ Azure Storage supports three kinds of blobs:
 
 -   **Append blobs** consist of blocks like block blobs, but they are optimized for append operations. These are frequently used for logging information from one or more sources to the same blob. For example, you might write all of your trace logging to the same append blob for an application that’s running on multiple VMs. A single append blob can be up to 195 GB.
 
-For more information, see [Get started with Azure Blob storage using .NET](../../storage/storage-dotnet-how-to-use-blobs.md).
+For more information, see [Get started with Azure Blob storage using .NET](../../storage/blobs/storage-dotnet-how-to-use-blobs.md).
 
 **File storage**
 
@@ -404,7 +402,7 @@ Azure File storage is a service that offers file shares in the cloud by using th
 
 Because a File storage share is a standard SMB file share, applications running in Azure can access data in the share via file system I/O APIs. Developers can therefore use their existing code and skills to migrate existing applications. IT pros can use PowerShell cmdlets to create, mount, and manage File storage shares as part of the administration of Azure applications.
 
-For more information, see [Get started with Azure File storage on Windows](../../storage/storage-file-how-to-use-files-windows.md) or [How to use Azure File storage with Linux](../../storage/storage-how-to-use-files-linux.md).
+For more information, see [Get started with Azure File storage on Windows](../../storage/files/storage-how-to-use-files-windows.md) or [How to use Azure File storage with Linux](../../storage/files/storage-how-to-use-files-linux.md).
 
 **Table storage**
 
@@ -412,13 +410,13 @@ Azure Table storage is a service that stores structured NoSQL data in the cloud.
 
 You can use Table storage to store flexible datasets, such as user data for web applications, address books, device information, and any other type of metadata that your service requires. You can store any number of entities in a table. A storage account can contain any number of tables, up to the capacity limit of the storage account.
 
-For more information, see [Get started with Azure Table storage](../../storage/storage-dotnet-how-to-use-tables.md).
+For more information, see [Get started with Azure Table storage](../../cosmos-db/table-storage-how-to-use-dotnet.md).
 
 **Queue storage**
 
 Azure Queue storage provides cloud messaging between application components. In designing applications for scale, application components are often decoupled so that they can scale independently. Queue storage delivers asynchronous messaging for communication between application components, whether they are running in the cloud, on the desktop, on an on-premises server, or on a mobile device. Queue storage also supports managing asynchronous tasks and building process workflows.
 
-For more information, see [Get started with Azure Queue storage](../../storage/storage-dotnet-how-to-use-queues.md).
+For more information, see [Get started with Azure Queue storage](../../storage/queues/storage-dotnet-how-to-use-queues.md).
 
 ### Deploying a storage account
 
@@ -426,19 +424,19 @@ There are several options for deploying a storage account.
 
 **Portal**
 
-Deploying a storage account by using the Azure portal requires only an active Azure subscription and access to a web browser. You can deploy a new storage account into a new or existing resource group. After you’ve created the storage account, you can create a blob container or file share by using the portal. You can create Table and Queue storage entities programmatically. For more information, see [Create a storage account](../../storage/storage-create-storage-account.md#create-a-storage-account).
+Deploying a storage account by using the Azure portal requires only an active Azure subscription and access to a web browser. You can deploy a new storage account into a new or existing resource group. After you’ve created the storage account, you can create a blob container or file share by using the portal. You can create Table and Queue storage entities programmatically. For more information, see [Create a storage account](../../storage/common/storage-create-storage-account.md#create-a-storage-account).
 
 In addition to deploying a storage account from the Azure portal, you can deploy an Azure Resource Manager template from the portal. This will deploy and configure all resources as defined in the template, including any storage accounts. For more information, see [Deploy resources with Resource Manager templates and Azure portal](../../azure-resource-manager/resource-group-template-deploy-portal.md).
 
 **PowerShell**
 
-Deploying an Azure storage account by using PowerShell allows for complete deployment automation of the storage account. For more information, see [Using Azure PowerShell with Azure Storage](../../storage/storage-powershell-guide-full.md).
+Deploying an Azure storage account by using PowerShell allows for complete deployment automation of the storage account. For more information, see [Using Azure PowerShell with Azure Storage](../../storage/common/storage-powershell-guide-full.md).
 
 In addition to deploying Azure resources individually, you can use the Azure PowerShell module to deploy an Azure Resource Manager template. For more information, see [Deploy resources with Resource Manager templates and Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md).
 
 **Command-line interface (CLI)**
 
-As with the PowerShell module, the Azure command-line Interface provides deployment automation and can be used on Windows, OS X, or Linux systems. You can use the Azure CLI **storage account create** command to create a storage account. For more information, see [Using the Azure CLI with Azure Storage.](../../storage/storage-azure-cli.md)
+As with the PowerShell module, the Azure command-line Interface provides deployment automation and can be used on Windows, OS X, or Linux systems. You can use the Azure CLI **storage account create** command to create a storage account. For more information, see [Using the Azure CLI with Azure Storage.](../../storage/common/storage-azure-cli.md)
 
 Likewise, you can use the Azure CLI to deploy an Azure Resource Manager template. For more information, see [Deploy resources with Resource Manager templates and Azure CLI](../../resource-group-template-deploy-cli.md).
 
@@ -448,11 +446,11 @@ Azure Storage is accessed in various ways, including though the Azure portal, du
 
 **Virtual machine disks**
 
-When you’re deploying a virtual machine, you also need to create a storage account to hold the virtual machine operating system disk and any additional data disks. You can select an existing storage account or create a new one. Because the maximum size of a blob is 1,024 GB, a single VM disk has a maximum size of 1,023 GB. To configure a larger data disk, you can present multiple data disks to the virtual machine and pool them together as a single logical disk. For more information, see “Storage infrastructure guidelines” for [Windows](../../virtual-machines/windows/infrastructure-storage-solutions-guidelines.md) and [Linux](../../virtual-machines/linux/infrastructure-storage-solutions-guidelines.md).
+When you’re deploying a virtual machine, you also need to create a storage account to hold the virtual machine operating system disk and any additional data disks. You can select an existing storage account or create a new one. Because the maximum size of a blob is 1,024 GB, a single VM disk has a maximum size of 1,023 GB. To configure a larger data disk, you can present multiple data disks to the virtual machine and pool them together as a single logical disk. For more information, see “Manage Azure disks” for [Windows](../../virtual-machines/windows/tutorial-manage-data-disk.md) and [Linux](../../virtual-machines/linux/tutorial-manage-disks.md).
 
 **Storage tools**
 
-Azure storage accounts can be accessed through many different storage explorers, such as Visual Studio Cloud Explorer. These tools let you browse through storage accounts and data. For more information and a list of available storage explorers, see [Azure Storage client tools](../../storage/storage-explorers.md).
+Azure storage accounts can be accessed through many different storage explorers, such as Visual Studio Cloud Explorer. These tools let you browse through storage accounts and data. For more information and a list of available storage explorers, see [Azure Storage client tools](../../storage/common/storage-explorers.md).
 
 **Storage API**
 
@@ -464,7 +462,7 @@ Each storage account has two authentication keys, a primary and a secondary. Eit
 
 **Shared access signatures**
 
-If you need to allow users to have controlled access to your storage resources, you can create a shared access signature. A shared access signature is a token that can be appended to a URL that enables delegated access to a storage resource. Anyone who possesses the token can access the resource that it points to with the permissions that it specifies, for the period of time that it’s valid. For more information, see [Using shared access signatures](../../storage/storage-dotnet-shared-access-signature-part-1.md).
+If you need to allow users to have controlled access to your storage resources, you can create a shared access signature. A shared access signature is a token that can be appended to a URL that enables delegated access to a storage resource. Anyone who possesses the token can access the resource that it points to with the permissions that it specifies, for the period of time that it’s valid. For more information, see [Using shared access signatures](../../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 ## Azure Virtual Network
 

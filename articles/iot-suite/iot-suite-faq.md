@@ -14,17 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/15/2017
+ms.date: 09/15/2017
 ms.author: corywink
 
 ---
 # Frequently asked questions for IoT Suite
 
+See also, the connected factory specific [FAQ](iot-suite-faq-cf.md).
+
 ### Where can I find the source code for the preconfigured solutions?
 
 The source code is stored in the following GitHub repositories:
-* [Remote Monitoring preconfigured solution][lnk-remote-monitoring-github]
+* [Remote monitoring preconfigured solution][lnk-remote-monitoring-github]
 * [Predictive maintenance preconfigured solution][lnk-predictive-maintenance-github]
+* [Connected factory preconfigured solution](https://github.com/Azure/azure-iot-connected-factory)
 
 ### How do I update to the latest version of the remote monitoring preconfigured solution that uses the IoT Hub device management features?
 
@@ -90,22 +93,14 @@ Currently, you cannot create a preconfigured solution with a Cloud Solution Prov
 
 See Eric Golpe's blog post [Walkthrough of Deleting an Azure AD Tenant][lnk-delete-aad-tennant].
 
-### What is OPC UA?
-
-OPC Unified Architecture (UA), released in 2008, is a platform-independent, service-oriented interoperability standard used by various industrial systems and devices such as industry PCs, PLCs, and sensors. OPC UA integrates all the functionality of the individual OPC Classic specifications into one extensible framework with built-in security. It is a standard that is driven by the OPC Foundation. The [OPC Foundation][lnk-opc-foundation] is a not-for-profit organization whose more than 440 members share the common goal of providing the infrastructure, specifications, technology, and processes to facilitate multi-vendor, multi-platform, secure and reliable interoperability using OPC specifications.
-
-### Why did Microsoft choose OPC UA for the connected factory preconfigured solution?
-
-Microsoft chose OPC UA because it is an open, non-proprietary, platform independent, industry-recognized, and proven standard. It is a requirement for Industrie 4.0 (RAMI4.0) reference architecture solutions ensuring interoperability between a broad set of manufacturing processes and equipment. Microsoft sees demand from our customers to build Industrie 4.0 solutions. Support for OPC UA helps lower the barrier for customers to achieve their goals and provides immediate business value to them.
-
 ### Next steps
 
 You can also explore some of the other features and capabilities of the IoT Suite preconfigured solutions:
 
 * [Predictive maintenance preconfigured solution overview][lnk-predictive-overview]
+* [Connected factory preconfigured solution overview](iot-suite-connected-factory-overview.md)
 * [IoT security from the ground up][lnk-security-groundup]
 
-[lnk-opc-foundation]: http://opcfoundation.org/
 [lnk-predictive-overview]: iot-suite-predictive-overview.md
 [lnk-security-groundup]: securing-iot-ground-up.md
 

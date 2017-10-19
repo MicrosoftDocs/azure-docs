@@ -188,4 +188,3 @@ In this tutorial, you automated the deployment of an app to Azure using Jenkins 
 Advance to the next tutorial to learn more about how to deploy a LAMP (Linux, Apache, MySQL, and PHP) stack.
 
 > [!div class="nextstepaction"]
-> [Deploy LAMP stack](tutorial-lamp-stack.md)

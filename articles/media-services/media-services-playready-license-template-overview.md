@@ -2,7 +2,7 @@
 title: Media Services PlayReady license template overview
 description: This topic gives an overview of a PlayReady license template that used to configure PlayReady licenses.
 author: juliako
-manager: erikre
+manager: cfowler
 editor: ''
 services: media-services
 documentationcenter: ''

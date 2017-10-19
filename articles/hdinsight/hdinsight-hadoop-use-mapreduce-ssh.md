@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/03/2017
+ms.date: 07/31/2017
 ms.author: larryfr
 
 ---
@@ -41,11 +41,15 @@ Learn how to submit MapReduce jobs from a Secure Shell (SSH) connection to HDIns
 
 Connect to the cluster using SSH. For example, the following command connects to a cluster named **myhdinsight**:
 
-    ssh admin@myhdinsight-ssh.azurehdinsight.net
+```bash
+ssh admin@myhdinsight-ssh.azurehdinsight.net
+```
 
 **If you use a certificate key for SSH authentication**, you may need to specify the location of the private key on your client system, for example:
 
-    ssh -i ~/mykey.key admin@myhdinsight-ssh.azurehdinsight.net
+```bash
+ssh -i ~/mykey.key admin@myhdinsight-ssh.azurehdinsight.net
+```
 
 **If you use a password for SSH authentication**, you need to provide the password when prompted.
 

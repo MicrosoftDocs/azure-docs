@@ -4,7 +4,7 @@ description: This topic shows how to poll long-running operations.
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 9a68c4b1-6159-42fe-9439-a3661a90ae03

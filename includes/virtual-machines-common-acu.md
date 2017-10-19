@@ -11,7 +11,7 @@ We have created the concept of the Azure Compute Unit (ACU) to provide a way of 
 
 <br>
 
-| SKU Family | ACU/Core |
+| SKU Family | ACU \ vCPU |
 | --- | --- |
 | [A0](../articles/virtual-machines/windows/sizes-general.md) |50 |
 | [A1-A4](../articles/virtual-machines/windows/sizes-general.md) |100 |

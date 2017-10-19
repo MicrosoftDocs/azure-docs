@@ -22,7 +22,7 @@ ms.author: ruturajd
 This article describes how to fail back virtual machines from Azure Virtual Machines to the on-premises site. Follow the instructions in this article to fail back your VMware virtual machines or Windows/Linux physical servers after they've failed over from the on-premises site to Azure by using the [Replicate VMware virtual machines and physical servers to Azure with Azure Site Recovery](site-recovery-vmware-to-azure-classic.md) tutorial.
 
 > [!WARNING]
-> If you have [completed migration](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), moved the virtual machine to another resource group, or deleted the Azure virtual machine, you cannot failback after that.
+> You cannot failback after you have either [completed migration](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), moved a virtual machine to another resource group, or deleted the Azure virtual machine. If you disable protection of the virtual machine, you cannot failback.
 
 > [!NOTE]
 > If you have failed over VMware virtual machines then you cannot failback to a Hyper-v host.
@@ -60,9 +60,9 @@ If you fail back to the original virtual machine, the following conditions are r
 If the on-premises virtual machine does not exist before reprotecting the virtual machine, the scenario is called an alternate location recovery. The reprotect workflow creates the on-premises virtual machine again. This will also cause a full data download.
 
 * When you fail back to an alternate location, the virtual machine will be recovered to the same ESX host on which the master target server is deployed. The datastore that's used to create the disk will be the same datastore that was selected when reprotecting the virtual machine.
-* You can fail back only to a virtual machine file system (VMFS) datastore. If you have a vSAN or RDM, reprotect and failback will not work.
+* You can fail back only to a virtual machine file system (VMFS) or vSAN datastore. If you have a RDM, reprotect and failback will not work.
 * Reprotect involves one large initial data transfer that's followed by the changes. This process exists because the virtual machine does not exist on premises. The complete data needs to be replicated back. This reprotect will also take more time than an original location recovery.
-* You cannot fail back to vSAN- or RDM-based disks. Only new virtual machine disks (VMDKs) can be created on a VMFS datastore.
+* You cannot fail back to RDM-based disks. Only new virtual machine disks (VMDKs) can be created on a VMFS/vSAN datastore.
 
 A physical machine, when failed over to Azure, can be failed back only as a VMware virtual machine (also referred to as P2A2V). This flow falls under the alternate location recovery.
 
@@ -74,8 +74,11 @@ Before you proceed, complete the reprotect steps so that the virtual machines ar
 
 ## Prerequisites
 
-* A configuration server is required on premises when you do a failback. During failback, the virtual machine must exist in the configuration server database, or failback won't succeed. Thus, ensure that you take regularly scheduled backups of your server. If there was a disaster, you will need to restore the server with the same IP address for failback to work.
-* The master target server should not have any snapshots before triggering failback.
+> [!IMPORTANT]
+> During failover to Azure, the on-premises site may not be accessible and hence the configuration server may be either un-available or shutdown. During reprotect and failback, the on-premises configuration server should be running and in a connected OK state.
+
+* A configuration server is required on premises when you do a failback. The server should be in running state and connected to the service such that its health is OK. During failback, the virtual machine must exist in the configuration server database, or failback won't succeed. Thus, ensure that you take regularly scheduled backups of your server. If there was a disaster, you will need to restore the server with the same IP address for failback to work.
+* The master target server should not have any snapshots before triggering reprotect/failback.
 
 ## Steps to fail back
 

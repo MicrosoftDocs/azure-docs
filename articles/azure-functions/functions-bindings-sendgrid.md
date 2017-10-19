@@ -4,14 +4,14 @@ description: Azure Functions SendGrid bindings reference
 services: functions
 documentationcenter: na
 author: rachelappel
-manager: erikre
+manager: cfowler
 
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 03/16/2017
+ms.date: 08/26/2017
 ms.author: rachelap
 
 ---
@@ -30,14 +30,16 @@ Azure Functions provides an output binding for SendGrid. The SendGrid output bin
 
 The SendGrid binding supports the following properties:
 
-- `name` : Required - the variable name used in function code for the request or request body. This value is ```$return``` when there is only one return value. 
-- `type` : Required - must be set to "sendGrid."
-- `direction` : Required - must be set to "out."
-- `apiKey` : Required - must be set to the name of your API key stored in the Function App's app settings.
-- `to` : the recipient's email address.
-- `from` : the sender's email address.
-- `subject` : the subject of the email.
-- `text` : the email content.
+|Property  |Description  |
+|---------|---------|
+|**name**| Required - the variable name used in function code for the request or request body. This value is ```$return``` when there is only one return value. |
+|**type**| Required - must be set to `sendGrid`.|
+|**direction**| Required - must be set to `out`.|
+|**apiKey**| Required - must be set to the name of your API key stored in the Function App's app settings. |
+|**to**| the recipient's email address. |
+|**from**| the sender's email address. |
+|**subject**| the subject of the email. |
+|**text**| the email content. |
 
 Example of **function.json**:
 
@@ -95,7 +97,7 @@ public static Mail Run(TraceWriter log, string input, out Mail message)
 module.exports = function (context, input) {    
     var message = {
          "personalizations": [ { "to": [ { "email": "sample@sample.com" } ] } ],
-        from: "sender@contoso.com",        
+        from: { email: "sender@contoso.com" },        
         subject: "Azure news",
         content: [{
             type: 'text/plain',

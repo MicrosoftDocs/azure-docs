@@ -236,6 +236,44 @@ The following sections describe how to update protection agents for client compu
 4. For a client computer that is not connected to the network, until the computer is connected to the network, the **Agent Status** column shows a status of **Update Pending**.
 
   After a client computer is connected to the network, the **Agent Updates** column for the client computer shows a status of **Updating**.
+  
+### Move legacy Protection groups from old version and sync the new version with Azure
+
+Once Azure Backup Server and the OS are both updated, you are ready to protect new data sources using Modern Backup Storage. However already protected data sources will continue to be protected in the legacy way as they were in Azure Backup Server but all new protection will use Modern Backup Storage.
+
+Below steps are to migrate data sources from legacy  mode of protection to Modern backup storage.
+
+• Add the new volume(s) to the DPM storage pool and assign friendly names and data source tags if desired.
+• For each data source that is in legacy mode, stop protection of the data sources and “Retain Protected Data”.  This will allow recovery of old recovery points after migration.
+
+• Create a new PG and select the data sources that are to be stored using new format.
+• DPM will do a replica copy from the legacy backup storage into the Modern Backup Storage volume locally.
+  Note: This will be seen as a post-recovery operation job
+• All new sync and recovery points will then be stored in Modern Backup Storage.
+• Old recovery points will be pruned out as they expire and eventually free up the disk space.
+• Once all the legacy volumes are deleted from the old storage, the disk can be removed from Azure backup and the system.
+• Take a backup of the  Azure DPMDB.
+
+Part 2:
+-Important items> The new server will need to be named same as the original Azure Backup server. You cannot change the name of the new Azure backup server if you want to use old storage pool and DPMDB to retain recovery points
+-Must have backup of DPMDB  as it will need to be restored
+
+1) Shutdown the original Azure backup server or take it off the wire.
+2) Reset the machine account in active directory.
+3) Install Server 2016 on new machine and name it the same machine name as the original Azure Backup server.
+4) Join the Domain
+5) Install Azure Backup server V2 (Move DPM Storage pool disks from old server and import)
+6) Restore the DPMDB taken from end of part 2
+7) Attach the storage from the original backup server to the new server.
+8) From SQL Restore the DPMDB
+9) From admin command line on new server cd to Microsoft Azure Backup install location and bin folder
+
+Path example:
+C:\windows\system32>cd "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\
+to Azure backup Run DPMSYNC -SYNC
+
+10) Run DPMSYNC -SYNC
+Note If you have added NEW disks to the DPM Storage pool instead of moving the old ones, then run DPMSYNC -Reallocatereplica
 
 ## New PowerShell cmdlets in v2
 

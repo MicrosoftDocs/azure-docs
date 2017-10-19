@@ -38,7 +38,9 @@ To get started with code, download the project from [Azure Cosmos DB Performance
 <a name="partition-keys"></a>
 <a name="single-partition-and-partitioned-collections"></a>
 <a name="migrating-from-single-partition"></a>
+
 ## Partition keys
+
 In the DocumentDB API, you specify the partition key definition in the form of a JSON path. The following table shows examples of partition key definitions and the values corresponding to each. The partition key is specified as a path, e.g. `/department` represents the property department. 
 
 <table border="0" cellspacing="0" cellpadding="0">

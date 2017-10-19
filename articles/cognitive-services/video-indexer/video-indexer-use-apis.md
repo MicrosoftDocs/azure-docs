@@ -8,7 +8,7 @@ manager: erikre
 
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 08/08/2017
 ms.author: juliako;
 
 ---
@@ -16,7 +16,7 @@ ms.author: juliako;
 
 Video Indexer consolidates various audio and video artificial intelligence (AI) technologies offered by Microsoft in one integrated service, making development simpler. The APIs are designed to enable developers to focus on consuming Media AI technologies without worrying about scale, global reach, availability, and reliability of cloud platform. You can use the API to upload your files, get detailed video insights, get URLs of insight and player widgets in order to embed them into your application, and other tasks.
 
-This article shows how the developers can take advantage of the Video Indexer API. To read a more detailed overview of the Video Indexer service, see the [overview](video-indexer-overview.md) article.
+This article shows how the developers can take advantage of the [Video Indexer API](https://videobreakdown.portal.azure-api.net/docs/services/582074fb0dc56116504aed75/operations/5857caeb0dc5610f9ce979e4). To read a more detailed overview of the Video Indexer service, see the [overview](video-indexer-overview.md) article.
 
 ## Subscribe to the API
 
@@ -29,7 +29,7 @@ This article shows how the developers can take advantage of the Video Indexer AP
 	If signing in with an AAD account (for example, alice@contoso.onmicrosoft.com) you must go through two preliminary steps: 
 	
 	1. 	Contact us to register your AAD organization’s domain (contoso.onmicrosoft.com).
-	2. 	Your AAD organization’s admin must first sign in to grant the portal permissions to your org. 
+	2. 	Your AAD organization’s admin must first sign in to grant the portal permissions to your org. To do this, the organization's admin must navigate to https://login.microsoftonline.com/common/adminconsent?client_id=e97b04d3-3e10-41fb-926f-b3c868fef6df&redirect_uri=https://videobreakdown.portal.azure-api.net/signin-aad, sign in and give consent.
 	
 2. Subscribe.
 
@@ -37,8 +37,7 @@ This article shows how the developers can take advantage of the Video Indexer AP
 	
 	![Sign up](./media/video-indexer-use-apis/video-indexer-api02.png)
 	
-	This sends the Video Indexer team a subscription request, which will be approved shortly.
-	Once approved, you will be able to see your subscription and your primary and secondary keys. Notice: these keys should be protected. The keys should only be used by your server code. They should not be available on the client side (.js, .html, etc.).
+	Once you subscribe, you will be able to see your subscription and your primary and secondary keys. The keys should be protected. The keys should only be used by your server code. They should not be available on the client side (.js, .html, etc.).
 
 	![Sign up](./media/video-indexer-use-apis/video-indexer-api03.png)
 

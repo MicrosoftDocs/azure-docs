@@ -11,7 +11,7 @@ tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/15/2017
@@ -53,18 +53,18 @@ Log in to the Azure portal at http://portal.azure.com.
 
     ![Screenshot that shows VM sizes](./media/quick-create-portal/create-linux-vm-portal-sizes.png)  
 
-5. On the settings blade, keep the defaults and click **OK**.
+5. Under **Settings**, keep the defaults and click **OK**.
 
 6. On the summary page, click **Ok** to start the virtual machine deployment.
 
-7. The VM will be pinned to the Azure portal dashboard. Once the deployment has completed, the VM summary blade automatically opens.
+7. The VM will be pinned to the Azure portal dashboard. Once the deployment has completed, the VM summary automatically opens.
 
 
 ## Connect to virtual machine
 
 Create an SSH connection with the virtual machine.
 
-1. Click the **Connect** button on the virtual machine blade. The connect button displays an SSH connection string that can be used to connect to the virtual machine.
+1. Click the **Connect** button on the virtual machine properties. The connect button displays an SSH connection string that can be used to connect to the virtual machine.
 
     ![Portal 9](./media/quick-create-portal/portal-quick-start-9.png) 
 
@@ -105,13 +105,13 @@ A Network security group (NSG) secures inbound and outbound traffic. When a VM i
 
 ## View the NGINX welcome page
 
-With NGINX installed, and port 80 open to your VM, the webserver can now be accessed from the internet. Open a web browser, and enter the public IP address of the VM. The public IP address can be found on the VM blade in the Azure portal.
+With NGINX installed, and port 80 open to your VM, the webserver can now be accessed from the internet. Open a web browser, and enter the public IP address of the VM. The public IP address can be found on the VM properties in the Azure portal.
 
 ![NGINX default site](./media/quick-create-cli/nginx.png) 
 
 ## Clean up resources
 
-When no longer needed, delete the resource group, virtual machine, and all related resources. To do so, select the resource group from the virtual machine blade and click **Delete**.
+When no longer needed, delete the resource group, virtual machine, and all related resources. To do so, select the resource group for the virtual machine and click **Delete**.
 
 ## Next steps
 

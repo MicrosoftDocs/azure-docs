@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 07/31/2017
 ms.author: jeedes
 
 ---
@@ -33,7 +33,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with Netsuite, you need the following items:
 
 - An Azure AD subscription
-- A Netsuite single-sign on enabled subscription
+- A Netsuite single sign-on enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -117,7 +117,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
      `https://<tenant-name>.na2.sandbox.netsuite.com/saml2/acs`
 
 	> [!NOTE] 
-	> This value is not real value. Update the value with the actual Reply URL. Contact [Netsuite support team](http://www.netsuite.com/portal/services/support.shtml) to get this value.
+	> These are not real values. Update these values with the actual Reply URL. Contact [Netsuite support team](http://www.netsuite.com/portal/services/support.shtml) to get these values.
  
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the XML file on your computer.
 
@@ -163,7 +163,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     ![Configure Single Sign-On](./media/active-directory-saas-Netsuite-tutorial/ns-attributes.png)
 
-13. For the **Attribute Name** field, type in `account`. For the **Attribute Value** field, type in your Netsuite account ID.This value is constant and change with account. Instructions on how to find your account ID are included below:
+13. For the **Attribute Name** field, type in `account`. For the **Attribute Value** field, type in your Netsuite account ID. This value is constant and change with account. Instructions on how to find your account ID are included below:
 
       ![Configure Single Sign-On](./media/active-directory-saas-Netsuite-tutorial/ns-add-attribute.png)
 

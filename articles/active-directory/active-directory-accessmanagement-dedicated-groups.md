@@ -13,8 +13,10 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2017
+ms.date: 09/12/2017
 ms.author: curtand
+ms.reviewer: kairaz.contractor
+ms.custom: it-pro;oldportal
 
 ---
 # Dedicated groups in Azure Active Directory
@@ -30,7 +32,7 @@ In Azure Active Directory (Azure AD), the dedicated groups feature automatically
 
 **To enable dedicated groups**
 
-1. In the [Azure classic portal](https://manage.windowsazure.com), select **Active Directory**, and then open your organization’s directory.
+1. In the [Azure portal](https://portal.azure.com), select **Active Directory**, and then open your organization’s directory.
 2. Select the **Groups** tab, and then open the group you want to edit.
 3. Select the **Configure** tab, and then set **Enable Dedicated Groups** to **Yes**.
 

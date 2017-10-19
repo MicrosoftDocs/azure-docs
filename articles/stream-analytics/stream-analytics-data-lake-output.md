@@ -4,7 +4,7 @@ description: Configuration of authentication and authorization of an Azure Data 
 keywords: ''
 services: stream-analytics
 documentationcenter: ''
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 
@@ -15,18 +15,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/28/2017
-ms.author: jeffstok
+ms.author: samacha
 
 ---
 # Stream Analytics Data Lake Store output
 Stream Analytics jobs support several output methods, one being an [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/). Azure Data Lake Store is an enterprise-wide hyper-scale repository for big data analytic workloads. Data Lake Store enables you to store data of any size, type and ingestion speed for operational and exploratory analytics.
 
 ## Authorize a Data Lake Store account
-1. When Data Lake Store is selected as an output in the Azure Management portal, you will be prompted to authorize the usage of your existing Data Lake Store or to request access to the Data Lake Store via the Azure Classic Portal.
+1. When Data Lake Store is selected as an output in the Azure portal, you will be prompted to authorize use of your existing Data Lake Store or to request access to the Data Lake Store via the Classic Portal.
    
    ![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-authorization.png)  
    
-2. If you already have access to Data Lake Store, click “Authorize Now” and for a brief time a page will pop up indicating “Redirecting to authorization..”. The page will automatically close and you will be presented with the page that would allow you to configure the Data Lake Store output.
+2. If you already have access to Data Lake Store, click “Authorize Now” and for a brief time a page will pop up indicating “Redirecting to authorization”. The page will automatically close and you will be presented with the page that would allow you to configure the Data Lake Store output.
 
 If you have not signed up for Data Lake Store, you can follow the “Sign up now” link to initiate the request, or follow the [get started instructions](../data-lake-store/data-lake-store-get-started-portal.md).
 
@@ -45,7 +45,7 @@ Once you have the Data Lake Store account authenticated, you can configure the p
 </tr>
 <tr>
 <td>Data Lake Store Account</td>
-<td>The name of the storage account where you are sending your output. You will be presented with a drop down list of Data Lake Store accounts to which the user logged in to the portal has access to.</td>
+<td>The name of the storage account where you are sending your output. You will be presented with a list of Data Lake Store accounts  the logged in user has access to.</td>
 </tr>
 <tr>
 <td>Path Prefix Pattern [<I>optional</I>]</td>

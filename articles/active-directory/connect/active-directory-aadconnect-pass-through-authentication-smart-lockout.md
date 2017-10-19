@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2017
+ms.date: 09/26/2017
 ms.author: billmath
 ---
 
@@ -32,7 +32,7 @@ Smart Lockout also distinguishes between sign-ins from genuine users and from at
 Because Pass-through Authentication forwards password validation requests onto your on-premises Active Directory (AD), you need to prevent attackers from locking out your users’ AD accounts. Since you have your own AD Account Lockout policies (specifically, [**Account Lockout Threshold**](https://technet.microsoft.com/library/hh994574(v=ws.11).aspx) and [**Reset Account Lockout Counter After policies**](https://technet.microsoft.com/library/hh994568(v=ws.11).aspx)), you need to configure Azure AD’s Lockout Threshold and Lockout Duration values appropriately to filter out attacks in the cloud before they reach your on-premises AD.
 
 >[!NOTE]
->The Smart Lockout feature is free and is _on_ by default for all customers. However, modifying Azure AD’s Lockout Threshold and Lockout Duration values using Graph API is an Azure AD Premium P2 feature.
+>The Smart Lockout feature is free and is _on_ by default for all customers. However, modifying Azure AD’s Lockout Threshold and Lockout Duration values using Graph API needs your tenant to have at least one Azure AD Premium P2 license. You don't need an Azure AD Premium P2 license _per user_ to get the Smart Lockout feature with Pass-through Authentication.
 
 To ensure that your users’ on-premises AD accounts are well protected, you need to ensure that:
 
@@ -50,7 +50,7 @@ Use the following instructions to verify your AD Account Lockout policies:
 
 ![AD Account Lockout policies](./media/active-directory-aadconnect-pass-through-authentication/pta5.png)
 
-## Use the Graph API to manage your tenant’s Smart Lockout values
+## Use the Graph API to manage your tenant’s Smart Lockout values (needs Premium license)
 
 >[!IMPORTANT]
 >Modifying Azure AD’s Lockout Threshold and Lockout Duration values using Graph API is an Azure AD Premium P2 feature. It also needs you to be a Global Administrator on your tenant.
@@ -73,7 +73,7 @@ Follow these steps to set your tenant’s Smart Lockout values (for the first ti
 1. Sign into Graph Explorer as a Global Administrator of your tenant. If prompted, grant access for the requested permissions.
 2. Click “Modify permissions” and select the “Directory.ReadWrite.All” permission.
 3. Configure the Graph API request as follows: Set version to “BETA”, request type to “POST” and URL to `https://graph.microsoft.com/beta/<your-tenant-domain>/settings`.
-4. Copy and paste the following JSON request into the "Request Body" field. Change the Smart Lockout values as appropriate and use a random GUID for `templateId`.
+4. Copy and paste the following JSON request into the "Request Body" field.
 5. Click "Run Query" to set your tenant's Smart Lockout values.
 
 ```

@@ -37,13 +37,6 @@ To complete this tutorial, you need the following prerequisites:
   [Setup and install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) and
   [Setup, install, and verifications for Mac users](https://msdn.microsoft.com/library/mt488770.aspx) (MSDN).
 
-> [!NOTE]
-> If you want to get started with Azure App Service before you sign up for an Azure account, go to
-> [Try App Service](https://azure.microsoft.com/try/app-service/mobile/). You can immediately create a short-lived starter
-> mobile app in App Service—no credit card required, and no commitments.
->
->
-
 ## Create an Azure Mobile App backend
 Follow these steps to create a Mobile App backend.
 

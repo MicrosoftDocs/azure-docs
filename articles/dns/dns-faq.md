@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/21/2017
+ms.date: 09/22/2017
 ms.author: jonatul
 ---
 
@@ -71,12 +71,9 @@ No. Azure DNS does not currently support purchasing of domain names. If you want
 This is a feature we are tracking on our backlog. You can use our feedback site to [register your support for this feature](https://feedback.azure.com/forums/217313-networking/suggestions/4996615-azure-should-be-its-own-domain-registrar).
 
 ### Does Azure DNS support 'private' domains?
+Support for 'private' domains is implemented using private DNS zones.  This feature is currently available as a preview.  Private DNS zones are managed using the same tools as internet-facing Azure DNS zones but they are only resolvable from within your specified virtual networks.  See the [overview](private-dns-overview.md) for details.
 
-No. Azure DNS currently only supports Internet-facing domains.
-
-This is a feature we are tracking on our backlog. You can use our feedback site to [register your support for this feature](https://feedback.azure.com/forums/217313-networking/suggestions/10737696-enable-split-dns-for-providing-both-public-and-int).
-
-For information on internal DNS options in Azure, see [Name Resolution for VMs and Role Instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+For information on other internal DNS options in Azure, see [Name Resolution for VMs and Role Instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 ### Does Azure DNS support DNSSEC?
 
@@ -149,6 +146,8 @@ You can configure International Domain Names (IDNs) in Azure DNS by first conver
 ## Next steps
 
 [Learn more about Azure DNS](dns-overview.md)
+<br>
+[Learn more about using Azure DNS for private domains](private-dns-overview.md)
 <br>
 [Learn more about DNS zones and records](dns-zones-records.md)
 <br>

@@ -13,7 +13,7 @@ ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: 'na'
 ms.workload: big-data
-ms.date: 05/15/2017
+ms.date: 08/04/2017
 ms.author: larryfr
 
 ms.custom: H1Hack27Feb2017,hdinsightactive
@@ -21,7 +21,7 @@ ms.custom: H1Hack27Feb2017,hdinsightactive
 
 # Add additional storage accounts to HDInsight
 
-Learn how to use script actions to add additional Azure storage accounts to an existing HDInsight cluster that uses Linux as the operating system.
+Learn how to use script actions to add additional Azure storage accounts to HDInsight. The steps in this document add a storage account to an existing Linux-based HDInsight cluster.
 
 > [!IMPORTANT]
 > The information in this document is about adding additional storage to a cluster after it has been created. For information on adding storage accounts during cluster creation, see [Set up clusters in HDInsight with Hadoop, Spark, Kafka, and more](hdinsight-hadoop-provision-linux-clusters.md).
@@ -46,7 +46,7 @@ During processing, the script performs the following actions:
 
 * Adds the storage account to the core-site.xml file.
 
-* Stops and restarts the Oozie, YARN, MapReduce2, and HDFS services so that they pick up the new storage account information.
+* Stops and restarts the Oozie, YARN, MapReduce2, and HDFS services. Stopping and starting these services allows them to use the new storage account.
 
 > [!WARNING]
 > Using a storage account in a different location than the HDInsight cluster is not supported.
@@ -61,12 +61,14 @@ __Requirements__:
 
 ## To use the script
 
-See the Apply a script action to a running cluster section of the [Customize Linux-based HDInsight clusters using script action](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster) document for information on using script actions through the Azure portal, Azure PowerShell, and the Azure CLI.
+This script can be used from the Azure portal, Azure PowerShell, or the Azure CLI 1.0. For more information, see the [Customize Linux-based HDInsight clusters using script action](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster) document.
 
-When using the information provided in the customization document, replace any example script action URI with the URI for this script (https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh). Replace any example parameters with the Azure storage account name and key of the storage account to be added to the cluster.
-
-> [!NOTE]
-> You do not need to mark this script as __Persisted__, as it directly updates the Ambari configuration for the cluster.
+> [!IMPORTANT]
+> When using the steps provided in the customization document, use the following information to apply this script:
+>
+> * Replace any example script action URI with the URI for this script (https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh).
+> * Replace any example parameters with the Azure storage account name and key of the storage account to be added to the cluster. If using the Azure portal, these parameters must be separated by a space.
+> * You do not need to mark this script as __Persisted__, as it directly updates the Ambari configuration for the cluster.
 
 ## Known issues
 
@@ -138,7 +140,7 @@ If the storage account is in a different region than the HDInsight cluster, you 
 
 ### Additional charges
 
-If the storage account is in a different region than the HDInsight cluster, you may notice additional egress charges on your Azure billing. An egress charge is applied when data leaves a regional data center, even if the traffic is destined for another Azure data center in a different region.
+If the storage account is in a different region than the HDInsight cluster, you may notice additional egress charges on your Azure billing. An egress charge is applied when data leaves a regional data center. This charge is applied even if the traffic is destined for another Azure data center in a different region.
 
 > [!WARNING]
 > Using a storage account in a different region than the HDInsight cluster is not supported.

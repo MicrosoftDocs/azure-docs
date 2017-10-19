@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure portal overview
+title: Azure portal overview | Microsoft Docs
 description: Learn how to use the Microsoft Azure portal.
 services: ''
 documentationcenter: ''

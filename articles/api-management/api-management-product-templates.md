@@ -3,7 +3,7 @@ title: Product templates in Azure API Management | Microsoft Docs
 description: Learn how to customize the content of the product pages in the Azure API Management developer portal.
 services: api-management
 documentationcenter: ''
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: ''
 

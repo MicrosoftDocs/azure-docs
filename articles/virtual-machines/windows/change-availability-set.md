@@ -85,7 +85,7 @@ The following steps describe how to change the availability set of a VM using Az
    
     New-AzureRmVM -ResourceGroupName <resourceGroupName> -Location <location> -VM <vmConfig>
     ``` 
-5. Add data disks and extensions. For more information, see [Attach Data Disk to VM](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) and [Extension Configuration Samples](extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Data disks and extensions can be added to the VM using PowerShell or Azure CLI.
+5. Add data disks and extensions. For more information, see [Attach Data Disk to VM](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) and [Extensions in Resource Manager templates](../windows/template-description.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#extensions). Data disks and extensions can be added to the VM using PowerShell or Azure CLI.
 
 ## Example Script
 The following script provides an example of gathering the required information, deleting the original VM and then recreating it in a new availability set.
@@ -143,8 +143,8 @@ The following script provides an example of gathering the required information, 
     }
 
     #Add NIC(s)
-    foreach ($nic in $OriginalVM.NetworkInterfaceIDs) {
-        Add-AzureRmVMNetworkInterface -VM $NewVM -Id $nic
+    foreach ($nic in $OriginalVM.NetworkProfile.NetworkInterfaces) {
+        Add-AzureRmVMNetworkInterface -VM $NewVM -Id $nic.Id
     }
 
     #Create the VM
@@ -152,5 +152,5 @@ The following script provides an example of gathering the required information, 
 ```
 
 ## Next steps
-Add additional storage to your VM by adding an additional [data disk](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Add additional storage to your VM by adding an additional [data disk](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

@@ -3,7 +3,7 @@ title: Azure Managed Application create UI definition functions | Microsoft Docs
 description: Describes the functions to use when constructing UI definitions for Azure Managed Applications
 services: azure-resource-manager
 documentationcenter: na
-author: tabrezm
+author: tfitzmac
 manager: timlt
 editor: tysonn
 
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2017
-ms.author: tabrezm;tomfitz
+ms.author: tomfitz
 
 ---
 # CreateUiDefinition functions

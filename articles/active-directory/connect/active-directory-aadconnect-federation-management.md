@@ -38,7 +38,7 @@ This article describes how to manage and customize Active Directory Federation S
 ## Manage AD FS
 You can perform various AD FS-related tasks in Azure AD Connect with minimal user intervention by using the Azure AD Connect wizard. After you've finished installing Azure AD Connect by running the wizard, you can run the wizard again to perform additional tasks.
 
-## Repair the trust <a name=repairthetrust></a>
+## <a name="repairthetrust"></a>Repair the trust 
 You can use Azure AD Connect to check the current health of the AD FS and Azure AD trust and take appropriate actions to repair the trust. Follow these steps to repair your Azure AD and AD FS trust.
 
 1. Select **Repair AAD and ADFS Trust** from the list of additional tasks.
@@ -64,7 +64,7 @@ You can use Azure AD Connect to check the current health of the AD FS and Azure 
 > [!NOTE]
 > Azure AD Connect can only repair or act on certificates that are self-signed. Azure AD Connect can't repair third-party certificates.
 
-## Federate with Azure AD using AlternateID <a name=alternateid></a>
+## <a name="alternateid"></a>Federate with Azure AD using AlternateID 
 It is recommended that the on-premises User Principal Name(UPN) and the cloud User Principal Name are kept the same. If the on-premises UPN uses a non-routable domain (ex. Contoso.local) or cannot be changed due to local application dependencies, we recommend setting up alternate login ID. Alternate login ID allows you to configure a sign-in experience where users can sign in with an attribute other than their UPN, such as mail. The choice for User Principal Name in Azure AD Connect defaults to the userPrincipalName attribute in Active Directory. If you choose any other attribute for User Principal Name and are federating using AD FS, then Azure AD Connect will configure AD FS for alternate login ID. An example of choosing a different attribute for User Principal Name is shown below:
 
 ![Alternate ID attribute selection](media/active-directory-aadconnect-federation-management/attributeselection.png)
@@ -80,7 +80,7 @@ Configuring alternate login ID for AD FS consists of two main steps:
 > [!NOTE]
 > For more information on alternateID and steps to manually configure, read [Configuring Alternate Login ID](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configuring-alternate-login-id)
 
-## Add an AD FS server <a name=addadfsserver></a>
+## <a name="addadfsserver"></a>Add an AD FS server 
 
 > [!NOTE]
 > To add an AD FS server, Azure AD Connect requires the PFX certificate. Therefore, you can perform this operation only if you configured the AD FS farm by using Azure AD Connect.
@@ -113,7 +113,7 @@ Configuring alternate login ID for AD FS consists of two main steps:
 
     ![Installation complete](media/active-directory-aadconnect-federation-management/AddNewADFSServer8.PNG)
 
-## Add an AD FS WAP server <a name=addwapserver></a>
+## <a name="addwapserver"></a>Add an AD FS WAP server 
 
 > [!NOTE]
 > To add a WAP server, Azure AD Connect requires the PFX certificate. Therefore, you can only perform this operation if you configured the AD FS farm by using Azure AD Connect.
@@ -147,7 +147,7 @@ Configuring alternate login ID for AD FS consists of two main steps:
 
    ![Installation complete](media/active-directory-aadconnect-federation-management/WapServer8.PNG)
 
-## Add a federated domain <a name=addfeddomain></a>
+## <a name="addfeddomain"></a>Add a federated domain 
 
 It's easy to add a domain to be federated with Azure AD by using Azure AD Connect. Azure AD Connect adds the domain for federation and modifies the claim rules to correctly reflect the issuer when you have multiple domains federated with Azure AD.
 
@@ -173,10 +173,13 @@ It's easy to add a domain to be federated with Azure AD by using Azure AD Connec
 
    ![Ready to configure](media/active-directory-aadconnect-federation-management/AdditionalDomain5.PNG)
 
+> [!NOTE]
+> Users from the added federated domain must be synchronized before they will be able to login to Azure AD.
+
 ## AD FS customization
 The following sections provide details about some of the common tasks that you might have to perform when you customize your AD FS sign-in page.
 
-## Add a custom company logo or illustration <a name=customlogo></a>
+## <a name="customlogo"></a>Add a custom company logo or illustration 
 To change the logo of the company that's displayed on the **Sign-in** page, use the following Windows PowerShell cmdlet and syntax.
 
 > [!NOTE]
@@ -187,12 +190,12 @@ To change the logo of the company that's displayed on the **Sign-in** page, use 
 > [!NOTE]
 > The *TargetName* parameter is required. The default theme that's released with AD FS is named Default.
 
-## Add a sign-in description <a name=addsignindescription></a>
+## <a name="addsignindescription"></a>Add a sign-in description 
 To add a sign-in page description to the **Sign-in page**, use the following Windows PowerShell cmdlet and syntax.
 
     Set-AdfsGlobalWebContent -SignInPageDescriptionText "<p>Sign-in to Contoso requires device registration. Click <A href='http://fs1.contoso.com/deviceregistration/'>here</A> for more information.</p>"
 
-## Modify AD FS claim rules <a name=modclaims></a>
+## <a name="modclaims"></a>Modify AD FS claim rules 
 AD FS supports a rich claim language that you can use to create custom claim rules. For more information, see [The Role of the Claim Rule Language](https://technet.microsoft.com/library/dd807118.aspx).
 
 The following sections describe how you can write custom rules for some scenarios that relate to Azure AD and AD FS federation.

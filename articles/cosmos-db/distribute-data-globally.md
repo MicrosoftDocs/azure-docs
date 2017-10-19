@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/14/2017
+ms.date: 09/13/2017
 ms.author: arramac
 
 ---
@@ -61,9 +61,6 @@ To control exact sequence of regional failovers when there is a multi-regional o
 **A tenant of Azure Cosmos DB can configure the failover priority order (right pane) for regions associated with a database account**
 
 ![Configuring failover priorities with Azure Cosmos DB](./media/distribute-data-globally/failover-priorities.png)
-
-### <a id="OfflineRegions"></a>Dynamically taking a region "offline"
-Azure Cosmos DB enables you to take your database account offline in a specific region and bring it back online later. Regions marked offline do not actively participate in replication and are not part of the failover sequence. This enables you to freeze the last known good database image in one of the read regions before rolling out potentially risky upgrades to your application.
 
 ### <a id="ConsistencyLevels"></a>Multiple, well-defined consistency models for globally replicated databases
 Azure Cosmos DB exposes [multiple well-defined consistency levels](consistency-levels.md) backed by SLAs. You can choose a specific consistency model (from the available list of options) depending on the workload/scenarios. 

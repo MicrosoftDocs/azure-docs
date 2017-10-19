@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 08/14/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 
@@ -58,19 +58,27 @@ ms.custom: H1Hack27Feb2017
 
 ## Release notes
 
+### <a name="1.12.2"/>1.12.2</a>
+*	npm documentation fixed.
+
+### <a name="1.12.1"/>1.12.1</a>
+* Fixed a bug in executeStoredProcedure where documents involved had special Unicode characters (LS, PS).
+* Fixed a bug in handling documents with Unicode characters in the partition key.
+* Fixed support for creating collections with the name media. Github issue #114.
+* Fixed support for permission authorization token. Github issue #178.
+
 ### <a name="1.12.0"/>1.12.0</a>
-* Added support for [Request Unit per Minute (RU/m)](../cosmos-db/request-units-per-minute.md) feature.
 * Added support for a new [consistency level](consistency-levels.md) called ConsistentPrefix.
 * Added support for UriFactory.
-* Fixed a unicode support bug. (GitHub issue #171)
+* Fixed a Unicode support bug. GitHub issue #171.
 
 ### <a name="1.11.0"/>1.11.0</a>
 * Added the support for aggregation queries (COUNT, MIN, MAX, SUM, and AVG).
 * Added the option for controlling degree of parallelism for cross partition queries.
 * Added the option for disabling SSL verification when running against Azure Cosmos DB Emulator.
 * Lowered minimum throughput on partitioned collections from 10,100 RU/s to 2500 RU/s.
-* Fixed the continuation token bug for single partition collection (github #107).
-* Fixed the executeStoredProcedure bug in handling 0 as single param (github #155).
+* Fixed the continuation token bug for single partition collection. Github issue #107.
+* Fixed the executeStoredProcedure bug in handling 0 as single param. Github issue #155.
 
 ### <a name="1.10.2"/>1.10.2</a>
 * Fixed user-agent header to include the SDK version.
@@ -85,8 +93,8 @@ ms.custom: H1Hack27Feb2017
 * Added support for TOP/ORDER BY queries for partitioned collections.
 
 ### <a name="1.9.0"/>1.9.0</a>
-* Added retry policy support for throttled requests. (Throttled requests receive a request rate too large exception, error code 429.) By default, Azure Cosmos DB retries nine times for each request when error code 429 is encountered, honoring the retryAfter time in the response header. A fixed retry interval time can now be set as part of the RetryOptions property on the ConnectionPolicy object if you want to ignore the retryAfter time returned by server between the retries. Azure Cosmos DB now waits for a maximum of 30 seconds for each request that is being throttled (irrespective of retry count) and returns the response with error code 429. This time can also be overriden in the RetryOptions property on ConnectionPolicy object.
-* Cosmos DB now returns x-ms-throttle-retry-count and x-ms-throttle-retry-wait-time-ms as the response headers in every request to denote the throttle retry count and the cummulative time the request waited between the retries.
+* Added retry policy support for throttled requests. (Throttled requests receive a request rate too large exception, error code 429.) By default, Azure Cosmos DB retries nine times for each request when error code 429 is encountered, honoring the retryAfter time in the response header. A fixed retry interval time can now be set as part of the RetryOptions property on the ConnectionPolicy object if you want to ignore the retryAfter time returned by server between the retries. Azure Cosmos DB now waits for a maximum of 30 seconds for each request that is being throttled (irrespective of retry count) and returns the response with error code 429. This time can also be overridden in the RetryOptions property on ConnectionPolicy object.
+* Cosmos DB now returns x-ms-throttle-retry-count and x-ms-throttle-retry-wait-time-ms as the response headers in every request to denote the throttle retry count and the cumulative time the request waited between the retries.
 * The RetryOptions class was added, exposing the RetryOptions property on the ConnectionPolicy class that can be used to override some of the default retry options.
 
 ### <a name="1.8.0"/>1.8.0</a>
@@ -114,7 +122,7 @@ ms.custom: H1Hack27Feb2017
 * Fixes issue [#95](https://github.com/Azure/azure-documentdb-node/issues/95) - EventEmitter listener leak warning.
 
 ### <a name="1.5.1"/>1.5.1</a>
-* Fixes issue [#92](https://github.com/Azure/azure-documentdb-node/issues/90) - rename folder Hash to hash for case sensitive systems.
+* Fixes issue [#92](https://github.com/Azure/azure-documentdb-node/issues/90) - rename folder Hash to hash for case-sensitive systems.
 
 ### <a name="1.5.0"/>1.5.0</a>
 * Implement sharding support by adding hash & range partition resolvers.
@@ -156,16 +164,18 @@ ms.custom: H1Hack27Feb2017
 * GA SDK.
 
 ## Release & Retirement Dates
-Microsoft will provide notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version.
+Microsoft provides notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version.
 
-New features and functionality and optimizations are only added to the current SDK, as such it is  recommend that you always upgrade to the latest SDK version as early as possible.
+New features and functionality and optimizations are only added to the current SDK, as such it is  recommended that you always upgrade to the latest SDK version as early as possible.
 
-Any request to Cosmos DB using a retired SDK will be rejected by the service.
+Any request to Cosmos DB using a retired SDK is be rejected by the service.
 
 <br/>
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.12.2](#1.12.2) |August 10, 2017 |--- |
+| [1.12.1](#1.12.1) |August 10, 2017 |--- |
 | [1.12.0](#1.12.0) |May 10, 2017 |--- |
 | [1.11.0](#1.11.0) |March 16, 2017 |--- |
 | [1.10.2](#1.10.2) |January 27, 2017 |--- |

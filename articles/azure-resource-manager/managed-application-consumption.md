@@ -1,119 +1,100 @@
 ---
-title: Consume an Azure Managed Application | Microsoft Docs
-description: Describes how a customer creates an Azure Managed Application from the published files.
+title: Consume an Azure managed application | Microsoft Docs
+description: Describes how a customer creates an Azure managed application from published files.
 services: azure-resource-manager
 author: ravbhatnagar
 manager: rjmax
-
 
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 05/17/2017
+ms.date: 10/18/2017
 ms.author: gauravbh; tomfitz
-
 ---
-# Consume a Service Catalog managed application
+# Consume an internal managed application
 
-As described in the [Managed Application overview](managed-application-overview.md) article, there are two scenarios in the end to end experience. One is the publisher or ISV who wants to create a managed application for use by customers. The second is the end customer or the consumer of the managed application. This article covers the second scenario and explains how an end customer can consume a managed application provided by an ISV.
+You can consume Azure [managed applications](managed-application-overview.md) that are intended for members of your organization. For example, you can select managed applications from your IT department that ensure compliance with organizational standards. These managed applications are available through the Service Catalog, not the Azure Marketplace.
 
-Currently, you can use either Azure CLI or Azure portal to consume a managed application. 
+Before proceeding with this article, you must have a managed application available in the service catalog for your subscription. If someone in your organization has not already created a managed application, see [Publish a managed application for internal consumption](managed-application-publishing.md).
 
-## Create the managed application using CLI 
+Currently, you can use either Azure CLI or the Azure portal to consume a managed application.
 
-You must get the appliance definition ID for the appliance you want to consume.
+## Create the managed application by using the portal
 
-There are two ways, using Azure CLI, to create a managed application. One is using the regular template deployment command, and the other is using a new command provided just for this purpose.
+To deploy a managed application through the portal, follow these steps:
 
-### Create using template deployment command
+1. Go to the Azure portal. Select **+ New** and search for **service catalog**.
 
-You deploy the applianceMainTemplate.json file that the vendor created.
+   ![Search service catalog](./media/managed-application-consumption/select-new.png)
 
-You create two resource groups. The first resource group is where the appliance resource is created (Microsoft.Solutions/appliances). The second resource group contains all the resources defined in the mainTemplate.json. This resource group is managed by the ISV.
+1. Select **Service Catalog Managed Application**.
 
-```azurecli
-az group create --name mainResourceGroup --location westcentralus    
-az group create --name managedResourceGroup --location westcentralus
+   ![Select service catalog](./media/managed-application-consumption/select-service-catalog.png)
+
+1. Select **Create**.
+
+   ![Select create](./media/managed-application-consumption/select-create.png)
+
+1. Find the managed application you want to create from the list of available solutions, and select it. Select **Create**.
+
+   ![Find the managed application](./media/managed-application-consumption/find-application.png)
+
+1. Provide basic information that is required for the managed application. Specify the subscription and a new resource group to contain the managed application. Select **West Central US** for location. When done, select **OK**.
+
+   ![Provide managed application parameters](./media/managed-application-consumption/provide-basics.png)
+
+1. Provide values that are specific to the resources in the managed application. When done, select **OK**.
+
+   ![Provide resource parameters](./media/managed-application-consumption/provide-resource-values.png)
+
+1. The template validates the values you provided. If validation succeeds, select **OK** to start the deployment.
+
+   ![Validate managed application](./media/managed-application-consumption/validate.png)
+
+After the deployment finishes, the managed application exists in a resource group named applicationGroup. The storage account exists in a resource group named applicationGroup plus a hashed string value.
+
+## Create the managed application by using Azure CLI
+
+You need a resource group for the managed application. Create a resource group with the following command:
+
+```azurecli-interactive
+az group create -n applicationGroup -l westcentralus
+```
+
+You can use the `az managedapp create` command to create a managed application from the managed application definition.
+
+```azurecli-interactive
+appid=$(az managedapp definition show --name ManagedStorage --resource-group appDefinitionGroup --query id --output tsv)
+subid=$(az account show --query id --output tsv)
+managedGroup=<managed-resource-group-name>
+prefix=<storage-account-name-prefix>
+managedGroupId=/subscriptions/$subid/resourceGroups/$managedGroup
+
+az managedapp create \
+  --name storageApp \
+  --location "westcentralus" \
+  --kind "Servicecatalog" \
+  --resource-group applicationGroup \
+  --managedapp-definition-id $appid \
+  --managed-rg-id $managedGroupId \
+  --parameters "{\"storageAccountNamePrefix\": {\"value\": \"<your-prefix>\"}, \"storageAccountType\": {\"value\": \"Standard_LRS\"}}"
 ```
 
 > [!NOTE]
-> Use `westcentralus` as the location of the resource group.
->
-
-
-Next, use the following command to deploy the applianceMainTemplate.json in the mainResourceGroup:
-
-```azurecli
-az group deployment create --name managedAppDeployment --resourceGroup mainResourceGroup --templateUri  
-```
-
-When the preceding template executes, it prompts you for the values of the parameters that are defined in the template. In addition to the parameters needed for provisioning resources in a template, you need two key parameter values:
-
-- managedResourceGroupId - The ID of the resource group where the resources defined in the applianceMainTemplate.json are created. The id is of the form `/subscriptions/{subscriptionId}/resourceGroups/{resoureGroupName}`. In the preceding example, it is the id of `managedResourceGroup`.
-- applianceDefinitionId - The ID of the managed application definition resource. This value is provided by the ISV. 
-
-> [!NOTE] 
-> The ISV must grant access to the resource group where the appliance definition resource is created. The appliance definition resource is created in the ISV subscription. Therefore, a user, user group, or application in the customer tenant needs read access to this resource. 
-
-After the deployment completes successfully, you see the appliance resource is created in **mainResourceGroup**. the storageAccount resource is created in **managedResourceGroup**.
-
-### Create the managed application using create command
-
-You can use the `az managedapp create` command to create a managed application from the managed application definition. 
-
-```azurecli
-az managedapp create --name ravtestappliance401 --location "westcentralus" 
-	--kind "Servicecatalog" --resource-group "ravApplianceCustRG401" 
-   	--managedapp-definition-id "/subscriptions/{guid}/resourceGroups/ravApplianceDefRG401/providers/Microsoft.Solutions/applianceDefinitions/ravtestAppDef401" 
-   	--managed-rg-id "/subscriptions/{guid}/resourceGroups/ravApplianceCustManagedRG401" 
-   	--parameters "{\"storageAccountName\": {\"value\": \"ravappliancedemostore1\"}}" 
-   	--debug
-```
-
-**appliance-definition-Id** -  The resource Id of the appliance definition created in the preceding step. To get this ID, run the following command:
-
-```azurecli
-az appliance definition show -n ravtestAppDef1 -g ravApplianceRG2
-```
-
-This command returns the appliance definition. You need the value of **Id** property.
-
-**managed-rg-id** - The name of the resource group where all the resources defined in the applianceMainTemplate.json are created. This resource group is the managed resource group, and is managed by the publisher. If it does not exist, it is created for you.
-
-**resource-group** - The resource group where the appliance resource is created. The Microsoft.Solutions/appliance resource lives in this resource group. 
-
-**parameters** - The parameters that are needed for the resources defined in the applianceMainTemplate.json.
-
-## Create the managed application using Portal
-
-The support to consume managed applications published by the ISVs is also present in the portal. You can follow the following steps:
-
-Select the Service Catalog Managed Application from the Create blade in Azure portal -
-
-![](./media/managed-application-consumption/create-service-catalog-managed-application.png)
-
-Next, you see the list of offers from various ISVs/partners. Select the one you would like to create and click "Create"
-
-![](./media/managed-application-consumption/select-offer.png)
-
-After clicking create, provide the parameters required to provision the resources in the blade that opens. 
-
-![](./media/managed-application-consumption/input-parameters.png)
-
-After providing the values, click OK. The template is validated against the inputs you provided. If validation succeeds, the template deployment starts. After the deployment has completed, the appropriate resources defined in the template are provisioned in the managed resource group you provided.
+> The publisher must grant access to the resource group that contains the managed application definition. The definition resource is created in the publisher subscription. Therefore, a user, user group, or application in the customer tenant needs read access to this resource.
 
 ## Known issues
 
 This preview release includes the following issues:
 
-* If you get a 500 Internal Server Error during the creation of the appliance, it's likely an intermittent issue. Retry the operation if you run into this issue.
-* A new resource group is needed for the managed resource group. Using an existing resource group causes the deployment to fail.
-* The resource group that contains the Microsoft.Solutions/appliances resource should be created in **westcentralus** location.
+* A 500 internal server error appears during the creation of the managed application. If you run into this issue, it's likely to be intermittent. Retry the operation.
+* A new resource group is needed for the managed resource group. If you use an existing resource group, the deployment fails.
+* The resource group that contains the Microsoft.Solutions/appliances resource must be created in the **westcentralus** location.
 
 ## Next steps
 
-* For an introduction to managed applications, see [Azure Managed Application overview](managed-application-overview.md).
-* For information about publishing a Service Catalog managed application, see [Create and publish Service Catalog managed application](managed-application-publishing.md).
-* For information about publishing managed applications to the Marketplace, see [Azure Managed Applications in the Marketplace](managed-application-author-marketplace.md).
+* For an introduction to managed applications, see [Managed application overview](managed-application-overview.md).
+* For information about publishing a Service Catalog managed application, see [Create and publish a Service Catalog managed application](managed-application-publishing.md).
+* For information about publishing managed applications to the Azure Marketplace, see [Azure managed applications in the Marketplace](managed-application-author-marketplace.md).
 * For information about consuming a managed application from the Marketplace, see [Consume Azure managed applications in the Marketplace](managed-application-consume-marketplace.md).

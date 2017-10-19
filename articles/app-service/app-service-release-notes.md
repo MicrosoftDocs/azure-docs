@@ -25,7 +25,7 @@ The following are new features and updates in the Azure SDK for .NET 2.5.1.
 
 * New features\scenarios related to **Web Tools Extensions**. 
   
-  * Azure Websites was renamed to Azure App Service. For more information see, [Azure App Service and existing Azure Services](../app-service-web/app-service-changes-existing-services.md).
+  * Azure Websites was renamed to Azure App Service. 
   * Azure API Apps (Preview) support has been added so that customers can publish ASP.NET projects as API Apps, and then use the Add > Azure API App Client gesture in C# projects to generate code based on the structure of the deployed API App. 
   * The Websites node in Server Explorer has been deprecated in lieu of the Azure App Service node, which contains support for Resource Group-based grouping of Azure API Apps, Mobile Apps, and Web Apps.
   * Azure Mobile Apps (Preview) support has been added so that customers can create new Mobile Apps projects, add Mobile Apps controllers, publish the projects, and remotely debug applications.

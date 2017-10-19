@@ -1,23 +1,23 @@
 ---
 title: Azure Container Instances and Container Orchestration
 description: Understand how Azure Container Instances interact with container orchestrators
-services: container-service
+services: container-instances
 documentationcenter: ''
 author: seanmck
 manager: timlt
 editor: ''
-tags: 
+tags:
 keywords: ''
 
-ms.assetid: 
-ms.service: 
+ms.assetid:
+ms.service: container-instances
 ms.devlang: na
-ms.topic: na
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/24/2017
 ms.author: seanmck
-ms.custom: 
+ms.custom: mvc
 ---
 
 # Azure Container Instances and container orchestrators
@@ -61,9 +61,9 @@ For long-running, stable workloads, orchestrating containers in a cluster of ded
 
 ## Sample implementation: Azure Container Instances Connector for Kubernetes
 
-To demonstrate how container orchestration platforms can integrate with Azure Container Instances, we have started building a [sample connector for Kubernetes][aci-connector-k8s]. 
+To demonstrate how container orchestration platforms can integrate with Azure Container Instances, we have started building a [sample connector for Kubernetes][aci-connector-k8s].
 
-The connector for Kubernetes mimics the [kubelet][kubelet-doc] by registering as a node with unlimited capacity and dispatching the creation of [pods][pod-doc] as container groups in Azure Container Instances. 
+The connector for Kubernetes mimics the [kubelet][kubelet-doc] by registering as a node with unlimited capacity and dispatching the creation of [pods][pod-doc] as container groups in Azure Container Instances.
 
 <!-- ![ACI Connector for Kubernetes][aci-connector-k8s-gif] -->
 
@@ -74,7 +74,7 @@ Connectors for other orchestrators could be built that similarly integrated with
 
 ## Next steps
 
-Create your first container with Azure Container Instances using the [quick start guide](container-instances-quickstart.md).
+Create your first container with Azure Container Instances using the [quickstart guide](container-instances-quickstart.md).
 
 <!-- IMAGES -->
 [aci-connector-k8s-gif]: ./media/container-instances-orchestrator-relationship/aci-connector-k8s.gif

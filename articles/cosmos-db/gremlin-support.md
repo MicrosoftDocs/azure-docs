@@ -167,7 +167,7 @@ Now let's look at the Gremlin steps supported by Azure Cosmos DB. For a complete
 | --- | --- | --- | --- |
 | `addE` | Adds an edge between two vertices | [addE step](http://tinkerpop.apache.org/docs/current/reference/#addedge-step) | |
 | `addV` | Adds a vertex to the graph | [addV step](http://tinkerpop.apache.org/docs/current/reference/#addvertex-step) | |
-| `and` | Ensurest that all the traversals return a value | [and step](http://tinkerpop.apache.org/docs/current/reference/#and-step) | |
+| `and` | Ensures that all the traversals return a value | [and step](http://tinkerpop.apache.org/docs/current/reference/#and-step) | |
 | `as` | A step modulator to assign a variable to the output of a step | [as step](http://tinkerpop.apache.org/docs/current/reference/#as-step) | |
 | `by` | A step modulator used with `group` and `order` | [by step](http://tinkerpop.apache.org/docs/current/reference/#by-step) | |
 | `coalesce` | Returns the first traversal that returns a result | [coalesce step](http://tinkerpop.apache.org/docs/current/reference/#coalesce-step) | |

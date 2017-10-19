@@ -3,7 +3,7 @@ title: How to add operations to an API in Azure API Management | Microsoft Docs
 description: Learn how to add operations to an API in Azure API Management.
 services: api-management
 documentationcenter: ''
-author: steved0x
+author: vladvino
 manager: erikre
 editor: ''
 
