@@ -181,9 +181,9 @@ Now go back to the Azure portal to get your connection string information and co
 
 2. Open the `Program.java` file from C:\git-samples\azure-cosmos-db-documentdb-java-getting-started\src\GetStarted folder. 
 
-3. Paste the URI value from the portal over `https://FILLME.documents.azure.com`.
+3. Paste the URI value from the portal over `https://FILLME.documents.azure.com` on line 45.
 
-4. Go back to portal and copy the PRIMARY KEY value as shown in the screenshot. Paste the PRIMARY KEY value from the portal over `FILLME`. 
+4. Go back to portal and copy the PRIMARY KEY value as shown in the screenshot. Paste the PRIMARY KEY value from the portal over `FILLME` on line 46.
 
     The getStartedDemo method should now look similar to this: 
     
