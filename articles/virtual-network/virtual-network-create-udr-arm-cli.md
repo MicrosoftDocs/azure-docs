@@ -339,11 +339,11 @@ To learn more about how to use the portal, PowerShell, or an Azure Resource Mana
 
 ## Delete resources
 
-When you finish this tutorial, you might want to delete the resources that you created, so that you don't incur usage charges. Deleting a resource group also deletes all resources that are in the resource group. With the portal open, complete the following steps:
+When you finish this tutorial, you might want to delete the resources that you created, so that you don't incur usage charges. Deleting a resource group also deletes all resources that are in the resource group. In a CLI session, enter the following command:
 
-1. In the portal search box, enter **myResourceGroup**. In the search results, click **myResourceGroup**.
-2. On the **myResourceGroup** blade, click the **Delete** icon.
-3. To confirm the deletion, in the **TYPE THE RESOURCE GROUP NAME** box, enter **myResourceGroup**, and then click **Delete**.
+```azurecli-interactive
+az group delete --name myResourceGroup --yes
+```
 
 ## Next steps
 
