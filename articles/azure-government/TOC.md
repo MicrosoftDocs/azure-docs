@@ -47,6 +47,7 @@
 ### [AI + Cognitive Services](documentation-government-services-aiandcognitiveservices.md) 
 ### [Internet of Things](documentation-government-services-iot-hub.md)
 ### [Security + Identity](documentation-government-services-securityandidentity.md)
+### [Backup](documentation-government-services-backup.md)
 ### [Monitoring + Management](documentation-government-services-monitoringandmanagement.md)
 
 
