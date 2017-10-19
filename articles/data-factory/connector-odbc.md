@@ -296,7 +296,7 @@ Create an ODBC linked service to link a Microsoft Access database to an Azure da
         {
             "connectionString": {
                 "type": "SecureString",
-                "value": "Driver={Microsoft Access Driver (*.mdb)};Dbq=<path to your DB file e.g. C:\\mydatabase.accdb>;"
+                "value": "Driver={Microsoft Access Driver (*.mdb, *.accdb)};Dbq=<path to your DB file e.g. C:\\mydatabase.accdb>;"
             },
             "authenticationType": "Basic",
             "userName": "<username>",
