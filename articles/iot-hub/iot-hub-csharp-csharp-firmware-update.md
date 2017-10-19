@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/06/2017
+ms.date: 10/19/2017
 ms.author: v-jamebr
 
 ---
@@ -57,19 +57,22 @@ In this section, you create a .NET console app (using C#) that initiates a remot
 
     ![NuGet Package Manager window][img-servicenuget]
 4. Add the following `using` statements at the top of the **Program.cs** file:
-   
+        ```csharp   
         using Microsoft.Azure.Devices;
         using Microsoft.Azure.Devices.Shared;
-        
+        ```
 5. Add the following fields to the **Program** class. Replace the multiple placeholder values with the IoT Hub connection string for the hub that you created in the previous section and the ID of your device.
    
+        ```csharp   
         static RegistryManager registryManager;
         static string connString = "{iot hub connection string}";
         static ServiceClient client;
         static string targetDevice = "{deviceIdForTargetDevice}";
+        ```
         
 6. Add the following method to the **Program** class. This method polls the device twin for updated status every 500 milliseconds. It writes to the console only when status has actually changed. For this sample, to prevent consuming extra IoT Hub messages in your subscription, polling stops when the device reports a status of **applyComplete** or an error.  
    
+        ```csharp   
         public static async Task QueryTwinFWUpdateReported(DateTime startTime)
         {
             DateTime lastUpdated = startTime;
@@ -93,9 +96,11 @@ In this section, you create a .NET console app (using C#) that initiates a remot
                 await Task.Delay(500);
             }
         }
+        ```
         
 7. Add the following method to the **Program** class:
 
+        ```csharp   
         public static async Task StartFirmwareUpdate()
         {
             client = ServiceClient.CreateFromConnectionString(connString);
@@ -110,9 +115,11 @@ In this section, you create a .NET console app (using C#) that initiates a remot
 
             Console.WriteLine("Invoked firmware update on device.");
         }
+        ```
 
 8. Finally, add the following lines to the **Main** method. This creates a registry manager to read the device twin with, starts the polling task on a worker thread, and then triggers the firmware update.
    
+        ```csharp   
             registryManager = RegistryManager.CreateFromConnectionString(connString);
 
             Task queryTask = Task.Run(() => (QueryTwinFWUpdateReported(DateTime.Now)));
@@ -120,6 +127,7 @@ In this section, you create a .NET console app (using C#) that initiates a remot
             StartFirmwareUpdate().Wait();
             Console.WriteLine("Press ENTER to exit.");
             Console.ReadLine();
+        ```
         
 9. Build the solution.
 
@@ -140,17 +148,22 @@ In this section, you:
     ![NuGet Package Manager window Client app][img-clientnuget]
 4. Add the following `using` statements at the top of the **Program.cs** file:
    
+        ```csharp   
         using Newtonsoft.Json.Linq;
         using Microsoft.Azure.Devices.Client;
         using Microsoft.Azure.Devices.Shared;
+        ```
 
 5. Add the following fields to the **Program** class. Replace the placeholder value with the device connection string that you noted in the **Create a device identity** section.
    
+        ```csharp   
         static string DeviceConnectionString = "HostName=<yourIotHubName>.azure-devices.net;DeviceId=<yourIotDeviceName>;SharedAccessKey=<yourIotDeviceAccessKey>";
         static DeviceClient Client = null;
+        ```
 
 6. Add the following method to report status back to the cloud through the device twin: 
 
+        ```csharp   
         static async Task reportFwUpdateThroughTwin(Twin twin, TwinCollection fwUpdateValue)
         {
             try
@@ -170,9 +183,11 @@ In this section, you:
                 throw;
             }
         }
+        ```
 
 7. Add the following method to simulate downloading the firmware image:
         
+       ```csharp   
         static async Task<byte[]> simulateDownloadImage(string imageUrl)
         {
             var image = "[fake image data]";
@@ -184,10 +199,12 @@ In this section, you:
             return Encoding.ASCII.GetBytes(image);
             
         }
+        ```
 
 
 8. Add the following method to simulate applying the firmware image to the device:
         
+       ```csharp   
         static async Task simulateApplyImage(byte[] imageData)
         {
             if (imageData == null)
@@ -198,9 +215,11 @@ In this section, you:
             await Task.Delay(4000);
 
         }
+        ```
  
 9.  Add the following method to simulate waiting to download the firmware image. Update status to **waiting** and clear other firmware update properties on the twin. These properties are cleared to remove any existing values from prior firmware updates. This is necessary because reported properties are sent as a PATCH operation (a delta) and not a PUT operation (a complete set of properties that replaces all of the previous values). Typically, devices are informed of an available update and an administrator defined policy causes the device to start downloading and applying the update. This function is where the logic to enable that policy should run. 
         
+       ```csharp   
         static async Task waitToDownload(Twin twin, string fwUpdateUri)
         {
             var now = DateTime.Now;
@@ -217,9 +236,11 @@ In this section, you:
 
             await Task.Delay(2000);
         }
+        ```
 
 10. Add the following method to perform the download. It updates the status to **downloading** through the device twin, calls the simulate download method, and reports a status of **downloadComplete** or **downloadFailed** through the twin depending on the results of the download operation. 
         
+       ```csharp   
         static async Task<byte[]> downloadImage(Twin twin, string fwUpdateUri)
         {
             try
@@ -247,9 +268,11 @@ In this section, you:
                 throw;
             }
         }
+        ```
 
 11. Add the following method to apply the image. It updates the status to **applying** through the device twin, calls the simulate apply image method, and updates status to **applyComplete** or **applyFailed** through the twin depending on the results of the apply operation. 
         
+       ```csharp   
         static async Task applyImage(Twin twin, byte[] imageData)
         {
             try
@@ -277,9 +300,11 @@ In this section, you:
                 throw;
             }
         }
+        ```
 
 12. Add the following method to sequence the firmware update operation from waiting to download the image through applying the image to the device:
         
+       ```csharp   
         static async Task doUpdate(string fwUpdateUrl)
         {
             try
@@ -295,9 +320,11 @@ In this section, you:
                 Console.WriteLine("Error during update: {0}", ex.Message);
             }
         }
+        ```
 
 13. Add the following method to handle the **updateFirmware** direct method from the cloud. It extracts the URL to the firmware update from the message payload and passes it to the **doUpdate** task, which it starts on another threadpool thread. It then immediately returns the method response to the cloud.
         
+       ```csharp   
         static Task<MethodResponse> onFirmwareUpdate(MethodRequest methodRequest, object userContext)
         {
             string fwUpdateUrl = (string)JObject.Parse(methodRequest.DataAsJson)["fwPackageUri"];
@@ -308,6 +335,7 @@ In this section, you:
             string result = "'FirmwareUpdate started.'";
             return Task.FromResult(new MethodResponse(Encoding.UTF8.GetBytes(result), 200));
         }
+        ```
 > [!NOTE]
 > This method triggers the simulated update to run as a **Task** and then immediately responds to the method call, informing the service that the firmware update has been started. Update status and completion will be sent to the service through the reported properties of the device twin. We respond to the method call when starting the update, rather than after its completion, because:
 > * A real update process is very likely to take longer than the method call timeout.
@@ -315,6 +343,7 @@ In this section, you:
 
 14. Finally, add the following code to the **Main** method to open the connection to your IoT hub and initialize the method listener:
    
+        ```csharp   
         try
         {
             Console.WriteLine("Connecting to hub");
@@ -336,6 +365,7 @@ In this section, you:
             Console.WriteLine();
             Console.WriteLine("Error in sample: {0}", ex.Message);
         }
+        ```
         
 15. Build the solution.       
 
