@@ -35,7 +35,7 @@ You also need the Azure CLI version 2.0.20 or later installed and configured. Ru
 
 Use the `az aks browse` command to start the Kubernetes dashboard. When running this command, replace the resource group and cluster name.
 
-```
+```azurecli
 az aks browse --resource-group myResourceGroup --name myK8SCluster
 ```
 

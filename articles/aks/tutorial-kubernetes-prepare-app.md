@@ -49,13 +49,13 @@ The sample application used in this tutorial is a basic voting app. The applicat
 
 Use git to download a copy of the application to your development environment.
 
-```
+```console
 git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
 ```
 
 Change directories so that you are working from the cloned directory.
 
-```
+```console
 cd azure-voting-app-redis
 ```
 
@@ -67,13 +67,13 @@ Inside the directory is the application source code, a pre-created Docker compos
 
 Run the `docker-compose.yml` file to create the container image, download the Redis image, and start the application.
 
-```
+```console
 docker-compose up -d
 ```
 
 When completed, use the [docker images](https://docs.docker.com/engine/reference/commandline/images/) command to see the created images.
 
-```
+```console
 docker images
 ```
 
@@ -88,7 +88,7 @@ tiangolo/uwsgi-nginx-flask   flask      788ca94b2313        9 months ago        
 
 Run the [docker ps](https://docs.docker.com/engine/reference/commandline/ps/) command to see the running containers.
 
-```
+```console
 docker ps
 ```
 
@@ -112,13 +112,13 @@ Now that application functionality has been validated, the running containers ca
 
 Run the following to stop the running containers.
 
-```
+```console
 docker-compose stop
 ```
 
 Delete the stopped containers and resources with the following command.
 
-```
+```console
 docker-compose down
 ```
 

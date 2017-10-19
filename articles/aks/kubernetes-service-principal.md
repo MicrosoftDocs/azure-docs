@@ -40,7 +40,7 @@ When deploying an AKS Kubernetes cluster with the `az aks create` command, you h
 
 In the following an example, and AKS cluster is created, and because an exsisting service principle is not specified, a service principle is created for the cluster. In order to complete this operation, your account must have the proper rights for creating a service principle. 
 
-```
+```azurecli
 az aks create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-keys
 ```
 

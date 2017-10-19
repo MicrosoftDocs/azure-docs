@@ -69,7 +69,7 @@ The command returns a 'Login Succeeded’ message once completed.
 
 To see a list of current images, use the [docker images](https://docs.docker.com/engine/reference/commandline/images/) command.
 
-```
+```console
 docker images
 ```
 
@@ -92,13 +92,13 @@ az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginSe
 
 Now, tag the `azure-vote-front` image with the loginServer of the container registry. Also, add `:redis-v1` to the end of the image name. This tag indicates the image version.
 
-```
+```console
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:redis-v1
 ```
 
 Once tagged, run [docker images] (https://docs.docker.com/engine/reference/commandline/images/) to verify the operation.
 
-```
+```console
 docker images
 ```
 
@@ -118,7 +118,7 @@ Push the `azure-vote-front` image to the registry.
 
 Using the following example, replace the ACR loginServer name with the loginServer from your environment.
 
-```
+```console
 docker push <acrLoginServer>/azure-vote-front:redis-v1
 ```
 

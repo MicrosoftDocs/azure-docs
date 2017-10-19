@@ -35,7 +35,7 @@ The Helm CLI is a client that runs on your development system and allows you to 
 
 If you're using Azure CloudShell, the Helm CLI is already installed. To install the Helm CLI on a Mac use `brew`. For additional installation options see, [Installing Helm](https://github.com/kubernetes/helm/blob/master/docs/install.md).
 
-```
+```console
 brew install kubernetes-helm
 ```
 

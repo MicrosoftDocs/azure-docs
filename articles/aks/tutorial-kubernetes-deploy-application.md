@@ -53,7 +53,7 @@ az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginSe
 
 The manifest file has been pre-created with a login server name of `microsoft`. Open the file with any text editor. In this example, the file is opened with `vi`.
 
-```
+```console
 vi azure-vote-all-in-one-redis.yml
 ```
 

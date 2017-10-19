@@ -48,13 +48,13 @@ For this tutorial, a change is made to the application, and the updated applicat
 
 The application source code can be found inside of the `azure-vote` directory. Open the `config_file.cfg` file with any code or text editor. In this example `vi` is used.
 
-```
+```console
 vi azure-vote/azure-vote/config_file.cfg
 ```
 
 Change the values for `VOTE1VALUE` and `VOTE2VALUE`, and then save the file.
 
-```
+```console
 # UI Configurations
 TITLE = 'Azure Voting App'
 VOTE1VALUE = 'Blue'
@@ -68,7 +68,7 @@ Save and close the file.
 
 Use [docker-compose](https://docs.docker.com/compose/) to re-create the front-end image and run the updated application. The `--build` argument is used to instruct Docker Compose to re-create the application image.
 
-```
+```console
 docker-compose up --build -d
 ```
 
@@ -90,13 +90,13 @@ az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginSe
 
 Use [docker tag](https://docs.docker.com/engine/reference/commandline/tag/) to tag the image. Replace `<acrLoginServer>` with your Azure Container Registry login server name or public registry hostname. Also notice that the image version is updated to `redis-v2`.
 
-```
+```console
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:redis-v2
 ```
 
 Use [docker push](https://docs.docker.com/engine/reference/commandline/push/) to upload the image to your registry. Replace `<acrLoginServer>` with your Azure Container Registry login server name.
 
-```
+```console
 docker push <acrLoginServer>/azure-vote-front:redis-v2
 ```
 

@@ -38,7 +38,7 @@ The Helm CLI is a client that runs on your development system and allows you to 
 
 To install the Helm CLI on a Mac, use `brew`. For additional installation options, see [Installing Helm](https://github.com/kubernetes/helm/blob/master/docs/install.md).
 
-```
+```console
 brew install kubernetes-helm
 ```
 
@@ -61,7 +61,7 @@ The Draft CLI is a client that runs on your development system and allows you to
 
 To install the Draft CLI on a Mac use `brew`. For additional installation options see, the [Draft Install guide](https://github.com/Azure/draft/blob/master/docs/install.md).
 
-```
+```console
 brew install draft
 ```
 
@@ -81,7 +81,7 @@ When configuring Draft, a container registry needs to be specified. In this exam
 
 Run the following command to get the name and login server name of your ACR instance. Update the command with the name of the resource group containing your ACR instance.
 
-```
+```console
 az acr list --resource-group <resource group> --query "[].{Name:name,LoginServer:loginServer}" --output table
 ```
 
@@ -89,19 +89,19 @@ The ACR instance password is also needed.
 
 Run the following command to return the ACR password. Update the command with the name of the ACR instance.
 
-```
+```console
 az acr credential show --name <acr name> --query "passwords[0].value" --output table
 ```
 
 Initialize Draft with the `draft init` command.
 
-```
+```console
 draft init
 ```
 
 During this process, you are prompted for the container registry credentials. When using an Azure Container Registry, the registry URL is the ACR login server name, the username is the ACR instance name, and the password is the ACR password.
 
-```
+```console
 1. Enter your Docker registry URL (e.g. docker.io/myuser, quay.io/myuser, myregistry.azurecr.io): <ACR Login Server>
 2. Enter your username: <ACR Name>
 3. Enter your password: <ACR Password>
@@ -118,19 +118,19 @@ Happy Sailing!
 
 The Draft repository includes several sample applications that can be used to demo Draft. Create a cloned copy of the repo.
 
-```
+```console
 git clone https://github.com/Azure/draft
 ```
 
 Change to the Java examples directory.
 
-```
+```console
 cd draft/examples/java/
 ```
 
 Use the `draft create` command to start the process. This command creates the artifacts that are used to run the application in a Kubernetes cluster. These items include a Dockerfile, a Helm chart, and a `draft.toml` file, which is the Draft configuration file.
 
-```
+```console
 draft create
 ```
 
@@ -143,7 +143,7 @@ Output:
 
 To run the application on a Kubernetes cluster, use the `draft up` command. This command uploads the application code and configuration files to the Kubernetes cluster. It then runs the Dockerfile to create a container image, pushes the image to the container registry, and finally runs the Helm chart to start the application.
 
-```
+```console
 draft up
 ```
 
@@ -163,7 +163,7 @@ To test the application, use the `draft connect` command. This command proxies a
 
 In some cases, it can take a few minutes for the container image to be downloaded and the application to start. If you receive an error when accessing the application, retry the connection.
 
-```
+```console
 draft connect
 ```
 
@@ -188,7 +188,7 @@ When testing an application in Kubernetes, you may want to make the application 
 
 First, the Draft pack needs to be updated to specify that a service with a type `LoadBalancer` should be created. To do so, update the service type in the `values.yaml` file.
 
-```
+```console
 vi chart/java/values.yaml
 ```
 
@@ -214,15 +214,15 @@ resources:
     memory: 128Mi
   ```
 
-  Run `draft up` to re-run the application.
+Run `draft up` to re-run the application.
 
-  ```
-  draft up
-  ```
+```console
+draft up
+```
 
 It can take few minutes for the Service to return a public IP address. To monitor progress use the `kubectl get service` command with a watch.
 
-```
+```console
 kubectl get service -w
 ```
 
@@ -240,7 +240,7 @@ deadly-squid-java   10.0.141.72   52.175.224.118   80:32150/TCP   17m
 
 To see the application, browse to the external IP address.
 
-```
+```console
 curl 52.175.224.118
 ```
 
@@ -256,7 +256,7 @@ Now that Draft has been configured and the application is running in Kubernetes,
 
 For this example, update the Java hello world application.
 
-```
+```console
 vi src/main/java/helloworld/Hello.java
 ```
 
@@ -276,7 +276,7 @@ public class Hello {
 
 Run the `draft up` command to redeploy the application.
 
-```
+```console
 draft up
 ```
 
@@ -292,7 +292,7 @@ deadly-squid: Build ID: 01BWK8C8X922F5C0HCQ8FT12RR
 
 Finally, view the application to see the updates.
 
-```
+```console
 curl 52.175.224.118
 ```
 
