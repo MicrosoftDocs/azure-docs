@@ -3,7 +3,7 @@ title: Create a function that connects to Azure services | Microsoft Docs
 description: Use Azure Functions to create a serverless application that connects to other Azure services. 
 services: functions
 documentationcenter: dev-center-name
-author: yochay
+author: ggailey777
 manager: manager-alias
 editor: ''
 tags: ''
