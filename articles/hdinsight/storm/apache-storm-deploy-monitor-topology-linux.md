@@ -34,7 +34,7 @@ In this document, learn the basics of managing and monitoring Storm topologies r
 
 * (Optional) **Familiarity with SSH and SCP**: For more information, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* (Optional) **Visual Studio**: Azure SDK 2.5.1 or newer and the Data Lake Tools for Visual Studio. For more information, see [Get started using Data Lake Tools for Visual Studio](../hdinsight-hadoop-visual-studio-tools-get-started.md).
+* (Optional) **Visual Studio**: Azure SDK 2.5.1 or newer and the Data Lake Tools for Visual Studio. For more information, see [Get started using Data Lake Tools for Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 
     One of the following versions of Visual Studio:
 
@@ -51,7 +51,7 @@ In this document, learn the basics of managing and monitoring Storm topologies r
 
 The HDInsight Tools can be used to submit C# or hybrid topologies to your Storm cluster. The following steps use a sample application. For information about creating on using the HDInsight Tools, see [Develop C# topologies using the HDInsight Tools for Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md).
 
-1. If you have not already installed the latest version of the Data Lake tools for Visual Studio, see [Get started using Data Lake Tools for Visual Studio](../hdinsight-hadoop-visual-studio-tools-get-started.md).
+1. If you have not already installed the latest version of the Data Lake tools for Visual Studio, see [Get started using Data Lake Tools for Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 
     > [!NOTE]
     > The Data Lake Tools for Visual Studio were formerly called the HDInsight Tools for Visual Studio.

@@ -211,9 +211,9 @@ To run jobs that use these classes, connect to the HDInsight cluster using SSH a
 
 Now that you have learned how to use Mahout, discover other ways of working with data on HDInsight:
 
-* [Hive with HDInsight](hdinsight-use-hive.md)
-* [Pig with HDInsight](hdinsight-use-pig.md)
-* [MapReduce with HDInsight](hdinsight-use-mapreduce.md)
+* [Hive with HDInsight](hadoop/hdinsight-use-hive.md)
+* [Pig with HDInsight](hadoop/hdinsight-use-pig.md)
+* [MapReduce with HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
 [build]: http://mahout.apache.org/developers/buildingmahout.html
 [aps]: /powershell/azureps-cmdlets-docs

@@ -38,9 +38,9 @@ Both Hive and Pig can pass data to external applications for processing. This pr
 
     For information on other ways to run Hive queries and Pig jobs, see the following documents:
 
-    * [Use Apache Hive with HDInsight](../hdinsight-use-hive.md)
+    * [Use Apache Hive with HDInsight](hdinsight-use-hive.md)
 
-    * [Use Apache Pig with HDInsight](../hdinsight-use-pig.md)
+    * [Use Apache Pig with HDInsight](hdinsight-use-pig.md)
 
 * A Hadoop on HDInsight cluster. For more information on creating a cluster, see [Create an HDInsight cluster](../hdinsight-hadoop-provision-linux-clusters.md).
 
@@ -259,10 +259,10 @@ For more information on the version of the .NET framework and Mono included with
 
 ## Next steps
 
-In this document, you have learned how to use a .NET Framework application from Hive and Pig on HDInsight. If you would like to learn how to use Python with Hive and Pig, see [Use Python with Hive and Pig in HDInsight](../hdinsight-python.md).
+In this document, you have learned how to use a .NET Framework application from Hive and Pig on HDInsight. If you would like to learn how to use Python with Hive and Pig, see [Use Python with Hive and Pig in HDInsight](python-udf-hdinsight.md).
 
 For other ways to use Pig and Hive, and to learn about using MapReduce, see the following documents:
 
-* [Use Hive with HDInsight](../hdinsight-use-hive.md)
-* [Use Pig with HDInsight](../hdinsight-use-pig.md)
-* [Use MapReduce with HDInsight](../hdinsight-use-mapreduce.md)
+* [Use Hive with HDInsight](hdinsight-use-hive.md)
+* [Use Pig with HDInsight](hdinsight-use-pig.md)
+* [Use MapReduce with HDInsight](hdinsight-use-mapreduce.md)

@@ -67,7 +67,7 @@ The canonical use case for which BigTable (and by extension, HBase) was created 
 
 [hbase-build-java-maven]: hdinsight-hbase-build-java-maven.md
 
-[hdinsight-use-hive]: hdinsight-use-hive.md
+[hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
 
 [hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
 

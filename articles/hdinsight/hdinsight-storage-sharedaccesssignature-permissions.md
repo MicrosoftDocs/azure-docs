@@ -301,8 +301,8 @@ Once connected to the cluster, use the following steps to verify that you can on
 
 Now that you have learned how to add limited-access storage to your HDInsight cluster, learn other ways to work with data on your cluster:
 
-* [Use Hive with HDInsight](hdinsight-use-hive.md)
-* [Use Pig with HDInsight](hdinsight-use-pig.md)
-* [Use MapReduce with HDInsight](hdinsight-use-mapreduce.md)
+* [Use Hive with HDInsight](hadoop/hdinsight-use-hive.md)
+* [Use Pig with HDInsight](hadoop/hdinsight-use-pig.md)
+* [Use MapReduce with HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
 [powershell]: /powershell/azureps-cmdlets-docs

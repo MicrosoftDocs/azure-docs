@@ -180,7 +180,7 @@ You can then use the UDF in your query. For example, `SELECT myawesomeudf(name) 
 
 For more information on using UDFs with Hive on HDInsight, see the following articles:
 
-* [Using Python with Hive and Pig in HDInsight](../hdinsight-python.md)
+* [Using Python with Hive and Pig in HDInsight](python-udf-hdinsight.md)
 * [How to add a custom Hive UDF to HDInsight](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
 
 ## Hive settings
@@ -191,9 +191,9 @@ You can change various Hive settings, such as changing the execution engine for 
 
 For general information on Hive on HDInsight:
 
-* [Use Hive with Hadoop on HDInsight](../hdinsight-use-hive.md)
+* [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
 
 For information on other ways you can work with Hadoop on HDInsight:
 
-* [Use Pig with Hadoop on HDInsight](../hdinsight-use-pig.md)
-* [Use MapReduce with Hadoop on HDInsight](../hdinsight-use-mapreduce.md)
+* [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
+* [Use MapReduce with Hadoop on HDInsight](hdinsight-use-mapreduce.md)

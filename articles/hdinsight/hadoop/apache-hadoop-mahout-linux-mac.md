@@ -209,9 +209,9 @@ hdfs dfs -rm -f -r /temp/mahouttemp
 
 Now that you have learned how to use Mahout, discover other ways of working with data on HDInsight:
 
-* [Hive with HDInsight](../hdinsight-use-hive.md)
-* [Pig with HDInsight](../hdinsight-use-pig.md)
-* [MapReduce with HDInsight](../hdinsight-use-mapreduce.md)
+* [Hive with HDInsight](hdinsight-use-hive.md)
+* [Pig with HDInsight](hdinsight-use-pig.md)
+* [MapReduce with HDInsight](hdinsight-use-mapreduce.md)
 
 [build]: http://mahout.apache.org/developers/buildingmahout.html
 [movielens]: http://grouplens.org/datasets/movielens/
