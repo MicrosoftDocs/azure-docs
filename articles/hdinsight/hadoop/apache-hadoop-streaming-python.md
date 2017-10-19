@@ -129,11 +129,11 @@ Python can easily handle these requirements by using the `sys` module to read fr
 
 To ensure that your files have the right line endings, use the following PowerShell script:
 
-[!code-powershell[main](../../powershell_scripts/hdinsight/streaming-python/streaming-python.ps1?range=138-140)]
+[!code-powershell[main](../../../powershell_scripts/hdinsight/streaming-python/streaming-python.ps1?range=138-140)]
 
 Use the following PowerShell script to upload the files, run the job, and view the output:
 
-[!code-powershell[main](../../powershell_scripts/hdinsight/streaming-python/streaming-python.ps1?range=5-134)]
+[!code-powershell[main](../../../powershell_scripts/hdinsight/streaming-python/streaming-python.ps1?range=5-134)]
 
 ## Run from an SSH session
 

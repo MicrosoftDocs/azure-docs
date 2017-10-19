@@ -56,7 +56,7 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
 
 1. Using an editor, save the following code as **hivejob.ps1**.
 
-    [!code-powershell[main](../../powershell_scripts/hdinsight/use-hive/use-hive.ps1?range=5-42)]
+    [!code-powershell[main](../../../powershell_scripts/hdinsight/use-hive/use-hive.ps1?range=5-42)]
 
 2. Open a new **Azure PowerShell** command prompt. Change directories to the location of the **hivejob.ps1** file, then use the following command to run the script:
 
@@ -73,7 +73,7 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
 
 4. As mentioned earlier, **Invoke-Hive** can be used to run a query and wait for the response. Use the following script to see how Invoke-Hive works:
 
-    [!code-powershell[main](../../powershell_scripts/hdinsight/use-hive/use-hive.ps1?range=50-71)]
+    [!code-powershell[main](../../../powershell_scripts/hdinsight/use-hive/use-hive.ps1?range=50-71)]
 
     The output looks like the following text:
 
