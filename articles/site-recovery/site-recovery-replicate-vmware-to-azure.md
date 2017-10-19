@@ -23,7 +23,7 @@ ms.author: asgang
 
 
 
-This article describes how to set up replication of virtual machines running on VMware to Azure.
+This article describes how to set up replication of virtual machines (VMs) running on VMware to Azure.
 ## Prerequisites
 
 This article assumes that you have:
@@ -37,7 +37,7 @@ This article assumes that you have:
 When replicating VMware virtual machines:
 
 * Your Azure user account needs to have certain [permissions](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) to enable replication of a new virtual machine to Azure.
-* VMware VMs are discovered every 15 minutes. It might take 15 minutes or longer for them to appear in the portal after discovery. Likewise, discovery can take 15 minutes or more when you add a new vCenter server or vSphere host.
+* VMware VMs are discovered every 15 minutes. It might take 15 minutes or longer for them to appear in the Azure portal after discovery. Likewise, discovery can take 15 minutes or more when you add a new vCenter server or vSphere host.
 * Environment changes on the virtual machine (such as VMware tools installation) can take 15 minutes or more to be updated in the portal.
 * You can check the last discovered time for VMware VMs in the **Last Contact At** field for the vCenter server/vSphere host, on the **Configuration Servers** page.
 * To add machines for replication without waiting for the scheduled discovery, highlight the configuration server (don’t click it), and click the **Refresh** button.
@@ -54,16 +54,16 @@ When replicating VMware virtual machines:
 
     ![Enable replication source](./media/site-recovery-vmware-to-azure/enable-replication2.png)
 
-6. In **Target**, select the subscription and the resource group where you want to create the failed over virtual machines. Choose the deployment model that you want to use in Azure (classic or Azure Resource Manager) for the failed over virtual machines.
+6. In **Target**, select the subscription and the resource group where you want to create the failed-over virtual machines. Choose the deployment model that you want to use in Azure (classic or Azure Resource Manager) for the failed-over virtual machines.
 
 7. Select the Azure Storage account you want to use for replicating data. 
 
     > [!NOTE]
 
     >   * You can select a premium or standard storage account. If you select a premium account, you need to specify an additional standard storage account for ongoing replication logs. Accounts must be in the same region as the Recovery Services vault.
-    >   * If you want to use a different storage account, you can [create one](../storage/common/storage-create-storage-account.md). To create a storage account using Resource Manager, click **Create new**. If you want to create a storage account using the classic model, do that in the Azure portal.
+    >   * If you want to use a different storage account, you can [create one](../storage/common/storage-create-storage-account.md). To create a storage account by using Resource Manager, click **Create new**. If you want to create a storage account by using the classic model, do that in the Azure portal.
 
-8. Select the Azure network and subnet to which Azure VMs will connect when they're spun up after failover. The network must be in the same region as the Recovery Services vault. Select **Configure now for selected machines** to apply the network setting to all machines you select for protection. Select **Configure later** to select the Azure network per machine. If you don't have a network, you need to [create one](#set-up-an-azure-network). To create a network using Resource Manager, click **Create new**. If you want to create a network using the classic model, do that [in the Azure portal](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Select a subnet if applicable, and then click **OK**.
+8. Select the Azure network and subnet to which Azure VMs will connect when they're spun up after failover. The network must be in the same region as the Recovery Services vault. Select **Configure now for selected machines** to apply the network setting to all machines you select for protection. Select **Configure later** to select the Azure network per machine. If you don't have a network, you need to [create one](#set-up-an-azure-network). To create a network by using Resource Manager, click **Create new**. If you want to create a network by using the classic model, do that [in the Azure portal](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Select a subnet if applicable, and then click **OK**.
 
     ![Enable replication target setting](./media/site-recovery-vmware-to-azure/enable-rep3.png)
 9. In **Virtual Machines** > **Select virtual machines**, select each machine you want to replicate. You can only select machines for which replication can be enabled. Then click **OK**.
@@ -79,14 +79,14 @@ When replicating VMware virtual machines:
 
     > [!NOTE]
 
-    >    * Machines in a replication group replicate together and have shared crash-consistent and app-consistent recovery points when they failover.
+    >    * Machines in a replication group replicate together and have shared crash-consistent and app-consistent recovery points when they fail over.
     >    * Gather VMs and physical servers together so that they mirror your workloads. Enabling multi-VM consistency can impact workload performance. Use only if machines are running the same workload and you need consistency.
 
     ![Enable replication](./media/site-recovery-vmware-to-azure/enable-replication7.png)
 14. Click **Enable Replication**. You can track progress of the **Enable Protection** job in **Settings** > **Jobs** > **Site Recovery Jobs**. After the **Finalize Protection** job runs, the machine is ready for failover.
 
 > [!NOTE]
-> If the machine is prepared for push installation, the Mobility Service component installs when protection is enabled. After the component is installed on the machine, a protection job starts and fails. After the failure, you need to manually restart each machine. After the restart, the protection job begins again and initial replication occurs.
+> If the machine is prepared for push installation, the Mobility Service component is installed when protection is enabled. After the component is installed on the machine, a protection job starts and fails. After the failure, you need to manually restart each machine. After the restart, the protection job begins again and initial replication occurs.
 >
 >
 
@@ -101,7 +101,7 @@ Next, you verify the properties of the source machine. Remember that the Azure V
     ![Compute and Network properties](./media/site-recovery-vmware-to-azure/vmproperties.png)
 
 4.  You can select a [resource group](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines) from which a machine becomes part of a post failover. You can change this setting any time before failover. Post failover, if you migrate the machine to a different resource group, the protection settings for that machine break.
-5. You can select an [availability set](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) if your machine needs to be part of a post failover. While selecting an availability set, keep in mind that:
+5. You can select an [availability set](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) if your machine needs to be part of a post failover. While you're selecting an availability set, keep in mind that:
 
     * Only availability sets belonging to the specified resource group are listed.  
     * Machines with different virtual networks cannot be a part of the same availability set.
@@ -111,7 +111,7 @@ Next, you verify the properties of the source machine. Remember that the Azure V
 
 ### Network adapters and IP addressing
 
-- You can set the target IP address. If you don't provide an address, the failed over machine uses DHCP. If you set an address that isn't available at failover, the failover doesn't work. If the address is available in the test failover network, the same target IP address can be used for test failover.
+- You can set the target IP address. If you don't provide an address, the failed-over machine uses DHCP. If you set an address that isn't available at failover, the failover doesn't work. If the address is available in the test failover network, the same target IP address can be used for test failover.
 - The number of network adapters is dictated by the size you specify for the target virtual machine, as follows:
     - If the number of network adapters on the source machine is less than or equal to the number of adapters allowed for the target machine size, then the target has the same number of adapters as the source.
     - If the number of adapters for the source virtual machine exceeds the number allowed for the target size, then the target size maximum is used.
@@ -120,13 +120,13 @@ Next, you verify the properties of the source machine. Remember that the Azure V
 
 ### Azure Hybrid Use Benefit
 
-Microsoft Software Assurance customers can use Azure Hybrid User Benefit to save on licensing costs for Windows Server machines that are migrated to Azure, or to use Azure for disaster recovery. If you're eligible to use the Azure Hybrid Use Benefit, you can specify that the virtual machine assigned this benefit is the one Azure Site Recovery creates if there's a failover. To do this:
+Microsoft Software Assurance customers can use Azure Hybrid Use Benefit to save on licensing costs for Windows Server machines that are migrated to Azure, or to use Azure for disaster recovery. If you're eligible to use the Azure Hybrid Use Benefit, you can specify that the virtual machine assigned this benefit is the one Azure Site Recovery creates if there's a failover. To do this:
 - Go to the Compute and Network properties section of the replicated virtual machine.
 - Answer the question that asks if you have a Windows Server License that makes you eligible for Azure Hybrid Use Benefit.
-- Select the checkbox to confirm that you have an eligible Windows Server license with Software Assurance, which you can use to apply the Hybrid Use Benefit on the machine that will be created on failover.
+- Select the check box to confirm that you have an eligible Windows Server license with Software Assurance, which you can use to apply the Hybrid Use Benefit on the machine that will be created on failover.
 - Save settings for the replicated machine.
 
-Learn more about [Azure Hybrid Use Benefit.](https://aka.ms/azure-hybrid-use-benefit-pricing)
+Learn more about [Azure Hybrid Use Benefit](https://aka.ms/azure-hybrid-use-benefit-pricing).
 
 ## Common issues
 
