@@ -17,8 +17,10 @@ ms.date: 10/19/2017
 ms.author: maheshu
 ---
 
-# Choose between Azure AD Join and Azure AD Domain Services
+# Choose between Azure Active Directory join and Azure Active Directory Domain Services
+This article describes differences between Azure AD join and Azure AD Domain Services.
 
+## Key differences
 | **Aspect** | **Azure AD Join** | **Azure AD Domain Services** |
 |:---| --- | --- |
 | Trust with directory | Azure AD Join | Active Directory domain join |
