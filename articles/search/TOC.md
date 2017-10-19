@@ -89,7 +89,6 @@
 
 # Resources
 
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=web-mobile)
 ## [FAQ - Frequently Asked Questions](search-faq-frequently-asked-questions.md)
 ## [Pricing](https://azure.microsoft.com/pricing/details/search/)
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
