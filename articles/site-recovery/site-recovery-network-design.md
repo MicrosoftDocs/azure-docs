@@ -25,7 +25,7 @@ This article discusses network considerations when using [Azure Site Recovery](s
 
 Site Recovery is a Microsoft Azure service that orchestrates the protection and recovery of virtualized applications for the purpose of business continuity disaster recovery (BCDR).
 
-In a world pf 24/7 connectivity, it's important to keep your business infrastructure and applications up and running. The purpose of BCDR is to restore failed components, so that your organization can quickly resume normal operations. Developing disaster recovery strategies to deal with unlikely events is very challenging. This is due to the inherent difficulty of predicting the future, particularly for improbable events. And, because of the high cost of maintaining adequate measures of protection against far-reaching catastrophes.
+In a world of 24/7 connectivity, it's important to keep your business infrastructure and applications up and running. The purpose of BCDR is to restore failed components, so that your organization can quickly resume normal operations. Developing disaster recovery strategies to deal with unlikely events is very challenging. This is due to the inherent difficulty of predicting the future, particularly for improbable events. And, because of the high cost of maintaining adequate measures of protection against far-reaching catastrophes.
 
 Crucial for BCDR planning, a Recovery Time Objective (RTO) and Recovery Point Objective (RPO) must be defined in your BCDR plan. When a disaster strikes a data center, you can quickly (low RTO) bring online their replicated virtual machines located in either the secondary data center or Microsoft Azure with minimum data loss (low RPO).
 
@@ -44,7 +44,7 @@ When administrators are planning to deploy a disaster recovery solution, one of 
 While designing the network for the recovery site, the administrator has two choices:
 
 ## Option 1: Retain IP addresses
-From a disaster recovery process perspective, using fixed IP addresses appears to be the easiest method to implement, but it has a number of potential challenges which in practice make it the least popular approach. Azure Site Recovery provides the capability to retain the IP addresses in all scenarios. Before one decides to retain IP, appropriate thought should be given to the constraints it imposes on the failover capabilities. Let us look at the factors that can help you to make a decision to retain IP addresses, or not. This can be achieved in two ways, by using a stretched subnet or by doing a full subnet failover.
+From a disaster recovery process perspective, using fixed IP addresses appears to be the easiest method to implement, but it has a number of potential challenges, which in practice makes it the least popular approach. Azure Site Recovery provides the capability to retain the IP addresses in all scenarios. Before one decides to retain IP, appropriate thought should be given to the constraints it imposes on the failover capabilities. Let us look at the factors that can help you to make a decision to retain IP addresses, or not. This can be achieved in two ways, by using a stretched subnet or by doing a full subnet failover.
 
 ### Stretched subnet
 Here the subnet is made available simultaneously in both primary and DR locations. In simple terms this means you can move a server and its IP (Layer 3) configuration to the second site and the network will route the traffic to the new location automatically. This is trivial to deal with from a server perspective but it has a number of challenges:
@@ -53,7 +53,7 @@ Here the subnet is made available simultaneously in both primary and DR location
 * Stretched subnet is not possible if you are using Microsoft Azure as the DR site.
 
 ### Subnet failover
-It is possible to implement subnet failover to obtain the benefits of the stretched subnet solution described above without stretching the subnet across multiple sites. Here any given subnet would be present at Site 1 or Site 2, but never at both sites simultaneously. In order to maintain the IP address space in the event of a failover, it is possible to programmatically arrange for the router infrastructure to move the subnets from one site to another. In a failover scenario the subnets would move with the associated protected VMs. The main drawback to this approach is in the event of a failure you have to move the whole subnet.This might be OK, but it could affect failover granularity.
+It is possible to implement subnet failover to obtain the benefits of the stretched subnet solution described above without stretching the subnet across multiple sites. Here any given subnet would be present at Site 1 or Site 2, but never at both sites simultaneously. In order to maintain the IP address space in the event of a failover, it is possible to programmatically arrange for the router infrastructure to move the subnets from one site to another. In a failover scenario the subnets would move with the associated protected VMs. The main drawback to this approach is in the event of a failure you have to move the whole subnet. This might be OK, but it could affect failover granularity.
 
 Let’s examine how a fictional enterprise named Contoso is able to replicate its VMs to a recovery location while failing over the entire subnet. Let's first look at how Contoso is able to manage their subnets while replicating VMs between two on-premises locations, and then we'll discuss how subnet failover works when [Azure is used as the disaster recovery site](#failover-to-azure).
 
@@ -86,7 +86,7 @@ After failover
 If you don't have a 'Azure Network' as shown in the picture above. You can create a site-to-site VPN connection between your 'Primary Site' and 'Recovery Network' after the failover.  
 
 
-#### Failover to a secondary on-premises site
+#### Fail over to a secondary on-premises site
 Let us look at a scenario where we want to retain the IP of each of the VMs and fail-over the complete subnet together. The primary site has applications running in subnet 192.168.1.0/24. When the failover happens, all the virtual machines that are part of this subnet will be failed over to the recovery site and retain their IP addresses. Routes will have to be appropriately modified to reflect the fact that all the virtual machines belonging to subnet 192.168.1.0/24 have now moved to the recovery site.
 
 In the following illustration the routes between primary site and recovery site, third site and primary site, and third site and recovery site will have to be appropriately modified.
@@ -136,7 +136,7 @@ Let us look at the scenario where you are planning to use different IPs across t
 
 In the picture above there are some applications hosted in subnet 192.168.1.0/24 subnet on the primary site, and they have been configured to come up on the recovery site in subnet 172.16.1.0/24 after a failover. VPN connections/network routes have been configured appropriately so that all three sites can access each other.
 
-As the picture below shows, after failing over one or more applications, they will be restored in the recovery subnet. In this case we are not constrained to failover the entire subnet at the same time. No changes are required to reconfigure VPN or network routes. A failover and some DNS updates will make sure that applications remain accessible. If the DNS is configured to allow dynamic updates then the virtual machines would register themselves using the new IP once they start after a failover.
+As the picture below shows, after failing over one or more applications, they will be restored in the recovery subnet. In this case we are not constrained to fail over the entire subnet at the same time. No changes are required to reconfigure VPN or network routes. A failover and some DNS updates will make sure that applications remain accessible. If the DNS is configured to allow dynamic updates then the virtual machines would register themselves using the new IP once they start after a failover.
 
 ![Different IP - After Failover](./media/site-recovery-network-design/network-design11.png)
 
@@ -157,7 +157,7 @@ After failing-over the replica virtual machine might have an IP address that isn
         $newrecord.RecordData[0].IPv4Address  =  $IP
         Set-DnsServerResourceRecord -zonename $zone -OldInputObject $record -NewInputObject $Newrecord
 
-### Changing the IP addresses – DR to Azure
+### Changing the IP addresses – disaster recovery to Azure
 The [Networking Infrastructure Setup for Microsoft Azure as a Disaster Recovery Site](http://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) blog post explains how to set up the required Azure networking infrastructure when retaining IP addresses isn’t a requirement. It starts with describing the application and then look at how to set up networking on-premises and on Azure and then concluding with how to do a test failover and a planned failover.
 
 ## Next steps
