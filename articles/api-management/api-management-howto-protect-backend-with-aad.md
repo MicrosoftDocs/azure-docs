@@ -3,7 +3,7 @@ title: Protect a Web API backend with Azure Active Directory and API Management 
 description: Learn how to protect a Web API backend with Azure Active Directory and API Management.
 services: api-management
 documentationcenter: ''
-author: steved0x
+author: vladvino
 manager: erikre
 editor: ''
 

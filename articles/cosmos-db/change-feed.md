@@ -285,4 +285,3 @@ For more information on using the Change Feed Processor library, use the followi
 For more information on using the change feed via the SDK, use the following resources:
 
 * [SDK information page](documentdb-sdk-dotnet.md)
-* [Samples on GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeed)

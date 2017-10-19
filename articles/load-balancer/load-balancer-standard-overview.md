@@ -363,27 +363,72 @@ The following table compares the limits and abilities of the Public IP Basic and
 
 ## Preview sign-up
 
-To participate in the preview for Load Balancer Standard SKU and the companion Public IP Standard SKU, register your subscription. Registering your subscription gives you access from PowerShell or Azure CLI 2.0.
+To participate in the preview for Load Balancer Standard SKU and the companion Public IP Standard SKU, register your subscription.  Registering your subscription gives you access from PowerShell or Azure CLI 2.0. To register, perform the following steps:
 
-- Sign up by using PowerShell
+>[!NOTE]
+>Registration of the Load Balancer Standard feature can take up to an hour to become effective globally. If you wish to use Load Balancer Standard with [Availability Zones](https://aka.ms/availabilityzones) and [HA Ports](https://aka.ms/haports), a separate sign-up is required for these previews. Follow the respective instructions for sign-up for those features.
 
-    ```powershell
-    Register-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
-    ```
+### Sign up by using Azure CLI 2.0
 
-- Sign up by using Azure CLI 2.0
+1. Register the feature with the provider:
 
     ```cli
     az feature register --name AllowLBPreview --namespace Microsoft.Network
     ```
+    
+2. The operation can take up to 10 minutes to complete. You can check the status of the operation with the following command:
 
->[!NOTE]
->
->Registration of Azure Load Balancer Standard may take up to an hour.
->
->To use Load Balancer Standard with [Availability Zones](https://aka.ms/availabilityzones) and [HA Ports](https://aka.ms/haports), a separate sign-up is required for these previews. Follow the respective instructions for those features.
->
+    ```cli
+    az feature show --name AllowLBPreview --namespace Microsoft.Network
+    ```
+    
+    Proceed to the next step when the feature registration state returns 'Registered':
+   
+    ```json
+    {
+       "id": "/subscriptions/foo/providers/Microsoft.Features/providers/Microsoft.Network/features/AllowLBPreview",
+       "name": "Microsoft.Network/AllowLBPreview",
+       "properties": {
+          "state": "Registered"
+       },
+       "type": "Microsoft.Features/providers/features"
+    }
+    ```
+    
+3. Complete the preview sign-up by re-registering your subscription with the resource provider:
 
+    ```cli
+    az provider register --namespace Microsoft.Network
+    ```
+    
+### Sign up by using PowerShell
+
+1. Register the feature with the provider:
+
+    ```powershell
+    Register-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
+    ```
+    
+2. The operation can take up to 10 minutes to complete. You can check the status of the operation with the following command:
+
+    ```powershell
+    Get-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
+    ```
+
+    Proceed to the next step when the feature registration state returns 'Registered':
+   
+    ```
+    FeatureName      ProviderName        RegistrationState
+    -----------      ------------        -----------------
+    AllowLBPreview   Microsoft.Network   Registered
+    ```
+    
+3. Complete the preview sign-up by re-registering your subscription with the resource provider:
+
+    ```powershell
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+    ```
+ 
 ## Pricing
 
 Load Balancer Standard SKU billing is based on configured rules and processed data. No charges are incurred during the preview period. For more information, review the [Load Balancer](https://aka.ms/lbpreviewpricing) and [Public IP](https://aka.ms/lbpreviewpippricing) pricing pages.
