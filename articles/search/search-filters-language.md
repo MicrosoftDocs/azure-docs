@@ -34,7 +34,7 @@ A key requirement in a multilingual search application is being able to search o
 
 In Azure Search, queries target a single index. For this reason, we assume one index with fields for each set of localized strings. In our samples, including the [real-estate sample](search-get-started-portal.md) shown below, you might have seen field definitions similar to the following screenshot. 
 
-This example shows the language analyzer assignments for the fields in this index. Fields that contain translated strings perform better in full text search when using an analyzer that has ben engineered to handle the linguistic rules of the target language.
+This example shows the language analyzer assignments for the fields in this index. Fields that contain translated strings perform better in full text search when using an analyzer that has been engineered to handle the linguistic rules of the target language.
 
   ![](./media/search-filters/lang-fields.png)
 

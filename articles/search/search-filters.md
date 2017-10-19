@@ -19,7 +19,7 @@ ms.author: heidist
 ---
 # Filters in Azure Search 
 
-A *filter* provides criteria for selecting documents used in an Azure Search query. Unfiltered search includes all documents in the index. A filter allows to scope a search query to a subset of documents. For example, a filter could restrict full text search to just those products having a specific brand or color, at price points above a certain threshold.
+A *filter* provides criteria for selecting documents used in an Azure Search query. Unfiltered search includes all documents in the index. A filter scopes a search query to a subset of documents. For example, a filter could restrict full text search to just those products having a specific brand or color, at price points above a certain threshold.
 
 Some search experiences impose filter requirements as part of the implementation, but you can use filters anytime you want to constrain search using *value-based* criteria (scoping search to product type "books" for category "non-fiction" published by "Simon & Schuster").
 
@@ -129,7 +129,7 @@ Follow up with these articles for comprehensive guidance on specific use cases:
 
 ## Field requirements for filtering
 
-In the REST API, filterable is *on* by default. Filterable fields increases index size; be sure to set `filterable=FALSE` for fields that you don't plan to actually use in a filter. For more information about settings for field definitions, see [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index).
+In the REST API, filterable is *on* by default. Filterable fields increase index size; be sure to set `filterable=FALSE` for fields that you don't plan to actually use in a filter. For more information about settings for field definitions, see [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
 In the .NET SDK, the filterable is *off* by default. The API for setting the filterable property is [IsFilterable](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.isfilterableattribute). In the example below, its set on the BaseRate field definition.
 
@@ -159,7 +159,7 @@ Text strings are case-sensitive. There is no lower-casing of upper-cased words: 
 | Approach | Description | 
 |----------|-------------|
 | [search.in()](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | A function providing comma-delimited list of strings for a given field. The strings comprise the filter criteria, which are applied to every field in scope for the query. <br/><br/>`search.in(f, ‘a, b, c’)` is semantically equivalent to `f eq ‘a’ or f eq ‘b’ or f eq ‘c’`, except that it executes much faster when the list of values is large.<br/><br/>We recommend the **search.in** function for [security filters](search-security-trimming-for-azure-search.md) and for any filters composed of raw text to be matched on values in a given field. This approach is designed for speed. You can expect subsecond response time for hundreds to thousands of values. While there is no explicit limit on the number of items you can pass to the function, latency increases in proportion to the number of strings you provide. | 
-| [search.ismatch()](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | A function that allows you to mix full-text search operations with strictly Boolean filter operations in the same filter expression. It enables use of a multiple query-filter combinations in one request. You can also use it for a *contains* filter to filter on a partial string within a larger string. |  
+| [search.ismatch()](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | A function that allows you to mix full-text search operations with strictly Boolean filter operations in the same filter expression. It enables multiple query-filter combinations in one request. You can also use it for a *contains* filter to filter on a partial string within a larger string. |  
 | [$filter=field operator string](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | A user-defined expression composed of fields, operators, and values. | 
 
 ## Numeric filter fundamentals

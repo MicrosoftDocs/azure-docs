@@ -20,7 +20,7 @@ ms.author: heidist
 
 # How to build a facet filter in Azure Search 
 
-Faceted navigation is used for self-directed filtering on query results in a search app, where your application offers UI controls for scoping search to groups of documents (for example, categories or brands), and Azure Search provides the data stucture to back the experience. In this article, quickly review the basic steps for creating a faceted navigation structure backing the search experience you want to provide. 
+Faceted navigation is used for self-directed filtering on query results in a search app, where your application offers UI controls for scoping search to groups of documents (for example, categories or brands), and Azure Search provides the data structure to back the experience. In this article, quickly review the basic steps for creating a faceted navigation structure backing the search experience you want to provide. 
 
 > [!div class="checklist"]
 > * Choose fields for filtering and faceting
