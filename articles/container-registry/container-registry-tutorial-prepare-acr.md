@@ -63,7 +63,7 @@ Select **Create** to deploy the ACR instance.
 
 ![Creating a container registry in the Azure portal][tut-portal-02]
 
-Throughout the rest of this tutorial, we use `<acrname>` as a placeholder for the container registry name that you chose.
+Throughout the rest of this tutorial, we use `<acrName>` as a placeholder for the container registry name that you chose.
 
 > [!TIP]
 > Because Azure container registries are typically long-lived resources that are used across multiple container hosts, we recommend that you create your registry in its own resource group. As you configure geo-replicated registries and webhooks, these additional resources are placed in the same resource group.
@@ -71,23 +71,23 @@ Throughout the rest of this tutorial, we use `<acrname>` as a placeholder for th
 
 ## Configure geo-replication
 
-To configure geo-replication for your Premium registry, log in to the Azure portal at http://portal.azure.com.
+Now that you have a Premium registry you can configure geo-replication. Your web app, which you configure in the next tutorial to run in two regions, can pull its container images from the nearest registry.
 
-Navigate to your Azure Container Registry, and select **Replications** under **SERVICES**:
+Log in to the Azure portal at http://portal.azure.com, then navigate to your Azure Container Registry and select **Replications** under **SERVICES**:
 
-![Replications in the Azure portal container registry UI](./media/container-registry-geo-replication/registry-services.png)
+![Replications in the Azure portal container registry UI][tut-portal-03]
 
-A map is displayed showing all current Azure Regions:
+A map is displayed showing green hexagons representing Azure regions available for geo-replication:
 
- ![Region map in the Azure portal](./media/container-registry-geo-replication/registry-geo-map.png)
+ ![Region map in the Azure portal][tut-map-01]
 
-To configure a replica, select a green hexagon, then select **Create**:
+Replicate your registry to the East US region selecting its green hexagon, then select **Create** under **Create replication**:
 
- ![Create replication UI in the Azure portal](./media/container-registry-geo-replication/create-replication.png)
+ ![Create replication UI in the Azure portal][tut-portal-04]
 
-To configure additional replicas, select the green hexagons for other regions, then click **Create**.
+When the replication is complete, the portal reflects *Ready* for both regions. Use the **Refresh** button to refresh the status of the replication.
 
-ACR begins syncing images across the configured replicas. Once complete, the portal reflects *Ready*. The replica status in the portal doesn't automatically update. Use the refresh button to see the updated status.
+![Replication status UI in the Azure portal][tut-portal-05]
 
 ## Container registry login
 
@@ -234,4 +234,9 @@ Advance to the next tutorial to learn about deploying your container to multiple
 <!-- IMAGES -->
 [tut-portal-01]: ./media/container-registry-tutorial-prepare-acr/tut-portal-01.png
 [tut-portal-02]: ./media/container-registry-tutorial-prepare-acr/tut-portal-02.png
+[tut-portal-03]: ./media/container-registry-tutorial-prepare-acr/tut-portal-03.png
+[tut-portal-04]: ./media/container-registry-tutorial-prepare-acr/tut-portal-04.png
+[tut-portal-05]: ./media/container-registry-tutorial-prepare-acr/tut-portal-05.png
 [tut-app-01]: ./media/container-registry-tutorial-prepare-acr/tut-app-01.png
+[tut-map-01]: ./media/container-registry-tutorial-prepare-acr/tut-map-01.png
+[tut-replication-01]: ./media/container-registry-tutorial-prepare-acr/tut-replication-01.png
