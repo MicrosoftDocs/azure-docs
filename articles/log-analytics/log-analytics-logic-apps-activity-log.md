@@ -1,4 +1,4 @@
----
+fcontent-typ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Send Azure Activity Logs to Log Analytics | Microsoft Docs 
 description: Use Event Hubs and Logic Apps to collect data from the Azure Activity Log and send it to an Azure Log Analytics workspace in a different tenant.
@@ -161,7 +161,7 @@ The Logic Apps Designer now shows you available connectors and their triggers, w
 
 ### Add Parse JSON action
 
-The output from the Event Hub contains a JSON payload with an array of records. The [Parse JSON](media/log-analytics-logic-apps-activity-log/logic-apps-content-type.md) action is used to extract just the array of records for sending to Log Analytics.
+The output from the Event Hub contains a JSON payload with an array of records. The [Parse JSON](../logic-apps/logic-apps-content-type.md) action is used to extract just the array of records for sending to Log Analytics.
 
 1. Click **New step** > **Add an action**
 2. In the search box, type *parse json* for your filter. Select the action **Data Operations - Parse JSON**.
