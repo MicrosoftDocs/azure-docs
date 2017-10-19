@@ -26,6 +26,10 @@ This quickstart creates a document database using the Azure portal tools for Azu
 
 ## Prerequisites
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
+[!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
+
+In addition: 
 * [Java Development Kit (JDK) 1.7+](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
     * On Ubuntu, run `apt-get install default-jdk` to install the JDK.
     * Be sure to set the JAVA_HOME environment variable to point to the folder where the JDK is installed.
@@ -33,9 +37,6 @@ This quickstart creates a document database using the Azure portal tools for Azu
     * On Ubuntu, you can run `apt-get install maven` to install Maven.
 * [Git](https://www.git-scm.com/)
     * On Ubuntu, you can run `sudo apt-get install git` to install Git.
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
-[!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 ## Create a database account
 
@@ -52,11 +53,11 @@ Before you can create a document database, you need to create a SQL (DocumentDB)
 
 You can now add data to your new collection using Data Explorer.
 
-1. In Data Explorer, the new database appears in the Collections pane. Expand the **Tasks** database, expand the **Items** collection, click **Documents**, and then click **New Documents**. 
+1. Expand the **Items** collection, click **Documents** > **New Document**.
 
-   ![Create new documents in Data Explorer in the Azure portal](./media/create-documentdb-dotnet/azure-cosmosdb-data-explorer-new-document.png)
+   ![Create new documents in Data Explorer in the Azure portal](./media/create-documentdb-java/azure-cosmosdb-data-explorer-new-document.png)
   
-2. Now add a document to the collection with the following structure.
+2. Now add a document to the collection with the following structure and click **Save**.
 
      ```json
      {
@@ -68,11 +69,9 @@ You can now add data to your new collection using Data Explorer.
      }
      ```
 
-3. Once you've added the json to the **Documents** tab, click **Save**.
-
     ![Copy in json data and click Save in Data Explorer in the Azure portal](./media/create-documentdb-dotnet/azure-cosmosdb-data-explorer-save-document.png)
 
-4.  Create and save one more document where you insert a unique value for the `id` property, and change the other properties as you see fit. Your new documents can have any structure you want as Azure Cosmos DB doesn't impose any schema on your data.
+3.  Create and save one more document where you insert a unique value for the `id` property, and change the other properties as you see fit. Your new documents can have any structure you want as Azure Cosmos DB doesn't impose any schema on your data.
 
      You can now use queries in Data Explorer to retrieve your data by clicking the **Edit Filter** and **Apply Filter** buttons. By default, Data Explorer uses `SELECT * FROM c` to retrieve all documents in the collection, but you can change that to a different [SQL query](documentdb-sql-query.md), such as `SELECT * FROM c ORDER BY c._ts DESC`, to return all the documents in descending order based on their timestamp. 
  
