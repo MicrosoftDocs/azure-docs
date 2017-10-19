@@ -29,7 +29,7 @@ ms.reviewer: dhanyahk
 **Product Capability:** SSO  
 
 
-Azure Active Directory supports automatic sign-in field detection for applications that render an HTML username and password field.  These steps are documented in [How to automatically capture sign-in fields for an application](application-config-sso-problem-configure-password-sso-non-gallery.md#how-to-manually-capture-sign-in-fields-for-an-application.md). You can find this capability by adding a *Non-Gallery* application on the **Enterprise Applications** page in the [Azure portal](http://aad.portal.azure.com). Additionally, you can configure the **Single Sign-on** mode on this new application to **Password-based Single Sign-on**, entering a web URL, and then saving the page.
+Azure Active Directory supports automatic sign-in field detection for applications that render an HTML username and password field.  These steps are documented in [How to automatically capture sign-in fields for an application](application-config-sso-problem-configure-password-sso-non-gallery.md#how-to-manually-capture-sign-in-fields-for-an-application). You can find this capability by adding a *Non-Gallery* application on the **Enterprise Applications** page in the [Azure portal](http://aad.portal.azure.com). Additionally, you can configure the **Single Sign-on** mode on this new application to **Password-based Single Sign-on**, entering a web URL, and then saving the page.
  
 Due to a service issue, this functionality was temporarily disabled for a period of time. The issue has been resolved and the automatic sign-in field detection is available again.
 
