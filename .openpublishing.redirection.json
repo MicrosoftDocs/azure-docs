@@ -6245,6 +6245,11 @@
             "redirect_url": "/azure/cognitive-services/Bing-Video-Search/search-the-web",
             "redirect_document_id": false
         },
+		{
+            "source_path": "articles/cognitive-services/Speech/index.md",
+            "redirect_url": "/azure/cognitive-services/Speech/Home",
+            "redirect_document_id": false
+        },
         {
             "source_path": "articles/cognitive-services/Custom-Speech-Service/index.md",
             "redirect_url": "/azure/cognitive-services/Custom-Speech-Service/cognitive-services-custom-speech-home",
@@ -13648,6 +13653,11 @@
         {
             "source_path": "articles/virtual-network/virtual-networks-create-nsg-arm-portal.md",
             "redirect_url": "/azure/virtual-network/virtual-networks-create-nsg-arm-pportal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-functions/functions-create-an-azure-connected-function.md",
+            "redirect_url": "/azure/azure-functions/functions-create-storage-queue-triggered-function",
             "redirect_document_id": false
         },
         {
