@@ -1,6 +1,6 @@
 ---
 title: Azure Event Hubs metrics in Azure Monitor (preview) | Microsoft Docs
-description: Use PowerShell module to create and manage Event Hubs
+description: Use Azure Monitoring to monitor Event Hubs
 services: event-hubs
 documentationcenter: .NET
 author: ShubhaVijayasarathy
