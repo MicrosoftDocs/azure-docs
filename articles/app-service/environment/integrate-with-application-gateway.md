@@ -17,7 +17,6 @@ ms.author: ccompy
 ---
 # Integrating your ILB ASE with an Application Gateway #
 
-## Introduction ##
 The [Azure App Service Environment (ASE)](./intro.md) is a deployment of the Azure App Service in the subnet of a customer's Azure Virtual Network. It can be deployed with a public or private endpoint for app access. The deployment of the ASE with a private endpoint is called an ILB ASE.  
 The Azure Application Gateway is a virtual appliance that provides layer 7 load balancing, SSL offloading, and WAF protection. It can listen on a public IP address and route traffic to your application endpoint. 
 The following information describes how to integrate a WAF configured Application Gateway with an app on an ILB ASE.  
@@ -52,29 +51,25 @@ If you put the Application Gateway in the GatewaySubnet then you will be unable 
 ## Steps to configure ##
 
 1. From within the Azure portal, go to **New > Network > Application Gateway** 
+	1. Provide:
+		1. Name of the Application Gateway
+		1. Select WAF
+		1. Select the same subscription used for the ASE VNet
+		1. Create or select the resource group
+		1. Select the Location the ASE VNet is in
 
-	a. Provide:
-	
-	* Name of the Application Gateway
-	* Select WAF
-	* Select the same subscription used for the ASE VNet
-	* Create or select the resource group
-	* Select the Location the ASE VNet is in
-
-	![New application gateway creation basics][2]
-	
-	b. In the Settings area set:
-	
-	* The ASE VNet
-	* The subnet the Application Gateway needs to be deployed into. Do no use the GatewaySubnet as it will prevent the creation of VPN gateways
-	* Select Public
-	* Select a public IP address. If you do not have one then create one at this time
-	* Configure for HTTP or HTTPS. If configuring for HTTPS you need to provide a PFX certificate
-	* Select Web application fireway settings. Here you can enable the firewall and also set it for either Detection or Prevention as you see fit.
+	![New application gateway creation basics][2]	
+	1. In the Settings area set:
+		1. The ASE VNet
+		1. The subnet the Application Gateway needs to be deployed into. Do no use the GatewaySubnet as it will prevent the creation of VPN gateways
+		1. Select Public
+		1. Select a public IP address. If you do not have one then create one at this time
+		1. Configure for HTTP or HTTPS. If configuring for HTTPS you need to provide a PFX certificate
+		1. Select Web application fireway settings. Here you can enable the firewall and also set it for either Detection or Prevention as you see fit.
 
 	![New application gateway creation settings][3]
 	
-	c. In the summary section review, select **Ok**. It can take a little more than 30 minutes for your Application Gateway to complete setup.  
+	1. In the summary section review, select **Ok**. It can take a little more than 30 minutes for your Application Gateway to complete setup.  
 
 2. After your Application Gateway completes setup, go into your Application Gateway portal. Select **Backend pool**.  Add the ILB address for your ILB ASE.
 
@@ -99,6 +94,7 @@ If you put the Application Gateway in the GatewaySubnet then you will be unable 
 There is information on setting custom domain names for your web apps here [Setting custom domain names for your web app][custom-domain]. The difference with an app in an ILB ASE and that document, is that there isn't any validation on the domain name.  Since you own the DNS that manages the app endpoints, you can put whatever you want in there. The custom domain name you add in this case does not need to be in your DNS, but it does still need to be configured with your app. 
 
 After setup is completed and you have allowed a short amount of time for your DNS changes to propagate, then you can access your app by the custom domain name you created. 
+
 
 <!--IMAGES-->
 [1]: ./media/integrate-with-application-gateway/appgw-highlevel.png
