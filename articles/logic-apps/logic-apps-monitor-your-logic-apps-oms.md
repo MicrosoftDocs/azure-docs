@@ -168,7 +168,7 @@ select a row for a logic app run.
 
    ![View actions for a logic app run](media/logic-apps-monitor-your-logic-apps-oms/logic-app-action-details.png)
    
-6. On any results page, to view the query behind the results or to see all results, choose **See All**.
+6. On any results page, to view the query behind the results or to see all results, choose **See All**, which opens the Log Search page.
    
    ![See All on Results pages](media/logic-apps-monitor-your-logic-apps-oms/logic-app-seeall.png)
    
