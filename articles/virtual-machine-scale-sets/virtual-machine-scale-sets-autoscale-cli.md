@@ -1,5 +1,5 @@
 ---
-title: autoscale virtual machine scale sets with the Azure CLI | Microsoft Docs
+title: Autoscale virtual machine scale sets with the Azure CLI | Microsoft Docs
 description: How to create autoscale rules for virtual machine scale sets with the Azure CLI 2.0
 services: virtual-machine-scale-sets
 documentationcenter: ''
@@ -37,7 +37,7 @@ location_name="eastus"
 ```
 
 ## Define an autoscale profile
-autoscale rules are deployed as JSON (JavaScript Object Notation) with the Azure CLI 2.0. The complete JSON that defines and deploys the autoscale rules can be found later in the article. 
+Autoscale rules are deployed as JSON (JavaScript Object Notation) with the Azure CLI 2.0. The complete JSON that defines and deploys the autoscale rules can be found later in the article. 
 
 The start of the autoscale profile defines the default, minimum, and maximum scale set capacity. The following example sets the default, and minimum, capacity of *2* VM instances, and a maximum of *10*:
 

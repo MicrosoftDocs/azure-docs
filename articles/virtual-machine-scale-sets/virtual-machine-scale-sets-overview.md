@@ -35,7 +35,7 @@ You can create a scale set in the [Azure portal](https://portal.azure.com) by se
 Scale sets can be deployed to an [availability zone](../availability-zones/az-overview.md).
 
 > [!NOTE]
-> Currently Virtual Machine Scale Sets only supports deploying to a single availability zone. Multi-zone deployment will be supported in the future.
+> Currently virtual machine scale sets only supports deploying to a single availability zone. Multi-zone deployment will be supported in the future.
 
 You can define and deploy scale sets by using JSON templates and [REST APIs](https://msdn.microsoft.com/library/mt589023.aspx), just like individual Azure Resource Manager VMs. Therefore, you can use any standard Azure Resource Manager deployment methods. For more information about templates, see [Authoring Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md).
 
@@ -55,7 +55,7 @@ For basic autoscale rules, you can use host-based performance metrics such as CP
 
 To use more granular performance metrics, you can install and configure the Azure diagnostic extension on VM instances in your scale set. The Azure diagnostic extension allows you to collect additional performance metrics, such as memory consumption, from inside of each VM instance. These performance metrics are streamed to an Azure storage account, and you create autoscale rules to consume this data. For more information, see the articles for how to enable the Azure diagnostics extension on a [Linux VM](../virtual-machines/linux/diagnostic-extension.md) or [Windows VM](../virtual-machines/windows/ps-extensions-diagnostics.md).
 
-The monitor the application performance itself, you can install and configure a small instrumentation package in to your application for App Insights. Detailed performance metrics for the application response time or number of sessions can then be streamed back from your app. You can then create autoscale rules with defined thresholds for the application-level performance itself. For more information about App Insights, see [What is Application Insights](../application-insights/app-insights-overview.md).
+To monitor the application performance itself, you can install and configure a small instrumentation package in to your application for App Insights. Detailed performance metrics for the application response time or number of sessions can then be streamed back from your app. You can then create autoscale rules with defined thresholds for the application-level performance itself. For more information about App Insights, see [What is Application Insights](../application-insights/app-insights-overview.md).
 
 
 ## Manually scaling a scale set out and in
