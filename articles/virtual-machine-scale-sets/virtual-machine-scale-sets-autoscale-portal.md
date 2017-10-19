@@ -29,7 +29,7 @@ To create autoscale rules, you need an existing virtual machine scale set. You c
 
 
 ## Create a rule to automatically scale out
-If your application demand increases, the load on the VM instances in your scale set increases. If this increased load is consistent, rather than just a brief demand, you can configure autoscale rules to increase the number of VM instances in the scale set. When these VM instances are created and your applications are deployed, the scale set starts to distribute traffic to them through the load balancer. You control what metrics to monitor, such as CPU or memory, how long the application load must meet a given threshold, and how many VM instances to add to the scale set.
+If your application demand increases, the load on the VM instances in your scale set increases. If this increased load is consistent, rather than just a brief demand, you can configure autoscale rules to increase the number of VM instances in the scale set. When these VM instances are created and your applications are deployed, the scale set starts to distribute traffic to them through the load balancer. You control what metrics to monitor, such as CPU or disk, how long the application load must meet a given threshold, and how many VM instances to add to the scale set.
 
 1. Open the Azure portal and select **Resource groups** from the menu on the left-hand size of the dashboard.
 2. Select the resource group that contains your scale set, then choose your scale set from the list of resources.
@@ -98,8 +98,8 @@ To see the number and status of VM instances, select **Instances** from the menu
 ![View a list of scale set VM instances](media/virtual-machine-scale-sets-autoscale-portal/view-instances.png)
 
 
-## autoscale based on a schedule
-The previous examples automatically scaled a scale set in or out with basic host metrics such as CPU or memory usage. You can also create autoscale rules based on schedules. These schedule-based rules allow you to automatically scale out the number of VM instances ahead of an anticipated increase in application demand, such as core work hours, and then automatically scale in the number of instances at a time that you anticipate less demand, such as the weekend.
+## Autoscale based on a schedule
+The previous examples automatically scaled a scale set in or out with basic host metrics such as CPU usage. You can also create autoscale rules based on schedules. These schedule-based rules allow you to automatically scale out the number of VM instances ahead of an anticipated increase in application demand, such as core work hours, and then automatically scale in the number of instances at a time that you anticipate less demand, such as the weekend.
 
 1. Choose **Scaling** from the menu on the left-hand side of the scale set window. To delete the existing autoscale rules created in the previous examples, choose the trash can icon.
 
