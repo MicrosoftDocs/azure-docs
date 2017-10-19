@@ -109,7 +109,7 @@ sudo apt update && sudo apt install elasticsearch kibana logstash
 ```
 
 > [!NOTE]
-> Detailed installation instructions , including directory layouts and initial configuration, are maintained on [Elastic's documentation](https://www.elastic.co/guide/en/elastic-stack/current/installing-elastic-stack.html)
+> Detailed installation instructions, including directory layouts and initial configuration, are maintained on [Elastic's documentation](https://www.elastic.co/guide/en/elastic-stack/current/installing-elastic-stack.html)
 
 ## Start Elasticsearch 
 
@@ -125,7 +125,7 @@ This command produces no output, so to verify that Elasticsearch is running on t
 curl -XGET 'localhost:9200/'
 ```
 
-You'll see output like the following if Elasticsearch is running:
+If Elasticsearch is running, you see output like the following:
 
 ```json
 {
@@ -165,7 +165,7 @@ hello azure
 2017-10-11T20:01:08.904Z myVM hello azure
 ```
 
-Set up Logstash to forward the kernel messages from this VM to Elasticsearch. Create a new file in an empty directory called `vm-syslog-logstash.conf` with the following Logstash configuration.
+Set up Logstash to forward the kernel messages from this VM to Elasticsearch. Create a new file in an empty directory called `vm-syslog-logstash.conf` and paste in the following Logstash configuration:
 
 ```Logstash
 input {
@@ -197,7 +197,7 @@ Test this configuration and send data to Elasticsearch with the following comman
 sudo /usr/share/logstash/bin/logstash -f vm-syslog-logstash.conf
 ```
 
-You'll see the output of the syslog entries in your console window echoed as they are sent to Elasticsearch. Use `CTRL+C` to exit out of Logstash once you've sent some data.
+You see the output of the syslog entries in your console window echoed as they are sent to Elasticsearch. Use `CTRL+C` to exit out of Logstash once you've sent some data.
 
 ## Start Kibana and visualize the data in Elasticsearch
 
@@ -223,7 +223,7 @@ Open up the Kibana console and select **Create** to generate a default index bas
 
 ![Browse Syslog events in Kibana](media/elasticsearch-install/kibana-index.png)
 
-Select **Discover** on the Kibana console to search, browse and filter through the syslog events.
+Select **Discover** on the Kibana console to search, browse, and filter through the syslog events.
 
 ![Browse Syslog events in Kibana](media/elasticsearch-install/kibana-search-filter.png)
 
