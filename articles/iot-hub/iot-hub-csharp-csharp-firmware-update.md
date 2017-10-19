@@ -57,46 +57,48 @@ In this section, you create a .NET console app (using C#) that initiates a remot
 
     ![NuGet Package Manager window][img-servicenuget]
 4. Add the following `using` statements at the top of the **Program.cs** file:
-        ```csharp   
-        using Microsoft.Azure.Devices;
-        using Microsoft.Azure.Devices.Shared;
-        ```
+
+ ```csharp   
+using Microsoft.Azure.Devices;
+using Microsoft.Azure.Devices.Shared;
+```
+
 5. Add the following fields to the **Program** class. Replace the multiple placeholder values with the IoT Hub connection string for the hub that you created in the previous section and the ID of your device.
    
-        ```csharp   
-        static RegistryManager registryManager;
-        static string connString = "{iot hub connection string}";
-        static ServiceClient client;
-        static string targetDevice = "{deviceIdForTargetDevice}";
-        ```
+```csharp   
+static RegistryManager registryManager;
+static string connString = "{iot hub connection string}";
+static ServiceClient client;
+static string targetDevice = "{deviceIdForTargetDevice}";
+```
         
 6. Add the following method to the **Program** class. This method polls the device twin for updated status every 500 milliseconds. It writes to the console only when status has actually changed. For this sample, to prevent consuming extra IoT Hub messages in your subscription, polling stops when the device reports a status of **applyComplete** or an error.  
    
-        ```csharp   
-        public static async Task QueryTwinFWUpdateReported(DateTime startTime)
+```csharp   
+public static async Task QueryTwinFWUpdateReported(DateTime startTime)
+{
+    DateTime lastUpdated = startTime;
+
+    while (true)
+    {
+        Twin twin = await registryManager.GetTwinAsync(targetDevice);
+
+        if (twin.Properties.Reported.GetLastUpdated().ToUniversalTime() > lastUpdated.ToUniversalTime())
         {
-            DateTime lastUpdated = startTime;
+            lastUpdated = twin.Properties.Reported.GetLastUpdated().ToUniversalTime();
+            Console.WriteLine("\n" + twin.Properties.Reported["iothubDM"].ToJson());
 
-            while (true)
+            var status = twin.Properties.Reported["iothubDM"]["firmwareUpdate"]["status"].Value;
+            if ((status == "downloadFailed") || (status == "applyFailed") || (status == "applyComplete"))
             {
-                Twin twin = await registryManager.GetTwinAsync(targetDevice);
-
-                if (twin.Properties.Reported.GetLastUpdated().ToUniversalTime() > lastUpdated.ToUniversalTime())
-                {
-                    lastUpdated = twin.Properties.Reported.GetLastUpdated().ToUniversalTime();
-                    Console.WriteLine("\n" + twin.Properties.Reported["iothubDM"].ToJson());
-
-                    var status = twin.Properties.Reported["iothubDM"]["firmwareUpdate"]["status"].Value;
-                    if ((status == "downloadFailed") || (status == "applyFailed") || (status == "applyComplete"))
-                    {
-                        Console.WriteLine("\nStop polling.");
-                        return;
-                    }
-                }
-                await Task.Delay(500);
+                Console.WriteLine("\nStop polling.");
+                return;
             }
         }
-        ```
+        await Task.Delay(500);
+    }
+}
+```
         
 7. Add the following method to the **Program** class:
 
