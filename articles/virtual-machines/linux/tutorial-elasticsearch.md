@@ -187,7 +187,3 @@ In this tutorial, you deployed the Elastic Stack in Azure. You learned how to:
 > * Add data to Elasticsearch from Logstash 
 > * Verify installation and configuration
 > * Open ports and work with data in the Kibana console
-
-Advance to the next tutorial to learn how to monitor Azure infrastrcuture with Elasticsearch.
-
-[!div class="nextstepaction"] Monitor Azure resources with Elasticsearch
