@@ -28,9 +28,9 @@ When moving a Web App _within the same subscription_, you cannot move the upload
 
 If you want to move the SSL certificate with the Web App, follow these steps:
 
-1.	Delete the uploaded certificate from the web app
-2.	Move the App Service app
-3.	Upload the certificate to the moved App Service app
+1.	Delete the uploaded certificate from the Web App
+2.	Move the Web App
+3.	Upload the certificate to the moved Web App
 
 ### Across subscriptions
 
