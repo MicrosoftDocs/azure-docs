@@ -5,7 +5,7 @@
     - name: Customize your search
     - href: overview.md
     - name: Supported countries and markets
-    - href: supported-countries-markets
+    - href: supported-countries-markets.md
 - name: Quickstarts
   expanded: true
   items:
