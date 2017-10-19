@@ -22,6 +22,9 @@ ms.author: rajanaki
 
 This article summarizes supported configurations and components for Azure Site Recovery when replicating and recovering to Azure. For more about Azure Site Recovery requirements, see the [prerequisites](site-recovery-prereq.md).
 
+> [!NOTE]
+> Ensure that you update to the latest version of Site Recovery provider and agent to achieve compatability with the updates in the support matrix.
+
 
 ## Support for deployment options
 

@@ -112,6 +112,16 @@
         "path_to_root": "samples-mediaservices-encoderstandard",
         "url": "https://github.com/Azure-Samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard",
         "branch":"master"
+    },
+    {
+        "path_to_root": "samples-durable-functions",
+        "url": "https://github.com/Azure/azure-functions-durable-extension",
+        "branch":"netcore20"
+    },
+    {
+        "path_to_root": "samples-luis",
+        "url": "https://github.com/Microsoft/Luis-Samples",
+        "branch":"master"
     }
 	]
 }

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/23/2017
+ms.date: 09/29/2017
 ms.author: magoedte
 ---
 
@@ -70,7 +70,7 @@ The agent includes multiple packages. The release file contains the following pa
 
 **Package** | **Version** | **Description**
 ----------- | ----------- | --------------
-omsagent | 1.4.0 | The Operations Management Suite Agent for Linux
+omsagent | 1.4.1 | The Operations Management Suite Agent for Linux
 omsconfig | 1.1.1 | Configuration agent for the OMS Agent
 omi | 1.2.0 | Open Management Infrastructure (OMI) - a lightweight CIM Server
 scx | 1.6.3 | OMI CIM Providers for operating system performance metrics
@@ -88,9 +88,9 @@ The OMS Agent for Linux shares agent binaries with the System Center Operations 
 ### System configuration changes
 After installing the OMS Agent for Linux packages, the following additional system-wide configuration changes are applied. These artifacts are removed when the omsagent package is uninstalled.
 
-* A non-privileged user named: `omsagent` is created. This is the account the omsagent daemon runs as.
-* A sudoers “include” file is created at /etc/sudoers.d/omsagent. This authorizes omsagent to restart the syslog and omsagent daemons. If sudo “include” directives are not supported in the installed version of sudo, these entries are written to /etc/sudoers.
-* The syslog configuration is modified to forward a subset of events to the agent. For more information, see the **Configuring Data Collection** section below
+* A non-privileged user named: `omsagent` is created. The omsagent daemon runs as this account.
+* A sudoers “include” file is created at /etc/sudoers.d/omsagent. This file authorizes the omsagent to restart the syslog and omsagent daemons. If sudo “include” directives are not supported in the installed version of sudo, these entries are written to /etc/sudoers.
+* The syslog configuration is modified to forward a subset of events to the agent. For more information, see the **Configuring Data Collection** section below.
 
 ### Upgrade from a previous release
 Upgrade from versions earlier than 1.0.0-47 is supported in this release. Performing the installation with the `--upgrade` command upgrades all components of the agent to the latest version.
@@ -101,7 +101,7 @@ This section describes how to install the OMS Agent for Linux using a bunndle, w
 
 First you need your OMS workspace ID and key, which you can find by switching to the [OMS classic portal](https://mms.microsoft.com).  On the **Overview** page, from the top menu select **Settings**, and then navigate to **Connected Sources\Linux Servers**.  You see the value to the right of **Workspace ID** and **Primary Key**.  Copy and paste both into your favorite editor.    
 
-1. Download the latest [OMS Agent for Linux (x64)](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/OMSAgent_GA_v1.4.0-45/omsagent-1.4.0-45.universal.x64.sh) or [OMS Agent for Linux x86](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/OMSAgent_GA_v1.4.0-45/omsagent-1.4.0-45.universal.x86.sh) from GitHub.  
+1. Download the latest [OMS Agent for Linux (x64)](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/OMSAgent_GA_v1.4.1-45/omsagent-1.4.1-45.universal.x64.sh) or [OMS Agent for Linux x86](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/OMSAgent_GA_v1.4.1-45/omsagent-1.4.1-45.universal.x86.sh) from GitHub.  
 2. Transfer the appropriate bundle (x86 or x64) to your Linux computer using scp/sftp.
 3. Install the bundle by using the `--install` or `--upgrade` argument. 
 
@@ -173,7 +173,7 @@ sudo /opt/microsoft/omsagent/bin/service_control restart
 If a workspace ID and key were not provided during the bundle installation, the agent must be subsequently registered with Operations Management Suite.
 
 ### Onboarding using the command line
-Run the omsadmin.sh command supplying the workspace id and key for your workspace. This command must be run as root (with sudo elevation):
+Run the omsadmin.sh command supplying the workspace ID and key for your workspace. This command must be run as root (with sudo elevation):
 ```
 cd /opt/microsoft/omsagent/bin
 sudo ./omsadmin.sh -w <WorkspaceID> -s <Shared Key>
@@ -242,7 +242,7 @@ The agent packages can be uninstalled by running the bundle .sh file with the `-
 * The OMS Service Endpoints are not whitelistested in your datacenter 
 
 #### Resolutions
-1. Reonboard to the OMS Service with the OMS Agent for Linux by using the following command with the option `-v` enabled. This allows verbose output of the agent connecting through the proxy to the OMS Service. 
+1. Reonboard to the OMS Service with the OMS Agent for Linux by using the following command with the option `-v` enabled. This settubg allows verbose output of the agent connecting through the proxy to the OMS Service. 
 `/opt/microsoft/omsagent/bin/omsadmin.sh -w <OMS Workspace ID> -s <OMS Workspace Key> -p <Proxy Conf> -v`
 
 2. Review the section [Configuring the agent for use with a proxy server or OMS Gateway](#configuring the-agent-for-use-with-a-proxy-server-or-oms-gateway) to verify you have properly configured the agent to communicate through a proxy server.    
@@ -268,7 +268,7 @@ The agent packages can be uninstalled by running the bundle .sh file with the `-
 3. Reonboard using correct Workspace ID and Workspace Key following the installation instructions earlier in this topic.
 
 ### Issue: You see a 500 and 404 error in the log file right after onboarding
-This is a known issue that occurs on first upload of Linux data into an OMS workspace. This does not affect data being sent or service experience.
+This error is a known issue that occurs on first upload of Linux data into an OMS workspace. This error does not affect data being sent or service experience.
 
 ### Issue: You are not seeing any data in the OMS portal
 

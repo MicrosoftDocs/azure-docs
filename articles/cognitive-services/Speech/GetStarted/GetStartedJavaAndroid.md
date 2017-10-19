@@ -1,68 +1,68 @@
 ---
-title: Bing Speech API in Java on Android | Microsoft Docs
-description: Use the Bing Speech API to develop Android applications that convert spoken audio to text.
+title: Get Started with Microsoft Speech Recognition API in Java on Android | Microsoft Docs
+description: Use Microsoft Speech API to develop Android applications that convert spoken audio to text.
 services: cognitive-services
-author: priyaravi20
-manager: yanbo
+author: zhouwangzw
+manager: wolfma
 
 ms.service: cognitive-services
 ms.technology: speech
 ms.topic: article
-ms.date: 12/09/2016
-ms.author: prrajan
+ms.date: 09/29/2017
+ms.author: zhouwang
 ---
+# Get started with Microsoft speech recognition in Java on Android
 
-# Get started with Bing speech recognition in Java on Android
-With the Bing Speech API, you can develop Android applications that use Microsoft cloud servers to convert spoken audio to text. The API supports real-time streaming, so your application can simultaneously and asynchronously receive partial recognition results at the same time it's sending audio to the service.
+With Microsoft speech recognition API, you can develop iOS applications that use Microsoft cloud-based Speech Service to convert spoken audio to text. The API supports real-time streaming, so your application can simultaneously and asynchronously receive partial recognition results at the same time it is sending audio to the service.
 
-This article uses a sample application to demonstrate how to use the Bing Speech API client library for Android to develop speech-to-text applications in Java for Android devices.
+This article uses a sample application to demonstrate how to use the Microsoft speech client library for Android to develop speech to text applications in Java for Android devices.
 
 ## Prerequisites
 
 ### Platform requirements
-The following example was developed for [Android Studio](http://developer.android.com/sdk/index.html) for Windows in Java.
 
-### Get the client library and example application
-Download the [Bing Speech API client library for Android](https://github.com/microsoft/cognitive-speech-stt-android). Save the downloaded files to a folder of your choice. Inside, there is both a fully buildable example and the SDK library. The buildable example is in the **SpeechRecoExample** directory under **samples**. To find the two libraries you need to use in your own apps, go to **armeabi** > **libs** > **SpeechSDK** and **x86** > **libs** > **SpeechSDK**. The size of the **libandroid_platform.so** file is 22 MB, but it gets reduced to 4 MB at deployment time. 
+The sample is developed by [Android Studio](http://developer.android.com/sdk/index.html) for Windows in Java.
 
-### Subscribe to the Bing Speech API, and get a free-trial subscription key 
-Before you create the example, you must subscribe to the Bing Speech API, which is part of Microsoft Cognitive Services on Azure. Select the yellow **Try for free** button on one of the offered services, in this case Speech API, and follow the directions. 
+### Get the client library and sample application
 
-For subscription and key management details, see [Subscriptions](https://www.microsoft.com/cognitive-services/en-us/sign-up). Both the primary and secondary keys can be used in this tutorial. 
+The Microsoft speech client library and samples for Android is available on [Speech Client SDK for Android](https://github.com/microsoft/cognitive-speech-stt-android). The buildable sample can be found under the `samples/SpeechRecoExample` directory. The two libraries you need to use in your own apps can be found in `SpeechSDK/libs` under the `armeabi` and the `x86` folder. The size of `libandroid_platform.so` file is 22 MB but gets reduced to 4 MB at deploy time.
 
-## Step 1: Install the example application, and create the application framework
+#### Subscribe to Speech API and get a free trial subscription key
 
-Create an Android application project to implement use of the Bing Speech API.
+Microsoft Speech API is part of Microsoft Cognitive Services on Azure(previously Project Oxford). You can get free trial subscription keys from the [Cognitive Services Subscription](https://azure.microsoft.com/try/cognitive-services/) page. After you select the Speech API, click Get API Key to get the key. It returns a primary and secondary key. Both keys are tied to the same quota, so you may use either key.
 
-1. Open the **Android Studio.Import build.gradle** package under **samples/SpeechRecoExample**.
+If you want to use *Recognition with intent*, you also need to sign up [Language Understanding Intelligent Service (LUIS)](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
 
-2. Paste your subscription key into the **primaryKey** string in the **..\samples\SpeechRecoExample\res\values** folder. 
-    
-    >[!NOTE]
-    >If you don't want to use intent at this point, you don't have to worry about the LUIS values.
+> [!IMPORTANT]
+> **Get a subscription key**
+>
+> You must have a [subscription key](https://azure.microsoft.com/try/cognitive-services/) before using speech client libraries.
+>
+> **Use your subscription key**
+>
+>  With the provided Android sample application, you need to update the file samples/SpeechRecoExample/res/values/strings.xml with your subscription keys. See more information below: [Build and run samples](#build-and-run-samples).
 
-3. Create a new application project.
+## Use speech client library
 
-4. Use files downloaded from the **speech_SpeechToText-SDK-Android** zip package to do the following:
+Follow the [instructions](https://github.com/microsoft/cognitive-speech-stt-android#the-client-library) to use the client library in your application.
 
-    a. Go to **Bin** > **SpeechSDK**, and copy the **speechsdk.jar** file to the **your-application\app\libs** folder.
+The Client Library Reference for iOS can be found in the `docs` folder of the [Speech Client SDK for Android](https://github.com/microsoft/cognitive-speech-stt-android).
 
-    b. Right-click **app** in the project tree, and select **Open module settings**. Select the **Dependencies** tab, and select **+** to add a **File dependency**.
+## Build and run samples
 
-    c. In the **Select Path** dialog box, select **libs\speechsdk.jar**.
+This [README page](https://github.com/microsoft/cognitive-speech-stt-android#the-sample) describes how to build and run samples.
 
-    d. Copy the **libandroid_platform.so** file to the **your-application\app\src\main\jniLibs\armeabi** folder.
+## Samples explained
 
-You can now run the example application or continue with the following instructions to build your own application.
+### Create recognition clients
 
-## Step 2: Build the example application
-Open [MainActivity.java](https://oxfordportal.blob.core.windows.net/example-speech/MainActivity.java). Or in the downloaded **speech_SpeechToText-SDK-Android** zip package, go to **AzureIntelligentServicesExample** > **microsoft** > **com** > **src** > **SpeechRecoExample** > **samples** > **MainActivity.java**. You need the subscription key you generated previously. After you add your subscription key to the application, notice that you use **SpeechRecognitionServiceFactory** to create a client of your liking. 
+The following code in the sample shows how to create recognition client classes based on user scenarios.
 
-```
+```java
 void initializeRecoClient()
     {
         String language = "en-us";
-        
+
         String subscriptionKey = this.getString(R.string.subscription_key);
         String luisAppID = this.getString(R.string.luisAppID);
         String luisSubscriptionID = this.getString(R.string.luisSubscriptionID);
@@ -70,7 +70,7 @@ void initializeRecoClient()
         if (m_isMicrophoneReco && null == m_micClient) {
             if (!m_isIntent) {
                 m_micClient = SpeechRecognitionServiceFactory.createMicrophoneClient(this,
-                                                                                     m_recoMode, 
+                                                                                     m_recoMode,
                                                                                      language,
                                                                                      this,
                                                                                      subscriptionKey);
@@ -90,14 +90,14 @@ void initializeRecoClient()
         else if (!m_isMicrophoneReco && null == m_dataClient) {
             if (!m_isIntent) {
                 m_dataClient = SpeechRecognitionServiceFactory.createDataClient(this,
-                                                                                m_recoMode, 
+                                                                                m_recoMode,
                                                                                 language,
                                                                                 this,
                                                                                 subscriptionKey);
             }
             else {
                 DataRecognitionClientWithIntent intentDataClient;
-                intentDataClient = SpeechRecognitionServiceFactory.createDataClientWithIntent(this, 
+                intentDataClient = SpeechRecognitionServiceFactory.createDataClientWithIntent(this,
                                                                                               language,
                                                                                               this,
                                                                                               subscriptionKey,
@@ -109,58 +109,46 @@ void initializeRecoClient()
     }
 
 ```
-### Create a client
-Create one of the following clients:
 
-* **DataRecognitionClient**. Speech recognition with PCM data, for example, from a file or audio source. The data is broken up into buffers, and each buffer is sent to the speech recognition service. No modification is done to the buffers, so the user can apply their own silence detection if desired. If the data is provided from wave files, you can send data from the file directly to the server. If you have raw data--for example, audio coming over Bluetooth--you first send a format header to the server, followed by the data.
+The client library provides pre-implemented recognition client classes for typical scenarios in speech recognition.
 
-* **MicrophoneRecognitionClient**. Speech recognition with audio coming from the microphone. Make sure the microphone is turned on. Data from the microphone is sent to the speech recognition service. A built-in silence detector is applied to the microphone data before it's sent to the recognition service.
+* `DataRecognitionClient`: speech recognition with PCM data (for example from a file or audio source). The data is broken up into buffers and each buffer is sent to the Speech Service. No modification is done to the buffers, so the user can apply their own Silence Detection if desired. If the data is provided from wave files, you can send data from the file right to the Speech Service. If you have raw data, for example audio coming over Bluetooth, then you first send a format header to the Speech Service followed by the data.
 
-* **WithIntent clients**. Use **WithIntent** if you want the server to return additional structured information about the speech to be used by apps to parse the intent of the speaker and drive further actions by the app. To use intent, you need to train a model and get an AppID and a secret. For more information, see the [LUIS](https://www.luis.ai/) project.
+* `MicrophoneRecognitionClient`: speech recognition with audio coming from the microphone. Make sure the microphone is turned on and data from the microphone is sent to the speech recognition service. A built-in "Silence Detector" is applied to the microphone data before it is sent to the recognition service.
 
-### Select a locale
-When you use SpeechRecognitionServiceFactory to create the client, you must select a language.
+* `DataRecognitionClientWithIntent` and `MicrophoneRecognitionClientWithIntent`: these clients return, in addition to recognition text, structured information about the intent of the speaker, which could be used drive further actions by your applications. To use Intent, you need to first train a model using [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
 
-Supported locales include:
+### Recognition language
 
-language-Country |language-Country | language-Country |language-Country 
----------|----------|--------|------------------
-de-DE    |   zh-TW  | zh-HK  |    ru-RU 
-es-ES    |   ja-JP  | ar-EG* |    da-DK 
-en-GB    |   en-IN  | fi-FI  |    nl-NL 
-en-US    |   pt-BR  | pt-PT  |    ca-ES
-fr-FR    |   ko-KR  | en-NZ  |    nb-NO
-it-IT    |   fr-CA  | pl-PL  |    es-MX
-zh-CN    |   en-AU  | en-CA  |    sv-SE  
-*ar-EG supports Modern Standard Arabic (MSA).
+When you use the `SpeechRecognitionServiceFactory` to create the Client, you must select a language. The complete list of languages supported by the Speech Service can be found in the page [Supported Languages](../API-Reference-REST/supportedlanguages.md).
 
-### Select a recognition mode
-You also need to provide the recognition mode: 
+### `SpeechRecognitionMode`
 
-* **ShortPhrase mode**. An utterance up to 15 seconds long. As data is sent to the service, the client receives multiple partial results and one final multiple n-best choice result.
-* **LongDictation mode**. An utterance up to two minutes long. As data is sent to the service, the client receives multiple partial results and multiple final results, based on where the server identifies sentence pauses.
+You also need to specify `SpeechRecognitionMode` when creating the Client with `SpeechRecognitionServiceFactory`.
 
-### Attach an event handler
-From the created client, you can attach various event handlers:
+* `ShortPhrase`: An utterance up to 15 seconds long. As data is sent to the service, the client receives multiple partial results and one final result with multiple n-best choices.
 
-* **Partial results events**. This event gets called every time the speech recognition server has an idea of what you might be saying. It's called even before you finish speaking (if you use the microphone client) or finish sending data (if you use the data client).
-* **Error events**. This event is called when the server detects an error.
-* **Intent events**. This event is called on WithIntent clients (only in ShortPhrase mode) after the final reco result is parsed into a structured JSON intent.
-* **Result events**. This event is called when you finish speaking (in ShortPhrase mode). You're provided with n-best choices for the result. In LongDictation mode, the handlers associated with this event are called multiple times, based on where the server identifies sentence pauses.
+* `LongDictation`: An utterance up to 2 minutes long. As data is sent to the service, the client receives multiple partial results and multiple final results, based on where the service identifies sentence pauses.
 
-### Select a confidence value and text form
-For each of the n-best choices, you get a confidence value and a few different forms of the recognized text:
+### Attach event handlers
 
-* **LexicalForm**. This form is optimal for use by applications that need the raw, unprocessed speech-recognition result.
-* **DisplayText**. The recognized phrase with inverse text normalization (ITN), capitalization, punctuation, and profanity masking applied. Profanity is masked with asterisks after the initial character, for example, "d***". This form is optimal for use by applications that display the speech recognition results to users.
-* **Inverse Text Normalization**. ITN is also applied. For example, ITN converts the result text "go to fourth street" to "go to 4th St". This form is optimal for use by applications that display the speech recognition results to users.
-* **InverseTextNormalizationResult**. ITN converts phrases like "one two three four" to a normalized form, such as "1234". Another example converts the result text "go to fourth street" to "go to 4th St". This form is optimal for use by applications that interpret the speech recognition results as commands or that perform queries based on the recognized text.
-* **MaskedInverseTextNormalizationResult**. The recognized phrase with ITN and profanity masking applied, but not capitalization or punctuation. Profanity is masked with asterisks after the initial character, for example, "d***". This form is optimal for use by applications that display the speech recognition results to users. ITN is also applied. For example, ITN converts the result text "go to fourth street" to "go to 4th St". This form is optimal for use by applications that use the unmasked ITN results but also need to display the command or query to users.
+You can attach various event handlers to the client you created.
 
-## Step 3: Run the example application
-Run the application with the chosen clients, recognition modes, and event handlers.
+* **Partial Results Events:** This event gets called every time when the Speech Service predicts what you might be saying - even before you finish speaking (if you are using `MicrophoneRecognitionClient`) or have finished sending data (if you are using `DataRecognitionClient`).
+
+* **Error Events:** Called when the service detects an Error.
+
+* **Intent Events:** Called on "WithIntent" clients (only in ShortPhrase mode) after the final recognition result has been parsed into a structured JSON intent.
+
+* **Result Events:**
+  * In `ShortPhrase` mode, this event is called and returns n-best results after you finish speaking.
+  * In `LongDictation` mode, the event handler is called multiple times, based on where the service identifies sentence pauses.
+  * **For each of the n-best choices**, a confidence value and a few different forms of the recognized text are returned. For more information, see the [output format](../Concepts.md#output-format) page.
 
 ## Related topics
-* [Get started with Bing speech recognition in C# for .NET on Windows](GetStartedCSharpDesktop.md)
-* [Get started with Bing speech recognition in Objective-C on iOS](Get-Started-ObjectiveC-iOS.md)
-* [Get started with the Bing Speech API in JavaScript](GetStartedJS.md)
+
+* [Client Library Reference for Android](https://github.com/Azure-Samples/Cognitive-Speech-STT-Android/tree/master/docs)
+* [Get Started with Microsoft Speech API in C# for Windows in .NET](GetStartedCSharpDesktop.md)
+* [Get Started with Microsoft Speech API in Objective C on iOS](Get-Started-ObjectiveC-iOS.md)
+* [Get started with Microsoft Speech API in JavaScript](GetStartedJSWebsockets.md)
+* [Get started with Microsoft Speech API via REST](GetStartedREST.md)

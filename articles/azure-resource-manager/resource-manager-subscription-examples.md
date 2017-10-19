@@ -43,8 +43,8 @@ Dave creates a subscription to support developer tools that are common across al
 | Item | Name | Description |
 | --- | --- | --- |
 | Subscription |Contoso ETS DeveloperTools Production |Supports common developer tools |
-| Resource Group |rgBitBucket |Contains the application web server and database server |
-| Resource Group |rgCoreNetworks |Contains the virtual networks and site-to-site gateway connection |
+| Resource Group |bitbucket-prod-rg |Contains the application web server and database server |
+| Resource Group |corenetworks-prod-rg |Contains the virtual networks and site-to-site gateway connection |
 
 ### Role-based access control
 After creating his subscription, Dave wants to ensure that the appropriate teams and application owners can access their resources. Dave recognizes that each team has different requirements. He utilizes the groups that have been synced from Contoso's on-premises Active Directory (AD) to Azure Active Directory, and provides the right level of access to the teams.
@@ -53,9 +53,9 @@ Dave assigns the following roles for the subscription:
 
 | Role | Assigned to | Description |
 | --- | --- | --- |
-| [Owner](../active-directory/role-based-access-built-in-roles.md#owner) |Managed ID from Contoso's AD |This ID is controlled with Just in Time (JIT) access through Contoso's Identity Management tool and ensures that subscription owner access is fully audited. |
-| [Security Manager](../active-directory/role-based-access-built-in-roles.md#security-manager) |Security and risk management department |This role allows users to look at the Azure Security Center and the status of the resources. |
-| [Network Contributor](../active-directory/role-based-access-built-in-roles.md#network-contributor) |Network team |This role allows Contoso's network team to manage the Site to Site VPN and the Virtual Networks. |
+| [Owner](../active-directory/role-based-access-built-in-roles.md#owner) |Managed ID from Contoso's AD |This ID is controlled with Just in Time (JIT) access through Contoso's Identity Management tool and ensures that subscription owner access is fully audited |
+| [Security Manager](../active-directory/role-based-access-built-in-roles.md#security-manager) |Security and risk management department |This role allows users to look at the Azure Security Center and the status of the resources |
+| [Network Contributor](../active-directory/role-based-access-built-in-roles.md#network-contributor) |Network team |This role allows Contoso's network team to manage the Site to Site VPN and the Virtual Networks |
 | *Custom role* |Application owner |Dave creates a role that grants the ability to modify resources within the resource group. For more information, see [Custom Roles in Azure RBAC](../active-directory/role-based-access-control-custom-roles.md) |
 
 ### Policies
@@ -82,8 +82,8 @@ He adds the following [tags](resource-group-using-tags.md) to the resource group
 
 | Tag name | Tag value |
 | --- | --- |
-| ApplicationOwner |The name of the person who manages this application. |
-| CostCenter |The cost center of the group that is paying for the Azure consumption. |
+| ApplicationOwner |The name of the person who manages this application |
+| CostCenter |The cost center of the group that is paying for the Azure consumption |
 | BusinessUnit |**ETS** (the business unit associated with the subscription) |
 
 ### Core network
@@ -93,9 +93,9 @@ He creates the following resources:
 
 | Resource type | Name | Description |
 | --- | --- | --- |
-| Virtual Network |vnInternal |Used with the BitBucket application and is connected via ExpressRoute to Contoso's corporate network.  A subnet (sbBitBucket) provides the application with a specific IP address space. |
-| Virtual Network |vnExternal |Available for future applications that require public-facing endpoints. |
-| Network Security Group |nsgBitBucket |Ensures that the attack surface of this workload is minimized by allowing connections only on port 443 for the subnet where the application lives (sbBitBucket). |
+| Virtual Network |internal-vnet |Used with the BitBucket application and is connected via ExpressRoute to Contoso's corporate network.  A subnet (`bitbucket`) provides the application with a specific IP address space |
+| Virtual Network |external-vnet |Available for future applications that require public-facing endpoints |
+| Network Security Group |bitbucket-nsg |Ensures that the attack surface of this workload is minimized by allowing connections only on port 443 for the subnet where the application lives (`bitbucket`) |
 
 ### Resource locks
 Dave recognizes that the connectivity from Contoso's corporate network to the internal virtual network must be protected from any wayward script or accidental deletion.
@@ -104,7 +104,7 @@ He creates the following [resource lock](resource-group-lock-resources.md):
 
 | Lock type | Resource | Description |
 | --- | --- | --- |
-| **CanNotDelete** |vnInternal |Prevents users from deleting the virtual network or subnets, but does not prevent the addition of new subnets. |
+| **CanNotDelete** |internal-vnet |Prevents users from deleting the virtual network or subnets, but does not prevent the addition of new subnets |
 
 ### Azure Automation
 Dave has nothing to automate for this application. Although he created an Azure Automation account, he won't initially use it.
@@ -122,8 +122,8 @@ Dave logs in to the Azure Enterprise Portal and sees that the supply chain depar
 
 | Subscription use | Name |
 | --- | --- |
-| Development |SupplyChain ResearchDevelopment LoyaltyCard Development |
-| Production |SupplyChain Operations LoyaltyCard Production |
+| Development |Contoso SupplyChain ResearchDevelopment LoyaltyCard Development |
+| Production |Contoso SupplyChain Operations LoyaltyCard Production |
 
 ### Policies
 Dave and Alice discuss the application and identify that this application only serves customers in the North American region.  Alice and her team plan to use Azure's Application Service Environment and Azure SQL to create the application. They may need to create virtual machines during development.  Alice wants to ensure that her developers have the resources they need to explore and examine problems without pulling in ETS.
@@ -132,7 +132,7 @@ For the **development subscription**, they create the following policy:
 
 | Field | Effect | Description |
 | --- | --- | --- |
-| location |audit |Audit the creation of the resources in any region. |
+| location |audit |Audit the creation of the resources in any region |
 
 They do not limit the type of sku a user can create in development, and they do not require tags for any resource groups or resources.
 
@@ -140,10 +140,10 @@ For the **production subscription**, they create the following policies:
 
 | Field | Effect | Description |
 | --- | --- | --- |
-| location |deny |Deny the creation of any resources outside of the US data centers. |
+| location |deny |Deny the creation of any resources outside of the US data centers |
 | tags |deny |Require application owner tag |
-| tags |deny |Require department tag. |
-| tags |append |Append tag to each resource group that indicates production environment. |
+| tags |deny |Require department tag |
+| tags |append |Append tag to each resource group that indicates production environment |
 
 They do not limit the type of sku a user can create in production.
 
@@ -152,9 +152,9 @@ Dave understands that he needs to have specific information to identify the corr
 
 | Tag name | Tag value |
 | --- | --- |
-| ApplicationOwner |The name of the person who manages this application. |
-| Department |The cost center of the group that is paying for the Azure consumption. |
-| EnvironmentType |**Production** (Even though the subscription includes **Production** in the name, including this tag enables easy identification when looking at resources in the portal or on the bill.) |
+| ApplicationOwner |The name of the person who manages this application |
+| Department |The cost center of the group that is paying for the Azure consumption |
+| EnvironmentType |**Production** (Even though the subscription includes **Production** in the name, including this tag enables easy identification when looking at resources in the portal or on the bill) |
 
 ### Core networks
 The Contoso ETS information security and risk management team reviews Dave's proposed plan to move the application to Azure. They want to ensure that the Loyalty Card application is properly isolated and protected in a DMZ network.  To fulfill this requirement, Dave and Alice create an external virtual network and a network security group to isolate the Loyalty Card application from the Contoso corporate network.  
@@ -163,14 +163,14 @@ For the **development subscription**, they create:
 
 | Resource type | Name | Description |
 | --- | --- | --- |
-| Virtual Network |vnInternal |Serves the Contoso Loyalty Card development environment and is connected via ExpressRoute to Contoso's corporate network. |
+| Virtual Network |internal-vnet |Serves the Contoso Loyalty Card development environment and is connected via ExpressRoute to Contoso's corporate network |
 
 For the **production subscription**, they create:
 
 | Resource type | Name | Description |
 | --- | --- | --- |
-| Virtual Network |vnExternal |Hosts the Loyalty Card application and is not connected directly to Contoso's ExpressRoute. Code is pushed via their Source Code system directly to the PaaS services. |
-| Network Security Group |nsgBitBucket |Ensures that the attack surface of this workload is minimized by only allowing in-bound communication on TCP 443.  Contoso is also investigating using a Web Application Firewall for additional protection. |
+| Virtual Network |external-vnet |Hosts the Loyalty Card application and is not connected directly to Contoso's ExpressRoute. Code is pushed via their Source Code system directly to the PaaS services |
+| Network Security Group |loyaltycard-nsg |Ensures that the attack surface of this workload is minimized by only allowing in-bound communication on TCP 443.  Contoso is also investigating using a Web Application Firewall for additional protection |
 
 ### Resource locks
 Dave and Alice confer and decide to add resource locks on some of the key resources in the environment to prevent accidental deletion during an errant code push.
@@ -179,7 +179,7 @@ They create the following lock:
 
 | Lock type | Resource | Description |
 | --- | --- | --- |
-| **CanNotDelete** |vnExternal |To prevent people from deleting the virtual network or subnets. The lock does not prevent the addition of new subnets. |
+| **CanNotDelete** |external-vnet |To prevent people from deleting the virtual network or subnets. The lock does not prevent the addition of new subnets |
 
 ### Azure Automation
 Alice and her development team have extensive runbooks to manage the environment for this application. The runbooks allow for the addition/deletion of nodes for the application and other DevOps tasks.
@@ -193,4 +193,3 @@ To fulfill these requirements, Dave enables Azure Security Center. He ensures th
 
 ## Next steps
 * To learn about creating Resource Manager templates, see [Best practices for creating Azure Resource Manager templates](resource-manager-template-best-practices.md).
-

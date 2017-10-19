@@ -12,31 +12,43 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2017
+ms.date: 10/12/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
 
 ---
 # Azure Active Directory reporting FAQ
 
-This article includes answers to frequently asked questions (FAQs) about Azure Active Directory reporting.  
-For more details, see [Azure Active Directory reporting](active-directory-reporting-azure-portal.md). 
+This article includes answers to frequently asked questions about Azure Active Directory (Azure AD) reporting. For more information, see [Azure Active Directory reporting](active-directory-reporting-azure-portal.md). 
+
+**Q: I am using the https://graph.windows.net/&lt;tenant-name&gt;/reports/ endpoint APIs to pull Azure AD audit and integrated application usage reports into our reporting systems programmatically. What should I switch to?**
+
+**A:** Look up our [API reference documentation](https://developer.microsoft.com/graph/) to see how you can use the new APIs to access [activity reports](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal). This endpoint has two reports (Audit and Sign-ins) which provide all the data you got in the old API endpoint. This new endpoint also has a sign-ins report with the Azure AD Premium license that you can use to get app usage, device usage, and user sign-in information.
+
+
+--- 
+
+**Q: I am using the https://graph.windows.net/&lt;tenant-name&gt;/reports/ endpoint APIs to pull Azure AD security reports (specific types of detections, such as leaked credentials or sign-ins from anonymous IP addresses) into our reporting systems programmatically. What should I switch to?**
+
+**A:** You can use the [Identity Protection risk events API](active-directory-identityprotection-graph-getting-started.md) to access security detections through Microsoft Graph. This new format gives greater flexibility in how you can query data, with advanced filtering, field selection, and more, and standardizes risk events into one type for easier integration into SIEMs and other data collection tools. Because the data is in a different format, you can't substitute a new query for your old queries. However, [the new API uses Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent), which is the Microsoft standard for such APIs as O365 or Azure AD. So the work required can either extend your current MS Graph investments or help you begin your transition to this new standard platform.
+
+--- 
 
 **Q: What is the data retention for activity logs (Audit and Sign-ins) in the Azure portal?** 
 
-**A:** We provide 7 days of data for our free customers and by switching to an Azure AD Premium 1 or Premium 2 license, you can access data for up to 30 days. For more details on retention, see [Azure Active Directory report retention policies](active-directory-reporting-retention.md)
+**A:** We provide 7 days of data for our free customers, or you can access data for up to 30 days by purchasing an Azure AD Premium 1 or Premium 2 license. For more information on report retention, see [Azure Active Directory report retention policies](active-directory-reporting-retention.md).
 
 --- 
 
 **Q: How long does it take until I can see the Activity data after I have completed my task?**
 
-**A:** Audit activity logs have a latency ranging from 15 mins to an hour. Sign-in activity logs have a latency ranging from 15 mins for most records and up to 2 hours for a few records.
+**A:** Audit activity logs have a latency ranging from 15 minutes to an hour. Sign-in activity logs can take from 15 minutes to up to 2 hours for some records.
 
 ---
 
-**Q: Do I need to be a global admin to see the activity logs in the Azure Portal or to get data through the API?**
+**Q: Do I need to be a global admin to see the activity sign-ins to the Azure portal or to get data through the API?**
 
-**A:** No. You can either be a **Security Reader**, a **Security Admin** or a **Global Admin** to see reporting data in Azure Portal or by accessing it through the API.
+**A:** No. You must be a **Security Reader**, a **Security Admin**, or a **Global Admin** to get reporting data in the Azure portal or through the API.
 
 ---
 
@@ -101,7 +113,7 @@ For more details, see [Azure Active Directory reporting](active-directory-report
 
 ---
 
-**Q: How are IP addresses calculated in the sign-ins and risky sign-ins report??**
+**Q: How are IP addresses calculated in the sign-ins and risky sign-ins report?**
 
 **A:** IP addresses are issued in such a way that there is no definitive connection between an IP address and where the computer with that address is physically located. This is complicated by factors such as mobile providers and VPNs issuing IP addresses from central pools often very far from where the client device is actually used. Given the above, converting IP address to a physical location is a best effort based on traces, registry data, reverse look ups and other information. 
 

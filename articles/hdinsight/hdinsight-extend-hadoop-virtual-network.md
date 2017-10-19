@@ -294,6 +294,7 @@ If you use network security groups or user-defined routes, you must allow traffi
     | &nbsp; | UK South | 51.140.47.39</br>51.140.52.16 | 443 | Inbound |
     | United States | Central US | 13.67.223.215</br>40.86.83.253 | 443 | Inbound |
     | &nbsp; | North Central US | 157.56.8.38</br>157.55.213.99 | 443 | Inbound |
+    | &nbsp; | East US 2 EUAP | 52.138.65.49</br>52.138.66.134 | 443 | Inbound |
     | &nbsp; | West Central US | 52.161.23.15</br>52.161.10.167 | 443 | Inbound |
     | &nbsp; | West US 2 | 52.175.211.210</br>52.175.222.222 | 443 | Inbound |
 
@@ -668,7 +669,8 @@ After completing these steps, you can connect to resources in the virtual networ
 ## Next steps
 
 * For an end-to-end example of configuring HDInsight to connect to an on-premises network, see [Connect HDInsight to an on-premises network](./connect-on-premises-network.md).
-
+* For configuring Hbase clusters in Azure virtual networks, see [Create HBase clusters on HDInsight in Azure Virtual Network](./hdinsight-hbase-provision-vnet.md).
+* For configuring HBase geo-replication, see [Set up HBase cluster replication in Azure virtual networks](./hdinsight-hbase-replication.md).
 * For more information on Azure virtual networks, see the [Azure Virtual Network overview](../virtual-network/virtual-networks-overview.md).
 
 * For more information on network security groups, see [Network security groups](../virtual-network/virtual-networks-nsg.md).

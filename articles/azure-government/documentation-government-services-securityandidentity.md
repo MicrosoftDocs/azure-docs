@@ -1,7 +1,7 @@
    
 ---
 title: Azure Government Security + Identity | Microsoft Docs
-description: This provides a comparision of features and guidance on developing applications for Azure Government
+description: This article provides a comparision of features and guidance on developing applications for Azure Government
 services: azure-government
 cloud: gov
 documentationcenter: ''
@@ -20,37 +20,38 @@ ms.author: zsk0646
 ---
 # Azure Government Security + Identity
 ## Key Vault
-Key Vault is generally available in Azure Government.
+For details about Azure Key Vault and how to use it, see the [Azure Key Vault public documentation](../key-vault/index.md).
 
-For details on this service and how to use it, see the [Azure Key Vault public documentation](../key-vault/index.md).
-
-### Data Considerations
+### Data considerations
 The following information identifies the Azure Government boundary for Azure Key Vault:
 
-| Regulated/controlled data permitted | Regulated/controlled data not permitted |
+| Regulated/controlled data that's permitted | Regulated/controlled data that's not permitted |
 | --- | --- |
-| All data encrypted with an Azure Key Vault key may contain Regulated/controlled data. |Azure Key Vault metadata is not permitted to contain export-controlled data. This metadata includes all configuration data entered when creating and maintaining your Key Vault.  Do not enter Regulated/controlled data into the following fields: **Resource group names, Key Vault names, Subscription name** |
+|All data that's encrypted with Azure Key Vault key might contain regulated or controlled data. |Azure Key Vault metadata cannot contain export-controlled data. This metadata includes all configuration data that you enter while creating and maintaining  Key Vault.  Do not enter regulated or controlled data into the following fields: **Resource group names**, **Key Vault names**, **Subscription names**.|
+
+Key Vault is generally available in Azure Government.
+
 
 ## Azure Active Directory Premium
 Azure Active Directory Premium is in Limited Preview in Azure Government.
 
-For details on this service and how to use it, see the [Azure Active Directory Documentation](../active-directory/index.md). For details on how to sign up for Preview, see the [announcement blog](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/07/azure-active-directory-premium-is-now-in-limited-preview-in-us-government-cloud/).
+For details about this service and how to use it, see the [Azure Active Directory Documentation](../active-directory/index.md). For details about how to sign up for Preview, see the [announcement blog](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/07/azure-active-directory-premium-is-now-in-limited-preview-in-us-government-cloud/).
 
 ### Variations
 
-Following Azure Active Directory Premium features are currently not available in Azure Government:
+The following Azure Active Directory Premium features are currently not available in Azure Government:
 
-  * B2B Collaboration [Vote for this feature](https://feedback.azure.com/forums/558487-azure-government/suggestions/20588554-azure-ad-b2b-in-azure-government)
+  * B2B collaboration ([vote for this feature](https://feedback.azure.com/forums/558487-azure-government/suggestions/20588554-azure-ad-b2b-in-azure-government))
 
-  * Group-Based Licensing
+  * Group-based licensing
 
-  * Azure Active Directory App Gallery
+  * Azure Active Directory app gallery
 
-  * Azure Active Directory Domain Services
+  * Azure Active Directory domain services
 
-  * Intune enabled Conditional Access scenarios
+  * Intune-enabled conditional access scenarios
 
-## Next Steps
+## Next steps
 For supplemental information and updates, subscribe to the
-<a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government Blog. </a>
+<a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government blog. </a>
 

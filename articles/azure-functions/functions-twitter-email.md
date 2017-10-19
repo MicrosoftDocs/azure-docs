@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2017
+ms.date: 10/04/2017
 ms.author: glenga
 ms.custom: mvc
 ---
@@ -23,7 +23,7 @@ ms.custom: mvc
 
 Azure Functions integrates with Azure Logic Apps in the Logic Apps Designer. This integration lets you use the computing power of Functions in orchestrations with other Azure and third-party services. 
 
-This tutorial shows you how to use Functions with Logic Apps and Azure Cognitive Services to analyze sentiment from Twitter posts. An HTTP triggered function categorizes tweets as green, yellow, or red based on the sentiment score. An email is sent when poor sentiment is detected. 
+This tutorial shows you how to use Functions with Logic Apps and Microsoft Cognitive Services on Azure to analyze sentiment from Twitter posts. An HTTP triggered function categorizes tweets as green, yellow, or red based on the sentiment score. An email is sent when poor sentiment is detected. 
 
 ![image first two steps of app in Logic App Designer](media/functions-twitter-email/designer1.png)
 
@@ -54,7 +54,7 @@ A Cognitive Services account is required to detect the sentiment of tweets being
 
 3. Click **Data + Analytics** > **Cognitive  Services**. Then, use the settings as specified in the table, accept the terms, and check **Pin to dashboard**.
 
-    ![Create Cognitive account blade](media/functions-twitter-email/cog_svcs_account.png)
+    ![Create Cognitive account page](media/functions-twitter-email/cog_svcs_account.png)
 
     | Setting      |  Suggested value   | Description                                        |
     | --- | --- | --- |
@@ -126,11 +126,12 @@ Now you have a function that categorizes sentiment scores. Next, you create a lo
     | Setting      |  Suggested value   | Description                                        |
     | ----------------- | ------------ | ------------- |
     | **Name** | TweetSentiment | Choose an appropriate name for your app. |
-    | **Resource group** | myResourceGroup | API used to analyze text.  |
-    | **Location** | East US | Choose a location close to you. |
-    | **Resource group** | myResourceGroup | Choose the same existing resource group as before.|
+    | **Resource group** | myResourceGroup | Choose the same existing resource group as before. |
+    | **Location** | East US | Choose a location close to you. |    
 
-4. Click **Create** to create your logic app. After the app is created, click your new logic app pinned to the dashboard. Then in the Logic Apps Designer, scroll down and click the **Blank Logic App** template. 
+4. Choose **Pin to dashboard**, and then click **Create** to create your logic app. 
+
+5. After the app is created, click your new logic app pinned to the dashboard. Then in the Logic Apps Designer, scroll down and click the **Blank Logic App** template. 
 
     ![Blank Logic Apps template](media/functions-twitter-email/blank.png)
 
@@ -148,11 +149,11 @@ First, create a connection to your Twitter account. The logic app polls for twee
 
     | Setting      |  Suggested value   | Description                                        |
     | ----------------- | ------------ | ------------- |
-    | **Search text** | #Azure | Use a hashtag that is popular enough for to generate new tweets in the chosen interval. When using the Free tier and your hashtag is too popular, you can quickly use up the transactions in your Cognitive Services account. |
+    | **Search text** | #Azure | Use a hashtag that is popular enough to generate new tweets in the chosen interval. When using the Free tier and your hashtag is too popular, you can quickly use up the transactions in your Cognitive Services account. |
     | **Frequency** | Minute | The frequency unit used for polling Twitter.  |
     | **Interval** | 15 | The time elapsed between Twitter requests, in frequency units. |
 
-3.  Click **Save** to connect to your Twitter account. 
+3.  Click  **Save** to connect to your Twitter account. 
 
 Now your app is connected to Twitter. Next, you connect to text analytics to detect the sentiment of collected tweets.
 
@@ -207,7 +208,7 @@ The last part of the workflow is to trigger an email when the sentiment is score
 
 4. In the **Send an email** action, use the email settings as specified in the table. 
 
-    ![Configure the email for the send an email action.](media/functions-twitter-email/sendemail.png)
+    ![Configure the email for the send an email action.](media/functions-twitter-email/sendEmail.png)
 
     | Setting      |  Suggested value   | Description  |
     | ----------------- | ------------ | ------------- |

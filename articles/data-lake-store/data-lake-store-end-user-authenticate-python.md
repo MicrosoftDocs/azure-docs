@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/28/2017
+ms.date: 10/11/2017
 ms.author: nitinme
 
 ---
 # End-user authentication with Data Lake Store using Python
 > [!div class="op_single_selector"]
+> * [Using Java](data-lake-store-end-user-authenticate-java-sdk.md)
 > * [Using .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md)
 > * [Using Python](data-lake-store-end-user-authenticate-python.md)
 > * [Using REST API](data-lake-store-end-user-authenticate-rest-api.md)
@@ -90,23 +91,23 @@ pip install azure-datalake-store
 Use the following snippet to authenticate with Azure AD for account management operations on a Data Lake Store account. The following snippet can be used to authenticate your application using multi-factor authentication. Provide the values below for  an existing Azure AD **native** application.
 
 	authority_host_url = "https://login.microsoftonline.com"
-	tenant = "FILL-IN-HERE"
-	authority_url = authority_host_url + '/' + tenant
-	client_id = 'FILL-IN-HERE'
-	redirect = 'urn:ietf:wg:oauth:2.0:oob'
-	RESOURCE = 'https://management.core.windows.net/'
-	
-	context = adal.AuthenticationContext(authority_url)
-	code = context.acquire_user_code(RESOURCE, client_id)
-	print(code['message'])
-	mgmt_token = context.acquire_token_with_device_code(RESOURCE, code, client_id)
-	credentials = AADTokenCredentials(mgmt_token, client_id)
+    tenant = "FILL-IN-HERE"
+    authority_url = authority_host_url + '/' + tenant
+    client_id = 'FILL-IN-HERE'
+    redirect = 'urn:ietf:wg:oauth:2.0:oob'
+    RESOURCE = 'https://management.core.windows.net/'
+    
+    context = adal.AuthenticationContext(authority_url)
+    code = context.acquire_user_code(RESOURCE, client_id)
+    print(code['message'])
+    mgmt_token = context.acquire_token_with_device_code(RESOURCE, code, client_id)
+    armCreds = AADTokenCredentials(mgmt_token, client_id, resource = RESOURCE)
 
 ### For filesystem operations
 
 Use this to authenticate with Azure AD for filesystem operations on a Data Lake Store account. The following snippet can be used to authenticate your application using multi-factor authentication. Provide the values below for  an existing Azure AD **native** application.
 
-	token = lib.auth(tenant_id='FILL-IN-HERE')
+	adlCreds = lib.auth(tenant_id='FILL-IN-HERE', resource = 'https://datalake.azure.net/')
 
 ## End-user authentication without multi-factor authentication
 

@@ -1,6 +1,6 @@
 ---
 title: SQL Server database migration to Azure SQL Database | Microsoft Docs
-description: Learn how about SQL Server database migration to Azure SQL Database in the cloud. Use database migration tools to test compatibility prior to database migration.
+description: Learn how about SQL Server database migration to Azure SQL Database in the cloud. 
 keywords: database migration,sql server database migration,database migration tools,migrate database,migrate sql database
 services: sql-database
 documentationcenter: ''
@@ -10,7 +10,7 @@ editor: ''
 
 ms.assetid: 9cf09000-87fc-4589-8543-a89175151bc2
 ms.service: sql-database
-ms.custom: load & move data
+ms.custom: migrate
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -40,15 +40,15 @@ The following list contains the general workflow for a SQL Server database migra
 2. Prepare any necessary fixes as Transact-SQL scripts.
 3. Make a transactionally consistent copy of the source database being migrated - and ensure no further changes are being made to the source database (or you can manually apply any such changes after the migration completes). There are many methods to quiesce a database, from disabling client connectivity to creating a [database snapshot](https://msdn.microsoft.com/library/ms175876.aspx).
 4. Deploy the Transact-SQL scripts to apply the fixes to the database copy.
-5. [Export](sql-database-export.md) the database copy to a .BACPAC file on a local drive.
-6. [Import](sql-database-import.md) the .BACPAC file as a new Azure SQL database using any of several BACPAC import tools, with SQLPackage.exe being the recommended tool for best performance.
+5. [Export](sql-database-export.md) the database copy to a BACPAC file on a local drive.
+6. [Import](sql-database-import.md) the BACPAC file as a new Azure SQL database using any of several BACPAC import tools, with SQLPackage.exe being the recommended tool for best performance.
 
 ### Optimizing data transfer performance during migration 
 
 The following list contains recommendations for best performance during the import process.
 
 * Choose the highest service level and performance tier that your budget allows to maximize the transfer performance. You can scale down after the migration completes to save money. 
-* Minimize the distance between your .BACPAC file and the destination data center.
+* Minimize the distance between your BACPAC file and the destination data center.
 * Disable auto-statistics during migration
 * Partition tables and indexes
 * Drop indexed views, and recreate them once finished

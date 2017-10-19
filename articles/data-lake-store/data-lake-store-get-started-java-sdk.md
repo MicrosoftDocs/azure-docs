@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/28/2017
+ms.date: 09/29/2017
 ms.author: nitinme
 
 ---
@@ -73,9 +73,8 @@ The code sample available [on GitHub](https://azure.microsoft.com/documentation/
 
 ## Authentication
 
+* For end-user authentication for your application, see [End-user-authentication with Data Lake Store using Java](data-lake-store-end-user-authenticate-java-sdk.md).
 * For service-to-service authentication for your application, see [Service-to-service authentication with Data Lake Store using Java](data-lake-store-service-to-service-authenticate-java.md).
-* End-user authentication with Data Lake Store using Java SDK is not supported.
-
 
 ## Create an Azure Data Lake Store client
 Creating an [ADLStoreClient](https://azure.github.io/azure-data-lake-store-java/javadoc/) object requires you to specify the Data Lake Store account name and the token provider you generated when you authenticated with Data Lake Store (see [Authentication](#authentication) section). The Data Lake Store account name needs to be a fully qualified domain name. For example, replace **FILL-IN-HERE** with something like **mydatalakestore.azuredatalakestore.net**.
