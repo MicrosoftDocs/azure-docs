@@ -214,6 +214,20 @@ docker push <acrName>.azurecr.io/acr-helloworld:v1
 
 Because you've configured your registry for geo-replication, your image is automatically replicated to both the *West US* and *East US* regions with this single `docker push` command.
 
+Output:
+
+```
+The push refers to a repository [uniqueregistryname.azurecr.io/acr-helloworld]
+9716cfe18412: Pushed
+074867a942d5: Pushed
+a77666945b96: Pushed
+953ff32f2036: Pushed
+aa2e77726d3c: Pushed
+98b800c91d50: Pushed
+a75caa09eb1f: Pushed
+v1: digest: sha256:c515bcebf249b591b558318e2d0ec21d1320340dbf335730eb32372ff7d34255 size: 1792
+```
+
 ## Next steps
 
 In this tutorial, you created a private, geo-replicated container registry, built a container image, and then pushed that image to your registry. By following the steps in this tutorial, you:
