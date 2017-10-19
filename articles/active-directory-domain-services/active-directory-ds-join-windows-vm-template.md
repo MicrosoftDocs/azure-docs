@@ -31,13 +31,12 @@ To perform the tasks listed in this article, you need:
 
 ## Install and configure required tools
 You can use either of the following options to perform the steps outlined in this document:
-* **Azure PowerShell**: [Install and configure](../powershell-install-configure.md)
-* **Azure cross-platform command-line interface**: [Install and configure](../xplat-cli-install.md)
+* **Azure PowerShell**: [Install and configure](https://azure.microsoft.com/documentation/articles/powershell-install-configure/)
+* **Azure cross-platform command-line interface**: [Install and configure](https://azure.microsoft.com/documentation/articles/xplat-cli-install/)
 
 
 ## Option 1: Provision a new Windows Server VM and join it a managed domain
-- **Quick start template name**: 201-vm-domain-join
-- **Available at**: [Get template](https://azure.microsoft.com/en-us/resources/templates/201-vm-domain-join/)
+**Quick start template name**: [201-vm-domain-join](https://azure.microsoft.com/en-us/resources/templates/201-vm-domain-join/)
 
 To deploy a Windows Server virtual machine and join it to a managed domain, perform the following steps:
 1. Navigate to the [quick start template](https://azure.microsoft.com/en-us/resources/templates/201-vm-domain-join/).
@@ -68,8 +67,7 @@ After the deployment completes successfully, your newly provisioned Windows virt
 
 
 ## Option 2: Join an existing Windows Server VM to a managed domain
-- **Quick start template name**: 201-vm-domain-join-existing
-- **Available at**: [Get template](https://azure.microsoft.com/en-us/resources/templates/201-vm-domain-join-existing/)
+**Quick start template**: [201-vm-domain-join-existing](https://azure.microsoft.com/en-us/resources/templates/201-vm-domain-join-existing/)
 
 To join an existing Windows Server virtual machine to a managed domain, perform the following steps:
 1. Navigate to the [quick start template](https://azure.microsoft.com/en-us/resources/templates/201-vm-domain-join-existing/).
