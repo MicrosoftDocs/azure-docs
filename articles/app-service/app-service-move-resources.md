@@ -24,7 +24,9 @@ You can move a Web App and/or its related resources to another resource group in
 
 ### Within the same subscription
 
-When moving a Web App _within the same subscription_, you cannot move the uploaded SSL certificates. However, you can move a Web App to the new resource group in the same subscription without moving its uploaded SSL certificate, and your app's SSL functionality still works. If you want to move the SSL certificate with the Web App, do the following:
+When moving a Web App _within the same subscription_, you cannot move the uploaded SSL certificates. However, you can move a Web App to the new resource group without moving its uploaded SSL certificate, and your app's SSL functionality still works. 
+
+If you want to move the SSL certificate with the Web App, follow these steps:
 
 1.	Delete the uploaded certificate from the web app
 2.	Move the App Service app
@@ -40,4 +42,4 @@ When moving a Web App _across subscriptions_, the following limitations apply:
     - Uploaded or imported SSL certificates
     - App Service Environments
 - All App Service resources in the resource group must be moved together.
-- App Service resources can only be moved from the resource group in which they were originally created. If an App Service resource is no longer in its original resource group, it must be moved back to that original resource group before it can be moved across subscriptions. 
+- App Service resources can only be moved from the resource group in which they were originally created. If an App Service resource is no longer in its original resource group, it must be moved back to that original resource group first, and then it can be moved across subscriptions. 
