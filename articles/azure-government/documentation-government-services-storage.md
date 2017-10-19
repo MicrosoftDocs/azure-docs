@@ -106,6 +106,8 @@ For all jobs, we recommend that you rotate your storage account keys after the j
 | --- | --- |
 | Data copied to the media for transport and the keys used to encrypt that data. | Azure Import/Export metadata cannot contain controlled data. This metadata includes all configuration data that's entered when you're creating your Import/Export job and shipping information that's used to transport your media. Do not enter regulated/controlled data in the following fields:  **Job name**, **Carrier name**, **Tracking number**, **Description**, **Return information (Name, Address, Phone, E-Mail)**, **Export Blob URI**, **Drive list**, **Package list**, **Storage account name**, **Container name**. |
 
+## Azure Backup Service
+For detailed documentation on using the Azure Backup Service in Azure Government, [click here](documentation-government-services-backup.md). 
 ## Next steps
 For supplemental information and updates, subscribe to the
 <a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government blog. </a>
