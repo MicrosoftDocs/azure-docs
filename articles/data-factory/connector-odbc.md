@@ -239,7 +239,7 @@ To copy data to ODBC-compatible data store, set the sink type in the copy activi
 
 ## IBM Informix source
 
-You can copy data from IBM Informix database using this generic ODBC connector.
+You can copy data from IBM Informix database using the generic ODBC connector.
 
 Set up a Self-hosted Integration Runtime on a machine with access to your data store. The Integration Runtime uses the ODBC driver for Informix to connect to the data store. Therefore, install the driver if it is not already installed on the same machine. For example, you can use driver "IBM INFORMIX ODBC DRIVER (64-bit)". See [Prerequisites](#prerequisites) section for details.
 
@@ -278,7 +278,7 @@ Read the article from the beginning for a detailed overview of using ODBC data s
 
 ## Microsoft Access source
 
-You can copy data from Microsoft Access database using this generic ODBC connector. 
+You can copy data from Microsoft Access database using the generic ODBC connector.
 
 Set up a Self-hosted Integration Runtime on a machine with access to your data store. The Integration Runtime uses the ODBC driver for Microsoft Access to connect to the data store. Therefore, install the driver if it is not already installed on the same machine. See [Prerequisites](#prerequisites) section for details.
 
@@ -317,7 +317,7 @@ Read the article from the beginning for a detailed overview of using ODBC data s
 
 ## GE Historian source
 
-You can copy data from GE Historian using this generic ODBC connector.
+You can copy data from GE Historian using the generic ODBC connector.
 
 Set up a Self-hosted Integration Runtime on a machine with access to your data store. The Integration Runtime uses the ODBC driver for GE Historian to connect to the data store. Therefore, install the driver if it is not already installed on the same machine. See [Prerequisites](#prerequisites) section for details.
 
@@ -360,7 +360,7 @@ Read the article from the beginning for a detailed overview of using ODBC data s
 >To copy data from SAP HANA data store, refer to native [SAP HANA connector](connector-sap-hana.md). To copy data to SAP HANA, please follow this instruction to use ODBC connector. Note the linked services for SAP HANA connector and ODBC connector are with different type thus cannot be reused.
 >
 
-You can copy data to SAP HANA database using this generic ODBC connector.
+You can copy data to SAP HANA database using the generic ODBC connector.
 
 Set up a Self-hosted Integration Runtime on a machine with access to your data store. The Integration Runtime uses the ODBC driver for SAP HANA to connect to the data store. Therefore, install the driver if it is not already installed on the same machine. See [Prerequisites](#prerequisites) section for details.
 
