@@ -21,16 +21,20 @@ ms.custom: mvc
 
 Continuous integration (CI) and continuous deployment (CD) is a pipeline by which you can build, release, and deploy your code. Team Services provides a complete, fully featured set of CI/CD automation tools for deployment to Azure. Jenkins is a popular 3rd-party CI/CD server-based tool that also provides CI/CD automation. You can use both together to customize how you deliver your cloud app or service.
 
-In this tutorial, you use Jenkins to build a **Node.js web app**, and Visual Studio Team Services to deploy it
+In this tutorial, you use Jenkins to build a **Node.js web app**, and Visual Studio Team Services (VSTS) or Team Foundation Server (TFS) to deploy it
 to a [deployment group](https://www.visualstudio.com/docs/build/concepts/definitions/release/deployment-groups/) containing Linux virtual machines.
 
 You will:
 
 > [!div class="checklist"]
-> * Build your app in Jenkins
-> * Configure Jenkins for Team Services integration
+> * Get the sample app
+> * Configure Jenkins plugins
+> * Configure a Jenkins Freestyle project for Node.js
+> * Configure Jenkins for VSTS integration
+> * Create a Jenkins service endpoint
 > * Create a deployment group for the Azure virtual machines
-> * Create a release definition that configures the VMs and deploys the app
+> * Create a VSTS release definition
+> * Execute manual and CI triggered deployments
 
 ## Before you begin
 
@@ -43,9 +47,9 @@ You will:
   > [!NOTE]
   > For more information, see [Connect to Team Services](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services).
 
-*  You need a Linux virtual machine for a deployment target.  See [Create and Manage Linux VMs with the Azure CLI](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-manage-vm) for more information.  
+*  You need a Linux virtual machine for a deployment target.  For more information, see [Create and Manage Linux VMs with the Azure CLI](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-manage-vm).
 
-*  You need to open inbound port 80 for your virtual machine.  See [Create network security groups using the Azure portal](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-create-nsg-arm-pportal) for more information.
+*  Open inbound port 80 for your virtual machine.  See [Create network security groups using the Azure portal](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-create-nsg-arm-pportal) for more information.
 
 ## Get the sample app
 
@@ -82,7 +86,7 @@ First, you must configure two Jenkins plugins for **NodeJS** and **Integration w
 1. Click **New Item**.  Enter an **item name**.
 2. Choose **Freestyle project**.  Click **OK**.
 3. In the **Source Code Management** tab, select **Git** and enter the details
-   of the repository and the branch containing your app code.
+   of the repository and the branch containing your app code.    
     ![Add a repo to your build](media/tutorial-build-deploy-jenkins/jenkins-git.png)
 4. In the **Build Triggers** tab, select **Poll SCM** and enter the schedule `H/03 * * * *`
    to poll the Git repository for changes every three minutes. 
@@ -96,15 +100,15 @@ First, you must configure two Jenkins plugins for **NodeJS** and **Integration w
 
 1.  Create a personal access token (PAT) in your Team Services account if you don't already have one. Jenkins requires this information to access your Team Services account.  Ensure you **store** the token information for upcoming steps in this section.
   Read [How do I create a personal access token for Team Services and TFS](https://www.visualstudio.com/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate) to learn how to generate one.
-2. In the **Post-build Actions** tab click **Add post-build action**. Choose **Archive the artifacts**.
+2. In the **Post-build Actions** tab, click **Add post-build action**. Choose **Archive the artifacts**.
 3. For **Files to archive**, enter `**/*` to include all files.
-4. Click **Add post-build action** to create another action.
-5. Choose **Trigger release in TFS/Team Services**, enter the uri for your VSTS account
-   (such as `https://{your-account-name}.visualstudio.com`).
+4. To create another action, click **Add post-build action**.
+5. Choose **Trigger release in TFS/Team Services**, enter the uri for your VSTS account such as:
+	 `https://{your-account-name}.visualstudio.com`).
 6. Enter the **Team Project** name.
-7. Choose a name for the **release definition** (you will create this release definition later in VSTS).
+7. Choose a name for the **release definition** (you create this release definition later in VSTS).
 8. Choose credentials to connect to your VSTS or TFS environment.  Leave the **Username** blank if you are using VSTS.
-   You need your user name and the PAT you created earlier for VSTS.  Enter a **Username and Password** if you are using an on-premise version of TFS.
+   You need your user name and the PAT you created earlier for VSTS.  Enter a **Username and Password** if you are using an on-premise version of TFS.    
     ![Configuring Jenkins Post-build Actions](media/tutorial-build-deploy-jenkins/trigger-release-from-jenkins.png)
 5. **Save** the jenkins project.
 
@@ -114,13 +118,14 @@ A service endpoint allows VSTS to connect to Jenkins.
 
 1. Open the **Services** page in VSTS, open the **New Service Endpoint** list, and choose **Jenkins**.
     ![Add a Jenkins endpoint](media/tutorial-build-deploy-jenkins/add-jenkins-endpoint.png)
-2. Enter a name you will use to refer to this connection.
-3. Enter the URL of your Jenkins server, and tick the **Accept untrusted SSL certificates** option.  An example URL is **http://{YourJenkinsURL}.westcentralus.cloudapp.azure.com**.
+2. Enter a name for the connection.
+3. Enter the URL of your Jenkins server, and tick the **Accept untrusted SSL certificates** option.  An example URL is:
+ 	`http://{YourJenkinsURL}.westcentralus.cloudapp.azure.com`
 4. Enter the **user name and password** for your Jenkins account.
 5. Choose **Verify connection** to check that the information is correct.
 6. Choose **OK** to create the service endpoint.
 
-## Create a deployment group
+## Create a deployment group for Azure Virtual Machines
 
 You need a [deployment group](https://www.visualstudio.com/docs/build/concepts/definitions/release/deployment-groups/) to register the VSTS agent so the release definition can deploy to your virtual machine.  Deployment groups make it easy to define logical groups of target machines for deployment, and install the required agent on each machine.
 
@@ -136,7 +141,7 @@ You need a [deployment group](https://www.visualstudio.com/docs/build/concepts/d
 8. After the installation, you are prompted for deployment group tags.  Accept the defaults.
 9. In VSTS, check for your newly registered virtual machine in **Targets** under **Deployment Groups**.
 
-## Create a release definition
+## Create a VSTS release definition
 
 A release definition specifies the process VSTS will execute to deploy the app.  In this example we execute a shell script.
 
@@ -173,7 +178,7 @@ To create the release definition in VSTS:
    [app/views/index.jade](https://github.com/azooinmyluggage/fabrikam-node/blob/master/app/views/index.jade).
 8. **Commit** your change.
 9. After a few minutes, you will see a new release created in the **Releases** 
-   page of Team Services or TFS. Open the release to see the deployment taking place. Congratulations!
+   page of VSTS or TFS. Open the release to see the deployment taking place. Congratulations!
 
 ## Next Steps
 
@@ -188,3 +193,4 @@ In this tutorial, you automated the deployment of an app to Azure using Jenkins 
 Advance to the next tutorial to learn more about how to deploy a LAMP (Linux, Apache, MySQL, and PHP) stack.
 
 > [!div class="nextstepaction"]
+> [Deploy LAMP stack](tutorial-lamp-stack.md)
