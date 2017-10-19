@@ -143,7 +143,7 @@ select the row for a logic app or a status.
 
      ![Resubmit logic app runs](media/logic-apps-monitor-your-logic-apps-oms/logic-app-resubmit.png)
  
- 4. To filter these results, you can perform both client-side and server-side filtering.
+  4. To filter these results, you can perform both client-side and server-side filtering.
 
    * Client-side filter: For each column, 
    choose the filters that you want. 
