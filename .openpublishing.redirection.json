@@ -4195,6 +4195,11 @@
             "redirect_url": "https://docs.microsoft.com/en-us/azure/log-analytics",
             "redirect_document_id": false
         },
+		{
+            "source_path": "articles/log-analytics/log-analytics-azure-vm-extension.md",
+            "redirect_url": "https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-quick-collect-azurevm",
+            "redirect_document_id": false
+        },
         {
             "source_path": "articles/machine-learning/machine-learning-apps-text-analytics.md",
             "redirect_url": "../cognitive-services/cognitive-services-text-analytics-quick-start",
