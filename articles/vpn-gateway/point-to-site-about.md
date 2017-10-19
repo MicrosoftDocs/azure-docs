@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 010/19/2017
 ms.author: cherylmc
 
 ---
 # About Point-to-Site VPN
 
-A Point-to-Site (P2S) VPN gateway connection lets you create a secure connection to your virtual network from an individual client computer. A P2S connection is established by starting it from the client computer. This solution is useful for telecommuters who want to connect to Azure VNets from a remote location, such as from home or a conference. P2S VPN is also a useful solution to use instead of S2S VPN when you have only a few clients that need to connect to a VNet.
+A Point-to-Site (P2S) VPN gateway connection lets you create a secure connection to your virtual network from an individual client computer. A P2S connection is established by starting it from the client computer. This solution is useful for telecommuters who want to connect to Azure VNets from a remote location, such as from home or a conference. P2S VPN is also a useful solution to use instead of S2S VPN when you have only a few clients that need to connect to a VNet. This article applies to the Resource Manager deployment model.
 
 ## <a name="protocol"></a>What protocol does P2S use?
 
@@ -33,7 +33,7 @@ Point-to-site VPN can use one of the following protocols:
 If you have a mixed client environment consisting of Windows and Mac devices, configure both SSTP and IKEv2.
 
 >[!NOTE]
->IKEv2 for P2S is currently in Preview.
+>IKEv2 for P2S is currently in Preview and is available for the Resource Manager deployment model.
 >
 
 ## <a name="authentication"></a>How are P2S VPN clients authenticated?
