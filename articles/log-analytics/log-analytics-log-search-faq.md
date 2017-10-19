@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 10/17/2017
 ms.author: bwren
 
 ---
@@ -113,10 +113,12 @@ Yes.  Once your workspace has been upgraded then the process for exporting Log A
 There is currently a size limit of 8 MB for a Log Analytics query that can be exported to Power BI.  This limit will be increased soon.
 
 
-##PowerShell cmdlets
+## PowerShell cmdlets
 
 ### Question: Does the Log Search PowerShell cmdlet get updated after I upgrade?
-The [Get-AzureRmOperationalInsightsSearchResults](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/Get-AzureRmOperationalInsightsSearchResults) has not yet been upgraded to the new search language.  Continue to use the legacy query language with this cmdlet, even after you upgrade your workspace.  Updated documentation will become available for the cmdlet when it's updated.
+The [Get-AzureRmOperationalInsightsSearchResults](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/Get-AzureRmOperationalInsightsSearchResults) will be deprecated when the upgrade of all workspaces is complete.  Use the [Invoke-LogAnalyticsQuery cmdlet](https://dev.loganalytics.io/documentation/Tools/PowerShell-Cmdlets) to perform log searches in upgraded workspaces.
+
+
 
 
 ## Resource Manager templates

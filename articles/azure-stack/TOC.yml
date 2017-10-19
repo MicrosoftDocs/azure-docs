@@ -51,12 +51,14 @@
       href: azure-stack-provision-vm.md
   - name: Datacenter integration
     items:
-    - name: Integrate DNS
+    - name: DNS
       href: azure-stack-integrate-dns.md
     - name: Identity
       href: azure-stack-integrate-identity.md
     - name: Publish endpoints
-      href: azure-stack-integrate-endpoints.md  
+      href: azure-stack-integrate-endpoints.md
+    - name : Security
+      href: azure-stack-integrate-security.md
   - name: Manage
     items:
     - name: Region management
@@ -84,7 +86,9 @@
       - name: Manage updates overview
         href: azure-stack-updates.md
       - name: Apply updates
-        href: azure-stack-apply-updates.md      
+        href: azure-stack-apply-updates.md
+      - name: Monitor update status
+        href: azure-stack-monitor-update.md      
     - name: Monitor health and alerts
       href: azure-stack-monitor-health.md
     - name: Manage network resources
