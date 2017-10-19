@@ -1,4 +1,4 @@
-﻿---
+---
 title: Real-time video analysis in Microsoft Cognitive Services | Microsoft Docs
 description: This guide demonstrates how to perform near-real-time analysis on frames taken from a live video stream.
 services: cognitive-services
