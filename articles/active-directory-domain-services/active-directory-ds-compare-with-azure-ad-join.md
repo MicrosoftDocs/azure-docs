@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2017
+ms.date: 10/19/2017
 ms.author: maheshu
 ---
 
@@ -29,6 +29,16 @@ ms.author: maheshu
 | Great for ... | Windows 10 devices | Server virtual machines deployed in Azure |
 
 
-## More information
+## Next steps
+### Learn more about Azure AD Domain Services
 * [Overview of Azure AD Domain Services](active-directory-ds-overview.md)
+* [Features](active-directory-ds-features.md)
+* [Deployment scenarios](active-directory-ds-scenarios.md)
+* [Find out if Azure AD Domain Services suits your use-cases](active-directory-ds-comparison.md)
+* [Understand how Azure AD Domain Services synchronizes with your Azure AD directory](active-directory-ds-synchronization.md)
+
+### Learn more about Azure AD Join
 * [Introduction to device management in Azure Active Directory](../active-directory/device-management-introduction.md)
+
+### Get started with Azure AD Domain Services
+* [Enable Azure AD Domain Services using the Azure portal](active-directory-ds-getting-started.md)
