@@ -1,5 +1,5 @@
 ---
-title: CI/CD from Jenkins to Azure VMs with Team Services | Microsoft Docs
+title: CI/CD from Jenkins to Azure VMs with VSTS | Microsoft Docs
 description: Set up continuous integration (CI) and continuous deployment (CD) of a Node.js app using Jenkins to Azure VMs from Release Management in Visual Studio Team Services (VSTS) or Microsoft Team Foundation Server (TFS)
 author: ahomer
 manager: douge
@@ -17,11 +17,11 @@ ms.author: ahomer
 ms.custom: mvc
 ---
 
-# Deploy your app to Linux VMs using Jenkins and Team Services
+# Deploy your app to Linux VMs using Jenkins and VSTS
 
-Continuous integration (CI) and continuous deployment (CD) is a pipeline by which you can build, release, and deploy your code. Team Services provides a complete, fully featured set of CI/CD automation tools for deployment to Azure. Jenkins is a popular 3rd-party CI/CD server-based tool that also provides CI/CD automation. You can use both together to customize how you deliver your cloud app or service.
+Continuous integration (CI) and continuous deployment (CD) is a pipeline by which you can build, release, and deploy your code. Visual Studio Team Services (VSTS) provides a complete, fully featured set of CI/CD automation tools for deployment to Azure. Jenkins is a popular 3rd-party CI/CD server-based tool that also provides CI/CD automation. You can use both together to customize how you deliver your cloud app or service.
 
-In this tutorial, you use Jenkins to build a **Node.js web app**, and Visual Studio Team Services (VSTS) or Team Foundation Server (TFS) to deploy it
+In this tutorial, you use Jenkins to build a **Node.js web app**, and VSTS or Team Foundation Server (TFS) to deploy it
 to a [deployment group](https://www.visualstudio.com/docs/build/concepts/definitions/release/deployment-groups/) containing Linux virtual machines.
 
 You will:
@@ -42,10 +42,10 @@ You will:
   see [Create a Jenkins master on an Azure Virtual Machine](https://docs.microsoft.com/en-us/azure/jenkins/install-jenkins-solution-template). 
 
 * Sign in to your VSTS account (`https://{youraccount}.visualstudio.com`). 
-  You can get a [free Team Services account](https://go.microsoft.com/fwlink/?LinkId=307137&clcid=0x409&wt.mc_id=o~msft~vscom~home-vsts-hero~27308&campaign=o~msft~vscom~home-vsts-hero~27308).
+  You can get a [free VSTS account](https://go.microsoft.com/fwlink/?LinkId=307137&clcid=0x409&wt.mc_id=o~msft~vscom~home-vsts-hero~27308&campaign=o~msft~vscom~home-vsts-hero~27308).
 
   > [!NOTE]
-  > For more information, see [Connect to Team Services](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services).
+  > See [Connect to VSTS](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services) for more information.
 
 *  You need a Linux virtual machine for a deployment target.  For more information, see [Create and Manage Linux VMs with the Azure CLI](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-manage-vm).
 
@@ -69,7 +69,7 @@ GitHub](https://github.com/azooinmyluggage/fabrikam-node).  This tutorial contai
 
 ## Configure Jenkins plugins
 
-First, you must configure two Jenkins plugins for **NodeJS** and **Integration with Team Services**.
+First, you must configure two Jenkins plugins for **NodeJS** and **VS Team Services Continuous Deployment**.
 
 1. Open your Jenkins account and choose **Manage Jenkins**.
 2. In the **Manage Jenkins** page, choose **Manage Plugins**.
@@ -98,8 +98,8 @@ First, you must configure two Jenkins plugins for **NodeJS** and **Integration w
 
 ## Configure Jenkins for VSTS integration
 
-1.  Create a personal access token (PAT) in your Team Services account if you don't already have one. Jenkins requires this information to access your Team Services account.  Ensure you **store** the token information for upcoming steps in this section.
-  Read [How do I create a personal access token for Team Services and TFS](https://www.visualstudio.com/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate) to learn how to generate one.
+1.  Create a personal access token (PAT) in your VSTS account if you don't already have one. Jenkins requires this information to access your VSTS account.  Ensure you **store** the token information for upcoming steps in this section.
+  Read [How do I create a personal access token for VSTS and TFS](https://www.visualstudio.com/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate) to learn how to generate one.
 2. In the **Post-build Actions** tab, click **Add post-build action**. Choose **Archive the artifacts**.
 3. For **Files to archive**, enter `**/*` to include all files.
 4. To create another action, click **Add post-build action**.
@@ -143,7 +143,7 @@ You need a [deployment group](https://www.visualstudio.com/docs/build/concepts/d
 
 ## Create a VSTS release definition
 
-A release definition specifies the process VSTS will execute to deploy the app.  In this example we execute a shell script.
+A release definition specifies the process VSTS executes to deploy the app.  In this example, we execute a shell script.
 
 To create the release definition in VSTS:
 
@@ -153,10 +153,11 @@ To create the release definition in VSTS:
 4.  Click the ellipsis next to **Environment 1**.  Click **Add deployment group phase**.
 5.  Choose your **Deployment group**.
 5. Click **+** to add a task to the **Deployment group phase**.
-6. Choose the **Shell Script** task and click **Add**.
+6. Choose the **Shell Script** task and click **Add**.    
 	The **Shell Script** task is used to provide the configuration for a script to run on each server to install Node.js and start the app. Configure it as follows:
-8. **Script Path**: `$(System.DefaultWorkingDirectory)/Fabrikam-Node/deployscript.sh`
-9.  Click **Advanced**, and then **Specify Working Directory**: `Checked`
+8. **Script Path**:     
+	`$(System.DefaultWorkingDirectory)/Fabrikam-Node/deployscript.sh`
+9.  Click **Advanced**, and then enable **Specify Working Directory**.
 10.  **Working Directory**: `$(System.DefaultWorkingDirectory)/Fabrikam-Node`
 11. Edit the name of the release definition to the name you specified in the
    **Post-build Actions** tab of the build in Jenkins. Jenkins requires this name
@@ -182,11 +183,11 @@ To create the release definition in VSTS:
 
 ## Next Steps
 
-In this tutorial, you automated the deployment of an app to Azure using Jenkins build and Team Services for release. You learned how to:
+In this tutorial, you automated the deployment of an app to Azure using Jenkins build and VSTS for release. You learned how to:
 
 > [!div class="checklist"]
 > * Build your app in Jenkins
-> * Configure Jenkins for Team Services integration
+> * Configure Jenkins for VSTS integration
 > * Create a deployment group for the Azure virtual machines
 > * Create a release definition that configures the VMs and deploys the app
 
