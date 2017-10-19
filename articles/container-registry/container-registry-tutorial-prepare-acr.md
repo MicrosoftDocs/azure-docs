@@ -91,9 +91,9 @@ When the replication is complete, the portal reflects *Ready* for both regions. 
 
 ## Container registry login
 
-You must log in to your ACR instance before pushing images to it. With [Basic, Standard, and Premium SKUs](container-registry-skus.md), you can authenticate by using your Azure identity.
+Now that you have a geo-replicated registry, you can build a container image and push it to your registry. You must first log in to your ACR instance before pushing images to it. With [Basic, Standard, and Premium SKUs](container-registry-skus.md), you can authenticate by using your Azure identity.
 
- Use the [az acr login](https://docs.microsoft.com/en-us/cli/azure/acr#az_acr_login) command to authenticate and cache the credentials for your registry. Replace `<acrName>` with the name you specified in the previous step.
+Use the [az acr login](https://docs.microsoft.com/en-us/cli/azure/acr#az_acr_login) command to authenticate and cache the credentials for your registry. Replace `<acrName>` with the name of the registry you created in previous steps.
 
 ```azurecli
 az acr login --name <acrName>
@@ -116,7 +116,7 @@ cd acr-helloworld
 
 ## Update Dockerfile
 
-The Dockerfile included in the sample shows how the container is built. It starts from an official [aspnetcore](https://store.docker.com/community/images/microsoft/aspnetcore) image, copies the application files into the container, installs dependencies, compiles the output using the official [aspnetcore-build](https://store.docker.com/community/images/microsoft/aspnetcore-build) image, and builds an optimized aspnetcore image.
+The Dockerfile included in the sample shows how the container is built. It starts from an official [aspnetcore](https://store.docker.com/community/images/microsoft/aspnetcore) image, copies the application files into the container, installs dependencies, compiles the output using the official [aspnetcore-build](https://store.docker.com/community/images/microsoft/aspnetcore-build) image, and finally, builds an optimized aspnetcore image.
 
 ```dockerfile
 FROM microsoft/aspnetcore:2.0 AS base
@@ -144,7 +144,7 @@ COPY --from=publish /app .
 ENTRYPOINT ["dotnet", "AcrHelloworld.dll"]
 ```
 
-The application in the *acr-helloworld* image tries to determine the region from which its container was deployed by querying DNS for information about the registry's login server. We specify the login server URL in the `DOCKER_REGISTRY` environment variable in the Dockerfile.
+The application in the *acr-helloworld* image tries to determine the region from which its container was deployed by querying DNS for information about the registry's login server. You must specify your registry's login server URL in the `DOCKER_REGISTRY` environment variable in the Dockerfile.
 
 First, get the registry's login server URL with the `az acr show` command. Replace `<acrName>` with the name of the registry you created in previous steps.
 
@@ -166,7 +166,7 @@ Next, update the `DOCKER_REGISTRY` line with your registry's login server URL. I
 ENV DOCKER_REGISTRY uniqueregistryname.azurecr.io
 ```
 
-## Build the container image
+## Build container image
 
 Now that you've updated the Dockerfile with the URL of your registry, you can use `docker build` to create the container image. Run the following command to build the image and tag it with the URL of your private registry, again replacing `<acrName>` with the name of your registry:
 
@@ -212,7 +212,7 @@ Finally, use the `docker push` command to push the *acr-helloworld* image to you
 docker push <acrName>.azurecr.io/acr-helloworld:v1
 ```
 
-Because you've configure your registry for geo-replication, your image is automatically replicated to both the West US and East US regions with this single `docker push` command.
+Because you've configured your registry for geo-replication, your image is automatically replicated to both the *West US* and *East US* regions with this single `docker push` command.
 
 ## Next steps
 
@@ -226,7 +226,7 @@ The following steps were completed:
 > * Tagging container image for the registry
 > * Uploading image to the registry
 
-Advance to the next tutorial to learn about deploying your container to multiple Azure App Services, using geo-replication to serve the images locally.
+Advance to the next tutorial to learn about deploying your container to multiple Azure App Service instances, using geo-replication to serve the images locally.
 
 > [!div class="nextstepaction"]
 > [Deploy containers to Azure App Services](container-registry-deploy-application.md)
@@ -239,4 +239,3 @@ Advance to the next tutorial to learn about deploying your container to multiple
 [tut-portal-05]: ./media/container-registry-tutorial-prepare-acr/tut-portal-05.png
 [tut-app-01]: ./media/container-registry-tutorial-prepare-acr/tut-app-01.png
 [tut-map-01]: ./media/container-registry-tutorial-prepare-acr/tut-map-01.png
-[tut-replication-01]: ./media/container-registry-tutorial-prepare-acr/tut-replication-01.png
