@@ -185,7 +185,7 @@ Dimension: EntityName|
 
 ## Metrics dimensions
 
-Azure Event Hubs supports following dimensions for metrics in Azure Monitor. Adding dimensions to your metrics is optional. If you do not add dimensions, metrics are specified at the namespace level. 
+Azure Event Hubs supports the following dimensions for metrics in Azure Monitor. Adding dimensions to your metrics is optional. If you do not add dimensions, metrics are specified at the namespace level. 
 
 |Dimension name|Description|
 |---|---|
