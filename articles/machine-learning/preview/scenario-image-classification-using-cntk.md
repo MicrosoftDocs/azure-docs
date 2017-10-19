@@ -49,7 +49,7 @@ The prerequisites to run this example are as follows:
 4. A dedicated GPU is not required to execute the SVM training in part 1, however it is needed for refining of the DNN described in part 2. If you lack a strong GPU, want to train on multiple GPUs, or do not have a Windows machine, then consider using Azure's Deep Learning Virtual Machine with Windows operating system. See [here](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.dsvm-deep-learning) for a 1-click deployment guide. Once deployed, connect to the VM via a remote desktop connection, install Workbench there, and execute the code locally from the VM.
 5. Various python libraries such as OpenCV need to be installed. Click *Open Command Prompt* from the *File* menu in the Workbench and run the following commands to install these dependencies:  
     - `pip install https://cntk.ai/PythonWheel/GPU/cntk-2.0-cp35-cp35m-win_amd64.whl`  
-    - `pip install opencv_python-3.3.0-cp35-cp35m-win_amd64.whl` after downloading the opencv wheel from http://www.lfd.uci.edu/~gohlke/pythonlibs/ (the exact filename and version can change)
+    - `pip install opencv_python-3.3.0-cp35-cp35m-win_amd64.whl` after downloading the OpenCV wheel from http://www.lfd.uci.edu/~gohlke/pythonlibs/ (the exact filename and version can change)
     - `conda install matplotlib numpy pillow`
     - `conda install -c conda-forge bqplot`
 
@@ -57,7 +57,7 @@ Troubleshooting / Known bugs:
 - A GPU is needed for part 2, and otherwise the error "Batch normalization training on CPU is not yet implemented" is thrown when trying to refine the DNN.
 - Out-of-memory errors during DNN training can be avoided by reducing the minibatch size (variable `cntk_mb_size` in `PARAMETERS.py`).
 - The code was tested using CNTK 2.0 and 2.1, and should run also on newer versions without any (or only minor) changes.
-- At the time of writing, the AML Workbench had problems showing notebooks larger than 5 Mbytes. Notebooks of this large size can happen if the notebook is saved with all cell output displayed. If you encounter this error, then open the command prompt from the File menu inside the Workbench, execute `jupyter notebook`, open the notebook, clear all output, and save the notebook. After this, the notebook will open properly inside the AML Workbench again.
+- At the time of writing, the AML Workbench had problems showing notebooks larger than 5 Mbytes. Notebooks of this large size can happen if the notebook is saved with all cell output displayed. If you encounter this error, then open the command prompt from the File menu inside the Workbench, execute `jupyter notebook`, open the notebook, clear all output, and save the notebook. After performing these steps, the notebook will open properly inside the AML Workbench again.
 
 
 ## Create a new workbench project
@@ -165,7 +165,7 @@ Script `4_trainSVM.py` loads the training images, trains an SVM for different va
 
 The accuracy of the trained image classifier can be measured using the script `5_evaluate.py`. The script scores all test images using the trained SVM classifier, assigns each image the attribute with the highest score, and compares the predicted attributes with the ground truth annotations.
 
-The output of script `5_evaluate.py` is shown below. The classification accuracy of each individual class is computed, as well as the accuracy for the full test set ('overall accuracy'), and the average over the individual accuracies ('overall class-averaged accuracy'). 100% corresponds to the best possible accuracy and 0% to the worst. Random guessing would on average produce a class-averaged accuracy of 1 over the number of attributes: in our case, this would be 33.33%. These results improve significantly when using a higher input resolution such as `rf_inputResoluton = 1000`, however at the expense of longer DNN computation times.
+The output of script `5_evaluate.py` is shown below. The classification accuracy of each individual class is computed, as well as the accuracy for the full test set ('overall accuracy'), and the average over the individual accuracies ('overall class-averaged accuracy'). 100% corresponds to the best possible accuracy and 0% to the worst. Random guessing would on average produce a class-averaged accuracy of 1 over the number of attributes: in our case, this accuracy would be 33.33%. These results improve significantly when using a higher input resolution such as `rf_inputResoluton = 1000`, however at the expense of longer DNN computation times.
 
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/output_script_6_white.jpg" alt="alt text" width="700"/>
@@ -210,7 +210,7 @@ We now present several ways to improve the accuracy of the model from part 1. Mo
 
 Instead of an SVM, one can do the classification directly in the neural network. This is achieved by adding a new last layer to the pre-trained DNN, which takes the 512-floats from the penultimate layer as input. The advantage of doing the classification in the DNN is that now the full network can be retrained using backpropagation. This approach often leads to much better classification accuracies compared to using the pre-trained DNN as-is, however at the expense of much longer training time (even with GPU).
 
-Training the Neural Network instead of an SVM is done by changing the variable `classifier` in `PARAMETERS.py` from `svm` to `dnn`. Then, as described in part 1, all the scripts except for data preparation (step 1) and SVM training (step 3) need to be executed again. DNN refinement requires a GPU. if no GPU was found or if the GPU is locked (for example by a previous CNTK run) then script `2_refineDNN.py` throws an error. DNN training can throw out-of-memory error on some GPUs which can be avoided by reducing the minibatch size (variable `cntk_mb_size` in `PARAMETERS.py`).
+Training the Neural Network instead of an SVM is done by changing the variable `classifier` in `PARAMETERS.py` from `svm` to `dnn`. Then, as described in part 1, all the scripts except for data preparation (step 1) and SVM training (step 3) need to be executed again. DNN refinement requires a GPU. if no GPU was found or if the GPU is locked (for example by a previous CNTK run) then script `2_refineDNN.py` throws an error. DNN training can throw out-of-memory error on some GPUs, which can be avoided by reducing the minibatch size (variable `cntk_mb_size` in `PARAMETERS.py`).
 
 Once training completes, the refined model is saved to *DATA_DIR/proc/fashionTexture/cntk_refined.model*, and a plot drawn which shows how the training and test classification errors change during training. Note in that plot that the error on the training set is much smaller than on the test set. This so-called over-fitting behavior can be reduced, for example,  by using a higher value for the dropout rate `rf_dropoutRate`.
 <p align="center">
@@ -238,16 +238,16 @@ In the first screenshot, the DNN refinement leads to better accuracies than SVM 
 
 
 ### Parameter tuning
-As is true for most machine learning projects, getting good results for a new dataset requires careful parameter tuning as well as evaluating different design decisions. To help with this, all important parameters are specified, and a short explanation provided, in a single place: the `PARAMETERS.py` file.
+As is true for most machine learning projects, getting good results for a new dataset requires careful parameter tuning as well as evaluating different design decisions. To help with these tasks, all important parameters are specified, and a short explanation provided, in a single place: the `PARAMETERS.py` file.
 
 Some of the most promising avenues for improvements are:
 
 - Data quality: ensure the training and test sets have high quality. That is, the images are annotated correctly, ambiguous images removed (for example clothing items with both stripes and dots), and the attributes are mutually exclusive (that is, chosen such that each image belongs to exactly one attribute).
 - if the object-of-interest is small in the image then Image classification approaches are known not to work well. In such cases consider using an object detection approach as described in this [tutorial](https://github.com/Azure/ObjectDetectionUsingCntk).
-- DNN refinement: the arguably most important parameter to get right is the learning rate `rf_lrPerMb`. If the accuracy on the training set (first figure in part 2) is not close to 0-5%, then most likely this is due to a wrong the learning rate. The other parameters starting with `rf_` are less important. Typically, the training error should decrement exponentially and be close to 0% after training.
+- DNN refinement: the arguably most important parameter to get right is the learning rate `rf_lrPerMb`. If the accuracy on the training set (first figure in part 2) is not close to 0-5%, most likely it is due to a wrong the learning rate. The other parameters starting with `rf_` are less important. Typically, the training error should decrement exponentially and be close to 0% after training.
 - Input resolution: the default image resolution is 224x224 pixels. Using higher image resolution (parameter: `rf_inputResoluton`) of, for example, 448x448 or 896x896 pixels often significant improves accuracy but slows down DNN refinement. **Using higher image resolution is nearly free lunch and almost always boosts accuracy**.
 - DNN over-fitting: avoid a large gap between the training and test accuracy during DNN refinement (first figure in part 2). This gap can be reduced using dropout rates `rf_dropoutRate` of 0.5 or more, and by increasing the regularizer weight `rf_l2RegWeight`. Using a high dropout rate can be especially helpful if the DNN input image resolution is high.
-- Try using deeper DNNs by changing `rf_pretrainedModelFilename` from "ResNet_18.model" to either "ResNet_34.model" or "ResNet_50.model". The Resnet-50 model is not only deeper, but its output of the penultimate layer is of size 2048 floats (vs. 512 floats of the ResNet-18 and ResNet-34 models). This increased dimension can be especially beneficial when training an SVM classifier.
+- Try using deeper DNNs by changing `rf_pretrainedModelFilename` from `ResNet_18.model` to either `ResNet_34.model` or `ResNet_50.model`. The Resnet-50 model is not only deeper, but its output of the penultimate layer is of size 2048 floats (vs. 512 floats of the ResNet-18 and ResNet-34 models). This increased dimension can be especially beneficial when training an SVM classifier.
 
 ## PART 3 - Custom dataset
 
@@ -268,7 +268,7 @@ It is important that each image can be assigned to exactly one attribute. For ex
 
 ### Image Scraping and Annotation
 
-Collecting a sufficiently large number of annotated images for training and testing can be difficult. One way to overcome this problem is to scrape images from the Internet. For example, see below the Bing Image Search results for the query "t-shirt striped". As expected, most images indeed are striped t-shirts. The few incorrect or ambiguous images (such as column 1, row 1; or column 3, row 2) can be identified and removed easily:
+Collecting a sufficiently large number of annotated images for training and testing can be difficult. One way to overcome this problem is to scrape images from the Internet. For example, see below the Bing Image Search results for the query *t-shirt striped*. As expected, most images indeed are striped t-shirts. The few incorrect or ambiguous images (such as column 1, row 1; or column 3, row 2) can be identified and removed easily:
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/bing_search_striped.jpg" alt="alt text" width="600"/>
 </p>
