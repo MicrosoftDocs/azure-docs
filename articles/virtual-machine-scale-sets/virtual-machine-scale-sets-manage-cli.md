@@ -96,7 +96,7 @@ The following example stops instance *0* in the scale set named *myScaleSet* and
 az vmss stop --resource-group myResourceGroup --name myScaleSet --instance-ids 0
 ```
 
-Stopped VMs remain allocated and continue to incur compute charges. If you instead wish the VMs to be dellocated and only incure storage charges, use [az vmss deallocate](/cli/azure/vmss#deallocate). To deallocate multiple VMs, separate each instance ID with a space. The following example stops and deallocates instance *0* in the scale set named *myScaleSet* and the *myResourceGroup* resource group. Provide your values as follows:
+Stopped VMs remain allocated and continue to incur compute charges. If you instead wish the VMs to be deallocated and only incur storage charges, use [az vmss deallocate](/cli/azure/vmss#deallocate). To deallocate multiple VMs, separate each instance ID with a space. The following example stops and deallocates instance *0* in the scale set named *myScaleSet* and the *myResourceGroup* resource group. Provide your values as follows:
 
 ```azurecli
 az vmss deallocate --resource-group myResourceGroup --name myScaleSet --instance-ids 0
