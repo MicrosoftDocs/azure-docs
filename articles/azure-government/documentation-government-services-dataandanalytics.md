@@ -46,7 +46,8 @@ For secured virtual networks, you will want to allow Network Security Groups (NS
 For more information, see [HDInsight public documentation](../hdinsight/hdinsight-hadoop-introduction.md).
 
 ## Power BI
-Power BI US Government is generally available as part of the Office 365 US Government Community subscriptions. You can learn about Power BI US Government <a href=https://powerbi.microsoft.com/en-us/documentation/powerbi-service-govus-overview/>here</a>. 
+Power BI US Government is generally available as part of the Office 365 US Government Community subscriptions. You can learn about [Power BI US Government here](https://powerbi.microsoft.com/en-us/documentation/powerbi-service-govus-overview/).
+
 You can see a demo on [how to build data-centric solutions on Azure Government using Power BI](https://channel9.msdn.com/Blogs/Azure/Cognitive-Services-HDInsight-and-Power-BI-on-Azure-Government/)
 
 ### Variations
