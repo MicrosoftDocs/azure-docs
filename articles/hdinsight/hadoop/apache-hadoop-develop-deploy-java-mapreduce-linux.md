@@ -288,8 +288,8 @@ This command copies the files from the local system to the head node. For more i
 
 In this document, you have learned how to develop a Java MapReduce job. See the following documents for other ways to work with HDInsight.
 
-* [Use Hive with HDInsight][hdinsight-use-hive]
-* [Use Pig with HDInsight][hdinsight-use-pig]
+* [Use Hive with HDInsight](../hdinsight-use-hive.md)
+* [Use Pig with HDInsight](../hdinsight-use-pig.md)
 * [Use MapReduce with HDInsight](../hdinsight-use-mapreduce.md)
 
 For more information, see also the [Java Developer Center](https://azure.microsoft.com/develop/java/).
@@ -304,8 +304,6 @@ For more information, see also the [Java Developer Center](https://azure.microso
 
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
-[hdinsight-use-hive]: hdinsight-use-hive.md
-[hdinsight-use-pig]: hdinsight-use-pig.md
 [hdinsight-power-query]:apache-hadoop-connect-excel-power-query.md
 
 [powershell-PSCredential]: http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx

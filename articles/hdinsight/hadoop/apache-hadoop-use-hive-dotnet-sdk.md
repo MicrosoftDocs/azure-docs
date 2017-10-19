@@ -140,15 +140,13 @@ The output of the application shall be similar to:
 ## Next steps
 In this article, you have learned several ways to create an HDInsight cluster. To learn more, see the following articles:
 
-* [Get started with Azure HDInsight][hdinsight-get-started]
-* [Create Hadoop clusters in HDInsight][hdinsight-provision]
+* [Get started with Azure HDInsight](apache-hadoop-linux-tutorial-get-started.md)
+* [Create Hadoop clusters in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md)
 * [Manage Hadoop clusters in HDInsight by using the Azure portal](../hdinsight-administer-use-management-portal.md)
 * [HDInsight .NET SDK reference](https://msdn.microsoft.com/library/mt271028.aspx)
 * [Use Pig with HDInsight](../hdinsight-use-pig.md)
 * [Use Sqoop with HDInsight](../hdinsight-use-sqoop-mac-linux.md)
 * [Create non-interactive authentication .NET HDInsight applications](../hdinsight-create-non-interactive-authentication-dotnet-applications.md)
-
-[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
-[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
+ 
 
 
