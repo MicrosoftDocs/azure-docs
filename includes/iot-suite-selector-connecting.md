@@ -1,7 +1,9 @@
 > [!div class="op_single_selector"]
 > * [C on Windows](../articles/iot-suite/iot-suite-connecting-devices.md)
 > * [C on Linux](../articles/iot-suite/iot-suite-connecting-devices-linux.md)
-> * [Node.js](../articles/iot-suite/iot-suite-connecting-devices-node.md)
+> * [Node.js (generic)](../articles/iot-suite/iot-suite-connecting-devices-node.md)
+> * [Node.js on Raspberry Pi](../articles/iot-suite/iot-suite-connecting-pi-node.md)
+> * [C on Raspberry Pi](../articles/iot-suite/iot-suite-connecting-pi-c.md)
 
 In this tutorial, you implement a **Chiller** device that sends the following telemetry to the remote monitoring [preconfigured solution](../articles/iot-suite/iot-suite-what-are-preconfigured-solutions.md):
 
