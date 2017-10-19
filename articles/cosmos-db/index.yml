@@ -66,7 +66,7 @@ sections:
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: Learn how to develop apps using Azure Cosmos DB&#58;
+    text: 'Learn how to develop apps using Azure Cosmos DB&#58;'
   - type: list
     style: ordered
     items:
