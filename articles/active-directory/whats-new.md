@@ -56,9 +56,9 @@ With this public preview, MFA management and reporting are an integrated part of
 **Product Capability:** Governance  
 
 
-Azure **AD Terms of Use** provides you with a simple method to present information to end users. This ensures that users see relevant disclaimers for legal or compliance requirements.
+**Azure AD terms of use** provides you with a simple method to present information to end users. This ensures that users see relevant disclaimers for legal or compliance requirements.
 
-You can use Azure AD Terms of Use in the following scenarios:
+You can use Azure AD terms of use in the following scenarios:
 
 - General terms of use for all users in your organization. 
 
@@ -90,7 +90,7 @@ What's new in Azure AD?
 
 Access reviews (preview) enable organizations to efficiently manage group memberships and access to enterprise applications: 
 
-- You can recertify guest user access, using access reviews of their access to applications and memberships of groups, with insights that enable reviewers to efficiently decide whether guests should have continued access.
+- You can recertify guest user access using access reviews of their access to applications and memberships of groups. The insights provided by the access reviews enable reviewers to efficiently decide whether guests should have continued access.
 
 - You can recertify employees access to applications and group memberships with access reviews.
 
@@ -119,11 +119,17 @@ For more information, see [Hide a third-party application from user's experience
 
 **Deprecating Azure AD reports (beta version) APIs  under the  `https://graph.windows.net/<tenant-name>/reports/` node**
 
-With the general availability of the new Azure Active Directory Administration console and new APIs now available for both activity and security reports, the report APIs under "/reports" endpoint will be retired on December 10th , 2017. 
+The Azure portal provides you with:
+
+- A new Azure Active Directory administration console 
+- New APIs for activity and security reports
+ 
+Due to these new capabilities, the report APIs under the **/reports** endpoint will be retired on December 10, 2017. 
+
 
 **What's available?**
 
- As part of the transition to the new admin console, we have made available 2 new APIs for retrieving Azure AD Activity Logs. The new set of APIs provide richer filtering and sorting functionality in addition to providing richer audit and sign-in activities. The data previously available through the security reports can now be accessed through the Identity Protection risk events API in Microsoft Graph.
+ As part of the transition to the new admin console, we have made 2 new APIs for retrieving Azure AD Activity Logs available. The new set of APIs provide richer filtering and sorting functionality in addition to providing richer audit and sign-in activities. The data previously available through the security reports can now be accessed through the Identity Protection risk events API in Microsoft Graph.
 
 
 ---
@@ -135,7 +141,11 @@ With the general availability of the new Azure Active Directory Administration c
 **Product Capability:** Identity Lifecycle Management  
 
 
-A hotfix rollup package (build 4.4.1642.0) is available as of September 25, 2017, for Microsoft Identity Manager (MIM) 2016 2016 Service Pack 1 (SP1). This roll-up package resolves issues and adds improvements.  This is a cumulative update that replaces all MIM 2016 SP1 updates up to build 4.4.1459.0 for Microsoft Identity Manager 2016. To apply this update, you must have: `Microsoft Identity Manager 2016 build 4.4.1302.0.` 
+A hotfix rollup package (build 4.4.1642.0) is available as of September 25, 2017, for Microsoft Identity Manager (MIM) 2016 2016 Service Pack 1 (SP1). This roll-up package:
+
+- Resolves issues and adds improvements
+- Is a cumulative update that replaces all MIM 2016 SP1 updates up to build 4.4.1459.0 for Microsoft Identity Manager 2016. 
+- Requires you to have **Microsoft Identity Manager 2016 build 4.4.1302.0.** 
 
 For more information, see [Hotfix rollup package (build 4.4.1642.0) is available for Microsoft Identity Manager 2016 SP1](https://support.microsoft.com/en-us/help/4021562). 
 
