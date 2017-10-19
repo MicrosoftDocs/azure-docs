@@ -32,7 +32,7 @@ Learn how to use [Apache Phoenix](http://phoenix.apache.org/) in Azure HDInsight
 ### Prerequisites
 Before you can use SQLLine, you must have the following items:
 
-* **An HBase cluster in HDInsight**. To create one, see [Get started with Apache HBase in HDInsight](./apache-hbase-tutorial-get-started.md).
+* **An HBase cluster in HDInsight**. To create one, see [Get started with Apache HBase in HDInsight](./apache-hbase-tutorial-get-started-linux.md).
 
 When you connect to an HBase cluster, you need to connect to one of the ZooKeeper VMs. Each HDInsight cluster has three ZooKeeper VMs.
 

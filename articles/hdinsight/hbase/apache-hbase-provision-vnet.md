@@ -55,7 +55,7 @@ In this section, you create a Linux-based HBase cluster with the dependent Azure
 
 1. Click the following image to open the template in the Azure portal. The template is located in [Azure QuickStart Templates](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-linux-vnet/).
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux-vnet%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hbase-provision-vnet/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux-vnet%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-provision-vnet/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. From the **Custom deployment** blade, enter the following properties:
 
    * **Subscription**: Select an Azure subscription used to create the HDInsight cluster, the dependent Storage account and the Azure virtual network.
@@ -69,10 +69,10 @@ In this section, you create a Linux-based HBase cluster with the dependent Azure
 
 After you complete the tutorial, you might want to delete the cluster. With HDInsight, your data is stored in Azure Storage, so you can safely delete a cluster when it is not in use. You are also charged for an HDInsight cluster, even when it is not in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they are not in use. For the instructions of deleting a cluster, see [Manage Hadoop clusters in HDInsight by using the Azure portal](../hdinsight-administer-use-management-portal.md#delete-clusters).
 
-To begin working with your new HBase cluster, you can use the procedures found in [Get started using HBase with Hadoop in HDInsight](./apache-hbase-tutorial-get-started.md).
+To begin working with your new HBase cluster, you can use the procedures found in [Get started using HBase with Hadoop in HDInsight](./apache-hbase-tutorial-get-started-linux.md).
 
 ## Connect to the HBase cluster using HBase Java RPC APIs
-1. Create an infrastructure as a service (IaaS) virtual machine into the same Azure virtual network and the same subnet. For instructions on creating a new IaaS virtual machine, see [Create a Virtual Machine Running Windows Server](../virtual-machines/quick-create-portal.md). When following the steps in this document, you must use the following values for the Network configuration:
+1. Create an infrastructure as a service (IaaS) virtual machine into the same Azure virtual network and the same subnet. For instructions on creating a new IaaS virtual machine, see [Create a Virtual Machine Running Windows Server](../../virtual-machines/quick-create-portal.md). When following the steps in this document, you must use the following values for the Network configuration:
 
    * **Virtual network**: &lt;Cluster name>-vnet
    * **Subnet**: subnet1
@@ -221,7 +221,7 @@ To begin working with your new HBase cluster, you can use the procedures found i
     3. Expand **Computer Configuration**, expand **Administrative Templates**, expand **Network**, and then click **DNS Client**.
     - Set **Primary DNS Suffix** to the value obtained in step 2:
 
-        ![hdinsight.hbase.primary.dns.suffix][img-primary-dns-suffix]
+        ![hdinsight.hbase.primary.dns.suffix](./media/apache-hbase-provision-vnet/PrimaryDNSSuffix.png)
     4. Click **OK**.
     5. Reboot the virtual machine.
 -->
@@ -247,50 +247,10 @@ In this tutorial, you learned how to create an HBase cluster. To learn more, see
 * [Use empty edge nodes in HDInsight](../hdinsight-apps-use-edge-node.md)
 * [Configure HBase replication in HDInsight](apache-hbase-replication.md)
 * [Create Hadoop clusters in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md)
-* [Get started using HBase with Hadoop in HDInsight](hdinsight-hbase-tutorial-get-started.md)
-* [Virtual Network Overview][vnet-overview]
+* [Get started using HBase with Hadoop in HDInsight](hdinsight-hbase-tutorial-get-started-linux.md)
+* [Virtual Network Overview](../../virtual-network/virtual-networks-overview.md)
 
 [1]: http://azure.microsoft.com/services/virtual-network/
 [2]: http://technet.microsoft.com/library/ee176961.aspx
 [3]: http://technet.microsoft.com/library/hh847889.aspx
 
-[hbase-get-started]: hdinsight-hbase-tutorial-get-started.md
-[vnet-overview]: ../virtual-network/virtual-networks-overview.md
-[vm-create]: ../virtual-machines/virtual-machines-windows-hero-tutorial.md
-
-[azure-portal]: https://portal.azure.com
-[azure-create-storageaccount]:../../storage/common/storage-create-storage-account.md
-[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-
-[hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
-[hdinsight-admin-portal]: ../hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp
-
-[hdinsight-powershell-reference]: https://msdn.microsoft.com/library/dn858087.aspx
-
-
-[twitter-streaming-api]: https://dev.twitter.com/docs/streaming-apis
-[twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter
-
-
-[powershell-install]: /powershell/azureps-cmdlets-docs
-
-
-[hdinsight-customize-cluster]: hdinsight-hadoop-customize-cluster.md
-[hdinsight-provision]: ../hdinsight-hadoop-provision-linux-clusters.md
-[hdinsight-get-started]: ../hadoop/apache-hadoop-linux-tutorial-get-started.md
-[hdinsight-storage-powershell]: ../hdinsight-hadoop-use-blob-storage.md#powershell
-[hdinsight-analyze-flight-delay-data]: hdinsight-analyze-flight-delay-data.md
-[hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
-[hdinsight-use-sqoop]:../hdinsight-use-sqoop.md
-[hdinsight-power-query]:../hadoop/apache-hadoop-connect-excel-power-query.md
-[hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
-[hdinsight-hbase-replication-dns]: hdinsight-hbase-geo-replication-configure-DNS.md
-
-[img-dns-surffix]: ./media/hdinsight-hbase-provision-vnet/DNSSuffix.png
-[img-primary-dns-suffix]: ./media/hdinsight-hbase-provision-vnet/PrimaryDNSSuffix.png
-[img-provision-cluster-page1]: ./media/hdinsight-hbase-provision-vnet/hbasewizard1.png "Provision details for the new HBase cluster"
-[img-provision-cluster-page5]: ./media/hdinsight-hbase-provision-vnet/hbasewizard5.png "Use Script Action to customize an HBase cluster"
-
-[azure-preview-portal]: https://portal.azure.com
