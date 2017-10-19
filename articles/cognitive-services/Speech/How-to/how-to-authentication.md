@@ -1,9 +1,9 @@
 ---
-title: How to Authenticate to Microsoft Speech API | Microsoft Docs
+title: How to Authenticate to Microsoft Speech Service | Microsoft Docs
 description: How to request authentication to use Microsoft Speech API
 services: cognitive-services
 author: zhouwangzw
-manager: wolfma61
+manager: wolfma
 
 ms.service: cognitive-services
 ms.technology: speech
@@ -20,9 +20,9 @@ Microsoft Speech Service supports authentication
 
 ## Using subscription key
 
-To use Microsoft Speech Service, you must first subscribe to Speech API that is part of Microsoft Cognitive Services (previously Project Oxford). You can get free trial subscription keys from the [Cognitive Services Subscription](https://azure.microsoft.com/en-us/try/cognitive-services/) page. After you select the Speech API, click Get API Key to get the key. It returns a primary and secondary key. Both keys are tied to the same quota, so you may use either key.
+To use Microsoft Speech Service, you must first subscribe to Speech API that is part of Microsoft Cognitive Services (previously Project Oxford). You can get free trial subscription keys from the [Cognitive Services Subscription](https://azure.microsoft.com/try/cognitive-services/) page. After you select the Speech API, click Get API Key to get the key. It returns a primary and secondary key. Both keys are tied to the same quota, so you may use either key.
 
-For long-term use or an increased quota sign up an [Azure account](https://azure.microsoft.com/en-us/free/).
+For long-term use or an increased quota sign up an [Azure account](https://azure.microsoft.com/free/).
 
 For using Speech REST API, you need to pass the subscription key in the `Ocp-Apim-Subscription-Key` field in the request header.
 

@@ -1,9 +1,9 @@
 ---
-title: Get Started with Microsoft Speech Recognition in C# for .NET Windows | Microsoft Docs
+title: Get Started with Microsoft Speech Recognition API using C# Desktop Library | Microsoft Docs
 description: Develop basic Windows applications that use the Microsoft speech recognition API to convert spoken audio to text.
 services: cognitive-services
 author: zhouwangzw
-manager: wolfma61
+manager: wolfma
 
 ms.service: cognitive-services
 ms.technology: speech
@@ -31,14 +31,14 @@ You may clone the sample from the [Speech C# Desktop Library Sample](https://git
 
 ### Subscribe to speech recognition API and get a free trial subscription key
 
-Microsoft Speech API is part of Microsoft Cognitive Services on Azure(previously Project Oxford). You can get free trial subscription keys from the [Cognitive Services Subscription](https://azure.microsoft.com/en-us/try/cognitive-services/) page. After you select the Speech API, click Get API Key to get the key. It returns a primary and secondary key. Both keys are tied to the same quota, so you may use either key.
+Microsoft Speech API is part of Microsoft Cognitive Services on Azure(previously Project Oxford). You can get free trial subscription keys from the [Cognitive Services Subscription](https://azure.microsoft.com/try/cognitive-services/) page. After you select the Speech API, click Get API Key to get the key. It returns a primary and secondary key. Both keys are tied to the same quota, so you may use either key.
 
-If you want to use *Recognition with intent*, you also need to sign up [Language Understanding Intelligent Service (LUIS)](https://azure.microsoft.com/en-us/services/cognitive-services/language-understanding-intelligent-service/).
+If you want to use *Recognition with intent*, you also need to sign up [Language Understanding Intelligent Service (LUIS)](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
 
 > [!IMPORTANT]
 > **Get a subscription key**
 >
-> You must have a [subscription key](https://azure.microsoft.com/en-us/try/cognitive-services/) before using speech client libraries.
+> You must have a [subscription key](https://azure.microsoft.com/try/cognitive-services/) before using speech client libraries.
 >
 > **Use your subscription key**
 >
@@ -70,7 +70,7 @@ Each category has three recognition modes.
 
  * **ShortPhrase Mode**: an utterance up to 15 seconds long. As data is sent to the server, the client receives multiple partial results and one final result with multiple N-best choices.
  * **LongDictation Mode**: an utterance up to 2 minutes long. As data is sent to the server, the client receives multiple partial results and multiple final results, based on where the server indicates sentence pauses.
- * **Intent Detection**: the server returns additional structured information about the speech input. To use Intent, you need to first train a model using [LUIS](https://azure.microsoft.com/en-us/services/cognitive-services/language-understanding-intelligent-service/).
+ * **Intent Detection**: the server returns additional structured information about the speech input. To use Intent, you need to first train a model using [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
 
 There are sample audio files to be used with this sample application. You find the files in the repository you downloaded with this sample under `samples/SpeechRecognitionServiceExample` folder. These sample audio files run automatically if no other files are chosen when selecting the `Use wav file for Shortphrase mode` or `Use wav file for Longdictation mode` as your speech input. Currently only wav audio format is supported.
 

@@ -1,9 +1,9 @@
 ---
-title: Using REST API for Speech Recognition | Microsoft Docs
+title: Get Started with Microsoft Speech Recognition API Using REST | Microsoft Docs
 description: Using REST to access speech recognition API in Microsoft Cognitive Services to convert spoken audio to text.
 services: cognitive-services
 author: zhouwangzw
-manager: wolfma61
+manager: wolfma
 
 ms.service: cognitive-services
 ms.technology: speech
@@ -25,12 +25,12 @@ To use speech recognition REST API, the steps are as follows:
 
 ### Subscribe to Speech API and get a free trial subscription key
 
-Microsoft Speech API is part of Microsoft Cognitive Services on Azure(previously Project Oxford). You can get free trial subscription keys from the [Cognitive Services Subscription](https://azure.microsoft.com/en-us/try/cognitive-services/) page. After you select the Speech API, click Get API Key to get the key. It returns a primary and secondary key. Both keys are tied to the same quota, so you may use either key.
+Microsoft Speech API is part of Microsoft Cognitive Services on Azure(previously Project Oxford). You can get free trial subscription keys from the [Cognitive Services Subscription](https://azure.microsoft.com/try/cognitive-services/) page. After you select the Speech API, click Get API Key to get the key. It returns a primary and secondary key. Both keys are tied to the same quota, so you may use either key.
 
 > [!IMPORTANT]
 > **Get a subscription key**
 >
-> You must have a [subscription key](https://azure.microsoft.com/en-us/try/cognitive-services/) before accessing Speech REST API.
+> You must have a [subscription key](https://azure.microsoft.com/try/cognitive-services/) before accessing Speech REST API.
 >
 > **Use your subscription key**
 >
