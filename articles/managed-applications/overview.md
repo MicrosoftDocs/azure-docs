@@ -3,7 +3,7 @@ title: Overview of Azure managed applications | Microsoft Docs
 description: Describes the concepts for Azure managed applications
 services: azure-resource-manager
 author: tfitzmac
-manager: rjmax
+manager: timlt
 
 ms.service: azure-resource-manager
 ms.devlang: na
