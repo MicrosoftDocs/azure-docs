@@ -1,6 +1,6 @@
 ---
 title: Filters in Azure Search | Microsoft Docs
-description: Filter criteria by user security identity, language, geo-location, or numeric values to reduce search results on queries in Azure Search, a hosted cloud search service on Microsoft Azure.
+description: Filter by user security identity, language, geo-location, or numeric values to reduce search results on queries in Azure Search, a hosted cloud search service on Microsoft Azure.
 services: search
 documentationcenter: ''
 author: HeidiSteen
@@ -13,14 +13,13 @@ ms.devlang:
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/04/2017
+ms.date: 10/19/2017
 ms.author: heidist
 
 ---
 # Filters in Azure Search 
 
-
-A *filter* provides criteria for selecting documents used in an Azure Search query. Unfiltered search is open-ended and inclusive of all documents in the index. Filtered search creates a slice or subset of documents for a more focused query operation. For example, a filter could restrict full text search to just those products having a specific brand or color, at price points above a certain threshold.
+A *filter* provides criteria for selecting documents used in an Azure Search query. Unfiltered search includes all documents in the index. A filter allows to scope a search query to a subset of documents. For example, a filter could restrict full text search to just those products having a specific brand or color, at price points above a certain threshold.
 
 Some search experiences impose filter requirements as part of the implementation, but you can use filters anytime you want to constrain search using *value-based* criteria (scoping search to product type "books" for category "non-fiction" published by "Simon & Schuster").
 
@@ -28,15 +27,13 @@ If instead your goal is targeted search on specific data *structures* (scoping s
 
 ## When to use a filter
 
-A filter expression is intended for static filtering in your search application, where you control the user interaction model. For example, when you know whether the search page is for a specific city or product category, or whether the user has made a selection in a faceted navigation structure.
+Filters are foundational to several search experiences, including "find near me", faceted navigation, and security filters that show only  those documents a user is allowed to see. If you implement any one of these experiences, a filter is required. It's the filter attached to the search query that provides the geo.location coordinates, the facet category selected by the user, or the security ID of the requestor.
 
-Filters are foundational to several search experiences, including "find near me", faceted navigation, and security filters that only show documents a user is allowed to see. If you implement any one of these experiences, a filter is required. It's the filter attached to the query structure that provides the geo.location coordinates, the facet category selected by the user, or the security ID of the requestor.
-
-The following conditions point to a filter solution:
+Example scenarios include the following:
 
 1. Use a filter to slice your index based on data values in the index. Given a schema with city, housing type, and amenities, you might create a filter to explicitly select documents that satisfy your criteria (in Seattle, condos, waterfront). 
 
-  A full text search with the same inputs is likely to produce similar results, but a filter offers precision and can be defined by the developer. In a custom application, you might want to build filter pages to create a context for the search experience you are offering.
+  Full text search with the same inputs often produces similar results, but a filter is more precise in that it requires an exact match of the filter term against content in your index. 
 
 2. Use a filter if the search experience comes with a filter requirement:
 
@@ -44,7 +41,7 @@ The following conditions point to a filter solution:
  * Geo-search uses a filter to pass coordinates of the current location in "find near me" apps. 
  * Security filters pass security identifiers as filter criteria, where a match in the index serves as a proxy for access rights to the document.
 
-3. Use a filter to prioritize, sort, group, or order by numeric data. 
+3. Use a filter if you want search criteria on a numeric field. 
 
   Numeric fields are retrievable in the document and can appear in search results, but they are not searchable (subject to full text search) individually. If you need selection criteria based on numeric data, use a filter.
 
@@ -61,11 +58,9 @@ For more information about either parameter, see [Search Documents > Request > Q
 
 ## Filters in the query pipeline
 
-Filtering occurs before search, qualifying which documents to include in downstream processing for document retrieval and relevance scoring. When paired with a search string, the filter effectively reduces the surface area of the subsequent search operation.
-
 At query time, a filter parser accepts criteria as input, converts the expression into atomic Boolean expressions, and builds a filter tree, which is then evaluated over filterable fields in an index.  
 
-Filters can be used independently of search as the sole input (for example, when the query string is null, as in `search=*`). You can make criteria so expressive that it returns a single match.
+Filtering occurs before search, qualifying which documents to include in downstream processing for document retrieval and relevance scoring. When paired with a search string, the filter effectively reduces the surface area of the subsequent search operation. When used alone (for example, when the query string is empty where `search=*`), the filter criteria is the sole input. 
 
 ## Filter definition
 
@@ -73,9 +68,9 @@ Filters are OData expressions, articulated using a [subset of OData V4 syntax su
 
 You can specify one filter for each **search** operation, but the filter itself can include multiple fields, multiple criteria, and if you use an **ismatch** function, multiple expressions. In a multi-part filter expression, you can specify predicates in any order. There is no appreciable gain in performance if you try to rearrange predicates in a particular sequence.
 
-The maximum limit on the filter expression is the maximum limit on the request: 16 MB for POST, 8 KB for GET.
+The hard limit on a filter expression is the maximum limit on the request. The entire request, inclusive of the filter, can be a maximum of 16 MB for POST, or 8 KB for GET. Soft limits correlate to the number of clauses in your filter expression. A good rule of thumb is that if you have hundreds of clauses, you are at risk of running into the limit. We recommend designing your application in such a way that it does not generate filters of unbounded size.
 
-The following examples represent prototypical filters in several APIs.
+The following examples represent prototypical filter definitions in several APIs.
 
 ```http
 # Option 1:  Use $filter for GET
@@ -116,7 +111,7 @@ The following examples illustrate several design patterns for filter scenarios. 
    search=hotels ocean$filter=(baseRate ge 60 and baseRate lt 300) and city eq 'Los Angeles'
    ```
 
-+ Compound queries, separated by "or", each with its own filter criteria (for example, 'beagles' in 'dog' or 'siamese' in 'cat'). OR'd expressions are evaluated individually, with responses from each one combined into one response object sent back to the calling application. This design pattern is achieved through the search.ismatch function. You can use the non-scored version (search.ismatch) or the scored version (search.ismatchscoring).
++ Compound queries, separated by "or", each with its own filter criteria (for example, 'beagles' in 'dog' or 'siamese' in 'cat'). OR'd expressions are evaluated individually, with responses from each one combined into one response sent back to the calling application. This design pattern is achieved through the search.ismatch function. You can use the non-scoring version (search.ismatch) or the scoring version (search.ismatchscoring).
 
    ```
    # Match on hostels rated higher than 4 OR 5-star motels.
@@ -171,7 +166,7 @@ Text strings are case-sensitive. There is no lower-casing of upper-cased words: 
 
 Numeric fields are not `searchable` in the context of full text search. Only strings are subject to full text search. For example, if you enter 99.99 as a search term, you won't get back items priced at $99.99. Instead, you would see items that have the number 99 in string fields of the document. Thus, if you have numeric data, the assumption is that you will use them for filters, including ranges, facets, groups, and so forth. 
 
-Documents that contain numeric fields (price, size, SKU, ID) provide those values in search results if the field is marked `retreivable`. The point here is that full text search itself is not applicable to numeric field types.
+Documents that contain numeric fields (price, size, SKU, ID) provide those values in search results if the field is marked `retrievable`. The point here is that full text search itself is not applicable to numeric field types.
 
 ## Next steps
 

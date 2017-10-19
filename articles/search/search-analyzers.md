@@ -50,10 +50,10 @@ You can customize a predefined analyzer, such as **Pattern** or **Stop**, to use
 
 3. Adding an analyzer to a field definition incurs a write operation on the index. If you add an **analyzer** to an existing index, note the following steps:
  
- | Scenario | Steps |
- |----------|-------|
- | Add a new field | If the field doesn't exist yet in the schema, there is no field revision to make because content and data are created together. Use [Update Index](https://docs.microsoft.com/rest/api/searchservice/update-index) and [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) for this task.|
- | Add an analyzer to an existing indexed field. | The inverted index for that field must be recreated from the ground up and document contents for those fields must be reindexed. <br/> <br/>For indexes under active development, [delete](https://docs.microsoft.com/rest/api/searchservice/delete-index) and [create](https://docs.microsoft.com/rest/api/searchservice/create-index) the index to pick up the new field definition. <br/> <br/>For indexes in production, you should create a new field to provide the revised definition and start using it. Use [Update Index](https://docs.microsoft.com/rest/api/searchservice/update-index) and [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) to incorporate the new field. Later, as part of planned index servicing, you can clean up the index to remove obsolete fields. |
+ | Scenario | Impact | Steps |
+ |----------|--------|-------|
+ | Add a new field | minimal | If the field doesn't exist yet in the schema, there is no field revision to make because the field does not yet have a physical presence in your index. Use [Update Index](https://docs.microsoft.com/rest/api/searchservice/update-index) and [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) for this task.|
+ | Add an analyzer to an existing indexed field. | rebuild | The inverted index for that field must be recreated from the ground up and document contents for those fields must be reindexed. <br/> <br/>For indexes under active development, [delete](https://docs.microsoft.com/rest/api/searchservice/delete-index) and [create](https://docs.microsoft.com/rest/api/searchservice/create-index) the index to pick up the new field definition. <br/> <br/>For indexes in production, you should create a new field to provide the revised definition and start using it. Use [Update Index](https://docs.microsoft.com/rest/api/searchservice/update-index) and [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) to incorporate the new field. Later, as part of planned index servicing, you can clean up the index to remove obsolete fields. |
 
 ## Tips and best practices
 

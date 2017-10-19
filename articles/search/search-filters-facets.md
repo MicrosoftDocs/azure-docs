@@ -20,7 +20,7 @@ ms.author: heidist
 
 # How to build a facet filter in Azure Search 
 
-Faceted navigation is used for self-directed filtering on query results in a search app, where your application offers UI controls for scoping search to groups of dcuments (for example, categories or brands), and Azure Search provides the data stucture to back the experience. In this article, quickly review the basic steps for creating a faceted navigation structure backing the search experience you want to provide. 
+Faceted navigation is used for self-directed filtering on query results in a search app, where your application offers UI controls for scoping search to groups of documents (for example, categories or brands), and Azure Search provides the data stucture to back the experience. In this article, quickly review the basic steps for creating a faceted navigation structure backing the search experience you want to provide. 
 
 > [!div class="checklist"]
 > * Choose fields for filtering and faceting
@@ -37,7 +37,7 @@ New to faceted navigation and want more detail? See [How to implement faceted na
 
 ## Choose fields
 
-Facets can be based on simple or complex field types in Azure Search. Fields that work best in faceted navigation have low cardinality: a small number of distinct values that repeat throughout documents in your search corpus (for example, a list of colors, countries, or brand names). 
+Facets can be calculated over single value fields as well as collections. Fields that work best in faceted navigation have low cardinality: a small number of distinct values that repeat throughout documents in your search corpus (for example, a list of colors, countries, or brand names). 
 
 Faceting is enabled on a field-by-field basis when you create the index, by setting the following attributes to TRUE: `filterable`, `facetable`. Only filterable fields can be faceted.
 
