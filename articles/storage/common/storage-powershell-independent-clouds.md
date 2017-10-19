@@ -18,7 +18,7 @@ ms.author: robinsh
 
 # How to connect to the Azure independent clouds using PowerShell
 
-Most people use Azure Public Cloud for their global Azure deployment. There are also some independent deployments of Microsoft Azure for reasons of sovereignty and so on. These independent deployments are referred to as "environments". These are the available environments:
+Most people use Azure Public Cloud for their global Azure deployment. There are also some independent deployments of Microsoft Azure for reasons of sovereignty and so on. These independent deployments are referred to as "environments." These are the available environments:
 
 * [Azure Government Cloud](https://azure.microsoft.com/features/gov/)
 * [Azure China Cloud operated by 21Vianet in China](http://www.windowsazure.cn/)
@@ -41,7 +41,7 @@ Follow these steps to get you started:
 	Get-AzureRmEnvironment
 	```
 
-2. Login to your account that has access to the cloud to which you want to connect and set the environment. This example shows how to use the Azure China Cloud.   
+2. Sign in to your account that has access to the cloud to which you want to connect and set the environment. This example shows how to use the Azure China Cloud.   
 	```powershell
 	Login-RmAccount –Environment AzureChinaCloud
 	```
