@@ -35,9 +35,9 @@ HA Ports is configured by setting the frontend and backend ports to **0** and pr
 
 ### Network Virtual Appliances
 
-Azure customers rely heavily on the network virtual appliances (NVAs) for securing their workloads from multiple types of security threats. In addition, the NVAs must be reliable, highly available, and scale-out for demand.
+Azure customers can use network virtual appliances (NVA) for securing their workloads from multiple types of security threats. When NVA are used in these scenarios, they must be reliable, highly available, and scale-out for demand.
 
-You can now achieve high availability for your HA deployments by simply adding NVAs to the backend pool of the Azure internal Load Balancer and configuring an HA Ports Load Balancer rule.
+You can now achieve high availability for your HA deployments by simply adding NVA instances to the backend pool of the Azure internal Load Balancer and configuring an HA Ports Load Balancer rule.
 
 HA Ports provide several advantages for NVA HA scenarios:
 - fast failover to healthy instances with per instance health probes
