@@ -27,9 +27,9 @@ If you've been following the tutorials, you have a working Kubernetes cluster in
 In this tutorial, part five of seven, you scale out the pods in the app and try pod autoscaling. You also learn how to scale the number of Azure VM agent nodes to change the cluster's capacity for hosting workloads. Tasks completed include:
 
 > [!div class="checklist"]
+> * Scale the Kubernetes Azure agent nodes
 > * Manually scaling Kubernetes pods
 > * Configuring Autoscale pods running the app front end
-> * Scale the Kubernetes Azure agent nodes
 
 In subsequent tutorials, the Azure Vote application is updated, and Operations Management Suite configured to monitor the Kubernetes cluster.
 
@@ -37,7 +37,35 @@ In subsequent tutorials, the Azure Vote application is updated, and Operations M
 
 In previous tutorials, an application was packaged into a container image, this image uploaded to Azure Container Registry, and a Kubernetes cluster created. The application was then run on the Kubernetes cluster. 
 
-If you have not done these steps, and would like to follow along, return to the [Tutorial 1 – Create container images](./tutorial-kubernetes-prepare-app.md). 
+If you have not done these steps, and would like to follow along, return to the [Tutorial 1 – Create container images](./tutorial-kubernetes-prepare-app.md).
+
+## Scale AKS nodes
+
+If you created your Kubernetes cluster using the commands in the previous tutorial, it has one agent nodes. You can adjust the number of agents manually if you plan more or fewer container workloads on your cluster.
+
+The following example increases the number of agent nodes to three in the Kubernetes cluster named *myK8sCluster*. The command takes a couple of minutes to complete.
+
+```azurecli 
+az aks scale --resource-group=myResourceGroup --name=myK8SCluster --agent-count 3
+```
+
+The ouput will be similar to:
+
+```console
+"agentPoolProfiles": [
+  {
+    "count": 3,
+    "dnsPrefix": null,
+    "fqdn": null,
+    "name": "myK8sCluster",
+    "osDiskSizeGb": null,
+    "osType": "Linux",
+    "ports": null,
+    "storageProfile": "ManagedDisks",
+    "vmSize": "Standard_D2_v2",
+    "vnetSubnetId": null
+  }
+```
 
 ## Manually scale pods
 
@@ -114,34 +142,6 @@ azure-vote-front   Deployment/azure-vote-front   0% / 50%   3         10        
 ```
 
 After a few minutes, with minimal load on the Azure Vote app, the number of pod replicas decreases automatically to 3.
-
-## Scale the agents
-
-If you created your Kubernetes cluster using default commands in the previous tutorial, it has three agent nodes. You can adjust the number of agents manually if you plan more or fewer container workloads on your cluster.
-
-The following example increases the number of agent nodes to 4 in the Kubernetes cluster named *myK8sCluster*. The command takes a couple of minutes to complete.
-
-```azurecli 
-az aks scale --resource-group=myResourceGroup --name=myK8SCluster --agent-count 4
-```
-
-The ouput will be similar to:
-
-```console
-"agentPoolProfiles": [
-  {
-    "count": 4,
-    "dnsPrefix": null,
-    "fqdn": null,
-    "name": "myK8sCluster",
-    "osDiskSizeGb": null,
-    "osType": "Linux",
-    "ports": null,
-    "storageProfile": "ManagedDisks",
-    "vmSize": "Standard_D2_v2",
-    "vnetSubnetId": null
-  }
-```
 
 ## Next steps
 

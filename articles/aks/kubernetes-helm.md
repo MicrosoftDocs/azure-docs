@@ -54,22 +54,17 @@ Bash completion has been installed to:
 
 ## Configure Helm
 
-Tiller is a server-side component that runs on the Kubernetes cluster. Tiller manages the lifecycle of Kubernetes applications that have been run using Helm charts.
-
-Tiller is pre-installed on Kubernetes clusters in Azure, however the [helm init](https://docs.helm.sh/helm/#helm-init) command can be used to validate that Tiller is running the latest version.
-
-The [helm init](https://docs.helm.sh/helm/#helm-init) command is also used to connect the Helm client with the Kubernetes cluster.
+The [helm init](https://docs.helm.sh/helm/#helm-init) command is used to install Helm componenets in a Kubernetes cluster and make client side configurations. Helm is pre-installed in AKS clusters, so only the client side configuration is needed. Run the following command to configure the Helm client.
 
 ```azurecli-interactive
-helm init --upgrade
+helm init --client-only
 ```
 
 Output:
 
 ```console
 $HELM_HOME has been configured at /Users/neilpeterson/.helm.
-Warning: Tiller is already installed in the cluster.
-(Use --client-only to suppress this message, or --upgrade to upgrade Tiller to the current version.)
+Not installing Tiller due to 'client-only' flag having been set
 Happy Helming!
 ```
 

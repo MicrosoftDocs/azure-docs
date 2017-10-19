@@ -62,10 +62,8 @@ Output:
 The following example creates a cluster named *myK8sCluster* with three agent nodes.
 
 ```azurecli-interactive
-az aks create --resource-group myResourceGroup --name myK8sCluster --generate-ssh-keys
+az aks create --resource-group myResourceGroup --name myK8sCluster --agent-count 1 --generate-ssh-keys
 ```
-
-In some cases, such as with a limited trial, an Azure subscription has limited access to Azure resources. If the deployment fails due to limited available cores, reduce the default agent count by adding `--agent-count 1` to the create command. 
 
 After several minutes, the command completes and returns json formatted information about the cluster. 
 
@@ -97,8 +95,6 @@ Output:
 ```console
 NAME                          STATUS    ROLES     AGE       VERSION
 k8s-myk8scluster-36346190-0   Ready     agent     2m        v1.7.7
-k8s-myk8scluster-36346190-1   Ready     agent     2m        v1.7.7
-k8s-myk8scluster-36346190-2   Ready     agent     2m        v1.7.7
 ```
 
 ## Run the application
