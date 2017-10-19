@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 09/12/2017
+ms.date: 10/19/2017
 ms.author: genli
 
 ---
@@ -35,7 +35,7 @@ To add someone as an admin for a subscription in the Azure portal, we recommend 
 
     ![Screenshot that shows the Owner role selected](./media/billing-add-change-azure-subscription-administrator/add-role.png)
 
-### Add or change Co-administrator
+## Add or change Co-administrator
 
 Only an Owner can be added as a Co-administrator. Other users with roles such as Contributor and Reader cannot be added as Co-administrators.
 
