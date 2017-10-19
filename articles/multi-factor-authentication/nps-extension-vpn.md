@@ -30,7 +30,7 @@ This article provides instructions for integrating the NPS infrastructure with A
 Network Policy and Access Services gives organizations the ability to:
 
 * Assign a central location for the management and control of network requests to specify:
-:
+
     * Who can connect 
     * What times of day connections are allowed 
     * The duration of connections
@@ -198,7 +198,7 @@ You can use a standard (wizard-based) or advanced configuration option to config
 
     ![The "Completing Connections and RADIUS clients" window](./media/nps-extension-vpn/image10.png)
 
-### Verify RADIUS configuration
+### Verify the RADIUS configuration
 This section details the configuration you created by using the wizard.
 
 1. On the Network Policy Server, in the NPS (local) console, expand **RADIUS Clients**, and then select **RADIUS Clients**.
@@ -487,7 +487,7 @@ To use the script, provide the extension with your Azure AD administrator creden
 
 6. Reboot the server.
  
-### Verify configuration
+### Verify the configuration
 To verify the configuration, establish a new VPN connection with VPN server. After you've successfully entered your credentials for primary authentication, the VPN connection waits for the secondary authentication to succeed before the connection is established, as shown here: 
 
 ![The Windows Settings VPN window](./media/nps-extension-vpn/image42.png)
