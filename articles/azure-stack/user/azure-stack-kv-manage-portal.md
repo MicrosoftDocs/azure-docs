@@ -52,7 +52,7 @@ You must subscribe to an offer that includes the Azure Key Vault service.
 
 ## Manage keys and secrets
 
-After you create a vault, use the following steps to create and manage keys and secrets within the vault:
+After you create a vault, use the following steps to create and manage keys and secrets within the vault.
 
 ### Create a key
 
