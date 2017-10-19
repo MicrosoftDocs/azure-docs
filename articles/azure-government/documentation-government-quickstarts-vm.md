@@ -1,5 +1,5 @@
 ---
-title: Create a VM Quickstart for Government | Microsoft Docs
+title: Create a VM for Azure Government quickstart| Microsoft Docs
 description: This provides a series of quickstarts for using Functions with Azure Government
 services: azure-government
 cloud: gov
@@ -17,7 +17,7 @@ ms.date: 10/11/2017
 ms.author: yujhong
 
 ---
-# VM Quickstart for Azure Government
+# Virtual Machines on Azure Government
 This quickstart will help you get started using Virtual Machines on Azure Government. Using VMs with Azure Government is similar to using it with the Azure commercial platform, with a [few exceptions](documentation-government-compute.md#virtual-machines).
 
 To learn more about Azure Virtual Machines, click [here](../virtual-machines/index.md).
@@ -101,7 +101,8 @@ If you don't already have a Virtual Network, complete the "Create a new Virtual 
 
 10. Once the validation step has completed click "Ok" and you should see the following screen.
 
-![createvn14](./media/documentation-government-quickstarts-vm15.png)
+  ![createvn14](./media/documentation-government-quickstarts-vm15.png)
+  
 The VM will now be provisioned. It will take several minutes to complete, but afterwards you will be able to connect to the VM with RDP using the public IP address.
 ## Next steps
 For supplemental information and updates, subscribe to the [Microsoft Azure Government Blog](https://blogs.msdn.microsoft.com/azuregov/).
