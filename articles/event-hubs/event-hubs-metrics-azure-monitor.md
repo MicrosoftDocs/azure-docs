@@ -21,7 +21,7 @@ ms.author: sethm
 
 Event Hubs metrics gives you the state of Event Hubs resources in your Azure subscription. With a rich set of metrics data, you can assess the overall health of your event hubs not only at the namespace level, but also at the entity level. These statistics can be important as they help you to monitor the state of your event hubs. Metrics can also help troubleshoot root-cause issues without needing to contact Azure support.
 
-Azure Monitor provides unified user interfaces for monitoring across various Azure services. For more information, see [Monitoring in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md).
+Azure Monitor provides unified user interfaces for monitoring across various Azure services. For more information, see [Monitoring in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md) and the [Retrieve Azure Monitor metrics with .NET](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) sample on GitHub.
 
 ## Access metrics
 
@@ -106,7 +106,8 @@ Azure Event Hubs supports the following dimensions for metrics in Azure Monitor.
 
 ## Next steps
 
-See the [Azure Monitoring overview](../monitoring-and-diagnostics/monitoring-overview.md).
+* See the [Azure Monitoring overview](../monitoring-and-diagnostics/monitoring-overview.md).
+* [Retrieve Azure Monitor metrics with .NET](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) sample on GitHub. 
 
 For more information about Event Hubs, visit the following links:
 
