@@ -1,6 +1,6 @@
 ---
-title: Deploy ElasticSearch on a Linux virtual machine in Azure 
-description: Tutorial - Install the Elastic Stack on a Linux VM in Azure
+title: Deploy ElasticSearch on a development virtual machine in Azure 
+description: Tutorial - Install the Elastic Stack onto a development Linux VM in Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: rloutlaw
@@ -17,36 +17,87 @@ ms.author: routlaw
 
 # Install the Elastic Stack on an Azure VM
 
-This article walks you through how to deploy [Elasticsearch](https://www.elastic.co/products/elasticsearch), [Logstash](https://www.elastic.co/products/logstash), and [Kibana](https://www.elastic.co/products/kibana), on an Ubuntu VM in Azure.  To see the Elastic Stack in action, you can optionally connect to the Kibana interface and view sample data. In this tutorial you learn how to:
+This article walks you through how to deploy [Elasticsearch](https://www.elastic.co/products/elasticsearch), [Logstash](https://www.elastic.co/products/logstash), and [Kibana](https://www.elastic.co/products/kibana), on an Ubuntu VM in Azure. To see the Elastic Stack in action, you can optionally connect to the Kibana interface and view sample data. In this tutorial you learn how to:
 
 > [!div class="checklist"]
-> * Create an Ubuntu VM 
-> * Install Elasticsearch, Logstash, and Kibana
-> * Add data to Elasticsearch from Logstash 
-> * Verify installation and configuration
+> * Create an Ubuntu VM in an Azure resource group
+> * Install Elasticsearch, Logstash, and Kibana on the VM
+> * Send sample data to Elasticsearch from Logstash 
 > * Open ports and work with data in the Kibana console
 
 
-For more on the Elastic stack, including recommendations for a production environment, see the [Elastic documentation](https://www.elastic.co/guide/index.html) and the [Elasticsearch area of the Azure Architecture Center](/azure/architecture/elasticsearch/).
+ This deployment is suitable for basic development with the Elastic Stack. For more on the Elastic Stack, including recommendations for a production environment, see the [Elastic documentation](https://www.elastic.co/guide/index.html) and the [Azure Architecture Center](/azure/architecture/elasticsearch/).
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [virtual-machines-linux-tutorial-stack-intro.md](../../../includes/virtual-machines-linux-tutorial-stack-intro.md)]
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
+## Create a resource group
 
+Create a resource group with the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
+
+The following example creates a resource group named *myResourceGroup* in the *eastus* location.
+
+```azurecli-interactive 
+az group create --name myResourceGroup --location eastus
+```
+
+## Create a virtual machine
+
+Create a VM with the [az vm create](/cli/azure/vm#create) command. 
+
+The following example creates a VM named *myVM* and creates SSH keys if they do not already exist in a default key location. To use a specific set of keys, use the `--ssh-key-value` option.  
+
+```azurecli-interactive 
+az vm create \
+    --resource-group myResourceGroup \
+    --name myVM \
+    --image UbuntuLTS \
+    --admin-username azureuser \
+    --generate-ssh-keys
+```
+
+When the VM has been created, the Azure CLI shows information similar to the following example. Take note of the `publicIpAddress`. This address is used to access the VM.
+
+```azurecli-interactive 
+{
+  "fqdns": "",
+  "id": "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
+  "location": "eastus",
+  "macAddress": "00-0D-3A-23-9A-49",
+  "powerState": "VM running",
+  "privateIpAddress": "10.0.0.4",
+  "publicIpAddress": "40.68.254.142",
+  "resourceGroup": "myResourceGroup"
+}
+```
+
+## SSH into your VM
+
+If you don't already know the public IP address of your VM, run the [az network public-ip list](/cli/azure/network/public-ip#list) command:
+
+```azurecli-interactive
+az network public-ip list --resource-group myResourceGroup --query [].ipAddress
+```
+
+Use the following command to create an SSH session with the virtual machine. Substitute the correct public IP address of your virtual machine. In this example, the IP address is *40.68.254.142*.
+
+```bash
+ssh azureuser@40.68.254.142
+```
 
 ## Install the Elastic Stack
 
 Import the Elasticsearch signing key and update your APT sources list to include the Elastic package repository:
 
-```bash
+```azurecli-interactive 
 wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
 echo "deb https://artifacts.elastic.co/packages/5.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-5.x.list
 ```
 
 Install the Java Virtual on the VM and configure the JAVA_HOME variable-this is necessary for the Elastic Stack components to run.
 
-```bash
+```azurecli-interactive 
 sudo apt update && sudo apt install openjdk-8-jre-headless
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 ```
@@ -96,13 +147,13 @@ You'll see output like the following if Elasticsearch is running:
 
 Start Logstash with the following command:
 
-```bash
+```bash 
 sudo systemctl start logstash.service
 ```
 
 Test logstash in interactive mode to make sure it's working correctly:
 
-```
+```bash
 sudo /usr/share/logstash/bin/logstash -e 'input { stdin { } } output { stdout {} }'
 ```
 
@@ -116,7 +167,7 @@ hello azure
 
 Set up Logstash to forward the kernel messages from this VM to Elasticsearch. Create a new file in an empty directory called `vm-syslog-logstash.conf` with the following Logstash configuration.
 
-```
+```Logstash
 input {
     stdin {
         type => "stdin-type"
@@ -152,7 +203,7 @@ You'll see the output of the syslog entries in your console window echoed as the
 
 Edit the Kibana configuration at `/etc/kibana/kibana.yml` to listen on the IP address of the VM and not localhost so you can access it remotely.
 
-```
+```bash
 server.host:"0.0.0.0"
 ```
 
@@ -164,7 +215,7 @@ sudo systemctl start kibana.service
 
 Open port 5601 from the Azure CLI to allow remote access to the Kibana console:
 
-```bash
+```azurecli-interactive
 az vm open-port --port 5601 --resource-group myResourceGroup --name myVM
 ```
 
@@ -176,14 +227,12 @@ Select **Discover** on the Kibana console to search, browse and filter through t
 
 ![Browse Syslog events in Kibana](media/elasticsearch-install/kibana-search-filter.png)
 
-
 ## Next steps
 
-In this tutorial, you deployed the Elastic Stack in Azure. You learned how to:
+In this tutorial, you deployed the Elastic Stack into a development VM in Azure. You learned how to:
 
 > [!div class="checklist"]
-> * Create an Ubuntu VM 
-> * Install Elasticsearch, Logstash, and Kibana
-> * Add data to Elasticsearch from Logstash 
-> * Verify installation and configuration
+> * Create an Ubuntu VM in an Azure resource group
+> * Install Elasticsearch, Logstash, and Kibana on the VM
+> * Send sample data to Elasticsearch from Logstash 
 > * Open ports and work with data in the Kibana console
