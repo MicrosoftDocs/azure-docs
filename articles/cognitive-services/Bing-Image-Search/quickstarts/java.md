@@ -52,7 +52,7 @@ import javax.net.ssl.HttpsURLConnection;
  * the command line as follows.
  *
  * javac BingImageSearch.java -classpath .;gson-2.8.1.jar -encoding UTF-8
- * java -cp .;gson-2.8.1.jar DetectLanguage
+ * java -cp .;gson-2.8.1.jar BingImageSearch
  */
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

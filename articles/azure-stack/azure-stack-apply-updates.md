@@ -1,4 +1,4 @@
----
+--
 title: Apply updates in Azure Stack | Microsoft Docs
 description: Learn how to import and install Microsoft update packages for an Azure Stack integrated system.
 services: azure-stack
@@ -22,7 +22,7 @@ ms.author: twooley
 
 *Applies to: Azure Stack integrated systems*
 
-As an Azure Stack operator, you can apply Microsoft updates packages for Azure Stack by using the Update tile in the administrator portal. You must download the Microsoft update package, import the package files to Azure Stack, and then install the update package. 
+As an Azure Stack operator, you can apply Microsoft update packages for Azure Stack by using the Update tile in the administrator portal. You must download the Microsoft update package, import the package files to Azure Stack, and then install the update package. 
 
 ## Download the update package
 
