@@ -154,7 +154,7 @@ az acr show --name <acrName> --query "[].{acrLoginServer:loginServer}" --output 
 
 Output:
 
-```
+```bash
 AcrLoginServer
 -----------------------------
 uniqueregistryname.azurecr.io
@@ -176,7 +176,7 @@ docker build . -f ./AcrHelloworld/Dockerfile -t <acrName>.azurecr.io/acr-hellowo
 
 Several lines of output are displayed as the Docker image is built (shown here truncated):
 
-```
+```bash
 Sending build context to Docker daemon  523.8kB
 Step 1/18 : FROM microsoft/aspnetcore:2.0 AS base
 2.0: Pulling from microsoft/aspnetcore
@@ -208,7 +208,7 @@ uniqueregistryname.azurecr.io/acr-helloworld   v1                  c9ca1763cfb1 
 
 Finally, use the `docker push` command to push the *acr-helloworld* image to your registry. Replace `<acrName>` with the name of your registry.
 
-```
+```bash
 docker push <acrName>.azurecr.io/acr-helloworld:v1
 ```
 
@@ -216,7 +216,7 @@ Because you've configured your registry for geo-replication, your image is autom
 
 Output:
 
-```
+```bash
 The push refers to a repository [uniqueregistryname.azurecr.io/acr-helloworld]
 9716cfe18412: Pushed
 074867a942d5: Pushed
