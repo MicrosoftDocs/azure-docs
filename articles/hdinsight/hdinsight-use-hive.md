@@ -32,7 +32,7 @@ HDInsight provides several cluster types, which are tuned for specific workloads
 
 * __Hadoop__: A Hadoop cluster that is tuned for batch processing workloads. For more information, see the [Start with Hadoop in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md) document.
 
-* __Spark__: Apache Spark has built-in functionality for working with Hive. For more information, see the [Start with Spark on HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md) document.
+* __Spark__: Apache Spark has built-in functionality for working with Hive. For more information, see the [Start with Spark on HDInsight](spark/apache-spark-jupyter-spark-sql.md) document.
 
 * __HBase__: HiveQL can be used to query data stored in HBase. For more information, see the [Start with HBase on HDInsight](hdinsight-hbase-tutorial-get-started-linux.md) document.
 
