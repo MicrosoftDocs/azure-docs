@@ -55,7 +55,7 @@ The following steps demonstrate how to use these cmdlets to run a job on your HD
 
 1. Using an editor, save the following code as **pigjob.ps1**.
 
-    [!code-powershell[main](../../powershell_scripts/hdinsight/use-pig/use-pig.ps1?range=5-51)]
+    [!code-powershell[main](../../../powershell_scripts/hdinsight/use-pig/use-pig.ps1?range=5-51)]
 
 1. Open a new Windows PowerShell command prompt. Change directories to the location of the **pigjob.ps1** file, then use the following command to run the script:
 

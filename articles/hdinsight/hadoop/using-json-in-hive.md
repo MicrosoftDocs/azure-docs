@@ -148,13 +148,13 @@ For related articles, see:
 * [Use Hive and HiveQL with Hadoop in HDInsight to analyze a sample Apache log4j file](../hdinsight-use-hive.md)
 * [Analyze flight delay data by using Hive in HDInsight](../hdinsight-analyze-flight-delay-data.md)
 * [Analyze Twitter data by using Hive in HDInsight](../hdinsight-analyze-twitter-data.md)
-* [Run a Hadoop job by using Azure Cosmos DB and HDInsight](../../cosmos-db/documentdb-run-hadoop-with-hdinsight.md)
+* [Run a Hadoop job by using Azure Cosmos DB and HDInsight](../../cosmos-db/run-hadoop-with-hdinsight.md)
 
 [hdinsight-python]:python-udf-hdinsight.md
 
-[image-hdi-hivejson-flatten]: ./media/hdinsight-using-json-in-hive/flatten.png
-[image-hdi-hivejson-getjsonobject]: ./media/hdinsight-using-json-in-hive/getjsonobject.png
-[image-hdi-hivejson-jsontuple]: ./media/hdinsight-using-json-in-hive/jsontuple.png
+[image-hdi-hivejson-flatten]: ./media/using-json-in-hive/flatten.png
+[image-hdi-hivejson-getjsonobject]: ./media/using-json-in-hive/getjsonobject.png
+[image-hdi-hivejson-jsontuple]: ./media/using-json-in-hive/jsontuple.png
 [image-hdi-hivejson-jdk]: ./media/hdinsight-using-json-in-hive/jdk.png
 [image-hdi-hivejson-maven]: ./media/hdinsight-using-json-in-hive/maven.png
 [image-hdi-hivejson-serde]: ./media/hdinsight-using-json-in-hive/serde.png

@@ -206,7 +206,7 @@ Learn more about the Azure Feature Pack for SSIS [here][ssispack].
 
 Now that you've learned what Hive is and how to use it with Hadoop in HDInsight, use the following links to explore other ways to work with Azure HDInsight.
 
-* [Upload data to HDInsight][hdinsight-upload-data]
+* [Upload data to HDInsight](../hdinsight-upload-data.md)
 * [Use Pig with HDInsight][hdinsight-use-pig]
 * [Use MapReduce jobs with HDInsight][hdinsight-use-mapreduce]
 
@@ -235,8 +235,6 @@ Now that you've learned what Hive is and how to use it with Hadoop in HDInsight,
 
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-submit-jobs]:submit-apache-hadoop-jobs-programmatically.md
-[hdinsight-upload-data]: hdinsight-upload-data.md
-
 [Powershell-install-configure]: /powershell/azureps-cmdlets-docs
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 

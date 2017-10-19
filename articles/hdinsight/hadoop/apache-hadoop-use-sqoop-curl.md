@@ -111,7 +111,7 @@ For more information on the REST interface used in this article, see the <a href
 ## Next steps
 For general information on Hive with HDInsight:
 
-* [Use Sqoop with Hadoop on HDInsight](../../hdinsight-use-sqoop.md)
+* [Use Sqoop with Hadoop on HDInsight](hdinsight-use-sqoop.md)
 
 For information on other ways you can work with Hadoop on HDInsight:
 

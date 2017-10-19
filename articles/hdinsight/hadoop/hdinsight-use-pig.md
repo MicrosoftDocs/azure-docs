@@ -73,7 +73,7 @@ Each log inside the file consists of a line of fields that contains a `[LOG LEVE
 In the previous example, the log level is ERROR.
 
 > [!NOTE]
-> You can also generate a log4j file by using the [Apache Log4j](http://en.wikipedia.org/wiki/Log4j) logging tool and then upload that file to your blob. See [Upload Data to HDInsight](hdinsight-upload-data.md) for instructions. For more information about how blobs in Azure storage are used with HDInsight, see [Use Azure Blob Storage with HDInsight](../hdinsight-hadoop-use-blob-storage.md).
+> You can also generate a log4j file by using the [Apache Log4j](http://en.wikipedia.org/wiki/Log4j) logging tool and then upload that file to your blob. See [Upload Data to HDInsight](../hdinsight-upload-data.md) for instructions. For more information about how blobs in Azure storage are used with HDInsight, see [Use Azure Blob Storage with HDInsight](../hdinsight-hadoop-use-blob-storage.md).
 
 ## <a id="job"></a>Example job
 
@@ -119,7 +119,7 @@ Learn more about the Azure Feature Pack for SSIS [here][ssispack].
 ## <a id="nextsteps"></a>Next steps
 Now that you have learned how to use Pig with HDInsight, use the following links to explore other ways to work with Azure HDInsight.
 
-* [Upload data to HDInsight][hdinsight-upload-data]
+* [Upload data to HDInsight](../hdinsight-upload-data.md)
 * [Use Hive with HDInsight][hdinsight-use-hive]
 * [Use Sqoop with HDInsight](hdinsight-use-sqoop.md)
 * [Use Oozie with HDInsight](../hdinsight-use-oozie.md)
@@ -131,10 +131,6 @@ Now that you have learned how to use Pig with HDInsight, use the following links
 [pigtask]: http://msdn.microsoft.com/library/mt146781(v=sql.120).aspx
 [connectionmanager]: http://msdn.microsoft.com/library/mt146773(v=sql.120).aspx
 [ssispack]: http://msdn.microsoft.com/library/mt146770(v=sql.120).aspx
-
-
-[hdinsight-upload-data]: hdinsight-upload-data.md
-
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 
 [hdinsight-use-hive]:../hdinsight-use-hive.md

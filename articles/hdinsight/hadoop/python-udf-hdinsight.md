@@ -309,7 +309,7 @@ You can use PowerShell to upload the files to the HDInsight server. Use the foll
 > [!IMPORTANT] 
 > The steps in this section use Azure PowerShell. For more information on using Azure PowerShell, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
 
-[!code-powershell[main](../../powershell_scripts/hdinsight/run-python-udf/run-python-udf.ps1?range=5-41)]
+[!code-powershell[main](../../../powershell_scripts/hdinsight/run-python-udf/run-python-udf.ps1?range=5-41)]
 
 > [!IMPORTANT]
 > Change the `C:\path\to` value to the path to the files on your development environment.
@@ -326,7 +326,7 @@ PowerShell can also be used to remotely run Hive queries. Use the following Powe
 > [!IMPORTANT]
 > Before running, the script prompts you for the HTTPs/Admin account information for your HDInsight cluster.
 
-[!code-powershell[main](../../powershell_scripts/hdinsight/run-python-udf/run-python-udf.ps1?range=45-94)]
+[!code-powershell[main](../../../powershell_scripts/hdinsight/run-python-udf/run-python-udf.ps1?range=45-94)]
 
 The output for the **Hive** job should appear similar to the following example:
 
@@ -343,7 +343,7 @@ PowerShell can also be used to run Pig Latin jobs. To run a Pig Latin job that u
 > [!NOTE]
 > When remotely submitting a job using PowerShell, it is not possible to use C Python as the interpreter.
 
-[!code-powershell[main](../../powershell_scripts/hdinsight/run-python-udf/run-python-udf.ps1?range=98-144)]
+[!code-powershell[main](../../../powershell_scripts/hdinsight/run-python-udf/run-python-udf.ps1?range=98-144)]
 
 The output for the **Pig** job should appear similar to the following data:
 
@@ -365,13 +365,13 @@ This problem may be caused by the line endings in the Python file. Many Windows 
 
 You can use the following PowerShell statements to remove the CR characters before uploading the file to HDInsight:
 
-[!code-powershell[main](../../powershell_scripts/hdinsight/run-python-udf/run-python-udf.ps1?range=148-150)]
+[!code-powershell[main](../../../powershell_scripts/hdinsight/run-python-udf/run-python-udf.ps1?range=148-150)]
 
 ### PowerShell scripts
 
 Both of the example PowerShell scripts used to run the examples contain a commented line that displays error output for the job. If you are not seeing the expected output for the job, uncomment the following line and see if the error information indicates a problem.
 
-[!code-powershell[main](../../powershell_scripts/hdinsight/run-python-udf/run-python-udf.ps1?range=135-139)]
+[!code-powershell[main](../../../powershell_scripts/hdinsight/run-python-udf/run-python-udf.ps1?range=135-139)]
 
 The error information (STDERR) and the result of the job (STDOUT) are also logged to your HDInsight storage.
 
