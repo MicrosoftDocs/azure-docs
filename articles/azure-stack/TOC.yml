@@ -57,7 +57,7 @@
       href: azure-stack-integrate-identity.md
     - name: Publish endpoints
       href: azure-stack-integrate-endpoints.md
-    -name : Security
+    - name : Security
       href: azure-stack-integrate-security.md
   - name: Manage
     items:
