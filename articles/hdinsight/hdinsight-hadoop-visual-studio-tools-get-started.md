@@ -22,7 +22,7 @@ ms.author: jgao
 ---
 # Connect to Azure HDInsight and run Hive queries using Data Lake Tools for Visual Studio
 
-Learn how to use Data Lake Tools for Visual Studio to connect to Hadoop clusters in [Azure HDInsight](hdinsight-hadoop-introduction.md) and submit Hive queries. For more information about using HDInsight, see [Introduction to HDInsight](hdinsight-hadoop-introduction.md) and [Get started with HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md). For more information about connecting to a Storm cluster, see [Develop C# topologies for Apache Storm on HDInsight using Visual Studio](storm/apache-storm-develop-csharp-visual-studio-topology.md).
+Learn how to use Data Lake Tools for Visual Studio to connect to Hadoop clusters in [Azure HDInsight](hadoop/apache-hadoop-introduction.md) and submit Hive queries. For more information about using HDInsight, see [Introduction to HDInsight](hadoop/apache-hadoop-introduction.md) and [Get started with HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md). For more information about connecting to a Storm cluster, see [Develop C# topologies for Apache Storm on HDInsight using Visual Studio](storm/apache-storm-develop-csharp-visual-studio-topology.md).
 
 Data Lake Tools for Visual Studio can be used to access both Data Lake Analytics and HDInsight.  For the information about Data Lake Tools, see [Tutorial: develop U-SQL scripts using Data Lake Tools for Visual Studio](../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md).
 
@@ -30,7 +30,7 @@ Data Lake Tools for Visual Studio can be used to access both Data Lake Analytics
 
 To complete this tutorial and use the Data Lake Tools in Visual Studio, you'll need the following:
 
-* An Azure HDInsight cluster: To create one, see [Get started using Linux-based HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
+* An Azure HDInsight cluster: To create one, see [Get started using Linux-based HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * A workstation with the following software:
   
   * Windows 10, Windows 8.1, Windows 8, or Windows 7.
@@ -237,7 +237,7 @@ Data Lake Tools for Visual Studio supports creating and submit Pig scripts to HD
 In this article, you learned how to connect to HDInsight clusters from Visual Studio, using the Data Lake (HDInsight) Tools package, and how to run a Hive query. For more information, see:
 
 * [Use Hadoop Hive in HDInsight](hdinsight-use-hive.md)
-* [Get started using Hadoop in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
+* [Get started using Hadoop in HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [Submit Hadoop jobs in HDInsight](hdinsight-submit-hadoop-jobs-programmatically.md)
 * [Analyze Twitter data with Hadoop in HDInsight](hdinsight-analyze-twitter-data.md)
 

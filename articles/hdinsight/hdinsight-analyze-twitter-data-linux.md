@@ -321,7 +321,7 @@ These commands store the data in a location that all nodes in the cluster can ac
 
 You have learned how to transform an unstructured JSON dataset into a structured Hive table. To learn more about Hive on HDInsight, see the following documents:
 
-* [Get started with HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
+* [Get started with HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [Analyze flight delay data using HDInsight](hdinsight-analyze-flight-delay-data-linux.md)
 
 [curl]: http://curl.haxx.se

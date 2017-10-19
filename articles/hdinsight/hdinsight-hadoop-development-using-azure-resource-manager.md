@@ -54,7 +54,7 @@ New commands available with Azure Resource Manager are:
 If you use the `azure hdinsight job` commands to submit jobs to your HDInsight cluster, these are not available through the ARM commands. If you need to programmatically submit jobs to HDInsight from scripts, you should instead use the REST APIs provided by HDInsight. For more information on submitting jobs using REST APIs, see the following documents.
 
 * [Run MapReduce jobs with Hadoop on HDInsight using cURL](hdinsight-hadoop-use-mapreduce-curl.md)
-* [Run Hive queries with Hadoop on HDInsight using cURL](hdinsight-hadoop-use-hive-curl.md)
+* [Run Hive queries with Hadoop on HDInsight using cURL](hadoop/apache-hadoop-use-hive-curl.md)
 * [Run Pig jobs with Hadoop on HDInsight using cURL](hdinsight-hadoop-use-pig-curl.md)
 
 For information on other ways to run MapReduce, Hive, and Pig interactively, see [Use MapReduce with Hadoop on HDInsight](hdinsight-use-mapreduce.md), [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md), and [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md).
@@ -217,7 +217,7 @@ New command (ARM):
 
 #### Other samples
 * [Create HDInsight clusters](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
-* [Submit Hive jobs](hdinsight-hadoop-use-hive-powershell.md)
+* [Submit Hive jobs](hadoop/apache-hadoop-use-hive-powershell.md)
 * [Submit Pig jobs](hdinsight-hadoop-use-pig-powershell.md)
 * [Submit Sqoop jobs](hdinsight-hadoop-use-sqoop-powershell.md)
 
@@ -233,9 +233,9 @@ This section provides pointers to more information on how to perform certain tas
 | --- | --- |
 | Create HDInsight clusters using .NET SDK |See [Create HDInsight clusters using .NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md) |
 | Customize a cluster using Script Action with .NET SDK |See [Customize HDInsight Linux clusters using Script Action](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md#use-script-action) |
-| Authenticate applications interactively using Azure Active Directory with .NET SDK |See [Run Hive queries using .NET SDK](hdinsight-hadoop-use-hive-dotnet-sdk.md). The code snippet in this article uses the interactive authentication approach. |
+| Authenticate applications interactively using Azure Active Directory with .NET SDK |See [Run Hive queries using .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md). The code snippet in this article uses the interactive authentication approach. |
 | Authenticate applications non-interactively using Azure Active Directory with .NET SDK |See [Create non-interactive applications for HDInsight](hdinsight-create-non-interactive-authentication-dotnet-applications.md) |
-| Submit a Hive job using .NET SDK |See [Submit Hive jobs](hdinsight-hadoop-use-hive-dotnet-sdk.md) |
+| Submit a Hive job using .NET SDK |See [Submit Hive jobs](hadoop/apache-hadoop-use-hive-dotnet-sdk.md) |
 | Submit a Pig job using .NET SDK |See [Submit Pig jobs](hdinsight-hadoop-use-pig-dotnet-sdk.md) |
 | Submit a Sqoop job using .NET SDK |See [Submit Sqoop jobs](hdinsight-hadoop-use-sqoop-dotnet-sdk.md) |
 | List HDInsight clusters using .NET SDK |See [List HDInsight clusters](hdinsight-administer-use-dotnet-sdk.md#list-clusters) |
