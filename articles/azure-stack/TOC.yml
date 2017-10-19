@@ -51,13 +51,13 @@
       href: azure-stack-provision-vm.md
   - name: Datacenter integration
     items:
-    - name: Integrate DNS
+    - name: DNS
       href: azure-stack-integrate-dns.md
     - name: Identity
       href: azure-stack-integrate-identity.md
     - name: Publish endpoints
       href: azure-stack-integrate-endpoints.md
-    - name: Security
+    - name : Security
       href: azure-stack-integrate-security.md
   - name: Manage
     items:
@@ -86,7 +86,9 @@
       - name: Manage updates overview
         href: azure-stack-updates.md
       - name: Apply updates
-        href: azure-stack-apply-updates.md      
+        href: azure-stack-apply-updates.md
+      - name: Monitor update status
+        href: azure-stack-monitor-update.md      
     - name: Monitor health and alerts
       href: azure-stack-monitor-health.md
     - name: Manage network resources
@@ -143,10 +145,10 @@
         href: azure-stack-mysql-resource-provider-deploy.md
       - name: Deploy SQL resource provider
         href: azure-stack-sql-resource-provider-deploy.md
-      - name: Add hosting servers
-        href: azure-stack-sql-resource-provider-hosting-servers.md
       - name: Create SQL databases
         href: azure-stack-sql-resource-provider-databases.md
+      - name: Add hosting servers
+        href: azure-stack-sql-resource-provider-hosting-servers.md
     - name: Offer App Service as PaaS
       items:
       - name: App Service on Azure Stack overview
@@ -210,7 +212,7 @@
 - name: Reference
   items:
   - name: Azure Stack PowerShell
-    href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.10
+    href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.9
 - name: Resources
   items:
   - name: Azure Roadmap
