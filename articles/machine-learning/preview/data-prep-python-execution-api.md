@@ -17,9 +17,11 @@ ms.date: 09/12/2017
 
 To use an Azure Machine Learning Data Sources or Azure Machine Learning Data Preparations package within Python:
 
-- Go to the **Data** tab of your project.
-- Right-click the appropriate source.
-- Choose **Generate Data Access Code File.**
+1. Go to the **Data** tab of your project.
+
+2. Right-click the appropriate source.
+
+3. Choose **Generate Data Access Code File.**
 
 This action creates a short Python script that executes the package and returns a dataframe.
 

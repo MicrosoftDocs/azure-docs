@@ -81,10 +81,10 @@ To fork:
 
 3. Select **Remove Rows** to display the failed set.
 
-4. Following **Conditions**, select **Create Dataflow Containing the Filtered Out Rows** to fork the non-display result set into a new data flow.
+4. After **Conditions**, select **Create Dataflow Containing the Filtered Out Rows** to fork the non-display result set into a new data flow.
 
 
-This practice is often used to separate out a set of data that requires additional preparation. After wrangling the forked dataset, it's common to merge the data with the result set in the original data flow. To perform a merge (the reverse of a fork operation), use one of the following actions:
+This practice is often used to separate out a set of data that requires additional preparation. After you wrangle the forked dataset, it's common to merge the data with the result set in the original data flow. To perform a merge (the reverse of a fork operation), use one of the following actions:
 
 - **Append Rows**. Merge two or more data flows vertically (row-wise). 
 - **Append Columns**. Merge two or more data flows horizontally (column-wise).

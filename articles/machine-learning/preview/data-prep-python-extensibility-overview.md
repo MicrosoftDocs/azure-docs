@@ -320,7 +320,7 @@ class DataPrepError(Exception):
     def __bool__(self): 
         return False 
 ``` 
-The creation of a DataPrepError in Data Preparations' Python framework generally looks like this: 
+The creation of a DataPrepError in the Data Preparations Python framework generally looks like this: 
 ```python 
 DataPrepError({ 
    'message':'Cannot convert to numeric value', 
