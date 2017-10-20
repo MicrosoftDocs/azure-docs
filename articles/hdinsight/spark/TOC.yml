@@ -49,9 +49,11 @@
     - name: Use HDInsight tools
       items:
         - name: Tools for Visual Studio
-          href: hdinsight-hadoop-visual-studio-tools-get-started.md
+          href: ../hdinsight-hadoop-visual-studio-tools-get-started.md
+          maintainContext: true
         - mame: Tools for VSCode
-          href: hdinsight-for-vscode.md
+          href: ../hdinsight-for-vscode.md
+          maintainContext: true
     - name: Use notebooks with Spark
       items: 
         - name: Use a local Jupyter notebook
@@ -230,16 +232,16 @@
         maintainContext: true
         items:
         - name: Connect with SSH
-          href: ../hadoop/hdinsight-use-sqoop-mac-linux.md
+          href: ../hadoop/apache-hadoop-use-sqoop-mac-linux.md
           maintainContext: true
         - name: Run using cURL
-          href: ../hadoop/hdinsight-hadoop-use-sqoop-curl.md
+          href: ../hadoop/apache-hadoop-use-sqoop-curl.md
           maintainContext: true
         - name: Run using .NET SDK
-          href: ../hadoop/hdinsight-hadoop-use-sqoop-dotnet-sdk.md
+          href: ../hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md
           maintainContext: true
         - name: Run using Azure PowerShell
-          href: ../hadoop/hdinsight-hadoop-use-sqoop-powershell.md
+          href: ../hadoop/apache-hadoop-use-sqoop-powershell.md
           maintainContext: true
       - name: Use Oozie for workflows
         href: ../hdinsight-use-oozie-linux-mac.md
@@ -282,7 +284,7 @@
         href: ../hdinsight-troubleshoot-hdfs.md
         maintainContext: true
       - name: Spark troubleshooting
-        href: hdinsight-troubleshoot-spark.md
+        href: apache-troubleshoot-spark.md
       - name: YARN troubleshooting
         href: ../hdinsight-troubleshoot-yarn.md
         maintainContext: true
