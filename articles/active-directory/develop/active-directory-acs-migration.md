@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/26/2017
+ms.date: 10/31/2017
 ms.author: dstrockis
 ---
 
 
 # Migrating from Azure Access Control Service (ACS)
 
-Microsoft Azure Active Directory Access Control (also known as Access Control Service or ACS) is being retired on TODO: insert date here.  Applications & services currently using ACS will need to fully migrate to a new cloud authentication service before this date. This document describes our recommendations for current customers as they plan to deprecate their use of ACS. It will be updated over time as we work with customers individually and discover effective migration patterns. If you are not currently using ACS, you do not need to take any action.
+Microsoft Azure Active Directory Access Control (also known as Access Control Service or ACS) is being retired on October 31, 2018.  Applications & services currently using ACS will need to fully migrate to a new cloud authentication service before this date. This document describes our recommendations for current customers as they plan to deprecate their use of ACS. It will be updated over time as we work with customers individually and discover effective migration patterns. If you are not currently using ACS, you do not need to take any action.
 
 
 ## Brief ACS Overview
@@ -72,14 +72,20 @@ The following sections will describe high level reccommendations for migrating o
 Each of the Microsoft cloud services that accept tokens issued by ACS now supports at least one alternate form of authentication. The correct authentication mechanism will vary for each service, so we reccommend referring to the specific documentation of each service for official guidance. For convenience, we have collected the following information:
 
 - Azure Service Bus: [Migrate to Shared Access Signatures](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-migrate-acs-sas)
-- Azure Relay: [Migrate to Shared Access Signatures](https://docs.microsoft.com/en-us/azure/service-bus-relay/relay-migrate-acs-sas)
-- Azure Cache: Retired? TODO
-- Azure Data Market: Retired? TODO
-- BizTalk: To Retire? TODO
-- Dynamics CRM: Migrate to SAS? TODO
-- Azure Media Services: TODO
-- Azure Backup: TODO
-- Others: TODO
+- Azure Relay: [Migrate to Shared Access Signatures](https://docs.microsoft.com/azure/service-bus-relay/relay-migrate-acs-sas)
+- Azure Cache: [Migrate to Azure Redis Cache](https://docs.microsoft.com/azure/redis-cache/cache-faq#which-azure-cache-offering-is-right-for-me)
+- Azure Data Market: [Migrate to the Cognitive Services APIs](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation)
+- BizTalk Services: [Migrate to Azure Logic Apps](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation)
+- Azure Media Services: [Migrate to Azure AD authentication](https://azure.microsoft.com/en-us/blog/azure-media-service-aad-auth-and-acs-deprecation/)
+- Azure Backup: [Upgrade the Azure Backup Agent](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq)
+
+<!-- Dynamics CRM: Migrate to new SDK, Dynamics team handling privately -->
+<!-- Azure RemoteApp deprecated in favor of Citrix: http://www.zdnet.com/article/microsoft-to-drop-azure-remoteapp-in-favor-of-citrix-remoting-technologies/ -->
+<!-- Exchange push notifications are moving, customers don't need to move -->
+<!-- Retail federation services are moving, customers don't need to move -->
+<!-- Azure StorSimple: TODO -->
+<!-- Azure SiteRecovery: TODO -->
+
 
 ### Web applications using passive authentication
 
@@ -103,7 +109,7 @@ One path to consider is integrating your apps & services directly with Azure Act
 
 Azure AD does however provide several potential advantages to customers of ACS. It natively supports Microsoft work & school accounts hosted in the cloud, which are commonly used by ACS customers.  An Azure AD tenant can also be federated to one or more instances of on-prem Active Directory via ADFS, allowing your app to authenticate both cloud-based users and users hosted on premises.  It also supports the Ws-Federation protocol, which makes it relatively straightforward to integrate with a web application using Windows Identity Foundation (WIF).
 
-The following table compares the features of ACS relevant to web applications with those available in Azure AD. At an extremely high level, **Azure Active Directory is probably the proper choice for your migration if you only let users sign-in with their Microsoft work & school accounts** (also known as "Windows Azure AD" accounts in ACS).
+The following table compares the features of ACS relevant to web applications with those available in Azure AD. At an extremely high level, **Azure Active Directory is probably the proper choice for your migration if you only let users sign-in with their Microsoft work & school accounts**.
 
 | Capability | ACS Support | Azure AD Support |
 | ---------- | ----------- | ---------------- |
@@ -130,6 +136,29 @@ The following table compares the features of ACS relevant to web applications wi
 | **Automation** | | |
 | Automate configuration/management tasks | Supported via ACS Management Service | Supported via Microsoft Graph & Azure AD Graph API. |
 
+If you decide that Azure AD is the proper path forward for your applications & services, you should be aware of the following options.
+
+To use Ws-Federation/WIF to integrate with Azure AD, we recommend following [the approach described in this article](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-federated-sso-non-gallery). The article refers to configuring Azure AD for SAML-based single sign-on, but will work for configuring Ws-Federation as well. Following this approach requires an Azure AD Premium license, but has two advantages:
+
+- You will get the full flexiblity of Azure AD token customization. This will allow you to customize the claims issued by Azure AD to match those issued by ACS, especially including the user id or Name Identifier claim. You will need to ensure that the user IDs issued by Azure AD match those issued by ACS, so that you continue to receive consistent user identifiers for your users even after changing technologies.
+- You will be able to configure a token signing certificate specific to your application, whose lifetime you control.
+
+<!--
+
+Possible nameIdentifiers from ACS (via AAD or ADFS):
+- ADFS - Whatever ADFS is configured to send (email, UPN, employeeID, what have you)
+- Default from AAD using App Registrations, or Custom Apps before ClaimsIssuance policy: subject/persistent ID
+- Default from AAD using Custom apps nowadays: UPN
+- Kusto can't tell us distribution, it's redacted
+
+-->
+
+An alternative approach is to follow [this code sample](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation), which gives slightly different instructions on how to set up Ws-Federation. This code sample does not use WIF, but rather, the ASP.NET 4.5 OWIN middelware. However, the instructions for app registration are valid for apps using WIF, and do not require an Azure AD Premium license.  If you choose this approach, you will need to understand [signing key rollover in Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-signing-key-rollover). This approach uses the Azure AD global signing key to issue tokens. By default, WIF does not automatically refresh signing keys. When Azure AD rotates its global signing keys, your WIF implementation needs to be prepared to accept the changes.
+
+If you are able to integrate with Azure AD via the OpenID Connect or OAuth protocols, we recommend doing so.  We have extensive documentation and guidance for how to integrate Azure AD into your web applciation available in our [Azure AD developer guide](http://aka.ms/aaddev).
+
+<!-- TODO: If customers ask about authZ, let's put a blurb on role claims here -->
+
 #### Azure AD B2C
 
 The other migration path to consider is Azure AD B2C.  B2C is a cloud authentication service that, similar to ACS, allows developers to outsource their authentication and identity management logic to a cloud service.  It is a paid service (with free & premium tiers) designed for consumer facing applications that can have up to millions of active users.
@@ -138,14 +167,14 @@ Like ACS, one of the most attractive features of B2C is that is supports many di
 
 The following table compares the features of ACS relevant to web applications with those available in Azure AD B2C. At an extremely high level, **Azure AD B2C is probably the right choice for your migration if your application is consumer facing, or if it supports many different types of accounts.**
 
-| Capability | ACS Support | Azure AD Support |
+| Capability | ACS Support | Azure AD B2C Support |
 | ---------- | ----------- | ---------------- |
 | **Types of Accounts** | | |
-| Microsoft work & school accounts | Supported | Supported via advanced policies  |
-| Accounts from Windows Server Active Directory & ADFS | Supported via direct federation with ADFS | Supported via advanced policies |
-| Accounts from other enterprise identity managment systems | Supported via direct federation | Supported via advanced policies |
+| Microsoft work & school accounts | Supported | Supported via custom policies  |
+| Accounts from Windows Server Active Directory & ADFS | Supported via direct federation with ADFS | Supported via SAML federation using custom policies |
+| Accounts from other enterprise identity managment systems | Supported via direct federation over Ws-Federation | Supported via SAML federation using custom policies |
 | Microsoft accounts for personal use (Windows Live ID) | Supported | Supported | 
-| Facebook, Google, Yahoo accounts | Supported | Supported |
+| Facebook, Google, Yahoo accounts | Supported | Facebook & Google supported natively, Yahoo supported via OpenID Connect federation using custom policices |
 | **Protocols & SDK Compatibility** | | |
 | Windows Identity Foundation (WIF) | Supported | Not supported. |
 | Ws-Federation | Supported | Not supported. |
@@ -153,59 +182,38 @@ The following table compares the features of ACS relevant to web applications wi
 | Ws-Trust | Supported | Not supported. |
 | **Token Formats** | | |
 | Json Web Tokens (JWTs) | Supported In Beta | Supported |
-| SAML 1.1 tokens | Supported | Not supported. |
-| SAML 2.0 tokens | Supported | Not supported. |
-| Simple Web Tokens (SWT) | Supported | Not supported. |
+| SAML 1.1 tokens | Supported | Not supported |
+| SAML 2.0 tokens | Supported | Not supported |
+| Simple Web Tokens (SWT) | Supported | Not supported |
 | **Customizations** | | |
 | Customizeable home realm discovery/account picking UI | Downloadable code that can be incorporated into apps | Fully customizable UI via custom CSS. |
-| Upload custom token signing certificates | Supported | Supported via advanced policies. |
-| Customize claims in tokens | Passthrough input claims from identity providers<br />Get access token from identity provider as a claim<br />Issue output claims based on values of input claims<br />Issue output claims with constant values | Can passthrough claims from identity providers<br />Cannot get access token from identity provider as a claim<br />Can issue output claims based on values of input claims via advanced policies<br />Can issue output claims with constant values via advanced policies |
+| Upload custom token signing certificates | Supported | Custom signing keys, not certificates, supported via custom policies. |
+| Customize claims in tokens | Passthrough input claims from identity providers<br />Get access token from identity provider as a claim<br />Issue output claims based on values of input claims<br />Issue output claims with constant values | Can passthrough claims from identity providers. Custom policies required for some claims.<br />Cannot get access token from identity provider as a claim<br />Can issue output claims based on values of input claims via custom policies<br />Can issue output claims with constant values via custom policies |
 | **Automation** | | |
-| Automate configuration/management tasks | Supported via ACS Management Service | Supported via Microsoft Graph & Azure AD Graph API. |
+| Automate configuration/management tasks | Supported via ACS Management Service | Creation of users allowed via Azure AD Graph API. Cannot create B2C tenants, applications, or policies programatically. |
 
-TODO:
-change advanced policies to custom policies
-column changes to B2C
-change IDPs to call out OIDC & SAML
-yahoo only through custom, try to make sure
-custom token signing keys, but not certs
-custom policies allow any claim from idps
-can't create tenants & apps & policies programatically, can create users
+If you decide that Azure AD B2C is the proper path forward for your applications & services, you should begin with the following resources:
+
+- [Azure AD B2C Documentation](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-overview)
+- [Azure AD B2C Custom Policies](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-overview-custom)
+- [Azure AD B2C Pricing](https://azure.microsoft.com/en-us/pricing/details/active-directory-b2c/)
 
 
-TODO: Tips for migrating to Azure AD from ACS:
-- If using WIF, watch out for key rolling. There's some plugin you can use which rolls them automatically I think.
-- What to do about user identifiers.
-- What to do about AuthZ
-- You'll want to use custom apps, not app registrations for Ws-Fed. That way, the token customization page will show up.
-- TODO: other stuff
+<!--
 
+## Sharepoint 2010, 2013, 2016
 
-Possible nameIdentifiers from ACS (via AAD or ADFS):
-- ADFS - Whatever ADFS is configured to send (email, UPN, employeeID, what have you)
-- Default from AAD using App Registrations, or Custom Apps before ClaimsIssuance policy: subject/persistent ID
-- Default from AAD using Custom apps nowadays: UPN
-- Let's look at Kusto to determine what IDs are being sent to ACS
-    - 510 applications in last week hitting ESTS from ACS
-    - Can't tell, that shit's redacted
+TODO: AAD only, use AAD SAML 1.1 tokens, when we bring it back online.
+Other IDPs: use Auth0? https://auth0.com/docs/integrations/sharepoint.
 
-Possible nameIdentifiers from AAD:
-- objectID: Need as nameIdentifier from Dilesh
-- subject: Need as nameIdentifier from Dilesh (no policy written for nameID)
-- UPN: already available via custom apps
-- mail: already available via custom apps
-- other stuff also available
-
-
-TODO: links & resources 
-TODO: Table comparing AAD & AAD B2C
+-->
 
 ### Web services using active authentication
 
 For web services secured with tokens issued by ACS, ACS provided the following features & capabilities:
 
 - Ability to register one or more **service identities** in your ACS namespace that can be used to request tokens.
-- Support for the OAuth WRAP protocol for requesting tokens, using the following types of credentials:
+- Support for the OAuth WRAP & OAuth 2.0 Draft 13 protocols for requesting tokens, using the following types of credentials:
     - A simple password created for the service identity
     - A signed SWT using a symmetric key or X509 certificate
     - A SAML token issued by a trusted identity provider (typically an ADFS instance)
@@ -218,10 +226,17 @@ Service identities in ACS are typically used for implementing server-to-server (
 | ---------- | ----------- | ---------------- |
 | How to register a web service | Create a relying party in the ACS managment portal. | Create an Azure AD web application in the Azure Portal. |
 | How to register a client | Create a service identity in ACS management portal. | Create another Azure AD web application in the Azure Portal. |
-| Protocol used | OAuth WRAP protocol. | OAuth client credentials grant. |
+| Protocol used | OAuth WRAP protocol<br />OAuth 2.0 Draft 13 client credentials grant | OAuth 2.0 client credentials grant |
 | Client authentication methods | Simple password<br />Signed SWT<br />SAML token from federated IDP | Simple password<br />Signed JWT |
 | Token formats | JWT<br />SAML 1.1<br />SAML 2.0<br />SWT<br /> | JWT only |
 | Token transformation | Add custom claims<br />Simple if-then claim issuance logic | Add custom claims | 
 | Automate configuration/management tasks | Supported via ACS Management Service | Supported via Microsoft Graph & Azure AD Graph API. |
 
-TODO: links to next steps (code samples, resources, etc.)
+For guidance on implementing server-to-server scenarios, please refer to the following resources:
+
+- [Service-to-Service section of the Azure AD developer guide](https://aka.ms/aaddev).
+- [Daemon code sample using simple password client credentials](https://github.com/Azure-Samples/active-directory-dotnet-daemon)
+- [Daemon code sample using certificate client credentials](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)
+
+<!-- TODO: Should we just point to Auth0? Auth0 can do all of this -->
+    
