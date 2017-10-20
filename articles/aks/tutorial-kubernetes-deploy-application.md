@@ -77,7 +77,7 @@ kubectl create -f azure-vote-all-in-one-redis.yml
 
 Output:
 
-```console
+```
 deployment "azure-vote-back" created
 service "azure-vote-back" created
 deployment "azure-vote-front" created
@@ -96,13 +96,13 @@ kubectl get service azure-vote-front --watch
 
 Initially the *EXTERNAL-IP* for the *azure-vote-front* service appears as *pending*.
   
-```console
+```
 azure-vote-front   10.0.34.242   <pending>     80:30676/TCP   7s
 ```
 
 Once the *EXTERNAL-IP* address has changed from *pending* to an *IP address*, use `CTRL-C` to stop the kubectl watch process. 
 
-```console
+```
 azure-vote-front   10.0.34.242   52.179.23.131   80:30676/TCP   2m
 ```
 

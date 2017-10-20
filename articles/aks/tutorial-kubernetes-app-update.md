@@ -104,13 +104,13 @@ docker push <acrLoginServer>/azure-vote-front:redis-v2
 
 To ensure maximum uptime, multiple instances of the application pod must be running. Verify this configuration with the [kubectl get pod](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) command.
 
-```console
+```
 kubectl get pod
 ```
 
 Output:
 
-```console
+```
 NAME                               READY     STATUS    RESTARTS   AGE
 azure-vote-back-217588096-5w632    1/1       Running   0          10m
 azure-vote-front-233282510-b5pkz   1/1       Running   0          10m
@@ -139,7 +139,7 @@ kubectl get pod
 
 Output:
 
-```console
+```
 NAME                               READY     STATUS    RESTARTS   AGE
 azure-vote-back-2978095810-gq9g0   1/1       Running   0          5m
 azure-vote-front-1297194256-tpjlg   1/1       Running   0         1m

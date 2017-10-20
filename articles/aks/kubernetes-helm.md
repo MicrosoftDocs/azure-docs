@@ -33,7 +33,7 @@ The steps detailed in this document assume that you have created an AKS Kubernet
 
 The Helm CLI is a client that runs on your development system and allows you to start, stop, and manage applications with Helm charts.
 
-To install the Helm CLI on a Mac use `brew`. For additional installation options see, [Installing Helm](https://github.com/kubernetes/helm/blob/master/docs/install.md).
+If you're using Azure CloudShell, the Helm CLI is already installed. To install the Helm CLI on a Mac use `brew`. For additional installation options see, [Installing Helm](https://github.com/kubernetes/helm/blob/master/docs/install.md).
 
 ```console
 brew install kubernetes-helm
@@ -41,7 +41,7 @@ brew install kubernetes-helm
 
 Output:
 
-```console
+```
 ==> Downloading https://homebrew.bintray.com/bottles/kubernetes-helm-2.6.2.sierra.bottle.1.tar.gz
 ######################################################################## 100.0%
 ==> Pouring kubernetes-helm-2.6.2.sierra.bottle.1.tar.gz
@@ -54,22 +54,17 @@ Bash completion has been installed to:
 
 ## Configure Helm
 
-Tiller is a server-side component that runs on the Kubernetes cluster. Tiller manages the lifecycle of Kubernetes applications that have been run using Helm charts.
+The [helm init](https://docs.helm.sh/helm/#helm-init) command is used to install Helm components in a Kubernetes cluster and make client-side configurations. Helm is pre-installed in AKS clusters, so only the client-side configuration is needed. Run the following command to configure the Helm client.
 
-Tiller is pre-installed on Kubernetes clusters in Azure, however the [helm init](https://docs.helm.sh/helm/#helm-init) command can be used to validate that Tiller is running the latest version.
-
-The [helm init](https://docs.helm.sh/helm/#helm-init) command is also used to connect the Helm client with the Kubernetes cluster.
-
-```console
-helm init --upgrade
+```azurecli-interactive
+helm init --client-only
 ```
 
 Output:
 
-```console
+```
 $HELM_HOME has been configured at /Users/neilpeterson/.helm.
-Warning: Tiller is already installed in the cluster.
-(Use --client-only to suppress this message, or --upgrade to upgrade Tiller to the current version.)
+Not installing Tiller due to 'client-only' flag having been set
 Happy Helming!
 ```
 
@@ -77,13 +72,13 @@ Happy Helming!
 
 Helm charts are used to deploy applications into a Kubernetes cluster. To search for pre-created Helm charts, use the [helm search](https://docs.helm.sh/helm/#helm-search) command.
 
-```console
+```azurecli-interactive
 helm search
 ```
 
 The output looks similar to the following, however with many more charts.
 
-```console
+```
 NAME                         	VERSION	DESCRIPTION
 stable/acs-engine-autoscaler 	2.0.0  	Scales worker nodes within agent pools
 stable/artifactory           	6.1.0  	Universal Repository Manager supporting all maj...
@@ -105,13 +100,13 @@ stable/datadog               	0.8.0  	DataDog Agent
 
 To update the list of charts, use the [helm repo update](https://docs.helm.sh/helm/#helm-repo-update) command.
 
-```console
+```azurecli-interactive
 helm repo update
 ```
 
 Output:
 
-```console
+```
 Hang tight while we grab the latest from your chart repositories...
 ...Skip local chart repository
 ...Successfully got an update from the "stable" chart repository
@@ -120,15 +115,15 @@ Update Complete. ⎈ Happy Helming!⎈
 
 ## Run Helm charts
 
-To deploy a NGINX ingress controller, use the [helm install](https://docs.helm.sh/helm/#helm-install) command.
+To deploy an NGINX ingress controller, use the [helm install](https://docs.helm.sh/helm/#helm-install) command.
 
-```console
+```azurecli-interactive
 helm install stable/nginx-ingress
 ```
 
 The output looks similar to the following, but includes additional information such as instructions on how to use the Kubernetes deployment.
 
-```console
+```
 NAME:   tufted-ocelot
 LAST DEPLOYED: Thu Oct  5 00:48:04 2017
 NAMESPACE: default
@@ -157,13 +152,13 @@ For more information on using an NGINX ingress controller with Kubernetes, see [
 
 To see a list of charts installed on your cluster, use the [helm list](https://docs.helm.sh/helm/#helm-list) command.
 
-```console
+```azurecli-interactive
 helm list
 ```
 
 Output:
 
-```console
+```
 NAME         	REVISION	UPDATED                 	STATUS  	CHART              	NAMESPACE
 bilging-ant  	1       	Thu Oct  5 00:11:11 2017	DEPLOYED	nginx-ingress-0.8.7	default
 ```

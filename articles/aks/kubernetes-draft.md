@@ -44,7 +44,7 @@ brew install kubernetes-helm
 
 Output:
 
-```console
+```
 ==> Downloading https://homebrew.bintray.com/bottles/kubernetes-helm-2.6.2.sierra.bottle.1.tar.gz
 ######################################################################## 100.0%
 ==> Pouring kubernetes-helm-2.6.2.sierra.bottle.1.tar.gz
@@ -67,7 +67,7 @@ brew install draft
 
 Output:
 
-```console
+```
 ==> Installing draft from azure/draft
 ==> Downloading https://azuredraft.blob.core.windows.net/draft/draft-v0.7.0-darwin-amd64.tar.gz
 Already downloaded: /Users/neilpeterson/Library/Caches/Homebrew/draft-0.7.0.tar.gz
@@ -109,7 +109,7 @@ During this process, you are prompted for the container registry credentials. Wh
 
 Once complete, Draft is configured in the Kubernetes cluster and is ready to use.
 
-```console
+```
 Draft has been installed into your Kubernetes Cluster.
 Happy Sailing!
 ```
@@ -136,7 +136,7 @@ draft create
 
 Output:
 
-```console
+```
 --> Draft detected the primary language as Java with 92.205567% certainty.
 --> Ready to sail
 ```
@@ -149,7 +149,7 @@ draft up
 
 Output:
 
-```console
+```
 Draft Up Started: 'open-jaguar'
 open-jaguar: Building Docker Image: SUCCESS ⚓  (28.0342s)
 open-jaguar: Pushing Docker Image: SUCCESS ⚓  (7.0647s)
@@ -214,11 +214,11 @@ resources:
     memory: 128Mi
   ```
 
-  Run `draft up` to re-run the application.
+Run `draft up` to re-run the application.
 
-  ```console
-  draft up
-  ```
+```console
+draft up
+```
 
 It can take few minutes for the Service to return a public IP address. To monitor progress use the `kubectl get service` command with a watch.
 
@@ -228,13 +228,13 @@ kubectl get service -w
 
 Initially, the *EXTERNAL-IP* for the service appears as `pending`.
 
-```console
+```
 deadly-squid-java   10.0.141.72   <pending>     80:32150/TCP   14m
 ```
 
 Once the EXTERNAL-IP address has changed from `pending` to an `IP address`, use `Control+C` to stop the kubectl watch process.
 
-```console
+```
 deadly-squid-java   10.0.141.72   52.175.224.118   80:32150/TCP   17m
 ```
 
@@ -246,7 +246,7 @@ curl 52.175.224.118
 
 Output:
 
-```console
+```
 Hello World, I'm Java
 ```
 
@@ -282,7 +282,7 @@ draft up
 
 Output
 
-```console
+```
 Draft Up Started: 'deadly-squid'
 deadly-squid: Building Docker Image: SUCCESS ⚓  (18.0813s)
 deadly-squid: Pushing Docker Image: SUCCESS ⚓  (7.9394s)
@@ -298,7 +298,7 @@ curl 52.175.224.118
 
 Output:
 
-```console
+```
 Hello World, I'm Java - Draft Rocks!
 ```
 
