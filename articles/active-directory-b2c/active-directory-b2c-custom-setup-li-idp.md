@@ -92,9 +92,9 @@ Define LinkedIn as a claims provider by adding a `<ClaimsProvider>` node in your
 
 1. In your working directory, open the *TrustFrameworkExtensions.xml* extension policy file. 
 
-2. Search for the `<ClaimsProviders>` section.
+2. Search for the `<ClaimsProviders>` element.
 
-3. In the `<ClaimsProviders>` node, add the following XML snippet: 
+3. In the `<ClaimsProviders>` element, add the following XML snippet: 
 
     ```xml
     <ClaimsProvider>
@@ -163,13 +163,13 @@ To make the user journey available, you create a duplicate of an existing user j
 4. Paste the entire contents of the `<UserJourney>` node, which you moved to the clipboard in step 2, into the `<UserJourneys>` element.
 
 ### Step 4.2: Display the "button"
-The `<ClaimsProviderSelections>` element defines the list of claims provider selection options and their order. The `<ClaimsProviderSelection>` element is analogous to an identity provider button on a sign-up or sign-in page. If you add a `<ClaimsProviderSelection>` element for a LinkedIn account, a new button is displayed when a user lands on the page. To add this element, do the following:
+The `<ClaimsProviderSelections>` element defines the list of claims provider selection options and their order. The `<ClaimsProviderSelection>` node is analogous to an identity provider button on a sign-up or sign-in page. If you add a `<ClaimsProviderSelection>` node for a LinkedIn account, a new button is displayed when a user lands on the page. To add this element, do the following:
 
 1. Search for the `<UserJourney>` node that contains `Id="SignUpOrSignIn"` in the user journey that you copied.
 
 2. Locate the `<OrchestrationStep>` node that includes `Order="1"`.
 
-3. In the `<ClaimsProviderSelections>` node, add the following XML snippet:
+3. In the `<ClaimsProviderSelections>` element, add the following XML snippet:
 
     ```xml
     <ClaimsProviderSelection TargetClaimsExchangeId="LinkedInExchange" />
@@ -178,9 +178,9 @@ The `<ClaimsProviderSelections>` element defines the list of claims provider sel
 ### Step 4.3: Link the button to an action
 Now that you have a button in place, you must link it to an action. The action, in this case, is for Azure AD B2C to communicate with the LinkedIn account to receive a token. Link the button to an action by linking the technical profile for your LinkedIn account claims provider:
 
-1. Search for the `<OrchestrationStep>` that contains `Order="2"` in the `<UserJourney>` node.
+1. Search for the `<OrchestrationStep>` node that contains `Order="2"` in the `<UserJourney>` node.
 
-2. In the `<ClaimsExchanges>` node, add the following XML snippet:
+2. In the `<ClaimsExchanges>` element, add the following XML snippet:
 
     ```xml
     <ClaimsExchange Id="LinkedInExchange" TechnicalProfileReferenceId="LinkedIn-OAuth" />
