@@ -21,6 +21,14 @@
     href: ../container-service/kubernetes/container-service-tutorial-kubernetes-prepare-app.md
   - name: Service Fabric
     href: ../service-fabric/service-fabric-tutorial-create-container-images.md
+  - name: Geo-replication
+    items:
+    - name: Prepare geo-replicated registry
+      href: container-registry-tutorial-prepare-acr.md
+    - name: Deploy web app to multiple regions
+      href: container-registry-tutorial-deploy-app.md
+    - name: Update regional web app deployments
+      href: container-registry-tutorial-deploy-update.md
 - name: Concepts
   items:
   - name: Container registry SKUs
