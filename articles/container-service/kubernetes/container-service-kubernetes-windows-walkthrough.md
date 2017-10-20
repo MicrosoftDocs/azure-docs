@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2017
 ms.author: danlep
-ms.custom: H1Hack27Feb2017, mvc
+ms.custom: H1Hack27Feb2017, mvc, devcenter
 
 ---
 
