@@ -39,7 +39,7 @@ Azure Container Registry provides support for deploying containerized applicatio
 
 When you deploy a web app from your registry, Azure Container Registry creates an image deployment [webhook](container-registry-webhook.md) for you. When you push a new image to your container repository, the webhook picks up the change and deploys the new container image to your web app. If your registry is geo-replicated, Web Apps for Containers pulls the new container image from the closest Azure region in which you've configured registry replicas.
 
-## Configure first Web App for Containers instance
+## Deploy a Web App for Containers instance
 
 In this step, you create a Web App for Containers instance in the *West US* region.
 
@@ -68,17 +68,15 @@ When deployment is complete, you can view the running application by navigating 
 
 In the portal, select **App Services**, then the web app you provisioned in the previous step. In this example, the web app is named *uniqueregistryname-westus*.
 
-Select the hyperlinked URL of the web app in the top-right of the App Service overview to open.
+Select the hyperlinked URL of the web app in the top-right of the **App Service overview** to view the running application in your browser.
 
 ![Web app on Linux configuration in the Azure portal][deploy-app-portal-04]
 
-Select the hyperlinked URL of the web app in the top-right of the App Service overview to open.
-
-Once the docker image is deployed, the site reflects an image representing the Azure Region hosting the Container Registry.
+Once the Docker image is deployed from your geo-replicated container registry, the site displays an image representing the Azure region hosting the container registry.
 
 ![DEPLOYED APP WESTUS][deployed-app-westus]
 
-## Deploy second Azure App Service
+## Deploy second Web App for Containers instance
 
 Use the procedure outlined in the previous section to deploy a second web app to the *East US* region
 
@@ -95,34 +93,32 @@ Select **Create** to provision the web app.
 
 ![Web app on Linux configuration in the Azure portal][deploy-app-portal-06]
 
-## View the configured App Service
+## View the deployed web app
 
-Select App Services from the Azure portal
+As before, you can view the running application by navigating to its URL in your browser.
 
-Find the App Service created: **ACR-Helloworld-EastUs**
+In the portal, select **App Services**, then the web app you provisioned in the previous step. In this example, the web app is named *uniqueregistryname-eastus*.
 
-In the top right of the overview tab, click the deployed URL to launch the newly created App Service
+Select the hyperlinked URL of the web app in the top-right of the **App Service overview** to view the running application in your browser.
 
-![App Service Url](media/container-registry-tutorial-geo/app-service-overview-url.png)
+![Web app on Linux configuration in the Azure portal][deploy-app-portal-07]
 
-Once the docker image is deployed, the site reflects an image representing the Azure region hosting the Container Registry.
+Once the Docker image is deployed from your geo-replicated container registry, the site displays an image representing the Azure region hosting the container registry.
 
-![App Service Url](media/container-registry-tutorial-geo/running-eastus.png)
+![DEPLOYED APP EASTUS][deployed-app-eastus]
 
 ## Next steps
 
-In this tutorial, two Web App for Containers instances were provisioned from Azure Container Registry.
-
-The following steps were completed:
+In this tutorial, you deployed two Web App for Containers instances from a geo-replicated Azure container registry. By following the steps in this tutorial, you:
 
 > [!div class="checklist"]
 > * Deployed an image to two Web App for Containers instances
 > * Verified the deployed application
 
-Advance to the next tutorial to deploy an updated container image to the container registry, and verify that the web apps in both regions are updated automatically.
+Advance to the next tutorial to update and then deploy a new container image to the container registry, then verify that the web apps running in both regions were updated automatically.
 
 > [!div class="nextstepaction"]
-> [Deploy an update to replicated regions](./container-registry-tutorial-configure-geo-push-change.md)
+> [Deploy an update to geo-replicated container image](./container-registry-tutorial-deploy-update.md)
 
 <!-- IMAGES -->
 [deploy-app-portal-01]: ./media/container-registry-tutorial-deploy-app/deploy-app-portal-01.png
