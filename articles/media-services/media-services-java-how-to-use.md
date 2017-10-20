@@ -1,5 +1,5 @@
 ---
-title: Get started using the Java SDK for Media Services | Microsoft Docs
+title: Get started using the Java SDK for Azure Media Services | Microsoft Docs
 description: This tutorial walks you through the steps of implementing a basic Video-on-Demand (VoD) content delivery service with Azure Media Services (AMS) application using Java.
 services: media-services
 documentationcenter: java
@@ -110,7 +110,7 @@ The code also relies on a locally stored video file. You must edit the code to p
         private static MediaContract mediaService;
 
         // Encoder configuration
-        // Note that this is using the default Adaptive Streaming encoding preset. 
+        // This is using the default Adaptive Streaming encoding preset. 
         // You can choose to use a custom preset, or any other sample defined preset. 
         // In addition you can use other processors, like Speech Analyzer, or Redactor if desired.
         private static String preferedEncoder = "Media Encoder Standard";
