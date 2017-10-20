@@ -2,7 +2,7 @@
 title: Video API documentation overview | Microsoft Docs
 description: Explore the Video API, which provides advanced algorithms for tracking faces, detecting motion, stabilizing, and creating thumbnails from video.
 services: cognitive-services
-author: CYokel
+author: Kaiqb
 manager: ytkuo
 
 ms.service: cognitive-services
