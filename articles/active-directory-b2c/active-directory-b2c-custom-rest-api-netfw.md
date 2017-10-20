@@ -30,14 +30,14 @@ By using Azure AD B2C, you can add your own business logic to a user journey by 
 
 You can design the integration with the RESTful services in the following ways:
 
-* **Validation technical profile**: The call to the RESTful service happens within the validation technical profile of the specified technical profile. Validation technical profile validates the user-provided data before the user journey moves forward. With validation technical profile you can:
-   * Send input claims
-   * Validate the input claims and throw custom error messages
-   * Send back output claims
+* **Validation technical profile**: The call to the RESTful service happens within the validation technical profile of the specified technical profile. The validation technical profile validates the user-provided data before the user journey moves forward. With the validation technical profile, you can:
+   * Send input claims.
+   * Validate the input claims and throw custom error messages.
+   * Send back output claims.
 
-* **Claims exchange**: This design is similar to validation technical profile, but it happens within an orchestration step. This definition is limited to:
-   * Send input claims
-   * Send back output claims
+* **Claims exchange**: This design is similar to the validation technical profile, but it happens within an orchestration step. This definition is limited to:
+   * Send input claims.
+   * Send back output claims.
 
 ## RESTful walkthrough
 In this walkthrough, you develop a .NET Framework web API that validates the user input and provides a user loyalty number. For example, your application can grant access to *platinum benefits* based on the loyalty number.
@@ -381,4 +381,4 @@ After you add the new claim, the relying party code looks like this:
 	
 ## Next steps
 * [Secure your RESTful API with basic authentication (username and password)](active-directory-b2c-custom-rest-api-netfw-secure-basic.md)
-* [Secure your RESTful API with client certificate](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)
+* [Secure your RESTful API with client certificates](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)
