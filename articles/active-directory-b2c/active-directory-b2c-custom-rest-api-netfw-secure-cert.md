@@ -125,7 +125,7 @@ To support client certificate authentication in your custom policy, change the t
 2. Open **B2C_1A_signup_signin**, the relying party (RP) custom policy that you uploaded, and then select **Run now**.
 
 3. Test the process by typing **Test** in the **Given Name** box.  
-    Azure AD B2C displays an error message at the top of the page.    
+    Azure AD B2C displays an error message at the top of the window.    
 
     ![Test your identity API](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-test.png)
 
