@@ -72,7 +72,7 @@ After you complete the tutorial, you might want to delete the cluster. With HDIn
 To begin working with your new HBase cluster, you can use the procedures found in [Get started using HBase with Hadoop in HDInsight](./apache-hbase-tutorial-get-started-linux.md).
 
 ## Connect to the HBase cluster using HBase Java RPC APIs
-1. Create an infrastructure as a service (IaaS) virtual machine into the same Azure virtual network and the same subnet. For instructions on creating a new IaaS virtual machine, see [Create a Virtual Machine Running Windows Server](../../virtual-machines/quick-create-portal.md). When following the steps in this document, you must use the following values for the Network configuration:
+1. Create an infrastructure as a service (IaaS) virtual machine into the same Azure virtual network and the same subnet. For instructions on creating a new IaaS virtual machine, see [Create a Virtual Machine Running Windows Server](../../virtual-machines/windows/quick-create-portal.md). When following the steps in this document, you must use the following values for the Network configuration:
 
    * **Virtual network**: &lt;Cluster name>-vnet
    * **Subnet**: subnet1
@@ -228,7 +228,7 @@ To begin working with your new HBase cluster, you can use the procedures found i
 
 To verify that the virtual machine can communicate with the HBase cluster, use the command `ping headnode0.<dns suffix>` from the virtual machine. For example, ping headnode0.mycluster.b1.cloudapp.net.
 
-To use this information in a Java application, you can follow the steps in [Use Maven to build Java applications that use HBase with HDInsight (Hadoop)](../hdinsight-hbase-build-java-maven.md) to create an application. To have the application connect to a remote HBase server, modify the **hbase-site.xml** file in this example to use the FQDN for Zookeeper. For example:
+To use this information in a Java application, you can follow the steps in [Use Maven to build Java applications that use HBase with HDInsight (Hadoop)](../apache-hbase-build-java-maven-linux.md) to create an application. To have the application connect to a remote HBase server, modify the **hbase-site.xml** file in this example to use the FQDN for Zookeeper. For example:
 
     <property>
         <name>hbase.zookeeper.quorum</name>

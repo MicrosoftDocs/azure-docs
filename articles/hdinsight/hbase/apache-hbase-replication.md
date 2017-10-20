@@ -60,13 +60,13 @@ To help you set up the environments, we have created some [Azure Resource Manage
 
 To create two HBase clusters in the same virtual network, select the following image. The template is stored at [Azure QuickStart templates](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-one-vnet/).
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-replication-one-vnet%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-replication-one-vnet%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 ### Set up two virtual networks in the same region
 
 To create two virtual networks with virtual network peering and two HBase clusters in the same region, select the following image. The template is stored at [Azure QuickStart templates](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-two-vnets-same-region/).
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-replication-two-vnets-same-region%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-replication-two-vnets-same-region%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 
 
@@ -95,7 +95,7 @@ For the cross-virtual network scenario, you must use the **-ip** switch when you
 
 To create two virtual networks in two different regions and the VPN connection between the VNets, click the following image. The template is stored in [Azure QuickStart Templates](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-geo/).
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-replication-geo%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-replication-geo%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 Some of the hard-coded values in the template:
 
@@ -277,21 +277,7 @@ The `print_usage()` section of the [script](https://raw.githubusercontent.com/Az
 
 In this tutorial, you learned how to set up HBase replication within a virtual network, or between two virtual networks. To learn more about HDInsight and HBase, see these articles:
 
-* [Get started with Apache HBase in HDInsight][hdinsight-hbase-get-started]
-* [HDInsight HBase overview][hdinsight-hbase-overview]
-* [Create HBase clusters in Azure Virtual Network][hdinsight-hbase-provision-vnet]
-* [Analyze sensor data with Storm and HBase in HDInsight (Hadoop)][hdinsight-sensor-data]
-
-[hdinsight-hbase-geo-replication-vnet]: hdinsight-hbase-geo-replication-configure-vnets.md
-[hdinsight-hbase-geo-replication-dns]: ../hdinsight-hbase-geo-replication-configure-VNet.md
-
-
-[img-vnet-diagram]: ./media/hdinsight-hbase-geo-replication/HDInsight.HBase.Replication.Network.diagram.png
-
-[powershell-install]: /powershell/azureps-cmdlets-docs
-[hdinsight-hbase-get-started]: apache-hbase-tutorial-get-started-linux.md
-[hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md
-[hdinsight-provision]: ../hdinsight-hadoop-provision-linux-clusters.md
-[hdinsight-sensor-data]:../storm/apache-storm-sensor-data-analysis.md
-[hdinsight-hbase-overview]:apache-hbase-overview.md
-[hdinsight-hbase-provision-vnet]: apache-hbase-provision-vnet.md
+* [Get started with Apache HBase in HDInsight](./apache-hbase-tutorial-get-started-linux.md)
+* [HDInsight HBase overview](./apache-hbase-overview.md)
+* [Create HBase clusters in Azure Virtual Network](./apache-hbase-provision-vnet.md)
+* [Analyze sensor data with Storm and HBase in HDInsight (Hadoop)](../storm/apache-storm-sensor-data-analysis.md)
