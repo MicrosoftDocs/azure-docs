@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Azure Active Directory B2C: Add Twitter as an OAuth1 identity provider by using custom policies'
 description: Use Twitter as an identity provider by using the OAuth1 protocol
 services: active-directory-b2c
@@ -142,20 +142,20 @@ To make the user journey available, you create a duplicate of an existing user j
 
 1. Open the base file of your policy (for example, TrustFrameworkBase.xml).
 
-2. Search for the `<UserJourneys>` element, and then copy the entire contents of the `<UserJourneys>` node.
+2. Search for the `<UserJourneys>` element, select the entire contents of the `<UserJourney>` node, and then select **Cut** to move the selected text to the clipboard.
 
 3. Open the extension file (for example, TrustFrameworkExtensions.xml), and then search for the `<UserJourneys>` element. If the element doesn't exist, add it.
 
-4. Paste the entire contents of `<UserJourneys>` node that you copied as a child of the `<UserJourneys>` element.
+4. Paste the entire contents of the `<UserJourney>` node, which you moved to the clipboard in step 2, into the `<UserJourneys>` element.
 
 ### Step 4.2: Display the "button"
-The `<ClaimsProviderSelections>` element defines the list of claims provider selection options and their order. The `<ClaimsProviderSelection>` element is analogous to an identity provider button on a sign-up or sign-in page. If you add a `<ClaimsProviderSelection>` element for a Twitter account, a new button is displayed when a user lands on the page. To add this element, do the following:
+The `<ClaimsProviderSelections>` element defines the list of claims provider selection options and their order. The `<ClaimsProviderSelection>` node is analogous to an identity provider button on a sign-up or sign-in page. If you add a `<ClaimsProviderSelection>` node for a Twitter account, a new button is displayed when a user lands on the page. To add this element, do the following:
 
 1. Search for the `<UserJourney>` node that contains `Id="SignUpOrSignIn"` in the user journey that you copied.
 
-2. Locate the `<OrchestrationStep>` node that includes `Order="1"`.
+2. Locate the `<OrchestrationStep>` node that contains `Order="1"`.
 
-3. In the `<ClaimsProviderSelections>` node, add the following XML snippet:
+3. In the `<ClaimsProviderSelections>` element, add the following XML snippet:
 
     ```xml
     <ClaimsProviderSelection TargetClaimsExchangeId="TwitterExchange" />
@@ -164,8 +164,8 @@ The `<ClaimsProviderSelections>` element defines the list of claims provider sel
 ### Step 4.3: Link the button to an action
 Now that you have a button in place, you must link it to an action. The action, in this case, is for Azure AD B2C to communicate with the Twitter account to receive a token. Link the button to an action by linking the technical profile for your Twitter account claims provider:
 
-1. Search for the `<OrchestrationStep>` that contains `Order="2"` in the `<UserJourney>` node.
-2. In the `<ClaimsExchanges>` node, add the following XML snippet:
+1. Search for the `<OrchestrationStep>` node that contains `Order="2"` in the `<UserJourney>` node.
+2. In the `<ClaimsExchanges>` element, add the following XML snippet:
 
     ```xml
     <ClaimsExchange Id="TwitterExchange" TechnicalProfileReferenceId="Twitter-OAUTH1" />
@@ -198,7 +198,7 @@ Now that you have a button in place, you must link it to an action. The action, 
 2. Open **B2C_1A_signup_signin**, the relying party (RP) custom policy that you uploaded, and then select **Run now**.  
     You should now be able to sign in by using the Twitter account.
 
-## Step 7: [Optional] Register the Twitter account claims provider to the profile-edit user journey
+## Step 7: (Optional) Register the Twitter account claims provider to the profile-edit user journey
 You might also want to add the Twitter account identity provider to your `ProfileEdit` user journey. To make the user journey available, repeat "Step 4." This time, select the `<UserJourney>` node that contains `Id="ProfileEdit"`. Save, upload, and test your policy.
 
 
