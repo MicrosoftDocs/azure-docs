@@ -32,7 +32,7 @@ This article details how to:
 
 ## Prerequisites
 * Complete the steps in the [Integrate REST API claims exchanges](active-directory-b2c-custom-rest-api-netfw.md) article.
-* A valid certificate (a .pfx file with a private key).
+* Get a valid certificate (a .pfx file with a private key).
 
 ## Step 1: Configure a web app for client certificate authentication
 To set up **Azure App Service** to require client certificates, set the web app `clientCertEnabled` site setting to *true*. To make this change, you must use the REST API. The setting is available through the management experience in the Azure portal. To locate the setting, on your RESTful application's **Settings** menu, under **Development tools**, select **Resource Explorer**.
@@ -82,7 +82,7 @@ To support client certificate authentication in your custom policy, change the t
 
 2. Search for the `<TechnicalProfile>` node that includes `Id="REST-API-SignUp"`.
 
-3. Locate the `<Metadata>` element
+3. Locate the `<Metadata>` element.
 
 4. Change the *AuthenticationType* to *ClientCertificate*, as follows:
 
@@ -157,9 +157,9 @@ To support client certificate authentication in your custom policy, change the t
    >If you receive the error message, *The name is not valid, please provide a valid name*, it means that Azure AD B2C successfully called your RESTful service while it presented the client certificate. The next step is to validate the certificate.
 
 ## Step 6: Add certificate validation
-The client certificate that Azure AD B2C sends to your RESTful service does not undergo validation by the Azure Web Apps platform. except to check whether the certificate exists. Validating the certificate is the responsibility of the web app. 
+The client certificate that Azure AD B2C sends to your RESTful service does not undergo validation by the Azure Web Apps platform, except to check whether the certificate exists. Validating the certificate is the responsibility of the web app. 
 
-In this section you add sample ASP.NET code that validates the certificate properties for authentication purposes.
+In this section, you add sample ASP.NET code that validates the certificate properties for authentication purposes.
 
 > [!NOTE]
 >For more information about configuring Azure App Service for client certificate authentication, see [Configure TLS mutual authentication for web apps](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-configure-tls-mutual-auth).
