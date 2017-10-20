@@ -57,7 +57,69 @@ You can use Azure PowerShell or the CLI to create a network interface or VM with
 
 ## <a name="vm-create"></a>Add existing network interfaces to a new VM
 
-When you create a VM through the portal, the portal creates a network interface with default settings and attaches it to the VM for you. You cannot add existing network interfaces to a new VM, or create a VM with multiple network interfaces using the Azure portal. You can do both using the CLI or PowerShell. You can add as many network interfaces to a VM as the VM size you're creating supports. To learn more about how many network interfaces each VM size supports, read the [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Windows](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM sizes articles. The network interfaces you add to a VM cannot currently be attached to another VM. To learn more about creating network interfaces, read the [Manage network interfaces](virtual-network-network-interface.md#create-a-network-interface) article.
+When you create a VM through the portal, the portal creates a network interface with default settings and attaches it to the VM for you. You cannot add existing network interfaces to a new VM, or create a VM with multiple network interfaces, using the Azure portal. You can do both using the CLI or PowerShell. You can add as many network interfaces to a VM as the VM size you're creating supports. To learn more about how many network interfaces each VM size supports, read the [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Windows](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM sizes articles. The network interfaces you add to a VM cannot currently be attached to another VM. To learn more about creating network interfaces, read the [Manage network interfaces](virtual-network-network-interface.md#create-a-network-interface) article.
+
+### Routing within a virtual machine operating system with multiple network interfaces
+
+Azure assigns a default gateway to the first (primary) network interface attached to the virtual machine. Azure does not assign a default gateway to additional (secondary) network interfaces attached to a virtual machine. Therefore, you are unable to communicate with resources outside the subnet that a secondary network interface is in, by default. Secondary network interfaces can, however, communicate with resources outside their subnet, though the steps to enable communication are different for different operating systems.
+
+### Windows
+
+Complete the following steps from a Windows command prompt:
+
+1. Run the `route print` command, which returns output similar to the following output for a virtual machine with two attached network interfaces:
+
+    ```
+    ===========================================================================
+    Interface List
+    3...00 0d 3a 10 92 ce ......Microsoft Hyper-V Network Adapter #3
+    7...00 0d 3a 10 9b 2a ......Microsoft Hyper-V Network Adapter #4
+    ===========================================================================
+    ```
+ 
+    In this example, **Microsoft Hyper-V Network Adapter #4** (interface 7) is the secondary network interface that doesn't have a default gateway assigned to it.
+
+2. From a command prompt, run the `ipconfig` command to see which IP address is assigned to the secondary network interface. In this example, 192.168.2.4 is assigned to interface 7. No default gateway address is returned for the secondary network interface.
+
+3. To route all traffic destined for addresses outside the subnet of the secondary network interface to the gateway for the subnet, run the following command:
+
+    ```
+    route add -p 0.0.0.0 MASK 0.0.0.0 192.168.2.1 METRIC 5015 IF 7
+    ```
+
+    The gateway address for the subnet is the first IP address (ending in .1) in the address range defined for the subnet. If you don't want to route all traffic outside the subnet, you could add individual routes to specific destinations, instead. For example, if you only wanted to route traffic from the secondary network interface to the 192.168.3.0 network, you enter the command:
+
+      ```
+      route add -p 192.168.3.0 MASK 255.255.255.0 192.168.2.1 METRIC 5015 IF 7
+      ```
+  
+4. To confirm successful communication with a resource on the 192.168.3.0 network, for example, enter the following command to ping 192.168.3.4 using interface 7 (192.168.2.4):
+
+    ```
+    ping 192.168.3.4 -S 192.168.2.4
+    ```
+
+    You may need to open ICMP through the Windows firewall of the device you're pinging with the following command:
+  
+      ```
+      netsh advfirewall firewall add rule name=Allow-ping protocol=icmpv4 dir=in action=allow
+      ```
+  
+5. To confirm the added route is in the route table, enter the `route print` command, which returns output similar to the following text:
+
+    ```
+    ===========================================================================
+    Active Routes:
+    Network Destination        Netmask          Gateway       Interface  Metric
+              0.0.0.0          0.0.0.0      192.168.1.1      192.168.1.4     15
+              0.0.0.0          0.0.0.0      192.168.2.1      192.168.2.4   5015
+    ```
+
+    The route listed with *192.168.1.1* under **Gateway**, is the route that is there by default for the primary network interface. The route with *192.168.2.1* under **Gateway**, is the route you added.
+
+### Linux
+
+Since the default behavior uses weak host routing, we recommend restricting secondary network interface traffic between resources in the same subnet. If you require communication outside the subnet for secondary network interfaces, you must create routing rules that allow the virtual machine to send and receive traffic through a specific network interface. Otherwise, traffic that belongs to eth1, for example, cannot be processed correctly by the defined default route. To learn how to configure routing rules, see [Configure Linux for multiple NICs](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-guest-os-for-multiple-nics).
 
 > [!WARNING]
 > If a network interface has a private IPv6 address assigned to it, you can only add the network interface to the virtual machine when creating the virtual machine. You cannot attach more than one network interface to the virtual machine when you create the virtual machine, or after the virtual machine is created, as long as an IPv6 address is assigned to a network interface attached to a virtual machine. See [Network interface IP addresses](virtual-network-network-interface-addresses.md) to learn more about assigning IP addresses to network interfaces.
@@ -72,6 +134,8 @@ When you create a VM through the portal, the portal creates a network interface 
 ## <a name="vm-add-nic"></a>Add an existing network interface to an existing VM
 
 You can add as many network interfaces to a VM as the VM size you're adding network interfaces to supports. To learn how many network interfaces each VM size supports, read the [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Windows](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM sizes articles. The VM you want to add a network interface to must support the number of network interfaces you want to add and must be in the stopped (deallocated) state. The network interfaces you want to add cannot currently be attached to another VM. You cannot add network interfaces to an existing VM using the Azure portal. To add network interfaces to an existing VM, you must use the CLI or PowerShell. 
+
+Azure assigns a default gateway to the first (primary) network interface attached to the virtual machine. Azure does not assign a default gateway to additional (secondary) network interfaces attached to a virtual machine. Therefore, you are unable to communicate with resources outside the subnet that a secondary network interface is in, by default. Secondary network interfaces can, however, communicate with resources outside their subnet. If you require that your secondary network interfaces communication with resources outside their subnet, see [Routing within a virtual machine operating system with multiple network interfaces](#routing-within-a virtual-machine-operating-system-with-multiple-network-interfaces).
 
 > [!WARNING]
 > If a network interface has a private IPv6 address assigned to it, it cannot be added to an existing virtual machine. You can only add a network interface with an assigned private IPv6 address to a virtual machine when you create a virtual machine. See [Network interface IP addresses](virtual-network-network-interface-addresses.md) to learn more about assigning IP addresses to network interfaces.
