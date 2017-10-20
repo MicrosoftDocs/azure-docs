@@ -31,8 +31,7 @@ This how-to article covers common operations using the management plane cmdlets 
 > * Protecting access to your storage account 
 > * Enabling Storage Analytics
 
-It also provides links to several other PowerShell articles for Storage, such as how to enable and access the Storage Analyics, and how to use the data plane cmdlets.
-<!-- also how to access the china and government clouds  -->
+This article provides links to several other PowerShell articles for Storage, such as how to enable and access the Storage Analyics, how to use the data plane cmdlets, and how to access the Azure independent clouds such as China Cloud and Government Cloud.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -168,7 +167,7 @@ Regenerate one of your keys and then retrieve it again to see the new value.
 
 ### Delete a storage account 
 
-To delete a storage account, use [Remove-AzureRmStorageAccount](/powershell/module/azurerm.storage/Remove-AzureRmStorageAccount). 
+To delete a storage account, use [
 
 > [!IMPORTANT]
 > When you delete a storage account, all of the assets stored in the account are deleted as well. If you delete an account accidentally, call Support immediately and open a ticket to restore the storage account. Recovery of your data is not guaranteed, but it does sometimes work. Do not create a new storage account with the same name as the old one until the support ticket has been resolved. 
@@ -215,15 +214,23 @@ Now that you understand how to manage your storage account with PowerShell, the 
 * [How to manage files with PowerShell](../files/storage-how-to-use-files-powershell.md)
 * [How to manage queues with PowerShell](../queues/storage-powershell-how-to-use-queues.md)
 
-<!--## Government Cloud and China Cloud
+## Azure's independently-deployed clouds
 
-ROBINROBINROBIN 
+Most people use Azure Public Cloud for their global Azure deployment. There are also some independent deployments of Microsoft Azure for reasons of sovereignty and so on. These independent deployments are referred to as "environments." These are the available environments:
 
-To access the Government cloud of the China datacenters, you have to use some special steps. The following article shows how to access these special cloud accounts using PowerShell.
+* [Azure Government Cloud](https://azure.microsoft.com/features/gov/)
+* [Azure China Cloud operated by 21Vianet in China](http://www.windowsazure.cn/)
+* [Azure Germany Cloud](../../germany/germany-welcome.md)
 
-* [How to manage storage accounts in Government Cloud and China](storage-powershell-govt-china.md)
--->
+For information about how to access these clouds and their storage with PowerShell, please see [Managing Storage in the Azure independent clouds using PowerShell](storage-powershell-independent-clouds.md).
 
+## Clean up resources
+
+If you created a new resource group and a storage account, yous can remove all of the assets you created in this exercise by removing the resource group. This also deletes all resources contained within the group. In this case, it removes the storage account created and the resource group itself.
+
+```powershell
+Remove-AzureRmResourceGroup -Name $resourceGroup
+```
 ## Next Steps
 
 This how-to article covers common operations using the management plane cmdlets to manage storage accounts. You learn how to: 
@@ -237,9 +244,7 @@ This how-to article covers common operations using the management plane cmdlets 
 > * Protecting access to your storage account 
 > * Enabling Storage Analytics
 
-You also have links to several other articles, such as how to manage the data objects, how to enable the Storage Analytics. Here are some other related articles and resources for reference: 
-<!--, and how to access storage with PowerShell using the Government Cloud and the China Cloud.
--->
+You have links to several other articles, such as how to manage the data objects, how to enable the Storage Analytics, and how to access the Azure independent clouds such as China Cloud and Government Cloud. Here are some other related articles and resources for reference:
 
 * [Azure Storage control plane PowerShell cmdlets](/powershell/module/AzureRM.Storage/)
 * [Azure Storage data plane PowerShell cmdlets](/powershell/module/azure.storage/)

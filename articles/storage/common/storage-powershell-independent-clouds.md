@@ -1,6 +1,6 @@
 ---
-title: Using Azure PowerShell with Azure Storage for non-PublicAzure clouds | Microsoft Docs
-description: Using Azure PowerShell with Azure Storage for the China Cloud, Government Cloud, and Germany Cloud
+title: Managing Storage in the Azure independent cllouds Using Azure PowerShell | Microsoft Docs
+description: Managing Storage in the China Cloud, Government Cloud, and Germany Cloud Using Azure PowerShell
 services: storage
 documentationcenter: na
 author: robinsh
@@ -16,9 +16,9 @@ ms.date: 10/19/2017
 ms.author: robinsh
 ---
 
-# How to connect to the Azure independent clouds using PowerShell
+# Managing Storage in the Azure independent clouds using PowerShell
 
-Most people use Azure Public Cloud for their global Azure deployment. There are also some independent deployments of Microsoft Azure for reasons of sovereignty and so on. These independent deployments are referred to as "environments." These are the available environments:
+Most people use Azure Public Cloud for their global Azure deployment. There are also some independent deployments of Microsoft Azure for reasons of sovereignty and so on. These independent deployments are referred to as "environments." The following list details the available environments:
 
 * [Azure Government Cloud](https://azure.microsoft.com/features/gov/)
 * [Azure China Cloud operated by 21Vianet in China](http://www.windowsazure.cn/)
@@ -103,6 +103,14 @@ This shows the blob endpoint is **blob.core.usgovcloudapi.net**, so the suffix f
 ## After setting the environment
 
 From here forward, you can use the same PowerShell used to manage your storage accounts and access the data plane as described in the article [Using Azure PowerShell with Azure Storage](storage-powershell-guide-full.md).
+
+## Clean up resources
+
+If you created a new resource group and a storage account, you can remove all of the assets by removing the resource group. This also deletes all resources contained within the group. In this case, it removes the storage account created and the resource group itself.
+
+```powershell
+Remove-AzureRmResourceGroup -Name $resourceGroup
+```
 
 ## Next steps
 
