@@ -113,15 +113,8 @@ This section lists the most common service plans that are mutually exclusive, gr
 
 ### Service: *Azure Active Directory*
 
-The following service plans cannot be assigned together:
-
 >[!NOTE]
->We are working on modifying these service plans to make it possible to assign them together.
-
-| Service Plan Name | Guid Id |
-| --- | --- |
-| AAD_BASIC	| c4da7f8a-5ee2-4c99-a7e1-87d2df57f6fe |
-| AAD_PREMIUM	| 41781fb2-bc02-4b7c-bd55-b576c07bb09d |
+>All service plans related to Azure Active Directory can now be assigned together, to the same user. This simplifies certain license management scenarios, such as moving users from Azure AD Basic to Azure AD Premium P1.
 
 ### Service: *Dynamics CRM*
 

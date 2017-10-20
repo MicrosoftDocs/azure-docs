@@ -34,6 +34,8 @@
   items:
   - name: Use an ASE
     href: using-an-ase.md
+  - name: Integrate with Application Gateway
+    href: integrate-with-application-gateway.md
   - name: Create ASE from a template
     href: create-from-template.md
 - name: Reference

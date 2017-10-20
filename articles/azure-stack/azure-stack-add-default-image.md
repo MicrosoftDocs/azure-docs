@@ -110,9 +110,9 @@ Run the following prerequisites, either from the [development kit](azure-stack-c
       -GraphAudience $GraphAudience `
       -EnableAdfsAuthentication:$true
 
-    $TenantID = Get-AzsDirectoryTenantId `
-      -ADFS 
-      -EnvironmentName AzureStackAdmin 
+   $TenantID = Get-AzsDirectoryTenantId `
+     -ADFS `
+     -EnvironmentName "AzureStackAdmin" 
 
     Login-AzureRmAccount `
       -EnvironmentName "AzureStackAdmin" `
