@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2017
+ms.date: 10/20/2017
 ms.author: jeedes
 
 ---
@@ -168,11 +168,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![GoToMeeting Configuration](./media/active-directory-saas-gotomeeting-tutorial/config3.png)
 
-	a. In the Azure portal, on the **Configure single sign-on at GoToMeeting** dialog page, copy the **SAML Single Sign-On Service URL** value, and then paste it into the **Sign-in page URL** textbox.
-	
-	b. In the Azure portal, on the **Configure single sign-on at GoToMeeting** dialog page, copy the **Sign-Out URL** value, and then paste it into the **Sign-out page URL** textbox.
+	a.  In **Sign-in page URL** textbox, Paste the value of **SAML Single Sign-On Service URL** which you have copied from Azure portal.
 
-	c. In the Azure portal, on the **Configure single sign-on at GoToMeeting** dialog page, copy the **SAML Entity ID** value, and then paste it into the **Identity Provider Entity ID** textbox.
+	b.  In **Sign-out page URL** textbox, Paste the value of **Sign-Out URL** which you have copied from Azure portal.
+
+	c.  In **Identity Provider Entity ID** textbox, Paste the value of **SAML Entity ID** which you have copied from Azure portal.
 
 	d. Extract the X509Certificate from the downloaded metadata file and upload this certificate by clicking on **Upload certificate**.
 
