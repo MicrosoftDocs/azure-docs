@@ -67,6 +67,8 @@
       href: concepts-firewall-rules.md
     - name: Configure SSL
       href: concepts-ssl-connection-security.md
+  - name: Monitor
+    href: concepts-monitoring.md
   - name: Development
     items:
     - name: Connection libraries
