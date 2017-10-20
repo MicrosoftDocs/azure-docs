@@ -102,17 +102,17 @@ $nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig `
     -Access Allow
 
 $nsg = New-AzureRmNetworkSecurityGroup `
-    -ResourceGroupName myResourceGroupAvailability `
-    -Location EastUS `
-    -Name myNetworkSecurityGroup`
+    -Location eastus `
+    -Name myNetworkSecurityGroup `
+    -ResourceGroupName myResourceGroupAvailability2 `
     -SecurityRules $nsgRuleRDP
 	
 # Apply the network security group to a subnet
 Set-AzureRmVirtualNetworkSubnetConfig `
-  -VirtualNetwork $vnet `
-  -Name mySubnet `
-  -NetworkSecurityGroup $nsg `
-  -AddressPrefix 192.168.1.0/24
+    -VirtualNetwork $vnet `
+    -Name mySubnet `
+    -NetworkSecurityGroup $nsg `
+    -AddressPrefix 192.168.1.0/24
 
 # Update the virtual network
 Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
