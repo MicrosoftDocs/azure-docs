@@ -101,16 +101,15 @@ The system optimizes resource utilization in the following ways:
 
 ### Concurrency slots
 
-Concurrency slots are a convenient way to track the resources available for query execution. They are like tickets that you purchase to reserve seats at a concert because seating is limited. Similarly, SQL Data Warehouse has a finite number of compute resources. Queries reserve compute resources by acquiring concurrency slots. 
-
-Only some queries require concurrency slots. System queries and some trivial queries do not consume any slots. However, by default, resource governed queries i.e. those that take one or more slots take only one slot in order to execute. More complex queries can require additional concurrency slots. 
-
-Before a query can start executing, it must be able to reserve enough concurrency slots. When a query finishes, it releases its concurrency slots.  
+Concurrency slots are a convenient way to track the resources available for query execution. They are like tickets that you purchase to reserve seats at a concert because seating is limited. Similarly, SQL Data Warehouse has a finite number of compute resources. Queries reserve compute resources by acquiring concurrency slots. Before a query can start executing, it must be able to reserve enough concurrency slots. When a query finishes, it releases its concurrency slots. 
 
 * The optimized for elasticity performance tier scales to 240 concurrency slots.
 * The optimized for compute performance tier scales to 1200 concurrency slots.
 
-Each query will consume zero, one, or more concurrency slots. For example, a query that is assigned 10 concurrency slots has access to 5 times more compute resources than a query running with 2 concurrency slots. Similarly, if each query requires 10 concurrency slots and there are 40 concurrency slots, then only 4 queries can run concurrently.
+Each query will consume zero, one, or more concurrency slots. System queries and some trivial queries do not consume any slots. By default, queries that are governed by resource classes require one concurrency slot. More complex queries can require additional concurrency slots.  
+
+- A query running with 10 concurrency slots can access 5 times more compute resources than a query running with 2 concurrency slots.
+- If each query requires 10 concurrency slots and there are 40 concurrency slots, then only 4 queries can run concurrently.
 
 The following table shows the maximum concurrent queries and concurrency slots at the various service levels.
 
@@ -150,9 +149,9 @@ The following table shows the maximum concurrent queries and concurrency slots a
 When one of these thresholds is met, new queries are queued and executed on a first-in, first-out basis.  As a queries finishes and the number of queries and slots falls below the limits, SQL Data Warehouse releases queued queries. 
 
 ## Concurrency slot consumption  
-Resource governed queries consume concurrency slots. The exact number of concurrency slots consumed is dependent upon the resource class that is assigned to the query.
+Resource governed queries consume concurrency slots. The exact number of concurrency slots consumed is determined by the query's resource class.
 
-The following tables consolidates all of the previous concepts in a single view that shows the number of concurrency slots available by DWU and the slots consumed by each resource class.  
+The following tables consolidates all of the previous concepts into a single view that shows the number of concurrency slots available by DWU and the slots consumed by each resource class.  
 
 > [!NOTE]  
 > SELECT statements on dynamic management views (DMVs) or other system views are not governed by any of the concurrency limits. You can monitor the system regardless of the number of queries executing on it.
@@ -192,7 +191,7 @@ The following tables consolidates all of the previous concepts in a single view 
 | DW15000c      | 32                         |  600                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
 | DW30000c      | 32                         | 1200                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
 
-### Optimized for Compute performance tier concurrency slot consumption
+### Optimized for Elasticity performance tier concurrency slot consumption
 
 **Dynamic resource classes**
 
