@@ -22,7 +22,7 @@ ms.author:
 
 Azure Time Series Insights (TSI) is a fully managed analytics, storage, and visualization service that makes it simple to explore and analyze billions of IoT events simultaneously.  It gives you a global view of your data, letting you quickly validate your IoT solution and avoid costly downtime to mission-critical devices by helping you discover hidden trends, spot anomalies, and conduct root-cause analyses in near real-time.  If you are building an application that needs to store or query time series data, you can develop using Time Series Insights using TSI’s REST APIs.
 
-This tutorial demonstrates how to manage  TSIwith Azure Resource Management (ARM) resources.  This is beneficial to help manage TSI environments where using the Azure portal doesn’t make sense, namely a custom application built on top of TSI.  Using ARM allows you to automate control for the same resources you can configure in the Azure portal.
+This tutorial demonstrates how to manage TSI with Azure Resource Management (ARM) resources.  This is beneficial to help manage TSI environments where using the Azure portal doesn’t make sense, namely a custom application built on top of TSI.  Using ARM allows you to automate control for the same resources you can configure in the Azure portal.
 
 There are four types of TSI resources that can be created using this ARM template:  
 
