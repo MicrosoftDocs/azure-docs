@@ -157,7 +157,11 @@ For the following procedure, you must use a computer that has network connectivi
 
 1. Open an elevated Windows PowerShell session, and run the following command, using the parameters appropriate for your environment:
 
-   `Invoke-WebRequest -URI https://win-SQOOJN70SGL.contoso.com/federationmetadata/2007-06/federationmetadata.xml -UseBasicParsing | out-file c:\metadata.xml`
+   ```
+   [XML]$Metadata = Invoke-WebRequest -URI https://win-SQOOJN70SGL.contoso.com/federationmetadata/2007-06/federationmetadata.xml -UseBasicParsing
+
+   $Metadata.outerxml|out-file c:\metadata.xml
+   ```
 
 2. Copy the metadata file to a share that is accessible from the privileged endpoint.
 
