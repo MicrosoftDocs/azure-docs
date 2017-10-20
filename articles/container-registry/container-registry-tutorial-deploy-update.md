@@ -1,6 +1,6 @@
 ---
-title: Azure Container Registry tutorial - Push image to multiple regions
-description: Push a modified Docker image to your geo-replicated Azure contain registry, then view the changes automatically deployed multiple regions. Part three of a three-part series.
+title: Azure Container Registry tutorial - Push an updated image to regional deployments
+description: Push a modified Docker image to your geo-replicated Azure contain registry, then see the changes automatically deployed to web apps running in multiple regions. Part three of a three-part series.
 services: container-registry
 documentationcenter: ''
 author: mmacy
@@ -19,7 +19,7 @@ ms.author: marsma
 ms.custom:
 ---
 
-# Push a change to multiple regions
+# Push an updated image to regional deployments
 
 This is part three in a three-part tutorial series. In the [previous tutorial](container-registry-tutorial-deploy-app), geo-replication was configured for two different regional Web App deployments. In this tutorial, you first modify the application, then build a new container image and push it to your geo-replicated registry. Finally, you view the change, deployed automatically by Azure Container Registry webhooks, in both Web App instances.
 
@@ -35,7 +35,7 @@ If you've not yet configured the two *Web App for Containers* regional deploymen
 
 ## Modify the web application
 
-In this step, make a change to the web application that'll be highly visible once you push the updated container image to Azure Container Registry.
+In this step, make a change to the web application that will be highly visible once you push the updated container image to Azure Container Registry.
 
 Find the `AcrHelloworld/Views/Home/Index.cshtml` file in the application source you [cloned from GitHub](container-registry-tutorial-prepare-acr.md#get-application-code) in a previous tutorial and open it in your favorite text editor. Add the following line above the `<img>` line:
 
@@ -43,7 +43,7 @@ Find the `AcrHelloworld/Views/Home/Index.cshtml` file in the application source 
 <h1>MODIFIED</h1>
 ```
 
-Your modified `Index.cshtml` should look like this:
+Your modified `Index.cshtml` should look similar to:
 
 ```html
 @{
@@ -96,7 +96,7 @@ To see the regional webhooks that were created when you deployed the container t
 
 ![Container registry Webhooks in the Azure portal][tutorial-portal-01]
 
-Select each Webhook to see the history of its calls and responses. You should see row for the a **push** action in the logs of both Webhooks. Here, the log for the Webhook located in the *West US* region shows the **push** action triggered by the `docker push` in the previous step:
+Select each Webhook to see the history of its calls and responses. You should see a row for the **push** action in the logs of both Webhooks. Here, the log for the Webhook located in the *West US* region shows the **push** action triggered by the `docker push` in the previous step:
 
 ![Container registry Webhook log in the Azure portal (West US)][tutorial-portal-02]
 
@@ -108,7 +108,7 @@ Verify that the application has been updated in both deployments by navigating t
 
 ![App Service overview in the Azure portal][tutorial-portal-03]
 
-Select the link in the App Service overview to see the updated application. Here's an example view of the app running in *West US*:
+To see the updated application, select the link in the App Service overview. Here's an example view of the app running in *West US*:
 
 ![Browser view of modified web app running in West US region][deployed-app-westus-modified]
 
@@ -116,7 +116,7 @@ Verify that the updated container image was also deployed to the *East US* deplo
 
 ![Browser view of modified web app running in East US region][deployed-app-eastus-modified]
 
-With a single `docker push`, you've just updated both regional Web App deployments, and Azure Container Registy served the container images from network-close repositories.
+With a single `docker push`, you've updated both regional Web App deployments, and Azure Container Registry served the container images from network-close repositories.
 
 ## Next steps
 
