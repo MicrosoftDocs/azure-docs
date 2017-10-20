@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/03/2017
+ms.date: 10/06/2017
 ms.author: larryfr
 
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
@@ -42,6 +42,11 @@ HDInsight can use Linux (Ubuntu) as the operating system for nodes within the Ha
 > If your cluster contains an edge node, we recommend that you __always connect to the edge node__ using SSH. The head nodes host services that are critical to the health of Hadoop. The edge node runs only what you put on it.
 >
 > For more information on using edge nodes, see [Use edge nodes in HDInsight](hdinsight-apps-use-edge-node.md#access-an-edge-node).
+
+> [!TIP]
+> When you first connect to HDInsight, your SSH client may display a warning that the authenticity of the host can't be established. When prompted select 'yes' to add the host to your SSH client's trusted server list.
+>
+> If you have previously connected to a server with the same name, you may receive a warning that the stored host key does not match the host key of the server. The SSH client may refuse to connect to the cluster when this occurrs. Consult the documentation for your SSH client on how to remove the existing entry for the server name.
 
 ## SSH clients
 

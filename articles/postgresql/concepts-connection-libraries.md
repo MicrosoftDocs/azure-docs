@@ -32,4 +32,4 @@ Most language client libraries used to connect to PostgreSQL server are external
 ## Next steps
 Read these quickstarts on how to connect to and query Azure Database for PostgreSQL by using your language of choice:
 
-[Python](./connect-python.md) | [Node.JS](./connect-nodejs.md) | [.NET (C#)](./connect-csharp.md)
+[Python](./connect-python.md) | [Node.JS](./connect-nodejs.md) | [Java](./connect-java.md) | [Ruby](./connect-ruby.md) | [PHP](./connect-php.md) | [.NET (C#)](./connect-csharp.md) | [Go](./connect-go.md)

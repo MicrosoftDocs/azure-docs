@@ -21,8 +21,8 @@ LUIS offers 20 prebuilt domains. They include but are not limited to:
 
 | Prebuilt domain | Description |
 | ---------------- |-----------------------|
-| Calendar | Handling queries related to appointments.|
-| Camera | Taking pictures and recording videos.|
+| Calendar | The Calendar domain provides intent and entities for adding, deleting or editing an appointment, checking participants availability, and finding information about a calendar event.|
+| Camera | The Camera domain provides intents and entities for taking pictures, recording videos, and broadcasting video to an application.|
 | Communication | Sending messages and making phone calls.|
 | Entertainment  | Handling queries related to music, movies, and TV.|
 | Events | Booking tickets for concerts, festivals, sports games and comedy shows.|
@@ -31,8 +31,8 @@ LUIS offers 20 prebuilt domains. They include but are not limited to:
 | HomeAutomation | Controlling smart home devices like lights and appliances.|
 | MovieTickets | Booking tickets to movies at a movie theater.|
 | Music | Playing music on a music player.|
-| Note | Handling requests to find, edit, and create notes.|
-| OnDevice | Handling queries related to controlling devices.|
+| Note | The Note domain provides intents and entities related to creating, editing, and finding notes.|
+| OnDevice | The OnDevice domain provides intents and entities related to controlling the device.|
 | Places  | Handling queries related to places like businesses, institutions, restaurants, public spaces and addresses.|
 | Reminder | Handling requests related to creating, editing, and finding reminders.|
 | RestaurantReservation | Handling requests to manage restaurant reservations.|

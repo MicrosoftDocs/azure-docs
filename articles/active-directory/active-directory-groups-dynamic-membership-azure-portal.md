@@ -38,17 +38,19 @@ When any attributes of a user or device change, the system evaluates all dynamic
 ## To create an advanced rule
 1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with an account that is a global administrator or a user account administrator.
 2. Select **Users and groups**.
-3. Select **All groups**.
+3. Select **All groups**, and select **New group**.
 
-   ![Opening the groups blade](./media/active-directory-groups-dynamic-membership-azure-portal/view-groups-blade.png)
-4. In **All groups**, select **New group**.
+   ![Add new group](./media/active-directory-groups-dynamic-membership-azure-portal/new-group-creation.png)
 
-   ![Add new group](./media/active-directory-groups-dynamic-membership-azure-portal/add-group-type.png)
-5. On the **Group** blade, enter a name and description for the new group. Select a **Membership type** of either **Dynamic User** or **Dynamic Device**, depending on whether you want to create a rule for users or devices, and then select **Add dynamic query**. For the attributes used for device rules, see [Using attributes to create rules for device objects](#using-attributes-to-create-rules-for-device-objects).
+4. On the **Group** blade, enter a name and description for the new group. Select a **Membership type** of either **Dynamic User** or **Dynamic Device**, depending on whether you want to create a rule for users or devices, and then select **Add dynamic query**. You can use the rule builder to build a simple rule, or write an advanced rule yourself. This article contains more information about available user and device attributes as well as examples of advanced rules.
 
    ![Add dynamic membership rule](./media/active-directory-groups-dynamic-membership-azure-portal/add-dynamic-group-rule.png)
-6. On the **Dynamic membership rules** blade, enter your rule into the **Add dynamic membership advanced rule** box, press Enter, and then select **Create** at the bottom of the blade.
-7. Select **Create** on the **Group** blade to create the group.
+
+5. After creating the rule, select **Add query** at the bottom of the blade.
+6. Select **Create** on the **Group** blade to create the group.
+
+> [!TIP]
+> Group creation may fail if the advanced rule you entered was incorrect. A notification will be displayed in the upper-right hand corner of the portal; it contains an explanation of why the rule could not be accepted by the system. Read it carefully to understand how you need to adjust the rule to make it valid.
 
 ## Constructing the body of an advanced rule
 The advanced rule that you can create for the dynamic memberships for groups is essentially a binary expression that consists of three parts and results in a true or false outcome. The three parts are:

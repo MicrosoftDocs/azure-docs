@@ -29,6 +29,7 @@
 
 
 # Reference
+## [Azure Stack](documentation-azure-stack-gov.md)
 ## [Images](documentation-government-image-gallery.md)
 ## [Marketplace](documentation-government-manage-marketplace.md)
 ## [Marketplace for partners](documentation-government-manage-marketplace-partners.md)

@@ -1,6 +1,6 @@
 ---
 title: 'Azure SQL Database service | Microsoft Docs'
-description: Learn about SQL Database service tiers
+description: Learn about service tiers for single and pool databases to provide performance levels and storage sizes.  
 keywords: 
 services: sql-database
 documentationcenter: ''

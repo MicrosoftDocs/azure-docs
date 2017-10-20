@@ -94,6 +94,9 @@
   - name: Batch
     tocHref: /azure/batch/
     topicHref: /azure/batch/
+  - name: Batch AI
+    tocHref: /azure/batch-ai/
+    topicHref: /azure/batch-ai/
   - name: Billing
     tocHref: /azure/billing/
     topicHref: /azure/billing/
@@ -112,13 +115,16 @@
   - name: Cognitive Services
     tocHref: /azure/cognitive-services/
     topicHref: /azure/cognitive-services/
-    items: 
+    items:
     - name: Bing Custom Search
       tocHref: /azure/cognitive-services/bing-custom-search/
       topicHref: /azure/cognitive-services/bing-custom-search/
     - name: Bing Web Search
       tocHref: /azure/cognitive-services/bing-web-search/
       topicHref: /azure/cognitive-services/bing-web-search/
+    - name: Speech
+      tocHref: /azure/cognitive-services/Speech/
+      topicHref: /azure/cognitive-services/Speech/
     - name: Computer Vision
       tocHref: /azure/cognitive-services/computer-vision/
       topicHref: /azure/cognitive-services/computer-vision/

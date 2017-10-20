@@ -1,3 +1,5 @@
+This FAQ applies to P2S connections using the classic deployment model.
+
 ### What client operating systems can I use with Point-to-Site?
 
 The following client operating systems are supported:

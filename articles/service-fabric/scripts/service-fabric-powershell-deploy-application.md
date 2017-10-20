@@ -20,7 +20,7 @@ ms.custom: mvc
 
 # Deploy an application to a Service Fabric cluster
 
-This sample script copies an application package to a cluster image store, registers the application type in the cluster, and creates an application instance from the application type.  If any default services were defined in the application manifest of the target application type, then those services are created at this time. Customize the parameters as needed. 
+This sample script copies an application package to a cluster image store, registers the application type in the cluster, removes the unnecessary application package, and creates an application instance from the application type.  If any default services were defined in the application manifest of the target application type, then those services are created at this time. Customize the parameters as needed. 
 
 If needed, install the Service Fabric PowerShell module with the [Service Fabric SDK](../service-fabric-get-started.md). 
 
@@ -42,6 +42,7 @@ This script uses the following commands. Each command in the table links to comm
 |[Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) | Copies an application package to the cluster image store.  |
 |[Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps)| Registers an application type and version on the cluster. |
 |[New-ServiceFabricApplication](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps)| Creates an application from a registered application type. |
+| [Remove-ServiceFabricApplicationPackage](/powershell/module/servicefabric/remove-servicefabricapplicationpackage?view=azureservicefabricps) | Removes a Service Fabric application package from the image store.|
 
 ## Next steps
 
