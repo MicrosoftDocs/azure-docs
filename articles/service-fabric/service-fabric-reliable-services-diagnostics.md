@@ -40,11 +40,9 @@ Examples of tools and technologies that help in collecting and/or viewing EventS
 ## Interpret events
 StatefulRunAsyncInvocation, StatefulRunAsyncCompletion, and StatefulRunAsyncCancellation events are useful to the service writer to understand the lifecycle of a service, as well as the timing for when a service is started, cancelled, or completed. This information can be useful when debugging service issues or understanding the service lifecycle.
 
-Service writers should pay close attention
-to StatefulRunAsyncSlowCancellation and StatefulRunAsyncFailure events because they indicate issues with the service.
+Service writers should pay close attention to StatefulRunAsyncSlowCancellation and StatefulRunAsyncFailure events because they indicate issues with the service.
 
-StatefulRunAsyncFailure is emitted whenever
-the service RunAsync() task throws an exception. Typically, an exception thrown indicates an error or bug in the service. Additionally, the exception causes the service to fail, so it is moved to a different node. This operation can be expensive and can delay incoming requests while the service is moved. Service writers should determine the cause of the exception and, if possible, mitigate it.
+StatefulRunAsyncFailure is emitted whenever the service RunAsync() task throws an exception. Typically, an exception thrown indicates an error or bug in the service. Additionally, the exception causes the service to fail, so it is moved to a different node. This operation can be expensive and can delay incoming requests while the service is moved. Service writers should determine the cause of the exception and, if possible, mitigate it.
 
 StatefulRunAsyncSlowCancellation is emitted whenever a cancellation request for the RunAsync task takes longer than four seconds. When a service takes too long to complete cancellation, it affects
 the ability of the service to be quickly restarted on another node. This scenario might affect the overall availability of the service.

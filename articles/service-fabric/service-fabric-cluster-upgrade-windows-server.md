@@ -19,15 +19,15 @@ ms.author: dekapur
 ---
 # Upgrade your standalone Azure Service Fabric cluster on Windows Server 
 > [!div class="op_single_selector"]
-> * [Azure Cluster](service-fabric-cluster-upgrade.md)
-> * [Standalone Cluster](service-fabric-cluster-upgrade-windows-server.md)
+> * [Azure cluster](service-fabric-cluster-upgrade.md)
+> * [Standalone cluster](service-fabric-cluster-upgrade-windows-server.md)
 >
 >
 
 For any modern system, the ability to upgrade is key to the long-term success of your product. An Azure Service Fabric cluster is a resource that you own. This article describes how you can make sure that the cluster always runs supported versions of Service Fabric code and configurations.
 
 ## Control the Service Fabric version that runs on your cluster
-To set your cluster to download updates of Service Fabric when Microsoft releases a new version, set the **fabricClusterAutoupgradeEnabled** cluster configuration to *true*. To select a supported version of Service Fabric that you want your cluster to be on, set the **fabricClusterAutoupgradeEnabled** cluster configuration to *false*.
+To set your cluster to download updates of Service Fabric when Microsoft releases a new version, set the fabricClusterAutoupgradeEnabled cluster configuration to *true*. To select a supported version of Service Fabric that you want your cluster to be on, set the fabricClusterAutoupgradeEnabled cluster configuration to *false*.
 
 > [!NOTE]
 > Make sure that your cluster always runs a supported Service Fabric version. When Microsoft announces the release of a new version of Service Fabric, the previous version is marked for end of support after a minimum of 60 days from the date of the announcement. New releases are announced [on the Service Fabric team blog](https://blogs.msdn.microsoft.com/azureservicefabric/). The new release is available to choose at that point.
@@ -98,11 +98,11 @@ When you see the cluster health warning, do the following:
     Get-ServiceFabricClusterUpgrade
     ```
 
-    If the cluster health policies aren't met, the upgrade is rolled back. To specify custom health policies for the **Start-ServiceFabricClusterUpgrade** command, see documentation for [Start-ServiceFabricClusterUpgrade](https://msdn.microsoft.com/library/mt125872.aspx).
+    If the cluster health policies aren't met, the upgrade is rolled back. To specify custom health policies for the Start-ServiceFabricClusterUpgrade command, see documentation for [Start-ServiceFabricClusterUpgrade](https://msdn.microsoft.com/library/mt125872.aspx).
 
 After you fix the issues that resulted in the rollback, initiate the upgrade again by following the same steps as previously described.
 
-### Upgrade clusters that have <U>no connectivity</u> to download the latest code and configuration
+### Upgrade clusters that have *no connectivity* to download the latest code and configuration
 Use these steps to upgrade your cluster to a supported version if your cluster nodes don't have internet connectivity to the [Microsoft Download Center](http://download.microsoft.com).
 
 > [!NOTE]
@@ -111,7 +111,7 @@ Use these steps to upgrade your cluster to a supported version if your cluster n
 >
 
 #### Auto provisioning vs. manual provisioning
-To enable automatic downloading and registration for the latest code version, set up Service Fabric Update Service. For instructions, see Tools\ServiceFabricUpdateService.zip\Readme_InstructionsAndHowTos.txt inside the [standalone package](service-fabric-cluster-standalone-package-contents.md).
+To enable automatic downloading and registration for the latest code version, set up the Service Fabric Update Service. For instructions, see Tools\ServiceFabricUpdateService.zip\Readme_InstructionsAndHowTos.txt inside the [standalone package](service-fabric-cluster-standalone-package-contents.md).
 For the manual process, follow these instructions.
 
 Modify your cluster configuration to set the following property to *false* before you start a configuration upgrade:
@@ -179,7 +179,7 @@ For usage details, see the [Start-ServiceFabricClusterConfigurationUpgrade Power
     Get-ServiceFabricClusterUpgrade
     ```
 
-    If the cluster health policies aren't met, the upgrade is rolled back. To specify custom health policies for the **Start-ServiceFabricClusterUpgrade** command, see the documentation for [Start-ServiceFabricClusterUpgrade](https://msdn.microsoft.com/library/mt125872.aspx).
+    If the cluster health policies aren't met, the upgrade is rolled back. To specify custom health policies for the Start-ServiceFabricClusterUpgrade command, see the documentation for [Start-ServiceFabricClusterUpgrade](https://msdn.microsoft.com/library/mt125872.aspx).
 
 After you fix the issues that resulted in the rollback, initiate the upgrade again by following the same steps as previously described.
 
@@ -202,7 +202,7 @@ Or use this script:
 
 Some configurations can't be upgraded, such as endpoints, cluster name, node IP, etc. The new cluster configuration JSON is tested against the old one and throws errors in the PowerShell window if there's an issue.
 
-To upgrade the cluster configuration upgrade, run **Start-ServiceFabricClusterConfigurationUpgrade**. The configuration upgrade is processed upgrade domain by upgrade domain.
+To upgrade the cluster configuration upgrade, run Start-ServiceFabricClusterConfigurationUpgrade. The configuration upgrade is processed upgrade domain by upgrade domain.
 
 ```powershell
 
@@ -215,13 +215,13 @@ A cluster certificate is used for authentication between cluster nodes. The cert
 
 Technically, four options are supported:  
 
-* Single certificate upgrade: The upgrade path is 'Certificate A (Primary) -> Certificate B (Primary) -> Certificate C (Primary) -> ...'.
+* Single certificate upgrade: The upgrade path is Certificate A (Primary) -> Certificate B (Primary) -> Certificate C (Primary) -> ....
 
-* Double certificate upgrade: The upgrade path is 'Certificate A (Primary) -> Certificate A (Primary) and B (Secondary) -> Certificate B (Primary) -> Certificate B (Primary) and C (Secondary) -> Certificate C (Primary) -> ...'.
+* Double certificate upgrade: The upgrade path is Certificate A (Primary) -> Certificate A (Primary) and B (Secondary) -> Certificate B (Primary) -> Certificate B (Primary) and C (Secondary) -> Certificate C (Primary) -> ....
 
 * Certificate type upgrade: Thumbprint-based certificate configuration <-> CommonName-based certificate configuration. For example, Certificate Thumbprint A (Primary) and Thumbprint B (Secondary) -> Certificate CommonName C.
 
-* Certificate issuer thumbprint upgrade: The upgrade path is 'Certificate CN=A,IssuerThumbprint=IT1 (Primary) -> Certificate CN=A,IssuerThumbprint=IT1,IT2 (Primary) -> Certificate CN=A,IssuerThumbprint=IT2 (Primary)'
+* Certificate issuer thumbprint upgrade: The upgrade path is Certificate CN=A,IssuerThumbprint=IT1 (Primary) -> Certificate CN=A,IssuerThumbprint=IT1,IT2 (Primary) -> Certificate CN=A,IssuerThumbprint=IT2 (Primary).
 
 
 ## Next steps
