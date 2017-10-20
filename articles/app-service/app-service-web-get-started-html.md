@@ -61,10 +61,6 @@ Navigate to the directory that contains the sample HTML. Open the *index.html* f
 
 ![Empty web app page](media/app-service-web-get-started-html/app-service-web-service-created.png)
 
-You’ve created an empty new web app in Azure.
-
-[!INCLUDE [Configure local git](../../includes/app-service-web-configure-local-git.md)] 
-
 [!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)] 
 
 ```bash

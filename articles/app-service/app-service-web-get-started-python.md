@@ -80,23 +80,17 @@ In your terminal window, press **Ctrl+C** to exit the web server.
 
 [!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)]
 
-[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app.md)]
+## Create a web app
 
-![Empty web app page](media/app-service-web-get-started-python/app-service-web-service-created.png)
+[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-python-no-h.md)]
 
-You’ve created an empty new web app in Azure.
+Browse to your newly created web app. Replace _&lt;app name>_ with a unique app name.
 
-## Configure to use Python
-
-Use the [az webapp config set](/cli/azure/webapp/config#set) command to configure the web app to use Python version `3.4`.
-
-```azurecli-interactive
-az webapp config set --python-version 3.4 --name <app_name> --resource-group myResourceGroup
+```bash
+http://<app name>.azurewebsites.net
 ```
 
-Setting the Python version this way uses a default container provided by the platform. To use your own container, see the CLI reference for the [az webapp config container set](/cli/azure/webapp/config/container#set) command.
-
-[!INCLUDE [Configure local git](../../includes/app-service-web-configure-local-git.md)]
+![Empty web app page](media/app-service-web-get-started-python/app-service-web-service-created.png)
 
 [!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)]
 

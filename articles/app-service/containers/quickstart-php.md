@@ -69,7 +69,7 @@ In your terminal window, press **Ctrl+C** to exit the web server.
 
 ## Create a web app
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-linux-php-no-h.md)] 
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-php-no-h.md)] 
 
 Browse to the site to see your newly created web app. Replace _&lt;app name>_ with a unique app name.
 
@@ -78,8 +78,6 @@ http://<app name>.azurewebsites.net
 ```
 
 ![Empty web app page](media/quickstart-php/app-service-web-service-created.png)
-
-You’ve created an empty new web app in a Linux container, with git deployment enabled.
 
 [!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)] 
 

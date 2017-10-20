@@ -118,17 +118,7 @@ For MongoDB, this tutorial uses [Azure Cosmos DB](/azure/documentdb/). Cosmos DB
 
 ### Create a resource group
 
-Create a resource group with the [az group create](/cli/azure/group#create) command.
-
-[!INCLUDE [Resource group intro](../../includes/resource-group.md)]
-
-The following example creates a resource group in the West Europe region.
-
-```azurecli-interactive
-az group create --name myResourceGroup --location "West Europe"
-```
-
-Use the [az appservice list-locations](/cli/azure/appservice#list-locations) Azure CLI command to list available locations. 
+[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group-no-h.md)] 
 
 ### Create a Cosmos DB account
 
@@ -245,64 +235,17 @@ In the terminal, stop Node.js by typing `Ctrl+C`.
 
 In this step, you deploy your MongoDB-connected Node.js application to Azure App Service.
 
+### Configure a deployment user
+
+[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user-no-h.md)]
+
 ### Create an App Service plan
 
-In the Cloud Shell, create an App Service plan with the [az appservice plan create](/cli/azure/appservice/plan#create) command. 
-
-[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
-
-The following example creates an App Service plan named _myAppServicePlan_ using the **FREE** pricing tier:
-
-```azurecli-interactive
-az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE
-```
-
-When the App Service plan is created, the Azure CLI shows information similar to the following example:
-
-```json 
-{ 
-  "adminSiteName": null,
-  "appServicePlanName": "myAppServicePlan",
-  "geoRegion": "North Europe",
-  "hostingEnvironmentProfile": null,
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/myAppServicePlan", 
-  "kind": "app",
-  "location": "North Europe",
-  "maximumNumberOfWorkers": 1,
-  "name": "myAppServicePlan",
-  ...
-  < Output has been truncated for readability >
-} 
-```
+[!INCLUDE [Create app service plan no h](../../includes/app-service-web-create-app-service-plan-no-h.md)]
 
 ### Create a web app
 
-In the Cloud Shell, create a web app in the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp#create) command. 
-
-The web app gives you a hosting space to deploy your code and provides a URL for you to view the deployed application. Use  to create the web app. 
-
-In the following command, replace the *\<app_name>* placeholder with a unique app name. This name is used as the part of the default URL for the web app, so the name needs to be unique across all apps in Azure App Service. 
-
-```azurecli-interactive
-az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan
-```
-
-When the web app has been created, the Azure CLI shows information similar to the following example: 
-
-```json 
-{
-  "availabilityState": "Normal",
-  "clientAffinityEnabled": true,
-  "clientCertEnabled": false,
-  "cloningInfo": null,
-  "containerSize": 0,
-  "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "<app_name>.azurewebsites.net",
-  "enabled": true,
-  ...
-  < Output has been truncated for readability >
-}
-```
+[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-nodejs-no-h.md)] 
 
 ### Configure an environment variable
 
@@ -333,37 +276,9 @@ db: {
 },
 ```
 
-### Configure local git deployment 
-
-In the Cloud Shell, use the [az webapp deployment user set](/cli/azure/webapp/deployment/user#set) command to create credentials for deployment.
-
-You can deploy your application to Azure App Service in various ways including FTP, local Git, GitHub, Visual Studio Team Services, and BitBucket. For FTP and local Git, it is necessary to have a deployment user configured on the server to authenticate your deployment. This deployment user is account-level and is different from your Azure subscription account. You only need to configure this deployment user once.
-
-In the following command, replace *\<user-name>* and *\<password>* with a new user name and password. The user name must be unique. The password must be at least eight characters long, with two of the following three elements:  letters, numbers, symbols. If you get a ` 'Conflict'. Details: 409` error, change the username. If you get a ` 'Bad Request'. Details: 400` error, use a stronger password.
-
-```azurecli-interactive
-az webapp deployment user set --user-name <username> --password <password>
-```
-
-Record the user name and password for use in later steps when you deploy the app.
-
-Use the [az webapp deployment source config-local-git](/cli/azure/webapp/deployment/source#config-local-git) command to configure local Git access to the Azure web app. 
-
-```azurecli-interactive
-az webapp deployment source config-local-git --name <app_name> --resource-group myResourceGroup
-```
-
-When the deployment user is configured, the Azure CLI shows the deployment URL for your Azure web app in the following format:
-
-```bash 
-https://<username>@<app_name>.scm.azurewebsites.net:443/<app_name>.git 
-``` 
-
-Copy the output from the terminal, as it will be used in the next step. 
-
 ### Push to Azure from Git
 
-In the local terminal window, add an Azure remote to your local Git repository. 
+In the local terminal window, add an Azure remote to your local Git repository. Replace _&lt;paste\_copied\_url\_here>_ with the URL of the Git remote that you saved from [Create a web app](#create).
 
 ```bash
 git remote add azure <paste_copied_url_here> 

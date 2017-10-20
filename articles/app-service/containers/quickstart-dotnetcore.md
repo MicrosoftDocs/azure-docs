@@ -83,19 +83,15 @@ git commit -m "first commit"
 
 ## Create a web app
 
-Create a [web app](../app-service-web-overview.md) in the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp#create) command. Don't forget to replace `<app name>` with a unique app name.
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-dotnetcore-no-h.md)]
 
-The runtime in the following command is set to `DOTNETCORE|1.1`. To see all supported runtimes, run [az webapp list-runtimes](/cli/azure/webapp#list-runtimes).
+Browse to your newly created web app. Replace _&lt;app name>_ with a unique app name.
 
-```azurecli-interactive
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --runtime "DOTNETCORE|1.1" --deployment-local-git
+```bash
+http://<app name>.azurewebsites.net
 ```
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-result.md)] 
-
 ![Empty web app page](media/quickstart-dotnetcore/dotnet-browse-created.png)
-
-You’ve created an empty new web app in a Linux container, with git deployment enabled.
 
 [!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)] 
 
