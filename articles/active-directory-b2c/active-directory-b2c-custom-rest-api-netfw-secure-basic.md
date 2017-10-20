@@ -32,7 +32,7 @@ Complete the steps in the [Integrate REST API claims exchanges in your Azure AD 
 ### Step 1.1: Add application settings to your project's web.config file
 1. Open the Visual Studio project that you created earlier. 
 
-2. Add following application settings to the web.config file under the `appSettings` element:
+2. Add the following application settings to the web.config file under the `appSettings` element:
 
     ```XML
     <add key="WebApp:ClientId" value="B2CServiceUserAccount" />
@@ -41,7 +41,7 @@ Complete the steps in the [Integrate REST API claims exchanges in your Azure AD 
 
 3. Create a password, and then set the `WebApp:ClientSecret` value.
 
-    To generate a complex password, you can run the following PowerShell code. You can use any arbitrary value.
+    To generate a complex password, run the following PowerShell code. You can use any arbitrary value.
 
     ```PowerShell
     $bytes = New-Object Byte[] 32
@@ -208,7 +208,7 @@ Add an OWIN startup class named `Startup.cs` to the API. To do so:
     }
     ```
 
-### Step 1.5: Protect Identity API class
+### Step 1.5: Protect the Identity API class
 Open Controllers\IdentityController.cs, and add the `[Authorize]` tag to the controller class. This tag restricts access to the controller to users who meet the authorization requirement.
 
 ![Add the Authorize tag to the controller](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-secure-basic-authorize.png)
@@ -229,7 +229,7 @@ After your RESTful service is protected by the client ID (username) and secret, 
 
 4. For **Options**, select **Manual**.
 
-5. For **Name**, select **B2cRestClientId**.  
+5. For **Name**, type **B2cRestClientId**.  
     The prefix *B2C_1A_* might be added automatically.
 
 6. In the **Secret** box, enter the app ID that you defined earlier.
@@ -249,7 +249,7 @@ After your RESTful service is protected by the client ID (username) and secret, 
 
 4. For **Options**, select **Manual**.
 
-5. For **Name**, select **B2cRestClientSecret**.  
+5. For **Name**, type **B2cRestClientSecret**.  
     The prefix *B2C_1A_* might be added automatically.
 
 6. In the **Secret** box, enter the app secret that you defined earlier.
@@ -307,7 +307,7 @@ After your RESTful service is protected by the client ID (username) and secret, 
 2. Open **B2C_1A_signup_signin**, the relying party (RP) custom policy that you uploaded, and then select **Run now**.
 
 3. Test the process by typing **Test** in the **Given Name** box.  
-    Azure AD B2C displays an error message at the top of the page.
+    Azure AD B2C displays an error message at the top of the window.
 
     ![Test your identity API](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-test.png)
 
