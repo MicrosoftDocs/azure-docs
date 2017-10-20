@@ -15,7 +15,7 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 06/09/2017
 ms.author: cephalin
-ms.custom: mvc
+ms.custom: mvc, devcenter
 ---
 
 # Build an ASP.NET app in Azure with SQL Database
