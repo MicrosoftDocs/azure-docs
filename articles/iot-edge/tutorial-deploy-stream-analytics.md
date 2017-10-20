@@ -24,11 +24,11 @@ ms.service: iot-edge
 
 Migrating data from your IoT Edge devices to the cloud is an important aspect in creating robust solutions.  Azure Stream Analytics stands out as a quick and customizable way to connect data while providing a richly structured query syntax for data analysis.  This tutorial walks you through creating and deploying a fully functional IoT Edge ASA module along with the necessary Azure infrastructure needed to query your data, analyze the results, and stream data to an Azure Storage container (BLOB) for download.  You learn how to:
 
-    [!div class="checklist"]
-        * Run a custom module in IoT Edge
-        * Create an Azure Storage account
-        * Create a custom Stream Analytics job
-        * View generated data
+> [!div class="checklist"]
+> * Run a custom module in IoT Edge
+> * Create an Azure Storage account
+> * Create a custom Stream Analytics job
+> * View generated data
 
 ## Prequisites
 
@@ -140,7 +140,9 @@ You are now ready to run the apps.
 
 In this tutorial, you configured an Azure Storage container and a Streaming Analytics job to analyze data from you IoT Edge device.  You then loaded a custom ASA module to move data from your device, through the stream, into a BLOB for download.  You can continue on to other tutorials to further see how Azure IoT Edge can create solutions for your business.
 
-    [!div class="nextstepaction"] [Deploy Azure Machine Learning as a module][lnk-next-tutorial][Create a custom module][lnk-next-tutorial2]
+> [!div class="nextstepaction"] 
+> [Deploy Azure Machine Learning as a module]
+> [lnk-next-tutorial][Create a custom module][lnk-next-tutorial2]
 
 <!-- Images. -->
 [1]: ./media/tutorial-deploy-stream-analytics/storage.png
