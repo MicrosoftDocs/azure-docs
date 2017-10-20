@@ -1,6 +1,6 @@
 ---
 title: Deploy OpenShift Origin in Azure | Microsoft Docs
-description: Learn to deploy OpenShift Origin to Azure virtual machines.
+description: Deploy OpenShift Origin in Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldw

@@ -1,6 +1,6 @@
 ---
 title: Deploy OpenShift Container Platform in Azure | Microsoft Docs
-description: Learn to deploy OpenShift Container Platform to Azure virtual machines.
+description: Deploy OpenShift Container Platform in Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldw
@@ -39,7 +39,7 @@ Some common customization options include (but not limited to):
 - Naming conventions [variables in azuredeploy.json]
 - OpenShift cluster specifics - modified via hosts file [deployOpenShift.sh]
 
-### Configure Parameters File
+### Configure parameters file
 
 Use the `appId` value from the service principal you created earlier for the `aadClientId` parameter. 
 
@@ -153,7 +153,7 @@ The deployment takes at least 30 minutes to complete depending on the total numb
 }
 ```
 
-## Deploy using OpenShift Container Platform Marketplace Offer
+## Deploy using OpenShift Container Platform marketplace offer
 
 The simplest way to deploy OpenShift Container Platform into Azure is to use the [Azure Marketplace Offer](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/redhat.openshift-container-platform?tab=Overview).
 

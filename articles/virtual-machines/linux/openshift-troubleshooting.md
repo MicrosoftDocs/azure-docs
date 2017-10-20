@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting OpenShift Deployment in Azure | Microsoft Docs
-description: Troubleshooting OpenShift Deployment in Azure
+description: Troubleshooting OpenShift deployment in Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldw
@@ -18,20 +18,20 @@ ms.date:
 ms.author: haroldw
 ---
 
-# Troubleshooting OpenShift Deployment in Azure
+# Troubleshooting OpenShift deployment in Azure
 
 If the OpenShift cluster does not deploy successfully, there are some troubleshooting tasks that can be done to narrow down the issue. View the deployment status and compare against the following list of Exit Codes.
 
-1.  Exit Code 3: Your Red Hat Subscription User Name / Password or Organization ID / Activation Key is incorrect
-2.  Exit Code 4: Your Red Hat Pool ID is incorrect or there are no entitlements available
-3.  Exit Code 5: Unable to provision Docker Thin Pool Volume
-4.  Exit Code 6: OpenShift Cluster installation failed
-5.  Exit Code 7: OpenShift Cluster installation succeeded but Azure Cloud Provider configuration failed - master config on Master Node issue
-6.  Exit Code 8: OpenShift Cluster installation succeeded but Azure Cloud Provider configuration failed - node config on Master Node issue
-7.  Exit Code 9: OpenShift Cluster installation succeeded but Azure Cloud Provider configuration failed - node config on Infra or App Node issue
-8.  Exit Code 10: OpenShift Cluster installation succeeded but Azure Cloud Provider configuration failed - correcting Master Nodes or not able to set Master as unschedulable
-9.  Exit Code 11: Metrics failed to deploy
-10. Exit Code 12: Logging failed to deploy
+- Exit Code 3: Your Red Hat Subscription User Name / Password or Organization ID / Activation Key is incorrect
+- Exit Code 4: Your Red Hat Pool ID is incorrect or there are no entitlements available
+- Exit Code 5: Unable to provision Docker Thin Pool Volume
+- Exit Code 6: OpenShift Cluster installation failed
+- Exit Code 7: OpenShift Cluster installation succeeded but Azure Cloud Provider configuration failed - master config on Master Node issue
+- Exit Code 8: OpenShift Cluster installation succeeded but Azure Cloud Provider configuration failed - node config on Master Node issue
+- Exit Code 9: OpenShift Cluster installation succeeded but Azure Cloud Provider configuration failed - node config on Infra or App Node issue
+- Exit Code 10: OpenShift Cluster installation succeeded but Azure Cloud Provider configuration failed - correcting Master Nodes or not able to set Master as unschedulable
+- Exit Code 11: Metrics failed to deploy
+- Exit Code 12: Logging failed to deploy
 
 For Exit Codes 7 - 10, the OpenShift Cluster did install but the Azure Cloud Provider configuration failed. You can SSH to the Master Node (Origin) or Bastion Node (Container Platform) and from there SSH to each of the nodes in the cluster and fix the issues.
 

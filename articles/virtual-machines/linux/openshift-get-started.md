@@ -1,6 +1,6 @@
 ---
-title: OpenShift Overview | Microsoft Docs
-description: Learn to deploy OpenShift Origin to Azure virtual machines.
+title: OpenShift on Azure Overview | Microsoft Docs
+description: OpenShift on Azure Overview.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldw
@@ -57,10 +57,10 @@ Customer deploys containers but has no control on which hosts the containers run
 
 Red Hat managed **single-tenant** OpenShift (using Container Platform). Red Hat manages all the underlying infrastructure (VMs, OpenShift cluster, networking, storage, etc.). The cluster is specific to one customer and runs in a public cloud (AWS, Google, Azure - coming in early 2018). Starting cluster includes four Application Nodes for $48K / year (upfront payment for an entire year).
 
-## Next Steps
+## Next steps
 
-- [Configure Common Pre-requisites for OpenShift in Azure](./openshift-pre-requisites.md)
+- [Configure common prerequisites for OpenShift in Azure](./openshift-prerequisites.md)
 - [Deploy OpenShift Origin](./openshift-origin.md)
 - [Deploy OpenShift Container Platform](./openshift-container-platform.md)
-- [Post Deployment Tasks](./openshift-post-deployment.md)
-- [Troubleshooting OpenShift Deployment](./openshift-troubleshooting.md)
+- [Post deployment tasks](./openshift-post-deployment.md)
+- [Troubleshooting OpenShift deployment](./openshift-troubleshooting.md)

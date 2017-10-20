@@ -1,5 +1,5 @@
 ---
-title: Post Deployment Tasks | Microsoft Docs
+title: OpenShift on Azure Post Deployment Tasks | Microsoft Docs
 description: OpenShift Post Deployment Tasks
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -18,7 +18,7 @@ ms.date:
 ms.author: haroldw
 ---
 
-# Post Deployment Tasks
+# Post-deployment tasks
 
 After the OpenShift cluster is deployed, there are additional items that can be configured. This article will cover the following:
 
@@ -30,7 +30,7 @@ After the OpenShift cluster is deployed, there are additional items that can be 
 
 In order to use AAD for authentication, an Azure AD App Registration must be created first. This process will involve two steps - creation of the app registration and then configure permissions.
 
-### Create App Registration
+### Create app registration
 
 We will use the Azure CLI to create the App Registration and the GUI (Portal) to set the Permissions. To create the App Registration, five pieces of information will be needed.
 
@@ -76,19 +76,19 @@ In the **Azure Portal**:
 4.  In Settings blade, select **Required permissions**
 5.  In Required Permissions blade, click **Add**
 
-![App Registration](media/openshift-post-deployment/appregistration.png)
+  ![App Registration](media/openshift-post-deployment/app-registration.png)
 
 6.  Click on Step 1: Select API and then click **Windows Azure Active Directory (Microsoft.Azure.ActiveDirectory)** and click **Select** at bottom
 
-![App Registration](media/openshift-post-deployment/appregistrationselectapi.png)
+  ![App Registration Select API](media/openshift-post-deployment/app-registration-select-api.png)
 
 7.  On Step 2: Select Permissions, select **Sign in and read user profile** under **Delegated Permissions** and click **Select**
 
-![App Registration](media/openshift-post-deployment/appregistrationaccess.png)
+  ![App Registration Access](media/openshift-post-deployment/app-registration-access.png)
 
 8.  Click **Done**
 
-### Configure OpenShift for Azure AD Authentication
+### Configure OpenShift for Azure AD authentication
 
 To configure OpenShift to use Azure AD as an Authentication provider, the **/etc/origin/master/master-config.yaml** file must be edited on all Master Nodes.
 
@@ -172,7 +172,7 @@ In the OpenShift Console, you will now see two options for authentication - htpa
 
 Monitoring OpenShift with OMS can be achieved using one of two options - OMS Agent installation on VM host or OMS Container. This article provides instructions on deploying the OMS Container.
 
-## Create an OpenShift Project for OMS and set user access
+## Create an OpenShift project for OMS and set user access
 
 ```bash
 oadm new-project omslogging --node-selector='zone=default'
@@ -264,7 +264,7 @@ echo $wsid_data | base64 | tr -d '\n'
 echo $key_data | base64 | tr -d '\n'
 ```
 
-## Create Secret and Daemon Set
+## Create secret and daemon set
 
 Deploy the Secret file
 
@@ -278,13 +278,13 @@ Deploy the OMS Agent Daemon Set
 oc create -f ocp-omsagent.yml
 ```
 
-## Configure Metrics and Logging
+## Configure metrics and logging
 
-The OpenShift Container Platform (OCP) ARM template provides input parameters for enabling Metrics and Logging. The OpenShift Container Platform Marketplace Offer and OpenShift Origin ARM template does not.
+The OpenShift Container Platform (OCP) Resource Manager template provides input parameters for enabling Metrics and Logging. The OpenShift Container Platform Marketplace Offer and OpenShift Origin Resource Manager template does not.
 
-If the OCP ARM template was used and Metrics and Logging weren't enabled at installation time or the OCP Marketplace offer was used, these can be easily enabled after the fact. If using the OpenShift Origin ARM template, some pre-work is required.
+If the OCP Resource Manager template was used and Metrics and Logging weren't enabled at installation time or the OCP Marketplace offer was used, these can be easily enabled after the fact. If using the OpenShift Origin Resource Manager template, some pre-work is required.
 
-### OpenShift Origin Template Pre-work
+### OpenShift Origin template pre-work
 
 SSH to the the first Master Node using port 2200
 
@@ -344,7 +344,7 @@ ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cl
 -e openshift_logging_install_logging=True 
 ```
 
-## Next Steps
+## Next steps
 
-- [Getting Started with OpenShift Container Platform](https://docs.openshift.com/container-platform/3.6/getting_started/index.html)
-- [Getting Started with OpenShift Origin](https://docs.openshift.org/latest/getting_started/index.html)
+- [Getting started with OpenShift Container Platform](https://docs.openshift.com/container-platform/3.6/getting_started/index.html)
+- [Getting started with OpenShift Origin](https://docs.openshift.org/latest/getting_started/index.html)
