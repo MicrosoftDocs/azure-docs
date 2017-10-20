@@ -39,7 +39,7 @@ For example, if your build tool is `gradle`, add the following dependency to you
     compile group: 'com.microsoft.azure', name: 'azure-media', version: '0.9.8'
 
 >[!IMPORTANT]
->Starting with `azure-media` package version `0.9.8`, the SDK added support for Auzre Active Directory (AAD) authentication and removed support for  Azure Access Control Service (ACS) authentication. The ACS services will be deprecated on June 1, 2018. We recommend that you migrate to the Azure AD authentication model as soon as possible. For details on migration, please read the article [Access the Azure Media Services API with Azure AD autentication](media-services-use-aad-auth-to-access-ams-api).
+>Starting with `azure-media` package version `0.9.8`, the SDK added support for Auzre Active Directory (AAD) authentication and removed support for  Azure Access Control Service (ACS) authentication. The ACS services will be deprecated on June 1, 2018. We recommend that you migrate to the Azure AD authentication model as soon as possible. For details on migration,  read the article [Access the Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api).
 
 >[!NOTE]
 >You can find the source code of the Azure Media Services Java SDK in our [GitHub repository](https://github.com/Azure/azure-sdk-for-java/tree/0.9/services/azure-media). Make sure to switch to the 0.9 branch, and not the master branch. 
@@ -51,17 +51,17 @@ For example, if your build tool is `gradle`, add the following dependency to you
 
 The following code shows how to create an asset, upload a media file to the asset, run a job with a task to transform the asset, and create a locator to stream your video.
 
-You need to set up a Media Services account before using this code. For information about setting up an account, see [How to Create a Media Services Account](media-services-portal-create-account.md).
+Set up a Media Services account before using this code. For information about setting up an account, see [How to Create a Media Services Account](media-services-portal-create-account.md).
 
-The code connects to the Azure Media Services API using Azure AD service principal authentication. You need to create an Azure AD application and specify the values for the following variables in the code:
+The code connects to the Azure Media Services API using Azure AD service principal authentication. Create an Azure AD application and specify the values for the following variables in the code:
 * `tenant`: The Azure AD tenant domain where the Azure AD application resides.
 * `clientId`: The client ID of the Azure AD application.
 * `clientKey`: The client key of the Azure AD application.
 * `restApiEndpoint`: The REST API endpoint of the Azure Media Services account.
 
-You can create an Azure AD application and obtain the above configuration values from the Azure Portal. For more information, see the **Service principal authentication** section of [Getting started with Azure AD authentication using the Azure portal](https://docs.microsoft.com/en-us/azure/media-services/media-services-portal-get-started-with-aad).
+You can create an Azure AD application and obtain the preceding configuration values from the Azure portal. For more information, see the **Service principal authentication** section of [Getting started with Azure AD authentication using the Azure portal](https://docs.microsoft.com/en-us/azure/media-services/media-services-portal-get-started-with-aad).
 
-The code also relies on a locally stored video file. You'll need to provide your own file to use.
+The code also relies on a locally stored video file. You must edit the code to provide your own local file to upload.
 
     import java.io.*;
     import java.net.URI;
