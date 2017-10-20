@@ -104,7 +104,7 @@ $nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig `
 $nsg = New-AzureRmNetworkSecurityGroup `
     -Location eastus `
     -Name myNetworkSecurityGroup `
-    -ResourceGroupName myResourceGroupAvailability2 `
+    -ResourceGroupName myResourceGroupAvailability `
     -SecurityRules $nsgRuleRDP
 	
 # Apply the network security group to a subnet
