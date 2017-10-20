@@ -21,7 +21,7 @@ ms.author: jgao
 
 ---
 # Use Interactive Query with HDInsight
-Interactive Query (also called Hive LLAP, or [Live Long and Process](https://cwiki.apache.org/confluence/display/Hive/LLAP)) is an Azure HDInsight [cluster type](hdinsight-hadoop-provision-linux-clusters.md#cluster-types). Interactive Query supports in-memory caching, which makes Hive queries faster and much more interactive. 
+Interactive Query (also called Hive LLAP, or [Live Long and Process](https://cwiki.apache.org/confluence/display/Hive/LLAP)) is an Azure HDInsight [cluster type](../hdinsight-hadoop-provision-linux-clusters.md#cluster-types). Interactive Query supports in-memory caching, which makes Hive queries faster and much more interactive. 
 
 An Interactive Query cluster is different from a Hadoop cluster. It contains only the Hive service. 
 
