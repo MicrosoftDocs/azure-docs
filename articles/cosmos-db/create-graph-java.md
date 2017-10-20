@@ -22,7 +22,7 @@ ms.author: denlee
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. Using Azure Cosmos DB, you can quickly create and query managed document, table, and graph databases. 
 
-This quickstart creates a graph database using the Azure portal tools for Azure Cosmos DB. This quickstart also shows you how to quickly create a Java console app using a graph database using the OSS [Gremlin Java](https://mvnrepository.com/artifact/org.apache.tinkerpop/gremlin-driver) driver. The instructions in this quickstart can be followed on any operating system that is capable of running Java. This quickstart familiarizes you with creating and modifying graphs in either the UI or programmatically, whichever is your preference. 
+This quickstart creates a simple graph database using the Azure portal tools for Azure Cosmos DB. This quickstart also shows you how to quickly create a Java console app using a graph database using the OSS [Gremlin Java](https://mvnrepository.com/artifact/org.apache.tinkerpop/gremlin-driver) driver. The instructions in this quickstart can be followed on any operating system that is capable of running Java. This quickstart familiarizes you with creating and modifying graphs in either the UI or programmatically, whichever is your preference. 
 
 ## Prerequisites
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -135,6 +135,8 @@ Now go back to the Azure portal to get your connection information and copy it i
 
     `username: /dbs/sample-database/colls/sample-graph`
 
+5. Save the remote.yaml file.
+
 ## Run the console app
 
 1. In the git terminal window, `cd` to the azure-cosmos-db-graph-java-getting-started folder.
@@ -147,14 +149,14 @@ Now go back to the Azure portal to get your connection information and copy it i
 
 3. In the git terminal window, run `mvn exec:java -D exec.mainClass=GetStarted.Program` to start your Java application.
 
-    The terminal window displays the vertices being added to the graph. Once the program completes, switch back to the Azure portal in your internet browser. 
+    The terminal window displays the vertices being added to the graph. Once the program stops, switch back to the Azure portal in your internet browser. 
 
 <a id="add-sample-data"></a>
 ## Review and add sample data
 
 You can now go back to Data Explorer and see the vertices added to the graph, and add additional data points.
 
-1. Click **Data Explorer**, expand the **sample-graph**, click **Graph**, and then click **Apply Filter**. 
+1. Click **Data Explorer**, expand **sample-graph**, click **Graph**, and then click **Apply Filter**. 
 
    ![Create new documents in Data Explorer in the Azure portal](./media/create-graph-java/azure-cosmosdb-data-explorer-expanded.png)
 
@@ -162,7 +164,7 @@ You can now go back to Data Explorer and see the vertices added to the graph, an
 
    ![New vertices in the graph in Data Explorer in the Azure portal](./media/create-graph-java/azure-cosmosdb-graph-explorer-new.png)
 
-3. Let's add a few new users to the graph using the Data Explorer. Click the **New Vertex** button to add data to your graph.
+3. Let's add a few new users. Click the **New Vertex** button to add data to your graph.
 
    ![Create new documents in Data Explorer in the Azure portal](./media/create-graph-java/azure-cosmosdb-data-explorer-new-vertex.png)
 
@@ -195,7 +197,7 @@ You can now go back to Data Explorer and see the vertices added to the graph, an
 
 10. Click **OK**. 
 
-11. Click **Apply Filter** with the default `g.V()` filter. All of the users now show in the **Results** list. 
+11. Click **Apply Filter** with the default `g.V()` filter to display all the values in the graph. All of the users now show in the **Results** list. 
 
     As you add more data, you can use filters to limit your results. By default, Data Explorer uses `g.V()` to retrieve all vertices in a graph. You can change it to a different [graph query](tutorial-query-graph.md), such as `g.V().count()`, to return a count of all the vertices in the graph in JSON format. If you changed the filter, change the filter back to `g.V()` and click **Apply Filter** to display all the results again.
 
@@ -211,7 +213,7 @@ You can now go back to Data Explorer and see the vertices added to the graph, an
 
    ![Two vertices connected in Data Explorer](./media/create-graph-java/azure-cosmosdb-graph-explorer.png)
 
-    You can also use Data Explorer to create stored procedures, UDFs, and triggers to perform server-side business logic as well as scale throughput. Data Explorer exposes all of the built-in programmatic data access available in the APIs, but provides easy access to your data in the Azure portal.
+   That completes the resource creation part of this tutorial.You can continue to add vertexes to your graph, modify the existing vertexes, or change the queries. Now let's review the metrics Azure Cosmos DB provides, and then clean up the resources. 
 
 ## Review SLAs in the Azure portal
 
