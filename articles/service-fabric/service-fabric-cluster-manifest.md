@@ -20,7 +20,7 @@ ms.author: dekapur
 # Configuration settings for a standalone Windows cluster
 This article describes how to configure a standalone Azure Service Fabric cluster by using the ClusterConfig.JSON file. You can use this file to specify information such as the Service Fabric nodes and their IP addresses and the different types of nodes on the cluster. You can also specify security configurations as well as the network topology in terms of fault/upgrade domains for your standalone cluster.
 
-When you [download the standalone Service Fabric package](service-fabric-cluster-creation-for-windows-server.md#downloadpackage), a few samples of the ClusterConfig.JSON file are downloaded to your work machine. The samples that have DevCluster in their names help you create a cluster with all three nodes on the same machine, like logical nodes. Out of these, at least one node must be marked as a primary node. This cluster is useful for a development or test environment. It is not supported as a production cluster. The samples that have MultiMachine in their names help you create a production-quality cluster, with each node on a separate machine. The number of primary nodes for these clusters is based on the [reliability level](#reliability). In release 5.7 API Version 05-2017, we removed the reliability-level property. Instead, our code calculates the most optimized reliability level for your cluster. Do not use this property in 5.7 and later code versions.
+When you [download the standalone Service Fabric package](service-fabric-cluster-creation-for-windows-server.md#downloadpackage), a few samples of the ClusterConfig.JSON file are downloaded to your work machine. The samples that have DevCluster in their names help you create a cluster with all three nodes on the same machine, like logical nodes. Out of these nodes, at least one must be marked as a primary node. This cluster is useful for a development or test environment. It is not supported as a production cluster. The samples that have MultiMachine in their names help you create a production-quality cluster, with each node on a separate machine. The number of primary nodes for these clusters is based on the [reliability level](#reliability). In release 5.7 API Version 05-2017, we removed the reliability-level property. Instead, our code calculates the most optimized reliability level for your cluster. Do not use this property in 5.7 and later code versions.
 
 
 * ClusterConfig.Unsecure.DevCluster.JSON and ClusterConfig.Unsecure.MultiMachine.JSON show how to create an unsecured test or production cluster, respectively.
@@ -38,7 +38,7 @@ General cluster configurations cover the broad cluster-specific configurations, 
     "clusterConfigurationVersion": "1.0.0",
     "apiVersion": "01-2017",
 
-You can give any friendly name to your Service Fabric cluster by assigning it to the name variable. The clusterConfigurationVersion is the version number of your cluster. You should increase it every time you upgrade your Service Fabric cluster. Leave apiVersion set to the default value.
+You can give any friendly name to your Service Fabric cluster by assigning it to the name variable. The clusterConfigurationVersion is the version number of your cluster. Increase it every time you upgrade your Service Fabric cluster. Leave apiVersion set to the default value.
 
     <a id="clusternodes"></a>
 
@@ -179,7 +179,7 @@ In the KtlLogger section, you can set the global configuration settings for Reli
     }]
 
 ### Add-on features
-To configure add-on features, the apiVersion should be configured as 04-2017 or higher, and addonFeatures should be configured as shown here:
+To configure add-on features, configure the apiVersion as 04-2017 or higher, and configure the addonFeatures as shown here:
 
     "apiVersion": "04-2017",
     "properties": {

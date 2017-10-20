@@ -32,13 +32,13 @@ Examples of tools and technologies that help in collecting and/or viewing EventS
 | Event name | Event ID | Level | Event description |
 | --- | --- | --- | --- |
 | StatefulRunAsyncInvocation |1 |Informational |Emitted when the service RunAsync task is started |
-| StatefulRunAsyncCancellation |2 |Informational |Emitted when the service RunAsync task is cancelled |
-| StatefulRunAsyncCompletion |3 |Informational |Emitted when the service RunAsync task is completed |
+| StatefulRunAsyncCancellation |2 |Informational |Emitted when the service RunAsync task is canceled |
+| StatefulRunAsyncCompletion |3 |Informational |Emitted when the service RunAsync task is finished |
 | StatefulRunAsyncSlowCancellation |4 |Warning |Emitted when the service RunAsync task takes too long to complete cancellation |
 | StatefulRunAsyncFailure |5 |Error |Emitted when the service RunAsync task throws an exception |
 
 ## Interpret events
-StatefulRunAsyncInvocation, StatefulRunAsyncCompletion, and StatefulRunAsyncCancellation events are useful to the service writer to understand the lifecycle of a service, as well as the timing for when a service is started, cancelled, or completed. This information can be useful when debugging service issues or understanding the service lifecycle.
+StatefulRunAsyncInvocation, StatefulRunAsyncCompletion, and StatefulRunAsyncCancellation events are useful to the service writer to understand the lifecycle of a service, as well as the timing for when a service starts, cancels, or finishes. This information can be useful when debugging service issues or understanding the service lifecycle.
 
 Service writers should pay close attention to StatefulRunAsyncSlowCancellation and StatefulRunAsyncFailure events because they indicate issues with the service.
 
