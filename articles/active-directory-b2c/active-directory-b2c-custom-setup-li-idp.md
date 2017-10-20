@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Azure Active Directory B2C: Add LinkedIn as an OAuth2 identity provider by using custom policies'
 description: A How-To article about setting up a LinkedIn application by using the OAuth2 protocol and custom policies
 services: active-directory-b2c
@@ -74,7 +74,7 @@ Federation with LinkedIn accounts requires a client secret for the LinkedIn acco
 
 4. In the **Options** box, select **Upload**.
 
-5. In the **Name** box, select **B2cRestClientCertificate**.  
+5. In the **Name** box, type **B2cRestClientCertificate**.  
     The prefix *B2C_1A_* might be added automatically.
 
 6. In the **Secret** box, enter your LinkedIn application secret from the [Application Registration Portal](https://apps.dev.microsoft.com).
@@ -156,11 +156,11 @@ To make the user journey available, you create a duplicate of an existing user j
 
 1. Open the base file of your policy (for example, TrustFrameworkBase.xml).
 
-2. Search for the `<UserJourneys>` element, and then copy the entire contents of the `<UserJourneys>` node.
+2. Search for the `<UserJourneys>` element, select the entire contents of the `<UserJourney>` node, and then select **Cut** to move the selected text to the clipboard.
 
 3. Open the extension file (for example, TrustFrameworkExtensions.xml), and search for the `<UserJourneys>` element. If the element doesn't exist, add it.
 
-4. Paste the entire contents of the `<UserJourneys>` node that you copied as a child of the `<UserJourneys>` element.
+4. Paste the entire contents of the `<UserJourney>` node, which you moved to the clipboard in step 2, into the `<UserJourneys>` element.
 
 ### Step 4.2: Display the "button"
 The `<ClaimsProviderSelections>` element defines the list of claims provider selection options and their order. The `<ClaimsProviderSelection>` element is analogous to an identity provider button on a sign-up or sign-in page. If you add a `<ClaimsProviderSelection>` element for a LinkedIn account, a new button is displayed when a user lands on the page. To add this element, do the following:
@@ -212,7 +212,7 @@ Now that you have a button in place, you must link it to an action. The action, 
 2. Open **B2C_1A_signup_signin**, the relying party (RP) custom policy that you uploaded, and then select **Run now**.  
     You should now be able to sign in by using the LinkedIn account.
 
-## Step 7: [Optional] Register the LinkedIn account claims provider to the Profile-Edit user journey
+## Step 7: (Optional) Register the LinkedIn account claims provider to the Profile-Edit user journey
 You might also want to add the LinkedIn account identity provider to your `ProfileEdit` user journey. To make the user journey available, repeat "Step 4." This time, select the `<UserJourney>` node that contains `Id="ProfileEdit"`. Save, upload, and test your policy.
 
 ## (Optional) Download the complete policy files
