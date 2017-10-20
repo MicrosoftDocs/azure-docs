@@ -24,7 +24,7 @@ Most people use Azure Public Cloud for their global Azure deployment. There are 
 * [Azure China Cloud operated by 21Vianet in China](http://www.windowsazure.cn/)
 * [Azure Germany Cloud](../../germany/germany-welcome.md)
 
-## Accessing storage
+## Differences 
 
 To use Azure Storage with one of the independent clouds available in Azure, you need to connect to that cloud instead of Azure Public. 
 
@@ -32,23 +32,77 @@ To use Azure Storage with one of the independent clouds available in Azure, you 
 
 	* You must specify the *environment* to which to connect.
 	* You must determine the available regions.
+	* You need the endpoint suffix, which is different from Public Azure.
 
-Follow these steps to get you started:
+## Set the Environment
 
-1. Run the [Get-AzureEnvironment](/powershell/module/azure/Get-AzureRmEnvironment) cmdlet to see the available Azure environments:
+Run the [Get-AzureEnvironment](/powershell/module/azure/Get-AzureRmEnvironment) cmdlet to see the available Azure environments:
    
-	```powershell
-	Get-AzureRmEnvironment
-	```
+```powershell
+Get-AzureRmEnvironment
+```
 
-2. Sign in to your account that has access to the cloud to which you want to connect and set the environment. This example shows how to use the Azure China Cloud.   
-	```powershell
-	Login-RmAccount –Environment AzureChinaCloud
-	```
+Sign in to your account that has access to the cloud to which you want to connect and set the environment. This example shows how to use the Azure Government Cloud.   
 
-    For the Government cloud, use AzureUSGovernment instead of AzureChinaCloud. For the German Cloud, use AzureGermanCloud.
+```powershell
+Login-AzureRmAccount –Environment AzureUSGovernment
+```
 
-From here forward, you can retrieve the list of locations, create a storage account, and manage your storage accounts as described in the article [Using Azure PowerShell with Azure Storage](storage-powershell-guide-full.md).
+ To access the China Cloud, use **AzureChinaCloud**. For the German Cloud, use **AzureGermanCloud**.
+
+## Endpoint suffix
+
+The endpoint suffix for one of these environments is different from the Public Azure endpoint. For example, the blob endpoint suffix for Public Azure is **blob.core.windows.net**. For the Government Cloud, the blob endpoint suffix will be **blob.core.usgovcloudapi.net**. To find this, you need a reference to a storage account. Then you can examine its properties to retrieve the endpoints. 
+
+### Create a storage account 
+
+If you don't already have a storage account in your subscription, you can create a new one. This example uses the Government Cloud.
+
+```powershell
+# Get list of locations and select one.
+Get-AzureRmLocation | select Location 
+$location = "usgovvirginia"
+
+# Create a new resource group.
+$resourceGroup = "teststoragerg"
+New-AzureRmResourceGroup -Name $resourceGroup -Location $location 
+
+# Set the name of the storage account and the SKU name. 
+$storageAccountName = "testpshstorage"
+$skuName = "Standard\_LRS"
+    
+# Create the storage account.
+$storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
+  -Name $storageAccountName `
+  -Location $location `
+  -SkuName $skuName
+```
+
+### Get a reference to a storage account 
+
+If you already have a storage account in your subscription, you can get a reference to it. 
+
+```powershell
+$resourceGroup = "myexistingresourcegroup"
+$storageAccountName = "myexistingstorageaccount"
+
+$storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
+  -Name $storageAccountName 
+```
+
+### Retrieve the endpoint information
+
+Now that you have a reference to a storage account, you can examine it to find the endpoint suffix.
+
+```powershell
+Write-Host "blob endpoint = " $storageAccount.PrimaryEndPoints.Blob 
+```
+
+This shows the blob endpoint is **blob.core.usgovcloudapi.net**, so the suffix for accessing the storage account is **.core.usgovcloudsapi.net**.
+
+## After setting the environment
+
+From here forward, you can use the same PowerShell used to manage your storage accounts and access the data plane as described in the article [Using Azure PowerShell with Azure Storage](storage-powershell-guide-full.md).
 
 ## Next steps
 
