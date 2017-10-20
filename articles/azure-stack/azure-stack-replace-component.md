@@ -1,5 +1,5 @@
 ---
-title: Replace a hardware component on a scale unit node | Microsoft Docs
+title: Replace a hardware component on a scale unit node in Azure Stack | Microsoft Docs
 description: Learn how to replace a hardware component on an Azure Stack integrated system.
 services: azure-stack
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.author: twooley
 
 ---
 
-# Replace a hardware component on a scale unit node
+# Replace a hardware component on a scale unit node in Azure Stack
 
 *Applies to: Azure Stack integrated systems*
 
