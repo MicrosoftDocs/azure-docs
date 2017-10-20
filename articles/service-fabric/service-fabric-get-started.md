@@ -28,6 +28,7 @@ ms.author: ryanwi, mikhegn
  To build and run [Azure Service Fabric applications][1] on your Windows development machine, install the runtime, SDK, and tools. You also need to enable execution of the Windows PowerShell scripts included in the SDK.
 
 ## Prerequisites
+
 ### Supported operating system versions
 The following operating system versions are supported for development:
 
@@ -66,6 +67,11 @@ The current versions are:
 * Visual Studio 2017 Update 4 Preview 1 (15.4.0 Preview 1.0) includes Service Fabric Tools for Visual Studio 1.7.20170721
 
 For a list of supported versions, see [Service Fabric support](service-fabric-support.md)
+
+> [!NOTE]
+> If you encounter installation or download issues, please report them here: https://github.com/Azure/service-fabric-issues/issues
+> 
+>
 
 ## Enable PowerShell script execution
 Service Fabric uses Windows PowerShell scripts for creating a local development cluster and for deploying applications from Visual Studio. By default, Windows blocks these scripts from running. To enable them, you must modify your PowerShell execution policy. Open PowerShell as an administrator and enter the following command:
