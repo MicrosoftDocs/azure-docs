@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 010/18/2017
+ms.date: 010/20/2017
 ms.author: cynthn
 ms.custom: mvc
 ---
 
-# Tutorial install the IIS, SQL,.Net Core stack on a Windows VM
+# Install the IIS, SQL,.Net Core stack on a Windows VM
 
-In this tutorial, we install an Azure SQL, IIS, .NET stack using Azure PowerShell. 
+In this tutorial, we install an Azure SQL, IIS, .NET stack using Azure PowerShell. This stack will consist of two VMs running Windows Server 2016, one with IIS and .NET and the other with SQL Server.
 
 > [!div class="checklist"]
 > * Create a VM using New-AzVM
@@ -33,10 +33,11 @@ In this tutorial, we install an Azure SQL, IIS, .NET stack using Azure PowerShel
 
 ## Create a IIS VM 
 
-In this example, we use the New-AzVM cmdlet in the PowerShell Cloud Shell to quickly create a Windows Server 2016 VM and then install IIS and the .NET Framework. The IIS and SQL VMs share a resource group and virtual network, so we will create variables for those names.
+In this example, we use the [New-AzVM](https://www.powershellgallery.com/packages/AzureRM.Compute.Experiments) cmdlet in the PowerShell Cloud Shell to quickly create a Windows Server 2016 VM and then install IIS and the .NET Framework. The IIS and SQL VMs share a resource group and virtual network, so we will create variables for those names.
+
+Click on the **Try It** button to the upper-right of the code block to launch Cloud Shell in this window. You will also be asked to provide credentials for the virtual machine at the cmd prompt.
 
 ```azurepowershell-interactive
-
 $vNetName = "myIISSQLvNet"
 $resourceGroup = "myIISSQLGroup"
 New-AzVm -Name myIISVM -ResourceGroupName $resourceGroup -VirtualNetworkName $vNetName 
@@ -61,7 +62,7 @@ Set-AzureRmVMExtension -ResourceGroupName $resourceGroup `
 We use a pre-configured Azure marketplace image of a SQL server to create the SQL VM. We first create the VM, then we install the SQL Server Extension on the VM. 
 
 
-```
+```azurepowershell-interactive
 # Create user object. You get a pop-up prompting you to enter the credentials for the VM.
 $cred = Get-Credential -Message "Enter a username and password for the virtual machine."
 
@@ -107,7 +108,7 @@ Set-AzureRmVMSqlServerExtension -ResourceGroupName $resourceGroup -VMName mySQLV
 
 ## Next steps
 
-In this tutorial, you created a two-tier .Net Core sample music store application. You learned how to:
+In this tutorial, you installed an Azure SQL, IIS, .NET stack using Azure PowerShell. You learned how to:
 
 > [!div class="checklist"]
 > * Create a VM using New-AzVM
