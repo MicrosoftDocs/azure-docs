@@ -21,7 +21,7 @@ ms.author: zakramer
 # Connect to Azure Government with PowerShell
 To use Azure PowerShell with Azure Government, you need to connect to Azure Government instead of Azure Public. Azure PowerShell can be used to manage a large subscription through script or to access features that are not currently available in the Azure portal. If you have used PowerShell in Azure Public, it is mostly the same.  The differences in Azure Government are:
 
-* Specifying Azure Goverment as the *environment* to connect to
+* Specifying Azure Government as the *environment* to connect to
 * Determining Azure Government regions
 
 > [!NOTE]
@@ -29,7 +29,7 @@ To use Azure PowerShell with Azure Government, you need to connect to Azure Gove
 > 
 > 
 
-## Specifying Azure Goverment as the *environment* to connect to
+## Specifying Azure Government as the *environment* to connect to
 
 When you start PowerShell, you have to tell Azure PowerShell to connect to Azure Government by specifying an environment parameter.  The parameter ensures that PowerShell is connecting to the correct endpoints.  The collection of endpoints is determined when you connect log in to your account.  Different APIs require different versions of the environment switch:
 
@@ -67,7 +67,7 @@ There is one catch.  The Azure Government region display names have different fo
 > 
 
 > [!NOTE]
-> As is true with PowerShell for Azure Public, you can use either the Display Name or the Location Name for the `Location` parameter.
+> As is the case with PowerShell for Azure Public, you can use either the Display Name or the Location Name for the `Location` parameter.
 >
 >
 
