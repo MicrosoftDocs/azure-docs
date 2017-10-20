@@ -18,11 +18,11 @@ This article provides an introduction to working with managed applications. You 
 
 When you are finished, you have three resource groups containing different parts of the managed application.
 
-| Resource Group | Contains | Description |
+| Resource group | Contains | Description |
 | -------------- | -------- | ----------- |
-| appDefinitionGroup | The managed application definition | The publisher creates this resource group and the managed application definition. Anyone with access to the managed application definition can deploy it. |
-| applicationGroup | The managed application instance | The consumer creates this resource group and the managed application instance. The consumer can update the managed application through this instance. |
-| infrastructureGroup | The storage account for managed application | This resource group is automatically created when the managed application is created. The publisher has access to this resource group to manage the application. The consumer has limited access to the resource group. |
+| appDefinitionGroup | The managed application definition. | The publisher creates this resource group and the managed application definition. Anyone with access to the managed application definition can deploy it. |
+| applicationGroup | The managed application instance. | The consumer creates this resource group and the managed application instance. The consumer can update the managed application through this instance. |
+| infrastructureGroup | The resources for the managed application. | This resource group is automatically created when the managed application is created. The publisher has access to this resource group to manage the application. The consumer has limited access to the resource group. |
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
