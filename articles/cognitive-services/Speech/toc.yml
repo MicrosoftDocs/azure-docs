@@ -1,5 +1,3 @@
-- name: Bing Speech Documentation
-  href: ../index.md
 - name: Overview
   href: Home.md
 - name: Get started
@@ -32,3 +30,6 @@
   - name: Supported languages
     href: API-Reference-REST/supportedlanguages.md
 - name: Resources
+  items:
+  - name: Support
+    href: support.md

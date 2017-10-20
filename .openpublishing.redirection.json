@@ -6245,6 +6245,11 @@
             "redirect_url": "/azure/cognitive-services/Bing-Video-Search/search-the-web",
             "redirect_document_id": false
         },
+		{
+            "source_path": "articles/cognitive-services/Speech/index.md",
+            "redirect_url": "/azure/cognitive-services/Speech/Home",
+            "redirect_document_id": false
+        },
         {
             "source_path": "articles/cognitive-services/Custom-Speech-Service/index.md",
             "redirect_url": "/azure/cognitive-services/Custom-Speech-Service/cognitive-services-custom-speech-home",
@@ -13732,8 +13737,18 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/azure-functions/functions-create-an-azure-connected-function.md",
+            "redirect_url": "/azure/azure-functions/functions-create-storage-queue-triggered-function",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/virtual-network/virtual-networks-multiple-nics.md",
             "redirect_url": "/azure/virtual-network/virtual-network-deploy-multinic-classic-ps",
+            "redirect_document_id": false
+        },
+	{
+            "source_path": "articles/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md",
+            "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-join-windows-vm-template",
             "redirect_document_id": false
         }
     ]
