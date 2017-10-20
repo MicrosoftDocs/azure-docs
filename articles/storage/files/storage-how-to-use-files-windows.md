@@ -36,7 +36,7 @@ You can mount Azure File shares on a Windows installation that is running either
 | Windows Server 2008 R2 | SMB 2.1     | Yes                   | No                   |
 
 <sup>1</sup>Windows Server version 1709.
-<sup>2</sup>Windows 10 versions 1507, 1511, 1607, 1703, and 1709.
+<sup>2</sup>Windows 10 versions 1507, 1607, 1703, and 1709.
 
 > [!Note]  
 > We always recommend taking the most recent KB for your version of Windows.
