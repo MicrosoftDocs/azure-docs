@@ -228,7 +228,7 @@ To begin working with your new HBase cluster, you can use the procedures found i
 
 To verify that the virtual machine can communicate with the HBase cluster, use the command `ping headnode0.<dns suffix>` from the virtual machine. For example, ping headnode0.mycluster.b1.cloudapp.net.
 
-To use this information in a Java application, you can follow the steps in [Use Maven to build Java applications that use HBase with HDInsight (Hadoop)](../apache-hbase-build-java-maven-linux.md) to create an application. To have the application connect to a remote HBase server, modify the **hbase-site.xml** file in this example to use the FQDN for Zookeeper. For example:
+To use this information in a Java application, you can follow the steps in [Use Maven to build Java applications that use HBase with HDInsight (Hadoop)](./apache-hbase-build-java-maven-linux.md) to create an application. To have the application connect to a remote HBase server, modify the **hbase-site.xml** file in this example to use the FQDN for Zookeeper. For example:
 
     <property>
         <name>hbase.zookeeper.quorum</name>
@@ -247,7 +247,7 @@ In this tutorial, you learned how to create an HBase cluster. To learn more, see
 * [Use empty edge nodes in HDInsight](../hdinsight-apps-use-edge-node.md)
 * [Configure HBase replication in HDInsight](apache-hbase-replication.md)
 * [Create Hadoop clusters in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md)
-* [Get started using HBase with Hadoop in HDInsight](hdinsight-hbase-tutorial-get-started-linux.md)
+* [Get started using HBase with Hadoop in HDInsight](./apache-hbase-tutorial-get-started-linux.md)
 * [Virtual Network Overview](../../virtual-network/virtual-networks-overview.md)
 
 [1]: http://azure.microsoft.com/services/virtual-network/
