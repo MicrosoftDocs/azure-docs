@@ -35,10 +35,10 @@ This article details how to:
 * A valid certificate (a .pfx file with a private key).
 
 ## Step 1: Configure a web app for client certificate authentication
-To set up **Azure App Service** to require client certificates, set the web app `clientCertEnabled` site setting to *true*. To make this change, you must use the REST API. The setting is not currently available through the management experience in the Azure portal.
+To set up **Azure App Service** to require client certificates, set the web app `clientCertEnabled` site setting to *true*. To make this change, you must use the REST API. The setting is available through the management experience in the Azure portal. To locate the setting, on your RESTful application's **Settings** menu, under **Development tools**, select **Resource Explorer**.
 
 >[!NOTE]
->Make sure that your Azure App Service plan is Standard or above. For more information, see [Azure App Service plans in-depth overview](https://docs.microsoft.com/en-us/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview).
+>Make sure that your Azure App Service plan is Standard or greater. For more information, see [Azure App Service plans in-depth overview](https://docs.microsoft.com/en-us/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview).
 
 
 Use [Azure Resource Explorer (Preview)](https://resources.azure.com) to set the **clientCertEnabled** property to *true*, as shown in the following image:
@@ -62,7 +62,7 @@ After you set `clientCertEnabled` to *true*, the communication with your RESTful
 
 4. In the **Options** box, select **Upload**.
 
-5. In the **Name** box, select **B2cRestClientCertificate**.  
+5. In the **Name** box, type **B2cRestClientCertificate**.  
     The prefix *B2C_1A_* is added automatically.
 
 6. In the **File upload** box, select your certificate's .pfx file with a private key.
@@ -76,7 +76,7 @@ After you set `clientCertEnabled` to *true*, the communication with your RESTful
 8. To view the keys that are available in your tenant and confirm that you've created the `B2C_1A_B2cRestClientCertificate` key, select **Policy Keys**.
 
 ## Step 3: Change the technical profile
-To support client certificate authentication in your extension policy, change the technical profile by doing the following:
+To support client certificate authentication in your custom policy, change the technical profile by doing the following:
 
 1. In your working directory, open the *TrustFrameworkExtensions.xml* extension policy file.
 
@@ -154,7 +154,7 @@ To support client certificate authentication in your extension policy, change th
    ```
 
    >[!NOTE]
-   >If you get the previous error message, it means that Azure AD B2C successfully called your RESTful service while presenting the client certificate. The next step is to validate the certificate.
+   >If you receive the error message, *The name is not valid, please provide a valid name*, it means that Azure AD B2C successfully called your RESTful service while it presented the client certificate. The next step is to validate the certificate.
 
 ## Step 6: Add certificate validation
 The client certificate that Azure AD B2C sends to your RESTful service does not undergo validation by the Azure Web Apps platform. except to check whether the certificate exists. Validating the certificate is the responsibility of the web app. 
@@ -173,7 +173,7 @@ In the Visual Studio project that you created earlier, add the following applica
 <add key="ClientCertificate:Thumbprint" value="Certificate thumbprint" />
 ```
 
-Replace the values of the certificate's **Subject name**, **Issuer name**, and **Certificate thumbprint**.
+Replace the certificate's **Subject name**, **Issuer name**, and **Certificate thumbprint** values with your certificate values.
 
 ### 6.2 Add the IsValidClientCertificate function
 Open the *Controllers\IdentityController.cs* file, and then add to the `Identity` controller class the following function: 
@@ -277,7 +277,7 @@ In the preceding sample code, we accept the certificate as valid only if all the
 >[!IMPORTANT]
 >Depending on the sensitivity of your service, you might need to add more validations. For example, you might need to test whether the certificate chains to a trusted root authority, issuer organization name validation, and so on.
 
-### 6.3 Add a IsValidClientCertificate function
+### 6.3 Call the IsValidClientCertificate function
 Open the *Controllers\IdentityController.cs* file and then, at the beginning of the `SignUp()` function, add the following code snippet: 
 
 ```C#
