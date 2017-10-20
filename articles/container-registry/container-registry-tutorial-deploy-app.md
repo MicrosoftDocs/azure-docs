@@ -1,6 +1,6 @@
 ---
-title: Azure Container Registry tutorial - Deploy Web App from Azure Container Registry
-description: Deploy a Linux-based Web App using a container image from a geo-replicated Azure container registry. Part two of a three-part series.
+title: Azure Container Registry tutorial - Deploy web app from Azure Container Registry
+description: Deploy a Linux-based web app using a container image from a geo-replicated Azure container registry. Part two of a three-part series.
 services: container-registry
 documentationcenter: ''
 author: mmacy
@@ -19,7 +19,7 @@ ms.author: marsma
 ms.custom:
 ---
 
-# Deploy Web App from Azure Container Registry
+# Deploy web app from Azure Container Registry
 
 This is part two of a three-part tutorial series. In [part one](container-registry-tutorial-prepare-acr.md), a private, geo-replicated container registry was created, and a container image was built from source and pushed to the registry. In this article, you deploy the container into two Web App instances in two different Azure regions to take advantage of the network-close aspect of the geo-replicated registry.
 
@@ -28,81 +28,72 @@ If you haven't yet created a geo-replicated registry and pushed the image of the
 In this article, part two of the series, you:
 
 > [!div class="checklist"]
-> * Deploy an image to Azure App Service
-> * View the application
-> * Deploy a secondary Azure App Service
-> * View the application
+> * Deploy an image to two Web App for Containers instances
+> * Verify the deployed application
 
 In the next part of the series, you update the application, then push a new container image to the registry to see geo-replication in action, viewing the change automatically reflected in both Web App instances.
 
-## Deploy to Azure App Services
+## Automatic deployment to Web App for Containers
 
-To aide in the automated update, we configure App Service from the ACR repository listing, which will configure the App Service with a Webhook, triggering automated deployments.
+Azure Container Registry provides support for deploying containerized applications directly to [Web Apps for Containers](../app-service/containers/index.yml). In this tutorial, you use the Azure portal to deploy the container image created in previous tutorial to two web app plans located in different Azure regions.
 
-From the Azure portal, browse to Container registries.
-Select the registry from the previous step.
-Select **Repositories** to view the image pushed from the previous step.
-You should see the **acr-helloworld**.
+When you deploy a web app from your registry, Azure Container Registry creates an image deployment [webhook](container-registry-webhook.md) for you. When you push a new image to your container repository, the webhook picks up the change and deploys the new container image to your web app. If your registry is geo-replicated, Web Apps for Containers pulls the new container image from the closest Azure region in which you've configured registry replicas.
 
-Click the image to see the list of image tags.
+## Configure first Web App for Containers instance
 
-Right-click on the **latest** tag to view the deployment options:
+In this step, you create a Web App for Containers instance in the *West US* region.
 
-![Tag Deployment Options](media/container-registry-tutorial-geo/tag-deployment-options.png)
+Log in to the Azure portal at https://portal.azure.com and navigate to the registry you created in the previous tutorial.
 
-Choose **Deploy to app service**
+Select **Repositories** > **acr-helloworld**, then right-click on the **v1** tag under **Tags** and select **Deploy to app service**.
 
-| Parameter | Value |
+![Deploy to app service in the Azure portal][deploy-app-portal-01]
+
+Under **Web app on Linux (preview)** that's displayed, specify the following values for each setting:
+
+| Setting | Value |
 |---|---|
-| **Site Name**: | Represents the unique URL. `<acrname>-WestUS` |
-| **Resource Group:** | `ACR-Helloworld-WestUS` |
-| **App service plan/location:** | Select or create a plan in the same location of the previously created registry, keeping the deployment network-close to the registry. |
-| **Image:** | `acr-helloworld:latest`
+| **Site Name** | A globally unique name for the web app. In this example, we use the format `<acrName>-westus` to easily identify the registry and region the web app is deployed from. |
+| **Resource Group** | **Use existing** > `myResourceGroup` |
+| **App service plan/Location** | Create a new plan in the **West US** region. |
+| **Image** | `acr-helloworld:v1`
 
-Click **Create** to provision the App
+Select **Create** to provision the web app.
 
-![Configure App Service](media/container-registry-tutorial-geo/configure-app-service-westus.png)
+![Web app on Linux configuration in the Azure portal][deploy-app-portal-02]
 
+## View the deployed web app
 
-## View the configured App Service
+When deployment is complete, you can view the running application by navigating to its URL in your browser.
 
-Select App Services from the Azure portal
+In the portal, select **App Services**, then the web app you provisioned in the previous step. In this example, the web app is named *uniqueregistryname-westus*.
 
-Find the App Service created: **ACR-Helloworld-WestUs**
+Select the hyperlinked URL of the web app in the top-right of the App Service overview to open.
 
-In the top right of the overview tab, click the deployed URL to launch the newly created App Service
+![Web app on Linux configuration in the Azure portal][deploy-app-portal-04]
 
-![App Service Url](media/container-registry-tutorial-geo/app-service-overview-url.png)
+Select the hyperlinked URL of the web app in the top-right of the App Service overview to open.
 
 Once the docker image is deployed, the site reflects an image representing the Azure Region hosting the Container Registry.
 
-![App Service Url](media/container-registry-tutorial-geo/running-westus.png)
+![DEPLOYED APP WESTUS][deployed-app-westus]
 
 ## Deploy second Azure App Service
 
-The acr-helloworld image displays the region where the image was retrieved.
-To see the results of a geo-replicated registry, deploy a second App Service.
+Use the procedure outlined in the previous section to deploy a second web app to the *East US* region
 
-Select **Repositories** to view the `acr-helloworld` image.
+Under **Web app on Linux (preview)** that's displayed, specify the following values for each setting:
 
-Click the image to see the list of image tags.
-
-Right-click on the **latest** tag to view the deployment options:
-
-![Tag Deployment Options](media/container-registry-tutorial-geo/tag-deployment-options.png)
-
-Choose **Deploy to app service**
-
-| Parameter | Value |
+| Setting | Value |
 |---|---|
-| **Site Name**: | Represents the unique URL. `<acrname>-EastUS` |
-| **Resource Group:** | `ACR-Helloworld-EastUS` |
-| **App service plan/location:** | Select or create a plan in the same location of the previously created registry, keeping the deployment network-close to the registry. |
-| **Image:** | `acr-helloworld:latest`
+| **Site Name** | A globally unique name for the web app. In this example, we use the format `<acrName>-eastus` to easily identify the registry and region the web app is deployed from. |
+| **Resource Group** | **Use existing** > `myResourceGroup` |
+| **App service plan/Location** | Create a new plan in the **East US** region. |
+| **Image** | `acr-helloworld:v1`
 
-Click **Create** to provision the App
+Select **Create** to provision the web app.
 
-![Configure App Service](media/container-registry-tutorial-geo/configure-app-service-eastus.png)
+![Web app on Linux configuration in the Azure portal][deploy-app-portal-06]
 
 ## View the configured App Service
 
@@ -120,16 +111,26 @@ Once the docker image is deployed, the site reflects an image representing the A
 
 ## Next steps
 
-In this tutorial, an App Service was provisioned from the Container Registry to two regions. ACR was geo-replicated, enabling network-close image deployment.
+In this tutorial, two Web App for Containers instances were provisioned from Azure Container Registry.
 
 The following steps were completed:
 
 > [!div class="checklist"]
-> * Deployed two Azure App Services, with webhooks for automated updates
-> * ACR was geo-replicated between East US and West US Regions
-> * The two regions viewed in the browser to confirm each App Service was served from a local registry replica
+> * Deployed an image to two Web App for Containers instances
+> * Verified the deployed application
 
-Advance to the next tutorial to deploy a change to both regions.
+Advance to the next tutorial to deploy an updated container image to the container registry, and verify that the web apps in both regions are updated automatically.
 
 > [!div class="nextstepaction"]
 > [Deploy an update to replicated regions](./container-registry-tutorial-configure-geo-push-change.md)
+
+<!-- IMAGES -->
+[deploy-app-portal-01]: ./media/container-registry-tutorial-deploy-app/deploy-app-portal-01.png
+[deploy-app-portal-02]: ./media/container-registry-tutorial-deploy-app/deploy-app-portal-02.png
+[deploy-app-portal-03]: ./media/container-registry-tutorial-deploy-app/deploy-app-portal-03.png
+[deploy-app-portal-04]: ./media/container-registry-tutorial-deploy-app/deploy-app-portal-04.png
+[deploy-app-portal-05]: ./media/container-registry-tutorial-deploy-app/deploy-app-portal-05.png
+[deploy-app-portal-06]: ./media/container-registry-tutorial-deploy-app/deploy-app-portal-06.png
+[deploy-app-portal-07]: ./media/container-registry-tutorial-deploy-app/deploy-app-portal-07.png
+[deployed-app-westus]: ./media/container-registry-tutorial-deploy-app/deployed-app-westus.png
+[deployed-app-eastus]: ./media/container-registry-tutorial-deploy-app/deployed-app-eastus.png
