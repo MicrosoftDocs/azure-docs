@@ -3,9 +3,10 @@
   - name: Overview
     href: apache-spark-overview.md
   - name: Cluster capacity planning
-    href: hdinsight-capacity-planning.md
+    href: ../hdinsight-capacity-planning.md
+    maintainContext: true
 - name: Start with Spark
-    items:
+  items:
     - name: Create a Spark cluster
       href: apache-spark-jupyter-spark-sql.md
     - name: Run queries on a Spark cluster
