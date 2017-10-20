@@ -62,6 +62,7 @@ Add a note that you can use any Docker-compatible container registry; for exampl
 The following steps show you how to create a IoT Edge module using Visual Studio Code and the IoT Edge extension.
 1. Use the **View | Integrated Terminal** menu command to open the Visual Studio Code integrated terminal.
 2. In the integrated terminal, enter the following command to create a project for the new module:
+
     ```cmd/sh
     dotnet new aziotedgemodule -n FilterModule
     ```
@@ -74,6 +75,7 @@ The following steps show you how to create a IoT Edge module using Visual Studio
 
 1. In VS Code explorer, right-click the **Dockerfile** and click **Build Docker** Image.  
 2. In integrated terminal, enter the following command:
+
     ```csh/sh
     run docker login
     ```
