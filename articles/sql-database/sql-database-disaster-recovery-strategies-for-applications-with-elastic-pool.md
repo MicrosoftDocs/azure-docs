@@ -14,8 +14,9 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/07/2017
-ms.author: sashan;carlrab
+ms.date: 10/20/2017
+ms.author: sashan
+ms.reviewer: carlrab
 
 ---
 # Disaster recovery strategies for applications using SQL Database elastic pools
@@ -26,6 +27,9 @@ This article uses the following canonical SaaS ISV application pattern:
 <i>A modern cloud-based web application provisions one SQL database for each end user. The ISV has many customers and therefore uses many databases, known as tenant databases. Because the tenant databases typically have unpredictable activity patterns, the ISV uses an elastic pool to make the database cost very predictable over extended periods of time. The elastic pool also simplifies the performance management when the user activity spikes. In addition to the tenant databases the application also uses several databases to manage user profiles, security, collect usage patterns etc. Availability of the individual tenants does not impact the application’s availability as whole. However, the availability and performance of management databases is critical for the application’s function and if the management databases are offline the entire application is offline.</i>  
 
 This article discusses DR strategies covering a range of scenarios from cost sensitive startup applications to ones with stringent availability requirements.
+
+> [!NOTE]
+> If you are using Premium databases and pools, you can make them resilient to regional outages by converting them to zone redundant deployment configuration (currently in preview). See [Zone-edundant databases](sql-database-zone-redundancy.md).
 
 ## Scenario 1. Cost sensitive startup
 <i>I am a startup business and am extremely cost sensitive.  I want to simplify deployment and management of the application and I can have a limited SLA for individual customers. But I want to ensure the application as a whole is never offline.</i>
