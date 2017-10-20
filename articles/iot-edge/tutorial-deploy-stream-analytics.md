@@ -82,9 +82,9 @@ launch-edge-runtime -c "<IoT Hub device connection string>"
 
 An Azure Storage account provides a way to store data sent from your device through the IoT Edge. It also provides a quick endpoint to be used as an output for your Streaming Analytics job. The example below uses the BLOB storage type.  For more information, see the **Blobs** section of the [Azure Storage Documentation][azure-storage]. 
 
-1.  In the Azure portal, navigate to **New -> Storage** and click **Storage account - blob, file, table, queue**.
+1. In the Azure portal, navigate to **New -> Storage** and click **Storage account - blob, file, table, queue**.
 
-2.  Enter a name and use the remaining default values.  Click **Create**. Note the name for later.
+2. Enter a name and use the remaining default values.  Click **Create**. Note the name for later.
 
     ![new storage account][1]
 
@@ -95,21 +95,23 @@ An Azure Storage account provides a way to store data sent from your device thro
 
 In this section, you create an Azure Stream Analytics job to take data from your IoT hub, query the sent telemetry data from your device, and forward the results to an Azure Storage Container (BLOB). For more information, see the **Overview** section of the [Stream Analytics Documentation][azure-stream]. 
 
-1.  Under New..., Internet of Things..., create a Stream Analytics Job... in Azure portal
+1. In the Azure portal, navigate to **New -> Internet of Things** and click **Stream Analytics Job**.
 
-2. Select the new ASA, under Job Topology, select Inputs, click Add
+1. Enter a name and use the remaining default values.  Click **Create**.
 
-3. Enter name and use defaults, click Create.
+2. Go into the created job, under **Job Topology**, select **Inputs**, click **Add**.
+
+3. Enter name and use defaults, click **Create**.
 
     ![ASA input][2]
 
-4. Under Job Topology, select Outputs, click Add
+4. Under **Job Topology**, select **Outputs**, click **Add**.
 
-5. Enter name and use defaults.  Create a new Storage Container under the Storage Account created previously.
+5. Enter name and use defaults.  Create a new Storage Container under the Storage account created previously.
 
     ![ASA output][3]
 
-6. Under job Topology, select Query, enter in query
+6. Under **Job Topology**, select **Query**, and enter the following:
 
 ```sql
 SELECT  
@@ -139,55 +141,6 @@ You are now ready to run the apps.
 In this tutorial, you configured an Azure Storage container and a Streaming Analytics job to analyze data from you IoT Edge device.  You then loaded a custom ASA module to move data from your device, through the stream, into a BLOB for download.  You can continue on to other tutorials to further see how Azure IoT Edge can create solutions for your business.
 
     [!div class="nextstepaction"] [Deploy Azure Machine Learning as a module][lnk-next-tutorial][Create a custom module][lnk-next-tutorial2]
-
-## Un-finalized Steps
-
-1. Open IoT Edge Explorer 
-
-1. Open {device Id} blade 
-
-1. Select "Deploy modules" 
-
-1. Add ASA module 
-
-1. Select created job 
-
-1. Çopy routes snippet 
-
-```
-"routes": {                                                               
-  "telemetryToCloud": "FROM /messages/modules/tempSensor/* INTO $upstream", 
-  "alertsToCloud": "FROM /messages/modules/ASA/* INTO $upstream", 
-  "alertsToReset": "FROM /messages/modules/ASA/* INTO BrokeredEndpoint("/messages/modules/tempSensor/inputs/reset")", 
-  "telemetryToAsa": "FROM /messages/modules/tempSensor/* INTO BrokeredEndpoint("/messages/modules/ASA/inputs/temperature")" 
-}    
-```  
-
-1. Click "deploy" 
-
-1. Go in device detail blade, click refresh, see things working. 
- 
-On box (optional): 
-
-1. Use hub explorer to get telemetry 
-
-1. Link storage account and ASA  (ASA portal) 
-
-1. Create query  (ASA portal) 
-
-1. Compile query to storage account (ASA portal) 
-
-1. Update deployment with ASA module using the "deploy to device" wizard: 
-
-1. Add existing module JSON, ASA module JSON, ASA module twin via service to service integration 
-
-1. Add routes 
-
-1. Push deploy 
-
-1. Monitor container reporting status in Ibiza 
-
-1. see logs on device 
 
 <!-- Images. -->
 [1]: ./media/tutorial-deploy-stream-analytics/storage.png
