@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/18/2017
+ms.date: 10/20/2017
 ms.author: cherylmc;ganesr
 
 ---
@@ -70,7 +70,7 @@ You can view all the circuits that you created by selecting **All resources** on
 
 **View the properties**
 
-You can view the properties of the circuit by selecting it. On the **Overview** page for your circuit, the service key will appear in the service key field. You must copy the service key for your circuit and pass it down to the service provider to complete the provisioning process. The circuit service key is specific to your circuit.
+You can view the properties of the circuit by selecting it. On the **Overview** page for your circuit, the service key appears in the service key field. You must copy the service key for your circuit and pass it down to the service provider to complete the provisioning process. The circuit service key is specific to your circuit.
 
 ![View properties](./media/expressroute-howto-circuit-portal-resource-manager/servicekey1.png)
 
@@ -114,41 +114,40 @@ Next, link a virtual network to your ExpressRoute circuit. Use the [Linking virt
 You can view the status of a circuit by selecting it and viewing the Overview page. 
 
 ## <a name="modify"></a>Modifying an ExpressRoute circuit
-You can modify certain properties of an ExpressRoute circuit without impacting connectivity.
+You can modify certain properties of an ExpressRoute circuit without impacting connectivity. You can modify the bandwidth, SKU, billing model and allow classic operations on the **Configuration** page. For information on limits and limitations, see the [ExpressRoute FAQ](expressroute-faqs.md). 
 
-You can do the following tasks with no downtime:
+You can perform the following tasks with no downtime:
 
-* Enable or disable an ExpressRoute premium add-on for your ExpressRoute circuit.
-* Increase the bandwidth of your ExpressRoute circuit provided there is capacity available on the port. Downgrading the bandwidth of a circuit is not supported. 
-* Change the metering plan from Metered Data to Unlimited Data. Changing the metering plan from Unlimited Data to Metered Data is not supported.
+* Enable or disable an ExpressRoute Premium add-on for your ExpressRoute circuit.
+* Increase the bandwidth of your ExpressRoute circuit, provided there is capacity available on the port. Downgrading the bandwidth of a circuit is not supported. 
+* Change the metering plan from *Metered Data* to *Unlimited Data*. Changing the metering plan from Unlimited Data to Metered Data is not supported.
 * You can enable and disable *Allow Classic Operations*.
-
-For more information on limits and limitations, see the [ExpressRoute FAQ](expressroute-faqs.md).
-
-To modify an ExpressRoute circuit, click on the **Configuration** as shown in the figure below.
-
-![Modify circuit](./media/expressroute-howto-circuit-portal-resource-manager/modifycircuit.png)
-
-You can modify the bandwidth, SKU, billing model and allow classic operations within the configuration page.
 
 > [!IMPORTANT]
 > You may have to recreate the ExpressRoute circuit if there is inadequate capacity on the existing port. You cannot upgrade the circuit if there is no additional capacity available at that location.
 >
 > You cannot reduce the bandwidth of an ExpressRoute circuit without disruption. Downgrading bandwidth requires you to deprovision the ExpressRoute circuit and then reprovision a new ExpressRoute circuit.
 > 
-> Disable premium add-on operation can fail if you're using resources that are greater than what is permitted for the standard circuit.
+> Disabling the Premium add-on operation can fail if you're using resources that are greater than what is permitted for the standard circuit.
 > 
 > 
+
+To modify an ExpressRoute circuit, click **Configuration**.
+
+![Modify circuit](./media/expressroute-howto-circuit-portal-resource-manager/modifycircuit.png)
+
+
+
 
 ## <a name="delete"></a>Deprovisioning and deleting an ExpressRoute circuit
 You can delete your ExpressRoute circuit by selecting the **delete** icon. Note the following information:
 
 * You must unlink all virtual networks from the ExpressRoute circuit. If this operation fails, check whether any virtual networks are linked to the circuit.
 * If the ExpressRoute circuit service provider provisioning state is **Provisioning** or **Provisioned** you must work with your service provider to deprovision the circuit on their side. We continue to reserve resources and bill you until the service provider completes deprovisioning the circuit and notifies us.
-* If the service provider has deprovisioned the circuit (the service provider provisioning state is set to **Not provisioned**) you can then delete the circuit. This stops billing for the circuit
+* If the service provider has deprovisioned the circuit (the service provider provisioning state is set to **Not provisioned**), you can delete the circuit. This stops billing for the circuit.
 
 ## Next steps
-After you create your circuit, make sure that you continue with the following next steps:
+After you create your circuit, continue with the following next steps:
 
 * [Create and modify routing for your ExpressRoute circuit](expressroute-howto-routing-portal-resource-manager.md)
 * [Link your virtual network to your ExpressRoute circuit](expressroute-howto-linkvnet-arm.md)
