@@ -22,33 +22,74 @@ ms.service: iot-edge
 
 # Deploy Azure Stream Analytics as an IoT Edge module
 
-At the end of this tutorial, you have a fully functional IoT Edge deployed Azure Stream Analytics module capable of querying telemetry data and streaming to an Azure Storage container (BLOB).  You will then run the ASA module in IoT Edge to generate telemetry data (temperature), stream this data and query based on an aggregated average peak, and store the results in a storage container to download at the end of the tutorial.  The entire solution set will include an Azure IoT Hub, Azure Storage Container, Azure Stremaing Analytics job, and IoT Edge container deployment.
+Migrating data from your IoT Edge devices to the cloud is an important aspect in creating robust solutions.  Azure Stream Analytics stands out as a quick and customizable way to connect data while providing a richly structured query syntax for data analysis.  This tutorial walks you through creating and deploying a fully functional IoT Edge ASA module along with the necessary Azure infrastructure needed to query your data, analyze the results, and stream data to an Azure Storage container (BLOB) for download.  You learn how to:
 
-For further reference see:
+    [!div class="checklist"]
+        * Run a custom module in IoT Edge
+        * Create an Azure Storage account
+        * Create a custom Stream Analytics job
+        * View generated data
 
-* **[IoT Edge][lnk-what-is-iot-edge]**, as a quick-start tutorial on getting started in IoT Edge.
-* **[Azure IoT Hub][azure-iot]**, for an overview on Azure IoT Hub.
-* **[Azure Streaming Analytics][azure-stream]**, for an overview on Azuure Streaming Analytics.
-* **[Azure Storage][azure-storage]**, for an overview on Azure Storage Container.
+## Prequisites
 
-To complete this tutorial, you need the following:
-
-* IoT Hub setup (see installation guide [here][iot-hub-get-started-create-hub])
-* IoT Edge runtime installed (see setup [here][lnk-first-tutorial])
-* An active Azure account. (If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.)
+* An IoT Hub 
+* An IoT Edge runtime
 
 > [!NOTE]
-> Please note your IoT Hub connection string and edge device ID for use later in this tutorial.
+> Please note your IoT Hub connection string, device connection string, and edge device ID will be necessary for this tutorial. For a tutorial on installing IoT Hub and IoT Edge runtime see [Install Azure IoT Edge and deploy a module][lnk-first-tutorial]
+
+## Setup IoT Edge and deploy the Azure Stream Analytics module
+
+IoT Edge takes advantage of custom pre-built modules for quick deployment and Azure Stream Analytics (ASA) is one such module.  Learn how to deploy the ASA module below.  For more information, see the **Overview** section of the [Stream Analytics Documentation][azure-stream] or see [Create a custom module][lnk-next-tutorial2] on how to create your own. 
+
+1. From your IoT Edge runtime command-line, run the following:
+```cmd/sh
+launch-edge-runtime -c "<IoT Hub device connection string>"
+```
+
+2. Create the following deployment file:
+```json
+{ 
+   "modules": { 
+      "sensor": { 
+         "name": "sensor", 
+         "version": "1.0", 
+         "type": "docker", 
+         "status": "running", 
+         "config": { 
+            "image": "azureiotedgeprivatepreview.azurecr.io/azedge-simulated-temperature-sensor-x64", 
+            "tag": "latest", 
+            "env": {} 
+         } 
+      } 
+   } 
+} 
+```
+
+1. At a command prompt, run the following command to login to Edge CLI: (replaced by Ibiza UI)
+
+    ```cmd/sh
+    edge-explorer login "<IoT Hub connection string for iothubowner policy*>" 
+    ```
+
+1. Run the following command to deploy the module created above:
+
+    ```cmd/sh
+    edge-explorer edge deployment create -m <path to deployment file> -d <edge device ID> 
+    ```
 
 ## Setup Azure Storage Account
 
-In this section, you create an Azure Storage Account to be used to store data results sent from your device. A device sends it data to the hub where it is picked up by an Azure Streaming Analytics job and forwarded to the BLOB storage created here. For more information, see the **Blobs** section of the [Azure Storage Documentation][azure-storage]. Run this app to generate the unique device ID and key your device uses to identify itself when it sends device-to-cloud messages.
+An Azure Storage account provides a way to store data sent from your device through the IoT Edge. It also provides a quick endpoint to be used as an output for your Streaming Analytics job. The example below uses the BLOB storage type.  For more information, see the **Blobs** section of the [Azure Storage Documentation][azure-storage]. 
 
-1.  Under New..., Storage..., create a Storage account.
+1.  In the Azure portal, navigate to **New -> Storage** and click **Storage account - blob, file, table, queue**.
 
-2.  Enter a name and use remaining default values.  Click Create.
+2.  Enter a name and use the remaining default values.  Click **Create**. Note the name for later.
 
     ![new storage account][1]
+
+> [!NOTE]
+> Make sure the **Location** you use is the same as your IoT Hub **Location** else additional fees may apply.
 
 ## Setup Azure Stream Analytics (ASA) job
 
@@ -83,63 +124,21 @@ HAVING Avg(temp)>100
 ```
 1.  Click Save
 
-## Setup IoT Edge with ASA module
-
-In this section, you create an Azure Stream Analytics job to take data from your IoT hub, query the sent telemetry data from your device, and forward the results to an Azure Storage Container (BLOB). For more information, see the **Overview** section of the [Stream Analytics Documentation][azure-stream]. 
-
-1. From your command-line, start the IoT Edge runtime:
-```
-launch-edge-runtime -c "<IoT Hub device connection string>
-```
-
-2. Create the following deployment file: (to be replaced by ASA module?)
-```json
-{ 
-   "modules": { 
-      "sensor": { 
-         "name": "sensor", 
-         "version": "1.0", 
-         "type": "docker", 
-         "status": "running", 
-         "config": { 
-            "image": "azureiotedgeprivatepreview.azurecr.io/azedge-simulated-temperature-sensor-x64", 
-            "tag": "latest", 
-            "env": {} 
-         } 
-      } 
-   } 
-} 
-```
-
 ## Run the apps
 
 You are now ready to run the apps.
 
-1. Under the Stream Analytics Job, under Overview, click Start.
+1. In your Stream Analytics Job, under **Overview**, click **Start**.
 
-1. At a command prompt, run the following command to login to Edge CLI: (replaced by Ibiza UI)
+1. After the job is running, in your Storage account, under **Blob Service**, click **Browse blobs**, select your container and select newly created JSON file.
 
-    ```cmd/sh
-    edge-explorer login "<IoT Hub connection string for iothubowner policy*>" 
-    ```
-
-1. Run the following command to deploy the module created above:
-
-    ```cmd/sh
-    edge-explorer edge deployment create -m <path to deployment file> -d <edge device ID> 
-    ```
-
-1. Download the BLOB JSON data file from the Storage Account and see the results.
+1. Click **Download** and view the results.
 
 ## Next steps
 
-In this tutorial, you configured an Azure Storage container and Streaming Analytics job to analyze data coming in from you IoT Edge device.
+In this tutorial, you configured an Azure Storage container and a Streaming Analytics job to analyze data from you IoT Edge device.  You then loaded a custom ASA module to move data from your device, through the stream, into a BLOB for download.  You can continue on to other tutorials to further see how Azure IoT Edge can create solutions for your business.
 
-To continue getting started with IoT Edge and to explore other Edge scenarios, see:
-
-* [What is IoT Edge][lnk-what-is-iot-edge]
-* [Create custom modules][lnk-module-tutorial]
-* [Deploy Azure Machine Learning as a module][lnk-next-tutorial]
+    [!div class="nextstepaction"] [Deploy Azure Machine Learning as a module][lnk-next-tutorial][Create a custom module][lnk-next-tutorial2]
 
 ## Un-finalized Steps
 
@@ -196,6 +195,7 @@ On box (optional): 
 [3]: ./media/tutorial-deploy-stream-analytics/asa_output.png
 
 <!-- Links -->
+[lnk-first-tutorial]: tutorial-install-iot-edge.md
 [lnk-what-is-iot-edge]: what-is-iot-edge.md
 [lnk-module-dev]: module-development.md
 [iot-hub-get-started-create-hub]: ../../includes/iot-hub-get-started-create-hub.md
@@ -206,3 +206,4 @@ On box (optional): 
 [lnk-first-tutorial]: tutorial-install-iot-edge.md
 [lnk-module-tutorial]: tutorial-create-custom-module.md
 [lnk-next-tutorial]: tutorial-deploy-machine-learning.md
+[lnk-next-tutorial2]: tutorial-create-custom-module.md
