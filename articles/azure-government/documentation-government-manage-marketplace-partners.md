@@ -23,13 +23,13 @@ This article is provided to help partners create, deploy, and manage their solut
 ## Why publish to Azure Government
 [Azure Government](documentation-government-welcome.md) is a dedicated instance of Azure that employs world-class security and compliance services critical to U.S. government for all systems and applications built on its architecture. This makes the cloud a viable option for thousands of US federal, state, local and tribal governments, and their partners.
 
-Publishing your solution in the Azure Government Marketplace is as simple as publishing to Azure global and checking an extra box. There are no compliance requirements to publish your solution to Azure Goverment
+Publishing your solution in the Azure Government Marketplace is as simple as publishing to Azure global and checking an extra box. There are no compliance requirements to publish your solution to Azure Government
 and making it available in the Azure Government Marketplace makes it easier for these government customers to gain exposure to your solution and get up and running quickly.
 
 ## Compliance Considerations
 There are no compliance requirements to publish solutions to the Azure Government Marketplace.
 
-Once a solution has been published, customers can deploy it into their own subscription as part of a broader operational environment or business solution. The customer might then opt certify the overarching environment. As part of that certification process, they might reach out to the publisher with extra requirements, which the publisher can then evaluate and triage with the customer. 
+Once a solution has been published, customers can deploy it into their own subscription as part of a broader operational environment or business solution. The customer might then opt to certify the overarching environment. As part of that certification process, they might reach out to the publisher with extra requirements, which the publisher can then evaluate and triage with the customer. 
 
 ## Marketplace Offer Support
 Currently, the Azure Government Marketplace only supports the following offers:
@@ -41,11 +41,11 @@ If there are other offer types you'd like to see supported in Azure Government, 
 
 ## Publishing
 > [!NOTE]
-> These steps assume you have already published a solution in Azure Global. If you haven't please check out the [Publish and manage an offer in the Azure Marketplace](../marketplace-publishing/marketplace-publishing-getting-started.md) documentation before proceeding.
+> These steps assume you have already published a solution in Azure Global. If you haven't, please check out the [Publish and manage an offer in the Azure Marketplace](../marketplace-publishing/marketplace-publishing-getting-started.md) documentation before proceeding.
 
 1. **Sign in to the [Azure Cloud Partner Portal](https://cloudpartner.azure.com)**.
-1. **Open the offer** you want to publish to the Azure Government Markeplace.
-1. The Editor tab will be opened by default, click on the **SKUs** entry in the left menu of the editor.
+1. **Open the offer** you want to publish to the Azure Government Marketplace.
+1. The Editor tab is opened by default, click on the **SKUs** entry in the left menu of the editor.
 1. **Click on the sku**. 
 1. In the **SKU Details section**, **Cloud Availability option**, check the **Azure Government Cloud** box. Remember that this option [isn't available for all offers](#marketplace-offer-support).
 1. ***Optionally***, click the **+ Add Certification** link to add links to any certifications that are relevant for your product and that you want to make available to customers.
@@ -55,7 +55,7 @@ If there are other offer types you'd like to see supported in Azure Government, 
 1. **Publish** your solution once again.
 
 ## Testing
-If you want to confirm that your solution has been published or test it, you need to request an Azure Government account. This is a completely separate account from any account in Azure Global that is used to log in to the [Azure Government portal](https://portal.azure.us). 
+If you want to confirm that your solution has been published or test it, you need to request an Azure Government account. This is a  separate account from any account in Azure Global that is used to log in to the [Azure Government portal](https://portal.azure.us). 
 
 To obtain an account:
 
@@ -66,14 +66,14 @@ To obtain an account:
 1. Eventually you can convert your trial account to a [paid account](https://azure.microsoft.com/offers/azure-government/)
 
 ## Troubleshooting
-Generally, virtual machines and solution templates will work across both Azure and Azure Government, however there are a few instances when this is not the case. The following section outlines the most common reasons why a virtual machine or solution tempate would work in the Azure Marketplace but not the Azure Government Marketplace.
+Generally, virtual machines and solution templates work across both Azure and Azure Government, however there are a few instances when this is not the case. The following section outlines the most common reasons why a virtual machine or solution template would work in the Azure Marketplace but not the Azure Government Marketplace.
 
 ### Not Available After Publish
 If you've completed all the steps outlined above and your virtual machine is still not available in the Azure Government Marketplace, make sure that your Virtual's Machine *Hide this SKU* setting is not set to *Yes*.
 If it is set to yes, there's probably also a solution template that you also need to publish to Azure Government. If there is no solution template and you want to make the standalone Virtual Machine available, flip that switch to *No* and republish.
 
-### Harcoded Endpoints
-Verify endpoints are not hard coded into your solution Template for Azure Global as they won't be valid for any other Azure clouds (Azure Government, Azure China, Azure Germany). Instead modify the Solution template to obtain the endpoint from the resource, for example:
+### Hardcoded Endpoints
+Verify endpoints are not hard-coded into your solution Template for Azure Global as they will not be valid for any other Azure clouds (Azure Government, Azure China, Azure Germany). Instead modify the Solution template to obtain the endpoint from the resource, for example:
 
 * Incorrect VHD uri (hard coded)
 
@@ -95,7 +95,7 @@ Verify that resources, API versions, extensions and VM images used in your solut
 
 #### Images
 Make sure that the image that your solution template relies on is available in Azure Government. If this is a Virtual Machine you own, need to also publish that to the Azure Government Marketplace.
-See the [Azure Government Marketplace images](documentation-government-image-gallery.md) documentation to obtain the list of images avaiable.
+Check out the [Azure Government Marketplace images](documentation-government-image-gallery.md) documentation to obtain the list of images available.
 
 #### Resource Providers and API versions
 You can obtain the full list of resource providers and their API versions by logging in to the [Azure Government portal](https://portal.azure.us) using your Azure Government account and following the steps listed in the [Resource providers and types](../azure-resource-manager/resource-manager-supported-services.md#portal) documentation.
@@ -103,7 +103,7 @@ You can obtain the full list of resource providers and their API versions by log
 #### Extensions
 Availability of most commonly used extensions in Azure Government:
 
-  | Publisher/Type | Available Versions in Fairfax |
+  | Publisher/Type | Available Versions in Azure Government |
   | --- | --- |
   | Microsoft.OSTCExtensions/CustomScriptForLinux | 1; 1.1; 1.2.2.0; 1.3.0.2; 1.4.1.0; 1.5.2.0 |
   | Microsoft.Compute/CustomScriptExtension | 1.2; 1.3; 1.4; 1.7; 1.8 |
