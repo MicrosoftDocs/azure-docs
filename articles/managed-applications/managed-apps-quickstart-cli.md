@@ -9,12 +9,20 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
-ms.date: 10/18/2017
+ms.date: 10/20/2017
 ms.author: tomfitz
 ---
 # Create and deploy an Azure managed application with Azure CLI
 
 This article provides an introduction to working with managed applications. You add a managed application definition to an internal catalog for users in your organization. Then, you deploy that managed application to your subscription. To simplify the introduction, we have already built the files for your managed application. One file defines the infrastructure for your solution. A second file that defines the user interface for deploying the managed application through the portal. Those files are available through GitHub. You learn how to build those files in the [Create service catalog application](publish-service-catalog-app.md) tutorial.
+
+When you are finished, you have three resource groups containing different parts of the managed application.
+
+| Resource Group | Contains | Description |
+| -------------- | -------- | ----------- |
+| appDefinitionGroup | The managed application definition | The publisher creates this resource group and the managed application definition. Anyone with access to the managed application definition can deploy it. |
+| applicationGroup | The managed application instance | The consumer creates this resource group and the managed application instance. The consumer can update the managed application through this instance. |
+| infrastructureGroup | The storage account for managed application | This resource group is automatically created when the managed application is created. The publisher has access to this resource group to manage the application. The consumer has limited access to the resource group. |
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -67,48 +75,41 @@ Some of the parameters used in the preceding example are:
 * **authorizations**: Describes the principal ID and the role definition ID that are used to grant permission to the managed resource group. It's specified in the format of `<principalId>:<roleDefinitionId>`. Multiple values also can be specified for this property. If multiple values are needed, they should be specified in the form `<principalId1>:<roleDefinitionId1> <principalId2>:<roleDefinitionId2>`. Multiple values are separated by a space.
 * **package-file-uri**: The location of a .zip package that contains the required files. At a minimum, the package contains the **mainTemplate.json** and **createUiDefinition.json** files. **mainTemplate.json** defines the Azure resources that are provisioned as part of the managed application. The template is no different than a regular Resource Manager template. **createUiDefinition.json** generates the user interface for users who create the managed application through the portal.
 
-## Create resource groups for managed application
+## Create resource group for managed application
 
-Now, you are ready to deploy the managed application. Anyone with access to the managed application definition can deploy it.
+Now, you are ready to deploy the managed application. 
 
-To contain the deployed resources, you need two more resource groups. One resource group contains the solution infrastructure. To manage the application, the publisher has access to this resource group, but the consumer only as read access. The other contains the managed application resource. The consumer has access to this resource group.
+To contain the deployed managed application, you need a resource group. Use **westcentralus** for the location.
 
 ```azurecli-interactive
-az group create --name infrastructureGroup --location westcentralus
 az group create --name applicationGroup --location westcentralus
 ```
 
 ## Deploy the managed application
 
-To deploy the managed application, you need the ID of the application definition.
+You deploy the application with the following commands:
 
 ```azurecli-interactive
 appid=$(az managedapp definition show --name ManagedStorage --resource-group appDefinitionGroup --query id --output tsv)
-```
+subid=$(az account show --query id --output tsv)
+managedGroupId=/subscriptions/$subid/resourceGroups/infrastructureGroup
 
-You also need the ID of the resource group for the infrastructure.
-
-```azurecli-interactive
-rgid=$(az group show -n infrastructuregroup --query id --output tsv)
-```
-
-You deploy the application with the following command:
-
-```azurecli-interactive
-az managedapp create --name exampleStorageApp \
+az managedapp create \
+  --name storageApp \
   --location "westcentralus" \
   --kind "Servicecatalog" \
   --resource-group applicationGroup \
   --managedapp-definition-id $appid \
-  --managed-rg-id $rgid \
-  --parameters "{\"storageAccountNamePrefix\": {\"value\": \"demostore\"}, \"storageAccountType\": {\"value\": \"Standard_LRS\"}}" \
+  --managed-rg-id $managedGroupId \
+  --parameters "{\"storageAccountNamePrefix\": {\"value\": \"<your-prefix>\"}, \"storageAccountType\": {\"value\": \"Standard_LRS\"}}"
 ```
 
 Some of the parameters used in the preceding example are:
 
-* **managed-rg-id**: The name of the resource group containing the resources defined in applianceMainTemplate.json. This resource group is the managed resource group. It's managed by the publisher. If it doesn't exist, it's created for you.
+* **managedapp-definition-id**: The ID of the definition you created earlier in this article.
+* **managed-rg-id**: The ID of the resource group for the resources associated with the managed application. The command creates this resource group. It **must not exist prior to running the command**. This resource group is managed by the publisher. 
 * **resource-group**: The resource group where the managed application resource is created.
-* **parameters**: The parameters that are needed for the resources defined in applianceMainTemplate.json.
+* **parameters**: The parameters that are needed for the resources associated with the managed application.
 
 After the deployment finishes successfully, you see the managed application is created in applicationGroup. The storageAccount resource is created in infrastructureGroup.
 

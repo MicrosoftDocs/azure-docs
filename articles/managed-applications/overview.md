@@ -9,7 +9,7 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/17/2017
+ms.date: 10/20/2017
 ms.author: tomfitz
 ---
 
@@ -30,6 +30,10 @@ Although customers deploy these managed applications in their subscriptions, the
 For IT teams, managed applications enable you to offer pre-approved solutions to users in the organization. You ensure these solutions are compliant with organizational standards.
 
 ## Key concepts
+
+You can publish your managed application either externally or internally.
+
+![Publish internally or externally](./media/overview/manage_app_options.png)
 
 ### Service catalog
 
