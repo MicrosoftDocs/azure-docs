@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path": "articles/active-directory/cloudappdiscovery-overview.md",
+            "redirect_url": "/azure/active-directory/cloudappdiscovery-get-started",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/virtual-machines/linux/impactful-maintenance.md",
             "redirect_url": "/azure/virtual-machines/linux/planned-maintenance",
             "redirect_document_id": false
@@ -872,7 +877,12 @@
         },
         {
             "source_path": "articles/app-service-logic/app-service-logic-arm-provision.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-arm-provision",
+            "redirect_url": "/azure/logic-apps/logic-apps-create-logic-apps-azure-resource-manager-templates",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-logic/logic-apps-arm-provision.md",
+            "redirect_url": "/azure/logic-apps/logic-apps-create-logic-apps-azure-resource-manager-templates",
             "redirect_document_id": false
         },
         {
@@ -1177,7 +1187,12 @@
         },
         {
             "source_path": "articles/app-service-logic/app-service-logic-use-logic-app-templates.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-use-logic-app-templates",
+            "redirect_url": "/azure/logic-apps/logic-apps-create-logic-apps-from-templates",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/logic-apps/logic-apps-use-logic-app-templates.md",
+            "redirect_url": "/azure/logic-apps/logic-apps-create-logic-apps-from-templates",
             "redirect_document_id": false
         },
         {
@@ -4195,6 +4210,11 @@
             "redirect_url": "https://docs.microsoft.com/en-us/azure/log-analytics",
             "redirect_document_id": false
         },
+		{
+            "source_path": "articles/log-analytics/log-analytics-azure-vm-extension.md",
+            "redirect_url": "https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-quick-collect-azurevm",
+            "redirect_document_id": false
+        },
         {
             "source_path": "articles/machine-learning/machine-learning-apps-text-analytics.md",
             "redirect_url": "../cognitive-services/cognitive-services-text-analytics-quick-start",
@@ -6235,6 +6255,11 @@
             "redirect_url": "/azure/cognitive-services/Bing-Video-Search/search-the-web",
             "redirect_document_id": false
         },
+		{
+            "source_path": "articles/cognitive-services/Speech/index.md",
+            "redirect_url": "/azure/cognitive-services/Speech/Home",
+            "redirect_document_id": false
+        },
         {
             "source_path": "articles/cognitive-services/Custom-Speech-Service/index.md",
             "redirect_url": "/azure/cognitive-services/Custom-Speech-Service/cognitive-services-custom-speech-home",
@@ -6955,6 +6980,46 @@
             "redirect_url": "site-recovery-how-to-failback-azure-to-vmware",
             "redirect_document_id": false
         },
+		{
+            "source_path": "articles/site-recovery/site-recovery-vmm-to-vmm-classic.md",
+            "redirect_url": "tutorial-vmm-to-vmm",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/site-recovery-vmm-to-vmm-classic-legacy.md",
+            "redirect_url": "tutorial-vmm-to-vmm",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/site-recovery-vmm-to-azure-classic.md",
+            "redirect_url": "tutorial-hyper-v-to-azure",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/site-recovery-runbook-automation-classic.md",
+            "redirect_url": "site-recovery-runbook-automation",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/site-recovery-hyper-v-site-to-azure-classic.md",
+            "redirect_url": "tutorial-hyper-v-to-azure",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/site-recovery-failback-azure-to-vmware-classic.md",
+            "redirect_url": "site-recovery-how-to-failback-azure-to-vmware",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/site-recovery-failback-azure-to-vmware-classic-legacy.md",
+            "redirect_url": "site-recovery-how-to-failback-azure-to-vmware",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/site-recovery-vmware-setup-azure-ps-classic.md",
+            "redirect_url": "site-recovery-vmware-setup-azure-ps-resource-manager",
+            "redirect_document_id": false
+        },
         {
             "source_path": "articles/site-recovery/site-recovery-architecture-vmware-to-azure.md",
             "redirect_url": "vmware-walkthrough-architecture",
@@ -6992,6 +7057,11 @@
         },
         {
             "source_path": "articles/site-recovery/site-recovery-vmware-to-azure-classic.md",
+            "redirect_url": "site-recovery-vmware-to-azure",
+            "redirect_document_id": false
+        },
+	    {
+            "source_path": "articles/site-recovery/site-recovery-vmware-to-azure-classic-legacy.md",
             "redirect_url": "site-recovery-vmware-to-azure",
             "redirect_document_id": false
         },
@@ -13571,9 +13641,19 @@
             "redirect_document_id": false
         },
         {
-          "source_path": "articles/security-center/security-center-resolve-endpoint-protection-health-alerts.md",
-          "redirect_url": "/azure/security-center",
-          "redirect_document_id": false
+            "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security-center/security-center-resolve-endpoint-protection-health-alerts.md",
+            "redirect_url": "/azure/security-center",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/virtual-network/virtual-network-deploy-multinic-arm-cli.md",
@@ -13596,8 +13676,23 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/azure-functions/functions-create-an-azure-connected-function.md",
+            "redirect_url": "/azure/azure-functions/functions-create-storage-queue-triggered-function",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-windows-manage.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/virtual-network/virtual-networks-multiple-nics.md",
             "redirect_url": "/azure/virtual-network/virtual-network-deploy-multinic-classic-ps",
+            "redirect_document_id": false
+        },
+	{
+            "source_path": "articles/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md",
+            "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-join-windows-vm-template",
             "redirect_document_id": false
         }
     ]

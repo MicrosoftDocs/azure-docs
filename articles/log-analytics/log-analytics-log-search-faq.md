@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 10/17/2017
 ms.author: bwren
 
 ---
@@ -92,6 +92,18 @@ The legacy [Log Search API](log-analytics-log-search-api.md) will no longer work
 You can see a comparison of the two portals at [Portals for creating and editing log queries in Azure Log Analytics](log-analytics-log-search-portals.md).  Each has distinct advantages so you can choose the best one for your requirements.  It's common to write queries in the Advanced Analytics portal and paste them into other places such as View Designer.  You should read about [issues to consider](log-analytics-log-search-portals.md#advanced-analytics-portal) when doing that.
 
 
+### Question:  After upgrade, I get an error trying to run queries and am also seeing errors in my views.
+
+Your browser requires access to the following addresses to run Log Analytics queries after upgrade.  If your browser is accessing the Azure portal through a firewall, you must enable access to these addresses.
+
+| Uri | IP | Ports |
+|:---|:---|:---|
+| portal.loganalytics.io | Dynamic | 80,443 |
+| api.loganalytics.io    | Dynamic | 80,443 |
+| docs.loganalytics.io   | Dynamic | 80,443 |
+
+
+
 ## Power BI
 
 ### Question: Does anything change with PowerBI integration?
@@ -101,10 +113,12 @@ Yes.  Once your workspace has been upgraded then the process for exporting Log A
 There is currently a size limit of 8 MB for a Log Analytics query that can be exported to Power BI.  This limit will be increased soon.
 
 
-##PowerShell cmdlets
+## PowerShell cmdlets
 
 ### Question: Does the Log Search PowerShell cmdlet get updated after I upgrade?
-The [Get-AzureRmOperationalInsightsSearchResults](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/Get-AzureRmOperationalInsightsSearchResults) has not yet been upgraded to the new search language.  Continue to use the legacy query language with this cmdlet, even after you upgrade your workspace.  Updated documentation will become available for the cmdlet when it's updated.
+The [Get-AzureRmOperationalInsightsSearchResults](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/Get-AzureRmOperationalInsightsSearchResults) will be deprecated when the upgrade of all workspaces is complete.  Use the [Invoke-LogAnalyticsQuery cmdlet](https://dev.loganalytics.io/documentation/Tools/PowerShell-Cmdlets) to perform log searches in upgraded workspaces.
+
+
 
 
 ## Resource Manager templates

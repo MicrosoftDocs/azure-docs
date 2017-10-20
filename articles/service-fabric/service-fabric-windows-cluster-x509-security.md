@@ -1,6 +1,6 @@
 ﻿---
 title: Secure an Azure Service Fabric cluster on Windows using certs | Microsoft Docs
-description: This article describes how to secure communication within the standalone or private cluster as well as between clients and the cluster.
+description: Secure communication within an Azure Service Fabric Standalone or on premises cluster, as well as between clients and the cluster.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/16/2017
+ms.date: 10/15/2017
 ms.author: dekapur
 
 ---
