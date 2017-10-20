@@ -5,9 +5,9 @@
       href: https://docs.microsoft.com/en-us/azure/aks/
       expanded: true
       items:
-        - name: Introduction to Azure Container Service (AKS)
+        - name: Introduction to AKS
           href: ../aks/intro-kubernetes.md
-        - name: Deploy an Azure Container Service (AKS) cluster
+        - name: Deploy an AKS cluster
           href: ../aks/kubernetes-walkthrough.md
     - name: Container Instances (ACI)
       href: https://docs.microsoft.com/en-us/azure/container-instances/
