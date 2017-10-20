@@ -95,7 +95,7 @@ To deploy the [Azure Stack Development Kit](azure-stack-poc.md), you must comple
     
 2. Open an elevated PowerShell console > run the \AzureStack_Installer\asdk-installer.ps1 script (which may be on a different drive in the Cloudbuilder.vhdx) > click **Install**.
 3. In the **Type** box, select **Azure Cloud** or **ADFS**.
-    - **Azure Cloud**: Azure Active Directory is the identity provider. Use this parameter to specify a specific directory where the AAD account has global admin permissions. Full name of an AAD Directory tenant in the format of .onmicrosoft.com. 
+    - **Azure Cloud**: Azure Active Directory is the identity provider. Use this parameter to specify a specific directory where the AAD account has global admin permissions. Full name of an AAD Directory tenant. For example, .onmicrosoft.com. 
     - **ADFS**: The default stamp Directory Service is the identity provider, the default account to sign in with is azurestackadmin@azurestack.local, and the password to use is the one you provided as part of the setup.
 4. Under **Local administrator password**, in the **Password** box, type the local administrator password (which must match the current configured local administrator password), and then click **Next**.
 5. Select a network adapter to use for the development kit and then click **Next**.
