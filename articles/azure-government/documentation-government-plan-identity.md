@@ -50,7 +50,7 @@ Azure Government applications can use Azure AD Government identities, but can yo
 -	**Azure AD Public** – Commonly used if your organization already has an Azure AD Public tenant to support Office 365 (Public or GCC) or another application.
 -	**Azure AD Government** - Commonly used if your organization already has an Azure AD Government tenant to support Office 365 (GCC High or DoD) or are creating a new tenant in Azure AD Government.
 
-Once decided, the special consideration is where you perform your app registration. If you choose Azure AD Public identities for your Azure Government application, this requires the application to be registered in your Azure AD Public tenant. Otherwise, if you perform the app registration in the directory the subscription trusts (Azure Government) the intended set of users cannot authenticate.
+Once decided, the special consideration is where you perform your app registration. If you choose Azure AD Public identities for your Azure Government application, you must register the application in your Azure AD Public tenant. Otherwise, if you perform the app registration in the directory the subscription trusts (Azure Government) the intended set of users cannot authenticate.
 
 >[!NOTE]
 > Applications registered with Azure AD only allow sign-in from users in the Azure AD tenant the application was registered in. If you have multiple Azure AD Public tenants, it’s important to know which is intended to allow sign-ins from. If you intend to allow users to authenticate to the application from multiple Azure AD tenants the application must be registered in each tenant.
@@ -105,7 +105,7 @@ The currently supported identity scenarios to simultaneously manage Azure Public
 - Hybrid and cloud identities - Hybrid identity for one subscription, cloud identity for the other
 - Hybrid identities - Hybrid identities are used to manage both subscriptions.
 
-A common scenario, having both Office 365 and Azure subscriptions, is conveyed in each of scenarios listed below.
+A common scenario, having both Office 365 and Azure subscriptions, is conveyed in each of the following scenarios.
 
 ### Using cloud identities for multi-cloud subscription administration
 
@@ -139,7 +139,7 @@ In this scenario, we include administrator identities through directory synchron
 <div></div>
 </div>
 
-Using hybrid identities for administrative accounts allows the use of smartcards (physical or virtual). Government agencies using Common Access Cards (CACs) or Personal Identity Verification (PIV) cards benefit from this. In this scenario ADFS serves as the identity provider and implements the two-step verification (**for example**, smart card + PIN).
+Using hybrid identities for administrative accounts allows the use of smartcards (physical or virtual). Government agencies using Common Access Cards (CACs) or Personal Identity Verification (PIV) cards benefit from this approach. In this scenario ADFS serves as the identity provider and implements the two-step verification (**for example**, smart card + PIN).
 
 ### Using hybrid identities for multi-cloud subscription administration
 
@@ -159,7 +159,7 @@ In this scenario, hybrid identities are used to administrator subscriptions in b
 
 **Why does Office 365 GCC use Azure AD Public?**
 
-The first Office 365 US Government environment, GCC, was created when Microsoft had a single cloud directory. The Office 365 GCC environment was designed to use Azure AD Public while still adhering to controls and requirements outlined in FedRAMP Moderate, CJIS, IRS 1075, and NIST 800-171. Azure Government, with its Azure AD infrastructure was created later. By that time, GCC had already secured the necessary compliance certifications (for example, FedRAMP Moderate and CJIS) to meet Federal, State, and Local government requirements while serving hundreds of thousands of customers. This means that many Office 365 GCC customers have two AAD tenants: one from the AAD subscription that supports Office 365 GCC and the other from their Azure Government subscription. This also means they have multiple identities, one for each tenant.
+The first Office 365 US Government environment, Government Community Cloud (GCC), was created when Microsoft had a single cloud directory. The Office 365 GCC environment was designed to use Azure AD Public while still adhering to controls and requirements outlined in FedRAMP Moderate, CJIS (Criminal Justice Information Services), IRS 1075, and National Institute of Standards and Technology (NIST) publication 800-171. Azure Government, with its Azure AD infrastructure was created later. By that time, GCC had already secured the necessary compliance certifications (for example, FedRAMP Moderate and CJIS) to meet Federal, State, and Local government requirements while serving hundreds of thousands of customers. Now, many Office 365 GCC customers have two AAD tenants: one from the AAD subscription that supports Office 365 GCC and the other from their Azure Government subscription with identities in both.
 
 
 **How do I identify an Azure Government tenant?**  
