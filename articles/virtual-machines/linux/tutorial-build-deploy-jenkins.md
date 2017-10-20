@@ -104,7 +104,7 @@ First, you must configure two Jenkins plugins for **NodeJS** and **VS Team Servi
 3. For **Files to archive**, enter `**/*` to include all files.
 4. To create another action, click **Add post-build action**.
 5. Choose **Trigger release in TFS/Team Services**, enter the uri for your VSTS account such as:
-	 `https://{your-account-name}.visualstudio.com`).
+	 `https://{your-account-name}.visualstudio.com`.
 6. Enter the **Team Project** name.
 7. Choose a name for the **release definition** (you create this release definition later in VSTS).
 8. Choose credentials to connect to your VSTS or TFS environment.  Leave the **Username** blank if you are using VSTS.
