@@ -79,7 +79,7 @@ Azure HDInsight currently provides the following cluster types, each with a set 
 | [Spark](spark/apache-spark-overview.md) |In-memory processing, interactive queries, micro-batch stream processing |
 | [Kafka (Preview)](kafka/apache-kafka-introduction.md) | A distributed streaming platform that can be used to build real-time streaming data pipelines and applications |
 | [R Server](hdinsight-hadoop-r-server-overview.md) |Various big data statistics, predictive modeling, and machine learning capabilities |
-| [Interactive Query](hdinsight-hadoop-use-interactive-hive.md) |In-memory caching for interactive and faster Hive queries |
+| [Interactive Query](./interactive-query/apache-interactive-query-get-started.md) |In-memory caching for interactive and faster Hive queries |
 
 ### Number of nodes for each cluster type
 Each cluster type has its own number of nodes, terminology for nodes, and default VM size. In the following table, the number of nodes for each node type is in parentheses.

@@ -25,7 +25,7 @@ Learn how to connect Microsoft Power BI to Azure HDInsight and visualize the Hiv
 
 ![HDInsight Power BI the map report](./media/apache-hadoop-connect-hive-power-bi/hdinsight-power-bi-visualization.png)
 
-The information also applies to the new [Interactive Query](./../hdinsight-hadoop-use-interactive-hive.md) cluster type.
+The information also applies to the new [Interactive Query](../interactive-query/apache-interactive-query-get-started.md) cluster type.
 
 ## Prerequisites
 Before going through this article, you must have the following items:

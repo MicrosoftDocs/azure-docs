@@ -47,7 +47,7 @@
   - name: Start with Storm
     href: storm/apache-storm-tutorial-get-started-linux.md
   - name: Start with Interactive Query
-    href: hdinsight-hadoop-use-interactive-hive.md
+    href: apache-interactive-query-get-started.md
   - name: Start with Kafka (Preview)
     href: kafka/apache-kafka-get-started.md
   - name: Hadoop sandbox
