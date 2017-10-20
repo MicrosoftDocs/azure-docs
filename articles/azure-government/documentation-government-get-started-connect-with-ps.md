@@ -4,8 +4,8 @@ description: Information on connecting your subscription in Azure Government wit
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: zakramer
-manager: liki
+author: gsacavdm
+manager: pathuff
 
 ms.assetid: 47e5e535-baa0-457e-8c41-f9fd65478b38
 ms.service: azure-government
@@ -35,17 +35,18 @@ When you start PowerShell, you have to tell Azure PowerShell to connect to Azure
 
 | Connection type | Command |
 | --- | --- |
+| [Azure](/powershell/module/azurerm.profile/add-azurermaccount) commands |`Login-AzureRmAccount -Environment AzureUSGovernment` |
+| [Azure Active Directory](/powershell/module/azuread/connect-azuread?view=azureadps-2.0) commands |`Connect-AzureAD -AzureEnvironmentName AzureUSGovernment` |
 | [Azure (Classic deployment model)](/powershell/module/azure/add-azureaccount?view=azuresmps-3.7.0) commands |`Add-AzureAccount -Environment AzureUSGovernment` |
-| [Azure (Resource Manager deployment model)](/powershell/module/azurerm.profile/add-azurermaccount) commands |`Login-AzureRmAccount -Environment AzureUSGovernment` |
 | [Azure Active Directory (Classic deployment model)](https://msdn.microsoft.com/library/azure/jj151815.aspx) commands |`Connect-MsolService -AzureEnvironment UsGovernment` |
-| [Azure Active Directory (Resource Manager deployment model)](/powershell/module/azuread/connect-azuread?view=azureadps-2.0) commands |`Connect-AzureAD -AzureEnvironmentName AzureUSGovernment` |
-
 You may also use the `Environment` switch when connecting to a storage account using `New-AzureStorageContext` and specify `AzureUSGovernment`.
 
 If you are curious about the available environments across Azure, you can run:
 
 ```powershell
-Get-AzureEnvironment
+Get-AzureRMEnvironment
+
+Get-AzureEnvironment # For classic deployment model 
 ```
 
 ## Determining Azure Government regions
@@ -73,5 +74,7 @@ There is one catch.  The Azure Government region display names have different fo
 If you ever want to validate the available regions in Azure Government, you can run the following commands and print the current list:
 
 ```powershell
-Get-AzureLocation
+Get-AzureRMLocation
+
+Get-AzureLocation # For classic deployment model 
 ```
