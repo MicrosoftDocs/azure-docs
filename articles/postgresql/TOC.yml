@@ -91,12 +91,14 @@
       href: howto-migrate-using-dump-and-restore.md
     - name: Import & export
       href: howto-migrate-using-export-and-import.md
-  - name: Customize server configuration parameters
+  - name: Configure server parameters
     items:
     - name: Azure CLI
       href: howto-configure-server-parameters-using-cli.md
-  - name: Server Logs
+  - name: Access Server Logs
     items:
+    - name: Azure portal
+      href: howto-configure-server-logs-in-portal.md
     - name: Azure CLI
       href: howto-configure-server-logs-using-cli.md
 - name: Reference
