@@ -115,8 +115,8 @@ For more information about Event Hubs, visit the following links:
 * [Event Hubs FAQ](event-hubs-faq.md)
 * [Sample applications that use Event Hubs](https://github.com/Azure/azure-event-hubs/tree/master/samples)
 
-[1]: ./media/event-hubs-metrics-azure-monitor/eh-monitor1.png
-[2]: ./media/event-hubs-metrics-azure-monitor/eh-monitor2.png
+[1]: ./media/event-hubs-metrics-azure-monitor/event-hubs-monitor1.png
+[2]: ./media/event-hubs-metrics-azure-monitor/event-hubs-monitor2.png
 
 
 
