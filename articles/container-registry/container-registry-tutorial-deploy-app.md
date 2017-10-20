@@ -23,15 +23,15 @@ ms.custom:
 
 This is part two of a three-part tutorial series. In [part one](container-registry-tutorial-prepare-acr.md), a private, geo-replicated container registry was created, and a container image was built from source and pushed to the registry. In this article, you deploy the container into two Web App instances in two different Azure regions to take advantage of the network-close aspect of the geo-replicated registry.
 
-In this article, part two of the series, you:
+In this tutorial, part two of the series, you:
 
 > [!div class="checklist"]
 > * Deploy an image to two Web App for Containers instances
 > * Verify the deployed application
 
-If you haven't yet created a geo-replicated registry and pushed the image of the containerized sample application to the registry, return to the first tutorial in the series, [Prepare a geo-replicated Azure container registry](container-registry-tutorial-prepare-acr.md).
+If you haven't yet created a geo-replicated registry and pushed the image of the containerized sample application to the registry, return to the previous tutorial in the series, [Prepare a geo-replicated Azure container registry](container-registry-tutorial-prepare-acr.md).
 
-In the next part of the series, you update the application, then push a new container image to the registry to see geo-replication in action, viewing the change automatically reflected in both Web App instances.
+In the next part of the series, you update the application, then push a new container image to the registry. Finally, you browse to each running Web App instance to see the change automatically reflected in both, showing Azure Container Registry geo-replication and webhooks in action.
 
 ## Automatic deployment to Web App for Containers
 
@@ -58,7 +58,7 @@ Under **Web app on Linux (preview)** that's displayed, specify the following val
 | **App service plan/Location** | Create a new plan named `plan-westus` in the **West US** region. |
 | **Image** | `acr-helloworld:v1`
 
-Select **Create** to provision the web app.
+Select **Create** to provision the web app to the *West US* region.
 
 ![Web app on Linux configuration in the Azure portal][deploy-app-portal-02]
 
@@ -78,9 +78,7 @@ Once the Docker image is deployed from your geo-replicated container registry, t
 
 ## Deploy second Web App for Containers instance
 
-Use the procedure outlined in the previous section to deploy a second web app to the *East US* region
-
-Under **Web app on Linux (preview)** that's displayed, specify the following values for each setting:
+Use the procedure outlined in the previous section to deploy a second web app to the *East US* region. Under **Web app on Linux (preview)**, specify the following values:
 
 | Setting | Value |
 |---|---|
@@ -89,7 +87,7 @@ Under **Web app on Linux (preview)** that's displayed, specify the following val
 | **App service plan/Location** | Create a new plan named `plan-eastus` in the **East US** region. |
 | **Image** | `acr-helloworld:v1`
 
-Select **Create** to provision the web app.
+Select **Create** to provision the web app to the *East US* region.
 
 ![Web app on Linux configuration in the Azure portal][deploy-app-portal-06]
 
