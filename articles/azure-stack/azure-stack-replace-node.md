@@ -1,9 +1,9 @@
 ---
-title: Replace a scale unit node in Azure Stack | Microsoft Docs
+title: Replace a scale unit node on an Azure Stack integrated system | Microsoft Docs
 description: Learn how to replace a physical scale unit node on an Azure Stack integrated system.
 services: azure-stack
 documentationcenter: ''
-author: twooley
+author: troettinger
 manager: byronr
 editor: ''
 
@@ -18,11 +18,11 @@ ms.author: twooley
 
 ---
 
-# Replace a scale unit node in Azure Stack
+# Replace a scale unit node on an Azure Stack integrated system
 
 *Applies to: Azure Stack integrated systems*
 
-This article describes the general process to replace a physical computer (also referred to as a *scale unit node*) in Azure Stack. Actual scale unit node replacement steps will vary based on your original equipment manufacturer (OEM) hardware vendor. See your vendor’s field replaceable unit (FRU) documentation for detailed steps that are specific to your system.
+This article describes the general process to replace a physical computer (also referred to as a *scale unit node*) on an Azure Stack integrated system. Actual scale unit node replacement steps will vary based on your original equipment manufacturer (OEM) hardware vendor. See your vendor’s field replaceable unit (FRU) documentation for detailed steps that are specific to your system.
 
 The following flow diagram shows the general FRU process to replace an entire scale unit node.
 
@@ -54,11 +54,12 @@ The following steps are provided as a high-level overview of the scale unit node
    > [!NOTE]
    > In the unlikely case that the Power off action doesn't work, use the baseboard management controller (BMC) web interface instead.
 
-1. Replace the physical computer. Typically, this action is done by your OEM hardware vendor.
+1. Replace the physical computer. Typically, this is done by your OEM hardware vendor.
 2. Use the [Repair](azure-stack-node-actions.md#scale-unit-node-actions) action to add the new physical computer to the scale unit.
 3. Use the privileged endpoint to [check the status of virtual disk repair](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair). With new data drives, a full storage repair job can take multiple hours depending on system load and consumed space.
 4. After the repair action has finished, validate that all active alerts have been automatically closed.
 
 ## Next steps
 
+- For information about replacing a hot-swappable physical disk, see [Replace a disk](azure-stack-replace-disk.md). 
 - For information about replacing a non hot-swappable hardware component, see [Replace a hardware component](azure-stack-replace-component.md). 
