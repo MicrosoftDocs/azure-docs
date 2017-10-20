@@ -20,6 +20,8 @@ ms.author: saudas
 ms.custom: H1Hack27Feb2017, mvc
 ---
 
+# Scale agent nodes in a Container Service cluster
+
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
 [!INCLUDE [container-service-scale.md](../../../includes/container-service-scale.md)]
