@@ -36,11 +36,12 @@ The custom module that you create in this tutorial ... (Not quite sure what we a
 
 ## Prerequisites
 
-* The Azure IoT Edge device that you created in the [Azure Install IoT Edge tutorial](./tutorial-install-iot-edge.md). 
+* The Azure IoT Edge device that you created in the [Azure Install IoT Edge tutorial](./tutorial-install-iot-edge.md).
+* The IoT Hub connection string for the IoT hub that your IoT Edge device is connected to.  
 * [Visual Studio Code](https://code.visualstudio.com/). 
 * The following Visual Studio Code extensions: 
   * [C# for Visual Studio Code (powered by OmniSharp) extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). (You can install the extension from the extensions panel in Visual Studio Code.) 
-  * [Azure IoT Edge extension](TBD). <br/>**Temporary Work-around**: The [Azure iot Toolkit extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) is a dependency of this extension and will be will be installed automatically. Temporary instructions: download [vsix](https://iotedge.blob.core.windows.net/vscode/azure-iot-edge-2017-09-08.vsix) and install using **Install from VSIX** in the menu that appears when clicking on the **…** button in the extensions panel in Visual Studio Code. 
+  * [Azure IoT Edge extension](TBD). 
 * [Docker](https://docs.docker.com/engine/installation/). The Community Edition (CE) for your platform is sufficient for this tutorial. 
 * [.NET Core 2.0 SDK](https://www.microsoft.com/net/core#windowscmd). 
 * [Nuget CLI](https://docs.microsoft.com/en-us/nuget/guides/install-nuget#nuget-cli). 
@@ -56,7 +57,7 @@ Add a note that you can use any Docker-compatible container registry; for exampl
 ## Configure the IoT Edge Visual Studio Code extension with your IoT hub connection string 
 1. Open Visual Studio Code.
 2. Use the **View | Explorer** menu command to open the VS Code explorer. 
-3. In the explorer, click **IOT HUB DEVICES** and then click **...**. Click **Set IoT Hub Connection String** and enter the connection string for the IoT hub that your IoT Edge device is connected to.  
+3. In the explorer, click **IOT HUB DEVICES** and then click **...**. Click **Set IoT Hub Connection String** and enter the connection string for the IoT hub that your IoT Edge device is connected to in the pop-up window.  
 
 ## Create a custom IoT Edge module project
 The following steps show you how to create a IoT Edge module using Visual Studio Code and the IoT Edge extension.
@@ -73,23 +74,32 @@ The following steps show you how to create a IoT Edge module using Visual Studio
 
 ## Create a Docker image and publish it to your registry
 
-1. In VS Code explorer, right-click the **Dockerfile** and click **Build Docker** Image.  
+1. In VS Code explorer, right-click the **Dockerfile** and click **Build the module as a Docker Image**.  
 2. In integrated terminal, enter the following command:
 
     ```csh/sh
     run docker login
     ```
-3. In explorer, right-click the **Dockerfile** and click **Push Docker Image**.
+3. In module image explorer, right-click the **Dockerfile** and click **Push Docker image**.
 4. In the pop-up text box, **EXE_DIR** is a required parameter, enter `./bin/Debug/netcoreapp2.0/publish` and press **Enter**.
 5. In the pop-up text box, specify the image URL. For example, `<docker registry address>/filgermodule:latest`
 
 ## Run the solution
 
-1. On the [Azure portal](https://portal.azure.com), go to the device detail blade, click **deploy modules**. 
-2. Select **custom module**, copy snippet 
-{snippet} 
-3. Click **start**. 
-4. In the device detail blade, click **refresh** to see things working. 
+1. On the [Azure portal](https://portal.azure.com), navigate to the device detail blade, click **deploy modules**. 
+2. Select **custom module**, copy snippet
+
+    ```
+    {snippet}
+    ``` 
+3. Update routes.
+
+    ```
+    {snippet}
+    ```
+
+4. Click **start**. 
+5. In the device detail blade, click **refresh** to see things working. 
 
 ## View generated data
 
