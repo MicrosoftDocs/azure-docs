@@ -13664,6 +13664,11 @@
             "source_path": "articles/virtual-network/virtual-networks-multiple-nics.md",
             "redirect_url": "/azure/virtual-network/virtual-network-deploy-multinic-classic-ps",
             "redirect_document_id": false
+        },
+	{
+            "source_path": "articles/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md",
+            "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-join-windows-vm-template",
+            "redirect_document_id": false
         }
     ]
 }
