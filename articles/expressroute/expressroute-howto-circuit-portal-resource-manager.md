@@ -56,6 +56,8 @@ From a browser, navigate to the [Azure portal](http://portal.azure.com) and sign
 
   ![Configure the SKU tier and data metering](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit2.png)
 
+  ![Configure the SKU tier and data metering](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit.png)
+
 > [!IMPORTANT]
 > The Peering Location indicates the [physical location](expressroute-locations.md) where you are peering with Microsoft. This is **not** linked to "Location" property, which refers to the geography where the Azure Network Resource Provider is located. While they are not related, it is a good practice to choose a Network Resource Provider geographically close to the Peering Location of the circuit.
 > 
@@ -70,9 +72,11 @@ You can view all the circuits that you created by selecting **All resources** on
 
 **View the properties**
 
-You can view the properties of the circuit by selecting it. On this page, note the service key for the circuit. You must copy the circuit key for your circuit and pass it down to the service provider to complete the provisioning process. The circuit key is specific to your circuit.
+You can view the properties of the circuit by selecting it. On the Overview page for your circuit, the service key will appear in the service key field. You must copy the service key for your circuit and pass it down to the service provider to complete the provisioning process. The circuit service key is specific to your circuit.
 
 ![View properties](./media/expressroute-howto-circuit-portal-resource-manager/listproperties1.png)
+
+![View properties](./media/expressroute-howto-circuit-portal-resource-manager/servicekey1.png)
 
 ### 4. Send the service key to your connectivity provider for provisioning
 On this page, **Provider status** provides information on the current state of provisioning on the service-provider side. **Circuit status** provides the state on the Microsoft side. For more information about circuit provisioning states, see the [Workflows](expressroute-workflows.md#expressroute-circuit-provisioning-states) article.
@@ -83,6 +87,8 @@ Provider status: Not provisioned<BR>
 Circuit status: Enabled
 
 ![Initiate provisioning process](./media/expressroute-howto-circuit-portal-resource-manager/viewstatus.png)
+
+![Initiate provisioning process](./media/expressroute-howto-circuit-portal-resource-manager/status.png)
 
 The circuit changes to the following state when the connectivity provider is in the process of enabling it for you:
 
@@ -99,6 +105,8 @@ You can view the properties of the circuit that you're interested in by selectin
 
 ![Circuit and provider status](./media/expressroute-howto-circuit-portal-resource-manager/viewstatusprovisioned.png)
 
+![Circuit and provider status](./media/expressroute-howto-circuit-portal-resource-manager/provisioned.png)
+
 ### 6. Create your routing configuration
 For step-by-step instructions, refer to the [ExpressRoute circuit routing configuration](expressroute-howto-routing-portal-resource-manager.md) article to create and modify circuit peerings.
 
@@ -111,9 +119,7 @@ For step-by-step instructions, refer to the [ExpressRoute circuit routing config
 Next, link a virtual network to your ExpressRoute circuit. Use the [Linking virtual networks to ExpressRoute circuits](expressroute-howto-linkvnet-arm.md) article when you work with the Resource Manager deployment model.
 
 ## <a name="status"></a>Getting the status of an ExpressRoute circuit
-You can view the status of a circuit by selecting it. 
-
-![Status of an ExpressRoute circuit](./media/expressroute-howto-circuit-portal-resource-manager/listproperties1.png)
+You can view the status of a circuit by selecting it and viewing the Overview page. 
 
 ## <a name="modify"></a>Modifying an ExpressRoute circuit
 You can modify certain properties of an ExpressRoute circuit without impacting connectivity.
