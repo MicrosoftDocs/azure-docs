@@ -150,6 +150,11 @@ You need to use a loop to create as many VMs as you want, and create the necessa
 	-StaticVNetIPAddress ($ipAddressPrefix+(53+$suffixNumber)) `
 	-VM $vmConfig
 	```
+	
+	>[!NOTE]
+	>Azure assigns a default gateway to the first (primary) network interface attached to the virtual machine. Azure does not assign a default gateway to additional (secondary) network interfaces attached to a virtual machine. Therefore, you are unable to communicate with resources outside the subnet that a secondary network interface is in, by default. Secondary network interfaces can, however, communicate with resources outside their subnet. To configure routing for secondary network interfaces, see [Routing within a virtual machine operating system with multiple network interfaces](virtual-network-network-interface-vm.md#routing-within-a-virtual-machine- operating-system-with-multiple-network-interfaces)
+	>
+	>
 
 6. Create to data disks for each VM.
 
