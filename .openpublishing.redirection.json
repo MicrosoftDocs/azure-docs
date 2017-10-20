@@ -877,7 +877,12 @@
         },
         {
             "source_path": "articles/app-service-logic/app-service-logic-arm-provision.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-arm-provision",
+            "redirect_url": "/azure/logic-apps/logic-apps-create-logic-apps-azure-resource-manager-templates",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-logic/logic-apps-arm-provision.md",
+            "redirect_url": "/azure/logic-apps/logic-apps-create-logic-apps-azure-resource-manager-templates",
             "redirect_document_id": false
         },
         {
@@ -1182,7 +1187,12 @@
         },
         {
             "source_path": "articles/app-service-logic/app-service-logic-use-logic-app-templates.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-use-logic-app-templates",
+            "redirect_url": "/azure/logic-apps/logic-apps-create-logic-apps-from-templates",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/logic-apps/logic-apps-use-logic-app-templates.md",
+            "redirect_url": "/azure/logic-apps/logic-apps-create-logic-apps-from-templates",
             "redirect_document_id": false
         },
         {
