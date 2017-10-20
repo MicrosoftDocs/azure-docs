@@ -13631,9 +13631,19 @@
             "redirect_document_id": false
         },
         {
-          "source_path": "articles/security-center/security-center-resolve-endpoint-protection-health-alerts.md",
-          "redirect_url": "/azure/security-center",
-          "redirect_document_id": false
+            "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security-center/security-center-resolve-endpoint-protection-health-alerts.md",
+            "redirect_url": "/azure/security-center",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/virtual-network/virtual-network-deploy-multinic-arm-cli.md",
@@ -13663,6 +13673,11 @@
         {
             "source_path": "articles/virtual-network/virtual-networks-multiple-nics.md",
             "redirect_url": "/azure/virtual-network/virtual-network-deploy-multinic-classic-ps",
+            "redirect_document_id": false
+        },
+	{
+            "source_path": "articles/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md",
+            "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-join-windows-vm-template",
             "redirect_document_id": false
         }
     ]
