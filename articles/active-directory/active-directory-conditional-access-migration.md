@@ -100,7 +100,7 @@ This example shows how to migrate a classic policy that requires multi-factor au
 
 **To migrate a classic policy:**
 
-1. Open the classic policy to get the the configuration settings.
+1. [Open the classic policy](#open-a-classic-policy) to get the the configuration settings.
 2. Create a new Azure AD conditional access policy to replace your classic policy. 
 
 
@@ -181,116 +181,170 @@ This example shows how to migrate a classic policy that requires multi-factor au
     ![Conditional access](./media/active-directory-conditional-access-migration/38.png)
 
 
+device compliance policy  
  
  
- 
-## Require device marked as compliant policy
+## Device policy migration 
+
+
+This example shows how to migrate classic policies that require a compliant device or approved client apps to access Office 365 Exchange Online. 
+
+![Azure Active Directory](./media/active-directory-conditional-access-migration/41.png)
+
+
+The scenario outlined in this topic has the following configuration:
+
+- In the Azure classic portal, you have configured Exchange Online (cloud app) as device-based conditional access policy for:
+    -  A selected group for iOS / Android (device platform) 
+    -  Mobile and desktop clients 
+    -  Exchange Active sync (EAS) clients (client apps)
+- In the Intune app protection portal, you have configured Exchange Online (cloud app) as conditional access policy for:
+    - A selected group (same as device policy) 
+    - Protect access from Exchange Active sync (EAS) clients (client apps)
+
+You can migrate the two classic policies into one Azure AD conditional access policy.
 
 
 
-OR Required approved client apps” to the new Azure portal 
-In this example, we will show you how to migrate the following device and app (mobile app management) based policies created using classic Azure portal and Intune app protection CA respectively. For this example, let’s assume that you’ve configured the following: 
-In the classic Azure portal, you have configured Exchange Online (cloud app) for device based conditional access policy for a selected group for iOS/Android (device platform) on Mobile and desktop clients and Exchange Active sync (EAS) clients (client apps). 
-In the Intune app protection portal, you have configured Exchange Online (cloud app) for conditional access policy for a selected group (same as device policy) and protect access from Exchange Active sync (EAS) clients (client apps). 
-To migrate the above policies, follow the steps below. This example uses the ‘Classic policies’ view in the new Azure portal rather than the classic Azure portal and Intune app protection portal.   
-Go to Conditional access in the new Azure portal and click + New policy. Alternatively, click on this: https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies  
-Provide a meaningful name for the policy. In this case it will be two policies (e.g. 1. Device and app CA policy for selected group and 2. EAS policy for selected group) 
- 
-Select the users/groups under Users and groups. 
-Classic policy view: Device 
-New Azure Portal: Device & App policy 
- 
- 
-Details pane 
- 
- 
- 
-Classic policy view: Mobile app management 
-New Azure Portal: EAS policy 
- 
- 
-Details pane 
- 
- 
- 
- 
-Select the application for each the 2 policies (Device/App policy and EAS) 
-Classic policy view: Device 
-New Azure portal 
- 
- 
-Classic policy view: Mobile app management 
- 
-Hint: You can select more apps in the same policy. Review and consider consolidation. 
- 
-Configure the platform conditions for each policy (in this example both are iOS and Android) 
-Classic policy view: Device 
-New Azure Portal: Device & App policy 
- 
- 
-Note: EAS policies should not be configured for any platforms 
- 
-Classic policy view: Mobile app management 
-New Azure Portal: EAS policy 
- 
- 
-Note: EAS policies should not be configured for any platforms 
- 
- 
-Configure the client app conditions for each policy (in this example both are Mobile and Desktop clients only) 
-Classic policy view: Device 
-New Azure Portal: Device & App policy 
- 
- 
- 
-EAS options 
- 
- 
- 
- 
- 
- 
-Classic policy view: Mobile app management 
-New Azure Portal: EAS policy 
- 
- 
-EAS options 
- 
- 
- 
- 
-Configure the controls for each policy 
-Classic policy view: Device 
-New Azure Portal: Device and app policy 
- 
- 
- 
-EAS is valid for compliant device only 
- 
-Classic policy view: Mobile app management 
-New Azure Portal: EAS policy 
- 
- 
- 
-EAS is valid for approved client apps 
- 
- 
-Enable new policies first and then disable the old policies.  
-Classic policy view: Device 
-New Azure Portal: Device and app policy 
- 
- 
- 
-Classic policy view: Mobile app management 
-New Azure portal: EAS policy 
- 
- 
- 
- 
- 
- 
-You are done!  
- 
+**To migrate a classic policy:**
+
+1. [Open the classic policy](#open-a-classic-policy) to get the the configuration settings.
+2. Create a new Azure AD conditional access policy to replace your classic policy. 
+
+
+### Create a new conditional access policy
+
+
+1. In the [Azure portal](https://portal.azure.com), on the left navbar, click **Azure Active Directory**.
+
+    ![Azure Active Directory](./media/active-directory-conditional-access-migration/01.png)
+
+2. On the **Azure Active Directory** page, in the **Manage** section, click **Conditional access**.
+
+    ![Conditional access](./media/active-directory-conditional-access-migration/02.png)
+
+
+
+3. On the **Conditional Access** page, to open the **New** page, in the toolbar on the top, click **Add**.
+
+    ![Conditional access](./media/active-directory-conditional-access-migration/03.png)
+
+4. On the **New** page, in the **Name** textbox, type a name for your policy.
+
+    ![Conditional access](./media/active-directory-conditional-access-migration/42.png)
+
+5. In the **Assignments** section, click **Users and groups**.
+
+    ![Conditional access](./media/active-directory-conditional-access-migration/05.png)
+
+6. Click **Select users and groups**, and then select the required users and groups.
+
+    ![Conditional access](./media/active-directory-conditional-access-migration/43.png)
+
+
+6. On the **New** page, to open the **Cloud apps** page, in the **Assignment** section, click **Cloud apps**.
+
+    ![Conditional access](./media/active-directory-conditional-access-azure-portal-get-started/07.png)
+
+8. On the **Cloud apps** page, perform the following steps:
+
+    ![Conditional access](./media/active-directory-conditional-access-migration/45.png)
+
+    a. Click **Select apps**.
+
+    b. Click **Select**.
+
+    c. On the **Select** page, select your cloud app, and then click **Select**.
+
+    d. On the **Cloud apps** page, click **Done**.
+
+
+
+9. If you have **device platforms** included:
+
+    ![Conditional access](./media/active-directory-conditional-access-migration/46.png)
+
+    a. In the **Assignments** section, click **Conditions**.
+
+    b. On the **Conditions** page, click **Device platforms**.
+
+    c. On the **Device platforms** page, as **Configure**, click **Yes**.
+
+    d. On the **Include** tab, click **Select device platforms**.
+
+    e. Select the required device platforms.
+
+    f. On the **Device platforms** page, click **Done**.
+
+    g. On the **Conditions** page, click **Done**.
+
+10. If you have **client apps** included:
+
+    ![Conditional access](./media/active-directory-conditional-access-migration/51.png)
+
+    a. In the **Assignments** section, click **Conditions**.
+
+    b. On the **Conditions** page, click **Client appss**.
+
+    c. On the **Client apps** page, as **Configure**, click **Yes**.
+
+    d. Click **Select client app**.
+
+    e. Select **Mobile apps and desktop clients**.
+
+    f. On the **Client apps** page, click **Done**.
+
+    g. On the **Conditions** page, click **Done**.
+
+11. If you have **Exchange ActiveSyncdevice** included:
+
+    ![Conditional access](./media/active-directory-conditional-access-migration/47.png)
+
+    a. In the **Assignments** section, click **Conditions**.
+
+    b. On the **Conditions** page, click **Client appss**.
+
+    c. On the **Client apps** page, as **Configure**, click **Yes**.
+
+    d. Click **Exchange ActiveSync**.
+
+    f. On the **Client apps** page, click **Done**.
+
+    g. On the **Conditions** page, click **Done**.
+
+12. If you require compliant devices:
+
+    ![Conditional access](./media/active-directory-conditional-access-migration/48.png)
+
+    a. In the **Access controls** section, click **Grant**.
+
+    b. On the **Grant** page, click **Grant access**.
+
+    c. Select **Require device to be marked as compliant**.
+
+    d. Click **Select**.
+
+
+13. If you require approved client apps:
+
+    ![Conditional access](./media/active-directory-conditional-access-migration/49.png)
+
+    a. In the **Access controls** section, click **Grant**.
+
+    b. On the **Grant** page, click **Grant access**.
+
+    c. Select **Require approved client app (preview)**.
+
+    d. Click **Select**.
+
+14. Click **On** to enable your policy.
+
+    ![Conditional access](./media/active-directory-conditional-access-migration/30.png)
+
+15. Disable your classic policies. 
+
+    ![Conditional access](./media/active-directory-conditional-access-migration/38.png)
+
 
 ## Next steps
 
