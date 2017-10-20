@@ -121,7 +121,7 @@
       href: howto-configure-server-logs-in-cli.md
   - name: Monitor
     items:
-    - name: Create Alerts on Metrics
+    - name: Create alerts on metrics
       href: howto-alert-on-metric.md
 - name: Reference
   items:

@@ -72,7 +72,7 @@ You can configure and get information about alert rules using
 Once you have created an alert, you can select it and do the following actions:
 
 * View a graph showing the metric threshold and the actual values from the previous day relevant to this alert.
-* Edit or delete the alert rule.
+* **Edit** or **Delete** the alert rule.
 * **Disable** or **Enable** the alert, if you want to temporarily stop or resume receiving notifications.
 
 
