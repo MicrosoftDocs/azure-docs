@@ -21,9 +21,9 @@ ms.custom:
 
 # Prepare a geo-replicated Azure container registry
 
-An Azure container registry is a private Docker registry deployed in Azure that you can keep network-close to your deployments. In this set of three tutorial articles, you learn how to use geo-replication to deploy an ASP.NET Core web application running in a Linux container to two [Web App for Containers](../app-service/containers/index.yml) instances. You'll see how Azure automatically deploys the image to each Web App instance from the closest geo-replicated repository.
+An Azure container registry is a private Docker registry deployed in Azure that you can keep network-close to your deployments. In this set of three tutorial articles, you learn how to use geo-replication to deploy an ASP.NET Core web application running in a Linux container to two [Web Apps for Containers](../app-service/containers/index.yml) instances. You'll see how Azure automatically deploys the image to each Web App instance from the closest geo-replicated repository.
 
-In this tutorial, part one of a three-part series, you:
+In this tutorial, part one of a three-part series:
 
 > [!div class="checklist"]
 > * Create a geo-replicated Azure container registry
@@ -91,7 +91,7 @@ When the replication is complete, the portal reflects *Ready* for both regions. 
 
 ## Container registry login
 
-Now that you have a geo-replicated registry, you can build a container image and push it to your registry. You must first log in to your ACR instance before pushing images to it. With [Basic, Standard, and Premium SKUs](container-registry-skus.md), you can authenticate by using your Azure identity.
+Now that you've configured geo-replication, build a container image and push it to your registry. You must first log in to your ACR instance before pushing images to it. With [Basic, Standard, and Premium SKUs](container-registry-skus.md), you can authenticate by using your Azure identity.
 
 Use the [az acr login](https://docs.microsoft.com/en-us/cli/azure/acr#az_acr_login) command to authenticate and cache the credentials for your registry. Replace `<acrName>` with the name of the registry you created in previous steps.
 
@@ -122,7 +122,7 @@ The Dockerfile included in the sample shows how the container is built. It start
 FROM microsoft/aspnetcore:2.0 AS base
 # Update <acrName> with the name of your registry
 # Example: uniqueregistryname.azurecr.io
-ENV DOCKER_REGISTRY <acrMame>.azurecr.io
+ENV DOCKER_REGISTRY <acrName>.azurecr.io
 WORKDIR /app
 EXPOSE 80
 
