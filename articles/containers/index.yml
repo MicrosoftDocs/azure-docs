@@ -89,17 +89,10 @@ sections:
   - type: list
     style: unordered
     items:
-    - href: ../aks/tutorial-kubernetes-prepare-app.md
-      title: Create container images from an application
-    - href: ../aks/tutorial-kubernetes-prepare-acr.md
-      title: Upload container images to the Azure Container Registry
-    - href: ../aks/tutorial-kubernetes-deploy-cluster.md
-      title: Deploy a Kubernetes cluster in Azure Container Service
-    - href: ../aks/tutorial-kubernetes-deploy-application.md
-      title: Run your container images in Kubernetes
-    - href: ../aks/tutorial-kubernetes-scale.md
-      title: Scale an application and Kubernetes infrastructure
-    - href: ../aks/tutorial-kubernetes-app-update.md
-      title: Update an application running in Kubernetes
-    - href: ../aks/tutorial-kubernetes-monitor.md
-      title: Monitor Kubernetes with OMS
+    - html: <a href="/azure/aks/tutorial-kubernetes-prepare-app">Create container images from an application</a>
+    - html: <a href="/azure/aks/tutorial-kubernetes-prepare-acr">Upload container images to the Azure Container Registry</a>
+    - html: <a href="/azure/aks/tutorial-kubernetes-deploy-cluster">Deploy an AKS cluster</a>
+    - html: <a href="/azure/aks/tutorial-kubernetes-deploy-application">Run your container images in Kubernetes</a>
+    - html: <a href="/azure/aks/tutorial-kubernetes-scale">Scale an application and Kubernetes infrastructure</a>
+    - html: <a href="/azure/aks/tutorial-kubernetes-app-update">Update an application running in Kubernetes</a>
+    - html: <a href="/azure/aks/tutorial-kubernetes-monitor">Monitor Kubernetes with OMS</a>
