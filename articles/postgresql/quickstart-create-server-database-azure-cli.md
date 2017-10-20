@@ -20,7 +20,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-If you are running the CLI locally, you will need to log into your account using the [az login](/cli/azure/authenticate-azure-cli?view=interactive-log-in) command.
+If you are running the CLI locally, you need to log in to your account using the [az login](/cli/azure/authenticate-azure-cli?view=interactive-log-in) command.
 ```azurecli-interactive
 az login
 ```
