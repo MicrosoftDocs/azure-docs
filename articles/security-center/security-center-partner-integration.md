@@ -20,16 +20,6 @@ ms.author: yurid
 # Integrate security solutions in Azure Security Center
 This document helps you to manage security solutions already connected to Azure Security Center and add new ones. 
 
-## How security solutions are integrated
-Azure security solutions that are deployed from Security Center are automatically connected. You can also connect other security data sources, including:
-
-- Azure AD Identity Protection
-- Computers running on-premises or in other clouds
-- Security solution that supports the Common Event Format (CEF)
-- Microsoft Advanced Threat Analytics
-
-![Partner solutions integration](./media/security-center-partner-integration/security-center-partner-integration-fig8.png)
-
 ## Integrated Azure security solutions 
 Security Center makes it easy to enable integrated security solutions in Azure. Benefits include:
  
@@ -44,6 +34,16 @@ Currently, integrated security solutions include:
 - Web application firewall ([Barracuda](https://www.barracuda.com/products/webapplicationfirewall), [F5](https://support.f5.com/kb/en-us/products/big-ip_asm/manuals/product/bigip-ve-web-application-firewall-microsoft-azure-12-0-0.html), [Imperva](https://www.imperva.com/Products/WebApplicationFirewall-WAF), [Fortinet](https://www.fortinet.com/resources.html?limit=10&search=&document-type=data-sheets), and [Azure Application Gateway](https://azure.microsoft.com/blog/azure-web-application-firewall-waf-generally-available/)) 
 - Next-generation firewall ([Check Point](https://www.checkpoint.com/products/vsec-microsoft-azure/), [Barracuda](https://campus.barracuda.com/product/nextgenfirewallf/article/NGF/AzureDeployment/), [Fortinet](http://docs.fortinet.com/d/fortigate-fortios-handbook-the-complete-guide-to-fortios-5.2), and [Cisco](http://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/azure/ftdv-azure-qsg.html)) 
 - Vulnerability assessment ([Qualys](https://www.qualys.com/public-clouds/microsoft-azure/))  
+
+## How security solutions are integrated
+Azure security solutions that are deployed from Security Center are automatically connected. You can also connect other security data sources, including:
+
+- Azure AD Identity Protection
+- Computers running on-premises or in other clouds
+- Security solution that supports the Common Event Format (CEF)
+- Microsoft Advanced Threat Analytics
+
+![Partner solutions integration](./media/security-center-partner-integration/security-center-partner-integration-fig8.png)
 
 ## Manage integrated Azure security solutions and other data sources
 
