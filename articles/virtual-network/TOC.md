@@ -40,6 +40,7 @@
 ##### [Azure CLI 1.0](virtual-networks-create-nsg-classic-cli.md)
 
 ### User-defined routes
+#### [Azure portal](create-user-defined-route-portal.md)
 #### [Azure PowerShell](virtual-network-create-udr-arm-ps.md)
 #### [Azure CLI 2.0](virtual-network-create-udr-arm-cli.md)
 #### [Azure CLI 1.0](virtual-network-create-udr-arm-cli-nodejs.md)
