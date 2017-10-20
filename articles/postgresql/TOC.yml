@@ -101,6 +101,10 @@
       href: howto-configure-server-logs-in-portal.md
     - name: Azure CLI
       href: howto-configure-server-logs-using-cli.md
+  - name: Monitor
+    items:
+    - name: Create alerts on metrics
+      href: howto-alert-on-metric.md
 - name: Reference
   items:
   - name: Azure CLI
