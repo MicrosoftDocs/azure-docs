@@ -13671,6 +13671,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-windows-manage.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/virtual-network/virtual-networks-multiple-nics.md",
             "redirect_url": "/azure/virtual-network/virtual-network-deploy-multinic-classic-ps",
             "redirect_document_id": false
