@@ -86,7 +86,7 @@
 #### [Collect logs using Application Insights](active-directory-b2c-troubleshoot-custom.md)
 ## Reference
 ### [Release notes](active-directory-b2c-developer-notes-custom.md)
-### [SSO Session Providers](active-directory-b2c\active-directory-b2c-reference-sso-custom.md)
+### [SSO session providers](active-directory-b2c\active-directory-b2c-reference-sso-custom.md)
 ### [Trust Framework definition](active-directory-b2c-reference-trustframeworks-defined-ief-custom.md) 
 
 # Reference

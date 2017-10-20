@@ -14,10 +14,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
-ms.author: parakhj
+ms.author: parja
 
 ---
-# Azure AD B2C: Single Sign On (SSO) Session Management
+# Azure AD B2C: Single sign-on (SSO) session management
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -26,9 +26,6 @@ Azure AD B2C allows an administrator to control how Azure AD B2C interacts with 
 ## Overview
 
 SSO session management has two parts. The first deals with the user's interactions directly with Azure AD B2C and the other deals with the user's interactions with external parties such as Facebook. Azure AD B2C does not override or bypass SSO sessions that might be held by external parties. Rather the route through Azure AD B2C to get to the external party is “remembered”, avoiding the need to reprompt the user to select their social or enterprise identity provider. The ultimate SSO decision remains with the external party.
-
-> [!NOTE]
-> SSO session information is currently stored in encrypted cookies.
 
 ## How does it work?
 
@@ -106,7 +103,7 @@ When using the provider for storing a SAML identity provider session, the items 
 >[!NOTE]
 > SAML session logout requires the `SessionIndex` and `NameID` to complete.
 
-## Next Steps
+## Next steps
 
 We love feedback and suggestions! If you have any difficulties with this topic, post on Stack Overflow using the tag ['azure-ad-b2c'](https://stackoverflow.com/questions/tagged/azure-ad-b2c). For feature requests, vote for them in our [feedback forum](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).
 
