@@ -18,19 +18,19 @@ ms.author: jrj;barbkess
 
 ---
 # Azure SQL Data Warehouse performance tiers
-SQL Data Warehouse offers two performance tiers that have been optimized to suit analytical workloads. This article explains the concepts of performance tiers to help you make the right decision when choosing for your workload. 
+SQL Data Warehouse offers two performance tiers that are optimized for analytical workloads. This article explains the concepts of performance tiers to help you choose the most suitable performance tier for your workload. 
 
 ## What is a performance tier?
-A performance tier is an option chosen during the provisioning process which dictates how your data warehouse is configured. This option is one of the first choices you make when creating a data warehouse.  
+A performance tier is an option that determines the configuration of your data warehouse. This option is one of the first choices you make when creating a data warehouse.  
 
-- The Optimized for Elasticity performance tier separates the compute and storage layers in the architecture. This option excels when supporting workloads that take full advantage of this separation to scale throughout the day or to support short periods of peak activity. This compute tier has the lowest entry price point and scales to support the majority of customer workloads.
+- The **Optimized for Elasticity performance tier** separates the compute and storage layers in the architecture. This option excels on workloads that can take full advantage of the separation between compute and storage by scaling frequently to support short periods of peak activity. This compute tier has the lowest entry price point and scales to support the majority of customer workloads.
 
-- The Optimized for Compute performance tier uses the latest Azure hardware to introduce a new NVMe Solid State Disk cache that keeps the most frequently accessed data close to the CPUs; which is exactly where you want it. By automatically tiering the storage in this way this performance tier excels with complex queries as all IO is kept local to the compute layer. Furthermore, the columnstore has been further enhanced to enable you to store an unlimited amount of data in your SQL Data Warehouse. The optimized for compute performance tier provides the greatest level of scalability enabling you to scale all the way up to 30,000 compute Data Warehouse Units (cDWU). Choose this tier for workloads that requires continuous, blazing fast, performance.
+- The **Optimized for Compute performance tier** uses the latest Azure hardware to introduce a new NVMe Solid State Disk cache that keeps the most frequently accessed data close to the CPUs, which is exactly where you want it. By automatically tiering the storage, this performance tier excels with complex queries since all IO is kept local to the compute layer. Furthermore, the columnstore is enhanced to store an unlimited amount of data in your SQL Data Warehouse. The Optimized for Compute performance tier provides the greatest level of scalability, enabling you to scale all the way up to 30,000 compute Data Warehouse Units (cDWU). Choose this tier for workloads that requires continuous, blazing fast, performance.
 
-## Service Level Objectives for performance tiers
-The Service Level Objective (SLO) is the scalability setting that determines the cost and performance level of your data warehouse. The SLO for the optimized for compute performance tier scale is measured in compute data warehouse units (cDWUs). The Service Level name uses a 'c' suffix to differentiate it from the optimized for elasticity performance tier, for example, DW2000c. The elasticity-optimized service levels are measured in DWUs, for example DW2000. For more information, see [What is a data warehouse unit?](what-is-a-data-warehouse-unit-dwu-cdwu.md).
+## Service levels for performance tiers
+The Service Level Objective (SLO) is the scalability setting that determines the cost and performance level of your data warehouse. The service levels for the Optimized for Compute performance tier scale are measured in compute data warehouse units (cDWU), for example DW2000c. The Optimized for Elasticity service levels are measured in DWUs, for example DW2000. For more information, see [What is a data warehouse unit?](what-is-a-data-warehouse-unit-dwu-cdwu.md).
 
-In T-SQL the SLO chosen also determines which performance tier you will be using:
+In T-SQL the SERVICE_OBJECTIVE setting determines the SLO and the performance tier for your data warehouse.
 
 ```sql
 --Optimized for Elasticity
@@ -49,14 +49,13 @@ WITH
 ```
 
 ## Memory maximums
-The two performance tiers also have a different memory profile. This translates into a different amount of memory per query. 
-The optimized for compute performance tier provides 2.5x more memory per query when compared with elastic performance tier. This helps the compute performance tier deliver its blazing fast performance and means you can also run more queries concurrently by using lower [resource classes]. 
+The performance tiers have different memory profiles, which translates into a different amount of memory per query. The Optimized for Compute performance tier provides 2.5x more memory per query than the Optimized for Elasticity performance tier. This extra memory helps the Optimized for Compute performance tier deliver its blazing fast performance. Additional memory per query also allows you to run more queries concurrently since queries can use lower [resource classes](resource-classes-for-workload-management). 
 
 ### Optimized for Elasticity
 
-The service levels for the "Optimized for Elasticity" performance tier range from DW100 to DW6000. 
+The service levels for the Optimized for Elasticity performance tier range from DW100 to DW6000. 
 
-| Service Level | Max concurrent queries | Compute nodes | Distributions per compute node | Max memory per distribution (MB) | Max memory per data warehouse (GB) |
+| Service level | Max concurrent queries | Compute nodes | Distributions per Compute node | Max memory per distribution (MB) | Max memory per data warehouse (GB) |
 |:-------------:|:----------------------:|:-------------:|:------------------------------:|:--------------------------------:|:----------------------------------:|
 | DW100         | 4                      | 1             | 60                             | 400                              |  24                                |
 | DW200         | 8                      | 2             | 30                             | 800                              |  48                                |
@@ -73,9 +72,9 @@ The service levels for the "Optimized for Elasticity" performance tier range fro
 
 ### Optimized for Compute
 
-The service levels for the "Optimized for Compute" performance tier range from DW1000c to DW30000c. 
+The service levels for the Optimized for Compute performance tier range from DW1000c to DW30000c. 
 
-| Service Level | Max concurrent queries | Compute nodes | Distributions per compute node | Max memory per distribution (GB) | Max memory per data warehouse (GB) |
+| Service level | Max concurrent queries | Compute nodes | Distributions per Compute node | Max memory per distribution (GB) | Max memory per data warehouse (GB) |
 |:-------------:|:----------------------:|:-------------:|:------------------------------:|:--------------------------------:|:----------------------------------:|
 | DW1000c       | 32                     | 2             | 30                             |  10                              |   600                              |
 | DW1500c       | 32                     | 3             | 20                             |  15                              |   900                              |
@@ -92,17 +91,17 @@ The service levels for the "Optimized for Compute" performance tier range from D
 The maximum cDWU is DW30000c, which has 60 Compute nodes and one distribution per Compute node. For example, a 600 TB data warehouse at DW30000c processes approximately 10 TB per Compute node.
 
 ## Workload optimization
-SQL Data Warehouse provides supports industry leading concurrency from a single data warehouse instance. To ensure each query has enough resource to execute efficiently the system has built in workload optimization functionality that you can tailor to meet your requirements. 
+SQL Data Warehouse provides industry-leading concurrency on a single data warehouse instance. To ensure each query has enough resources to execute efficiently, the system has built-in workload optimizations that you can tailor to meet your requirements. 
 
-The system optimizes your utilisation in the following ways:
+The system optimizes resource utilization in the following ways:
 
-- Channels queries into a queue based on priority and time of submission
-- Tracks compute resource utilization by assigning concurrency slots to each query
+- Channels queries into a queue based on priority and time of submission.
+- Tracks compute resource utilization by assigning concurrency slots to each query.
 
 
 ### Concurrency slots
 
-Concurrency slots are an easy way to track the resources available for query execution. They are like tickets that you purchase to reserve seats at a concert because seating is limited. Similarly, SQL Data Warehouse has a finite number of compute resources. Queries reserve compute resources by acquiring concurrency slots. A query cannot execute until enough concurrency slots are available. 
+Concurrency slots are a convenient way to track the resources available for query execution. They are like tickets that you purchase to reserve seats at a concert because seating is limited. Similarly, SQL Data Warehouse has a finite number of compute resources. Queries reserve compute resources by acquiring concurrency slots. 
 
 Only some queries require concurrency slots. System queries and some trivial queries do not consume any slots. However, by default, resource governed queries i.e. those that take one or more slots take only one slot in order to execute. More complex queries can require additional concurrency slots. 
 
@@ -111,7 +110,7 @@ Before a query can start executing, it must be able to reserve enough concurrenc
 * The optimized for elasticity performance tier scales to 240 concurrency slots.
 * The optimized for compute performance tier scales to 1200 concurrency slots.
 
-Each query will consume zero, one or more concurrency slots. For example, a query that is assigned 10 concurrency slots has access to 5 five times more compute resources than a query running with 2 concurrency slots. Similarly, if each query requires 10 concurrency slots and there are 40 concurrency slots then 4 queries will run concurrently.
+Each query will consume zero, one, or more concurrency slots. For example, a query that is assigned 10 concurrency slots has access to 5 times more compute resources than a query running with 2 concurrency slots. Similarly, if each query requires 10 concurrency slots and there are 40 concurrency slots, then only 4 queries can run concurrently.
 
 The following table shows the maximum concurrent queries and concurrency slots at the various service levels.
 
@@ -160,7 +159,7 @@ The following tables consolidates all of the previous concepts in a single view 
 > 
 > 
 
-### Optimized for compute performance tier concurrency slot consumption
+### Optimized for Compute performance tier concurrency slot consumption
 
 **Dynamic resource classes**
 | Service Level | Maximum concurrent queries | Concurrency slots available | Slots used by smallrc | Slots used by mediumrc | Slots used by largerc | Slots used by xlargerc |
@@ -193,11 +192,11 @@ The following tables consolidates all of the previous concepts in a single view 
 | DW15000c      | 32                         |  600                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
 | DW30000c      | 32                         | 1200                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
 
-### Optimized for compute performance tier concurrency slot consumption
+### Optimized for Compute performance tier concurrency slot consumption
 
 **Dynamic resource classes**
 
-| Service Level | Maximum concurrent queries | Concurrency slots available | smallrc | mediumrc | largerc | xlargerc |
+| Service level | Maximum concurrent queries | Concurrency slots available | smallrc | mediumrc | largerc | xlargerc |
 |:-------------:|:--------------------------:|:---------------------------:|:-------:|:--------:|:-------:|:--------:|
 | DW100         |  4                         |   4                         | 1       |  1       |  2      |   4      |
 | DW200         |  8                         |   8                         | 1       |  2       |  4      |   8      |
@@ -214,7 +213,7 @@ The following tables consolidates all of the previous concepts in a single view 
 
 **Static resource classes**
 
-| Service Level | Maximum concurrent queries | Maximum concurrency slots |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
+| Service level | Maximum concurrent queries | Maximum concurrency slots |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
 |:-------------:|:--------------------------:|:-------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
 | DW100         | 4                          |   4                       | 1         | 2          | 4          | 4          |  4         |  4         |  4         |   4        |
 | DW200         | 8                          |   8                       | 1         | 2          | 4          | 8          |  8         |  8         |  8         |   8        |
@@ -232,12 +231,7 @@ The following tables consolidates all of the previous concepts in a single view 
 ## Next Steps
 
 To learn more about how to leverage resource classes to optimize your workload further please review the following articles:
-* [Tutorial: How to change resource classes]
-* [Resource classes for workload management]
-* [Analyzing your workload]
+* [Tutorial for changing resource classes](tutorial-for-changing-resource-classes.md)
+* [Resource classes for workload management](resource-classes-for-workload-management.md)
+* [Analyzing your workload](analyze-your-workload.md)
 
-<!--Article references-->
-[Tutorial: How to change resource classes]: ./change-a-users-resource-class.md
-[resource classes]: ./resource-classes-for-workload-management.md
-[Resource classes for workload management]: ./resource-classes-for-workload-management.md
-[Analyzing your workload]: ./resource-classes-troubleshoot-workload.md
