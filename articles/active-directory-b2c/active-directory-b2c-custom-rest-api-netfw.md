@@ -265,7 +265,7 @@ Locate the `<ClaimsProviders>` node, and then add the following XML snippet unde
         <DisplayName>Validate user's input data and return loyaltyNumber claim</DisplayName>
         <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
         <Metadata>
-        <Item Key="ServiceUrl">https://yourdomain.azurewebsites.NET/api/identity/signup</Item>
+        <Item Key="ServiceUrl">https://your-app-name.azurewebsites.NET/api/identity/signup</Item>
         <Item Key="AuthenticationType">None</Item>
         <Item Key="SendClaimsIn">Body</Item>
         </Metadata>
