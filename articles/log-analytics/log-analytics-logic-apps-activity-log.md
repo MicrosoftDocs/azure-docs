@@ -1,15 +1,19 @@
-fcontent-typ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
+---
 title: Send Azure Activity Logs to Log Analytics | Microsoft Docs 
 description: Use Event Hubs and Logic Apps to collect data from the Azure Activity Log and send it to an Azure Log Analytics workspace in a different tenant.
 services: log-analytics, logic-apps, event-hubs 
+documentationcenter: ''
 author: richrundmsft
-ms.author: richrund
-ms.date: 09/26/2017
-ms.topic: article
+manager: carmonm
+editor: ''
 ms.service: log-analytics
-manager: ewinner
----
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/19/2017
+ms.author: richrundmsft; bwren
+
 
 # Send Azure Activity Logs to Log Analytics using Logic Apps
 
