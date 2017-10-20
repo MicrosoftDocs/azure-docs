@@ -67,7 +67,7 @@ Once logging begins, you can view a list of available logs and download individu
 
 
 ## Next steps
-- See [Access Server Logs in CLI](howto-configure-server-logs.md) to learn how to download logs programmatically.
+- See [Access Server Logs in CLI](howto-configure-server-logs-in-cli.md) to learn how to download logs programmatically.
 - Learn more about [Server Logs](concepts-server-logs.md) in Azure Database for MySQL. 
 - For more information about the parameter definitions and MySQL logging, see the MySQL documentation on [Logs](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html).
 
