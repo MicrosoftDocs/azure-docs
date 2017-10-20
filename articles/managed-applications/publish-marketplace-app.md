@@ -10,195 +10,119 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/12/2017
+ms.date: 10/20/2017
 ms.author: gauravbh
 ---
 
 # Azure managed applications in the Marketplace
 
- MSPs, ISVs, and system integrators (SIs) can use Azure managed applications to offer their solutions to all Azure Marketplace customers. Such solutions reduce the maintenance and servicing overhead for customers. Publishers can sell infrastructure and software through the Marketplace. They can attach services and operational support to managed applications. For more information, see [Managed application overview](overview.md).
+Vendors can use Azure managed applications to offer their solutions to all Azure Marketplace customers. Those vendors can include managed service providers (MSPs), independent software vendors (ISVs), and system integrators (SIs). Managed applications reduce the maintenance and servicing overhead for customers. Vendors sell infrastructure and software through the marketplace. They can attach services and operational support to managed applications. For more information, see [Managed application overview](overview.md).
 
-This article explains how an MSP, ISV, or SI can publish an application to the Marketplace and make it broadly available to customers.
+This article explains how you can publish an application to the marketplace and make it broadly available to customers.
 
 ## Prerequisites for publishing a managed application
 
-Prerequisites to listing in the Marketplace:
+To complete this article, you must already have the .zip file for your managed application definition. For more information, see [Create service catalog application](publish-service-catalog-app.md).
 
-* Technical
+In addition, there are several business prerequisites. They are:
 
-    *  For information about the basic structure and syntax of Azure Resource Manager templates, see [Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md).
-    *  To view complete template solutions, see [Azure Quickstart templates](https://azure.microsoft.com/en-us/documentation/templates/) or the [Quickstart template repository](https://github.com/azure/azure-quickstart-templates).
-    *  For information about how to create the interface for customers who deploy your application through the Marketplace, see [Create a user interface definition file](create-uidefinition-overview.md).
+* Your company or its subsidiary must be located in a country where sales are supported by the marketplace.
+* Your product must be licensed in a way that is compatible with billing models supported by the marketplace.
+* Make technical support available to customers in a commercially reasonable manner. The support can be free, paid, or through community support.
+* License your software and any third-party software dependencies.
+* Provide content that meets criteria for your offering to be listed in the Marketplace and in the Azure portal.
+* Agree to the terms of the Azure Marketplace Participation Policies and Publisher Agreement.
+* Agree to comply with the Terms of Use, Microsoft Privacy Statement, and Microsoft Azure Certified Program Agreement.
 
-* Nontechnical (business requirements)
+## Set up your account for publishing portal
 
-    *   Your company or its subsidiary must be located in a country where sales are supported by the Marketplace.
-    *   Your product must be licensed in a way that is compatible with billing models supported by the Marketplace.
-    *   You're responsible for making technical support available to customers in a commercially reasonable manner. The support can be free, paid, or through community support.
-    *   You're responsible for licensing your software and any third-party software dependencies.
-    *   You must provide content that meets criteria for your offering to be listed in the Marketplace and in the Azure portal.
-    *   You must agree to the terms of the Azure Marketplace Participation Policies and Publisher Agreement.
-    *   You must agree to comply with the Terms of Use, Microsoft Privacy Statement, and Microsoft Azure Certified Program Agreement.
+The publishing portal is used to publish and manage your offer(s). To publish a marketplace application, you must have an approved Microsoft Developer for the Azure Marketplace. If you have not registered for an approved account, see [Create a Microsoft Developer account](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md).
+
+If you have an approved **Microsoft Developer Center** account, but have not previously used the [Azure Publishing Portal](https://cloudpartner.azure.com/), you must register for the publishing portal.
+
+1. Open a new Chrome Incognito or Internet Explorer InPrivate browsing session to ensure that you're not signed in to a personal account.
+2. Go to [https://cloudpartner.azure.com/](https://cloudpartner.azure.com/).
+3. If you are a new user and signing in to the Publishing portal for the first time, then you must sign in with the same email ID as your developer center account. Now, developer center account and publishing portal account are linked.
+
+You can later add the other members of the company as a [co-admin](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md#4-steps-to-add-a-co-admin-in-the-publishing-portal) in the publishing portal. If you are added as a co-admin in the publishing portal, you can sign in with your co-admin account.
+
+> [!TIP]
+> The participation policies are described on the [Azure website](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
+>
+>
 
 ## Create a new Azure application offer
 
-After you meet the prerequisites, you're ready to create your managed application offer. Let's take a quick overview of an offer and a SKU.
-
-### Offer
-
-The offer for a managed application corresponds to a class of product offering from a publisher. If you have a new type of solution/application that you want to make available in the Marketplace, you can set it up as a new offer. An offer is a collection of SKUs. Every offer appears as its own entity in the Marketplace.
-
-### SKU
-
-A SKU is the smallest purchasable unit of an offer. You can use a SKU within the same product class (offer) to differentiate between:
-
-* Different features that are supported.
-* Whether the offer is managed or unmanaged.
-* Billing models that are supported.
-
-A SKU appears under the parent offer in the Marketplace. It appears as its own purchasable entity in the Azure portal.
+After you meet the prerequisites, you're ready to create your managed application offer.
 
 ### Set up an offer
 
+The offer for a managed application corresponds to a class of product offering from a publisher. If you have a new type of application that you want to make available in the marketplace, you can set it up as a new offer. An offer is a collection of SKUs. Every offer appears as its own entity in the marketplace.
+
 1. Sign in to the [Cloud Partner portal](https://cloudpartner.azure.com/).
 
-2. In the navigation pane on the left, select **+ New offer** > **Azure Applications**.
+1. In the navigation pane on the left, select **+ New offer** > **Azure Applications**.
 
-	![New offer](./media/publish-marketplace-app/newOffer.png)
+   ![New offer](./media/publish-marketplace-app/newOffer.png)
 
-3. Fill out the forms that appear on the left in the **Editor** view. Required fields are marked with a red asterisk (*).
+1. In the **Editor** view, you see the required forms. Each form is described later in this article.
 
-	![Offer settings](./media/publish-marketplace-app/newOffer_OfferSettings.png)
-
-	Four main forms are used to create a managed application:
-
-	a. Offer Settings
-
-	b. SKUs
-
-	c. Marketplace
-
-	d. Support
-
-These forms are described in greater detail in the following sections.
+   ![Offer settings](./media/publish-marketplace-app/newOffer_OfferSettings.png)
 
 ## Offer Settings form
-Use this basic form to specify the offer settings.
 
-1. Fill in the **Offer Settings** form. The different fields are:
+The fields for the **Offer Settings** form are:
 
-	a. **Offer ID**: This unique identifier identifies the offer within a publisher profile. This ID is visible in product URLs, Resource Manager templates, and billing reports. It can only be composed of lowercase alphanumeric characters or dashes (-). The ID can't end in a dash. It's limited to a maximum of 50 characters. After an offer goes live, this field is locked.
+* **Offer ID**: This unique identifier identifies the offer within a publisher profile. This ID is visible in product URLs, Resource Manager templates, and billing reports. It can only be composed of lowercase alphanumeric characters or dashes (-). The ID can't end in a dash. It's limited to a maximum of 50 characters. After an offer goes live, this field is locked.
+* **Publisher ID**: Use this drop-down list to choose the publisher profile you want to publish this offer under. After an offer goes live, this field is locked.
+* **Name**: This display name for your offer appears in the Marketplace and in the portal. It can have a maximum of 50 characters. Include a recognizable brand name for your product. Don't include your company name here unless that's how it's marketed. If you're marketing this offer on your own website, ensure that the name is exactly how it appears on your website.
 
-	b. **Publisher ID**: Use this drop-down list to choose the publisher profile you want to publish this offer under. After an offer goes live, this field is locked.
-
-	c. **Name**: This display name for your offer appears in the Marketplace and in the portal. It can have a maximum of 50 characters. Include a recognizable brand name for your product. Don't include your company name here unless that's how it's marketed. If you're marketing this offer on your own website, ensure that the name is exactly how it appears on your website.
-
-2. Select **Save** to save your progress. 
+When done, select **Save** to save your progress.
 
 ## SKUs form
+
 The next step is to add SKUs for your offer.
 
-1. Select **SKUs** > **New SKU**. 
+A SKU is the smallest purchasable unit of an offer. You can use a SKU within the same product class (offer) to differentiate between:
 
-	![Select new SKU](./media/publish-marketplace-app/newOffer_skus.png)
+* Different features that are supported
+* Whether the offer is managed or unmanaged
+* Billing models that are supported
 
-2. Enter a **SKU ID**. A SKU ID is a unique identifier for the SKU within an offer. This ID is visible in product URLs, Resource Manager templates, and billing reports. It can only be composed of lowercase alphanumeric characters or dashes (-). The ID can't end in a dash, and it's limited to a maximum of 50 characters. After an offer goes live, this field is locked. You can have multiple SKUs within an offer. You need a SKU for each image you plan to publish.
+A SKU appears under the parent offer in the marketplace. It appears as its own purchasable entity in the Azure portal.
 
-3. Fill out the **SKU Details** section on the following form:
+1. Select **SKUs** > **New SKU**.
 
-	![Provide new SKU](./media/publish-marketplace-app/newOffer_newsku.png)
+   ![Select new SKU](./media/publish-marketplace-app/newOffer_skus.png)
 
-	Fill out the following fields:
-	
-	a. **Title**: Enter a title for this SKU. This title appears in the gallery for this item.
+1. Enter a **SKU ID**. A SKU ID is a unique identifier for the SKU within an offer. This ID is visible in product URLs, Resource Manager templates, and billing reports. It can only be composed of lowercase alphanumeric characters or dashes (-). The ID can't end in a dash, and it's limited to a maximum of 50 characters. After an offer goes live, this field is locked. You can have multiple SKUs within an offer. You need a SKU for each image you plan to publish.
 
-	b. **Summary**: Enter a short summary for this SKU. This text appears underneath the title.
+1. Fill out the **SKU Details** section on the following form:
 
-	c. **Description**: Enter a detailed description about the SKU.
+   ![Provide new SKU](./media/publish-marketplace-app/sku-settings.png)
 
-	d. **SKU Type**: The allowed values are **Managed Application** and **Solution Templates**. For this case, select **Managed Application**.
+   Fill out the following fields:
 
-4. Fill out the **Package Details** section on the following form:
+   * **Title**: Enter a title for this SKU. This title appears in the gallery for this item.
+   * **Summary**: Enter a short summary for this SKU. This text appears underneath the title.
+   * **Description**: Enter a detailed description about the SKU.
+   * **SKU Type**: The allowed values are *Managed Application* and *Solution Templates*. For this case, select *Managed Application*.
+   * **Country/Region availability**: Select the countries where the managed application is available.
 
-	![Package](./media/publish-marketplace-app/newOffer_newsku_package.png)
+      ![Select countries](./media/publish-marketplace-app/select-country.png)
 
-	Fill out the following fields:
+   * **Pricing**: Provide a price for management of the application. Select the available countries before setting the price.
 
-	a. **Current Version**: Enter a version for the package you upload. It should be in the format `{number}.{number}.{number}{number}`.
+1. Add a new package. Fill out the **Package Details** section on the following form:
 
-	b. **Select a package file**: This package contains the following files that are compressed into a .zip file:
-	* **applianceMainTemplate.json**: The deployment template file that's used to deploy the solution/application. For information about how to create deployment template files, see [Create your first Azure Resource Manager template](../azure-resource-manager/resource-manager-create-first-template.md).
-	* **appliancecreateUIDefinition.json**: This file is used by the Azure portal to generate the user interface that's used to provision this solution/application. For more information, see [Get started with CreateUiDefinition](create-uidefinition-overview.md).
-	* **mainTemplate.json**: This template file contains only the Microsoft.Solution/appliances resource. The mainTemplate file includes the following properties:
+   ![Package](./media/publish-marketplace-app/new-package.png)
 
-		*  **kind**: Use **Marketplace** for managed applications in the Marketplace.
-		*  **ManagedResourceGroupId**: This resource group in the customer's subscription is where all the resources defined in applianceMainTemplate.json are deployed.
-		*  **PublisherPackageId**: This string uniquely identifies the package. Provide the value in the format of `{publisherId}.{OfferId}.{SKUID}.{PackageVersion}`.
+   Fill out the following fields:
 
-Obtain the **Offer ID** and **Publisher ID** from the publishing portal, as shown in the following image:
-
-![Offer ID](./media/publish-marketplace-app/UniqueString_pubid_offerid.png)
-		
-Obtain the **SKU ID**, as shown in the following image:
-
-![SKU ID](./media/publish-marketplace-app/UniqueString_skuid.png)
-		
-Obtain the package **Version**, as shown in the following image:
-
-![Package version](./media/publish-marketplace-app/UniqueString_packageversion.png)
-	
-  Based on the preceding examples, the value of **PublisherPackageId** is `azureappliance-test.ravmanagedapptest.ravpreviewmanagedsku.1.0.0`.
-
-  Sample mainTemplate.json:
-
-  ```json
-  {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  	"contentVersion": "1.0.0.0",
-  	"parameters": {
-	  "storageAccountNamePrefix": {
-  	    "type": "string",
-  		"metadata": {
-		  "description": "Specify the name of the storage account"
-  		}
-	  },
-	  "storageAccountType": {
-  	    "type": "string"
-	  }
-  	},
-  	"variables": {
-	  "managedResourceGroup": "[concat(resourceGroup().id,uniquestring(resourceGroup().id))]"
-  	},
-  	"resources": [{
-  	  "type": "Microsoft.Solutions/appliances",
-  	  "apiVersion": "2016-09-01-preview",
-  	  "name": "[concat(parameters('storageAccountNamePrefix'), '-', 'managed')]",
-  	  "location": "[resourceGroup().location]",
-  	  "kind": "marketplace",
-  	  "properties": {
-	    "managedResourceGroupId": "[variables('managedResourceGroup')]",
-		"PublisherPackageId":"azureappliancetest.ravmanagedapptest.ravpreviewmanagedsku.1.0.0",
-		"parameters": {
-  		  "storageAccountName": {
-		    "value": "[parameters('storageAccountNamePrefix')]"
-  		  },
-  		  "storageAccountType": {
-		    "value": "[parameters('storageAccountType')]"
- 	 	  }
-		}
-  	  }
-	}],
-  	"outputs": {
-
-  	}
-  }
-  ```
-
-This package should contain any other nested templates or scripts that are required to successfully provision this application. The mainTemplate.json, applianceMainTemplate.json, and applianceCreateUIDefinition.json files must be present at the root folder.
-
-* **Authorizations**: This property defines who gets access and the level of access to the resources in customers' subscriptions. The publisher can use it to manage the application on behalf of the customer.
-* **PrincipalId**: This property is the Azure Active Directory (Azure AD) identifier of a user, user group, or application that's granted certain permissions on the resources in the customer's subscription. The Role Definition describes the permissions. 
-* **Role Definition**: This property is a list of all the built-in Role-Based Access Control (RBAC) roles provided by Azure AD. You can select the role that's most appropriate to use to manage the resources on behalf of the customer.
+   * **Current Version**: Enter a version for the package you upload. It should be in the format `{number}.{number}.{number}{number}`.
+   * **Select a package file**: This package contains the required file compressed into a .zip package. For more information, see [Publish a managed application for internal consumption](managed-application-publishing.md).
+   * **PrincipalId**: This property is the Azure Active Directory (Azure AD) identifier of a user, user group, or application that's granted access to the resources in the customer's subscription. The Role Definition describes the permissions.
+   * **Role Definition**: This property is a list of all the built-in Role-Based Access Control (RBAC) roles provided by Azure AD. You can select the role that's most appropriate to use to manage the resources on behalf of the customer.
 
 You can add multiple authorizations. We recommend that you create an AD user group and specify its ID in **PrincipalId**. This way, you can add more users to the user group without the need to update the SKU.
 
@@ -257,7 +181,7 @@ The hero logo is optional. The publisher can choose not to upload a hero logo. A
 Follow these guidelines for the hero logo icon:
 
 *   The publisher display name, the plan title, and the offer long summary are displayed in white. Therefore, don't use a light color for the background of the hero icon. A black, white, or transparent background isn't allowed for hero icons.
-*   After the offer is listed, the publisher display name, the plan title, the offer long summary, and the **Create** button are embedded programmatically inside the hero logo. Consequently, don't enter any text while you design the hero logo. Leave empty space on the right because the text is included programmatically in that space. The empty space for the text should be 415 x 100 pixels on the right. It's offset by 370 pixels from the left.
+*   After the offer is listed, elements are embedded programmatically inside the hero logo. The embedded elements include the publisher display name, the plan title, the offer long summary, and the **Create** button. Consequently, don't enter any text while you design the hero logo. Leave empty space on the right because the text is included programmatically in that space. The empty space for the text should be 415 x 100 pixels on the right. It's offset by 370 pixels from the left.
 
 	![Hero logo example](./media/publish-marketplace-app/publishvm14.png)
 
@@ -272,6 +196,4 @@ After you fill out all the sections, select **Publish** to start the process tha
 ## Next steps
 
 * For an introduction to managed applications, see [Managed application overview](overview.md).
-* For information about consuming a managed application from the Marketplace, see [Consume Azure managed applications in the Marketplace](consume-marketplace-app.md).
 * For information about publishing a Service Catalog managed application, see [Create and publish a Service Catalog managed application](publish-service-catalog-app.md).
-* For information about consuming a Service Catalog managed application, see [Consume a Service Catalog managed application](consume-service-catalog-app.md).
