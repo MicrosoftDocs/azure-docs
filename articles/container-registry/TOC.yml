@@ -25,9 +25,9 @@
     items:
     - name: Prepare geo-replicated registry
       href: container-registry-tutorial-prepare-acr.md
-    - name: Deploy web app to multiple regions
+    - name: Deploy web application
       href: container-registry-tutorial-deploy-app.md
-    - name: Update regional web app deployments
+    - name: Update web app deployments
       href: container-registry-tutorial-deploy-update.md
 - name: Concepts
   items:
