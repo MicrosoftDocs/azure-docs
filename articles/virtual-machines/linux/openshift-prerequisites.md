@@ -1,6 +1,6 @@
 ---
-title: OpenShift Pre-Requisites | Microsoft Docs
-description: Learn to deploy OpenShift Origin to Azure virtual machines.
+title: OpenShift in Azure prerequisites | Microsoft Docs
+description: Prerequisites to deploy OpenShift in Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldw
@@ -18,7 +18,7 @@ ms.date:
 ms.author: haroldw
 ---
 
-# Common Pre-requisites for OpenShift in Azure
+# Common prerequisites for OpenShift in Azure
 
 When deploying OpenShift in Azure, there are a few common pre-requisites regardless of whether you are deploying OpenShift Origin or OpenShift Container Platform.
 
@@ -62,7 +62,7 @@ The following example creates a resource group named *keyvaultrg* in the *eastus
 az group create --name keyvaultrg --location eastus
 ```
 
-## Create a Key Vault
+## Create a key vault
 Create a KeyVault to store the SSH keys for the cluster with the [az keyvault create](/cli/azure/keyvault#create) command. The Key Vault name must be globally unique.
 
 The following example creates a keyvault named *keyvault* in the *keyvaultrg* resource group.
@@ -85,7 +85,7 @@ ssh-keygen -f ~/.ssh/openshift_rsa -t rsa -N ''
 
 For more information on SSH keys on Windows, [How to create SSH keys on Windows](/azure/virtual-machines/linux/ssh-from-windows).
 
-## Store SSH private key in Key Vault
+## Store SSH private key in key vault
 The OpenShift deployment uses the SSH key you created to secure access to the OpenShift master. To enable the deployment to securely retrieve the SSH key, store the key in Key Vault using the following command:
 
 ```azurecli
