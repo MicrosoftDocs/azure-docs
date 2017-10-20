@@ -2,7 +2,7 @@
 title: Call Video APIs in Microsoft Cognitive Services | Microsoft Docs
 description: Get guidance for calling Video APIs, with samples in C# using the Video API client library.
 services: cognitive-services
-author: CYokel
+author: Kaiqb
 manager: ytkuo
 
 ms.service: cognitive-services
