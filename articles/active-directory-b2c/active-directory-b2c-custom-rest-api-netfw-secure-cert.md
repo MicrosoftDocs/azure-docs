@@ -159,7 +159,7 @@ To support client certificate authentication in your custom policy, change the t
 ## Step 6: Add certificate validation
 The client certificate that Azure AD B2C sends to your RESTful service does not undergo validation by the Azure Web Apps platform. except to check whether the certificate exists. Validating the certificate is the responsibility of the web app. 
 
-Here is some sample ASP.NET code that validates certificate properties for authentication purposes:
+In this section you add sample ASP.NET code that validates the certificate properties for authentication purposes.
 
 > [!NOTE]
 >For more information about configuring Azure App Service for client certificate authentication, see [Configure TLS mutual authentication for web apps](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-configure-tls-mutual-auth).
