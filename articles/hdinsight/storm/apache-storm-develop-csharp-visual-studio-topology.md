@@ -767,4 +767,4 @@ For more ways to work with HDInsight and more Storm on HDInsight samples, see th
 
 **Apache HBase on HDInsight**
 
-* [Getting started with HBase on HDInsight](../hdinsight-hbase-tutorial-get-started-linux.md)
+* [Getting started with HBase on HDInsight](../hbase/apache-hbase-tutorial-get-started-linux.md)

@@ -158,8 +158,8 @@ Now that you have successfully created an HDInsight cluster, use the following t
 * [Use MapReduce with HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
 ### HBase clusters
-* [Get started with HBase on HDInsight](hdinsight-hbase-tutorial-get-started-linux.md)
-* [Develop Java applications for HBase on HDInsight](hdinsight-hbase-build-java-maven-linux.md)
+* [Get started with HBase on HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
+* [Develop Java applications for HBase on HDInsight](hbase/apache-hbase-build-java-maven-linux.md)
 
 ### Storm clusters
 * [Develop Java topologies for Storm on HDInsight](storm/apache-storm-develop-java-topology.md)

@@ -136,8 +136,8 @@ Now that you have successfully created an HDInsight cluster using the Azure CLI,
 
 ### HBase clusters
 
-* [Get started with HBase on HDInsight](hdinsight-hbase-tutorial-get-started-linux.md)
-* [Develop Java applications for HBase on HDInsight](hdinsight-hbase-build-java-maven-linux.md)
+* [Get started with HBase on HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
+* [Develop Java applications for HBase on HDInsight](hbase/apache-hbase-build-java-maven-linux.md)
 
 ### Storm clusters
 
