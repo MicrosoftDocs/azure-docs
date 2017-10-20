@@ -23,13 +23,13 @@ ms.custom:
 
 This is part two of a three-part tutorial series. In [part one](container-registry-tutorial-prepare-acr.md), a private, geo-replicated container registry was created, and a container image was built from source and pushed to the registry. In this article, you deploy the container into two Web App instances in two different Azure regions to take advantage of the network-close aspect of the geo-replicated registry.
 
-If you haven't yet created a geo-replicated registry and pushed the image of the containerized sample application to the registry, return to the first tutorial in the series, [Prepare a geo-replicated Azure container registry](container-registry-tutorial-prepare-acr.md).
-
 In this article, part two of the series, you:
 
 > [!div class="checklist"]
 > * Deploy an image to two Web App for Containers instances
 > * Verify the deployed application
+
+If you haven't yet created a geo-replicated registry and pushed the image of the containerized sample application to the registry, return to the first tutorial in the series, [Prepare a geo-replicated Azure container registry](container-registry-tutorial-prepare-acr.md).
 
 In the next part of the series, you update the application, then push a new container image to the registry to see geo-replication in action, viewing the change automatically reflected in both Web App instances.
 
@@ -37,7 +37,7 @@ In the next part of the series, you update the application, then push a new cont
 
 Azure Container Registry provides support for deploying containerized applications directly to [Web Apps for Containers](../app-service/containers/index.yml). In this tutorial, you use the Azure portal to deploy the container image created in previous tutorial to two web app plans located in different Azure regions.
 
-When you deploy a web app from your registry, Azure Container Registry creates an image deployment [webhook](container-registry-webhook.md) for you. When you push a new image to your container repository, the webhook picks up the change and deploys the new container image to your web app. If your registry is geo-replicated, Web Apps for Containers pulls the new container image from the closest Azure region in which you've configured registry replicas.
+When you deploy a web app from a container image in your registry, and you have a geo-replicated registry in the same region, Azure Container Registry creates an image deployment [webhook](container-registry-webhook.md) for you. When you push a new image to your container repository, the webhook picks up the change and automatically deploys the new container image to your web app.
 
 ## Deploy a Web App for Containers instance
 
@@ -55,7 +55,7 @@ Under **Web app on Linux (preview)** that's displayed, specify the following val
 |---|---|
 | **Site Name** | A globally unique name for the web app. In this example, we use the format `<acrName>-westus` to easily identify the registry and region the web app is deployed from. |
 | **Resource Group** | **Use existing** > `myResourceGroup` |
-| **App service plan/Location** | Create a new plan in the **West US** region. |
+| **App service plan/Location** | Create a new plan named `plan-westus` in the **West US** region. |
 | **Image** | `acr-helloworld:v1`
 
 Select **Create** to provision the web app.
@@ -86,7 +86,7 @@ Under **Web app on Linux (preview)** that's displayed, specify the following val
 |---|---|
 | **Site Name** | A globally unique name for the web app. In this example, we use the format `<acrName>-eastus` to easily identify the registry and region the web app is deployed from. |
 | **Resource Group** | **Use existing** > `myResourceGroup` |
-| **App service plan/Location** | Create a new plan in the **East US** region. |
+| **App service plan/Location** | Create a new plan named `plan-eastus` in the **East US** region. |
 | **Image** | `acr-helloworld:v1`
 
 Select **Create** to provision the web app.
