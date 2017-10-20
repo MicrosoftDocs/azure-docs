@@ -21,9 +21,9 @@ ms.custom:
 
 # Deploy web app from Azure Container Registry
 
-This is part two of a three-part tutorial series. In [part one](container-registry-tutorial-prepare-acr.md), a private, geo-replicated container registry was created, and a container image was built from source and pushed to the registry. In this article, you deploy the container into two Web App instances in two different Azure regions to take advantage of the network-close aspect of the geo-replicated registry.
+This is part two in a three-part tutorial series. In [part one](container-registry-tutorial-prepare-acr.md), a private, geo-replicated container registry was created, and a container image was built from source and pushed to the registry. In this article, you deploy the container into two Web App instances in two different Azure regions to take advantage of the network-close aspect of the geo-replicated registry.
 
-In this tutorial, part two of the series:
+In this tutorial, part two in the series:
 
 > [!div class="checklist"]
 > * Deploy a container image to two *Web Apps for Containers* instances
@@ -43,7 +43,7 @@ When you deploy a web app from a container image in your registry, and you have 
 
 In this step, you create a Web App for Containers instance in the *West US* region.
 
-Log in to the Azure portal at https://portal.azure.com and navigate to the registry you created in the previous tutorial.
+Sign in to the [Azure portal](https://portal.azure.com) and navigate to the registry you created in the previous tutorial.
 
 Select **Repositories** > **acr-helloworld**, then right-click on the **v1** tag under **Tags** and select **Deploy to app service**.
 

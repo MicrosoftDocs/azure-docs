@@ -23,7 +23,7 @@ ms.custom:
 
 An Azure container registry is a private Docker registry deployed in Azure that you can keep network-close to your deployments. In this set of three tutorial articles, you learn how to use geo-replication to deploy an ASP.NET Core web application running in a Linux container to two [Web Apps for Containers](../app-service/containers/index.yml) instances. You'll see how Azure automatically deploys the image to each Web App instance from the closest geo-replicated repository.
 
-In this tutorial, part one of a three-part series:
+In this tutorial, part one in a three-part series:
 
 > [!div class="checklist"]
 > * Create a geo-replicated Azure container registry
@@ -45,7 +45,7 @@ Azure Cloud Shell does not include the Docker components required to complete ev
 
 ## Create a container registry
 
-Log in to the Azure portal at http://portal.azure.com.
+Sign in to the [Azure portal](http://portal.azure.com).
 
 Select **New** > **Containers** > **Azure Container Registry**.
 
