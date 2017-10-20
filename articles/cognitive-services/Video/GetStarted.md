@@ -2,7 +2,7 @@
 title: Get Started with Video API in C# | Microsoft Docs
 description: Explore a basic Windows application that uses Video API to stabilize videos, recognize motion tracking, and detect faces in a video.
 services: cognitive-services
-author: CYokel
+author: Kaiqb
 manager: ytkuo
 
 ms.service: cognitive-services
