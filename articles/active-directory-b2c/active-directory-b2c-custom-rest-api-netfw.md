@@ -347,7 +347,7 @@ After you add the new claim, the relying party code looks like this:
     ![The B2C_1A_signup_signin window](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-run.png)
 
 3. Test the process by typing **Test** in the **Given Name** box.  
-    Azure AD B2C displays an error message at the top of the page.
+    Azure AD B2C displays an error message at the top of the window.
 
     ![Test your policy](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-test.png)
 
