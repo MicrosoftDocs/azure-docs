@@ -14,7 +14,7 @@ ms.topic: article
 ms.date: 10/19/2017
 ms.author: richrundmsft; bwren
 
-
+---
 # Send Azure Activity Logs to Log Analytics using Logic Apps
 
 This article steps through how to use the Azure Log Analytics Data Collector connector for Logic Apps to collect Azure Activity Logs and send them to a Log Analytics workspace. 
