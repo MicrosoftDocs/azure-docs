@@ -20,11 +20,11 @@ ms.author:
 
 # Manage Time Series Insights Resources with Azure Resource Manager
 
-Azure Time Series Insights (TSI) is a fully managed analytics, storage, and visualization service that makes it simple to explore and analyze billions of IoT events simultaneously.  It gives you a global view of your data, letting you quickly validate your IoT solution and avoid costly downtime to mission-critical devices by helping you discover hidden trends, spot anomalies, and conduct root-cause analyses in near real-time.  If you are building an application that needs to store or query time series data, you can develop using Time Series Insights using TSI’s REST APIs.
+Azure Time Series Insights is a fully managed analytics, storage, and visualization service that makes it simple to explore and analyze billions of IoT events simultaneously.  It gives you a global view of your data, letting you quickly validate your IoT solution and avoid costly downtime to mission-critical devices by helping you discover hidden trends, spot anomalies, and conduct root-cause analyses in near real-time. If you are building an application that needs to store or query time series data, you can develop using Time Series Insights using its REST APIs.
 
-This tutorial demonstrates how to manage TSI with Azure Resource Management (ARM) resources.  This is beneficial to help manage TSI environments where using the Azure portal doesn’t make sense, namely a custom application built on top of TSI.  Using ARM allows you to automate control for the same resources you can configure in the Azure portal.
+This tutorial demonstrates how to manage Time Series Insights with Azure Resource Management (ARM) resources. This is beneficial to help manage Time Series Insights environments where using the Azure portal doesn’t make sense, namely a custom application built on top of Time Series Insights.  Using ARM allows you to automate control for the same resources you can configure in the Azure portal.
 
-There are four types of TSI resources that can be created using this ARM template:  
+There are four types of Time Series Insights resources that can be created using this ARM template:  
 
 - 	Environments
 - 	Event Sources
@@ -34,26 +34,26 @@ There are four types of TSI resources that can be created using this ARM templat
 ![TSI resources
 ](media/manage-resources-using-arm/arm1.png)
 
-A TSI Environment is a logical grouping of Event Sources. You can add one or more Event Sources in an TSI Environment (current limits in private preview are 2 event sources per environment). 
+A Time Series Insights Environment is a logical grouping of Event Sources. You can add one or more Event Sources in an Time Series Insights Environment (current limits in private preview are 2 event sources per environment). 
 
-An Event Source is a data source from which TSI reads and ingests data into TSI storage. TSI supports two event sources:  Azure IoT Hubs and Azure Event Hubs.
+An Event Source is a data source from which Time Series Insights reads and ingests data into Time Series Insights storage. Time Series Insights supports two event sources:  Azure IoT Hubs and Azure Event Hubs.
 
 Reference data sets provide metadata about the events in the environment. Metadata in the reference data sets will be joined with events during ingress. Reference data sets are defined as resources by their event key properties. The actual metadata that makes up the reference data set is uploaded or modified through data plane APIs.
 
-Before TSI is released publicly, support for Role Assignment resources will also be added. Currently, access control must be controlled via role assignments on the resources in the management plane.
+Before Time Series Insights is released publicly, support for Role Assignment resources will also be added. Currently, access control must be controlled via role assignments on the resources in the management plane.
 
-This document covers the different options for managing TSI resources that are available during private preview. 
+This document covers the different options for managing Time Series Insights resources that are available during private preview. 
 
-The high-level options currently available to manage TSI resources are:
+The high-level options currently available to manage Time Series Insights resources are:
 - 	ARM Template Deployments
 - 	REST APIs
 - 	Azure Management Portal extension (coming soon!)
 
 ## Prerequisite
 
-Before creating TSI resources, you must perform the following prerequisite:
+Before creating Time Series Insights resources, you must perform the following prerequisite:
 
-- Create a resource group for your TSI resources
+- Create a resource group for your Time Series Insights resources
 Create a ResourceGroup in your subscription. This can be done through REST APIs, PowerShell, or by using the Azure Management portal. 
 
 ## Managing Resources through ARM Template Deployments
@@ -64,7 +64,7 @@ A Resource Manager template is a JSON file that defines the infrastructure and c
 
 - [Deploy resources with Resource Manager templates and Azure PowerShell](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy)
 
-The template that creates an TSI Environment and a child EventSource that reads events from an EventHub can be downloaded from the following link: 
+The template that creates an Time Series Insights Environment and a child EventSource that reads events from an EventHub can be downloaded from the following link: 
 
 https://microsoft.sharepoint.com/teams/TSIcore/Shared%20Documents/Getting%20Started/CreateTSIEnvironmentAndEventSourceTemplate.json 
 
@@ -81,9 +81,9 @@ https://microsoft.sharepoint.com/teams/TSIcore/Shared%20Documents/Getting%20Star
 |**eventHubResourceId**	|The resource ID of the source Event Hub or IoT Hub in ARM, e.g. '/subscriptions/{subscriptionId}/resourceGroups /{resourceGroupName}/providers/Microsoft.Devices/IotHubs/{hubName}'.|	Required  |	   |           
 |**eventHubServiceBusNamespace**|The service bus namespace of the source Event Hub.|Required    |   
 |**eventHubName**|The name of the source Event Hub.|Required    |    |
-|**eventHubConsumerGroupName**|The name of the consumer group that TSI will use to read the data from the event hub. **NOTE**: You should create a dedicated consumer group on the event hub for TSI. This consumer group should not be shared with other services to avoid contention.|	Required  |         
-|**eventHubKeyName**|The name of the event hub's shared access key that TSI will use to connect to the event hub.|Required   |   |
-|**eventHubSharedAccessKey**|The shared access key value that TSI will use to connect to the event hub. This parameter is a secure string, so the value won’t show up in the deployment logs or history in the Azure Portal.|Required  |         |
+|**eventHubConsumerGroupName**|The name of the consumer group that Time Series Insights will use to read the data from the event hub. **NOTE**: You should create a dedicated consumer group on the event hub for Time Series Insights. This consumer group should not be shared with other services to avoid contention.|	Required  |         
+|**eventHubKeyName**|The name of the event hub's shared access key that Time Series Insights will use to connect to the event hub.|Required   |   |
+|**eventHubSharedAccessKey**|The shared access key value that Time Series Insights will use to connect to the event hub. This parameter is a secure string, so the value won’t show up in the deployment logs or history in the Azure Portal.|Required  |         |
 |**eventSourceTimestampPropertyName**|The event property that will be used as the event source's timestamp. If a value isn't specified for timestampPropertyName, or if null or empty-string is specified, the event creation time will be used.|Optional	 |         |      
 |**accessPolicyName**|	The name of the access policy child resource. The name cannot include:   '<', '>', '%', '&', ':', '\\', '?', '/' and any control characters. All other characters are allowed.	|Required	     |           |         |
 |**accessPolicyPrincipalObjectId**|	The objectId of the service principal for the user or application in AAD. The service principal objectId can be obtained by calling the **Get-AzureRMADUser** or the **Get-AzureRMADServicePrincipal** cmdlets. Creating an access policy for AAD groups is not supported.|Required	  |         |         |
@@ -164,13 +164,13 @@ You can do this in the Azure Portal through the following setting on the KeyVaul
 
 The ARM REST APIs are the foundation of ARM resource management. When provisioning resources through either the management UX or template deployments, the REST APIs are being called.
 
-This is a quick example of using REST APIs to manage TSI resources in ARM. 
+This is a quick example of using REST APIs to manage Time Series Insights resources in ARM. 
 
 Examples shown use ARMClient to invoke the REST APIs. For more details about ARMClient, see http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html  
 
-### Enable TSI on your subscription
+### Enable Time Series Insights on your subscription
 
-The TSI team cannot enable TSI on your behalf. After your subscription has been whitelisted, you need to enable TSI by running the following ARMClient command:
+The Time Series Insights team cannot enable Time Series Insights on your behalf. After your subscription has been whitelisted, you need to enable Time Series Insights by running the following ARMClient command:
 
 armclient POST
 /subscriptions/{**subscriptionId**}/providers/Microsoft.TimeSeriesInsights/register?api-version=2015-01-01
@@ -187,7 +187,7 @@ Where PutEnvironment.json contains:
 {
   "location" : "West Us",
   "tags" : {
-    "DisplayName" : "Sample TSI environment"
+    "DisplayName" : "Sample Time Series Insights environment"
   },
   "sku" : {
     "name" : "S1",
