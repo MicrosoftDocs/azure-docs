@@ -181,8 +181,7 @@ This example shows how to migrate a classic policy that requires multi-factor au
     ![Conditional access](./media/active-directory-conditional-access-migration/38.png)
 
 
-device compliance policy  
- 
+
  
 
 
