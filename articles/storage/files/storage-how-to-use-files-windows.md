@@ -26,7 +26,7 @@ You can mount Azure File shares on a Windows installation that is running either
 
 | Windows Version        | SMB Version | Mountable in Azure VM | Mountable On-Premises |
 |------------------------|-------------|-----------------------|----------------------|
-| Windows Server semi-annual channel<sup>1</sup> | Yes | Yes |
+| Windows Server semi-annual channel<sup>1</sup> | SMB 3.0 | Yes | Yes |
 | Windows 10<sup>2</sup>  | SMB 3.0 | Yes | Yes |
 | Windows Server 2016    | SMB 3.0     | Yes                   | Yes                  |
 | Windows 8.1            | SMB 3.0     | Yes                   | Yes                  |
