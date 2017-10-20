@@ -42,7 +42,8 @@ These release notes summarize changes from previous releases and known issues.
 For information about the Media Services REST API version history, see [Azure Media Services REST API Reference].
 
 ## October 2017 Release
-> [!IMPORTANT] Reminder: Azure Media Services is going to be deprecating support for ACS authentication keys.  On June 1, 2018, you will no longer be able to authenticate with the AMS backend via code using ACS keys. You must update your code to use Azure Active Directory (AAD) per the article [Azure Active Directory (Azure AD)-based authentication](media-services-use-aad-auth-to-access-ams-api.md). You will also receive warnings in the Azure portal of this change. 
+> [!IMPORTANT] 
+> Reminder: Azure Media Services is going to be deprecating support for ACS authentication keys.  On June 1, 2018, you will no longer be able to authenticate with the AMS backend via code using ACS keys. You must update your code to use Azure Active Directory (AAD) per the article [Azure Active Directory (Azure AD)-based authentication](media-services-use-aad-auth-to-access-ams-api.md). You will also receive warnings in the Azure portal of this change.
 
 ### Updates for October 2017 include:
 #### SDKs
