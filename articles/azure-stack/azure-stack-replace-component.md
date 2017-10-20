@@ -26,8 +26,8 @@ This article describes the general process to replace hardware components that a
 
 Non hot-swappable components include the following:
 
-- CPU
-- Memory
+- CPU*
+- Memory*
 - Motherboard/baseboard management controller (BMC)/video card
 - Disk controller/host bus adapter (HBA)/backplane
 - Network adapter (NIC)
