@@ -11,13 +11,13 @@ ms.topic: article
 ms.date: 10/19/2017
 ---
 
-# Configure and access server logs in Azure portal
+# Configure and access server logs in the Azure portal
 
-You can configure, list, and download the [Azure Database for MySQL server logs](concept-server-logs.md) from the Azure portal.
+You can configure, list, and download the [Azure Database for MySQL server logs](concepts-server-logs.md) from the Azure portal.
 
 ## Prerequisites
 To step through this how-to guide, you need:
-- [Azure Database for MySQL server](quickstart-create-server-database-portal.md)
+- [Azure Database for MySQL server](quickstart-create-mysql-server-database-using-azure-portal.md)
 
 ## Configure logging
 Configure access to the MySQL slow query log. 
@@ -37,11 +37,13 @@ Configure access to the MySQL slow query log.
 
    ![Click show more for longer list](./media/howto-configure-server-logs-in-portal/2-show-more.png)
 
-6. All changes you make in this session are highlighted in purple. Once you have changed the parameters, you can click **Save**. Or you can **Discard** your changes. 
+6. Change the parameters that you need to adjust. All changes you make in this session are highlighted in purple. 
+
+   Once you have changed the parameters, you can click **Save**. Or you can **Discard** your changes.
 
    ![Click save or discard](./media/howto-configure-server-logs-in-portal/3-save-discard.png)
 
-7. Return to the list of logs by clicking the close button (X) on the **Server Parameters** page.
+7. Return to the list of logs by clicking the **close button** (X icon) on the **Server Parameters** page.
 
 ## View list and download logs
 Once logging begins, you can view a list of available logs and download individual log files on the Server Logs pane. 
