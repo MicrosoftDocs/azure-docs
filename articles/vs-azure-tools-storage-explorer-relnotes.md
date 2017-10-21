@@ -23,13 +23,13 @@ This article contains the release notes for Azure Storage Explorer 0.9.0 (Previe
 
 [Microsoft Azure Storage Explorer (Preview)](./vs-azure-tools-storage-manage-with-storage-explorer.md) is a standalone app that enables you to easily work with Azure Storage data on Windows, macOS, and Linux.
 
-## Version 0.9.0 (Preview)
-10/16/2017
+## Version 0.9.1 / 0.9.0 (Preview)
+10/20/2017
 
-### Download Azure Storage Explorer 0.9.0 (Preview)
-- [Azure Storage Explorer 0.9.0 (Preview) for Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Azure Storage Explorer 0.9.0 (Preview) for Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Azure Storage Explorer 0.9.0 (Preview) for Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+### Download Azure Storage Explorer 0.9.1 (Preview)
+- [Azure Storage Explorer 0.9.1 (Preview) for Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Azure Storage Explorer 0.9.1 (Preview) for Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Azure Storage Explorer 0.9.1 (Preview) for Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### New
 * Preview support for Azure Cosmos DB:
@@ -53,6 +53,7 @@ This article contains the release notes for Azure Storage Explorer 0.9.0 (Previe
 * If you tried to open or download a blob with an invalid Windows file name, the operation would fail. Storage Explorer will now detect if a blob name is invalid and ask if you would like to either encode it or skip the blob. Storage Explorer will also detect if a file name appears to be encoded and ask you if want to decode it before uploading.
 * During blob upload, the editor for the target blob container would sometimes not properly refresh. This has been fixed.
 * The support for several forms of connection strings and SAS URIs regressed. We have addressed all known issues, but please send feedback if you encounter further issues.
+* The update notification was broken for some users in 0.9.0. This issue has been fixed, and for those affected by the bug, you can manually download the latest version of Storage Explorer [here](https://azure.microsoft.com/en-us/features/storage-explorer/)
 
 ### Known Issues
 * Storage Explorer does not support ADFS accounts.
