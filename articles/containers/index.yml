@@ -48,7 +48,7 @@ sections:
     columns: 2
     items:
     - href: ../aks/kubernetes-walkthrough.md
-      title: Create an Azure Container Service (AKS) cluster
+      title: Create a Kubernetes cluster with Azure Container Service (AKS)
       image:
         src: /azure/media/index/ContainerService.svg
     - href: https://docs.microsoft.com/azure/service-fabric/service-fabric-quickstart-containers
