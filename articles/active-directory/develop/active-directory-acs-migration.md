@@ -239,4 +239,7 @@ For guidance on implementing server-to-server scenarios, please refer to the fol
 - [Daemon code sample using certificate client credentials](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)
 
 <!-- TODO: Should we just point to Auth0? Auth0 can do all of this -->
-    
+
+## Questions, Concerns, & Feedback
+
+We understand that many ACS customers will not find a clear migration path after reading this article, and will need some assistance or guidance in determining a path forward. If you would like to discuss your migration scenarios & questions, please reach out to **acsfeedback@microsoft.com**. We will attempt to field all inquiries to this alias in a timely manner.
