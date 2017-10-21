@@ -90,7 +90,7 @@ The service levels for the Optimized for Compute performance tier range from DW1
 
 The maximum cDWU is DW30000c, which has 60 Compute nodes and one distribution per Compute node. For example, a 600 TB data warehouse at DW30000c processes approximately 10 TB per Compute node.
 
-## Workload optimization
+## Concurrency maximums
 SQL Data Warehouse provides industry-leading concurrency on a single data warehouse instance. To ensure each query has enough resources to execute efficiently, the system has built-in workload optimizations that you can tailor to meet your requirements. 
 
 The system optimizes resource utilization in the following ways:
@@ -98,9 +98,7 @@ The system optimizes resource utilization in the following ways:
 - Channels queries into a queue based on priority and time of submission.
 - Tracks compute resource utilization by assigning concurrency slots to each query.
 
-
 ### Concurrency slots
-
 Concurrency slots are a convenient way to track the resources available for query execution. They are like tickets that you purchase to reserve seats at a concert because seating is limited. Similarly, SQL Data Warehouse has a finite number of compute resources. Queries reserve compute resources by acquiring concurrency slots. Before a query can start executing, it must be able to reserve enough concurrency slots. When a query finishes, it releases its concurrency slots. 
 
 * The optimized for elasticity performance tier scales to 240 concurrency slots.
@@ -148,7 +146,7 @@ The following table shows the maximum concurrent queries and concurrency slots a
 
 When one of these thresholds is met, new queries are queued and executed on a first-in, first-out basis.  As a queries finishes and the number of queries and slots falls below the limits, SQL Data Warehouse releases queued queries. 
 
-## Concurrency slot consumption  
+## Concurrency slots for resource classes 
 Resource governed queries consume concurrency slots. The exact number of concurrency slots consumed is determined by the query's resource class.
 
 The following tables consolidates all of the previous concepts into a single view that shows the number of concurrency slots available by DWU and the slots consumed by each resource class.  
@@ -227,7 +225,7 @@ The following tables consolidates all of the previous concepts into a single vie
 | DW3000        | 32                         | 120                       | 1         | 2          | 4          | 8          | 16         | 32         | 64         |  64        |
 | DW6000        | 32                         | 240                       | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
 
-## Next Steps
+## Next steps
 
 To learn more about how to leverage resource classes to optimize your workload further please review the following articles:
 * [Tutorial for changing resource classes](tutorial-for-changing-resource-classes.md)
