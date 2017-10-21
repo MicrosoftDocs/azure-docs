@@ -68,8 +68,9 @@ Run custom or commercial HPC applications in Azure. Several examples in this sec
 
 ### AI and deep learning
 
+* [Batch AI](../articles/batch-ai/overview.md) training for deep learning models
 * [Microsoft Cognitive Toolkit](https://docs.microsoft.com/cognitive-toolkit/cntk-on-azure)
-* [Deep learning toolkit for Data Science VM](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning)
+* [Deep Learning VM](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning)
 * [Batch Shipyard recipes for deep learning](https://github.com/Azure/batch-shipyard/tree/master/recipes#deeplearning)
 
 
@@ -104,7 +105,7 @@ Learn how to:
 
 * [Get started developing with Batch](../articles/batch/batch-dotnet-get-started.md)
 * [Use Azure Batch code samples](https://github.com/Azure/azure-batch-samples)
-* [Use low-priority VMs with Batch (preview)](../articles/batch/batch-low-pri-vms.md)
+* [Use low-priority VMs with Batch](../articles/batch/batch-low-pri-vms.md)
 * [Run containerized HPC workloads with Batch Shipyard](https://github.com/Azure/batch-shipyard)
 * [Use the R language with Batch](https://github.com/Azure/doAzureParallel)
 

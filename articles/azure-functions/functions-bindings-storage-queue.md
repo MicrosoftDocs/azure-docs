@@ -3,7 +3,7 @@ title: Azure Functions queue storage bindings | Microsoft Docs
 description: Understand how to use Azure Storage triggers and bindings in Azure Functions.
 services: functions
 documentationcenter: na
-author: lindydonna
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -282,7 +282,7 @@ module.exports = function(context) {
 
 ## Next steps
 
-For an example of a function that uses queue storage triggers and bindings, see [Create an Azure Function connected to an Azure service](functions-create-an-azure-connected-function.md).
+For an example of a function that uses queue storage triggers and bindings, see [Create a function triggered by Azure Queue storage](functions-create-storage-queue-triggered-function.md).
 
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
 

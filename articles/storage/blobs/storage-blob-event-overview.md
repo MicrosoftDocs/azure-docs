@@ -26,7 +26,7 @@ Blob storage Events are available for preview.  Users may request to join the pr
 az provider register --namespace  Microsoft.EventGrid
 az feature register --name storageEventSubscriptions --namespace Microsoft.EventGrid
 ```
-Subscriptions are added to the Preview Program as capacity is available.  Request status can be monitored by issuing the following command:
+Subscriptions are added to the Preview Program as capacity is available.  Preview participation requests are typically processed within ***1-2 business days***.  Request status can be monitored by issuing the following command:
 ```azurecli-interactive
 az feature show --name storageEventSubscriptions --namespace Microsoft.EventGrid
 ```

@@ -134,14 +134,6 @@ The following table provides different examples of log searches that retrieve re
 
 | Query | Description |
 |:--- |:--- |
-| Type=MyApp_CL |All events from a custom log named MyApp_CL. |
-| Type=MyApp_CL Severity_CF=error |All events from a custom log named MyApp_CL with a value of *error* in a custom field named *Severity_CF*. |
-
->[!NOTE]
-> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the above queries would change to the following.
-
-> | Query | Description |
-|:--- |:--- |
 | MyApp_CL |All events from a custom log named MyApp_CL. |
 | MyApp_CL &#124; where Severity_CF=="error" |All events from a custom log named MyApp_CL with a value of *error* in a custom field named *Severity_CF*. |
 

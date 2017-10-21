@@ -39,7 +39,7 @@ See following topics if you are new to Azure Batch service:
 * [New-AzureBatchPool](/powershell/module/azurerm.batch/New-AzureBatchPool?view=azurermps-4.3.1) cmdlet to create an Azure Batch pool.
 
 ## Azure Batch linked service 
-The following JSON defines a sample Azure Batch line service. For details, see [Compute environments supported by Azure Data Factory](compute-linked-services.md)
+The following JSON defines a sample Azure Batch linked service. For details, see [Compute environments supported by Azure Data Factory](compute-linked-services.md)
 
 ```json
 {
