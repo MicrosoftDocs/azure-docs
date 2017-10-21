@@ -88,7 +88,7 @@ The Azure Database for PostgreSQL service creates a firewall at the server-level
 
 When we created our Azure Database for PostgreSQL server, the default **postgres** database also gets created. To connect to your database server, you need to provide host information and access credentials.
 
-1. From the left-hand menu in Azure portal, click **All resources** and search for the server you just created **mypgserver-20170401**.
+1. From the left-hand menu in the Azure portal, click **All resources** and search for the server you just created **mypgserver-20170401**.
 
   ![Azure Database for PostgreSQL - Search for server ](./media/tutorial-design-database-using-azure-portal/4-locate.png)
 
@@ -100,7 +100,7 @@ When we created our Azure Database for PostgreSQL server, the default **postgres
 
 ## Connect to PostgreSQL database using psql in Cloud Shell
 
-Let's now use the psql command-line utility to connect to the Azure Database for PostgreSQL server. 
+Let's now use the [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) command-line utility to connect to the Azure Database for PostgreSQL server. 
 1. Launch the Azure Cloud Shell via the terminal icon on the top navigation pane.
 
    ![Azure Database for PostgreSQL - Azure Cloud Shell terminal icon](./media/tutorial-design-database-using-azure-portal/7-cloud-shell.png)
@@ -142,27 +142,27 @@ CREATE TABLE inventory (
 );
 ```
 
-You can see the newly created table in the list of tabvles now by typing:
+You can see the newly created table in the list of tables now by typing:
 ```sql
 \dt
 ```
 
 ## Load data into the tables
-Now that we have a table, we can insert some data into it. At the open command prompt window, run the following query to insert some rows of data
+Now that we have a table, we can insert some data into it. At the open command prompt window, run the following query to insert some rows of data.
 ```sql
 INSERT INTO inventory (id, name, quantity) VALUES (1, 'banana', 150); 
 INSERT INTO inventory (id, name, quantity) VALUES (2, 'orange', 154);
 ```
 
-You have now two rows of sample data into the table you created earlier.
+You have now two rows of sample data into the inventory table you created earlier.
 
 ## Query and update the data in the tables
-Execute the following query to retrieve information from the database table. 
+Execute the following query to retrieve information from the inventory database table. 
 ```sql
 SELECT * FROM inventory;
 ```
 
-You can also update the data in the tables
+You can also update the data in the table.
 ```sql
 UPDATE inventory SET quantity = 200 WHERE name = 'banana';
 ```
@@ -173,9 +173,9 @@ SELECT * FROM inventory;
 ```
 
 ## Restore data to a previous point in time
-Imagine you have accidentally deleted this table. This situation is something you cannot easily recover from. Azure Database for PostgreSQL allows you to go back to any point-in-time (in the last up to 7 days (Basic) and 35 days (Standard)) and restore this point-in-time to a new server. You can use this new server to recover your deleted data. The following steps restore the sample server to a point before the table was added.
+Imagine you have accidentally deleted this table. This situation is something you cannot easily recover from. Azure Database for PostgreSQL allows you to go back to any point-in-time (in the last up to 7 days (Basic) and 35 days (Standard)) and restore this point-in-time to a new server. You can use this new server to recover your deleted data. The following steps restore the **mypgserver-20170401** server to a point before the inventory table was added.
 
-1.	On the Azure Database for PostgreSQL page for your server, click **Restore** on the toolbar. The **Restore** page opens.
+1.	On the Azure Database for PostgreSQL **Overview** page for your server, click **Restore** on the toolbar. The **Restore** page opens.
   ![Azure portal - Restore form options](./media/tutorial-design-database-using-azure-portal/9-azure-portal-restore.png)
 2.	Fill out the **Restore** form with the required information:
 
@@ -184,7 +184,7 @@ Imagine you have accidentally deleted this table. This situation is something yo
   - **Target server**: Provide a new server name you want to restore to
   - **Location**: You cannot select the region, by default it is same as the source server
   - **Pricing tier**: You cannot change this value when restoring a server. It is same as the source server. 
-3.	Click **OK** to restore the server to [restore to a point-in-time](./howto-restore-server-portal.md) before the tables was deleted. Restoring a server to a different point in time creates a duplicate new server as the original server as of the point in time you specify, provided that it is within the retention period for your [service tier](./concepts-service-tiers.md).
+3.	Click **OK** [restore the server to a point-in-time](./howto-restore-server-portal.md) before the table was deleted. Restoring a server to a different point in time creates a duplicate new server as the original server as of the point in time you specify, provided that it is within the retention period for your [service tier](./concepts-service-tiers.md).
 
 ## Next Steps
 In this tutorial, you learned how to use the Azure portal and other utilities to:
@@ -197,5 +197,5 @@ In this tutorial, you learned how to use the Azure portal and other utilities to
 > * Update data
 > * Restore data
 
-Next, learn how to use Azure CLI to do similar tasks, review this tutorial: 
+Next, to learn how to use the Azure CLI to do similar tasks, review this tutorial: 
 [Design your first Azure Database for PostgreSQL using Azure CLI](tutorial-design-database-using-azure-cli.md)
