@@ -1,4 +1,4 @@
---
+---
 title: Apply updates in Azure Stack | Microsoft Docs
 description: Learn how to import and install Microsoft update packages for an Azure Stack integrated system.
 services: azure-stack
@@ -10,10 +10,10 @@ editor: ''
 ms.assetid: 449ae53e-b951-401a-b2c9-17fee2f491f1
 ms.service: azure-stack
 ms.workload: na
-pms.tgt_pltfrm: na
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 10/20/2017
 ms.author: twooley
 
 ---
@@ -35,6 +35,9 @@ When a Microsoft update package for Azure Stack is available, download the packa
 ## Import and install updates
 
 The following procedure shows how to import and install update packages in the administrator portal.
+
+> [!IMPORTANT]
+> We strongly recommend that you notify users of any maintenance operations, and that you schedule normal maintenance windows during non-business hours as much as possible. Maintenance operations may affect both user workloads and portal operations.
 
 1. In the administrator portal, select **More services**. Then, under the **Data + Storage** category, select **Storage accounts**. (Or, in the filter box, start typing **storage accounts**, and select it.)
 
@@ -71,4 +74,5 @@ The following procedure shows how to import and install update packages in the a
 
 ## Next steps
 
+- [Manage updates in Azure Stack overview](azure-stack-updates.md)
 - [Azure Stack servicing policy](azure-stack-servicing-policy.md)
