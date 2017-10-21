@@ -422,9 +422,9 @@ To learn more, see the following articles:
 [hdinsight-hadoop-customize-cluster]: ../hdinsight/hdinsight-hadoop-customize-cluster.md
 [hdinsight-get-started]: ../hdinsight/hdinsight-hadoop-tutorial-get-started-windows.md
 [hdinsight-storage]: ../hdinsight/hdinsight-hadoop-use-blob-storage.md
-[hdinsight-use-hive]: ../hdinsight/hdinsight-use-hive.md
-[hdinsight-use-mapreduce]: ../hdinsight/hdinsight-use-mapreduce.md
-[hdinsight-use-pig]: ../hdinsight/hdinsight-use-pig.md
+[hdinsight-use-hive]:../hdinsight/hadoop/hdinsight-use-hive.md
+[hdinsight-use-mapreduce]:../hdinsight/hadoop/hdinsight-use-mapreduce.md
+[hdinsight-use-pig]:../hdinsight/hadoop/hdinsight-use-pig.md
 
 [image-customprovision-page1]: ./media/run-hadoop-with-hdinsight/customprovision-page1.png
 [image-hive-query-results]: ./media/run-hadoop-with-hdinsight/hivequeryresults.PNG

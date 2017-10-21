@@ -25,7 +25,7 @@ ms.author: larryfr
 This document provides an example of using Azure PowerShell in the Azure Resource Group mode to run Hive queries in a Hadoop on HDInsight cluster.
 
 > [!NOTE]
-> This document does not provide a detailed description of what the HiveQL statements that are used in the examples do. For information on the HiveQL that is used in this example, see [Use Hive with Hadoop on HDInsight](../hdinsight-use-hive.md).
+> This document does not provide a detailed description of what the HiveQL statements that are used in the examples do. For information on the HiveQL that is used in this example, see [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md).
 
 **Prerequisites**
 
@@ -111,9 +111,9 @@ As you can see, Azure PowerShell provides an easy way to run Hive queries in an 
 
 For general information about Hive in HDInsight:
 
-* [Use Hive with Hadoop on HDInsight](../hdinsight-use-hive.md)
+* [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
 
 For information about other ways you can work with Hadoop on HDInsight:
 
-* [Use Pig with Hadoop on HDInsight](../hdinsight-use-pig.md)
-* [Use MapReduce with Hadoop on HDInsight](../hdinsight-use-mapreduce.md)
+* [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
+* [Use MapReduce with Hadoop on HDInsight](hdinsight-use-mapreduce.md)

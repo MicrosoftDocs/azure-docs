@@ -74,12 +74,12 @@ Azure HDInsight currently provides the following cluster types, each with a set 
 | Cluster type | Functionality |
 | --- | --- |
 | [Hadoop](hadoop/apache-hadoop-introduction.md) |Batch query and analysis of stored data |
-| [HBase](hdinsight-hbase-overview.md) |Processing for large amounts of schemaless, NoSQL data |
+| [HBase](hbase/apache-hbase-overview.md) |Processing for large amounts of schemaless, NoSQL data |
 | [Storm](storm/apache-storm-overview.md) |Real-time event processing |
 | [Spark](spark/apache-spark-overview.md) |In-memory processing, interactive queries, micro-batch stream processing |
 | [Kafka (Preview)](kafka/apache-kafka-introduction.md) | A distributed streaming platform that can be used to build real-time streaming data pipelines and applications |
-| [R Server](hdinsight-hadoop-r-server-overview.md) |Various big data statistics, predictive modeling, and machine learning capabilities |
-| [Interactive Query](hdinsight-hadoop-use-interactive-hive.md) |In-memory caching for interactive and faster Hive queries |
+| [R Server](r-server/r-server-overview.md) |Various big data statistics, predictive modeling, and machine learning capabilities |
+| [Interactive Query](./interactive-query/apache-interactive-query-get-started.md) |In-memory caching for interactive and faster Hive queries |
 
 ### Number of nodes for each cluster type
 Each cluster type has its own number of nodes, terminology for nodes, and default VM size. In the following table, the number of nodes for each node type is in parentheses.
@@ -205,7 +205,7 @@ Most of the HDInsight applications are installed on an empty edge node.  An empt
 
 You can install additional components or customize cluster configuration by using scripts during creation. Such scripts are invoked via **Script Action**, which is a configuration option that can be used from the Azure portal, HDInsight Windows PowerShell cmdlets, or the HDInsight .NET SDK. For more information, see [Customize HDInsight cluster using Script Action](hdinsight-hadoop-customize-cluster-linux.md).
 
-Some native Java components, like Mahout and Cascading, can be run on the cluster as Java Archive (JAR) files. These JAR files can be distributed to Azure Storage and submitted to HDInsight clusters with Hadoop job submission mechanisms. For more information, see [Submit Hadoop jobs programmatically](hdinsight-submit-hadoop-jobs-programmatically.md).
+Some native Java components, like Mahout and Cascading, can be run on the cluster as Java Archive (JAR) files. These JAR files can be distributed to Azure Storage and submitted to HDInsight clusters with Hadoop job submission mechanisms. For more information, see [Submit Hadoop jobs programmatically](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 
 > [!NOTE]
 > If you have issues deploying JAR files to HDInsight clusters, or calling JAR files on HDInsight clusters, contact [Microsoft Support](https://azure.microsoft.com/support/options/).

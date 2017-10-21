@@ -288,9 +288,9 @@ This command copies the files from the local system to the head node. For more i
 
 In this document, you have learned how to develop a Java MapReduce job. See the following documents for other ways to work with HDInsight.
 
-* [Use Hive with HDInsight](../hdinsight-use-hive.md)
-* [Use Pig with HDInsight](../hdinsight-use-pig.md)
-* [Use MapReduce with HDInsight](../hdinsight-use-mapreduce.md)
+* [Use Hive with HDInsight](hdinsight-use-hive.md)
+* [Use Pig with HDInsight](hdinsight-use-pig.md)
+* [Use MapReduce with HDInsight](hdinsight-use-mapreduce.md)
 
 For more information, see also the [Java Developer Center](https://azure.microsoft.com/develop/java/).
 
@@ -298,7 +298,7 @@ For more information, see also the [Java Developer Center](https://azure.microso
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
-[hdinsight-use-sqoop]: hdinsight-use-sqoop.md
+[hdinsight-use-sqoop]:hdinsight-use-sqoop.md
 [hdinsight-ODBC]: hdinsight-connect-excel-hive-ODBC-driver.md
 [hdinsight-power-query]:apache-hadoop-connect-excel-power-query.md
 

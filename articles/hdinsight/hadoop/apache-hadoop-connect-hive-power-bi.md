@@ -25,7 +25,7 @@ Learn how to connect Microsoft Power BI to Azure HDInsight and visualize the Hiv
 
 ![HDInsight Power BI the map report](./media/apache-hadoop-connect-hive-power-bi/hdinsight-power-bi-visualization.png)
 
-The information also applies to the new [Interactive Query](./../hdinsight-hadoop-use-interactive-hive.md) cluster type.
+The information also applies to the new [Interactive Query](../interactive-query/apache-interactive-query-get-started.md) cluster type.
 
 ## Prerequisites
 Before going through this article, you must have the following items:
@@ -65,6 +65,6 @@ In this article, you learned how to visualize data from HDInsight using Power BI
 * [Use Zeppelin to run Hive queries in Azure HDInsight ](./../hdinsight-connect-hive-zeppelin.md).
 * [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver](./apache-hadoop-connect-excel-hive-odbc-driver.md).
 * [Connect Excel to Hadoop by using Power Query](apache-hadoop-connect-excel-power-query.md).
-* [Connect to Azure HDInsight and run Hive queries using Data Lake Tools for Visual Studio](./../hdinsight-hadoop-visual-studio-tools-get-started.md).
+* [Connect to Azure HDInsight and run Hive queries using Data Lake Tools for Visual Studio](apache-hadoop-visual-studio-tools-get-started.md).
 * [Use Azure HDInsight Tool for Visual Studio Code](../hdinsight-for-vscode.md).
 * [Upload Data to HDInsight](./../hdinsight-upload-data.md).

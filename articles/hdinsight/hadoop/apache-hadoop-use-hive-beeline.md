@@ -251,12 +251,12 @@ To connect to the Spark Thrift server of a Spark on HDInsight cluster, use port 
 
 For more general information on Hive in HDInsight, see the following document:
 
-* [Use Hive with Hadoop on HDInsight](../hdinsight-use-hive.md)
+* [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
 
 For more information on other ways you can work with Hadoop on HDInsight, see the following documents:
 
-* [Use Pig with Hadoop on HDInsight](../hdinsight-use-pig.md)
-* [Use MapReduce with Hadoop on HDInsight](../hdinsight-use-mapreduce.md)
+* [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
+* [Use MapReduce with Hadoop on HDInsight](hdinsight-use-mapreduce.md)
 
 If you are using Tez with Hive, see the following documents:
 
@@ -283,7 +283,7 @@ If you are using Tez with Hive, see the following documents:
 
 
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
-[hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
+[hdinsight-submit-jobs]:submit-apache-hadoop-jobs-programmatically.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
 
 

@@ -215,13 +215,13 @@ Use the following steps to generate data, sort, and then validate the output:
 
 From this article, you learned how to run the samples included with the Linux-based HDInsight clusters. For tutorials about using Pig, Hive, and MapReduce with HDInsight, see the following topics:
 
-* [Use Pig with Hadoop on HDInsight](../hdinsight-use-pig.md)
-* [Use Hive with Hadoop on HDInsight](../hdinsight-use-hive.md)
-* [Use MapReduce with Hadoop on HDInsight](../hdinsight-use-mapreduce.md)
+* [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
+* [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
+* [Use MapReduce with Hadoop on HDInsight](hdinsight-use-mapreduce.md)
 
 [hdinsight-sdk-documentation]: https://msdn.microsoft.com/library/azure/dn479185.aspx
 
-[hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
+[hdinsight-submit-jobs]:submit-apache-hadoop-jobs-programmatically.md
 [hdinsight-introduction]:apache-hadoop-introduction.md
 
 

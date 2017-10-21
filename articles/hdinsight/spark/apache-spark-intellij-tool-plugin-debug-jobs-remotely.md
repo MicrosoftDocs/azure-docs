@@ -3,7 +3,7 @@ title: 'Azure Toolkit for IntelliJ: Debug applications remotely in HDInsight Spa
 description: Learn how use HDInsight Tools in Azure Toolkit for IntelliJ to remotely debug Spark applications that run on HDInsight clusters through VPN.
 services: hdinsight
 documentationcenter: ''
-author: nitinme
+author: maxluk
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
-ms.author: nitinme
+ms.author: maxluk
 
 ---
 # Use Azure Toolkit for IntelliJ to debug Spark applications remotely in HDInsight through VPN
@@ -282,7 +282,7 @@ We recommend that you also create an Apache Spark cluster in Azure HDInsight tha
 ### Tools and extensions
 * [Use Azure Toolkit for IntelliJ to create Spark applications for an HDInsight cluster](apache-spark-intellij-tool-plugin.md)
 * [Use Azure Toolkit for IntelliJ to debug Spark applications remotely through SSH](apache-spark-intellij-tool-debug-remotely-through-ssh.md)
-* [Use HDInsight Tools for IntelliJ with Hortonworks Sandbox](../hdinsight-tools-for-intellij-with-hortonworks-sandbox.md)
+* [Use HDInsight Tools for IntelliJ with Hortonworks Sandbox](../hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox.md)
 * [Use HDInsight Tools in Azure Toolkit for Eclipse to create Spark applications](../hdinsight-apache-spark-eclipse-tool-plugin.md)
 * [Use Zeppelin notebooks with a Spark cluster in HDInsight](apache-spark-zeppelin-notebook.md)
 * [Kernels available for Jupyter notebook in a Spark cluster for HDInsight](apache-spark-jupyter-notebook-kernels.md)

@@ -509,7 +509,7 @@ For more examples of Storm topologies with HDInsight, see [Example topologies fo
 
 For more information about Apache Storm, see the [Apache Storm](https://storm.incubator.apache.org/) site.
 
-For more information about HBase on HDInsight, see the [HBase with HDInsight Overview](../hdinsight-hbase-overview.md).
+For more information about HBase on HDInsight, see the [HBase with HDInsight Overview](../hbase/apache-hbase-overview.md).
 
 For more information about Socket.io, see the [socket.io](http://socket.io/) site.
 
