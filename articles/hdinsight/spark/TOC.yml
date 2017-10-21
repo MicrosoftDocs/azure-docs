@@ -152,7 +152,6 @@
           maintainContext: true
         - name: Use REST to install apps
           href: https://msdn.microsoft.com/library/mt706515.aspx
-          maintainContext: true
         - name: Publish HDInsight apps to Azure Marketplace
           href: ../hdinsight-apps-publish-applications.md
           maintainContext: true
@@ -320,25 +319,18 @@
   items:
   - name: Code samples
     href: https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight
-    maintainContext: true
   - name: Azure PowerShell
     href: /powershell/module/azurerm.hdinsight
-    maintainContext: true
   - name: .NET (Hadoop)
     href: https://docs.microsoft.com/dotnet/api/overview/azure/hd-insight?view=azure-dotnet
-    maintainContext: true
   - name: .NET (HBase)
     href: https://www.nuget.org/packages/Microsoft.HBase.Client/
-    maintainContext: true
   - name: .NET (Avro)
     href: https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library
-    maintainContext: true
   - name: REST
     href: /rest/api/hdinsight/
-    maintainContext: true
   - name: REST (Spark)
     href: /rest/api/hdinsightspark/
-    maintainContext: true
 - name: Resources
   items:
     - name: Release notes
