@@ -50,7 +50,7 @@ A [Network Security Group (NSG)](../virtual-network/virtual-networks-nsg.md) con
 
 ![Recommended subnet design](./media/active-directory-domain-services-design-guide/vnet-subnet-design.png)
 
-### Best practices for choosing a subnet
+### Guidelines for choosing a subnet
 * Deploy Azure AD Domain Services to a **separate dedicated subnet** within your Azure virtual network.
 * Do not apply NSGs to the dedicated subnet for your managed domain. If you must apply NSGs to the dedicated subnet, ensure you **do not block the ports required to service and manage your domain**.
 * Do not overly restrict the number of IP addresses available within the dedicated subnet for your managed domain. This restriction prevents the service from making two domain controllers available for your managed domain.
@@ -73,7 +73,7 @@ The following ports are required for Azure AD Domain Services to service and mai
 
 Port 5986 is used to perform management tasks using PowerShell remoting on your managed domain. The domain controllers for your managed domain do not usually listen on this port. The service opens this port on managed domain controllers only when a management or maintenance operation needs to be performed for the managed domain. As soon as the operation completes, the service shuts down this port on the managed domain controllers.
 
-Port 3389 is used for remote desktop connections to your managed domain. This port also remains largely turned off on your managed domain. The service enables this port only if we need to connect to your managed domain for troubleshooting purposes, usually initiated in response to a service request you initiate. This mechanism is not used on an ongoing basis since management and monitoring tasks are performed using PowerShell remoting. This port is used only in the rare event that we need to connect remotely to your managed domain for advanced troubleshooting. The port is closed as soon as the troubleshooting operation is complete.
+Port 3389 is used for remote desktop connections to your managed domain. This port also remains largely turned off on your managed domain. The service enables this port only if we need to connect to your managed domain for troubleshooting purposes, initiated in response to a service request you initiate. This mechanism is not used on an ongoing basis since management and monitoring tasks are performed using PowerShell remoting. This port is used only in the rare event that we need to connect remotely to your managed domain for advanced troubleshooting. The port is closed as soon as the troubleshooting operation is complete.
 
 
 ### Sample NSG for virtual networks with Azure AD Domain Services
