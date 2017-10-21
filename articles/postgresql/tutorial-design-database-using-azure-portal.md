@@ -49,9 +49,9 @@ Follow these steps to create an Azure Database for PostgreSQL server:
     - PostgreSQL Version
 
   > [!IMPORTANT]
-  > The server admin login and password that you specify here are required to log in to the server and its databases later in this quick start. Remember or record this information for later use.
+  > The server admin login and password that you specify here are required to log in to the server and its databases later in this quickstart. Remember or record this information for later use.
 
-4.	Click **Pricing tier** to specify the service tier and performance level for your new database. For this quick start, select **Basic** Tier, **50 Compute Units** and **50 GB** of included storage.
+4.	Click **Pricing tier** to specify the service tier and performance level for your new database. For this quickstart, select **Basic** Tier, **50 Compute Units** and **50 GB** of included storage.
  ![Azure Database for PostgreSQL - pick the service tier](./media/tutorial-design-database-using-azure-portal/2-service-tier.png)
 5.	Click **Ok**.
 6.	Click **Create** to provision the server. Provisioning takes a few minutes.
