@@ -35,6 +35,8 @@ You can monitor metrics over time in the [Azure portal](https://portal.azure.com
 
 ![][1]
 
+You can also access metrics directly via the namespace. To do so, select your namespace and then click **Metrics (Peview)**. 
+
 For metrics supporting dimensions, you must filter with the desired dimension value.
 
 ## Billing
