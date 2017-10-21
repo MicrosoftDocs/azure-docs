@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 09/23/2017
 ms.author: maheshu
 
 ---
@@ -23,7 +23,7 @@ The following guidelines help you select a virtual network to use with Azure AD 
 
 ### Type of Azure virtual network
 * **Resource Manager virtual networks**: Azure AD Domain Services can be enabled in virtual networks created using Azure Resource Manager.
-* You can enable Azure AD Domain Services in a classic Azure virtual network. However, support for classic virtual networks will be deprecated soon. We recommend using Resource Manager virtual networks for newly created managed domains.
+* You cannot enable Azure AD Domain Services in a classic Azure virtual network.
 * You can connect other virtual networks to the virtual network in which Azure AD Domain Services is enabled. For more information, see the [Network connectivity](active-directory-ds-networking.md#network-connectivity) section.
 * **Regional Virtual Networks**: If you plan to use an existing virtual network, ensure that it is a regional virtual network.
 
