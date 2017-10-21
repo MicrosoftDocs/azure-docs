@@ -35,6 +35,10 @@ You can monitor metrics over time in the [Azure portal](https://portal.azure.com
 
 ![][1]
 
+You can also access metrics directly via the namespace. To do so, select your namespace and then click **Metrics (Peview)**. To display metrics filtered to the scope of the entity, select the entity and then click **Metrics (preview)**.
+
+![][2]
+
 For metrics supporting dimensions, you must filter with the desired dimension value.
 
 ## Billing
@@ -95,6 +99,6 @@ Azure Service Bus supports the following dimensions for metrics in Azure Monitor
 See the [Azure Monitoring overview](../monitoring-and-diagnostics/monitoring-overview.md).
 
 [1]: ./media/service-bus-metrics-azure-monitor/service-bus-monitor1.png
-
+[2]: ./media/service-bus-metrics-azure-monitor/service-bus-monitor2.png
 
 
