@@ -79,7 +79,7 @@ Counts the number of data and management operations requests.
 |Connections Opened (preview)|The number of open connections.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
 |Connections Closed (preview)|The number of closed connections.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName |
 
-## Memory usage metrics
+## Resource usage metrics
 
 | Metric Name | Description |
 | ------------------- | ----------------- |
