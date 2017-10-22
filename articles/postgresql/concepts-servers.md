@@ -45,6 +45,6 @@ The following elements help ensure safe access to your database.
 You can manage Azure Database for PostgreSQL servers by using the Azure portal or the [Azure CLI](/cli/azure/postgres).
 
 ## Next steps
-- For an overview of the service, see [Azure Database for PostgreSQL Overview](overview.md)
-- For information about specific resource quotas and limitations based on your **service tier**, see [Service tiers](concepts-service-tiers.md)
+- For an overview of the service, see [Azure Database for PostgreSQL Overview](overview.md).
+- For information about specific resource quotas and limitations based on your **service tier**, see [Service tiers](concepts-service-tiers.md).
 - For information on connecting to the service, see [Connection libraries for Azure Database for PostgreSQL](concepts-connection-libraries.md).
