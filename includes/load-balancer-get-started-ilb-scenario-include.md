@@ -1,6 +1,6 @@
 ## Configuration scenario
 
-In this scenario, we're creating an internal load balancer in a virtual network:
+In this scenario, we're creating an internal load balancer in a virtual network as shown in the following figure:
 
 ![Internal load balancer scenario](./media/load-balancer-get-started-ilb-scenario-include/figure1.png)
 
