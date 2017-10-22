@@ -192,7 +192,7 @@ The command is synchronous, and will return after the server is restored. Once t
 ## Next steps
 In this tutorial, you learned how to use Azure CLI (command-line interface) and other utilities to:
 > [!div class="checklist"]
-> * Create an Azure Database for PostgreSQL
+> * Create an Azure Database for PostgreSQL server
 > * Configure the server firewall
 > * Use [**psql**](https://www.postgresql.org/docs/9.6/static/app-psql.html) utility to create a database
 > * Load sample data
