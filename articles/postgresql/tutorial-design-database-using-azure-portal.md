@@ -17,7 +17,7 @@ Azure Database for PostgreSQL is a managed service that enables you to run, mana
 
 In this tutorial, you use the Azure portal to learn how to:
 > [!div class="checklist"]
-> * Create an Azure Database for PostgreSQL
+> * Create an Azure Database for PostgreSQL server
 > * Configure the server firewall
 > * Use [**psql**](https://www.postgresql.org/docs/9.6/static/app-psql.html) utility to create a database
 > * Load sample data
@@ -189,7 +189,7 @@ Imagine you have accidentally deleted this table. This situation is something yo
 ## Next Steps
 In this tutorial, you learned how to use the Azure portal and other utilities to:
 > [!div class="checklist"]
-> * Create an Azure Database for PostgreSQL
+> * Create an Azure Database for PostgreSQL server
 > * Configure the server firewall
 > * Use [**psql**](https://www.postgresql.org/docs/9.6/static/app-psql.html) utility to create a database
 > * Load sample data
