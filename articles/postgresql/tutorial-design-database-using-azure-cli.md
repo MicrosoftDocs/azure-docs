@@ -60,6 +60,8 @@ Create an Azure PostgreSQL server-level firewall rule with the [az postgres serv
 
 You can set a firewall rule that covers an IP range to be able to connect from your network. The following example uses [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule#create) to create a firewall rule `AllowAllIps` that allows connection from any IP address. To open all IP addresses, use 0.0.0.0 as the starting IP address and 255.255.255.255 as the ending address.
 
+To restrict access to your Azure PostgreSQL server to only your network, you can set the firewall rule to only cover your corporate network IP address range.
+
 ```azurecli-interactive
 az postgres server firewall-rule create --resource-group myresourcegroup --server mypgserver-20170401 --name AllowAllIps --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
 ```
