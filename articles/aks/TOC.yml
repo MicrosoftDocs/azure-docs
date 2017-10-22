@@ -26,7 +26,7 @@
   - name: 7 - Monitor with Log Analytics
     href: tutorial-kubernetes-monitor.md
   - name: 8 - Upgrade cluster
-    href: tutorial-kubernenetes-upgrade-cluster.md
+    href: tutorial-kubernetes-upgrade-cluster.md
 - name: How-to guides
   items:
   - name: Scale an AKS cluster

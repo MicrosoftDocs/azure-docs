@@ -172,4 +172,4 @@ In this tutorial, you updated an application and rolled out this update to a Kub
 Advance to the next tutorial to learn about how to monitor Kubernetes with Operations Management Suite.
 
 > [!div class="nextstepaction"]
-> [Monitor Kubernetes with OMS](./tutorial-kubernetes-monitor.md)
+> [Monitor Kubernetes with Log Analytics](./tutorial-kubernetes-monitor.md)
