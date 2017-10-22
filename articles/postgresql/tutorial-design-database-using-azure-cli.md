@@ -163,7 +163,7 @@ You can also update the data in the inventory table
 UPDATE inventory SET quantity = 200 WHERE name = 'banana';
 ```
 
-The row gets updated accordingly when you retrieve data.
+You can see the updated values when you retrieve the data.
 ```sql
 SELECT * FROM inventory;
 ```
