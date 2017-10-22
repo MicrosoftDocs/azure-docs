@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 10/19/2017
 ms.author: maheshu
 
 ---
@@ -46,7 +46,7 @@ The service itself does not directly support this scenario. Your managed domain 
 PowerShell/automated deployment of Azure AD Domain Services is not available currently.
 
 #### Is Azure AD Domain Services available in the new Azure portal?
-Yes. Azure AD Domain Services can be configured using the [Azure portal](https://portal.azure.com). We expect to stop supporting the [classic Azure portal](https://manage.windowsazure.com) in the future.
+Yes. Azure AD Domain Services can be configured using the [Azure portal](https://portal.azure.com). The [classic Azure portal](https://manage.windowsazure.com) is no longer supported.
 
 #### Can I enable Azure AD Domain Services using a Resource Manager template?
 No. Some tasks need to be performed as part of enabling Azure AD Domain Services. These tasks are not possible through a Resource Manager template. Use the new Azure portal to enable Azure AD Domain Services for your directory.

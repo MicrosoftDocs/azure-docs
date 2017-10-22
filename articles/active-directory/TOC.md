@@ -5,6 +5,8 @@
 ## [Choose a hybrid identity solution](choose-hybrid-identity-solution.md)
 ## [Associate Azure subscriptions](active-directory-how-subscriptions-associated-directory.md)
 ## [FAQs](active-directory-faq.md)
+## [What's New](whats-new.md)
+
 
 # Get started
 ## [Get started with Azure AD](get-started-azure-ad.md)
@@ -151,8 +153,7 @@
 ### [Overview](active-directory-enable-sso-scenario.md)
 ### [Getting started](active-directory-integrating-applications-getting-started.md)
 ### [SaaS app integration tutorials](active-directory-saas-tutorial-list.md)
-### [Cloud App Discovery](cloudappdiscovery-overview.md)
-#### [Set up agentless discovery](cloudappdiscovery-get-started.md)
+### [Cloud App Discovery](cloudappdiscovery-get-started.md)
 #### [Create snapshot reports](cloudappdiscovery-set-up-snapshots.md)
 #### [Configure continuous reporting](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 #### [Use a custom log parser](https://docs.microsoft.com/cloud-app-security/custom-log-parser)

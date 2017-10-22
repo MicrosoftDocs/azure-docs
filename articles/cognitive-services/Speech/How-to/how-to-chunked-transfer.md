@@ -1,9 +1,9 @@
 ---
-title: How to Chunked Transfer Audio Stream to the Speech Service | Microsoft Docs
+title: How to Chunked Transfer Audio Stream | Microsoft Docs
 description: How to use chunked trasfer to send audio stream to the speech service
 services: cognitive-services
 author: zhouwangzw
-manager: wolfma61
+manager: wolfma
 
 ms.service: cognitive-services
 ms.technology: speech
