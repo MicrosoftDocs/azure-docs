@@ -1,3 +1,5 @@
+- name: Azure HDInsight Documentation
+  href: /azure/hdinsight
 - name: Apache Spark on HDInsight
   items:
   - name: Overview

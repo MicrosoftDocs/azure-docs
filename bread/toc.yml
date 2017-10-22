@@ -388,4 +388,4 @@
     items:
       - name: Spark
         tocHref: /azure/hdinsight/spark
-        topicHref: /azure/hdinsight/spark/
+        topicHref: /azure/hdinsight/spark/apache-spark-overview
