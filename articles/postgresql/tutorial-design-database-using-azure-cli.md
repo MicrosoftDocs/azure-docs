@@ -105,7 +105,7 @@ The result is in JSON format. Make a note of the **administratorLogin** and **fu
 ## Connect to Azure Database for PostgreSQL database using psql
 If your client computer has PostgreSQL installed, you can use a local instance of [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html), or the Azure Cloud Console to connect to an Azure PostgreSQL server. Let's now use the psql command-line utility to connect to the Azure Database for PostgreSQL server.
 
-1. Run the following psql command to connect to an Azure Database for PostgreSQL server
+1. Run the following psql command to connect to an Azure Database for PostgreSQL database:
 ```azurecli-interactive
 psql --host=<servername> --port=<port> --username=<user@servername> --dbname=<dbname>
 ```
@@ -116,7 +116,7 @@ psql --host=<servername> --port=<port> --username=<user@servername> --dbname=<db
 psql --host=mypgserver-20170401.postgres.database.azure.com --port=5432 --username=mylogin@mypgserver-20170401 ---dbname=postgres
 ```
 
-2.  Once you are connected to the server, create a blank database at the prompt.
+2.  Once you are connected to the server, create a blank database at the prompt:
 ```sql
 CREATE DATABASE mypgsqldb;
 ```
@@ -129,7 +129,7 @@ CREATE DATABASE mypgsqldb;
 ## Create tables in the database
 Now that you know how to connect to the Azure Database for PostgreSQL, we can go over how to complete some basic tasks.
 
-First, we can create a table and load it with some data. Let's create a table that tracks inventory information.
+First, we can create a table and load it with some data. Let's create a table that tracks inventory information:
 ```sql
 CREATE TABLE inventory (
 	id serial PRIMARY KEY, 
@@ -143,22 +143,22 @@ You can see the newly created table in the list of tables now by typing:
 \dt
 ```
 
-## Load data into the tables
+## Load data into the table
 Now that we have a table, we can insert some data into it. At the open command prompt window, run the following query to insert some rows of data
 ```sql
 INSERT INTO inventory (id, name, quantity) VALUES (1, 'banana', 150); 
 INSERT INTO inventory (id, name, quantity) VALUES (2, 'orange', 154);
 ```
 
-You have now two rows of sample data into the table you created earlier.
+You have now added two rows of sample data into the table you created earlier.
 
 ## Query and update the data in the tables
-Execute the following query to retrieve information from the database table. 
+Execute the following query to retrieve information from the inventory table. 
 ```sql
 SELECT * FROM inventory;
 ```
 
-You can also update the data in the tables
+You can also update the data in the inventory table
 ```sql
 UPDATE inventory SET quantity = 200 WHERE name = 'banana';
 ```
@@ -169,8 +169,9 @@ SELECT * FROM inventory;
 ```
 
 ## Restore a database to a previous point in time
-Imagine you have accidentally deleted a table. This is something you cannot easily recover from. Azure Database for PostgreSQL allows you to go back to any point-in-time (in the last up to 7 days (Basic) and 35 days (Standard)) and restore this point-in-time to a new server. You can use this new server to recover your deleted data. The following steps restore the sample server to a point before the table was added.
+Imagine you have accidentally deleted a table. This is something you cannot easily recover from. Azure Database for PostgreSQL allows you to go back to any point-in-time (up to 7 days in Basic and 35 days in Standard) and restore this point-in-time to a new server. You can use this new server to recover your deleted data. 
 
+The following command restores the sample server to a point before the table was added:
 ```azurecli-interactive
 az postgres server restore --resource-group myResourceGroup --name mypgserver-restored --restore-point-in-time 2017-04-13T13:59:00Z --source-server mypgserver-20170401
 ```
@@ -183,7 +184,7 @@ The `az postgres server restore` command needs the following parameters:
 | restore-point-in-time | 2017-04-13T13:59:00Z | Select a point-in-time to restore to. This date and time must be within the source server's backup retention period. Use ISO8601 date and time format. For example, you may use your own local timezone, such as `2017-04-13T05:59:00-08:00`, or use UTC Zulu format `2017-04-13T13:59:00Z`. |
 | --source-server | mypgserver-20170401 | The name or ID of the source server to restore from. |
 
-Restoring a server to a point-in-time creates a new server, copying as the original server as of the point in time you specify. The location and pricing tier values for the restored server are the same as the source server.
+Restoring a server to a point-in-time creates a new server, copied as the original server as of the point in time you specify. The location and pricing tier values for the restored server are the same as the source server.
 
 The command is synchronous, and will return after the server is restored. Once the restore finishes, locate the new server that was created. Verify the data was restored as expected.
 
