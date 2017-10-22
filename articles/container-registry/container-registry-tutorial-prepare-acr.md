@@ -73,7 +73,7 @@ Throughout the rest of this tutorial, we use `<acrName>` as a placeholder for th
 
 Now that you have a Premium registry, you can configure geo-replication. Your web app, which you configure in the next tutorial to run in two regions, can then pull its container images from the nearest registry.
 
-Log in to the Azure portal at http://portal.azure.com, then navigate to your Azure Container Registry and select **Replications** under **SERVICES**:
+Navigate to your new container registry in the Azure portal and select **Replications** under **SERVICES**:
 
 ![Replications in the Azure portal container registry UI][tut-portal-03]
 
