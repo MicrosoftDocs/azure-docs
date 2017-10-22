@@ -30,7 +30,10 @@ Email AzureGovFeedback@microsoft.com if you run into any issues using these APIs
  
 
 ### Variations
-- Provisioning and management for the following APIs are available through PowerShell and CLI only (no UI).
+- Provisioning and management for the following APIs are available through PowerShell and CLI only (**no Portal Support**).
+
+### Quickstarts
+The [Azure Government Cognitive Services Quickstart](documentation-government-cognitiveservices.md) will guide you through getting started with provisioning an account and accessing the APIs.
 
 #### Vision
 
