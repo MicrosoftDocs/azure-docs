@@ -23,8 +23,10 @@
     href: tutorial-kubernetes-scale.md
   - name: 6 - Update application
     href: tutorial-kubernetes-app-update.md
-  - name: 7 - Monitor with OMS
+  - name: 7 - Monitor with Log Analytics
     href: tutorial-kubernetes-monitor.md
+  - name: 8 - Upgrade cluster
+    href: tutorial-kubernenetes-upgrade-cluster.md
 - name: How-to guides
   items:
   - name: Scale an AKS cluster
