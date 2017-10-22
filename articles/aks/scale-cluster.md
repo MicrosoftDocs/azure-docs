@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/16/2017
+ms.date: 10/24/2017
 ms.author: gamonroy
 ms.custom: mvc
 
