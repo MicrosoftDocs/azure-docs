@@ -877,7 +877,12 @@
         },
         {
             "source_path": "articles/app-service-logic/app-service-logic-arm-provision.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-arm-provision",
+            "redirect_url": "/azure/logic-apps/logic-apps-create-logic-apps-azure-resource-manager-templates",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-logic/logic-apps-arm-provision.md",
+            "redirect_url": "/azure/logic-apps/logic-apps-create-logic-apps-azure-resource-manager-templates",
             "redirect_document_id": false
         },
         {
@@ -1182,7 +1187,12 @@
         },
         {
             "source_path": "articles/app-service-logic/app-service-logic-use-logic-app-templates.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-use-logic-app-templates",
+            "redirect_url": "/azure/logic-apps/logic-apps-create-logic-apps-from-templates",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/logic-apps/logic-apps-use-logic-app-templates.md",
+            "redirect_url": "/azure/logic-apps/logic-apps-create-logic-apps-from-templates",
             "redirect_document_id": false
         },
         {
@@ -13668,6 +13678,11 @@
         {
             "source_path": "articles/azure-functions/functions-create-an-azure-connected-function.md",
             "redirect_url": "/azure/azure-functions/functions-create-storage-queue-triggered-function",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-windows-manage.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell",
             "redirect_document_id": false
         },
         {

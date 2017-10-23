@@ -66,6 +66,8 @@ This section helps you create, get, update, and delete the Microsoft peering con
   ```
 2. Create an ExpressRoute circuit. Follow the instructions to create an [ExpressRoute circuit](howto-circuit-cli.md) and have it provisioned by the connectivity provider.
 
+  [!INCLUDE [Premium](../../includes/expressroute-mspeering-premium-include.md)]
+
   If your connectivity provider offers managed Layer 3 services, you can request your connectivity provider to enable Azure private peering for you. In that case, you won't need to follow instructions listed in the next sections. However, if your connectivity provider does not manage routing for you, after creating your circuit, continue your configuration using the next steps.
 
 3. Check the ExpressRoute circuit to make sure it is provisioned and also enabled. Use the following example:
