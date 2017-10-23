@@ -12,7 +12,7 @@ ms.topic: article
 ms.date: 06/13/2017
 ---
 
-# How to back up and restore a server in Azure Database for PostgreSQL by using the Azure CLI
+# How to backup and restore a server in Azure Database for PostgreSQL by using the Azure CLI
 
 Use Azure Database for PostgreSQL to restore a server database to an earlier date that spans from 7 to 35 days.
 
@@ -27,8 +27,8 @@ To complete this how-to guide, you need:
 > [!IMPORTANT]
 > If you install and use the Azure CLI locally, this how-to guide requires that you use Azure CLI version 2.0 or later. To confirm the version, at the Azure CLI command prompt, enter `az --version`. To install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
-## Back up happens automatically
-When you use Azure Database for PostgreSQL, the database service automatically makes a backup of the service every 5 minutes. 
+## Backup happens automatically
+When you use Azure Database for PostgreSQL, the database service automatically makes a backup of the server every 5 minutes. 
 
 For Basic Tier, the backups are available for 7 days. For Standard Tier, the backups are available for 35 days. For more information, see [Azure Database for PostgreSQL pricing tiers](concepts-service-tiers.md).
 
