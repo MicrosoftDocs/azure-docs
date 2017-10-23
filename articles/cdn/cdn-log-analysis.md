@@ -24,7 +24,11 @@ After you enable CDN for your application, you can monitor CDN usage, check the 
 
 ## Verizon Core Reports
 
-As an Azure CDN user with a Verizon standard or a Verizon premium profile, you can view Verizon Core Reports in the Verizon supplemental portal. The Verizon supplemental portal offers a variety of graphs and views and is accessible via the **Manage** option from the Azure portal. For more information, see [Core Reports from Verizon](cdn-analyze-usage-patterns.md).
+As an Azure CDN user with a Verizon standard or a Verizon premium profile, you can view Verizon Core Reports in the Verizon supplemental portal. Verizon Core Reports is accessible via the **Manage** option from the Azure portal and offers a variety of graphs and views. For more information, see [Core Reports from Verizon](cdn-analyze-usage-patterns.md).
+
+## Verizon Custom Reports
+
+As an Azure CDN user with a Verizon standard or a Verizon premium profile, you can view Verizon Custom Reports in the Verizon supplemental portal. Verizon Custom Reports is accessible via the **Manage** option from the Azure portal. The Verizon Custom Reports page shows the number of hits or data transferred for each edge CName belonging to an Azure CDN profile. The data can be grouped by HTTP response code or cache status over any period of time. For more information, see [Custom Reports from Verizon](cdn-verizon-custom-reports.md).
 
 ## Core analytics via Azure diagnostic logs
 

@@ -69,7 +69,7 @@ For more information about how to construct and use security tokens, see [IoT Hu
 
 ### Protocol specifics
 
-Each supported protocol, such as MQTT, AMQP, and HTTP, transports tokens in different ways.
+Each supported protocol, such as MQTT, AMQP, and HTTPS, transports tokens in different ways.
 
 When using MQTT, the CONNECT packet has the deviceId as the ClientId, {iothubhostname}/{deviceId} in the Username field, and a SAS token in the Password field. {iothubhostname} should be the full CName of the IoT hub (for example, contoso.azure-devices.net).
 
@@ -84,7 +84,7 @@ For SASL PLAIN, the **username** can be:
 
 In both cases, the password field contains the token, as described in [IoT Hub security tokens][lnk-sas-tokens].
 
-HTTP implements authentication by including a valid token in the **Authorization** request header.
+HTTPS implements authentication by including a valid token in the **Authorization** request header.
 
 #### Example
 
@@ -114,7 +114,7 @@ This mechanism is similar to the [Event Hubs publisher policy][lnk-event-hubs-pu
 
 IoT Hub uses security tokens to authenticate devices and services to avoid sending keys on the wire. Additionally, security tokens are limited in time validity and scope. [Azure IoT SDKs][lnk-sdks] automatically generate tokens without requiring any special configuration. Some scenarios do require you to generate and use security tokens directly. Such scenarios include:
 
-* The direct use of the MQTT, AMQP, or HTTP surfaces.
+* The direct use of the MQTT, AMQP, or HTTPS surfaces.
 * The implementation of the token service pattern, as explained in [Custom device authentication][lnk-custom-auth].
 
 IoT Hub also allows devices to authenticate with IoT Hub using [X.509 certificates][lnk-x509].
@@ -192,6 +192,39 @@ def generate_sas_token(uri, key, policy_name, expiry=3600):
     return 'SharedAccessSignature ' + urlencode(rawtoken)
 ```
 
+The functionality in C# to generate a security token is:
+
+```C#
+using System;
+using System.Globalization;
+using System.Net;
+using System.Net.Http;
+using System.Security.Cryptography;
+using System.Text;
+
+public static string generateSasToken(string resourceUri, string key, string policyName, int expiryInSeconds = 3600)
+{
+    TimeSpan fromEpochStart = DateTime.UtcNow - new DateTime(1970, 1, 1);
+    string expiry = Convert.ToString((int)fromEpochStart.TotalSeconds + expiryInSeconds);
+
+    string stringToSign = WebUtility.UrlEncode(resourceUri).ToLower() + "\n" + expiry;
+
+    HMACSHA256 hmac = new HMACSHA256(Convert.FromBase64String(key));
+    string signature = Convert.ToBase64String(hmac.ComputeHash(Encoding.UTF8.GetBytes(stringToSign)));
+
+    string token = String.Format(CultureInfo.InvariantCulture, "SharedAccessSignature sr={0}&sig={1}&se={2}", WebUtility.UrlEncode(resourceUri).ToLower(), WebUtility.UrlEncode(signature), expiry);
+
+    if (!String.IsNullOrEmpty(policyName))
+    {
+        token += "&skn=" + policyName;
+    }
+
+    return token;
+}
+
+```
+
+
 > [!NOTE]
 > Since the time validity of the token is validated on IoT Hub machines, the drift on the clock of the machine that generates the token must be minimal.
 
@@ -209,7 +242,7 @@ The device-facing endpoints are (irrespective of the protocol):
 | Endpoint | Functionality |
 | --- | --- |
 | `{iot hub host name}/devices/{deviceId}/messages/events` |Send device-to-cloud messages. |
-| `{iot hub host name}/devices/{deviceId}/devicebound` |Receive cloud-to-device messages. |
+| `{iot hub host name}/devices/{deviceId}/messages/devicebound` |Receive cloud-to-device messages. |
 
 ### Use a symmetric key in the identity registry
 

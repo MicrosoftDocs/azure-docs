@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
-ms.author: cgillum
+ms.author: azfuncdf
 ---
 
 # Singleton orchestrators in Durable Functions (Azure Functions)
@@ -22,36 +22,40 @@ For background jobs or actor-style orchestrations, you often need to ensure that
 
 ## Singleton example
 
-The following C# example shows an HTTP-trigger function that creates a singleton background job orchestration. It uses a well-known instance ID to ensure that only one instance exists.
+The following C# example shows an HTTP-trigger function that creates a singleton background job orchestration. The code ensures that only one instance exists for a specified instance ID.
 
 ```cs
-[FunctionName("EnsureSingletonTrigger")]
-public static async Task<HttpResponseMessage> Ensure(
-    [HttpTrigger(AuthorizationLevel.Function, methods: "post")] HttpRequestMessage req,
+[FunctionName("HttpStartSingle")]
+public static async Task<HttpResponseMessage> RunSingle(
+    [HttpTrigger(AuthorizationLevel.Function, methods: "post", Route = "orchestrators/{functionName}/{instanceId}")] HttpRequestMessage req,
     [OrchestrationClient] DurableOrchestrationClient starter,
+    string functionName,
+    string instanceId,
     TraceWriter log)
 {
-    // Ensure only one instance is ever running at a time
-    const string OrchestratorName = "MySingletonOrchestrator";
-    const string InstanceId = "MySingletonInstanceId";
-
-    var existingInstance = await starter.GetStatusAsync(InstanceId);
+    // Check if an instance with the specified ID already exists.
+    var existingInstance = await starter.GetStatusAsync(instanceId);
     if (existingInstance == null)
     {
-        log.Info($"Creating singleton instance with ID = {InstanceId}...");
-        await starter.StartNewAsync(OrchestratorName, InstanceId, input: null);
+        // An instance with the specified ID doesn't exist, create one.
+        dynamic eventData = await req.Content.ReadAsAsync<object>();
+        await starter.StartNewAsync(functionName, instanceId, eventData);
+        log.Info($"Started orchestration with ID = '{instanceId}'.");
+        return starter.CreateCheckStatusResponse(req, instanceId);
     }
-
-    return starter.CreateCheckStatusResponse(req, InstanceId);
+    else
+    {
+        // An instance with the specified ID exists, don't create one.
+        return req.CreateErrorResponse(
+            HttpStatusCode.Conflict,
+            $"An instance with ID '{instanceId}' already exists.");
+    }
 }
 ```
 
-By default, instance IDs are randomly generated GUIDs. But notice in this case the trigger function uses a predefined `InstanceId` variable with a value of `MySingletonInstanceId` to pre-assign an instance ID to the orchestrator function. This allows the trigger to check and see whether the well-known instance is already running by calling [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetStatusAsync_).
+By default, instance IDs are randomly generated GUIDs. But in this case, the instance ID is passed in route data from the URL. The code calls [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetStatusAsync_) to check if an instance having the specified ID is already running. If not, an instance is created with that ID.
 
-The implementation details of the orchestrator function do not actually matter. It could be a regular orchestrator function which starts and completes, or it could be one that runs forever (that is, an [Eternal Orchestration](durable-functions-eternal-orchestrations.md)). The important point is that there is only ever one instance running at a time.
-
-> [!NOTE]
-> If the singleton orchestration instance terminates, fails, or completes, it will not be possible to recreate it using the same ID. In those cases, you should be prepared to recreate it using a new instance ID.
+The implementation details of the orchestrator function do not actually matter. It could be a regular orchestrator function that starts and completes, or it could be one that runs forever (that is, an [Eternal Orchestration](durable-functions-eternal-orchestrations.md)). The important point is that there is only ever one instance running at a time.
 
 ## Next steps
 

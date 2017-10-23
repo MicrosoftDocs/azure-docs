@@ -101,6 +101,7 @@
 ##### [Manage volume containers](storsimple-8000-manage-volume-containers.md)
 ##### [Manage volumes - current](storsimple-8000-manage-volumes-u2.md)
 ###### [FAQ: Locally pinned volumes](storsimple-8000-local-volume-faq.md)
+##### [Role-based Access Control](storsimple-8000-role-based-access-control.md)
 ##### [Manage ACRs](storsimple-8000-manage-acrs.md)
 ##### [Manage bandwidth templates](storsimple-8000-manage-bandwidth-templates.md)
 ##### [View and manage jobs](storsimple-8000-manage-jobs-u2.md)
@@ -188,7 +189,7 @@
 #### [Release - GA](storsimple-july-2014-release-notes.md)
 
 ## Reference
-### [Azure PowerShell](/powershell/azure/overview?view=azuresmps-3.7.0)
+### [REST API](https://docs.microsoft.com/rest/api/storsimple)
 ### [Windows PowerShell for StorSimple cmdlets](https://technet.microsoft.com/library/dn688168.aspx)
 
 # StorSimple 8000 Series (Classic portal)

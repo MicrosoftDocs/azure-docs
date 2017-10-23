@@ -49,9 +49,7 @@ az configure --defaults location=eastus
 This quickstart uses an Azure storage account to host data and scripts for the training job. Create a storage account with the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command.
 
 ```azurecli
-az storage account create \
-    --name mystorageaccount \
-    --sku Standard_LRS 
+az storage account create --name mystorageaccount --sku Standard_LRS 
 ```
 
 For later commands, set default storage account environment variables:
@@ -116,14 +114,7 @@ Use the [az bachai cluster create](/cli/azure/batchai/cluster#az_batchai_cluster
 
 
 ```azurecli
-az batchai cluster create --name mycluster  \
-    --vm-size STANDARD_NC6  \
-    --image UbuntuLTS \
-    --min 1 --max 1 \
-    --afs-name batchaiquickstart \
-    --nfs-mount-path azurefileshare \
-    --user-name <admin_username> \ 
-    --password <admin_password> 
+az batchai cluster create --name mycluster --vm-size STANDARD_NC6 --image UbuntuLTS --min 1 --max 1 --afs-name batchaiquickstart --afs-mount-path azurefileshare --user-name <admin_username> --password <admin_password> 
 ```
 
 
@@ -246,7 +237,7 @@ After the cluster is ready, configure and submit the learning job.
         "nodeCount": 1,
         "cntkSettings": {
             "pythonScriptFilePath": "$AZ_BATCHAI_INPUT_SAMPLE/ConvNet_MNIST.py",
-            "commandLineArgs": "$AZ_BATCHAI_INPUT_SAMPLE $AZ_BATCHAI_OUTPUT_MODEL",
+            "commandLineArgs": "$AZ_BATCHAI_INPUT_SAMPLE $AZ_BATCHAI_OUTPUT_MODEL"
         }
     }
   }

@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
-ms.author: cgillum
+ms.author: azfuncdf
 ---
 
 # Handling errors in Durable Functions (Azure Functions)
@@ -95,7 +95,7 @@ There are several options for customizing the automatic retry policy. They inclu
 
 ## Function timeouts
 
-You might want to abandon a function call within an orchestrator function if it is taking too long to complete. The proper way to do this today is by creating a durable timer using `context.CreateTimer` in conjunction with `Task.WhenAny`, as in the following example:
+You might want to abandon a function call within an orchestrator function if it is taking too long to complete. The proper way to do this today is by creating a [durable timer](durable-functions-timers.md) using `context.CreateTimer` in conjunction with `Task.WhenAny`, as in the following example:
 
 ```csharp
 public static async Task<bool> Run(DurableOrchestrationContext context)
@@ -124,8 +124,6 @@ public static async Task<bool> Run(DurableOrchestrationContext context)
 }
 ```
 
-For more information, see the [Durable Timers](durable-functions-timers.md) topic.
-
 ## Unhandled exceptions
 
 If an orchestrator function fails with an unhandled exception, the details of the exception are logged and the instance completes with a `Failed` status.
@@ -134,4 +132,3 @@ If an orchestrator function fails with an unhandled exception, the details of th
 
 > [!div class="nextstepaction"]
 > [Learn how to diagnose problems](durable-functions-diagnostics.md)
-

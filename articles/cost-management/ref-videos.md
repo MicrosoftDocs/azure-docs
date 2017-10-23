@@ -5,9 +5,9 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 10/29/2017
+ms.date: 10/11/2017
 ms.topic: reference
-ms.service: Cost Management
+ms.service: cost-management
 manager: carmonm
 ---
 

@@ -3,7 +3,7 @@ title: How to create APIs in Azure API Management
 description: Learn how to create and configure APIs in Azure API Management.
 services: api-management
 documentationcenter: ''
-author: steved0x
+author: vladvino
 manager: erikre
 editor: ''
 

@@ -13,17 +13,17 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 10/08/2017
 ms.author: wgries
 ---
 
 # Troubleshoot Azure File Sync (preview)
-With Azure File Sync (preview), shares can be replicated to Windows Servers on-premises or in Azure. You and your users would then access the file share through the Windows Server, such as through a SMB or NFS share. This is particularly useful for scenarios in which data will be accessed and modified far away from an Azure datacenter, such as in a branch office scenario. Data may be replicated between multiple Windows Server endpoints, such as between multiple branch offices.
+Azure File Sync (preview) allows you to centralize your organization's file shares in Azure Files without giving up the flexibility, performance, and compatibility of an on-premises file server. It does this by transforming your Windows Servers into a quick cache of your Azure File share. You can use any protocol available on Windows Server to access your data locally (including SMB, NFS, and FTPS) and you can have as many caches as you need across the world.
 
 This article is designed to help you troubleshoot and resolve issues encountered with your Azure File Sync deployment. Failing that, this guide illustrates how to collect important logs from the system to aid in a deeper investigation of the issues. The following options are available for getting support for Azure File Sync:
 
 - Microsoft Support: To create a new support case, navigate to the "Help + support" tab on the Azure portal and click "New support request".
-- [Azure Storage Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazuredata)
+- [Azure Storage Forum](https://social.msdn.microsoft.com/Forums/home?forum=windowsazuredata)
 
 ## How to troubleshoot agent installation failures
 If the Azure File Sync agent installation is failing, run the following command from an elevated command prompt to enable logging during the agent installation:
@@ -69,6 +69,9 @@ Reset-StorageSyncServer
 
 > [!Note]  
 > If the server is part of a cluster, there is an optional `Reset-StorageSyncServer -CleanClusterRegistration` parameter that will also remove the cluster registration. This switch should be used when the last node in the cluster is unregistered.
+
+## When registering a server I get numerous "web site not trusted" responses, why?
+This error occurs because the **Enhanced Internet Explorer Security** policy is enabled during server registration. For more information on how to properly disable the **Enhanced Internet Explorer Security** policy, see [Prepare Windows Servers for use with Azure File Sync](storage-sync-files-deployment-guide.md#prepare-windows-servers-for-use-with-azure-file-sync) and [How to deploy Azure File Sync (preview)](storage-sync-files-deployment-guide.md).
 
 ## How to troubleshoot sync not working on a server
 If sync is failing on a server, perform the following:

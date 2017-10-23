@@ -29,6 +29,8 @@ Update domains are specified in the cluster manifest when you configure the clus
 
 Non-rolling upgrades are possible if the upgrade is applied to all nodes in the cluster, which is the case when the application has only one update domain. This approach is not recommended, since the service goes down and isn't available at the time of upgrade. Additionally, Azure doesn't provide any guarantees when a cluster is set up with only one update domain.
 
+After the upgrade completes, all the services and replicas(instances) would stay in the same version-i.e., if the upgrade succeeds, they will be updated to the new version; if the upgrade fails and is rolled back, they would be rolled back to the old version.
+
 ## Health checks during upgrades
 For an upgrade, health policies have to be set (or default values may be used). An upgrade is termed successful when all update domains are upgraded within the specified time-outs, and when all update domains are deemed healthy.  A healthy update domain means that the update domain passed all the health checks specified in the health policy. For example, a health policy may mandate that all services within an application instance must be *healthy*, as health is defined by Service Fabric.
 

@@ -219,6 +219,12 @@ Learn how to create a trigger function in Azure Government using Visual Studio.
     >
 * Function app running in Visual Studio
     - To create one, complete the Quickstart section above, [Create function using Visual Studio](documentation-government-functions.md#create-function-using-visual-studio). 
+* Installed [CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest). 
+
+> [!NOTE]
+> This topic requires the Azure CLI version 2.0 or later. Run `az --version` to find the version you have. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest). 
+>
+>
 
 ### Create trigger function
 
@@ -249,8 +255,21 @@ Go down to the "Add" button and click on "New Item" as shown below.
 6. Copy the Connection String for your Key1, go back to your "local.settings.json" file and paste the string for each of the 3 values in the "Values" parameter. Also make sure "AccountName" = your storage account name. 
 
     ![triggerfunctioncreate5](./media/documentation-government-function9.png)
-7. Once this has been set, you can run your Timer trigger function locally. 
-8. In order to deploy to Azure Government, use the same process as defined [above](documentation-government-functions.md#create-function-using-visual-studio).
+    
+7. We must now set the connection string to your Azure Storage Account in our app settings, done through CLI. 
+	>[!NOTE] 
+	> Make sure CLI is connected to Azure Government by following the "Launch Azure CLI 2.0" section above. 
+	>
+	>
+
+	In the command below, replace the "resourceGroupName" and "FunctionAppname" tags with your app information and paste the connection string from Step 6 above in place of the "connectionString" tag. Then run the command using Azure CLI.
+
+```azurecli-interactive
+az functionapp config appsettings set --resource-group <resourceGroupName> --name <FunctionAppname> --settings AzureWebJobsmyconnection= "<connectionString>"
+
+```
+
+Once this has been set, you can run your Timer trigger function locally. In order to deploy to Azure Government, use the same process as defined [above](documentation-government-functions.md#create-function-using-visual-studio).
 
 ## Use Azure Queues for Output Bindings
 
@@ -268,6 +287,7 @@ This tutorial will walk through how to update an existing function by adding out
     >
 
 * This tutorial requires a running function app. If you do not have one, you can follow the Quickstart section above titled "Create function- Visual Studio". 
+* Complete **steps 4-7 from the "Create a Trigger Function" section above.** 
 * This tutorial also requires an Azure Queue, if you have not created one you can do so by following [these steps](../storage/queues/storage-dotnet-how-to-use-queues.md).
 
 ### Update the function code 
