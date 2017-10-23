@@ -27,7 +27,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Before you begin
 
 - [Install Terraform and configure access to Azure](/azure/virtual-machines/linux/terraform-install-configure)
-- [Create a SSH key pair](/azure/virtual-machines/linux/mac-create-ssh-keys) if you don't already have one.
+- [Create an SSH key pair](/azure/virtual-machines/linux/mac-create-ssh-keys) if you don't already have one.
 
 ## Create the file structure
 
@@ -415,7 +415,7 @@ Once the deployment has completed, the content of the resource group looks like:
 ![Terraform vm scaleset resource group](./media/tf-create-create-vmss-step8.png)
 
 > [!NOTE]
-> Login with a password is disabled on the jumpbox and the virtual machine scale set that you deployed. You must log in through SSH to access the VMs.
+> Login with a password is disabled on the jumpbox and the virtual machine scale set that you deployed. Log in with SSH to access the VMs.
 
 ## Clean up the environment
 
