@@ -17,9 +17,9 @@ This concepts article details exactly what's provided in the Cloud Shell for Ter
 
 ## Using Azure Cloud Shell with Terraform
 
-Setting up Azure Cloud Shell is documented [here](/azure/cloud-shell/quickstart) and takes about fives minutes. 
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Terraform is immediately available in CLoud Shell, along with the [Azure CLI 2.0](/cli/azure/overview?view=azure-cli-latest) . You are automatically authenticated bwhen working Azure Cloud Shell to work with resources inside the current Azure subscription.
+Terraform is installed and immediately available in Cloud Shell. Terraform scripts authenticate with Azure when logged into the Cloud Shell to manage infrastructure without any additional configuration. Automatic authentication bypasses the need to manually create a service principal and configure Terraform provider variables.
 
 Files and shell states persist in Azure Storage between Cloud Shell session. Use [Azure Storage Explorer](/azure/vs-azure-tools-storage-manage-with-storage-explorer) to connect to the Azure Storage account and copy and upload files to the Cloud Shell while editing and testing them on your local computer with your favorite tools.
 
