@@ -21,8 +21,8 @@
       href: terraform-create-vm-scaleset-network-disks-hcl.md
 - name: Concepts
   items:
-    - name: Terraform runtime environments
-      href: terraform-runtime-options.md
+    - name: Cloud Shell integration
+      href: terraform-cloud-shell.md
 - name: Samples
   items:
     - name: Configuration templates
