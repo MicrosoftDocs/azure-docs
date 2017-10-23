@@ -26,12 +26,12 @@ This article is provided to help partners create, deploy, and manage their solut
 Publishing your solution in the Azure Government Marketplace is as simple as publishing to Azure global and checking an extra box. There are no compliance requirements to publish your solution to Azure Government
 and making it available in the Azure Government Marketplace makes it easier for these government customers to gain exposure to your solution and get up and running quickly.
 
-## Compliance Considerations
+## Compliance considerations
 There are no compliance requirements to publish solutions to the Azure Government Marketplace.
 
 Once a solution has been published, customers can deploy it into their own subscription as part of a broader operational environment or business solution. The customer might then opt to certify the overarching environment. As part of that certification process, they might reach out to the publisher with extra requirements, which the publisher can then evaluate and triage with the customer. 
 
-## Marketplace Offer Support
+## Marketplace offer support
 Currently, the Azure Government Marketplace only supports the following offers:
 
 * Virtual Machines > Bring your Own License
@@ -68,11 +68,11 @@ To obtain an account:
 ## Troubleshooting
 Generally, virtual machines and solution templates work across both Azure and Azure Government, however there are a few instances when this is not the case. The following section outlines the most common reasons why a virtual machine or solution template would work in the Azure Marketplace but not the Azure Government Marketplace.
 
-### Not Available After Publish
+### Not available after publish
 If you've completed all the steps outlined above and your virtual machine is still not available in the Azure Government Marketplace, make sure that your Virtual's Machine *Hide this SKU* setting is not set to *Yes*.
 If it is set to yes, there's probably also a solution template that you also need to publish to Azure Government. If there is no solution template and you want to make the standalone Virtual Machine available, flip that switch to *No* and republish.
 
-### Hardcoded Endpoints
+### Hardcoded endpoints
 Verify endpoints are not hard-coded into your solution Template for Azure Global as they will not be valid for any other Azure clouds (Azure Government, Azure China, Azure Germany). Instead modify the Solution template to obtain the endpoint from the resource, for example:
 
 * Incorrect VHD uri (hard coded)
@@ -87,17 +87,17 @@ Verify endpoints are not hard-coded into your solution Template for Azure Global
     "uri": "[concat(reference(resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))).primaryEndpoints.blob, 'osdisk.vhd')]",
     ```
 
-### Hardcoded List of Locations
+### Hardcoded list of locations
 Make sure your solution template supports the Azure Government locations. See the [list of Azure Government regions](documentation-government-get-started-connect-with-ps.md#determining-azure-government-regions)
 
-### Unavailable Resources
+### Unavailable resources
 Verify that resources, API versions, extensions and VM images used in your solution template are available in Azure Government. 
 
 #### Images
 Make sure that the image that your solution template relies on is available in Azure Government. If this is a Virtual Machine you own, need to also publish that to the Azure Government Marketplace.
 Check out the [Azure Government Marketplace images](documentation-government-image-gallery.md) documentation to obtain the list of images available.
 
-#### Resource Providers and API versions
+#### Resource providers and API versions
 You can obtain the full list of resource providers and their API versions by logging in to the [Azure Government portal](https://portal.azure.us) using your Azure Government account and following the steps listed in the [Resource providers and types](../azure-resource-manager/resource-manager-supported-services.md#portal) documentation.
 
 #### Extensions
@@ -112,7 +112,7 @@ Availability of most commonly used extensions in Azure Government:
   | Microsoft.OSTCExtensions/LinuxDiagnostic | 2.0.9005; 2.1.9005; 2.2.9005; 2.3.9011 |
   | Microsoft.Powershell/DSC | 2.19.0.0 |
  
-## Resources
+## Next steps
 * Subscribe to the [Azure Government blog](https://blogs.msdn.microsoft.com/azuregov/)
 * Get help on Stack Overflow by using the [azure-gov](https://stackoverflow.com/questions/tagged/azure-gov) tag
 * Give us feedback or request new features via the [Azure Government feedback forum](https://feedback.azure.com/forums/558487-azure-government) 
