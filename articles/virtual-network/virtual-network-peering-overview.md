@@ -23,7 +23,7 @@ Virtual network peering enables you to seemlessly connect two Azure [virtual net
 
 The benefits of using virtual network peering include:
 
-* Traffic going through virtual network peerings is completely private. Traffic between the virtual networks is kept on the Microsoft backbone network. No public Internet, gateways, or encryption is required in the communication between the virtual networks.
+* Network traffic between peered virtual networks is private. Traffic between the virtual networks is kept on the Microsoft backbone network. No public Internet, gateways, or encryption is required in the communication between the virtual networks.
 * A low-latency, high-bandwidth connection between resources in different virtual networks.
 * The ability for resources in one virtual network to communicate with resources in a different virtual network, once the virtual networks are peered.
 * The ability to transfer data across Azure subscriptions, deployment models, and across Azure regions (preview).
@@ -49,7 +49,7 @@ The benefits of using virtual network peering include:
 
 After virtual networks are peered, resources in either virtual network can directly connect with resources in the peered virtual network.
 
-The network latency between virtual machines in peered virtual networks in the same region is the same as that within a single virtual network. The network throughput is based on the bandwidth that's allowed for the virtual machine, proportionate to its size. There isn't any additional restriction on bandwidth within the peering.
+The network latency between virtual machines in peered virtual networks in the same region is the same as the latency within a single virtual network. The network throughput is based on the bandwidth that's allowed for the virtual machine, proportionate to its size. There isn't any additional restriction on bandwidth within the peering.
 
 The traffic between virtual machines in peered virtual networks is routed directly through the Microsoft backbone infrastructure, not through a gateway or over the public Internet.
 
@@ -96,7 +96,7 @@ For example, if you were peering virtual networks named myVirtualNetworkA and my
 ## Monitor
 
 When peering two virtual networks created through Resource Manager, a peering must be configured for each virtual network in the peering.
-You can monitor the status of your peering connection. The peering status can be one of the following:
+You can monitor the status of your peering connection. The peering status is one of the following states:
 
 * **Initiated**: When you create the peering to the second virtual network from the first virtual network, the peering status is Initiated.
 
