@@ -1,6 +1,6 @@
 ---
-title: Supported data sources available with Azure Machine Learning data preparation  | Microsoft Docs
-description: This document provides a complete list of supported data sources available for Azure Machine Learning data preparation
+title: Supported data sources available with Azure Machine Learning Data Preparation  | Microsoft Docs
+description: This document provides a complete list of supported data sources available for Azure Machine Learning Data Preparation
 services: machine-learning
 author: euangMS
 ms.author: euang
@@ -15,13 +15,13 @@ ms.date: 09/12/2017
 ---
 
 # Supported data sources for this release 
-The following document outlines the list of currently supported data sources in Azure Machine Learning data preparation.
+The following document outlines the list of currently supported data sources in Azure Machine Learning Data Preparation.
 
 The supported data sources for this release are as follows.
 
 ## Types 
 ### Directory versus file
-*Files/Directories*: Choose a single file and read it into data preparation. The file type is parsed to determine the default parameters for the file connection that is on the next screen. Choose a directory or set of files within a directory (the file picker is multiselect). Either approach results in the files being read as a single dataflow with the files appended to each other (with headers stripped out if needed).
+*Files/Directories*: Choose a single file and read it into Data Preparation. The file type is parsed to determine the default parameters for the file connection that is on the next screen. Choose a directory or set of files within a directory (the file picker is multiselect). Either approach results in the files being read as a single dataflow with the files appended to each other (with headers stripped out if needed).
 
 The file types are as follows:
 - Delimited (.csv, .tsv, .txt, and so on) 
@@ -30,7 +30,7 @@ The file types are as follows:
 - JSON file
 
 ### CSV file
-Reads a comma-separated value file from storage.
+Reads a CSV file from storage.
 
 #### Options
 - Separator
@@ -41,7 +41,7 @@ Reads a comma-separated value file from storage.
 - Lines to skip
 
 ### TSV file
-Reads a tab-separated value file from storage.
+Reads a TSV value file from storage.
 
 #### Options
 - Comment
