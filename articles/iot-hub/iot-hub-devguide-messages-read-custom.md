@@ -32,6 +32,10 @@ A single message may match the condition on multiple routing rules, in which cas
 An IoT hub has a default [built-in endpoint][lnk-built-in]. You can create custom endpoints to route messages to by linking other services in your subscription to the hub. IoT Hub currently supports Azure Storage containers, Event Hubs, Service Bus queues, and Service Bus topics as custom endpoints.
 
 > [!NOTE]
+> When you start using routing with custom endpoints, messages will no longer be delivered to the built-in endpoint unless they don't match any rules. In order to keep message delivery to the  built-in endpoint you can add a route and choose the endpoint named 'events'. 
+
+
+> [!NOTE]
 > IoT Hub only supports writing data to Azure Storage containers as blobs.
 
 > [!WARNING]
