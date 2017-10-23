@@ -33,6 +33,5 @@ You can purchase Reserved Virtual Machine Instances in the [Azure portal](https:
 |    Scope                     | The reservation’s scope can cover one subscription or multiple (shared scope). If you select: Single subscription - The reservation discount is applied to VMs in this subscription. Shared - The reservation discount is applied to VMs running in any subscriptions within your billing account. For enterprise customers, the shared scope is the enrollment and includes all subscriptions within the enrollment.                                |    
 |  Location    | The Azure region that’s covered by the reservation.|    
 |  VM Size|	The size of the VM instances.|
-| Term| One year or three years. Quantity	The number of instances being purchased within the reservation. The quantity the number of running VM instances that can get the billing discount. For example, if you are running 10 Standard_D2 VMs in US West, then you would specify quantity as 10.|
 4)	Select **Purchase** to complete the transaction.
 5)	Select **View this Reservation** to see the status of the reservation purchase.
