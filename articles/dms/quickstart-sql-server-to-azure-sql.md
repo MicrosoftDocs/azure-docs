@@ -105,16 +105,14 @@ Password |*mypassword*| Your password
 Ensure **Encrypt connection** is checked and if you are using a self-signed certificate also check **Trust server certificate**.
 
 ## Select source
-Also fill in this stuff and hit **Save**.  There wil be better text here later once I make an editing pass.
-
-![Migration source detail](media/quickstart-sql-server-to-azure-sql/DMSSelectSource.png)
-
 Setting|Suggested value|Description
 ---|---|---
 Server name |*example-name*|Enter the fully qualified name or IP address of your SQL Server.
 Authentication type| |Choose the appropriate type for your server, either "SQL Authentication" or "Windows Authentication"
 User name|*myusername*| Your user name
 Password |*mypassword*| Your password
+
+![Migration source detail](media/quickstart-sql-server-to-azure-sql/DMSSelectSource.png)
 
 Ensure **Encrypt connection** is checked and if you are using a self-signed certificate also check **Trust server certificate**.
 
@@ -137,7 +135,7 @@ If it exists in the source, target, and is empty, a table is automatically check
 ## Run and monitor
 To see detailed migration status:
 
-1. Click **Run migration**
+1. Click **Run migration**eeeeeeeeee
 1. Click your migration's name
 1. Click AdventureWorks2014
 
