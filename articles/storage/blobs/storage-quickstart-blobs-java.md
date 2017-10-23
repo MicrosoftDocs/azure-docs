@@ -14,7 +14,7 @@ ms.custom: mvc
 
 # Transfer objects to/from Azure Blob storage using Java
 
-In this quickstart, you learn how to use C#.NET to upload, download, and list block blobs in a container in Azure Blob storage on Windows.
+In this quickstart, you learn how to use Java to upload, download, and list block blobs in a container in Azure Blob storage on Windows.
 
 ## Prerequisites
 
@@ -55,16 +55,16 @@ Use [git](https://git-scm.com/) to download a copy of the application to your de
 git clone https://github.com/Azure-Samples/storage-blobs-java-quickstart.git
 ```
 
-This command clones the repository to your local git folder. To open the project, launch eclipse. Select `file` then `import`. Select `General` then select `Existing projects into workspace`.
+This command clones the repository to your local git folder. To open the project, launch Eclipse. Select **File** then **import...**. Select **General** then select **Existing projects into workspace**.
 
-Select the root directory and browse to the “javaQuickstarts” folder inside the extracted zip. Select this as the root directory. Then click finish.
+Select the root directory and browse to the “javaQuickstarts” folder inside the cloned repo. Select this as the root directory. Make sure the javaBlobQuickstart project appears under **Projects:** and then click finish.
 
-Once the project finishes importing, open AzureApp.java and replace the accountname and accountkey inside of the storageConnectionString string. Then run the application.
+Once the project finishes importing, close the welcome screen, then open **AzureApp.java** (located in **com.fabrikam.testAzureApp** inside of **src/main/java**) and replace the `accountname` and `accountkey` inside of the **storageConnectionString** string. Then run the application.
      
 
 ## Configure your storage connection string
     
-In the application, you must provide the connection string for your storage account. Open the `AzureApp.Java` file. Find the StorageConnectionString variable. Replace the entire value of the connection string with the one you saved from the Azure portal in Notepad. You should have something similar to the following when you're done.
+In the application, you must provide the connection string for your storage account. Open the **AzureApp.Java** file. Find the StorageConnectionString variable. Replace the `AccountName` and `AccountKey` values in the connection string with the values you saved from the Azure portal in Notepad. You should have something similar to the following when you're done.
 
 ```java
     public static final String storageConnectionString ="DefaultEndpointsProtocol=http;" +
@@ -76,27 +76,27 @@ In the application, you must provide the connection string for your storage acco
 
 This sample creates a test file in My Documents, uploads it to Blob storage, lists the blobs in the container, then downloads the file with a new name so you can compare the old and new files. 
 
-Run the sample by pressing ctrl+F11 in Eclipse.
+Run the sample by pressing **Ctrl+F11** in Eclipse.
 
 ```
 Location of file: C:\Users\<user>\Documents\results.txt
 File has been written
 URI of blob is: http://myexamplesacct.blob.core.windows.net/quickstartblobs/results.txt
 The program has completed successfully.
-Press any key in the console to delete the sample files, example container, and exit the application.
+Press the 'Enter' key while in the console to delete the sample files, example container, and exit the application.
 ```
 
-When you press any key to continue, it deletes the storage container and the files. Before you continue, check MyDocuments for the two files -- you can open them and see they are identical. Copy the URL for the blob out of the console window and paste it into a browser to view the contents of the file in Blob storage.
+ Before you continue, check **MyDocuments** for the two files, you can open them and see they are identical. Copy the URL for the blob out of the console window and paste it into a browser to view the contents of the file in Blob storage. When you press the enter key, it deletes the storage container and the files.
 
 You can also use a tool such as the [Azure Storage Explorer](http://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) to view the files in Blob storage. Azure Storage Explorer is a free cross-platform tool that allows you to access your storage account information. 
 
-After you've verified the files, hit any key to finish the demo and delete the test files. Now that you know what the sample does, open the AzureApp.java file to look at the code. 
+After you've verified the files, press the enter key to finish the demo and delete the test files. Now that you know what the sample does, open the **AzureApp.java** file to look at the code. 
 
 ## Get references to the storage objects
 
 The first thing to do is create the references to the objects used to access and manage Blob storage. These objects build on each other -- each is used by the next one in the list.
 
-* Instantiate the **CloudStorageAccount** object pointing to the storage account. 
+* Instantiate the **CloudStorageAccount** object pointing to the [storage account](/java/api/com.microsoft.azure.management.storage._storage_account). 
 
 * Instantiate the **CloudBlobClient** object, which points to the Blob service in your storage account. 
 
@@ -167,7 +167,7 @@ FileInputStream myFile = new FileInputStream(source);
 //Creating blob and uploading file to it
 blob.upload( myFile, source.length());
 
-//CLosing FileInputStream
+//Closing FileInputStream
 myFile.close();
 ```
 
@@ -182,10 +182,9 @@ Get a list of files in the container using [Cloud​Blob​Container.​List​B
 If you have 5,000 or fewer blobs in the container, all of the blob names are retrieved in one call to ListBlobsSegmentedAsync. If you have more than 5,000 blobs in the container, the service retrieves the list in sets of 5,000 until all of the blob names have been retrieved. So the first time this API is called, it returns the first 5,000 blob names and a continuation token. The second time, you provide the token, and the service retrieves the next set of blob names, and so on, until the continuation token is null, which indicates that all of the blob names have been retrieved. 
 
 ```java
-// List the blobs in the container.
-for (ListBlobItem blobItem : container.listBlobs()) 
-{
-    System.out.println(blobItem.getUri());
+//Listing off contents of container
+for (ListBlobItem blobItem : container.listBlobs()) {
+    System.out.println("URI of blob is: " + blobItem.getUri());
 }
 ```
 
@@ -197,8 +196,8 @@ The following code downloads the blob uploaded in a previous section, adding a s
 
 ```java
 // Download blob. In most cases, you would have to retrieve the reference
-//   to cloudBlockBlob here. However, we created that reference earlier, and 
-//   haven't changed the blob we're interested in, so we can reuse it. 
+// to cloudBlockBlob here. However, we created that reference earlier, and 
+// haven't changed the blob we're interested in, so we can reuse it. 
 // First, add a _DOWNLOADED before the .txt so you can see both files in MyDocuments.
 blob.downloadToFile(myDocs + File.separator + "results_DOWNLOADED.txt");
 ```
@@ -208,6 +207,7 @@ blob.downloadToFile(myDocs + File.separator + "results_DOWNLOADED.txt");
 If you no longer need the blobs uploaded in this quickstart, you can delete the entire container using [Cloud​Blob​Container.​DeleteIfExists](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.deleteifexists#com_microsoft_azure_storage_blob__cloud_blob_container_deleteIfExists). This also deletes the files in the container.
 
 ```java
+//Deletes container if it exists then deletes files created locally
 container.deleteIfExists();
 otherFile.deleteOnExit();
 source.deleteOnExit();
@@ -215,9 +215,9 @@ source.deleteOnExit();
 
 ## Next steps
 
-In this quickstart, you learned how to transfer files between a local disk and Azure Blob storage using .NET. To learn more about working with Blob storage, continue to the Blob storage How-to.
+In this quickstart, you learned how to transfer files between a local disk and Azure Blob storage using Java. To learn more about working with Blob storage, continue to the Blob storage How-to.
 
 > [!div class="nextstepaction"]
 > [Blob Storage Operations How-To](storage-java-how-to-use-blob-storage.md)
 
-For more information about the Storage Explorer and Blobs, see [Manage Azure Blob storage resources with Storage Explorer](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+For more information about the Storage Explorer and Blobs, see [Manage Azure Blob storage resources with Storage Explorer](../../vs-azure-tools-storage-explorer-blobs.md).
