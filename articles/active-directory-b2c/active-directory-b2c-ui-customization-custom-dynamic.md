@@ -329,7 +329,7 @@ If you select the **Sign up now** link on the sign-in page, the browser displays
 
     b. Set the `LoadUri` attribute to your *selfasserted* URI.
 
-3. Go back to "Step 8.2," and change your code to accept query string parameters, but this time to the "selfasserted* function. 
+3. Go back to "Step 8.2," and change your code to accept query string parameters, but this time to the *selfasserted* function. 
 
 4. Upload the *TrustFrameworkExtensions.xml* policy, and ensure that it passes validation.
 
