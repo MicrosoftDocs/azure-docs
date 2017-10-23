@@ -46,12 +46,12 @@ Before upgrading a cluster, use the `az aks get-versions` command to check which
 az aks get-versions --name myK8sCluster --resource-group myResourceGroup --output table
 ```
 
-Here you can see that the current `AgentPoolVersion` is `1.7.7` and that version `1.8.0` and `1.8.0` are avaliable.
+Here you can see that the current `AgentPoolVersion` is `1.7.7` and that version `1.8.0` is avaliable.
 
 ```
-Name          ResourceGroup    MasterVersion   MasterUpgrades  AgentPoolVersion   AgentPoolUpgrades
-------------  ---------------  -------------   --------------  ----------------   -----------------
-myK8sCluster  myResourceGroup  1.7.7           1.8.0, 1.8.1    1.7.7              1.8.0, 1.8.1
+Name     ResourceGroup    MasterVersion    MasterUpgrades    AgentPoolVersion    AgentPoolUpgrades
+-------  ---------------  ---------------  ----------------  ------------------  -------------------
+default  myResourceGroup  1.7.7            1.8.1             1.7.7               1.8.1
 ```
 
 ## Upgrade cluster
@@ -129,7 +129,9 @@ az aks show --name myK8sCluster --resource-group myResourceGroup --output table
 Output:
 
 ```json
-<update>
+Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn
+------------  ----------  ---------------  -------------------  -------------------  ----------------------------------------------------------------
+myK8sCluster  westus2     myResourceGroup  1.8.1                Succeeded            myk8sclust-myresourcegroup-3762d8-2f6ca801.hcp.westus2.azmk8s.io
 ```
 
 ## Next steps

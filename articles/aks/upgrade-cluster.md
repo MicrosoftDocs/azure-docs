@@ -36,9 +36,9 @@ az aks get-versions --name myK8sCluster --resource-group myResourceGroup --outpu
 Output:
 
 ```console
-Name          ResourceGroup    MasterVersion   MasterUpgrades  AgentPoolVersion   AgentPoolUpgrades
-------------  ---------------  -------------   --------------  ----------------   -----------------
-myK8sCluster  myResourceGroup  1.7.7           1.8.0, 1.8.1    1.7.7              1.8.0, 1.8.1
+Name     ResourceGroup    MasterVersion    MasterUpgrades    AgentPoolVersion    AgentPoolUpgrades
+-------  ---------------  ---------------  ----------------  ------------------  -------------------
+default  myResourceGroup  1.7.7            1.8.1             1.7.7               1.8.1
 ```
 
 We have two versions available for upgrade: 1.8.0 and 1.8.1.  We can use the `az aks upgrade` command to upgrade to the latest available version.  During the upgrade process, nodes are carefully [cordoned and drained](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/) to minimize disruption to running applications.
@@ -107,6 +107,14 @@ You can now confirm the upgrade was successful with the `az aks show` command.
 
 ```azurecli-interactive
 az aks show --name myK8sCluster --resource-group myResourceGroup --output table
+```
+
+Output:
+
+```json
+Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn
+------------  ----------  ---------------  -------------------  -------------------  ----------------------------------------------------------------
+myK8sCluster  westus2     myResourceGroup  1.8.1                Succeeded            myk8sclust-myresourcegroup-3762d8-2f6ca801.hcp.westus2.azmk8s.io
 ```
 
 ## Next steps
