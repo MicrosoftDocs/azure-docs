@@ -148,7 +148,7 @@ A route with the 0.0.0.0/0 address prefix instructs Azure how to route traffic d
 
 When you override the 0.0.0.0/0 address prefix, in addition to outbound traffic from the subnet flowing through the virtual network gateway or virtual appliance, the following changes occur with Azure's default routing: 
 
-- Azure sends all traffic to the next hop type specified in the route, to include traffic destined for public IP addresses of Azure services. When the next hop type for the route with the 0.0.0.0/0 address prefix is **Internet**, traffic from the subnet destined to the public IP addresses of Azure services never leaves Azure's backbone network, regardless of the Azure region the virtual network or Azure service resource exist in. When you create a user-defined or BGP route with a **Virtual network gateway** or **Virtual appliance** next hop type however, all traffic, to include traffic sent to public IP addresses of Azure services you haven't enabled [service endpoints](virtual-network-service-endpoints.md) for, is sent to the next hop type specified in the route. If you've enabled a service endpoint for a service, traffic to the service is not routed to the next hop type in a route with the 0.0.0.0/0 address prefix, because address prefixes for the service are specified in the route that Azure creates when you enable the service endpoint, and the address prefixes for the service are longer than 0.0.0.0/0.
+- Azure sends all traffic to the next hop type specified in the route, to include traffic destined for public IP addresses of Azure services. When the next hop type for the route with the 0.0.0.0/0 address prefix is **Internet**, traffic from the subnet destined to the public IP addresses of Azure services never leaves Azure's backbone network, regardless of the Azure region the virtual network or Azure service resource exist in. When you create a user-defined or BGP route with a **Virtual network gateway** or **Virtual appliance** next hop type however, all traffic, to include traffic sent to public IP addresses of Azure services you haven't enabled [service endpoints](virtual-network-service-endpoints-overview.md) for, is sent to the next hop type specified in the route. If you've enabled a service endpoint for a service, traffic to the service is not routed to the next hop type in a route with the 0.0.0.0/0 address prefix, because address prefixes for the service are specified in the route that Azure creates when you enable the service endpoint, and the address prefixes for the service are longer than 0.0.0.0/0.
 - You are no longer able to directly access resources in the subnet from the Internet. You can indirectly access resources in the subnet from the Internet, if inbound traffic passes through the device specified by the next hop type for a route with the 0.0.0.0/0 address prefix before reaching the resource in the virtual network. If the route contains the following values for next hop type:
     - **Virtual appliance**: The appliance must:
         - Be accessible from the Internet
@@ -156,7 +156,7 @@ When you override the 0.0.0.0/0 address prefix, in addition to outbound traffic 
         - Not have a network security group rule associated to it that prevents communication to the device
         - Not deny the communication
         - Be able to network address translate and forward, or proxy the traffic to the destination resource in the subnet, and return the traffic back to the Internet. 
-    - **Virtual network gateway**: If the gateway is an ExpressRoute virtual network gateway, an Internet-connected device on-premises can network address translate and forward, or proxy the traffic to the destination resource in the subnet, via ExpressRoute's [private peering](../expressroute/expressroute-circuit-peerings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#private-peering). 
+    - **Virtual network gateway**: If the gateway is an ExpressRoute virtual network gateway, an Internet-connected device on-premises can network address translate and forward, or proxy the traffic to the destination resource in the subnet, via ExpressRoute's [private peering](../expressroute/expressroute-circuit-peerings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-private-peering). 
 
   See [DMZ between Azure and your on-premises datacenter](/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2fazure%2fvirtual-network%2ftoc.json) and [DMZ between Azure and the Internet](/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2fazure%2fvirtual-network%2ftoc.json) for implementation details when using virtual network gateways and virtual appliances between the Internet and Azure.
 
@@ -187,7 +187,7 @@ To illustrate the concepts in this article, the sections that follow describe:
 
 The following picture shows an implementation through the Azure Resource Manager deployment model that meets the previous requirements:
 
-![Network diagram](./media/routing-overview/routing-example.png)
+![Network diagram](./media/virtual-networks-udr-overview/routing-example.png)
 
 Arrows show the flow of traffic. 
 
