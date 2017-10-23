@@ -111,7 +111,7 @@ Runbook actions require the properties in the following table.
 
 Runbook actions start the runbook using a [webhook](../automation/automation-webhooks.md).  When you create the alert rule, it will automatically create a new webhook for the runbook with the name **OMS Alert Remediation** followed by a GUID.  
 
-You cannot directly populate any parameters of the runbook, but the [$WebhookData parameter](../automation/automation-webhooks.md) will include the details of the alert, including the results of the log search that created it.  The runbook will need to define **$WebhookData** as a parameter for it to access the properties of the alert.  The alert data is available in json format in a single property called **SearchResults** in the **RequestBody** property of **$WebhookData**.  This will have with the properties in the following table.
+You cannot directly populate any parameters of the runbook, but the [$WebhookData parameter](../automation/automation-webhooks.md) will include the details of the alert, including the results of the log search that created it.  The runbook will need to define **$WebhookData** as a parameter for it to access the properties of the alert.  The alert data is available in json format in a single property called **SearchResult** (for runbook actions and webhook actions with standard payload) or **SearchResults** (webhook actions with custom payload including **IncludeSearchResults":true**) in the **RequestBody** property of **$WebhookData**.  This will have with the properties in the following table.
 
 >[!NOTE]
 > If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the runbook payload has changed.  Details of the format are in [Azure Log Analytics REST API](https://aka.ms/loganalyticsapiresponse).  You can see an example in [Samples](#sample-payload) below.  
@@ -124,6 +124,9 @@ You cannot directly populate any parameters of the runbook, but the [$WebhookDat
 
 For example, the following runbooks would extract the records returned by the log search  and assign different properties based on the type of each record.  Note that the runbook starts by converting **RequestBody** from json so that it can be worked with as an object in PowerShell.
 
+>[NOTE]
+> Both of these runbooks use **SearchResult** which is the property that contains results for runbook actions and webhook actions with standard payload.  If the runbook were called from a webhook response using a custom payload, you would need to change this property to **SearchResults**.
+
 The following runbook will work with the payload from a [legacy Log Analytics workspace](log-analytics-log-search-upgrade.md).
 
     param ( 
@@ -131,7 +134,7 @@ The following runbook will work with the payload from a [legacy Log Analytics wo
     )
 
     $RequestBody = ConvertFrom-JSON -InputObject $WebhookData.RequestBody
-    $Records     = $RequestBody.SearchResults.value
+    $Records     = $RequestBody.SearchResult.value
 
     foreach ($Record in $Records)
     {
@@ -207,6 +210,7 @@ The following runbook will work with the payload from an [upgraded Log Analytics
 This section shows sample payload for webhook and runbook actions in both a legacy and an [upgraded Log Analytics workspace](log-analytics-log-search-upgrade.md).
 
 ### Webhook actions
+Both of these examples use **SearchResult** which is the property that contains results for webhook actions with standard payload.  If the webhook used a custom payload that includes search results, you would need to change this property to **SearchResults**.
 
 #### Legacy workspace.
 Following is a sample payload for a webhook action in a legacy workspace.
@@ -290,7 +294,7 @@ Following is a sample payload for a webhook action in an upgraded workspace.
     "WorkspaceId": "workspaceID",
     "AlertRuleName": "WebhookAlert",
     "SearchQuery": "Usage",
-    "SearchResults": {
+    "SearchResult": {
         "tables": [
         {
             "name": "PrimaryResult",
@@ -426,7 +430,7 @@ Following is a sample payload for a webhook action in an upgraded workspace.
 Following is a sample payload for a runbook action in a legacy workspace.
 
     {
-        "SearchResults": {
+        "SearchResult": {
             "id": "subscriptions/subscriptionID/resourceGroups/ResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/workspace-workspaceID/search/searchGUID|10.1.0.7|TimeStamp",
             "__metadata": {
                 "resultType": "raw",
