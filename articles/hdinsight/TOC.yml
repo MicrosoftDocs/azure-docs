@@ -1,5 +1,5 @@
 - name: HDInsight documentation
   href: index.md
 - name: Spark
-  href: ./spark/apache-spark-overview.md
+  href: ./spark/toc.yml
 
