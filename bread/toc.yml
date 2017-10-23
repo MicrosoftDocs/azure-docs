@@ -195,6 +195,10 @@
   - name: HDInsight
     tocHref: /azure/hdinsight/
     topicHref: /azure/hdinsight/
+    items:
+      - name: Spark
+        tocHref: /azure/hdinsight/spark
+        topicHref: /azure/hdinsight/spark/apache-spark-overview
   - name: IoT Hub
     tocHref: /azure/iot-hub/
     topicHref: /azure/iot-hub/
@@ -382,10 +386,3 @@
   - name: VPN Gateway
     tocHref: /azure/vpn-gateway/
     topicHref: /azure/vpn-gateway/
-  - name: HDInsight
-    tocHref: /azure/hdinsight/
-    topicHref: /azure/hdinsight/
-    items:
-      - name: Spark
-        tocHref: /azure/hdinsight/spark
-        topicHref: /azure/hdinsight/spark/apache-spark-overview
