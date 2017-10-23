@@ -25,9 +25,10 @@
 #### [Storage blob service content](cdn-manage-expiration-of-blob-content.md)
 ### [Restrict access by country](cdn-restrict-access-by-country.md)
 ### [Improve performance by compressing files](cdn-improve-performance.md)
-### Cache content by query string
-#### [Standard tier](cdn-query-string.md)
-#### [Premium tier](cdn-query-string-premium.md)
+### [How caching works](cdn-how-caching-works.md)
+#### [Control Azure CDN caching behavior with Delivery Rule](cdn-delivery-rules.md)
+#### [Cache content by query string-Standard tier](cdn-query-string.md)
+#### [Cache content by query string-Premium tier](cdn-query-string-premium.md)
 ### [Purge cached assets](cdn-purge-endpoint.md)
 ### [Pre-load cached assets](cdn-preload-endpoint.md)
 ### [Token authentication](cdn-token-auth.md)
