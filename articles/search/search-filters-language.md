@@ -61,7 +61,7 @@ parameters =
     };
 ```
 > [!Note]
-> Although there is no $filter argument or OData expression in this use case, the scenario is strongly affiliated with filter concepts, so we present it as such.
+> Although there is no $filter argument on the query, this use case is strongly affiliated with filter concepts, so we present it as a filtering scenario.
 
 ## See also
 
