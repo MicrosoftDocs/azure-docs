@@ -20,7 +20,7 @@ ms.custom: mvc
 ---
 
 # Create a secure cluster in Azure by using PowerShell
-This article is the first in a series of tutorials that show you how to move a .NET application to the cloud by using Azure Service Fabric clusters and containers. In the following steps, you learn how to create a Service Fabric cluster (Windows or Linux) that runs in Azure. When you're finished, you have a secure cluster that runs in the cloud and a place where you can deploy applications.
+This article is the first in a series of tutorials that show you how to move a .NET application to the cloud by using Azure Service Fabric clusters and containers. In the following steps, you learn how to create a Service Fabric cluster (Windows or Linux) that runs in Azure. When you're finished, you have a secure cluster that runs in the cloud to which you can deploy applications.
 
 ## Prerequisites
 Before you begin this tutorial:
@@ -31,7 +31,7 @@ Before you begin this tutorial:
 
 ## Create a Service Fabric cluster
 
-This script creates a single-node, preview Service Fabric cluster. A self-signed certificate secures the cluster. The script creates the certificate along with the cluster, and then places the certificate in a key vault. You can't scale single-node clusters beyond one virtual machine (VM), and you can't upgrade preview clusters to newer versions.
+This script creates a single-node, preview Service Fabric cluster. A self-signed certificate secures the cluster. The script creates the certificate along with the cluster, and then places the certificate in a key vault. You can't scale single-node clusters beyond one virtual machine, and you can't upgrade preview clusters to newer versions.
 
 To calculate the cost incurred by running a Service Fabric cluster in Azure, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 For more information on how to create Service Fabric clusters, see [Create a Service Fabric cluster by using Azure Resource Manager](service-fabric-cluster-creation-via-arm.md).
@@ -72,37 +72,37 @@ Open a PowerShell console, log in to Azure, and select the subscription you want
 
 ### Create the cluster with your parameters
 
-After you decide on the parameters that fit your requirements, execute the following command to generate a secure Service Fabric cluster and its certificate.
+After you decide on the parameters that fit your requirements, run the following command to generate a secure Service Fabric cluster and its certificate.
 
 You can modify this script to include additional parameters. For more information on parameters for cluster creation, see the [New-AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/new-azurermservicefabriccluster.md) cmdlet.
 
 >[!NOTE]
->Before you execute this command you must create a folder where you can store the cluster certificate.
+>Before you run this command you must create a folder where you can store the cluster certificate.
 
 ```PowerShell
 
-    # Set the certificate variables. This creates and encrypts a password that Service Fabric will use.
-    $certpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force
+# Set the certificate variables. This creates and encrypts a password that Service Fabric will use.
+$certpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force
 
-    # You must create the folder where you want to store the certificate on your machine before you execute this step.
-    $certfolder="c:\mycertificates\"
+# You must create the folder where you want to store the certificate on your machine before you start this step.
+$certfolder="c:\mycertificates\"
 
-    # Set the variables for common values. Change the values to fit your needs.
-    $clusterloc="WestUS"
-    $clustername = "mysfcluster"
-    $groupname="mysfclustergroup"       
-    $vmsku = "Standard_D2_v2"
-    $vaultname = "mykeyvault"
-    $subname="$clustername.$clusterloc.cloudapp.azure.com"
+# Set the variables for common values. Change the values to fit your needs.
+$clusterloc="WestUS"
+$clustername = "mysfcluster"
+$groupname="mysfclustergroup"       
+$vmsku = "Standard_D2_v2"
+$vaultname = "mykeyvault"
+$subname="$clustername.$clusterloc.cloudapp.azure.com"
 
-    # Set the number of cluster nodes. The possible values are 1 and 3-99.
-    $clustersize=1
+# Set the number of cluster nodes. The possible values are 1 and 3-99.
+$clustersize=1
 
-    # Create the Service Fabric cluster and its self-signed certificate. The OS you specify here lets you use this cluster with any applications that are also using containers.
-    New-AzureRmServiceFabricCluster -Name $clustername -ResourceGroupName $groupname -Location $clusterloc `
-    -ClusterSize $clustersize -CertificateSubjectName $subname `
-    -CertificatePassword $certpwd -CertificateOutputFolder $certfolder `
-    -OS WindowsServer2016DatacenterwithContainers -VmSku $vmsku -KeyVaultName $vaultname
+# Create the Service Fabric cluster and its self-signed certificate. The OS you specify here lets you use this cluster with any applications that are also using containers.
+New-AzureRmServiceFabricCluster -Name $clustername -ResourceGroupName $groupname -Location $clusterloc `
+-ClusterSize $clustersize -CertificateSubjectName $subname `
+-CertificatePassword $certpwd -CertificateOutputFolder $certfolder `
+-OS WindowsServer2016DatacenterwithContainers -VmSku $vmsku -KeyVaultName $vaultname
 ```
 
 The creation process can take several minutes. After the configuration finishes, it outputs information about the cluster created in Azure. It also copies the cluster certificate to the -CertificateOutputFolder directory on the path you specified for this parameter.
@@ -111,14 +111,14 @@ Take note of the **ManagementEndpoint** URL for your cluster, which might be lik
 
 ### Import the certificate
 
-When the cluster is successfully created, execute the following command to ensure that you can use the self-signed certificate:
+When the cluster is successfully created, run the following command to ensure that you can use the self-signed certificate:
 
 ```PowerShell
 
-    # To connect to the cluster, install the certificate into the Personal (My) store of the current user on your computer.
-    Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
-            -FilePath C:\mycertificates\mysfclustergroup20170531104310.pfx `
-            -Password $certpwd
+# To connect to the cluster, install the certificate into the Personal (My) store of the current user on your computer.
+Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
+-FilePath C:\mycertificates\mysfclustergroup20170531104310.pfx `
+-Password $certpwd
 ```
 
 This command installs the certificate on the current user of your machine. You need this certificate to access Service Fabric Explorer and view the health of your cluster.
@@ -140,10 +140,10 @@ The Service Fabric PowerShell module provides many cmdlets for managing Service 
 
 ```PowerShell
 Connect-ServiceFabricCluster -ConnectionEndpoint mysfcluster.southcentralus.cloudapp.azure.com:19000 `
-          -KeepAliveIntervalInSec 10 `
-          -X509Credential -ServerCertThumbprint C4C1E541AD512B8065280292A8BA6079C3F26F10 `
-          -FindType FindByThumbprint -FindValue C4C1E541AD512B8065280292A8BA6079C3F26F10 `
-          -StoreLocation CurrentUser -StoreName My
+-KeepAliveIntervalInSec 10 `
+-X509Credential -ServerCertThumbprint C4C1E541AD512B8065280292A8BA6079C3F26F10 `
+-FindType FindByThumbprint -FindValue C4C1E541AD512B8065280292A8BA6079C3F26F10 `
+-StoreLocation CurrentUser -StoreName My
 ```
 
 You can also check that you're connected and that the cluster is healthy by using the [Get-ServiceFabricClusterHealth](/powershell/module/servicefabric/get-servicefabricclusterhealth) cmdlet.
@@ -159,4 +159,4 @@ Next, advance to the following tutorial to learn how to deploy an existing appli
 > [!div class="nextstepaction"]
 > [Deploy an existing .NET application with Docker Compose](service-fabric-host-app-in-a-container.md)
 
---- 
+ 
