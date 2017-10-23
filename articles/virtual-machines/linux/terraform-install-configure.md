@@ -97,9 +97,52 @@ export ARM_CLIENT_SECRET=your_password
 export ARM_TENANT_ID=your_tenant_id
 ```
 
+## Verify your installation
+
+Create a file `test.tf` in an empty directory and paste in the following script to create a new Azure resource group.
+
+```tf
+provider "azurerm" {
+}
+resource "azurerm_resource_group" "rg" {
+        name = "testResourceGroup"
+        location = "westus"
+}
+```
+
+Save the file and then run `terraform init`. This will download the Azure modules required to create an Azure resource group. You see the following output:
+
+```
+* provider.azurerm: version = "~> 0.3"
+
+Terraform has been successfully initialized!
+```
+
+Preview the script with `terraform plan`, and then create the resource group with `terraform apply`:
+
+```An execution plan has been generated and is shown below.
+Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  + azurerm_resource_group.rg
+      id:       <computed>
+      location: "westus"
+      name:     "testResourceGroup"
+      tags.%:   <computed>
+
+...
+azurerm_resource_group.rg: Creating...
+  location: "" => "westus"
+  name:     "" => "testResourceGroup"
+  tags.%:   "" => "<computed>"
+azurerm_resource_group.rg: Creation complete after 1s
+```
+
 ## Next steps
 
-You have installed Terraform and configured Azure credentials so that you can start deploying infrastructure into your Azure subscription.
+You have installed Terraform and configured Azure credentials so that you can start deploying infrastructure into your Azure subscription. You then tested your installation by creating an empty Azure resource group.
 
 > [!div class="nextstepaction"]
 > [Create an Azure VM with Terraform](terraform-create-complete-vm.md)
