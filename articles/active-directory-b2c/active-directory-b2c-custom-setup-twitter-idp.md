@@ -186,7 +186,7 @@ Now that you have a button in place, you must link it to an action. The action, 
 
 5. Select the **Overwrite the policy if it exists** check box.
 
-6. Upload the *TrustFrameworkExtensions.xml* file, and ensure that it passes validation.
+6. Upload the *TrustFrameworkBase.xml* and *TrustFrameworkExtensions.xml* files, and ensure that they pass validation.
 
 ## Step 6: Test the custom policy by using Run Now
 
