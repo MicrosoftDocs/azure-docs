@@ -49,7 +49,7 @@ WITH
 ```
 
 ## Memory maximums
-The performance tiers have different memory profiles, which translates into a different amount of memory per query. The Optimized for Compute performance tier provides 2.5x more memory per query than the Optimized for Elasticity performance tier. This extra memory helps the Optimized for Compute performance tier deliver its blazing fast performance. Additional memory per query also allows you to run more queries concurrently since queries can use lower [resource classes](resource-classes-for-workload-management). 
+The performance tiers have different memory profiles, which translates into a different amount of memory per query. The Optimized for Compute performance tier provides 2.5x more memory per query than the Optimized for Elasticity performance tier. This extra memory helps the Optimized for Compute performance tier deliver its blazing fast performance. Additional memory per query also allows you to run more queries concurrently since queries can use lower [resource classes](resource-classes-for-workload-management.md). 
 
 ### Optimized for Elasticity
 
