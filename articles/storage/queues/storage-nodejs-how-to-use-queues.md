@@ -351,12 +351,18 @@ to learn about more complex storage tasks.
 * Visit the [Azure Storage Team Blog][Azure Storage Team Blog].
 * Visit the [Azure Storage SDK for Node][Azure Storage SDK for Node] repository on GitHub.
 
+
+
 [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
+
 [using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
+
 [Azure Portal]: https://portal.azure.com
+
 [Create a Node.js web app in Azure App Service](../../app-service/app-service-web-get-started-nodejs.md)
 
-
 [Build and deploy a Node.js application to an Azure Cloud Service](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)
+
 [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
+
 [Build and deploy a Node.js web app to Azure using Web Matrix]: https://www.microsoft.com/web/webmatrix/

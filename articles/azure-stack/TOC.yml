@@ -51,10 +51,14 @@
       href: azure-stack-provision-vm.md
   - name: Datacenter integration
     items:
-    - name: Integrate DNS
+    - name: DNS
       href: azure-stack-integrate-dns.md
+    - name: Identity
+      href: azure-stack-integrate-identity.md
     - name: Publish endpoints
-      href: azure-stack-integrate-endpoints.md  
+      href: azure-stack-integrate-endpoints.md
+    - name : Security
+      href: azure-stack-integrate-security.md
   - name: Manage
     items:
     - name: Region management
@@ -97,8 +101,12 @@
       items:
       - name: Node actions
         href: azure-stack-node-actions.md
+      - name: Replace node
+        href: azure-stack-replace-node.md
       - name: Replace disk
         href: azure-stack-replace-disk.md
+      - name: Replace component
+        href: azure-stack-replace-component.md    
   - name: Security, compliance & identity
     items:
     - name: Security overview

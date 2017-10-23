@@ -2,7 +2,7 @@
 title: Collect data from on-premises Windows computers with Azure Log Analytics | Microsoft Docs
 description: Learn how to deploy the Log Analytics agent for Windows running on computers outside of Azure and enable collection of data with Log Analytics.
 services: log-analytics
-documentationcenter: ''
+documentationcenter: log-analytics
 author: MGoedtel
 manager: carmonm
 editor: ''
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: magoedte
-
+ms.custom: mvc
 ---
 
 # Collect data from Windows computers hosted in your environment

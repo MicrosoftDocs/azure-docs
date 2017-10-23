@@ -3,7 +3,7 @@ title: Get Started with the Microsoft Speech Recognition API in JavaScript | Mic
 description: Use the Microsoft speech recognition API in Microsoft Cognitive Services to develop applications that continuously convert spoken audio to text.
 services: cognitive-services
 author: zhouwangzw
-manager: wolfma61
+manager: wolfma
 
 ms.service: cognitive-services
 ms.technology: speech
@@ -19,10 +19,16 @@ Microsoft speech recognition API allows you to develop applications that convert
 
 ### Subscribe to speech recognition API and get a free trial subscription key
 
-> [!IMPORTANT]
-> You must have a subscription key before using speech client libraries.
+Microsoft Speech API is part of Microsoft Cognitive Services on Azure(previously Project Oxford). You can get free trial subscription keys from the [Cognitive Services Subscription](https://azure.microsoft.com/try/cognitive-services/) page. After you select the Speech API, click Get API Key to get the key. It returns a primary and secondary key. Both keys are tied to the same quota, so you may use either key.
 
-Microsoft Speech API is part of Microsoft Cognitive Services on Azure(previously Project Oxford). You can get free trial subscription keys from the [Cognitive Services Subscription](https://azure.microsoft.com/en-us/try/cognitive-services/) page. After you select the Speech API, click Get API Key to get the key. It returns a primary and secondary key. Both keys are tied to the same quota, so you may use either key.
+> [!IMPORTANT]
+> **Get a subscription key**
+>
+> You must have a [subscription key](https://azure.microsoft.com/try/cognitive-services/) before using speech client libraries.
+>
+> **Use your subscription key**
+>
+> With the provided JavaScript sample application, you need to update the file samples/browser/Sample.html with your subscription key. See more information below: [Get started](#get-started).
 
 ## Get started
 

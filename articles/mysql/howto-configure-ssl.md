@@ -19,11 +19,12 @@ Download the certificate needed to communicate over SSL with your Azure Database
 
 ## Step 2: Bind SSL
 ### Connecting to server using the MySQL Workbench over SSL
-Configure the MySQL Workbench to connect securely over SSL. in the MySQL Workbench on the Setup New Connection dialogue, navigate to the **SSL** tab. In the **SSL CA File:** field, enter the file location of the **BaltimoreCyberTrustRoot.crt.pem**.
+Configure the MySQL Workbench to connect securely over SSL. From the Setup New Connection dialogue, navigate to the **SSL** tab. In the **SSL CA File:** field, enter the file location of the **BaltimoreCyberTrustRoot.crt.pem**. 
 ![save customized tile](./media/howto-configure-ssl/mysql-workbench-ssl.png)
+For existing connections, you can bind SSL by right clicking on the connection icon and choose edit. Then navigate to the **SSL** tab and bind the cert file.
 
 ### Connecting to server using the MySQL CLI over SSL
-Using the MySQL command-line interface, execute the following command:
+Another way to bind the SSL certificate is using the MySQL command-line interface by execute the following command:
 ```dos
 mysql.exe -h mysqlserver4demo.mysql.database.azure.com -u Username@mysqlserver4demo -p --ssl-ca=c:\ssl\BaltimoreCyberTrustRoot.crt.pem
 ```
@@ -47,6 +48,7 @@ mysql> status
 Confirm the connection is encrypted by reviewing the output, which should show:  **SSL: Cipher in use is AES256-SHA** 
 
 ## Sample code
+To establish a secure connection to Azure Database for MySQL over SSL from your application, please refer to the following code samples.
 ### PHP
 ```
 $conn = mysqli_init();
