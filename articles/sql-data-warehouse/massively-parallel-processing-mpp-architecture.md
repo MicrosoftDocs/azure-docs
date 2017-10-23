@@ -1,23 +1,23 @@
 ---
-title: What is Azure SQL Data Warehouse? | Microsoft Docs
-description: Enterprise-class distributed database capable of processing petabyte volumes of relational and non-relational data. It is the industry's first cloud data warehouse with grow, shrink, and pause in seconds.
+title: MPP architecture - Azure SQL Data Warehouse? | Microsoft Docs
+description: Learn how Azure SQL Data Warehouse combines massively parallel processing (MPP) with Azure storage to achieve high performance and scalability. 
 services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
-manager: bjhubbard
+manager: jhubbard
 editor: ''
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.custom: overview
-ms.date: 08/10//2017
+ms.custom: architecture
+ms.date: 10/23//2017
 ms.author: jrj;barbkess
 
 ---
 # Azure SQL Data Warehouse - massively parallel processing (MPP) architecture
-Learn how SQL Data Warehouse combines massively parallel processing (MPP) with Azure storage to achieve high performance and scalability. 
+Learn how Azure SQL Data Warehouse combines massively parallel processing (MPP) with Azure storage to achieve high performance and scalability. 
 
 ## MPP Architecture components
 SQL Data Warehouse leverages a scale out architecture to distribute computational processing of data across multiple nodes. The unit of scale is an abstraction of compute power that is known as a data warehouse unit. SQL Data Warehouse separates compute from storage which enables you as the user to scale compute independently of the data in your system.

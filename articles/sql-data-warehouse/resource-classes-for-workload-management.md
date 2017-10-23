@@ -1,6 +1,6 @@
 ---
 title: Resource classes for workload management - Azure SQL Data Warehouse | Microsoft Docs
-description: Understand concurrency and workload management for the optimized for compute performance tier in Azure SQL Data Warehouse.
+description: Guidance for using resource classes to manage concurrency and compute resources for queries in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
 author: sqlmojo
@@ -14,20 +14,22 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 08/23/2017
+ms.date: 10/23/2017
 ms.author: joeyong;barbkess;kavithaj
 
 ---
 # Resource classes for workload management
-Resource classes help you manage the performance of your overall workload in Azure SQL Data Warehouse. Use resource classes to manage the number of queries that run concurrently, and the compute resources the data warehouse allows for each query.
+Guidance for using resource classes to manage the number of concurrent queries that run concurrently, and compute resources for queries in Azure SQL Data Warehouse.
  
 ## What is workload management?
 Workload management is the ability to optimize the overall performance of all queries. A well-tuned workload runs queries and load operations efficiently regardless of whether they are compute-intensive or IO-intensive. 
 
-SQL Data Warehouse uses resource classes to help you tune multi-user environments. A data warehouse is not intended for multi-tenant workloads.
+SQL Data Warehouse provides workload management capabilities for multi-user environments. A data warehouse is not intended for multi-tenant workloads.
 
 ## What are resource classes?
-Resource classes are pre-determined resource limits that govern query execution. SQL Data Warehouse limits the compute resources for each query according to resource class. Using resource classes effectively helps you manage your workload by setting limits on  the number of queries that run concurrently and the compute-resources assigned to each query. 
+Resource classes are pre-determined resource limits that govern query execution. SQL Data Warehouse limits the compute resources for each query according to resource class. 
+
+Resource classes help you manage the overall performance of your data warehouse workload.Using resource classes effectively helps you manage your workload by setting limits on  the number of queries that run concurrently and the compute-resources assigned to each query. 
 
 - Smaller resource classes use less compute resources but enable greater overall query concurrency
 - Larger resource classes provide more compute resources but restrict the query concurrency
@@ -51,7 +53,7 @@ The following operations are governed by resource classes:
 > 
 > 
 
-### Static and dynamic resource classes
+## Static and dynamic resource classes
 
 There are two types of resource classes: dynamic and static.
 
@@ -117,7 +119,7 @@ Removed as these two are not confirmed / supported under SQLDW
 - REDISTRIBUTE
 -->
 
-## Guidelines for choosing resource classes
+## Recommendations
 We recommend creating a user that is dedicated to running a specific type of query or load operations. Then give that user a permanent resource class instead of changing the resource class on a frequent basis. Given that static resource classes afford greater overall control on the workload we also suggest using those first before considering dynamic resource classes.
 
 ### Resource classes for load users
@@ -497,7 +499,7 @@ GO
 
 
 ## Next steps
-For more information about managing database users and security, see [Secure a database in SQL Data Warehouse][Secure a database in SQL Data Warehouse]. For more information about how larger resource classes can improve clustered columnstore index quality, see [Rebuilding indexes to improve segment quality].
+For more information about managing database users and security, see [Secure a database in SQL Data Warehouse][Secure a database in SQL Data Warehouse]. For more information about how larger resource classes can improve clustered columnstore index quality, see [Memory optimizations for columnstore compression](sql-data-warehouse-memory-optimizations-for-columnstore-compression).
 
 <!--Image references-->
 

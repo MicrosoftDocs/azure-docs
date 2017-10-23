@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.custom: backup-restore
-ms.date: 09/13/2017
+ms.date: 10/23/2017
 ms.author: jrj;barbkess
 
 ---

@@ -14,7 +14,7 @@ ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: overview
-ms.date: 9/11/2017
+ms.date: 10/23/2017
 ms.author: jrj;barbkess
 
 ---
@@ -36,7 +36,7 @@ The analysis results can go to worldwide reporting databases or applications. Bu
 
 ## Optimization choices
 
-SQL Data Warehouse is designed for flexibility to meet your data needs, whether big or small. You can choose a data warehouse that is optimized for elasticity or for compute. 
+SQL Data Warehouse offers [performance tiers](performance-tiers.md) designed for flexibility to meet your data needs, whether big or small. You can choose a data warehouse that is optimized for elasticity or for compute. 
 
 - Choosing a data warehouse that is optimized for elasticity means you can provision in minutes, and scale in seconds, and pause or resume the service on demand to control computation costs. This option provides flexibility for businesses that have changing demands. 
 

@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 09/13/2017
+ms.date: 10/23/2017
 ms.author: jrj;barbkess
 
 ---
 # Data Warehouse Units (DWUs) and compute Data Warehouse Units (cDWUs)
-Explains Data Warehouse Units (DWUs) and compute Data Warehouse Units (cDWUS) as they are used in Azure SQL Data Warehouse. Include recommendations on choosing the ideal number of data warehouse units, and how to change the number of them. 
+Explains Data Warehouse Units (DWUs) and compute Data Warehouse Units (cDWUS) for Azure SQL Data Warehouse. Include recommendations on choosing the ideal number of data warehouse units, and how to change the number of them. 
 
 ## What are Data Warehouse Units?
 With SQL Data Warehouse CPU, memory, and IO are bundled into units of compute scale called Data Warehouse Units (DWU). DWU represent an abstract, normalized measure of compute resources and performance. By changing your service level you alter the number of DWU that are allocated to the system which in turn adjusts the performance, and the cost, of your system. 
