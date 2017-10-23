@@ -20,23 +20,23 @@ ms.author:
 
 # Manage Time Series Insights Resources with Azure Resource Manager
 
-Azure Time Series Insights is a fully managed analytics, storage, and visualization service that makes it simple to explore and analyze billions of IoT events simultaneously.  It gives you a global view of your data, letting you quickly validate your IoT solution and avoid costly downtime to mission-critical devices by helping you discover hidden trends, spot anomalies, and conduct root-cause analyses in near real-time. If you are building an application that needs to store or query time series data, you can develop using Time Series Insights using its REST APIs.
+Azure Time Series Insights is a fully managed analytics, storage, and visualization service that makes it simple to explore and analyze billions of IoT events simultaneously. It gives you a global view of your data, letting you quickly validate your IoT solution and avoid costly downtime to mission-critical devices by helping you discover hidden trends, spot anomalies, and conduct root-cause analyses in near real-time. If you are building an application that needs to store or query time series data, you can develop using Time Series Insights using its REST APIs.
 
-This tutorial demonstrates how to manage Time Series Insights with Azure Resource Management (ARM) resources. This is beneficial to help manage Time Series Insights environments where using the Azure portal doesn’t make sense, namely a custom application built on top of Time Series Insights.  Using ARM allows you to automate control for the same resources you can configure in the Azure portal.
+This tutorial demonstrates how to manage Time Series Insights with Azure Resource Management (ARM) resources. This helps you manage Time Series Insights environments where using the Azure portal doesn’t make sense, for example if you have a custom application built on top of Time Series Insights.  Using ARM allows you to automate control for the same resources you can configure in the Azure portal.
 
 There are four types of Time Series Insights resources that can be created using this ARM template:  
 
 - 	Environments
-- 	Event Sources
-- 	Reference Data Sets
+- 	Event sources
+- 	Reference data sets
 - 	Role assignments
 
 ![TSI resources
 ](media/manage-resources-using-arm/arm1.png)
 
-A Time Series Insights Environment is a logical grouping of Event Sources. You can add one or more Event Sources in an Time Series Insights Environment (current limits in private preview are 2 event sources per environment). 
+A Time Series Insights Environment is a logical grouping of event sources. You can add one or more event sources in an Time Series Insights Environment (current limits in private preview are two event sources per environment). 
 
-An Event Source is a data source from which Time Series Insights reads and ingests data into Time Series Insights storage. Time Series Insights supports two event sources:  Azure IoT Hubs and Azure Event Hubs.
+An event source is a data source from which Time Series Insights reads and ingests data into Time Series Insights storage. Time Series Insights supports two event sources:  Azure IoT Hubs and Azure Event Hubs.
 
 Reference data sets provide metadata about the events in the environment. Metadata in the reference data sets will be joined with events during ingress. Reference data sets are defined as resources by their event key properties. The actual metadata that makes up the reference data set is uploaded or modified through data plane APIs.
 
@@ -45,7 +45,8 @@ Before Time Series Insights is released publicly, support for Role Assignment re
 This document covers the different options for managing Time Series Insights resources that are available during private preview. 
 
 The high-level options currently available to manage Time Series Insights resources are:
-- 	ARM Template Deployments
+
+- 	ARM template deployments
 - 	REST APIs
 - 	Azure Management Portal extension (coming soon!)
 
@@ -54,6 +55,7 @@ The high-level options currently available to manage Time Series Insights resour
 Before creating Time Series Insights resources, you must perform the following prerequisite:
 
 - Create a resource group for your Time Series Insights resources
+
 Create a ResourceGroup in your subscription. This can be done through REST APIs, PowerShell, or by using the Azure Management portal. 
 
 ## Managing Resources through ARM Template Deployments
@@ -166,23 +168,21 @@ The ARM REST APIs are the foundation of ARM resource management. When provisioni
 
 This is a quick example of using REST APIs to manage Time Series Insights resources in ARM. 
 
-Examples shown use ARMClient to invoke the REST APIs. For more details about ARMClient, see http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html  
+Examples shown use ARMClient to invoke the REST APIs. For more details about ARMClient, see http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html.  
 
 ### Enable Time Series Insights on your subscription
 
 The Time Series Insights team cannot enable Time Series Insights on your behalf. After your subscription has been whitelisted, you need to enable Time Series Insights by running the following ARMClient command:
 
-armclient POST
-/subscriptions/{**subscriptionId**}/providers/Microsoft.TimeSeriesInsights/register?api-version=2015-01-01
+`armclient POST /subscriptions/{**subscriptionId**}/providers/Microsoft.TimeSeriesInsights/register?api-version=2015-01-01`
 
 ### Creating a Time Series Insights environment 
 
 ArmClient command to create a new environment:
 
-armclient PUT 
-/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TimeSeriesInsights/environments/{environmentName}?api-version=2017-02-28-preview @PutEnvironment.json
+`armclient PUT /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TimeSeriesInsights/environments/{environmentName}?api-version=2017-02-28-preview @PutEnvironment.json`
 
-Where PutEnvironment.json contains:
+where PutEnvironment.json contains:
 ```
 {
   "location" : "West Us",
@@ -219,7 +219,7 @@ armclient PUT
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TimeSeriesInsights/environments/{environmentName}/eventsources/{eventSourceName}?api-version=2017-02-28-preview @PutEventSource.json
 ```
 
-Where PutEventSource.json contains:
+where PutEventSource.json contains:
 
 ```
 {
@@ -254,19 +254,21 @@ Note the use of an inline request body rather than the path to a json file.
 
 ArmClient command to update an event source’s timestamp property name via PATCH
 
+```
 armclient PATCH 
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TimeSeriesInsights/environments/{environmentName}/eventSources/{eventSourceName}?api-version=2017-02-28-preview "{properties:{timestampPropertyName: '{timestampPropertyNameValue}' }}"
+```
+
 
 ### Create a ReferenceDataSet in the environment
 
-The ARMClient command to create a ReferenceDataSet in an environment is
+The ARMClient command to create a ReferenceDataSet in an environment is:
 
 ```
-armclient PUT 
-/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TimeSeriesInsights/environments/{environmentName}/referenceDataSets/{referenceDataSetName}?api-version=2017-02-28-preview @CreateReferenceDataSet.json
+armclient PUT /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TimeSeriesInsights/environments/{environmentName}/referenceDataSets/{referenceDataSetName}?api-version=2017-02-28-preview @CreateReferenceDataSet.json
 ```
 
-Where CreateReferenceDataSet.json contains:
+where CreateReferenceDataSet.json contains:
 
 ```
 {
@@ -288,22 +290,21 @@ Where CreateReferenceDataSet.json contains:
 
 ![armclient PUT](media/manage-resources-using-arm/arm6.png)  
 
-### Deleting a Time Series Insights environment
+### Delete a Time Series Insights environment
 
 The deletion is cascading. Any event sources and reference data sets will be deleted with the environment.
 
 ArmClient command to delete an environment:
 
-armclient DELETE 
-/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TimeSeriesInsights/environments/{environmentName}?api-version=2017-02-28-preview 
+`armclient DELETE /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TimeSeriesInsights/environments/{environmentName}?api-version=2017-02-28-preview` 
 
-### Creating an access policy in the environment
+### Create an access policy in the environment
 
-The ARMClient command to create an AccessPolicy in an environment is
+The ARMClient command to create an AccessPolicy in an environment is:
 
-armclient PUT /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TimeSeriesInsights/environments/{environmentName}/accessPolicies/{accessPolicyName}?api-version=2017-02-28-preview @CreateAccessPolicy.json
+`armclient PUT /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TimeSeriesInsights/environments/{environmentName}/accessPolicies/{accessPolicyName}?api-version=2017-02-28-preview @CreateAccessPolicy.json`
 
-Where CreateAccessPolicy.json contains:
+where CreateAccessPolicy.json contains:
 
 ```
 {
@@ -317,7 +318,25 @@ Where CreateAccessPolicy.json contains:
 }
 ```
 
-
 Access policies can be created for users or applications. The supported roles are defined below.
 
+### SKU ingress rates and capacities
+
+|SKU Name  |Ingress Rate – Min/Day  |Ingress Rate – Max/Day  |Minimum Storage Capacity   |Maximum Storage Capacity |
+|---------|---------|---------|---------|---------|
+|S1     | 1GB/1mill events        | 10GB/10mill events        | 30 GB (30 million events) / month|300 GB (300 million events) / month
+|S2     |10GB/10mill events |100GB/100mill events|300 GB (300 million events) / month|3TB/3bill
+
+
+### Time Series Insights RBAC roles
+
+In the Reader role, the the principal can perform the following actions on the Time Series Insights environment:
+- Read (query) data from the Time Series Insights environment. The principal does not have read access to reference data sets. 
+-	Create saved queries.
+
+In the Contributer role, the principal can perform all allowed actions on the Time Series Insights environment except manage access policies.
+
+-	Read data.
+-	Read and write reference data sets.
+-	Manage saved queries, including deleting saved queries created by other users.
 
