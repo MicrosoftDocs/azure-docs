@@ -27,7 +27,7 @@ A performance tier is an option that determines the configuration of your data w
 
 - The **Optimized for Compute performance tier** uses the latest Azure hardware to introduce a new NVMe Solid State Disk cache that keeps the most frequently accessed data close to the CPUs, which is exactly where you want it. By automatically tiering the storage, this performance tier excels with complex queries since all IO is kept local to the compute layer. Furthermore, the columnstore is enhanced to store an unlimited amount of data in your SQL Data Warehouse. The Optimized for Compute performance tier provides the greatest level of scalability, enabling you to scale up to 30,000 compute Data Warehouse Units (cDWU). Choose this tier for workloads that requires continuous, blazing fast, performance.
 
-## Service levels for performance tiers
+## Service levels
 The Service Level Objective (SLO) is the scalability setting that determines the cost and performance level of your data warehouse. The service levels for the Optimized for Compute performance tier scale are measured in compute data warehouse units (cDWU), for example DW2000c. The Optimized for Elasticity service levels are measured in DWUs, for example DW2000. For more information, see [What is a data warehouse unit?](what-is-a-data-warehouse-unit-dwu-cdwu.md)
 
 In T-SQL the SERVICE_OBJECTIVE setting determines the service level and the performance tier for your data warehouse.
@@ -91,12 +91,9 @@ The service levels for the Optimized for Compute performance tier range from DW1
 The maximum cDWU is DW30000c, which has 60 Compute nodes and one distribution per Compute node. For example, a 600 TB data warehouse at DW30000c processes approximately 10 TB per Compute node.
 
 ## Concurrency maximums
-SQL Data Warehouse provides industry-leading concurrency on a single data warehouse instance. To ensure each query has enough resources to execute efficiently, the system has built-in workload optimizations that you can tailor to meet your requirements. 
+SQL Data Warehouse provides industry-leading concurrency on a single data warehouse. To ensure each query has enough resources to execute efficiently, the system tracks compute resource utilization by assigning concurrency slots to each query. The system puts queries into a queue where they wait until enough concurrency slots are available. 
 
-The system optimizes resource utilization in the following ways:
-
-- Channels queries into a queue based on priority and time of submission.
-- Tracks compute resource utilization by assigning concurrency slots to each query.
+Concurrency slots also determine CPU prioritization. For more information, see [Analyze your workload](analyze-your-workload.md)
 
 ### Concurrency slots
 Concurrency slots are a convenient way to track the resources available for query execution. They are like tickets that you purchase to reserve seats at a concert because seating is limited. Similarly, SQL Data Warehouse has a finite number of compute resources. Queries reserve compute resources by acquiring concurrency slots. Before a query can start executing, it must be able to reserve enough concurrency slots. When a query finishes, it releases its concurrency slots. 
@@ -108,55 +105,11 @@ Each query will consume zero, one, or more concurrency slots. System queries and
 
 - A query running with 10 concurrency slots can access 5 times more compute resources than a query running with 2 concurrency slots.
 - If each query requires 10 concurrency slots and there are 40 concurrency slots, then only 4 queries can run concurrently.
-
-The following table shows the maximum concurrent queries and concurrency slots at the various service levels.
-
-### Optimized for Elasticity
-
-| Service Level | Maximum concurrent queries | Maximum concurrency slots |
-|:-------------:|:--------------------------:|:-------------------------:|
-| DW100         | 4                          |   4                       |
-| DW200         | 8                          |   8                       |
-| DW300         | 12                         |  12                       |
-| DW400         | 16                         |  16                       |
-| DW500         | 20                         |  20                       |
-| DW600         | 24                         |  24                       |
-| DW1000        | 32                         |  40                       |
-| DW1200        | 32                         |  48                       |
-| DW1500        | 32                         |  60                       |
-| DW2000        | 48                         |  80                       |
-| DW3000        | 64                         | 120                       |
-| DW6000        | 128                        | 240                       |
+ 
+Only resource governed queries consume concurrency slots. The exact number of concurrency slots consumed is determined by the query's [resource class](resource-classes-for-workload-management.md).
 
 ### Optimized for Compute
-
-| Service Level | Maximum concurrent queries | Maximum concurrency slots   |
-|:-------------:|:--------------------------:|:---------------------------:|
-| DW1000c       | 32                         |   40                        |
-| DW1500c       | 32                         |   60                        |
-| DW2000c       | 32                         |   80                        |
-| DW2500c       | 32                         |  100                        |
-| DW3000c       | 32                         |  120                        |
-| DW5000c       | 32                         |  200                        |
-| DW6000c       | 32                         |  240                        |
-| DW7500c       | 32                         |  300                        |
-| DW10000c      | 32                         |  400                        |
-| DW15000c      | 32                         |  600                        |
-| DW30000c      | 32                         | 1200                        |
-
-When one of these thresholds is met, new queries are queued and executed on a first-in, first-out basis.  As a queries finishes and the number of queries and slots falls below the limits, SQL Data Warehouse releases queued queries. 
-
-## Concurrency slots for resource classes 
-Resource governed queries consume concurrency slots. The exact number of concurrency slots consumed is determined by the query's resource class.
-
-The following tables consolidates all of the previous concepts into a single view that shows the number of concurrency slots available by DWU and the slots consumed by each resource class.  
-
-> [!NOTE]  
-> SELECT statements on dynamic management views (DMVs) or other system views are not governed by any of the concurrency limits. You can monitor the system regardless of the number of queries executing on it.
-> 
-> 
-
-### Optimized for Compute performance tier concurrency slot consumption
+The following table shows the maximum concurrent queries and concurrency slots for each [dynamic resource class](resource-classes-for-workload-management.md).  These apply to the Optimized for Compute performance tier.
 
 **Dynamic resource classes**
 | Service Level | Maximum concurrent queries | Concurrency slots available | Slots used by smallrc | Slots used by mediumrc | Slots used by largerc | Slots used by xlargerc |
@@ -175,6 +128,8 @@ The following tables consolidates all of the previous concepts into a single vie
 
 **Static resource classes**
 
+The following table shows the maximum concurrent queries and concurrency slots for each [static resource class](resource-classes-for-workload-management.md).  
+
 | Service Level | Maximum concurrent queries | Concurrency slots available |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
 |:-------------:|:--------------------------:|:---------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
 | DW1000c       | 32                         |   40                        | 1         | 2          | 4          | 8          | 16         | 32         | 32         |  32        |
@@ -189,7 +144,8 @@ The following tables consolidates all of the previous concepts into a single vie
 | DW15000c      | 32                         |  600                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
 | DW30000c      | 32                         | 1200                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
 
-### Optimized for Elasticity performance tier concurrency slot consumption
+### Optimized for Elasticity
+The following table shows the maximum concurrent queries and concurrency slots for each [dynamic resource class](resource-classes-for-workload-management.md).  These apply to the Optimized for Elasticity performance tier.
 
 **Dynamic resource classes**
 
@@ -209,6 +165,7 @@ The following tables consolidates all of the previous concepts into a single vie
 | DW6000        | 32                         | 128                         | 1       | 32       | 64      | 128      |
 
 **Static resource classes**
+The following table shows the maximum concurrent queries and concurrency slots for each [static resource class](resource-classes-for-workload-management.md).  These apply to the Optimized for Elasticity performance tier.
 
 | Service level | Maximum concurrent queries | Maximum concurrency slots |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
 |:-------------:|:--------------------------:|:-------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
@@ -224,6 +181,8 @@ The following tables consolidates all of the previous concepts into a single vie
 | DW2000        | 32                         |  80                       | 1         | 2          | 4          | 8          | 16         | 32         | 64         |  64        |
 | DW3000        | 32                         | 120                       | 1         | 2          | 4          | 8          | 16         | 32         | 64         |  64        |
 | DW6000        | 32                         | 240                       | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
+
+When one of these thresholds is met, new queries are queued and executed on a first-in, first-out basis.  As a queries finishes and the number of queries and slots fall below the limits, SQL Data Warehouse releases queued queries. 
 
 ## Next steps
 

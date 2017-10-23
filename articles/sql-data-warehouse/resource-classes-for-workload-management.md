@@ -46,6 +46,11 @@ The following operations are governed by resource classes:
 * Data loading
 * Data movement operations conducted by the Data Movement Service (DMS)
 
+> [!NOTE]  
+> SELECT statements on dynamic management views (DMVs) or other system views are not governed by any of the concurrency limits. You can monitor the system regardless of the number of queries executing on it.
+> 
+> 
+
 ### Static and dynamic resource classes
 
 There are two types of resource classes: dynamic and static.

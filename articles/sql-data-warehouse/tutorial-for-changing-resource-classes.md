@@ -1,6 +1,6 @@
 ---
-title: Workload management tutorial - Azure SQL Data Warehouse | Microsoft Docs
-description: Tutorial for using workload management resource classes in Azure SQL Data Warehouse.
+title: Changing resource classes - Azure SQL Data Warehouse tutorial | Microsoft Docs
+description: Tutorial for changing resource classes in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 09/29/2017
+ms.date: 10/23/2017
 ms.author: jrj;barbkess
 ---
 
-# Tutorial for workload management
-Tutorial for using workload management resource classes in Azure SQL Data Warehouse.
+# Tutorial for changing resource classes
+Tutorial for changing [resource classes](resource-classes-for-workload-management.md) in Azure SQL Data Warehouse. 
 
 ##  <a name="changing-user-resource-class-example"></a> Change a user resource class example
 1. **Create login:** Open a connection to your **master** database on the SQL server hosting your SQL Data Warehouse database and execute the following commands.
