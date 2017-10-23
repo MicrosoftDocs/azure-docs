@@ -54,7 +54,7 @@ In the [Configure UI customization in a custom policy](active-directory-b2c-ui-c
 In this article, you use an ASP.NET web app, which can accept query string parameters and respond accordingly. 
 
 In this walkthrough, you:
-* Create an ASP.NET Core web application that hosts your HTML5 template. 
+* Create an ASP.NET Core web application that hosts your HTML5 templates. 
 * Add a custom HTML5 template, _unified.cshtml_. 
 * Publish your web app to Azure App Service. 
 * Set cross-origin resource sharing (CORS) for your web app.
@@ -243,9 +243,9 @@ Change the background based on query string parameter named _campaignId_. Your R
 Add the `ContentDefinitionParameters` element by doing the following:
 1. Open the *SignUpOrSignin* file of your policy (for example, *SignUpOrSignin.xml*).
 
-2. Search for the `<UserJourneyBehaviors>` node. 
+2. Search for the `<DefaultUserJourney>` node. 
 
-3. In the `<UserJourneyBehaviors>` node, add the following XML snippet:  
+3. In the `<DefaultUserJourney>` node, add the following XML snippet:  
 
     ```XML
     <ContentDefinitionParameters>
@@ -327,13 +327,13 @@ If you select the **Sign up now** link on the sign-in page, the browser displays
 
     b. Set the `LoadUri` attribute to your *selfasserted* URI.
 
-3. Go back to "Step 8.2," and change your code to accept query string parameters. 
+3. Go back to "Step 8.2," and change your code to accept query string parameters, but this time to the "selfasserted* function. 
 
 4. Upload the *TrustFrameworkExtensions.xml* policy, and ensure that it passes validation.
 
 5. Run the policy test, and then select **Sign up now** to see the result.
 
-## [Optional] Download the complete policy files and code
+## (Optional) Download the complete policy files and code
 * After you complete the [Get started with custom policies](active-directory-b2c-get-started-custom.md) walkthrough, we recommend that you build your scenario by using your own custom policy files. For your reference, we have provided [Sample policy files](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-ui-customization).
 * You can download the complete code from [Sample Visual Studio solution for reference](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-ui-customization).
 
