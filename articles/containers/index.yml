@@ -95,4 +95,4 @@ sections:
     - html: <a href="/azure/aks/tutorial-kubernetes-deploy-application">Run your container images in Kubernetes</a>
     - html: <a href="/azure/aks/tutorial-kubernetes-scale">Scale an application and Kubernetes infrastructure</a>
     - html: <a href="/azure/aks/tutorial-kubernetes-app-update">Update an application running in Kubernetes</a>
-    - html: <a href="/azure/aks/tutorial-kubernetes-monitor">Monitor Kubernetes with OMS</a>
+    - html: <a href="/azure/aks/tutorial-kubernetes-monitor">Monitor Kubernetes with Log Analytics</a>
