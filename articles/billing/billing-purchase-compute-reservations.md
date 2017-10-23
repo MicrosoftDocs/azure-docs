@@ -1,6 +1,8 @@
 ﻿---
 title: Save compute costs by purchasing a Azure Reserved Virtual Machine Instance - Azure | Microsoft Docs
 description: Learn about Azure Reserved Virtual Machine Instance. 
+services: ''
+documentationcenter: ''
 author: vikdesai
 manager: vikdesai
 editor: ''
