@@ -8,10 +8,10 @@ manager: timlt
 editor: tysonn
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/20/2017
+ms.date: 10/23/2017
 ms.author: tomfitz
 ---
 # Sample projects for Azure managed applications
