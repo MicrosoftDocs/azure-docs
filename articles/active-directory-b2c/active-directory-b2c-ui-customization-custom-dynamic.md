@@ -248,9 +248,11 @@ Add the `ContentDefinitionParameters` element by doing the following:
 3. In the `<DefaultUserJourney>` node, add the following XML snippet:  
 
     ```XML
-    <ContentDefinitionParameters>
-        <Parameter Name="campaignId">{OAUTH-KV:campaignId}</Parameter>
-    </ContentDefinitionParameters>
+    <UserJourneyBehaviors>
+        <ContentDefinitionParameters>
+            <Parameter Name="campaignId">{OAUTH-KV:campaignId}</Parameter>
+        </ContentDefinitionParameters>
+    </UserJourneyBehaviors>
     ```
 
 ### Step 8.2: Change your code to accept a query string parameter, and replace the background image
