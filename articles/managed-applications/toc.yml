@@ -19,7 +19,7 @@
   items:
   - name: Azure CLI
   - name: Azure PowerShell
-  - name: Managed Application solutions
+  - name: Managed application solutions
     href: sample-projects.md
 - name: Concepts
   items:
