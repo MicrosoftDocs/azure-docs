@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 07/20/2017
 ---
 
-# How To Backup and Restore a server in Azure Database for PostgreSQL using the Azure portal
+# How to backup and restore a server in Azure Database for PostgreSQL using the Azure portal
 
 ## Backup happens automatically
 When using Azure Database for PostgreSQL, the database service automatically makes a backup of the server every 5 minutes. 
