@@ -25,12 +25,12 @@ A performance tier is an option that determines the configuration of your data w
 
 - The **Optimized for Elasticity performance tier** separates the compute and storage layers in the architecture. This option excels on workloads that can take full advantage of the separation between compute and storage by scaling frequently to support short periods of peak activity. This compute tier has the lowest entry price point and scales to support the majority of customer workloads.
 
-- The **Optimized for Compute performance tier** uses the latest Azure hardware to introduce a new NVMe Solid State Disk cache that keeps the most frequently accessed data close to the CPUs, which is exactly where you want it. By automatically tiering the storage, this performance tier excels with complex queries since all IO is kept local to the compute layer. Furthermore, the columnstore is enhanced to store an unlimited amount of data in your SQL Data Warehouse. The Optimized for Compute performance tier provides the greatest level of scalability, enabling you to scale all the way up to 30,000 compute Data Warehouse Units (cDWU). Choose this tier for workloads that requires continuous, blazing fast, performance.
+- The **Optimized for Compute performance tier** uses the latest Azure hardware to introduce a new NVMe Solid State Disk cache that keeps the most frequently accessed data close to the CPUs, which is exactly where you want it. By automatically tiering the storage, this performance tier excels with complex queries since all IO is kept local to the compute layer. Furthermore, the columnstore is enhanced to store an unlimited amount of data in your SQL Data Warehouse. The Optimized for Compute performance tier provides the greatest level of scalability, enabling you to scale up to 30,000 compute Data Warehouse Units (cDWU). Choose this tier for workloads that requires continuous, blazing fast, performance.
 
 ## Service levels for performance tiers
-The Service Level Objective (SLO) is the scalability setting that determines the cost and performance level of your data warehouse. The service levels for the Optimized for Compute performance tier scale are measured in compute data warehouse units (cDWU), for example DW2000c. The Optimized for Elasticity service levels are measured in DWUs, for example DW2000. For more information, see [What is a data warehouse unit?](what-is-a-data-warehouse-unit-dwu-cdwu.md).
+The Service Level Objective (SLO) is the scalability setting that determines the cost and performance level of your data warehouse. The service levels for the Optimized for Compute performance tier scale are measured in compute data warehouse units (cDWU), for example DW2000c. The Optimized for Elasticity service levels are measured in DWUs, for example DW2000. For more information, see [What is a data warehouse unit?](what-is-a-data-warehouse-unit-dwu-cdwu.md)
 
-In T-SQL the SERVICE_OBJECTIVE setting determines the SLO and the performance tier for your data warehouse.
+In T-SQL the SERVICE_OBJECTIVE setting determines the service level and the performance tier for your data warehouse.
 
 ```sql
 --Optimized for Elasticity
