@@ -1,3 +1,5 @@
+- name: Kafka
+  href: ./kafka/apache-kafka-introduction.md
 - name: Overview
   items:
   - name: About HDInsight and Hadoop
