@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 10/18/2017
+ms.date: 10/23/2017
 ms.author: alkohli
 ---
 
 # Use Azure Automation runbooks to manage StorSimple devices
 
-This article describes how Azure Automation runbooks can be used to manage your StorSimple 8000 series device running in Azure portal. A sample runbook is also included to walk you through the steps of configuring your environment to execute this runbook.
+This article describes how Azure Automation runbooks are used to manage your StorSimple 8000 series device in Azure portal. A sample runbook is included to walk you through the steps of configuring your environment to execute this runbook.
 
 
 ## Configure, add, and run Azure runbook
@@ -38,7 +38,7 @@ Before you begin, ensure that you have:
 
 ### Create automation runbook module in Windows PowerShell
 
-To create an automation module for the StorSimple 8000 series device management, perform the following steps.
+To create an automation module for the StorSimple 8000 series device management, perform the following steps:
 
 1. Launch Windows PowerShell. Create a new folder and change directory to the new folder.
 
@@ -66,7 +66,7 @@ To create an automation module for the StorSimple 8000 series device management,
         wget https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Monitor-Backups.ps1 -Out Monitor-Backups.ps1
 
     ```
-5. Create an Azure Automation Runbook Module for StorSimple 8000 Series device management. On the Windows Powershell window, type the following commands.
+5. Create an Azure Automation Runbook Module for StorSimple 8000 Series device management. On the Windows Powershell window, type the following commands:
 
     ```
             # set path variables
@@ -121,7 +121,7 @@ to **Azure marketplace > Everything** and then search for **Automation**. Select
 
     ![add-module](./media/storsimple-8000-automation-azurerm-runbook/add-module.png)
 
-6. Go to **Process Automation > Runbooks and click + Add a runbook**. In the **Add runbook** blade, click **Import an existing runbook**. Point to the Windows PowerShell script file for the **Runbook file**. The runbook type will be automatically selected. Provide a name and an optional description for the runbook. Click **Create**.
+6. Go to **Process Automation > Runbooks and click + Add a runbook**. In the **Add runbook** blade, click **Import an existing runbook**. Point to the Windows PowerShell script file for the **Runbook file**. The runbook type is automatically selected. Provide a name and an optional description for the runbook. Click **Create**.
 
     ![add-module](./media/storsimple-8000-automation-azurerm-runbook/import-runbook.png)
 
@@ -129,11 +129,11 @@ to **Azure marketplace > Everything** and then search for **Automation**. Select
 
     ![click-new-runbook](./media/storsimple-8000-automation-azurerm-runbook/verify-runbook-created.png)
 
-8. Edit the runbook, click **Test pane**, and then provide the parameters such as name of your StorSimple Device Manager service, name of the StorSimple device and the subscription. **Start** the test. The report is generated when the run is complete. For more information, go to [how to test a runbook](../automation/automation-first-runbook-textual-powershell.md#step-3---test-the-runbook).
+8. Edit the runbook and click **Test pane**. Provide the parameters such as name of your StorSimple Device Manager service, name of the StorSimple device and the subscription. **Start** the test. The report is generated when the run is complete. For more information, go to [how to test a runbook](../automation/automation-first-runbook-textual-powershell.md#step-3---test-the-runbook).
 
     ![test-runbook](./media/storsimple-8000-automation-azurerm-runbook/test-runbook.png)
 
-9. Inspect the output from the runbook in the test pane. If satisfied, close the pane. Click **Publish** and when prompted for confirmation, confirm and publish the runbook.
+9. Inspect the output from the runbook in the test pane. If satisfied, close the pane. Click **Publish** and when prompted for confirmation, confirm, and publish the runbook.
 
     ![publish-runbook](./media/storsimple-8000-automation-azurerm-runbook/publish-runbook.png)
 
