@@ -27,7 +27,7 @@ If instead your goal is targeted search on specific data *structures* (scoping s
 
 ## When to use a filter
 
-Filters are foundational to several search experiences, including "find near me", faceted navigation, and security filters that show only  those documents a user is allowed to see. If you implement any one of these experiences, a filter is required. It's the filter attached to the search query that provides the geo.location coordinates, the facet category selected by the user, or the security ID of the requestor.
+Filters are foundational to several search experiences, including "find near me", faceted navigation, and security filters that show only  those documents a user is allowed to see. If you implement any one of these experiences, a filter is required. It's the filter attached to the search query that provides the geolocation coordinates, the facet category selected by the user, or the security ID of the requestor.
 
 Example scenarios include the following:
 
