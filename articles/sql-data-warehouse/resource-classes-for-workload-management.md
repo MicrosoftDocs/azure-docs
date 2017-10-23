@@ -54,7 +54,7 @@ There are two types of resource classes: dynamic and static.
 
 - **Dynamic Resource Classes** allocate a variable amount of memory depending on the current service level. When you scale up to a larger service level, your queries automatically get more memory. The dynamic resource classes are named smallrc, mediumrc, largerc, and xlargerc. These resource classes are best suited to solutions which increase compute scale to get additional resources. 
 
-The [performance tiers](performance-tiers.md) use the same resource class names, but have different [memory and concurrency specifications](resource-classes-specifications.md). 
+The [performance tiers](performance-tiers.md) use the same resource class names, but have different [memory and concurrency specifications](performance-tiers.md). 
 
 
 ## Assigning resource classes

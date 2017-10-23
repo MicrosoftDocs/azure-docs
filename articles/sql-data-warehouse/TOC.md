@@ -14,7 +14,6 @@
 
 ## Service features
 ### [MPP architecture](massively-parallel-processing-mpp-architecture.md)
-### [Distributed data](sql-data-warehouse-distributed-data.md)
 ### [Performance tiers](performance-tiers.md)
 ### [Data warehouse units](what-is-a-data-warehouse-unit-dwu-cdwu.md)
 ### [Frequently asked questions](sql-data-warehouse-overview-faq.md)
@@ -122,10 +121,9 @@
 ### [REST API](sql-data-warehouse-manage-compute-rest-api.md)
 ### [T-SQL](sql-data-warehouse-manage-compute-tsql.md)
 ### Resource classes
-#### [Specifications](resource-classes-specifications.md)
-#### [Tutorial](change-a-users-resource-class.md)
 #### [Guidelines](resource-classes-for-workload-management.md)
-#### [Troubleshoot](resource-classes-troubleshoot-workload.md)
+#### [Change resource classes](tutorial-for-changing-resource-classes.md)
+#### [Analyze your workload](analyze-your-workload.md)
 
 ## Performance
 
