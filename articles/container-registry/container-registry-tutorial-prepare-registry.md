@@ -85,7 +85,7 @@ Replicate your registry to the East US region by selecting its green hexagon, th
 
  ![Create replication UI in the Azure portal][tut-portal-04]
 
-When the replication is complete, the portal reflects *Ready* for both regions. Use the **Refresh** button to refresh the status of the replication.
+When the replication is complete, the portal reflects *Ready* for both regions. Use the **Refresh** button to refresh the status of the replication; it can take a minute or so for the replicas to be created and synchronized.
 
 ![Replication status UI in the Azure portal][tut-portal-05]
 
@@ -244,10 +244,10 @@ Advance to the next tutorial to learn about deploying your container to multiple
 > [Deploy containers to Azure App Services](container-registry-tutorial-deploy-app.md)
 
 <!-- IMAGES -->
-[tut-portal-01]: ./media/container-registry-tutorial-prepare-acr/tut-portal-01.png
-[tut-portal-02]: ./media/container-registry-tutorial-prepare-acr/tut-portal-02.png
-[tut-portal-03]: ./media/container-registry-tutorial-prepare-acr/tut-portal-03.png
-[tut-portal-04]: ./media/container-registry-tutorial-prepare-acr/tut-portal-04.png
-[tut-portal-05]: ./media/container-registry-tutorial-prepare-acr/tut-portal-05.png
-[tut-app-01]: ./media/container-registry-tutorial-prepare-acr/tut-app-01.png
-[tut-map-01]: ./media/container-registry-tutorial-prepare-acr/tut-map-01.png
+[tut-portal-01]: ./media/container-registry-tutorial-prepare-registry/tut-portal-01.png
+[tut-portal-02]: ./media/container-registry-tutorial-prepare-registry/tut-portal-02.png
+[tut-portal-03]: ./media/container-registry-tutorial-prepare-registry/tut-portal-03.png
+[tut-portal-04]: ./media/container-registry-tutorial-prepare-registry/tut-portal-04.png
+[tut-portal-05]: ./media/container-registry-tutorial-prepare-registry/tut-portal-05.png
+[tut-app-01]: ./media/container-registry-tutorial-prepare-registry/tut-app-01.png
+[tut-map-01]: ./media/container-registry-tutorial-prepare-registry/tut-map-01.png
