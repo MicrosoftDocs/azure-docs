@@ -20,11 +20,11 @@ ms.author:
 
 # Manage Time Series Insights Resources with Azure Resource Manager
 
-Azure Time Series Insights is a fully managed analytics, storage, and visualization service that makes it simple to explore and analyze billions of IoT events simultaneously. It gives you a global view of your data, letting you quickly validate your IoT solution and avoid costly downtime to mission-critical devices by helping you discover hidden trends, spot anomalies, and conduct root-cause analyses in near real-time. If you are building an application that needs to store or query time series data, you can develop using Time Series Insights using its REST APIs.
+Azure Time Series Insights is a fully managed analytics, storage, and visualization service that makes it simple to explore and analyze billions of IoT events simultaneously. It gives you a global view of your data, letting you quickly validate your IoT solution and avoid costly downtime to mission-critical devices by helping you discover hidden trends, spot anomalies, and conduct root-cause analyses in near real time. If you are building an application that needs to store or query time series data, you can develop using Time Series Insights using its REST APIs.
 
 This tutorial demonstrates how to manage Time Series Insights with Azure Resource Management (ARM) resources. This helps you manage Time Series Insights environments where using the Azure portal doesn’t make sense, for example if you have a custom application built on top of Time Series Insights.  Using ARM allows you to automate control for the same resources you can configure in the Azure portal.
 
-There are four types of Time Series Insights resources that can be created using this ARM template:  
+There are four types of Time Series Insights resources that can be created using this Resource Manager template:  
 
 - 	Environments
 - 	Event sources
@@ -34,11 +34,11 @@ There are four types of Time Series Insights resources that can be created using
 ![TSI resources
 ](media/manage-resources-using-arm/arm1.png)
 
-A Time Series Insights Environment is a logical grouping of event sources. You can add one or more event sources in an Time Series Insights Environment (current limits in private preview are two event sources per environment). 
+A Time Series Insights Environment is a logical grouping of event sources. You can add one or more event sources in a Time Series Insights Environment (current limits in private preview are two event sources per environment). 
 
 An event source is a data source from which Time Series Insights reads and ingests data into Time Series Insights storage. Time Series Insights supports two event sources:  Azure IoT Hubs and Azure Event Hubs.
 
-Reference data sets provide metadata about the events in the environment. Metadata in the reference data sets will be joined with events during ingress. Reference data sets are defined as resources by their event key properties. The actual metadata that makes up the reference data set is uploaded or modified through data plane APIs.
+Reference data sets provide metadata about the events in the environment. Metadata in the reference data sets are joined with events during ingress. Reference data sets are defined as resources by their event key properties. The actual metadata that makes up the reference data set is uploaded or modified through data plane APIs.
 
 Before Time Series Insights is released publicly, support for Role Assignment resources will also be added. Currently, access control must be controlled via role assignments on the resources in the management plane.
 
@@ -46,7 +46,7 @@ This document covers the different options for managing Time Series Insights res
 
 The high-level options currently available to manage Time Series Insights resources are:
 
-- 	ARM template deployments
+- 	Resource Manager template deployments
 - 	REST APIs
 - 	Azure Management Portal extension (coming soon!)
 
@@ -58,7 +58,7 @@ Before creating Time Series Insights resources, you must perform the following p
 
 Create a ResourceGroup in your subscription. This can be done through REST APIs, PowerShell, or by using the Azure Management portal. 
 
-## Managing Resources through ARM Template Deployments
+## Managing Resources through Resource Manager template Deployments
 
 A Resource Manager template is a JSON file that defines the infrastructure and configuration of resources in a resource group. For more information see the following documents:
 
@@ -238,7 +238,7 @@ where PutEventSource.json contains:
   }
 }
 ```
-![arclient PUT](media/manage-resources-using-arm/arm5.png)
+![armclient PUT](media/manage-resources-using-arm/arm5.png)
 
 ### Updating the event source through PATCH
 
@@ -324,13 +324,13 @@ Access policies can be created for users or applications. The supported roles ar
 
 |SKU Name  |Ingress Rate – Min/Day  |Ingress Rate – Max/Day  |Minimum Storage Capacity   |Maximum Storage Capacity |
 |---------|---------|---------|---------|---------|
-|S1     | 1GB/1mill events        | 10GB/10mill events        | 30 GB (30 million events) / month|300 GB (300 million events) / month
-|S2     |10GB/10mill events |100GB/100mill events|300 GB (300 million events) / month|3TB/3bill
+|S1     | 1 GB/1 million events        | 10 GB/10 million events        | 30 GB (30 million events)/ month|300 GB (300 million events) / month
+|S2     |10 GB/10 million events |100 GB/100 million events|300 GB (300 million events)/ month|3 TB/3 billion
 
 
 ### Time Series Insights RBAC roles
 
-In the Reader role, the the principal can perform the following actions on the Time Series Insights environment:
+In the Reader role, the principal can perform the following actions on the Time Series Insights environment:
 - Read (query) data from the Time Series Insights environment. The principal does not have read access to reference data sets. 
 -	Create saved queries.
 
