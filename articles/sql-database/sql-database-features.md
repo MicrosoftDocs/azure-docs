@@ -35,7 +35,7 @@ The following table lists the major features of SQL Server and provides informat
 | **SQL Server Feature** | **Supported in Azure SQL Database** | 
 | --- | --- |  
 | [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) | Yes - see [Cert store](sql-database-always-encrypted.md) and [Key vault](sql-database-always-encrypted-azure-key-vault.md)|
-| [AlwaysOn Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | [High availability and disaster recovery is built-in](sql-database-geo-replication-overview.md) |
+| [AlwaysOn Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | [High availability and disaster recovery is built in](sql-database-geo-replication-overview.md) |
 | [Attach a database](https://docs.microsoft.com/sql/relational-databases/databases/attach-a-database) | No |
 | [Application roles](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/application-roles) | Yes |
 | [BACPAC file (export)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) | Yes - see [SQL Database export](sql-database-export.md) |
@@ -79,7 +79,7 @@ The following table lists the major features of SQL Server and provides informat
 | [JSON data support](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) | Yes |
 | [Language elements](https://docs.microsoft.com/sql/t-sql/language-elements/language-elements-transact-sql) | Most - see individual elements |  
 | [Linked servers](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | No - see [Elastic query](sql-database-elastic-query-horizontal-partitioning.md) |
-| [Log shipping](https://docs.microsoft.com/sql/database-engine/log-shipping/about-log-shipping-sql-server) | [High availability and disaster recovery is built-in](sql-database-geo-replication-overview.md) |
+| [Log shipping](https://docs.microsoft.com/sql/database-engine/log-shipping/about-log-shipping-sql-server) | [High availability and disaster recovery is built in](sql-database-geo-replication-overview.md) |
 | [Master Data Services (MDS)](https://docs.microsoft.com/sql/master-data-services/master-data-services-overview-mds) | No |
 | [Minimal logging in bulk import](https://docs.microsoft.com/sql/relational-databases/import-export/prerequisites-for-minimal-logging-in-bulk-import) | No |
 | [Modifying system data](https://docs.microsoft.com/sql/relational-databases/databases/system-databases) | No |
@@ -118,7 +118,7 @@ The following table lists the major features of SQL Server and provides informat
 | [Temporal tables](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables) | Yes |
 | [Variables](https://docs.microsoft.com/sql/t-sql/language-elements/variables-transact-sql) | Yes | 
 | [Transparent data encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) | Yes |
-| [Windows Server Failover Clustering](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server) | [High availability and disaster recovery is built-in](sql-database-geo-replication-overview.md) |
+| [Windows Server Failover Clustering](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server) | [High availability and disaster recovery is built in](sql-database-geo-replication-overview.md) |
 | [XML indexes](https://docs.microsoft.com/sql/t-sql/statements/create-xml-index-transact-sql) | Yes |
 
 ## Next steps
