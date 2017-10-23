@@ -51,7 +51,7 @@ When ready, click **Deploy** to create the deployment.
 
 ## View the application
 
-Status about the application can be seen in on the Kubernetes dashboard. Once the application is running, each component has a green checkbox next to it.
+Status about the application can be seen on the Kubernetes dashboard. Once the application is running, each component has a green checkbox next to it.
 
 ![Kubernetes Pods](./media/container-service-kubernetes-ui/complete-deployment.png)
 

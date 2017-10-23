@@ -39,7 +39,7 @@
     href: kubernetes-draft.md
   - name: Use Kubernetes dashboard
     href: kubernetes-dashboard.md
-  - name: Create service principals
+  - name: Create service principal
     href: kubernetes-service-principal.md
 - name: Reference
   items:

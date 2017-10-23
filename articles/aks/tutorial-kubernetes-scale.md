@@ -24,7 +24,7 @@ ms.custom: mvc
 
 If you've been following the tutorials, you have a working Kubernetes cluster in AKS and you deployed the Azure Voting app.
 
-In this tutorial, part five of seven, you scale out the pods in the app and try pod autoscaling. You also learn how to scale the number of Azure VM nodes to change the cluster's capacity for hosting workloads. Tasks completed include:
+In this tutorial, part five of eight, you scale out the pods in the app and try pod autoscaling. You also learn how to scale the number of Azure VM nodes to change the cluster's capacity for hosting workloads. Tasks completed include:
 
 > [!div class="checklist"]
 > * Scale the Kubernetes Azure nodes
