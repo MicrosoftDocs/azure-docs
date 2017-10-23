@@ -5,13 +5,13 @@ author: vikdesai
 manager: vikdesai
 editor: ''
 
-ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
+ms.assetid: 65AD86FC-0774-4AC7-BF84-4AF3BA282827
 ms.service: billing
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/14/2017
+ms.date: 10/22/2017
 ms.author: vikdesai
 ---
 # Save compute costs with Azure Reserved Virtual Machine Instances 
@@ -25,7 +25,7 @@ A reservation only covers the virtual machine infrastructure charges for your Wi
 Azure customers with these subscriptions types that can purchase a Reserved Virtual Machine Instance:
 -	Enterprise agreement subscription offer type (MS-AZR-0017P)
 -	Pay-As-You-Go subscription offer type (MS-AZR-003P)
-You must be in the role “Owner” on the subscription to buy a Reserved Instance. For purchasing reservations in an enterprise enrollment, the enterprise administrator must enable reservation purchases in the EA portal, by default this setting is disabled. 
+You must be in the role “Owner” on the subscription to buy a Reserved Instance. For purchasing reservations in an enterprise enrollment, the enterprise administrator must enable reservation purchases in the EA portal. 
 ## How is a Reserved Virtual Machine Instance billed?
 The reservation purchase is charged to the payment method tied to the subscription. 
 If you have an Enterprise subscription, the reservation cost is deducted from your balance. If your balance doesn’t cover the cost of the reservation, you’re billed the overage.
@@ -35,8 +35,8 @@ The Reserved Virtual Machine Instance discount applies to the virtual machines t
 You can change the scope after you buy a Reserved VM Instance. To change the scope, see documentation on how to manage reservations.
 The reservation discount only applies to virtual machines in subscriptions with enterprise or Pay-As-You-Go offer types. Virtual machines running in a subscription with other offer types do not receive the reservation discount. For enterprise enrollments, enterprise Dev/Test subscriptions aren’t eligible for the Reserved Instance benefits. 
 How reservation affects the virtual machine billing is explained in understanding the application of reservation billing benefit.
-What happens when the reservation term expires?
-At the end of the reservation term the billing discount expires, and the virtual machine infrastructure is billed at the pay-as-you go price. Reservations do not auto-renew. To continue getting the billing discount, you must buy a new Reserved Virtual Machine Instance. 
+## What happens when the reservation term expires?
+At the end of the reservation term, the billing discount expires, and the virtual machine infrastructure is billed at the pay-as-you go price. Reservations do not auto-renew. To continue getting the billing discount, you must buy a new Reserved Virtual Machine Instance. 
 ## Sizes and Regional Availability
 Reservations are available for most VM sizes with some exceptions:
 1.	Preview VM Sizes – Any size that is in preview are not available for Reserved Virtual Machine Instance purchase.
