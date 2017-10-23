@@ -19,9 +19,7 @@ ms.author: alkohli
 
 # Use Azure Automation runbooks to manage StorSimple devices
 
-This article describes how Azure Automation runbooks can be used to manage your StorSimple 8000 series device. A sample runbook is also included to walk you through the steps of configuring your environment to execute this runbook.
-
-This article applies to StorSimple 8000 series devices running in Azure portal only.
+This article describes how Azure Automation runbooks can be used to manage your StorSimple 8000 series device running in Azure portal. A sample runbook is also included to walk you through the steps of configuring your environment to execute this runbook.
 
 
 ## Configure, add, and run Azure runbook
@@ -32,17 +30,17 @@ This section takes an example Windows PowerShell script for StorSimple and detai
 
 Before you begin, ensure that you have:
 
-*	Azure PowerShell installed. To install Azure PowerShell modules:
-    * In a Windows environment, follow the steps in [Install and configure Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0). You can install Azure PowerShell on your Windows Server host for your StorSimple if using one.
-    * In a Linux or MacOS environment, follow the steps in [Install and configure Azure PowerShell on MacOS or Linux](https://docs.microsoft.com/en-us/powershell/azure/install-azurermps-maclinux?view=azurermps-4.4.0).
+* an active Azure subscription associated with your StorSimple Device Manager service registered with a StorSimple 8000 series device.
 
-For more information about using Azure PowerShell, go to [Get started with using Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/get-started-azureps?view=azurermps-4.4.0).
 
-### Create automation runbook module in Azure PowerShell
+* Windows PowerShell 5.0 installed on your computer (Or, your Windows Server host for your StorSimple if using one).
+
+
+### Create automation runbook module in Windows PowerShell
 
 To create an automation module for the StorSimple 8000 series device management, perform the following steps.
 
-1. Launch Azure PowerShell. Create a new folder and change directory to the new folder.
+1. Launch Windows PowerShell. Create a new folder and change directory to the new folder.
 
     ```
         mkdir C:\scripts\StorSimpleSDKTools
@@ -95,7 +93,7 @@ To create an automation module for the StorSimple 8000 series device management,
 
 ### Import, publish, and run Automation runbook
 
-1. Create an Azure Automation account with Azure RunAs Account in the Azure portal. To do so, go
+1. Create an Azure Run As automation account in the Azure portal. To do so, go
 to **Azure marketplace > Everything** and then search for **Automation**. Select **Automation accounts**.
 
     ![search-automation](./media/storsimple-8000-automation-azurerm-runbook/automation1.png)
@@ -131,7 +129,7 @@ to **Azure marketplace > Everything** and then search for **Automation**. Select
 
     ![click-new-runbook](./media/storsimple-8000-automation-azurerm-runbook/verify-runbook-created.png)
 
-8. Edit the runbook, click **Test pane**, and then provide the parameters such as name of your StorSimple Device Manager service, name of the StorSimple device and the subscription. **Start** the test. The report is generated when the run is complete.
+8. Edit the runbook, click **Test pane**, and then provide the parameters such as name of your StorSimple Device Manager service, name of the StorSimple device and the subscription. **Start** the test. The report is generated when the run is complete. For more information, go to [how to test a runbook](../automation/automation-first-runbook-textual-powershell.md#step-3---test-the-runbook).
 
     ![test-runbook](./media/storsimple-8000-automation-azurerm-runbook/test-runbook.png)
 
