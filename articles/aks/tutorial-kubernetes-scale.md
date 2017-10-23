@@ -9,7 +9,7 @@ editor: ''
 tags: aks, azure-container-service
 keywords: Docker, Containers, Micro-services, Kubernetes, Azure
 
-ms.assetid: 
+ms.assetid:
 ms.service: container-service
 ms.devlang: aurecli
 ms.topic: tutorial
@@ -22,12 +22,12 @@ ms.custom: mvc
 
 # Scale application in Azure Container Service (AKS)
 
-If you've been following the tutorials, you have a working Kubernetes cluster in AKS and you deployed the Azure Voting app. 
+If you've been following the tutorials, you have a working Kubernetes cluster in AKS and you deployed the Azure Voting app.
 
-In this tutorial, part five of eight, you scale out the pods in the app and try pod autoscaling. You also learn how to scale the number of Azure VM agent nodes to change the cluster's capacity for hosting workloads. Tasks completed include:
+In this tutorial, part five of seven, you scale out the pods in the app and try pod autoscaling. You also learn how to scale the number of Azure VM nodes to change the cluster's capacity for hosting workloads. Tasks completed include:
 
 > [!div class="checklist"]
-> * Scale the Kubernetes Azure agent nodes
+> * Scale the Kubernetes Azure nodes
 > * Manually scaling Kubernetes pods
 > * Configuring Autoscale pods running the app front end
 
@@ -35,17 +35,17 @@ In subsequent tutorials, the Azure Vote application is updated, and Operations M
 
 ## Before you begin
 
-In previous tutorials, an application was packaged into a container image, this image uploaded to Azure Container Registry, and a Kubernetes cluster created. The application was then run on the Kubernetes cluster. 
+In previous tutorials, an application was packaged into a container image, this image uploaded to Azure Container Registry, and a Kubernetes cluster created. The application was then run on the Kubernetes cluster.
 
 If you have not done these steps, and would like to follow along, return to the [Tutorial 1 – Create container images](./tutorial-kubernetes-prepare-app.md).
 
 ## Scale AKS nodes
 
-If you created your Kubernetes cluster using the commands in the previous tutorial, it has one agent node. You can adjust the number of agents manually if you plan more or fewer container workloads on your cluster.
+If you created your Kubernetes cluster using the commands in the previous tutorial, it has one node. You can adjust the number of nodes manually if you plan more or fewer container workloads on your cluster.
 
-The following example increases the number of agent nodes to three in the Kubernetes cluster named *myK8sCluster*. The command takes a couple of minutes to complete.
+The following example increases the number of nodes to three in the Kubernetes cluster named *myK8sCluster*. The command takes a couple of minutes to complete.
 
-```azurecli 
+```azurecli
 az aks scale --resource-group=myResourceGroup --name=myK8SCluster --agent-count 3
 ```
 
@@ -109,7 +109,7 @@ azure-vote-front-3309479140-qphz8   1/1       Running   0          3m
 
 ## Autoscale pods
 
-Kubernetes supports [horizontal pod autoscaling](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) to adjust the number of pods in a deployment depending on CPU utilization or other select metrics. 
+Kubernetes supports [horizontal pod autoscaling](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) to adjust the number of pods in a deployment depending on CPU utilization or other select metrics.
 
 To use the autoscaler, your pods must have CPU requests and limits defined. In the `azure-vote-front` deployment, the front-end container requests 0.25 CPU, with a limit of 0.5 CPU. The settings look like:
 
@@ -150,10 +150,9 @@ In this tutorial, you used different scaling features in your Kubernetes cluster
 > [!div class="checklist"]
 > * Manually scaling Kubernetes pods
 > * Configuring Autoscale pods running the app front end
-> * Scale the Kubernetes Azure agent nodes
+> * Scale the Kubernetes Azure nodes
 
 Advance to the next tutorial to learn about updating application in Kubernetes.
 
 > [!div class="nextstepaction"]
 > [Update an application in Kubernetes](./tutorial-kubernetes-app-update.md)
-
