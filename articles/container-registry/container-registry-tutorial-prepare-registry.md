@@ -149,7 +149,7 @@ The application in the *acr-helloworld* image tries to determine the region from
 First, get the registry's login server URL with the `az acr show` command. Replace `<acrName>` with the name of the registry you created in previous steps.
 
 ```azurecli
-az acr show --name <acrName> --query "[].{acrLoginServer:loginServer}" --output table
+az acr show --name <acrName> --query "{acrLoginServer:loginServer}" --output table
 ```
 
 Output:

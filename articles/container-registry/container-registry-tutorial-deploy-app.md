@@ -119,7 +119,7 @@ Advance to the next tutorial to update and then deploy a new container image to 
 > [Deploy an update to geo-replicated container image](./container-registry-tutorial-deploy-update.md)
 
 <!-- IMAGES -->
-[deploy-app-portal-01]: ./media/container-registry-tutorial-deploy-app/deploy-app-portal-01-alt.png
+[deploy-app-portal-01]: ./media/container-registry-tutorial-deploy-app/deploy-app-portal-01.png
 [deploy-app-portal-02]: ./media/container-registry-tutorial-deploy-app/deploy-app-portal-02.png
 [deploy-app-portal-03]: ./media/container-registry-tutorial-deploy-app/deploy-app-portal-03.png
 [deploy-app-portal-04]: ./media/container-registry-tutorial-deploy-app/deploy-app-portal-04.png
