@@ -46,9 +46,9 @@ az aks create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-
 
 ## Use an existing SP
 
-An existing Azure AD service principle can be used or pre-created for use with an AKS cluster. This is helpful when deploying a cluster form the Azure portal where you are required to provide the service principle information. 
+An existing Azure AD service principal can be used or pre-created for use with an AKS cluster. This is helpful when deploying a cluster form the Azure portal where you are required to provide the service principal information.
 
-When using an existing service principle, it must meet the following requirements:
+When using an existing service principal, it must meet the following requirements:
 
 - Scope: the subscription used to deploy the cluster
 - Role: Contributor
@@ -56,7 +56,7 @@ When using an existing service principle, it must meet the following requirement
 
 ## Pre-create a new SP
 
-To create the service principle with the Azure CLI, use the [az ad sp create-for-rbac]() command.
+To create the service principal with the Azure CLI, use the [az ad sp create-for-rbac]() command.
 
 ```azurecli
 id=$(az account show --query id --output tsv)
@@ -77,30 +77,30 @@ Output is similar to the following. Take note of the `appId` and `password`. The
 
 ## Use an existing SP
 
-When using a pre-created service principle, provide the `appId` and `password` as argument values to the `az aks create` command. 
+When using a pre-created service principal, provide the `appId` and `password` as argument values to the `az aks create` command.
 
 ```azurecli-interactive
 az aks create --resource-group myResourceGroup --name myK8SCluster --service-princal <appId> ----client-secret <password>
 ```
 
-If deploying an AKS cluster from the Azure portal, enter these values in the AKS cluster configuration form. 
+If deploying an AKS cluster from the Azure portal, enter these values in the AKS cluster configuration form.
 
 ![Image of browsing to Azure Vote](media/container-service-kubernetes-service-principal/sp-portal.png)
 
 ## Additional considerations
 
-When working with AKS and Azure AD service principles, keep the following in mind.
+When working with AKS and Azure AD service principals, keep the following in mind.
 
 * The service principal for Kubernetes is a part of the cluster configuration. However, don't use the identity to deploy the cluster.
 * Every service principal is associated with an Azure AD application. The service principal for a Kubernetes cluster can be associated with any valid Azure AD application name (for example: `https://www.contoso.org/example`). The URL for the application doesn't have to be a real endpoint.
 * When specifying the service principal **Client ID**, you can use the value of the `appId` (as shown in this article) or the corresponding service principal `name` (for example,`https://www.contoso.org/example`).
-* On the master and agent VMs in the Kubernetes cluster, the service principal credentials are stored in the file /etc/kubernetes/azure.json.
+* On the master and node VMs in the Kubernetes cluster, the service principal credentials are stored in the file /etc/kubernetes/azure.json.
 * When you use the `az aks create` command to generate the service principal automatically, the service principal credentials are written to the file ~/.azure/acsServicePrincipal.json on the machine used to run the command.
 * When you use the `az aks create` command to generate the service principal automatically, the service principal can also authenticate with an [Azure container registry](../container-registry/container-registry-intro.md) created in the same subscription.
 
 ## Next steps
 
-For more information about Azure Active Directory service principles, see the Azure AD applications documentation.
+For more information about Azure Active Directory service principals, see the Azure AD applications documentation.
 
 > [!div class="nextstepaction"]
 > [Application and service principal objects](../active-directory/develop/active-directory-application-objects.md)
