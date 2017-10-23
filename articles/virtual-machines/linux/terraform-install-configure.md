@@ -20,18 +20,18 @@ ms.author: echuvyrov
 
 # Install and configure Terraform to provision VMs and other infrastructure into Azure
  
-This article describes the necessary steps to use Terraform to provision resources in Azure. You learn how to create and use Azure credentials to enable Terraform to provision cloud resources in a secure manner.
-
-HashiCorp Terraform provides an easy way to define and deploy cloud infrastructure by using a custom templating language called HashiCorp configuration language (HCL). This custom language is [easy to write and easy to understand](terraform-create-complete-vm.md). Additionally, by using the `terraform plan` command, you can visualize the changes to your infrastructure before you commit them. Follow these steps to start using Terraform with Azure.
-
-## Install Terraform
+Terraform provides an easy way to define, preview and deploy cloud infrastructure by using a [simple templating language](https://www.terraform.io/docs/configuration/syntax.html). This article describes the necessary steps to use Terraform to provision resources in Azure. 
 
 > [!TIP]
 > Terraform is part of the [Azure Cloud Shell Bash experience](/azure/cloud-shell/quickstart), and is preconfigured with credentials and [Azure Terraform modules](https://registry.terraform.io/modules/Azure).
 
-To install Terraform, [download](https://www.terraform.io/downloads.html) the package appropriate for your operating system into a separate install directory. The download contains a single executable file, for which you should also define a global path. For instructions on how to set the path on Linux and Mac, go to [this webpage](https://stackoverflow.com/questions/14637979/how-to-permanently-set-path-on-linux). For instructions on how to set the path on Windows, go to [this webpage](https://stackoverflow.com/questions/1618280/where-can-i-set-path-to-make-exe-on-windows). To verify your installation, run the `terraform` command. You should see a list of available Terraform options as output:
+## Install Terraform
 
-```
+To install Terraform, [download](https://www.terraform.io/downloads.html) the package appropriate for your operating system into a separate install directory. The download contains a single executable file, for which you should also define a global path. For instructions on how to set the path on Linux and Mac, go to [this webpage](https://stackoverflow.com/questions/14637979/how-to-permanently-set-path-on-linux). For instructions on how to set the path on Windows, go to [this webpage](https://stackoverflow.com/questions/1618280/where-can-i-set-path-to-make-exe-on-windows). 
+
+Verify your path configuration with the `terraform` command. You should see a list of available Terraform options as output:
+
+```bash
 azureuser@Azure:~$ terraform
 Usage: terraform [--version] [--help] <command> [args]
 ```
