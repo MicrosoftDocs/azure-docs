@@ -23,7 +23,7 @@ IP Restrictions allow you to define a list of IP addresses that are allowed to a
 
 When a request to the app is generated from a client, the IP address is evaluated against the allow list. If the ip address is not in the list, the app replies with an [HTTP 403](https://en.wikipedia.org/wiki/HTTP_403) status code.
 
-IP Restrictions are defined in the web.config that your app consumes at runtime. Under certain circumstances some module might be executed before IP restrictions logic in the HTTP pipeline and cause the request to fail with a different HTTP error code.
+IP Restrictions are defined in the web.config that your app consumes at runtime. Under certain circumstances, some module might be executed before IP restrictions logic in the HTTP pipeline. When this happens, the request fails with a different HTTP error code.
 
 IP Restrictions are evaluated on the same App Service plan instances assigned to your app.
 
