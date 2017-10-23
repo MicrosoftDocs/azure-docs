@@ -19,7 +19,8 @@
   items:
   - name: Azure CLI
   - name: Azure PowerShell
-  - name: Templates
+  - name: Managed application solutions
+    href: sample-projects.md
 - name: Concepts
   items:
   - name: Access control
