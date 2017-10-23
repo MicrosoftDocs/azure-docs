@@ -59,6 +59,8 @@
       href: concepts-supported-versions.md
     - name: Server logs
       href: concepts-server-logs.md
+    - name: High availability
+      href: concepts-high-availability.md
   - name: Resources
     items:
     - name: Pricing tiers
@@ -73,6 +75,8 @@
       href: concepts-firewall-rules.md
     - name: Configuring SSL
       href: concepts-ssl-connection-security.md
+  - name: Monitor
+    href: concepts-monitoring.md
   - name: Development
     items:
     - name: Connection libraries
