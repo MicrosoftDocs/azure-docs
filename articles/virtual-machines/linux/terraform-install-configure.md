@@ -18,8 +18,9 @@ ms.date: 10/23/2017
 ms.author: echuvyrov
 ---
 
-# Install and configure Terraform to provision VMs and other infrastructure into Azure 
-This article describes the necessary steps to install and configure Terraform to provision resources such as virtual machines into Azure. You will learn how to create and use Azure credentials to enable Terraform to provision cloud resources in a secure manner.
+# Install and configure Terraform to provision VMs and other infrastructure into Azure
+ 
+This article describes the necessary steps to use Terraform to provision resources in Azure. You learn how to create and use Azure credentials to enable Terraform to provision cloud resources in a secure manner.
 
 HashiCorp Terraform provides an easy way to define and deploy cloud infrastructure by using a custom templating language called HashiCorp configuration language (HCL). This custom language is [easy to write and easy to understand](terraform-create-complete-vm.md). Additionally, by using the `terraform plan` command, you can visualize the changes to your infrastructure before you commit them. Follow these steps to start using Terraform with Azure.
 
@@ -69,7 +70,7 @@ az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/${SUBSCRI
 
 Your appId, password, sp_name, and tenant are returned. Make a note of the appId and password.
 
-To confirm your credentials (service principal), open a new shell and run the following commands. Substitute the returned values for sp_name, password, and tenant:
+To test your credentials, open a new shell and run the following command, using the returned values for sp_name, password, and tenant:
 
 ```azurecli-interactive
 az login --service-principal -u SP_NAME -p PASSWORD --tenant TENANT
@@ -78,7 +79,7 @@ az vm list-sizes --location westus
 
 ## Configure Terraform environment variables
 
-Configure the tenant ID, subscription ID, client ID, and client secret from the service principal for Terraform to use when creating Azure resources. Set the following environment variables (and thus avoid accidentally checking in or sharing your credentials):
+Configure Terraform to use the tenant ID, subscription ID, client ID, and client secret from the service principal when creating Azure resources. Set the following environment variables, which are used automatically by the [Azure Terraform modules](https://registry.terraform.io/modules/Azure).
 
 - ARM_SUBSCRIPTION_ID
 - ARM_CLIENT_ID
