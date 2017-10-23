@@ -10,8 +10,6 @@
 ## Availability Zones Documentation
 ### [What are Availability Zones?](az-overview.md)
 
-### How-to guides
-
 ### Virtual machines
 #### [Create a Linux VM in an Availability Zone with CLI](../virtual-machines/linux/create-cli-availability-zone.md)
 #### [Create a Windows VM in an Availability Zone with PowerShell](../virtual-machines/windows/create-powershell-availability-zone.md)
