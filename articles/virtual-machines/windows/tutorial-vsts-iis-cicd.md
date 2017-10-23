@@ -230,4 +230,4 @@ In this tutorial, you created an ASP.NET web application in Team Services and co
 Advance to the next tutorial to learn how to install an Azure SQL, IIS, .NET stack on a pair of Windows VMs.
 
 > [!div class="nextstepaction"]
-> [SQL, IIS, .NET Core stack](tutorial-iis-sql.md)
+> [SQL, IIS, .NET stack](tutorial-iis-sql.md)

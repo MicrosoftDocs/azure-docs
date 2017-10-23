@@ -1,6 +1,6 @@
 ---
-title: Create VMs running an IIS and SQL stack | Microsoft Docs
-description: Tutorial - install a Azure SQL, IIS, .Net stack on a Windows virtual machines. 
+title: Create VMs running an IIS .NET, and SQL stack | Microsoft Docs
+description: Tutorial - install a Azure SQL, IIS, .NET stack on a Windows virtual machines. 
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -19,7 +19,7 @@ ms.author: cynthn
 ms.custom: mvc
 ---
 
-# Install the IIS, SQL,.Net Core stack on a Windows VM
+# Install the IIS, SQL,.NET stack on a Windows VM
 
 In this tutorial, we install an Azure SQL, IIS, .NET stack using Azure PowerShell. This stack will consist of two VMs running Windows Server 2016, one with IIS and .NET and the other with SQL Server.
 
