@@ -29,14 +29,11 @@ Query parameters on the request are used to both scope the search operation, and
 | **searchFields** | Limits full text search to the list of named fields. |
 | **$select** | Trims the response to include only the fields you specify. By default, all retrievable fields are returned. The **$select** parameter lets you choose which ones to return. |
 
-> [!Note]
-> This approach is not technically a filter in that there is no $filter argument or OData expression. However, since the scenario is strongly affiliated with filter concepts, we present it as a filter use case.
+The success of this technique hinges on the integrity of field contents. Azure Search does not translate strings or perform language detection. It is up to you to make sure that fields contain the strings you expect.
 
-## Field definitions for content in different languages
+## Defined fields for content in different languages
 
-In Azure Search, queries target a single index. Developers who want to provide language-specific strings in a single search experience typically define dedicated fields for those strings: one for English strings, one for French, and so on. 
-
-Azure Search does not translate strings or perform language detection. It is up to you to make sure that fields contain the strings you expect.
+In Azure Search, queries target a single index. Developers who want to provide language-specific strings in a single search experience typically define dedicated fields to store the values: one field for English strings, one for French, and so on. 
 
 In our samples, including the [real-estate sample](search-get-started-portal.md) shown below, you might have seen field definitions similar to the following screenshot. Notice how this example shows the language analyzer assignments for the fields in this index. Fields that contain strings perform better in full text search when paired with an analyzer engineered to handle the linguistic rules of the target language.
 
@@ -47,9 +44,9 @@ In our samples, including the [real-estate sample](search-get-started-portal.md)
 
 ## Build and load an index
 
-An intermediate (and perhaps obvious) step is that you have to [build and populate the index](https://docs.microsoft.com/azure/search/search-create-index-dotnet#create-the-index) on your Azure Search service as a prerequisite to submitting the query. We mention this step here for completeness. If you can see your index in the [Azure portal](https://portal.azure.com) and view the index definition, you can move forward with a query operation.
+An intermediate (and perhaps obvious) step is that you have to [build and populate the index](https://docs.microsoft.com/azure/search/search-create-index-dotnet#create-the-index) on your Azure Search service as a prerequisite to formulating a query. We mention this step here for completeness. If you can see your index in the [Azure portal](https://portal.azure.com) and view the index definition, you can move forward with a query operation.
 
-## Scope queries and trim results
+## Constrain the query and trim results
 
 Parameters on the query are used to limit search to specific fields and then trim the results of any fields not helpful to your scenario. Given a goal of constraining search to fields containing French strings, you would use **searchFields** to target the query at fields containing strings in that language. 
 
@@ -63,6 +60,8 @@ parameters =
         Select = new[] { "description_fr"  }
     };
 ```
+> [!Note]
+> Although there is no $filter argument or OData expression in this use case, the scenario is strongly affiliated with filter concepts, so we present it as such.
 
 ## See also
 
