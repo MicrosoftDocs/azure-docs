@@ -95,9 +95,7 @@ At this point, a network has been created and segmented into two subnets, one fo
 
 ## Create a public IP address
 
-A public IP address allows Azure resources to be accessible on the internet. In this section of the tutorial, a VM is created to demonstrate how to work with public IP addresses.
-
-A public IP address can be allocated as either dynamic or static. By default, public IP address dynamically allocated. Dynamic IP addresses are released when a VM is deallocated. This behavior causes the IP address to change during any operation that includes a VM deallocation.
+A public IP address allows Azure resources to be accessible on the internet. The allocation method of the public IP address can be configured as dynamic or static. By default, public IP address dynamically allocated. Dynamic IP addresses are released when a VM is deallocated. This behavior causes the IP address to change during any operation that includes a VM deallocation.
 
 The allocation method can be set to static, which ensures that the IP address remain assigned to a VM, even during a deallocated state. When using a statically allocated IP address, the IP address itself cannot be specified. Instead, it is allocated from a pool of available addresses.
 

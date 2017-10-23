@@ -92,17 +92,15 @@ At this point, a network has been created and segmented into two subnets, one fo
 
 ## Create a public IP address
 
-A public IP address allows Azure resources to be accessible on the internet. In this section of the tutorial, a VM is created to demonstrate how to work with public IP addresses.
-
-### Allocation method
-
-A public IP address can be allocated as either dynamic or static. By default, public IP address dynamically allocated. Dynamic IP addresses are released when a VM is deallocated. This behavior causes the IP address to change during any operation that includes a VM deallocation.
+A public IP address allows Azure resources to be accessible on the internet. The allocation method of the public IP address can be configured as dynamic or static. By default, public IP address dynamically allocated. Dynamic IP addresses are released when a VM is deallocated. This behavior causes the IP address to change during any operation that includes a VM deallocation.
 
 The allocation method can be set to static, which ensures that the IP address remain assigned to a VM, even during a deallocated state. When using a statically allocated IP address, the IP address itself cannot be specified. Instead, it is allocated from a pool of available addresses.
 
-When creating a VM with the [az vm create](/cli/azure/vm#create) command, the default public IP address allocation method is dynamic.
+```azurecli-interactive
+az network public-ip create --resource-group myRGNetwork --name myPublicIPAddress
+```
 
-When creating a virtual machine using the [az vm create](/cli/azure/vm#create) command, include the `--public-ip-address-allocation static` argument to assign a static public IP address. This operation is not demonstrated in this tutorial, however in the next section a dynamically allocated IP address is changed to a statically allocated address. 
+When creating a VM with the [az vm create](/cli/azure/vm#create) command, the default public IP address allocation method is dynamic. When creating a virtual machine using the [az vm create](/cli/azure/vm#create) command, include the `--public-ip-address-allocation static` argument to assign a static public IP address. This operation is not demonstrated in this tutorial, however in the next section a dynamically allocated IP address is changed to a statically allocated address. 
 
 ### Change allocation method
 
@@ -132,7 +130,7 @@ Often, a VM does not need to be accessible over the internet. To create a VM wit
 
 ## Create a front-end VM
 
-Use the [az vm create](/cli/azure/vm#create) command to create the VM named *myFrontendVM*.
+Use the [az vm create](/cli/azure/vm#create) command to create the VM named *myFrontendVM* and a public IP address named *my.
 
 ```azurecli-interactive 
 az vm create \
