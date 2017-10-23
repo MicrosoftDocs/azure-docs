@@ -28,7 +28,7 @@
     - name: Kafka in a virtual network
       href: apache-kafka-connect-vpn-gateway.md
     - name: Replicate Kafka data
-      href: kafka/apache-kafka-mirroring.md
+      href: apache-kafka-mirroring.md
     - name: Analyze Kafka logs
       href: apache-kafka-log-analytics-operations-management.md
   - name: Develop
@@ -46,7 +46,7 @@
     - name: Develop script actions
       href: ../hdinsight-hadoop-script-actions-linux.md
     - name: Use Virtual Network
-      href: hdinsight-extend-hadoop-virtual-network.md
+      href: ../hdinsight-extend-hadoop-virtual-network.md
     - name: Build HDInsight applications
       items:
       - name: Install HDInsight apps
