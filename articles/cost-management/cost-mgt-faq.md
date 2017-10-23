@@ -34,7 +34,7 @@ Here's how to fix the errors:
 
 Only an Azure service administrator can enable Cost Management. Co-administrator permissions are insufficient.
 
-You need to enable the Azure Billing API before you can generate the Azure EA API Key to setup Cloudyn by following the instructions at:
+Enable the Azure Billing API before you can generate the Azure EA API Key to setup Cloudyn by following the instructions at:
 
 - [Overview of Reporting APIs for Enterprise customers](../billing/billing-enterprise-api.md)
 - [Microsoft Azure Enterprise Portal Reporting API](https://ea.azure.com/helpdocs/reportingAPI) under _Enabling data access to the API_.
@@ -50,7 +50,7 @@ To activate the user account:
 
 1. Sign in to Cloudyn using the Azure administrative user account that you used to set up Cloudyn. Or, sign in with a user account that has been granted administrator access.
 2. Click the gear symbol in the upper right and select **User Management**.
-3. Find the user and click the pencil symbol to edit the user.
+3. Find the user then click the pencil symbol and edit the user.
 4. Under **User status**, change the status from **Suspended** to **Active**.
 
 Cloudyn user accounts connect using Single Sign-On from Azure. If a user mistypes their password, they might get locked-out of Cloudyn—even though they can still access Azure.
@@ -66,7 +66,7 @@ If you are you can't sign in to the Cloudyn portal, ensure that you're using the
 
 Avoid using the Cloudyn direct URL https://app.cloudyn.com.
 
-## How to activate un-activated accounts with Azure credentials
+## How to activate unactivated accounts with Azure credentials
 
 As soon as your Azure accounts are discovered by Cloudyn, cost data is immediately provided in cost-based reports. However, for Cloudyn to provide usage and performance data, you need to register your Azure credentials for the accounts. Follow the instructions at [Adding Azure Resource Manager](https://support.cloudyn.com/hc/en-us/articles/212784085-Adding-Azure-Resource-Manager).
 
@@ -104,13 +104,13 @@ If you are a CSP customer, you cannot change your currency symbol. Cloudyn only 
 
 Cloudyn has the following data refresh timelines:
 
-- Initial: It can take up to 24 hours to view cost data in Cloudyn after you set up. It can also take up to ten days for Cloudyn to collect enough data to display sizing recommendations.
+- Initial: It can take up to 24 hours to view cost data in Cloudyn after you set up. It can also take up to 10 days for Cloudyn to collect enough data to display sizing recommendations.
 - Daily: From the tenth to the end of each month, Cloudyn should show your data up to date from the previous day after about UTC+3 the next day.
 - Monthly: From the first to the tenth day of each month, Cloudyn may only show your data through the end of the previous month.
 
 Cloudyn processes data for the previous day when full data from the previous day is available. The previous day's data is usually available in Cloudyn by about UTC+3 each day. Some data, such as tags, can take an additional 24 hours to process.
 
-Data for the current month is not available for collection at the beginning of every month. During the period, service providers finalize their billing for the previous month. It can take five to ten days at the start of each month for the previous month's data to appear in Cloudyn. During this time, you might see only amortized costs from the previous month. You might not see daily billing or usage data. When the data becomes available, Cloudyn processes it retroactively. After processing, all the monthly data is displayed between the 5th and 10th of each month.
+Data for the current month is not available for collection at the beginning of every month. During the period, service providers finalize their billing for the previous month. The previous month's data appears in Cloudyn five to 10 days after the start of each month. During this time, you might see only amortized costs from the previous month. You might not see daily billing or usage data. When the data becomes available, Cloudyn processes it retroactively. After processing, all the monthly data is displayed between the 5th and 10th of each month.
 
 If there is a delay sending data from Azure to Cloudyn, data is still recorded in Azure. The data is transferred to Cloudyn when the connection is restored.
 
