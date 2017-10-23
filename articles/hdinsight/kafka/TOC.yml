@@ -158,4 +158,4 @@
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Windows tools for HDInsight
-    href: hdinsight-hadoop-windows-tools.md
+    href: ../hdinsight-hadoop-windows-tools.md
