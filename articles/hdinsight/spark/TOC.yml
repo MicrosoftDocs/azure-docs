@@ -21,6 +21,14 @@
       href: apache-spark-job-debugging.md
 - name: How To
   items:
+    - name: Use cluster storage
+      items:
+        - name: Using Azure Storage
+          href: ../hdinsight-hadoop-use-blob-storage.md
+          maintainContext: true
+        - name: Using Azure Data Lake Store
+          href: ../hdinsight-hadoop-use-data-lake-store.md
+          maintainContext: true
     - name: Develop
       items:
         - name: Create standalone app
@@ -37,6 +45,9 @@
           href: apache-spark-intellij-tool-plugin-debug-jobs-remotely.md
         - name: Debug Spark jobs remotely with IntelliJ through SSH
           href: apache-spark-intellij-tool-debug-remotely-through-ssh.md
+        - name: Create non-interactive authentication .NET HDInsight applications
+          href: ../hdinsight-create-non-interactive-authentication-dotnet-applications.md
+          maintainContext: true
     - name: Use notebooks with Spark
       items: 
         - name: Use a local Jupyter notebook
