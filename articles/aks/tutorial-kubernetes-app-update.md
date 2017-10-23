@@ -15,7 +15,7 @@ ms.devlang: aurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2017
+ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
 ---
@@ -24,7 +24,7 @@ ms.custom: mvc
 
 After an application has been deployed in Kubernetes, it can be updated by specifying a new container image or image version. When doing so, the update is staged so that only a portion of the deployment is concurrently updated. This staged update enables the application to keep running during the update. It also provides a rollback mechanism if a deployment failure occurs. 
 
-In this tutorial, part six of seven, the sample Azure Vote app is updated. Tasks that you complete include:
+In this tutorial, part six of eight, the sample Azure Vote app is updated. Tasks that you complete include:
 
 > [!div class="checklist"]
 > * Updating the front-end application code
@@ -172,4 +172,4 @@ In this tutorial, you updated an application and rolled out this update to a Kub
 Advance to the next tutorial to learn about how to monitor Kubernetes with Operations Management Suite.
 
 > [!div class="nextstepaction"]
-> [Monitor Kubernetes with OMS](./tutorial-kubernetes-monitor.md)
+> [Monitor Kubernetes with Log Analytics](./tutorial-kubernetes-monitor.md)

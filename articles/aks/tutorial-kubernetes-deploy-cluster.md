@@ -15,14 +15,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2017
+ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
 ---
 
 # Deploy an Azure Container Service (AKS) cluster
 
-Kubernetes provides a distributed platform for containerized applications. With AKS, provisioning of a production ready Kubernetes cluster is simple and quick. In this tutorial, part three of seven, a Kubernetes cluster is deployed in AKS. Steps completed include:
+Kubernetes provides a distributed platform for containerized applications. With AKS, provisioning of a production ready Kubernetes cluster is simple and quick. In this tutorial, part three of eight, a Kubernetes cluster is deployed in AKS. Steps completed include:
 
 > [!div class="checklist"]
 > * Deploying a Kubernetes AKS cluster

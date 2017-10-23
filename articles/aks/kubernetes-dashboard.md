@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/13/2017
+ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
 
@@ -51,11 +51,11 @@ When ready, click **Deploy** to create the deployment.
 
 ## View the application
 
-Status about the application can be seen in on the Kubernetes dashboard. Once the application is running, each component will have a green checkbox next to it.
+Status about the application can be seen on the Kubernetes dashboard. Once the application is running, each component has a green checkbox next to it.
 
 ![Kubernetes Pods](./media/container-service-kubernetes-ui/complete-deployment.png)
 
-To see more information about the application pods, click on **Pods** in the left-hand menu, and then select the **NGINX** pod. Here you can see pod specific information such as resource consumption.
+To see more information about the application pods, click on **Pods** in the left-hand menu, and then select the **NGINX** pod. Here you can see pod-specific information such as resource consumption.
 
 ![Kubernetes Resources](./media/container-service-kubernetes-ui/running-pods.png)
 

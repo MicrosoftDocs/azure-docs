@@ -15,7 +15,7 @@ ms.devlang: aurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 10/24/2017
 ms.author: danlep
 ms.custom: mvc
 ---
@@ -26,7 +26,7 @@ Monitoring your Kubernetes cluster and containers is critical, especially when y
 
 You can take advantage of several Kubernetes monitoring solutions, either from Microsoft or other providers. In this tutorial, you monitor your Kubernetes cluster by using the Containers solution in [Operations Management Suite](../operations-management-suite/operations-management-suite-overview.md), Microsoft's cloud-based IT management solution. (The OMS Containers solution is in preview.)
 
-This tutorial, part seven of seven, covers the following tasks:
+This tutorial, part seven of eight, covers the following tasks:
 
 > [!div class="checklist"]
 > * Get OMS Workspace settings
@@ -147,7 +147,7 @@ In this tutorial, you monitored your Kubernetes cluster with OMS. Tasks covered 
 > * Access monitoring information in the OMS portal or Azure portal
 
 
-Follow this link to learn more about AKS.
+Advance to the next tutorial to learn about upgrading Kubernetes to a new version.
 
 > [!div class="nextstepaction"]
-> [AKS overview](./intro-kubernetes.md)
+> [Upgrade Kubernetes](./tutorial-kubernetes-upgrade-cluster.md)

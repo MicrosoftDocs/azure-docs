@@ -15,14 +15,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2017
+ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
 ---
 
 # Prepare application for Azure Container Service (AKS)
 
-In this tutorial, part one of seven, a multi-container application is prepared for use in Kubernetes. Steps completed include:  
+In this tutorial, part one of eight, a multi-container application is prepared for use in Kubernetes. Steps completed include:  
 
 > [!div class="checklist"]
 > * Cloning application source from GitHub  

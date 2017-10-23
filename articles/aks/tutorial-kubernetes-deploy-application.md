@@ -15,14 +15,14 @@ ms.devlang: aurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2017
+ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
 ---
 
 # Run applications in Azure Container Service (AKS)
 
-In this tutorial, part four of seven, a sample application is deployed into a Kubernetes cluster. Steps completed include:
+In this tutorial, part four of eight, a sample application is deployed into a Kubernetes cluster. Steps completed include:
 
 > [!div class="checklist"]
 > * Update Kubernetes manifest files
