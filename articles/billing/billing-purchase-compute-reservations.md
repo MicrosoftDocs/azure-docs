@@ -22,10 +22,6 @@ You can purchase Reserved Virtual Machine Instances in the [Azure portal](https:
 -	For Enterprise subscriptions, reservation purchases must be enabled in the [EA portal](https://ea.azure.com). 
  
 ## Purchase a Reserved Virtual Machine Instance
-1)	Select **More Services -> Reservations**. (exact entry point and command to be added)
-2)	Select **Add** to purchase a new reservation. (screenshot to be added)
-3)	Fill in the required fields. VM instances that match the attributes you select, qualify to get Reserve Instances discount. The actual number of instances that get the discount depend on the scope and quantity selected.
-
 | Field        | Description   |
 |:--------------|:--------------|
 | Name         | The name of this reservation.| 
@@ -33,5 +29,11 @@ You can purchase Reserved Virtual Machine Instances in the [Azure portal](https:
 | Scope        | The reservation’s scope can cover one subscription or multiple (shared scope). If you select: Single subscription - The reservation discount is applied to VMs in this subscription. Shared - The reservation discount is applied to VMs running in any subscriptions within your billing account. For enterprise customers, the shared scope is the enrollment and includes all subscriptions within the enrollment.|  
 |  Location   | The Azure region that’s covered by the reservation.|    
 |  VM Size|	The size of the VM instances.|
+
+1)	Select **More Services -> Reservations**. (exact entry point and command to be added)
+2)	Select **Add** to purchase a new reservation. (screenshot to be added)
+3)	Fill in the required fields. VM instances that match the attributes you select, qualify to get Reserve Instances discount. The actual number of instances that get the discount depend on the scope and quantity selected.
+
+
 4)	Select **Purchase** to complete the transaction.
 5)	Select **View this Reservation** to see the status of the reservation purchase.
