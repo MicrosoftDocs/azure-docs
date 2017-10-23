@@ -50,10 +50,10 @@ Microsoft Speech API is part of Microsoft Cognitive Services on Azure(previously
 
 ## Step 2: Build the sample application
 
-1. If you want to use *Recognition with intent*, you first need to sign up [Language Understanding Intelligent Service (LUIS)](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/), and then use the endpoint URL of your LUIS app to set the value of key `LuisEndpointUrl` in `app.config` file in the `samples/SpeechRecognitionServiceExample` folder. For more information on the endpoint URL of LUIS app, see [Publish LUIS App](../../luis/luis-get-started-create-app.md#publish-your-app).
+1. If you want to use *Recognition with intent*, you first need to sign up to the [Language Understanding Intelligent Service (LUIS)](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/), and then use the endpoint URL of your LUIS app to set the value of key `LuisEndpointUrl` in `app.config` file in the `samples/SpeechRecognitionServiceExample` folder. For more information on the endpoint URL of LUIS app, see [Publish LUIS App](../../luis/luis-get-started-create-app.md#publish-your-app).
 
 > [!TIP]
-> You must replace the character `&` in LUIS endpoint URL with the `&amp;` to ensure that the URL is correctly interpreted by the XML parser.
+> You must replace the character `&` in the LUIS endpoint URL with `&amp;` to ensure that the URL is correctly interpreted by the XML parser.
 
 2. Press Ctrl+Shift+B, or click `Build` on the ribbon menu, then select `Build Solution`.
 
