@@ -190,7 +190,7 @@ module.exports = {
 };
 ```
 
-The `ssl=true` option is required because [Cosmos DB requires SSL](../../cosmos-db/connect-mongodb-account.md#connection-string-requirements). 
+The `ssl=true` option is required because [Cosmos DB requires SSL](../cosmos-db/connect-mongodb-account.md#connection-string-requirements). 
 
 Save your changes.
 
