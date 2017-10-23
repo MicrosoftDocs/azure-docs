@@ -22,14 +22,14 @@ ms.custom: mvc
 
 # Upgrade Kubernetes in Azure Container Service (AKS)
 
-Kubernetes nodes in an Azure Container Service (AKS) cluster can be upgraded to a new version using the Azure CLI. During the upgrade process, nodes are carefully [cordoned and drained](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/) to minimize disruption to running applications.
+An Azure Container Service (AKS) cluster can be upgraded using the Azure CLI. During the upgrade process, Kubernetes nodes are carefully [cordoned and drained](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/) to minimize disruption to running applications.
 
 In this tutorial, part eight of eight, a Kubernetes cluster is upgraded. Tasks that you complete include:
 
 > [!div class="checklist"]
-> * Identify current and available Kubernetes version
-> * Upgrade Kubernetes
-> * Validate successful upgrade
+> * Identify current and available Kubernetes versions
+> * Upgrade the Kubernetes nodes
+> * Validate a successful upgrade
 
 ## Before you begin
 
@@ -46,7 +46,7 @@ Before upgrading a cluster, use the `az aks get-versions` command to check which
 az aks get-versions --name myK8sCluster --resource-group myResourceGroup --output table
 ```
 
-Here you can see that the current `AgentPoolVersion` is `1.7.7` and that version `1.8.0` is available.
+Here you can see that the current node version is `1.7.7` and that version `1.8.1` is available.
 
 ```
 Name     ResourceGroup    MasterVersion    MasterUpgrades    AgentPoolVersion    AgentPoolUpgrades
@@ -139,9 +139,9 @@ myK8sCluster  westus2     myResourceGroup  1.8.1                Succeeded       
 In this tutorial, you upgraded Kubernetes in an AKS cluster. The following tasks were completed:
 
 > [!div class="checklist"]
-> * Identify current and available Kubernetes version
-> * Upgrade Kubernetes
-> * Validate successful upgrade
+> * Identify current and available Kubernetes versions
+> * Upgrade the Kubernetes nodes
+> * Validate a successful upgrade
 
 Follow this link to learn more about AKS.
 
