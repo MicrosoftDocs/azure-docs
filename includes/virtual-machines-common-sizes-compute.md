@@ -6,7 +6,7 @@ F-series VMs are an excellent choice for workloads that demand faster CPUs but d
 
 The Fs-series provides all the advantages of the F-series, in addition to Premium storage.
 
-# Fv2-series
+# Fsv2-series
 
 | Size             | vCPU's | Memory: GiB | Local SSD: GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max NICs / Expected network performance (Mbps) |
 |------------------|--------|-------------|----------------|----------------|-----------------------------------------------------------------------|------------------------------------------------|
