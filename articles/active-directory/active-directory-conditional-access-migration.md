@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/20/2017
+ms.date: 10/23/2017
 ms.author: markvi
 ms.reviewer: nigu
 
@@ -22,19 +22,18 @@ ms.reviewer: nigu
 # Migrate classic policies in the Azure portal 
 
 
-[Conditional access](active-directory-conditional-access-azure-portal.md) is a capability of Azure Active directory (Azure AD) that enables you to control how authorized users access your cloud apps. While the purpose is still the same, the release of the new Azure portal has also introduced significant improvements to how conditional access works. 
-The conditional access policies you have configured in your Azure classic portal can coexist with the new policies you are creating in the Azure portal. However, we recommend that you migrate your classic policies to the new Azure AD conditional access policies because:
+[Conditional access](active-directory-conditional-access-azure-portal.md) is a capability of Azure Active directory (Azure AD) that enables you to control how authorized users access your cloud apps. While the purpose is still the same, the release of the new Azure portal has also introduced significant improvements to how conditional access works. The conditional access policies you have configured outside the Azure portal can coexist with the new policies you are creating in the Azure portal. As long as you are not disabling or removing them, they are still applied in your environment. However, we recommend that you migrate your classic policies to the new Azure AD conditional access policies because:
 
-- The new policies enable you to address scenarios you could not handle with classic policies
+- The new policies enable you to address scenarios you could not handle with classic policies.
 
-- Having new and classic policies enabled can lead to undesirable side effects (results?)
-   
+- You can reduce the number of policies you have to manage by consolidating them.   
+
 This topic assists you with the migration of your existing classic policies to the new the new Azure AD conditional access policies.
 
 
 ## Classic policies
 
-The conditional access policies you have configured in the Azure classic portal are also known as **classic policies**. To migrate your classic policies, you don't need to have access to your Azure classic portal. The Azure portal provides you with a [**Classic policies (preview)** view](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/ClassicPolicies) that enables you to review your classic policies.
+The conditional access policies for Azure AD and Intune you have not created in the Azure portal are also known as **classic policies**. To migrate your classic policies, you don't need to have access to your Azure classic portal. The Azure portal provides you with a [**Classic policies (preview)** view](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/ClassicPolicies) that enables you to review your classic policies.
 
 ![Azure Active Directory](./media/active-directory-conditional-access-migration/33.png)
 
