@@ -23,7 +23,7 @@ ms.custom: mvc
 
 # Scale an Azure Container Service (AKS) cluster
 
-It is easy to scale an AKS cluster to a different number of agent nodes.  Select the desired number of agents and run the `az aks scale` command.  When scaling down, nodes will be carefully [cordoned and drained](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/) to minimize disruption to running applications.  When scaling up, the `az` command waits until nodes are marked `Ready` by the Kubernetes cluster.
+It is easy to scale an AKS cluster to a different number of agent nodes.  Select the desired number of agents and run the `az aks scale` command.  When scaling down, nodes are carefully [cordoned and drained](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/) to minimize disruption to running applications.  When scaling up, the `az` command waits until nodes are marked `Ready` by the Kubernetes cluster.
 
 ## Scale the cluster nodes
 

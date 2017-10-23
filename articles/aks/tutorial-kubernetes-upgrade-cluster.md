@@ -46,7 +46,7 @@ Before upgrading a cluster, use the `az aks get-versions` command to check which
 az aks get-versions --name myK8sCluster --resource-group myResourceGroup --output table
 ```
 
-Here you can see that the current `AgentPoolVersion` is `1.7.7` and that version `1.8.0` is avaliable.
+Here you can see that the current `AgentPoolVersion` is `1.7.7` and that version `1.8.0` is available.
 
 ```
 Name     ResourceGroup    MasterVersion    MasterUpgrades    AgentPoolVersion    AgentPoolUpgrades
