@@ -88,7 +88,6 @@ If you cannot find an answer to your problem via search, submit a new question t
 - [ADAL, MSAL, and Owin middleware](active-directory-authentication-libraries.md) libraries and GitHub repositories
 
 <br/>
-<svg xmlns="http://www.w3.org/2000/svg" class="" role="presentation" aria-hidden="true" viewBox="0 0 40 40" focusable="false" style="height:40 px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svg="http://www.w3.org/2000/svg"><g><path class="msportalfx-svg-c15" d="M 34.256 14.928 a 9.066 9.066 0 1 1 -18.132 -0.002 a 9.066 9.066 0 0 1 18.132 0.002 M 31.818 27.1 l -6.628 9.287 l -6.628 -9.287 H 9.001 V 50 H 41.38 V 27.1 Z" /><path class="msportalfx-svg-c01" opacity="0.2" d="M 16.126 14.928 c 0 4.931 3.939 8.935 8.843 9.054 l 2.277 -17.875 a 9.03 9.03 0 0 0 -2.055 -0.243 a 9.063 9.063 0 0 0 -9.065 9.064 M 18.564 27.1 H 9 V 50 h 12.696 l 2.002 -15.703 Z" /><path class="msportalfx-svg-c05" d="M 39.966 24.14 h -6.881 v -3.33 h 3.552 v -5.827 c 0 -6.426 -5.228 -11.654 -11.654 -11.654 S 13.329 8.557 13.329 14.983 v 1.665 h -3.33 v -1.665 C 9.999 6.722 16.721 0 24.982 0 s 14.983 6.722 14.983 14.983 v 9.157 Z" /><path class="msportalfx-svg-c01" opacity="0.2" d="M 24.982 0 C 16.721 0 9.999 6.722 9.999 14.983 v 1.665 h 3.33 v -1.665 c 0 -6.426 5.228 -11.654 11.654 -11.654 c 0.964 0 1.896 0.131 2.793 0.352 l 0.416 -3.327 A 15.028 15.028 0 0 0 24.982 0 Z" /></g></svg>
 
 ## Open a support request
 
