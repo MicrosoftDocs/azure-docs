@@ -110,7 +110,7 @@ For queues and topics, the timeout is specified either in the [MessagingFactoryS
 
 For the complete Service Bus .NET API reference, see the [Azure .NET API reference](/dotnet/api/overview/azure/service-bus).
 
-To learn more about [Service Bus](https://azure.microsoft.com/services/service-bus/), see the following topics.
+To learn more about [Service Bus](https://azure.microsoft.com/services/service-bus/), see the following articles:
 
 * [Service Bus messaging overview](service-bus-messaging-overview.md)
 * [Service Bus fundamentals](service-bus-fundamentals-hybrid-solutions.md)
