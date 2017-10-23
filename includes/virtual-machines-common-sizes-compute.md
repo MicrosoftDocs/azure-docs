@@ -8,15 +8,15 @@ The Fs-series provides all the advantages of the F-series, in addition to Premiu
 
 # Fv2-series
 
-| Size             | vCPU's | Memory: GiB | Local SSD: GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Expected network performance (Mbps) |
-|------------------|--------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------------------------|
-| Standard_F2s_v2  | 2      | 4           | 16             | 4              | 4000 (32)                                                             |                                           | Moderate                                       |
-| Standard_F4s_v2  | 4      | 8           | 32             | 8              | 8000 (64)                                                             |                                           | Moderate                                       |
-| Standad_F8s_v2   | 8      | 16          | 64             | 16             | 16000 (128)                                                           |                                           | High                                           |
-| Standard_F16s_v2 | 16     | 32          | 128            | 32             | 32000 (256)                                                           |                                           | High                                           |
-| Standard_F32s_v2 | 32     | 64          | 256            | 32             | 64000 (512)                                                           |                                           | Extremely High                                 |
-| Standard_F64s_v2 | 64     | 128         | 512            | 32             | 128000 (1024)                                                         |                                           | Extremely High                                 |
-| Standard_F72s_v2 | 72     | 144         | 576            | 32             | 144000 (1520)                                                         |                                           | Extremely High                                 |
+| Size             | vCPU's | Memory: GiB | Local SSD: GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max NICs / Expected network performance (Mbps) |
+|------------------|--------|-------------|----------------|----------------|-----------------------------------------------------------------------|------------------------------------------------|
+| Standard_F2s_v2  | 2      | 4           | 16             | 4              | 4000 (32)                                                             | Moderate                                       |
+| Standard_F4s_v2  | 4      | 8           | 32             | 8              | 8000 (64)                                                             | Moderate                                       |
+| Standad_F8s_v2   | 8      | 16          | 64             | 16             | 16000 (128)                                                           | High                                           |
+| Standard_F16s_v2 | 16     | 32          | 128            | 32             | 32000 (256)                                                           | High                                           |
+| Standard_F32s_v2 | 32     | 64          | 256            | 32             | 64000 (512)                                                           | Extremely High                                 |
+| Standard_F64s_v2 | 64     | 128         | 512            | 32             | 128000 (1024)                                                         | Extremely High                                 |
+| Standard_F72s_v2 | 72     | 144         | 576            | 32             | 144000 (1520)                                                         | Extremely High                                 |
 
 
 ## Fs-series*
