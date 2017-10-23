@@ -158,7 +158,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![GoToMeeting Configuration](./media/active-directory-saas-gotomeeting-tutorial/config2.png)
 
-	a. a. In the **How would you like to configure your SAML IDP?**, Select **Upload SAML metadata file** from the dropdown.
+	a. In the **How would you like to configure your SAML IDP?**, Select **Upload SAML metadata file** from the dropdown.
 
 	b. To upload your downloaded metadata file, click **Upload metadata file**.
 
@@ -168,11 +168,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![GoToMeeting Configuration](./media/active-directory-saas-gotomeeting-tutorial/config3.png)
 
-	a.  In **Sign-in page URL** textbox, Paste the value of **SAML Single Sign-On Service URL** which you have copied from Azure portal.
+	a.  In **Sign-in page URL** textbox, paste the value of **SAML Single Sign-On Service URL** which you have copied from Azure portal.
 
-	b.  In **Sign-out page URL** textbox, Paste the value of **Sign-Out URL** which you have copied from Azure portal.
+	b.  In **Sign-out page URL** textbox, paste the value of **Sign-Out URL** which you have copied from Azure portal.
 
-	c.  In **Identity Provider Entity ID** textbox, Paste the value of **SAML Entity ID** which you have copied from Azure portal.
+	c.  In **Identity Provider Entity ID** textbox, paste the value of **SAML Entity ID** which you have copied from Azure portal.
 
 	d. Extract the X509Certificate from the downloaded metadata file and upload this certificate by clicking on **Upload certificate**.
 
