@@ -6,6 +6,7 @@
 ## [Sign up with Office 365 account](billing-use-existing-office-365-account-azure-subscription.md)
 ## [Sign up for Office 365 with Azure account](billing-use-existing-azure-account-for-office-365-subscription.md)
 ## [Organize resources with management groups](billing-enterprise-mgmt-group-overview.md)
+## [Save virtual machine costs with Reserved Virtual Machine Instances](billing-save-compute-costs-reservations.md)
 ## [Limits and quotas](../azure-subscription-service-limits.md?toc=/azure/billing/TOC.json)
 
 # How to
@@ -40,6 +41,7 @@
 ### [Sign-in issues](billing-cannot-login-subscription.md)
 ### [No subscriptions found](billing-no-subscriptions-found.md)
 ### [Enterprise cost view disabled](billing-enterprise-mgmt-grp-troubleshoot-cost-view.md)
+## [Purchase Reserved Virtual Machine Instances](billing-purchase-compute-reservations.md)
 
 # Reference
 ## [API Overview](billing-usage-rate-card-overview.md)
