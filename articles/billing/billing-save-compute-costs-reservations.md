@@ -28,12 +28,12 @@ Azure customers with these subscriptions types that can purchase a Reserved Virt
 -	Pay-As-You-Go subscription offer type (MS-AZR-003P)
 You must be in the role “Owner” on the subscription to buy a Reserved Instance. For purchasing reservations in an enterprise enrollment, the enterprise administrator must enable reservation purchases in the EA portal.
 
-## How is a Reserved Virtual Machine Instance billed?
+## How is a Reserved Virtual Machine Instances purchase billed?
 The reservation purchase is charged to the payment method tied to the subscription. 
 If you have an Enterprise subscription, the reservation cost is deducted from your balance. If your balance doesn’t cover the cost of the reservation, you’re billed the overage.
 If you have a Pay-As-You-Go subscription, the credit card you have on your account is billed immediately. If you’re billed by invoice, you see the charges on your next invoice.
 
-## How is the Reserved Virtual Machine Instance discount applied?
+## How is the purchased Reserved Virtual Machine Instance discount applied?
 The Reserved Virtual Machine Instance discount applies to the virtual machines that match the attributes you select when you purchase the reservation. The attributes include the scope where the matching VMs run. For example, if you want a Reserved VM Instance discount for four Standard D2 virtual machines in the West US region, select the subscription where the VMs are running. If the virtual machines are running in different subscriptions within your enrollment/account, then select the scope as shared. Shared scope allows the reservation discount to be applied across subscriptions.
 You can change the scope after you buy a Reserved VM Instance. To change the scope, see documentation on how to manage reservations.
 
