@@ -34,7 +34,7 @@ az postgres server firewall-rule list --resource-group myresourcegroup --server 
 ## Create firewall rule
 To create a new firewall rule on the server, run the [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule#create) command. 
 
-By specifying 0.0.0.0 as the `--start-ip-addres` and 255.255.255.255 as the `--end-ip-address` range, the example below allows all IP addresses to access the server **mypgserver-20170401.postgres.database.azure.com**
+By specifying 0.0.0.0 as the `--start-ip-address` and 255.255.255.255 as the `--end-ip-address` range, the example below allows all IP addresses to access the server **mypgserver-20170401.postgres.database.azure.com**
 ```azurecli-interactive
 az postgres server firewall-rule create --resource-group myresourcegroup  --server mypgserver-20170401 --name "AllowIpRange" --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
 ```
