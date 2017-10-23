@@ -25,7 +25,7 @@ Files and shell states persist in Azure Storage between Cloud Shell session. Use
 
 ## Using Modules and Providers
 
-Azure Terraform module requires credentials to access and make changes to the resources in your Azure subscription. When working in the Cloud Shell, the required credentials for the Azure provider are passed to Terraform when using any of the `terraform` CLI commands.
+Azure Terraform module requires credentials to access and make changes to the resources in your Azure subscription. When working in the Cloud Shell, the required credentials for the Azure provider are passed to Terraform through environment variables when using any of the `terraform` CLI commands.
 
 To use Azure Terraform modules in the Cloud Shell, add the following to your scripts. 
 
