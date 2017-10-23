@@ -178,23 +178,19 @@ Copy the value of `primaryMasterKey`. You need this information in the next step
 <a name="devconfig"></a>
 ### Configure the connection string in your Node.js application
 
-In your MEAN.js repository, open _config/env/production.js_.
+In your local MEAN.js repository, in the _config/env/_ folder, create a file named _local-production.js_. _.gitignore_ is configured to keep this file out of the repository. 
 
-In the `db` object, update the value of `uri`:
-
-* Replace the two *\<cosmosdb_name>* placeholders with your Cosmos DB database name.
-* Replace the *\<primary_master_key>* placeholder with the key you copied in the previous step.
-
-The following code shows the `db` object:
+Copy the following code into it. Be sure to replace the two *\<cosmosdb_name>* placeholders with your Cosmos DB database name, and replace the *\<primary_master_key>* placeholder with the key you copied in the previous step.
 
 ```javascript
-db: {
-  uri: 'mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.com:10250/mean?ssl=true&sslverifycertificate=false',
-  ...
-},
+module.exports = {
+  db: {
+    uri: 'mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.com:10250/mean?ssl=true&sslverifycertificate=false'
+  }
+};
 ```
 
-The `ssl=true` option is required because [Cosmos DB requires SSL](../cosmos-db/connect-mongodb-account.md#connection-string-requirements). 
+The `ssl=true` option is required because [Cosmos DB requires SSL](../../cosmos-db/connect-mongodb-account.md#connection-string-requirements). 
 
 Save your changes.
 
@@ -206,7 +202,7 @@ Run the following command to minify and bundle scripts for the production enviro
 gulp prod
 ```
 
-Run the following command to use the connection string you configured in _config/env/production.js_.
+Run the following command to use the connection string you configured in _config/env/local-production.js_.
 
 ```bash
 NODE_ENV=production node server.js
@@ -249,9 +245,9 @@ In this step, you deploy your MongoDB-connected Node.js application to Azure App
 
 ### Configure an environment variable
 
-Earlier in the tutorial, you hardcoded the database connection string in _config/env/production.js_. In keeping with security best practice, you want to keep this sensitive data out of your Git repository. For your app running in Azure, you'll use an environment variable instead.
+By default, the MEAN.js project keeps _config/env/local-production.js_ out of the Git repository. So for your Azure web app, you use app settings to define your MongoDB connection string.
 
-In the Cloud Shell, you set environment variables as _app settings_ by using the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#set) command. 
+To set app settings, use the [az webapp config appsettings update](/cli/azure/webapp/config/appsettings#update) command in the Cloud Shell. 
 
 The following example configures a `MONGODB_URI` app setting in your Azure web app. Replace the *\<app_name>*, *\<cosmosdb_name>*, and *\<primary_master_key>* placeholders.
 
@@ -261,13 +257,7 @@ az webapp config appsettings set --name <app_name> --resource-group myResourceGr
 
 In Node.js code, you access this app setting with `process.env.MONGODB_URI`, just like you would access any environment variable. 
 
-Now, undo your changes to _config/env/production.js_ with the following command:
-
-```bash
-git checkout -- .
-```
-
-Open _config/env/production.js_ again. Note that the default MEAN.js app is already configured to use the `MONGODB_URI` environment variable that you created.
+In your local MEAN.js repository, open _config/env/production.js_ (not _config/env/local-production.js_), which has production-environment specific configuration. Note that the default MEAN.js app is already configured to use the `MONGODB_URI` environment variable that you created.
 
 ```javascript
 db: {
@@ -278,19 +268,7 @@ db: {
 
 ### Push to Azure from Git
 
-In the local terminal window, add an Azure remote to your local Git repository. Replace _&lt;paste\_copied\_url\_here>_ with the URL of the Git remote that you saved from [Create a web app](#create).
-
-```bash
-git remote add azure <paste_copied_url_here> 
-```
-
-Push to the Azure remote to deploy your Node.js application. You will be prompted for the password you supplied earlier as part of the creation of the deployment user. 
-
-```bash
-git push azure master
-```
-
-During deployment, Azure App Service communicates its progress with Git.
+[!INCLUDE [app-service-plan-no-h](../../includes/app-service-web-git-push-to-azure-no-h.md)]
 
 ```bash
 Counting objects: 5, done.

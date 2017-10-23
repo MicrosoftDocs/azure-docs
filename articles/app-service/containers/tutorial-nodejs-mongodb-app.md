@@ -202,7 +202,7 @@ In a local terminal window, run the following command to minify and bundle scrip
 gulp prod
 ```
 
-In a local terminal window, run the following command to use the connection string you configured in _config/env/production.js_. Ignore the certificate error and the config.domain warning.
+In a local terminal window, run the following command to use the connection string you configured in _config/env/local-production.js_. Ignore the certificate error and the config.domain warning.
 
 ```bash
 NODE_ENV=production node server.js
@@ -245,7 +245,7 @@ In this step, you deploy your MongoDB-connected Node.js application to Azure App
 
 ### Configure an environment variable
 
-Since _config/env/local-production.js_ is not in the Git repository. So for your Azure web app, you use app settings to define your MongoDB connection string.
+By default, the MEAN.js project keeps _config/env/local-production.js_ out of the Git repository. So for your Azure web app, you use app settings to define your MongoDB connection string.
 
 To set app settings, use the [az webapp config appsettings update](/cli/azure/webapp/config/appsettings#update) command in the Cloud Shell. 
 
@@ -257,7 +257,7 @@ az webapp config appsettings set --name <app_name> --resource-group myResourceGr
 
 In Node.js code, you access this app setting with `process.env.MONGODB_URI`, just like you would access any environment variable. 
 
-In your local MEAN.js repository, open _config/env/production.js_ again, which has production-environment specific configuration. Note that the default MEAN.js app is already configured to use the `MONGODB_URI` environment variable that you created.
+In your local MEAN.js repository, open _config/env/production.js_ (not _config/env/local-production.js_), which has production-environment specific configuration. Note that the default MEAN.js app is already configured to use the `MONGODB_URI` environment variable that you created.
 
 ```javascript
 db: {

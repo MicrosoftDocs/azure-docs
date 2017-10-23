@@ -42,8 +42,6 @@ In a terminal window, run the following command to clone the sample app reposito
 git clone https://github.com/Azure-Samples/python-docs-hello-world
 ```
 
-You use this terminal window to run all the commands in this quickstart.
-
 Change to the directory that contains the sample code.
 
 ```bash
@@ -158,7 +156,7 @@ Using a local text editor, open the `main.py` file in the Python app, and make a
 return 'Hello, Azure!'
 ```
 
-Commit your changes in Git, and then push the code changes to Azure.
+In the local terminal window, commit your changes in Git, and then push the code changes to Azure.
 
 ```bash
 git commit -am "updated output"

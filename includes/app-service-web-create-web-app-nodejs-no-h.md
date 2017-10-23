@@ -1,9 +1,9 @@
 In the Cloud Shell, create a web app in the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp#create) command. Don't forget to replace `<app_name>` with a unique app name.
 
-The runtime in the following command is set to `NODE|8.1`. To see all supported runtimes, run [az webapp list-runtimes](/cli/azure/webapp#list-runtimes). 
+The runtime in the following command is set to `NODE|6.9`. To see all supported runtimes, run [az webapp list-runtimes](/cli/azure/webapp#list-runtimes). 
 
 ```azurecli-interactive
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "NODE|8.1" --deployment-local-git
+az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "NODE|6.9" --deployment-local-git
 ```
 
 When the web app has been created, the Azure CLI shows output similar to the following example:

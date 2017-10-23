@@ -128,7 +128,7 @@ Using a local text editor, open the `index.php` file within the PHP app, and mak
 echo "Hello Azure!";
 ```
 
-Commit your changes in Git, and then push the code changes to Azure.
+In the local terminal window, commit your changes in Git, and then push the code changes to Azure.
 
 ```bash
 git commit -am "updated output"

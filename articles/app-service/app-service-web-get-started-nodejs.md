@@ -45,8 +45,6 @@ In a terminal window, run the following command to clone the sample app reposito
 git clone https://github.com/Azure-Samples/nodejs-docs-hello-world
 ```
 
-You use this terminal window to run all the commands in this quickstart.
-
 Change to the directory that contains the sample code.
 
 ```bash
@@ -77,15 +75,7 @@ In your terminal window, press **Ctrl+C** to exit the web server.
 
 [!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)] 
 
-## Create a web app
-
-[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-nodejs-no-h.md)]
-
-Browse to your newly created web app. Replace _&lt;app name>_ with a unique app name.
-
-```bash
-http://<app name>.azurewebsites.net
-```
+[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app.md)] 
 
 ![Empty web app page](media/app-service-web-get-started-php/app-service-web-service-created.png)
 
@@ -147,7 +137,7 @@ Using a text editor, open the `index.js` file in the Node.js app, and make a sma
 response.end("Hello Azure!");
 ```
 
-Commit your changes in Git, and then push the code changes to Azure.
+In the local terminal window, commit your changes in Git, and then push the code changes to Azure.
 
 ```bash
 git commit -am "updated output"
