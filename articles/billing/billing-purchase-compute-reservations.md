@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/23/2017
+ms.date: 10/24/2017
 ms.author: vikdesai
 ---
 # Purchase Azure Reserved Virtual Machine Instances and save on compute costs
