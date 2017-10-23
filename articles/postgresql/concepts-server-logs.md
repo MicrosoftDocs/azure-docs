@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 09/26/2017
 ---
 # Server Logs in Azure Database for PostgreSQL 
-Azure Database for PostgreSQL generates query and error logs. However, access to transaction logs is not supported. These logs can be used to identify, troubleshoot, and repair configuration errors and suboptimal performance. For more information, see [Error Reporting and Logging](https://www.postgresql.org/docs/9.6/static/runtime-config-logging.html).
+Azure Database for PostgreSQL generates query and error logs. However, access to transaction logs is not supported. Query and error logs can be used to identify, troubleshoot, and repair configuration errors and suboptimal performance. For more information, see [Error Reporting and Logging](https://www.postgresql.org/docs/9.6/static/runtime-config-logging.html).
 
 ## Access server logs
 You can list and download Azure PostgreSQL server error logs using the Azure portal, [Azure CLI](howto-configure-server-logs-using-cli.md), and Azure REST APIs.
