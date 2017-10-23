@@ -17,12 +17,14 @@ ms.author: routlaw
 
 # Install the Elastic Stack on an Azure VM
 
-This article walks you through how to deploy [Elasticsearch](https://www.elastic.co/products/elasticsearch), [Logstash](https://www.elastic.co/products/logstash), and [Kibana](https://www.elastic.co/products/kibana), on an Ubuntu VM in Azure. To see the Elastic Stack in action, you can optionally connect to the Kibana interface and view sample data. In this tutorial you learn how to:
+This article walks you through how to deploy [Elasticsearch](https://www.elastic.co/products/elasticsearch), [Logstash](https://www.elastic.co/products/logstash), and [Kibana](https://www.elastic.co/products/kibana), on an Ubuntu VM in Azure. To see the Elastic Stack in action, you can optionally connect to Kibana  and work with some sample logging data. 
+
+In this tutorial you learn how to:
 
 > [!div class="checklist"]
 > * Create an Ubuntu VM in an Azure resource group
 > * Install Elasticsearch, Logstash, and Kibana on the VM
-> * Send sample data to Elasticsearch from Logstash 
+> * Send sample data to Elasticsearch with Logstash 
 > * Open ports and work with data in the Kibana console
 
 
@@ -90,14 +92,14 @@ ssh azureuser@40.68.254.142
 
 Import the Elasticsearch signing key and update your APT sources list to include the Elastic package repository:
 
-```azurecli-interactive 
+```bash
 wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
 echo "deb https://artifacts.elastic.co/packages/5.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-5.x.list
 ```
 
 Install the Java Virtual on the VM and configure the JAVA_HOME variable-this is necessary for the Elastic Stack components to run.
 
-```azurecli-interactive 
+```bash
 sudo apt update && sudo apt install openjdk-8-jre-headless
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 ```
@@ -109,7 +111,7 @@ sudo apt update && sudo apt install elasticsearch kibana logstash
 ```
 
 > [!NOTE]
-> Detailed installation instructions, including directory layouts and initial configuration, are maintained on [Elastic's documentation](https://www.elastic.co/guide/en/elastic-stack/current/installing-elastic-stack.html)
+> Detailed installation instructions, including directory layouts and initial configuration, are maintained in [Elastic's documentation](https://www.elastic.co/guide/en/elastic-stack/current/installing-elastic-stack.html)
 
 ## Start Elasticsearch 
 
@@ -119,7 +121,7 @@ Start Elasticsearch on your VM with the following command:
 sudo systemctl start elasticsearch.service
 ```
 
-This command produces no output, so to verify that Elasticsearch is running on the VM you can use this `curl` command:
+This command produces no output, so verify that Elasticsearch is running on the VM with this `curl` command:
 
 ```bash
 curl -XGET 'localhost:9200/'
@@ -151,7 +153,7 @@ Start Logstash with the following command:
 sudo systemctl start logstash.service
 ```
 
-Test logstash in interactive mode to make sure it's working correctly:
+Test Logstash in interactive mode to make sure it's working correctly:
 
 ```bash
 sudo /usr/share/logstash/bin/logstash -e 'input { stdin { } } output { stdout {} }'
@@ -191,17 +193,17 @@ output {
 }
 ```
 
-Test this configuration and send data to Elasticsearch with the following command:
+Test this configuration and send the syslog data to Elasticsearch:
 
 ```bash
 sudo /usr/share/logstash/bin/logstash -f vm-syslog-logstash.conf
 ```
 
-You see the output of the syslog entries in your console window echoed as they are sent to Elasticsearch. Use `CTRL+C` to exit out of Logstash once you've sent some data.
+You see the syslog entries in your terminal echoed as they are sent to Elasticsearch. Use `CTRL+C` to exit out of Logstash once you've sent some data.
 
 ## Start Kibana and visualize the data in Elasticsearch
 
-Edit the Kibana configuration at `/etc/kibana/kibana.yml` to listen on the IP address of the VM and not localhost so you can access it remotely.
+Edit `/etc/kibana/kibana.yml` and change the IP address Kibana listens on so you can access it from your web browser.
 
 ```bash
 server.host:"0.0.0.0"
