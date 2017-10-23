@@ -20,7 +20,7 @@ ms.author: echuvyrov
 
 # Install and configure Terraform to provision VMs and other infrastructure into Azure
  
-Terraform provides an easy way to define, preview and deploy cloud infrastructure by using a [simple templating language](https://www.terraform.io/docs/configuration/syntax.html). This article describes the necessary steps to use Terraform to provision resources in Azure. 
+Terraform provides an easy way to define, preview, and deploy cloud infrastructure by using a [simple templating language](https://www.terraform.io/docs/configuration/syntax.html). This article describes the necessary steps to use Terraform to provision resources in Azure. 
 
 > [!TIP]
 > Terraform is part of the [Azure Cloud Shell Bash experience](/azure/cloud-shell/quickstart), and is preconfigured with credentials and [Azure Terraform modules](https://registry.terraform.io/modules/Azure).
@@ -99,7 +99,7 @@ export ARM_TENANT_ID=your_tenant_id
 
 ## Verify your installation
 
-Create a file `test.tf` in an empty directory and paste in the following script to create a new Azure resource group.
+Create a file `test.tf` in an empty directory and paste in the following script. 
 
 ```tf
 provider "azurerm" {
@@ -110,7 +110,7 @@ resource "azurerm_resource_group" "rg" {
 }
 ```
 
-Save the file and then run `terraform init`. This will download the Azure modules required to create an Azure resource group. You see the following output:
+Save the file and then run `terraform init`. This command downloads the Azure modules required to create an Azure resource group. You see the following output:
 
 ```
 * provider.azurerm: version = "~> 0.3"
@@ -118,7 +118,7 @@ Save the file and then run `terraform init`. This will download the Azure module
 Terraform has been successfully initialized!
 ```
 
-Preview the script with `terraform plan`, and then create the resource group with `terraform apply`:
+Preview the script with `terraform plan`, and then create the `testResouceGroup` resource group with `terraform apply`:
 
 ```An execution plan has been generated and is shown below.
 Resource actions are indicated with the following symbols:
