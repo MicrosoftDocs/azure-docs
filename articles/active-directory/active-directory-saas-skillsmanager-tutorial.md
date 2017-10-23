@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 10/24/2017
 ms.author: jeedes
 
 ---
@@ -106,9 +106,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Skills Manager Domain and URLs single sign-on information](./media/active-directory-saas-skillsmanager-tutorial/tutorial_skillsmanager_url.png)
 
-    a. In the **Identifier** textbox, type a URL using the following pattern: `https://subdomain.skillsreadiness.com/kennametal`
+    a. In the **Identifier** textbox, type a URL using the following pattern: `https://subdomain.skills-manager.com/kennametal`
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://subdomain.skillsreadiness.com/kennametal/Public/SamlLogin2.aspx`
+	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://subdomain.skills-manager.com/public/SamlLogin2.aspx`
 
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Skills Manager support team](https://www.ibm.com/support/uk/?lnk=msu_uk) to get these values.
