@@ -19,17 +19,18 @@ ms.author: echuvyrov
 ---
 
 # Create a complete Linux virtual machine infrastructure in Azure with Terraform
+
 Terraform allows you to define and create complete infrastructure deployments in Azure. You build Terraform templates in a human-readable format that create and configure Azure resources in a consistent, reproducible manner. This article shows you how to create a complete Linux environment and supporting resources with Terraform. You can also learn how to [Install and configure Terraform](terraform-install-configure.md).
 
 
 ## Create Azure connection and resource group
+
 Let's go through each section of a Terraform template. You can also see the full version of the [Terraform template](#complete-terraform-script) that you can copy and paste.
 
 The `provider` section tells Terraform to use an Azure provider. To get values for *subscription_id*, *client_id*, *client_secret*, and *tenant_id*, see [Install and configure Terraform](terraform-install-configure.md). 
 
 > [!TIP]
-> If you create environment variables for the values, you don't need to include the variable declarations in this section.
-
+> If you create environment variables for the values or are using the [Azure Cloud Shell Bash experience](/azure/cloud-shell/overview) , you don't need to include the variable declarations in this section.
 
 ```tf
 provider "azurerm" {
@@ -183,6 +184,7 @@ resource "azurerm_storage_account" "mystorageaccount" {
 
 
 ## Create virtual machine
+
 The final step is to create a VM and use all the resources created. The following section creates a VM named *myVM* and attaches the virtual NIC named *myNIC*. The latest *Ubuntu 16.04-LTS* image is used, and a user named *azureuser* is created with password authentication disabled.
 
  SSH key data is provided in the *ssh_keys* section. You will need to provide a valid public SSH key in the *key_data* field.
