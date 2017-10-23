@@ -13,27 +13,30 @@ ms.topic: article
 
 Terraform works great from a Bash command line such as macOS Terminal or Bash on Windows or Linux. Running your Terraform configurations in the Bash experience of the [Azure Cloud Shell](/azure/cloud-shell/overview) has some unique advantages to speed up your development cycle.
 
-This concepts article details exactly what's provided in the Cloud Shell for Terraform development and the best way to set up a development workflow with the Cloud Shell.
+This concepts article covers Cloud Shell features that help you write Terraform scripts that deploy to Azure.
 
-## Using Azure Cloud Shell with Terraform
+## Automatic credential configuration
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Terraform is installed and immediately available in Cloud Shell. Terraform scripts authenticate with Azure when logged into the Cloud Shell to manage infrastructure without any additional configuration. Automatic authentication bypasses the need to manually create a service principal and configure Terraform provider variables.
+Terraform is installed and immediately available in Cloud Shell. Terraform scripts authenticate with Azure when logged in to the Cloud Shell to manage infrastructure without any additional configuration. Automatic authentication bypasses the need to manually create a service principal and configure Terraform provider variables.
 
-Files and shell states persist in Azure Storage between Cloud Shell session. Use [Azure Storage Explorer](/azure/vs-azure-tools-storage-manage-with-storage-explorer) to connect to the Azure Storage account and copy and upload files to the Cloud Shell while editing and testing them on your local computer with your favorite tools.
 
 ## Using Modules and Providers
 
-Azure Terraform module requires credentials to access and make changes to the resources in your Azure subscription. When working in the Cloud Shell, the required credentials for the Azure provider are passed to Terraform through environment variables when using any of the `terraform` CLI commands.
-
-To use Azure Terraform modules in the Cloud Shell, add the following to your scripts. 
+Azure Terraform modules require credentials to access and make changes to the resources in your Azure subscription. When working in the Cloud Shell, add the following code to your scripts to use Azure Terraform modules in the Cloud Shell:
 
 ```tf
 # Configure the Microsoft Azure Provider
 provider "azurerm" {
 }
 ```
+
+The Cloud Shell passes required values for the `azurerm` provider to through environment variables when using any of the `terraform` CLI commands.
+
+## Other Cloud Shell developer tools
+
+Files and shell states persist in Azure Storage between Cloud Shell sessions. Use [Azure Storage Explorer](/azure/vs-azure-tools-storage-manage-with-storage-explorer) to copy and upload files to the Cloud Shell from your local computer.
 
 The Azure CLI 2.0 is available in the Cloud Shell and is  a great tool for testing configurations and checking your work after a `terraform apply` or `terraform destroy` completes.
 
