@@ -7,7 +7,7 @@ ms.author: jasonh
 manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
-ms.custom: mvc
+ms.custom: mvc, devcenter
 ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 06/23/2017
@@ -22,7 +22,7 @@ This quickstart uses the resources created in either of these guides as a starti
 - [Create DB - CLI](quickstart-create-server-database-azure-cli.md)
 
 You also need to:
-- Install [.NET Framework](https://www.microsoft.com/net/download). Follow the steps in the linked article to install .NET specifically for your platform (Windows, Ubuntu Linux, or macOS). 
+- Install the [.NET Framework](https://www.microsoft.com/net/download). Follow the steps in the linked article to install .NET specifically for your platform (Windows, Ubuntu Linux, or macOS). 
 - Install [Visual Studio](https://www.visualstudio.com/downloads/) or Visual Studio Code to type and edit code.
 - Install [Npgsql](http://www.npgsql.org/doc/index.html) library as described below.
 
@@ -30,7 +30,7 @@ You also need to:
 To connect from the C# application to PostgreSQL, use the open source ADO.NET library called Npgsql. NuGet helps download and manage the references easily.
 
 1. Create a new C# solution, or open an existing one: 
-   - Within Visual Studio, create a solution, by clicking File menu **New** > **Project**.
+   - Within Visual Studio, create a solution, by clicking **File** menu **New** > **Project**.
    - In the New Project dialogue, expand **Templates** > **Visual C#**. 
    - Choose an appropriate template such as **Console App (.NET Core)**.
 
@@ -47,10 +47,10 @@ Get the connection information needed to connect to the Azure Database for Postg
 3. Click the server name **mypgserver-20170401**.
 4. Select the server's **Overview** page. Make a note of the **Server name** and **Server admin login name**.
  ![Azure Database for PostgreSQL - Server Admin Login](./media/connect-csharp/1-connection-string.png)
-5. If you forget your server login information, navigate to the **Overview** page to view the Server admin login name and, if necessary, reset the password.
+5. If you forget your server login information, navigate to the **Overview** page to view the **Server admin login name** and, if necessary, reset the password.
 
 ## Connect, create table, and insert data
-Use the following code to connect and load the data using **CREATE TABLE** and  **INSERT INTO** SQL statements. The code uses NpgsqlCommand class with method [Open()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) to establish a connection to PostgreSQL. Then the code uses method [CreateCommand()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand), sets the CommandText property, and calls method [ExecuteNonQuery()](http://www.npgsql.org/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery) to run the database commands. 
+Use the following code to connect and load the data using **CREATE TABLE** and  **INSERT INTO** SQL statements. The code uses NpgsqlCommand class with method [Open()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) to establish a connection to the PostgreSQL database. Then the code uses method [CreateCommand()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand), sets the CommandText property, and calls the [ExecuteNonQuery()](http://www.npgsql.org/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery) method to run the database commands. 
 
 Replace the Host, DBName, User, and Password parameters with the values that you specified when you created the server and database. 
 
@@ -127,7 +127,7 @@ namespace Driver
 ```
 
 ## Read data
-Use the following code to connect and read the data using a **SELECT** SQL statement. The code uses NpgsqlCommand class with method [Open()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) to establish a connection to PostgreSQL. Then the code uses method [CreateCommand()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand) and method [ExecuteReader()](http://www.npgsql.org/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteReader) to run the database commands. Next the code uses [Read()](http://www.npgsql.org/api/Npgsql.NpgsqlDataReader.html#Npgsql_NpgsqlDataReader_Read) to advance to the records in the results. Then the code uses [GetInt32()](http://www.npgsql.org/api/Npgsql.NpgsqlDataReader.html#Npgsql_NpgsqlDataReader_GetInt32_System_Int32_) and [GetString()](http://www.npgsql.org/api/Npgsql.NpgsqlDataReader.html#Npgsql_NpgsqlDataReader_GetString_System_Int32_) to parse the values in the record.
+Use the following code to connect and read the data using a **SELECT** SQL statement. The code uses NpgsqlCommand class with method [Open()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) to establish a connection to PostgreSQL. Then the code uses the methods [CreateCommand()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand) and [ExecuteReader()](http://www.npgsql.org/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteReader) to run the database commands. Next, the code uses [Read()](http://www.npgsql.org/api/Npgsql.NpgsqlDataReader.html#Npgsql_NpgsqlDataReader_Read) to advance to the record in the results. Finally, the code uses [GetInt32()](http://www.npgsql.org/api/Npgsql.NpgsqlDataReader.html#Npgsql_NpgsqlDataReader_GetInt32_System_Int32_) and [GetString()](http://www.npgsql.org/api/Npgsql.NpgsqlDataReader.html#Npgsql_NpgsqlDataReader_GetString_System_Int32_) to parse the values in the record.
 
 Replace the Host, DBName, User, and Password parameters with the values that you specified when you created the server and database. 
 
@@ -197,7 +197,7 @@ namespace Driver
 
 
 ## Update data
-Use the following code to connect and read the data using a **UPDATE** SQL statement. The code uses NpgsqlCommand class with method [Open()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) to establish a connection to PostgreSQL. Then the code uses method [CreateCommand()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand), sets the CommandText property, and calls method [ExecuteNonQuery()](http://www.npgsql.org/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery) to run the database commands.
+Use the following code to connect and update the data using an **UPDATE** SQL statement. The code uses NpgsqlCommand class with method [Open()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) to establish a connection to PostgreSQL. Then, the code uses method [CreateCommand()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand), sets the CommandText property, and calls the [ExecuteNonQuery()](http://www.npgsql.org/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery) method to run the database commands.
 
 Replace the Host, DBName, User, and Password parameters with the values that you specified when you created the server and database. 
 
@@ -261,9 +261,9 @@ namespace Driver
 
 
 ## Delete data
-Use the following code to connect and read the data using a **DELETE** SQL statement. 
+Use the following code to connect and delete data using a **DELETE** SQL statement. 
 
- The code uses NpgsqlCommand class with method [Open()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) to establish a connection to PostgreSQL. Then the code uses method [CreateCommand()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand), sets the CommandText property, and calls method [ExecuteNonQuery()](http://www.npgsql.org/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery) to run the database commands.
+The code uses NpgsqlCommand class with method [Open()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) to establish a connection to the PostgreSQL database. Then, the code uses the [CreateCommand()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand) method, sets the CommandText property, and calls the method [ExecuteNonQuery()](http://www.npgsql.org/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery) to run the database commands.
 
 Replace the Host, DBName, User, and Password parameters with the values that you specified when you created the server and database. 
 

@@ -39,12 +39,13 @@ The two kinds of policies allow clear separation between access to the managemen
 The following steps show how to grant data access for a user principal:
 
 1.	Sign in to the [Azure portal](https://portal.azure.com).
-2.	Click “All resources” in the menu on the left side of the Azure portal.
-3.	Select your Time Series Insights environment.
+2.	Type "Time Series" in the search window.
+3.  Click Time Series Environment
+4.	Select your Time Series Insights environment from the list.
 
   ![Manage the Time Series Insights source - environment](media/data-access/getstarted-grant-data-access1.png)
 
-4.	Select “Data Plane Access”, click “Add”
+4.	Select “Data Access Policies”, then click “Add”
 
   ![Manage the Time Series Insights source - add](media/data-access/getstarted-grant-data-access2.png)
 
