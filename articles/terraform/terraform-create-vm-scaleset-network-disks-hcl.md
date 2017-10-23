@@ -27,6 +27,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Before you begin
 
 - [Install Terraform and configure access to Azure](/azure/virtual-machines/linux/terraform-install-configure)
+- [Create a SSH key pair](/azure/virtual-machines/linux/mac-create-ssh-keys) if you don't already have one.
 
 ## Create the file structure
 
@@ -151,6 +152,7 @@ In this step, you add the following resources to the template:
 - Azure backend address pool and assign it to the loadbalancer 
 - A health probe port used by the application and configured on the loadbalancer 
 - A virtual machine scale set sitting behind the load balancer, running on the vnet deployed earlier
+- [Nginx](http://nginx.org/) will be installed on the nodes of the virtual machine scale set with a custom script extension.
 
 Add the following code to the end of the `vmss.tf` file.
 
@@ -316,6 +318,8 @@ In this step, you configure the following resources:
 - A network interface connected to the same subnet as the virtual machine scale set.
 - A virtual machine connected with this network interface. This 'jumpbox' is remotely accessible. Once connected, you can SSH to any of the virtual machines in the scale set.
 
+
+
 Add the following code to the end of the `vmss.tf` file:
 
 ```hcl 
@@ -409,6 +413,21 @@ terraform apply
 Once the deployment has completed, the content of the resource group looks like:
 
 ![Terraform vm scaleset resource group](./media/tf-create-create-vmss-step8.png)
+
+> [!NOTE]
+> Login with a password is disabled on the jumpbox and the virtual machine scale set that you deployed. You must use SSH with private / public key pair to log in to the systems.
+
+## Clean up the environment
+
+The following commands will delete the resources that have been created during this tutorial:
+
+```bash
+terraform destroy
+```
+
+Type `yes` when asked to confirm for the deletion of the resources.
+
+The destruction process will take few minutes to complete.
 
 ## Next Steps
 
