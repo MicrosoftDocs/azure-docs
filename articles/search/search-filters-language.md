@@ -31,7 +31,7 @@ Query parameters on the request are used to both scope the search operation, and
 
 The success of this technique hinges on the integrity of field contents. Azure Search does not translate strings or perform language detection. It is up to you to make sure that fields contain the strings you expect.
 
-## Defined fields for content in different languages
+## Define fields for content in different languages
 
 In Azure Search, queries target a single index. Developers who want to provide language-specific strings in a single search experience typically define dedicated fields to store the values: one field for English strings, one for French, and so on. 
 
