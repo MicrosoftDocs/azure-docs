@@ -60,7 +60,7 @@ Create a ResourceGroup in your subscription. This can be done through REST APIs,
 
 ## Managing Resources through Resource Manager template Deployments
 
-A Resource Manager template is a JSON file that defines the infrastructure and configuration of resources in a resource group. For more information see the following documents:
+A Resource Manager template is a JSON file that defines the infrastructure and configuration of resources in a resource group. For more information, see the following documents:
 
 - [Azure Resource Manager overview - Template deployment](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview#template-deployment)
 
@@ -86,7 +86,7 @@ https://microsoft.sharepoint.com/teams/TSIcore/Shared%20Documents/Getting%20Star
 |**eventHubConsumerGroupName**|The name of the consumer group that Time Series Insights will use to read the data from the event hub. **NOTE**: You should create a dedicated consumer group on the event hub for Time Series Insights. This consumer group should not be shared with other services to avoid contention.|	Required  |         
 |**eventHubKeyName**|The name of the event hub's shared access key that Time Series Insights will use to connect to the event hub.|Required   |   |
 |**eventHubSharedAccessKey**|The shared access key value that Time Series Insights will use to connect to the event hub. This parameter is a secure string, so the value isn't displayed in the deployment logs or history in the Azure portal.|Required  |         |
-|**eventSourceTimestampPropertyName**|The event property that will be used as the event source's timestamp. If a value isn't specified for timestampPropertyName, or if null or empty-string is specified, the event creation time will be used.|Optional	 |         |      
+|**eventSourceTimestampPropertyName**|The event property that is used as the event source's timestamp. If a value isn't specified for timestampPropertyName, or if null or empty-string is specified, the event creation time is used.|Optional	 |         |      
 |**accessPolicyName**|	The name of the access policy child resource. The name cannot include:   '<', '>', '%', '&', ':', '\\', '?', '/' and any control characters. All other characters are allowed.	|Required	     |           |         |
 |**accessPolicyPrincipalObjectId**|	The objectId of the service principal for the user or application in AAD. The service principal objectId can be obtained by calling the **Get-AzureRMADUser** or the **Get-AzureRMADServicePrincipal** cmdlets. Creating an access policy for AAD groups is not supported.|Required	  |         |         |
 |**accessPolicyRole**|	The role granted to the service principle. The supported roles are *Reader* and *Contributor*. For more information, see [Time Series Insights RBAC roles](#time-series-insights-rbac-roles).|	Required  |         |
@@ -154,7 +154,7 @@ The body of the parameters file looks similar to:
 ```
 Notes
 
-- Some of the properties shown in the template file are optional properties (for example, eventSourceDisplayName). You don’t need to include these properties in the parameters file if the default values are acceptable for your scenario.
+- Some of the properties shown in the template file are optional properties (for example, eventSourceDisplayName). If the default values work for your scenario, you don’t need to include these properties in the parameters file.
 
 - Note the use of a keyVault reference to read the event hub’s shared access key. For the key vault to be referenced in template files, you must set the **enabledForTemplateDeployment** property on the vault to **true**. 
 
