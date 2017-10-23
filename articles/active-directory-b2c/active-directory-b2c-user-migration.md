@@ -135,7 +135,7 @@ Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId
 Change the `$AppId` value with your Azure AD **Application ID**.
 
 ## Step 2: Pre-migration application sample
-[Download and run the sample code](http://www.github.com). You can download it as a .zip file.
+[Download and run the sample code](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-user-migration). You can download it as a .zip file.
 
 ### Step 2.1: Edit the migration data file
 The sample app uses a JSON file that contains dummy user data. After you successfully run the sample, you can change the code to consume the data from your own database. Or you can export the user profile to a JSON file, and then set the app to use that file.
@@ -183,29 +183,35 @@ Right-click the `AADB2C.UserMigration` solution, and then rebuild the sample. If
 ![Migration process demo](media/active-directory-b2c-user-migration/pre-migration-demo.png)
 
 ### Step 2.4: Check the pre-migration process
-1. To check the result, in the Azure portal, open **Azure AD B2C**, and then select **Users and Groups**. 
+To validate the migration, use one of the following two methods:
 
-2. Search for a user by doing any of the following:
- 
-    * In the search box, type a user display name, and then view the user profile. 
+* To search for a user by display name, use the Azure portal:
+    
+    a. Open **Azure AD B2C**, and then select **Users and Groups**.
 
-    * Use this sample application to retrieve a user by user sign-in email address. To do so, run the following command:
+    b. In the search box, type the user's display name, and then view the user's profile. 
 
-        ```Console
+* To retrieve a user by sign-in email address, use this sample application:
+
+    a. Run the following command:
+
+    ```Console
         UserMigration.exe 3 {email address}
-        ```
+    ```
         
-        You can also save the output to a JSON file, as follows:
-        ```Console
-        UserMigration.exe 3 {email address} >> UserProfile.json
-        ```
+    > [!TIP]
+    > You can also save the output to a JSON file by using the following command:
+    >
+    >```Console
+    >    UserMigration.exe 3 {email address} >> UserProfile.json
+    >```
 
-    * You can also retrieve a user by user display name. To do so, use the `UserMigration.exe 4 <Display name>` command.
+    > [!TIP]
+    > You can also retrieve a user by display name by using the following command: `UserMigration.exe 4 <Display name>`.
 
-3. Open the *UserProfile.json* file in a JSON editor. With Visual Studio Code, you can format a JSON document by using `Shift+Alt+F` or by selecting **Format Document** in the context menu.
+    b. Open the *UserProfile.json* file in a JSON editor. With Visual Studio Code, you can format a JSON document by selecting Shift+Alt+F or by selecting **Format Document** in the context menu.
 
-    ![User Profile json](media/active-directory-b2c-user-migration/pre-migration-get-by-email2.png)
-
+    ![The UserProfile.json file](media/active-directory-b2c-user-migration/pre-migration-get-by-email2.png)
 
 ### Step 2.5: (Optional) Environment cleanup
 If you want to clean up your Azure AD tenant and remove users from the Azure AD directory, run the `UserMigration.exe 5` command.
@@ -257,10 +263,10 @@ To track the password change, you use an Azure table. When you run the pre-migra
 >[!NOTE]
 >We use an Azure table to simplify the sample. You can store the migration status in any database or as a custom property in the Azure AD B2C account.
 
-### 4.1: Update your application settings
+### 4.1: Update your application setting
 1. To test the RESTful API demo, open the `AADB2C.UserMigration.sln` Visual Studio solution in Visual Studio. 
 
-2. In the `AADB2C.UserMigration.API` project, open the *App.config* file. Replace the three app settings with your own values:
+2. In the `AADB2C.UserMigration.API` project, open the *App.config* file. Replace the app setting with your own value:
 
     ```XML
     <appSettings>
@@ -332,7 +338,7 @@ Publish your API service to Azure App Services. For more information, see [Deplo
     </ClaimsProvider>
     ```
 
-The technical profile defines one input claim: `signInName` (send as email). On sign-in, the claim is sent to your RESTful endpoint.
+The preceding technical profile defines one input claim: `signInName` (send as email). On sign-in, the claim is sent to your RESTful endpoint.
 
 After you define the technical profile for your RESTful API, tell your Azure AD B2C policy to call the technical profile. The XML snippet overrides `SelfAsserted-LocalAccountSignin-Email`, which is defined in the base policy. The XML snippet also adds `ValidationTechnicalProfile`, with ReferenceId pointing to your technical profile `LocalAccountUserMigration`. 
 
@@ -348,8 +354,6 @@ After you define the technical profile for your RESTful API, tell your Azure AD 
 5. Select the **Overwrite the policy if it exists** check box.
 
 6. Upload the *TrustFrameworkExtensions.xml* file, and ensure that it passes validation.
-
-7. Repeat the preceding step with the *SignUpOrSignIn.xml* file.
 
 ### Step 4.5: Test the custom policy by using Run Now
 1. Select **Azure AD B2C Settings**, and then go to **Identity Experience Framework**.
