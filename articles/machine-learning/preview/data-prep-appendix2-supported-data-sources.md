@@ -1,6 +1,6 @@
 ---
-title: Supported data sources available with Azure Machine Learning Data Preparation  | Microsoft Docs
-description: This document provides a complete list of supported data sources available for Azure Machine Learning Data Preparation
+title: Supported Data Sources available with Azure Machine Learning Data Preparation  | Microsoft Docs
+description: This document provides a complete list of supported Data Sources available for Azure Machine Learning Data Preparation
 services: machine-learning
 author: euangMS
 ms.author: euang
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 09/12/2017
 ---
 
-# Supported data sources for this release 
-The following document outlines the list of currently supported data sources in Azure Machine Learning Data Preparation.
+# Supported Data Sources for this release 
+The following document outlines the list of currently supported Data Sources in Azure Machine Learning Data Preparation.
 
-The supported data sources for this release are as follows.
+The supported Data Sources for this release are as follows.
 
 ## Types 
 ### Directory versus file
