@@ -25,7 +25,7 @@ sections:
     style: icon48
     items: 
     - image: 
-        src: https://docs.microsoft.com/media/logos/logo_linux.svg
+        src: /azure/media/index/ContainerService.svg
       text: Create an AKS cluster
       href: /azure/aks/kubernetes-walkthrough
 - title: Step-by-Step Tutorials
@@ -36,12 +36,12 @@ sections:
     style: ordered
     items:
     - html: <a href="/azure/aks/tutorial-kubernetes-prepare-app">Create container images from an application</a>
-    - html: <a href="/azure/container-service/aks/tutorial-kubernetes-prepare-acr">Upload container images to the Azure Container Registry</a>
-    - html: <a href="/azure/container-service/aks/tutorial-kubernetes-deploy-cluster">Deploy an AKS cluster</a>
-    - html: <a href="/azure/container-service/aks/tutorial-kubernetes-deploy-application">Run your container images in Kubernetes</a>
-    - html: <a href="/azure/container-service/aks/tutorial-kubernetes-scale">Scale an application and Kubernetes infrastructure</a>
-    - html: <a href="/azure/container-service/aks/tutorial-kubernetes-app-update">Update an application running in Kubernetes</a>
-    - html: <a href="/azure/container-service/aks/tutorial-kubernetes-monitor">Monitor Kubernetes with Log Analytics</a>
+    - html: <a href="/azure/aks/tutorial-kubernetes-prepare-acr">Upload container images to the Azure Container Registry</a>
+    - html: <a href="/azure/aks/tutorial-kubernetes-deploy-cluster">Deploy an AKS cluster</a>
+    - html: <a href="/azure/aks/tutorial-kubernetes-deploy-application">Run your container images in Kubernetes</a>
+    - html: <a href="/azure/aks/tutorial-kubernetes-scale">Scale an application and Kubernetes infrastructure</a>
+    - html: <a href="/azure/aks/tutorial-kubernetes-app-update">Update an application running in Kubernetes</a>
+    - html: <a href="/azure/aks/tutorial-kubernetes-monitor">Monitor Kubernetes with OMS</a>
 - title: Reference
   items:
   - type: list
