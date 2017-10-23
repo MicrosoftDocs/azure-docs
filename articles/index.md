@@ -668,6 +668,12 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="https://docs.microsofttranslator.com/speech-translate.html">
+                                                <img src="media/index/API_TranslatorSpeech.svg" alt="" />
+                                                <p>Translator Speech</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/cognitive-services/translator/translator-info-overview">
                                                 <img src="media/index/API_TranslatorText.svg" alt="" />
                                                 <p>Translator Text API</p>
@@ -735,7 +741,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/speaker-recognition/home">
-                                                <img src="media/index/API_Spc_SpeakerRecognition.svg" alt="" />
+                                                <img src="media/index/API_Speaker_Recognition.svg" alt="" />
                                                 <p>Speaker Recognition</p>
                                             </a>
                                         </li>
@@ -2608,7 +2614,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                                 <a class="barLink" href="/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home"><img src="media/index/API_Custom_Speech.svg" alt="" /><span>Custom Speech Service&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/speaker-recognition/home"><img src="media/index/API_Spc_SpeakerRecognition.svg" alt="" /><span>Speaker Recognition&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
+                                                                <a class="barLink" href="/azure/cognitive-services/speaker-recognition/home"><img src="media/index/API_Speaker_Recognition.svg" alt="" /><span>Speaker Recognition&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
                                                             </li>
                                                         </ul>
                                                     </div>
@@ -2634,6 +2640,9 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/text-analytics/"><img src="media/index/API_TextAnalytics.svg" alt="" />Text Analytics</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="https://docs.microsofttranslator.com/speech-translate.html"><img src="media/index/API_TranslatorSpeech.svg" alt="" />Translator Speech</a>
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/translator/translator-info-overview"><img src="media/index/API_TranslatorText.svg" alt="" />Translator Text</a>
