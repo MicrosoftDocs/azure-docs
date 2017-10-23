@@ -95,6 +95,10 @@
       href: concepts-sync-data.md
 - name: How-to guides
   items:
+  - name: Replica
+    items:
+    - name: Sync data
+      href: howto-sync-data.md
   - name: Manage a Server
     items:
     - name: Azure portal
