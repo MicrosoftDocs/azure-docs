@@ -1,19 +1,32 @@
 ﻿---
-title: Purchase Azure Reserved Virtual Machine Instances and save on compute costs - Azure | Microsoft Docs
-description: Learn how to purchase Azure Reserved Virtual Machine Instances. 
+
+title: Save compute costs by purchasing a Azure Reserved Virtual Machine Instance - Azure | Microsoft Docs
+
+description: Learn about Azure Reserved Virtual Machine Instance.
 author: vikdesai
+
 manager: vikdesai
+
 editor: ''
+
 
 ms.assetid: 74F4940C-E5FA-4ABC-939E-3386A94ADE86
 ms.service: billing
+
 ms.devlang: na
+
 ms.topic: article
+
 ms.tgt_pltfrm: na
+
 ms.workload: na
+
 ms.date: 10/22/2017
+
 ms.author: vikdesai
+
 ---
+
 # Purchase Azure Reserved Virtual Machine Instances and save on compute costs
 
 Reserved Virtual Machine Instances allow you to pre-purchase 1 to 3 years of compute capacity and get a discount on the virtual machines you use. More details on Reserved Virtual Machine Instances offer are [here](https://azure.microsoft.com/en-us/pricing/reserved-vm-instances/).
