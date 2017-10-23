@@ -97,7 +97,7 @@ export ARM_CLIENT_SECRET=your_password
 export ARM_TENANT_ID=your_tenant_id
 ```
 
-## Verify your installation
+## Run a sample script
 
 Create a file `test.tf` in an empty directory and paste in the following script. 
 
@@ -120,7 +120,8 @@ Terraform has been successfully initialized!
 
 Preview the script with `terraform plan`, and then create the `testResouceGroup` resource group with `terraform apply`:
 
-```An execution plan has been generated and is shown below.
+```
+An execution plan has been generated and is shown below.
 Resource actions are indicated with the following symbols:
   + create
 
@@ -132,7 +133,6 @@ Terraform will perform the following actions:
       name:     "testResourceGroup"
       tags.%:   <computed>
 
-...
 azurerm_resource_group.rg: Creating...
   location: "" => "westus"
   name:     "" => "testResourceGroup"
