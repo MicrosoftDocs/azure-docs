@@ -2616,6 +2616,9 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/speaker-recognition/home"><img src="media/index/API_Speaker_Recognition.svg" alt="" /><span>Speaker Recognition&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
                                                             </li>
+                                                            <li>
+                                                                <a class="barLink" href="https://docs.microsofttranslator.com/speech-translate.html"><img src="media/index/API_TranslatorSpeech.svg" alt="" />Translator Speech</a>
+                                                            </li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -2640,9 +2643,6 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/text-analytics/"><img src="media/index/API_TextAnalytics.svg" alt="" />Text Analytics</a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="barLink" href="https://docs.microsofttranslator.com/speech-translate.html"><img src="media/index/API_TranslatorSpeech.svg" alt="" />Translator Speech</a>
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/translator/translator-info-overview"><img src="media/index/API_TranslatorText.svg" alt="" />Translator Text</a>
