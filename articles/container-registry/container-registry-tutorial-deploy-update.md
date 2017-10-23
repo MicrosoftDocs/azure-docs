@@ -37,7 +37,7 @@ If you've not yet configured the two *Web App for Containers* regional deploymen
 
 In this step, make a change to the web application that will be highly visible once you push the updated container image to Azure Container Registry.
 
-Find the `AcrHelloworld/Views/Home/Index.cshtml` file in the application source you [cloned from GitHub](container-registry-tutorial-prepare-acr.md#get-application-code) in a previous tutorial and open it in your favorite text editor. Add the following line above the `<img>` line:
+Find the `AcrHelloworld/Views/Home/Index.cshtml` file in the application source you [cloned from GitHub](container-registry-tutorial-prepare-registry.md#get-application-code) in a previous tutorial and open it in your favorite text editor. Add the following line above the `<img>` line:
 
 ```html
 <h1>MODIFIED</h1>
