@@ -101,8 +101,12 @@
       items:
       - name: Node actions
         href: azure-stack-node-actions.md
+      - name: Replace node
+        href: azure-stack-replace-node.md
       - name: Replace disk
         href: azure-stack-replace-disk.md
+      - name: Replace component
+        href: azure-stack-replace-component.md    
   - name: Security, compliance & identity
     items:
     - name: Security overview

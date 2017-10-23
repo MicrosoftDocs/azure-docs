@@ -119,7 +119,7 @@ Complete the following steps from a Windows command prompt:
 
 ### Linux
 
-Since the default behavior uses weak host routing, we recommend restricting secondary network interface traffic between resources in the same subnet. If you require communication outside the subnet for secondary network interfaces, you should enable policy-based routing, to ensure that the ingress and egress traffic use the same network interface.
+Since the default behavior uses weak host routing, we recommend restricting secondary network interface traffic between resources in the same subnet. If you require communication outside the subnet for secondary network interfaces, you must create routing rules that allow the virtual machine to send and receive traffic through a specific network interface. Otherwise, traffic that belongs to eth1, for example, cannot be processed correctly by the defined default route. To learn how to configure routing rules, see [Configure Linux for multiple NICs](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-guest-os-for-multiple-nics).
 
 > [!WARNING]
 > If a network interface has a private IPv6 address assigned to it, you can only add the network interface to the virtual machine when creating the virtual machine. You cannot attach more than one network interface to the virtual machine when you create the virtual machine, or after the virtual machine is created, as long as an IPv6 address is assigned to a network interface attached to a virtual machine. See [Network interface IP addresses](virtual-network-network-interface-addresses.md) to learn more about assigning IP addresses to network interfaces.
