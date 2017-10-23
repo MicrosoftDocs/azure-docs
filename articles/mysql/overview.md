@@ -13,7 +13,7 @@ ms.custom: mvc
 ---
 
 
-# What is Azure Database for MySQL? Service Introduction
+# What is Azure Database for MySQL?
 Azure Database for MySQL is a relational database service in the Microsoft cloud based on the [MySQL Community Edition](https://www.mysql.com/products/community/) database engine. This service is in public preview. Azure Database for MySQL delivers:
 
 - Built-in high availability with no additional cost.
@@ -27,7 +27,7 @@ These capabilities require almost no administration and all are provided at no a
 
 ![Azure Database for MySQL conceptual diagram](media/overview/1-azure-db-for-mysql-conceptual-diagram.png)
 
-This article is an introduction to Azure Database for MySQL core concepts and features related to performance, scalability, and manageability, with links to explore details. See these quick starts to get you started:
+This article is an introduction to Azure Database for MySQL core concepts and features related to performance, scalability, and manageability, with links to explore details. See these quickstarts to get you started:
 - [Create an Azure Database for MySQL server using Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md)
 - [Create an Azure Database for MySQL server using Azure CLI](quickstart-create-mysql-server-database-using-azure-cli.md)
 
@@ -54,4 +54,4 @@ By default, the Azure Database for MySQL service is configured to require [SSL c
 Now that you've read an introduction to Azure Database for MySQL and answered the question "What is Azure Database for MySQL?," you're ready to:
 - See the pricing page for cost comparisons and calculators. [Pricing](https://azure.microsoft.com/pricing/details/mysql/)
 - Get started by creating your first server. [Create an Azure Database for MySQL server using Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md)
-- Build your first app in Python, PHP, Ruby, C\#, Java, Node.js: [Connectivity libraries used to connect to Azure Database for MySQL](concepts-connection-libraries.md)
+- Build your first app using your preferred language: [Python](./connect-python.md) | [Node.JS](./connect-nodejs.md) | [Java](./connect-java.md) | [Ruby](./connect-ruby.md) | [PHP](./connect-php.md) | [.NET (C#)](./connect-csharp.md) | [Go](./connect-go.md)
