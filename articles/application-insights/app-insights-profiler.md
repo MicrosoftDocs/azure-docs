@@ -43,7 +43,7 @@ To control the profiler on all your linked web apps, in the **Configure** pane, 
 
 ![Configure pane options][linked app services]
 
-Unlike web apps that are hosted through App Service plans, applications that are hosted in **Azure Compute** resources (for example, virtual machines, virtual machine scale sets, Azure Service Fabric, or cloud services) are not directly managed by Azure. In this case, there's no web app to link to. Instead of linking to an app, select the **Enable Profiler** button.
+Unlike web apps that are hosted through App Service plans, applications that are hosted in **Azure Compute** resources (for example, Azure Virtual Machines, virtual machine scale sets, Azure Service Fabric, or Azure Cloud Services) are not directly managed by Azure. In this case, there's no web app to link to. Instead of linking to an app, select the **Enable Profiler** button.
 
 ## Disable the profiler
 To stop or restart the profiler for an individual App Service instance, under **Web Jobs**, go to the App Service resource. To delete the profiler, go to **Extensions**.
