@@ -41,7 +41,7 @@ Make sure you have these prerequisites in place:
 * Azure PowerShell 1.0. For information about this release and how to install it, see [Azure PowerShell 1.0.](https://azure.microsoft.com/)
 * The [AzureRM.SiteRecovery](https://www.powershellgallery.com/packages/AzureRM.SiteRecovery/) and [AzureRM.RecoveryServices](https://www.powershellgallery.com/packages/AzureRM.RecoveryServices/) modules. You can get the latest versions of these modules from the [PowerShell gallery](https://www.powershellgallery.com/)
 
- in addition, the specific example described in this article has the following prerequisites:
+In addition, the specific example described in this article has the following prerequisites:
 
 * A Hyper-V host running Windows Server 2012 R2 or Microsoft Hyper-V Server 2012 R2 containing one or more VMs. Hyper-V servers should be connected to the Internet, either directly or through a proxy.
 * The VMs you want to replicate should conform with [these prerequisites](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
@@ -55,7 +55,7 @@ Make sure you have these prerequisites in place:
 
     `Select-AzureRmSubscription -SubscriptionName $SubscriptionName`
 
-3. Verify that your subscription is registered to use the Azure providers for Recovery Services and Site Recovery, using these commands, 
+3. Verify that your subscription is registered to use the Azure providers for Recovery Services and Site Recovery, using these commands:
 
     `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.RecoveryServices`
     `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.SiteRecovery`
@@ -65,7 +65,7 @@ Make sure you have these prerequisites in place:
     `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.SiteRecovery`
     `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices`
 
- 5. Verify that the Providers registered successfully, using the following commands:
+5. Verify that the Providers registered successfully, using the following commands:
 
     `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.RecoveryServices`
     `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.SiteRecovery`.
@@ -129,9 +129,9 @@ Before you start, note that the storage account specified should be in the same 
 
         $PolicyResult = New-AzureRmSiteRecoveryPolicy -Name $PolicyName -ReplicationProvider “HyperVReplicaAzure” -ReplicationFrequencyInSeconds $ReplicationFrequencyInSeconds  -RecoveryPoints $Recoverypoints -ApplicationConsistentSnapshotFrequencyInHours 1 -RecoveryAzureStorageAccountId $storageaccountID
 
- 2. Check the returned job to ensure that the replication policy creation succeeds.
+2. Check the returned job to ensure that the replication policy creation succeeds.
 
-3. Retrive the protection container that corresponds to the site, as follows:
+3. Retrieve the protection container that corresponds to the site, as follows:
 
         $protectionContainer = Get-AzureRmSiteRecoveryProtectionContainer
 3. Associate the protection container with the replication policy, as follows:
@@ -139,7 +139,7 @@ Before you start, note that the storage account specified should be in the same 
      $Policy = Get-AzureRmSiteRecoveryPolicy -FriendlyName $PolicyName
      $associationJob  = Start-AzureRmSiteRecoveryPolicyAssociationJob -Policy $Policy -PrimaryProtectionContainer $protectionContainer
 
- 4. Wait for the association job to complete successfully.
+4. Wait for the association job to complete successfully.
 
 ## Step 7: Enable VM protection
 
