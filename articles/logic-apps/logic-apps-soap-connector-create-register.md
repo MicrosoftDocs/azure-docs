@@ -19,7 +19,7 @@ ms.author: LADocs; estfan
 
 # SOAP connector overview
 
-Custom connectors allow you to call APIs, services and systems that aren't available as prebuilt connectors. In this document we will cover how you can build a custom connector using WSDL that describes your SOAP service. The SOAP connector has its own triggers and actions and can be used like prebuilt connectors in your logic app workflows to integrate with SOAP services.
+Custom connectors allow you to call APIs, services and systems that aren't available as prebuilt connectors. In this document we will cover how you can build a custom SOAP connector using WSDL that describes your SOAP service. The SOAP connector has its own triggers and actions and can be used like prebuilt connectors in your logic app workflows to integrate with SOAP services.
 
 
 ## Prerequisites
@@ -31,20 +31,14 @@ you can start with a [free Azure account](https://azure.microsoft.com/free/).
 Otherwise, sign up for a [Pay-As-You-Go subscription](https://azure.microsoft.com/pricing/purchase-options/).
 
 * Any item here:
-  * A URL to an WSDL that defines your SOAP service
-  * A WSDL file that defines your SOAP service
+  * A URL to a WSDL that defines your SOAP service and the APIs
+  * A WSDL file that defines your SOAP service and the APIs
 
   For this tutorial, you can use our example 
   [Orders SOAP Serrvice](http://fazioapisoap.azurewebsites.net/FazioService.svc?singleWsdl).
 
-* A WSDL file that define your SOAP service and the APIs
-
-  For this tutorial, you can use the 
-  [sample Azure Resources Manager OpenAPI file](http://pwrappssamples.blob.core.windows.net/samples/AzureResourceManager.json).
-
 * Optional: An image to use as an icon for your custom connector
 
-* The host location for your API
 
 ## 1. Create your connector
 
@@ -129,10 +123,13 @@ actions and triggers for your soap connector.
 that your connector uses. Authentication makes sure that your users' 
 identities flow appropriately between your service and any clients.
 
-   By default **No Authentication** is selected in the **Authnetication Type** for your connector.
-   Choose **Edit** if you want to change the authentication to **Basic Authentication**.
+   By default **No authentication** is selected in the **Authentication type** for your connector.
+   
+   ![Authentication type](./media/logic-apps-soap-connector-create-register/security-no-authentication.png)
 
-   ![Authentication type](./media/logic-apps-soap-connector-create-register/security.png)
+   Choose **Edit** if you want to change the authentication to **Basic Authentication**. For **Parameter Label**, update them if you want something different than default values.
+
+   ![Basic authentication](./media/logic-apps-soap-connector-create-register/security.png)
 
    
 2. To save your connector after entering the security information, 
@@ -152,7 +149,7 @@ or define new actions and triggers that users can add to their workflows.
    ![Connector definition](./media/logic-apps-soap-connector-create-register/definition.png)
 
 2. Optionally, if you want to edit existing actions and triggers, 
-or add new ones, [continue with these steps](logic-apps-custom-connector-register.md).
+or add new ones, [continue with these steps](logic-apps-custom-connector-register.md####Edit-or-add-actions-for-your-connector).
 
 
 ## 3. Finish creating your connector
