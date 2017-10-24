@@ -117,6 +117,6 @@ Following is the breakdown:
 
 - For more information about  Azure Storage Billing, see [Understanding Windows Azure Storage Billing](https://blogs.msdn.microsoft.com/windowsazurestorage/2010/07/08/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity/).
 
-- For more information about the Azure PowerShell module, see [Azure PowerShell documentation](../powershell/azure/overview).
+- For more information about the Azure PowerShell module, see [Azure PowerShell documentation](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azurermps-4.4.1).
 
 - Additional Storage PowerShell script samples can be found in [PowerShell samples for Azure Storage](../blobs/storage-samples-blobs-powershell.md).
