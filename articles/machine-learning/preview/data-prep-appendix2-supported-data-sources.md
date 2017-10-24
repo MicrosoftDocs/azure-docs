@@ -66,17 +66,17 @@ None
 ### Parquet
 Read a Parquet dataset, either a single file or folder.
 
-Parquet as a format can take various forms in storage. For smaller datasets, a single '.parquet' file is sometimes used. Various Python libraries support reading or writing to single '.parquet' file. Currently, AMLWB relies on the PyArrow Python library for reading Parquet during local 'interactive' use. It supports single '.parquet' files (as long as they were written as such, not as part of a larger dataset). It also supports Parquet datasets. 
+Parquet as a format can take various forms in storage. For smaller datasets, a single .parquet file is sometimes used. Various Python libraries support reading or writing to single .parquet file. Currently, Azure Machine Learning Workbench relies on the PyArrow Python library for reading Parquet during local interactive use. It supports single .parquet files (as long as they were written as such, not as part of a larger dataset). It also supports Parquet datasets. 
 
-A Parquet dataset is a collection of more than one '.parquet' file, each of which represents a smaller partition of a larger dataset. Datasets are usually contained in a folder. They are the default Parquet output format for common platforms such as Spark and Hive.
+A Parquet dataset is a collection of more than one .parquet file, each of which represents a smaller partition of a larger dataset. Datasets are usually contained in a folder. They are the default Parquet output format for common platforms such as Spark and Hive.
 
 >[!NOTE]
->When you're reading Parquet data that is in a folder with multiple '.parquet' files, it's safest to select the directory for reading and to tick the **Parquet Dataset** option. This makes PyArrow read the whole folder instead of the individual files. This ensures support for reading more complicated ways of storing Parquet on disk (such as folder partitioning.)
+>When you're reading Parquet data that is in a folder with multiple .parquet files, it's safest to select the directory for reading and to tick the **Parquet Dataset** option. This makes PyArrow read the whole folder instead of the individual files. This ensures support for reading more complicated ways of storing Parquet on disk (such as folder partitioning.)
 
 Scale-out execution relies on Spark's Parquet reading capabilities and supports single files as well as folders.
 
 #### Options
-*Parquet dataset*: This option determines whether AMLWB uses the unticked mode or the ticked mode. The unticked mode expands a given directory and attempts to read each file in it individually. The ticked mode treats the directory as the whole data set and lets PyArrow figure out the best way to interpret the files.
+*Parquet dataset*: This option determines if Azure Machine Learning Workbench uses the unticked mode or the ticked mode. The unticked mode expands a given directory and attempts to read each file in it individually. The ticked mode treats the directory as the whole data set and lets PyArrow figure out the best way to interpret the files.
 
 
 ## Locations
@@ -84,5 +84,5 @@ Scale-out execution relies on Spark's Parquet reading capabilities and supports 
 Local hard drive or mapped network storage location.
 
 ### Azure Blob storage
-Azure storage (Blob). Requires an Azure subscription.
+Requires an Azure subscription.
 
