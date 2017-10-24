@@ -197,6 +197,7 @@
           maintainContext: true
         - name: Use Azure Resource Manager templates
           href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md
+      - name: Manage HDInsight clusters
         items:
         - name: Use Portal
           href: ../hdinsight-administer-use-portal-linux.md
