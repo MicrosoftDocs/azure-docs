@@ -42,7 +42,7 @@ While completing this tutorial, you can see these resources created:
 - *myBackendNSG* - The network security group that controls communication between the *myFrontendVM* and *myBackendVM*.
 - *myBackendSubnet* - The subnet associated with *myBackendNSG* and used by the back-end resources.
 - *myBackendNic* - The network interface used by *myBackendVM* to communicate with *myFrontendVM*.
-- *myBackendVM* - The VM that uses port 1433 to communicate with *myFrontendVM*.
+- *myBackendVM* - The VM that uses port 22 and 3306 to communicate with *myFrontendVM*.
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
