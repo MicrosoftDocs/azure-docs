@@ -33,7 +33,7 @@ This article describes how to use Azure Load Balancer with multiple IP addresses
 This example assumes that you have a Resource Group named *contosofabrikam* with the following configuration:
  -  includes a virtual network named *myVNet*, two VMs called *VM1* and *VM2* respectively within the same availability set named *myAvailset*. 
  - each VM has a primary NIC and a secondary NIC. The primary NICs are named *VM1NIC1* and *VM2NIC1* and the secondary NICs are named *VM1NIC2* and *VM2NIC2*. 
-For more information about creating VMs with multiple NICs, see [Create a VM with multiple NICs using PowerShell](../virtual-network/virtual-network-deploy-multinic-arm-ps.md).
+For more information about creating VMs with multiple NICs, see [Create a VM with multiple NICs using PowerShell](../virtual-machines/windows/multiple-nics.md).
 
 ## Steps to load balance on multiple IP configurations
 

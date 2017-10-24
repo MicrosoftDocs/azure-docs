@@ -18,11 +18,64 @@ ms.author: muralikk
 
 ---
 # Use the Microsoft Azure Import/Export service to transfer data to Azure storage
-The Azure Import/Export service allows you to securely transfer large amounts of data to Azure storage by shipping hard disk drives to an Azure data center. You can also use this service to transfer data from Azure storage to hard disk drives and ship to your on-premises site. This service is suitable in situations where you want to transfer several terabytes (TB) of data to or from Azure, but uploading or downloading over the network is infeasible due to limited bandwidth or high network costs.
+In this article, we provide step-by-step instructions on using Azure Import/Export service to securely transfer large amounts of data to Azure blob and file storage by shipping disk drives to an Azure data center. This service can also be used to transfer data from Azure blob storage to hard disk drives and ship to your on-premise sites. Data from a single internal SATA disk drive can be imported either to Azure blob Storage or Azure File storage. 
 
-The service requires that hard disk drives should be BitLocker encrypted for the security of your data. The service supports both the Classic and Azure Resource Manager storage accounts (standard and cool tier) present in all the regions of Public Azure. You must ship hard disk drives to one of the supported locations specified later in this article.
+> [!IMPORTANT] 
+> This service only accepts internal SATA HDDs or SSDs only. No other device is supported. Please do not send External HDDs or NAS devices etc as they will be returned when possible or discarded.
+>
+>
 
-In this article, you learn more about the Azure Import/Export service and how to ship drives for copying your data to and from Azure Blob storage.
+Follow the below steps if the data on the disk is to be imported into Azure Blob Storage.
+### Step 1: Prepare the drive/s using WAImportExport tool and generate journal file/s.
+
+1.  Identify the data to be imported into Azure blob storage. This could be directories and standalone files on a local server or a network share.
+2.  Depending on total size of the data, procure the required number of 2.5 inch SSD or 2.5" or 3.5" SATA II or III hard disk drives.
+3.	Attach the hard drives directly using SATA or with external USB adaptors to a windows machine.
+4.  Create a single NTFS volume on each hard drive and assign a drive letter to the volume. No mountpoints.
+5.  Enable bit locker encryption on the NTFS volume. Use the instructions on https://technet.microsoft.com/en-us/library/cc731549(v=ws.10).aspx to enable encryption on the windows machine.
+6.  Completely copy data to these encrypted single NTFS volumes on disks using copy & paste or  drag & drop or Robocopy or any such tool.
+7.	Download WAImportExport V1 from https://www.microsoft.com/en-us/download/details.aspx?id=42659
+8.	Unzip to the default folder waimportexportv1. For example, C:\WaImportExportV1  
+9.	Run as Administrator and open a PowerShell or Command line and change directory to the unzipped folder. For example, cd C:\WaImportExportV1
+10.	Copy the below command line to a notepad and edit it to create a command line.
+  ./WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1 /sk:***== /t:D /bk:*** /srcdir:D:\ /dstdir:ContainerName/ /skipwrite
+    
+    /j:  The name of a file called journal file with .jrn extension. A journal file is generated per drive and so it is recommended to use the disk serial number as the journal file name.
+    /sk: Azure Storage Account key. 
+    /t:  Drive letter of the disk to be shipped. For example, D
+    /bk: is the bit locker key of the drive
+    /srcdir: Drive letter of the disk to be shipped followed by :\. For example, D:\
+    /dstdir: The name of Azure Storage Container to which the data is to be imported.
+    /skipwrite 
+    
+11. Repeat step 10 for each of disk that needs to be shipped.
+12. A journal file with name provided with /j: parameter is created for every run of the command line.
+
+### Step 2: Create an Import Job on Azure Portal.
+
+1. Log on to https://portal.azure.com/ and under More services -> STORAGE -> "Import/export jobs" Click **Create Import/export Job**.
+
+2. In Basics section, select "Import into Azure", enter a string for job name, select a subscription, enter or select a resource group. Enter a descriptive name for the import job. Note that the name you enter may contain only lowercase letters, numbers, hyphens, and underscores, must start with a letter, and may not contain spaces. You will use the name you choose to track your jobs while they are in progress and once they are completed.
+
+3. In Job details section, upload the drive journal files that you obtained during the drive preparation step. If waimportexport.exe version1 was used, you will need to upload one file for each drive that you have prepared. Select the storage account that the data will be imported into in the "Import destination" Storage account section. The Drop-Off location  will be automatically populated based on the region of the storage account selected.
+   
+   ![Create import job - Step 3](./media/storage-import-export-service/import-job-03.png)
+4. In Return shipping info section, select the carrier from the drop down list and enter a valid carrier account number that you have created with that carrier. Microsoft will use this account to ship the drives back to you once your import job is complete. Provide a complete and valid contact name, phone, email, street address, city, zip, state/proviince and country/region.
+   
+5. In the Summary section, Azure DataCenter shipping address is provided to be used for shipping disks to Azure DC. Ensure that the job name and the full address are mentioned on the shipping label. 
+
+6. Click OK on the Summary Page to complete Import job creation.
+
+### Step 3: Ship the drive/s to the Azure Datacenter shipping address provided in Step 2.
+FedEx, UPS or DHL can be used to ship the package to Azure DC.
+
+### Step 4: Update the job created in Step2 with tracking number of the shipment.
+After shipping the disks, return to the **Import/Export** page on the Azure portal to update the tracking number using the steps below, 
+     a) Navigate and click on the import job
+     b) Click on **Update job status and tracking info once drives are shipped**. 
+     c) Select the check box "Mark as shipped"
+     d) Provide the Carrier and Tracking number.
+If the tracking number is not updated within 2 weeks of creating the job, the job will expire. The job progress can be tracked on the portal dashboard. See what each job state in the previous section means by [Viewing your job status](#viewing-your-job-status).
 
 ## When should I use the Azure Import/Export service?
 Consider using Azure Import/Export service when uploading or downloading data over the network is too slow, or getting additional network bandwidth is cost-prohibitive.
@@ -252,35 +305,18 @@ When you ship drives to Azure, you pay the shipping cost to the shipping carrier
 
 There are no transaction costs when importing data into blob storage. The standard egress charges are applicable when data is exported from blob storage. For more details on transaction costs, see [Data transfer pricing.](https://azure.microsoft.com/pricing/details/data-transfers/)
 
-## Quick Start
-In this section, we provide step-by-step instructions for creating an import and an export job. Please make sure you meet all of the [pre-requisites](#pre-requisites) before moving forward.
 
-> [!IMPORTANT]
-> The service supports one standard storage account per import or export job and does not support premium storage accounts. 
-> 
-> 
-## Create an import job
-Create an import job to copy data to your Azure storage account from hard drives by shipping one or more drives containing data to the specified data center. The import job conveys details about hard disk drives, data to be copied, target storage account, and shipping information to the Azure Import/Export service. Creating an import job is a three-step process. First, prepare your drives using the WAImportExport tool. Second, submit an import job using the Azure portal. Third, ship the drives to the shipping address provided during job creation and update the shipping info in your job details.   
 
-### Prepare your drives
+## How to import data into Azure File Storage using internal SATA HDDs and SSDs?
+Follow the below steps if the data on the disk is to be imported into Azure File Storage.
 The first step when importing data using the Azure Import/Export service is to prepare your drives using the WAImportExport tool. Follow the steps below to prepare your drives.
 
-1. Identify the data to be imported. This could be directories and standalone files on the local server or a network share.  
+1. Identify the data to be imported into Azure File Storage. This could be directories and standalone files on the local server or a network share.  
 2. Determine the number of drives you will need depending on total size of the data. Procure the required number of 2.5 inch SSD or 2.5" or 3.5" SATA II or III hard disk drives.
 3. Identify the target storage account, container, virtual directories, and blobs.
-4.	Determine the directories and/or standalone files that will be copied to each hard disk drive.
-5.	Create the CSV files for dataset and driveset.
+4. Determine the directories and/or standalone files that will be copied to each hard disk drive.
+5. Create the CSV files for dataset and driveset.
     
-    **Dataset CSV File**
-    
-  Below is a sample dataset CSV file example for importing data as Azure blobs:
-    
-    ```
-    BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
-    "F:\50M_original\100M_1.csv.txt","containername/100M_1.csv.txt",BlockBlob,rename,"None",None
-    "F:\50M_original\","containername/",BlockBlob,rename,"None",None 
-    ```
-  
   Below is a sample dataset CSV file example for importing data as Azure Files:
   
     ```
@@ -288,11 +324,11 @@ The first step when importing data using the Azure Import/Export service is to p
     "F:\50M_original\100M_1.csv.txt","fileshare/100M_1.csv.txt",file,rename,"None",None
     "F:\50M_original\","fileshare/",file,rename,"None",None 
     ```
-   In the above example, 100M_1.csv.txt  will be copied to the root of the container named "containername" or "fileshare". If the container name "containername" or "Fileshare" does not exist, one will be created. All files and folders under 50M_original will be recursively copied to containername or fileshare. Folder structure will be maintained.
+   In the above example, 100M_1.csv.txt  will be copied to the root of the "fileshare". If the "Fileshare" does not exist, one will be created. All files and folders under 50M_original will be recursively copied to fileshare. Folder structure will be maintained.
 
     Learn more about [preparing the dataset CSV file](storage-import-export-tool-preparing-hard-drives-import.md#prepare-the-dataset-csv-file).
     
-    **Remember**: By default, the data will be imported as Block Blobs. You can use the BlobType field-value to import data as a Page Blobs. For example, if you are importing VHD files which will be mounted as disks on an Azure VM, you must import them as Page Blobs.
+
 
     **Driveset CSV File**
 
@@ -362,29 +398,7 @@ See more details about using the WAImportExport tool in [Preparing hard drives f
 
 Also, refer to the [Sample workflow to prepare hard drives for an import job](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md) for more detailed step-by-step instructions.  
 
-### Create the import job
-1. Once you have prepared your drive, navigate to More services -> STORAGE -> "Import/export jobs" on the Azure portal. Click **Create Import/export Job**.
 
-2. In Step 1 Basics, select "Import into Azure", enter a string for job name, select a subscription, enter or select a resource group. Enter a descriptive name for the import job. Note that the name you enter may contain only lowercase letters, numbers, hyphens, and underscores, must start with a letter, and may not contain spaces. You will use the name you choose to track your jobs while they are in progress and once they are completed.
-
-3. In Step 2 Job details, upload the drive journal files that you obtained during the drive preparation step. If waimportexport.exe version1 was used, you will need to upload one file for each drive that you have prepared. Select the storage account that the data will be imported into in the "Import destination" Storage account section. The Drop-Off location  will be automatically populated based on the region of the storage account selected.
-   
-   ![Create import job - Step 3](./media/storage-import-export-service/import-job-03.png)
-4. In Step 3 Return shipping info, select the carrier from the drop down list and enter a valid carrier account number that you have created with that carrier. Microsoft will use this account to ship the drives back to you once your import job is complete. Provide a complete and valid contact name, phone, email, street address, city, zip, state/proviince and country/region.
-   
-5. In the Summary Page, Azure DataCenter shipping address is provided to be used for shipping disks to Azure DC. Ensure that the job name and the full address are mentioned on the shipping label. 
-
-6. Click OK on the Summary Page to complete Import job creation.
-
-7. After shipping the disks, return to the **Import/Export** page on the Azure portal, 
-     a) Navigate and click on the import job
-     b) Click on **Update job status and tracking info once drives are shipped**. 
-     c) Select the check box "Mark as shipped"
-     d) Provide the Carrier and Tracking number.
-    
-   If the tracking number is not updated within 2 weeks of creating the job, the job will expire.
-   
-8. You can track your job progress on the portal dashboard. See what each job state in the previous section means by [Viewing your job status](#viewing-your-job-status).
 
 ## Create an export job
 Create an export job to notify the Import/Export service that you'll be shipping one or more empty drives to the data center so that data can be exported from your storage account to the drives and the drives then shipped to you.

@@ -191,6 +191,9 @@ After the setup is complete, set the environment variables required to operation
 
 Now you are ready to create the real-time web service.
 
+>[!NOTE]
+>You can re-use your Model Managment account and environment for subsequent web service deployments. You don't need to create them for each web service. An account or an environment can have multiple web services associated with it.
+
 ## Create a real-time web service in one command
 1. Use the following command to create a real-time web service:
 

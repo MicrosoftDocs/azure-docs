@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2017
+ms.date: 10/12/2017
 ms.author: billmath
 ms.reviewer: harshja
 ms.custom: it-pro
@@ -22,7 +22,7 @@ ms.custom: it-pro
 
 Connectors are what make Azure AD Application Proxy possible. They are simple, easy to deploy and maintain, and super powerful. This article discusses what connectors are, how they work, and some suggestions for how to optimize your deployment. 
 
-## What is an Application Proxy connector
+## What is an Application Proxy connector?
 
 Connectors are lightweight agents that sit on-premises and facilitate the outbound connection to the Application Proxy service. Connectors must be installed on a Windows Server that has access to the backend application. You can organize connectors into connector groups, with each group handling traffic to specific applications. Connectors load-balance automatically, and can help to optimize your network structure. 
 
@@ -75,10 +75,10 @@ While connectors will automatically load balance within a connector group, it is
 |4|16|320|1150|
 |8|32|270|1190|
 |16|64|245|1200*|
-\* This machine had a connection limit of 200. For all other machines we used the default 200 connection limit.
+\* This machine had a connection limit of 800. For all other machines we used the default 200 connection limit.
  
 >[!NOTE]
->The default configuration limit is 200 (for 2, 4, and 8 cores).  During testing with 16 cores, the connection limit was changed to 800. There is not much difference in the maximum TPS between 4, 8, and 16 core machines. The main difference between those is in the expected latency.  
+>There is not much difference in the maximum TPS between 4, 8, and 16 core machines. The main difference between those is in the expected latency.  
 
 ## Security and networking
 

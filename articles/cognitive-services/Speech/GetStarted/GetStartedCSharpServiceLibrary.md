@@ -1,9 +1,9 @@
 ---
-title: Microsoft Speech Recognition Service Library in Cognitive Services | Microsoft Docs
+title: Get Started with Microsoft Speech Recognition API Using C# Service Library | Microsoft Docs
 description: Use the Microsoft speech recognition service library to convert spoken language to text.
 services: cognitive-services
 author: zhouwangzw
-manager: wolfma61
+manager: wolfma
 
 ms.service: cognitive-services
 ms.technology: speech
@@ -13,27 +13,34 @@ ms.author: zhouwang
 ---
 # Get started with Microsoft speech recognition service library in C&#35; for .NET Windows
 
-With Microsoft speech recognition service library, your service can utilize the power of Microsoft Speech transcription cloud to convert spoken language to text. This service-to-service library works in real time so your client app can send audio to servers in the cloud and start receiving partial recognition results back simultaneously and asynchronously. For library API reference, see the [Microsoft Speech C# Service Library](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-ServiceLibrary/master/docs/index.html).
+The service library is for developers who have their own cloud service and wish to call Microsoft Speech Recognition Service from their service. This SDK should not be used by developers who wish to call our Speech Recognition service from a device bound apps (use other client libraries or REST APIs for that).
 
-This section describes how to install, build, and run the C# sample application using C# Service Library.
+To use the C# service library, you need to install [NuGet package Microsoft.Bing.Speech](https://www.nuget.org/packages/Microsoft.Bing.Speech/). For library API reference, see the [Microsoft Speech C# Service Library](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-ServiceLibrary/master/docs/index.html).
+
+The following sections describe how to install, build, and run the C# sample application using C# service Library.
 
 ## Prerequisites
 
-### Platform Requirements
+### Platform requirements
 
 The following example has been developed for Windows 8+ and .NET 4.5+ Framework using [Visual Studio 2015, Community Edition](https://www.visualstudio.com/products/visual-studio-community-vs).
 
-### Get the Service Library and Sample Application
+### Get the sample application
 
-The library is available through a [NuGet Package](https://www.nuget.org/packages/Microsoft.Bing.Speech/).
 You may clone the sample from the [Speech C# Service Library Sample](https://github.com/Microsoft/Cognitive-Speech-STT-ServiceLibrary) repository.
 
 ### Subscribe to Speech API and get a free trial subscription key
 
-> [!IMPORTANT]
-> You must have a subscription key before using speech client libraries.
+Microsoft Speech API is part of Microsoft Cognitive Services on Azure(previously Project Oxford). You can get free trial subscription keys from the [Cognitive Services Subscription](https://azure.microsoft.com/try/cognitive-services/) page. After you select the Speech API, click Get API Key to get the key. It returns a primary and secondary key. Both keys are tied to the same quota, so you may use either key.
 
-Microsoft Speech API is part of Microsoft Cognitive Services on Azure(previously Project Oxford). You can get free trial subscription keys from the [Cognitive Services Subscription](https://azure.microsoft.com/en-us/try/cognitive-services/) page. After you select the Speech API, click Get API Key to get the key. It returns a primary and secondary key. Both keys are tied to the same quota, so you may use either key.
+> [!IMPORTANT]
+> **Get a subscription key**
+>
+> You must have a [subscription key](https://azure.microsoft.com/try/cognitive-services/) before using speech client libraries.
+>
+> **Use your subscription key**
+>
+>  With the provided C# service library sample application, you need to provide your subscription key as one of command line parameters. See more information below: [Run the sample application](#step-3-run-the-sample-application).
 
 ## Step 1: Install the sample application
 
@@ -51,7 +58,7 @@ Press Ctrl+Shift+B, or click `Build` on the ribbon menu, then select `Build Solu
 3. Run `SpeechClientSample.exe` with the following arguments:
  * Arg[0]: Specify an input audio wav file.
  * Arg[1]: Specify the audio locale.
- * Arg[2]: Specify the service uri.
+ * Arg[2]: Specify the [recognition mode](#recognition-modes]: *Short* for the `ShortPhrase` mode, and *Long* for the `LongDictation` mode.
  * Arg[3]: Specify the subscription key to access the speech recognition Service.
 
 ## Samples explained
@@ -60,13 +67,6 @@ Press Ctrl+Shift+B, or click `Build` on the ribbon menu, then select `Build Solu
 
 * `ShortPhrase` mode: an utterance up to 15 seconds long. As data is sent to the server, the client receives multiple partial results and one final best result.
 * `LongDictation` mode: an utterance up to 10 minutes long. As data is sent to the server, the client receives multiple partial results and multiple final results, based on where the server indicates sentence pauses.
-
-### Service URI
-
-**Recognition Mode** | Service URI |
-------|------
-Short-Form | wss://speech.platform.bing.com/api/service/recognition
-Long-Form  | wss://speech.platform.bing.com/api/service/recognition/continuous
 
 ### Supported audio formats
 
@@ -90,7 +90,7 @@ that configures the behavior of the speech service. It consists of the following
 
 The SpeechInput object consists of 2 fields:
 
-* **Audio**: A stream implementation of your choice that the SDK pulls audio from. It could be any [Stream](https://msdn.microsoft.com/en-us/library/system.io.stream(v=vs.110).aspx) that supports reading.
+* **Audio**: A stream implementation of your choice that the SDK pulls audio from. It could be any [Stream](https://msdn.microsoft.com/library/system.io.stream(v=vs.110).aspx) that supports reading.
 
 > [!NOTE]
 > The SDK detects the end of the stream when the stream returns **0** in read.

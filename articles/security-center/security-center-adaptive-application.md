@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2017
+ms.date: 10/18/2017
 ms.author: yurid
 
 ---
@@ -31,17 +31,17 @@ Adaptive application controls help control which applications can run on your VM
 - Enable IT to control the access to sensitive data through app usage.
 
 > [!NOTE]
-> Adaptive application controls are available to Azure Security Center Standard customers as a limited public preview. Please send an email with your subscription IDs to [us](mailto:ASC_appcontrol@microsoft.com) to join the preview.
+> Adaptive application controls are available to Azure Security Center Standard customers as a limited public preview. Send an email with your subscription IDs to [us](mailto:ASC_appcontrol@microsoft.com) to join the preview.
 
 ## How to enable adaptive application controls?
-Adaptive application controls help you define a set of applications that are allowed to run on configured resource groups. This feature is only available for Windows machines (all versions, classic or Azure Resource Manager). Follow the steps below to configure application whitelisting in Security Center:
+Adaptive application controls help you define a set of applications that are allowed to run on configured resource groups. This feature is only available for Windows machines (all versions, classic, or Azure Resource Manager). The following steps can be used to configure application whitelisting in Security Center:
 
 1.	Open **Security Center** dashboard, and click **Overview**.
 2.	Under **Advanced cloud defense**, the **Adaptive application controls** tile shows how many VMs currently have the control in place compared to all the VMs. It also shows the number of issues that were found in last week: 
 
 	![Adaptive application controls](./media/security-center-adaptive-application\security-center-adaptive-application-fig1.png)
 
-3. Click on the **Adaptive application controls** tile to see more options.
+3. Click on the **Adaptive application controls** tile for more options.
 
 	![controls](./media/security-center-adaptive-application/security-center-adaptive-application-fig2.png)
 
@@ -49,8 +49,6 @@ Adaptive application controls help you define a set of applications that are all
 	* **Recommended**:  list of resource groups for which application control is recommended. Security Center uses machine learning to identify VMs that are good candidates for application control based on whether the VMs consistently run the same applications.
 	* **Configured**: list of resource groups containing the VMs that were configured with application control. 
 	* **No recommendation**: list of resource groups containing VMs without any application control recommendations. For example, VMs on which applications are always changing, and haven’t reached a steady state.
-
-The sections that follow will go in more details on each option, and how to use it.
 
 ### Configure a new application control policy
 Click on the **Recommended** tab for a list of resource groups with application control recommendations:
@@ -67,14 +65,16 @@ Select a resource group to open the **Create application control rules** option:
 
 ![Application control rules](./media/security-center-adaptive-application/security-center-adaptive-application-fig4.png)
 
-In the **Select VMs**, review the list of recommended VMs and uncheck any you do not want to apply application control to. In the **Select processes for whitelisting rules**, review the list of recommended applications and uncheck any you do not want to apply. The list includes:
+In the **Select VMs**, review the list of recommended VMs and uncheck any you do not want to apply application control to. In the **Select processes for whitelisting rules**, review the list of recommended applications, and uncheck any you do not want to apply. The list includes:
 
 - **NAME**: the full application path
 - **PROCESSES**: how many applications reside within every path
 - **COMMON**: true indicates that these processes have been executed on most VMs in this resource group.
-- **EXPLOITABLE**: a warning icon will indicate if the applications could be used by an attacker to bypass application whitelisting. It is strongly recommended that these applications will be reviewed prior to their approval. 
+- **EXPLOITABLE**: a warning icon indicates if the applications could be used by an attacker to bypass application whitelisting. It is recommended to review these applications prior to their approval. 
 
 Once you finish your selections, click **Create** button. By default, Security Center always enables application control in *Audit* mode. After validating that the whitelist has not had any adverse effects on your workload, you can change to *Enforce* mode.
+
+Security Center is relying on a minimum of two weeks of data in order to create a baseline and populate the unique recommendations per group of VMs. New customers of Security Center standard tier should expect a behavior in which at first their groups of VMs will appear under the *no recommendation* tab.
 
 > [!NOTE]
 > As a security best practice, Security Center will always try to create a publisher rule for the applications that should be whitelisted, and only if an application doesn’t have a publisher information (aka not signed), a path rule will be created for the full path of the specific EXE.
@@ -121,7 +121,7 @@ If you click on each one of those lines, you will be redirected to [Azure Activi
 
 ![Whitelisting rules](./media/security-center-adaptive-application/security-center-adaptive-application-fig9.png)
 
-If you click on the three dots at the end of each line you will be able to delete that specific rule. The **Path whitelisting rules** lists the entire application path (including the executable) for the applications that are not signed with a digital certificate, but are still current in the whitelisting rules. 
+If you click on the three dots at the end of each line you will be able to delete that specific rule. The **Path whitelisting rules** list the entire application path (including the executable) for the applications that are not signed with a digital certificate, but are still current in the whitelisting rules. 
 
 > [!NOTE]
 > By default, as a security best practice, Security Center will always try to create a publisher rule for the EXEs that should be whitelisted, and only if an EXE doesn’t have a publisher information (aka not signed), a path rule will be created for the full path of the specific EXE.
@@ -144,7 +144,7 @@ The list contains:
 - **NAME**: the name of the subscription and resource group.
 - **VMs**: the number of virtual machines in the resource group.
 
-## See also
+## Next steps
 In this document, you learned how to use adaptive application control in Azure Security Center to whitelist applications running in Azure VMs. To learn more about Azure Security Center, see the following:
 
 * [Managing and responding to security alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Learn how to manage alerts, and respond to security incidents in Security Center.
