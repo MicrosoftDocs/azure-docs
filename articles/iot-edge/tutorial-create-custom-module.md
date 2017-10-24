@@ -46,9 +46,7 @@ The custom module that you create in this tutorial filters the temparture data g
 * [Nuget CLI](https://docs.microsoft.com/en-us/nuget/guides/install-nuget#nuget-cli). 
 
 ## Create a Docker container registry
-For this tutorial, you will need a Docker registry to publish your IoT Edge module to. You can use any Docker-compatible container registry, for example: [Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/) or [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). 
-
-If you already have a Docker-compatible container registry, you can use that for this tutorial; otherwise, you can get a free private Docker repository on Docker Hub when you sign up for a Docker ID. 
+For this tutorial, you will need a Docker registry to publish your IoT Edge module to. You can use any Docker-compatible container registry, for example: [Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/) or [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). If you already have a Docker-compatible container registry, you can use it; otherwise, you can get a free private Docker repository on Docker Hub when you sign up for a Docker ID. 
 
 1. To sign up for a Docker ID, follow the instructions in [Register for a Docker ID](https://docs.docker.com/docker-id/#register-for-a-docker-id) on the Docker site. 
 
@@ -73,7 +71,7 @@ The following steps show you how to create a IoT Edge module using Visual Studio
     ```csharp
     static int temperatureThreshold { get; set; } = 25;
     ```
-6. In the **onDesiredPropertiesUpdate** method, replace the code in the try block with the following. This modifies the method to update the **temperatureThreshold** field based on the desired properties sent by the service via the device twin.
+6. In the **onDesiredPropertiesUpdate** method, replace the code in the try block with the following code. This modifies the method to update the **temperatureThreshold** field based on the desired properties sent by the service via the device twin.
     ```csharp
     await Task.Run( () => {
          Console.WriteLine("Desired property change:");
@@ -87,7 +85,7 @@ The following steps show you how to create a IoT Edge module using Visual Studio
     ```csharp
     await IoTHubModuleClient.SetEventHandlerAsync("input1", FilterMessages, IoTHubModuleClient);
     ```
-9. Add the following classes after the **InitEdgeModule** method. These classes define the expected schema for the body of incoming messages.
+1. Add the following classes after the **InitEdgeModule** method. These classes define the expected schema for the body of incoming messages.
     ```csharp
     class MessageBody
     {
@@ -106,7 +104,7 @@ The following steps show you how to create a IoT Edge module using Visual Studio
        public int humidity {get; set;}         
     }
     ```
-10. Replace the **PipeMessage** method with the following method. This method is called whenever the module is sent a message from the Edge Hub. It filters messages based on the temperature value in the body of the message, and the temperature threshold set via the twin.
+2. Replace the **PipeMessage** method with the following method. This method is called whenever the module is sent a message from the Edge Hub. It filters messages based on the temperature value in the body of the message, and the temperature threshold set via the twin.
     ```csharp
     static async Task FilterMessages(Message message, object userContext)
     {
@@ -158,7 +156,7 @@ The following steps show you how to create a IoT Edge module using Visual Studio
   2. In the **Select Folder** box either browse to or enter `./bin/Debug/netcoreapp2.0/publish`. Click **Select Folder as EXE_DIR**.
   3. In the pop-up text box at the top of the VS Code window, enter the image URL; for example, `<docker registry address>/filtermodule:latest`.
  
-4. Log in to Docker. In integrated terminal, enter the following command and enter your credentials when prompted:
+4. Sign in to Docker. In integrated terminal, enter the following command and enter your credentials when prompted:
 
     ```csh/sh
     docker login
@@ -168,7 +166,7 @@ The following steps show you how to create a IoT Edge module using Visual Studio
     > ```csh/sh
     > docker help login
     > ```
-3. Use the **View | Command Palette ... | Edge: Push IoT Edge module Docker image** menu command to push the image to your Docker repository.
+3. Push the image to your Docker repository. Use the **View | Command Palette ... | Edge: Push IoT Edge module Docker image** menu command and enter the image URL in the pop-up text box at the top of the VS Code window. This should be the same image URL you used in step 1.a.; for example, for example, `<docker registry address>/filtermodule:latest`.
 
 ## Run the solution
 
