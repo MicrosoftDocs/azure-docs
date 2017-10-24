@@ -109,7 +109,7 @@ This section contains post-installation known issues with build 20171020.1.
 - You can't create a load balancer with a public IP address by using the portal. As a workaround, you can use PowerShell to create the load balancer.
 - You must create a network address translation (NAT) rule when you create a network load balancer. If you don't, you'll receive an error when you try to add a NAT rule after the load balancer is created.
  
-### FRU operations
+### Field replaceable unit (FRU) procedures
 
 - During the update run, offline images are not patched. If you need to replace a scale unit node, work with your OEM hardware vendor to make sure the replaced node has the latest patch level.
 
