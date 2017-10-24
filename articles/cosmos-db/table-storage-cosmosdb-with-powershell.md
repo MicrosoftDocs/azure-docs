@@ -19,7 +19,7 @@ ms.author: robinsh
 # Perform Azure Cosmos DB Table storage operations with Azure PowerShell 
 
 >[!NOTE]
-> Azure Cosmos DB is the premium offering for Azure Storage Tables. The PowerShell cmdlets for Cosmos DB are a subset of the cmdlets that work against standard Table Storage. If you are using standard Table Storage, please see [Azure Storage Table operations with PowerShell](storage-table-how-to-use-powershell.md).
+> Azure Cosmos DB is the premium offering for Azure Storage Tables. The PowerShell cmdlets for Cosmos DB are a subset of the cmdlets that work against standard Table Storage. If you are using standard Table Storage, please see [Azure Storage Table operations with PowerShell](table-storage-how-to-use-powershell.md).
 >
 
 <!-- fix this part robin -->
