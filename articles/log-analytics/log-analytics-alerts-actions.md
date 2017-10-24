@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/23/2017
+ms.date: 10/24/2017
 ms.author: bwren
 
 ms.custom: H1Hack27Feb2017
@@ -124,7 +124,7 @@ You cannot directly populate any parameters of the runbook, but the [$WebhookDat
 
 For example, the following runbooks would extract the records returned by the log search  and assign different properties based on the type of each record.  Note that the runbook starts by converting **RequestBody** from json so that it can be worked with as an object in PowerShell.
 
->[NOTE]
+>[!NOTE]
 > Both of these runbooks use **SearchResult** which is the property that contains results for runbook actions and webhook actions with standard payload.  If the runbook were called from a webhook response using a custom payload, you would need to change this property to **SearchResults**.
 
 The following runbook will work with the payload from a [legacy Log Analytics workspace](log-analytics-log-search-upgrade.md).
@@ -185,7 +185,7 @@ The following runbook will work with the payload from an [upgraded Log Analytics
         $SearchResultColumns = $RequestBody.SearchResult.tables[0].columns;
 
         foreach ($SearchResultRow in $SearchResultRows)
-        {}   
+        {   
             $Column = 0
             $Record = New-Object –TypeName PSObject 
         
@@ -210,7 +210,7 @@ The following runbook will work with the payload from an [upgraded Log Analytics
 This section shows sample payload for webhook and runbook actions in both a legacy and an [upgraded Log Analytics workspace](log-analytics-log-search-upgrade.md).
 
 ### Webhook actions
-Both of these examples use **SearchResult** which is the property that contains results for webhook actions with standard payload.  If the webhook used a custom payload that includes search results, you would need to change this property to **SearchResults**.
+Both of these examples use **SearchResult** which is the property that contains results for webhook actions with standard payload.  If the webhook used a custom payload that includes search results, this property would be **SearchResults**.
 
 #### Legacy workspace.
 Following is a sample payload for a webhook action in a legacy workspace.
