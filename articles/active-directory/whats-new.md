@@ -28,7 +28,7 @@ We are improving Azure Active Directory on an ongoing basis for you. To enable y
 -	Deprecated functionality 
 -	Plans for changes 
 
-Please revisit this page periodically as we are updating it on a monthly basis.
+Please revisit this page regularly as we are updating it on a monthly basis.
 
 
 ## October 2017
