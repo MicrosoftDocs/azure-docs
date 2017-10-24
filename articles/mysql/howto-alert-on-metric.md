@@ -18,7 +18,7 @@ This article shows you how to set up Azure Database for MySQL alerts using the A
 The alert triggers when the value of a specified metric crosses a threshold you assign. The alert triggers both when the condition is first met, and then afterwards when that condition is no longer being met. 
 
 You can configure an alert to do the following actions when it triggers:
-* Send email notifications to the service administrator and co-administrator0s
+* Send email notifications to the service administrator and co-administrators
 * Send email to additional emails that you specify.
 * Call a webhook
 
