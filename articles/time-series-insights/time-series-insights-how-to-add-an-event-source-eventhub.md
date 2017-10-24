@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: how-to-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/19/2017
-ms.author: edett
+ms.date: 10/20/2017
+ms.author: kfile
 ---
 # How to add an Event Hub event source
 
@@ -28,6 +28,10 @@ You have created an Event Hub and are writing events to it. For more information
 > [Consumer Groups] Each Time Series Insights event source needs to have its own dedicated consumer group that is not shared with any other consumers. If multiple readers consume events from the same consumer group, all readers are likely to see failures. Note that there is also a limit of 20 consumer groups per Event Hub. For details, see the [Event Hubs Programming Guide](../event-hubs/event-hubs-programming-guide.md).
 
 ## Choose an Import option
+
+You find the Import Option setting on the Add Event Source blade. 
+
+![Import Option setting](media/add-event-source/HowToAddEventHubEventImportOption.png)
 
 The settings for the event source can be entered manually or an event hub can be selected from the event hubs that are available to you.
 In the **Import Option** selector, choose one of the following options:
@@ -68,4 +72,4 @@ The following table explains each property in the New Event Source tab with its 
 ## Next steps
 
 1. Add a data access policy to your environment [Define data access policies](time-series-insights-data-access.md)
-1. Access your environment in the [Time Series Insights Portal](https://insights.timeseries.azure.com)
+1. Access your environment in the [Time Series Insights explorer](https://insights.timeseries.azure.com)

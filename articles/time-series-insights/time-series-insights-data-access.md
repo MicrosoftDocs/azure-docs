@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/01/2017
-ms.author: omravi
+ms.date: 10/20/2017
+ms.author: kfile
 ---
 
 # Grant data access to a Time Series Insights environment using Azure portal
@@ -70,4 +70,4 @@ The following steps show how to grant data access for a user principal:
 
 * [Create an event source](time-series-insights-add-event-source.md)
 * [Send events](time-series-insights-send-events.md) to the event source
-* View your environment in [Time Series Insights Portal](https://insights.timeseries.azure.com)
+* View your environment in [Time Series Insights explorer](https://insights.timeseries.azure.com)

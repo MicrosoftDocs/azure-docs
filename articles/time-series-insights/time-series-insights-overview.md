@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/20/2017
-ms.author: omravi
+ms.date: 10/23/2017
+ms.author: kfile
 ---
 
 # What is Azure Time Series Insights
 
-Azure Time Series Insights is a managed cloud service with storage, analytics, and visualization components that make it easy to ingest, store, explore and analyze billions of events simultaneously. Time Series Insights gives you a global view of your data, letting you quickly validate your IoT Solutions, and avoid costly device downtime, by helping you discover hidden trends and anomalies, and conduct root-cause analyses in near real-time. Time Series Insights ingests time-series data from event-brokers (e.g. IoT Hubs or Event Hubs), indexes the data, and retires data based on a configurable retention policy. Users consume the data either through an intuitive UX or REST Query APIs.
+Azure Time Series Insights is a managed cloud service with storage, analytics, and visualization components that make it easy to ingest, store, explore and analyze billions of events simultaneously. Time Series Insights gives you a global view of your data, letting you quickly validate your IoT Solutions, and avoid costly device downtime, by helping you discover hidden trends and anomalies, and conduct root-cause analyses in near real-time. Time Series Insights ingests time-series data from event-brokers (e.g. IoT Hubs or Event Hubs), indexes the data, and retires data based on a configurable retention policy. Users consume the data either through the Time Series Insights explorer or REST Query APIs.
 
 ![Time Series Insight Overview](media/overview/time-series-insights-overview-flow.png)
 
@@ -37,9 +37,9 @@ Azure Time Series Insights is a managed cloud service with storage, analytics, a
 
 * **Near Real-time insights**: Time Series Insights can ingest hundreds of millions of sensor events per day, with one minute latency, so you can react to changes quickly. Time Series Insights helps you gain deep insights into your sensor data by helping you spot trends and anomalies quickly, conduct complex root-cause analyses, and avoid costly downtime. By enabling cross-correlation between real-time and historical data, Time Series Insights helps you unlock hidden trends in the data.
 
-* **Build custom solutions**: Embed Azure Time Series Insights data into your existing applications, or create new custom solutions with Time Series Insights REST APIs. Creating and sharing personalized views you can share for others to explore your discoveries.
+* **Build custom solutions**: Embed Azure Time Series Insights data into your existing applications, or create new custom solutions with Time Series Insights REST APIs. Creating and sharing personalized views you can share for others to explore your discoveries. Create and share personalized views for others to explore your discoveries.
 
-* **Scalability**: Time Series Insights is designed to support IoT at scale. In Preview, it can ingress from 1 million to 100 million events per day, with a default retention span of 31 days. You can visualize and analyze live data streams in near real-time, alongside vast amounts of historical data. Moving forward, ingress and retention rates will increase to accommodate an ever evolving enterprise scale.
+* **Scalability**: Time Series Insights is designed to support IoT at scale. It can ingress from 1 million to 100 million events per day, with a default retention span of 31 days. You can visualize and analyze live data streams in near real-time, alongside vast amounts of historical data. 
 
 ## Time Series Insights glossary
 

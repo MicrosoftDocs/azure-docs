@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/21/2017
-ms.author: omravi
+ms.date: 10/20/2017
+ms.author: kfile
 ---
 
 # Create an event source for your Time Series Insights environment using the Azure portal
@@ -49,4 +49,4 @@ After creation of the event source, Time Series Insights will automatically star
 ## Next steps
 
 * [Send events](time-series-insights-send-events.md) to the event source
-* View your environment in [Time Series Insights Portal](https://insights.timeseries.azure.com)
+* View your environment in [Time Series Insights Explorer](https://insights.timeseries.azure.com)
