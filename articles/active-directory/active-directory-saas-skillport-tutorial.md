@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2017
+ms.date: 10/24/2017
 ms.author: jeedes
 
 ---
@@ -104,7 +104,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
  
 	![Configure Single Sign-On](./media/active-directory-saas-skillport-tutorial/tutorial_skillport_samlbase.png)
 
-3. On the **Skillport Domain and URLs** section, If you wish to configure the application in **IDP** initiated mode:
+3. On the **Skillport Domain and URLs** section, perform the following steps:
 
 	![Configure Single Sign-On](./media/active-directory-saas-skillport-tutorial/tutorial_skillport_url.png)
 
@@ -120,25 +120,21 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     
 	  US Datacenter: `https://sso.skillport.com/sp/ACS.saml2`
 
-4. Check **Show advanced URL settings**. If you wish to configure the application in **SP** initiated mode:
-
-	![Configure Single Sign-On](./media/active-directory-saas-skillport-tutorial/tutorial_skillport_url1.png)
-
-	In the **Sign-on URL** textbox, type the URL:
+	c. In the **Sign-on URL** textbox, type the URL:
       
       EU Datacenter: `https://adfs.skillport.eu`
    
       US Datacenter: `https://sso.skillport.com`
  
-5. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the XML file on your computer.
+4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the XML file on your computer.
 
 	![Configure Single Sign-On](./media/active-directory-saas-skillport-tutorial/tutorial_skillport_certificate.png) 
 
-6. Click **Save** button.
+5. Click **Save** button.
 
 	![Configure Single Sign-On](./media/active-directory-saas-skillport-tutorial/tutorial_general_400.png)
 
-7. To configure single sign-on on **Skillport** side, you need to send the downloaded **Metadata XML** to [Skillport support team](https://www.skillsoft.com/contact.asp). They will set it up to have the SAML SSO connection set properly on both sides.
+6. To configure single sign-on on **Skillport** side, you need to send the downloaded **Metadata XML** to [Skillport support team](https://www.skillsoft.com/contact.asp). They will set it up to have the SAML SSO connection set properly on both sides.
 
 ### Creating an Azure AD test user
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
