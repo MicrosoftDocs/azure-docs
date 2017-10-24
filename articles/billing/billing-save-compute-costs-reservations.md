@@ -28,8 +28,8 @@ A reservation only covers the virtual machine infrastructure charges for your Wi
 
 ## Who’s eligible to purchase a Reserved Virtual Machine Instance?
 Azure customers with these subscriptions types that can purchase a Reserved Virtual Machine Instance:
--	Enterprise agreement subscription offer type (MS-AZR-0017P)
--	Pay-As-You-Go subscription offer type (MS-AZR-003P)
+-	Enterprise agreement subscription offer type (MS-AZR-0017P).
+-	Pay-As-You-Go subscription offer type (MS-AZR-003P).
 You must be in the role “Owner” on the subscription to buy a Reserved Instance. For purchasing reservations in an enterprise enrollment, the enterprise administrator must enable reservation purchases in the EA portal.
 
 ## How is a Reserved Virtual Machine Instances purchase billed?
