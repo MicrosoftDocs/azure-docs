@@ -1,6 +1,6 @@
 ---
-title: Moderate Facebook posts with Azure Content Moderator | Microsoft Docs
-description: Use Content Moderator with sample Facebook page
+title: Facebook content moderation with Azure Content Moderator | Microsoft Docs
+description: Moderate Facebook pages with machine-learning based Content Moderator
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -12,9 +12,9 @@ ms.date: 09/18/2017
 ms.author: sajagtap
 ---
 
-# Moderate Facebook posts
+# Facebook content moderation with Content Moderator
 
-In this tutorial, we learn how to use Content Moderator with a sample Facebook page. The solution either takes down or allows publishing of images and text by viewers of the Facebook page.
+In this tutorial, we learn how to use machine-learning-based Content Moderator to help moderate Facebook pages.
 
 The tutorial guides you through these steps:
 
@@ -22,13 +22,17 @@ The tutorial guides you through these steps:
 2. Create Azure Functions that listen for HTTP events from Content Moderator and Facebook.
 3. Create a Facebook Page and App, and connect it to Content Moderator.
 
-After we are done, Facebook will send the content posted by the visitors to Content Moderator. Based on the match thresholds, your Content Moderator workflows either publish the content or create reviews within the review tool.
+After we are done, Facebook will send the content posted by the visitors to Content Moderator. Based on the match thresholds, your Content Moderator workflows either publish the content or create reviews within the review tool. 
 
-## 1. Create a Content Moderator team
+The following figure shows the building blocks of the solution.
+
+![Facebook post moderation](images/tutorial-facebook-moderation.png)
+
+## Create a Content Moderator team
 
 Refer to the [Quickstart](quick-start.md) page to sign up for Content Moderator and create a team.
 
-## 2. Configure image moderation workflow (threshold)
+## Configure image moderation workflow (threshold)
 
 Refer to the [Workflows](review-tool-user-guide/workflows.md) page to configure a custom image workflow (threshold). Note the workflow **name**.
 
@@ -42,7 +46,7 @@ Test your workflow by using the "Execute Workflow" button.
 
 ![Test Text Workflow](images/text-workflow-test.PNG)
 
-## 4. Create Azure Functions
+## Create Azure Functions
 
 Sign in to the [Azure Management Portal](https://portal.azure.com/) to create your Azure Functions. Follow these steps:
 
@@ -82,7 +86,7 @@ Sign in to the [Azure Management Portal](https://portal.azure.com/) to create yo
     6. Click **Create**.
     7. Replace the contents of the **run.csx** with the contents from [**CMListener/run.csx**](https://github.com/MicrosoftContentModerator/samples-fbPageModeration/blob/master/CmListener/run.csx).
 
-## 5. Configure the Facebook page and App
+## Configure the Facebook page and App
 
 1. Create a Facebook App.
 
@@ -136,7 +140,15 @@ That's it!
 
 The solution sends all images and text posted on your Facebook page to Content Moderator. The workflows that you configured earlier are invoked. The content that does not pass your criteria defined in the workflows results in reviews within the review tool. The rest of the content gets published.
 
-## 6. Next steps
+## License
+
+All Microsoft Cognitive Services SDKs and samples are licensed with the MIT License. For more details, see [LICENSE](https://microsoft.mit-license.org/).
+
+## Developer Code of Conduct
+
+Developers using Cognitive Services, including this client library & sample, are expected to follow the “Developer Code of Conduct for Microsoft Cognitive Services”, found at http://go.microsoft.com/fwlink/?LinkId=698895.
+
+## Next steps
 
 1. [Watch a demo (video)](https://channel9.msdn.com/Events/Build/2017/T6033) of this solution from Microsoft Build 2017.
 1. [The Facebook sample on Github](https://github.com/MicrosoftContentModerator/samples-fbPageModeration)

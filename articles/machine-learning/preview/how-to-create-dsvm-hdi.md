@@ -87,7 +87,7 @@ $ az account get-access-token
 
 # if you don't have a valid token, please log in to Azure first. 
 # if you already do, you can skip this step.
-$ az account login
+$ az login
 
 # list all subscriptions you have access to
 $ az account list -o table
@@ -104,7 +104,8 @@ $ az group create -n <resource group name> -l <azure region>
 # note we assume the mydsvm.json config file is placed in the "docs" sub-folder.
 $ az group deployment create -g <resource group name> --template-uri https://raw.githubusercontent.com/Azure/DataScienceVM/master/Scripts/CreateDSVM/Ubuntu/azuredeploy.json --parameters @docs/mydsvm.json
 
-# find the FQDN (fully qualified domain name) of the VM just created
+# find the FQDN (fully qualified domain name) of the VM just created. 
+# you can also use IP address from the next command if FQDN is not set.
 $ az vm show -g <resource group name> -n <vm name> --query "fqdns"
 
 # find the IP address of the VM just created

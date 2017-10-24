@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/28/2017
+ms.date: 09/29/2017
 ms.author: nitinme
 
 ---
@@ -45,7 +45,7 @@ In this article, you learn about how to use the Java SDK to do service-to-servic
           <dependency>
             <groupId>com.microsoft.azure</groupId>
             <artifactId>azure-data-lake-store-sdk</artifactId>
-            <version>2.1.5</version>
+            <version>2.2.3</version>
           </dependency>
           <dependency>
             <groupId>org.slf4j</groupId>
@@ -78,9 +78,8 @@ In this article, you learn about how to use the Java SDK to do service-to-servic
 The Data Lake Store SDK provides convenient methods that let you manage the security tokens needed to talk to the Data Lake Store account. However, the SDK does not mandate that only these methods be used. You can use any other means of obtaining token as well, like using the [Azure Active Directory SDK](https://github.com/AzureAD/azure-activedirectory-library-for-java), or your own custom code.
 
 ## Next steps
-In this article, you learned how to use service-to-service authentication to authenticate with Azure Data Lake Store using Java SDK. You can now look at the following articles that talk about how to use the Java SDK to work with Azure Data Lake Store.
+In this article, you learned how to use end-user authentication to authenticate with Azure Data Lake Store using Java SDK. You can now look at the following articles that talk about how to use the Java SDK to work with Azure Data Lake Store.
 
-* [Account management operations on Data Lake Store using REST API](data-lake-store-get-started-rest-api.md)
-* [Data operations on Data Lake Store using REST API](data-lake-store-data-operations-rest-api.md)
+* [Data operations on Data Lake Store using Java SDK](data-lake-store-get-started-java-sdk.md)
 
 

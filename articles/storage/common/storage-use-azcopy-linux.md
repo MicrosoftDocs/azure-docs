@@ -493,7 +493,7 @@ azcopy \
 	--sync-copy
 ```
 
-When copying from File Storage to Blob Storage, the default blob type is block blob, user can specify option `/BlobType:page` to change the destination blob type.
+When copying from File Storage to Blob Storage, the default blob type is block blob, user can specify option `--blob-type page` to change the destination blob type. Available types are `page | block | append`.
 
 Note that `--sync-copy` might generate additional egress cost comparing to asynchronous copy. The recommended approach is to use this option in an Azure VM, that is in the same region as your source storage account to avoid egress cost.
 

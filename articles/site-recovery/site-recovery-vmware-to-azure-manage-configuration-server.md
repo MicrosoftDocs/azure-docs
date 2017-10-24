@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 06/29/2017
+ms.date: 10/06/2017
 ms.author: anoopkv
 ---
 
@@ -108,7 +108,7 @@ ProxyPassword="Password"
 
 ## Modify user accounts and passwords
 
-The CSPSConfigTool.exe is used to manage the user accounts used for **Automatic discovery of VMware virtual machines** and to perform **Push install  of Mobility Service on protected machines** . 
+The CSPSConfigTool.exe is used to manage the user accounts used for **Automatic discovery of VMware virtual machines** and to perform **Push install  of Mobility Service on protected machines. 
 
 1. Log in to your Configuration server.
 2. Launch the CSPSConfigtool.exe by clicking on the shortcut available on the desktop.
@@ -140,7 +140,7 @@ The CSPSConfigTool.exe is used to manage the user accounts used for **Automatic 
 ## Registering a Configuration Server with a different Recovery Services Vault.
 
 > [!WARNING]
-> The below set of steps disassociate the Configuration from the current vault, and the replication of all protected virtual machines under the Configuration server will be stopped.
+> The following step disassociates the Configuration from the current vault, and the replication of all protected virtual machines under the Configuration server is stopped.
 
 1. Log in to your Configuration Server.
 2. from an admin command prompt, run the command
@@ -164,22 +164,25 @@ The CSPSConfigTool.exe is used to manage the user accounts used for **Automatic 
     net start obengine
     ```
 
-## Updating a Configuration Server
+## Upgrading a Configuration Server
 
 > [!WARNING]
-> Updates are supported only up to the N-4th version. For example, if the latest version in the market is 9.11, then you can update from version 9.10, 9.9, 9.8, or 9.7 directly to 9.11. But if you are on any version less than or equal to 9.6 then you need to update to at least 9.7 before you can apply the latest updates on to your configuration server. Download links for previous version can be found under [Azure Site Recovery service updates](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx)
+> Updates are supported only up to the N-4th version. For example, if the latest version in the market is 9.11, then you can update from version 9.10, 9.9, 9.8, or 9.7 directly to 9.11. But if you are on any version less than or equal to 9.6 then you need to update to at least 9.7 before you can apply the latest updates on to your Configuration Server. Download links for previous version can be found under [Azure Site Recovery service updates](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx)
 
-1. Download the update installer on your configuration server.
-2. Launch the installer by double clicking the installer.
+1. Download the update installer on your Configuration Server.
+2. Launch the installer by double-clicking the installer.
 3. The installer detects the version of the Site Recovery components present on the machine and prompt for a confirmation. 
 4. Click on the OK button to provide the confirmation & continue with the upgrade.
 
 
-## Decommissioning a Configuration Server
-Ensure the following before you start decommissioning your Configuration Server.
-1. Disable protection for all virtual machines under this Configuration Server.
-2. Disassociate all Replication policies from the Configuration Server.
-3. Delete all vCenters servers/vSphere hosts that are associated to the Configuration Server.
+## Delete or Unregister a Configuration Server
+
+> [!WARNING]
+> Ensure the following before you start decommissioning your Configuration Server.
+> 1. [Disable protection](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) for all virtual machines under this Configuration Server.
+> 2. [Disassociate](site-recovery-setup-replication-settings-vmware.md#dissociate-a-configuration-server-from-a-replication-policy) and [Delete](site-recovery-setup-replication-settings-vmware.md#delete-a-replication-policy) all Replication policies from the Configuration Server.
+> 3. [Delete](site-recovery-vmware-to-azure-manage-vCenter.md#delete-a-vcenter-in-azure-site-recovery) all vCenters servers/vSphere hosts that are associated to the Configuration Server.
+
 
 ### Delete the Configuration Server from Azure portal
 1. In Azure portal, browse to **Site Recovery Infrastructure** > **Configuration Servers** from the Vault menu.
@@ -188,9 +191,6 @@ Ensure the following before you start decommissioning your Configuration Server.
 
   ![delete-configuration-server](./media/site-recovery-vmware-to-azure-manage-configuration-server/delete-configuration-server.PNG)
 4. Click **Yes** to confirm the deletion of the server.
-
-  >[!WARNING]
-  If you have any virtual machines, Replication policies or vCenter servers/vSphere hosts associated with this Configuration Server, you cannot delete the server. Delete these entities before you try to delete the vault.
 
 ### Uninstall the Configuration Server software and its dependencies
   > [!TIP]
@@ -209,6 +209,31 @@ Ensure the following before you start decommissioning your Configuration Server.
   ```
   reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
   ```
+
+## Delete or Unregister a Configuration Server (PowerShell)
+
+1. [Install](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) Azure PowerShell module
+2. Login into to your Azure account using the command
+    
+    `Login-AzureRmAccount`
+3. Select the subscription under which the vault is present
+
+     `Get-AzureRmSubscription –SubscriptionName <your subscription name> | Select-AzureRmSubscription`
+3.  Now set up your vault context
+    
+    ```
+    $vault = Get-AzureRmRecoveryServicesVault -Name <name of your vault>
+    Set-AzureRmSiteRecoveryVaultSettings -ARSVault $vault
+    ```
+4. Get select your configuration server
+
+    `$fabric = Get-AzureRmSiteRecoveryFabric -FriendlyName <name of your configuration server>`
+6. Delete the Configuration Server
+
+    `Remove-AzureRmSiteRecoveryFabric -Fabric $fabric [-Force] `
+
+> [!NOTE]
+> The **-Force** option in the Remove-AzureRmSiteRecoveryFabric can be used to force the removal/deletion of the Configuration server.
 
 ## Renew Configuration Server Secure Socket Layer(SSL) Certificates
 The Configuration Server has an inbuilt webserver, which orchestrates the activities of the Mobility Service, Process Servers, and Master Target servers connected to the Configuration Server. The Configuration Server's webserver uses an SSL certificate to authenticate its clients. This certificate has an expiry of three years and can be renewed at any time using the following method:
@@ -236,7 +261,7 @@ The SSL Certificate's validity for all installations that happened before May 20
   ![certificate-details](./media/site-recovery-vmware-to-azure-manage-configuration-server/ssl-cert-expiry-details.png)
 
   >[!TIP]
-  If instead of a **Renew Now** button you see an **Upgrade Now** button. This means that there are some components in your environment that have not yet been upgraded to 9.4.xxxx.x or higher versions.
+  If instead of a **Renew Now** button you see an **Upgrade Now** button. The Upgrade Now button indicates that there are some components in your environment that have not yet been upgraded to 9.4.xxxx.x or higher versions.
 
 ## Revive a Configuration server if the Secure Socket Layer (SSL) certificate expired
 

@@ -84,8 +84,8 @@ If the user selects a new or existing IP address, the following output is expect
   "newOrExistingOrNone": "new"
 }
 ```
-- When `options.hideNone` is specified, `newOrExistingOrNone` always returns **none**.
-- When `options.hideDomainNameLabel` is specified, `domainNameLabel` is undeclared.
+- When `options.hideNone` is specified as **true**, `newOrExistingOrNone` will only have a value of **new** or **existing**.
+- When `options.hideDomainNameLabel` is specified as **true**, `domainNameLabel` is undeclared.
 
 ## Next steps
 * For an introduction to managed applications, see [Azure Managed Application overview](managed-application-overview.md).

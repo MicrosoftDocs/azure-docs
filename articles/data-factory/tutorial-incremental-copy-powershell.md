@@ -476,13 +476,11 @@ In this tutorial, you create a pipeline with two lookup activities, one copy act
     					}
     				]
     			}
-    		],
+    		]
     		
     	}
     }
-    ```json
-
-	If you are using a source table with a name different from the one used in the tutorial (**data_source_table**), replace **data_source_table** in the sqlReaderQuery with the name of your source table. 
+    ```
 	
 
 2. Run the Set-AzureRmDataFactoryV2Pipeline cmdlet to create the pipeline: IncrementalCopyPipeline.

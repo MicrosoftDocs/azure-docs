@@ -450,7 +450,7 @@ The `tagOverrides` parameter sets `operation_Id` to the function's invocation ID
 
 ### Dependencies
 
-Dependencies don't show up automatically, but you can write custom code to show dependencies. The sample code in the [C# custom telemetry section](#create-custom-telemetry-data-in-c-function-code) shows how. The sample code results in an *application map* in Application Insights that looks like this:
+Dependencies don't show up automatically, but you can write custom code to show dependencies. The sample code in the [C# custom telemetry section](#custom-telemetry-in-c-functions) shows how. The sample code results in an *application map* in Application Insights that looks like this:
 
 ![Application map](media/functions-monitoring/app-map.png)
 
