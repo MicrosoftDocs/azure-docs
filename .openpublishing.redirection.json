@@ -13795,11 +13795,6 @@
             "redirect_url": "/azure/virtual-machines/extensions/update-linux-agent",
             "redirect_document_id": false
         },
-        {
-            "source_path": "articles/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm.md",
-            "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal",
-            "redirect_document_id": false
-        },
 	    {
             "source_path": "articles/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md",
             "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-join-windows-vm-template",
