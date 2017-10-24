@@ -5,8 +5,8 @@
 
 # Get started
 ## [Create your first logic app](logic-apps-create-a-logic-app.md)
-## [Templates for logic apps](logic-apps-use-logic-app-templates.md)
-## [Create logic apps from templates](logic-apps-arm-provision.md)
+## [Create logic apps from templates](logic-apps-create-logic-apps-from-templates.md)
+## [Create logic apps from Resource Manager templates](logic-apps-create-deploy-azure-resource-manager-templates.md)
 ## [Move MABS apps to logic apps](logic-apps-move-from-mabs.md)
 
 # How To
@@ -19,8 +19,19 @@
 ### [Batch process messages](logic-apps-batch-process-send-receive-messages.md)
 ### [Author logic app definitions](logic-apps-author-definitions.md)
 ### [Call, trigger, or nest logic apps](logic-apps-http-endpoint.md)
-### [Create custom APIs for logic apps](logic-apps-create-api-app.md)
-### [Call custom APIs for logic apps](logic-apps-custom-hosted-api.md)
+### Develop custom connectors
+#### [Custom connectors overview](custom-connector-overview.md)
+#### [Create connectors from Web APIs](custom-connector-build-web-api-app-tutorial.md)
+#### [Secure connectors with Azure AD](custom-connector-azure-active-directory-authentication.md)
+#### [Describe APIs with Postman](custom-connector-api-postman-collection.md)
+#### [Extend OpenAPI for custom connectors](custom-connector-openapi-extensions.md)
+#### [Register your connector](logic-apps-custom-connector-register.md)
+#### [Certify your connector](custom-connector-submit-certification.md)
+#### [FAQ for custom connectors](custom-connector-faq.md)
+### Develop custom APIs
+#### [Create custom APIs for logic apps](logic-apps-create-api-app.md)
+#### [Secure calls to custom APIs](logic-apps-custom-api-authentication.md)
+#### [Deploy and call custom APIs](logic-apps-custom-api-host-deploy-call.md)
 ### [Handle errors and exceptions](logic-apps-exception-handling.md)
 ### [Handle content types](logic-apps-content-type.md)
 ### [Secure your logic apps](logic-apps-securing-a-logic-app.md)
@@ -32,6 +43,7 @@
 ### [Partners](logic-apps-enterprise-integration-partners.md)
 ### [Agreements](logic-apps-enterprise-integration-agreements.md)
 ### [B2B processing](logic-apps-enterprise-integration-b2b.md)
+### [Send EDI messages as batch](logic-apps-scenario-edi-send-batch-messages.md)
 ### [XML processing](logic-apps-enterprise-integration-xml.md)
 ### [Flat file processing](logic-apps-enterprise-integration-flatfile.md)
 ### [Validate XML](logic-apps-enterprise-integration-xml-validation.md)
@@ -73,12 +85,11 @@
 #### [X12 tracking schema](logic-apps-track-integration-account-x12-tracking-schema.md)
 #### [Custom tracking schema](logic-apps-track-integration-account-custom-tracking-schema.md)
 
-## Examples, scenarios, and walkthroughs
-### [Overview](logic-apps-examples-and-scenarios.md)
+## [Examples, scenarios, and walkthroughs](logic-apps-examples-and-scenarios.md)
 ### [Create a serverless social dashboard](logic-apps-scenario-social-serverless.md)
 ### [Call logic apps with Azure Functions](logic-apps-scenario-function-sb-trigger.md)
 ### [Add error and exception handling](logic-apps-scenario-error-and-exception-handling.md)
-### [B2B processing](logic-apps-enterprise-integration-b2b.md)
+### [B2B processing](logic-apps-enterprise-integration-b2b.md) 
 
 ## Pricing & billing
 ### [Pricing](https://azure.microsoft.com/pricing/details/logic-apps/)
@@ -98,7 +109,7 @@
 ## [Workflow definition language](logic-apps-workflow-definition-language.md)
 ## [Workflow actions and triggers](logic-apps-workflow-actions-triggers.md)
 ## [REST API](/rest/api/logic/)
-## [PowerShell](/powershell/module/azurerm.logicapp)
+## [Azure PowerShell](/powershell/module/azurerm.logicapp)
 ## Connectors: In-depth topics
 ### [AS2](logic-apps-enterprise-integration-as2.md)
 ### [Azure Blob Storage](../connectors/connectors-create-api-azureblobstorage.md)

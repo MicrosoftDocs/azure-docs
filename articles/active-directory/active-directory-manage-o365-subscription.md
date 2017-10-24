@@ -13,8 +13,9 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/25/2017
+ms.date: 10/10/2017
 ms.author: curtand
+ms.reviewer: rodejo
 
 ms.custom: oldportal;it-pro;
 
@@ -31,8 +32,8 @@ If you do already have an Azure subscription, the process to manage an additiona
 
 | Subscription | Office 365 | Azure |
 | --- | --- | --- |
-|   Display name |Contoso |Default Azure Active Directory (Azure AD) directory |
-|   Domain name |contoso.com |msmithhotmail.onmicrosoft.com |
+|   Display name | Contoso | Default Azure Active Directory (Azure AD) directory |
+|   Domain name | contoso.com | msmithhotmail.onmicrosoft.com |
 
 He wants to manage the user identities in the Contoso directory while he is signed in to Azure using his Microsoft account, so that he can enable Azure AD features such as multifactor authentication. The following diagram may help to illustrate the process.
 

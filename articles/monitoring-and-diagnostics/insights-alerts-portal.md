@@ -26,12 +26,12 @@ ms.author: robb
 >
 
 ## Overview
-This article shows you how to set up Azure metric alerts using the Azure portal.   
+This article shows you how to set up Azure metric alerts using the Azure portal. 
 
 You can receive an alert based on monitoring metrics for, or events on, your Azure services.
 
 * **Metric values** - The alert triggers when the value of a specified metric crosses a threshold you assign in either direction. That is, it triggers both when the condition is first met and then afterwards when that condition is no longer being met.    
-* **Activity log events** - An alert can trigger on *every* event, or, only when a certain events occurs. To learn more about activity log alerts [click here](monitoring-activity-log-alerts.md)
+* **Activity log events** - An alert can trigger on *every* event, or, only when certain events occurs. Learn more about [activity log alerts](monitoring-activity-log-alerts.md).
 
 You can configure a metric alert to do the following when it triggers:
 
@@ -39,6 +39,11 @@ You can configure a metric alert to do the following when it triggers:
 * send email to additional emails that you specify.
 * call a webhook
 * start execution of an Azure runbook (only from the Azure portal)
+
+> [!NOTE]
+> Azure Monitor now supports Near Real-Time Metric Alerts in public preview. These use Action Groups. Learn more about [Near Real-Time Metric Alerts](monitoring-near-real-time-metric-alerts.md).
+>
+>
 
 You can configure and get information about metric alert rules using
 
@@ -60,7 +65,7 @@ You can configure and get information about metric alert rules using
 
 4. **Name** your alert rule, and choose a **Description**, which also shows in notification emails.
 
-5. Select the **Metric** you want to monitor, then choose a **Condition** and **Threshold** value for the metric. Also chose the **Period** of time that the metric rule must be satisfied before the alert triggers. So for example, if you use the period "PT5M" and your alert looks for CPU above 80%, the alert triggers when the CPU has been consistently above 80% for 5 minutes. Once the first trigger occurs, it again triggers when the CPU stays below 80% for 5 minutes. The CPU measurement occurs every 1 minute.   
+5. Select the **Metric** you want to monitor, then choose a **Condition** and **Threshold** value for the metric. Also choose the **Period** of time that the metric rule must be satisfied before the alert triggers. So for example, if you use the period "Over the last 5 minutes" and your alert looks for CPU above 80%, the alert triggers when the CPU has been consistently above 80% for 5 minutes. Once the first trigger occurs, it again triggers when the CPU stays below 80% for 5 minutes. The CPU metric measurement occurs every one minute.
 
 6. Check **Email owners...** if you want administrators and co-administrators to be emailed when the alert fires.
 
@@ -83,6 +88,7 @@ Once you have created an alert, you can select it and:
 
 ## Next steps
 * [Get an overview of Azure monitoring](monitoring-overview.md) including the types of information you can collect and monitor.
+* Learn more about the new [near real-time metric alerts (preview)](monitoring-near-real-time-metric-alerts.md)
 * Learn more about [configuring webhooks in alerts](insights-webhooks-alerts.md).
 * Learn more about [configuring alerts on Activity log events](monitoring-activity-log-alerts.md).
 * Learn more about [Azure Automation Runbooks](../automation/automation-starting-a-runbook.md).

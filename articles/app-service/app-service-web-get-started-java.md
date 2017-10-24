@@ -15,7 +15,7 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 6/7/2017
 ms.author: cephalin;robmcm
-ms.custom: mvc
+ms.custom: mvc, devcenter
 ---
 # Create your first Java web app in Azure
 

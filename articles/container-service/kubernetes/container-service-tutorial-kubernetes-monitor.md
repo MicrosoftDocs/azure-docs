@@ -135,7 +135,7 @@ In the OMS portal, look for a **Containers** summary tile on the OMS dashboard. 
 
 Similarly, in the Azure portal, go to **Log Analytics** and select your workspace name. To see the **Containers** summary tile, click **Solutions** > **Containers**. To see details, click the tile.
 
-See the [Azure Log Analytics documentation](../../log-analytics/index.md) for detailed guidance on querying and analyzing monitoring data.
+See the [Azure Log Analytics documentation](../../log-analytics/index.yml) for detailed guidance on querying and analyzing monitoring data.
 
 ## Next steps
 

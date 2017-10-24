@@ -57,6 +57,7 @@
 ### [What is the solution?](storsimple-overview.md)
 ### [StorSimple learning map](https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/)
 ### [Security considerations](storsimple-8000-security.md)
+### [FAQ: Move to Azure portal](storsimple-8000-move-azure-portal-faq.md)
 
 ## Get started
 
@@ -100,6 +101,7 @@
 ##### [Manage volume containers](storsimple-8000-manage-volume-containers.md)
 ##### [Manage volumes - current](storsimple-8000-manage-volumes-u2.md)
 ###### [FAQ: Locally pinned volumes](storsimple-8000-local-volume-faq.md)
+##### [Role-based Access Control](storsimple-8000-role-based-access-control.md)
 ##### [Manage ACRs](storsimple-8000-manage-acrs.md)
 ##### [Manage bandwidth templates](storsimple-8000-manage-bandwidth-templates.md)
 ##### [View and manage jobs](storsimple-8000-manage-jobs-u2.md)
@@ -118,6 +120,7 @@
 ##### [Modify DATA 0 settings](storsimple-8000-modify-data-0.md)
 
 
+
 #### [Using StorSimple Snapshot Manager](storsimple-snapshot-manager-admin.md)
 ##### [What is StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md)
 ##### [About StorSimple Snapshot Manager interface](storsimple-use-snapshot-manager.md)
@@ -128,6 +131,11 @@
 ##### [Manage backup jobs via StorSimple Snapshot Manager](storsimple-snapshot-manager-manage-backup-jobs.md)
 ##### [Manage volumes via StorSimple Snapshot Manager](storsimple-snapshot-manager-manage-volumes.md)
 ##### [Use MMC actions in StorSimple Snapshot Manager](storsimple-snapshot-manager-mmc-menu.md)
+
+### Automate
+
+#### [Using Azure PowerShell sample scripts](storsimple-8000-automation-azurerm-scripts.md)
+#### [Using Azure Automation runbooks](storsimple-8000-automation-azurerm-runbook.md)
 
 ### Build solutions
 #### [StorSimple with Veeam](storsimple-configure-backup-target-veeam.md)
@@ -186,7 +194,7 @@
 #### [Release - GA](storsimple-july-2014-release-notes.md)
 
 ## Reference
-### [Azure PowerShell](/powershell/azure/overview?view=azuresmps-3.7.0)
+### [REST API](https://docs.microsoft.com/rest/api/storsimple)
 ### [Windows PowerShell for StorSimple cmdlets](https://technet.microsoft.com/library/dn688168.aspx)
 
 # StorSimple 8000 Series (Classic portal)

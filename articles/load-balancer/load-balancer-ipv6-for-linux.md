@@ -3,7 +3,7 @@ title: Configuring DHCPv6 for Linux VMs | Microsoft Docs
 description: How to configure DHCPv6 for Linux VMs.
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: ''
 keywords: ipv6, azure load balancer, dual stack, public ip, native ipv6, mobile, iot
@@ -14,11 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2016
+ms.date: 09/25/2017
 ms.author: kumud
 ---
 
 # Configuring DHCPv6 for Linux VMs
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Some of the Linux virtual machine images in the Azure Marketplace do not have DHCPv6 configured by default. To support IPv6, DHCPv6 must be configured in within the Linux OS distribution that you are using. Different Linux distributions have different ways of configuring DHCPv6 because they use different packages.
 

@@ -28,7 +28,7 @@ No, the models are pretrained. The only operations available on uploaded data ar
 
 ## Can I request additional languages?
 
-Sentiment analysis and key phrase extraction are available for a [select number of languages](overview.md#supported-languages). Natural language processing is complex and requires substantial testing before new functionality can be released. For this reason, we avoid pre-announcing support so that no one takes a dependency on functionality that needs more time to mature. 
+Sentiment analysis and key phrase extraction are available for a [select number of languages](text-analytics-supported-languages.md). Natural language processing is complex and requires substantial testing before new functionality can be released. For this reason, we avoid pre-announcing support so that no one takes a dependency on functionality that needs more time to mature. 
 
 To help us prioritize which languages to work on next, vote for specific languages on [User Voice](https://cognitive.uservoice.com/forums/555922-text-analytics). 
 

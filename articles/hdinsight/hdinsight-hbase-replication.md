@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/06/2017
+ms.date: 10/09/2017
 ms.author: jgao
 
 ---
@@ -53,7 +53,7 @@ You have three configuration options:
 
 To help you set up the environments, we have created some [Azure Resource Manager templates](../azure-resource-manager/resource-group-overview.md). If you prefer to set up the environments by using other methods, see:
 
-- [Create Linux-based Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
+- [Create Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
 - [Create HBase clusters in Azure Virtual Network](hdinsight-hbase-provision-vnet.md)
 
 ### Set up one virtual network
@@ -93,11 +93,54 @@ For the cross-virtual network scenario, you must use the **-ip** switch when you
 
 ### Set up two virtual networks in two different regions
 
-To create two virtual networks in two different regions, select the following image. The template is stored in a global Azure Blob container.
+To create two virtual networks in two different regions and the VPN connection between the VNets, click the following image. The template is stored in [Azure QuickStart Templates](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-geo/).
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhbaseha%2Fdeploy-hbase-geo-replication.json" target="_blank"><img src="./media/hdinsight-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-replication-geo%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
-Create a VPN gateway between the two virtual networks. For instructions, see [Create a virtual network with a site-to-site connection](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+Some of the hard-coded values in the template:
+
+**VNet 1**
+
+| Property | Value |
+|----------|-------|
+| Location | West US |
+| VNet name | &lt;ClusterNamePrevix>-vnet1 |
+| Address space prefix | 10.1.0.0/16 |
+| Subnet name | subnet 1 |
+| Subnet prefix | 10.1.0.0/24 |
+| Subnet (gateway) name | GatewaySubnet (can't be changed) |
+| Subnet (gateway) prefix | 10.1.255.0/27 |
+| Gateway name | vnet1gw |
+| Gateway type | Vpn |
+| Gateway VPN type | RouteBased |
+| Gateway SKU | Basic |
+| Gateway IP | vnet1gwip |
+| Cluster Name | &lt;ClusterNamePrefix>1 |
+| Cluster version | 3.6 |
+| Cluster kind | hbase |
+| Cluster worker node count | 2 |
+
+
+**VNet 2**
+
+| Property | Value |
+|----------|-------|
+| Location | East US |
+| VNet name | &lt;ClusterNamePrevix>-vnet2 |
+| Address space prefix | 10.2.0.0/16 |
+| Subnet name | subnet 1 |
+| Subnet prefix | 10.2.0.0/24 |
+| Subnet (gateway) name | GatewaySubnet (can't be changed) |
+| Subnet (gateway) prefix | 10.2.255.0/27 |
+| Gateway name | vnet2gw |
+| Gateway type | Vpn |
+| Gateway VPN type | RouteBased |
+| Gateway SKU | Basic |
+| Gateway IP | vnet1gwip |
+| Cluster Name | &lt;ClusterNamePrefix>2 |
+| Cluster version | 3.6 |
+| Cluster kind | hbase |
+| Cluster worker node count | 2 |
 
 HBase replication uses the IP addresses of the ZooKeeper VMs. You must set up static IP addresses for the destination HBase ZooKeeper nodes. To set up static IP, see [Set up two virtual networks in the same region](#set-up-two-virtual-networks-in-the-same-region) in this article.
 
@@ -107,11 +150,11 @@ For the cross-virtual network scenario, you must use the **-ip** switch when you
 
 When you replicate a cluster, you must specify the tables that you want to replicate. In this section, you load some data into the source cluster. In the next section, you will enable replication between the two clusters.
 
-To create a **Contacts** table and insert some data in the table, follow the instructions at [HBase tutorial: Get started using Apache HBase with Linux-based Hadoop in HDInsight](hdinsight-hbase-tutorial-get-started-linux.md).
+To create a **Contacts** table and insert some data in the table, follow the instructions at [HBase tutorial: Get started using Apache HBase in HDInsight](hdinsight-hbase-tutorial-get-started-linux.md).
 
 ## Enable replication
 
-The following steps describe how to call the script action script from the Azure portal. For information about running a script action by using Azure PowerShell and the Azure command-line tool (Azure CLI), see [Customize Linux-based HDInsight clusters by using script action](hdinsight-hadoop-customize-cluster-linux.md).
+The following steps describe how to call the script action script from the Azure portal. For information about running a script action by using Azure PowerShell and the Azure command-line tool (Azure CLI), see [Customize HDInsight clusters by using script action](hdinsight-hadoop-customize-cluster-linux.md).
 
 **To enable HBase replication from the Azure portal**
 
@@ -126,7 +169,11 @@ The following steps describe how to call the script action script from the Azure
   3.  **Head**: Ensure this is selected. Clear the other node types.
   4. **Parameters**: The following sample parameters enable replication for all existing tables, and then copy all data from the source cluster to the destination cluster:
 
-            -m hn1 -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata
+          -m hn1 -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata
+    
+    >[!note]
+    >
+    > Use hostname instead of FQDN for both the source and destination cluster DNS name.
 
 6. Select **Create**. The script can take a while to run, especially when you use the **-copydata** argument.
 
@@ -233,7 +280,6 @@ In this tutorial, you learned how to set up HBase replication within a virtual n
 * [Get started with Apache HBase in HDInsight][hdinsight-hbase-get-started]
 * [HDInsight HBase overview][hdinsight-hbase-overview]
 * [Create HBase clusters in Azure Virtual Network][hdinsight-hbase-provision-vnet]
-* [Analyze real-time Twitter sentiment with HBase][hdinsight-hbase-twitter-sentiment]
 * [Analyze sensor data with Storm and HBase in HDInsight (Hadoop)][hdinsight-sensor-data]
 
 [hdinsight-hbase-geo-replication-vnet]: hdinsight-hbase-geo-replication-configure-vnets.md
@@ -246,7 +292,6 @@ In this tutorial, you learned how to set up HBase replication within a virtual n
 [hdinsight-hbase-get-started]: hdinsight-hbase-tutorial-get-started-linux.md
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
-[hdinsight-hbase-twitter-sentiment]: hdinsight-hbase-analyze-twitter-sentiment.md
 [hdinsight-sensor-data]: hdinsight-storm-sensor-data-analysis.md
 [hdinsight-hbase-overview]: hdinsight-hbase-overview.md
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md

@@ -21,21 +21,30 @@ sections:
     style: icon48
     items:
     - image:
-        src: https://docs.microsoft.com/en-us/azure/app-service-web/media/index/logo_net.svg
+        src: https://docs.microsoft.com/en-us/azure/app-service/media/index/logo_net.svg
       text: .NET Core
       href: https://docs.microsoft.com/en-us/azure/app-service/containers/quickstart-dotnetcore
     - image: 
-        src: https://docs.microsoft.com/en-us/azure/app-service-web/media/index/logo_nodejs.svg
+        src: https://docs.microsoft.com/en-us/azure/app-service/media/index/logo_nodejs.svg
       text: Node.js
       href: https://docs.microsoft.com/en-us/azure/app-service/containers/quickstart-nodejs
     - image:
-        src: https://docs.microsoft.com/en-us/azure/app-service-web/media/index/logo_php.svg
+        src: https://docs.microsoft.com/en-us/azure/app-service/media/index/logo_php.svg
       text: PHP
       href: https://docs.microsoft.com/en-us/azure/app-service/containers/quickstart-php
     - image:
-        src: https://docs.microsoft.com/en-us/azure/app-service-web/media/index/logo_java.svg
+        src: https://docs.microsoft.com/en-us/azure/app-service/media/index/logo_java.svg
       text: Java
-      href: https://docs.microsoft.com/en-us/azure/azure-toolkit-for-intellij-hello-world-web-app-linux?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+      href: https://docs.microsoft.com/en-us/azure/azure-toolkit-for-intellij-hello-world-web-app-linux?toc=/azure/app-service/containers/toc.json
+  - type: paragraph
+    text: 'Learn how to deploy continuously:'
+  - type: list
+    style: icon48
+    items: 
+    - image:
+        src: https://docs.microsoft.com/en-us/azure/media/index/logo_vs-team-services.svg
+      text: VSTS
+      href: https://docs.microsoft.com/en-us/vsts/build-release/apps/cd/deploy-docker-webapp??toc=/vsts/deploy-azure/toc.json&bc=/vsts/deploy-azure/breadcrumb/toc.json
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
@@ -44,9 +53,9 @@ sections:
     style: ordered
     items:
     - html: Create an application using <a href="en-us/azure/app-service/containers/tutorial-dotnetcore-sqldb-app">.NET Core with Azure SQL DB</a> or <a href="en-us/azure/app-service/containers/tutorial-nodejs-mongodb-app">Node.js with MongoDB</a>
-    - html: <a href="/en-us/azure/app-service-web/app-service-web-tutorial-custom-domain">Map an existing custom domain to your application </a>
-    - html: <a href="/en-us/azure/app-service-web/app-service-web-tutorial-custom-SSL">Bind an existing SSL certificate to your application</a>
-    - html: <a href="/en-us/azure/app-service-web/app-service-web-tutorial-content-delivery-network">Add a CDN to your application</a>
+    - html: <a href="/en-us/azure/app-service/app-service-web-tutorial-custom-domain">Map an existing custom domain to your application </a>
+    - html: <a href="/en-us/azure/app-service/app-service-web-tutorial-custom-SSL">Bind an existing SSL certificate to your application</a>
+    - html: <a href="/en-us/azure/app-service/app-service-web-tutorial-content-delivery-network">Add a CDN to your application</a>
 - title: Samples
   items:
   - type: paragraph
@@ -56,7 +65,7 @@ sections:
     className: spaced noBullet
     items:
     - html: <a href="/en-us/powershell/azureps-cmdlets-docs">Azure PowerShell</a>
-    - html: <a href="/cli/azure/appservice">Azure CLI 2.0</a>
+    - html: <a href="/cli/azure/appservice">Azure CLI</a>
 - title: Reference
   items:
   - type: list
@@ -68,4 +77,4 @@ sections:
     - title: Languages
       html: <p><a href="/en-us/dotnet/api">.NET</a></p><p><a href="/en-us/java/api/">Java</a></p>
     - title: REST
-      html: <p><a href="/en-us/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="/cli/azure/appservice">Azure CLI 2.0</a></p>
+      html: <p><a href="/en-us/rest/api/appservice">REST API Reference</a></p>

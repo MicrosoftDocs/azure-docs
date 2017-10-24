@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/07/2017
+ms.date: 09/28/2017
 ms.author: larryfr
 
 ---
@@ -68,7 +68,7 @@ Learn how to use the Data Lake tools for Visual Studio to query Apache Hive. The
 
    * `ROW FORMAT`: Tells Hive how the data is formatted. In this case, the fields in each log are separated by a space.
 
-   * `STORED AS TEXTFILE LOCATION`: Tells Hive where the data is stored (the example/data directory) and that it is stored as text.
+   * `STORED AS TEXTFILE LOCATION`: Tells Hive that the data is stored in the example/data directory, and that it is stored as text.
 
    * `SELECT`: Select a count of all rows where column `t4` contains the value `[ERROR]`. This statement returns a value of `3` because there are three rows that contain this value.
 

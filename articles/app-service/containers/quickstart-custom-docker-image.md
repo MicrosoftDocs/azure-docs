@@ -13,10 +13,10 @@ ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.date: 09/05/2017
-ms.author: naziml;wesmc
-
+ms.author: wesmc
+ms.custom: mvc
 ---
 
 # Run a custom Docker Hub image in Azure Web App for Containers #

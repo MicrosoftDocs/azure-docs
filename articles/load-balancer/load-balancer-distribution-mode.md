@@ -3,7 +3,7 @@ title: Configure Load Balancer distribution mode | Microsoft Docs
 description: How to configure Azure load balancer distribution mode to support source IP affinity
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 
 ms.assetid: 7df27a4d-67a8-47d6-b73e-32c0c6206e6e
@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2016
+ms.date: 09/25/2017
 ms.author: kumud
 ---
 
 # Configure the distribution mode for load balancer
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 ## Hash-based distribution mode
 
@@ -28,7 +30,7 @@ Figure 1 - 5-tuple distribution
 
 ## Source IP affinity mode
 
-We have another distribution mode called Source IP Affinity (also known as session affinity or client IP affinity). Azure Load Balancer can be configured to use a 2-tuple (Source IP, Destination IP) or 3-tuple (Source IP, Destination IP, Protocol) to map traffic to the available servers. By using Source IP affinity, connections initiated from the same client computer goes to the same DIP endpoint.
+We have another distribution mode called Source IP Affinity (also known as session affinity or client IP affinity). Azure Load Balancer can be configured to use a 2-tuple (Source IP, Destination IP) or 3-tuple (Source IP, Destination IP, Protocol) to map traffic to the available servers. By using Source IP affinity, connections initiated from the same client computer go to the same DIP endpoint.
 
 The following diagram illustrates a 2-tuple configuration. Notice how the 2-tuple runs through the load balancer to virtual machine 1 (VM1) which is then backed up by VM2 and VM3.
 
@@ -92,7 +94,7 @@ Set-AzureLoadBalancedEndpoint -ServiceName MyService -LBSetName LBSet1 -Protocol
 
 ### Cloud Service configuration to change distribution mode
 
-You can leverage the Azure SDK for .NET 2.5 (to be released in November) to update your Cloud Service. Endpoint settings for Cloud Services are made in the .csdef. In order to update the load balancer distribution mode for a Cloud Services deployment, a deployment upgrade is required.
+You can leverage the Azure SDK for .NET 2.5 to update your Cloud Service. Endpoint settings for Cloud Services are made in the .csdef. In order to update the load balancer distribution mode for a Cloud Services deployment, a deployment upgrade is required.
 Here is an example of .csdef changes for endpoint settings:
 
 ```xml
@@ -154,7 +156,7 @@ The value of LoadBalancerDistribution can be sourceIP for 2-tuple affinity, sour
     x-ms-request-id: 9c7bda3e67c621a6b57096323069f7af
     Date: Thu, 16 Oct 2014 22:49:21 GMT
 
-## Next Steps
+## Next steps
 
 [Internal load balancer overview](load-balancer-internal-overview.md)
 

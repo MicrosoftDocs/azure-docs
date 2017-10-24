@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/01/2017
-ms.author: nitinme
+ms.author: maxluk
 ---
 # Run Spark from the Spark Shell
 

@@ -6,7 +6,7 @@ keywords:
 author: cbrooksmsft
 ms.author: cbrooks
 ms.date: 08/18/2017
-ms.topic: hero-article
+ms.topic: article
 ms.service: storage
 ---
 
@@ -51,7 +51,7 @@ To use Azure Storage, you need a storage account.  Blob storage events are curre
 A Blob storage account is a specialized storage account for storing your unstructured data as blobs (objects) in Azure Storage. Blob storage accounts are similar to your existing general-purpose storage accounts and share all the great durability, availability, scalability, and performance features that you use today including 100% API consistency for block blobs and append blobs. For applications requiring only block or append blob storage, we recommend using Blob storage accounts.
 
 > [!NOTE]
-> For the preview release, Blob storage events are available only for storage accounts in the **westcentralus** location.
+> For the preview release, Blob storage events are available only for storage accounts in the **westcentralus** and **westus2** regions.
 
 Replace `<storage_account_name>` with a unique name for your storage account, and `<resource_group_name>` with the resource group you created earlier.
 
