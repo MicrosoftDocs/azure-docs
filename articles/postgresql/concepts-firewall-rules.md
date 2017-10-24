@@ -8,7 +8,7 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 10/24/2017
 ---
 # Azure Database for PostgreSQL Server firewall rules
 Firewalls prevent all access to your database server until you specify which computers have permission. The firewall grants access to the server based on the originating IP address of each request.
@@ -29,6 +29,13 @@ If the IP address of the request is not within the ranges specified in any of th
 For example, if your application connects with JDBC driver for PostgreSQL, you may encounter this error attempting to connect when the firewall is blocking the connection.
 > java.util.concurrent.ExecutionException: java.lang.RuntimeException:
 > org.postgresql.util.PSQLException: FATAL: no pg\_hba.conf entry for host "123.45.67.890", user "adminuser", database "postgresql", SSL
+
+## Connecting from Azure
+To allow applications from Azure to connect to your Azure Database for PostgreSQL server, Azure connections must be enabled. When an application from Azure attempts to connect to your database server, the firewall verifies that Azure connections are allowed. A firewall setting with starting and ending address equal to 0.0.0.0 indicates these connections are allowed. If the connection attempt is not allowed, the request does not reach the Azure Database for PostgreSQL server.
+
+> [!IMPORTANT]
+> This option configures the firewall to allow all connections from Azure including connections from the subscriptions of other customers. When selecting this option, make sure your login and user permissions limit access to only authorized users.
+> 
 
 ## Programmatically managing firewall rules
 In addition to the Azure portal, firewall rules can be managed programmatically using Azure CLI.
