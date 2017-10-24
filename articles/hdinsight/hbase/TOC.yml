@@ -1,5 +1,5 @@
 - name: Azure HDInsight Documentation
-- href: /azure/hdinsight
+  href: /azure/hdinsight
 - name: Apache HBase on HDInsight
   items:
   - name: Overview
