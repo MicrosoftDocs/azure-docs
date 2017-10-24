@@ -222,7 +222,19 @@
       - name: Deploy your first app
         href: cloudfoundry-deploy-your-first-app.md
     - name: OpenShift
-      href: openshift-get-started.md
+      items:
+      - name: Overview
+        href: openshift-get-started.md
+      - name: OpenShift Pre-Requisites
+        href: openshift-pre-requisites.md
+      - name: OpenShift Origin
+        href: openshift-origin.md
+      - name: OpenShift Container Platform
+        href: openshift-container-platform.md
+      - name: OpenShift Post Deployment Tasks
+        href: openshift-post-deployment.md
+      - name: Troubleshooting Deployments
+        href: openshift-troubleshooting.md
     - name: SAP on Azure
       href: ../workloads/sap/get-started.md
     - name: Oracle
