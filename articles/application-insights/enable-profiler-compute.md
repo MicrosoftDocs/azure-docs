@@ -15,29 +15,29 @@ ms.author: ramach
 
 ---
 
-# Enable Application Insights Profiler on Azure VMs, Service Fabric, and cloud services
+# Enable Application Insights Profiler for Azure VMs, Service Fabric, and Cloud Services
 
 This article demonstrates how to enable Azure Application Insights Profiler on an ASP.NET application that is hosted by an Azure Compute resource. 
 
-The examples in the article include support for Azure Virtual Machines, virtual machine scale sets, Azure Service Fabric, and cloud services in Azure. The examples rely on templates that support the [Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) deployment model.  
+The examples in this article include support for Azure Virtual Machines, virtual machine scale sets, Azure Service Fabric, and Azure Cloud Services. The examples rely on templates that support the [Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) deployment model.  
 
 
 ## Overview
 
-The following image shows how the profiler works with Azure resources. The image uses an Azure virtual machine as an example.
+The following image shows how the Application Insights profiler works with Azure resources. The image uses an Azure virtual machine as an example.
 
   ![Overview](./media/enable-profiler-compute/overview.png)
 
-To fully enable the profiler, change the configuration in three locations:
+To fully enable the profiler, you must change the configuration in three locations:
 
-* The Application Insights instance portal pane.
+* The Application Insights instance pane in the Azure portal.
 * The application source code (for example, an ASP.NET web application).
 * The environment deployment definition source code (for example, a VM deployment template .json file).
 
 
-## Configure the Application Insights instance
+## Set up the Application Insights instance
 
-In the Azure portal, create or go to the Application Insights instance that you want to use. Note the instance instrumentation key. You use the instrumentation key in other configuration steps:
+In the Azure portal, create or go to the Application Insights instance that you want to use. Note the instance instrumentation key. You use the instrumentation key in other configuration steps.
 
   ![Location of the key instrumentation](./media/enable-profiler-compute/CopyAIKey.png)
 
@@ -49,15 +49,15 @@ In the Azure portal, complete the steps that are described in [Enable the profil
 
 ## Set up the application source code
 
-Set up your application to send telemetry data to an Application Insights instance on each `Request` operation.  
+Set up your application to send telemetry data to an Application Insights instance on each `Request` operation:  
 
 1. Add the [Application Insights SDK](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-overview#get-started) to your application project. Make sure that the NuGet package versions are as follows:  
-  - For ASP.NET applications: [Microsoft.ApplicationInsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) of version 2.3.0 or later.
-  - For ASP.NET Core applications: [Microsoft.ApplicationInsights.AspNetCore](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/) 2.1.0. or later.
-  - For other .NET and .NET Core applications (for example, a Service Fabric stateless service, a Cloud Services worker role):
+  - For ASP.NET applications: [Microsoft.ApplicationInsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) 2.3.0 or later.
+  - For ASP.NET Core applications: [Microsoft.ApplicationInsights.AspNetCore](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/) 2.1.0 or later.
+  - For other .NET and .NET Core applications (for example, a Service Fabric stateless service or a Cloud Services worker role):
   [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) or [Microsoft.ApplicationInsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) 2.3.0 or later.  
 
-2. If your application is *not* an ASP.NET or ASP.NET Core application (for example, it's a Cloud Services worker role, Service Fabric stateless APIs), the following extra instrumentation setup is required:  
+2. If your application is *not* an ASP.NET or ASP.NET Core application (for example, if it's a Cloud Services worker role or Service Fabric stateless APIs), the following extra instrumentation setup is required:  
 
   1. Add the following code early in the application lifetime:  
 
@@ -67,9 +67,9 @@ Set up your application to send telemetry data to an Application Insights instan
     // Replace with your own Application Insights instrumentation key.
     TelemetryConfiguration.Active.InstrumentationKey = "00000000-0000-0000-0000-000000000000";
     ```
-  For more information about this global instrumentation key configuration, see [Using Service Fabric with Application Insights](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/blob/dev/appinsights/ApplicationInsights.md).  
+  For more information about this global instrumentation key configuration, see [Use Service Fabric with Application Insights](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/blob/dev/appinsights/ApplicationInsights.md).  
 
-  2. For any piece of code that you want to instrument, add a `StartOperation<RequestTelemetry>` `using` statement around it, as in the following example:
+  2. For any piece of code that you want to instrument, add a `StartOperation<RequestTelemetry>` **USING** statement around it, as in the following example:
 
     ```csharp
     using Microsoft.ApplicationInsights;
@@ -83,7 +83,7 @@ Set up your application to send telemetry data to an Application Insights instan
     }
     ```
 
-  Calling `StartOperation<RequestTelemetry>` within another `StartOperation<RequestTelemetry>` scope is not supported. You can use `StartOperation<DependencyTelemetry>` in the nested scope instead. Example:  
+  Calling `StartOperation<RequestTelemetry>` within another `StartOperation<RequestTelemetry>` scope is not supported. You can use `StartOperation<DependencyTelemetry>` in the nested scope instead. For example:  
 
     ```csharp
     using (var getDetailsOperation = client.StartOperation<RequestTelemetry>("GetProductDetails"))
@@ -138,7 +138,7 @@ Full examples:
 
 1. To ensure that [.NET Framework 4.6.1](https://docs.microsoft.com/en-us/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) or later is in use, it's sufficient to confirm that the deployed OS is `Windows Server 2012 R2` or later.
 
-2. Locate the [Azure Diagnostics](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/azure-diagnostics) extension in the deployment template file, and add the following `SinksConfig` section as a child element of `WadCfg`, replacing the `ApplicationInsightsProfiler` property value with your own Application Insights instrumentation key:  
+2. Locate the [Azure Diagnostics](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/azure-diagnostics) extension in the deployment template file, and then add the following `SinksConfig` section as a child element of `WadCfg`. Replace the `ApplicationInsightsProfiler` property value with your own Application Insights instrumentation key:  
   ```json
   "SinksConfig": {
     "Sink": [
@@ -150,16 +150,16 @@ Full examples:
   }
   ```
 
-For information about adding the Diagnostics extension to your deployment template, see the examples and [Use monitoring and diagnostics with a Windows VM and Azure Resource Manager templates](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/extensions-diagnostics-template?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+  For information about adding the Diagnostics extension to your deployment template, see [Use monitoring and diagnostics with a Windows VM and Azure Resource Manager templates](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/extensions-diagnostics-template?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 
 ### Cloud Services
 
-1. To ensure that [.NET Framework 4.6.1](https://docs.microsoft.com/en-us/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) or later is in use, it's sufficient to confirm that ServiceConfiguration.*.cscfg files have an `osFamily` value of **"5"** or later.
+1. To ensure that [.NET Framework 4.6.1](https://docs.microsoft.com/en-us/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) or later is in use, it's sufficient to confirm that ServiceConfiguration.\*.cscfg files have an `osFamily` value of **"5"** or later.
 
-2. Locate the [Azure Diagnostics](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/azure-diagnostics) `diagnostics.wadcfgx` file for your application role:  
+2. Locate the [Azure Diagnostics](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/azure-diagnostics) diagnostics.wadcfgx file for your application role:  
   ![Location of the diagnostics config file](./media/enable-profiler-compute/cloudservice-solutionexplorer.png)  
-  If you can't find the file, to learn how to enable the Diagnostics extension in your Azure Cloud Services project, see [Set up diagnostics for Azure Cloud Services and virtual machines](https://docs.microsoft.com/en-us/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#enable-diagnostics-in-cloud-service-projects-before-deploying-them).
+  If you can't find the file, to learn how to enable the Diagnostics extension in your Cloud Services project, see [Set up diagnostics for Azure Cloud Services and virtual machines](https://docs.microsoft.com/en-us/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#enable-diagnostics-in-cloud-service-projects-before-deploying-them).
 
 3. Add the following `SinksConfig` section as a child element of `WadCfg`:  
   ```xml
@@ -180,7 +180,7 @@ For information about adding the Diagnostics extension to your deployment templa
 >  * The instrumentation key used by the `ApplicationInsights` sink.  
 >  * The instrumentation key used by the `ApplicationInsightsProfiler` sink.  
 >
-> You can find the actual instrumentation key value used by the `ApplicationInsights` sink in the `ServiceConfiguration.*.cscfg` files.  
+> You can find the actual instrumentation key value used by the `ApplicationInsights` sink in the ServiceConfiguration.\*.cscfg files.  
 > After the Visual Studio 15.5 Azure SDK release, only the instrumentation keys used by the application and `ApplicationInsightsProfiler` sink need to match each other.
 
 
@@ -189,10 +189,11 @@ For information about adding the Diagnostics extension to your deployment templa
 1. Deploy the modified environment deployment definition.  
 
   To apply the modifications, typically a full template deployment or a cloud services publish through PowerShell cmdlets or Visual Studio is involved.  
-  The following is an alternate approach for existing `Virtual Machines` that touches only its Azure Diagnostics extension:  
+
+  The following is an alternate approach for existing virtual machines that touches only its Azure Diagnostics extension:  
   ```powershell
   $ConfigFilePath = [IO.Path]::GetTempFileName()
-  # After exporting the currently deployed Diagnostics config to a file, edit it to include the ApplicationInsightsProfiler sink.
+  # After you export the currently deployed Diagnostics config to a file, edit it to include the ApplicationInsightsProfiler sink.
   (Get-AzureRmVMDiagnosticsExtension -ResourceGroupName "MyRG" -VMName "MyVM").PublicSettings | Out-File -Verbose $ConfigFilePath
   # Set-AzureRmVMDiagnosticsExtension might require the -StorageAccountName argument
   # if your original diagnostics configuration had the storageAccountName property in the protectedSettings section
@@ -216,19 +217,11 @@ For information about adding the Diagnostics extension to your deployment templa
 
 Enabling the profiler on an on-premises server is also known as running Application Insights Profiler in standalone mode (it's not tied to Azure Diagnostics extension modifications). 
 
-We have no plan to officially support the profiler for on-premises servers.
-
-If you are interested in experimenting with this scenario, you can [download support code](https://github.com/ramach-msft/AIProfiler-Standalone).  
-
-We are *not* responsible for maintaining that code, or for responding to issues and feature requests related to the code.
-
+We have no plan to officially support the profiler for on-premises servers. If you are interested in experimenting with this scenario, you can [download support code](https://github.com/ramach-msft/AIProfiler-Standalone). We are *not* responsible for maintaining that code, or for responding to issues and feature requests related to the code.
 
 ## Next steps
 
 - Generate traffic to your application (for example, launch an [availability test](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-monitor-web-app-availability)). Then, wait 10 to 15 minutes for traces to start to be sent to the Application Insights instance.
-
 - See [Profiler traces](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-profiler#enable-the-profiler) in the Azure portal.
-
-- Find help with troubleshooting Profiler issues in [Profiler troubleshooting](app-insights-profiler.md#troubleshooting).
-
-- Read more about the Profiler in [Application Insights Profiler](app-insights-profiler.md).
+- Get help with troubleshooting profiler issues in [Profiler troubleshooting](app-insights-profiler.md#troubleshooting).
+- Read more about the profiler in [Application Insights Profiler](app-insights-profiler.md).
