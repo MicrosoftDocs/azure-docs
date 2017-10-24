@@ -26,6 +26,7 @@
 #### [Describe APIs with Postman](custom-connector-api-postman-collection.md)
 #### [Extend OpenAPI for custom connectors](custom-connector-openapi-extensions.md)
 #### [Register your connector](logic-apps-custom-connector-register.md)
+#### [Create and Register SOAP connector](logic-apps-soap-connector-create-register.md)
 #### [Certify your connector](custom-connector-submit-certification.md)
 #### [FAQ for custom connectors](custom-connector-faq.md)
 ### Develop custom APIs
