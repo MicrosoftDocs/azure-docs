@@ -31,7 +31,7 @@ To run the CLI, you need [Node.js](https://nodejs.org/) installed on your local 
 To install the CLI, run the following command in your command-line environment:
 
 ```cmd/sh
-npm install iot-solution -g
+npm install iot-solutions -g
 ```
 
 ## Sign in to the CLI

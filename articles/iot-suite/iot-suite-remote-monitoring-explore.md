@@ -38,6 +38,9 @@ If you haven't deployed the remote monitoring solution yet, you should complete 
 
 You can use the Contoso sample IoT deployment to understand the basic scenarios the remote monitoring solution provides out-of-the-box. These scenarios are based on real-life IoT deployments. Most likely, you will choose to customize the remote monitoring solution to meet your specific requirements, but the Contoso sample helps you learn the basics.
 
+> [!NOTE]
+> If you used the CLI to deploy the preconfigured solution, the file `deployment-{your deployment name}-output.json` contains information about deployment such as the URL to accss the deployed sample.
+
 The Contoso sample provisions a set of simulated devices and rules to act on them. Once you understand the basic scenarios, you can continue exploring more of the solution features in [Perform advanced device monitoring using the remote monitoring solution](iot-suite-remote-monitoring-monitor.md).
 
 Contoso is a company that manages a variety of assets in different environments. Contoso plans to use the power of cloud-based IoT applications to remotely monitor and manage multiple assets from a centralized application. The following sections provide a summary of the initial configuration of the Contoso sample:
@@ -68,11 +71,11 @@ Operators at Contoso know the thresholds that determine whether a device is work
 
 | Rule Name | Description | Threshold | Severity | Affected devices |
 | --------- | ----------- | --------- | -------- | ---------------- |
-| Too much pressure     | Alerts if chillers reach higher than normal pressure levels   |P>250 psi       | Critical | Chillers            |
-| Too much temperature  | Alerts if prototyping devices reach higher than normal temperature levels  |T>80&deg; F |Critical | Prototyping devices |
-| Empty tank            | Alerts if engine fuel tank goes empty                     | F<5 gallons | Info     | Engines             |
-| Hot cargo temperature | Alerts if truck's cargo temperature is higher than normal                 | T<45&deg; F |Warning  | Trucks              |
-| Stopped elevator      | Alerts if elevator stops completely, vibration level                     | V<0.1 mm |Warning  | Elevators           |
+| Chiller pressure too high | Alerts if chillers reach higher than normal pressure levels   |P>250 psi       | Critical | Chillers            |
+| Prototyping device temp too high  | Alerts if prototyping devices reach higher than normal temperature levels  |T>80&deg; F |Critical | Prototyping devices |
+| Engine tank empty  | Alerts if engine fuel tank goes empty                     | F<5 gallons | Info     | Engines             |
+| Higher than normal cargo temperature | Alerts if truck's cargo temperature is higher than normal                 | T<45&deg; F |Warning  | Trucks              |
+| Elevator vibration stopped      | Alerts if elevator stops completely (based on vibration level)                     | V<0.1 mm |Warning  | Elevators           |
 
 ### Operate the Contoso sample deployment
 
@@ -82,7 +85,7 @@ You have now seen the initial setup in the Contoso sample. The following section
 
 This scenario shows you how to identify and respond to an alarm that's triggered by a chiller device. The chiller is located in Redmond, in building 43, floor 2.
 
-As an operator, you see in the dashboard that there's an alarm related to the pressure of a chiller.
+As an operator, you see in the dashboard that there's an alarm related to the pressure of a chiller. You can pan and zoom on the map to see more detail.
 
 1. On the **Dashboard** page, in the **System Alarms** grid, you can see the **Chiller pressure too high** alarm. The chiller is also highlighted on the map:
 
@@ -92,7 +95,9 @@ As an operator, you see in the dashboard that there's an alarm related to the pr
 
     ![Choose device on map to view detail](media/iot-suite-remote-monitoring-explore/dashboarddetail.png)
 
-1. Close **Device detail** and click **...** next to the alarm in the alarm grid. To navigate to the rule definition, select **Maintenance**.
+1. Close **Device detail**.
+
+1. To navigate to the **Maintenance** page, click **...** in the **Explore Alarm** column next to the alarm in the alarm grid.
 
 On the **Maintenance** page, you can view the details of the rule that triggered the chiller pressure alarm.
 
@@ -106,7 +111,7 @@ On the **Maintenance** page, you can view the details of the rule that triggered
 
 You have now identified the issue that triggered the alarm and the associated device. As an operator, the next steps are to acknowledge the alarm and mitigate the issue.
 
-1. To indicate that you are now working on the alarm, change the **Alarm status** to **Acknowledge**:
+1. To indicate that you are now working on the alarm, change the **Alarm status** to **Acknowledged**:
 
     ![Select and acknowledge the alarm](media/iot-suite-remote-monitoring-explore/maintenanceacknowledge.png)
 
@@ -122,11 +127,11 @@ Finally, confirm that the telemetry values from the chiller are back to normal.
 
 1. To view the alarms grid, navigate to the **Dashboard** page.
 
-1. View the device telemetry for the original alarm and confirm that is back to normal.
+1. To view the device telemetry, select the device for the original alarm on the map, and confirm that is back to normal.
 
 1. To close the incident, navigate to the **Maintenance** page, select the alarm, and set the status to **Closed**:
 
-    ![Select and close the alarm](media/iot-suite-remote-monitoring-explore/maintenanceacknowledge.png)
+    ![Select and close the alarm](media/iot-suite-remote-monitoring-explore/maintenanceclose.png)
 
 ## Update device firmware
 
@@ -149,13 +154,16 @@ To perform the necessary device management tasks, use the **Devices** page. Star
 
     ![Schedule firmware update on device](media/iot-suite-remote-monitoring-explore/devicesschedulefirmware.png)
 
+    > [!NOTE]
+    > With the simulated devices you can use any URL you like as the **Firemware URI** value. The simulated devices do not access the URL.
+
 1. Note how many devices the job affects and choose **Apply**:
 
     ![Submit the firmware update job](media/iot-suite-remote-monitoring-explore/devicessubmitupdate.png)
 
 You can use the **Maintenance** page to track the job as it runs.
 
-1. Navigate to the **Maintenance** page and click **System status**.
+1. To view the list of jobs, navigate to the **Maintenance** page and click **System status**.
 
 1. Locate the event related to the job you created. Verify that the firmware update process was initiated correctly.
 
@@ -190,7 +198,7 @@ You can create tag names to use with devices.
 
     ![Select prototype and truck devices](media/iot-suite-remote-monitoring-explore/devicesmultiselect.png)
 
-1. Choose **Tag** and then create a new string tag called **FieldService** with a value **ConnectedVehicle**. Then click **Apply**:
+1. Choose **Tag** and then create a new string tag called **FieldService** with a value **ConnectedVehicle**. Choose a name for the job. Then click **Apply**:
 
     ![Add tag to prototype and truck devices](media/iot-suite-remote-monitoring-explore/devicesaddtag.png)
 
@@ -198,7 +206,7 @@ You can create tag names to use with devices.
 
     ![Select chiller, engine, and elevator devices](media/iot-suite-remote-monitoring-explore/devicesmultiselect2.png)
 
-1. Choose **Tag** and then create a new tag called **FieldService** with a value **SmartBuilding**. Then click **Save**:
+1. Choose **Tag** and then create a new tag called **FieldService** with a value **SmartBuilding**. Choose a name for the job. Then click **Save**:
 
     ![Add tag to chiller, engine, and elevator devices](media/iot-suite-remote-monitoring-explore/devicesaddtag2.png)
 

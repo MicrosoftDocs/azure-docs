@@ -59,7 +59,7 @@ The preconfigured solution plots detailed real-time telemetry data in the chart 
 
 To select the telemetry values to view, choose the telemetry type at the top of the chart:
 
-![Truck telemetry plot](media/iot-suite-remote-monitoring-monitor/dashboardtelemetryview.png)
+![Truck telemetry plot](media/iot-suite-remote-monitoring-monitor/dashboardselecttelemetry.png)
 
 To pause the live telemetry display, choose **Flowing**. To re-enable the live display, choose **Pause**:
 
@@ -86,6 +86,9 @@ The map highlights the devices in the current filter with **Alarms** and **Warni
 You can use the **System alarms** filter to adjust the time span for recent alarms. By default, the panel displays alarms from the last hour:
 
 ![Filter the alarms by time](media/iot-suite-remote-monitoring-monitor/dashboardalarmsfilter.png)
+
+> [!NOTE]
+> Scroll to the right to see the time span filter.
 
 ## View the system KPIs
 
