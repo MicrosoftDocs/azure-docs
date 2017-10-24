@@ -108,23 +108,23 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-skillport-tutorial/tutorial_skillport_url.png)
 
-    a. In the **Identifier** textbox, type the URL:
+	a. In the **Sign-on URL** textbox, type the URL:
+      
+      EU Datacenter: `https://adfs.skillport.eu`
+   
+      US Datacenter: `https://sso.skillport.com`
+
+    b. In the **Identifier** textbox, type the URL:
       
       EU Datacenter: `http://adfs.skillport.eu/adfs/services/trust`
    
       US Datacenter: `https://sso.skillport.com`
    
-    b. In the **Reply URL** textbox, type the URL:
+    c. In the **Reply URL** textbox, type the URL:
     
       EU Datacenter: ` https://adfs.skillport.eu/adfs/ls/`
     
 	  US Datacenter: `https://sso.skillport.com/sp/ACS.saml2`
-
-	c. In the **Sign-on URL** textbox, type the URL:
-      
-      EU Datacenter: `https://adfs.skillport.eu`
-   
-      US Datacenter: `https://sso.skillport.com`
  
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the XML file on your computer.
 
