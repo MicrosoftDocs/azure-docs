@@ -1,5 +1,5 @@
 ---
-title: Create adn register soap connectors - Azure Logic Apps | Microsoft Docs
+title: Create and register SOAP connectors - Azure Logic Apps | Microsoft Docs
 description: Set up soap connectors for use in Azure Logic Apps
 author: ecfan
 manager: anneta
@@ -17,9 +17,9 @@ ms.date: 09/22/2017
 ms.author: LADocs; estfan
 ---
 
-# SOAP connector overview
+# Simple Object Access Protocol (SOAP) connector overview
 
-Custom connectors allow you to call APIs, services and systems that aren't available as prebuilt connectors. In this document we will cover how you can build a custom SOAP connector using WSDL that describes your SOAP service. The SOAP connector has its own triggers and actions and can be used like prebuilt connectors in your logic app workflows to integrate with SOAP services.
+Custom connectors allow you to call APIs, services, and systems that aren't available as prebuilt connectors. In this document, we cover how you can build a custom SOAP connector using Web Services Description Language (WSDL) that describes your SOAP service. The SOAP connector works like prebuilt connectors, and can be used in your logic app workflows to integrate with SOAP services.
 
 
 ## Prerequisites
@@ -35,7 +35,7 @@ Otherwise, sign up for a [Pay-As-You-Go subscription](https://azure.microsoft.co
   * A WSDL file that defines your SOAP service and the APIs
 
   For this tutorial, you can use our example 
-  [Orders SOAP Serrvice](http://fazioapisoap.azurewebsites.net/FazioService.svc?singleWsdl).
+  [Orders SOAP Service](http://fazioapisoap.azurewebsites.net/FazioService.svc?singleWsdl).
 
 * Optional: An image to use as an icon for your custom connector
 
@@ -141,7 +141,7 @@ then choose **Continue**.
 1. Now choose **Definition** so you can review, edit, 
 or define new actions and triggers that users can add to their workflows.
 
-   Actions and triggers are based on the operations defined in your OpenWSDL file , which automatically populate the **Definition** page 
+   Actions and triggers are based on the operations defined in your WSDL file, which automatically populate the **Definition** page 
    and include the request and response values. So, if the required operations 
    already appear here, you can go to the next step in the registration 
    process without making changes on this page.
