@@ -192,7 +192,7 @@ If you're using scripting languages (e.g. *.csx* files) for development, the orc
 * `connectionName` - The name of an app setting that contains a storage connection string. The storage account represented by this connection string must be the same one used by the target orchestrator functions. If not specified, the default connection string for the function app is used.
 
 > [!NOTE]
-> In most cases, it is recommended to omit these properties and rely on the default behavior.
+> In most cases, we recommend that you omit these properties and rely on the default behavior.
 
 ### Client usage
 

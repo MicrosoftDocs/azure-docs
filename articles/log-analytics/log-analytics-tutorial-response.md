@@ -2,7 +2,7 @@
 title: Respond to events with Azure Log Analytics Alerts | Microsoft Docs
 description: This tutorial helps you understand alerts in Log Analytics to identify important information in your OMS repository and proactively notify you of issues or invoke actions to attempt to correct them.
 services: log-analytics
-documentationcenter: ''
+documentationcenter: log-analytics
 author: MGoedtel
 manager: carmonm
 editor: ''
@@ -11,11 +11,12 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/20/2017
 ms.author: magoedte
-
+ms.custom: mvc
 ---
+
 # Respond to events with Log Analytics Alerts
 Alerts in Log Analytics identify important information in your Log Analytics repository.  They are created by alert rules that automatically run log searches at regular intervals, and if results of the log search match particular criteria then an alert record is created and it can be configured to perform an automated response.  This tutorial is a continuation of the the [Create and share dashboards of Log Analytics data](log-analytics-tutorial-dashboards.md) tutorial.   
 

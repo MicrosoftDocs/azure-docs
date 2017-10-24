@@ -202,7 +202,7 @@ services.BuildServiceProvider().GetService<DotNetCoreSqlDbContext>().Database.Mi
 
 If this code detects that it is running in production (which indicates the Azure environment), then it uses the connection string you configured to connect to the SQL Database. 
 
-The `Database.Migration()` call helps you when it is run in Azure, because it automatically creates the databases that your .NET Core app needs, based on its migration configuration. 
+The `Database.Migrate()` call helps you when it is run in Azure, because it automatically creates the databases that your .NET Core app needs, based on its migration configuration. 
 
 Save your changes.
 
