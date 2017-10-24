@@ -55,3 +55,7 @@ Reservations are available for most VM sizes with some exceptions:
 3.	Insufficient Quota – A RI that is scoped to a single subscription must have vCPU quota available in the subscription for the new RI. For example, if the target subscription had a quota of 10 vCPUs for D-Series family, then it would not be possible to purchase a Reserved VM Instance for 11 Standard_D1 instances. In this case, the subscription would not have enough quota to support the Reserved VM Instance purchase. This quota check is based on the VM sizes already deployed in the subscription. For example, if the subscription had a quota of 10 vCPUs for D-Series Family. If this subscription has two standard_D1 instances deployed, then it is possible to purchase a Reserved VM instance for 10 standard_D1 instances in this subscription. 
 4.	Capacity Restrictions – In rare circumstances, Azure limits access to a subset of VM sizes due to low capacity in a region. This same scenario can cause new reservations to be restricted for those VM sizes that are in low capacity in the region. 
 
+## Next steps
+Start saving on your virtual machines by purchasing a [Reserved Virtual Machine Instance](https://azure.microsoft.com/pricing/reserved-vm-instances/). 
+
+If you need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
