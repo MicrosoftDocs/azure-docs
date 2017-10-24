@@ -24,6 +24,7 @@
 ### [Use reference data](stream-analytics-use-reference-data.md)
 ### [Test queries](stream-analytics-test-query.md)
 ### [Integrate JavaScript UDFs](stream-analytics-javascript-user-defined-functions.md)
+### [Integrate JavaScript UDAs](stream-analytics-javascript-user-defined-aggregates.md)
 ### [Integrate REST API & Machine Learning](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
 ### [Create outputs](stream-analytics-define-outputs.md)
 ### [Output to Data Lake Store](stream-analytics-data-lake-output.md)

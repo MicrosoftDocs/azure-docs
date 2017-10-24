@@ -26,7 +26,7 @@ A user-defined aggregate is used on top of a time window specification to aggreg
 
 ### AccumulateOnly aggregates
 
-AccumulateOnly aggregates can only accumulate new events to its state, the algorithm does not allow deaccumulation of values. You should choose this aggregate type when deaccumulate that information from the state value is imppossible or hard to implement. Below is the JavaScript template for AccumulatOnly aggregates:
+AccumulateOnly aggregates can only accumulate new events to its state, the algorithm does not allow deaccumulation of values. You should choose this aggregate type when deaccumulate an event information from the state value is imppossible to implement. Below is the JavaScript template for AccumulatOnly aggregates:
 
 ````JavaScript
 // Sample UDA which state can only be accumulated.
@@ -47,7 +47,7 @@ function main() {
 
 ### AccumulateDeaccumulate aggregates
 
-AccumulateDeaccumulate aggregates can perform both actions, the algorithm allow deaccumulation of a previous accumulated value. State is for example a list of event values, or a sum, in which deaccumulation is a simple remove or subtraction. Below is the JavaScript template for AccumulateDeaccumulate aggregates:
+AccumulateDeaccumulate aggregates allows deaccumulation of a previous accumulated value from the state, for example remove a key value pair from a list of event values, or substract a value from a state of sum aggregate. Below is the JavaScript template for AccumulateDeaccumulate aggregates:
 
 ````JavaScript
 // Sample UDA which state can be accumulated and deaccumulated.
@@ -78,87 +78,104 @@ function main() {
 
 Each JavaScript UDA is defined by a Function object declaration. Below are the major elements in a UDA definition.
 
+### Function alias
+
+This is the UDA identifier. When called in Stream Analytics query, always use UDA alias together with a “uda.” prefix.
+
+### Function type
+
+For UDA, the function type should be "Javascript UDA".
+
+### Output type
+
+A specific type that Stream Analytics job supported, or "Any" if you want to handle the type in your query.
+
 ### Function name
-The name of this Function object. The function name should literally match the UDA alias (preview behavior, we are considering support anonymous function when GA). When called in Stream Analytics query, UDA alias with a “uda.” prefix will be used as the UDA identifier.
+
+The name of this Function object. The function name should literally match the UDA alias (preview behavior, we are considering support anonymous function when GA).
 
 ### Method - init()
+
 The init() method initializes state of the aggregate. This method is called when window starts.
 
 ### Method – accumulate()
+
 The accumulate() method calculate the UDA state based on the previous state and the current event values. This method is called when a event enters a time window (TUMBLINGWINDOW, HOPPINGWINDOW, or SLIDINGWINDOW).
 
 ### Method – deaccumulate()
+
 The deaccumulate() method recalculate state based on the previous state and the current event values. This method is called when a event leaves a SLIDINGWINDOW.
 
 ### Method – deaccumulateState()
+
 The deaccumulateState() method recalculate state based on the previous state and the state of a hop. This method is called when a set of events leave a HOPPINGWINDOW.
 
 ### Method – computeResult()
+
 The computeResult() method returns aggregate result based on the current state. This method is called at the end of a time window (TUMBLINGWINDOW, HOPPINGWINDOW, and SLIDINGWINDOW).
 
-## Adding a JavaScript UDF from Azure Portal
-You can implement UDAs that are more complex in their functionality, than the simpler aggregates similar to count, sum, and average provided by Stream Analytics. One such example, computing time weighted averages, is discussed in this section.
+## JavaScript UDA supported input and output data types
+For JavaScript UDA data types, please refer to section **Stream Analytics and JavaScript type conversion** of [Integrate JavaScript UDFs](stream-analytics-javascript-user-defined-functions.md).
 
-Now let’s create a simple JavaScript UDF under an existing ASA job by following below steps.
-1.	Logon to Azure Portal with below feature preview URL.
-https://portal.azure.com/?microsoft_azure_streamanalytics_udafunctions=true
+## Adding a JavaScript UDA from Azure Portal
 
-2.	Locate your Stream Analytics job, then click on functions  link under “JOB TOPOLOGY”.
+Below we walk through the process of creating a UDA from Portal. The example we use here is computing time weighted averages.
 
-3.	Click on the “Add” icon to add a new function.
+Now let’s create a simple JavaScript UDA under an existing ASA job by following below steps.
 
-4.	On the “New Function” blade, select “JavaScript UDA” as the Function Type, then you will see a default UDA template show up in the editor.
+1. Logon to Azure Portal and locate your locate your existing Stream Analytics job.
+1. Then click on functions  link under “JOB TOPOLOGY”.
+1. Click on the “Add” icon to add a new function.
+1. On the “New Function” blade, select “JavaScript UDA” as the Function Type, then you will see a default UDA template show up in the editor.
+1. Fill in “TWA” as the UDA alias and change the function implementation as below:
 
-5.	Fill in “TWA” as the UDF alias and change the function implementation as below:
-
-````JavaScript
-// Sample UDA which calculate Time-Weighted Average of incoming values.
-function main() {
-    this.init = function () {
-        this.totalValue = 0.0;
-        this.totalWeight = 0.0;
-    }
-
-    this.accumulate = function (value, timestamp) {
-        this.totalValue += value.level * value.weight;
-        this.totalWeight += value.weight;
-
-    }
-
-    // Uncomment below for AccumulateDeaccumulate implementation
-    /*
-    this.deaccumulate = function (value, timestamp) {
-        this.totalValue -= value.level * value.weight;
-        this.totalWeight -= value.weight;
-    }
-
-    this.deaccumulateState = function (otherState){
-        this.state -= otherState.state;
-        this.totalValue -= otherState.totalValue;
-        this.totalWeight -= otherState.totalWeight;
-    }
-    */
-
-    this.computeResult = function () {
-        if(this.totalValue == 0) {
-            result = 0;
+    ````JavaScript
+    // Sample UDA which calculate Time-Weighted Average of incoming values.
+    function main() {
+        this.init = function () {
+            this.totalValue = 0.0;
+            this.totalWeight = 0.0;
         }
-        else {
-            result = this.totalValue/this.totalWeight;
+
+        this.accumulate = function (value, timestamp) {
+            this.totalValue += value.level * value.weight;
+            this.totalWeight += value.weight;
+
         }
-        return result;
+
+        // Uncomment below for AccumulateDeaccumulate implementation
+        /*
+        this.deaccumulate = function (value, timestamp) {
+            this.totalValue -= value.level * value.weight;
+            this.totalWeight -= value.weight;
+        }
+
+        this.deaccumulateState = function (otherState){
+            this.state -= otherState.state;
+            this.totalValue -= otherState.totalValue;
+            this.totalWeight -= otherState.totalWeight;
+        }
+        */
+
+        this.computeResult = function () {
+            if(this.totalValue == 0) {
+                result = 0;
+            }
+            else {
+                result = this.totalValue/this.totalWeight;
+            }
+            return result;
+        }
     }
-}
-````
+    ````
 
-6.	Once you click the “Save” button, your UDA will show up on the function list.
+1. Once you click the “Save” button, your UDA will show up on the function list.
 
-7.	Click on the new function “TWA”, you can check the function definition.
+1. Click on the new function “TWA”, you can check the function definition.
 
-8.	Please note, the UDA alias and the JavaScript function name should be exactly the same. For our example, both the alias and the JavaScription function name are “TWA”.
+## Calling JavaScript UDA in ASA query
 
-## Calling JavaScript UDF in ASA query
-In Azure Portal and open your job, edit your query and call TWA() function with a mandate prefix “uda.”. For example:
+In Azure Portal and open your job, edit the query and call TWA() function with a mandate prefix “uda.”. For example:
 
 ````SQL
 WITH value AS
@@ -177,6 +194,7 @@ GROUP BY TumblingWindow(minute, 5)
 ````
 
 ## Testing Query with UDA
+
 Create a local JSON file with below content, uploade the file to Stream Analytics job, test above query.
 
 ````JSON
@@ -206,4 +224,3 @@ Create a local JSON file with below content, uploade the file to Stream Analytic
   {"EntryTime": "2017-06-10T05:22:00-07:00", "NoiseLevelDB": 110, "DurationSecond": 5.3}
 ]
 ````
-
