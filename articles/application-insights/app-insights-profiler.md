@@ -19,15 +19,15 @@ ms.author: bwren
 
 *This feature of Application Insights is generally available for Azure App Service and is in preview for Azure Compute.*
 
-Find out how much time is spent in each method in your live web application by using Application Insights Profiler. The [Azure Application Insights](app-insights-overview.md) profiling tool shows detailed profiles of live requests that were served by your app, and highlights the *hot path* that uses the most time. The profiler automatically selects examples that have different response times, and then uses various techniques to minimize overhead.
+Find out how much time is spent in each method in your live web application by using [Application Insights Profiler](app-insights-overview.md). The Application Insights profiling tool shows detailed profiles of live requests that were served by your app, and highlights the *hot path* that uses the most time. The profiler automatically selects examples that have different response times, and then uses various techniques to minimize overhead.
 
-The profiler currently works for ASP.NET web apps running on Azure App Services, in at least the Basic service tier.
+The profiler currently works for ASP.NET web apps running on Azure App Service, in at least the Basic service tier.
 
 ## <a id="installation"></a> Enable the profiler
 
 [Install Application Insights](app-insights-asp-net.md) in your code. If it's already installed, make sure you have the latest version. To check for the latest version, in Solution Explorer, right-click your project, and then select **Manage NuGet packages** > **Updates** > **Update all packages**. Then, redeploy your app.
 
-*Using [ASP.NET Core](#aspnetcore)?*
+*Using ASP.NET Core? Get [more information](#aspnetcore).*
 
 In [the Azure portal](https://portal.azure.com), open the Application Insights resource for your web app. Select **Performance** > **Enable Application Insights Profiler**.
 
@@ -56,7 +56,7 @@ If you use WebDeploy to deploy changes to your web application, ensure that you 
 
 ### Using profiler with Azure VMs and Compute resources (preview)
 
-When you [enable Application Insights for Azure App Services at run time](app-insights-azure-web-apps.md#run-time-instrumentation-with-application-insights), Application Insights Profiler is automatically available. If you have already enabled Application Insights for the resource, you might need to update to the latest version by using the Configure wizard.
+When you [enable Application Insights for Azure App Service at run time](app-insights-azure-web-apps.md#run-time-instrumentation-with-application-insights), Application Insights Profiler is automatically available. If you have already enabled Application Insights for the resource, you might need to update to the latest version by using the Configure wizard.
 
 Get information about a [preview version of the profiler for Azure Compute resources](https://go.microsoft.com/fwlink/?linkid=848155).
 
@@ -65,7 +65,7 @@ Get information about a [preview version of the profiler for Azure Compute resou
 
 The default data retention is five days. The maximum data ingested per day is 10 GB.
 
-There are no charges for using the profiler service. To use the profiler service, your web app must be hosted in at least the Basic tier of App Services.
+There are no charges for using the profiler service. To use the profiler service, your web app must be hosted in at least the Basic tier of App Service.
 
 ## Overhead and sampling algorithm
 
@@ -81,9 +81,9 @@ Go to the **Performance** pane, and then scroll down to the list of operations.
 
 The operations table has these columns:
 
-* **COUNT**: The number of these requests in the time range of the **Count** pane.
+* **COUNT**: The number of these requests in the time range of the **COUNT** pane.
 * **MEDIAN**: The typical time your app takes to respond to a request. Half of all responses were faster than this value.
-* **95TH PERCENTILE**:  95% of responses were faster than this. If this figure is substantially different from the median, there might be an intermittent problem with your app. (Or, it might be explained by a design feature, like caching.)
+* **95TH PERCENTILE**:  95% of responses were faster than this value. If this value is substantially different from the median, there might be an intermittent problem with your app. (Or, it might be explained by a design feature, like caching.)
 * **PROFILER TRACES**: An icon indicates that the profiler has captured stack traces for this operation.
 
 Select **View** to open the trace explorer. The explorer shows several samples that the profiler has captured, classified by response time.
@@ -98,7 +98,7 @@ Select a sample to show a code-level breakdown of time spent executing the reque
 
 The trace explorer shows the following information:
 
-**Show Hot Path**: Opens the biggest leaf node, or at least something close. In most cases, this node
+* **Show Hot Path**: Opens the biggest leaf node, or at least something close. In most cases, this node
 is adjacent to a performance bottleneck.
 * **Label**: The name of the function or event. The tree shows a mix of code and events that occurred (like SQL and HTTP events). The top event represents the overall request duration.
 * **Elapsed**: The time interval between the start of the operation and the end of the operation.
@@ -111,7 +111,7 @@ The Microsoft service profiler uses a combination of sampling methods and instru
 The call stack that's shown in the timeline view is the result of the sampling and instrumentation. Because each sample captures the complete call stack of the thread, it includes code from the Microsoft .NET Framework, and from other frameworks that you reference.
 
 ### <a id="jitnewobj"></a>Object allocation (clr!JIT\_New or clr!JIT\_Newarr1)
-**clr!JIT\_New** and **clr!JIT\_Newarr1** are helper functions in the .NET Framework that allocate memory from a managed heap. **clr!JIT\_New** is invoked when an object is allocated. **clr!JIT\_Newarr1** is invoked when an object array is allocated. These two functions typically are very fast, and take relatively small amounts of time. If you see **clr!JIT\_New** or **clr!JIT\_Newarr1** take a substantial amount of time in your timeline, it's an indication that the code may be allocating many objects and consuming significant amounts of memory.
+**clr!JIT\_New** and **clr!JIT\_Newarr1** are helper functions in the .NET Framework that allocate memory from a managed heap. **clr!JIT\_New** is invoked when an object is allocated. **clr!JIT\_Newarr1** is invoked when an object array is allocated. These two functions typically are very fast, and take relatively small amounts of time. If you see **clr!JIT\_New** or **clr!JIT\_Newarr1** take a substantial amount of time in your timeline, it's an indication that the code might be allocating many objects and consuming significant amounts of memory.
 
 ### <a id="theprestub"></a>Loading code (clr!ThePreStub)
 **clr!ThePreStub** is a helper function in the .NET Framework that prepares the code to execute for the first time. This typically includes, but is not limited to, just-in-time (JIT)) compilation. For each C# method, **clr!ThePreStub** should be invoked at most once during the lifetime of a process.
@@ -148,7 +148,7 @@ The application is performing disk operations.
 The application is performing network operations.
 
 ### <a id="when"></a>When column
-The **When** column is a visualization of how the INCLUSIVE samples collected for a node vary over time. The total range of the request is divided into 32 time buckets. The inclusive samples for that node are accumulated in those 32 buckets. Each bucket is represented as a bar. The height of the bar represents a scaled value. For nodes marked **CPU_TIME** or **BLOCKED_TIME**, or where there is an obvious relationship of consuming a resource (CPU, disk, thread), the bar represents consuming one of those resources for the period of time of that bucket. For these metrics, you can get a value of greater than 100% by consuming multiple resources. For example, if on average you use two CPUs during an interval, you get 200%.
+The **When** column is a visualization of how the INCLUSIVE samples collected for a node vary over time. The total range of the request is divided into 32 time buckets. The inclusive samples for that node are accumulated in those 32 buckets. Each bucket is represented as a bar. The height of the bar represents a scaled value. For nodes marked **CPU_TIME** or **BLOCKED_TIME**, or where there is an obvious relationship of consuming a resource (CPU, disk, thread), the bar represents consuming one of those resources for the period of time of that bucket. For these metrics, it's possible to get a value of greater than 100% by consuming multiple resources. For example, if on average you use two CPUs during an interval, you get 200%.
 
 
 ## <a id="troubleshooting"></a>Troubleshooting
@@ -157,7 +157,7 @@ The **When** column is a visualization of how the INCLUSIVE samples collected fo
 
 Currently, you can enable profiler on a maximum of four Azure web apps and deployment slots that are running in the same service plan. If the profiler web job is reporting too many active profiling sessions, move some web apps to a different service plan.
 
-### How can I determine whether Application Insights Profiler is running?
+### How do I determine whether Application Insights Profiler is running?
 
 The profiler runs as a continuous web job in the web app. You can open the web app resource in [the Azure portal](https://portal.azure.com). In the **WebJobs** pane, check the status of **ApplicationInsightsProfiler**. If it isn't running, open **Logs** to get more information.
 
@@ -197,9 +197,9 @@ Here are a few things that you can check:
 
 Submit a support ticket in the portal. Be sure to include the correlation ID from the error message.
 
-### Deployment error Directory Not Empty 'D:\\home\\site\\wwwroot\\App_Data\\jobs'
+### Deployment error: Directory Not Empty 'D:\\home\\site\\wwwroot\\App_Data\\jobs'
 
-If you are redeploying your web app to an App Services resource with the profiler enabled, you might see a message that looks like the following:
+If you are redeploying your web app to an App Service resource with the profiler enabled, you might see a message that looks like the following:
 
 Directory Not Empty 'D:\\home\\site\\wwwroot\\App_Data\\jobs'
 
