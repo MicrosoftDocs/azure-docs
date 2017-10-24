@@ -41,7 +41,7 @@ Network rules can be applied to existing Storage accounts, or can be applied dur
 
 Once network rules are applied, they are enforced for all requests.  SAS tokens that grant access to a specific IP Address service serve to **limit** the access of the token holder, but do not grant new access beyond configured network rules. 
 
-Virtual Machine Disk traffic (including mount and unmount operations, and disk IO) is **not** affected b​y network rules.  Backup of unmanaged disks is not supported for protected storage accounts during the preview.  REST access to page blobs (used for Virtual Machine disks) is protected by network rules.
+Virtual Machine Disk traffic (including mount and unmount operations, and disk IO) is **not** affected by network rules.  REST access to page blobs is protected by network rules.
 
 Classic Storage accounts **do not** support Firewalls and Virtual Networks.
 
@@ -302,6 +302,7 @@ When the "Trusted Microsoft Services" exception is enabled, the following servic
 |Azure HDInsight|Microsoft.HDInsight|Cluster provisioning and installation.  [Learn more](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-use-blob-storage).|
 |Azure Networking|Microsoft.Networking|Store and analyze network traffic logs.  [Learn more](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-packet-capture-overview).|
 |Azure SQL Data Warehouse|Microsoft.Sql|Data import and export.  [Learn more](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-overview-load#load-from-azure-blob-storage).|
+|Azure Backup|Microsoft.RecoveryServices|Backup and restore of unmanaged disks.  [Learn more](https://docs.microsoft.com/en-us/azure/backup/backup-introduction-to-azure-backup).|
 ||||
 
 ### Storage analytics data access
