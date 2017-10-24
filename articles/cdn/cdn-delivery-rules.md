@@ -40,8 +40,8 @@ How to set a cache rule:
 3. Set the Global Cache Rule to **Set if missing** and the value to 10 days. 
 The Global Cache Rule affects all requests to the endpoint. This rule honors the origin cache directives if they exist (Cache-Control or Expires); otherwise, if the directives are not specified, it sets the cache to 10 days. 
 4. Create a Custom Cache Rule as follows:
-    a. Set the condition to **URL Path** and its value to `/images/*.jpg`.
-    b. Set the action to **Override** and its value to 30 days.
+    1. Set the condition to **URL Path** and its value to `/images/*.jpg`.
+    2. Set the action to **Override** and its value to 30 days.
     This action sets a cache duration of 30 days on any `.jpg` image files in the `/images` folder of your endpoint and overrides any Cache-Control or Expires headers sent by the origin server.
  
 
