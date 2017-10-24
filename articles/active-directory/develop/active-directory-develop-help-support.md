@@ -25,7 +25,7 @@ ms.custom: aaddev
 Regardless if you are just starting to integrate with Azure Active Directory, Microsoft identities or Microsoft Graph API, or when you are implementing a new feature to your application, there are times that you need to obtain help from the community or understand the support options that you have as a developer. This article helps you to understand these options, below a summary:
 
 > [!div class="checklist"]
-> * You may want to search to check if your problem question has not been answered by the community, or if an existing documentation for the feature you are trying to implement already exists
+> *Search to check if your problem question has not been answered by the community, or if an existing documentation for the feature you are trying to implement already exists
 > * In some cases, you just want to use of our support tools to help you debug a specific your problem
 > * If you can't find the answer from what you need, you may want to ask a question on *Stack Overflow*
 > * If you find an issue with one of our authentication libraries, raise a *GitHub* issue
@@ -39,9 +39,9 @@ If you have a development-related question, you may be able to find the answer y
 > [!TIP]
 > Scope your search to Stack Overflow, our documentation, and our code samples by using the following on your [favorite search engine](https://bing.com):
 > ```
-> {yoursearchterms} (site:stackoverflow.com OR site:docs.microsoft.com OR site:github.com/azure-samples OR site:cloudidentity.com OR site:developer.microsoft.com/en-us/graph)
+> {Your Search Terms} (site:stackoverflow.com OR site:docs.microsoft.com OR site:github.com/azure-samples OR site:cloudidentity.com OR site:developer.microsoft.com/en-us/graph)
 > ```
-> Where *{yoursearchterms}* is your search keywords.
+> Where *{Your Search Terms}* is your search keywords.
 
 
 ## Use our development support tools
@@ -81,7 +81,7 @@ If you cannot find an answer to your problem via search, submit a new question t
 [![Stack Overflow](media/active-directory-develop-help-support/github-logo.png)](https://www.github.com)
 ## Create a GitHub issue
 
- If you find a bug or problem related to our libraries, please raise an issue on our GitHub repositories. Because our libraries are open source, you are also free to submit a pull request as well. The following article contains a list of libraries and their GitHub repositories:
+ If you find a bug or problem related to our libraries, raise an issue on our GitHub repositories. Because our libraries are open source, you are also free to submit a pull request as well. The following article contains a list of libraries and their GitHub repositories:
 
 - [ADAL, MSAL, and Owin middleware](active-directory-authentication-libraries.md) libraries and GitHub repositories
 
