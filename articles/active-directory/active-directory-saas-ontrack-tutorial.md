@@ -134,7 +134,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| Hyperion-Code  | "12345" |
 
 	> [!NOTE]
-	> **User-Role** and **Hyperion-Code** attributes are mapped with Autonation User Role and Dealer Code respectively. Please use the correct code for your integration. You can contact [Autonation support](CustomerService@insigniagroup.com) for these values.
+	> **User-Role** and **Hyperion-Code** attributes are mapped with Autonation User Role and Dealer Code respectively. Please use the correct code for your integration. You can contact [Autonation support](mailto:CustomerService@insigniagroup.com) for these values.
 	
 	a. Click **Add attribute** to open the **Add Attribute** dialog.
 
@@ -152,7 +152,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-ontrack-tutorial/tutorial_general_400.png)
 
-8. To configure single sign-on on **OnTrack** side, you need to send the downloaded **Metadata XML** to [OnTrack support team](CustomerService@insigniagroup.com). They set this setting to have the SAML SSO connection set properly on both sides.
+8. To configure single sign-on on **OnTrack** side, you need to send the downloaded **Metadata XML** to [OnTrack support team](mailto:CustomerService@insigniagroup.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -192,7 +192,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Create an OnTrack test user
 
-In this section, you create a user called Britta Simon in OnTrack. Work with [OnTrack support team](CustomerService@insigniagroup.com) to add the users in the OnTrack platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in OnTrack. Work with [OnTrack support team](mailto:CustomerService@insigniagroup.com) to add the users in the OnTrack platform. Users must be created and activated before you use single sign-on.
 
 ### Assign the Azure AD test user
 
