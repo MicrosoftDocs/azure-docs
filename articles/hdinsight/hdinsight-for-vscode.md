@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/26/2017
+ms.date: 10/27/2017
 ms.author: jejiang
 ---
 
@@ -142,7 +142,7 @@ HDInsight Tools for VSCode enable you to submit interactive Hive queries to HDIn
     ```hiveql
     SELECT * FROM hivesampletable;
     ```
-3. Right-click the script editor, and then click **HDInsight: Interactive Hive** to submit the query. The Tools also allow you to submit a block of code instead of the whole script file using the context menu. Soon after, the query result is shown in a new tab:
+3. Right-click the script editor, and then click **HDInsight: Hive Interactive** to submit the query. The Tools also allow you to submit a block of code instead of the whole script file using the context menu. Soon after, the query result is shown in a new tab:
 
    ![interactive Hive result](./media/hdinsight-for-vscode/interactive-hive-result.png)
 
@@ -160,7 +160,7 @@ Comparing to [running a Hive batch job](#submit-hive-batch-scripts), the interac
     ```hiveql
     SELECT * FROM hivesampletable;
     ```
-3. Right-click the script editor, and then click **HDInsight: Submit Hive Batch Script** to submit a Hive job. 
+3. Right-click the script editor, and then click **HDInsight: Hive Batch** to submit a Hive job. 
 4. Select a cluster where you want to submit to.  
 
     After submitting a Hive job, the submission success info and jobid is shown in **OUTPUT** panel. And it opens **WEB BROWSER** which the job realtime logs and status shown in.
@@ -169,11 +169,38 @@ Comparing to [running a Hive batch job](#submit-hive-batch-scripts), the interac
 
 Comparing to [submitting interactive Hive queries](#submit-interactive-hive-queries), the batch job takes much longer time.
 
+## Submit interactive PySpark queries
+HDInsight Tools for VSCode also enable you to submit interactive PySpark queries to Spark clusters.
+1. Create a new work folder and a new script file with the .py extension if you don't have one.
+2. Connect to your Azure account, if you haven't done so.
+3. Copy and paste the following code into the script file:
+   ```python
+   from operator import add
+   lines = spark.read.text("/HdiSamples/HdiSamples/FoodInspectionData/README").rdd.map(lambda r: r[0])
+   counters = lines.flatMap(lambda x: x.split(' ')) \
+                .map(lambda x: (x, 1)) \
+                .reduceByKey(add)
+
+   coll = counters.collect()
+   sortedCollection = sorted(coll, key = lambda r: r[1], reverse = True)
+
+   for i in range(0, 5):
+        print(sortedCollection[i])
+   ```
+4. Highlight these script and right click the script editor, then click **HDInsight: PySpark Interactive**.
+5. Set up python environment if you don't install it. The instruction, see [set up](tttt).
+6. Select a cluster to submit your PySpark query. Soon after, the query result is shown in the right new tab:
+
+   ![submit python job result](./media/hdinsight-for-vscode/pyspark-interactive-result.png) 
+7. Our tool also supports query the **SQL Clause**. 
+   ![submit python job result](./media/hdinsight-for-vscode/pyspark-ineteractive-select-result.png)
+
+8. Our clusters can maintain a session. For example, **a=100**, already keep this session in cluser, now you just only run **print a** to cluster.
 
 ## Submit PySpark job
 
 1. Create a new work folder and a new script file with the .py extension if you don't have one.
-2. Connect to your Azure account, and then configure the default cluster if you haven't done so.
+2. Connect to your Azure account, if you haven't done so.
 3. Copy and paste the following code into the script file:
 
     ```python
@@ -196,7 +223,7 @@ Comparing to [submitting interactive Hive queries](#submit-interactive-hive-quer
             print("%s: %i" % (word, count))
         spark.stop()
     ```
-4. Right-click the script editor, and then click **HDInsight: Submit PySpark Job**. 
+4. Right-click the script editor, and then click **HDInsight: PySpark Batch**. 
 5. Select a cluster to submit your PySpark job. 
 
    ![submit python job result](./media/hdinsight-for-vscode/submit-pythonjob-result.png) 
