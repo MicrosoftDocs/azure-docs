@@ -37,7 +37,7 @@ We encourage you to try DDoS Protection Standard, in development, test, or produ
 - [Azure DDoS Protection on the MSDN Forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azureddosprotection)
 - [Azure DDos Protection on Stack Overflow](https://stackoverflow.com/tags/azure-ddos/info)
 
-For support issues, you can [open an Azure support ticket](../azure-supportability/how-to-create-azure-support-request.md). Support while DDoS Protection Standard is in preview is provided on a best-effort basis.
+For support issues, you can [open an Azure support ticket](../azure-supportability/how-to-create-azure-support-request.md). While DDoS Protection Standard is in preview, support is provided on a best-effort basis.
 
 ## Types of DDoS attacks that DDoS Protection Standard mitigates
 
