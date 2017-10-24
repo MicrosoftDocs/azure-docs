@@ -15,11 +15,11 @@ Terraform works great from a Bash command line such as macOS Terminal or Bash on
 
 This concepts article covers Cloud Shell features that help you write Terraform scripts that deploy to Azure.
 
-## Automatic credential configuration
-
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Terraform is installed and immediately available in Cloud Shell. Terraform scripts authenticate with Azure when logged in to the Cloud Shell to manage infrastructure without any additional configuration. Automatic authentication bypasses the need to manually create a service principal and configure Terraform provider variables.
+## Automatic credential configuration
+
+Terraform is installed and immediately available in Cloud Shell. Terraform scripts authenticate with Azure when logged in to the Cloud Shell to manage infrastructure without any additional configuration. Automatic authentication bypasses the need to manually create an Active Directory service principal and configure the Azure Terraform provider variables.
 
 
 ## Using Modules and Providers
