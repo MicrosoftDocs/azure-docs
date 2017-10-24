@@ -34,7 +34,7 @@
 - name: Tutorials
   href: walkthroughs.md
   items:
-  - name: Azure Machine Learning Workbench
+  - name: Azure Machine Learning
     href: walkthroughs-aml-with-tdsp.md
     items:
     - name: US income classification
@@ -222,6 +222,8 @@
   - name: TDSP tools and utilities - GitHub
     href: https://github.com/Azure/Azure-TDSP-Utilities
     items:
+    - name: Recent Updates for the TDSP
+      href: https://blogs.technet.microsoft.com/machinelearning/2017/10/09/the-microsoft-team-data-science-process-tdsp-recent-updates/
     - name: Latest utilities for the Team Data Science Process
       href: https://blogs.technet.microsoft.com/machinelearning/2017/04/05/latest-rev-of-utilities-for-microsoft-team-data-science-process-tdsp-now-available/
   - name: Cortana Intelligence and Machine Learning Blog
