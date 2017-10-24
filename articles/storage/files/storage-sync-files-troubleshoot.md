@@ -104,6 +104,8 @@ This article is designed to help you troubleshoot and resolve issues encountered
     > If the server is part of a cluster, there is an optional `Reset-StorageSyncServer -CleanClusterRegistration` parameter that will also remove the cluster registration. This switch should be used when the last node in the cluster is unregistered.
 
 ## Sync
+[!INCLUDE [storage-sync-files-change-detection](../../../includes/storage-sync-files-change-detection.md)]
+
 - <a id="broken-sync"></a>**How to troubleshoot sync not working on a server**  
     If sync is failing on a server, perform the following:
     - Verify a Server Endpoint exists in the Azure portal for the directory you want to sync to an Azure File share:
