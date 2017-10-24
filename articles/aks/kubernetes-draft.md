@@ -28,7 +28,7 @@ This document details using Draft with a Kubernetes cluster on AKS.
 
 ## Prerequisites
 
-The steps detailed in this document assume that you have created an AKS Kubernetes cluster and have established a kubectl connection with the cluster. If you need these items, see the [AKS Kubernetes quickstart](./kubernetes-walkthrough.md).
+The steps detailed in this document assume that you have created an AKS cluster and have established a kubectl connection with the cluster. If you need these items, see the [AKS quickstart](./kubernetes-walkthrough.md).
 
 You also need a private Docker registry in Azure Container Registry (ACR). For instructions on deploying an ACR instance, see the [Azure Container Registry Quickstart](../container-registry/container-registry-get-started-azure-cli.md).
 
