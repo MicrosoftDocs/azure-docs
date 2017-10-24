@@ -38,38 +38,51 @@ To complete this tutorial, you need:
 In a terminal window, run the following command to clone the sample app repository to your local machine, then change to the directory that contains the sample code.
 
 ```bash
-git clone https://github.com/Azure-Samples/docker-django-webapp-linux.git
-cd docker-django-webapp-linux
+git clone https://github.com/Azure-Samples/use-custom-docker-image.git
+cd use-custom-docker-image
 ```
+
+[!INCLUDE [Try Cloud Shell](../../../includes/cloud-shell-try-it.md)]
 
 ## Build the image from the Docker file
 
 The following Docker file describes the Python environment which is required to run our application. Additionally, the image sets up an [SSH](https://www.ssh.com/ssh/protocol/) server for secure communication between the container and the host.
 
 ```docker
-FROM python:3.4
+# Use an official Python runtime as a parent image
+FROM python
 
-RUN mkdir /code
-WORKDIR /code
-ADD requirements.txt /code/
-RUN pip install -r requirements.txt
-ADD . /code/
+# Set the working directory to /app
+WORKDIR /app
 
-# ssh
-ENV SSH_PASSWD "root:Docker!"
-RUN apt-get update \
-        && apt-get install -y --no-install-recommends dialog \
-        && apt-get update \
-	&& apt-get install -y --no-install-recommends openssh-server \
-	&& echo "$SSH_PASSWD" | chpasswd 
+# Copy the current directory contents into the container at /app
+ADD . /app
 
+# Run python's package manager and install the flask package
+RUN pip install flask
+
+# Configure ports
+EXPOSE 2222 80
+
+# Run apt-get, to install the SSH server
+RUN apt-get update \ 
+ 	&& apt-get install -y --no-install-recommends openssh-server \
+ 	&& echo "root:Docker!" | chpasswd
+
+#Copy the sshd_config file to its new location
 COPY sshd_config /etc/ssh/
-COPY init.sh /usr/local/bin/
+
+# Start the SSH service
+RUN service ssh start
+
+# Copy init_container.sh to the /bin directory
+COPY init_container.sh /bin/
 	
-RUN chmod u+x /usr/local/bin/init.sh
-EXPOSE 8000 2222
-#CMD ["python", "/code/manage.py", "runserver", "0.0.0.0:8000"]
-ENTRYPOINT ["init.sh"]
+# Run the chmod command to change permissions on above file in the /bin directory
+RUN chmod 755 /bin/init_container.sh 
+
+# run commands in init_container.sh
+CMD ["/bin/init_container.sh"]
 ```
 
 To build the Docker image, run the `docker build` command, and provide a name, `mydockerimage`, and tag, `v1.0.0`. Replace `<docker-id>` with your Docker Hub account ID.
@@ -190,8 +203,6 @@ v1: digest: sha256:a910d5b77e6960c01745a87c35f3d1a13ba73231ac9a4664c5011b1422d59
 
 ---
 -->
-
-[!INCLUDE [Try Cloud Shell](../../../includes/cloud-shell-try-it.md)]
 
 ## Create Web App for Containers
 
