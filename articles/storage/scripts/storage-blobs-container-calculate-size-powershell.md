@@ -42,18 +42,20 @@ For-Each Metadata[3 bytes + Len(MetadataName) + Len(Value)] +
 For-Each Signed Identifier[512 bytes]
 `
 
-The following is the breakdown:
+Following is the breakdown:
 * 48 bytes of overhead for each container includes the Last Modified Time, Permissions, Public Settings, and some system metadata.
 
 * The container name is stored as Unicode, so take the number of characters and multiply by two.
+
 * For each block of blob container metadata that's stored, we store the length of the name (ASCII), plus the length of the string value.
+
 * The 512 bytes per Signed Identifier includes signed identifier name, start time, expiry time, and permissions.
 
 ### Blobs
 
-The following section explains how to estimate the amount of storage consumed per blob:
+The following section explains how to estimate the amount of storage consumed per blob.
 
-* Block blob (base blob or snapshot)
+* Block blob (base blob or snapshot):
 
 `
 124 bytes + Len(BlobName) * 2 bytes +
@@ -63,7 +65,7 @@ SizeInBytes(data in unique committed data blocks stored) +
 SizeInBytes(data in uncommitted data blocks)
 `
 
-* Page Blob (base blob or snapshot)
+* Page blob (base blob or snapshot):
 
 `
 124 bytes + Len(BlobName) * 2 bytes +
@@ -72,9 +74,20 @@ number of nonconsecutive page ranges with data * 12 bytes +
 SizeInBytes(data in unique pages stored)
 `
 
-The following is the breakdown:
+Following is the breakdown:
 
-* 124 bytes of overhead for blob, which includes the Last Modified Time, Size, Cache-Control, Content-Type, Content-Language, Content-Encoding, Content-MD5, Permissions, Snapshot information, Lease, and some system metadata.
+* 124 bytes of overhead for blob, which includes:
+    - Last Modified Time
+    - Size
+    - Cache-Control
+    - Content-Type
+    - Content-Language
+    - Content-Encoding
+    - Content-MD5
+    - Permissions
+    - Snapshot information
+    - Lease
+    - Some system metadata
 
 * The blob name is stored as Unicode, so take the number of characters and multiply by two.
 
@@ -82,13 +95,11 @@ The following is the breakdown:
 
 * For the block blobs:
     * 8 bytes for the block list.
-
     * Number of blocks times the block ID size in bytes.
-
     * The size of the data in all of the committed and uncommitted blocks. 
     
     >[!NOTE]
-    >When snapshots are used, this size only includes the unique data for this base or snapshot blob. If the uncommitted blocks are not used after a week, they are e garbage-collected. After that, they won't count towards billing.
+    >When snapshots are used, this size  includes only the unique data for this base or snapshot blob. If the uncommitted blocks are not used after a week, they are garbage-collected. After that, they don't count towards billing.
 
 * For page blobs:
     * The number of nonconsecutive page ranges with data times 12 bytes. This is the number of unique page ranges you see when calling the **GetPageRanges** API.
@@ -96,7 +107,7 @@ The following is the breakdown:
     * The size of the data in bytes of all of the stored pages. 
     
     >[!NOTE]
-    >When snapshots are used, this size only includes the unique pages for the base blob or the snapshot blob that's being counted.
+    >When snapshots are used, this size includes only the unique pages for the base blob or the snapshot blob that's being counted.
 
 ## Sample script
 
@@ -106,6 +117,6 @@ The following is the breakdown:
 
 - For more information about  Azure Storage Billing, see [Understanding Windows Azure Storage Billing](https://blogs.msdn.microsoft.com/windowsazurestorage/2010/07/08/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity/).
 
-- For more information about the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/overview).
+- For more information about the Azure PowerShell module, see [Azure PowerShell documentation](../powershell/azure/overview).
 
 - Additional Storage PowerShell script samples can be found in [PowerShell samples for Azure Storage](../blobs/storage-samples-blobs-powershell.md).
