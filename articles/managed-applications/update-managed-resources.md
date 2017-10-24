@@ -17,7 +17,7 @@ ms.author: tomfitz
 
 This article describes how to update resources that are deployed as part of a managed application. As the publisher of a managed application, you have access to the resources in the managed resource group. To update these resources, you need to find the managed resource group associated with a managed application, and access the resource in that resource group.
 
-This article assumes you have deployed the managed application in [Publish a managed application for internal consumption](publish-service-catalog.md). If you have not deployed that managed application, you can still use this article to become familiar with the steps for updating a managed resource group.
+This article assumes you have deployed the managed application in [Publish a managed application for internal consumption](publish-service-catalog-app.md). If you have not deployed that managed application, you can still use this article to become familiar with the steps for updating a managed resource group.
 
 The following image shows the deployed managed application.
 
