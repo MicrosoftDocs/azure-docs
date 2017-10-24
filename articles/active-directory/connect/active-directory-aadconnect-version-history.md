@@ -34,6 +34,11 @@ Download| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615
 ## 1.1.647.0
 Status: October 19 2017
 
+> [!IMPORTANT]
+> Important: There is a known compatibility issue between Azure AD Connect version 1.1.647.0 and Azure AD Connect Health Agent (for sync) version 3.0.127.0. This issue prevents the Health Agent from sending health data about the Azure AD Connect Synchronization Service (including object synchronization errors and run history data) to Azure AD Health Service. Before manually upgrading your Azure AD Connect deployment to version 1.1.647.0, please verify the current version of Azure AD Connect Health Agent installed on your Azure AD Connect server. You can do so by going to *Control Panel → Add Remove Programs* and look for application *Microsoft Azure AD Connect Health Agent for Sync*. If its version is 3.0.127.0, it is recommended that you wait for the next Azure AD Connect version to be available before upgrade. If the Health Agent version isn't 3.0.127.0, it is fine to proceed with the manual, in-place upgrade. Note that this issue does not affect swing upgrade or customers who are performing new installation of Azure AD Connect.
+>
+>
+
 ### Azure AD Connect
 #### Fixed issues
 * Fixed an issue with the *Change user sign-in* task in Azure AD Connect wizard:
