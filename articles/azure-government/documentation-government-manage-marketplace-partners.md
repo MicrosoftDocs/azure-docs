@@ -27,7 +27,7 @@ Publishing your solution in the Azure Government Marketplace is as simple as pub
 and making it available in the Azure Government Marketplace makes it easier for these government customers to gain exposure to your solution and get up and running quickly.
 
 ## Compliance considerations
-There are no compliance requirements to publish solutions to the Azure Government Marketplace.
+There are no initial Microsoft compliance requirements to publish solutions to the Azure Government Marketplace.
 
 Once a solution has been published, customers can deploy it into their own subscription as part of a broader operational environment or business solution. The customer might then opt to certify the overarching environment. As part of that certification process, they might reach out to the publisher with extra requirements, which the publisher can then evaluate and triage with the customer. 
 
