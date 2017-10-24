@@ -20,7 +20,7 @@ ms.custom: mvc
 ---
 # Use a custom Docker image for Azure Web App for Containers
 
-[Web App for Containers](app-service-linux-intro.md) provides built-in Docker images on Linux with support for specific versions, such as PHP 7.0 and Node.js 4.5. Web App for Containers leverages the Docker container technology to host both built-in images and custom images as a platform as a service. In this tutorial, you will learn how to build a custom docker image for use on Web App for Containers, which is a common pattern if there isn't a built-in image for your language, or your application requires a specific configuration which isn't provided within the built-in images.
+[Web App for Containers](app-service-linux-intro.md) provides built-in Docker images on Linux with support for specific versions, such as PHP 7.0 and Node.js 4.5. Web App for Containers uses the Docker container technology to host both built-in images and custom images as a platform as a service. In this tutorial, you learn how to build a custom docker image and deploy it to Web App for Containers. This pattern is useful when the built-in images don't include your language of choice, or when your application requires a specific configuration that isn't provided within the built-in images.
 
 ## Prerequisites
 
@@ -44,7 +44,7 @@ cd docker-django-webapp-linux
 
 ## Build the image from the Docker file
 
-The following Docker file describes the Python environment which is required to run our application. Additionally, the image sets up an [SSH](https://www.ssh.com/ssh/protocol/) server for secure communication between the container and the host.
+In the Git repository, take a look at _Dockerfile_. This file describes the Python environment that is required to run our application. Additionally, the image sets up an [SSH](https://www.ssh.com/ssh/protocol/) server for secure communication between the container and the host.
 
 ```docker
 FROM python:3.4
@@ -109,7 +109,7 @@ Test that the build works by running the Docker container. Issue the [docker run
 docker run -p 2222:8000 <docker-ID>/mydockerimage:v1.0.0
 ```
 
-Verify the web app and container are functioning correctly by browsing the web app locally.
+Verify the web app and container are functioning correctly by browsing to `http://localhost:2222`.
 
 ![Test web app locally](./media/app-service-linux-using-custom-docker-image/app-service-linux-browse-local.png)
 
@@ -130,7 +130,7 @@ Docker Hub is a registry for Docker images that allows you to host your own repo
 <docker-id>/image-name:tag
 ```
 
-If you haven't logged into Docker Hub, do so using the [docker login](https://docs.docker.com/engine/reference/commandline/login/) command before attempting to push an image.
+If you haven't logged in to Docker Hub, do so using the [docker login](https://docs.docker.com/engine/reference/commandline/login/) command before attempting to push an image.
 
 ```bash
 docker login --username <docker-id> --password <docker-hub-password>
@@ -215,7 +215,7 @@ When the web app has been created, the Azure CLI shows output similar to the fol
 
 Most Docker images have environment variables that need to be configured. If you are using an existing Docker image built by someone else, the image may use a port other than 80. You tell Azure about the port that your image uses by using the `WEBSITES_PORT` app setting. The GitHub page for the [Python sample in this tutorial](https://github.com/Azure-Samples/docker-django-webapp-linux) shows that you need to set `WEBSITES_PORT` to _8000_.
 
-To set app settings, use the [az webapp config appsettings update](/cli/azure/webapp/config/appsettings#update) command in the Cloud Shell. App settings are case sensitive and space-separated.
+To set app settings, use the [az webapp config appsettings update](/cli/azure/webapp/config/appsettings#update) command in the Cloud Shell. App settings are case-sensitive and space-separated.
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITES_PORT=8000
@@ -329,7 +329,7 @@ Congratulations! You've configured a custom Docker image for an Azure Web App fo
 
 ## Push a Docker image to Private Registry (Optional)
 
-Azure Container Registry is a managed Docker service from Azure for hosting private images. The deployments may be any type, including [Docker Swarm](https://docs.docker.com/engine/swarm/), [Kubernetes](https://kubernetes.io/), and Azure app service containers. Using the Azure Container Registry is just like using any private registry, so if you need to use your own private registry, the steps to complete this task will be similar.
+Azure Container Registry is a managed Docker service from Azure for hosting private images. The deployments may be any type, including [Docker Swarm](https://docs.docker.com/engine/swarm/), [Kubernetes](https://kubernetes.io/), and Azure app service containers. Using the Azure Container Registry is just like using any private registry, so if you need to use your own private registry, the steps to complete this task are similar.
 
 Use the [az acr create](https://docs.microsoft.com/cli/azure/acr#az_acr_create) command to create an Azure Container Registry. Pass in the name, resource group, and `Basic` for the SKU. Available SKUs are `Classic`, `Basic`, `Standard`, and `Premium`.
 
@@ -397,7 +397,7 @@ Now that you have the necessary credentials, log in to the Azure Container Regis
 docker login <azure-container-registry-name>.azurecr.io --username <azure-container-registry-name> --password <password> 
 ```
 
-Confirm that the login succeeded. Push the image by using the `docker push` command, and tagging the image with the name of the registry followed by your image name and tag.
+Confirm that the login succeeded. Push the image by using the `docker push` command. Tag the image with the name of the registry, followed by your image name and tag.
 
 ```bash
 docker push <azure-container-registry-name>.azurecr.io/mydockerimage:v1.0.0
