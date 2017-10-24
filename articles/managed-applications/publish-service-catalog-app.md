@@ -229,5 +229,4 @@ The parameters used in the preceding example are:
 * For examples of the files, see [Managed application samples](https://github.com/Azure/azure-managedapp-samples/tree/master/samples).
 * For information about consuming a Service Catalog managed application, see [Consume a Service Catalog managed application](consume-service-catalog-app.md).
 * For information about publishing managed applications to the Azure Marketplace, see [Azure managed applications in the Marketplace](publish-marketplace-app.md).
-* For information about consuming a managed application from the Marketplace, see [Consume Azure managed applications in the Marketplace](consume-marketplace-app.md).
 * To learn how to create a UI definition file for a managed application, see [Get started with CreateUiDefinition](create-uidefinition-overview.md).
