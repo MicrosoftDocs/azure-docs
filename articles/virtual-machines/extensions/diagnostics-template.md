@@ -23,7 +23,7 @@ ms.custom: H1Hack27Feb2017
 The Azure Diagnostics Extension provides the monitoring and diagnostics capabilities on a Windows-based Azure virtual machine. You can enable these capabilities on the virtual machine by including the extension as part of the Azure Resource Manager template. See [Authoring Azure Resource Manager Templates with VM Extensions](../windows/template-description.md) for more information on including any extension as part of a virtual machine template. This article describes how you can add the Azure Diagnostics extension to a windows virtual machine template.  
 
 ## Add the Azure Diagnostics extension to the VM resource definition
-To enable the diagnostics extension on a Windows Virtual Machine you need to add the extension as a VM resource in the Resource Manager template.
+To enable the diagnostics extension on a Windows Virtual Machine, you need to add the extension as a VM resource in the Resource Manager template.
 
 For a simple Resource Manager based Virtual Machine add the extension configuration to the *resources* array for the Virtual Machine: 
 
@@ -58,7 +58,7 @@ For a simple Resource Manager based Virtual Machine add the extension configurat
             ]
 
 
-Another common convention is add the extension configuration at the root resources node of the template instead of defining it under the virtual machine's resources node. With this approach you have to explicitly specify a hierarchical relation between the extension and the virtual machine with the *name* and *type* values. For example: 
+Another common convention is to add the extension configuration at the root resources node of the template instead of defining it under the virtual machine's resources node. With this approach, you have to explicitly specify a hierarchical relation between the extension and the virtual machine with the *name* and *type* values. For example: 
 
     "name": "[concat(variables('vmName'),'Microsoft.Insights.VMDiagnosticsSettings')]",
     "type": "Microsoft.Compute/virtualMachines/extensions",
@@ -97,7 +97,7 @@ The preceding diagnostics extension json snippet assumes two parameters *existin
 It is best practice to specify a diagnostics storage account in a different resource group than the resource group for the virtual machine. A resource group can be considered to be a deployment unit with its own lifetime, a virtual machine can be deployed and redeployed as new configurations updates are made it to it but you may want to continue storing the diagnostics data in the same storage account across those virtual machine deployments. Having the storage account in a different resource enables the storage account to accept data from various virtual machine deployments making it easy to troubleshoot issues across the various versions.
 
 > [!NOTE]
-> If you create a windows virtual machine template from Visual Studio the default storage account might be set to use the same storage account where the virtual machine VHD is uploaded. This is to simplify initial setup of the VM. Refactor the template to use a different storage account that can be passed in as a parameter. 
+> If you create a windows virtual machine template from Visual Studio the default storage account might be set to use the same storage account where the virtual machine VHD is uploaded. This behavior is to simplify initial setup of the VM. Refactor the template to use a different storage account that can be passed in as a parameter. 
 > 
 > 
 
@@ -134,35 +134,35 @@ The following example shows the xml for metrics definitions:
 
 The *resourceID* attribute uniquely identifies the virtual machine in your subscription. Make sure to use the subscription() and resourceGroup() functions so that the template automatically updates those values based on the subscription and resource group you are deploying to.
 
-If you are creating multiple Virtual Machines in a loop then you must populate the *resourceID* value with an copyIndex() function to correctly differentiate each individual VM. The *xmlCfg* value can be updated to support this as follows:  
+If you are creating multiple Virtual Machines in a loop, populate the *resourceID* value with an copyIndex() function to correctly differentiate each individual VM. The *xmlCfg* value can be updated to support this as follows:  
 
     "xmlCfg": "[base64(concat(variables('wadcfgxstart'), variables('wadmetricsresourceid'), concat(parameters('vmNamePrefix'), copyindex()), variables('wadcfgxend')))]", 
 
 The MetricAggregation value of *PT1H* and *PT1M* signify an aggregation over a minute and an aggregation over an hour.
 
 ## WADMetrics tables in storage
-The preceding Metrics configuration generate tables in your diagnostics storage account with the following naming conventions:
+The preceding Metrics configuration generates tables in your diagnostics storage account with the following naming conventions:
 
-* **WADMetrics** : Standard prefix for all WADMetrics tables
-* **PT1H** or **PT1M** : Signifies that the table contains aggregate data over 1 hour or 1 minute
-* **P10D** : Signifies the table contains data for 10 days from when the table started collecting data
-* **V2S** : String constant
-* **yyyymmdd** : The date at which the table started collecting data
+* **WADMetrics**: Standard prefix for all WADMetrics tables
+* **PT1H** or **PT1M**: Signifies that the table contains aggregate data over 1 hour or 1 minute
+* **P10D**: Signifies the table contains data for 10 days from when the table started collecting data
+* **V2S**: String constant
+* **yyyymmdd**: The date at which the table started collecting data
 
 Example: *WADMetricsPT1HP10DV2S20151108* contains metrics data aggregated over an hour for 10 days starting on 11-Nov-2015    
 
 Each WADMetrics table contains the following columns:
 
-* **PartitionKey**: The partitionkey is constructed based on the *resourceID* value to uniquely identify the VM resource. for examples : 002Fsubscriptions:<subscriptionID>:002FresourceGroups:002F<ResourceGroupName>:002Fproviders:002FMicrosoft:002ECompute:002FvirtualMachines:002F<vmName>  
-* **RowKey** : Follows the format <Descending time tick>:<Performance Counter Name>. The descending time tick calculation is max time ticks minus the time of the beginning of the aggregation period. For example, if the sample period started on 10-Nov-2015 and 00:00Hrs UTC then the calculation would be: DateTime.MaxValue.Ticks - (new DateTime(2015,11,10,0,0,0,DateTimeKind.Utc).Ticks). For the memory available bytes performance counter the row key looks like: 2519551871999999999__:005CMemory:005CAvailable:0020Bytes
-* **CounterName** : Is the name of the performance counter. This matches the *counterSpecifier* defined in the xml config.
-* **Maximum** : The maximum value of the performance counter over the aggregation period.
-* **Minimum** : The minimum value of the performance counter over the aggregation period.
-* **Total** : The sum of all values of the performance counter reported over the aggregation period.
-* **Count** : The total number of values reported for the performance counter.
-* **Average** : The average (total/count) value of the performance counter over the aggregation period.
+* **PartitionKey**: The partitionkey is constructed based on the *resourceID* value to uniquely identify the VM resource. for example: 002Fsubscriptions:<subscriptionID>:002FresourceGroups:002F<ResourceGroupName>:002Fproviders:002FMicrosoft:002ECompute:002FvirtualMachines:002F<vmName>  
+* **RowKey**: Follows the format: <Descending time tick>:<Performance Counter Name>. The descending time tick calculation is max time ticks minus the time of the beginning of the aggregation period. For example, if the sample period started on 10-Nov-2015 and 00:00Hrs UTC then the calculation would be: DateTime.MaxValue.Ticks - (new DateTime(2015,11,10,0,0,0,DateTimeKind.Utc).Ticks). For the memory available bytes performance counter the row key looks like: 2519551871999999999__:005CMemory:005CAvailable:0020Bytes
+* **CounterName**: Is the name of the performance counter. This matches the *counterSpecifier* defined in the xml config.
+* **Maximum**: The maximum value of the performance counter over the aggregation period.
+* **Minimum**: The minimum value of the performance counter over the aggregation period.
+* **Total**: The sum of all values of the performance counter reported over the aggregation period.
+* **Count**: The total number of values reported for the performance counter.
+* **Average**: The average (total/count) value of the performance counter over the aggregation period.
 
-## Next Steps
+## Next steps
 * For a complete sample template of a Windows virtual machine with diagnostics extension see [201-vm-monitoring-diagnostics-extension](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-monitoring-diagnostics-extension)   
 * Deploy the Resource Manager template using [Azure PowerShell](../windows/ps-template.md) or [Azure Command Line](../linux/create-ssh-secured-vm-from-template.md)
 * Learn more about [authoring Azure Resource Manager templates](../../resource-group-authoring-templates.md)
