@@ -119,10 +119,10 @@ Use the `appId` value from the service principal you created earlier for the `aa
 az group deployment create --name myOpenShiftCluster \
       --template-uri https://raw.githubusercontent.com/Microsoft/openshift-origin/master/azuredeploy.json \
       --params \ 
-        openshiftMasterPublicIpDnsLabel=myopenshiftmaster \
-        infraLbPublicIpDnsLabel=myopenshiftlb \
-        openshiftPassword=Pass@word!
-        sshPublicKey=~/.ssh/openshift_rsa.pub \
+        [openshiftMasterPublicIpDnsLabel=myopenshiftmaster] \
+        [infraLbPublicIpDnsLabel=myopenshiftlb] \
+        openshiftPassword=Pass@word! \
+        sshPublicKey="ssh-rsa AA... user@account.com" \
         keyVaultResourceGroup=myResourceGroup \
         keyVaultName=myKeyVault \
         keyVaultSecret=OpenShiftKey \
