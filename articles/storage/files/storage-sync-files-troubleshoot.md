@@ -40,6 +40,27 @@ This article is designed to help you troubleshoot and resolve issues encountered
     > [!Note]  
     > The agent installation will fail if you select to use Microsoft Update and the Windows Update service is not running.
 
+- <a id="server-registration-missing"></a>**Server is not listed under Registered Servers in the Azure portal**  
+    If a server is not listed under Registered Servers for a Storage Sync Service, perform the following steps:
+    1. Login to the server that you want to register.
+    2. Open File Explorer and navigate to the Storage Sync Agent installation directory (default location is `C:\Program Files\Azure\StorageSyncAgent`). 
+    3. Run ServerRegistration.exe and follow the wizard to register the server with a Storage Sync Service.
+
+- <a id="server-already-registered"></a>**Server Registration displays the following message after installing the Azure File Sync agent: "This server is already registered"**  
+    ![A screenshot of the Server Registration dialog with the "server is already registered" error message](media/storage-sync-files-troubleshoot/server-registration-1.png)
+
+    This message is displayed if the server was previously registered with a Storage Sync Service. To unregister the server with the current Storage Sync Service and register with a new Storage Sync Service, follow the steps to [Unregister a server with Azure File Sync](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
+
+    If the server is not listed under Registered Servers in the Storage Sync Service, run the following PowerShell commands on the server that you want to unregister:
+
+    ```PowerShell
+    Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+    Reset-StorageSyncServer
+    ```
+
+    > [!Note]  
+    > If the server is part of a cluster, there is an optional `Reset-StorageSyncServer -CleanClusterRegistration` parameter that will also remove the cluster registrat
+
 - <a id="web-site-not-trusted"></a>**When registering a server I get numerous "web site not trusted" responses, why?**  
     This error occurs because the **Enhanced Internet Explorer Security** policy is enabled during server registration. For more information on how to properly disable the **Enhanced Internet Explorer Security** policy, see [Prepare Windows Servers for use with Azure File Sync](storage-sync-files-deployment-guide.md#prepare-windows-servers-for-use-with-azure-file-sync) and [How to deploy Azure File Sync (preview)](storage-sync-files-deployment-guide.md).
 
@@ -81,27 +102,6 @@ This article is designed to help you troubleshoot and resolve issues encountered
     This issue can occur if the Azure File share or storage account was deleted prior to deleting the Cloud Endpoint. This issue will be fixed in a future update and the Cloud Endpoint can be deleted.
 
     To prevent this issue from occurring, delete the Cloud Endpoint prior to deleting the Azure File share or storage account.
-
-- <a id="server-registration-missing"></a>**Server is not listed under Registered Servers in the Azure portal**  
-    If a server is not listed under Registered Servers for a Storage Sync Service, perform the following steps:
-    1. Login to the server that you want to register.
-    2. Open File Explorer and navigate to the Storage Sync Agent installation directory (default location is `C:\Program Files\Azure\StorageSyncAgent`). 
-    3. Run ServerRegistration.exe and follow the wizard to register the server with a Storage Sync Service.
-
-- <a id="server-already-registered"></a>**Server Registration displays the following message after installing the Azure File Sync agent: "This server is already registered"**  
-    ![A screenshot of the Server Registration dialog with the "server is already registered" error message](media/storage-sync-files-troubleshoot/server-registration-1.png)
-
-    This message is displayed if the server was previously registered with a Storage Sync Service. To unregister the server with the current Storage Sync Service and register with a new Storage Sync Service, follow the steps to [Unregister a server with Azure File Sync](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
-
-    If the server is not listed under Registered Servers in the Storage Sync Service, run the following PowerShell commands on the server that you want to unregister:
-
-    ```PowerShell
-    Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
-    Reset-StorageSyncServer
-    ```
-
-    > [!Note]  
-    > If the server is part of a cluster, there is an optional `Reset-StorageSyncServer -CleanClusterRegistration` parameter that will also remove the cluster registration. This switch should be used when the last node in the cluster is unregistered.
 
 ## Sync
 [!INCLUDE [storage-sync-files-change-detection](../../../includes/storage-sync-files-change-detection.md)]
