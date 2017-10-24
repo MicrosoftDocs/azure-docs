@@ -21,19 +21,19 @@ sections:
     style: icon48
     items:
     - image:
-        src: https://docs.microsoft.com/en-us/azure/app-service/media/index/logo_net.svg
+        src: https://docs.microsoft.com/azure/app-service/media/index/logo_net.svg
       text: .NET Core
       href: https://docs.microsoft.com/azure/app-service/containers/quickstart-dotnetcore
     - image: 
-        src: https://docs.microsoft.com/en-us/azure/app-service/media/index/logo_nodejs.svg
+        src: https://docs.microsoft.com/azure/app-service/media/index/logo_nodejs.svg
       text: Node.js
       href: https://docs.microsoft.com/azure/app-service/containers/quickstart-nodejs
     - image:
-        src: https://docs.microsoft.com/en-us/azure/app-service/media/index/logo_php.svg
+        src: https://docs.microsoft.com/azure/app-service/media/index/logo_php.svg
       text: PHP
       href: https://docs.microsoft.com/azure/app-service/containers/quickstart-php
     - image:
-        src: https://docs.microsoft.com/en-us/azure/app-service/media/index/logo_java.svg
+        src: https://docs.microsoft.com/azure/app-service/media/index/logo_java.svg
       text: Java
       href: https://docs.microsoft.com/azure/azure-toolkit-for-intellij-hello-world-web-app-linux?toc=/azure/app-service/containers/toc.json
     - image:
