@@ -53,7 +53,7 @@
         - name: Tools for Visual Studio
           href: ../hdinsight-hadoop-visual-studio-tools-get-started.md
           maintainContext: true
-        - mame: Tools for VSCode
+        - name: Tools for VSCode
           href: ../hdinsight-for-vscode.md
           maintainContext: true
     - name: Use notebooks with Spark
@@ -100,6 +100,63 @@
       items:
         - name: Analyze Application Insights telemetry logs
           href: apache-spark-analyze-application-insight-logs.md
+    - name: Extend clusters
+      items:
+      - name: Use secure enabled storage account
+        href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
+        maintainContext: true
+      - name: Customize clusters using Bootstrap
+        href: ../hdinsight-hadoop-customize-cluster-bootstrap.md
+        maintainContext: true
+      - name: Customize clusters using Script Action
+        href: ../hdinsight-hadoop-customize-cluster-linux.md
+        maintainContext: true
+      - name: Connect HDInsight to your on-premises network
+        href: ../connect-on-premises-network.md
+        maintainContext: true
+      - name: Develop script actions
+        href: ../hdinsight-hadoop-script-actions-linux.md
+        maintainContext: true
+      - name: Install and use Presto
+        href: ../hdinsight-hadoop-install-presto.md
+        maintainContext: true
+      - name: Install or update Mono
+        href: ../hdinsight-hadoop-install-mono.md
+        maintainContext: true
+      - name: Add Hive libraries
+        href: ../hdinsight-hadoop-add-hive-libraries.md
+        maintainContext: true
+      - name: Use Giraph
+        href: ../hdinsight-hadoop-giraph-install-linux.md
+        maintainContext: true
+      - name: Use Hue
+        href: ../hdinsight-hadoop-hue-linux.md
+        maintainContext: true
+      - name: Use R
+        href: ../hdinsight-hadoop-r-scripts-linux.md
+        maintainContext: true
+      - name: Use Solr
+        href: ../hdinsight-hadoop-solr-install-linux.md
+        maintainContext: true
+      - name: Use Virtual Network
+        href: ../hdinsight-extend-hadoop-virtual-network.md
+        maintainContext: true
+      - name: Use empty edge nodes
+        href: ../hdinsight-apps-use-edge-node.md
+        maintainContext: true
+      - name: Build HDInsight applications
+        items:
+          - name: Install HDInsight apps
+            href: ../hdinsight-apps-install-applications.md
+            maintainContext: true
+          - name: Install custom apps
+            href: ../hdinsight-apps-install-custom-applications.md
+            maintainContext: true
+          - name: Use REST to install apps
+            href: https://msdn.microsoft.com/library/mt706515.aspx
+          - name: Publish HDInsight apps to Azure Marketplace
+            href: ../hdinsight-apps-publish-applications.md
+            maintainContext: true
     - name: Troubleshoot
       items:
         - name: Spark troubleshooting
