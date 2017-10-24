@@ -101,7 +101,7 @@ Through easy configuration, you can execute your experiments across a range of c
 
 The Experimentation Service constructs virtual environments to ensure that your script can be executed in isolation with reproducible results. It records run history information and presents the history to you visually. You can easily select the best model out of your experiment runs. 
 
-For more information, please reference [Experimentation Execution Configuration](experiment-execution-configuration.md).
+For more information, please reference [Experimentation Service Configuration](experimentation-service-configuration.md).
 
 ## Azure Machine Learning Model Management Service
 
