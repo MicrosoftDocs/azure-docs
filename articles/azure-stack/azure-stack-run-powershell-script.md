@@ -28,7 +28,7 @@ To deploy the [Azure Stack Development Kit](azure-stack-poc.md), you must comple
 3. [Deploy the development kit](#deploy-the-development-kit) on the development kit host.
 
 > [!NOTE]
-> For best results, even if you want to use a disconnected Azure Stack environment, it is best to deploy while connected to the internet. That way, the Windows Server 2016 evaluation version can be activated at deployment time. If the Windows Server 2016 evaluation version is not activated within 10 days, it shuts down.
+> For best results, even if you want to use a disconnected Azure Stack environment, it is best to deploy while connected to the internet. That way, the Windows Server 2016 evaluation version can be activated at deployment time.
 > 
 > 
 
