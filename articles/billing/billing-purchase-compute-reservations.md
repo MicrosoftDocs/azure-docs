@@ -27,8 +27,8 @@ You can purchase Reserved Virtual Machine Instances in the [Azure portal](https:
 To purchase a Reserved Virtual Machine Instance, sign in to the Azure portal and perform the following steps:
 
 1.	Select **More Services -> Reservations**.
-1.	Select **Add** to purchase a new reservation.
-1.	Fill in the required fields. VM instances that match the attributes you select, qualify to get Reserve Instances discount. The actual number of instances that get the discount depend on the scope and quantity selected.
+2.	Select **Add** to purchase a new reservation.
+3.	Fill in the required fields. VM instances that match the attributes you select, qualify to get reservation discount. The actual number of instances that get the discount depend on the scope and quantity selected.
 
     | Field      | Description|
     |:------------|:--------------|
