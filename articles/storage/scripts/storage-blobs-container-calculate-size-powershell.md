@@ -46,7 +46,7 @@ The following is the breakdown:
 * 48 bytes of overhead for each container includes the Last Modified Time, Permissions, Public Settings, and some system metadata.
 
 * The container name is stored as Unicode, so take the number of characters and multiply by two.
-* For each blob container metadata that's stored, we store the length of the name (stored as ASCII), plus the length of the string value.
+* For each block of blob container metadata that's stored, we store the length of the name (stored as ASCII), plus the length of the string value.
 * The 512 bytes per Signed Identifier includes signed identifier name, start time, expiry time, and permissions.
 
 ### Blobs
@@ -88,10 +88,10 @@ The following is the breakdown:
     * The size of the data in all of the committed and uncommitted blocks. 
     
     >[!NOTE]
-    >When snapshots are used, this size only includes the unique data for this base or snapshot blob. If the uncommitted blocks are not used after a week, they are e garbage-collected. After that, they won't longer count towards billing.
+    >When snapshots are used, this size only includes the unique data for this base or snapshot blob. If the uncommitted blocks are not used after a week, they are e garbage-collected. After that, they won't count towards billing.
 
 * For page blobs:
-    * Number of nonconsecutive page ranges with data times 12 bytes. This is the number of unique page ranges you see when calling the **GetPageRanges** API.
+    * The number of nonconsecutive page ranges with data times 12 bytes. This is the number of unique page ranges you see when calling the **GetPageRanges** API.
 
     * The size of the data in bytes of all of the stored pages. 
     
