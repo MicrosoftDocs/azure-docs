@@ -18,7 +18,7 @@ ms.workload: NA
 
 This tutorial shows you how to use the **Maintenance** page in the solution to troubleshoot and remediate device issues. To introduce these capabilities, the tutorial uses a scenario in the Contoso IoT application.
 
-Contoso is testing a new **Prototype** device in the field. As a Contoso operator, you notice during testing that the **Prototype** device is erroneously triggering a temperature alarm on the dashboard. You must now investigate the behavior of this faulty **Prototype** device.
+Contoso is testing a new **Prototype** device in the field. As a Contoso operator, you notice during testing that the **Prototype** device is unexpectedly triggering a temperature alarm on the dashboard. You must now investigate the behavior of this faulty **Prototype** device.
 
 In this tutorial, you learn how to:
 
@@ -58,7 +58,7 @@ To acknowledge the alarm, select the **Alarm occurrences** and choose **Acknowle
 
 ![Acknowledge the alarms](media/iot-suite-remote-monitoring-maintain/maintenanceacknowledge.png)
 
-In the list, you can see the **Prototype** device responsible for erroneously firing the temperature alarm:
+In the list, you can see the **Prototype** device responsible for firing the temperature alarm:
 
 ![List the devices causing the alarm](media/iot-suite-remote-monitoring-maintain/maintenanceresponsibledevice.png)
 

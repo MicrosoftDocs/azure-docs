@@ -75,6 +75,6 @@ In this tutorial, you learned how to:
 > * Deploy the preconfigured solution
 > * Sign in to the preconfigured solution
 
-Now that you have deployed the remote monitoring solution, the next step is to [explore the capabilities of the solution dashboard](./iot-suite-remote-monitoring-deploy.md).
+Now that you have deployed the remote monitoring solution, the next step is to [explore the capabilities of the solution dashboard](./iot-suite-remote-monitoring-explore.md).
 
 <!-- Next tutorials in the sequence -->

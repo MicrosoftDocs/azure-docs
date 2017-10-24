@@ -261,7 +261,7 @@ The `scripts/SwitchOn-method.js` file implements the **Switch On** method in a *
 
 To test the **Lightbulb** device type, you can first test your device type behaves as expected by running a local copy of the **device-simulation** service. When you have tested and debugged your new device type locally, you can rebuild the container and redeploy the **device-simulation** service to Azure.
 
-To test and debug your changes locally, see [Running the service with Visual Studio](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md#running-the-service-with-visual-studio) or [Build and Run from the command line](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md#build-and-run-from-the-command-line).
+To test and debug your changes locally, see [Device simulation overview](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md).
 
 Configure the project to copy the new **Lightbulb** device files to the output directory.
 
