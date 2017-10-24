@@ -50,22 +50,19 @@ If you're receiving this error and the Azure File share is not currently in use 
 3. Right click SyncService and select **Delete**.
 
 ## Cloud Endpoint creation fails with error: AuthorizationFailed
+This issue occurs if your user account doesn't have sufficient rights to create a Cloud Endpoint. 
 
-This issue occurs if your user account doesn’t have sufficient rights to create a Cloud endpoint. 
-
-To create a Cloud endpoint, your user account must have the following Microsoft Authorization permissions:
+To create a Cloud Endpoint, your user account must have the following Microsoft Authorization permissions:
 -	Read: Get role definition
 -	Write: Create or update custom role definition
 -	Read: Get role assignment
 -	Write: Create role assignment
 
 The following built-in roles have the appropriate Microsoft Authorization permissions:
-
 -	Owner
 -	User Access Administrator
 
 To determine if your user account role has the appropriate permissions, perform the following:
-
 -	Click **Resource Groups** in the Azure portal
 -	Select the resource group where the storage account is located and click **Access control (IAM)**
 -	Click the **role** (e.g., Owner, Contributor) for your user account.
@@ -74,10 +71,9 @@ To determine if your user account role has the appropriate permissions, perform 
 -	**Role definition** should have **Read** and **Write permissions**
 
 ## Cloud Endpoint deletion fails with error: MgmtInternalError
+This issue can occur if the Azure File share or storage account was deleted prior to deleting the Cloud Endpoint. This issue will be fixed in a future update and the Cloud Endpoint can be deleted.
 
-This issue can occur if the Azure File share or Storage Account was deleted prior to deleting the Cloud Endpoint. This issue will be fixed in a future update and the Cloud Endpoint can be deleted.
-
-To prevent this issue from occurring, delete the Cloud Endpoint prior to deleting the Azure File share or Storage Account.
+To prevent this issue from occurring, delete the Cloud Endpoint prior to deleting the Azure File share or storage account.
 
 ## Server is not listed under Registered Servers in the Azure portal
 If a server is not listed under Registered Servers for a Storage Sync Service, perform the following steps:
