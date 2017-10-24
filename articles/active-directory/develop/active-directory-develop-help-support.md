@@ -25,7 +25,7 @@ ms.custom: aaddev
 Regardless if you are just starting to integrate with Azure Active Directory, Microsoft identities or Microsoft Graph API, or when you are implementing a new feature to your application, there are times that you need to obtain help from the community or understand the support options that you have as a developer. This article helps you to understand these options, below a summary:
 
 > [!div class="checklist"]
-> *Search to check if your problem question has not been answered by the community, or if an existing documentation for the feature you are trying to implement already exists
+> * Search to check if your problem question has not been answered by the community, or if an existing documentation for the feature you are trying to implement already exists
 > * In some cases, you just want to use of our support tools to help you debug a specific your problem
 > * If you can't find the answer from what you need, you may want to ask a question on *Stack Overflow*
 > * If you find an issue with one of our authentication libraries, raise a *GitHub* issue
