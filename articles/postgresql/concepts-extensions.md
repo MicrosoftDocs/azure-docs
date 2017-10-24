@@ -16,7 +16,7 @@ PostgreSQL provides the ability to extend the functionality of your database usi
 ## How to use PostgreSQL extensions
 PostgreSQL extensions must be installed in your database before you can use them. To install a particular extension, run the [CREATE EXTENSION](https://www.postgresql.org/docs/9.6/static/sql-createextension.html) command from psql tool to load the packaged objects into your database.
 
-Azure Database for PostgreSQL supports a subset of key extensions as listed below. Extensions beyond the ones listed are not yet supported; you cannot create your own extension with Azure Database for PostgreSQL service.
+Azure Database for PostgreSQL currently supports a subset of key extensions as listed below. Extensions beyond the ones listed are not supported; you cannot create your own extension with Azure Database for PostgreSQL service.
 
 ## Extensions supported by Azure Database for PostgreSQL
 The following tables list the standard PostgreSQL extensions that are currently supported by Azure Database for PostgreSQL. This information is also available by querying `pg\_available\_extensions`.
