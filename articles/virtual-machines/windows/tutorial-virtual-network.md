@@ -164,38 +164,6 @@ New-AzureRmVM `
     -VM $frontendVM
 ```
 
-### Install web server
-
-You can install IIS on *myFrontendVM* by using a remote desktop session. You need to get the public IP address of the VM to access it.
-
-You can get the public IP address of *myFrontendVM* using [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). The following example obtains the IP address for *myPublicIPAddress* created earlier:
-
-```azurepowershell-interactive
-Get-AzureRmPublicIPAddress `
-    -ResourceGroupName myRGNetwork `
-    -Name myPublicIPAddress | select IpAddress
-```
-
-Take note of this IP Address so you can use it in future steps.
-
-Use the following command to create a remote desktop session with *myFrontendVM*. Replace *<publicIPAddress>* with the address that you previously recorded. When prompted, enter the credentials used when you created the VM.
-
-```
-mstsc /v:<publicIpAddress>
-``` 
-
-Now that you have logged in to *myFrontendVM*, you can use a single line of PowerShell to install IIS and enable the local firewall rule to allow web traffic. Open a PowerShell prompt on your VM from the RDP session and run the following command:
-
-Use [Install-WindowsFeature](https://technet.microsoft.com/itpro/powershell/windows/servermanager/install-windowsfeature) to run the custom script extension that installs the IIS webserver:
-
-```azurepowershell-interactive
-Install-WindowsFeature -name Web-Server -IncludeManagementTools
-```
-
-Now you can use the public IP address to browse to the VM to see the IIS site.
-
-![IIS default site](./media/tutorial-virtual-network/iis.png)
-
 ## Secure network traffic
 
 A network security group (NSG) contains a list of security rules that allow or deny network traffic to resources connected to Azure Virtual Networks (VNet). NSGs can be associated to subnets or individual network interfaces. When an NSG is associated with a network interface, it applies only the associated VM. When an NSG is associated to a subnet, the rules apply to all resources connected to the subnet.
@@ -242,7 +210,17 @@ $nsgBackendRule = New-AzureRmNetworkSecurityRuleConfig `
   -Access Allow
 ```
 
-Add a network security group named *myBackendNSG* using [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup):
+Add a network security group named *myFrontendNSG* using [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup):
+
+```azurepowershell-interactive
+$nsgFrontend = New-AzureRmNetworkSecurityGroup `
+  -ResourceGroupName myRGNetwork `
+  -Location EastUS `
+  -Name myBackendNSG `
+  -SecurityRules $nsgFrontendRule
+```
+
+Now, add a network security group named *myBackendNSG* using New-AzureRmNetworkSecurityGroup:
 
 ```azurepowershell-interactive
 $nsgBackend = New-AzureRmNetworkSecurityGroup `
@@ -250,6 +228,27 @@ $nsgBackend = New-AzureRmNetworkSecurityGroup `
   -Location EastUS `
   -Name myBackendNSG `
   -SecurityRules $nsgBackendRule
+```
+
+Add the network security groups to the subnets.
+
+```azurepowershell-interactive
+$vnet = Get-AzureRmVirtualNetwork `
+  -ResourceGroupName myRGNetwork `
+  -Name myVNet
+$frontendSubnet = $vnet.Subnets[0]
+$backendSubnet = $vnet.Subnets[1]
+$frontendSubnetConfig = Set-AzureRmVirtualNetworkSubnetConfig `
+  -VirtualNetwork $vnet `
+  -Name myFrontendSubnet `
+  -AddressPrefix $frontendSubnet.AddressPrefix `
+  -NetworkSecurityGroup $nsgFrontend
+$backendSubnetConfig = Set-AzureRmVirtualNetworkSubnetConfig `
+  -VirtualNetwork $vnet `
+  -Name myBackendSubnet `
+  -AddressPrefix $backendSubnet.AddressPrefix `
+  -NetworkSecurityGroup $nsgBackend
+Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 ```
 
 ## Create a back-end VM
