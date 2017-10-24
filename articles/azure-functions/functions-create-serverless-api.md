@@ -58,7 +58,8 @@ Next, test your function to see it working with the new API surface.
 1. Navigate back to the development page by clicking on the function's name in the left navigation.
 1. Click **Get function URL** and copy the URL. You should see that it uses the `/api/hello` route now.
 1. Copy the URL into a new browser tab or your preferred REST client. Browsers will use GET by default.
-1. Run the function and confirm that it is working. You may need to provide the "name" parameter as a query string to satisfy the quickstart code.
+1. Add parameters to the query string in your URL e.g. `/api/hello/?name=John`
+1. Hit 'Enter' to confirm that it is working. You should see the response "*Hello John*"
 1. You can also try calling the endpoint with another HTTP method to confirm that the function is not executed. For this, you will need to use a REST client, such as cURL, Postman, or Fiddler.
 
 ## Proxies overview
@@ -82,9 +83,8 @@ In this section, you will create a new proxy which serves as a frontend to your 
 Repeat the steps to [Create a function app](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function#create-a-function-app) to create a new function app in which you will create your proxy. This new app's URL will serve as the frontend for our API, and the function app you were previously editing will serve as a backend.
 
 1. Navigate to your new frontend function app in the portal.
-1. Select **Settings**. Then toggle **Enable Azure Functions Proxies (preview)** to "On".
-1. Select **Platform Settings** and choose **Application Settings**.
-1. Scroll down to **App settings** and create a new setting with key "HELLO_HOST". Set its value to the host of your backend function app, such as `<YourBackendApp>.azurewebsites.net`. This is part of the URL that you copied earlier when testing your HTTP function. You'll reference this setting in the configuration later.
+1. Select **Platform Features** and choose **Application Settings**.
+1. Scroll down to **Application settings** where key/value pairs are stored and create a new setting with key "HELLO_HOST". Set its value to the host of your backend function app, such as `<YourBackendApp>.azurewebsites.net`. This is part of the URL that you copied earlier when testing your HTTP function. You'll reference this setting in the configuration later.
 
     > [!NOTE] 
     > App settings are recommended for the host configuration to prevent a hard-coded environment dependency for the proxy. Using app settings means that you can move the proxy configuration between environments, and the environment-specific app settings will be applied.
