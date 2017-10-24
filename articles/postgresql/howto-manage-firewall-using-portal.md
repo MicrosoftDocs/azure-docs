@@ -45,7 +45,7 @@ Repeat the steps to manage the firewall rules.
 * To add the current computer, click the button to + **Add My IP**. Click **Save** to save the changes.
 * To add additional IP addresses, type in the Rule Name, Start IP Address, and End IP Address. Click **Save** to save the changes.
 * To modify an existing rule, click any of the fields in the rule and modify. Click **Save** to save the changes.
-* To delete an existing rule, click the ellipsis […] and click Delete to remove the rule. Click **Save** to save the changes.
+* To delete an existing rule, click the ellipsis […] and click **Delete** to remove the rule. Click **Save** to save the changes.
 
 ## Next steps
 - Similarly, you can script to [Create and manage Azure Database for PostgreSQL firewall rules using Azure CLI](howto-manage-firewall-using-cli.md).
