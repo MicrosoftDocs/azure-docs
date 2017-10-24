@@ -1,5 +1,5 @@
 ---
-title: Add a claimable VM to a lab in Azure DevTest Labs | Microsoft Docs
+title: Create and manage claimable VMs in a lab in Azure DevTest Labs | Microsoft Docs
 description: Learn how to add a claimable virtual machine to a lab in Azure DevTest Labs
 services: devtest-lab,virtual-machines
 documentationcenter: na
@@ -17,7 +17,7 @@ ms.date: 03/17/2017
 ms.author: tarcher
 
 ---
-# Add a claimable VM to a lab in Azure DevTest Labs
+# Create and manage claimable VMs in Azure DevTest Labs
 You add a claimable VM to a lab in a similar manner to how you [add a standard VM](devtest-lab-add-vm.md) – from a *base* that is either a [custom image](devtest-lab-create-template.md), [formula](devtest-lab-manage-formulas.md), or [Marketplace image](devtest-lab-configure-marketplace-images.md). This tutorial walks you through using the Azure portal to add a claimable VM to a lab in DevTest Labs, and shows the processes a user follows to claim and unclaim the VM.
 
 ## Steps to add a claimable VM to a lab in Azure DevTest Labs
