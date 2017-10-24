@@ -195,6 +195,10 @@
   - name: HDInsight
     tocHref: /azure/hdinsight/
     topicHref: /azure/hdinsight/
+    items:
+      - name: HBase
+        tocHref: /azure/hdinsight/hbase
+        topicHref: /azure/hdinsight/hbase/apache-hbase-overview
   - name: IoT Hub
     tocHref: /azure/iot-hub/
     topicHref: /azure/iot-hub/

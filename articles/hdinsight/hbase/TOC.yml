@@ -1,0 +1,20 @@
+- name: HBase on HDInsight
+  items:
+  - name: HBase on HDInsight overview
+    href: apache-hbase-overview.md
+- name: Start using HBase
+  items:
+  - name: Start with HBase & NoSQL
+    href: apache-hbase-tutorial-get-started-linux.md
+- name: How to
+  items:
+  - name: Create cluster in virtual network
+  - href: apache-hbase-provision-vnet.md
+  - name: Configure HBase replication
+  - href: apache-hbase-replication.md
+  - name: Use Phoenix and SQLLine
+  - href: apache-hbase-phoenix-squirrel-linux.md
+  - name: Develop Java applications
+  - href: apache-hbase-build-java-maven-linux.md
+  - name: Troubleshoot HBase
+  - href: apache-troubleshoot-hbase.md
