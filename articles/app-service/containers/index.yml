@@ -40,6 +40,10 @@ sections:
         src: https://docs.microsoft.com/azure/app-ervice/containers/media/index/logo_ruby.svg
       text: Ruby
       href: https://docs.microsoft.com/azure/app-service/containers/quickstart-ruby
+    - image:
+        src: https://docs.microsoft.com/azure/media/logos/logo_docker.svg
+      text: Docker
+      href: https://docs.microsoft.com/azure/app-service/containers/quickstart-docker
   - type: paragraph
     text: 'Learn how to deploy continuously:'
   - type: list
