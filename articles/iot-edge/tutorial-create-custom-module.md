@@ -68,10 +68,13 @@ The following steps show you how to create a IoT Edge module using Visual Studio
 3. Use the  **File | Open Folder** menu command, browse to the **FilterModule**  folder, and click **Select Folder** to open the project in VS Code.
 4. Use the **View | Command Palette... | Edge: Init Edge project** menu command to add assets to debug the app (Should this be "app" or "module"?).
 5. Add the following field to the **Program** class.
+
     ```csharp
     static int temperatureThreshold { get; set; } = 25;
     ```
-6. In the **onDesiredPropertiesUpdate** method, replace the code in the try block with the following code. This modifies the method to update the **temperatureThreshold** field based on the desired properties sent by the service via the device twin.
+
+1. In the **onDesiredPropertiesUpdate** method, replace the code in the try block with the following code. This modifies the method to update the **temperatureThreshold** field based on the desired properties sent by the service via the device twin.
+
     ```csharp
     await Task.Run( () => {
          Console.WriteLine("Desired property change:");
@@ -81,11 +84,15 @@ The following steps show you how to create a IoT Edge module using Visual Studio
             temperatureThreshold = desiredProperties["TemperatureThreshold"];
     });
     ```
+
 7. In the **InitEdgeModule** method, replace the call to **IoTHubModuleClient.SetEventHandlerAsync** with the following code:
+
     ```csharp
     await IoTHubModuleClient.SetEventHandlerAsync("input1", FilterMessages, IoTHubModuleClient);
     ```
+
 1. Add the following classes after the **InitEdgeModule** method. These classes define the expected schema for the body of incoming messages.
+
     ```csharp
     class MessageBody
     {
@@ -104,7 +111,9 @@ The following steps show you how to create a IoT Edge module using Visual Studio
        public int humidity {get; set;}         
     }
     ```
-2. Replace the **PipeMessage** method with the following method. This method is called whenever the module is sent a message from the Edge Hub. It filters messages based on the temperature value in the body of the message, and the temperature threshold set via the twin.
+
+1. Replace the **PipeMessage** method with the following method. This method is called whenever the module is sent a message from the Edge Hub. It filters messages based on the temperature value in the body of the message, and the temperature threshold set via the twin.
+
     ```csharp
     static async Task FilterMessages(Message message, object userContext)
     {
@@ -147,6 +156,7 @@ The following steps show you how to create a IoT Edge module using Visual Studio
         }
     }
     ```
+
 11. Build the project. Use the **View | Explorer** menu command to open the VS Code explorer. In the explorer, right-click the **FilterModule.csproj** file and click **Build IoT Edge module**.
 
 ## Create a Docker image and publish it to your registry
