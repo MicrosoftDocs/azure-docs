@@ -21,7 +21,7 @@ ms.author: narayan;anavin
 
 [Azure’s Virtual Network (VNet)](virtual-networks-overview.md) is your own private network space in Azure which enables you to securely connect Azure resources to each other.
 
-virtual network peering enables you to seemlessly connect virtual networks. Once peered, the virtual networks appear as one for connectivity purposes. The virtual machines in the peered virtual networks can communicate with each other directly.
+Virtual network peering enables you to seemlessly connect virtual networks. Once peered, the virtual networks appear as one for connectivity purposes. The virtual machines in the peered virtual networks can communicate with each other directly.
 The traffic between virtual machines in the peered virtual networks is routed through the Microsoft backbone infrastructure, much like traffic is routed between virtual machines in the same virtual network through *private* IP addresses only.
 
 >[!IMPORTANT]
