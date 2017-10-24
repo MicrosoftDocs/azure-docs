@@ -102,7 +102,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
  
 	![Single sign-on dialog box](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_samlbase.png)
 
-3. On the **Grovo Domain and URLs** section, perform the following steps:
+3. On the **Grovo Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
 
 	![Grovo Domain and URLs single sign-on information](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_url.png)
 
@@ -110,14 +110,20 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<subdomain>.grovo.com/sso/saml2/saml-assertion`
 
-4. Check **Show advanced URL settings**, perform the following step:
+4.  Check **Show advanced URL settings**, perform the following steps:	
 
-    ![Grovo Domain and URLs single sign-on information](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_url1.png)
+	![Grovo Domain and URLs single sign-on information](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_url1.png)
 
-    In the **Relay state** textbox, type a URL using the following pattern:`https://<subdomain>.grovo.com`
+    a. In the **Relay state** textbox, type a URL using the following pattern:`https://<subdomain>.grovo.com`
+
+	b. If you wish to configure the application in **SP** initiated mode, Perform the following steps :
+
+	![Grovo Domain and URLs single sign-on information](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_url2.png)
+
+	In the **Sign on** textbox, type a URL using the following pattern: `https://<subdomain>.grovo.com/sso/saml2/saml-assertion`
 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Relay state. Contact [Grovo support team](https://www.grovo.com/contact-us) to get these values.
+	> These values are not real. Update these values with the actual Identifier, Reply URL, Sign on URL and Relay state. Contact [Grovo support team](https://www.grovo.com/contact-us) to get these values.
  
 5. Grovo application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the "**User Attributes**" section on application integration page. The following screenshot shows an example for this.
 	
