@@ -70,7 +70,7 @@ This section contains post-installation known issues with build 20171020.1.
 - Users can browse the full marketplace without a subscription, and can see administrative items like plans and offers. These items are non-functional to users.
 - The **Move** button is disabled when you view the properties of a resource group. This behavior is expected. Moving resource groups between subscriptions is not currently supported.
 - You are not able to view permissions to your subscription using the Azure Stack portals. As a workaround, you can verify permissions by using PowerShell.
--  For any workflow where you select a subscription or resource group in a drop-down list, you may experience one or more of the following issues:
+-  For any workflow where you select a subscription, resource group, or location in a drop-down list, you may experience one or more of the following issues:
 
    - You may see a blank row at the top of the list. You should still be able to select an item as expected.
    - If the list of items in the drop-down list is very short, you may not be able to view any of the item names.
