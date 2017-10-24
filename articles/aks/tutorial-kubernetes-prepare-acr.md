@@ -158,7 +158,7 @@ At tutorial completion, the container image has been stored in a private Azure C
 
 ## Next steps
 
-In this tutorial, an Azure Container Registry was prepared for use in an AKS Kubernetes cluster. The following steps were completed:
+In this tutorial, an Azure Container Registry was prepared for use in an AKS cluster. The following steps were completed:
 
 > [!div class="checklist"]
 > * Deployed an Azure Container Registry instance

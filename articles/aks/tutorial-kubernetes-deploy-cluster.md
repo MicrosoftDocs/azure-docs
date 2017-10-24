@@ -76,7 +76,7 @@ NAME                          STATUS    AGE       VERSION
 k8s-myk8scluster-36346190-0   Ready     49m       v1.7.7
 ```
 
-At tutorial completion, you have an AKS Kubernetes cluster ready for workloads. In subsequent tutorials, a multi-container application is deployed to this cluster, scaled out, updated, and monitored.
+At tutorial completion, you have an AKS cluster ready for workloads. In subsequent tutorials, a multi-container application is deployed to this cluster, scaled out, updated, and monitored.
 
 ## Next steps
 

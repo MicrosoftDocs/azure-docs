@@ -57,7 +57,7 @@ Output:
 }
 ```
 
-## Create AKS Kubernetes cluster
+## Create AKS cluster
 
 The following example creates a cluster named *myK8sCluster* with three nodes.
 
@@ -226,4 +226,4 @@ In this quick start, you deployed a Kubernetes cluster and deployed a multi-cont
 To learn more about AKS, and walk through a complete code to deployment example, continue to the Kubernetes cluster tutorial.
 
 > [!div class="nextstepaction"]
-> [Manage an AKS Kubernetes cluster](./tutorial-kubernetes-prepare-app.md)
+> [Manage an AKS cluster](./tutorial-kubernetes-prepare-app.md)

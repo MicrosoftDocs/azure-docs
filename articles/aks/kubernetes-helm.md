@@ -27,7 +27,7 @@ This document steps through configuring and using Helm in a Kubernetes cluster o
 
 ## Before you begin
 
-The steps detailed in this document assume that you have created an AKS Kubernetes cluster and have established a kubectl connection with the cluster. If you need these items see, the [AKS Kubernetes quickstart](./kubernetes-walkthrough.md).
+The steps detailed in this document assume that you have created an AKS cluster and have established a kubectl connection with the cluster. If you need these items see, the [AKS quickstart](./kubernetes-walkthrough.md).
 
 ## Install Helm CLI
 
