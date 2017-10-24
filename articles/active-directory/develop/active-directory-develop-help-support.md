@@ -33,18 +33,15 @@ Regardless if you are just starting to integrate with Azure Active Directory, Mi
 
 ## Search
 
-If you have a development-related question, you may be able to find the answer you need on our documentation, our [github samples](https://github.com/azure-samples), or [Stack Overflow](https://www.stackoverflow.com).
+If you have a development-related question, you may be able to find the answer you need on our documentation, our [github samples](https://github.com/azure-samples), or answers to [Stack Overflow](https://www.stackoverflow.com) questions.
 
-Type your problem, question or error on the following search box to search on Stack Overflow, our documentation, and our code samples:
-<br/><br/>
-<div>
-<form method="get" class="clearFilter" action="http://www.bing.com/search" target="_blank">
-<input aria-label="Bing scoped search" type="search" placeholder="Bing scoped search" name="q" size="22" style="box-sizing: border-box;font-size: 0.87rem;height: 22px;line-height: 1.8; padding: 0 10px;">
-<a title="Clear Filter" class="clearInput" href="#"><span class="visually-hidden">Clear Filter</span></a>
-<input type="submit" value="Search" />
-<input type="hidden" name="q1" value="(site:stackoverflow.com OR site:docs.microsoft.com OR site:github.com/azure-samples OR site:cloudidentity.com OR site:developer.microsoft.com/en-us/graph)" /></td></tr>
-</form>
-</div>
+> [!TIP]
+> Scope your search to Stack Overflow, our documentation, and our code samples by using the following on your [favorite search engine](https://bing.com):
+> ```
+> {yoursearchterms} (site:stackoverflow.com OR site:docs.microsoft.com OR site:github.com/azure-samples OR site:cloudidentity.com OR site:developer.microsoft.com/en-us/graph)
+> ```
+> Where *{yoursearchterms}* is your search keywords.
+
 
 ## Use our development support tools
 
