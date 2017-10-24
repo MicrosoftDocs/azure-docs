@@ -36,7 +36,7 @@ This script creates a single-node, preview Service Fabric cluster. A self-signed
 To calculate the cost incurred by running a Service Fabric cluster in Azure, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 For more information on how to create Service Fabric clusters, see [Create a Service Fabric cluster by using Azure Resource Manager](service-fabric-cluster-creation-via-arm.md).
 
-### Log in to Azure
+## Log in to Azure
 Open a PowerShell console, log in to Azure, and select the subscription you want to deploy the cluster in:
 
    ```PowerShell
@@ -44,7 +44,7 @@ Open a PowerShell console, log in to Azure, and select the subscription you want
    Select-AzureRmSubscription -SubscriptionId <subscription-id>
    ```
 
-### Cluster parameters
+## Cluster parameters
 
    This script uses the following parameters and concepts. Customize the parameters to fit your requirements.
 
@@ -70,7 +70,7 @@ Open a PowerShell console, log in to Azure, and select the subscription you want
 
 **Reverse proxy**: Not enabled by default.
 
-### Create the cluster with your parameters
+## Create the cluster with your parameters
 
 After you decide on the parameters that fit your requirements, run the following command to generate a secure Service Fabric cluster and its certificate.
 
@@ -109,7 +109,7 @@ The creation process can take several minutes. After the configuration finishes,
 
 Take note of the **ManagementEndpoint** URL for your cluster, which might be like the following URL: https://mycluster.westeurope.cloudapp.azure.com:19080.
 
-### Import the certificate
+## Import the certificate
 
 When the cluster is successfully created, run the following command to ensure that you can use the self-signed certificate:
 
@@ -124,17 +124,17 @@ Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
 This command installs the certificate on the current user of your machine. You need this certificate to access Service Fabric Explorer and view the health of your cluster.
 
 
-### View your cluster (Optional)
+## View your cluster (Optional)
 
 After you have both the cluster and the imported certificate, you can connect to the cluster and view its health. There are multiple ways to connect, via either Service Fabric Explorer or PowerShell.
 
-#### Service Fabric Explorer
+### Service Fabric Explorer
 You can view the health of your cluster through Service Fabric Explorer. To do so, browse to the **ManagementEndpoint** URL for your cluster, then select the certificate you saved on your machine.
 
 >[!NOTE]
 >When you open Service Fabric Explorer, you see a certificate error, as you're using a self-signed certificate. In Edge, you have to click **Details**, and then click the **Go on to the webpage** link. In Chrome, you have to click **Advanced**, and then click the **proceed** link.
 
-#### PowerShell
+### PowerShell
 
 The Service Fabric PowerShell module provides many cmdlets for managing Service Fabric clusters, applications, and services. Use the [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster) cmdlet to connect to the secure cluster. The certificate thumbprint and connection endpoint details can be found in the output from a previous step.
 
