@@ -253,7 +253,7 @@ Typically, Traffic Manager is used to direct traffic to applications deployed in
 
 ### How do I move my Traffic Manager profile’s Azure endpoints to a different resource group?
 
-Azure endpoints that are associated with a Traffic Manager profile are tracked using their resource IDs. When an Azure resource that is being used as an endpoint (for example,  Public IP, another Traffic Manager profile used in a nested manner) is moved to a different resource group, its resource ID will change. In this scenario, currently, you need to update the Traffic Manager profile by first deleting and then adding those endpoints back again to the profile. 
+Azure endpoints that are associated with a Traffic Manager profile are tracked using their resource IDs. When an Azure resource that is being used as an endpoint (for example,  Public IP, another Traffic Manager profile used in a nested manner) is moved to a different resource group, its resource ID changes. In this scenario, currently, you must update the Traffic Manager profile by first deleting and then adding back the endpoints to the profile. 
 
 ##  Traffic Manager endpoint monitoring
 
