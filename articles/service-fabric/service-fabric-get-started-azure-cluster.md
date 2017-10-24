@@ -19,7 +19,7 @@ ms.author: ryanwi
 ---
 
 # Create your first Service Fabric cluster on Azure
-A [Service Fabric cluster](service-fabric-deploy-anywhere.md) is a network-connected set of virtual or physical machines into which your microservices are deployed and managed. This quickstart helps you to create a five-node cluster, running on either Windows or Linux, through the [Azure PowerShell](https://msdn.microsoft.com/library/dn135248) or [Azure portal](http://portal.azure.com) in just a few minutes.  
+A [Service Fabric cluster](service-fabric-deploy-anywhere.md) is a network-connected set of virtual or physical machines into which your microservices are deployed and managed. This quickstart helps you to create a five-node cluster, running on either Windows or Linux, through [Azure PowerShell](https://msdn.microsoft.com/library/dn135248) or the [Azure portal](http://portal.azure.com) in just a few minutes.  
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -50,29 +50,29 @@ Sign in to the Azure portal at [http://portal.azure.com](http://portal.azure.com
 
     Select **OK**.
 
-6. In the **Cluster configuration** form, set **Diagnostics** to **On**.  For this quickstart, you do not need to enter any [fabric setting](service-fabric-cluster-fabric-settings.md) properties.  In **Fabric version**, select **Automatic** upgrade mode so that Microsoft automatically updates the version of the fabric code running the cluster.  Set the mode to **Manual** if you want to [choose a supported version](service-fabric-cluster-upgrade.md) to upgrade to. 
+6. In the **Cluster configuration** form, set **Diagnostics** to **On**. For this quickstart, you do not need to enter any [fabric setting](service-fabric-cluster-fabric-settings.md) properties.  In **Fabric version**, select **Automatic** upgrade mode so that Microsoft automatically updates the version of the fabric code running the cluster.  Set the mode to **Manual** if you want to [choose a supported version](service-fabric-cluster-upgrade.md) to upgrade to. 
 
-    ![Node type configuration][node-type-config]
-
-    Select **OK**.
-
-7. Fill out the **Security** form.  For this quick start select **Unsecure**.  It is highly recommended to create a secure cluster for production workloads, however, since anyone can anonymously connect to an unsecure cluster and perform management operations.  
-
-    Certificates are used in Service Fabric to provide authentication and encryption to secure various aspects of a cluster and its applications. For more information on how certificates are used in Service Fabric, see [Service Fabric cluster security scenarios](service-fabric-cluster-security.md).  To enable user authentication using Azure Active Directory or to set up certificates for application security, [create a cluster from a Resource Manager template](service-fabric-cluster-creation-via-arm.md).
+    ![Screenshot of Node type configuration][node-type-config]
 
     Select **OK**.
 
-8. Review the summary.  If you'd like to download a Resource Manager template built from the settings you entered, select **Download template and parameters**.  Select **Create** to create the cluster.
+7. Fill out the **Security** form. For this quickstart, select **Unsecure**. Note that in general, you should create a secure cluster for production workloads. Anyone can anonymously connect to an unsecure cluster and perform management operations.  
 
-    You can see the creation progress in the notifications. (Click the "Bell" icon near the status bar at the upper right of your screen.) If you clicked **Pin to Startboard** while creating the cluster, you see **Deploying Service Fabric Cluster** pinned to the **Start** board.
+   Service Fabric uses certificates to provide authentication and encryption to secure various aspects of a cluster and its applications. For more information, see [Service Fabric cluster security scenarios](service-fabric-cluster-security.md). To enable user authentication using Azure Active Directory or to set up certificates for application security, see [create a cluster from a Resource Manager template](service-fabric-cluster-creation-via-arm.md).
 
-### Connect to the cluster using PowerShell
-Verify that the cluster is running by connecting using PowerShell.  The ServiceFabric PowerShell module is installed with the [Service Fabric SDK](service-fabric-get-started.md).  The [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet establishes a connection to the cluster.   
+    Select **OK**.
+
+8. Review the summary. If you'd like to download a Resource Manager template built from the settings you entered, select **Download template and parameters**. Select **Create** to create the cluster.
+
+    You can see the creation progress in the notifications. (Select the "Bell" icon near the status bar at the upper right of your screen.) If you selected **Pin to Startboard** while creating the cluster, you see **Deploying Service Fabric Cluster** pinned to the **Start** board.
+
+### Connect to the cluster by using PowerShell
+Verify that the cluster is running by connecting through PowerShell. The ServiceFabric PowerShell module is installed with the [Service Fabric SDK](service-fabric-get-started.md). The [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet establishes a connection to the cluster.   
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint quickstartcluster.westus2.cloudapp.azure.com:19000
 ```
-See [Connect to a secure cluster](service-fabric-connect-to-secure-cluster.md) for other examples of connecting to a cluster. After connecting to the cluster, use the [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) cmdlet to display a list of nodes in the cluster and status information for each node. **HealthState** should be *OK* for each node.
+See [Connect to a secure cluster](service-fabric-connect-to-secure-cluster.md) for other examples of connecting to a cluster. After you connect to the cluster, use the [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) cmdlet to display a list of nodes in the cluster, and status information for each node. The **HealthState** should be *OK* for each node.
 
 ```powershell
 PS C:\Users\sfuser> Get-ServiceFabricNode |Format-Table
@@ -87,19 +87,21 @@ NodeDeactivationInfo NodeName     IpAddressOrFQDN NodeType  CodeVersion  ConfigV
 ```
 
 ### Remove the cluster
-A Service Fabric cluster is made up of other Azure resources in addition to the cluster resource itself. So to completely delete a Service Fabric cluster you also need to delete all the resources it is made of. The simplest way to delete the cluster and all the resources it consumes is to delete the resource group. For other ways to delete a cluster or to delete some (but not all) the resources in a resource group, see [Delete a cluster](service-fabric-cluster-delete.md)
+A Service Fabric cluster is made up of other Azure resources, in addition to the cluster resource itself. To completely delete a Service Fabric cluster, you also need to delete all the resources it is made of. The simplest way to delete the cluster and all the resources it consumes is to delete the resource group. For other ways to delete a cluster or to delete some (but not all) of the resources in a resource group, see [Delete a cluster](service-fabric-cluster-delete.md).
 
 Delete a resource group in the Azure portal:
-1. Navigate to the Service Fabric cluster you want to delete.
-2. Click the **Resource Group** name on the cluster essentials page.
-3. In the **Resource Group Essentials** page, click **Delete resource group** and follow the instructions on that page to complete the deletion of the resource group.
-    ![Delete the resource group][cluster-delete]
+1. Browse to the Service Fabric cluster you want to delete.
+2. On the cluster essentials page, select the **Resource Group** name.
+3. On the **Resource Group Essentials** page, select **Delete resource group**. Then follow the instructions on that page to complete the deletion of the resource group.
+    ![Screenshot of Resource Group Essentials page, with Delete resource group highlighted][cluster-delete]
 
 
 ## Use Azure Powershell
-1. Download the [Azure Powershell module version 4.0 or higher](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) on your machine.
+Another way to create the cluster is to use PowerShell. Here's how:
 
-2. Run the [New-AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/new-azurermservicefabriccluster) cmdlet to create a five-node Service Fabric cluster secured with an X.509 certificate. The command creates a self-signed certificate and uploads it to a new key vault. The certificate is also copied to a local directory. Set the *-OS* parameter to choose the version of Windows or Linux that runs on the cluster nodes. Customize the parameters as needed. 
+1. Download the [Azure Powershell module version 4.0 or higher](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) on your computer.
+
+2. Run the [New-AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/new-azurermservicefabriccluster) cmdlet to create a five-node Service Fabric cluster, secured with an X.509 certificate. The command creates a self-signed certificate, and uploads it to a new key vault. The certificate is also copied to a local directory. Set the *-OS* parameter to choose the version of Windows or Linux that runs on the cluster nodes. Customize the parameters as needed. 
 
     ```powershell
     #Provide the subscription Id
@@ -136,9 +138,9 @@ Delete a resource group in the Azure portal:
     -OS WindowsServer2016DatacenterwithContainers -VmSku $vmsku -KeyVaultName $vaultname
     ```
 
-    The command can take anywhere from 10 minutes to 30 minutes to complete, at the end of it, you should get an output similar to the following. The output has information about the certificate, the KeyVault where it was uploaded to, and the local folder where the certificate is copied.     
+    The command can take anywhere from 10 minutes to 30 minutes to complete. You should see output similar to the following. The output has information about the certificate, the key vault where it was uploaded to, and the local folder where the certificate is copied.     
 
-3. Copy the entire output and save to a text file as we need to refer to it. Make a note of the following information from the output. 
+3. Copy the entire output and save to a text file (you will refer to it later). Make a note of the following information from the output: 
 
     - CertificateSavedLocalPath
     - CertificateThumbprint
