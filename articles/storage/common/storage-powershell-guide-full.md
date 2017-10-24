@@ -169,13 +169,13 @@ Regenerate one of your keys and then retrieve it again to see the new value.
 
 To delete a storage account, use [Remove-AzureRmStorageAccount](/powershell/module/azurerm.storage/Remove-AzureRmStorageAccount).
 
-> [!IMPORTANT]
-> When you delete a storage account, all of the assets stored in the account are deleted as well. If you delete an account accidentally, call Support immediately and open a ticket to restore the storage account. Recovery of your data is not guaranteed, but it does sometimes work. Do not create a new storage account with the same name as the old one until the support ticket has been resolved. 
->
-
 ```powershell
 Remove-AzureRmStorageAccount -ResourceGroup $resourceGroup -AccountName $storageAccountName
 ```
+
+> [!IMPORTANT]
+> When you delete a storage account, all of the assets stored in the account are deleted as well. If you delete an account accidentally, call Support immediately and open a ticket to restore the storage account. Recovery of your data is not guaranteed, but it does sometimes work. Do not create a new storage account with the same name as the old one until the support ticket has been resolved. 
+>
 
 ### Protecting your storage account using VNets and firewalls
 
