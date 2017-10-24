@@ -155,7 +155,29 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Grovo Configuration](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_configure.png) 
 
-10. To configure single sign-on on **Grovo** side, you need to send the downloaded **Certificate(Base64)**, **SAML Entity ID and SAML Single Sign-On Service URL** to [Grovo support team](https://www.grovo.com/contact-us). They set this setting to have the SAML SSO connection set properly on both sides.
+10. In a different web browser window, login to Grovo as Administrator.
+
+11. Go to **Admin** > **Integrations**.
+ 
+	![Grovo Configuration](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_admin.png) 
+
+12. Click **SET UP** under **SP Initiated SAML 2.0** section.
+
+	![Grovo Configuration](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_setup.png)
+
+13. In **SP Initiated SAML 2.0** popup window perform the following steps.
+
+	![Grovo Configuration](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_saml.png)
+
+	a. In the **Entity id** textbox, paste the value of **SAML Entity ID** which you have copied from Azure portal.
+
+	b. In the **Single sign on service endpoint** textbox, paste the value of **SAML Single Sign-On Service URL** which you have copied from Azure portal.
+
+	c. Select **Single sign on service endpoint binding** as `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect`.
+	
+	d. Open the downloaded **Base64 encoded certificate** from Azure portal in notepad, paste it into the **Public key** textbox.
+
+	e. Click **Next**.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -194,7 +216,9 @@ The objective of this section is to create a test user in the Azure portal calle
   
 ### Create a Grovo test user
 
-In this section, you create a user called Britta Simon in Grovo. Work with [Grovo support team](https://www.grovo.com/contact-us) to add the users in the Grovo platform. Users must be created and activated before you use single sign-on. 
+The objective of this section is to create a user called Britta Simon in Grovo. Grovo supports just-in-time provisioning, which is by default enabled. There is no action item for you in this section. A new user is created during an attempt to access Grovo if it doesn't exist yet.
+>[!Note]
+>If you need to create a user manually, Contact [Grovo support team](https://www.grovo.com/contact-us).
 
 ### Assign the Azure AD test user
 
