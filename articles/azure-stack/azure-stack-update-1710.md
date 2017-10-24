@@ -1,6 +1,6 @@
 ---
 title: Azure Stack 1710 update (Build 20171020.1) | Microsoft Docs
-description: 
+description: Learn about what's in the 1710 update for Azure Stack integrated systems, the known issues, and where to download the update.
 services: azure-stack
 documentationcenter: ''
 author: twooley
