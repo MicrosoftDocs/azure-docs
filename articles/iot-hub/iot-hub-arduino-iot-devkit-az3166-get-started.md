@@ -169,7 +169,8 @@ We encourage you to use one-click installation experience to prepare the develop
 
 #### Install Homebrew
 
-> [!NOTE] If you have installed Homebrew, you can skip this step.
+> [!NOTE] 
+> If you have installed Homebrew, you can skip this step.
 
 Follow the [Homebrew installation instructions](https://docs.brew.sh/Installation.html) to install it.
 
