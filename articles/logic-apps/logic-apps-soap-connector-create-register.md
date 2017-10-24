@@ -125,7 +125,7 @@ identities flow appropriately between your service and any clients.
 
    By default **No authentication** is selected in the **Authentication type** for your connector.
    
-   ![Authentication type](./media/logic-apps-soap-connector-create-register/security-no-authentication.png)
+   ![Authentication type](./media/logic-apps-soap-connector-create-register/security-authentication-options.png)
 
    Choose **Edit** if you want to change the authentication to **Basic Authentication**. For **Parameter Label**, update them if you want something different than default values.
 
