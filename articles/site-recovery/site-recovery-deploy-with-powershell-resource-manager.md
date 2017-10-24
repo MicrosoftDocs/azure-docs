@@ -143,7 +143,7 @@ Before you start, note that the storage account specified should be in the same 
 
 ## Step 7: Enable VM protection
 
-1. retrieve the protection entity that corresponds to the VM you want to protect, as follows:
+1. Retrieve the protection entity that corresponds to the VM you want to protect, as follows:
 
         $VMFriendlyName = "Fabrikam-app"                    #Name of the VM
         $protectionEntity = Get-AzureRmSiteRecoveryProtectionEntity -ProtectionContainer $protectionContainer -FriendlyName $VMFriendlyName
@@ -208,5 +208,5 @@ Before you start, note that the storage account specified should be in the same 
 
         $TFjob = Resume-AzureRmSiteRecoveryJob -Job $TFjob
 
-## Next Steps
+## Next steps
 [Learn more](https://msdn.microsoft.com/library/azure/mt637930.aspx) about Azure Site Recovery with Azure Resource Manager PowerShell cmdlets.
