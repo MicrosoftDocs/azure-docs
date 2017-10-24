@@ -25,7 +25,6 @@ ms.service: iot-edge
 You can use IoT Edge modules to deploy code that implements your business logic directly to your IoT Edge devices. This tutorial walks you through creating and deploying a custom module that filters sensor data on the simulated IoT Edge device that you created in the [Azure Install IoT Edge tutorial](./tutorial-install-iot-edge.md). You learn how to:    
 
 > [!div class="checklist"]
-> * Create an Azure container registry
 > * Use Visual Studio Code to create a custom module
 > * Use VS Code and Docker to create a docker image and publish it to your registry 
 > * Deploy the module to your IoT Edge device
