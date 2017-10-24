@@ -137,6 +137,11 @@ Or, you can [redeploy](azure-stack-redeploy.md) from scratch.
 
 To make sure that the password for the development kit host doesn't expire too soon, follow these steps after you deploy:
 
+To change the password expiration policy from Powershell:
+1. From the Powershell window, run the command;
+  Set-ADDefaultDomainPasswordPolicy -MaxPasswordAge 180.00:00:00 -Identity azurestack.local
+
+To change the password expiration policy manually:
 1. On the development kit host, open **Group Policy Management** and navigate to **Group Policy Management** – **Forest: azurestack.local** – **Domains** – **azurestack.local**.
 2. Right click **Default Domain Policy** and click **Edit**.
 3. In the Group Policy Management Editor, navigate to **Computer Configuration** – **Policies** – **Windows Settings** – **Security Settings** – **Account Policies** – **Password Policy**.
