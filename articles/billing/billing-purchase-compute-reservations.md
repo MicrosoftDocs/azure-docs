@@ -43,7 +43,5 @@ To purchase a Reserved Virtual Machine Instance, sign in to the Azure portal and
 5. Select **View this Reservation** to see the status of the reservation purchase.
 
 ## Next steps after purchasing reservation
-After a successful purchase, the reservation discount is applied automatically to the running virtual machines. You do not need to explicitly assign reservation discount to a virtual machine, other than managing the scope.
-
-You can update the scope of the reservation through [Azure portal](https://portal.azure.com) or through API/PowerShell or CLI. The steps to manage a purchased reservation are detailed [here](https://go.microsoft.com/fwlink/?linkid=861613).
+After a successful purchase, the reservation discount is applied automatically to the running virtual machines. You do not need to explicitly assign a reservation to a virtual machine. You can change the virtual machines that get the reservation discount by changing the scope. You can update the scope of the reservation through [Azure portal](https://portal.azure.com) or through API/PowerShell or CLI. The steps to manage a purchased reservation are detailed [here](https://go.microsoft.com/fwlink/?linkid=861613).
 
