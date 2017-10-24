@@ -21,21 +21,21 @@ ms.custom: mvc
 
 # Install a SQL\IIS\.NET stack in Azure
 
-In this tutorial, we install a SQL\IIS\.NET stack using Azure PowerShell. This stack will consist of two VMs running Windows Server 2016, one with IIS and .NET and the other with SQL Server.
+In this tutorial, we install a SQL\IIS\.NET stack using Azure PowerShell. This stack consists of two VMs running Windows Server 2016, one with IIS and .NET and the other with SQL Server.
 
 > [!div class="checklist"]
 > * Create a VM using New-AzVM
 > * Install IIS and the .NET Core SDK on the VM
-> * Create an VM running SQL Server
+> * Create a VM running SQL Server
 > * Install the SQL Server extension
 
 
 
 ## Create a IIS VM 
 
-In this example, we use the [New-AzVM](https://www.powershellgallery.com/packages/AzureRM.Compute.Experiments) cmdlet in the PowerShell Cloud Shell to quickly create a Windows Server 2016 VM and then install IIS and the .NET Framework. The IIS and SQL VMs share a resource group and virtual network, so we will create variables for those names.
+In this example, we use the [New-AzVM](https://www.powershellgallery.com/packages/AzureRM.Compute.Experiments) cmdlet in the PowerShell Cloud Shell to quickly create a Windows Server 2016 VM and then install IIS and the .NET Framework. The IIS and SQL VMs share a resource group and virtual network, so we create variables for those names.
 
-Click on the **Try It** button to the upper-right of the code block to launch Cloud Shell in this window. You will also be asked to provide credentials for the virtual machine at the cmd prompt.
+Click on the **Try It** button to the upper right of the code block to launch Cloud Shell in this window. You will be asked to provide credentials for the virtual machine at the cmd prompt.
 
 ```azurepowershell-interactive
 $vNetName = "myIISSQLvNet"
@@ -113,7 +113,7 @@ In this tutorial, you installed a SQL\IIS\.NET stack using Azure PowerShell. You
 > [!div class="checklist"]
 > * Create a VM using New-AzVM
 > * Install IIS and the .NET Core SDK on the VM
-> * Create an VM running SQL Server
+> * Create a VM running SQL Server
 > * Install the SQL Server extension
 
 Advance to the next tutorial to learn how to secure IIS web server with SSL certificates.
