@@ -101,8 +101,10 @@ Set the vault context as follows:
 3. Use the **Get-AzureRmSiteRecoveryJob cmdlet**, to retrieve the job object, and check the current status of the job.
 4. Generate and download a registration key for the site, as follows:
 
-        $SiteIdentifier = Get-AzureRmSiteRecoverySite -Name $sitename | Select -ExpandProperty SiteIdentifier
+    ```
+    $SiteIdentifier = Get-AzureRmSiteRecoverySite -Name $sitename | Select -ExpandProperty SiteIdentifier
         Get-AzureRmRecoveryServicesVaultSettingsFile -Vault $vault -SiteIdentifier $SiteIdentifier -SiteFriendlyName $sitename -Path $Path
+    ```
 
  5. Copy the downloaded key to the Hyper-V host. You need the key to register the Hyper-V host to the site.
 
