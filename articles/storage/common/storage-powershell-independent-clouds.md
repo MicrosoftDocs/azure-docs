@@ -34,9 +34,9 @@ The differences using one of these clouds versus Azure Public are as follows:
 * You must determine the available regions.
 * You need the endpoint suffix, which is different from Azure Public.
 
-<!-- add section about installing powershell here -->
+The examples require Azure PowerShell module version 4.4.0 or later. In a PowerShell window, run `Get-Module -ListAvailable AzureRM` to find the version. If nothing is listed, or you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). 
 
-## Set the environment
+## Log in to Azure
 
 Run the [Get-AzureEnvironment](/powershell/module/azure/Get-AzureRmEnvironment) cmdlet to see the available Azure environments:
    
@@ -50,11 +50,11 @@ Sign in to your account that has access to the cloud to which you want to connec
 Login-AzureRmAccount –Environment AzureUSGovernment
 ```
 
- To access the China Cloud, use **AzureChinaCloud**. For the German Cloud, use **AzureGermanCloud**.
+To access the China Cloud, use **AzureChinaCloud**. To access the German Cloud, use **AzureGermanCloud**.
 
 ## Endpoint suffix
 
-The endpoint suffix for each of these environments is different from the Azure Public endpoint. For example, the blob endpoint suffix for Azure Public is **blob.core.windows.net**. For the Government Cloud, the blob endpoint suffix will be **blob.core.usgovcloudapi.net**. To find this, you need a reference to a storage account. Then you can examine its properties to retrieve the endpoints. 
+The endpoint suffix for each of these environments is different from the Azure Public endpoint. For example, the blob endpoint suffix for Azure Public is **blob.core.windows.net**. For the Government Cloud, the blob endpoint suffix will be **blob.core.usgovcloudapi.net**. To find the endpoint, you need a reference to a storage account. Then you can examine its properties to retrieve the endpoints. 
 
 ### Create a storage account 
 
