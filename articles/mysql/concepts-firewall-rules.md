@@ -34,7 +34,7 @@ If the IP address of the request is within one of the ranges specified in the se
 If the IP address of the request is outside the ranges specified in any of the database-level or server-level firewall rules, then the connection request fails.
 
 ## Connecting from Azure
-To allow applications from Azure to connect to your Azure Database for MySQL, Azure connections must be enabled. When an application from Azure attempts to connect to your database server, the firewall verifies that Azure connections are allowed. A firewall setting with starting and ending address equal to 0.0.0.0 indicates these connections are allowed. If the connection attempt is not allowed, the request does not reach the Azure Database for MySQL server.
+To allow applications from Azure to connect to your Azure Database for MySQL server, Azure connections must be enabled. When an application from Azure attempts to connect to your database server, the firewall verifies that Azure connections are allowed. A firewall setting with starting and ending address equal to 0.0.0.0 indicates these connections are allowed. If the connection attempt is not allowed, the request does not reach the Azure Database for MySQL server.
 
 > [!IMPORTANT]
 > This option configures the firewall to allow all connections from Azure including connections from the subscriptions of other customers. When selecting this option, make sure your login and user permissions limit access to only authorized users.
