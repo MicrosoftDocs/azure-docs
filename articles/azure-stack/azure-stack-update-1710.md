@@ -110,9 +110,9 @@ This section contains post-installation known issues with build 20171020.1.
 
 ## Download the update
 
-You can download the update package [here](https://aka.ms/azurestackupdatedownload).
+You can download the 1710 update package [here](https://aka.ms/azurestackupdatedownload).
 
 ## Next steps
 
-- For an overview of updates in Azure Stack, see [Manage updates in Azure Stack overview](azure-stack-updates.md).
+- For an overview of update management in Azure Stack, see [Manage updates in Azure Stack overview](azure-stack-updates.md).
 - For information about how to apply updates, see [Apply updates in Azure Stack](azure-stack-apply-updates.md).
