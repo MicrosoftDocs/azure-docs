@@ -136,27 +136,29 @@ Refer to the documentation in the [Azure Linux Agent repo on GitHub](https://git
 A configuration file (/etc/waagent.conf) controls the actions of waagent. 
 A sample configuration file is shown below:
 
-    Provisioning.Enabled=y
-    Provisioning.DeleteRootPassword=n
-    Provisioning.RegenerateSshHostKeyPair=y
-    Provisioning.SshHostKeyPairType=rsa
-    Provisioning.MonitorHostName=y
-    Provisioning.DecodeCustomData=n
-    Provisioning.ExecuteCustomData=n
-    Provisioning.PasswordCryptId=6
-    Provisioning.PasswordCryptSaltLength=10
-    ResourceDisk.Format=y
-    ResourceDisk.Filesystem=ext4
-    ResourceDisk.MountPoint=/mnt/resource
-    ResourceDisk.MountOptions=None
-    ResourceDisk.EnableSwap=n
-    ResourceDisk.SwapSizeMB=0
-    LBProbeResponder=y
-    Logs.Verbose=n
-    OS.RootDeviceScsiTimeout=300
-    OS.OpensslPath=None
-    HttpProxy.Host=None
-    HttpProxy.Port=None
+```
+Provisioning.Enabled=y
+Provisioning.DeleteRootPassword=n
+Provisioning.RegenerateSshHostKeyPair=y
+Provisioning.SshHostKeyPairType=rsa
+Provisioning.MonitorHostName=y
+Provisioning.DecodeCustomData=n
+Provisioning.ExecuteCustomData=n
+Provisioning.PasswordCryptId=6
+Provisioning.PasswordCryptSaltLength=10
+ResourceDisk.Format=y
+ResourceDisk.Filesystem=ext4
+ResourceDisk.MountPoint=/mnt/resource
+ResourceDisk.MountOptions=None
+ResourceDisk.EnableSwap=n
+ResourceDisk.SwapSizeMB=0
+LBProbeResponder=y
+Logs.Verbose=n
+OS.RootDeviceScsiTimeout=300
+OS.OpensslPath=None
+HttpProxy.Host=None
+HttpProxy.Port=None
+```
 
 The various configuration options are described in detail below. Configuration options are of three types; Boolean, String or Integer. The Boolean configuration options can be specified as "y" or "n". The special keyword "None" may be used for some string type configuration entries as detailed below.
 
@@ -183,31 +185,31 @@ Default: y
 
 If set, all SSH host key pairs (ecdsa, dsa and rsa) are deleted during the provisioning process from /etc/ssh/. And a single fresh key pair is generated.
 
-The encryption type for the fresh key pair is configurable by the Provisioning.SshHostKeyPairType entry. Please note that some distributions will re-create SSH key pairs for any missing encryption types when the SSH daemon is restarted (for example, upon a reboot).
+The encryption type for the fresh key pair is configurable by the Provisioning.SshHostKeyPairType entry. Some distributions re-create SSH key pairs for any missing encryption types when the SSH daemon is restarted (for example, upon a reboot).
 
 **Provisioning.SshHostKeyPairType:**  
 Type: String  
 Default: rsa
 
-This can be set to an encryption algorithm type that is supported by the SSH daemon on the virtual machine. The typically supported values are "rsa", "dsa" and "ecdsa". Note that "putty.exe" on Windows does not support "ecdsa". So, if you intend to use putty.exe on Windows to connect to a Linux deployment, please use "rsa" or "dsa".
+This can be set to an encryption algorithm type that is supported by the SSH daemon on the virtual machine. The typically supported values are "rsa", "dsa" and "ecdsa". "putty.exe" on Windows does not support "ecdsa". So, if you intend to use putty.exe on Windows to connect to a Linux deployment, please use "rsa" or "dsa".
 
 **Provisioning.MonitorHostName:**  
 Type: Boolean  
 Default: y
 
-If set, waagent will monitor the Linux virtual machine for hostname changes (as returned by the "hostname" command) and automatically update the networking configuration in the image to reflect the change. In order to push the name change to the DNS servers, networking will be restarted in the virtual machine. This will result in brief loss of Internet connectivity.
+If set, waagent monitors the Linux virtual machine for hostname changes (as returned by the "hostname" command) and automatically update the networking configuration in the image to reflect the change. In order to push the name change to the DNS servers, networking is restarted in the virtual machine. This results in brief loss of Internet connectivity.
 
 **Provisioning.DecodeCustomData**  
 Type: Boolean  
 Default: n
 
-If set, waagent will decode CustomData from Base64.
+If set, waagent decodes CustomData from Base64.
 
 **Provisioning.ExecuteCustomData**  
 Type: Boolean  
 Default: n
 
-If set, waagent will execute CustomData after provisioning.
+If set, waagent executes CustomData after provisioning.
 
 **Provisioning.PasswordCryptId**  
 Type:String  
@@ -229,7 +231,7 @@ Length of random salt used when generating password hash.
 Type: Boolean  
 Default: y
 
-If set, the resource disk provided by the platform will be formatted and mounted by waagent if the filesystem type requested by the user in "ResourceDisk.Filesystem" is anything other than "ntfs". A single partition of type Linux (83) will be made available on the disk. Note that this partition will not be formatted if it can be successfully mounted.
+If set, the resource disk provided by the platform is formatted and mounted by waagent if the filesystem type requested by the user in "ResourceDisk.Filesystem" is anything other than "ntfs". A single partition of type Linux (83) is made available on the disk. This partition is not formatted if it can be successfully mounted.
 
 **ResourceDisk.Filesystem:**  
 Type: String  
@@ -241,7 +243,7 @@ This specifies the filesystem type for the resource disk. Supported values vary 
 Type: String  
 Default: /mnt/resource 
 
-This specifies the path at which the resource disk is mounted. Note that the resource disk is a *temporary* disk, and might be emptied when the VM is deprovisioned.
+This specifies the path at which the resource disk is mounted. The resource disk is a *temporary* disk, and might be emptied when the VM is deprovisioned.
 
 **ResourceDisk.MountOptions**  
 Type: String  
@@ -271,28 +273,28 @@ If set, log verbosity is boosted. Waagent logs to /var/log/waagent.log and lever
 Type: Boolean  
 Default: n
 
-If set, the agent will attempt to install and then load an RDMA kernel driver that matches the version of the firmware on the underlying hardware.
+If set, the agent attempts to install and then load an RDMA kernel driver that matches the version of the firmware on the underlying hardware.
 
 **OS.RootDeviceScsiTimeout:**  
 Type: Integer  
 Default: 300
 
-This configures the SCSI timeout in seconds on the OS disk and data drives. If not set, the system defaults are used.
+This setting configures the SCSI timeout in seconds on the OS disk and data drives. If not set, the system defaults are used.
 
 **OS.OpensslPath:**  
 Type: String  
 Default: None
 
-This can be used to specify an alternate path for the openssl binary to use for cryptographic operations.
+This setting can be used to specify an alternate path for the openssl binary to use for cryptographic operations.
 
 **HttpProxy.Host, HttpProxy.Port**  
 Type: String  
 Default: None
 
-If set, the agent will use this proxy server to access the internet. 
+If set, the agent uses this proxy server to access the internet. 
 
 ## Ubuntu Cloud Images
-Note that Ubuntu Cloud Images utilize [cloud-init](https://launchpad.net/ubuntu/+source/cloud-init) to perform many configuration tasks that would otherwise be managed by the Azure Linux Agent.  Please note the following differences:
+Ubuntu Cloud Images utilize [cloud-init](https://launchpad.net/ubuntu/+source/cloud-init) to perform many configuration tasks that would otherwise be managed by the Azure Linux Agent. The following differences apply:
 
 * **Provisioning.Enabled** defaults to "n" on Ubuntu Cloud Images that use cloud-init to perform provisioning tasks.
 * The following configuration parameters have no effect on Ubuntu Cloud Images that use cloud-init to manage the resource disk and swap space:
@@ -302,7 +304,8 @@ Note that Ubuntu Cloud Images utilize [cloud-init](https://launchpad.net/ubuntu/
   * **ResourceDisk.MountPoint**
   * **ResourceDisk.EnableSwap**
   * **ResourceDisk.SwapSizeMB**
-* Please see the following resources to configure the resource disk mount point and swap space on Ubuntu Cloud Images during provisioning:
+
+* For more information, see the following resources to configure the resource disk mount point and swap space on Ubuntu Cloud Images during provisioning:
   
   * [Ubuntu Wiki: Configure Swap Partitions](http://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
   * [Injecting Custom Data into an Azure Virtual Machine](../windows/classic/inject-custom-data.md)

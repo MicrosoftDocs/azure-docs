@@ -22,7 +22,7 @@ ms.author: kundanap
 [!INCLUDE [virtual-machines-common-extensions-troubleshoot](../../../includes/virtual-machines-common-extensions-troubleshoot.md)]
 
 ## Viewing extension status
-Azure Resource Manager templates can be executed from Azure PowerShell. Once the template is executed, the extension status can be viewed from Azure Resource Explorer or the command line tools.
+Azure Resource Manager templates can be executed from Azure PowerShell. Once the template is executed, the extension status can be viewed from Azure Resource Explorer or the command-line tools.
 
 Here is an example:
 
@@ -56,8 +56,8 @@ Here is the sample output:
   ]
 
 ## Troubleshooting extension failures
-### Re-running the extension on the VM
-If you are running scripts on the VM using Custom Script Extension, you could sometimes run into an error where VM was created successfully but the script has failed. Under these conditons, the recommended way to recover from this error is to remove the extension and rerun the template again.
+### Rerun the extension on the VM
+If you are running scripts on the VM using Custom Script Extension, you could sometimes run into an error where VM was created successfully but the script has failed. Under these conditions, the recommended way to recover from this error is to remove the extension and rerun the template again.
 Note: In future, this functionality would be enhanced to remove the need for uninstalling the extension.
 
 #### Remove the extension from Azure PowerShell
