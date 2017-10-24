@@ -176,7 +176,7 @@ The following steps show you how to create a IoT Edge module using Visual Studio
     > ```csh/sh
     > docker help login
     > ```
-3. Push the image to your Docker repository. Use the **View | Command Palette ... | Edge: Push IoT Edge module Docker image** menu command and enter the image URL in the pop-up text box at the top of the VS Code window. This should be the same image URL you used in step 1.a.; for example, for example, `<docker registry address>/filtermodule:latest`.
+3. Push the image to your Docker repository. Use the **View | Command Palette ... | Edge: Push IoT Edge module Docker image** menu command and enter the image URL in the pop-up text box at the top of the VS Code window. This should be the same image URL you used in step 1.a.; for example, `<docker registry address>/filtermodule:latest`.
 
 ## Run the solution
 
