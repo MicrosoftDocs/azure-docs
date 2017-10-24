@@ -1,5 +1,5 @@
 ---
-title: Create VMs running an IIS .NET, and SQL stack | Microsoft Docs
+title: Create VMs running an SQL\IIS\.NET stack in Azure| Microsoft Docs
 description: Tutorial - install a Azure SQL, IIS, .NET stack on a Windows virtual machines. 
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 010/20/2017
+ms.date: 10/24/2017
 ms.author: cynthn
 ms.custom: mvc
 ---
 
-# Install the IIS, SQL,.NET stack on a Windows VM
+# Install a SQL\IIS\.NET stack in Azure
 
-In this tutorial, we install an Azure SQL, IIS, .NET stack using Azure PowerShell. This stack will consist of two VMs running Windows Server 2016, one with IIS and .NET and the other with SQL Server.
+In this tutorial, we install a SQL\IIS\.NET stack using Azure PowerShell. This stack will consist of two VMs running Windows Server 2016, one with IIS and .NET and the other with SQL Server.
 
 > [!div class="checklist"]
 > * Create a VM using New-AzVM
 > * Install IIS and the .NET Core SDK on the VM
-> * Create an Azure SQL VM
+> * Create an VM running SQL Server
 > * Install the SQL Server extension
 
 
@@ -108,12 +108,12 @@ Set-AzureRmVMSqlServerExtension -ResourceGroupName $resourceGroup -VMName mySQLV
 
 ## Next steps
 
-In this tutorial, you installed an Azure SQL, IIS, .NET stack using Azure PowerShell. You learned how to:
+In this tutorial, you installed a SQL\IIS\.NET stack using Azure PowerShell. You learned how to:
 
 > [!div class="checklist"]
 > * Create a VM using New-AzVM
 > * Install IIS and the .NET Core SDK on the VM
-> * Create an Azure SQL VM
+> * Create an VM running SQL Server
 > * Install the SQL Server extension
 
 Advance to the next tutorial to learn how to secure IIS web server with SSL certificates.
