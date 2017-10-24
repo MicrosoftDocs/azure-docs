@@ -30,7 +30,7 @@ The following table provides examples of the pricing tiers best suited for diffe
 | :----------- | :----------------|
 | Basic | Best suited for small workloads that require scalable compute and storage without IOPS guarantee. Examples include servers used for development or testing, or small-scale infrequently used applications. |
 | General Purpose | The go-to option for most business workloads offering balanced and scalable compute and storage options.|
-| Memory Optimized | Ideal for highly transactional and analytical workloads that requires higher memory usage.|
+| Memory Optimized | Ideal for highly transactional and analytical workloads that requires higher memory allocation.|
 
 To decide on a pricing tier, first start by determining if your workload needs an IOPS guarantee. We offer 3 IOPS per GB in the General Purpose and Memory Optimized tiers.
 
