@@ -40,6 +40,6 @@ These metrics are available for Azure Database for MySQL:
 > [!NOTE]
 > Compute Unit is composed of Memory and CPU. The Compute Unit percentage is max(memory%, cpu%). Examine the memory and cpu charts to pinpoint which is contributing to Compute Unit percentage changes. For more information, see [compute units](concepts-compute-unit-and-storage.md).
 
-## Next Steps
+## Next steps
 - For step by step guidance, see [How to set up alerts](howto-alert-on-metric.md). 
 - For more information on how to access and export metrics using the Azure portal, REST API, or CLI, see the [Azure Metrics Overview](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
