@@ -56,7 +56,7 @@ This article is designed to help you troubleshoot and resolve issues encountered
     2. Right click the Azure File share and select **Edit metadata**
     3. Right click SyncService and select **Delete**.
 
-    <a id="cloud-endpoint-authfailed"></a>**Cloud Endpoint creation fails with error: AuthorizationFailed**  
+- <a id="cloud-endpoint-authfailed"></a>**Cloud Endpoint creation fails with error: AuthorizationFailed**  
     This issue occurs if your user account doesn't have sufficient rights to create a Cloud Endpoint. 
 
     To create a Cloud Endpoint, your user account must have the following Microsoft Authorization permissions:
@@ -82,13 +82,13 @@ This article is designed to help you troubleshoot and resolve issues encountered
 
     To prevent this issue from occurring, delete the Cloud Endpoint prior to deleting the Azure File share or storage account.
 
-- <a href="server-registration-missing"></a>**Server is not listed under Registered Servers in the Azure portal**  
+- <a id="server-registration-missing"></a>**Server is not listed under Registered Servers in the Azure portal**  
     If a server is not listed under Registered Servers for a Storage Sync Service, perform the following steps:
     1. Login to the server that you want to register.
     2. Open File Explorer and navigate to the Storage Sync Agent installation directory (default location is `C:\Program Files\Azure\StorageSyncAgent`). 
     3. Run ServerRegistration.exe and follow the wizard to register the server with a Storage Sync Service.
 
-- <a href="server-already-registered"></a>**Server Registration displays the following message after installing the Azure File Sync agent: "This server is already registered"**  
+- <a id="server-already-registered"></a>**Server Registration displays the following message after installing the Azure File Sync agent: "This server is already registered"**  
     ![A screenshot of the Server Registration dialog with the "server is already registered" error message](media/storage-sync-files-troubleshoot/server-registration-1.png)
 
     This message is displayed if the server was previously registered with a Storage Sync Service. To unregister the server with the current Storage Sync Service and register with a new Storage Sync Service, follow the steps to [Unregister a server with Azure File Sync](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
