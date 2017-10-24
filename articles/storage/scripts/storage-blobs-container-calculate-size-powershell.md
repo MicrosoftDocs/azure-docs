@@ -46,7 +46,7 @@ The following is the breakdown:
 * 48 bytes of overhead for each container includes the Last Modified Time, Permissions, Public Settings, and some system metadata.
 
 * The container name is stored as Unicode, so take the number of characters and multiply by two.
-* For each block of blob container metadata that's stored, we store the length of the name (stored as ASCII), plus the length of the string value.
+* For each block of blob container metadata that's stored, we store the length of the name (ASCII), plus the length of the string value.
 * The 512 bytes per Signed Identifier includes signed identifier name, start time, expiry time, and permissions.
 
 ### Blobs
