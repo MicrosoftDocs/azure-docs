@@ -223,7 +223,7 @@
         href: cloudfoundry-deploy-your-first-app.md
     - name: OpenShift
       items:
-      - name: OpenShift Overview
+      - name: OpenShift overview
         href: openshift-get-started.md
       - name: OpenShift prerequisites
         href: openshift-prerequisites.md
@@ -231,7 +231,7 @@
         href: openshift-origin.md
       - name: OpenShift Container Platform
         href: openshift-container-platform.md
-      - name: OpenShift post deployment tasks
+      - name: OpenShift post-deployment tasks
         href: openshift-post-deployment.md
       - name: Troubleshooting deployments
         href: openshift-troubleshooting.md
