@@ -16,7 +16,7 @@ ms.date: 10/23//2017
 ms.author: jrj;barbkess
 
 ---
-# Azure SQL Data Warehouse - massively parallel processing (MPP) architecture
+# Azure SQL Data Warehouse - Massively parallel processing (MPP) architecture
 Learn how Azure SQL Data Warehouse combines massively parallel processing (MPP) with Azure storage to achieve high performance and scalability. 
 
 ## MPP Architecture components
@@ -120,7 +120,7 @@ Now that you know a bit about SQL Data Warehouse, learn how to quickly [create a
 [Blogs]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
 [Customer Advisory Team blogs]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Feature requests]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[MSDN forum]: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureSQLDataWarehouse
+[MSDN forum]: https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureSQLDataWarehouse
 [Stack Overflow forum]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Videos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse

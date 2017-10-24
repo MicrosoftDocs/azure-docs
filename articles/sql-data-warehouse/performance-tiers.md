@@ -188,7 +188,6 @@ When one of these thresholds is met, new queries are queued and executed on a fi
 ## Next steps
 
 To learn more about how to leverage resource classes to optimize your workload further please review the following articles:
-* [Tutorial for changing resource classes](tutorial-for-changing-resource-classes.md)
 * [Resource classes for workload management](resource-classes-for-workload-management.md)
 * [Analyzing your workload](analyze-your-workload.md)
 

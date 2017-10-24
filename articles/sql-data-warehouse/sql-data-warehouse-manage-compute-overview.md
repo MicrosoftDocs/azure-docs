@@ -178,7 +178,7 @@ Refer to the following articles to help you understand some additional key perfo
 <!--Image reference-->
 
 <!--Article references-->
-[billed]: https://azure.microsoft.com/en-us/pricing/details/sql-data-warehouse/
+[billed]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 [Scale compute power with Azure portal]: ./sql-data-warehouse-manage-compute-portal.md#scale-compute-power
 [Scale compute power with PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#scale-compute-bk
 [Scale compute power with REST APIs]: ./sql-data-warehouse-manage-compute-rest-api.md#scale-compute-bk
