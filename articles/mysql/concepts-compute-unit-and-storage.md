@@ -8,13 +8,13 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 10/24/2017
 ---
 # Explaining vCores in Azure Database for MySQL
 This article explains the concept of vCores and what happens when your workload reaches the maximum vCores.
 
 ## What are vCores?
-vCores are a measure of CPU processing throughput that is guaranteed to be available to a single Azure Database for MySQL server. 1 vCore is the smallest unit of compute and in general, 2 vCores equate to 1 core, which is seen as a CPU by the server's operating system. General Purpose 32 vCores therefore equates to sixteen cores of guaranteed processing throughput available to your server. vCore is hyperthreaded in Gen5 hardware, offering additional computing power in simultaneous multithreaded applications.
+vCores is a virtual core that represents the logical CPU available for your server offered with an option to choose between Gen4 and Gen5 hardware. For servers created using Gen4 vCores, they are based on Intel E5-2673 v3 (Haswell) 2.4 GHz processors. For servers created using Gen5 vCores, each vCore is a hyperthread from Intel E5-2673 v4 (Broadwell) 2.3 GHz processors.
 
 The amount of memory per Compute Unit is optimized for the General Purpose and Memory Optimized pricing tiers. Doubling the vCores by increasing the performance level equates to doubling the set of resource available to that single Azure Database for MySQL.
 
