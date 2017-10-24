@@ -22,7 +22,7 @@ ms.author: joeyong;barbkess;kavithaj
 # Analyze your workload
 Techniques for analyzing query prioritization for your workload in Azure SQL Data Warehouse.
 
-## CPU prioritization 
+## Workload groups 
 SQL Data Warehouse implements resource classes by using workload groups. There are a total of eight workload groups that control the behavior of the resource classes across the various DWU sizes. For any DWU, SQL Data Warehouse uses only four of the eight workload groups. This makes sense because each workload group is assigned to one of four resource classes: smallrc, mediumrc, largerc, or xlargerc. The importance of understanding the workload groups is that some of these workload groups are set to higher *importance*. Importance is used for CPU scheduling. Queries run with high importance will get three times more CPU cycles than those with medium importance. Therefore, concurrency slot mappings also determine CPU priority. When a query consumes 16 or more slots, it runs as high importance.
 
 The following table shows the importance mappings for each workload group.
