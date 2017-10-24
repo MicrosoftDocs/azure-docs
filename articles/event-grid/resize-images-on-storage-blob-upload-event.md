@@ -10,7 +10,7 @@ ms.service: event-grid
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 10/20/2017
 ms.author: glenga
 ms.custom: mvc
 ---
@@ -21,8 +21,6 @@ ms.custom: mvc
 This tutorial is part two of a series of Storage tutorials. It extends the [previous Storage tutorial][previous-tutorial] to add serverless automatic thumbnail generation using Azure Event Grid and Azure Functions. Event Grid enables [Azure Functions](..\azure-functions\functions-overview.md) to respond to [Azure Blob storage](..\storage\blobs\storage-blobs-introduction.md) events and generate thumbnails of uploaded images. An event subscription is created against the Blob storage create event. When a blob is added to a specific Blob storage container, a function endpoint is called. Data passed to the function binding from Event Grid is used to access the blob and generate the thumbnail image. 
 
 You use the Azure CLI and the Azure portal to add the resizing functionality to an existing image upload app.
-
-[!INCLUDE [storage-events-note.md](../../includes/storage-events-note.md)]
 
 ![Published web app in Edge browser](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
 
@@ -38,7 +36,6 @@ In this tutorial, you learn how to:
 To complete this tutorial:
 
 + You must have completed the previous Blob storage tutorial: [Upload image data in the cloud with Azure Storage][previous-tutorial]. 
-+ You must apply for and have been granted access to the Blob storage events functionality. [Request access to Blob storage events](#request-storage-access) before continuing with the other steps in the topic.  
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -47,32 +44,6 @@ To complete this tutorial:
 If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0.14 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 If you are not using Cloud Shell, you must first sign in using `az login`.
-
-## Enable Blob storage events
-
-At this time, you must request access to the Blob storage events feature.  
-
-### <a name="request-storage-access"></a>Request access to Blob storage events
-
-You request access with the `az feature register` command.
-
-> [!IMPORTANT]  
-> We are accepting Blob storage events preview participants in the order they requested to join. You might experience a delay of 1-2 business days in being granted access to this feature. 
-
-```azurecli-interactive
-az feature register --name storageEventSubscriptions --namespace Microsoft.EventGrid
-```
-
-### <a name="check-access-status"></a>Check your approval status
-
-You will receive an email from Microsoft notifying you that you have been granted access to Blob storage events. You can verify the status of your access request at any time with the `az feature show` command.
-
-```azurecli-interactive
-az feature show --name storageEventSubscriptions --namespace Microsoft.EventGrid --query properties.state
-```
-After you have been granted access to the Blob storage events feature, this command returns a `"Registered"` value. 
- 
-After you are registered, you can continue with this tutorial.
 
 ## Create an Azure Storage account
 
