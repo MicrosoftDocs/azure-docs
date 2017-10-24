@@ -49,7 +49,7 @@
               href: https://docs.microsoft.com/en-us/azure/container-registry/container-registry-authentication
             - name: Use ACR webhooks
               href: https://docs.microsoft.com/en-us/azure/container-registry/container-registry-webhook
-    - name: Web Apps for Containers
+    - name: Web App for Containers
       href: https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-intro
       items:
         - name: Using a custom Docker image for Azure Web App for Containers
@@ -97,7 +97,7 @@
           href: https://docs.microsoft.com/en-us/cli/azure/acs
         - name: Azure Container Registry (az acr)
           href: https://docs.microsoft.com/en-us/cli/azure/acr      
-        - name: Azure Web Apps for Containers(az appservice)
+        - name: Web App for Containers(az appservice)
           href: https://docs.microsoft.com/en-us/cli/azure/appservice
         - name: Azure App Service Web App (az webapp)
           href: https://docs.microsoft.com/en-us/cli/azure/webapp
