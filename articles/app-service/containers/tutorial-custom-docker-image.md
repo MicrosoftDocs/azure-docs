@@ -38,7 +38,7 @@ To complete this tutorial, you need:
 In a terminal window, run the following command to clone the sample app repository to your local machine, then change to the directory that contains the sample code.
 
 ```bash
-git clone https://github.com/Azure-Samples/docker-django-webapp-linux.git
+git clone https://github.com/Azure-Samples/docker-django-webapp-linux.git --config core.autocrlf=input
 cd docker-django-webapp-linux
 ```
 
@@ -83,60 +83,37 @@ The command produces output similar to the following:
 ```bash
 # The output from the commands in this article has been shortened for brevity.
 
-Sending build context to Docker daemon  23.04kB
-Step 1/13 : FROM python
- ---> 968120d8cbe8
-Step 2/13 : WORKDIR /app
+Sending build context to Docker daemon  5.558MB
+Step 1/13 : FROM python:3.4
+ ---> 9ff45ddb54e9
+Step 2/13 : RUN mkdir /code
  ---> Using cache
- ---> dd6fdca5aa65
-Step 3/13 : ADD . /app
- ---> e05c8f4beeae
-Get:1 http://security.debian.org jessie/updates InRelease [63.1 kB]
-Ign http://deb.debian.org jessie InRelease
-Get:2 http://deb.debian.org jessie-updates InRelease [145 kB]
-Get:3 http://deb.debian.org jessie Release.gpg [2373 B]
-Fetched 9988 kB in 7s (1266 kB/s)
-Reading package lists...
-Building dependency tree...
-Reading state information...
-The following extra packages will be installed:
-  init-system-helpers libwrap0 openssh-sftp-server
-Suggested packages:
-  ssh-askpass rssh molly-guard ufw monkeysphere
-Recommended packages:
-  tcpd xauth ncurses-term
-The following NEW packages will be installed:
-  init-system-helpers libwrap0 openssh-server openssh-sftp-server
-0 upgraded, 4 newly installed, 0 to remove and 3 not upgraded.
-Need to get 442 kB of archives.
-After this operation, 1138 kB of additional disk space will be used.
-Get:1 http://deb.debian.org/debian/ jessie/main libwrap0 amd64 7.6.q-25 [58.5 kB]
-Creating SSH2 RSA key; this may take some time ...
-2048 f0:e9:fb:69:de:62:a4:5c:a3:7c:b3:41:e9:2e:96:a3 /etc/ssh/ssh_host_rsa_key.pub (RSA)
-Creating SSH2 DSA key; this may take some time ...
-1024 4a:5e:89:bd:aa:2d:71:bb:0e:3a:32:94:fb:c0:b1:4d /etc/ssh/ssh_host_dsa_key.pub (DSA)
-Processing triggers for systemd (215-17+deb8u7) ...
- ---> 5b416a7dcdca
-Removing intermediate container 283b3b4623d7
-Step 13/13 : CMD python app.py
- ---> Running in 1c776e5e0772
- ---> 1bfc1bbc968d
-Removing intermediate container 1c776e5e0772
-Successfully built 1bfc1bbc968d
-Successfully tagged <docker-id>/myDockerImage:v1.0.0
+ ---> f3f3ac01db0a
+Step 3/13 : WORKDIR /code
+ ---> Using cache
+ ---> 38b32f15b442
+.
+.
+.
+Step 13/13 : ENTRYPOINT init.sh
+ ---> Running in 5904e4c70043
+ ---> e7cf08275692
+Removing intermediate container 5904e4c70043
+Successfully built e7cf08275692
+Successfully tagged cephalin/mydockerimage:v1.0.0
 ```
 
-Test that the build works by running the Docker container. Issue the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command and pass the name and tag of the image to it. You must also  specify the port using `-p` argument.
+Test that the build works by running the Docker container. Issue the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command and pass the name and tag of the image to it. You must also specify the port using `-p` argument.
 
 ```bash
-docker run -p 80:2222 <docker-ID>/mydockerimage:v1.0.0
+docker run -p 2222:8000 <docker-ID>/mydockerimage:v1.0.0
 ```
 
 Verify the web app and container are functioning correctly by browsing the web app locally.
 
 ![Test web app locally](./media/app-service-linux-using-custom-docker-image/app-service-linux-browse-local.png)
 
-## Push a Docker image to Docker Hub
+## Push the Docker image to Docker Hub
 
 A registry is an application that hosts images and provides services image and container services. In order to share your image, you must push it to a registry. 
 
@@ -168,19 +145,23 @@ docker push <docker-id>/mydockerimage:v1.0.0 .
 Verify that the push succeeded by examining the command's output.
 
 ```bash
-The push refers to a repository [docker.io/<docker-id>/python-flask]
-e9aa2c6d0f34: Pushed
-0fdcb490aeec: Pushed
-08ae61c7869c: Pushed
-2548e7db2a94: Mounted from library/python
-325b9d6f2920: Pushed
-815acdffadff: Mounted from library/python
-97108d083e01: Mounted from library/python
-5616a6292c16: Mounted from library/python
-f3ed6cb59ab0: Mounted from library/python
-654f45ecb7e3: Mounted from library/python
-2c40c66f7667: Mounted from library/python
-v1: digest: sha256:a910d5b77e6960c01745a87c35f3d1a13ba73231ac9a4664c5011b1422d59b60 size: 2632
+The push refers to a repository [docker.io/<docker-id>/mydockerimage:v1.0.0]
+c33197c3f6d4: Pushed
+ccd2c850ee43: Pushed
+02dff2853466: Pushed
+6ce78153632a: Pushed
+efef3f03cc58: Pushed
+3439624d77fb: Pushed
+3a07adfb35c5: Pushed
+2fcec228e1b7: Mounted from library/python
+97d2d3bae505: Mounted from library/python
+95aadeabf504: Mounted from library/python
+b456afdc9996: Mounted from library/python
+d752a0310ee4: Mounted from library/python
+db64edce4b5b: Mounted from library/python
+d5d60fc34309: Mounted from library/python
+c01c63c6823d: Mounted from library/python
+v1.0.0: digest: sha256:21f2798b20555f4143f2ca0591a43b4f6c8138406041f2d32ec908974feced66 size: 3676
 ```
 
 <!--
@@ -193,118 +174,52 @@ v1: digest: sha256:a910d5b77e6960c01745a87c35f3d1a13ba73231ac9a4664c5011b1422d59
 
 [!INCLUDE [Try Cloud Shell](../../../includes/cloud-shell-try-it.md)]
 
-## Create Web App for Containers
+## Deploy app to Azure
 
-You can host native Linux applications in the cloud by using Azure Web Apps. To create a Web App for Containers, you must run Azure CLI commands that create a group, then a service plan, and finally the web app itself. First, run the [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) command, and pass in a location and unique name.
+You can host native Linux applications in the cloud by using Azure Web Apps. To create a Web App for Containers, you must run Azure CLI commands that create a group, then a service plan, and finally the web app itself. 
+
+### Create a resource group
+
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-no-h.md)] 
+
+### Create a Linux App Service plan
+
+[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux-no-h.md)] 
+
+### Create a web app
+
+In the Cloud Shell, create a [web app](app-service-linux-intro.md) in the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp#create) command. Don't forget to replace `<app_name>` with a unique app name, and <docker-ID> with your Docker ID.
 
 ```azurecli-interactive
-az group create --location "West Europe" --name myResourceGroup
+az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --deployment-container-image-name <docker-ID>/mydockerimage:v1.0.0
 ```
 
-You see output similar to the sample shown here:
+When the web app has been created, the Azure CLI shows output similar to the following example:
 
 ```json
 {
-  "id": "/subscriptions/432849d3e4-4f90-a782-87c11e-5e59d6dd/resourceGroups/myResourceGroup",
-  "location": "westeurope",
-  "managedBy": null,
-  "name": "myResourceGroup",
-  "properties": {
-    "provisioningState": "Succeeded"
-  },
-  "tags": null
-}
-```
-
-Use the name of the group to help create an app service plan by using the [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) command. You also need to name it a unique name and set the `--is-linux` flag.
-
-```azurecli-interactive
-az appservice plan create --name myServicePlan --resource-group myResourceGroup --is-linux
-```
-
-Creating a service plan produces results similar to the following sample:
-
-```json
-  {- Starting...
-  "adminSiteName": null,
-  "appServicePlanName": "myServicePlan",
-  "geoRegion": "West Europe",
-  "hostingEnvironmentProfile": null,
-  "id": "/subscriptions/resourceGroups/myResourceGroup/provide
-rs/Microsoft.Web/serverfarms/myServicePlan",
-  "kind": "linux",
-  "location": "West Europe", 
-  "resourceGroup": "myResourceGroup",
-  "sku": {
-    "capabilities": null,
-    "capacity": 1,
-    "tier": "Basic"
-  },
-  "status": "Ready",
-  "subscription": "",
-  "tags": null,
-  "type": "Microsoft.Web/serverfarms",
-  "workerTierName": null
-}
-```
-
-Now that the resource group and service plan have been created, you can run the [az webapp create](https://docs.microsoft.com/cli/azure/webapp#az_webapp_create) command to create the web app. Notice the runtime stack is Python 3.4 and the web app uses the resource group and service plan setup in previous steps.
-
-```azurecli-interactive
-az webapp create -g myResourceGroup -p myServicePlan -n <web-app-name> --runtime "python|3.4" 
-```
-
-The command to create a web app produces the output shown here:
-
-```json
-{- Starting ..
   "availabilityState": "Normal",
-   "enabled": true,
-  "enabledHostNames": [
-    "<web-app-name>.azurewebsites.net",
-    "<web-app-name>.scm.azurewebsites.net"
-  ],
-  "ftpPublishingUrl": "ftp://waws-prod-am2-085.ftp.azurewebsites.windows.net/site/wwwroot",
-  "gatewaySiteName": null,
-  "hostNameSslStates": [
-    {
-      "hostType": "Standard",
-      "name": "<web-app-name>.azurewebsites.net",
-    },
-  ],
-  "hostNames": [
-    "<web-app-name>.azurewebsites.net"
-  ],
-  "hostNamesDisabled": false,
-  "hostingEnvironmentProfile": null,
-  "id": "/subscriptions/5e59d6dd-d3e4-4f90-a782-43284987c11e/resourceGroups/myResourceGroup/providers/Microsoft.
-Web/sites/<web-app-name>",
-  "lastModifiedTimeUtc": "2017-08-08T21:09:33.693333",
-  "location": "West Europe",
-  "name": "<web-app-name>",
-  "outboundIpAddresses": "13.81.108.99,52.232.76.83,52.166.73.203,52.233.173.39,52.233.159.48",
-  "resourceGroup": "myResourceGroup"
+  "clientAffinityEnabled": true,
+  "clientCertEnabled": false,
+  "cloningInfo": null,
+  "containerSize": 0,
+  "dailyMemoryTimeQuota": 0,
+  "defaultHostName": "<app_name>.azurewebsites.net",
+  "deploymentLocalGitUrl": "https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git",
+  "enabled": true,
+  < JSON data removed for brevity. >
 }
-
 ```
 
-Most web apps have application settings that need to be configured. If you are using an existing Docker image built by someone else, the image may require a port other than port 80 for the application. To set the `WEBSITES_PORT`, run the [az webapp config](https://docs.microsoft.com/cli/azure/webapp/config/appsettings) command, as shown in the following code sample:
+### Configure environment variables
+
+Most Docker images have environment variables that need to be configured. If you are using an existing Docker image built by someone else, the image may use a port other than 80. You tell Azure about the port that your image uses by using the `WEBSITES_PORT` app setting. The GitHub page for the [Python sample in this tutorial](https://github.com/Azure-Samples/docker-django-webapp-linux) shows that you need to set `WEBSITES_PORT` to _8000_.
+
+To set app settings, use the [az webapp config appsettings update](/cli/azure/webapp/config/appsettings#update) command in the Cloud Shell. App settings are case sensitive and space-separated.
 
 ```azurecli-interactive
-az webapp config appsettings set --resource-group myResourceGroup --name <web-app-name> --settings WEBSITES_PORT=2222
+az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITES_PORT=8000
 ```
-
-> [!NOTE]
-> Application settings are case sensitive.
->
-
-Verify that the web app works by browsing it. Don't forget the port number.
-
-![Test web app port configuration](./media/app-service-linux-using-custom-docker-image/app-service-linux-browse-azure.png)
-
-## Configure Web App to use Docker container from Docker Hub
-
-The [az webapp config](https://docs.microsoft.com/cli/azure/webapp/config) command allows you to use a custom Docker image.
 
 <!-- Depending on your requirements, you may have your docker images in a Public Docker Registry, such as Docker Hub, or a Private Docker Registry, such as Azure Container Registry. Select the appropriate tab for your scenario below: -->
 
@@ -313,35 +228,6 @@ The [az webapp config](https://docs.microsoft.com/cli/azure/webapp/config) comma
 
 <!-- # [Docker Hub](#tab/docker-hub)-->
 
-To configure the web app to use a public Docker registry, pass the name of the app, the resource group, and the image name and URL to the [az webapp config container set](https://docs.microsoft.com/cli/azure/webapp/config/container#az_webapp_config_container_set) command.
-
-```azurecli-interactive
-az webapp config container set --name <web-app-name> --resource-group myResourceGroup --docker-custom-image-name mydockerimage
---docker-registry-server-url <docker-id>/myContainerRegistry
-```
-
-A successful configuration change returns general information about the container.
-
-```bash
-[
-  {
-    "name": "DOCKER_CUSTOM_IMAGE_NAME",
-    "slotSetting": false,
-    "value": "{docker-id}/mydockerimage:v1.0.0"
-  },
-  {
-    "name": "DOCKER_REGISTRY_SERVER_USERNAME",
-    "slotSetting": false,
-    "value": "{docker-id}"
-  },
-  {
-    "name": "DOCKER_REGISTRY_SERVER_PASSWORD",
-    "slotSetting": false,
-    "value": null
-  }
-]
-```
-
 <!-- # [Private Registry](#tab/private-registry)
 
 // Place Private Registry text back here once Tabbed Conceptual bug is fixed
@@ -349,27 +235,27 @@ A successful configuration change returns general information about the containe
 ---
 -->
 
-## Test the Application in Azure
+### Test the web app
 
-Before testing, you must restart the web app using the [az webapp restart](https://docs.microsoft.com/cli/azure/webapp#az_webapp_restart) for the configuration changes to take effect.
+Verify that the web app works by browsing to it (`http://<app_name>azurewebsites.net`). 
 
-```azurecli-interactive
-az webapp restart --name <web-app-name> --resource-group myResourceGroup
-```
-
-The restart command quietly restarts the web app, so you see no feedback in the terminal. Once the web app is running, test the web app by browsing its URL at `http://<username>.azurewebsites.net`. Verify that the app displays the new welcome message.
-
-![Test web app in Azure](./media/app-service-linux-using-custom-docker-image/app-service-linux-browse-azure.png)
+![Test web app port configuration](./media/app-service-linux-using-custom-docker-image/app-service-linux-browse-azure.png)
 
 ## Change web app and redeploy
 
-A Python file named `app.py` exists in the `using-custom-docker-image` directory. This file contains a line of code that displays a `Hello World!` message. Change the line so it displays the message `Hello World of Web Apps running in Docker Containers!`.
+In your local Git repository, open app/templates/app/index.html. Locate the first HTML element and change it to.
 
 ```python
-return "Hello World of Web Apps running in Docker Containers!"
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">         
+        <a class="navbar-brand" href="#">Azure App Service - Updated Here!</a>		 
+      </div>            
+    </div>
+  </nav> 
 ```
 
-Once you've modified the Python file and saved it, you must rebuild and push the new Docker image. Then restart the web app for the changes to take effect. Use the same commands that you have previously used in this tutorial. You can refer to the [build the image from the Docker file](#build-the-image-from-the-docker-file) and [push the Docker image](#push-docker-image) sections. Test the web app by following the instructions in [Test the Application in Azure](#tTest-the-application-in-azure)
+Once you've modified the Python file and saved it, you must rebuild and push the new Docker image. Then restart the web app for the changes to take effect. Use the same commands that you have previously used in this tutorial. You can refer to [Build the image from the Docker file](#build-the-image-from-the-docker-file) and [Push the Docker image to Docker Hub](#push-the-docker-image-to-docker-hub). Test the web app by following the instructions in [Test the web app](#test-the-web-app).
 
 ## Connect to Web App for Containers using SSH
 
@@ -378,53 +264,45 @@ SSH enables secure communication between a container and a client. In order for 
 * A [RUN](https://docs.docker.com/engine/reference/builder/#run) instruction that calls `apt-get`, then sets the password for the root account to `"Docker!"`.
 
     ```docker
+    ENV SSH_PASSWD "root:Docker!"
     RUN apt-get update \
-    	&& apt-get install -y --no-install-recommends openssh-server \
-    	&& echo "root:Docker!" | chpasswd
+            && apt-get install -y --no-install-recommends dialog \
+            && apt-get update \
+      && apt-get install -y --no-install-recommends openssh-server \
+      && echo "$SSH_PASSWD" | chpasswd 
     ```
 
     > [!NOTE]
     > This configuration does not allow external connections to the container. SSH is available only through the Kudu/SCM Site. The Kudu/SCM site is authenticated with the publishing credentials.
 
-* A [COPY](https://docs.docker.com/engine/reference/builder/#copy) instruction that instructs the Docker engine to copy the [sshd_config](http://man.openbsd.org/sshd_config) file to the */etc/ssh/* directory. Your configuration file should be based on our [sshd_config file](https://github.com/Azure-App-Service/node/blob/master/6.11/sshd_config) in the Azure-App-Service GitHub repository.
+* A [COPY](https://docs.docker.com/engine/reference/builder/#copy) instruction that instructs the Docker engine to copy the [sshd_config](http://man.openbsd.org/sshd_config) file to the */etc/ssh/* directory. Your configuration file should be based on [this sshd_config file](https://github.com/Azure-App-Service/node/blob/master/6.11/sshd_config).
+
+    ```docker
+    COPY sshd_config /etc/ssh/
+    ```
 
     > [!NOTE]
     > The *sshd_config* file must include the following items: 
     > * `Ciphers` must include at least one item in this list: `aes128-cbc,3des-cbc,aes256-cbc`.
     > * `MACs` must include at least one item in this list: `hmac-sha1,hmac-sha1-96`.
 
-    ```docker
-    #Copy the sshd_config file to its new location
-    COPY sshd_config /etc/ssh/
-    ```
-
 * An [EXPOSE](https://docs.docker.com/engine/reference/builder/#expose) instruction that exposes port 2222 in the container. Although the root password is known, port 2222 cannot be accessed from the internet. It is an internal port accessible only by containers within the bridge network of a private virtual network. After that, commands copy SSH configuration details and start the `ssh` service.
 
     ```docker
-    # Configure ports
-    EXPOSE 2222 80
+    EXPOSE 8000 2222
 
-    #Copy the sshd_config file to its new location
-    COPY sshd_config /etc/ssh/
-
-    # Start the SSH service
     RUN service ssh start
     ```
 
-The `init_container.sh` file in the sample code contains instructions on how to initialize the container when it runs. The Dockerfile uses the [COPY](https://docs.docker.com/engine/reference/builder/#copy), [RUN](https://docs.docker.com/engine/reference/builder/#run), and [CMD](https://docs.docker.com/engine/reference/builder/#cmd) instructions to launch the `init_container.sh` script properly.
+### Open SSH connection to container
 
-```docker
-# Copy init_container.sh to the /bin directory
-COPY init_container.sh /bin/
+Web App for Containers does not allow external connections to the container. SSH is available only through the Kudu site (`https://<app_name>.scm.azurewebsites.net`).
 
-# Run the chmod command to change permissions on above file in the /bin directory
-RUN chmod 755 /bin/init_container.sh
+To connect, browse to `https://<app_name>.scm.azurewebsites.net/webssh/host` and sign in with your Azure account.
 
-# run commands in init_container.sh
-CMD ["/bin/init_container.sh"]
-```
+You are then redirected to a page displaying an interactive console. 
 
-You may wish to verify that certain applications are running in the container. To inspect the container and verify running processes, start by opening a browser and navigate to `https://<app name>.scm.azurewebsites.net/webssh/host`. You are then redirected to a page displaying an interactive console. Issue the `top` command at the prompt.
+You may wish to verify that certain applications are running in the container. To inspect the container and verify running processes, issue the `top` command at the prompt.
 
 ```bash
 top
