@@ -44,7 +44,7 @@
 - name: Reference
   items:
   - name: Azure CLI
-    href: /cli/azure/acs
+    href: /cli/azure/aks
   - name: REST
     href: /rest/api/container-service
 - name: Resources
