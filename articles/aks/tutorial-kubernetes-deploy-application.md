@@ -1,5 +1,5 @@
 ---
-title: Kubernertes on Azure tutorial  - Deploy Application | Microsoft Docs
+title: Kubernetes on Azure tutorial  - Deploy Application | Microsoft Docs
 description: AKS tutorial - Deploy Application
 services: container-service
 documentationcenter: ''
