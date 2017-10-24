@@ -170,7 +170,7 @@ The VM you want to remove (or detach) a network interface from must be in the st
 3. In the **Virtual machines** blade that appears, click the name of the VM you want to remove a network interface for.
 4. In the **SETTINGS** section of the virtual machine blade that appears for the VM you selected, click **Networking**. To learn about network interface settings and how to change them, read the [Manage network interfaces](virtual-network-network-interface.md) article. To learn about adding, changing, or removing IP addresses assigned to a network interface, see [Manage IP addresses](virtual-network-network-interface-addresses.md).
 5. Click **X Detach network interface**.
-6. Select the network interface you want to detach from the drop-down list, then click **OK**. Click **Yes** in the confirmation box that appears.
+6. Select the network interface you want to detach from the drop-down list, then click **OK**.
 
 **Commands**
 
