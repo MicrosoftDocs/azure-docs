@@ -27,9 +27,9 @@ Create a new Windows Server 2016 Azure VM and choose a size from the Dv3 or Ev3 
 
 You can view the regional availability of Dv3 or Ev3 series virtual machines [here](https://azure.microsoft.com/en-us/regions/services/).
 
-    >[!NOTE]
-    >
-    >For detailed instructions on creating a new virtual machine, see [Create and Manage Windows VMs with the Azure PowerShell module](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/tutorial-manage-vm)
+>[!NOTE]
+>
+>For detailed instructions on creating a new virtual machine, see [Create and Manage Windows VMs with the Azure PowerShell module](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/tutorial-manage-vm)
     
 ## Connect to your virtual machine
 
