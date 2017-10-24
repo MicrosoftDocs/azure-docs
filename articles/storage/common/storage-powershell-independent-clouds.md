@@ -24,17 +24,19 @@ Most people use Azure Public Cloud for their global Azure deployment. There are 
 * [Azure China Cloud operated by 21Vianet in China](http://www.windowsazure.cn/)
 * [Azure Germany Cloud](../../germany/germany-welcome.md)
 
-## Differences 
+## Using an independent cloud 
 
 To use Azure Storage with one of the independent clouds available in Azure, you need to connect to that cloud instead of Azure Public. 
 
- The differences using one of these clouds versus Azure Public are as follows: 
+The differences using one of these clouds versus Azure Public are as follows: 
 
-	* You must specify the *environment* to which to connect.
-	* You must determine the available regions.
-	* You need the endpoint suffix, which is different from Public Azure.
+* You must specify the *environment* to which to connect.
+* You must determine the available regions.
+* You need the endpoint suffix, which is different from Azure Public.
 
-## Set the Environment
+<!-- add section about installing powershell here -->
+
+## Set the environment
 
 Run the [Get-AzureEnvironment](/powershell/module/azure/Get-AzureRmEnvironment) cmdlet to see the available Azure environments:
    
@@ -52,7 +54,7 @@ Login-AzureRmAccount –Environment AzureUSGovernment
 
 ## Endpoint suffix
 
-The endpoint suffix for one of these environments is different from the Public Azure endpoint. For example, the blob endpoint suffix for Public Azure is **blob.core.windows.net**. For the Government Cloud, the blob endpoint suffix will be **blob.core.usgovcloudapi.net**. To find this, you need a reference to a storage account. Then you can examine its properties to retrieve the endpoints. 
+The endpoint suffix for each of these environments is different from the Azure Public endpoint. For example, the blob endpoint suffix for Azure Public is **blob.core.windows.net**. For the Government Cloud, the blob endpoint suffix will be **blob.core.usgovcloudapi.net**. To find this, you need a reference to a storage account. Then you can examine its properties to retrieve the endpoints. 
 
 ### Create a storage account 
 
