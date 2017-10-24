@@ -2,92 +2,376 @@
 title: Create and publish an Azure service catalog managed application | Microsoft Docs
 description: Shows how to create an Azure managed application that is intended for members of your organization.
 services: azure-resource-manager
-author: ravbhatnagar
-manager: rjmax
+author: tfitzmac
+manager: timlt
 
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/12/2017
-ms.author: gauravbh
+ms.date: 10/24/2017
+ms.author: tomfitz
 ---
 # Publish a managed application for internal consumption
 
-You can create and publish Azure [managed applications](overview.md) that are intended for members of your organization. For example, an IT department can publish managed applications that ensure compliance with organizational standards. These managed applications are available through the service catalog, not the Azure Marketplace.
+You can create and publish Azure [managed applications](overview.md) that are intended for members of your organization. For example, an IT department can publish managed applications that ensure compliance with organizational standards. These managed applications are available through the service catalog, not the Azure marketplace.
 
 To publish a managed application for the service catalog, you must:
 
-* Create a .zip package that contains the two required template files.
+* Create a template that defines the resources to deploy with the managed application.
+* Define the user interface elements for the portal when deploying the managed application.
+* Create a .zip package that contains the required template files.
 * Decide which user, group, or application needs access to the resource group in the user's subscription.
 * Create the managed application definition that points to the .zip package and requests access for the identity.
 
-## Create a managed application package
+The [managed application for this article](https://github.com/Azure/azure-managedapp-samples/tree/master/samples/201-managed-web-app) is available in GitHub. It includes a virtual machine that hosts a web application.
 
-The first step is to create the two required template files. Package the two files into a .zip file, and upload it to an accessible location, such as a storage account. You pass a link to this .zip file when creating the managed application definition.
+## Create the resource template
 
-* **mainTemplate.json**: This file defines the Azure resources that are provisioned as part of the managed application. The template is no different than a regular Resource Manager template. For example, to create a storage account through a managed application, mainTemplate.json contains:
+Every managed application definition contains a file named **mainTemplate.json**. In it, you define the Azure resources to provision. The template is no different than a regular Resource Manager template.
 
-  ```json
-  {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+Let's look at the [mainTemplate.json](https://github.com/Azure/azure-managedapp-samples/blob/master/samples/201-managed-web-app/mainTemplate.json) for this managed application. It includes several parameters for defining the virtual machine. You could define all the resources in a single template, but this example uses two nested templates. One nested template deploys the resources for log analytics. The other template deploys the virtual machine, storage account, and virtual network.
+
+```json
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "storageAccountNamePrefix": {
-            "type": "string"
+        "location": {
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]",
+            "metadata": {
+                "description": "Specify the location for the Azure resources"
+            }
+        },
+        "vmSize": {
+            "type": "string",
+            "defaultValue": "Standard_D1_v2",
+            "metadata": {
+                "description": "Select the VM Size"
+            }
+        },
+        "vmNamePrefix": {
+            "type": "string",
+            "metadata": {
+                "description": "Assign a prefix for the VM name"
+            }
+        },
+        "userName": {
+            "type": "string",
+            "metadata": {
+                "description": "Specify the user name for the virtual machine guest OS"
+            }
+        },
+        "pwd": {
+            "type": "securestring",
+            "metadata": {
+                "description": "Specify the password for the user account for the virtual machine"
+            }
+        },
+        "enablePremiumManagement": {
+            "type": "string",
+            "allowedValues": [
+                "Yes",
+                "No"
+            ],
+            "metadata": {
+                "description": "Select whether premium management should be enabled or not"
+            }
+        },
+        "dnsName": {
+            "type": "string",
+            "metadata": {
+                "description": "Specify the DNS name for the managed web app"
+            }
+        },
+        "publicIPAddressName": {
+            "type": "string",
+            "metadata": {
+                "description": "Assign a name for the public IP address"
+            }
         }
+    },
+    "variables": {
+        "artifacts": {
+            "logAnalytics": "[uri(deployment().properties.templateLink.uri, 'nestedtemplates/oms.json')]",
+            "compute": "[uri(deployment().properties.templateLink.uri, 'nestedtemplates/managedVm.json')]",
+            "scripts": "[uri(deployment().properties.templateLink.uri, 'scripts/ManagedWebApplication.ps1.zip')]"
+        },
+        "logAnalyticsLocationMap": {
+            "eastasia": "southeastasia",
+            "southeastasia": "southeastasia",
+            "centralus": "westcentralus",
+            "eastus": "eastus",
+            "eastus2": "eastus",
+            "westus": "westcentralus",
+            "northcentralus": "westcentralus",
+            "southcentralus": "westcentralus",
+            "northeurope": "westeurope",
+            "westeurope": "westeurope",
+            "japanwest": "southeastasia",
+            "japaneast": "southeastasia",
+            "brazilsouth": "eastus",
+            "australiaeast": "australiasoutheast",
+            "australiasoutheast": "australiasoutheast",
+            "southindia": "southeastasia",
+            "centralindia": "southeastasia",
+            "westindia": "southeastasia",
+            "canadacentral": "eastus",
+            "canadaeast": "eastus",
+            "uksouth": "westeurope",
+            "ukwest": "westeurope",
+            "westcentralus": "westcentralus",
+            "westus2": "westcentralus",
+            "koreacentral": "southeastasia",
+            "koreasouth": "southeastasia",
+            "eastus2euap": "eastus"
+        },
+        "logAnalyticsLocation": "[variables('logAnalyticsLocationMap')[parameters('location')]]",
+        "logAnalyticsWorkspaceName": "[concat(resourceGroup().name, '-', uniqueString('oms'))]"
     },
     "resources": [
         {
-            "type": "Microsoft.Storage/storageAccounts",
-            "name": "[concat(parameters('storageAccountNamePrefix'), uniqueString(resourceGroup().id))]",
-            "apiVersion": "2016-01-01",
-            "location": "[resourceGroup().location]",
-            "sku": {
-                "name": "Standard_LRS"
-            },
-            "kind": "Storage",
-            "properties": {}
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2016-09-01",
+            "name": "logAnalytics",
+            "properties": {
+                "mode":"Incremental",
+                "templateLink": {
+                    "contentVersion": "1.0.0.0",
+                    "uri": "[variables('artifacts').logAnalytics]"
+                },
+                "parameters": {
+                    "omsWorkspaceName": {
+                        "value": "[variables('logAnalyticsWorkspaceName')]"
+                    },
+                    "omsWorkspaceRegion": {
+                        "value": "[variables('logAnalyticsLocation')]"
+                    },
+                    "enablePremiumManagement": {
+                        "value": "[parameters('enablePremiumManagement')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2016-09-01",
+            "name": "compute",
+            "dependsOn": [
+                "logAnalytics"
+            ],
+            "properties": {
+                "mode":"Incremental",
+                "templateLink": {
+                    "contentVersion": "1.0.0.0",
+                    "uri": "[variables('artifacts').compute]"
+                },
+                "parameters": {
+                    "location": {
+                        "value": "[parameters('location')]"
+                    },
+                    "vmSize": {
+                        "value": "[parameters('vmSize')]"
+                    },
+                    "vmNamePrefix": {
+                        "value": "[parameters('vmNamePrefix')]"
+                    },
+                    "userName": {
+                        "value": "[parameters('userName')]"
+                    },
+                    "pwd": {
+                        "value": "[parameters('pwd')]"
+                    },
+                    "dscScript": {
+                        "value": "[variables('artifacts').scripts]"
+                    },
+                    "logAnalyticsWorkspaceName": {
+                        "value": "[variables('logAnalyticsWorkspaceName')]"
+                    },
+                    "publicIPAddressName": {
+                        "value": "[parameters('publicIPAddressName')]"
+                    },
+                    "dnsName": {
+                        "value": "[parameters('dnsName')]"
+                    }
+                }
+            }
         }
     ],
-    "outputs": {}
-  }
-  ```
+    "outputs": {
+        "applicationEndpoint": {
+            "type": "string",
+            "value": "[reference('compute').outputs.vmEndpoint.value]"
+        }
+    }
+}
+```
 
-* **createUiDefinition.json**: The Azure portal uses this file to generate the user interface for users who create the managed application. You define how users provide input for each parameter. You can use options like a drop-down list, text box, password box, and other input tools. To learn how to create a UI definition file for a managed application, see [Get started with CreateUiDefinition](create-uidefinition-overview.md).
+This article does not present all of the templates for this managed application. To view the nested templates, see [managedVm.json](https://github.com/Azure/azure-managedapp-samples/blob/master/samples/201-managed-web-app/nestedtemplates/managedVm.json) and [oms.json](https://github.com/Azure/azure-managedapp-samples/blob/master/samples/201-managed-web-app/nestedtemplates/oms.json).
 
-  The following example shows an createUiDefinition.json file that enables users to specify the storage account name prefix through a textbox.
+## Create the user interface definition
 
-  ```json
-  {
-    "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json",
+The Azure portal uses the **createUiDefinition.json** file to generate the user interface for users who create the managed application. You define how users provide input for each parameter. You can use options like a drop-down list, text box, password box, and other input tools. To learn how to create a UI definition file for a managed application, see [Get started with CreateUiDefinition](create-uidefinition-overview.md).
+
+The following example shows the createUiDefinition.json file for this managed application. It includes steps where users can configure the virtual machine and web application.
+
+```json
+{
     "handler": "Microsoft.Compute.MultiVm",
     "version": "0.1.2-preview",
     "parameters": {
         "basics": [
+            {}
+        ],
+        "steps": [
             {
-                "name": "storageAccounts",
-                "type": "Microsoft.Common.TextBox",
-                "label": "Storage account name prefix",
-                "defaultValue": "storage",
-                "toolTip": "Provide a value that is used for the prefix of your storage account. Limit to 11 characters.",
-                "constraints": {
-                    "required": true,
-                    "regex": "^[a-z0-9A-Z]{1,11}$",
-                    "validationMessage": "Only alphanumeric characters are allowed, and the value must be 1-11 characters long."
+                "name": "credentialsConfig",
+                "label": "VM Credential",
+                "subLabel": {
+                    "preValidation": "Configure the Web App VM credentials",
+                    "postValidation": "Done"
                 },
-                "visible": true
+                "bladeTitle": "Credential",
+                "elements": [
+                    {
+                        "name": "adminUsername",
+                        "type": "Microsoft.Compute.UserNameTextBox",
+                        "label": "User name",
+                        "toolTip": "Admin username for the virtual machine",
+                        "osPlatform": "Windows",
+                        "constraints": {
+                            "required": true
+                        }
+                    },
+                    {
+                        "name": "adminPassword",
+                        "type": "Microsoft.Compute.CredentialsCombo",
+                        "label": {
+                            "password": "Password",
+                            "confirmPassword": "Confirm password"
+                        },
+                        "toolTip": {
+                            "password": "Admin password for the virtual machine"
+                        },
+                        "osPlatform": "Windows",
+                        "constraints": {
+                            "required": true
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "vmConfig",
+                "label": "Web App Virtual Machine settings",
+                "subLabel": {
+                    "preValidation": "Configure the virtual machine settings",
+                    "postValidation": "Done"
+                },
+                "bladeTitle": "Web App VM Settings",
+                "elements": [
+                    {
+                        "name": "vmNamePrefix",
+                        "type": "Microsoft.Common.TextBox",
+                        "label": "Virtual Machine Name prefix",
+                        "toolTip": "Prefix of the VM for your web app",
+                        "defaultValue": "",
+                        "constraints": {
+                            "required": true,
+                            "regex": "[a-z][a-z0-9-]{2,5}[a-z0-9]$",
+                            "validationMessage": "Must be 3-5 characters."
+                        }
+                    },
+                    {
+                        "name": "vmSize",
+                        "type": "Microsoft.Compute.SizeSelector",
+                        "label": "Virtual machine size",
+                        "toolTip": "The size of the virtual machine for web app",
+                        "recommendedSizes": [
+                            "Standard_D1_v2"
+                        ],
+                        "constraints": {
+                            "allowedSizes": [
+                                "Standard_D1_v2"
+                            ]
+                        },
+                        "osPlatform": "Windows",
+                        "count": 1
+                    }
+                ]
+            },
+            {
+                "name": "webConfig",
+                "label": "Web App settings",
+                "subLabel": {
+                    "preValidation": "Configure the web app endpoint",
+                    "postValidation": "Done"
+                },
+                "bladeTitle": "Web App Endpoint settings",
+                "elements": [
+                    {
+                        "name": "dnsAndPublicIP",
+                        "type": "Microsoft.Network.PublicIpAddressCombo",
+                        "label": {
+                            "publicIpAddress": "Public IP address",
+                            "domainNameLabel": "DNS label"
+                        },
+                        "toolTip": {
+                            "domainNameLabel": "DNS endpoint for the Managed Web App IP address."
+                        },
+                        "defaultValue": {
+                            "publicIpAddressName": "ip01"
+                        },
+                        "options": {
+                            "hideNone": true,
+                            "hideDomainNameLabel": false
+                        },
+                        "constraints": {
+                            "required": {
+                                "domainNameLabel": true
+                            }
+                        }
+                    },
+                    {
+                        "name": "management",
+                        "type": "Microsoft.Common.OptionsGroup",
+                        "label": "Enable premium management?",
+                        "defaultValue": "Yes",
+                        "toolTip": "Select Yes to set up premium management for the virtual machines and web app",
+                        "constraints": {
+                            "allowedValues": [
+                                {
+                                    "label": "Yes",
+                                    "value": "Yes"
+                                },
+                                {
+                                    "label": "No",
+                                    "value": "No"
+                                }
+                            ]
+                        },
+                        "visible": true
+                    }
+                ]
             }
         ],
-        "steps": [],
         "outputs": {
-            "storageAccountNamePrefix": "[basics('storageAccounts')]"
+            "location": "[location()]",
+            "vmSize": "[steps('vmConfig').vmSize]",
+            "vmNamePrefix": "[steps('vmConfig').vmNamePrefix]",
+            "userName": "[steps('credentialsConfig').adminUsername]",
+            "pwd": "[steps('credentialsConfig').adminPassword.password]",
+            "dnsName": "[steps('webConfig').dnsAndPublicIP.domainNameLabel]",
+            "publicIPAddressName": "[steps('webConfig').dnsAndPublicIP.name]",
+            "enablePremiumManagement": "[steps('webConfig').management]"
         }
     }
-  }
-  ```
+}
+```
 
-After all the needed files are ready, package them as a .zip file. The two files must be at the root level of the .zip file. If you put them in a folder, you receive an error when creating the managed application definition that states the required files are not present. Upload the package to an accessible location from where it can be consumed. The remainder of this article assumes the .zip file exists in a publicly accessible storage blob container.
+## Package the files
+
+After all the needed files are ready, package them as a .zip file. The two files must be at the root level of the .zip file. If you put them in a folder, you receive an error when creating the managed application definition that states the required files are not present. Upload the package to an accessible location from where it can be consumed. For this article, the [.zip file](https://raw.githubusercontent.com/Azure/azure-managedapp-samples/master/samples/201-managed-web-app/managedwebapp.zip) is already available in GitHub.
 
 You can use either Azure CLI or the portal to create a managed application for the service catalog. Both approaches are shown in this article.
 
@@ -173,14 +457,14 @@ Now, create the managed application definition resource.
 
 ```azurecli-interactive
 az managedapp definition create \
-  --name storageApp \
+  --name managedWebApp \
   --location "westcentralus" \
   --resource-group managedApplicationGroup \
   --lock-level ReadOnly \
-  --display-name myteststorageapp \
-  --description storageapp \
+  --display-name "Managed web application" \
+  --description "Azure web application" \
   --authorizations "$groupid:$roleid" \
-  --package-file-uri <uri-path-to-zip-file>
+  --package-file-uri https://raw.githubusercontent.com/Azure/azure-managedapp-samples/master/samples/201-managed-web-app/managedwebapp.zip
 ```
 
 The parameters used in the preceding example are:
@@ -227,7 +511,5 @@ The parameters used in the preceding example are:
 
 * For an introduction to managed applications, see [Managed application overview](overview.md).
 * For examples of the files, see [Managed application samples](https://github.com/Azure/azure-managedapp-samples/tree/master/samples).
-* For information about consuming a Service Catalog managed application, see [Consume a Service Catalog managed application](consume-service-catalog-app.md).
 * For information about publishing managed applications to the Azure Marketplace, see [Azure managed applications in the Marketplace](publish-marketplace-app.md).
-* For information about consuming a managed application from the Marketplace, see [Consume Azure managed applications in the Marketplace](consume-marketplace-app.md).
 * To learn how to create a UI definition file for a managed application, see [Get started with CreateUiDefinition](create-uidefinition-overview.md).
