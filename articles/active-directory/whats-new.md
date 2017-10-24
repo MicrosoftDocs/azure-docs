@@ -13,13 +13,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 10/24/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
 
 ---
 # What's new in Azure Active Directory
 
+We are improving Azure Active Directory on an ongoing basis for you. To enable you to stay up to date with the most recent developments, this topic provides you with information about:
+
+-	The latest releases 
+-	Known issues 
+-	Bug fixes 
+-	Deprecated functionality 
+-	Plans for changes 
+
+Please revisit this page periodically as we are updating it on a monthly basis.
 
 
 ## October 2017
