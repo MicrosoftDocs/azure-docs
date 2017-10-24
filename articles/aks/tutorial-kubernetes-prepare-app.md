@@ -33,7 +33,7 @@ Once completed, the following application is accessible in your local developmen
 
 ![Image of Kubernetes cluster on Azure](./media/container-service-tutorial-kubernetes-prepare-app/azure-vote.png)
 
-In subsequent tutorials, the container image is uploaded to an Azure Container Registry, and then run in an AKS Kubernetes cluster.
+In subsequent tutorials, the container image is uploaded to an Azure Container Registry, and then run in an AKS cluster.
 
 ## Before you begin
 
