@@ -20,7 +20,7 @@ ms.author: robinsh
 # Perform Azure Table storage operations with Azure PowerShell 
 
 >[!NOTE]
-> Azure Cosmos DB is the premium offering for Azure Storage Tables. In most cases, these commands will also work against a Cosmos DB Table. Please see [Cosmos DB Storage Tables with PowerShell](table-storage-cosmosdb-with-powershell.md) for more information.
+> Azure Cosmos DB is the premium offering for Azure Storage Tables. In most cases, these commands will also work against a Cosmos DB Table. Please see [Cosmos DB Storage Tables with PowerShell](table-powershell.md) for more information.
 >
 
 Azure Table Storage is a NoSQL datastore, which you can use to store and query huge sets of structured, non-relational data. The main components of the service are tables, entities, and properties. A table is a collection of entities. An entity is a set of properties. Each entity can have up to 252 properties, which are all name-value pairs. This article assumes that you are already familiar with the Azure Table Storage Service concepts. For detailed information, see [Understanding the Table Service Data Model](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model) and [Get started with Azure Table storage using .NET](table-storage-how-to-use-dotnet.md).
