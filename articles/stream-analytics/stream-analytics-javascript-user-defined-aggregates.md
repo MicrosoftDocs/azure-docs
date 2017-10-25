@@ -18,7 +18,7 @@ ms.author: minhe
 ---
 # Azure Stream Analytics JavaScript User-Defined Aggregates (Preview)
 
-Azure Stream Analytics supports user-defined aggregates (UDA) written in JavaScript. With JavaScript UDA you can implement state-ful business logics by defining the state data structure, how state is accumulated and decumulated, and how aggregate result is calculated. The article introduces the two different JavaScript UDA interfaces, steps to create a UDA, and how to use UDA with window-based operations in Stream Analytics query.
+Azure Stream Analytics supports user-defined aggregates (UDA) written in JavaScript. With JavaScript UDA you can implement stateful business logics by defining the state data structure, how state is accumulated and decumulated, and how aggregate result is calculated. The article introduces the two different JavaScript UDA interfaces, steps to create a UDA, and how to use UDA with window-based operations in Stream Analytics query.
 
 ## JavaScript user-defined aggregates
 
@@ -26,7 +26,7 @@ A user-defined aggregate is used on top of a time window specification to aggreg
 
 ### AccumulateOnly aggregates
 
-AccumulateOnly aggregates can only accumulate new events to its state, the algorithm does not allow deaccumulation of values. You should choose this aggregate type when deaccumulate an event information from the state value is imppossible to implement. Below is the JavaScript template for AccumulatOnly aggregates:
+AccumulateOnly aggregates can only accumulate new events to its state, the algorithm does not allow deaccumulation of values. Choose this aggregate type when deaccumulate an event information from the state value is impossible to implement. Following is the JavaScript template for AccumulatOnly aggregates:
 
 ````JavaScript
 // Sample UDA which state can only be accumulated.
@@ -47,7 +47,7 @@ function main() {
 
 ### AccumulateDeaccumulate aggregates
 
-AccumulateDeaccumulate aggregates allows deaccumulation of a previous accumulated value from the state, for example remove a key value pair from a list of event values, or substract a value from a state of sum aggregate. Below is the JavaScript template for AccumulateDeaccumulate aggregates:
+AccumulateDeaccumulate aggregates allow deaccumulation of a previous accumulated value from the state, for example remove a key value pair from a list of event values, or subtract a value from a state of sum aggregate. Following is the JavaScript template for AccumulateDeaccumulate aggregates:
 
 ````JavaScript
 // Sample UDA which state can be accumulated and deaccumulated.
@@ -76,7 +76,7 @@ function main() {
 
 ## UDA - JavaScript function declaration
 
-Each JavaScript UDA is defined by a Function object declaration. Below are the major elements in a UDA definition.
+Each JavaScript UDA is defined by a Function object declaration. Following are the major elements in a UDA definition.
 
 ### Function alias
 
@@ -84,7 +84,7 @@ This is the UDA identifier. When called in Stream Analytics query, always use UD
 
 ### Function type
 
-For UDA, the function type should be "Javascript UDA".
+For UDA, the function type should be **Javascript UDA**.
 
 ### Output type
 
@@ -100,15 +100,15 @@ The init() method initializes state of the aggregate. This method is called when
 
 ### Method – accumulate()
 
-The accumulate() method calculate the UDA state based on the previous state and the current event values. This method is called when a event enters a time window (TUMBLINGWINDOW, HOPPINGWINDOW, or SLIDINGWINDOW).
+The accumulate() method calculates the UDA state based on the previous state and the current event values. This method is called when an event enters a time window (TUMBLINGWINDOW, HOPPINGWINDOW, or SLIDINGWINDOW).
 
 ### Method – deaccumulate()
 
-The deaccumulate() method recalculate state based on the previous state and the current event values. This method is called when a event leaves a SLIDINGWINDOW.
+The deaccumulate() method recalculates state based on the previous state and the current event values. This method is called when an event leaves a SLIDINGWINDOW.
 
 ### Method – deaccumulateState()
 
-The deaccumulateState() method recalculate state based on the previous state and the state of a hop. This method is called when a set of events leave a HOPPINGWINDOW.
+The deaccumulateState() method recalculates state based on the previous state and the state of a hop. This method is called when a set of events leave a HOPPINGWINDOW.
 
 ### Method – computeResult()
 
@@ -117,17 +117,17 @@ The computeResult() method returns aggregate result based on the current state. 
 ## JavaScript UDA supported input and output data types
 For JavaScript UDA data types, please refer to section **Stream Analytics and JavaScript type conversion** of [Integrate JavaScript UDFs](stream-analytics-javascript-user-defined-functions.md).
 
-## Adding a JavaScript UDA from Azure Portal
+## Adding a JavaScript UDA from Azure portal
 
 Below we walk through the process of creating a UDA from Portal. The example we use here is computing time weighted averages.
 
-Now let’s create a simple JavaScript UDA under an existing ASA job by following below steps.
+Now let’s create a JavaScript UDA under an existing ASA job by following steps.
 
-1. Logon to Azure Portal and locate your locate your existing Stream Analytics job.
+1. Log on to Azure portal and locate your existing Stream Analytics job.
 1. Then click on functions  link under “JOB TOPOLOGY”.
 1. Click on the “Add” icon to add a new function.
-1. On the “New Function” blade, select “JavaScript UDA” as the Function Type, then you will see a default UDA template show up in the editor.
-1. Fill in “TWA” as the UDA alias and change the function implementation as below:
+1. On the “New Function” view, select “JavaScript UDA” as the Function Type, then you see a default UDA template show up in the editor.
+1. Fill in “TWA” as the UDA alias and change the function implementation as the following:
 
     ````JavaScript
     // Sample UDA which calculate Time-Weighted Average of incoming values.
@@ -169,13 +169,13 @@ Now let’s create a simple JavaScript UDA under an existing ASA job by followin
     }
     ````
 
-1. Once you click the “Save” button, your UDA will show up on the function list.
+1. Once you click the “Save” button, your UDA shows up on the function list.
 
 1. Click on the new function “TWA”, you can check the function definition.
 
 ## Calling JavaScript UDA in ASA query
 
-In Azure Portal and open your job, edit the query and call TWA() function with a mandate prefix “uda.”. For example:
+In Azure portal and open your job, edit the query and call TWA() function with a mandate prefix “uda.”. For example:
 
 ````SQL
 WITH value AS
@@ -195,7 +195,7 @@ GROUP BY TumblingWindow(minute, 5)
 
 ## Testing Query with UDA
 
-Create a local JSON file with below content, uploade the file to Stream Analytics job, test above query.
+Create a local JSON file with below content, upload the file to Stream Analytics job, and test above query.
 
 ````JSON
 [
