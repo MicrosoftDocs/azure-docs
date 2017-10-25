@@ -3,7 +3,7 @@ You must create a VNet and a gateway subnet first, before working on the followi
 ## Add a gateway
 Use the command below to create a gateway. Be sure to substitute any values for your own.
 
-    New-AzureVirtualNetworkGateway -VNetName "MyAzureVNET" -GatewayName "ERGateway" -GatewayType Dedicated -GatewaySKU  Standard
+    New-AzureVNETGateway -VNetName "MyAzureVNET" -GatewayType DynamicRouting -GatewaySKU  Standard
 
 ## Verify the gateway was created
 Use the command below to verify that the gateway has been created. This command also retrieves the gateway ID, which you need for other operations.
