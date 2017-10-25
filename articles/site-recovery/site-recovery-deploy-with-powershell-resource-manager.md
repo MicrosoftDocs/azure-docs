@@ -106,7 +106,7 @@ Set the vault context as follows:
         Get-AzureRmRecoveryServicesVaultSettingsFile -Vault $vault -SiteIdentifier $SiteIdentifier -SiteFriendlyName $sitename -Path $Path
     ```
 
- 5. Copy the downloaded key to the Hyper-V host. You need the key to register the Hyper-V host to the site.
+5. Copy the downloaded key to the Hyper-V host. You need the key to register the Hyper-V host to the site.
 
 ## Step 5: Install the Provider and agent
 
