@@ -31,7 +31,7 @@ You have created an IoT Hub and are writing events to it. For more information o
 
 You find the Import Option setting on the Add Event Source blade. 
 
-![Import Option setting](media/add-event-source/HowToAddIoTHubEventImportOption.png)
+![Import Option setting](media/add-event-source/HowToAddIoTEventImportOption.png)
 
 The settings for the event source can be entered manually or an IoT hub can be selected from the IoT hubs that are available to you.
 In the **Import Option** selector, choose one of the following options:

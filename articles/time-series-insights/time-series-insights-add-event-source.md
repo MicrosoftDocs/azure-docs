@@ -35,7 +35,7 @@ Time Series Insights Event Source is derived from an event broker, such as Azure
   ![Create the Time Series Insights event source - details](media/add-event-source/getstarted-create-event-source-2.png)
 
 5.	Specify the name of the event source. This name is associated with all events coming from this event source and is available at query time.
-6.	Select an event hub from the list of Event Hub resources in the current subscription. Otherwise choose import option "Provide Event Hub settings manually” to specify an event hub in another subscription. Events must be published in JSON format.
+6.	Select an event hub from the list of Event Hub resources in the current subscription. Otherwise choose import option "Provide Event Hub settings manually” to        specify an event hub in another subscription. Events must be published in JSON format.
 7.	Select policy that has read permission in the event hub.
 8.	Specify event hub consumer group.
 

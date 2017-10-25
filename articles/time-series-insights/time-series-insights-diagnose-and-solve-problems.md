@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: how-to-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date:10/20/2017
+ms.date: 10/20/2017
 ms.author: kfile
 ---
 # Diagnose and solve problems in your Time Series Insights environment

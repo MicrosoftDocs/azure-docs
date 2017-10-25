@@ -33,7 +33,7 @@ Management access policies grant permissions related to the configuration of the
 
 Data access policies grant permissions to issue data queries, manipulate reference data in the environment, and share saved queries and perspectives associated with the environment.
 
-The two kinds of policies allow clear separation between access to the management of the environment and access to the data inside the environment. For example, it is possible to setup an environment such that the owner/creator of the environment is removed from the data access. As well as users and services that are allowed to read data from the environment may be granted no access to the configuration of the environment.
+The two kinds of policies allow clear separation between access to the management of the environment and access to the data inside the environment. For example, it is possible to set up an environment such that the owner/creator of the environment is removed from the data access. In addition, users and services that are allowed to read data from the environment may be granted no access to the configuration of the environment.
 
 ## Grant data access
 The following steps show how to grant data access for a user principal:
@@ -49,13 +49,13 @@ The following steps show how to grant data access for a user principal:
 
   ![Manage the Time Series Insights source - add](media/data-access/getstarted-grant-data-access2.png)
 
-5.	Click “Select user”.
+5.	Click “Select user.”
 6.	Search and select user by the email.
 7.	Click “Select” in “Select User” blade.
 
   ![Manage the Time Series Insights source - select user](media/data-access/getstarted-grant-data-access3.png)
 
-8.	Click “Select role”.
+8.	Click “Select role.”
 9.	Select “Contributor” if you want to allow user to change reference data and share saved queries and perspectives with other users of the environment. Otherwise select “Reader” to allow user query data in the environment and save personal (not shared) queries in the environment.
 10.	Click “Ok” in the “Select Role” blade.
 
