@@ -177,7 +177,7 @@ In this tutorial, you
 
 In this tutorial, you created a simple Web App and App Service Plan. You then created an autoscale setting that would scale the App Service Plan based on the number of requests the Web App was receiving. 
 
-To learn more about autoscale settings, continue on to the [autoscale overview](monitoring-overview-autoscale).
+To learn more about autoscale settings, continue on to the [autoscale overview](monitoring-overview-autoscale.md).
 
 > [!div class="nextstepaction"]
-> [Archive your monitoring data](./monitor-tutorial-archive-monitoring-data.md)
+> [Archive your monitoring data](monitor-tutorial-archive-monitoring-data.md)
