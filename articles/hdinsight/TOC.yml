@@ -1,5 +1,7 @@
 - name: Kafka
   href: ./kafka/apache-kafka-introduction.md
+- name: Storm
+  href: ./storm/apache-storm-tutorial-get-started-linux.md
 - name: Overview
   items:
   - name: About HDInsight and Hadoop
@@ -12,10 +14,6 @@
     href: hdinsight-apache-spark-overview.md
   - name: HBase
     href: hdinsight-hbase-overview.md
-  - name: Apache Storm
-    href: storm/apache-storm-overview.md
-  - name: Kafka (Preview)
-    href: kafka/apache-kafka-introduction.md
   - name: Domain-joined HDInsight clusters (Preview)
     href: hdinsight-domain-joined-introduction.md
   - name: Release notes
@@ -46,12 +44,8 @@
     href: hdinsight-hadoop-r-server-get-started.md
   - name: Start with HBase & NoSQL
     href: hdinsight-hbase-tutorial-get-started-linux.md
-  - name: Start with Storm
-    href: storm/apache-storm-tutorial-get-started-linux.md
   - name: Start with Interactive Query
     href: interactive-query/apache-interactive-query-get-started.md
-  - name: Start with Kafka (Preview)
-    href: kafka/apache-kafka-get-started.md
   - name: Hadoop sandbox
     href: hdinsight-hadoop-emulator-get-started.md
   - name: Data Lake Tools with Hortonworks Sandbox
@@ -185,31 +179,6 @@
       href: hdinsight-hbase-replication.md
     - name: Develop an app with Java
       href: hdinsight-hbase-build-java-maven-linux.md
-  - name: Use Storm
-    items:
-    - name: Deploy and manage topologies
-      href: storm/apache-storm-deploy-monitor-topology-linux.md
-    - name: Develop data processing apps in SCP
-      href: storm/apache-storm-scp-programming-guide.md
-    - name: Storm examples
-      href: storm/apache-storm-example-topology.md
-      items:
-      - name: Write to Data Lake Store
-        href: storm/apache-storm-write-data-lake-store.md
-      - name: Develop Java-based topologies with Maven
-        href: storm/apache-storm-develop-java-topology.md
-      - name: Develop C# topologies with Hadoop tools
-        href: storm/apache-storm-develop-csharp-visual-studio-topology.md
-      - name: Process events with C# topologies
-        href: storm/apache-storm-develop-csharp-event-hub-topology.md
-      - name: Process events with Java topologies
-        href: https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/
-      - name: Analyze real-time sensor data
-        href: storm/apache-storm-sensor-data-analysis.md
-      - name: Correlate events over time
-        href: storm/apache-storm-correlation-topology.md
-      - name: Develop topologies using Python
-        href: storm/apache-storm-develop-python-topology.md
   - name: Use Domain-joined HDInsight (Preview)
     items:
     - name: Configure
@@ -218,24 +187,6 @@
       href: hdinsight-domain-joined-manage.md
     - name: Configure Hive policies
       href: hdinsight-domain-joined-run-hive.md
-  - name: Use Kafka (Preview)
-    items:
-    - name: Replicate Kafka data
-      href: kafka/apache-kafka-mirroring.md
-    - name: Configure storage and scalability of Kafka
-      href: kafka/apache-kafka-scalability.md
-    - name: Configure high availability of data
-      href: kafka/apache-kafka-high-availability.md
-    - name: Analyze Kafka logs
-      href: kafka/apache-kafka-log-analytics-operations-management.md
-    - name: Use with Virtual Networks
-      href: kafka/apache-kafka-connect-vpn-gateway.md
-    - name: Use with Spark (Structured Streaming)
-      href: hdinsight-apache-kafka-spark-structured-streaming.md
-    - name: Use with Spark (DStream)
-      href: hdinsight-apache-spark-with-kafka.md
-    - name: Use with Storm
-      href: hdinsight-apache-storm-with-kafka.md
   - name: Use Interactive Query
     items:
     - name: Use Zeppelin to run Hive queries
