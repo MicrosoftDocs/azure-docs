@@ -20,7 +20,7 @@ ms.custom: mvc
 ---
 # Use a custom Docker image for Web App for Containers
 
-[Web App for Containers](app-service-linux-intro.md) provides built-in Docker images on Linux with support for specific versions, such as PHP 7.0 and Node.js 4.5. Web App for Containers uses the Docker container technology to host both built-in images and custom images as a platform as a service. In this tutorial, you learn how to build a custom docker image and deploy it to Web App for Containers. This pattern is useful when the built-in images don't include your language of choice, or when your application requires a specific configuration that isn't provided within the built-in images.
+[Web App for Containers](app-service-linux-intro.md) provides built-in Docker images on Linux with support for specific versions, such as PHP 7.0 and Node.js 4.5. Web App for Containers uses the Docker container technology to host both built-in images and custom images as a platform as a service. In this tutorial, you learn how to build a custom Docker image and deploy it to Web App for Containers. This pattern is useful when the built-in images don't include your language of choice, or when your application requires a specific configuration that isn't provided within the built-in images.
 
 ## Prerequisites
 
@@ -296,7 +296,7 @@ SSH enables secure communication between a container and a client. In order for 
 
 ### Open SSH connection to container
 
-Web App for Containers does not allow external connections to the container. SSH is available only through the Kudu site (`https://<app_name>.scm.azurewebsites.net`).
+Web App for Containers does not allow external connections to the container. SSH is available only through the Kudu site, which is accessible at `https://<app_name>.scm.azurewebsites.net`.
 
 To connect, browse to `https://<app_name>.scm.azurewebsites.net/webssh/host` and sign in with your Azure account.
 
@@ -327,7 +327,7 @@ PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND
 
 Congratulations! You've configured a custom Docker image for an Web App for Containers.
 
-## Use a private image from Docker Hub (Optional)
+## Use a private image from Docker Hub (optional)
 
 In [Create a web app](#create-a-web-app), you specified an image on Docker Hub in the `az webapp create` command. This is good enough for a public image. To use a private image, you need to configure your Docker account ID and password in your Azure web app.
 
@@ -363,7 +363,7 @@ The command reveals output similar to the following JSON string, showing that th
 ]
 ```
 
-## Use a Docker image from any private registry (Optional)
+## Use a Docker image from any private registry (optional)
 
 In this section, you learn how to use a Docker image from a private registry in Web App for Containers, and it uses Azure Container Registry as an example. The steps for using other private registries are similar. 
 
@@ -489,7 +489,7 @@ az acr credential show --name <azure-container-registry-name>
 }
 ```
 
-In the Cloud Shell, run the [az webapp config container set](/cli/azure/webapp/config/container#az_webapp_config_container_set) command to assign the custom Docker image to the web app. Replace *\<app_name>*, *\<docker-registry-server-url>*, _<registry-username>_, and _<password>_. For Azure Container Registry, *\<docker-registry-server-url>* is in the format `https://<azure-container-registry-name>.azurecr.io`). 
+In the Cloud Shell, run the [az webapp config container set](/cli/azure/webapp/config/container#az_webapp_config_container_set) command to assign the custom Docker image to the web app. Replace *\<app_name>*, *\<docker-registry-server-url>*, _<registry-username>_, and _<password>_. For Azure Container Registry, *\<docker-registry-server-url>* is in the format `https://<azure-container-registry-name>.azurecr.io`. 
 
 ```azurecli-interactive
 az webapp config container set --name <app_name> --resource-group myResourceGroup --docker-custom-image-name mydockerimage --docker-registry-server-url https://<azure-container-registry-name>.azurecr.io --docker-registry-server-user <registry-username> --docker-registry-server-password <password>
@@ -528,6 +528,6 @@ The command reveals output similar to the following JSON string, showing that th
 
 [!INCLUDE [Clean-up section](../../../includes/cli-script-clean-up.md)]
 
-## Next Steps
+## Next steps
 
 [Azure App Service on Linux FAQ](app-service-linux-faq.md)
