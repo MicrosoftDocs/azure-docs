@@ -38,10 +38,11 @@ ms.author: v-jansko
 
 
 # Pricing Options
-- Translator Text API
+- [Translator Text API](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/translator-text-api/)
 
 # Customization
 **Translator Hub**
+
 Use the Translator Hub pre-publishing tool to customize your translations and create a translation system tuned to your own terminology and style. [Learn more](https://www.microsoft.com/en-us/translator/hub.aspx)
  
 # Additional resources
