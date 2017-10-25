@@ -144,7 +144,7 @@ You can see the newly created table in the list of tables now by typing:
 ```
 
 ## Load data into the table
-Now that we have a table, we can insert some data into it. At the open command prompt window, run the following query to insert some rows of data
+Now that we have a table, we can insert some data into it. At the open command prompt window, run the following query to insert some rows of data:
 ```sql
 INSERT INTO inventory (id, name, quantity) VALUES (1, 'banana', 150); 
 INSERT INTO inventory (id, name, quantity) VALUES (2, 'orange', 154);
@@ -153,17 +153,17 @@ INSERT INTO inventory (id, name, quantity) VALUES (2, 'orange', 154);
 You have now added two rows of sample data into the table you created earlier.
 
 ## Query and update the data in the tables
-Execute the following query to retrieve information from the inventory table. 
+Execute the following query to retrieve information from the inventory table: 
 ```sql
 SELECT * FROM inventory;
 ```
 
-You can also update the data in the inventory table
+You can also update the data in the inventory table:
 ```sql
 UPDATE inventory SET quantity = 200 WHERE name = 'banana';
 ```
 
-You can see the updated values when you retrieve the data.
+You can see the updated values when you retrieve the data:
 ```sql
 SELECT * FROM inventory;
 ```
