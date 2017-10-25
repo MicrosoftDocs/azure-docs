@@ -239,6 +239,8 @@
       href: ../workloads/sap/get-started.md
     - name: Oracle
       href: ../workloads/oracle/oracle-database-quick-create.md
+    - name: Elasticsearch
+      href: tutorial-elasticsearch.md
     - name: FreeBSD Packet Filter
       href: freebsd-pf-nat.md
     - name: Databases
@@ -259,7 +261,6 @@
       - name: Install NVIDIA GPU drivers
         href: n-series-driver-setup.md
   - name: Manage storage
-    href: about-disks-and-vhds.md
     items:
     - name: Learn about Managed Disks
       href: managed-disks-overview.md
