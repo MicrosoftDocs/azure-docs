@@ -3711,6 +3711,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/hdinsight/hdinsight-domain-joined-configure-use-powershell.md",
+            "redirect_url": "/azure/hdinsight/hdinsight-domain-joined-configure",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/documentdb/documentdb-automation-region-management.md",
             "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/cli-samples",
             "redirect_document_id": false
@@ -13694,6 +13699,21 @@
             "source_path": "articles/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md",
             "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-join-windows-vm-template",
             "redirect_document_id": false
+        },
+	{
+            "source_path": "articles/sql-data-warehouse/sql-data-warehouse-distributed-data.md",
+            "redirect_url": "/azure/sql-data-warehouse/massively-parallel-processing-mpp-architecture",
+            "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/active-directory/active-directory-conditional-access.md",
+             "redirect_url": "/azure/active-directory/active-directory-conditional-access-azure-portal",
+             "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/active-directory/active-directory-conditional-access-azuread-connected-apps.md",
+             "redirect_url": "/azure/active-directory/active-directory-conditional-access-azure-portal-get-started",
+             "redirect_document_id": false
         }
     ]
 }
