@@ -17,7 +17,7 @@ ms.date: 09/26/2017
 ms.author: raynew
 
 ---
-# customize assessment settings
+# Customize an assessment
 
 After running an assessment for machines you want to migrate to Azure with [Azure Migrate](migrate-overview.md) , follow the instructions in this article if you want to customize assessment settings.
 
