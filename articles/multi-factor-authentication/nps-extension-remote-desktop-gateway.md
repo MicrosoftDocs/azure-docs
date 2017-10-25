@@ -62,7 +62,7 @@ This section details the prerequisites necessary before integrating Azure MFA wi
 * Azure MFA License
 * Windows Server software
 * Network Policy and Access Services (NPS) role
-* Azure AD synched with on-premises AD 
+* Azure Active Directory synched with on-premises Active Directory
 * Azure Active Directory GUID ID
 
 ### Remote Desktop Services (RDS) infrastructure
@@ -71,10 +71,10 @@ You must have a working Remote Desktop Services (RDS) infrastructure in place. I
 If you wish to manually create an on-premises RDS infrastructure quickly for testing purposes, follow the steps to deploy one. 
 **Learn more**: [Deploy RDS with Azure quick start](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-in-azure) and [Basic RDS infrastructure deployment](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure). 
 
-### Licenses
+### Azure MFA License
 Required is a license for Azure MFA, which is available through an Azure AD Premium, Enterprise Mobility plus Security (EMS), or an MFA subscription. For more information, see [How to get Azure Multi-Factor Authentication](multi-factor-authentication-versions-plans.md). For testing purposes, you can use a trial subscription.
 
-### Software
+### Windows Server software
 The NPS extension requires Windows Server 2008 R2 SP1 or above with the NPS role service installed. All the steps in this section were performed using Windows Server 2016.
 
 ### Network Policy and Access Services (NPS) role
@@ -82,7 +82,7 @@ The NPS role service provides the RADIUS server and client functionality as well
 
 For information on installing the NPS role service Windows Server 2012 or older, see [Install a NAP Health Policy Server](https://technet.microsoft.com/library/dd296890.aspx). For a description of best practices for NPS, including the recommendation to install NPS on a domain controller, see [Best Practices for NPS](https://technet.microsoft.com/library/cc771746).
 
-### Azure Active Directory synched with on-premises Active Directory 
+### Azure Active Directory synched with on-premises Active Directory
 To use the NPS extension, on-premises users must be synced with Azure AD and enabled for MFA. This section assumes that on-premises users are synched with Azure AD using AD Connect. For information on Azure AD connect, see [Integrate your on-premises directories with Azure Active Directory](../active-directory/connect/active-directory-aadconnect.md). 
 
 ### Azure Active Directory GUID ID
