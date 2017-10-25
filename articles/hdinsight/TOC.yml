@@ -8,3 +8,5 @@
   href: ./kafka/apache-kafka-introduction.md
 - name: Storm
   href: ./storm/apache-storm-overview.md
+- name: R Server
+  href: ./r-server/r-server-overview.md
