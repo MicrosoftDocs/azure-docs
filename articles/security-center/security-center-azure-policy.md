@@ -18,7 +18,7 @@ ms.author: yurid
 ---
 
 # Integrate Security Center security policies with Azure Policy
-This article helps you configure Security Center security policies, which are powered by Azure Policy. 
+This article helps you configure Azure Security Center security policies, which are powered by Azure Policy. 
 
 ## How security policies work
 Security Center automatically creates a default security policy for each of your Azure subscriptions. You can edit the policies in Security Center or use [Azure Policy](http://docs.microsoft.com/azure/azure-policy/azure-policy-introduction) to do the following:
@@ -77,9 +77,9 @@ To understand the policy definitions that are available in the default security 
 | Web application firewall |Recommends that a web application firewall be set up on virtual machines when either of the following is true: <ul><li>An [instance-level public IP](../virtual-network/virtual-networks-instance-level-public-ip.md) is used, and the inbound security rules for the associated network security group are configured to allow access to port 80/443.</li><li>A load-balanced IP is used, and the associated load balancing and inbound network address translation (NAT) rules are configured to allow access to port 80/443. For more information, see [Azure Resource Manager support for Load Balancer](../load-balancer/load-balancer-arm.md).</li> |
 | Next generation firewall |Extends network protections beyond network security groups, which are built into Azure. Security Center discovers deployments for which a next generation firewall is recommended, and then you can set up a virtual appliance. |
 | SQL auditing and threat detection |Recommends that auditing of access to Azure Database be enabled for compliance and advanced threat detection, for investigation purposes. |
-| SQL encryption |Recommends that encryption at rest be enabled for your Azure SQL Database, associated backups, and transaction log files. Even if your data is breached, it is not readable. |
+| SQL encryption |Recommends that encryption at rest be enabled for your Azure SQL database, associated backups, and transaction log files. Even if your data is breached, it is not readable. |
 | Vulnerability assessment |Recommends that you install a vulnerability assessment solution on your VM. |
-| Storage encryption |Currently, this feature is available for Azure Blobs and Azure Files. After you enable Storage Service Encryption, only new data is encrypted, and any existing files in this storage account remain unencrypted. |
+| Storage encryption |Currently, this feature is available for Azure Blob storage and Azure Files. After you enable Storage Service Encryption, only new data is encrypted, and any existing files in this storage account remain unencrypted. |
 | JIT network access |When just-in-time network access is enabled, Security Center locks down inbound traffic to your Azure VMs by creating a network security group rule. You select the ports on the VM to which inbound traffic should be locked down. For more information, see [Manage virtual machine access using just in time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time). |
 
 
