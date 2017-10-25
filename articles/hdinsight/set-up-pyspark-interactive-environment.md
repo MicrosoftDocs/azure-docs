@@ -22,7 +22,7 @@ ms.author: jejiang
 # Set Up PySpark Interactive Environment for Visual Studio Code
 
 The following steps show how to install python packages when run **HDInsight: PySpark Interactive**.
-If install python 3.x, you need to use command **pip3** for the following steps.
+You need to use command **pip3** for the following steps, if it is **python 3.x**.
 1.	Make sure the **Python** and **pip** installed.
  
     ![python pip version](./media/set-up-pyspark-interactive-environment/check-python-pip-version.png)
@@ -34,7 +34,7 @@ If install python 3.x, you need to use command **pip3** for the following steps.
     +  Maybe the following error message come out on Linux and MacOS:
 
     ![error1](./media/set-up-pyspark-interactive-environment/error1.png)
-     ```Resolve:
+    ```Resolve:
     sudo pip uninstall asyncio
     sudo pip install trollies
     ```
@@ -42,8 +42,6 @@ If install python 3.x, you need to use command **pip3** for the following steps.
     + Install libkrb5-dev(For Linux only), maybe display the following error message:
 
     ![error2](./media/set-up-pyspark-interactive-environment/error2.png)
-
-
     ```Resolve:
     sudo apt-get install libkrb5-dev 
     ```
@@ -54,14 +52,13 @@ If install python 3.x, you need to use command **pip3** for the following steps.
     ```
 
 4.	Make sure that ipywidgets is properly installed by running:
-
     ```
     sudo jupyter nbextension enable --py --sys-prefix widgetsnbextension
     ```
      ![Install the wrapper kernels](./media/set-up-pyspark-interactive-environment/ipywidget-enable.png)
  
 
-5.	Install the wrapper kernels. Do run **pip show sparkmagic** and it shows the path which sparkmagic is installed. 
+5.	Install the wrapper kernels. Do run **pip show sparkmagic** and it shows the path that sparkmagic is installed. 
 
     ![sparkmagic location](./media/set-up-pyspark-interactive-environment/sparkmagic-location.png)
    
@@ -77,12 +74,12 @@ If install python 3.x, you need to use command **pip3** for the following steps.
    ![jupyter kernelspec install](./media/set-up-pyspark-interactive-environment/jupyter-kernelspec-install.png)
 7. Check the installation status: 
 
+    ```
+    jupyter-kernelspec list
+    ```
+    ![jupyter kernelspec list](./media/set-up-pyspark-interactive-environment/jupyter-kernelspec-list.png)
 
-   ```
-   jupyter-kernelspec list
-   ```
-   ![jupyter kernelspec list](./media/set-up-pyspark-interactive-environment/jupyter-kernelspec-list.png)
-  For available kernels: **python2** and **pysparkkernel** corresponds to python 2.x, **python3** and **pyspark3kernel** corresponds to python 3.x. 
+    For available kernels: **python2** and **pysparkkernel** correspond to python 2.x, **python3** and **pyspark3kernel** correspond to python 3.x. 
 
 8. Restart VScode and back to script editor running **HDInsight: PySpark Interactive**.
 
