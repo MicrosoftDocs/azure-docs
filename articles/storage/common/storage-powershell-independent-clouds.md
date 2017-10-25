@@ -1,6 +1,6 @@
 ---
 title: Managing Storage in the Azure independent clouds Using Azure PowerShell | Microsoft Docs
-description: Managing Storage in the China Cloud, Government Cloud, and Germany Cloud Using Azure PowerShell
+description: Managing Storage in the China Cloud, Government Cloud, and German Cloud Using Azure PowerShell
 services: storage
 documentationcenter: na
 author: robinsh
@@ -22,7 +22,7 @@ Most people use Azure Public Cloud for their global Azure deployment. There are 
 
 * [Azure Government Cloud](https://azure.microsoft.com/features/gov/)
 * [Azure China Cloud operated by 21Vianet in China](http://www.windowsazure.cn/)
-* [Azure Germany Cloud](../../germany/germany-welcome.md)
+* [Azure German Cloud](../../germany/germany-welcome.md)
 
 ## Using an independent cloud 
 
@@ -58,7 +58,7 @@ The endpoint suffix for each of these environments is different from the Azure P
 
 ### Get endpoint using Get-AzureRMEnvironment 
 
-Retrieve the endpoint suffix using [Get-AzureRMEnvironment](/powershell/module/azurerm.profile/get-azurermenvironment). The endpoint is the *StorageEndpointSuffix* property of the environment. The following code snippets show how to do this. All of these commands return something like "core.cloudapp.net" or "core.cloudapi.de", etc. Append this to the storage service to access that service. For example, "queue.core.cloudapi.de" will access the queue service in Germany Cloud.
+Retrieve the endpoint suffix using [Get-AzureRMEnvironment](/powershell/module/azurerm.profile/get-azurermenvironment). The endpoint is the *StorageEndpointSuffix* property of the environment. The following code snippets show how to do this. All of these commands return something like "core.cloudapp.net" or "core.cloudapi.de", etc. Append this to the storage service to access that service. For example, "queue.core.cloudapi.de" will access the queue service in German Cloud.
 
 This code snippet retrieves all of the environments and the endpoint suffix for each one.
 
@@ -66,17 +66,49 @@ This code snippet retrieves all of the environments and the endpoint suffix for 
 Get-AzureRmEnvironment | select Name, StorageEndpointSuffix 
 ```
 
-This code snippet retrieves all of the properties for the specified environment -- in this instance, Germany Cloud. This will return a list of properties; look for **StorageEndpointSuffix** in the list.
+This command returns the following table.
+
+| Name| StorageEndpointSuffix|
+|----|----|
+|AzureChinaCloud | core.chinacloudapi.cn|
+| AzureCloud | core.windows.net |
+| AzureGermanCloud | core.cloudapi.de|
+| AzureUSGovernment | core.usgov.cloudapi.net |
+
+
+To retrieve all of the properties for the specified environment -- in this instance, German Cloud, call **Get-AzureRmEnvironment** and specify the cloud. This will return a list of properties; look for **StorageEndpointSuffix** in the list.
 
 ```powershell
 Get-AzureRmEnvironment -Name AzureGermanCloud 
 ```
+
+This command returns output similar to the following:
+
+|Property Name|Value|
+|----|----|
+| Name | AzureGermanCloud |
+| EnableAdfsAuthentication | False |
+| ActiveDirectoryServiceEndpointResourceI | http://management.core.cloudapi.de/ |
+| GalleryURL | https://gallery.cloudapi.de/ |
+| ManagementPortalUrl | https://portal.microsoftazure.de/ | 
+| ServiceManagementUrl | https://manage.core.cloudapi.de/ |
+| PublishSettingsFileUrl| https://manage.microsoftazure.de/publishsettings/index |
+| ResourceManagerUrl | http://management.microsoftazure.de/ |
+| SqlDatabaseDnsSuffix | .database.cloudapi.de |
+| StorageEndpointSuffix | core.cloudapi.de |
+[...]
 
 To retrieve just the storage endpoint suffix property, retrieve the specific cloud and ask for just that one property.
 
 ```powershell
 $environment = Get-AzureRmEnvironment -Name AzureGermanCloud
 Write-Host "Storage EndPoint Suffix = " $environment.StorageEndpointSuffix 
+```
+
+This returns the following information.
+
+```
+Storage Endpoint Suffix = core.cloudapi.de
 ```
 
 ### Get endpoint from a storage account
@@ -87,7 +119,8 @@ You can also examine the properties of a storage account to retrieve the endpoin
 # Get a reference to the storage account.
 $resourceGroup = "myexistingresourcegroup"
 $storageAccountName = "myexistingstorageaccount"
-$storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
+$storageAccount = Get-AzureRmStorageAccount `
+  -ResourceGroupName $resourceGroup `
   -Name $storageAccountName 
   # Output the endpoints.
 Write-Host "blob endpoint = " $storageAccount.PrimaryEndPoints.Blob 
