@@ -1,5 +1,5 @@
 ---
-title: Process Azure IoT Hub device-to-cloud messages (Node) | Microsoft Docs
+title: Routing Azure IoT Hub device-to-cloud messages (Node) | Microsoft Docs
 description: How to process IoT Hub device-to-cloud messages by using routing rules and custom endpoints to dispatch messages to other back-end services.
 services: iot-hub
 documentationcenter: node
@@ -89,21 +89,23 @@ In this section, you modify the device app you created in the [Get started with 
     > [!NOTE]
     > For the sake of simplicity, this tutorial does not implement any retry policy. In production code, you should implement a retry policy such as exponential backoff, as suggested in the MSDN article [Transient Fault Handling].
 
-## Add a queue to your IoT hub and route messages to it
+## Add queues to your IoT hub and route messages to them
 
-In this section, you create a Service Bus queue, connect it to your IoT hub, and configure your IoT hub to send messages to the queue based on the presence of a property on the message. For more information about how to process messages from Service Bus queues, see [Get started with queues][lnk-sb-queues-node].
+In this section, you create a Service Bus queue and a Storage account, connect them to your IoT hub, and configure your IoT hub to send messages to the queue based on the presence of a property on the message and all messages to the Storage account. For more information about how to process messages from Service Bus queues, see [Get started with queues][lnk-sb-queues-node] and how to manage storage, see [Get started with Azure Storage][Azure Storage].
 
 1. Create a Service Bus queue as described in [Get started with queues][lnk-sb-queues-node]. Make a note of the namespace and queue name.
+
+1. Create a Storage account as described in [Azure Storage Documentation][lnk-storage].  Use the BLOB type and made note of the account name.
 
 2. In the Azure portal, open your IoT hub and click **Endpoints**.
 
     ![Endpoints in IoT hub][30]
 
-3. In the **Endpoints** blade, click **Add** at the top to add your queue to your IoT hub. Name the endpoint **CriticalQueue** and use the drop-downs to select **Service Bus queue**, the Service Bus namespace in which your queue resides, and the name of your queue. When you are done, click **Save** at the bottom.
+3. In the **Endpoints** blade, click **Add** at the top to add your queue to your IoT hub. Name the endpoint **CriticalQueue** and use the drop-downs to select **Service Bus queue**, the Service Bus namespace in which your queue resides, and the name of your queue. Click **Add** again, name the endpoint **GeneralQueue** and use the drop-downs to select **Storage account**, and create a storage container.  Make note of the name.  When you are done, click **Save** at the bottom.
 
     ![Adding an endpoint][31]
 
-4. Now click **Routes** in your IoT Hub. Click **Add** at the top of the blade to create a routing rule that routes messages to the queue you just added. Select **DeviceTelemetry** as the source of data. Enter `level="critical"` as the condition, and choose the queue you just added as a custom endpoint as the routing rule endpoint. When you are done, click **Save** at the bottom.
+4. Now click **Routes** in your IoT Hub. Click **Add** at the top of the blade to create a routing rule that routes messages to the queue you just added. Select **DeviceTelemetry** as the source of data. Enter `level="critical"` as the condition, and choose **CriticalQueue** as a custom endpoint as the routing rule endpoint. Click **Add** again, select **Messages** as the source of data, and choose **GeneralQueue** as the endpoint.  When you are done, click **Save** at the bottom.
 
     ![Adding a route][32]
 
@@ -188,6 +190,8 @@ Now you are ready to run the three applications.
    
    ![Run simulated-device][simulateddevice]
 
+1. In the Azure Portal, go to your storage account, under **Blob Service**, click **Browse blobs...**.  Select your container, click the JSON file, and click **Download** to view the data.
+
 ## Next steps
 
 In this tutorial, you learned how to reliably dispatch device-to-cloud messages by using the message routing functionality of IoT Hub.
@@ -230,3 +234,4 @@ To learn more about message routing in IoT Hub, see [Send and receive messages w
 [lnk-c2d]: iot-hub-node-node-c2d.md
 [lnk-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 [lnk-free-trial]: https://azure.microsoft.com/free/
+[lnk-storage]: https://docs.microsoft.com/en-us/azure/storage/
