@@ -44,11 +44,9 @@ The following steps show how to grant data access for a user principal:
 4.	Select your Time Series Insights environment from the list.
 
   ![Manage the Time Series Insights source - environment](media/data-access/getstarted-grant-data-access1.png)
-
 4.	Select “Data Access Policies”, then click “Add”
 
   ![Manage the Time Series Insights source - add](media/data-access/getstarted-grant-data-access2.png)
-
 5.	Click “Select user.”
 6.	Search and select user by the email.
 7.	Click “Select” in “Select User” blade.

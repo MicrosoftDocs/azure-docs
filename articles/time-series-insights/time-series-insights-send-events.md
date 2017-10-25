@@ -24,7 +24,7 @@ This tutorial explains how to create and configure event hub and run a sample ap
 ## Configure an event hub
 1. To create an event hub, follow instructions from the Event Hub [documentation](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
 
-2. Search for "event hub" in the search bar. Click Evenb Hubs in the returned list.
+2. Search for "event hub" in the search bar. Click Event Hubs in the returned list.
 
 3. Select your event hub by clicking on its name.
 
