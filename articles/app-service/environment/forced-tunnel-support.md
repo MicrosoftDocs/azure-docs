@@ -36,7 +36,7 @@ You can configure the ASE with a different egress address after the ASE is alrea
 ### Configure an existing ASE to use a different egress address ###
 
 1. Get the IP addresses you want to use as egress IPs for your ASE. If you are doing forced tunneling then this would be your NATs or gateway IPs.  If you were routing all of the ASE outbound traffic through an NVA, then the egress address would be the public IP of the NVA.
-1. Set the egress addresses in your ASE configuration information. Go to resource.azure.com and open up: Subscription/<subscription id>/resourceGroups/<ase resource group>/providers/Microsoft.Web/hostingEnvironments/<ase name> then you will see the json that describes your ASE.  Make sure it says read/write at the top.  Click Edit   Scroll down to the bottom and change userWhitelistedIpRanges from  
+1. Set the egress addresses in your ASE configuration information. Go to resource.azure.com and navigate to: Subscription/<subscription id>/resourceGroups/<ase resource group>/providers/Microsoft.Web/hostingEnvironments/<ase name> then you will see the json that describes your ASE.  Make sure it says read/write at the top.  Click Edit   Scroll down to the bottom and change userWhitelistedIpRanges from  
 
       "userWhitelistedIpRanges": null 
       To something more like 
@@ -45,8 +45,8 @@ You can configure the ASE with a different egress address after the ASE is alrea
           "44.55.66.0/24"
           ] 
 
-   as appropriate.  Then click PUT at the top.   This will trigger a scale operation on your ASE.
-1. Create or edit a route table and populate the rules to allow access to/from the management IPs that map to your ASE location.  Those addreses are here, [App Service Environment management addresses][management] 
+   as appropriate. Then click PUT at the top. This will trigger a scale operation on your ASE.
+1. Create or edit a route table and populate the rules to allow access to/from the management addresses that map to your ASE location.  The management addreses are here, [App Service Environment management addresses][management] 
 
 ### Create a new ASE with a different egress address  ###
 1. pre-create the subnet to be used by the ASE
