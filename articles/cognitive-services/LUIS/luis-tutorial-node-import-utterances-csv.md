@@ -18,7 +18,7 @@ This tutorial helps you import utterances from the query log that contains all t
 
 ## Prerequisites
 
-* Log into www.luis.ai and find your Programmatic Key in Account Settings.  You'll use this key to call the Authoring API.
+* Log in to www.luis.ai and find your Programmatic Key in Account Settings.  You use this key to call the Authoring API.
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 * This tutorial assumes you have already [created a LUIS app](luis-get-started-create-app.md), [trained](https://docs.microsoft.com/en-us/azure/cognitive-services/LUIS/train-test) and [published](PublishApp.md) it, and that some utterances have been passed to its endpoint.
 * Install the latest Node.js with NPM. Download it from [here](https://nodejs.org/en/download/).
@@ -47,20 +47,20 @@ The format of the query log is a CSV file with a heading row. The parsing needed
 
 The code for this tutorial is at [CSV Upload Sample](https://github.com/Microsoft/LUIS-Samples/tree/master/examples/demo-upload-example-utterances/demo-Upload-utterances-from-querylog). The sample's main file is the [index.js]('./index.js). This file contains the configuration settings and uploads the batch: 
 
-- [_parse.js](./_parse.js) : convert to batch upload API format
-- [_upload.js](./_upload) : upload JSON to batch label API
+- [_parse.js](./_parse.js): convert to batch upload API format
+- [_upload.js](./_upload): upload JSON to batch label API
 
-The sample will create files associated with each step:
+The sample creates files associated with each step:
 
-- [utterances.json](./demo-upload-utterances-from-exported-luis-app/example-files/utterances.json) : batch labels to upload
-- [utterances.upload.json](./demo-upload-utterances-from-exported-luis-app/example-files/utterances.upload.json) : final response body from upload API
+- [utterances.json: batch labels to upload
+- [utterances.upload.json: final response body from upload API
 
 Examples of the files used and produced by the sample are in the ./example-files subdirectory.
 
-If one or all of these files is missing, there was an error with the application. 
+If any of these files are missing, there was an error with the application. 
 
 ## Batching Utterances
-The sample sends batches of utterances. They are grouped into pages before sending each page. Each batch sent and received are numbered with an "ExampleId" between 0-99. This helps you find which utterances failed.
+The sample sends batches of utterances. They are grouped into pages before sending each page. Each batch sent of received is numbered with an "ExampleId" between 0-99. This helps you find which utterances failed.
 
 ## Install
 Install the Node.js dependencies from NPM in the terminal/command line.
@@ -93,7 +93,7 @@ or
 ````
 
 ## Application progress
-While the application is running, the terminal/command line will show progress.
+While the application is running, the terminal/command line shows progress.
 
 ````
 > node index.js
@@ -111,18 +111,18 @@ These demo applications use the following LUIS APIs:
 ## Format of the JSON for the batch upload
 The format of the JSON for the batch upload is noted in the [batch add labels](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09) API. It is important to not that the format of the download for query logs is different both in content and format. 
 
-If you export your application data from [luis.ai applications list](https://www.luis.ai/applications) with the **Export app data to JSON file**, you will need to change the JSON format to match the stated format for the batch upload.  
+If you export your application data from [luis.ai applications list](https://www.luis.ai/applications) with the **Export app data to JSON file**, you need to change the JSON format to match the stated format for the batch upload.  
 
 ## Troubleshooting
 
 ### Use your own private apps
-If you incorrectly use an app ID that you do not have permission to upload to, such as any public apps, you will receive an error.
+If you incorrectly use an app ID that you do not have permission to upload to, such as any public apps, you receive an error.
 
 ### Intent And Entities are not created if NOT found
 Any intent or entity uploaded that is not found in your LUIS app will cause an error. It is important that all intents and entities used in the batch already exist in the app.
 
 ### Errors in output file of the application
-The final response body from upload API is in the 'utterances.upload.json' file. This file will be an array of responses, one response for each item in the batch. 
+The final response body from upload API is in the 'utterances.upload.json' file. This file is an array of responses, one response for each item in the batch. 
 
 Each item in the batch can succeed or fail independent of any other item, so it is important to check the response. 
 
@@ -183,11 +183,11 @@ Each item in the batch can succeed or fail independent of any other item, so it 
 ````
  
 #### Reasons for failed requests (HTTP 400+) other than malformed items:
-A batch upload may fail for general reasons not related to the batch itself. You will need to investigate the error returned to fix the problem. A list of common issues include:
+A batch upload may fail for general reasons not related to the batch itself. You need to investigate the error returned to fix the problem. A list of common issues include:
 
-- public subscription id - you are not allowed to write a batch to this subscription
-- incorrect app id
-- incorrect version id
+- public subscription ID - you are not allowed to write a batch to this subscription
+- incorrect app ID
+- incorrect version ID
 - incorrect LUIS API URI
 
 #### Examples of failed requests (HTTP 400+) because of malformed items:
@@ -201,7 +201,7 @@ A list of common issues include for a well-formed batch:
 - batch includes entity that doesn't exist in app
 - batch includes prebuilt entity provided by LUIS Prebuilt domains
 
-A malformed batch will also be refused because the JSON can not be parsed as it is. The following JSON examples show some malformed JSON you should avoid.
+A malformed batch will also be refused because the JSON cannot be parsed as it is. The following JSON examples show some malformed JSON you should avoid.
 
 ````JavaScript
 // malformed item - entityLabels first array item is present but empty
@@ -252,4 +252,4 @@ A malformed batch will also be refused because the JSON can not be parsed as it 
 ## Next steps
 
 * Try to improve your app's performance by continuing to add and label utterances.
-* Try adding [Features](Add-Features.md) to enrich your model and improve performance in language understanding. Features help your app identify alternative interchangeable words/phrases, as well as commonly-used patterns specific to your domain.
+* Try adding [Features](Add-Features.md) to enrich your model and improve performance in language understanding. Features help your app identify alternative interchangeable words/phrases, as well as commonly used patterns specific to your domain.
