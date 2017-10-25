@@ -223,6 +223,8 @@
     href: https://blogs.technet.microsoft.com/machinelearning/2017/10/09/the-microsoft-team-data-science-process-tdsp-recent-updates/
   - name: Using the TDSP in Azure Machine Learning
     href: https://blogs.technet.microsoft.com/machinelearning/2017/09/25/using-the-team-data-science-process-tdsp-in-azure-machine-learning/
+  - name: Using the TDSP Templates
+    href: https://blogs.msdn.microsoft.com/buckwoody/2017/10/24/a-data-science-microsoft-project-template-you-can-use-in-your-solutions/
   - name: TDSP tools and utilities
     items:
     - name: On GitHub
