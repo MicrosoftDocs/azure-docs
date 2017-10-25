@@ -102,11 +102,25 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
  
 	![Single sign-on dialog box](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_samlbase.png)
 
-3. On the **GoToMeeting Domain and URLs** section, perform the following steps:
+3. On the **GoToMeeting Domain and URLs** section, click **Show advanced URL settings** and perform following actions -
 
-	![GoToMeeting Domain and URLs single sign-on information](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_url.png)
+	![GoToMeeting Domain and URLs single sign-on information](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_ssourl.png)
 
-    In the **Identifier** textbox, type the URL: `https://login.citrixonline.com/saml/sp`
+    a. In the **Identifier** textbox, type the URL:
+	`https://authentication.logmeininc.com/saml/sp`
+
+	b. In the **Reply URL** textbox, type the URL:	`https://authentication.logmeininc.com/saml/acs`
+
+	c. In the **Relay State** textbox, type one of the following URLs:
+
+	**For GoToMeeting**: `https://global.gotomeeting.com`
+	
+	**For GoToTraining**: `https://global.gototraining.com`
+
+	**For GoToWebinar**: `https://global.gotowebinar.com`
+
+	**For GoToAssist**: `https://app.gotoassist.com`
+
 
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
