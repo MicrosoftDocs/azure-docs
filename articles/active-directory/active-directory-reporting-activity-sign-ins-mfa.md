@@ -1,5 +1,5 @@
 ---
-title: Multi-factor authentication reporting in the Azure portal | Microsoft Docs
+title: Reference for multi-factor authentication reporting in the Azure portal | Microsoft Docs
 description: Reference information for multi-factor authentication reporting in the Azure portal 
 services: active-directory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/17/2017
+ms.date: 10/24/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
 
 ---
-# Multi-factor authentication reporting in the Azure portal
+# Reference for multi-factor authentication reporting in the Azure portal
 
 With [Azure Active Directory (Azure AD) reporting](active-directory-reporting-azure-portal.md) in the [Azure portal](https://portal.azure.com), you can get the information you need to determine how your environment is doing.
 
