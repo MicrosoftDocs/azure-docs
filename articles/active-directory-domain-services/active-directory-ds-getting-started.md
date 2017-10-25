@@ -44,14 +44,14 @@ In the **Basics** page of the wizard, you can specify the DNS domain name for th
 
    > [!NOTE]
    > **Guidelines for selecting a DNS domain name**
-   > 1. The default domain name of the directory (with a **.onmicrosoft.com** suffix) is specified by default. If you choose to enable secure LDAP access to the managed domain over the internet, note that you will have trouble creating a public DNS record or obtaining a secure LDAP certificate from a public CA for this domain name. This is because Microsoft owns the *.onmicrosoft.com* domain.
-     2. You can also type in a custom domain name. In this example, the custom domain name is *contoso100.com*.
-     3. We generally recommend avoiding a non-routable domain name suffix. For instance, it is better to avoid creating a domain with the DNS domain name 'contoso.local'. The '.local' DNS suffix is not routable and can cause issues with DNS resolution.
-     4. The prefix of your specified domain name (for example, *contoso100* in the *contoso100.com* domain name) must contain 15 or fewer characters. You cannot create a managed domain with a prefix longer than 15 characters.
-     5. Ensure that the DNS domain name you have chosen for the managed domain does not already exist in the virtual network. Specifically, check whether:
-         * You already have an Active Directory domain with the same DNS domain name on the virtual network.
-         * The virtual network where you plan to enable the managed domain has a VPN connection with your on-premises network. In this scenario, ensure you don't have a domain with the same DNS domain name on your on-premises network.
-         * You have an existing cloud service with that name on the virtual network.
+   > * The default domain name of the directory (with a **.onmicrosoft.com** suffix) is specified by default. If you choose to enable secure LDAP access to the managed domain over the internet, note that you will have trouble creating a public DNS record or obtaining a secure LDAP certificate from a public CA for this domain name. This is because Microsoft owns the *.onmicrosoft.com* domain.
+   * You can also type in a custom domain name. In this example, the custom domain name is *contoso100.com*.
+   * We generally recommend avoiding a non-routable domain name suffix. For instance, it is better to avoid creating a domain with the DNS domain name 'contoso.local'. The '.local' DNS suffix is not routable and can cause issues with DNS resolution.
+   * The prefix of your specified domain name (for example, *contoso100* in the *contoso100.com* domain name) must contain 15 or fewer characters. You cannot create a managed domain with a prefix longer than 15 characters.
+   * Ensure that the DNS domain name you have chosen for the managed domain does not already exist in the virtual network. Specifically, check whether:
+     * You already have an Active Directory domain with the same DNS domain name on the virtual network.
+     * The virtual network where you plan to enable the managed domain has a VPN connection with your on-premises network. In this scenario, ensure you don't have a domain with the same DNS domain name on your on-premises network.
+     * You have an existing cloud service with that name on the virtual network.
     >
 
 2. Select the Azure **Subscription** in which you would like to create the managed domain.
