@@ -6,7 +6,7 @@
     href: migrate-overview.md
 - name: Tutorials
   items:
-  - name: Azure VMs
+  - name: Assess VMware VMs
     href: tutorial-assessment-vmware.md
 - name: Concepts
   items:

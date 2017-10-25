@@ -17,10 +17,9 @@ ms.date: 09/25/2017
 ms.author: raynew
 ---
 
-# Set up VMware vCenter tagging
+# Create a group with vCenter tagging
 
-This article describes how to create a group of machines for assessment by [Azure Migrate](migrate-overview.md), using tagging in VMware vCenter. Azure Migrate creates groups based on the vCenter tags. When you create an assessment, each machine in the group is assessed to check whether it's suitable for migration to Azure. Azure Migrate also provides sizing and cost estimations for running the machine in Azure.
-
+This article describes how to create a group of machines for [Azure Migrate](migrate-overview.md) assessment using tagging in VMware vCenter. If you set up tagging, when you set up groups, you can select the tags on which to base the group. 
 
 ## Set up tagging
 
@@ -33,9 +32,17 @@ During Azure Migrate deployment, you set up an on-premises Azure Migrate collect
 5. Click **New Tag**, and specify a tag name and description.
 6. To crate a category for the tag, select **New Category** in the drop-down list.
 7. Specify a category name and description, and the cardinality. Then click **OK**.
-8. On the VM **Summary** tab, you can view the tags associated with the VM.
 
     ![VM tags](./media/how-to-tag-v-center/vm-tag.png)
+
+## Use tagging to create groups
+
+After you set up tagging on the vCenter server, you can select tag categories to use to create groups.
+
+1. Set up discovery of on-premises machines as described in the [VMware assessment tutorial](tutorial-assessment-vmware.md#run-the-collector-to-discover-vms).
+2. In **Tag category for grouping**, select the vCenter tag category on which the assessment group should be based. Azure Migrate automatically creates a group for the selected category.
+
+    
 
 ## Next steps
 
