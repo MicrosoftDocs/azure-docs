@@ -6981,6 +6981,334 @@
             "redirect_document_id": false
         },
 		{
+            "source_path": "articles/site-recovery/azure-to-azure-walkthrough-architecture.md",
+            "redirect_url": "concepts-azure-to-azure-architecture",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/azure-to-azure-walkthrough-enable-replication.md",
+            "redirect_url": "azure-to-azure-tutorial-enable-replication",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/azure-to-azure-walkthrough-network.md",
+            "redirect_url": "azure-to-azure-tutorial-enable-replication",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/azure-to-azure-walkthrough-overview.md",
+            "redirect_url": "site-recovery-azure-to-azure-networking-guidance",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/azure-to-azure-walkthrough-prerequisites.md",
+            "redirect_url": "azure-to-azure-tutorial-enable-replication",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/azure-to-azure-walkthrough-test-failover.md",
+            "redirect_url": "azure-to-azure-tutorial-dr-drill",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/azure-to-azure-walkthrough-vault.md",
+            "redirect_url": "azure-to-azure-tutorial-enable-replication",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/hyper-v-site-walkthrough-architecture.md",
+            "redirect_url": "concepts-hyper-v-to-azure-architecture",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/hyper-v-site-walkthrough-capacity.md",
+            "redirect_url": "site-recovery-capacity-planning-for-hyper-v-replication",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/hyper-v-site-walkthrough-create-vault.md",
+            "redirect_url": "tutorial-hyper-v-to-azure",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/hyper-v-site-walkthrough-enable-replication.md",
+            "redirect_url": "tutorial-hyper-v-to-azure",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/hyper-v-site-walkthrough-network.md",
+            "redirect_url": "tutorial-hyper-v-to-azure",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/hyper-v-site-walkthrough-overview.md",
+            "redirect_url": "tutorial-hyper-v-to-azure",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/hyper-v-site-walkthrough-prepare-azure.md",
+            "redirect_url": "tutorial-hyper-v-to-azure",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/hyper-v-site-walkthrough-prepare-hyper-v.md",
+            "redirect_url": "tutorial-hyper-v-to-azure",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/hyper-v-site-walkthrough-prerequisites.md",
+            "redirect_url": "tutorial-hyper-v-to-azure",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/hyper-v-site-walkthrough-replication.md",
+            "redirect_url": "tutorial-hyper-v-to-azure",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/hyper-v-site-walkthrough-source-target.md",
+            "redirect_url": "tutorial-hyper-v-to-azure",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/hyper-v-site-walkthrough-test-failover.md",
+            "redirect_url": "tutorial-dr-drill-azure",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/physical-walkthrough-architecture.md",
+            "redirect_url": "concepts-physical-to-azure-architecture",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/physical-walkthrough-capacity.md",
+            "redirect_url": "site-recovery-plan-capacity-vmware",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/physical-walkthrough-create-vault.md",
+            "redirect_url": "tutorial-physical-to-azure",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/physical-walkthrough-enable-replication.md",
+            "redirect_url": "tutorial-physical-to-azure",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/physical-walkthrough-install-mobility.md",
+            "redirect_url": "tutorial-physical-to-azure",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/physical-walkthrough-network.md",
+            "redirect_url": "tutorial-physical-to-azure",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/physical-walkthrough-overview.md",
+            "redirect_url": "tutorial-physical-to-azure",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/physical-walkthrough-prepare-azure.md",
+            "redirect_url": "tutorial-physical-to-azure",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/physical-walkthrough-prerequisites.md",
+            "redirect_url": "tutorial-physical-to-azure",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/physical-walkthrough-replication.md",
+            "redirect_url": "tutorial-physical-to-azure",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/physical-walkthrough-source-target.md",
+            "redirect_url": "tutorial-physical-to-azure",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/physical-walkthrough-test-failover.md",
+            "redirect_url": "tutorial-dr-drill-azure",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/vmm-to-azure-walkthrough-architecture.md",
+            "redirect_url": "concepts-hyper-v-to-azure-architecture",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/vmm-to-azure-walkthrough-capacity.md",
+            "redirect_url": "site-recovery-capacity-planning-for-hyper-v-replication",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/vmm-to-azure-walkthrough-create-vault.md",
+            "redirect_url": "tutorial-hyper-v-to-azure",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/vmm-to-azure-walkthrough-enable-replication.md",
+            "redirect_url": "tutorial-hyper-v-to-azure",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/vmm-to-azure-walkthrough-network.md",
+            "redirect_url": "tutorial-hyper-v-to-azure",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/vmm-to-azure-walkthrough-network-mapping.md",
+            "redirect_url": "tutorial-hyper-v-to-azure",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/vmm-to-azure-walkthrough-overview.md",
+            "redirect_url": "tutorial-hyper-v-to-azure",
+            "redirect_document_id": false
+        },{
+            "source_path": "articles/site-recovery/vmm-to-azure-walkthrough-prepare-azure.md",
+            "redirect_url": "tutorial-hyper-v-to-azure",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/vmm-to-azure-walkthrough-prerequisites.md",
+            "redirect_url": "tutorial-hyper-v-to-azure",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/vmm-to-azure-walkthrough-replication.md",
+            "redirect_url": "tutorial-hyper-v-to-azure",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/vmm-to-azure-walkthrough-source-target.md",
+            "redirect_url": "tutorial-hyper-v-to-azure",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/vmm-to-azure-walkthrough-test-failover.md",
+            "redirect_url": "tutorial-dr-drill-azure",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/vmware-walkthrough-architecture.md",
+            "redirect_url": "concepts-vmware-to-azure-architecture",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/vmware-walkthrough-capacity.md",
+            "redirect_url": "site-recovery-plan-capacity-vmware",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/vmware-walkthrough-create-vault.md",
+            "redirect_url": "tutorial-vmware-to-azure",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/vmware-walkthrough-enable-replication.md",
+            "redirect_url": "tutorial-vmware-to-azure",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/vmware-walkthrough-install-mobility.md",
+            "redirect_url": "tutorial-vmware-to-azure",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/vmware-walkthrough-network.md",
+            "redirect_url": "tutorial-vmware-to-azure",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/vmware-walkthrough-overview.md",
+            "redirect_url": "tutorial-vmware-to-azure",
+            "redirect_document_id": false
+        },{
+            "source_path": "articles/site-recovery/vmware-walkthrough-prepare-azure.md",
+            "redirect_url": "tutorial-vmware-to-azure",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/vmware-walkthrough-prepare-vmware.md",
+            "redirect_url": "tutorial-vmware-to-azure",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/vmware-walkthrough-prerequisites.md",
+            "redirect_url": "tutorial-vmware-to-azure",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/vmware-walkthrough-replication.md",
+            "redirect_url": "tutorial-vmware-to-azure",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/vmware-walkthrough-source-target.md",
+            "redirect_url": "tutorial-vmware-to-azure",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/vmware-walkthrough-test-failover.md",
+            "redirect_url": "tutorial-dr-drill-azure",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/vmm-to-vmm-walkthrough-architecture.md",
+            "redirect_url": "concepts-hyper-v-to-secondary-architecture",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/vmm-to-vmm-walkthrough-create-vault.md",
+            "redirect_url": "tutorial-vmm-to-vmm",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/vmm-to-vmm-walkthrough-enable-replication.md",
+            "redirect_url": "tutorial-vmm-to-vmm",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/vmm-to-vmm-walkthrough-network.md",
+            "redirect_url": "tutorial-vmm-to-vmm",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/vmm-to-vmm-walkthrough-network-mapping.md",
+            "redirect_url": "tutorial-vmm-to-vmm",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/vmm-to-vmm-walkthrough-overview.md",
+            "redirect_url": "tutorial-vmm-to-vmm",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/vmm-to-vmm-walkthrough-prerequisites.md",
+            "redirect_url": "tutorial-vmm-to-vmm",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/vmm-to-vmm-walkthrough-source-target.md",
+            "redirect_url": "tutorial-vmm-to-vmm",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/vmm-to-vmm-walkthrough-test-failover.md",
+            "redirect_url": "tutorial-dr-drill-secondary",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/vmm-to-vmm-walkthrough-vmm-hyper-v.md",
+            "redirect_url": "tutorial-vmm-to-vmm",
+            "redirect_document_id": false
+        },
+		{
             "source_path": "articles/site-recovery/site-recovery-failback-azure-to-vmware.md",
             "redirect_url": "site-recovery-how-to-failback-azure-to-vmware",
             "redirect_document_id": false
@@ -7027,7 +7355,7 @@
         },
         {
             "source_path": "articles/site-recovery/site-recovery-architecture-vmware-to-azure.md",
-            "redirect_url": "vmware-walkthrough-architecture",
+            "redirect_url": "concepts-vmware-to-azure-architecture",
             "redirect_document_id": false
         },
         {
@@ -7037,22 +7365,22 @@
         },
         {
             "source_path": "articles/site-recovery/site-recovery-components.md",
-            "redirect_url": "site-recovery-azure-to-azure-architecture",
+            "redirect_url": "concepts-azure-to-azure-architecture",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/site-recovery/site-recovery-hyper-v-azure-architecture.md",
-            "redirect_url": "site-recovery-architecture-hyper-v-to-azure",
+            "redirect_url": "concepts-hyper-v-to-azure-architecture",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/site-recovery/site-recovery-hyper-v-site-to-azure.md",
-            "redirect_url": "hyper-v-site-walkthrough-overview",
+            "redirect_url": "tutorial-hyper-v-to-azure",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/site-recovery/site-recovery-physical-servers-to-azure.md",
-            "redirect_url": "physical-walkthrough-overview",
+            "redirect_url": "tutorial-physical-to-azure",
             "redirect_document_id": false
         },
         {
@@ -7062,17 +7390,37 @@
         },
         {
             "source_path": "articles/site-recovery/site-recovery-vmware-to-azure-classic.md",
-            "redirect_url": "site-recovery-vmware-to-azure",
+            "redirect_url": "tutorial-vmware-to-azure",
             "redirect_document_id": false
         },
 	    {
             "source_path": "articles/site-recovery/site-recovery-vmware-to-azure-classic-legacy.md",
-            "redirect_url": "site-recovery-vmware-to-azure",
+            "redirect_url": "tutorial-vmware-to-azure",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/site-recovery/site-recovery-vmware-to-azure.md",
-            "redirect_url": "vmware-walkthrough-overview",
+            "redirect_url": "tutorial-vmware-to-azure",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/site-recovery-deploy-with-powershell.md",
+            "redirect_url": "site-recovery-deploy-with-powershell-resource-manager",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/site-recovery-vmm-san.md",
+            "redirect_url": "tutorial-vmm-to-vmm",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/site-recovery-vmm-to-vmm.md",
+            "redirect_url": "tutorial-vmm-to-vmm",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/site-recovery-vmm-to-azure.md",
+            "redirect_url": "tutorial-hyper-v-to-azure",
             "redirect_document_id": false
         },
         {
@@ -13704,6 +14052,16 @@
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-distributed-data.md",
             "redirect_url": "/azure/sql-data-warehouse/massively-parallel-processing-mpp-architecture",
             "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/active-directory/active-directory-conditional-access.md",
+             "redirect_url": "/azure/active-directory/active-directory-conditional-access-azure-portal",
+             "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/active-directory/active-directory-conditional-access-azuread-connected-apps.md",
+             "redirect_url": "/azure/active-directory/active-directory-conditional-access-azure-portal-get-started",
+             "redirect_document_id": false
         }
     ]
 }
