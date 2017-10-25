@@ -42,7 +42,7 @@ For this tutorial, we create a new Linux VM. You can also enable MSI on an exist
 
 1. Click the **New** button found on the upper left-hand corner of the Azure portal.
 2. Select **Compute**, and then select **Ubuntu Server 16.04 LTS**.
-3. Enter the virtual machine information. For **Authentication type**, select **SSH public key** or **Password**. The created credentials will allow you to login to the VM.
+3. Enter the virtual machine information. For **Authentication type**, select **SSH public key** or **Password**. The created credentials allow you to log in to the VM.
 
     ![Alt image text](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
@@ -56,12 +56,12 @@ A Virtual Machine MSI enables you to get access tokens from Azure AD without you
 
 1. Select the **Virtual Machine** that you want to enable MSI on.
 2. On the left navigation bar click **Configuration**.
-3. You will see **Managed Service Identity**. To register and enable the MSI, select **Yes**, if you wish to disable it, choose No.
+3. You see **Managed Service Identity**. To register and enable the MSI, select **Yes**, if you wish to disable it, choose No.
 4. Ensure you click **Save** to save the configuration.
 
     ![Alt image text](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
-5. If you wish to check which extensions are on this **Linux VM**, click **Extensions**. If MSI is enabled, the **ManagedIdentityExtensionforLinux** will appear on the list.
+5. If you wish to check which extensions are on this **Linux VM**, click **Extensions**. If MSI is enabled, the **ManagedIdentityExtensionforLinux** appears on the list.
 
     ![Alt image text](media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
 
@@ -81,7 +81,7 @@ Using MSI your code can get access tokens to authenticate to resources that supp
 
 ## Get an access token using the VM Identity and use it to call Resource Manager 
 
-To complete these steps, you will need an SSH client. If you are using Windows, you can use the SSH client in the [Windows Subsystem for Linux](https://msdn.microsoft.com/commandline/wsl/about). 
+To complete these steps, you need an SSH client. If you are using Windows, you can use the SSH client in the [Windows Subsystem for Linux](https://msdn.microsoft.com/commandline/wsl/about). 
 
 1. In the portal, navigate to your Linux VM and in the **Overview**, click **Connect**.  
 2. **Connect** to the VM with the SSH client of your choice. 
@@ -107,7 +107,7 @@ To complete these steps, you will need an SSH client. If you are using Windows, 
     You can use this access token to access Azure Resource Manager, for example to read the details of the Resource Group to which you previously granted this VM access. Replace the values of \<SUBSCRIPTION ID\>, \<RESOURCE GROUP\>, and \<ACCESS TOKEN\> with the ones you created earlier. 
     
     > [!NOTE]
-    > The URL is case sensitive, so ensure if you are using the exact same case as you used earlier when you named the Resource Group, and the uppercase “G” in “resourceGroup”.  
+    > The URL is case-sensitive, so ensure if you are using the exact same case as you used earlier when you named the Resource Group, and the uppercase “G” in “resourceGroup”.  
     
     ```bash 
     curl https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>?api-version=2016-09-01 -H "Authorization: Bearer <ACCESS TOKEN>" 
