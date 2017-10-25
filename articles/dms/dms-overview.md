@@ -2,8 +2,8 @@
 title: Azure Database Migration Service Overview | Microsoft Docs
 description: Overview of the Azure Database Migration Service, which provides seamless migrations from many database sources to Azure Data platforms.
 services: dms
-author: edmacauley
-ms.author: edmaca
+author: HJToland3
+ms.author: jtoland
 manager: jhubbard
 ms.reviewer: 
 ms.service: dms
@@ -30,3 +30,4 @@ Azure DMS uses DMA and SSMA to provide assessment reports.  These recommendation
 ## Next steps
 - See the [pricing page](https://azure.microsoft.com/pricing/details/dms/) for costs and pricing tiers.
 - Get started by [migrating the AdventureWorks2014 database from SQL Server to Azure SQL](/quickstart-sql-server-to-azure-sql.md).
+- Request a [preview of DMS](https://aka.ms/get-dms)

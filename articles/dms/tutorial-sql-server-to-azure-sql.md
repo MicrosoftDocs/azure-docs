@@ -1,9 +1,9 @@
 ---
-title: Tutorial article for Machine Learning Server | Microsoft Docs
-description: This sample describes the article in 115 to 145 characters. Validate using Gauntlet toolbar check icon. Use SEO kind of action verbs here.
+title: Use Azure Database Migration Service to migrate migrate SQL Server on-premises to Azure SQL DB | Microsoft Docs
+description: Learn to migrate from on premises SQL Server to Azure SQL using Azure Database Migration Service.
 services: dms
 author: HJToland3
-ms.author: sgosh
+ms.author: jtoland
 manager: jhubbard
 ms.reviewer: 
 ms.service: dms
@@ -16,26 +16,28 @@ ms.date: 10/25/2017
 # Migrate SQL Server on-premises to Azure SQL DB
 You can use the Azure Database Migration Service (Azure DMS) to migrate the databases from an on-premises SQL Server instance to Azure SQL Database. In this tutorial, you migrate the Adventureworks2012 database restored to an on-premises instance of SQL Server 2016 to an Azure SQL Database by using Azure DMS.
 
-In this tutorial, you use the Azure portal to learn how to:
+In this tutorial, you learn how to:
 > [!div class="checklist"]
-> * Create something
-> * Do something
-> * Do something else
-> * Finish something 
+> * Assess your on-premises database by using the Data Migration Assistant
+> * Migrate the sample schema by using DMA
+> * Create an instance of Azure Database Migration Service
+> * Create a DMS migration project
+> * Run the migration
+> * Monitor the migration
 
 ## Prerequisites
 To complete this tutorial, you need:
 
 - SQL Server 2016 Express edition.
-- An Azure SQL Database instance. You can create an Azure SQL Database instance by following the instructions in the page [Create an Azure SQL database in the Azure portal](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
+- An Azure SQL Database instance. You can create an Azure SQL Database instance by following the article [Create an Azure SQL database in the Azure portal](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
 - [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) v3.3 or later.
-- Azure DMS requires a VNET created by using the Azure Resource Manager (ARM) deployment model, which provides site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) or [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+- Azure DMS requires a VNET created by using the Azure Resource Manager deployment model, which provides site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) or [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
 - The credentials used to connect to source SQL Server instance must have CONTROL SERVER permissions.
 - The credentials used to connect to target Azure SQL DB instance must have CONTROL DATABASE permission on the target Azure SQL DB databases.
 - Open your Windows firewall to allow Azure DMS to access the source SQL Server.
 
 ## Assess your on-premises database by using the Data Migration Assistant (DMA)
-Before you can migrate data from an on-premises SQL Server instance to Azure SQL Database, you need to assess the SQL Server database for any blocking issues that might prevent migration. After you download and install DMA v3.3, use the steps described in the article [Performing a SQL Server migration assessment](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem) to complete the on-premises database assessment. Below is a summary of the required steps.
+Before you can migrate data from an on-premises SQL Server instance to Azure SQL Database, you need to assess the SQL Server database for any blocking issues that might prevent migration. After you download and install DMA v3.3, use the steps described in the article [Performing a SQL Server migration assessment](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem) to complete the on-premises database assessment. A summary of the required steps follows:
 1.	Click on the New (+) icon, and then select the Assessment project type.
 1.	In the Source server type text box, select SQL Server, and then in the Target server type text box, select Azure SQL Database.
 1.	Create the project.
@@ -88,7 +90,7 @@ By default, all objects are selected.
 ![Azure Marketplace](media\tutorial-sql-server-to-azure-sql\marketplace.png)
 1.	Choose Azure data migration service (preview) to create the service.
 1.	Specify a name for the service, the subscription, a virtual network, and the pricing tier.
-For more information on costs and pricing tiers, refer to the pricing page .
+For more information on costs and pricing tiers, refer to the pricing page.
 1.	Click Create to create the service.
 
 ## Create a migration project
@@ -121,7 +123,7 @@ Specify the connection details for the target, which is the pre-provisioned Azur
 ![Enter Credentials](media\tutorial-sql-server-to-azure-sql\dmstargetconnectactivity.png)
 
 1.	Map the source and the target database for migration.
-If the target database contains the same database name as the source database, Azure DMS will select the target database by default.
+If the target database contains the same database name as the source database, Azure DMS selects the target database by default.
 ![Map to target databases](media\tutorial-sql-server-to-azure-sql\dmsconfiguresettingactivity.png)
 
 1.	On the migration configuration screen, you can choose validation options to validate the migrated database for:
@@ -140,8 +142,8 @@ If the target database contains the same database name as the source database, A
 ![Completed](media\tutorial-sql-server-to-azure-sql\dmscompletedresult.png)
 1. Verify the target Azure SQL database after the migration is complete.
 
-
-Next, learn how to use X, review this tutorial: 
-[Another Tutorial](doc-template-tutorial.md)
+## Next steps
 > [!div class="nextstepaction"]
-> [What article is next in sequence](template-tutorial.md)
+> Request a [preview of DMS](https://aka.ms/get-dms)
+> See the [pricing page](https://azure.microsoft.com/pricing/details/dms/) for costs and pricing tiers.
+> Overview of [Data Migration Assistant](https://aka.ms/dma)

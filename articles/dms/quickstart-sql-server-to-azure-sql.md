@@ -135,7 +135,7 @@ If it exists in the source, target, and is empty, a table is automatically check
 ## Run and monitor
 To see detailed migration status:
 
-1. Click **Run migration**eeeeeeeeee
+1. Click **Run migration**
 1. Click your migration's name
 1. Click AdventureWorks2014
 
@@ -144,4 +144,4 @@ To see detailed migration status:
  
 ## Next steps
 > [!div class="nextstepaction"]
-> [What article is next in sequence](./template-quickstart.md)
+> Request a [preview of DMS](https://aka.ms/get-dms)
