@@ -1,5 +1,5 @@
-﻿---
-title: Self-service signup in Azure Active Directory | Microsoft Docs
+---
+title: Take over an unmanaged domain name as administrator in Azure Active Directory | Microsoft Docs
 description: An overview self-service signup for Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -19,33 +19,13 @@ ms.reviewer: elkuzmen
 ms.custom: it-pro;oldportal
 
 ---
-# What is self-service signup for Azure Active Directory?
-This article explains the self-service signup process for Azure Active Directory (Azure AD) and how to take over an unmanaged Azure AD directory.  
+When a self-service (or email-verified) user signs up for a cloud service that uses Azure Active Directory (Azure AD), they are added to an unmanaged Azure AD directory based on the email domain. They become guest user of the directory with access to the service that they signed up for, and are tagged with creationmethod=EmailVerified.
 
-## Why use self-service signup?
-* Get customers to services they want faster
-* Create email-based offers for a service
-* Create email-based signup flows that quickly allow users to create identities using their easy-to-remember work email aliases
-* A self-service-created Azure AD directory can be turned into a managed directory that can be used for other services
-
-## Terms and definitions
-* **Self-service signup**: This is the method by which a user signs up for a cloud service and has an identity automatically created for them in Azure AD based on their email domain.
-* **Unmanaged Azure AD directory**: This is the directory where that identity is created. An unmanaged directory is a directory that has no global administrator.
-* **Email-verified user**: This is a type of user account in Azure AD. A user who has an identity created automatically after signing up for a self-service offer is known as an email-verified user. An email-verified user is a regular member of a directory tagged with creationmethod=EmailVerified.
-
-## What is in an unmanaged directory?
-
- Item | Characteristics
-------- | --------
-Directory | An Azure AD directory for the domain is created, one directory per domain. The Azure AD directory has no global admin.
- Users | For each user who signs up, a user is added to the Azure AD directory. Each user is marked as a guest user. Each user is given access to the service that they signed up for
-
-## User experience
 For example, let's say a user whose email is Dan@BellowsCollege.com receives sensitive files via email. The files have been protected by Azure Rights Management (Azure RMS). But Dan's organization, Bellows College, has not signed up for Azure RMS, nor has it deployed Active Directory RMS. In this case, Dan can sign up for a free subscription to RMS for individuals in order to read the protected files.
 
 If Dan is the first user with an email address from BellowsCollege.com to sign up for this self-service offering, then an unmanaged directory will be created for BellowsCollege.com in Azure AD. If other users from the BellowsCollege.com domain sign up for this offering or a similar self-service offering, they will also have email-verified user accounts created in the same unmanaged directory in Azure.
 
-## Ways to manage an unmanaged directory
+    ## Ways to manage an unmanaged directory
 To start the process of a DNS takeover, you can merge the directory after proving ownership  as described in [Add a custom domain name to Azure AD](add-custom-domain.md). The next sections explain the admin experience in more detail, but here's a summary:
 
 * When you *merge* an unmanaged Azure directory, you add the DNS domain name of the unmanaged directory to your managed Azure directory and a mapping of users to resources is created so users can continue to access services without interruption. This is also called an external takeover. Scenario: You are adding a new domain to your managed Azure directory and because the unmanaged directory exists for this domain, you can merge it with yours.
