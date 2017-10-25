@@ -42,16 +42,16 @@ There are three main tasks addressed in this stage:
 
   * **Feature engineering**: Create data features from the raw data to facilitate model training.
   * **Model training**: Find the model that answers the question most accurately by comparing their success metrics.
-  * Determine if your model is **suitable for production**.
+  * Determine if your model is **suitable for production.**
 
-### 3.1 Feature engineering
+### Feature engineering
 Feature engineering involves the inclusion, aggregation, and transformation of raw variables to create the features used in the analysis. If you want insight into what is driving a model, then you need to understand how the features relate to each other and how the machine-learning algorithms are to use those features. 
 
 This step requires a creative combination of domain expertise and the insights obtained from the data exploration step. Feature engineering is a balancing act of finding and including informative variables, but at the same time trying to avoid too many unrelated variables. Informative variables improve your result; unrelated variables introduce unnecessary noise into the model. You also need to generate these features for any new data obtained during scoring. As a result, the generation of these features can only depend on data that's available at the time of scoring. 
 
 For technical guidance on feature engineering when make use of various Azure data technologies, see [Feature engineering in the data science process](create-features.md). 
 
-### 3.2 Model training
+### Model training
 Depending on the type of question that you're trying to answer, there are many modeling algorithms available. For guidance on choosing the algorithms, see [How to choose algorithms for Microsoft Azure Machine Learning](../studio/algorithm-choice.md). Although this article uses Azure Machine Learning, the guidance it provides is useful for any machine-learning projects. 
 
 The process for model training includes the following steps: 
