@@ -15,12 +15,15 @@ ms.custom: mvc
 
 # Create an Autoscale Setting for  Azure resources based on performance data or a schedule
 
-Autoscale settings enable you to add/remove instances of service based on preset conditions. These settings can be created through the portal. This method provides a browser-based user interface for creating and configuring an autoscale setting. This tutorial steps through:
+Autoscale settings enable you to add/remove instances of service based on preset conditions. These settings can be created through the portal. This method provides a browser-based user interface for creating and configuring an autoscale setting. 
 
-1. Creating an App Service
-2. Configuring an autoscale setting
-3. Triggering a scale-out action
-4. Triggering a scale-in action
+In this tutorial, you will 
+> [!div class="checklist"]
+> * Create a Web App and App Service Plan
+> * Configure an autoscale setting
+> * Trigger a scale-out action
+> * Trigger a scale-in action
+
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
@@ -165,7 +168,16 @@ The scale-in condition in the autoscale setting triggers if there are fewer than
 
 ## Next steps
 
-In this tutorial, you created a simple Web App and App Service Plan. You then created an autoscale setting that would scale the App Service Plan based on the number of requests the Web App was receiving. To learn more about autoscale settings continue on to the autoscale overview.
+In this tutorial, you  
+> [!div class="checklist"]
+> * Created a simple Web App and App Service Plan
+> * Configured an autoscale setting
+> * Triggered a scale-out action
+> * Triggered a scale-in action
+
+In this tutorial, you created a simple Web App and App Service Plan. You then created an autoscale setting that would scale the App Service Plan based on the number of requests the Web App was receiving. 
+
+To learn more about autoscale settings, continue on to the [autoscale overview](monitoring-overview-autoscale).
 
 > [!div class="nextstepaction"]
 > [Archive your monitoring data](./monitor-tutorial-archive-monitoring-data.md)
