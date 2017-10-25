@@ -39,9 +39,9 @@ Enter a friendly **Name** for your SSL certificate and enter the **Domain Name**
 
 Select your **Subscription**, **Resource Group**, and **Certificate SKU**
 
-> [!WARNING]
+>[!WARNING] This warning should be Removed because. Based on Blog: https://blogs.msdn.microsoft.com/appserviceteam/2017/02/24/creating-a-local-pfx-copy-of-app-service-certificate/ state that this is now possible 
 > App Service Certificates can only be used by other App Services within the same subscription.  
->
+> 
 
 ## Step 3 - Store the certificate in Azure Key Vault
 
