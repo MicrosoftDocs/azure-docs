@@ -195,6 +195,10 @@
   - name: HDInsight
     tocHref: /azure/hdinsight/
     topicHref: /azure/hdinsight/
+    items:
+      - name: Kafka
+        tocHref: /azure/hdinsight/kafka
+        topicHref: /azure/hdinsight/kafka/apache-kafka-introduction
   - name: IoT Hub
     tocHref: /azure/iot-hub/
     topicHref: /azure/iot-hub/
