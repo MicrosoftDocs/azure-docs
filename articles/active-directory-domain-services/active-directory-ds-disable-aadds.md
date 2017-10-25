@@ -1,0 +1,47 @@
+---
+title: 'Disable Azure Active Directory Domain Services | Microsoft Docs'
+description: Disable Azure Active Directory Domain Services using the Azure portal
+services: active-directory-ds
+documentationcenter: ''
+author: mahesh-unnikrishnan
+manager: mahesh-unnikrishnan
+editor: curtand
+
+ms.assetid: 89e407e1-e1e0-49d1-8b89-de11484eee46
+ms.service: active-directory-ds
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/25/2017
+ms.author: maheshu
+
+---
+# Disable Azure Active Directory Domain Services using the Azure portal
+This article shows you how to use the Azure portal to disable Azure Active Directory (AD) Domain Services for your Azure AD directory.
+
+> [!WARNING]
+> **Deletion is permanent and cannot be reversed.**
+> Proceed with caution! When you delete the managed domain, domain controllers for the managed domain are de-provisioned and removed from the virtual network. Data on the managed domain is deleted permanently. Any machines joined to the managed domain lose their trust relationship with the domain and will need to be un-joined from the domain. You need to use local administrator credentials to sign in to these machines. Deleting the managed domain will not delete your Azure AD directory or otherwise adversely impact the directory.
+>
+
+## Delete your managed domain
+Perform the following steps to delete your Azure AD Domain Services managed domain:
+1. Navigate to the [Azure AD Domain Services extension](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices) in the Azure portal.
+2. Click the name of your managed domain.
+
+    ![Select domain to delete](./media/getting-started/domain-services-delete-select-domain.png)
+
+3. On the **Overview** page, click the **Delete** button.
+
+    ![Delete domain](./media/getting-started/domain-services-delete-domain.png)
+
+4. Type the DNS domain name of the managed domain to confirm the deletion. Click the **Delete** button when you are done.
+
+    ![Delete domain confirmation](./media/getting-started/domain-services-delete-domain-confirm.png)
+
+The managed domain is deleted in about 15-20 minutes.
+
+
+## Next steps
+Consider [sharing feedback](active-directory-ds-contact-us.md) to help us understand what features would help you chose Azure AD Domain Services in the future. This feedback helps us evolve the service to better suit your deployment needs and use-cases.
