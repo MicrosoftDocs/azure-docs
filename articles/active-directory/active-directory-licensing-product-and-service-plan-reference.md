@@ -22,17 +22,15 @@
 
 # Product names and service plan identifiers for licensing
 
-When [managing licenses in Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) or in the Office 365 portal, you see product names like *Office 365 Enterprise E3*. However, when you use PowerShell v1.0 cmdlets, the same product is identified using a specific but less friendly name: *ENTERPRISEPACK*. When using PowerShell v2.0 or Microsoft Graph, the same product is identified using a GUID value: *6fd2c87f-b296-42f0-b197-1e91e994b900*.
-
-The following table lists the most commonly used Microsoft Online Services products and provides their various ID values.
+When managing licenses in [the Azure portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) or the Office 365 portal, you see product names that look something like *Office 365 Enterprise E3*. When you use PowerShell v1.0 cmdlets, the same product is identified using a specific but less friendly name: *ENTERPRISEPACK*. When using PowerShell v2.0 cmdlets or Microsoft Graph, the same product is identified using a GUID value: *6fd2c87f-b296-42f0-b197-1e91e994b900*. The following table lists the most commonly used Microsoft online services products and provides their various ID values:
 
 - **Product Name**: Used in management portals
-- **String ID**: Used by PowerShell v1.0 cmdlets when performing operations on licenses.
-- **Guid ID (GUID)**: Used by Azure AD Graph and Microsoft Graph.
-- **Service Plans Included**: A list of service plans in the product that correspond to the String ID and GUID.
+- **String ID**: Used by PowerShell v1.0 cmdlets when performing operations on licenses
+- **Guid ID**: GUID used by Azure AD Graph and Microsoft Graph
+- **Service Plans Included**: A list of service plans in the product that correspond to the String ID and GUID
 
 >[!NOTE]
->This information is accurate as of October 11, 2017. The table contains a selection of most commonly used products.
+>This information is accurate as of October 11, 2017.
 
 | Product Name | String ID | GUID | Service Plans Included |
 | --- | --- | --- |--- |
