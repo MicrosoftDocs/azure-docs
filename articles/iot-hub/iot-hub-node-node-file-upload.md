@@ -41,7 +41,7 @@ At the end of this tutorial you run two Node.js console apps:
 * **ReadFileUploadNotification**, which receives file upload notifications from your IoT hub.
 
 > [!NOTE]
-> IoT Hub supports many device platforms and languages (including C, .NET, and Javascript) through Azure IoT device SDKs. Refer to the [Azure IoT Developer Center] for step-by-step instructions on how to connect your device to Azure IoT Hub.
+> IoT Hub supports many device platforms and languages (including C, .NET, Javascript, Python, and Java) through Azure IoT device SDKs. Refer to the [Azure IoT Developer Center] for step-by-step instructions on how to connect your device to Azure IoT Hub.
 
 To complete this tutorial, you need the following:
 
@@ -52,63 +52,67 @@ To complete this tutorial, you need the following:
 
 ## Upload a file from a device app
 
-In this section, you modify the device app you created in [Send Cloud-to-Device messages with IoT Hub](iot-hub-java-java-c2d.md) to upload a file to IoT hub.
+In this section, you modify the device app you created in [Send Cloud-to-Device messages with IoT Hub](iot-hub-node-node-c2d.md) to upload a file to IoT hub.
 
 1. Create an empty folder called ```simulateddevice```.  In the ```simulateddevice``` folder, create a package.json file using the following command at your command prompt.  Accept all the defaults:
 
-```cmd/sh
-npm init
-```
+    ```cmd/sh
+    npm init
+    ```
 
 1. At your command prompt in the ```simulateddevice``` folder, run the following command to install the **azure-iot-device** Device SDK package and **azure-iot-device-mqtt** package:
 
-```cmd/sh
-npm install azure-iot-device azure-iot-device-mqtt --save
-```
+    ```cmd/sh
+    npm install azure-iot-device azure-iot-device-mqtt --save
+    ```
 
 1. Using a text editor, create a **SimulatedDevice.js** file in the ```simulateddevice``` folder.
 
 1. Add the following ```require``` statements at the start of the **SimulatedDevice.js** file:
 
-```nodejs
-'use strict';
-
-var fs = require('fs');
-var mqtt = require('azure-iot-device-mqtt').Mqtt;
-var clientFromConnectionString = require('azure-iot-device-mqtt').clientFromConnectionString;
-```
+    ```nodejs
+    'use strict';
+    
+    var fs = require('fs');
+    var mqtt = require('azure-iot-device-mqtt').Mqtt;
+    var clientFromConnectionString = require('azure-iot-device-mqtt').clientFromConnectionString;
+    ```
 
 1. Add a ```deviceconnectionstring``` variable and use it to create a **Client** instance.  Replace ```{deviceconnectionstring}``` with the name of the device you created in the _Create an IoT Hub_ section:
 
-```nodejs
-var connectionString = '{deviceconnectionstring}';
-var filename = 'myimage.png';
-```
+    ```nodejs
+    var connectionString = '{deviceconnectionstring}';
+    var filename = 'myimage.png';
+    ```
 
 1. Add the following code to connect the client:
 
-```nodejs
-var client = clientFromConnectionString(connectionString);
-console.log('Client connected');
-```
+    ```nodejs
+    var client = clientFromConnectionString(connectionString);
+    console.log('Client connected');
+    ```
 
 1. Create a callback and use the **uploadToBlob** function to upload the file.
 
-```nodejs
-function printResultFor() {
-  return function printResult(err, res) {
-    if (err) console.log(op + ' error: ' + err.toString());
-    if (res) console.log(op + ' status: ' + res.constructor.name);
-  };
-}
-
-fs.stat(filename, function (err, stats) {
-	const rr = fs.createReadStream(filename);
-
-	client.uploadToBlob(filename, rr, stats.size, printResultFor());
-	console.log('File uploaded');
-});
-```
+    ```nodejs
+    function printResultFor() {
+      return function printResult(err) {
+        if (err) console.log(op + ' error: ' + err.toString());
+      };
+    }
+    
+    fs.stat(filename, function (err, stats) {
+    	const rr = fs.createReadStream(filename);
+    
+    	client.uploadToBlob(filename, rr, stats.size, function (err) {
+          if (err) {
+            console.error('Error uploading file: ' + err.toString());
+          } else {
+            console.log('File uploaded');
+          }
+        });
+    });
+    ```
 
 1. Save and close the **SimulatedDevice.js** file.
 
@@ -118,61 +122,64 @@ fs.stat(filename, function (err, stats) {
 
 In this section, you create a Node.js console app that receives file upload notification messages from IoT Hub.
 
-You need the **iothubowner** connection string for your IoT Hub to complete this section. You can find the connection string in the [Azure portal](https://portal.azure.com/) on the **Shared access policy** blade.
+You can use the **iothubowner** connection string from your IoT Hub to complete this section. You will find the connection string in the [Azure portal](https://portal.azure.com/) on the **Shared access policy** blade.
 
 1. Create an empty folder called ```fileuploadnotification```.  In the ```fileuploadnotification``` folder, create a package.json file using the following command at your command prompt.  Accept all the defaults:
 
-```cmd/sh
-npm init
-```
+    ```cmd/sh
+    npm init
+    ```
 
 1. At your command prompt in the ```fileuploadnotification``` folder, run the following command to install the **azure-iothub** SDK package:
 
-```cmd/sh
-npm install azure-iothub --save
-```
+    ```cmd/sh
+    npm install azure-iothub --save
+    ```
 
 1. Using a text editor, create a **FileUploadNotification.js** file in the ```fileuploadnotification``` folder.
 
 1. Add the following ```require``` statements at the start of the **FileUploadNotification.js** file:
 
-```nodejs
-'use strict';
-
-var Client = require('azure-iothub').Client;
-```
+    ```nodejs
+    'use strict';
+    
+    var Client = require('azure-iothub').Client;
+    ```
 
 1. Add a ```iothubconnectionstring``` variable and use it to create a **Client** instance.  Replace ```{iothubconnectionstring}``` with the connection string to the IoT hub you created in the _Create an IoT Hub_ section:
 
-```nodejs
-var connectionString = '{iothubconnectionstring}';
-```
+    ```nodejs
+    var connectionString = '{iothubconnectionstring}';
+    ```
+
+    > [!NOTE]
+    > For the sake of simplicity the connection string is included in the code: this is not a recommended practice and depending on your use-case and architecture you may want to consider more secure ways of storing this secret, like using arguments taken from the command-line.
 
 1. Add the following code to connect the client:
 
-```nodejs
-var serviceClient = Client.fromConnectionString(connectionString);
-```
+    ```nodejs
+    var serviceClient = Client.fromConnectionString(connectionString);
+    ```
 
 1. Create a callback and use the **getFileNotificationReceiver** function to recieve status updates.
 
-```nodejs
-function receiveFeedback(err, receiver){
-  receiver.on('message', function (msg) {
-    console.log('Feedback message:')
-    console.log(msg.getData().toString('utf-8'));
-  });
-}
-
-serviceClient.open(function (err) {
-  if (err) {
-    console.error('Could not connect: ' + err.message);
-  } else {
-    console.log('Service client connected');
-    serviceClient.getFileNotificationReceiver(receiveFeedback);
-  }
-});
-```
+    ```nodejs
+    function receiveFileUploadNotification(err, receiver){
+      receiver.on('message', function (msg) {
+        console.log('File upload from device:')
+        console.log(msg.getData().toString('utf-8'));
+      });
+    }
+    
+    serviceClient.open(function (err) {
+      if (err) {
+        console.error('Could not connect: ' + err.message);
+      } else {
+        console.log('Service client connected');
+        serviceClient.getFileNotificationReceiver(receiveFileUploadNotification);
+      }
+    });
+    ```
 
 1. Save and close the **FileUploadNotification.js** file.
 
@@ -211,10 +218,6 @@ In this tutorial, you learned how to use the file upload capabilities of IoT Hub
 * [Create an IoT hub programmatically][lnk-create-hub]
 * [Introduction to C SDK][lnk-c-sdk]
 * [Azure IoT SDKs][lnk-sdks]
-
-To further explore the capabilities of IoT Hub, see:
-
-* [Simulating a device with IoT Edge][lnk-iotedge]
 
 <!-- Images. -->
 [50]: ./media/iot-hub-node-node-file-upload/run-apps1.png
