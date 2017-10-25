@@ -294,7 +294,7 @@ Recall that the NPS server with the Azure MFA extension is the designated centra
  ![Network Policies](./media/nps-extension-remote-desktop-gateway/image24.png)
 
 ## Verify configuration
-To verify the configuration, you need to log on the Remote Desktop Gateway with a suitable RDP client. Be sure to use an account that is allowed by your Connection Authorization Policies and is enabled for Azure MFA. 
+To verify the configuration, you need to log on to the Remote Desktop Gateway with a suitable RDP client. Be sure to use an account that is allowed by your Connection Authorization Policies and is enabled for Azure MFA. 
 
 As show in the image below, you can use the **Remote Desktop Web Access** page.
 
@@ -302,7 +302,7 @@ As show in the image below, you can use the **Remote Desktop Web Access** page.
 
 Upon successfully entering your credentials for primary authentication, the Remote Desktop Connect dialog box shows a status of Initiating remote connection, as shown below. 
 
-If you successfully authenticate with the secondary authentication method you previously configured in Azure MFA, you are connected to the resource. However, if the secondary authentication is not successful, you are denied access to resource. 
+If you successfully authenticate with the secondary authentication method you previously configured in Azure MFA, you are connected to the resource. However, if the secondary authentication is not successful, you are denied access to the resource. 
 
 ![Initiate remote connection](./media/nps-extension-remote-desktop-gateway/image26.png)
 
@@ -315,7 +315,7 @@ Once you have successfully authenticated using the secondary authentication meth
 ### View Event Viewer logs for successful logon events
 To view the successful sign-in events in the Windows Event Viewer logs, you can issue the following Windows PowerShell command to query the Windows Terminal Services and Windows Security logs.
 
-To query successful sign-in events in the Gateway operational logs _(Event Viewer\Applications and Services Logs\Microsoft\Windows\TerminalServices-Gateway\Operational_, use the following commands:
+To query successful sign-in events in the Gateway operational logs _(Event Viewer\Applications and Services Logs\Microsoft\Windows\TerminalServices-Gateway\Operational)_, use the following PowerShell commands:
 
 * _Get-WinEvent -Logname Microsoft-Windows-TerminalServices-Gateway/Operational_ | where {$_.ID -eq '300'} | FL 
 * This command displays Windows events that show the user met resource authorization policy requirements (RD RAP) and was granted access.
