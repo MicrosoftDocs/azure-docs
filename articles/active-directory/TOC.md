@@ -208,7 +208,7 @@
 #### [Manage user account provisioning](active-directory-enterprise-apps-manage-provisioning.md)
 #### [Manage single sign-on for enterprise apps](active-directory-enterprise-apps-manage-sso.md)
 #### [Advanced certificate signing for SAML apps](active-directory-enterprise-apps-advance-certificate-options.md)
-####[ Hide a user's experience in Azure Active Directory](active-directory-coreapps-hide-third-party-app.md)
+#### [Hide a third-party app from a user's experience](active-directory-coreapps-hide-third-party-app.md)
 
 ### [Manage access to apps](active-directory-managing-access-to-apps.md)
 #### [Self-service access](active-directory-self-service-application-access.md)
