@@ -15,7 +15,7 @@
 | Concurrent [debugger connections](../articles/app-service/web-sites-dotnet-troubleshoot-visual-studio.md) per application |1 |1 |1 |5 |5 |
 | [azurewebsites.net subdomain with FTP/S and SSL](../articles/app-service/app-service-web-tutorial-custom-ssl.md) |X |X |X |X |X |
 | [Custom domain](../articles/app-service/app-service-web-tutorial-custom-domain.md) support | |X |X |X |X |
-| Custom domain [SSL support](../articles/app-service/app-service-web-tutorial-custom-ssl.md) | | |Unlimited |Unlimited, 5 SNI SSL and 1 IP SSL connections included |Unlimited, 5 SNI SSL and 1 IP SSL connections included |
+| Custom domain [SSL support](../articles/app-service/app-service-web-tutorial-custom-ssl.md) | | |Unlimited SNI SSL connections |Unlimited SNI SSL and 1 IP SSL connections included |Unlimited SNI SSL and 1 IP SSL connections included |
 | Integrated Load Balancer | |X |X |X |X |
 | [Always On](../articles/app-service/web-sites-configure.md) | | |X |X |X |
 | [Scheduled Backups](../articles/app-service/web-sites-backup.md) | | | |Once per day |Once every 5 minutes<sup>8</sup> |
