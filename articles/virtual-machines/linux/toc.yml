@@ -63,8 +63,6 @@
     href: regions-and-availability.md
   - name: VM types and sizes
     href: sizes.md
-  - name: VM types and sizes
-    href: sizes.md
     items:
     - name: General purpose
       href: sizes-general.md  
