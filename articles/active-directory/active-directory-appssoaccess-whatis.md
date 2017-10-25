@@ -71,12 +71,10 @@ In both cases, credentials are stored in an encrypted state in the directory, an
 Password-based SSO relies on a browser extension to securely retrieve the application and user specific information from Azure AD and apply it to the service. Most third-party SaaS applications that are supported by Azure AD support this feature.
 
 For password-based SSO, the end user’s browsers can be:
-
-* Internet Explorer 8, 9, 10, 11 -- on Windows 7 or later (See also [IE Extension Deployment Guide](active-directory-saas-ie-group-policy.md))
+* Internet Explorer 8, 9, 10, 11 -- on Windows 7 or later
+* Edge on Windows 10 Anniversary Edition or later 
 * Chrome -- on Windows 7 or later, and on MacOS X or later
 * Firefox 26.0 or later -- on Windows XP SP2 or later, and on Mac OS X 10.6 or later
-
-**Note:** The password-based SSO extension will become available for Edge in Windows 10 when browser extensions become supported for Edge.
 
 ### Existing Single Sign-On
 When configuring single sign-on for an application, the Azure management portal provides a third option of “Existing Single Sign-On”. This option simply allows the administrator to create a link to an application, and place it on the access panel for selected users.

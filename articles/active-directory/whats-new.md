@@ -1,6 +1,6 @@
 ---
-title: What's new in Azure Active Directory | Microsoft Docs
-description: What's new in Azure Active Directory.
+title: What's new in Azure Active Directory? | Microsoft Docs
+description: Use these release notes to stay in touch with the **latest releases**, **known issues**, **bug fixes**, **deprecated functionality** and **plans for changes** in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -18,7 +18,7 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 
 ---
-# What's new in Azure Active Directory
+# What's new in Azure Active Directory?
 
 We are improving Azure Active Directory on an ongoing basis for you. To enable you to stay up to date with the most recent developments, this topic provides you with information about:
 
@@ -28,7 +28,7 @@ We are improving Azure Active Directory on an ongoing basis for you. To enable y
 -	Deprecated functionality 
 -	Plans for changes 
 
-Please revisit this page periodically as we are updating it on a monthly basis.
+Please revisit this page regularly as we are updating it on a monthly basis.
 
 
 ## October 2017
