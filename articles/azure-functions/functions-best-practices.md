@@ -66,8 +66,7 @@ How does your code react if a failure occurs after inserting 5,000 of those item
 
 If a queue item was already processed, allow your function to be a no-op.
 
-Take advantage of defensive measures already provided for components you use in the Azure Functions platform. For example, see **Handling poison queue messages** in the documentation for [Azure Storage Queue triggers](functions-bindings-storage-queue.md#trigger).
- 
+Take advantage of defensive measures already provided for components you use in the Azure Functions platform. For example, see **Handling poison queue messages** in the documentation for [Azure Storage Queue triggers and bindings](functions-bindings-storage-queue.md#trigger---poison-messages). 
 
 ## Don't mix test and production code in the same function app
 
@@ -97,4 +96,3 @@ For more information, see the following resources:
 
 Because Azure Functions uses Azure App Service, you should also be aware of  App Service guidelines.
 * [Patterns and Practices HTTP Performance Optimizations](https://docs.microsoft.com/azure/architecture/antipatterns/improper-instantiation/)
-
