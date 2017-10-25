@@ -58,7 +58,7 @@ Sign in to the Azure portal at [http://portal.azure.com](http://portal.azure.com
 
 7. Fill out the **Security** form. For this quickstart, select **Unsecure**. Note that in general, you should create a secure cluster for production workloads. Anyone can anonymously connect to an unsecure cluster and perform management operations.  
 
-   Service Fabric uses certificates to provide authentication and encryption to secure various aspects of a cluster and its applications. For more information, see [Service Fabric cluster security scenarios](service-fabric-cluster-security.md). To enable user authentication using Azure Active Directory or to set up certificates for application security, see [create a cluster from a Resource Manager template](service-fabric-cluster-creation-via-arm.md).
+   Service Fabric uses certificates to provide authentication and encryption to secure various aspects of a cluster and its applications. For more information, see [Service Fabric cluster security scenarios](service-fabric-cluster-security.md). To enable user authentication by using Azure Active Directory, or to set up certificates for application security, see [create a cluster from a Resource Manager template](service-fabric-cluster-creation-via-arm.md).
 
     Select **OK**.
 
@@ -67,7 +67,7 @@ Sign in to the Azure portal at [http://portal.azure.com](http://portal.azure.com
     You can see the creation progress in the notifications. (Select the "Bell" icon near the status bar at the upper right of your screen.) If you selected **Pin to Startboard** while creating the cluster, you see **Deploying Service Fabric Cluster** pinned to the **Start** board.
 
 ### Connect to the cluster by using PowerShell
-Verify that the cluster is running by connecting through PowerShell. The ServiceFabric PowerShell module is installed with the [Service Fabric SDK](service-fabric-get-started.md). The [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet establishes a connection to the cluster.   
+Verify that the cluster is running by connecting through PowerShell. The Service Fabric PowerShell module is installed with the [Service Fabric SDK](service-fabric-get-started.md). The [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet establishes a connection to the cluster.   
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint quickstartcluster.westus2.cloudapp.azure.com:19000
@@ -96,10 +96,10 @@ Delete a resource group in the Azure portal:
     ![Screenshot of Resource Group Essentials page, with Delete resource group highlighted][cluster-delete]
 
 
-## Use Azure Powershell
+## Use Azure PowerShell
 Another way to create the cluster is to use PowerShell. Here's how:
 
-1. Download the [Azure Powershell module version 4.0 or higher](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) on your computer.
+1. Download the [Azure PowerShell module version 4.0 or higher](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) on your computer.
 
 2. Run the [New-AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/new-azurermservicefabriccluster) cmdlet to create a five-node Service Fabric cluster, secured with an X.509 certificate. The command creates a self-signed certificate, and uploads it to a new key vault. The certificate is also copied to a local directory. Set the *-OS* parameter to choose the version of Windows or Linux that runs on the cluster nodes. Customize the parameters as needed. 
 
