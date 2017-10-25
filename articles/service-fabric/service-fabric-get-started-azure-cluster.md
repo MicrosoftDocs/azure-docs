@@ -19,7 +19,7 @@ ms.author: ryanwi
 ---
 
 # Create your first Service Fabric cluster on Azure
-A [Service Fabric cluster](service-fabric-deploy-anywhere.md) is a network-connected set of virtual or physical machines into which your microservices are deployed and managed. This quickstart helps you to create a five-node cluster, running on either Windows or Linux, through [Azure PowerShell](https://msdn.microsoft.com/library/dn135248) or the [Azure portal](http://portal.azure.com) in just a few minutes.  
+A [Service Fabric cluster](service-fabric-deploy-anywhere.md) is a network-connected set of virtual or physical machines into which your microservices are deployed and managed. This quickstart helps you to create a five-node cluster, running on either Windows or Linux, through [Azure PowerShell](https://msdn.microsoft.com/library/dn135248) or the [Azure portal](http://portal.azure.com) in just a few minutes. You can also use Azure CLI for this task.  
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -149,7 +149,7 @@ Another way to create the cluster is to use PowerShell. Here's how:
 
 ### Install the certificate on your local machine
   
-To connect to the cluster, you need to install the certificate into the Personal (My) store of the current user. 
+To connect to the cluster, install the certificate into the Personal (My) store of the current user. 
 
 Run the following:
 
@@ -164,7 +164,7 @@ You are now ready to connect to your secure cluster.
 
 ### Connect to a secure cluster 
 
-Run [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster) cmdlet to connect to a secure cluster. The certificate details must match a certificate that was used to set up the cluster. 
+Run the [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster) cmdlet to connect to a secure cluster. The certificate details must match a certificate that was used to set up the cluster. 
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint <ManagementEndpoint>:19000 `
@@ -199,14 +199,15 @@ $groupname="mysfclustergroup"
 Remove-AzureRmResourceGroup -Name $groupname -Force
 ```
 ## Use Azure CLI
+Another way to create the cluster is to use CLI. Here's how:
 
-1. Install the [Azure CLI 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest) on your computer.
-2. Login to Azure and select the subscription you want to create the cluster in.
+1. Install [Azure CLI 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest) on your computer.
+2. Sign in to Azure and select the subscription you want to create the cluster in.
    ```azurecli
    az login
    az account set --subscription <GUID>
    ```
-3. Run the [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) command to create a five-node Service Fabric cluster secured with an X.509 certificate. The command creates a self-signed certificate and uploads it to a new key vault. The certificate is also copied to a local directory. Set the *-os* parameter to choose the version of Windows or Linux that runs on the cluster nodes. Customize the parameters as needed.
+3. Run the [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) command to create a five-node Service Fabric cluster, secured with an X.509 certificate. The command creates a self-signed certificate, and uploads it to a new key vault. The certificate is also copied to a local directory. Set the *-os* parameter to choose the version of Windows or Linux that runs on the cluster nodes. Customize the parameters as needed.
 
     ```azurecli
     #!/bin/bash
@@ -228,7 +229,7 @@ Remove-AzureRmResourceGroup -Name $groupname -Force
 
     # Create secure five node Linux cluster. Creates a key vault in a resource group
     # and creates a certficate in the key vault. The certificate's subject name must match 
-    # the domain that you use to access the Service Fabric cluster.  The certificate is downloaded locally.
+    # the domain that you use to access the Service Fabric cluster. The certificate is downloaded locally.
     az sf cluster create --resource-group $ResourceGroupName --location $Location --certificate-output-folder . \
         --certificate-password $Password --certificate-subject-name $Subject --cluster-name $ClusterName \
         --cluster-size 5 --os UbuntuServer1604 --vault-name $VaultName --vault-resource-group $VaultGroupName \
@@ -236,7 +237,7 @@ Remove-AzureRmResourceGroup -Name $groupname -Force
     ```
     
 ### Connect to the cluster
-Run the following CLI command to connect to the cluster using the certificate .  When using a client certificate for authentication, the certificate details must match a certificate deployed to the cluster nodes.  Use the `--no-verify` option for a self-signed certificate.
+Run the following CLI command to connect to the cluster by using the certificate.  When you are using a client certificate for authentication, ensure that the certificate details match a certificate deployed to the cluster nodes. Use the `--no-verify` option for a self-signed certificate.
 
 ```azurecli
 az sf cluster select --endpoint https://aztestcluster.southcentralus.cloudapp.azure.com:19080 --pem ./linuxcluster201709161647.pem --no-verify
@@ -250,7 +251,7 @@ az sf cluster health
 
 ### Connect to the nodes directly 
 
-To connect to the nodes in a Linux cluster, you can use SSH to connect to the nodes by specifying a port number from 3389 onwards. For example, for the five node cluster created earlier, the commands would be as follows:
+To connect to the nodes in a Linux cluster, you can use the secure shell (SSH) command. Specify a port number from 3389 onwards. For example, for the five node cluster created earlier, the commands would be as follows:
 ```bash
 ssh sfadminuser@aztestcluster.southcentralus.cloudapp.azure.com -p 3389
 ssh sfadminuser@aztestcluster.southcentralus.cloudapp.azure.com -p 3390
