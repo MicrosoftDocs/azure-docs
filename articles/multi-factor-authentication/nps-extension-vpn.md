@@ -109,7 +109,7 @@ To use the NPS extension, on-premises users must be synced with Azure Active Dir
 For information on Azure AD connect, see [Integrate your on-premises directories with Azure Active Directory](../active-directory/connect/active-directory-aadconnect.md). 
 
 ### Azure Active Directory GUID ID 
-To install the NPS, you need to know the GUID of the Azure Active Directory. Instructions for finding the GUID of the Azure Active Directory are provided in the next section.
+To install the NPS extension, you need to know the GUID of the Azure Active Directory. Instructions for finding the GUID of the Azure Active Directory are provided in the next section.
 
 ## Configure RADIUS for VPN connections
 
@@ -386,7 +386,7 @@ The script performs the following actions:
 * Grants access to the certificate’s private key to the Network User
 * Restarts Network Policy Server service
 
-If you want to use your own certificates, you need to associate the public of your certificate to the service principle on Azure AD, and so on.
+If you want to use your own certificates, you need to associate the public key of your certificate to the service principal on Azure AD, and so on.
 To use the script, provide the extension with your Azure Active Directory administrative credentials and the Azure Active Directory tenant ID you copied earlier. Run the script on each NPS server where you install the NPS extension.
 
 1. Open an administrative Windows PowerShell prompt.
@@ -411,11 +411,11 @@ To use the script, provide the extension with your Azure Active Directory admini
 7. Reboot the server.
  
 ### Verify configuration
-To verify the configuration, you need to establish a new VPN connection with VPN server. Upon successfully entering your credentials for primary authentication, the VPN connection waits for the secondary authentication to succeed before the connection is established, as shown below. 
+To verify the configuration, you need to establish a new VPN connection with the VPN server. Upon successfully entering your credentials for primary authentication, the VPN connection waits for the secondary authentication to succeed before the connection is established, as shown below. 
 
  ![Verify Configuration](./media/nps-extension-vpn/image42.png)
 
-If you successfully authenticate with the secondary verification method you previously configured in Azure MFA, you are connected to the resource. However, if the secondary authentication is not successful, you are denied access to resource. 
+If you successfully authenticate with the secondary verification method you previously configured in Azure MFA, you are connected to the resource. However, if the secondary authentication is not successful, you are denied access to the resource. 
 
 In the example below, the Authenticator app on a Windows phone is used to provide the secondary authentication.
 
