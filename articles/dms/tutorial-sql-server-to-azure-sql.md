@@ -143,7 +143,6 @@ If the target database contains the same database name as the source database, A
 1. Verify the target Azure SQL database after the migration is complete.
 
 ## Next steps
-> [!div class="nextstepaction"]
-> Request a [preview of DMS](https://aka.ms/get-dms)
-> See the [pricing page](https://azure.microsoft.com/pricing/details/dms/) for costs and pricing tiers.
-> Overview of [Data Migration Assistant](https://aka.ms/dma)
+- Request a [preview of DMS](https://aka.ms/get-dms)
+- See the [pricing page](https://azure.microsoft.com/pricing/details/dms/) for costs and pricing tiers.
+- Overview of [Data Migration Assistant](https://aka.ms/dma)

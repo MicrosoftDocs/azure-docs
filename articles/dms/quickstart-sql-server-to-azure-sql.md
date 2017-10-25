@@ -143,5 +143,5 @@ To see detailed migration status:
 
  
 ## Next steps
-> [!div class="nextstepaction"]
-> Request a [preview of DMS](https://aka.ms/get-dms)
+- Request a [preview of DMS](https://aka.ms/get-dms)
+- Overview of [Data Migration Assistant](https://aka.ms/dma)
