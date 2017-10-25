@@ -45,8 +45,10 @@
          href: log-analytics-log-search-faq.md
        - name: Log Search portals
          href: log-analytics-log-search-portals.md   
-- name: How To
+- name: How-to guides
   items:
+  - name: Create Log Analytics workspace
+    href: log-analytics-create-workspace.md
   - name: Collect data
     items:
     - name: Connected sources
