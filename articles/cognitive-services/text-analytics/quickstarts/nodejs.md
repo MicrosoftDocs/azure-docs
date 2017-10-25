@@ -33,7 +33,7 @@ The Language Detection API detects the language of a text document, using the [D
 
 1. Create a new Node.JS project in your favorite IDE.
 2. Add the code provided below.
-3. Replace the `subscriptionKey` value with an access key valid for your subscription.
+3. Replace the `accessKey` value with an access key valid for your subscription.
 4. Replace the location in `uri` (currently `westus`) to the region you signed up for.
 5. Run the program.
 
@@ -46,17 +46,17 @@ let https = require ('https');
 // *** Update or verify the following values. ***
 // **********************************************
 
-// Replace the subscriptionKey string value with your valid subscription key.
-let subscriptionKey = 'enter key here';
+// Replace the accessKey string value with your valid access key.
+let accessKey = 'enter key here';
 
 // Replace or verify the region.
 
-// You must use the same region in your REST API call as you used to obtain your subscription keys.
-// For example, if you obtained your subscription keys from the westus region, replace 
+// You must use the same region in your REST API call as you used to obtain your access keys.
+// For example, if you obtained your access keys from the westus region, replace 
 // "westcentralus" in the URI below with "westus".
 
-// NOTE: Free trial subscription keys are generated in the westcentralus region, so if you are using
-// a free trial subscription key, you should not need to change this region.
+// NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
+// a free trial access key, you should not need to change this region.
 let uri = 'westus.api.cognitive.microsoft.com';
 let path = '/text/analytics/v2.0/languages';
 
@@ -83,7 +83,7 @@ let get_language = function (documents) {
 		hostname : uri,
 		path : path,
 		headers : {
-			'Ocp-Apim-Subscription-Key' : subscriptionKey,
+			'Ocp-Apim-Subscription-Key' : accessKey,
 		}
 	};
 
@@ -155,7 +155,7 @@ The Sentiment Analysis API detexts the sentiment of a set of text records, using
 
 1. Create a new Node.JS project in your favorite IDE.
 2. Add the code provided below.
-3. Replace the `subscriptionKey` value with an access key valid for your subscription.
+3. Replace the `accessKey` value with an access key valid for your subscription.
 4. Replace the location in `uri` (currently `westus`) to the region you signed up for.
 5. Run the program.
 
@@ -168,17 +168,17 @@ let https = require ('https');
 // *** Update or verify the following values. ***
 // **********************************************
 
-// Replace the subscriptionKey string value with your valid subscription key.
-let subscriptionKey = 'enter key here';
+// Replace the accessKey string value with your valid access key.
+let accessKey = 'enter key here';
 
 // Replace or verify the region.
 
-// You must use the same region in your REST API call as you used to obtain your subscription keys.
-// For example, if you obtained your subscription keys from the westus region, replace 
+// You must use the same region in your REST API call as you used to obtain your access keys.
+// For example, if you obtained your access keys from the westus region, replace 
 // "westcentralus" in the URI below with "westus".
 
-// NOTE: Free trial subscription keys are generated in the westcentralus region, so if you are using
-// a free trial subscription key, you should not need to change this region.
+// NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
+// a free trial access key, you should not need to change this region.
 let uri = 'westus.api.cognitive.microsoft.com';
 let path = '/text/analytics/v2.0/sentiment';
 
@@ -205,7 +205,7 @@ let get_sentiments = function (documents) {
 		hostname : uri,
 		path : path,
 		headers : {
-			'Ocp-Apim-Subscription-Key' : subscriptionKey,
+			'Ocp-Apim-Subscription-Key' : accessKey,
 		}
 	};
 
@@ -250,7 +250,7 @@ The Key Phrase Extraction API extracts key-phrases from a text document, using t
 
 1. Create a new Node.JS project in your favorite IDE.
 2. Add the code provided below.
-3. Replace the `subscriptionKey` value with an access key valid for your subscription.
+3. Replace the `accessKey` value with an access key valid for your subscription.
 4. Replace the location in `uri` (currently `westus`) to the region you signed up for.
 5. Run the program.
 
@@ -263,17 +263,17 @@ let https = require ('https');
 // *** Update or verify the following values. ***
 // **********************************************
 
-// Replace the subscriptionKey string value with your valid subscription key.
-let subscriptionKey = 'enter key here';
+// Replace the accessKey string value with your valid access key.
+let accessKey = 'enter key here';
 
 // Replace or verify the region.
 
-// You must use the same region in your REST API call as you used to obtain your subscription keys.
-// For example, if you obtained your subscription keys from the westus region, replace 
+// You must use the same region in your REST API call as you used to obtain your access keys.
+// For example, if you obtained your access keys from the westus region, replace 
 // "westcentralus" in the URI below with "westus".
 
-// NOTE: Free trial subscription keys are generated in the westcentralus region, so if you are using
-// a free trial subscription key, you should not need to change this region.
+// NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
+// a free trial access key, you should not need to change this region.
 let uri = 'westus.api.cognitive.microsoft.com';
 let path = '/text/analytics/v2.0/keyPhrases';
 
@@ -300,7 +300,7 @@ let get_key_phrases = function (documents) {
 		hostname : uri,
 		path : path,
 		headers : {
-			'Ocp-Apim-Subscription-Key' : subscriptionKey,
+			'Ocp-Apim-Subscription-Key' : accessKey,
 		}
 	};
 

@@ -1,3 +1,4 @@
+---
 title: Send user context IDs to enable usage experiences in Azure Application Insights | Microsoft Docs
 description: Track how users move through your service by assigning each of them a unique, persistent ID string in Application Insights.
 services: application-insights
@@ -12,8 +13,8 @@ ms.devlang: csharp
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: bwren
-
 ---
+
 #  Send user context IDs to enable usage experiences in Azure Application Insights
 
 ## Tracking users

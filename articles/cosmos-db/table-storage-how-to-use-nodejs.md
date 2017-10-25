@@ -26,8 +26,7 @@ This topic shows how to perform common scenarios using the Azure Table service i
 
 The code examples in this topic assume you already have a Node.js application. For information about how to create a Node.js application in Azure, see any of these topics:
 
-* [Create a Node.js web app in Azure App Service](../app-service-web/app-service-web-get-started-nodejs.md)
-* [Build and deploy a Node.js web app to Azure using WebMatrix](../app-service-web/web-sites-nodejs-use-webmatrix.md)
+* [Create a Node.js web app in Azure App Service](../app-service/app-service-web-get-started-nodejs.md)
 * [Build and deploy a Node.js application to an Azure Cloud Service](../cloud-services/cloud-services-nodejs-develop-deploy-app.md) (using Windows PowerShell)
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
@@ -449,4 +448,4 @@ For more information, see the following resources.
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
 * [Azure Storage SDK for Node](https://github.com/Azure/azure-storage-node) repository on GitHub.
 * [Node.js Developer Center](/develop/nodejs/)
-* [Create and deploy a Node.js application to an Azure website](../app-service-web/app-service-web-get-started-nodejs.md)
+* [Create and deploy a Node.js application to an Azure website](../app-service/app-service-web-get-started-nodejs.md)

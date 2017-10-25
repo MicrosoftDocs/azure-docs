@@ -17,7 +17,7 @@ ms.author: bwren
 
 ---
 # Monitor Azure web app performance
-In the [Azure Portal](https://portal.azure.com) you can set up application performance monitoring for your [Azure web apps](../app-service-web/app-service-web-overview.md). [Azure Application Insights](app-insights-overview.md) instruments your app to send telemetry about its activities to the Application Insights service, where it is stored and analyzed. There, metric charts and search tools can be used to help diagnose issues, improve performance, and assess usage.
+In the [Azure Portal](https://portal.azure.com) you can set up application performance monitoring for your [Azure web apps](../app-service/app-service-web-overview.md). [Azure Application Insights](app-insights-overview.md) instruments your app to send telemetry about its activities to the Application Insights service, where it is stored and analyzed. There, metric charts and search tools can be used to help diagnose issues, improve performance, and assess usage.
 
 ## Run time or build time
 You can configure monitoring by instrumenting the app in either of two ways:
@@ -46,7 +46,7 @@ If you're already running a web app in Azure, you already get some monitoring: r
     
     Value: `true`
    * **Save** the settings and **Restart** your app.
-3. **Monitor your app**.  [Expore the data](#explore-the-data).
+3. **Monitor your app**.  [Explore the data](#explore-the-data).
 
 Later, you can build the app with Application Insights if you want.
 

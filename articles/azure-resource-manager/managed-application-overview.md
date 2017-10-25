@@ -10,8 +10,8 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 07/09/2017
-ms.author: gauravbh; tomfitz
+ms.date: 09/19/2017
+ms.author: gauravbh
 ---
 
 # Azure managed applications overview
@@ -52,16 +52,14 @@ For information about consuming a managed application from the Marketplace, see 
 ## Key concepts
 
 ### Managed resource group
-The managed resource group is where all the Azure resources that are provisioned in the template are created. For example, if the appliance is used to create a storage account, this resource group contains the storage account resource. It doesn't contain the appliance resource.
+The managed resource group is where all the Azure resources that are provisioned in the template are created. For example, if the application is used to create a storage account, this resource group contains the storage account resource. It doesn't contain the application resource.
 
-### Appliance package
-The publisher creates a package that contains the template files and the createUIDefinition file. Specifically, it contains the following files:
+### Application package
+The publisher creates a package that contains the template file and the createUIDefinition file. Specifically, it contains the following files:
 
-- **applianceMainTemplate.json**: This template file defines all the resources that are provisioned by the appliance. This file is a regular template file that's used to create resources.
+- **mainTemplate.json**: This template file defines all the resources that are provisioned by the application. This file is a regular template file that's used to create resources.
 
-- **MainTemplate.json**: This template file defines the appliance resource (Microsoft.Solutions/appliances). One key property defined in this resource is ManagedResourceGroupId. This property indicates which resource group is used to host the actual resources that are defined in applianceMainTemplate.json.
-
-- **applianceCreateUIDefinition.json**: This file describes how the UI needed for the parameters defined in the template is rendered.
+- **createUIDefinition.json**: This file describes how the UI needed for the parameters defined in the template is rendered.
 
 ### Authorization
 The publisher must specify the permissions required by the vendor to manage the resources on behalf of the customer. This permission applies to the managed resource group. Set the following values:

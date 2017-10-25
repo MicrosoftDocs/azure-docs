@@ -24,7 +24,7 @@ Is Azure Cloud Services the choice for you? Azure provides different hosting mod
 <a name="tellmecs"></a>
 
 ## Tell me about cloud services
-Cloud Services is an example of [Platform-as-a-Service](https://azure.microsoft.com/overview/what-is-paas/) (PaaS). Like [App Service](../app-service-web/app-service-web-overview.md), this technology is designed to support applications that are scalable, reliable, and cheap to operate. Just like an App Service is hosted on VMs, so too are Cloud Services, however, you have more control over the VMs. You can install your own software on Cloud Service VMs and you can remote into them.
+Cloud Services is an example of [Platform-as-a-Service](https://azure.microsoft.com/overview/what-is-paas/) (PaaS). Like [App Service](../app-service/app-service-web-overview.md), this technology is designed to support applications that are scalable, reliable, and cheap to operate. Just like an App Service is hosted on VMs, so too are Cloud Services, however, you have more control over the VMs. You can install your own software on Cloud Service VMs and you can remote into them.
 
 ![cs_diagram](./media/cloud-services-choose-me/diagram.png)
 

@@ -17,10 +17,24 @@ ms.date: 8/9/2017
 ms.author: subramar
 ---
 
-# Specifying volume plugins and logging drivers for your container
+# Using volume plugins and logging drivers in your container
 
-Service Fabric supports specifying [Docker volume plugins](https://docs.docker.com/engine/extend/plugins_volume/) and [Docker logging drivers](https://docs.docker.com/engine/admin/logging/overview/) for your container service. The plugins are specified in the application manifest as shown in the following manifest:
+Service Fabric supports specifying [Docker volume plugins](https://docs.docker.com/engine/extend/plugins_volume/) and [Docker logging drivers](https://docs.docker.com/engine/admin/logging/overview/) for your container service. 
 
+## Install volume/logging driver
+
+If the Docker volume/logging driver is not installed on the machine, install it manually through RDP/SSH-ing into the machine or through a VMSS start-up script. For instance, in order to install the Docker Volume Driver, SSH into the machine and execute:
+
+```bash
+docker plugin install --alias azure --grant-all-permissions docker4x/17.09.0-ce-azure1  \
+    CLOUD_PLATFORM=AZURE \
+    AZURE_STORAGE_ACCOUNT="[MY-STORAGE-ACCOUNT-NAME]" \
+    AZURE_STORAGE_ACCOUNT_KEY="[MY-STORAGE-ACCOUNT-KEY]" \
+    DEBUG=1
+```
+
+## Specify the plugin or driver in the manifest
+The plugins are specified in the application manifest as shown in the following manifest:
 
 ```xml
 ?xml version="1.0" encoding="UTF-8"?>
@@ -41,7 +55,9 @@ Service Fabric supports specifying [Docker volume plugins](https://docs.docker.c
         </LogConfig>
         <Volume Source="c:\workspace" Destination="c:\testmountlocation1" IsReadOnly="false"></Volume>
         <Volume Source="d:\myfolder" Destination="c:\testmountlocation2" IsReadOnly="true"> </Volume>
-        <Volume Source="myexternalvolume" Destination="c:\testmountlocation3" Driver="sf" IsReadOnly="true"></Volume>
+        <Volume Source="myvolume1" Destination="c:\testmountlocation2" Driver="azure" IsReadOnly="true">
+           <DriverOption Name="share" Value="models"/>
+        </Volume>
        </ContainerHostPolicies>
    </Policies>
     </ServiceManifestImport>

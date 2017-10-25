@@ -1,6 +1,6 @@
 ---
 title: 'Create an Azure Database for PostgreSQL using the Azure CLI | Microsoft Docs'
-description: 'Quick start guide to create and manage Azure Database for PostgreSQL server using Azure CLI (command line interface).'
+description: 'Quickstart guide to create and manage Azure Database for PostgreSQL server using Azure CLI (command line interface).'
 services: postgresql
 author: sanagama
 ms.author: sanagama
@@ -19,6 +19,11 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
 If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+
+If you are running the CLI locally, you need to log in to your account using the [az login](/cli/azure/authenticate-azure-cli?view=interactive-log-in) command.
+```azurecli-interactive
+az login
+```
 
 If you have multiple subscriptions, choose the appropriate subscription in which the resource will be billed. Select a specific subscription ID under your account using [az account set](/cli/azure/account#set) command.
 ```azurecli-interactive
@@ -145,13 +150,13 @@ To connect to Azure PostgreSQL server using the GUI tool _pgAdmin_
 Clean up all resources you created in the quickstart by deleting the [Azure resource group](../azure-resource-manager/resource-group-overview.md).
 
 > [!TIP]
-> Other quickstarts in this collection build upon this quick start. If you plan to continue on to work with subsequent quickstarts, do not clean up the resources created in this quickstart. If you do not plan to continue, use the following steps to delete all resources created by this quickstart in the Azure CLI.
+> Other quickstarts in this collection build upon this quickstart. If you plan to continue to work with subsequent quickstarts, do not clean up the resources created in this quickstart. If you do not plan to continue, use the following steps to delete all resources created by this quickstart in the Azure CLI.
 
 ```azurecli-interactive
 az group delete --name myresourcegroup
 ```
 
-If you just would like to delete the one newly created server, you can run [az postgres server delete](/cli/azure/postgres/server#delete) command.
+If you would just like to delete the one newly created server, you can run [az postgres server delete](/cli/azure/postgres/server#delete) command.
 ```azurecli-interactive
 az postgres server delete --resource-group myresourcegroup --name mypgserver-20170401
 ```

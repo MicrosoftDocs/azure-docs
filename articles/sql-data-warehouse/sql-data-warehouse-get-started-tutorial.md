@@ -141,7 +141,6 @@ Since you are currently logged in as the server admin you have permissions to cr
 
     ```sql
     CREATE LOGIN MedRCLogin WITH PASSWORD = 'a123reallySTRONGpassword!';
-    CREATE USER LoadingUser FOR LOGIN MedRCLogin;
     ```
 
 3. Now querying the *SQL Data Warehouse database*, create a database user based on the login you created to access and perform operations on the database.

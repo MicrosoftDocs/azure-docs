@@ -8,13 +8,13 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 06/15/2017
+ms.date: 09/26/2017
 ---
 # Connection libraries for Azure Database for PostgreSQL
-This topic lists libraries and drivers for use by developers for programming applications to connect and query Azure Database for PostgreSQL.
+This topic lists libraries and drivers that developers can use to program applications to connect to and query Azure Database for PostgreSQL.
 
 ## Client interfaces
-Most language client libraries to connect to PostgreSQL server are external projects, and are distributed independently. These are supported on Windows, Linux, and Mac platforms. Some of the popular client drivers are listed:
+Most language client libraries used to connect to PostgreSQL server are external projects and are distributed independently. These are supported on the Windows, Linux, and Mac platforms. Some of the popular client drivers are listed in the following table:
 
 | **Language** | **Client interface** | **Additional information** | **Download** |
 |--------------|----------------------------------------------------------------|-------------------------------------|--------------------------------------------------------------------|
@@ -30,6 +30,6 @@ Most language client libraries to connect to PostgreSQL server are external proj
 | C++ | [libpqxx](http://pqxx.org/) | New-style C++ interface | [Download](http://pqxx.org/download/software/) |
 
 ## Next steps
-Read these quickstarts on how to connect and query Azure Database for PostgreSQL using your language of choice:
+Read these quickstarts on how to connect to and query Azure Database for PostgreSQL by using your language of choice:
 
-[Python](./connect-python.md) | [Node.JS](./connect-nodejs.md) | [.NET (C#)](./connect-csharp.md)
+[Python](./connect-python.md) | [Node.JS](./connect-nodejs.md) | [Java](./connect-java.md) | [Ruby](./connect-ruby.md) | [PHP](./connect-php.md) | [.NET (C#)](./connect-csharp.md) | [Go](./connect-go.md)

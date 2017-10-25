@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: loading
-ms.date: 09/06/2017
+ms.date: 09/15/2017
 ms.author: cakarst;barbkess
 
 
@@ -54,7 +54,7 @@ PolyBase uses T-SQL external objects to define the location and attributes of th
 ###  Create a credential
 To access your Azure Data Lake Store, you will need to create a Database Master Key to encrypt your credential secret used in the next step.
 You then create a Database scoped credential, which stores the service principal credentials set up in AAD. For those of you who have used PolyBase to connect to Windows Azure Storage Blobs, note that the credential syntax is different.
-To connect to Azure Data Lake Store, you must **first** create an Azure Active Directory Application, create an access key, and grant the application access to the Azure Data Lake resource. Instrucitons to perform these steps are located [here](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-authenticate-using-active-directory).
+To connect to Azure Data Lake Store, you must **first** create an Azure Active Directory Application, create an access key, and grant the application access to the Azure Data Lake resource. Instructions to perform these steps are located [here](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-authenticate-using-active-directory).
 
 ```sql
 -- A: Create a Database Master Key.
@@ -167,7 +167,7 @@ During load, if the reject value is reached, the load fails. The most common cau
 For example, if a column is incorrectly given the schema of int when the data in the file is a string, every row will fail to load.
 
 The Location specifies the topmost directory that you want to read data from.
-In this case, if there were subdirectories under /DimProduct/ PolyBase would import all the data within the subdirectories.
+In this case, if there were subdirectories under /DimProduct/ PolyBase would import all the data within the subdirectories. Azure Data Lake store uses Role Based Access Control (RBAC) to control access to the data. This means that the Service Principal must have read permissions to the directories defined in the location parameter and to the children of the final directory and files. This enables PolyBase to authenticate and load read that data. 
 
 ## Load the data
 To load data from Azure Data Lake Store use the [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] statement. Loading with CTAS uses the strongly typed external table you have created.

@@ -16,7 +16,6 @@ ms.workload: big-data
 ms.date: 09/06/2017
 ms.author: larryfr
 ---
-
 # Use Spark Structured Streaming with Kafka (preview) on HDInsight
 
 Learn how to use Spark Structured Streaming to read data from Apache Kafka on Azure HDInsight.
@@ -87,7 +86,7 @@ Once the resources have been created, a summary page is displayed.
 
 ## Get the Kafka brokers
 
-The code in this example connects to Kafka broker hosts in the Kafka cluster. To find the address of two Kafka broker hosts, use the following PowerShell or Bash example:
+The code in this example connects to Kafka broker hosts in the Kafka cluster. To find the addresses of the two Kafka broker hosts, use the following PowerShell or Bash example:
 
 ```powershell
 $creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"

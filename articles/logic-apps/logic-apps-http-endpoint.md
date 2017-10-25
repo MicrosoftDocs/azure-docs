@@ -94,7 +94,7 @@ that you expect the trigger to receive.
     generates this schema:
 
     ```json
-    }
+    {
        "type": "object",
        "properties": {
           "address": {

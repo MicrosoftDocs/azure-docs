@@ -35,7 +35,7 @@ If `textDecorations` is **true**, Bing may include the following markers in disp
 |U+E018|\<sup>|Marks the beginning of superscript content
 |U+E019|\</sup>|Marks the end of superscript content
 
-The following example shows a `Computation` answer that contains subscript markers for a log(2) query term. The `expression` field contains the markers only if `textDecoration is **true**.
+The following example shows a `Computation` answer that contains subscript markers for a log(2) query term. The `expression` field contains the markers only if `textDecoration` is **true**.
 
 ![computation markers](./media/cognitive-services-bing-hit-highlighting/bing-markers-computation.PNG) 
 

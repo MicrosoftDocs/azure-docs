@@ -3,7 +3,7 @@ title: Create Azure Automation Run As accounts | Microsoft Docs
 description: This article describes how to update your Automation account and create Run As accounts with PowerShell, or from the portal.  
 services: automation
 documentationcenter: ''
-author: mgoedtel
+author: eslesar
 manager: carmonm
 editor: ''
 
@@ -149,16 +149,12 @@ Depending on the configuration option you select, the script creates the followi
 		$keyValue = [System.Convert]::ToBase64String($PfxCert.GetRawCertData())
 		$KeyId = (New-Guid).Guid
 
-		$KeyCredential = New-Object  Microsoft.Azure.Commands.Resources.Models.ActiveDirectory.PSADKeyCredential
-		$KeyCredential.StartDate = $CurrentDate
-		$KeyCredential.EndDate = Get-Date $PfxCert.GetExpirationDateString()
-		$KeyCredential.EndDate = $KeyCredential.EndDate.AddDays(-1)
-		$KeyCredential.KeyId = $KeyId
-		$KeyCredential.CertValue  = $keyValue
+		$keyCredEndDate = Get-Date $PfxCert.GetExpirationDateString()
+                $keyCredEndDate = $keyCredEndDate.AddDays(-1)
 
 		# Use key credentials and create an Azure AD application
-		$Application = New-AzureRmADApplication -DisplayName $ApplicationDisplayName -HomePage ("http://" + $applicationDisplayName) -IdentifierUris ("http://" + $KeyId) -KeyCredentials $KeyCredential
-		$ServicePrincipal = New-AzureRMADServicePrincipal -ApplicationId $Application.ApplicationId
+		$Application = New-AzureRmADApplication -DisplayName $ApplicationDisplayName -HomePage ("http://" + $applicationDisplayName) -IdentifierUris ("http://" + $KeyId)
+		$ServicePrincipal = New-AzureRMADServicePrincipal -ApplicationId $Application.ApplicationId -CertValue $keyValue -StartDate $CurrentDate -EndDate $keyCredEndDate
 		$GetServicePrincipal = Get-AzureRmADServicePrincipal -ObjectId $ServicePrincipal.Id
 
 		# Sleep here for a few seconds to allow the service principal application to become active (ordinarily takes a few seconds)

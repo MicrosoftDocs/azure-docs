@@ -3,7 +3,7 @@ title: Update Management solution in OMS | Microsoft Docs
 description: This article is intended to help you understand how to use this solution to manage updates for your Windows and Linux computers.
 services: operations-management-suite
 documentationcenter: ''
-author: MGoedtel
+author: eslesar
 manager: carmonm
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/27/2017
-ms.author: magoedte
+ms.author: eslesar
 
 ---
 # Update Management solution in OMS
@@ -22,6 +22,12 @@ ms.author: magoedte
 ![Update Management symbol](./media/oms-solution-update-management/update-management-symbol.png)
 
 The Update Management solution in OMS allows you to manage operating system security updates for your Windows and Linux computers deployed in Azure, on-premises environments, or other cloud providers.  You can quickly assess the status of available updates on all agent computers and manage the process of installing required updates for servers.
+
+## Update management in Azure Automation
+
+You can enable Update management for virtual machines directly from your [Azure Automation](../automation/automation-offering-get-started.md) account.
+To learn how to enable update management for virtual machines from your Automation account, see
+[Manage updates for multiple virtual machines](../automation/manage-update-multi.md).
 
 
 ## Solution overview
@@ -303,11 +309,17 @@ The following table provides sample log searches for update records collected by
 | Type=Update  and OSType=Linux and UpdateState!="Not needed" and (Classification="Critical Updates" OR Classification="Security Updates") |List of all packages that have an update available which addresses Critical or Security vulnerability | 
 | Type:UpdateRunProgress &#124; measure Count() by UpdateRunName |List what update deployments have modified computers | 
 | Type:UpdateRunProgress UpdateRunName="DeploymentName" &#124; measure Count() by Computer |Computers that were updated in this update run (replace value with your Update Deployment name | 
-| Type=Update and OSType=Linux and OSName = Ubuntu &#124; measure count() by Computer |List of all the “Ubuntu” machines with any update available | 
+| Type=Update and OSType=Linux and OSName = Ubuntu &#124; measure count() by Computer |List of all the “Ubuntu” machines with any update available |
+
+## Integrate with System Center Configuration Manager
+
+Customers who have invested in System Center Configuration Manager to manage PCs, servers, and mobile devices also rely on it's strength and maturity in managing software updates as part of their software update management (SUM) cycle.
+
+To learn how to integrate the OMS Update Management solution with Sytem Center Configuration Manager, see [Integrate System Center Configuration Manager with OMS Update Management](../automation/oms-solution-updatemgmt-sccmintegration.md).
 
 ## Troubleshooting
 
-This section provides information to help troubleshoot issues with the Update Management solution.  
+This section provides information to help troubleshoot issues with the Update Management solution.
 
 ### How do I troubleshoot onboarding issues?
 If you encounter issues while attempting to onboard the solution or a virtual machine, check the **Application and Services Logs\Operations Manager** event log for events with  event ID 4502 and event message containing **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**.  The following table highlights specific error messages and a possible resolution for each.  

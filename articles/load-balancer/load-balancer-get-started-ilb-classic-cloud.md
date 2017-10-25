@@ -3,7 +3,7 @@ title: Create an Internal load balancer for Azure Cloud Services | Microsoft Doc
 description: Learn how to create an internal load balancer using PowerShell in the classic deployment model
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 tags: azure-service-management
 

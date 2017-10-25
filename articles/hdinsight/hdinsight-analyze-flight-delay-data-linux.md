@@ -14,7 +14,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 10/24/2017
 ms.author: larryfr
 
 ms.custom: H1Hack27Feb2017,hdinsightactive
@@ -163,9 +163,6 @@ Use the following steps to import data from the .csv file into a Hive table name
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -f flightdelays.hql
     ```
 
-   > [!NOTE]
-   > In this example, `localhost` is used because you're connected to the head node of the HDInsight cluster, which is where HiveServer2 is running.
-
 4. After the __flightdelays.hql__ script finishes running, use the following command to open an interactive Beeline session:
 
     ```
@@ -263,7 +260,7 @@ If you don't already have a SQL database, use the information in [Create an Azur
 
     This command returns a list of databases, including the database in which you created the delays table earlier.
 
-2. Use the following command to export data from hivesampletable to the mobiledata table:
+2. Use the following command to export data from hivesampletable to the delays table:
 
     ```
     sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=<databaseName>' --username <adminLogin> --password <adminPassword> --table 'delays' --export-dir '/tutorials/flightdelays/output' --fields-terminated-by '\t' -m 1
@@ -271,13 +268,13 @@ If you don't already have a SQL database, use the information in [Create an Azur
 
     Sqoop connects to the database that contains the delays table, and exports data from the `/tutorials/flightdelays/output` directory to the delays table.
 
-3. After the command finishes, use the following to connect to the database by using the tsql utility:
+3. After the sqoop command finishes, use the tsql utility to connect to the database:
 
     ```
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D <databaseName>
     ```
 
-    Use the following statements to verify that the data was exported to the mobiledata table:
+    Use the following statements to verify that the data was exported to the delays table:
 
     ```
     SELECT * FROM delays
@@ -286,7 +283,7 @@ If you don't already have a SQL database, use the information in [Create an Azur
 
     You should see a listing of data in the table. Type `exit` to exit the tsql utility.
 
-## <a id="nextsteps"></a> Next steps
+## Next steps
 
 To learn more ways to work with data in HDInsight, see the following articles:
 

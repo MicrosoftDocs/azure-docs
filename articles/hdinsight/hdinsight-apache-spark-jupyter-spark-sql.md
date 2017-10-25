@@ -4,7 +4,7 @@ description: HDInsight Spark quickstart on how to create an Apache Spark cluster
 keywords: spark quickstart,interactive spark,interactive query,hdinsight spark,azure spark
 services: hdinsight
 documentationcenter: ''
-author: nitinme
+author: maxluk
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -17,7 +17,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/07/2017
-ms.author: nitinme
+ms.author: maxluk
 
 ---
 # Create an Apache Spark cluster in Azure HDInsight
@@ -89,7 +89,7 @@ When you use a Jupyter notebook configured for your HDInsight Spark cluster, you
    >
 3. Create a notebook. Click **New**, and then click **PySpark**.
 
-   ![Create a Jupyter notebook to run interactive Spark SQL query](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-create-jupyter-interactive-Spark-SQL-query.png "Create a Jupyter notebook to run interactive Spark SQL query")
+   ![Create a Jupyter notebook to run interactive Spark SQL query](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "Create a Jupyter notebook to run interactive Spark SQL query")
 
    A new notebook is created and opened with the name Untitled(Untitled.pynb).
 
