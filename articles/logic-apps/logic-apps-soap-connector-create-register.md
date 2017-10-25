@@ -1,7 +1,7 @@
 ---
 title: Create and register SOAP connectors - Azure Logic Apps | Microsoft Docs
 description: Set up SOAP connectors for use in Azure Logic Apps
-author: divswa
+author: divyaswarnkar
 manager: anneta
 editor: 
 services: logic-apps
@@ -88,7 +88,7 @@ choose **Logic Apps Connector**. In the toolbar, choose **Edit**.
 in these tables for creating, securing, and defining the 
 actions and triggers for your SOAP connector.
 
-   1. For **Custom connectors**, select **API Endpoint** as **SOAP** 
+   1. For **Custom connectors**, select **SOAP** for you **API Endpoint** 
    so you can provide the WSDL file that describes your API.
 
       ![Provide the WSDL file for your API](./media/logic-apps-soap-connector-create-register/provide-wsdl-file.png)
@@ -123,11 +123,11 @@ actions and triggers for your SOAP connector.
 that your connector uses. Authentication makes sure that your users' 
 identities flow appropriately between your service and any clients.
 
-   By default you connector's **Authentication type** is set to **No authentication**.
+   By default, your connector's **Authentication type** is set to **No authentication**.
    
    ![Authentication type](./media/logic-apps-soap-connector-create-register/security-authentication-options.png)
 
-   To change the authentication type, choose **Edit**. You can select **Basic Authentication**. To use paramter labels other than default values, update them under **Parameter Label**.
+   To change the authentication type, choose **Edit**. You can select **Basic Authentication**. To use parameter labels other than default values, update them under **Parameter Label**.
 
    ![Basic authentication](./media/logic-apps-soap-connector-create-register/security.png)
 
@@ -149,7 +149,7 @@ or define new actions and triggers that users can add to their workflows.
    ![Connector definition](./media/logic-apps-soap-connector-create-register/definition.png)
 
 2. Optionally, if you want to edit existing actions and triggers, 
-or add new ones, [continue with these steps](logic-apps-custom-connector-register.md#AddTriggerOrAction).
+or add new ones, [continue with these steps](logic-apps-custom-connector-register.md#add-action-or-trigger).
 
 
 ## 3. Finish creating your connector
