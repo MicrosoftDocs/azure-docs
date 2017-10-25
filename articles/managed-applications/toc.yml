@@ -16,6 +16,7 @@
 - name: Samples
   items:
   - name: Azure CLI
+    href: cli-samples.md
   - name: Azure PowerShell
   - name: Managed application solutions
     href: sample-projects.md
