@@ -117,7 +117,7 @@ If sync is failing on a server, perform the following:
 - Confirm the server has internet connectivity.
 - Verify the Azure File Sync service is running on the server by opening up the Services MMC snap-in and verify the Storage Sync Agent service (FileSyncSvc) is running.
 
-- <a id="replica-not-ready"></a>**Sync fails with error: 0x80c8300f - The replica is not ready to perform the required operation**  
+<a id="replica-not-ready"></a>**Sync fails with error: 0x80c8300f - The replica is not ready to perform the required operation**  
 This error is expected if you create a Cloud Endpoint and use an Azure File share which contains data. Once change detection completes on the Azure File share (may take up to 24 hours), sync should start working properly.
 
 <a id="broken-sync-files"></a>**How to troubleshoot individual files failing to sync**  
