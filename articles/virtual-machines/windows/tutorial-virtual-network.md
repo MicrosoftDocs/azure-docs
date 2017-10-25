@@ -311,6 +311,7 @@ The image that is used has SQL Server installed, but is not used in this tutoria
 
 In this tutorial, you created and secured Azure networks as related to virtual machines. 
 
+> [!div class="checklist"]
 > * Create a virtual network and subnet
 > * Create a public IP address
 > * Create a front-end VM

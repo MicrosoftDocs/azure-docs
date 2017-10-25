@@ -130,7 +130,7 @@ Often, a VM does not need to be accessible over the internet. To create a VM wit
 
 ## Create a front-end VM
 
-Use the [az vm create](/cli/azure/vm#create) command to create the VM named *myFrontendVM* and a public IP address named *myPublicIPAddress*.
+Use the [az vm create](/cli/azure/vm#create) command to create the VM named *myFrontendVM* using *myPublicIPAddress*.
 
 ```azurecli-interactive 
 az vm create \
@@ -290,6 +290,7 @@ az network nsg rule list --resource-group myRGNetwork --nsg-name myBackendNSG --
 
 In this tutorial, you created and secured Azure networks as related to virtual machines. You learned how to:
 
+> [!div class="checklist"]
 > * Create a virtual network and subnet
 > * Create a public IP address
 > * Create a front-end VM
