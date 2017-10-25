@@ -223,21 +223,22 @@
     href: https://blogs.technet.microsoft.com/machinelearning/2017/10/09/the-microsoft-team-data-science-process-tdsp-recent-updates/
   - name: Using the TDSP in Azure Machine Learning
     href: https://blogs.technet.microsoft.com/machinelearning/2017/09/25/using-the-team-data-science-process-tdsp-in-azure-machine-learning/
-  - name: TDSP tools and utilities - GitHub
-    href: https://github.com/Azure/Azure-TDSP-Utilities
+  - name: TDSP tools and utilities
     items:
+    - name: On GitHub
+      href: https://github.com/Azure/Azure-TDSP-Utilities
     - name: Data Science Utilities v.0.11 for the TDSP
       href: https://blogs.technet.microsoft.com/machinelearning/2017/01/11/announcing-data-science-utilities-version-0-11-for-the-team-data-science-process/
     - name: Latest utilities for the TDSP
       href: https://blogs.technet.microsoft.com/machinelearning/2017/04/05/latest-rev-of-utilities-for-microsoft-team-data-science-process-tdsp-now-available/
   - name: Cortana Intelligence and Machine Learning Blog
     href: https://blogs.technet.microsoft.com/machinelearning/
-  - name: Organization and process for data science teams
-    href: https://www.blue-granite.com/blog/getting-more-from-your-data-science-teams-organization-and-process-considerations
-  - name: TDSP Partners
+  - name: Organizations using TDSP
     items:
     - name: New Signatures
       href: https://newsignature.com/services/professional-services/advanced-analytics/
+    - name: Blue Granite
+      href: https://www.blue-granite.com/blog/getting-more-from-your-data-science-teams-organization-and-process-considerations
   - name: MSDN forum
     href: https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning
   - name: Stack Overflow
