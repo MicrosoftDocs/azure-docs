@@ -139,6 +139,8 @@
     href: /cli/azure/mysql
   - name: REST API
     href: /rest/api/mysql
+  - name: Sync Data store procedures
+    href: reference-sync-data-store-procedures.md
 - name: Resources
   items:
   - name: Deployment templates
