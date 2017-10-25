@@ -60,7 +60,7 @@ The following table provides additional information about installing the VM agen
 
 | **Operation** | **Windows** | **Linux** |
 | --- | --- | --- |
-| Installing the VM agent |Download and install the [agent MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). You need administrator privileges to complete the installation. |Install the latest [Linux agent](../virtual-machines/linux/agent-user-guide.md). You need administrator privileges to complete the installation. We recommend installing the agent from your distribution repository. We *do not recommend* installing the Linux VM agent directly from GitHub.  |
+| Installing the VM agent |Download and install the [agent MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). You need administrator privileges to complete the installation. |Install the latest [Linux agent](../virtual-machines/extensions/agent-linux.md). You need administrator privileges to complete the installation. We recommend installing the agent from your distribution repository. We *do not recommend* installing the Linux VM agent directly from GitHub.  |
 | Validating the VM agent installation |1. Browse to the C:\WindowsAzure\Packages folder in the Azure VM. You should see the WaAppAgent.exe file. <br>2. Right-click the file, go to **Properties**, and then select the **Details** tab. The **Product Version** field should be 2.6.1198.718 or higher. |N/A |
 
 

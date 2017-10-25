@@ -91,5 +91,5 @@ The table below contains a snapshot of the list of extensions available in Azure
 | Windows | 1.0.0.1; 1.0.0.3 | 
 
 ## Next steps
-* [Deploy a Windows virtual machine extension](../virtual-machines/windows/extensions-features.md#run-vm-extensions)
-* [Deploy a Linux virtual machine extension](../virtual-machines/linux/extensions-features.md#run-vm-extensions)
+* [Deploy a Windows virtual machine extension](../virtual-machines/extensions/features-windows.md#run-vm-extensions)
+* [Deploy a Linux virtual machine extension](../virtual-machines/extensions/features-linux.md#run-vm-extensions)

@@ -41,7 +41,7 @@ Ensure that you meet the following prerequisites:
 * **Azure CLI** - Install the [Azure CLI](../../cli-install-nodejs.md) on a local computer.
 
 ## Step 1: Remove the Azure Linux agent
-First, run the **waagent** command with the **deprovision** parameter on the Linux VM. This command deletes files and data to make the VM ready for generalizing. For details, see the [Azure Linux Agent user guide](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+First, run the **waagent** command with the **deprovision** parameter on the Linux VM. This command deletes files and data to make the VM ready for generalizing. For details, see the [Azure Linux Agent user guide](../extensions/agent-windows.md).
 
 1. Connect to your Linux VM using an SSH client.
 2. In the SSH window, type the following command:

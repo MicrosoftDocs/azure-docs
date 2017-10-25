@@ -16,7 +16,7 @@ ms.author: jasonzio
 This document describes version 3.0 and newer of the Linux Diagnostic Extension.
 
 > [!IMPORTANT]
-> For information about version 2.3 and older, see [this document](./classic/diagnostic-extension-v2.md).
+> For information about version 2.3 and older, see [this document](../linux/classic/diagnostic-extension-v2.md).
 
 ## Introduction
 
@@ -33,7 +33,7 @@ This extension works with both Azure deployment models.
 
 ## Installing the extension in your VM
 
-You can enable this extension by using the Azure PowerShell cmdlets, Azure CLI scripts, or Azure deployment templates. For more information, see [Extensions Features](./extensions-features.md).
+You can enable this extension by using the Azure PowerShell cmdlets, Azure CLI scripts, or Azure deployment templates. For more information, see [Extensions Features](features-linux.md).
 
 The Azure portal cannot be used to enable or configure LAD 3.0. Instead, it installs and configures version 2.3. Azure portal graphs and alerts work with data from both versions of the extension.
 
@@ -138,7 +138,7 @@ You can easily construct the required SAS token through the Azure portal.
 1. Make the appropriate sections as previously described
 1. Click the "Generate SAS" button.
 
-![image](./media/diagnostic-extension/make_sas.png)
+![image](./media/diagnostics-linux/make_sas.png)
 
 Copy the generated SAS into the storageAccountSasToken field; remove the leading question-mark ("?").
 
@@ -678,7 +678,7 @@ The `resourceId` in the configuration must match that of the VM or the virtual m
 
 Use the Azure portal to view performance data or set alerts:
 
-![image](./media/diagnostic-extension/graph_metrics.png)
+![image](./media/diagnostics-linux/graph_metrics.png)
 
 The `performanceCounters` data are always stored in an Azure Storage table. Azure Storage APIs are available for many languages and platforms.
 
@@ -691,7 +691,7 @@ In addition, you can use these UI tools to access the data in Azure Storage:
 
 This snapshot of a Microsoft Azure Storage Explorer session shows the generated Azure Storage tables and containers from a correctly configured LAD 3.0 extension on a test VM. The image doesn't match exactly with the [sample LAD 3.0 configuration](#an-example-lad-30-configuration).
 
-![image](./media/diagnostic-extension/stg_explorer.png)
+![image](./media/diagnostics-linux/stg_explorer.png)
 
 See the relevant [EventHubs documentation](../../event-hubs/event-hubs-what-is-event-hubs.md) to learn how to consume messages published to an EventHubs endpoint.
 
@@ -699,4 +699,4 @@ See the relevant [EventHubs documentation](../../event-hubs/event-hubs-what-is-e
 
 * Create metric alerts in [Azure Monitor](../../monitoring-and-diagnostics/insights-alerts-portal.md) for the metrics you collect.
 * Create [monitoring charts](../../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) for your metrics.
-* Learn how to [create a virtual machine scale set](/azure/virtual-machines/linux/tutorial-create-vmss) using your metrics to control autoscaling.
+* Learn how to [create a virtual machine scale set](../linux/tutorial-create-vmss.md) using your metrics to control autoscaling.

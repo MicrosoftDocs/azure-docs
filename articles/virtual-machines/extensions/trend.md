@@ -20,7 +20,7 @@ ms.author: iainfou
 ---
 # How to install and configure Trend Micro Deep Security as a Service on a Windows VM
 > [!IMPORTANT]
-> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model.
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model.
 
 This article shows you how to install and configure Trend Micro Deep Security as a Service on a new or existing virtual machine (VM) running Windows Server. Deep Security as a Service includes anti-malware protection, a firewall, an intrusion prevention system, and integrity monitoring.
 
@@ -34,7 +34,7 @@ If you have a current subscription from Trend Micro for an on-premises solution,
 
 The [Azure portal](http://portal.azure.com) lets you install the Trend Micro security extension when you use an image from the **Marketplace** to create the virtual machine. If you're creating a single virtual machine, using the portal is an easy way to add protection from Trend Micro.
 
-Using an entry from the **Marketplace** opens a wizard that helps you set up the virtual machine. You use the **Settings** blade, the third panel of the wizard, to install the Trend Micro security extension.  For general instructions, see [Create a virtual machine running Windows in the Azure portal](tutorial.md).
+Using an entry from the **Marketplace** opens a wizard that helps you set up the virtual machine. You use the **Settings** blade, the third panel of the wizard, to install the Trend Micro security extension.  For general instructions, see [Create a virtual machine running Windows in the Azure portal](../windows/classic/tutorial.md).
 
 When you get to the **Settings** blade of the wizard, do the following steps:
 
@@ -86,10 +86,10 @@ It takes a few minutes for the agent to start running when it is installed. Afte
 [Azure VM Extensions and features]
 
 <!-- Image references -->
-[1]: ./media/install-trend/new_vm_Blade3.png
-[2]: ./media/install-trend/find_SecurityAgent.png
-[3]: ./media/install-trend/SecurityAgentDetails.png
+[1]: ./media/trend/new_vm_Blade3.png
+[2]: ./media/trend/find_SecurityAgent.png
+[3]: ./media/trend/SecurityAgentDetails.png
 
 <!-- Link references -->
-[How to log on to a virtual machine running Windows Server]:connect-logon.md
+[How to log on to a virtual machine running Windows Server]:../windows/classic/connect-logon.md
 [Azure VM Extensions and features]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
