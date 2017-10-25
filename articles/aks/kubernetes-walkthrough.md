@@ -59,7 +59,7 @@ Output:
 
 ## Create AKS cluster
 
-The following example creates a cluster named *myK8sCluster* with three nodes.
+The following example creates a cluster named *myK8sCluster* with one node.
 
 ```azurecli-interactive
 az aks create --resource-group myResourceGroup --name myK8sCluster --agent-count 1 --generate-ssh-keys
