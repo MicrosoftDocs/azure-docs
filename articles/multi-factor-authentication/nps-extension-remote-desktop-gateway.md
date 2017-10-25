@@ -276,7 +276,7 @@ Recall that the NPS server with the Azure MFA extension is the designated centra
 
  ![Network Properties](./media/nps-extension-remote-desktop-gateway/image20.png)
 
-4. In the **Copy of Connections to other access servers** dialog box, in Policy Name, enter a suitable name, such as **RDG_CAP**. Check **Policy Enabled**, and select **Grant access**. Optionally, in Type of network access, select **Remote Desktop Gateway**, or you can leave it as **Unspecified**.
+4. In the **Copy of Connections to other access servers** dialog box, in **Policy Name**, enter a suitable name, such as __RDG_CAP__. Check **Policy enabled**, and select **Grant access**. Optionally, in **Type of network access server**, select **Remote Desktop Gateway**, or you can leave it as **Unspecified**.
 
  ![Copy of Connections](./media/nps-extension-remote-desktop-gateway/image21.png)
 
