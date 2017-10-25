@@ -22,7 +22,8 @@ This article shows you how to use the Azure portal to disable Azure Active Direc
 
 > [!WARNING]
 > **Deletion is permanent and cannot be reversed.**
-> Proceed with caution! When you delete the managed domain, domain controllers for the managed domain are de-provisioned and removed from the virtual network. Data on the managed domain is deleted permanently. Any machines joined to the managed domain lose their trust relationship with the domain and will need to be un-joined from the domain. You need to use local administrator credentials to sign in to these machines. Deleting the managed domain will not delete your Azure AD directory or otherwise adversely impact the directory.
+> Proceed with caution! When you delete the managed domain, domain controllers for the managed domain are de-provisioned and removed from the virtual network. Data on the managed domain is deleted permanently. Any machines joined to the managed domain lose their trust relationship with the domain and need to be unjoined from the domain. You need to sign in to these machines using local administrator credentials.
+Deleting the managed domain does not delete your Azure AD directory or otherwise adversely impact the directory.
 >
 
 ## Delete your managed domain
@@ -36,7 +37,7 @@ Perform the following steps to delete your Azure AD Domain Services managed doma
 
     ![Delete domain](./media/getting-started/domain-services-delete-domain.png)
 
-4. Type the DNS domain name of the managed domain to confirm the deletion. Click the **Delete** button when you are done.
+4. To confirm the deletion, type the DNS domain name of the managed domain. Click the **Delete** button when you are done.
 
     ![Delete domain confirmation](./media/getting-started/domain-services-delete-domain-confirm.png)
 
