@@ -38,7 +38,7 @@ The following table lists the major features of SQL Server and provides informat
 | [AlwaysOn Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | High availability is included with every database. Disaster recovery is discussed in [Overview of business continuity with Azure SQL Database](sql-database-geo-replication-overview.md) |
 | [Attach a database](https://docs.microsoft.com/sql/relational-databases/databases/attach-a-database) | No |
 | [Application roles](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/application-roles) | Yes |
-|[Auditing](/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | [Yes](sql-database/sql-database-auditing.md)|
+|[Auditing](/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | [Yes](sql-database-auditing.md)|
 | [Automatic tuning](/sql/relational-databases/automatic-tuning/automatic-tuning)| [Yes](sql-database-automatic-tuning.md)|
 | [BACPAC file (export)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) | Yes - see [SQL Database export](sql-database-export.md) |
 | [BACPAC file (import)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database) | Yes - see [SQL Database import](sql-database-import.md) |
