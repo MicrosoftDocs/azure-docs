@@ -22,65 +22,36 @@ ms.service: iot-edge
 
 # Deploy Azure Stream Analytics as an IoT Edge module
 
-Migrating data from your IoT Edge devices to the cloud is an important aspect in creating robust solutions.  Azure Stream Analytics stands out as a quick and customizable way to connect data while providing a richly structured query syntax for data analysis.  This tutorial walks you through creating and deploying a fully functional IoT Edge ASA module along with the necessary Azure infrastructure needed to query your data, analyze the results, and stream data to an Azure Storage container (BLOB) for download.  You learn how to:
+IoT devices can produce large quantities of data. Sometimes this data has to be analyzed or processed before reaching the cloud to reduce the size of uploaded data or to eliminate the round-trip latency of an actionable insight.
+
+[Azure Stream Analytics][azure-stream] (ASA) provides a richly structured query syntax for data analysis both in the cloud and on IoT Edge devices.
+
+This tutorial walks you through the creation of an Azure Stream Analytics job, and its deployment on an IoT Edge device in order to process a local telemetry stream directly on the device, and generate alerts to drive immediate action on the device.  You learn how to:
 
 > [!div class="checklist"]
-> * Run a custom module in IoT Edge
-> * Create an Azure Storage account
-> * Create a custom Stream Analytics job
-> * View generated data
+> * Create an ASA job to process data on the Edge
+> * Connect the new ASA job with other IoT Edge modules
+> * Deploy the ASA job to an IoT Edge device
 
 ## Prequisites
 
 * An IoT Hub 
 * An IoT Edge runtime
+* Docker
+    * [Windows installation][lnk-docker-windows]
+    * [Linux installation][lnk-docker-linux]
 
 > [!NOTE]
 > Please note your IoT Hub connection string, device connection string, and edge device ID will be necessary for this tutorial. For a tutorial on installing IoT Hub and IoT Edge runtime see [Install Azure IoT Edge and deploy a module][lnk-first-tutorial]
 
-## Setup IoT Edge and deploy the Azure Stream Analytics module
-
 IoT Edge takes advantage of custom pre-built modules for quick deployment and Azure Stream Analytics (ASA) is one such module.  Learn how to deploy the ASA module below.  For more information, see the **Overview** section of the [Stream Analytics Documentation][azure-stream] or see [Create a custom module][lnk-next-tutorial2] on how to create your own. 
 
-1. From your IoT Edge runtime command-line, run the following:
-```cmd/sh
-launch-edge-runtime -c "<IoT Hub device connection string>"
-```
+## Create an ASA job to process data on the Edge
 
-2. Create the following deployment file:
-```json
-{ 
-   "modules": { 
-      "sensor": { 
-         "name": "sensor", 
-         "version": "1.0", 
-         "type": "docker", 
-         "status": "running", 
-         "config": { 
-            "image": "azureiotedgeprivatepreview.azurecr.io/azedge-simulated-temperature-sensor-x64", 
-            "tag": "latest", 
-            "env": {} 
-         } 
-      } 
-   } 
-} 
-```
+In this section, you create an Azure Stream Analytics job to take data from your IoT hub, query the sent telemetry data from your device, and forward the results to an Azure Storage Container (BLOB). For more information, see the **Overview** section of the [Stream Analytics Documentation][azure-stream]. 
 
-1. At a command prompt, run the following command to login to Edge CLI: (replaced by Ibiza UI)
-
-    ```cmd/sh
-    edge-explorer login "<IoT Hub connection string for iothubowner policy*>" 
-    ```
-
-1. Run the following command to deploy the module created above:
-
-    ```cmd/sh
-    edge-explorer edge deployment create -m <path to deployment file> -d <edge device ID> 
-    ```
-
-## Setup Azure Storage Account
-
-An Azure Storage account provides a way to store data sent from your device through the IoT Edge. It also provides a quick endpoint to be used as an output for your Streaming Analytics job. The example below uses the BLOB storage type.  For more information, see the **Blobs** section of the [Azure Storage Documentation][azure-storage]. 
+> [!NOTE]
+> An Azure Storage account is required to provide an endpoint to be used as an output in your ASA job. The example below uses the BLOB storage type.  For more information, see the **Blobs** section of the [Azure Storage Documentation][azure-storage].
 
 1. In the Azure portal, navigate to **New -> Storage** and click **Storage account - blob, file, table, queue**.
 
@@ -88,12 +59,8 @@ An Azure Storage account provides a way to store data sent from your device thro
 
     ![new storage account][1]
 
-> [!NOTE]
-> Make sure the **Location** you use is the same as your IoT Hub **Location** else additional fees may apply.
-
-## Setup Azure Stream Analytics (ASA) job
-
-In this section, you create an Azure Stream Analytics job to take data from your IoT hub, query the sent telemetry data from your device, and forward the results to an Azure Storage Container (BLOB). For more information, see the **Overview** section of the [Stream Analytics Documentation][azure-stream]. 
+    > [!NOTE]
+    > Make sure the **Location** you use is the same as your IoT Hub **Location** else additional fees may apply.
 
 1. In the Azure portal, navigate to **New -> Internet of Things** and click **Stream Analytics Job**.
 
@@ -104,6 +71,9 @@ In this section, you create an Azure Stream Analytics job to take data from your
 3. Enter name and use defaults, click **Create**.
 
     ![ASA input][2]
+
+    > [!NOTE]
+    > Additonal inputs can include IoT Edge specific endpoints.
 
 4. Under **Job Topology**, select **Outputs**, click **Add**.
 
@@ -126,13 +96,46 @@ HAVING Avg(temp)>100
 ```
 1.  Click Save
 
-## Run the apps
+1. Under **Overview**, click **Start**.
 
-You are now ready to run the apps.
+## Connect the new ASA job with other IoT Edge modules
 
-1. In your Stream Analytics Job, under **Overview**, click **Start**.
+Now you must connect your ASA job with IoT Edge modules by configuring the **Routes** portion in your IoT Hub.
 
-1. After the job is running, in your Storage account, under **Blob Service**, click **Browse blobs**, select your container and select newly created JSON file.
+1. In the Azure portal, in your IoT Hub, navigate to **IoT Edge Explorer** and open your *{deviceId}*'s blade.
+
+1. Select **Deploy modules**, select your *ASA module name*.
+
+1. Copy the following to **Routes**:
+
+    ```
+    "routes": {                                                               
+      "telemetryToCloud": "FROM /messages/modules/tempSensor/* INTO $upstream", 
+      "alertsToCloud": "FROM /messages/modules/ASA/* INTO $upstream", 
+      "alertsToReset": "FROM /messages/modules/ASA/* INTO BrokeredEndpoint("/messages/modules/tempSensor/inputs/reset")", 
+      "telemetryToAsa": "FROM /messages/modules/tempSensor/* INTO BrokeredEndpoint("/messages/modules/ASA/inputs/temperature")" 
+    }      
+    ```
+
+1. Click **Save**.
+
+## Deploy the ASA job to an IoT Edge device
+
+You are now ready to deploy the ASA job on your IoT Edge device.
+
+1. In the Azure portal, in your IoT Hub, navigate to **IoT Edge Explorer** and open your *{deviceId}*'s blade.
+
+1. Click **Deploy**.  Verify everything is working by clicking **Refresh**.
+
+## View telemetry data (optional)
+
+1. At a command prompt, run the following command to login to Edge CLI::
+
+    ```cmd/sh
+    edge-explorer monitor events <edge device ID> --login "<IoT Hub connection string for iothubowner policy>"  
+    ```
+
+1. In the Azure portal, in your Storage account, under **Blob Service**, click **Browse blobs**, select your container and select newly created JSON file.
 
 1. Click **Download** and view the results.
 
@@ -162,3 +165,6 @@ In this tutorial, you configured an Azure Storage container and a Streaming Anal
 [lnk-module-tutorial]: tutorial-create-custom-module.md
 [lnk-next-tutorial]: tutorial-deploy-machine-learning.md
 [lnk-next-tutorial2]: tutorial-create-custom-module.md
+
+[lnk-docker-windows]: https://docs.docker.com/docker-for-windows/install/ 
+[lnk-docker-linux]: https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/
