@@ -31,7 +31,7 @@ In order to export a LUIS application, select the download icon for the applicat
 
 ![Export icon button on luis.ai](./media/luis-tutorial-node-import-utterances-csv/download-querylog.png) <!-- media\luis-tutorial-node-import-utterances-csv -->
 
-Change the downloadFile value in the index.js file to the location and name of your file. Follow the rest of the [instructions for the demonstration apps](../README.md).
+Change the downloadFile value in the index.js file to the location and name of your file. 
 
 ### Format of Query log
 The format of the query log is a CSV file with a heading row. The parsing needed to ignore the first two columns and focus on the third column.  
@@ -45,10 +45,10 @@ The format of the query log is a CSV file with a heading row. The parsing needed
 
 ## Download sample code
 
-The code for this tutorial is at [CSV Upload Sample](https://github.com/Microsoft/LUIS-Samples/tree/master/examples/demo-upload-example-utterances/demo-Upload-utterances-from-querylog). The sample's main file is the [index.js]('./index.js). This file contains the configuration settings and uploads the batch: 
+The code for this tutorial is at [CSV Upload Sample](https://github.com/Microsoft/LUIS-Samples/tree/master/examples/demo-upload-example-utterances/demo-Upload-utterances-from-querylog). The sample's main file is [index.js](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/demo-upload-example-utterances/demo-Upload-utterances-from-querylog/index.js). This file contains the configuration settings and uploads the batch of utterances. 
 
-- [_parse.js](./_parse.js): convert to batch upload API format
-- [_upload.js](./_upload): upload JSON to batch label API
+- [_parse.js](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/demo-upload-example-utterances/demo-Upload-utterances-from-querylog/_parse.js): This file converts the utterances to the format expected by the [Batch Add Labels API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09).
+- [_upload.js](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/demo-upload-example-utterances/demo-Upload-utterances-from-querylog/_upload.js): This file contains methods for uploading JSON to the [Batch Add Labels API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09).
 
 The sample creates files associated with each step:
 
