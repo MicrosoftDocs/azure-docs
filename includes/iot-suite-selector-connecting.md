@@ -50,6 +50,16 @@ To add a device to your remote monitoring solution, complete the following steps
 
     ![Choose device options](media/iot-suite-selector-connecting/devicesoptions.png)
 
+To locate the credentials your device must use to connect to the preconfigured solution, navigate to the Azure portal in your browser. Sign in to your subscription.
+
+1. Locate the resource group that contains the Azure services your remote monitoring solution uses. The resource group has the same name as the remote monitoring solution you provisioned.
+
+1. Navigate to the IoT hub in this resource group. Then choose **Device explorer**:
+
+    ![Device explorer](media/iot-suite-selector-connecting/deviceexplorer.png)
+
+1. Choose the **Device ID** you created on the **Devices** page in the remote monitoring solution.
+
 1. Make a note of the **Device ID** and **Primary key** values. You use these values when you add code to connect your device to the solution.
 
 You have now provisioned a physical device in the remote monitoring preconfigured solution. In the following sections, you implement the client application that uses the device credentials to connect to your solution.
