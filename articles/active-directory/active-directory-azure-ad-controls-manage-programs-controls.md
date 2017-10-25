@@ -17,7 +17,7 @@ ms.author: billmath
 
 # Manage programs and their controls 
 
-Azure Active Directory (Azure AD) includes access reviews of group members and application access. These examples of controls ensure oversight for who has access to your organization's group memberships and applications. These controls enable organizations to efficiently address their governance, risk management, and compliance requirements.
+Azure Active Directory (Azure AD) includes access reviews of group members and application access. These examples of controls ensure oversight for who has access to your organization's group memberships and applications. Organizations can use these controls to efficiently address their governance, risk management, and compliance requirements.
 
 ## Create and manage programs and their controls
 You can simplify how to track and collect access reviews for different purposes by organizing them into programs. Each access review can be linked to a program. Then when you prepare reports for an auditor, only the access reviews in scope for a particular initiative are visible.
