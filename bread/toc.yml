@@ -208,6 +208,9 @@
       - name: Storm
         tocHref: /azure/hdinsight/storm
         topicHref: /azure/hdinsight/storm/apache-storm-overview
+      - name: R Server
+        tocHref: /azure/hdinsight/r-server
+        topicHref: /azure/hdinsight/r-server-overview
   - name: IoT Hub
     tocHref: /azure/iot-hub/
     topicHref: /azure/iot-hub/
