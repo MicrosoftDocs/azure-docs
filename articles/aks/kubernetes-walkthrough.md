@@ -47,7 +47,7 @@ Output:
 ```json
 {
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup",
-  "location": "westeurope",
+  "location": "westus2",
   "managedBy": null,
   "name": "myResourceGroup",
   "properties": {
