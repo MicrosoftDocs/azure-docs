@@ -56,8 +56,8 @@ Pre-built entity   |   Example utterance   |   JSON
  builtin.percentage   |   The stock price increase by 7 $ this year   |```{ "type": "builtin.percentage", "entity": "7 %" }```|
  builtin.datetimeV2 | See [builtin.datetimeV2](#builtindatetimev2) | See [builtin.datetimeV2](#builtindatetimev2) |
  builtin.datetime | See [builtin.datetime](#builtindatetime) | See [builtin.datetime](#builtindatetime) |
- builtin.geography | See separate table | See separate table below |
- builtin.encyclopedia | See separate table | See separate table below |
+ builtin.geography | See separate table | See separate table following this table |
+ builtin.encyclopedia | See separate table | See separate table following this table |
  
  The last 3 built-in entity types listed in the table above encompass multiple subtypes. These are covered later in this article.
 
@@ -119,7 +119,7 @@ The following example shows a JSON response from LUIS, that includes the resolut
 
 
 
-## Ordinal, percentage and currency resolution
+## Ordinal, percentage, and currency resolution
 
 The **builtin.ordinal**, **builtin.percentage**, and **builtin.currency** entities also provide resolution to a value.
 <!--
@@ -302,7 +302,7 @@ The following is an example of a JSON response containing a builtin.datetimeV2 e
    <tr><td>endIndex</td><td><b>int</b>. The index in the utterance at which the entity ends.</td></tr>
    <tr><td>resolution</td><td>
    Contains a <code>values</code> array that has one, two, or four values. 
-   <ul><li>The array has one element if the date or time in the utterance is fully specified and unambiguous.</li><li>The array has two elements if the date or date range is ambiguous as to year, or a time or time range is ambiguous as to AM or PM. In the case of an ambiguous date, `values` contains the most recent past and most immediate future instances of the date. See <a href="#ambiguous-dates">Ambiguous dates</a> for more examples. In the case of an ambiguous time, `values` contains both the AM and PM times.</li><li>The array has four elements if the utterance contains both a date or date range that is ambiguous as to year, and a time or time range that is ambiguous as to AM or PM. For example, 3:00 April 3rd.</li>
+   <ul><li>The array has one element if the date or time in the utterance is fully specified and unambiguous.</li><li>The array has two elements if the date or date range is ambiguous as to year, or a time or time range is ambiguous as to AM or PM. When there is an ambiguous date, `values` contains the most recent past and most immediate future instances of the date. See <a href="#ambiguous-dates">Ambiguous dates</a> for more examples. When there is an ambiguous time, `values` contains both the AM and PM times.</li><li>The array has four elements if the utterance contains both a date or date range that is ambiguous as to year, and a time or time range that is ambiguous as to AM or PM. For example, 3:00 April 3rd.</li>
    </ul>
    <br/>Each element of <code>values</code> may contain the following fields: <br/>
    <table><tr><td>timex</td><td>time, date, or date range expressed in TIMEX format that follows the <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601 standard</a> as well as using the TIMEX3 attributes for  annotation using the TimeML language. This annotation is described in the <a href="http://www.timeml.org/tempeval2/tempeval2-trial/guidelines/timex3guidelines-072009.pdf">TIMEX guidelines</a>.</td></tr><tr><td>type</td><td>The subtype, which can be one of the following: datetime, date, time, daterange, timerange, datetimerange, duration, set.</td></tr><tr><td>value </td><td><b>Optional.</b> A datetime object in the Format yyyy:MM:dd  (date), HH:mm:ss (time) yyyy:MM:dd HH:mm:ss (datetime). If <code>type</code> is <code>duration</code>, the value is the number of seconds (duration) <br/> Only used if <code>type</code> is <code>datetime</code> or <code>date</code>, <code>time</code>, or <code>duration</code>.</td></tr>
@@ -333,7 +333,7 @@ The **builtin.datetimeV2** supports dates between the following ranges.
 
 ### Ambiguous dates
 
-If it's unclear from an utterance whether a date refers to that date in the past or the future, LUIS provides both the most immediate past and future instances of that date. One case of this is an utterance that includes the month and date, but not the year. If today's date precedes the date in the utterance in the current year, the most immediate past instance of that date is in the previous year. Otherwise the most immediate past date is in the current year. 
+If it's unclear from an utterance whether a date refers to that date in the past or the future, LUIS provides both the most immediate past and future instances of that date. One case of this occurrence is an utterance that includes the month and date, but not the year. If today's date precedes the date in the utterance in the current year, the most immediate past instance of that date is in the previous year. Otherwise the most immediate past date is in the current year. 
 
 For example, given the utterance "May 2nd":
 * If today's date is May 3rd 2017, LUIS provides both "2017-05-02" and "2018-05-02" as values. 
@@ -398,7 +398,7 @@ The datetimeV2 entity can recognize date and time ranges. The `start` and `end` 
   ]
 ```
 
-The following example shows how LUIS uses **datetimeV2** to resolve the utterance "Tuesday to Thursday". In this example the current date is June 19th. Note that LUIS includes **daterange** values for both of the date ranges that precede and follow the current date.
+The following example shows how LUIS uses **datetimeV2** to resolve the utterance "Tuesday to Thursday". In this example, the current date is June 19th. LUIS includes **daterange** values for both of the date ranges that precede and follow the current date.
 
 ```
   "entities": [
@@ -588,7 +588,7 @@ builtin.geography.pointOfInterest   |   sahara desert|```{ "type": "builtin.geog
 > [!NOTE]
 > **builtin.encyclopedia** is available only in the en-US locale.
 
-##### The builtin.encyclopedia built-in entity includes over 100 sub-types, listed below. In addition, encyclopedia entities often map to multiple types. For example, the query Ronald Reagan yields: 
+##### The builtin.encyclopedia built-in entity includes over 100 sub-types in the following table. In addition, encyclopedia entities often map to multiple types. For example, the query Ronald Reagan yields: 
 ```
 {
       "entity": "ronald reagan",
