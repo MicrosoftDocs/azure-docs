@@ -27,7 +27,7 @@ ms.custom: mvc
 To complete this tutorial, you need:
 
 * [Git](https://git-scm.com/downloads)
-* An active [Azure subscription](https://azure.microsoft.com/pricing/free-trial/)
+* An active [Azure subscription](https://azure.microsoft.com/pricing/free-trial/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 * [Docker](https://docs.docker.com/get-started/#setup)
 * A [Docker Hub account](https://docs.docker.com/docker-id/)
 
