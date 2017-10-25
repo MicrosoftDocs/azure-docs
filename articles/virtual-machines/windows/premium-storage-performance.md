@@ -33,7 +33,7 @@ This article will help answer following common questions about optimizing applic
 
 We have provided these guidelines specifically for Premium Storage because workloads running on Premium Storage are highly performance sensitive. We have provided examples where appropriate. You can also apply some of these guidelines to applications running on IaaS VMs with Standard Storage disks.
 
-Before you begin, if you are new to Premium Storage, first read the [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../../sql-data-warehouse/premium-storage.md) and [Azure Storage Scalability and Performance Targets](../../storage/common/storage-scalability-targets.md) articles.
+Before you begin, if you are new to Premium Storage, first read the [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](premium-storage.md) and [Azure Storage Scalability and Performance Targets](../../storage/common/storage-scalability-targets.md) articles.
 
 ## Application Performance Indicators
 We assess whether an application is performing well or not using performance indicators like, how fast an application is processing a user request, how much data an application is processing per request, how many requests is an application processing in a specific period of time, how long a user has to wait to get a response after submitting their request. The technical terms for these performance indicators are, IOPS, Throughput or Bandwidth, and Latency.
@@ -183,7 +183,7 @@ High Scale VMs are available in different sizes with a different number of CPU c
 | Standard_DS14 |16 |112 GB |OS = 1023 GB <br> Local SSD = 224 GB |32 |576 GB |50,000 IOPS <br> 512 MB per second |4,000 IOPS and 33 MB per second |
 | Standard_GS5 |32 |448 GB |OS = 1023 GB <br> Local SSD = 896 GB |64 |4224 GB |80,000 IOPS <br> 2,000 MB per second |5,000 IOPS and 50 MB per second |
 
-To view a complete list of all available Azure VM sizes, refer to [Windows VM sizes](../../batch/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) or [Linux VM sizes](../../batch/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Choose a VM size that can meet and scale to your desired application performance requirements. In addition to this, take into account following important considerations when choosing VM sizes.
+To view a complete list of all available Azure VM sizes, refer to [Windows VM sizes](sizes.md) or [Linux VM sizes](../linux/sizes.md). Choose a VM size that can meet and scale to your desired application performance requirements. In addition to this, take into account following important considerations when choosing VM sizes.
 
 *Scale Limits*  
 The maximum IOPS limits per VM and per disk are different and independent of each other. Make sure that the application is driving IOPS within the limits of the VM as well as the premium disks attached to it. Otherwise, application performance will experience throttling.
@@ -350,7 +350,7 @@ Benchmarking is the process of simulating different workloads on your applicatio
 
 We have used common benchmarking tools Iometer and FIO, for Windows and Linux respectively. These tools spawn multiple threads simulating a production like workload, and measure the system performance. Using the tools you can also configure parameters like block size and queue depth, which you normally cannot change for an application. This gives you more flexibility to drive the maximum performance on a high scale VM provisioned with premium disks for different types of application workloads. To learn more about each benchmarking tool visit [Iometer](http://www.iometer.org/) and [FIO](http://freecode.com/projects/fio).
 
-To follow the examples below, create a Standard DS14 VM and attach 11 Premium Storage disks to the VM. Of the 11 disks, configure 10 disks with host caching as "None" and stripe them into a volume called NoCacheWrites. Configure host caching as "ReadOnly" on the remaining disk and create a volume called CacheReads with this disk. Using this setup, you will be able to see the maximum Read and Write performance from a Standard DS14 VM. For detailed steps about creating a DS14 VM with premium disks, go to [Create and use a Premium Storage account for a virtual machine data disk](../../sql-data-warehouse/premium-storage.md).
+To follow the examples below, create a Standard DS14 VM and attach 11 Premium Storage disks to the VM. Of the 11 disks, configure 10 disks with host caching as "None" and stripe them into a volume called NoCacheWrites. Configure host caching as "ReadOnly" on the remaining disk and create a volume called CacheReads with this disk. Using this setup, you will be able to see the maximum Read and Write performance from a Standard DS14 VM. For detailed steps about creating a DS14 VM with premium disks, go to [Create and use a Premium Storage account for a virtual machine data disk](premium-storage.md).
 
 *Warming up the Cache*  
 The disk with ReadOnly host caching will be able to give higher IOPS than the disk limit. To get this maximum read performance from the host cache, first you must warm up the cache of this disk. This ensures that the Read IOs which benchmarking tool will drive on CacheReads volume actually hits the cache and not the disk directly. The cache hits result in additional IOPS from the single cache enabled disk.
@@ -585,7 +585,7 @@ To get the maximum combined Read and Write Throughput, use a larger block size a
 ## Next Steps
 Learn more about Azure Premium Storage:
 
-* [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../../sql-data-warehouse/premium-storage.md)  
+* [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](premium-storage.md)  
 
 For SQL Server users, read articles on Performance Best Practices for SQL Server:
 

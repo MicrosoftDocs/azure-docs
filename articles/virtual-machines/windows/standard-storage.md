@@ -88,7 +88,7 @@ Unlike Premium Disks, the input/output operations per second (IOPS) and throughp
 | Max 8 KB IOPS per disk | Up to 300         | Up to 500            |
 | Max Bandwidth per disk | Up to 60 MB/s     | Up to 60 MB/s        |
 
-If your workload requires high-performance, low-latency disk support, you should consider using Premium Storage. To know more benefits of Premium Storage, visit [High-Performance Premium Storage and Azure VM Disks](../../sql-data-warehouse/premium-storage.md). 
+If your workload requires high-performance, low-latency disk support, you should consider using Premium Storage. To know more benefits of Premium Storage, visit [High-Performance Premium Storage and Azure VM Disks](premium-storage.md). 
 
 ## Snapshots and copy blob
 
@@ -148,7 +148,7 @@ You can also use the Azure Backup service with Managed Disks to create a backup 
 
 * [Introduction to Azure Storage](../../storage/common/storage-introduction.md)
 
-* [Create a storage account](../../../storage/common/storage-create-storage-account.md)
+* [Create a storage account](../../storage/common/storage-create-storage-account.md)
 
 * [Managed Disks Overview](../linux/managed-disks-overview.md)
 
