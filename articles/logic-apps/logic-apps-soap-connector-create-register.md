@@ -1,7 +1,7 @@
 ---
 title: Create and register SOAP connectors - Azure Logic Apps | Microsoft Docs
-description: Set up soap connectors for use in Azure Logic Apps
-author: ecfan
+description: Set up SOAP connectors for use in Azure Logic Apps
+author: divswa
 manager: anneta
 editor: 
 services: logic-apps
@@ -13,18 +13,18 @@ ms.workload: logic-apps
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/22/2017
-ms.author: LADocs; estfan
+ms.date: 10/24/2017
+ms.author: LADocs; divswa
 ---
 
-# Simple Object Access Protocol (SOAP) connector overview
+# Create and register SOAP connectors in Azure Logic Apps
 
-Custom connectors allow you to call APIs, services, and systems that aren't available as prebuilt connectors. In this document, we cover how you can build a custom SOAP connector using Web Services Description Language (WSDL) that describes your SOAP service. The SOAP connector works like prebuilt connectors, and can be used in your logic app workflows to integrate with SOAP services.
+To integrate SOAP services in your logic app workflows, you can create and register a custom Simple Object Access Protocol (SOAP) connector by using Web Services Description Language (WSDL) that describes your SOAP service. The SOAP connectors work like prebuilt connectors, so you can use them in the same way as other connectors in your logic apps.
 
 
 ## Prerequisites
 
-To register your soap connector, you need these items:
+To register your SOAP connector, you need these items:
 
 * An Azure subscription. If you don't have a subscription, 
 you can start with a [free Azure account](https://azure.microsoft.com/free/). 
@@ -46,11 +46,11 @@ Otherwise, sign up for a [Pay-As-You-Go subscription](https://azure.microsoft.co
 In the search box, enter "logic apps connector" as your filter, 
 and press Enter.
 
-   ![New, search for "logic apps connector"](./media/logic-apps-custom-connector-register/create-logic-apps-connector.png)
+   ![New, search for "logic apps connector"](./media/logic-apps-soap-connector-create-register/create-logic-apps-connector.png)
 
 2. From the results list, choose **Logic Apps Connector** > **Create**.
 
-   ![Create Logic Apps connector](./media/logic-apps-custom-connector-register/choose-logic-apps-connector.png)
+   ![Create Logic Apps connector](./media/logic-apps-soap-connector-create-register/choose-logic-apps-connector.png)
 
 3. Provide details for registering your connector 
 as described in the table. When you're done, 
@@ -67,15 +67,15 @@ choose **Pin to dashboard** > **Create**.
    |||| 
 
    After Azure deploys your connector, 
-   the custom connector menu opens automatically. 
-   If not, choose your custom connector from the Azure dashboard.
+   the logic apps connector menu opens automatically. 
+   If not, choose your soap connector from the Azure dashboard.
 
 ## 2. Define your connector
 
 Now specify the WSDL file or URL for creating your connector, 
 the authentication that your connector uses, 
-the actions and triggers that your custom connector provides, 
-and parameters that actions and triggers can use.
+and the actions and triggers that your soap connector provides
+
 
 ### 2a. Specify the WSDL file or URL for your connector
 
@@ -86,7 +86,7 @@ choose **Logic Apps Connector**. In the toolbar, choose **Edit**.
 
 2. Choose **General** so that you can provide the details 
 in these tables for creating, securing, and defining the 
-actions and triggers for your soap connector.
+actions and triggers for your SOAP connector.
 
    1. For **Custom connectors**, select **API Endpoint** as **SOAP** 
    so you can provide the WSDL file that describes your API.
@@ -97,7 +97,7 @@ actions and triggers for your soap connector.
       | ------ | ------ | ----------- | 
       | **Upload WSDL from file** | *WSDL-file* | Browse to the location for your WSDL file, and select that file. | 
       | **Upload WSDL from URL** | http://*path-to-wsdl-file* | Provide the URL for your service's WSDL file. | 
-      | **SOAP to REST** | *choose the radio button* | Transform APIs in SOAP service into REST APIs. | 
+      | **SOAP to REST** |   | Transform APIs in SOAP service into REST APIs. | 
       |||| 
 
    2. For **General information**, upload an icon for your connector. 
@@ -123,11 +123,11 @@ actions and triggers for your soap connector.
 that your connector uses. Authentication makes sure that your users' 
 identities flow appropriately between your service and any clients.
 
-   By default **No authentication** is selected in the **Authentication type** for your connector.
+   By default you connector's **Authentication type** is set to **No authentication**.
    
    ![Authentication type](./media/logic-apps-soap-connector-create-register/security-authentication-options.png)
 
-   Choose **Edit** if you want to change the authentication to **Basic Authentication**. For **Parameter Label**, update them if you want something different than default values.
+   To change the authentication type, choose **Edit**. You can select **Basic Authentication**. To use paramter labels other than default values, update them under **Parameter Label**.
 
    ![Basic authentication](./media/logic-apps-soap-connector-create-register/security.png)
 
@@ -149,7 +149,7 @@ or define new actions and triggers that users can add to their workflows.
    ![Connector definition](./media/logic-apps-soap-connector-create-register/definition.png)
 
 2. Optionally, if you want to edit existing actions and triggers, 
-or add new ones, [continue with these steps](logic-apps-custom-connector-register.md####Edit-or-add-actions-for-your-connector).
+or add new ones, [continue with these steps](logic-apps-custom-connector-register.md#AddTriggerOrAction).
 
 
 ## 3. Finish creating your connector
