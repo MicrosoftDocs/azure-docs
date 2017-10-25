@@ -20,7 +20,7 @@ This quickstart migrates the sample AdventureWorks 2014 database from an on-prem
 - An instance of SQL Server with an AdventureWorks 2014 database that is directly connected to Azure.
 - An empty Azure SQL database.
 - [Microsoft Data Migration Assistant](https://aka.ms/get-dma)
-- Notes about needing to be directly connected to Azure in one of many ways goes here.
+- Azure DMS requires a VNET created by using the Azure Resource Manager (ARM) deployment model, which provides site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) or [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)..
 
 ## Create a migration project
 1. Open Microsoft Data Migration assistant and choose **+** to create a new project.

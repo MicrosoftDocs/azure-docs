@@ -1,8 +1,5 @@
 # [About Database Migration Service](dms-overview.md)
 
-# Overview
-## [Release notes](dms-release-notes.md)
-
 # Quickstarts
 ## [Migrate AdventureWorks on SQL Server to Azure SQL](quickstart-sql-server-to-azure-sql.md)
 
