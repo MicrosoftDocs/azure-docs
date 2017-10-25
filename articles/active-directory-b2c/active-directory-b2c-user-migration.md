@@ -97,7 +97,7 @@ Read and write directory data permissions do *not* include the right to delete u
 > You must use a B2C tenant administrator account that is *local* to the B2C tenant. The account name syntax is *admin@contosob2c.onmicrosoft.com*.
 
 >[!NOTE]
-> The following PowerShell script requires [Azure Active Directory PowerShell **Version 2**](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
+> The following PowerShell script requires [Azure Active Directory PowerShell Version 2](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
 
 In this PowerShell script, do the following:
 1. Connect to your online service. To do so, run the `Connect-AzureAD` cmdlet at the Windows PowerShell command prompt, and provide your credentials. 
@@ -170,7 +170,7 @@ Under the `AADB2C.UserMigration` project, open the *App.config* file. Replace th
 
 > [!NOTE]
 > * The use of an Azure table connection string is described in the next sections.
-> * Your B2C tenant name is the domain that you entered during tenant creation, and it is displayed in the Azure portal. The tenant name usually ends with the suffix *.onmicrosoft.com* (for example, *contosob2c.onmicrosoft.com*.
+> * Your B2C tenant name is the domain that you entered during tenant creation, and it is displayed in the Azure portal. The tenant name usually ends with the suffix *.onmicrosoft.com* (for example, *contosob2c.onmicrosoft.com*).
 >
 
 ### Step 2.3: Run the pre-migration process
@@ -274,8 +274,8 @@ To track the password change, you use an Azure table. When you run the pre-migra
     </appSettings>
     ```
 
-### Step 4.2: Deploy your web application to Azure App Services
-Publish your API service to Azure App Services. For more information, see [Deploy your app to Azure App Service](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-deploy).
+### Step 4.2: Deploy your web application to Azure App Service
+Publish your API service to Azure App Service. For more information, see [Deploy your app to Azure App Service](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-deploy).
 
 ### Step 4.3: Add a technical profile and technical profile validation to your policy 
 1. In your working directory, open the *TrustFrameworkExtensions.xml* extension policy file. 
