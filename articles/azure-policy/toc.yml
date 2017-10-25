@@ -15,6 +15,11 @@
   items:
   - name: Create and manage Azure Policy
     href: create-manage-policy.md
+- name: Concepts
+  items:
+  - name: Azure Policy definition structure
+    href: policy-definition.md
+
 - name: Reference
   items:
   - name: Azure CLI
