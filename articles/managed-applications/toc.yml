@@ -3,7 +3,6 @@
   items:
   - name: About managed applications
     href: overview.md
-  - name: Choose between management options
 - name: Quickstarts
   items:
   - name: Create managed application with Azure CLI
@@ -14,20 +13,18 @@
     href: publish-service-catalog-app.md
   - name: Create marketplace application
     href: publish-marketplace-app.md
-  - name: Maintain managed application
 - name: Samples
   items:
   - name: Azure CLI
   - name: Azure PowerShell
   - name: Managed application solutions
     href: sample-projects.md
-- name: Concepts
-  items:
-  - name: Access control
 - name: How-to guides
   items:
   - name: Define user interface
     href: create-uidefinition-overview.md
+  - name: Update managed resources
+    href: update-managed-resources.md
 - name: Reference
   items:
   - name: Azure CLI

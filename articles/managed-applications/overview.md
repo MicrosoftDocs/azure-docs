@@ -9,7 +9,7 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/20/2017
+ms.date: 10/23/2017
 ms.author: tomfitz
 ---
 
@@ -29,7 +29,7 @@ Although customers deploy these managed applications in their subscriptions, the
 
 For IT teams, managed applications enable you to offer pre-approved solutions to users in the organization. You ensure these solutions are compliant with organizational standards.
 
-## Key concepts
+## Types of managed applications
 
 You can publish your managed application either externally or internally.
 
@@ -43,24 +43,29 @@ For information about publishing a Service Catalog managed application, see [Cre
 
 ### Marketplace
 
-Vendors wishing to bill for their services can make a managed application available through the Azure marketplace. After the vendor publishes an application, it's available to users outside the organization. With this approach, managed service providers (MSPs), independent software vendors (ISVs), and system integrators (SIs) can offer their solutions to all Azure customers. 
+Vendors wishing to bill for their services can make a managed application available through the Azure marketplace. After the vendor publishes an application, it's available to users outside the organization. With this approach, managed service providers (MSPs), independent software vendors (ISVs), and system integrators (SIs) can offer their solutions to all Azure customers.
 
 For information about publishing a managed application to the Marketplace, see [Create marketplace application](publish-marketplace-app.md).
 
+## Resource groups for managed applications
+
+Typically, the resources for a managed application reside in two resource groups.
+
+![Resource group access](./media/overview/access.png)
+
+### Application resource group
+
+This resource group holds the managed application instance. This resource group may only contain one resource. The resource type of the managed application is **Microsoft.Solutions/applications**.
+
+The consumer has full access to the resource group and uses it to manage the lifecycle of the managed application. The publisher does not have access to this resource group.
+
 ### Managed resource group
 
-The managed resource group is where all the Azure resources that are provisioned in the template are created. For example, if the application is used to create a storage account, this resource group contains the storage account resource. It doesn't contain the application resource.
+This resource group holds all the resources that are required by the managed application. The consumer has limited access to this resource group because the consumer does not manage the individual resources for the managed application. The publisher has full access to this resource group.
 
-### Application package
-
-The publisher creates a package that contains the template file and the createUIDefinition file. Specifically, it contains the following files:
-
-- **mainTemplate.json**: This template file defines all the resources that are provisioned by the application. This file is a regular template file that's used to create resources.
-
-- **createUIDefinition.json**: This file describes how the UI needed for the parameters defined in the template is rendered.
+When the consumer deletes the managed application, the managed resource group is also deleted.
 
 ## Next steps
 
 * For information about publishing managed applications to the Marketplace, see [Create marketplace application](publish-marketplace-app.md).
 * For information about publishing an internal application, see [Create service catalog application](publish-service-catalog-app.md).
-
