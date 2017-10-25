@@ -13704,6 +13704,16 @@
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-distributed-data.md",
             "redirect_url": "/azure/sql-data-warehouse/massively-parallel-processing-mpp-architecture",
             "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/active-directory/active-directory-conditional-access.md",
+             "redirect_url": "/azure/active-directory/active-directory-conditional-access-azure-portal",
+             "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/active-directory/active-directory-conditional-access-azuread-connected-apps.md",
+             "redirect_url": "/azure/active-directory/active-directory-conditional-access-azure-portal-get-started",
+             "redirect_document_id": false
         }
     ]
 }
