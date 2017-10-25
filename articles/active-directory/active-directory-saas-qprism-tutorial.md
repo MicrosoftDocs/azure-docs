@@ -24,10 +24,10 @@ In this tutorial, you learn how to integrate QPrism with Azure Active Directory 
 Integrating QPrism with Azure AD provides you with the following benefits:
 
 - You can control in Azure AD who has access to QPrism.
-- You can enable your users to automatically get signed-on to QPrism (Single Sign-On) with their Azure AD accounts.
-- You can manage your accounts in one central location - the Azure portal.
+- You can enable your users to automatically get signed on to QPrism (single sign-on) with their Azure AD accounts.
+- You can manage your accounts in one central location: the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+For more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
 ## Prerequisites
 
@@ -36,12 +36,9 @@ To configure Azure AD integration with QPrism, you need the following items:
 - An Azure AD subscription
 - A QPrism single-sign on enabled subscription
 
-> [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
+To test the steps in this tutorial, follow these recommendations:
 
-To test the steps in this tutorial, you should follow these recommendations:
-
-- Do not use your production environment, unless it is necessary.
+- Don't use your production environment, unless it is necessary.
 - If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Scenario description
@@ -51,96 +48,94 @@ The scenario outlined in this tutorial consists of two main building blocks:
 1. Adding QPrism from the gallery
 2. Configuring and testing Azure AD single sign-on
 
-## Adding QPrism from the gallery
+## Add QPrism from the gallery
 To configure the integration of QPrism into Azure AD, you need to add QPrism from the gallery to your list of managed SaaS apps.
 
-**To add QPrism from the gallery, perform the following steps:**
+**To add QPrism from the gallery:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+1. In the [Azure portal](https://portal.azure.com), in the left pane, select **Azure Active Directory**. 
 
 	![The Azure Active Directory button][1]
 
-2. Navigate to **Enterprise applications**. Then go to **All applications**.
+2. Navigate to **Enterprise applications** > **All applications**.
 
 	![The Enterprise applications blade][2]
 	
-3. To add new application, click **New application** button on the top of dialog.
+3. To add a new application, at the top of the dialog box, select **New application**.
 
 	![The New application button][3]
 
-4. In the search box, type **QPrism**, select **QPrism** from result panel then click **Add** button to add the application.
+4. In the search box, type **QPrism**, and select **QPrism** from result panel. Then click **Add** to add the application.
 
 	![QPrism in the results list](./media/active-directory-saas-qprism-tutorial/tutorial_qprism_addfromgallery.png)
 
 ## Configure and test Azure AD single sign-on
 
-In this section, you configure and test Azure AD single sign-on with QPrism based on a test user called "Britta Simon".
+In this section, you configure and test Azure AD single sign-on with QPrism, based on a test user called "Britta Simon."
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in QPrism is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in QPrism needs to be established.
+For single sign-on to work, Azure AD needs to know who the counterpart user in QPrism is to a user in Azure AD. In other words, there must be a linked relationship between an Azure AD user and the related user in QPrism.
 
-In QPrism, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
+To establish this relationship, in QPrism, assign the value of the **user name** in Azure AD as the value of the **Username**.
 
-To configure and test Azure AD single sign-on with QPrism, you need to complete the following building blocks:
+To configure and test Azure AD single sign-on with QPrism, complete the following building blocks:
 
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Create a QPrism test user](#create-a-qprism-test-user)** - to have a counterpart of Britta Simon in QPrism that is linked to the Azure AD representation of user.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+1. [Configure Azure AD single sign-on](#configure-azure-ad-single-sign-on) to enable your users to use this feature.
+2. [Create an Azure AD test user](#create-an-azure-ad-test-user) to test Azure AD single sign-on with Britta Simon.
+3. [Create a QPrism test user](#create-a-qprism-test-user) to have a counterpart of Britta Simon in QPrism who is linked to the Azure AD representation of user.
+4. [Assign the Azure AD test user](#assign-the-azure-ad-test-user) to enable Britta Simon to use Azure AD single sign-on.
+5. [Test single sign-on](#test-single-sign-on) to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
 
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your QPrism application.
+In this section, you enable Azure AD single sign-on in the Azure portal, and configure single sign-on in your QPrism application.
 
-**To configure Azure AD single sign-on with QPrism, perform the following steps:**
-
-1. In the Azure portal, on the **QPrism** application integration page, click **Single sign-on**.
+1. In the Azure portal, on the **QPrism** application integration page, select **Single sign-on**.
 
 	![Configure single sign-on link][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+2. On the **Single sign-on** dialog box, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
  
 	![Single sign-on dialog box](./media/active-directory-saas-qprism-tutorial/tutorial_qprism_samlbase.png)
 
-3. On the **QPrism Domain and URLs** section, perform the following steps:
+3. In the **QPrism Domain and URLs** section, do the following:
 
 	![QPrism Domain and URLs single sign-on information](./media/active-directory-saas-qprism-tutorial/tutorial_qprism_url.png)
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<customer domain>.qmyzone.com/login`
+    a. In the **Sign-on URL** text box, type a URL that uses the following pattern: `https://<customer domain>.qmyzone.com/login`
 
-    b. In the **Identifier** textbox, type a URL using the following pattern: `https://<customer domain>.qmyzone.com/metadata.php`
+    b. In the **Identifier** text box, type a URL that uses the following pattern: `https://<customer domain>.qmyzone.com/metadata.php`
     	 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier, and Sign-On URL. Contact [QPrism Client support team](mailto:qsupport-ce@quatrro.com) to get these values. 
+	> These values are not real. Update these values with the actual identifier and sign-on URL. Contact [QPrism Client support team](mailto:qsupport-ce@quatrro.com) to get these values. 
 
-4. To generate the **Metadata** url, perform the following steps:
+4. To generate the **Metadata** URL, do the following:
 
-    a. Click **App registrations**.
+    a. Select **App registrations**.
     
-    ![Configure Single Sign-On appreg](./media/active-directory-saas-qprism-tutorial/tutorial_qprism_appregistrations.png)
+    ![Configure single sign-on app registrations](./media/active-directory-saas-qprism-tutorial/tutorial_qprism_appregistrations.png)
    
-    b. Click **Endpoints** to open **Endpoints** dialog box.  
+    b. Select **Endpoints** to open **Endpoints** dialog box.  
     
-    ![Configure Single Sign-On endpointcon](./media/active-directory-saas-qprism-tutorial/tutorial_qprism_endpointicon.png)
+    ![Configure single sign-on endpoint](./media/active-directory-saas-qprism-tutorial/tutorial_qprism_endpointicon.png)
 
-    c. Click the copy button to copy **FEDERATION METADATA DOCUMENT** url and paste it into notepad.
+    c. Select the copy button to copy the **FEDERATION METADATA DOCUMENT** URL, and paste it into Notepad.
     
-    ![Configure Single Sign-On endpoint](./media/active-directory-saas-qprism-tutorial/tutorial_qprism_endpoint.png)
+    ![Configure single sign-on endpoint](./media/active-directory-saas-qprism-tutorial/tutorial_qprism_endpoint.png)
      
-    d. Now go to the property page of **QPrism** and copy the **Application ID** using **Copy** button and paste it into notepad.
+    d. Now go to the property page of **QPrism**, and copy the **Application ID** by using **Copy**. Then paste it into Notepad.
  
-    ![Configure Single Sign-On appid](./media/active-directory-saas-qprism-tutorial/tutorial_qprism_appid.png)
+    ![Configure single sign-on application ID](./media/active-directory-saas-qprism-tutorial/tutorial_qprism_appid.png)
 
-    e. Generate the **Metadata URL** using the following pattern: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>` 
+    e. Generate the **Metadata URL** by using the following pattern: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>` 
 
-5. Click **Save** button.
+5. Select **Save**.
 
-	![Configure Single Sign-On Save button](./media/active-directory-saas-qprism-tutorial/tutorial_general_400.png)
+	![Configure single sign-on Save button](./media/active-directory-saas-qprism-tutorial/tutorial_general_400.png)
 	
-6. To configure single sign-on on **QPrism** side, you need to send the **Metadata URL** to [QPrism support team](mailto:qsupport-ce@quatrro.com). They set this setting to have the SAML SSO connection set properly on both sides.
+6. To configure single sign-on on the **QPrism** side, send the **Metadata URL** to the [QPrism support team](mailto:qsupport-ce@quatrro.com). They ensure that the SAML single sign-on connection is set properly on both sides.
 
 > [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app. After you add this app from the **Active Directory** > **Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985).
 
 ### Create an Azure AD test user
 
@@ -148,9 +143,9 @@ The objective of this section is to create a test user in the Azure portal calle
 
    ![Create an Azure AD test user][100]
 
-**To create a test user in Azure AD, perform the following steps:**
+**To create a test user in Azure AD:**
 
-1. In the Azure portal, in the left pane, click the **Azure Active Directory** button.
+1. In the Azure portal, in the left pane, select **Azure Active Directory**.
 
     ![The Azure Active Directory button](./media/active-directory-saas-qprism-tutorial/create_aaduser_01.png)
 
@@ -158,11 +153,11 @@ The objective of this section is to create a test user in the Azure portal calle
 
     ![The "Users and groups" and "All users" links](./media/active-directory-saas-qprism-tutorial/create_aaduser_02.png)
 
-3. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
+3. To open the **User** dialog box, at the top of the **All Users** dialog box, select **Add**.
 
     ![The Add button](./media/active-directory-saas-qprism-tutorial/create_aaduser_03.png)
 
-4. In the **User** dialog box, perform the following steps:
+4. In the **User** dialog box, do the following:
 
     ![The User dialog box](./media/active-directory-saas-qprism-tutorial/create_aaduser_04.png)
 
@@ -172,11 +167,11 @@ The objective of this section is to create a test user in the Azure portal calle
 
     c. Select the **Show Password** check box, and then write down the value that's displayed in the **Password** box.
 
-    d. Click **Create**.
+    d. Select **Create**.
  
 ### Create a QPrism test user
 
-In this section, you create a user called Britta Simon in QPrism. Work with [QPrism support team](mailto:qsupport-ce@quatrro.com) to add the users in the QPrism platform. Users must be created and activated before you use single sign-on. 
+In this section, you create a user called Britta Simon in QPrism. Work with the [QPrism support team](mailto:qsupport-ce@quatrro.com) to add users in the QPrism platform. Users must be created and activated before you use single sign-on. 
 
 ### Assign the Azure AD test user
 
@@ -184,40 +179,40 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ![Assign the user role][200] 
 
-**To assign Britta Simon to QPrism, perform the following steps:**
+**To assign Britta Simon to QPrism:**
 
-1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
+1. In the Azure portal, open the applications view, and then navigate to the directory view. Go to **Enterprise applications**, and select **All applications**.
 
 	![Assign User][201] 
 
 2. In the applications list, select **QPrism**.
 
-	![The QPrism link in the Applications list](./media/active-directory-saas-qprism-tutorial/tutorial_qprism_app.png)  
+	![The QPrism link in the applications list](./media/active-directory-saas-qprism-tutorial/tutorial_qprism_app.png)  
 
-3. In the menu on the left, click **Users and groups**.
+3. In the menu on the left, select **Users and groups**.
 
 	![The "Users and groups" link][202]
 
-4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+4. Select **Add**. Then, under **Add Assignment**, select **Users and groups**.
 
 	![The Add Assignment pane][203]
 
-5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+5. On the **Users and groups** dialog box, select **Britta Simon** in the **Users** list.
 
-6. Click **Select** button on **Users and groups** dialog.
+6. On the **Users and groups** dialog box, select **Select**.
 
-7. Click **Assign** button on **Add Assignment** dialog.
+7. Under **Add Assignment**, select **Assign**.
 	
 ### Test single sign-on
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+In this section, you test your Azure AD single sign-on configuration by using the Access Panel.
 
-When you click the QPrism tile in the Access Panel, you should get automatically signed-on to your QPrism application.
+In the Access Panel, when you select the QPrism tile, you should get automatically signed on to your QPrism application.
 For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [List of tutorials on how to integrate SaaS apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 

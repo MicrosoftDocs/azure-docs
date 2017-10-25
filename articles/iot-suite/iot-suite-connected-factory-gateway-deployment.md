@@ -152,6 +152,8 @@ You can also perform this step after installing docker from the **Settings** men
 
 To learn more about the architecture of the connected factory preconfigured solution, see [Connected factory preconfigured solution walkthrough][lnk-walkthrough].
 
+Learn about the [OPC Publisher reference implementation](iot-suite-connected-factory-publisher.md).
+
 [img-install-docker]: ./media/iot-suite-connected-factory-gateway-deployment/image1.png
 [img-hub-connection]: ./media/iot-suite-connected-factory-gateway-deployment/image2.png
 [img-docker-share]: ./media/iot-suite-connected-factory-gateway-deployment/image3.png

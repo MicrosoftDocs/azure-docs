@@ -46,7 +46,7 @@
 ### [Best practices for network security and cloud services](../best-practices-network-security.md)
 ### [Optimize routing](expressroute-optimize-routing.md)
 ### [Asymmetric routing](expressroute-asymmetric-routing.md)
-### [NAT for ExpressRoute](expressroute-routing-nat.md)
+### [NAT for ExpressRoute](expressroute-nat.md)
 
 ## Troubleshoot
 ### [Verifying ExpressRoute connectivity](expressroute-troubleshooting-expressroute-overview.md)

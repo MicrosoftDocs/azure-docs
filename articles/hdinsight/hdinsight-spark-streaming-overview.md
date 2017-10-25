@@ -4,7 +4,7 @@ description: 'How to use Spark Streaming applications on HDInsight Spark cluster
 services: hdinsight
 documentationcenter: ''
 tags: azure-portal
-author: maxluk
+author: raghavmohan
 manager: jhubbard
 editor: cgronlun
 
@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2017
-ms.author: nitinme
+ms.author: ramoha
 ---
 # Overview of Spark Streaming
 

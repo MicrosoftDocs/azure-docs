@@ -293,6 +293,7 @@ The following is an example of a JSON response containing a builtin.datetimeV2 e
    <li>builtin.datetimeV2.date
    <li>builtin.datetimeV2.time
    <li>builtin.datetimeV2.daterange
+   <li>builtin.datetimeV2.timerange
    <li>builtin.datetimeV2.datetimerange
    <li>builtin.datetimeV2.duration
    <li>builtin.datetimeV2.set </ul>
@@ -304,10 +305,10 @@ The following is an example of a JSON response containing a builtin.datetimeV2 e
    <ul><li>The array has one element if the date or time in the utterance is fully specified and unambiguous.</li><li>The array has two elements if the date or date range is ambiguous as to year, or a time or time range is ambiguous as to AM or PM. In the case of an ambiguous date, `values` contains the most recent past and most immediate future instances of the date. See <a href="#ambiguous-dates">Ambiguous dates</a> for more examples. In the case of an ambiguous time, `values` contains both the AM and PM times.</li><li>The array has four elements if the utterance contains both a date or date range that is ambiguous as to year, and a time or time range that is ambiguous as to AM or PM. For example, 3:00 April 3rd.</li>
    </ul>
    <br/>Each element of <code>values</code> may contain the following fields: <br/>
-   <table><tr><td>timex</td><td>time, date, or date range expressed in TIMEX format that follows the <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601 standard</a> as well as using the TIMEX3 attributes for  annotation using the TimeML language. This annotation is described in the <a href="http://www.timeml.org/tempeval2/tempeval2-trial/guidelines/timex3guidelines-072009.pdf">TIMEX guidelines</a>.</td></tr><tr><td>type</td><td>The subtype, which can be one of the following: datetime, date, time, daterange, datetimerange, duration, set.</td></tr><tr><td>value </td><td><b>Optional.</b> A datetime object in the Format yyyy:MM:dd  (date), HH:mm:ss (time) yyyy:MM:dd HH:mm:ss (datetime). If <code>type</code> is <code>duration</code>, the value is the number of seconds (duration) <br/> Only used if <code>type</code> is <code>datetime</code> or <code>date</code>, <code>time</code>, or <code>duration</code>.</td></tr>
-   <tr><td>start</td><td>A value representing the start of a time or date range, in the same format as <code>value</code>. Only used if <code>type</code> is <code>daterange</code> or <code>datetimerange</code>.</td></tr></table>
+   <table><tr><td>timex</td><td>time, date, or date range expressed in TIMEX format that follows the <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601 standard</a> as well as using the TIMEX3 attributes for  annotation using the TimeML language. This annotation is described in the <a href="http://www.timeml.org/tempeval2/tempeval2-trial/guidelines/timex3guidelines-072009.pdf">TIMEX guidelines</a>.</td></tr><tr><td>type</td><td>The subtype, which can be one of the following: datetime, date, time, daterange, timerange, datetimerange, duration, set.</td></tr><tr><td>value </td><td><b>Optional.</b> A datetime object in the Format yyyy:MM:dd  (date), HH:mm:ss (time) yyyy:MM:dd HH:mm:ss (datetime). If <code>type</code> is <code>duration</code>, the value is the number of seconds (duration) <br/> Only used if <code>type</code> is <code>datetime</code> or <code>date</code>, <code>time</code>, or <code>duration</code>.</td></tr>
+   <tr><td>start</td><td>A value representing the start of a time or date range, in the same format as <code>value</code>. Only used if <code>type</code> is <code>daterange</code>, <code>timerange</code, or <code>datetimerange</code>.</td></tr></table>
    </td></tr>
-   <tr><td>end</td><td>A value representing the end of a time or date range, in the same format as <code>value</code>. Only used if <code>type</code> is <code>daterange</code> or <code>datetimerange</code>.</td></tr></table>
+   <tr><td>end</td><td>A value representing the end of a time or date range, in the same format as <code>value</code>. Only used if <code>type</code> is <code>daterange</code>, <code>timerange</code, or <code>datetimerange</code>.</td></tr></table>
    </td></tr></table>
   </td></tr>
 </table>
@@ -425,12 +426,67 @@ The following example shows how LUIS uses **datetimeV2** to resolve the utteranc
     }
   ]
 ```
+
+### Date range resolution examples
+
+The datetimeV2 entity can recognize date and time ranges. The `start` and `end` fields specify the beginning and end of the range. For the utterance "May 2nd to May 5th", LUIS provides **daterange** values for both the current year and the following year. In the `timex` field, the `XXXX` values represent the year that is not explicitly specified in the utterance, and `P3D` indicates that the time period is 3 days long.
+
+```
+"entities": [
+    {
+      "entity": "may 2nd to may 5th",
+      "type": "builtin.datetimeV2.daterange",
+      "startIndex": 0,
+      "endIndex": 17,
+      "resolution": {
+        "values": [
+          {
+            "timex": "(XXXX-05-02,XXXX-05-05,P3D)",
+            "type": "daterange",
+            "start": "2017-05-02",
+            "end": "2017-05-05"
+          },
+          {
+            "timex": "(XXXX-05-02,XXXX-05-05,P3D)",
+            "type": "daterange",
+            "start": "2018-05-02",
+            "end": "2018-05-05"
+          }
+        ]
+      }
+    }
+  ]
+```
+
+The following example shows how LUIS uses **datetimeV2** to resolve the utterance "6pm to 7pm".
+
+```
+  "entities": [
+    {
+      "entity": "6pm to 7pm",
+      "type": "builtin.datetimeV2.timerange",
+      "startIndex": 0,
+      "endIndex": 9,
+      "resolution": {
+        "values": [
+          {
+            "timex": "(T18,T19,PT1H)",
+            "type": "timerange",
+            "start": "18:00:00",
+            "end": "19:00:00"
+          }
+        ]
+      }
+    }
+  ]
+```
 ### Subtypes of datetimeV2
 
 The **builtin.datetimeV2** prebuilt entity has the following subtypes, and examples of each are provided in the table that follows:
 * builtin.datetimeV2.date
 * builtin.datetimeV2.time
 * builtin.datetimeV2.daterange
+* builtin.datetimeV2.timerange
 * builtin.datetimeV2.datetimerange
 * builtin.datetimeV2.duration
 * builtin.datetimeV2.set
@@ -445,6 +501,7 @@ builtin.datetimeV2.daterange    |   next week   |```{ "entity": "next week", "ty
 builtin.datetimeV2.date    |   next monday   |```{ "entity": "next monday", "type": "builtin.datetimeV2.date", "resolution": { "values": [{ "timex": "2017-06-26", "type": "date", "value": "2017-06-26" }] } }```|
 builtin.datetimeV2.time      |   3 : 00   |```{ "type": "builtin.datetimeV2.time", "entity": "3 : 00", "resolution": { "values": [{ "timex": "T03:00", "type": "time", "value": "03:00:00" }, { "timex": "T15:00", "type": "time", "value": "15:00:00" }]}	}```|
 builtin.datetimeV2.time      |   4 pm     |```{ "type": "builtin.datetimeV2.time", "entity": "4 pm", "resolution": { "values": [{"timex": "T16",  "type": "time", "value": "16:00:00"}] }	}```|
+builtin.datetimeV2.timerange    |   next week   |```{ "entity": "6pm to 7pm", "type": "builtin.datetime.dateV2.timerange", "resolution": { "values": [{ "timex": "(T18,T19,PT1H)", "type": "timerange", "start": "18:00:00", "end": "19:00:00"}] } }```|
 builtin.datetimeV2.datetimerange      |   tomorrow morning   |```{ "entity": "tomorrow morning", "type": "builtin.datetimev2.datetimerange", "resolution": { "values": [{"timex": "2017-06-21TMO","type": "datetimerange", "start": "2017-06-21 08:00:00", "end": "2017-06-21 12:00:00"}]} }```|
 builtin.datetimeV2.datetimerange      |   tonight  |```{ "entity": "tonight", "type": "builtin.datetimeV2.datetimerange", "resolution": { "values": [{"timex": "2017-06-20TNI","type": "datetimerange", "start": "2017-06-20 20:00:00", "end": "2017-06-20 23:59:59"}]} }```|
 builtin.datetimeV2.duration      |    for 3 hours    |```{ "type": "builtin.datetimeV2.duration", "entity": "3 hours", "resolution": { "values": [{ "timex": "PT3H", "type": "duration", "value": "10800"}] } }```|  

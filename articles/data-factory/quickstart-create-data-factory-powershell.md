@@ -75,7 +75,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
         ```
 
     * To create Data Factory instances, you must be a contributor or administrator of the Azure subscription.
-    * Currently, Data Factory V2 allows you to create data factory only in the East US region. The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
+    * Currently, Data Factory V2 allows you to create data factory only in the **East US** or **East US 2** region. The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
 
 ## Create a linked service
 
@@ -162,7 +162,7 @@ You define a dataset that represents the data to copy from a source to a sink. I
     ```
 
 ## Create a pipeline
-
+  
 In this example, this pipeline contains one activity and takes two parameters - input blob path and output blob path. The values for these parameters are set when the pipeline is triggered/run. The copy activity refers to the same blob dataset created in the previous step as input and output. When the dataset is used as an input dataset, input path is specified. And, when the dataset is used as an output dataset, the output path is specified. 
 
 1. Create a JSON file named **Adfv2QuickStartPipeline.json** in the **C:\ADFv2QuickStartPSH** folder with the following content:
@@ -181,7 +181,7 @@ In this example, this pipeline contains one activity and takes two parameters - 
                             "parameters": {
                                 "path": "@pipeline().parameters.inputPath"
                             },
-                        "type": "DatasetReference"
+                            "type": "DatasetReference"
                         }
                     ],
                     "outputs": [

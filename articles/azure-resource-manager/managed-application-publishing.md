@@ -9,7 +9,7 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 09/19/2017
+ms.date: 10/09/2017
 ms.author: gauravbh
 ---
 # Publish a managed application for internal consumption
@@ -199,9 +199,13 @@ The parameters used in the preceding example are:
 
 1. Search for **service catalog**.
 
-1. In the results, scroll until you find **Service Catalog Administrator**. Select it.
+1. In the results, scroll until you find **Service Catalog Managed Application Definition**. Select it.
 
-   ![Search for managed application definitions](./media/managed-application-publishing/search-service-catalog.png)
+   ![Search for managed application definitions](./media/managed-application-publishing/select-managed-apps-definition.png)
+
+1. Select **Create** to start the process of creating the managed application definition.
+
+   ![Create managed application definition](./media/managed-application-publishing/create-definition.png)
 
 1. Provide values for name, display name, description, location, subscription, and resource group. For package file URI, provide the path to the zip file you created.
 

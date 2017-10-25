@@ -26,7 +26,7 @@ sections:
     style: icon48
     items: 
     - image: 
-        src: https://docs.microsoft.com/azure/app-service-web/media/index/logo_net.svg
+        src: https://docs.microsoft.com/azure/app-service/media/index/logo_net.svg
       text: .NET
       href: service-fabric-quickstart-dotnet
     - image: 
@@ -42,11 +42,11 @@ sections:
   - type: paragraph
     text: Learn how to deploy, manage, and monitor secure web applications on Azure
   - type: list
-    style: ordered
+    style: unordered
     items:
     - html: <a href="service-fabric-tutorial-create-dotnet-app">Deploy a .NET application</a>
-    - html: <a href="service-fabric-tutorial-create-cluster-azure-ps">Lift and shift an existing .NET application</a>
-    - html: <a href="service-fabric-tutorial-create-container-images">Create a Linux container app</a>
+    - html: <a href="service-fabric-tutorial-create-cluster-azure-ps">Containerize an existing .NET application</a>
+    - html: <a href="service-fabric-tutorial-create-container-images">Create a Linux container application</a>
     - html: Create and manage a <a href="service-fabric-tutorial-create-vnet-and-windows-cluster">Windows</a> or <a href="service-fabric-tutorial-create-vnet-and-linux-cluster">Linux</a> cluster
 - title: Free Pluralsight Video Training
   items:

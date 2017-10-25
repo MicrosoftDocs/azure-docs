@@ -24,10 +24,16 @@
   - name: Servicing policy
     href: azure-stack-servicing-policy.md
   - name: Release notes
-    href: azure-stack-asdk-release-notes.md
+    items:
+    - name: Development kit release notes
+      href: azure-stack-asdk-release-notes.md
+    - name: Integrated systems release notes
+      items:  
+      - name: 1710 update
+        href: azure-stack-update-1710.md  
   - name: Key features and concepts
     href: azure-stack-key-features.md
-  - name: Azure Stack Development Kit architecture
+  - name: Development kit architecture
     href: azure-stack-architecture.md
   - name: Administration basics
     href: azure-stack-manage-basics.md
@@ -39,6 +45,8 @@
       href: azure-stack-deploy.md
     - name: Deploy
       href: azure-stack-run-powershell-script.md
+    - name: Install PowerShell
+      href: azure-stack-powershell-configure-quickstart.md
     - name: Register
       href: azure-stack-register.md
     - name: Connect to Azure Stack
@@ -49,10 +57,14 @@
       href: azure-stack-provision-vm.md
   - name: Datacenter integration
     items:
-    - name: Integrate DNS
+    - name: DNS
       href: azure-stack-integrate-dns.md
+    - name: Identity
+      href: azure-stack-integrate-identity.md
     - name: Publish endpoints
-      href: azure-stack-integrate-endpoints.md  
+      href: azure-stack-integrate-endpoints.md
+    - name : Security
+      href: azure-stack-integrate-security.md
   - name: Manage
     items:
     - name: Region management
@@ -80,7 +92,9 @@
       - name: Manage updates overview
         href: azure-stack-updates.md
       - name: Apply updates
-        href: azure-stack-apply-updates.md      
+        href: azure-stack-apply-updates.md
+      - name: Monitor update status
+        href: azure-stack-monitor-update.md      
     - name: Monitor health and alerts
       href: azure-stack-monitor-health.md
     - name: Manage network resources
@@ -91,8 +105,14 @@
       href: azure-stack-manage-windows-azure-pack.md
     - name: Replace hardware
       items:
+      - name: Node actions
+        href: azure-stack-node-actions.md
+      - name: Replace node
+        href: azure-stack-replace-node.md
       - name: Replace disk
         href: azure-stack-replace-disk.md
+      - name: Replace component
+        href: azure-stack-replace-component.md    
   - name: Security, compliance & identity
     items:
     - name: Security overview
@@ -135,10 +155,16 @@
         href: azure-stack-mysql-resource-provider-deploy.md
       - name: Deploy SQL resource provider
         href: azure-stack-sql-resource-provider-deploy.md
+      - name: Create SQL databases
+        href: azure-stack-sql-resource-provider-databases.md
+      - name: Add hosting servers
+        href: azure-stack-sql-resource-provider-hosting-servers.md
     - name: Offer App Service as PaaS
       items:
       - name: App Service on Azure Stack overview
         href: azure-stack-app-service-overview.md
+      - name: Capacity planning
+        href: azure-stack-app-service-capacity-planning.md
       - name: Before you get started
         href: azure-stack-app-service-before-you-get-started.md
       - name: Deploy App Service resource provider

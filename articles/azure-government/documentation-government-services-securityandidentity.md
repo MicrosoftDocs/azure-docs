@@ -1,4 +1,3 @@
-   
 ---
 title: Azure Government Security + Identity | Microsoft Docs
 description: This provides a comparision of features and guidance on developing applications for Azure Government
@@ -31,6 +30,10 @@ The following information identifies the Azure Government boundary for Azure Key
 | --- | --- |
 | All data encrypted with an Azure Key Vault key may contain Regulated/controlled data. |Azure Key Vault metadata is not permitted to contain export-controlled data. This metadata includes all configuration data entered when creating and maintaining your Key Vault.  Do not enter Regulated/controlled data into the following fields: **Resource group names, Key Vault names, Subscription name** |
 
+## Azure Active Directory
+
+For details on this service and how to use it, see the [Azure Active Directory Documentation](../active-directory/index.md).
+
 ## Azure Active Directory Premium
 Azure Active Directory Premium is in Limited Preview in Azure Government.
 
@@ -49,6 +52,9 @@ Following Azure Active Directory Premium features are currently not available in
   * Azure Active Directory Domain Services
 
   * Intune enabled Conditional Access scenarios
+
+## Azure Multi-Factor Authentication
+For details on this service and how to use it, see the [Azure Multi-Factor Authentication Documentation](../multi-factor-authentication/multi-factor-authentication.md). 
 
 ## Next Steps
 For supplemental information and updates, subscribe to the

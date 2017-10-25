@@ -24,11 +24,14 @@ This tutorial is part one of a three part series. In this tutorial, let's walk t
 
 This tutorial uses the timeless [Iris flower dataset](https://en.wikipedia.org/wiki/Iris_flower_data_set) to keep things simple. The screenshots are Windows-specific, but the macOS experience is almost identical.
 
-## Launch Azure Machine Learning Workbench
-Follow the [Install and create Quickstart](quickstart-installation.md) to install the Azure Machine Learning Workbench application. That installation also includes the command-line interface (CLI). Launch the Azure Machine Learning Workbench app, and log in if needed.
+## Prerequisites
+- Create an Azure Machine Learning Experimentation Account
+- Install Azure Machine Learning Workbench
 
-## Create a new project
-1. In the **PROJECTS** pane, click on the **+** icon to create a **New Project**.
+You can follow the [Install and create Quickstart](quickstart-installation.md) to install the Azure Machine Learning Workbench application. That installation also includes the command-line interface (CLI).
+
+## Create a new project in Azure ML Workbench
+1. Launch the Azure Machine Learning Workbench app, and log in if needed. In the **PROJECTS** pane, click on the **+** icon to create a **New Project**.
 
    ![new workspace](media/tutorial-classifying-iris/new_ws.png)
 
