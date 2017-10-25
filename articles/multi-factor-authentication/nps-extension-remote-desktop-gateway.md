@@ -86,7 +86,7 @@ For information on installing the NPS role service Windows Server 2012 or older,
 To use the NPS extension, on-premises users must be synced with Azure AD and enabled for MFA. This section assumes that on-premises users are synched with Azure AD using AD Connect. For information on Azure AD connect, see [Integrate your on-premises directories with Azure Active Directory](../active-directory/connect/active-directory-aadconnect.md). 
 
 ### Azure Active Directory GUID ID
-To install NPS, you need to know the GUID of the Azure AD. Instructions for finding the GUID of the Azure AD are provided below.
+To install NPS extension, you need to know the GUID of the Azure AD. Instructions for finding the GUID of the Azure AD are provided below.
 
 ## Configure Multi-Factor Authentication 
 This section provides instructions for integrating Azure MFA with the Remote Desktop Gateway. As an administrator, you must configure the Azure MFA service before users can self-register their multi-factor devices or applications.
@@ -94,7 +94,7 @@ This section provides instructions for integrating Azure MFA with the Remote Des
 Follow the steps in [Getting started with Azure Multi-Factor Authentication in the cloud](multi-factor-authentication-get-started-cloud.md) to enable MFA for your Azure AD users. 
 
 ### Configure accounts for two-step verification
-Once an account has been enabled for MFA, you cannot sign in to resources governed by the MFA policy until you have successfully configured a trusted device to use for the second authentication factor have authenticated using two-step verification.
+Once an account has been enabled for MFA, you cannot sign in to resources governed by the MFA policy until you have successfully configured a trusted device to use for the second authentication factor and have authenticated using two-step verification.
 
 Follow the steps in [What does Azure Multi-Factor Authentication mean for me?](./end-user/multi-factor-authentication-end-user.md) to understand and properly configure your devices for MFA with your user account.
 
