@@ -327,11 +327,51 @@ PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND
 
 Congratulations! You've configured a custom Docker image for an Web App for Containers.
 
-## Push a Docker image to Private Registry (Optional)
+## Use a private image from Docker Hub (Optional)
 
-Azure Container Registry is a managed Docker service from Azure for hosting private images. The deployments may be any type, including [Docker Swarm](https://docs.docker.com/engine/swarm/), [Kubernetes](https://kubernetes.io/), and Azure app service containers. Using the Azure Container Registry is just like using any private registry, so if you need to use your own private registry, the steps to complete this task are similar.
+In [Create a web app](#create-a-web-app), you specified an image on Docker Hub in the `az webapp create` command. This is good enough for a public image. To use a private image, you need to configure your Docker account ID and password in your Azure web app.
 
-Use the [az acr create](https://docs.microsoft.com/cli/azure/acr#az_acr_create) command to create an Azure Container Registry. Pass in the name, resource group, and `Basic` for the SKU. Available SKUs are `Classic`, `Basic`, `Standard`, and `Premium`.
+In the Cloud Shell, follow the `az webapp create` command with [az webapp config container set](/cli/azure/webapp/config/container#az_webapp_config_container_set). Replace *\<app_name>*, and also _<docker-id>_ and _<password>_ with your Docker ID and password.
+
+```azurecli-interactive
+az webapp config container set --name <app_name> --resource-group myResourceGroup --docker-registry-server-user <docker-id> --docker-registry-server-password <password>
+```
+
+The command reveals output similar to the following JSON string, showing that the configuration change succeeded:
+
+```bash
+[
+  {
+    "name": "WEBSITES_ENABLE_APP_SERVICE_STORAGE",
+    "slotSetting": false,
+    "value": "false"
+  },
+  {
+    "name": "DOCKER_REGISTRY_SERVER_USERNAME",
+    "slotSetting": false,
+    "value": "<docker-id>"
+  },
+  {
+    "name": "DOCKER_REGISTRY_SERVER_PASSWORD",
+    "slotSetting": false,
+    "value": null
+  },
+  {
+    "name": "DOCKER_CUSTOM_IMAGE_NAME",
+    "value": "DOCKER|<image-name-and-tag>"
+  }
+]
+```
+
+## Use a Docker image from any private registry (Optional)
+
+In this section, you learn how to use a Docker image from a private registry in Web App for Containers, and it uses Azure Container Registry as an example. The steps for using other private registries are similar. 
+
+Azure Container Registry is a managed Docker service from Azure for hosting private images. The deployments may be any type, including [Docker Swarm](https://docs.docker.com/engine/swarm/), [Kubernetes](https://kubernetes.io/), and Web App for Containers. 
+
+### Create an Azure Container Registry
+
+In the Cloud Shell, use the [az acr create](https://docs.microsoft.com/cli/azure/acr#az_acr_create) command to create an Azure Container Registry. Pass in the name, resource group, and `Basic` for the SKU. Available SKUs are `Classic`, `Basic`, `Standard`, and `Premium`.
 
 ```azurecli-interactive
 az acr create --name <azure-container-registry-name> --resource-group myResourceGroup --sku Basic --admin-enabled true
@@ -367,10 +407,12 @@ Use an existing service principal and assign access:
 }
 ```
 
-In order to push an image to the registry, you need to supply credentials so the registry accepts the push. You can retrieve these credentials by using the [az acr show](https://docs.microsoft.com/cli/azure/acr/credential#az_acr_credential_show) command. 
+### Log in to Azure Container Registry
+
+In order to push an image to the registry, you need to supply credentials so the registry accepts the push. You can retrieve these credentials by using the [az acr show](https://docs.microsoft.com/cli/azure/acr/credential#az_acr_credential_show) command in the Cloud Shell. 
 
 ```azurecli-interactive
-az acr credential show --name {azure-container-registry-name}
+az acr credential show --name <azure-container-registry-name>
 ```
 
 The command reveals two passwords that can be used with the user name.
@@ -387,17 +429,21 @@ The command reveals two passwords that can be used with the user name.
       "value": "{password}"
     }
   ],
-  "username": "<azure-container-registry-name>"
+  "username": "<registry-username>"
 }
 ```
 
-Now that you have the necessary credentials, log in to the Azure Container Registry using the `docker login` command. The server name is required to log in. Use the format `{azure-container-registry-name>.azurecr.io`.
+From your local terminal window, log in to the Azure Container Registry using the `docker login` command. The server name is required to log in. Use the format `{azure-container-registry-name>.azurecr.io`.
 
 ```bash
-docker login <azure-container-registry-name>.azurecr.io --username <azure-container-registry-name> --password <password> 
+docker login <azure-container-registry-name>.azurecr.io --username <registry-username> --password <password> 
 ```
 
-Confirm that the login succeeded. Push the image by using the `docker push` command. Tag the image with the name of the registry, followed by your image name and tag.
+Confirm that the login succeeded. 
+
+### Push an image to Azure Container Registry
+
+Push the image by using the `docker push` command. Tag the image with the name of the registry, followed by your image name and tag.
 
 ```bash
 docker push <azure-container-registry-name>.azurecr.io/mydockerimage:v1.0.0
@@ -417,11 +463,11 @@ Listing the images in the registry confirms that `mydockerimage` is in the regis
 ]
 ```
 
-## Configure Web App to use Docker container from a Private Registry (Optional)
+### Configure Web App to use the image from Azure Container Registry (or any private registry)
 
-You can configure web apps on Linux so that they run a container stored in the Azure Container Registry. Using the Azure Container Registry is just like using any private registry, so if you need to use your own private registry, the steps to complete this task are similar.
+You can configure Web App for Containers so that it runs a container stored in the Azure Container Registry. Using the Azure Container Registry is just like using any private registry, so if you need to use your own private registry, the steps to complete this task are similar.
 
-The [az acr credential show](https://docs.microsoft.com/cli/azure/acr/credential#az_acr_credential_show) command displays the passwords for the container registry. Copy the username and one of the passwords so you can use it to configure the web app in the next step.
+In the Cloud Shell, run [az acr credential show](/cli/azure/acr/credential#az_acr_credential_show) to display the username and password for the Azure Container Registry. Copy the username and one of the passwords so you can use it to configure the web app in the next step.
 
 ```bash
 az acr credential show --name <azure-container-registry-name>
@@ -439,18 +485,18 @@ az acr credential show --name <azure-container-registry-name>
       "value": "password2"
     }
   ],
-  "username": "<azure-container-registry-name>"
+  "username": "<registry-username>"
 }
 ```
 
-Run the [az webapp config container set](https://docs.microsoft.com/cli/azure/webapp/config/container#az_webapp_config_container_set) command. This command assigns the custom Docker image to the web app. Notice that you need a URL that is in the format `https://{your-registry-username}.azurecr.io`. Additionally, the web app needs the user name and password obtained in a previous step in order to access the container registry.
+In the Cloud Shell, run the [az webapp config container set](/cli/azure/webapp/config/container#az_webapp_config_container_set) command to assign the custom Docker image to the web app. Replace *\<app_name>*, *\<docker-registry-server-url>*, _<registry-username>_, and _<password>_. For Azure Container Registry, *\<docker-registry-server-url>* is in the format `https://<azure-container-registry-name>.azurecr.io`). 
 
 ```azurecli-interactive
-az webapp config container set --name <web-app-name> --resource-group myResourceGroup --docker-custom-image-name mydockerimage --docker-registry-server-url https://<azure-container-registry-name>.azurecr.io --docker-registry-server-user <docker-id> --docker-registry-server-password <password>
+az webapp config container set --name <app_name> --resource-group myResourceGroup --docker-custom-image-name mydockerimage --docker-registry-server-url https://<azure-container-registry-name>.azurecr.io --docker-registry-server-user <registry-username> --docker-registry-server-password <password>
 ```
 
 > [!NOTE]
-> The `https` in the registry's URL is required.
+> `https://` is required in *\<docker-registry-server-url>*.
 >
 
 The command reveals output similar to the following JSON string, showing that the configuration change succeeded:
@@ -465,12 +511,12 @@ The command reveals output similar to the following JSON string, showing that th
   {
     "name": "DOCKER_REGISTRY_SERVER_URL",
     "slotSetting": false,
-    "value": "mycontainerregistry.azurecr.io"
+    "value": "<azure-container-registry-name>.azurecr.io"
   },
   {
     "name": "DOCKER_REGISTRY_SERVER_USERNAME",
     "slotSetting": false,
-    "value": "{azure-container-registry-name}"
+    "value": "<registry-username>"
   },
   {
     "name": "DOCKER_REGISTRY_SERVER_PASSWORD",
