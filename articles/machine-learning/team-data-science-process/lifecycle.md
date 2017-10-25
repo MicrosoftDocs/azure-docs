@@ -40,11 +40,12 @@ The TDSP lifecycle is modeled as a sequence of iterated steps that provide guida
 
 For each stage, we provide the following information:
 
-* **Goals**: The specific objectives.
-* **How to do it**: An outline of the specific tasks and guidance on how to complete them.
-* **Artifacts**: The deliverables and the support to produce them.
+   * **Goals**: The specific objectives.
+   * **How to do it**: An outline of the specific tasks and guidance on how to complete them.
+   * **Artifacts**: The deliverables and the support to produce them.
 
 ## Next steps
+
 We provide full end-to-end walkthroughs that demonstrate all the steps in the process for specific scenarios. The [Example walkthroughs](walkthroughs.md) article provides a list of the scenarios with links and thumbnail descriptions. The walkthroughs illustrate how to combine cloud, on-premises tools, and services into a workflow or pipeline to create an intelligent application. 
 
 For examples of how to execute steps in TDSPs that use Azure Machine Learning Studio, see [Use the TDSP with Azure Machine Learning](http://aka.ms/datascienceprocess).

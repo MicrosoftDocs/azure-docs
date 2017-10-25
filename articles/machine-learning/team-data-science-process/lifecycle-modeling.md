@@ -21,11 +21,11 @@ ms.author: bradsev;
 
 This article outlines the goals, tasks, and deliverables associated with the modeling stage of the Team Data Science Process (TDSP). This process provides a recommended lifecycle that you can use to structure your data-science projects. The lifecycle outlines the major stages that projects typically execute, often iteratively:
 
-* **Business understanding**
-* **Data acquisition and understanding**
-* **Modeling**
-* **Deployment**
-* **Customer acceptance**
+   1. **Business understanding**
+   2. **Data acquisition and understanding**
+   3. **Modeling**
+   4. **Deployment**
+   5. **Customer acceptance**
 
 Here is a visual representation of the TDSP lifecycle:
 
@@ -40,9 +40,9 @@ Here is a visual representation of the TDSP lifecycle:
 ## How to do it
 There are three main tasks addressed in this stage:
 
-* **Feature engineering**: Create data features from the raw data to facilitate model training.
-* **Model training**: Find the model that answers the question most accurately by comparing their success metrics.
-* Determine if your model is **suitable for production**.
+  * **Feature engineering**: Create data features from the raw data to facilitate model training.
+  * **Model training**: Find the model that answers the question most accurately by comparing their success metrics.
+  * Determine if your model is **suitable for production**.
 
 ### 3.1 Feature engineering
 Feature engineering involves the inclusion, aggregation, and transformation of raw variables to create the features used in the analysis. If you want insight into what is driving a model, then you need to understand how the features relate to each other and how the machine-learning algorithms are to use those features. 
@@ -56,10 +56,10 @@ Depending on the type of question that you're trying to answer, there are many m
 
 The process for model training includes the following steps: 
 
-* **Split the input data** randomly for modeling into a training data set and a test data set.
-* **Build the models** by using the training data set.
-* **Evaluate** the training and the test data set. Use a series of competing machine-learning algorithms along with the various associated tuning parameters (known as a *parameter sweep*) that are geared toward answering the question of interest with the current data.
-* **Determine the “best” solution** to answer the question by comparing the success metrics between alternative methods.
+   * **Split the input data** randomly for modeling into a training data set and a test data set.
+   * **Build the models** by using the training data set.
+   * **Evaluate** the training and the test data set. Use a series of competing machine-learning algorithms along with the various associated tuning parameters (known as a *parameter sweep*) that are geared toward answering the question of interest with the current data.
+   * **Determine the “best” solution** to answer the question by comparing the success metrics between alternative methods.
 
 > [!NOTE]
 > **Avoid leakage**: You can cause data leakage if you include data from outside the training data set that allows a model or machine-learning algorithm to make unrealistically good predictions. Leakage is a common reason why data scientists get nervous when they get predictive results that seem too good to be true. These dependencies can be hard to detect. To avoid leakage often requires iterating between building an analysis data set, creating a model, and evaluating the accuracy of the results. 
@@ -71,11 +71,11 @@ We provide an [automated modeling and reporting tool](https://github.com/Azure/A
 ## Artifacts
 The artifacts produced in this stage include:
 
-* [Feature sets](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/Data%20Defintion.md#feature-sets): The features developed for the modeling are described in the **Feature sets** section of the **Data definition** report. It contains pointers to the code to generate the features and a description of how the feature was generated.
-* [Model report](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Model/Model%201/Model%20Report.md): For each model that's tried, a standard, template-based report that provides details on each experiment is produced.
-* **Checkpoint decision**: Evaluate whether the model performs well enough to deploy it to a production system. Some key questions to ask are:
-  * Does the model answer the question with sufficient confidence given the test data? 
-  * Should you try any alternative approaches? Should you collect additional data, do more feature engineering, or experiment with other algorithms?
+   * [Feature sets](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/Data%20Defintion.md#feature-sets): The features developed for the modeling are described in the **Feature sets** section of the **Data definition** report. It contains pointers to the code to generate the features and a description of how the feature was generated.
+   * [Model report](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Model/Model%201/Model%20Report.md): For each model that's tried, a standard, template-based report that provides details on each experiment is produced.
+   * **Checkpoint decision**: Evaluate whether the model performs well enough to deploy it to a production system. Some key questions to ask are:
+     * Does the model answer the question with sufficient confidence given the test data? 
+     * Should you try any alternative approaches? Should you collect additional data, do more feature engineering, or experiment with other algorithms?
 
 ## Next steps
 

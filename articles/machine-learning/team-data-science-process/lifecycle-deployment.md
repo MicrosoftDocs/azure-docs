@@ -21,11 +21,11 @@ ms.author: bradsev;
 
 This article outlines the goals, tasks, and deliverables associated with the deployment of the Team Data Science Process (TDSP). This process provides a recommended lifecycle that you can use to structure your data-science projects. The lifecycle outlines the major stages that projects typically execute, often iteratively:
 
-* **Business understanding**
-* **Data acquisition and understanding**
-* **Modeling**
-* **Deployment**
-* **Customer acceptance**
+   1. **Business understanding**
+   2. **Data acquisition and understanding**
+   3. **Modeling**
+   4. **Deployment**
+   5. **Customer acceptance**
 
 Here is a visual representation of the TDSP lifecycle: 
 
@@ -42,11 +42,12 @@ The main task addressed in this stage:
 
 ### Operationalize a model
 After you have a set of models that perform well, you can operationalize them for other applications to consume. Depending on the business requirements, predictions are made either in real time or on a batch basis. To deploy models, you expose them with an open API interface. The interface enables the model to be easily consumed from various applications, such as:
-* Online websites
-* Spreadsheets 
-* Dashboards
-* Line-of-business applications 
-* Backend applications 
+
+   * Online websites
+   * Spreadsheets 
+   * Dashboards
+   * Line-of-business applications 
+   * Backend applications 
 
 For examples of model operationalization with an Azure Machine Learning web service, see [Deploy an Azure Machine Learning web service](../studio/publish-a-machine-learning-web-service.md). It is a best practice to build telemetry and monitoring into the production model and the data pipeline that you deploy. This practice helps with subsequent system status reporting and troubleshooting.  
 
