@@ -1,5 +1,5 @@
 ---
-title: Process Azure IoT Hub device-to-cloud messages using routes (.Net) | Microsoft Docs
+title: Routing messages from IoT Hub (.Net) | Microsoft Docs
 description: How to process IoT Hub device-to-cloud messages by using routing rules and custom endpoints to dispatch messages to other back-end services.
 services: iot-hub
 documentationcenter: .net
@@ -17,7 +17,7 @@ ms.date: 07/25/2017
 ms.author: dobett
 
 ---
-# Process IoT Hub device-to-cloud messages using routes (.NET)
+# Routing messages from IoT Hub (.NET)
 
 [!INCLUDE [iot-hub-selector-process-d2c](../../includes/iot-hub-selector-process-d2c.md)]
 
@@ -201,5 +201,5 @@ To learn more about message routing in IoT Hub, see [Send and receive messages w
 [lnk-devguide-messaging]: iot-hub-devguide-messaging.md
 [Azure IoT Developer Center]: https://azure.microsoft.com/develop/iot
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-[lnk-c2d]: iot-hub-csharp-csharp-process-d2c.md
+[lnk-c2d]: iot-hub-csharp-csharp-c2d.md
 [lnk-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/

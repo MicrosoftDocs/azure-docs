@@ -1,5 +1,5 @@
 ---
-title: Process Azure IoT Hub device-to-cloud messages (Java) | Microsoft Docs
+title: Routing messages from IoT Hub (Java) | Microsoft Docs
 description: How to process IoT Hub device-to-cloud messages by using routing rules and custom endpoints to dispatch messages to other back-end services.
 services: iot-hub
 documentationcenter: java
@@ -17,7 +17,7 @@ ms.date: 06/29/2017
 ms.author: dobett
 
 ---
-# Process IoT Hub device-to-cloud messages (Java)
+# Routing messages from IoT Hub (Java)
 
 [!INCLUDE [iot-hub-selector-process-d2c](../../includes/iot-hub-selector-process-d2c.md)]
 
