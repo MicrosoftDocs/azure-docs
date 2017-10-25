@@ -1,6 +1,6 @@
 # Overview
 ## [What is Azure AD Domain Services?](active-directory-ds-overview.md)
-## [Is it right for you?]
+## Is it right for you?
 ### [Features](active-directory-ds-features.md)
 ### [Compare with Windows Server AD](active-directory-ds-comparison.md)
 ### [Compare with Azure AD join](active-directory-ds-compare-with-azure-ad-join.md)
