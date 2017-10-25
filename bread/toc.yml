@@ -196,6 +196,9 @@
     tocHref: /azure/hdinsight/
     topicHref: /azure/hdinsight/
     items:
+      - name: Hadoop
+        tocHref: /azure/hdinsight/hadoop
+        topicHref: /azure/hdinsight/hadoop/apache-hadoop-introduction
       - name: Spark
         tocHref: /azure/hdinsight/spark
         topicHref: /azure/hdinsight/spark/apache-spark-overview

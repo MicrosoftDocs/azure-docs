@@ -1,5 +1,8 @@
 - name: HDInsight documentation
   href: index.md
+- name: Hadoop
+  href: ./hadoop/apache-hadoop-introduction.md
 - name: Spark
   href: ./spark/apache-spark-overview.md
+  
 
