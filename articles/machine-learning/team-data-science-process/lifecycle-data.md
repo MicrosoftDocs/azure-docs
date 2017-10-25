@@ -58,9 +58,9 @@ In addition to the initial ingestion and cleaning of the data, you typically nee
 
 In this stage, you develop a solution architecture of the data pipeline. You develop the pipeline in parallel with the next stage of the data science project. Depending on your business needs and the constraints of your existing systems into which this solution is being integrated, the pipeline can be one of the following: 
 
-    * Batch-based
-    * Streaming or real time 
-    * A hybrid 
+   * Batch-based
+   * Streaming or real time 
+   * A hybrid 
 
 ## Artifacts
 The following are the deliverables in this stage:
