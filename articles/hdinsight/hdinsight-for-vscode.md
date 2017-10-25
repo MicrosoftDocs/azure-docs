@@ -192,10 +192,12 @@ HDInsight Tools for VSCode also enable you to submit interactive PySpark queries
 6. Select a cluster to submit your PySpark query. Soon after, the query result is shown in the right new tab:
 
    ![submit python job result](./media/hdinsight-for-vscode/pyspark-interactive-result.png) 
-7. Our tool also supports query the **SQL Clause**. 
-   ![submit python job result](./media/hdinsight-for-vscode/pyspark-ineteractive-select-result.png)
+7. Our tool also supports query the **SQL Clause**.
 
+   ![submit python job result](./media/hdinsight-for-vscode/pyspark-ineteractive-select-result.png)
+   The submission status displays on the left of the bottom status bar when running queries. You cannot submit other queries when status is **PySpark Kernel (busy)**, otherwise, the running will be hang.
 8. Our clusters can maintain a session. For example, **a=100**, already keep this session in cluser, now you just only run **print a** to cluster.
+ 
 
 ## Submit PySpark job
 
