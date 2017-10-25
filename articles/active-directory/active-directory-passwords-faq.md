@@ -53,10 +53,6 @@ This FAQ is split into the following sections:
 * **Q:  Can my users register data in such a way that other users cannot see this data?**
 
   > **A:** Yes, when users register data using the Password Reset Registration Portal it is saved into private authentication fields that are only visible by Global Administrators and the user.
-    >
-    > [!NOTE]
-    > If an **Azure Administrator account** registers their authentication phone number it is also populated into the mobile phone field and is visible.
-    >
   >
   >
 * **Q:  Do my users have to be registered before they can use password reset?**

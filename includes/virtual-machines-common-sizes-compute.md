@@ -12,6 +12,8 @@ The Fs-series provides all the advantages of the F-series, in addition to Premiu
 
 # Fsv2-series
 
+ACU: 195 - 210
+
 | Size             | vCPU's | Memory: GiB | Local SSD: GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max NICs / Expected network performance (Mbps) |
 |------------------|--------|-------------|----------------|----------------|-----------------------------------------------------------------------|------------------------------------------------|
 | Standard_F2s_v2  | 2      | 4           | 16             | 4              | 4000 (32)                                                             | Moderate                                       |
