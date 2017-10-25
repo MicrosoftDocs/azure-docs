@@ -1,5 +1,5 @@
 ---
-title: Import utterances from the CSV query log  | Microsoft Docs 
+title: Import utterances from the CSV query log using Node.js | Microsoft Docs 
 description: Learn how to import utterances from the query log that contains all the user utterances passed to your LUIS endpoint. 
 services: cognitive-services
 author: DeniseMak
@@ -8,11 +8,11 @@ manager: rstand
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 10/26/2017
 ms.author: v-demak
 ---
 
-# Import utterances from the CSV query log
+# Import utterances from the query log using Node.js
 
 This tutorial helps you import utterances from the query log that contains all the user utterances passed to your LUIS endpoint.
 
@@ -24,14 +24,13 @@ This tutorial helps you import utterances from the query log that contains all t
 * Install the latest Node.js with NPM. Download it from [here](https://nodejs.org/en/download/).
 * **[Recommended]** Visual Studio Code for IntelliSense and debugging, download it from [here](https://code.visualstudio.com/) for free.
 
-## Upload utterances from Query log
+## Download the query log
 This sample shows how to import queries from an application's query log from [luis.ai](http://www.luis.ai).
 
 In order to export a LUIS application, select the download icon for the application and download the file. 
 
-![Export icon button on luis.ai](./media/luis-tutorial-node-import-utterances-csv/download-querylog.png) <!-- media\luis-tutorial-node-import-utterances-csv -->
+![Export icon button on luis.ai](./media/luis-tutorial-node-import-utterances-csv/download-querylog.png) 
 
-Change the downloadFile value in the index.js file to the location and name of your file. 
 
 ### Format of Query log
 The format of the query log is a CSV file with a heading row. The parsing needed to ignore the first two columns and focus on the third column.  
@@ -45,22 +44,14 @@ The format of the query log is a CSV file with a heading row. The parsing needed
 
 ## Download sample code
 
-The code for this tutorial is at [CSV Upload Sample](https://github.com/Microsoft/LUIS-Samples/tree/master/examples/demo-upload-example-utterances/demo-Upload-utterances-from-querylog). The sample's main file is [index.js](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/demo-upload-example-utterances/demo-Upload-utterances-from-querylog/index.js). This file contains the configuration settings and uploads the batch of utterances. 
+The code for this tutorial is at [CSV Upload Sample](https://github.com/Microsoft/LUIS-Samples/tree/master/examples/demo-upload-example-utterances/demo-Upload-utterances-from-querylog). Download the following files:
 
-- [_parse.js](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/demo-upload-example-utterances/demo-Upload-utterances-from-querylog/_parse.js): This file converts the utterances to the format expected by the [Batch Add Labels API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09).
-- [_upload.js](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/demo-upload-example-utterances/demo-Upload-utterances-from-querylog/_upload.js): This file contains methods for uploading JSON to the [Batch Add Labels API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09).
+| Filename    | Description           |
+|-------------|-----------------------|
+| [index.js](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/demo-upload-example-utterances/demo-Upload-utterances-from-querylog/index.js)  |  The sample's main file. It contains configuration settings and uploads the batch of utterances. Change the `downloadFile` value in the index.js file to the location and name of your query log file. |
+| [_parse.js](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/demo-upload-example-utterances/demo-Upload-utterances-from-querylog/_parse.js)  |  This file converts the utterances to the format expected by the [Batch Add Labels API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09) |
+| [_upload.js](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/demo-upload-example-utterances/demo-Upload-utterances-from-querylog/_upload.js)  |  This file contains methods for uploading JSON to the [Batch Add Labels API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09) |
 
-The sample creates files associated with each step:
-
-- [utterances.json: batch labels to upload
-- [utterances.upload.json: final response body from upload API
-
-Examples of the files used and produced by the sample are in the ./example-files subdirectory.
-
-If any of these files are missing, there was an error with the application. 
-
-## Batching Utterances
-The sample sends batches of utterances. They are grouped into pages before sending each page. Each batch sent of received is numbered with an "ExampleId" between 0-99. This helps you find which utterances failed.
 
 ## Install
 Install the Node.js dependencies from NPM in the terminal/command line.
@@ -93,7 +84,7 @@ or
 ````
 
 ## Application progress
-While the application is running, the terminal/command line shows progress.
+While the application is running, the command line shows progress.
 
 ````
 > node index.js
@@ -103,22 +94,35 @@ upload done
 process done
 ````
 
+## Batching Utterances
+The sample sends batches of utterances. They are grouped into pages before sending each page. Each batch sent of received is numbered with an "ExampleId" between 0-99. This helps you find which utterances failed.
+
+## Inspect the generated files
+The sample creates files associated with each step:
+
+* utterances.json: Batch labels to upload.
+* utterances.upload.json: The final response body from the Batch Add Labels API.
+
+Examples of the files used and produced by the sample are in the ./example-files subdirectory.
+
+If any of these files are missing, there was an error with the application. 
+
+## Format of the JSON for the batch upload
+The format of the JSON for the batch upload is noted in the [batch add labels](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09) API. Note that the format of the download for query logs is different both in content and format. 
+
+
 ## LUIS APIs used in this sample
-These demo applications use the following LUIS APIs:
+This sample applications use the following LUIS APIs:
 - [download query log](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36) API
 - [batch add labels](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09) API.
 
-## Format of the JSON for the batch upload
-The format of the JSON for the batch upload is noted in the [batch add labels](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09) API. It is important to not that the format of the download for query logs is different both in content and format. 
-
-If you export your application data from [luis.ai applications list](https://www.luis.ai/applications) with the **Export app data to JSON file**, you need to change the JSON format to match the stated format for the batch upload.  
 
 ## Troubleshooting
 
 ### Use your own private apps
 If you incorrectly use an app ID that you do not have permission to upload to, such as any public apps, you receive an error.
 
-### Intent And Entities are not created if NOT found
+### If intents and entities are not found, they are not created
 Any intent or entity uploaded that is not found in your LUIS app will cause an error. It is important that all intents and entities used in the batch already exist in the app.
 
 ### Errors in output file of the application
@@ -252,4 +256,4 @@ A malformed batch will also be refused because the JSON cannot be parsed as it i
 ## Next steps
 
 * Try to improve your app's performance by continuing to add and label utterances.
-* Try adding [Features](Add-Features.md) to enrich your model and improve performance in language understanding. Features help your app identify alternative interchangeable words/phrases, as well as commonly used patterns specific to your domain.
+
