@@ -6,6 +6,7 @@
 ## [Sign up with Office 365 account](billing-use-existing-office-365-account-azure-subscription.md)
 ## [Sign up for Office 365 with Azure account](billing-use-existing-azure-account-for-office-365-subscription.md)
 ## [Organize resources with management groups](billing-enterprise-mgmt-group-overview.md)
+## [Save money with Reserved VM Instances](billing-save-compute-costs-reservations.md)
 ## [Limits and quotas](../azure-subscription-service-limits.md?toc=/azure/billing/TOC.json)
 
 # How to
