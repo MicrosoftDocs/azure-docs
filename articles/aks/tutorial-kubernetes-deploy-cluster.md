@@ -36,7 +36,7 @@ In subsequent tutorials, the Azure Vote application is deployed to the cluster, 
 In previous tutorials, a container image was created and uploaded to an Azure Container Registry instance. If you have not done these steps, and would like to follow along, return to [Tutorial 1 – Create container images](./tutorial-kubernetes-prepare-app.md).
 
 ## Enabling AKS preview for your Azure subscription
-While AKS is in preview, creating new Managed Kubernetes Clusters requires a feature flag on your subscription. You may request this feature for any number of subscriptions that you would like to use. In Cloud Shell, enable AKS for your subscription with this command:
+While AKS is in preview, creating new clusters requires a feature flag on your subscription. You may request this feature for any number of subscriptions that you would like to use. Use the `az provider register` command to register the AKS provider:
 
 ```azurecli-interactive
 az provider register -n Microsoft.ContainerService
