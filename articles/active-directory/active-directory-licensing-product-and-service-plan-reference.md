@@ -1,7 +1,7 @@
 ﻿---
 
-  title: Reference for products and service plans in Azure Active Directory | Microsoft Docs
-  description: Reference for products and service plans
+  title: Product names and service plan identifiers for licensing in Azure Active Directory | Microsoft Docs
+  description: Identifier map to manage Azure AD licensing in the Azure portal, the Office 365 portal, PowerShell, or Microsoft Graph
   services: active-directory
   keywords: Azure Active Directory licensing service plans
   documentationcenter: ''
@@ -15,30 +15,26 @@
   ms.topic: article
   ms.tgt_pltfrm: na
   ms.workload: identity
-  ms.date: 10/11/2017
+  ms.date: 10/25/2017
   ms.author: piotrci
 
 ---
 
-# Reference for products and service plans in Azure Active Directory
+# Product names and service plan identifiers for licensing
 
-This article provides reference information that you may find useful when working on license management for Microsoft Online Services.
-
-## Product names and identifiers used in Azure AD
-
-When managing licenses in [Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) or Office portals you see user-friendly products names, such as *Office 365 Enterprise E3*. However when you use PowerShell v1.0 cmdlets, the same product is identified using a less friendly name: *ENTERPRISEPACK*. When using PowerShell v2.0 or Microsoft Graph, the same product is identified using a GUID value: *6fd2c87f-b296-42f0-b197-1e91e994b900*. The same goes for service plans included in the product.
+When [managing licenses in Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) or in the Office 365 portal, you see product names like *Office 365 Enterprise E3*. However, when you use PowerShell v1.0 cmdlets, the same product is identified using a specific but less friendly name: *ENTERPRISEPACK*. When using PowerShell v2.0 or Microsoft Graph, the same product is identified using a GUID value: *6fd2c87f-b296-42f0-b197-1e91e994b900*.
 
 The following table lists the most commonly used Microsoft Online Services products and provides their various ID values.
 
-- **Product Name**: You see these values in management portals
-- **String Id**: These are used by PowerShell v1.0 cmdlets when performing operations on licenses.
-- **Guid Id**: Azure AD Graph and Microsoft Graph use those.
-- **Service Plans Included**: A list of service plans in the product. The String Id and Guid Id are listed.
+- **Product Name**: Used in management portals
+- **String ID**: Used by PowerShell v1.0 cmdlets when performing operations on licenses.
+- **Guid ID (GUID)**: Used by Azure AD Graph and Microsoft Graph.
+- **Service Plans Included**: A list of service plans in the product that correspond to the String ID and GUID.
 
 >[!NOTE]
 >This information is accurate as of October 11, 2017. The table contains a selection of most commonly used products.
 
-| Product Name | String Id | Guid Id| Service Plans Included |
+| Product Name | String ID | GUID | Service Plans Included |
 | --- | --- | --- |--- |
 | AZURE ACTIVE DIRECTORY BASIC	| AAD_BASIC	| 2b9c8e7c-319c-43a2-a2a0-48c5c6161de7	| AAD_BASIC (c4da7f8a-5ee2-4c99-a7e1-87d2df57f6fe)
 | AZURE ACTIVE DIRECTORY PREMIUM P1	| AAD_PREMIUM	| 078d2b04-f1bd-4111-bbd4-b4b1b354cef4	| AAD_PREMIUM (41781fb2-bc02-4b7c-bd55-b576c07bb09d)<br/>MFA_PREMIUM (8a256a2b-b617-496d-b51b-e76466e88db0)
@@ -102,7 +98,7 @@ The following table lists the most commonly used Microsoft Online Services produ
 
 ## Service plans that cannot be assigned at the same time
 
-Some products contain service plans that are mutually exclusive - they cannot be assigned to the same user at the same time. For example, if you have *Office 365 Enterprise E1* and *Office 365 Enterprise E3* in your tenant, and you try to assign both licenses to the same user, the operation fails. This is because the E3 product contains the following service plans that conflict with their E1 counterparts:
+Some products contain service plans that cannot be assigned to the same user at the same time. For example, if you have *Office 365 Enterprise E1* and *Office 365 Enterprise E3* in your tenant, and you try to assign both licenses to the same user, the operation fails. This is because the E3 product contains the following service plans that conflict with their E1 counterparts:
 
 -   SharePoint Online (Plan 2) conflicts with SharePoint Online (Plan 1).
 -   Exchange Online (Plan 2) conflicts with Exchange Online (Plan 1).
