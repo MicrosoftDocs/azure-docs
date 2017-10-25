@@ -1,0 +1,50 @@
+---
+title: 
+description: 
+services: cognitive-services
+author: v-jansko
+manager: olivierf
+
+ms.service: cognitive-services
+ms.technology: microsoft translator
+ms.topic: article
+ms.date: 10/30/2017
+ms.author: v-jansko
+---
+
+# Follow these 4 steps to begin using the Microsoft Translator API
+
+
+## 1: Sign into Azure 	
+- Don't have an account? [Sign-up for a Microsoft Azure account](http://azure.com/)
+- Already have an account? [Sign-in](http://portal.azure.com/)
+
+## 2: Subscribe to Microsoft Translator 	
+-After you sign into Azure, go to the [Cognitive Services](https://portal.azure.com/#create/Microsoft.CognitiveServices) section
+-Under "API Type" select the Text or Speech API
+	- You can only add one Translator API subscription at a time
+-In the Pricing Tier section, select the pricing tier that best fits your needs
+	- Each subscription has a free tier. The free tier has the same features and functionalities as the paid plans and does not have an expiration date
+-Fill out the rest of the form, and select the Create button
+-All subscriptions go into effect immediately
+
+## 3: Authentication Key 	
+-Retrieve your authentication key by going to the menu All Resources > click on your subscription
+-The Key value is used for authentication, keep the Key value confidential. You will need this when you develop your app
+
+##4: Learn, Test & Get Support 	
+-Microsoft Translator API Documentation
+-Code examples on GitHub
+-Microsoft Translator Support Forum
+
+
+# Pricing Options
+-Translator Text API
+
+#Customization
+Translator Hub
+Use the Translator Hub pre-publishing tool to customize your translations and create a translation system tuned to your own terminology and style. [Learn more](https://www.microsoft.com/en-us/translator/hub.aspx)
+ 
+# Additional resources
+-[Get Started with Azure (5-minute video)](https://azure.microsoft.com/en-us/get-started/?b=16.24)
+-[How to Pay with an Invoice](https://azure.microsoft.com/en-us/pricing/invoicing/)
