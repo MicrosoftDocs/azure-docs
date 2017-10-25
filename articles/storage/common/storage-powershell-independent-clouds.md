@@ -1,5 +1,5 @@
 ---
-title: Managing Storage in the Azure independent cllouds Using Azure PowerShell | Microsoft Docs
+title: Managing Storage in the Azure independent clouds Using Azure PowerShell | Microsoft Docs
 description: Managing Storage in the China Cloud, Government Cloud, and Germany Cloud Using Azure PowerShell
 services: storage
 documentationcenter: na
@@ -12,7 +12,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 10/24/2017
 ms.author: robinsh
 ---
 
@@ -54,57 +54,60 @@ To access the China Cloud, use **AzureChinaCloud**. To access the German Cloud, 
 
 ## Endpoint suffix
 
-The endpoint suffix for each of these environments is different from the Azure Public endpoint. For example, the blob endpoint suffix for Azure Public is **blob.core.windows.net**. For the Government Cloud, the blob endpoint suffix will be **blob.core.usgovcloudapi.net**. To find the endpoint, you need a reference to a storage account. Then you can examine its properties to retrieve the endpoints. 
+The endpoint suffix for each of these environments is different from the Azure Public endpoint. For example, the blob endpoint suffix for Azure Public is **blob.core.windows.net**. For the Government Cloud, the blob endpoint suffix is **blob.core.usgovcloudapi.net**. 
 
-### Create a storage account 
+### Get endpoint using Get-AzureRMEnvironment 
 
-If you don't already have a storage account in your subscription, you can create a new one. This example uses the Government Cloud.
+Retrieve the endpoint suffix using [Get-AzureRMEnvironment](/powershell/module/azurerm.profile/get-azurermenvironment). The endpoint is the *StorageEndpointSuffix* property of the environment. The following code snippets show how to do this. All of these commands return something like "core.cloudapp.net" or "core.cloudapi.de", etc. Append this to the storage service to access that service. For example, "queue.core.cloudapi.de" will access the queue service in Germany Cloud.
+
+This code snippet retrieves all of the environments and the endpoint suffix for each one.
 
 ```powershell
-# Get list of locations and select one.
-Get-AzureRmLocation | select Location 
-$location = "usgovvirginia"
-
-# Create a new resource group.
-$resourceGroup = "teststoragerg"
-New-AzureRmResourceGroup -Name $resourceGroup -Location $location 
-
-# Set the name of the storage account and the SKU name. 
-$storageAccountName = "testpshstorage"
-$skuName = "Standard_LRS"
-    
-# Create the storage account.
-$storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
-  -Name $storageAccountName `
-  -Location $location `
-  -SkuName $skuName
+Get-AzureRmEnvironment | select Name, StorageEndpointSuffix 
 ```
 
-### Get a reference to a storage account 
-
-If you already have a storage account in your subscription, you can get a reference to it. 
+This code snippet retrieves all of the properties for the specified environment -- in this instance, Germany Cloud. This will return a list of properties; look for **StorageEndpointSuffix** in the list.
 
 ```powershell
+Get-AzureRmEnvironment -Name AzureGermanCloud 
+```
+
+To retrieve just the storage endpoint suffix property, retrieve the specific cloud and ask for just that one property.
+
+```powershell
+$environment = Get-AzureRmEnvironment -Name AzureGermanCloud
+Write-Host "Storage EndPoint Suffix = " $environment.StorageEndpointSuffix 
+```
+
+### Get endpoint from a storage account
+
+You can also examine the properties of a storage account to retrieve the endpoints. This can be helpful if you are already using a storage account in your PowerShell script; you can just retrieve the endpoint you need. 
+
+```powershell
+# Get a reference to the storage account.
 $resourceGroup = "myexistingresourcegroup"
 $storageAccountName = "myexistingstorageaccount"
-
 $storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
   -Name $storageAccountName 
-```
-
-### Retrieve the endpoint information
-
-Now that you have a reference to a storage account, you can examine it to find the endpoint suffix.
-
-```powershell
+  # Output the endpoints.
 Write-Host "blob endpoint = " $storageAccount.PrimaryEndPoints.Blob 
+Write-Host "files endpoint = " $storageAccount.PrimaryEndPoints.File
+Write-Host "queue endpoint = " $storageAccount.PrimaryEndPoints.Queue
+Write-Host "table endpoint = " $storageAccount.PrimaryEndPoints.Table
 ```
 
-This shows the blob endpoint is **blob.core.usgovcloudapi.net**, so the suffix for accessing the storage account is **.core.usgovcloudsapi.net**.
+For a storage account in the Government Cloud, this returns the following: 
+
+```
+blob endpoint = http://myexistingstorageaccount.blob.core.usgovcloudapi.net/
+files endpoint = http://myexistingstorageaccount.files.core.usgovcloudapi.net/
+queue endpoint = http://myexistingstorageaccount.queue.core.usgovcloudapi.net/
+table endpoint = http://myexistingstorageaccount.table.core.usgovcloudapi.net/
+```
 
 ## After setting the environment
 
-From here forward, you can use the same PowerShell used to manage your storage accounts and access the data plane as described in the article [Using Azure PowerShell with Azure Storage](storage-powershell-guide-full.md).
+From here going forward, you can use the same PowerShell used to manage your storage accounts and access the data plane as described in the article [Using Azure PowerShell with Azure Storage](storage-powershell-guide-full.md).
 
 ## Clean up resources
 
@@ -118,7 +121,6 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 
 * [Persisting user logins across PowerShell sessions](/powershell/azure/context-persistence)
 * [Azure Government storage](../../azure-government/documentation-government-services-storage.md)
-* [Connect to Azure Government Cloud with PowerShell](../../azure-government/documentation-government-get-started-connect-with-ps.md)
-* [Microsoft Azure Government Developer Guide](../../azure-government/documentation-government-developer-guide.md)
+s* [Microsoft Azure Government Developer Guide](../../azure-government/documentation-government-developer-guide.md)
 * [Developer Notes for Azure China Applications](https://msdn.microsoft.com/library/azure/dn578439.aspx)
 * [Azure Germany Documentation](../../germany/germany-welcome.md)
