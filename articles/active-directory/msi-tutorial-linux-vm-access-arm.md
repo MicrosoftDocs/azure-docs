@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/24/2017
+ms.date: 10/25/2017
 ms.author: elkuzmen
 ---
 
@@ -28,8 +28,9 @@ You learn how to:
 > * Grant your VM access to a Resource Group in Azure Resource Manager 
 > * Get an access token using the VM identity and use it to call Azure Resource Manager 
 
+## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+[!INCLUDE [msi-qs-configure-prereqs](../../includes/msi-qs-configure-prereqs.md)]
 
 ## Sign in to Azure
 
