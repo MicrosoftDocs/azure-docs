@@ -18,7 +18,7 @@ ms.date: 06/13/2017
 ms.author: robinsh
 ---
 
-# Calculate the size of a blob storage container
+# Calculate the size of a blob container
 
 This script calculates the size of a container in Azure Blob storage by totaling the size of the blobs in the container.
 
@@ -26,15 +26,15 @@ This script calculates the size of a container in Azure Blob storage by totaling
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## Understand the size of the blob storage container
+## Determine the size of the blob container
 
-The total size of the blob storage container includes the size of the container itself and the size of all blobs under the container.
+The total size of the blob container includes the size of the container itself and the size of all blobs under the container.
 
-The following section describes how the storage capacity is calculated for blob containers and blobs. In the following section, Len(X) means the number of characters in the string.
+The following sections describes how the storage capacity is calculated for blob containers and blobs. In the following section, Len(X) means the number of characters in the string.
 
 ### Blob containers
 
-The following section describes how to estimate the amount of storage that's consumed per blob container:
+The following calculation describes how to estimate the amount of storage that's consumed per blob container:
 
 `
 48 bytes + Len(ContainerName) * 2 bytes +
@@ -53,7 +53,7 @@ Following is the breakdown:
 
 ### Blobs
 
-The following section explains how to estimate the amount of storage consumed per blob.
+The following calculations show how to estimate the amount of storage consumed per blob.
 
 * Block blob (base blob or snapshot):
 
