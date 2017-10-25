@@ -26,7 +26,7 @@ This article is the first in a series of tutorials that show you how to move a .
 Before you begin this tutorial:
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Install the [Service Fabric SDK](service-fabric-get-started.md).
-- Install [Azure Powershell module version 4.1 or higher](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) (if needed,  [install Azure PowerShell](/powershell/azure/overview) or [update to a newer version](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0#update-azps)).
+- Install [Azure Powershell module version 4.1 or higher](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). (If needed,  [install Azure PowerShell](/powershell/azure/overview) or [update to a newer version](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0#update-azps).)
 
 
 ## Create a Service Fabric cluster
@@ -51,7 +51,7 @@ Open a PowerShell console, log in to Azure, and select the subscription you want
    | Parameter       | Description | Suggested Value |
    | --------------- | ----------- | --------------- |
    | Location | The Azure region where you deployed the cluster. | For example, *westeurope*, *eastasia*, or *eastus* |
-   | Name     | The name of the cluster you want to create. The name must be between 4-23 characters and can only have lowercase letters, numbers, and hyphens. | For example, *bobs-sfpreviewcluster* |
+   | Name     | The name of the cluster you want to create. The name must be 4-23 characters and can only have lowercase letters, numbers, and hyphens. | For example, *bobs-sfpreviewcluster* |
    | ResourceGroupName   | The name of the resource group in which to create the cluster. | For example, *myresourcegroup* |
    | VmSku  | The virtual machine SKU to use for the nodes. | Any valid virtual machine SKU |
    | OS  | The virtual machine OS to use for the nodes. | Any valid virtual machine OS |
@@ -77,7 +77,7 @@ After you decide on the parameters that fit your requirements, run the following
 You can modify this script to include additional parameters. For more information on parameters for cluster creation, see the [New-AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/new-azurermservicefabriccluster.md) cmdlet.
 
 >[!NOTE]
->Before you run this command you must create a folder where you can store the cluster certificate.
+>Before you run this command, you must create a folder where you can store the cluster certificate.
 
 ```PowerShell
 
@@ -129,7 +129,7 @@ This command installs the certificate on the current user of your machine. You n
 After you have both the cluster and the imported certificate, you can connect to the cluster and view its health. There are multiple ways to connect, via either Service Fabric Explorer or PowerShell.
 
 ### Service Fabric Explorer
-You can view the health of your cluster through Service Fabric Explorer. To do so, browse to the **ManagementEndpoint** URL for your cluster, then select the certificate you saved on your machine.
+You can view the health of your cluster through Service Fabric Explorer. To do so, browse to the **ManagementEndpoint** URL for your cluster, and then select the certificate you saved on your machine.
 
 >[!NOTE]
 >When you open Service Fabric Explorer, you see a certificate error, as you're using a self-signed certificate. In Edge, you have to click **Details**, and then click the **Go on to the webpage** link. In Chrome, you have to click **Advanced**, and then click the **proceed** link.
