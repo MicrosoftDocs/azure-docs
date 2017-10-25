@@ -60,11 +60,11 @@ For Spark users, the Python extension is recommended for better language service
 
 ## Open HDInsight workspace
 
-You must create a workspace in VSCode before you can connect to Azure.
+You need create a workspace in VSCode before you can connect to Azure.
 
 **To open a workspace**
 
-1. From the **File** menu, click **Open Folder**, specify an existing folder, or create a new folder as your work folder. The foler appears on the left pane.
+1. From the **File** menu, click **Open Folder**, specify an existing folder, or create a new folder as your work folder. The folder appears on the left pane.
 2. From left pane, click the **New File** icon next to the work folder.
 
    ![new file](./media/hdinsight-for-vscode/new-file.png)
@@ -187,7 +187,7 @@ HDInsight Tools for VSCode also enable you to submit interactive PySpark queries
    for i in range(0, 5):
         print(sortedCollection[i])
    ```
-4. Highlight these script and right click the script editor, then click **HDInsight: PySpark Interactive**.
+4. Highlight these scripts and right-click the script editor, then click **HDInsight: PySpark Interactive**.
 5. Set up python environment if you don't install it. The instruction, see [Set Up PySpark Interactive Environment for Visual Studio Code](set-up-pyspark-interactive-environment.md).
 6. Select a cluster to submit your PySpark query. Soon after, the query result is shown in the right new tab:
 
@@ -195,8 +195,8 @@ HDInsight Tools for VSCode also enable you to submit interactive PySpark queries
 7. Our tool also supports query the **SQL Clause**.
 
    ![submit python job result](./media/hdinsight-for-vscode/pyspark-ineteractive-select-result.png)
-   The submission status displays on the left of the bottom status bar when running queries. You cannot submit other queries when status is **PySpark Kernel (busy)**, otherwise, the running will be hang.
-8. Our clusters can maintain a session. For example, **a=100**, already keep this session in cluser, now you just only run **print a** to cluster.
+   The submission status displays on the left of the bottom status bar when running queries. You cannot submit other queries when status is **PySpark Kernel (busy)**, otherwise, the running is hang.
+8. Our clusters can maintain a session. For example, **a=100**, already keep this session in cluster, now you only run **print a** to cluster.
  
 
 ## Submit PySpark job

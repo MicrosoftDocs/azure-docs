@@ -22,8 +22,8 @@ ms.author: jejiang
 # Set Up PySpark Interactive Environment for Visual Studio Code
 
 The following steps show how to install python packages when run **HDInsight: PySpark Interactive**.
-You need to use command **pip3** for the following steps, if it is **python 3.x**.
-1.	Make sure the **Python** and **pip** installed.
+You need use command **pip3** for the following steps, if it is **python 3.x**.
+1. Make sure the **Python** and **pip** installed.
  
     ![python pip version](./media/set-up-pyspark-interactive-environment/check-python-pip-version.png)
 
@@ -46,19 +46,19 @@ You need to use command **pip3** for the following steps, if it is **python 3.x*
     sudo apt-get install libkrb5-dev 
     ```
 
-3.	Install sparkmagic
-    ```
-    sudo pip install sparkmagic
-    ```
+3. Install sparkmagic
+   ```
+   sudo pip install sparkmagic
+   ```
 
-4.	Make sure that ipywidgets is properly installed by running:
-    ```
-    sudo jupyter nbextension enable --py --sys-prefix widgetsnbextension
-    ```
-     ![Install the wrapper kernels](./media/set-up-pyspark-interactive-environment/ipywidget-enable.png)
+4. Make sure that ipywidgets is properly installed by running:
+   ```
+   sudo jupyter nbextension enable --py --sys-prefix widgetsnbextension
+   ```
+   ![Install the wrapper kernels](./media/set-up-pyspark-interactive-environment/ipywidget-enable.png)
  
 
-5.	Install the wrapper kernels. Do run **pip show sparkmagic** and it shows the path that sparkmagic is installed. 
+5. Install the wrapper kernels. Do run **pip show sparkmagic** and it shows the path that sparkmagic is installed. 
 
     ![sparkmagic location](./media/set-up-pyspark-interactive-environment/sparkmagic-location.png)
    
@@ -79,7 +79,24 @@ You need to use command **pip3** for the following steps, if it is **python 3.x*
     ```
     ![jupyter kernelspec list](./media/set-up-pyspark-interactive-environment/jupyter-kernelspec-list.png)
 
-    For available kernels: **python2** and **pysparkkernel** correspond to python 2.x, **python3** and **pyspark3kernel** correspond to python 3.x. 
+    For available kernels: **python2** and **pysparkkernel** correspond to **python 2.x**, **python3** and **pyspark3kernel** correspond to **python 3.x**. 
 
 8. Restart VScode and back to script editor running **HDInsight: PySpark Interactive**.
 
+## Next steps
+
+### Demo
+* HDInsight for VScode: [Video](https://go.microsoft.com/fwlink/?linkid=858706)
+
+### Tools and extensions
+* [Use Azure HDInsight Tool for Visual Studio Code](hdinsight-for-vscode.md)
+* [Use Azure Toolkit for IntelliJ to debug Spark applications remotely through VPN](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Use Azure Toolkit for IntelliJ to debug Spark applications remotely through SSH](hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh.md)
+* [Use HDInsight Tools for IntelliJ with Hortonworks Sandbox](hdinsight-tools-for-intellij-with-hortonworks-sandbox.md)
+* [Use HDInsight Tools in Azure Toolkit for Eclipse to create Spark applications](hdinsight-apache-spark-eclipse-tool-plugin.md)
+* [Use Zeppelin notebooks with a Spark cluster on HDInsight](hdinsight-apache-spark-zeppelin-notebook.md)
+* [Kernels available for Jupyter notebook in Spark cluster for HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
+* [Use external packages with Jupyter notebooks](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+* [Install Jupyter on your computer and connect to an HDInsight Spark cluster](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
+* [Visualize Hive data with Microsoft Power BI in Azure HDInsight](./hdinsight-connect-hive-power-bi.md).
+* [Use Zeppelin to run Hive queries in Azure HDInsight ](./hdinsight-connect-hive-zeppelin.md).
