@@ -41,7 +41,11 @@ In a terminal window, run the following command to clone the sample app reposito
 git clone https://github.com/Azure-Samples/html-docs-hello-world.git
 ```
 
-You use this terminal window to run all the commands in this quickstart.
+Change to the directory that contains the sample code.
+
+```bash
+cd html-docs-hello-world
+```
 
 ## View the HTML
 
@@ -60,10 +64,6 @@ Navigate to the directory that contains the sample HTML. Open the *index.html* f
 [!INCLUDE [Create web app](../../includes/app-service-web-create-web-app.md)] 
 
 ![Empty web app page](media/app-service-web-get-started-html/app-service-web-service-created.png)
-
-You’ve created an empty new web app in Azure.
-
-[!INCLUDE [Configure local git](../../includes/app-service-web-configure-local-git.md)] 
 
 [!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)] 
 
@@ -111,7 +111,7 @@ The page is running as an Azure App Service web app.
 
 Open the *index.html* file in a text editor, and make a change to the markup. For example, change the H1 heading from "Azure App Service - Sample Static HTML Site" to just "Azure App Service`.
 
-Commit your changes in Git, and then push the code changes to Azure.
+In the local terminal window, commit your changes in Git, and then push the code changes to Azure.
 
 ```bash
 git commit -am "updated HTML"

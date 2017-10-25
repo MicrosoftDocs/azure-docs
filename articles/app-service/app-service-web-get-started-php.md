@@ -67,13 +67,17 @@ In your terminal window, press **Ctrl+C** to exit the web server.
 
 [!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)]
 
-[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app.md)]
+## Create a web app
+
+[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-php-no-h.md)]
+
+Browse to your newly created web app. Replace _&lt;app name>_ with a unique app name.
+
+```bash
+http://<app name>.azurewebsites.net
+```
 
 ![Empty web app page](media/app-service-web-get-started-php/app-service-web-service-created.png)
-
-You’ve created an empty new web app in Azure.
-
-[!INCLUDE [Configure local git](../../includes/app-service-web-configure-local-git.md)] 
 
 [!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)] 
 
@@ -124,7 +128,7 @@ Using a local text editor, open the `index.php` file within the PHP app, and mak
 echo "Hello Azure!";
 ```
 
-Commit your changes in Git, and then push the code changes to Azure.
+In the local terminal window, commit your changes in Git, and then push the code changes to Azure.
 
 ```bash
 git commit -am "updated output"
