@@ -3,7 +3,7 @@
 - name: Apache Hadoop on HDInsight
   items:
   - name: Overview
-    href: hdinsight-hadoop-introduction.md
+    href: apache-hadoop-introduction.md
   - name: Hadoop components on HDInsight
     href: ../hdinsight-component-versioning.md
     maintainContext: true
@@ -86,7 +86,7 @@
     - name: Develop C# streaming MapReduce programs
       href: apache-hadoop-dotnet-csharp-mapreduce-streaming.md
     - name: Develop Java MapReduce programs
-      href: apache-develop-deploy-java-mapreduce-linux.md
+      href: apache-hadoop-develop-deploy-java-mapreduce-linux.md
     - name: Use empty edge nodes
       href: ../hdinsight-apps-use-edge-node.md
       maintainContext: true
@@ -137,7 +137,7 @@
     - name: Analyze website logs with Hive
       href: apache-hive-analyze-website-log.md
     - name: Analyze Application Insights telemetry logs
-      href: ../spark/apache-spark-analyze-application-insight-logs
+      href: ../spark/apache-spark-analyze-application-insight-logs.md
       maintainContext: true
   - name: Extend clusters
     items:
@@ -446,4 +446,3 @@
   - name: Windows tools for HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-    
