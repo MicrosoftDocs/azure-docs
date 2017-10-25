@@ -108,15 +108,15 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	a. In the **Identifier** textbox,
 	
-	For the testing environment, Type the URL: `https://staging.insigniagroup.com/sso`
+	For the testing environment, type the URL: `https://staging.insigniagroup.com/sso`
 
-	For the production environment, Type the URL: `https://oeaccessories.com/sso`
+	For the production environment, type the URL: `https://oeaccessories.com/sso`
 
 	b. In the **Reply URL** textbox,
 	
-	For the testing environment, Type the URL: `https://indie.staging.insigniagroup.com/sso/autonation.aspx`
+	For the testing environment, type the URL: `https://indie.staging.insigniagroup.com/sso/autonation.aspx`
 
-	For the production environment, Type the URL: `https://igaccessories.com/sso/autonation.aspx`
+	For the production environment, type the URL: `https://igaccessories.com/sso/autonation.aspx`
 
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
@@ -134,7 +134,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| Hyperion-Code  | "12345" |
 
 	> [!NOTE]
-	> **User-Role** and **Hyperion-Code** attributes are mapped with Autonation User Role and Dealer Code respectively. Please use the correct code for your integration. You can contact [Autonation support](mailto:CustomerService@insigniagroup.com) for these values.
+	> **User-Role** and **Hyperion-Code** attributes are mapped with Autonation User Role and Dealer Code respectively. These values are example only, please use the correct code for your integration. You can contact [Autonation support](mailto:CustomerService@insigniagroup.com) for these values.
 	
 	a. Click **Add attribute** to open the **Add Attribute** dialog.
 
