@@ -367,11 +367,11 @@ The NPS extension needs to be installed on a server that has the Network Policy 
 1. Download the NPS extension from [https://aka.ms/npsmfa](https://aka.ms/npsmfa). 
 2. Copy the setup executable file (NpsExtnForAzureMfaInstaller.exe) to the NPS server.
 3. On the NPS server, double-click **NpsExtnForAzureMfaInstaller.exe**. If prompted, click **Run**.
-4. In the NPS Extension for Azure MFA dialog box, review the software license terms, check **I agree to the license terms and conditions**, and click **Install**.
+4. In the NPS Extension For Azure MFA Setup dialog box, review the software license terms, check **I agree to the license terms and conditions**, and click **Install**.
 
  ![NPS Extension](./media/nps-extension-vpn/image36.png)
  
-5. In the NPS Extension for Azure MFA dialog box, click **Close**.  
+5. In the NPS Extension For Azure MFA Setup dialog box, click **Close**.  
 
  ![Setup Successful](./media/nps-extension-vpn/image37.png) 
  
