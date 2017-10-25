@@ -32,6 +32,8 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ## Prerequisites
 - **Azure SQL Database server**. If you don't already have a database server, create one in the Azure portal before you get started. This server hosts the SSIS Catalog database (SSISDB). We recommend that you create the database server in the same Azure region as the integration runtime. This configuration lets the integration runtime write execution logs to SSISDB without crossing Azure regions. 
+    - Confirm that the "**Allow access to Azure services**" setting is **ON** for the database server. For more information, see [Secure your Azure SQL database](../sql-database/sql-database-security-tutorial.md#create-a-server-level-firewall-rule-in-the-azure-portal). To enable this setting by using PowerShell, see [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule?view=azurermps-4.4.1).
+    - Add the IP address of the client machine or a range of IP addresses that includes the IP address of client machine to the client IP address list in the firewall settings for the database server. For more information, see [Azure SQL Database server-level and database-level firewall rules](../sql-database/sql-database-firewall-configure.md). 
 - **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps). You use PowerShell to run a script to provision an Azure-SSIS integration runtime that runs SSIS packages in the cloud. 
 
 ## Launch Windows PowerShell ISE
@@ -90,6 +92,24 @@ Catch [System.Data.SqlClient.SqlException]
     } 
 }
 ```
+
+To create an Azure SQL database as part of the script, see the following example: 
+
+Set values for the variables that haven't been defined already. For example: FirewallIPAddress. 
+
+```powershell
+New-AzureRmSqlServer -ResourceGroupName $ResourceGroupName `
+  -ServerName $SQLServerName `
+    -Location $DataFactoryLocation `
+    -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $SQLServerAdmin, $(ConvertTo-SecureString -String $SQLServerPass -AsPlainText -Force))
+
+New-AzureRmSqlServerFirewallRule -ResourceGroupName $ResourceGroupName `
+    -ServerName $SQLServerName `
+    -FirewallRuleName "ClientIPAddress_$today" -StartIpAddress $FirewallIPAddress -EndIpAddress $FirewallIPAddress
+
+New-AzureRmSqlServerFirewallRule -ResourceGroupName $ResourceGroupName -ServerName $SQLServerName -AllowAllAzureIPs
+```
+
 
 ## Log in and select subscription
 Add the following code to the script to log in and select your Azure subscription: 

@@ -1,10 +1,29 @@
 <!-- F-series, Fs-series* -->
 
-F-series is based on the 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) processor, which can achieve clock speeds as high as 3.1 GHz with the Intel Turbo Boost Technology 2.0. This is the same CPU performance as the Dv2-series of VMs.  At a lower per-hour list price, the F-series is the best value in price-performance in the Azure portfolio based on the Azure Compute Unit (ACU) per vCPU. 
+Fsv2-series is based on the Intel® Xeon® Platinum 8168 processor, featuring a base core frequency of 2.7 GHz and a maximum single-core turbo frequency of 3.7 GHz. Intel® AVX-512 instructions, which are new on Intel Scalable Processors, will provide up to a 2X performance boost to vector processing workloads on both single and double precision floating point operations. In other words, they are really fast for any computational workload. 
+
+At a lower per-hour list price, the Fsv2-series is the best value in price-performance in the Azure portfolio based on the Azure Compute Unit (ACU) per vCPU. 
+
+F-series is based on the 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) processor, which can achieve clock speeds as high as 3.1 GHz with the Intel Turbo Boost Technology 2.0. This is the same CPU performance as the Dv2-series of VMs.  
 
 F-series VMs are an excellent choice for workloads that demand faster CPUs but do not need as much memory or temporary storage per vCPU.  Workloads such as analytics, gaming servers, web servers, and batch processing will benefit from the value of the F-series.
 
 The Fs-series provides all the advantages of the F-series, in addition to Premium storage.
+
+# Fsv2-series
+
+ACU: 195 - 210
+
+| Size             | vCPU's | Memory: GiB | Local SSD: GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max NICs / Expected network performance (Mbps) |
+|------------------|--------|-------------|----------------|----------------|-----------------------------------------------------------------------|------------------------------------------------|
+| Standard_F2s_v2  | 2      | 4           | 16             | 4              | 4000 (32)                                                             | Moderate                                       |
+| Standard_F4s_v2  | 4      | 8           | 32             | 8              | 8000 (64)                                                             | Moderate                                       |
+| Standad_F8s_v2   | 8      | 16          | 64             | 16             | 16000 (128)                                                           | High                                           |
+| Standard_F16s_v2 | 16     | 32          | 128            | 32             | 32000 (256)                                                           | High                                           |
+| Standard_F32s_v2 | 32     | 64          | 256            | 32             | 64000 (512)                                                           | Extremely High                                 |
+| Standard_F64s_v2 | 64     | 128         | 512            | 32             | 128000 (1024)                                                         | Extremely High                                 |
+| Standard_F72s_v2 | 72     | 144         | 576            | 32             | 144000 (1520)                                                         | Extremely High                                 |
+
 
 ## Fs-series*
 
