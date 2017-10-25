@@ -47,7 +47,7 @@ After your storage account is created, it is pinned to the dashboard. Click on i
 
 ## Download the sample application
 
-The sample application used in this quickstart is a basic console application. 
+The [sample application](https://github.com/Azure-Samples/storage-blobs-java-quickstart) used in this quickstart is a basic console application. 
 
 Use [git](https://git-scm.com/) to download a copy of the application to your development environment. 
 
@@ -68,7 +68,7 @@ In the application, you must provide the connection string for your storage acco
 
 ```java
     public static final String storageConnectionString ="DefaultEndpointsProtocol=http;" +
-     "AccountName=myexamplesacct;" +
+     "AccountName=youraccountname;" +
     "AccountKey=7NGE5jasdfdRzASDFNOMEx1u20W/thisisjustC/anexampleZK/Rt5pz2xNRrDckyv8EjB9P1WGF==";
 ```
 
