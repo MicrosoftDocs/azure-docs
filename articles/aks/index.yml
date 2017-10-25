@@ -2,7 +2,7 @@
 documentType: LandingData
 title: Azure Container Service (AKS)
 metadata:
-  document_id: 
+  document_id:
   title: Azure Container Service (AKS) Documentation - Tutorials, API Reference | Microsoft Docs
   meta.description: AKS allows you to quickly deploy a production ready Kubernetes cluster in Azure. Learn how to use AKS with these quickstarts, tutorials, and samples.
   services: container-service
@@ -23,8 +23,8 @@ sections:
     text: 'Learn how to deploy an AKS cluster:'
   - type: list
     style: icon48
-    items: 
-    - image: 
+    items:
+    - image:
         src: /azure/media/index/ContainerService.svg
       text: Create an AKS cluster
       href: /azure/aks/kubernetes-walkthrough
@@ -50,6 +50,6 @@ sections:
     className: cardsD
     items:
     - title: Command line
-      html: <p><a href="/cli/azure/acs">Azure CLI</a></p>
+      html: <p><a href="/cli/azure/aks">Azure CLI</a></p>
     - title: REST
       html: <p><a href="/rest/api/container-service">REST API</a></p>
