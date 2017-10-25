@@ -103,7 +103,7 @@ April Guest OS rollout is starting April 18 and has a projected release of May 9
 ## Family 4 releases
 **Windows Server 2012 R2**
 
-.NET Framework Installed: .NET 4.0, 4.5, 4.5.1, 4.5.2
+.NET Framework Installed: 4.0, 4.5, 4.5.1, 4.5.2
 
 > [!NOTE]
 > Dates with a * are subject to change

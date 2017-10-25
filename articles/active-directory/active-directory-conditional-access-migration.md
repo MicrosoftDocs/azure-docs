@@ -72,19 +72,7 @@ See:
  
 
 
-## What you should know 
 
-- Classic policies configured for device and app (mobile app management) based controls work like multiple controls with one selected control to be required (OR).  
-
-- Classic policies for app based controls apply only to **Office 365 Exchange Online** and **Office 365 SharePoint Online**. 
-
-- Policies configured with classic controls and the new Azure portal controls work like separate multiple policies where all selected controls need to be fulfilled (AND).  
-
-- The **Office 365 Exchange online** cloud app requires 2 policies if you’re looking to support all supported client apps (browser, modern authentication clients and Exchange Active Sync apps).  
-
-- Classic policies for app-based controls are pre-configured for iOS and Android only. New Azure portal requires you to pick the device platform explicitly. 
-
-- Classic policies for app-based controls for Office 365 Exchange Online are configured to allow supported and unsupported platforms for Exchange ActiveSync. 
 
 
 ## Multi-factor authentication policy 
