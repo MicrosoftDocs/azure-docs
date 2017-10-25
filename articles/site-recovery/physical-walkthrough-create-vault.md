@@ -38,7 +38,7 @@ Select what you want to replicate, and where you want to replicate to.
 
 1. Click **Recovery Services vaults** > vault.
 2. In the Resource Menu, click **Site Recovery** > **Prepare Infrastructure** > **Protection goal**.
-3. In **Protection goal**, select **To Azure** > **Not virtualized/Other**.
+3. In **Protection goal**, select **On-premises**, **To Azure**, and **Not virtualized/Other**.
 
 
 ## Next steps
