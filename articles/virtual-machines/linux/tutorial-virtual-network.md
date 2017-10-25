@@ -126,11 +126,11 @@ az vm start --resource-group myRGNetwork --name myFrontendVM --no-wait
 
 ### No public IP address
 
-Often, a VM does not need to be accessible over the internet. To create a VM without a public IP address, use the `--public-ip-address ""` argument with an empty set of double quotes. This configuration is demonstrated later in this tutorial
+Often, a VM does not need to be accessible over the internet. To create a VM without a public IP address, use the `--public-ip-address ""` argument with an empty set of double quotes. This configuration is demonstrated later in this tutorial.
 
 ## Create a front-end VM
 
-Use the [az vm create](/cli/azure/vm#create) command to create the VM named *myFrontendVM* and a public IP address named *my.
+Use the [az vm create](/cli/azure/vm#create) command to create the VM named *myFrontendVM* and a public IP address named *myPublicIPAddress*.
 
 ```azurecli-interactive 
 az vm create \

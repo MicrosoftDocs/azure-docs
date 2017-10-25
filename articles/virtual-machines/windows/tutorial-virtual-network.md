@@ -130,7 +130,7 @@ Set the username and password needed for the administrator account on the VM usi
 $cred = Get-Credential
 ```
 
-Create the VMs using [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig), [Set-AzureRmVMOperatingSystem](/powershell/module/azurerm.compute/set-azurermvmoperatingsystem), [Set-AzureRmVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage), [Set-AzureRmVMOSDisk](/powershell/module/azurerm.compute/set-azurermvmosdisk), [Add-AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface), and [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). 
+Create the VMs using [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig), [Set-AzureRmVMOperatingSystem](/powershell/module/azurerm.compute/set-azurermvmoperatingsystem), [Set-AzureRmVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage), [Set-AzureRmVMOSDisk](/powershell/module/azurerm.compute/set-azurermvmosdisk), [Add-AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface), and [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm):
 
 ```azurepowershell-interactive
 $frontendVM = New-AzureRmVMConfig `
@@ -216,7 +216,7 @@ Add a network security group named *myFrontendNSG* using [New-AzureRmNetworkSecu
 $nsgFrontend = New-AzureRmNetworkSecurityGroup `
   -ResourceGroupName myRGNetwork `
   -Location EastUS `
-  -Name myBackendNSG `
+  -Name myFrontendNSG `
   -SecurityRules $nsgFrontendRule
 ```
 
@@ -230,7 +230,7 @@ $nsgBackend = New-AzureRmNetworkSecurityGroup `
   -SecurityRules $nsgBackendRule
 ```
 
-Add the network security groups to the subnets.
+Add the network security groups to the subnets:
 
 ```azurepowershell-interactive
 $vnet = Get-AzureRmVirtualNetwork `
