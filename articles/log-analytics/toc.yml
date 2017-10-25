@@ -48,7 +48,7 @@
 - name: How-to guides
   items:
   - name: Create Log Analytics workspace
-    href: log-analytics-create-workspace.md
+    href: log-analytics-quick-create-workspace.md
   - name: Collect data
     items:
     - name: Connected sources
