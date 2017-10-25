@@ -17,7 +17,7 @@ ms.author: ramach
 
 # Enable Application Insights Profiler for Azure VMs, Service Fabric, and Cloud Services
 
-This article demonstrates how to enable Azure Application Insights Profiler on an ASP.NET application that is hosted by an Azure Compute resource. 
+This article demonstrates how to enable Azure Application Insights Profiler on an ASP.NET application that is hosted by an Azure compute resource. 
 
 The examples in this article include support for Azure Virtual Machines, virtual machine scale sets, Azure Service Fabric, and Azure Cloud Services. The examples rely on templates that support the [Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) deployment model.  
 
