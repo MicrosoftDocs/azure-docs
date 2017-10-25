@@ -15,7 +15,7 @@ ms.author: billmath
 
 # Review your access
 
-Azure Active Directory (Azure AD) simplifies how enterprises manage access to applications and members of groups in Azure AD and other Microsoft Online Services with a feature called access reviews. You might have received an email from Microsoft asking you to review access for members of a group or users with access to an application. 
+Azure Active Directory (Azure AD) simplifies how enterprises manage access to applications and members of groups in Azure AD and other Microsoft Online Services with a feature called access reviews. Perhaps you received an email from Microsoft that asks you to review access for members of a group or users with access to an application. 
 
 ## Open an access review
 
@@ -35,7 +35,7 @@ The reviewer might require that you supply a justification for approving continu
 
 ## Next steps
 
-Denied access isn't removed immediately, so if you want to change your answer and approve, reset the response and select a new response. You can do this step until the access review is finished.
+Denied access isn't removed immediately. If you want to change your answer and approve, reset the response and select a new response. You can do this step until the access review is finished.
 
 
 

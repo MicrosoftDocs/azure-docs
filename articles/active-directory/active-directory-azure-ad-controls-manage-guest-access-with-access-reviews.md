@@ -58,9 +58,9 @@ You can use access reviews to ensure that users who were invited and added to a 
 
 3. After the reviewers give input, stop the access review and apply the changes. For more information, see [Complete an access review](active-directory-azure-ad-controls-complete-access-review.md).
 
-4. In addition to users who denied their own need for continued access, you also might want to remove users who didn't respond. Non-responding users potentially no longer receive email.
+4. In addition to users who denied their own need for continued access, you can also remove users who didn't respond. Non-responding users potentially no longer receive email.
 
-5. If the group isn't used for access management, you also might want to remove users who weren't selected to participate in the review because they didn't accept their invitation. Not accepting might indicate that the invited user's email address had a typo. If a group is used as a distribution list, perhaps some guest users weren't selected to participate because they're contact objects.
+5. If the group isn't used for access management, you also can remove users who weren't selected to participate in the review because they didn't accept their invitation. Not accepting might indicate that the invited user's email address had a typo. If a group is used as a distribution list, perhaps some guest users weren't selected to participate because they're contact objects.
 
 ### Ask a sponsor to review a guest's membership in a group
 
@@ -83,7 +83,7 @@ You can use access reviews to ensure that users who were invited for a particula
 
 3. After the reviewers give input, stop the access review and apply the changes. For more information, see [Complete an access review](active-directory-azure-ad-controls-complete-access-review.md).
 
-4. In addition to users who denied their own need for continued access, you also might want to remove the guest users who didn't respond. Non-responding users potentially no longer receive email. You also might want to remove guest users who weren't selected to participate, especially if they weren't recently invited. Those users didn't accept their invitation and so didn't have access to the application. 
+4. In addition to users who denied their own need for continued access, you also can remove guest users who didn't respond. Non-responding users potentially no longer receive email. You also can remove guest users who weren't selected to participate, especially if they weren't recently invited. Those users didn't accept their invitation and so didn't have access to the application. 
 
 ### Ask a sponsor to review a guest's access to an application
 
@@ -102,7 +102,7 @@ In some organizations, guests might not be aware of their group memberships.
 > [!NOTE]
 > Earlier versions of the Azure portal didn't permit administrative access by users with the UserType of Guest. In some cases, an administrator in your directory might have changed a guest's UserType value to Member by using PowerShell. If this change previously occurred in your directory, the previous query might not include all guest users who historically had administrative access rights. In this case, you need to either change the guest's UserType or manually include the guest in the group membership.
 
-1. Create a security group in Azure AD with the guests as members, if a suitable group doesn't already exist. For example, you might want to create a group with a manually maintained membership of guests. Or, you might want to create a dynamic group with a name such as "Guests of Contoso" for users in the Contoso tenant who have the UserType attribute value of Guest.
+1. Create a security group in Azure AD with the guests as members, if a suitable group doesn't already exist. For example, you can create a group with a manually maintained membership of guests. Or, you can create a dynamic group with a name such as "Guests of Contoso" for users in the Contoso tenant who have the UserType attribute value of Guest.
 
 2. To start an access review for that group, select the reviewers to be the members themselves. For more information, see [Create an access review](active-directory-azure-ad-controls-create-access-review.md).
 
@@ -110,7 +110,7 @@ In some organizations, guests might not be aware of their group memberships.
 
 4. After the reviewers give input, stop the access review. For more information, see [Complete an access review](active-directory-azure-ad-controls-complete-access-review.md).
 
-5. Remove guest access for guests who were denied, didn't complete the review, or didn't previously accept their invitation. If some of the guests are contacts who were selected to participate in the review because they didn't previously accept an invitation, you might want to disable their account from sign in by using the Azure portal or PowerShell. If the guest no longer needs access and isn't a contact, their user object can be removed from your directory by using the Azure portal or PowerShell.
+5. Remove guest access for guests who were denied, didn't complete the review, or didn't previously accept their invitation. If some of the guests are contacts who were selected to participate in the review because they didn't previously accept an invitation, you can disable their accounts by using the Azure portal or PowerShell. If the guest no longer needs access and isn't a contact, you can remove their user object from your directory by using the Azure portal or PowerShell.
 
 ## Next steps
 

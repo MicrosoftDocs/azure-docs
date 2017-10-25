@@ -42,7 +42,7 @@ Access assignments become "stale" when users have access they don't need any mor
 
 By default, Azure AD sends an email to reviewers shortly after the review starts. If you choose not to have Azure AD send the email, be sure to inform the reviewers that an access review is waiting for them to complete. You can show them the instructions for how to [review access](active-directory-azure-ad-controls-perform-access-review.md). If your review is for guests to review their own access, show them the instructions for how to [review your own access](active-directory-azure-ad-controls-perform-access-review.md).
 
-Note that if some of the reviewers are guests, guests are notified via email only if they've already accepted their invitation.
+If some of the reviewers are guests, guests are notified via email only if they've already accepted their invitation.
 
 
 You can track the progress as the reviewers complete their reviews in the Azure AD dashboard in the **Access Reviews** section. No access rights are changed in the directory until [the review completes](active-directory-azure-ad-controls-complete-access-review.md).
