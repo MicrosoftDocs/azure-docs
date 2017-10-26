@@ -18,7 +18,7 @@ ms.author: robinsh
 
 # Managing Storage in the Azure independent clouds using PowerShell
 
-Most people use Azure Public Cloud for their global Azure deployment. There are also some independent deployments of Microsoft Azure for reasons of sovereignty and so on. These independent deployments are referred to as "environments." The following list details the available environments:
+Most people use Azure Public Cloud for their global Azure deployment. There are also some independent deployments of Microsoft Azure for reasons of sovereignty and so on. These independent deployments are referred to as "environments." The following list details the independent clouds currently available.
 
 * [Azure Government Cloud](https://azure.microsoft.com/features/gov/)
 * [Azure China Cloud operated by 21Vianet in China](http://www.windowsazure.cn/)
@@ -26,13 +26,11 @@ Most people use Azure Public Cloud for their global Azure deployment. There are 
 
 ## Using an independent cloud 
 
-To use Azure Storage with one of the independent clouds available in Azure, you need to connect to that cloud instead of Azure Public. 
+To use Azure Storage in one of the independent clouds, you connect to that cloud instead of Azure Public. To use one of the independent clouds rather than Azure Public:
 
-The differences using one of these clouds versus Azure Public are as follows: 
-
-* You must specify the *environment* to which to connect.
-* You must determine the available regions.
-* You need the endpoint suffix, which is different from Azure Public.
+* You specify the *environment* to which to connect.
+* You determine and use the available regions.
+* You use the correct endpoint suffix, which is different from Azure Public.
 
 The examples require Azure PowerShell module version 4.4.0 or later. In a PowerShell window, run `Get-Module -ListAvailable AzureRM` to find the version. If nothing is listed, or you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). 
 
@@ -44,13 +42,13 @@ Run the [Get-AzureEnvironment](/powershell/module/azure/Get-AzureRmEnvironment) 
 Get-AzureRmEnvironment
 ```
 
-Sign in to your account that has access to the cloud to which you want to connect and set the environment. This example shows how to use the Azure Government Cloud.   
+Sign in to your account that has access to the cloud to which you want to connect and set the environment. This example shows how to sign into an account that uses the Azure Government Cloud.   
 
 ```powershell
 Login-AzureRmAccount –Environment AzureUSGovernment
 ```
 
-To access the China Cloud, use **AzureChinaCloud**. To access the German Cloud, use **AzureGermanCloud**.
+To access the China Cloud, use the environment **AzureChinaCloud**. To access the German Cloud, use **AzureGermanCloud**.
 
 At this point, if you need the list of locations to create a storage account or another resource, you can query the locations available for the selected cloud using [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation).
 
@@ -58,7 +56,7 @@ At this point, if you need the list of locations to create a storage account or 
 Get-AzureRmLocation | select Location, DisplayName
 ```
 
-The following table shows the locations for the German cloud.
+The following table shows the locations returned for the German cloud.
 
 |Location | DisplayName |
 |----|----|
@@ -90,7 +88,7 @@ This command returns the following results.
 | AzureUSGovernment | core.usgov.cloudapi.net |
 
 
-To retrieve all of the properties for the specified environment, call **Get-AzureRmEnvironment** and specify the cloud. This code returns a list of properties; look for **StorageEndpointSuffix** in the list. The following example is for the German Cloud.
+To retrieve all of the properties for the specified environment, call **Get-AzureRmEnvironment** and specify the cloud name. This code snippet returns a list of properties; look for **StorageEndpointSuffix** in the list. The following example is for the German Cloud.
 
 ```powershell
 Get-AzureRmEnvironment -Name AzureGermanCloud 
@@ -158,7 +156,7 @@ From here going forward, you can use the same PowerShell used to manage your sto
 
 ## Clean up resources
 
-If you created a new resource group and a storage account, you can remove all of the assets by removing the resource group. This also deletes all resources contained within the group. In this case, it removes the storage account created and the resource group itself.
+If you created a new resource group and a storage account for this exercise, you can remove all of the assets by removing the resource group. This also deletes all resources contained within the group. In this case, it removes the storage account created and the resource group itself.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name $resourceGroup
