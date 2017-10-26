@@ -74,7 +74,7 @@ To sign up using a social identity provider, click the button of the identity pr
 
 You need to authenticate (sign-in) using your social account credentials and authorize the application to read information from your social account. By granting access, the application can retrieve profile information from the social account such as your name and city. 
 
-For example, the authentication and authorization is similar to the following for Twitter.
+For example, authentication and authorization are similar to the following prompt for Twitter.
 
 ![Authenticate and authorize using a social account](media/active-directory-b2c-quickstarts-spa/twitter-authenticate-authorize-spa.png)
 
