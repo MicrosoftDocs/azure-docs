@@ -31,8 +31,8 @@
 #### Configure time-to-live
 ##### [Web Apps/Cloud Services, ASP.NET, or IIS content](cdn-manage-expiration-of-cloud-service-content.md)
 ##### [Storage blob service content](cdn-manage-expiration-of-blob-content.md)
-### [Purge cached assets](cdn-purge-endpoint.md)
-### [Pre-load cached assets](cdn-preload-endpoint.md)
+#### [Purge cached assets](cdn-purge-endpoint.md)
+#### [Pre-load cached assets](cdn-preload-endpoint.md)
 ### [Token authentication](cdn-token-auth.md)
 ### [Monitor resources](cdn-resource-health.md)
 ### [Override behavior with rules](cdn-rules-engine.md)

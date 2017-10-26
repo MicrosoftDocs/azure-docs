@@ -19,7 +19,7 @@ ms.author: v-deasim
 ---
 # How caching works
 
-This article provides an overview of general caching concepts and how Azure CDN uses caching to improve performance. If you’d like to learn about how to customize caching behavior on your CDN endpoint, see [Control Azure CDN caching behavior with query strings](cdn-query-string.md) and [Control Azure CDN caching behavior with caching rules](cdn-caching-rules.md).
+This article provides an overview of general caching concepts and how Azure CDN uses caching to improve performance. If you’d like to learn about how to customize caching behavior on your CDN endpoint, see [Control Azure CDN caching behavior with caching rules](cdn-caching-rules.md) and [Control Azure CDN caching behavior with query strings](cdn-query-string.md).
 
 ## Introduction to caching
 
@@ -119,12 +119,14 @@ The following table describes the default caching behavior for the Azure CDN pro
 | **Honor origin**   | Yes    | No   | Yes | No | Yes | Yes |
 | **CDN cache duration** | 7 days | None | 7 days | None | 1 day | 1 year |
 
-**Honor origin**: Specifies whether to honor the supported [link]origin cache-directive headers if they exist in the HTTP response.
+**Honor origin**: Specifies whether to honor the [supported cache-directive headers](#http-cache-directive-headers) if they exist in the HTTP response from the origin server.
 
-**Cache Duration**: Specifies the amount of time an object is cached for on the Azure CDN. If Honor origin is Yes and the HTTP response in the origin server includes the cache-directive headers `Expires` or `Cache-Control: max-age`, the value in the table is used instead. 
+**CDN cache duration**: Specifies the amount of time for which a resource is cached on the Azure CDN. However, if **Honor origin** is Yes and the HTTP response from the origin server includes the cache-directive header `Expires` or `Cache-Control: max-age`, Azure CDN uses the duration value specified by the header instead. 
 
 ## Next steps
 
-- Learn how to customize and override the default caching behavior on the CDN through caching rules and query string caching configurations.
+- To learn how to customize and override the default caching behavior on the CDN through caching rules, see [Control Azure CDN caching behavior with caching rules](cdn-caching-rules.md). 
+- To learn how to use query strings to control caching behavior, see [Control Azure CDN caching behavior with query strings](cdn-query-string.md).
+
 
 
