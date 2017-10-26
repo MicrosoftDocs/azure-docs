@@ -290,7 +290,7 @@ For detailed information about pricing for Premium Storage, Premium Storage-supp
 
 ## Azure Backup support 
 
-For regional disaster recovery, you must back up your VM disks in a different region by using [Azure Backup](../../backup/backup-introduction-to-azure-backup.md) and a GRS storage account as a backup vault.
+For regional disaster recovery, you must back up your VM disks in a different region by using [Azure Backup](../articles/backup/backup-introduction-to-azure-backup.md) and a GRS storage account as a backup vault.
 
 To create a backup job with time-based backups, easy VM restoration, and backup retention policies, use Azure Backup. You can use Backup both with unmanaged and managed disks. For more information, see [Azure Backup for VMs with unmanaged disks](../articles/backup/backup-azure-vms-first-look-arm.md) and [Azure Backup for VMs with managed disks](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). 
 

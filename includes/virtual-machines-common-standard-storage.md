@@ -2,7 +2,7 @@
 
 Azure Standard Storage delivers reliable, low-cost disk support for VMs running latency-insensitive workloads. It also supports blobs, tables, queues, and files. With Standard Storage, the data is stored on hard disk drives (HDDs). When working with VMs, you can use standard storage disks for Dev/Test scenarios and less critical workloads, and premium storage disks for mission-critical production applications. Standard Storage is available in all Azure regions. 
 
-This article focuses on the use of standard storage for VM Disks. For more information about the use of storage with blobs, tables, queues, and files, please refer to the [Introduction to Storage](../../storage/common/storage-introduction.md).
+This article focuses on the use of standard storage for VM Disks. For more information about the use of storage with blobs, tables, queues, and files, please refer to the [Introduction to Storage](../articles/storage/common/storage-introduction.md).
 
 ## Disk types
 
