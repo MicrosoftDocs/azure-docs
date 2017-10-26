@@ -17,17 +17,17 @@ ms.custom:
 
 This article addresses some common questions about Azure Cost Management (also known as Cloudyn). If you have questions about Cost Management, you can ask them at [FAQs for Azure Cost Management by Cloudyn](https://social.msdn.microsoft.com/Forums/en-US/231bf072-2c71-4121-8339-ac9d868137b9/faqs-for-azure-cost-management-by-cloudyn?forum=Cloudyn).
 
-## How can I resolve common indirect enterprise setup errors?
+## How can I resolve common indirect enterprise setup problems?
 
-When you first use the Cloudyn portal, you might see the following errors if you are an Enterprise Agreement or Cloud Solution Provider (CSP) user:
+When you first use the Cloudyn portal, you might see the following messages if you are an Enterprise Agreement or Cloud Solution Provider (CSP) user:
 
 - "The specified API key is not a top level enrollment key" displayed in the **Set Up Azure Cost Management** wizard.
 - "Direct Enrollment – No" displayed in the Enterprise Agreement portal.
 - "No usage data was found for the last 30 days. Please contact your distributor to make sure markup was enabled for your Azure account" displayed in the Cloudyn portal.
 
-The preceding errors indicate that you purchased an Azure Enterprise Agreement through a reseller or CSP. Your reseller or CSP needs to enable _markup_ for your Azure account so that you can view your data in Cloudyn.
+The preceding messages indicate that you purchased an Azure Enterprise Agreement through a reseller or CSP. Your reseller or CSP needs to enable _markup_ for your Azure account so that you can view your data in Cloudyn.
 
-Here's how to fix the errors:
+Here's how to fix the problems:
 
 1. Your reseller needs to enable _markup_ for your account. For instructions, see the [Indirect Customer Onboarding Guide](https://ea.azure.com/api/v3Help/v2IndirectCustomerOnboardingGuide).
 
@@ -38,7 +38,7 @@ Only an Azure service administrator can enable Cost Management. Co-administrator
 Before you can generate the Azure Enterprise Agreement API key to set up Cloudyn, you must enable the Azure Billing API by following the instructions at:
 
 - [Overview of Reporting APIs for Enterprise customers](../billing/billing-enterprise-api.md)
-- [Microsoft Azure enterprise portal Reporting API](https://ea.azure.com/helpdocs/reportingAPI) under **Enabling data access to the API**.
+- [Microsoft Azure enterprise portal Reporting API](https://ea.azure.com/helpdocs/reportingAPI) under **Enabling data access to the API**
 
 
 You also might need to give department administrators, account owners, and enterprise administrators permissions to _view charges_ with the Billing API.
@@ -59,7 +59,7 @@ To activate the user account:
 
 Cloudyn user accounts connect by using single sign-on from Azure. If a user mistypes their password, they might get locked out of Cloudyn, even though they can still access Azure.
 
-If you change your e-mail address in Cloudyn from the default address in Azure, your account can get locked out. It might show the error "status initiallySuspended." If your user account is locked out, contact an alternate administrator to reset your account.
+If you change your e-mail address in Cloudyn from the default address in Azure, your account can get locked out. It might show "status initiallySuspended." If your user account is locked out, contact an alternate administrator to reset your account.
 
 We recommend that you create at least two Cloudyn administrator accounts in case one of the accounts gets locked out.
 
