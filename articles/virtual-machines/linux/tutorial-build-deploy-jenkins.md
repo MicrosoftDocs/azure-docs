@@ -57,10 +57,8 @@ You need an app to deploy stored in a Git repository.
 For this tutorial, we recommend you use [this sample app available from
 GitHub](https://github.com/azooinmyluggage/fabrikam-node).  This tutorial contains a sample script used for installing Node.js and an application.  If you want to work with your own repository, you should configure a similar sample.
 
-1. Create a fork of this app and take note of the location (URL) for use in later steps of this tutorial.
+1. Create a fork of this app and take note of the location (URL) for use in later steps of this tutorial.  For more information, see [Fork a repo](https://help.github.com/articles/fork-a-repo/)    
 
-> [!NOTE]
-> For more information, see [Fork a repo](https://help.github.com/articles/fork-a-repo/)
 > [!NOTE]
 > The app was built using [Yeoman](http://yeoman.io/learning/index.html);
 > it uses **Express**, **bower**, and **grunt**; and it has some **npm** packages as dependencies.
@@ -78,7 +76,7 @@ First, you must configure two Jenkins plugins for **NodeJS** and **VS Team Servi
 4. Filter the list to find the **VS Team Services Continuous Deployment** plugin and choose the **Install without restart** option.
 5. Navigate back to the Jenkins dashboard and choose **Manage Jenkins**.
 6. Choose **Global Tool Configuration**.  Find **NodeJS** and click **NodeJS installations**.
-7. Enable the **Install automatically** option, and then enter a **Name** value.\
+7. Enable the **Install automatically** option, and then enter a **Name** value.
 8. Click **Save**.
 
 ## Configure a Jenkins Freestyle project for Node.js
@@ -171,8 +169,7 @@ To create the release definition in VSTS:
 3. Choose the release link in the popup message. For example: "Release **Release-1** has been created."
 4. Open the **Logs** tab to watch the release console output.
 5. In your browser, open the URL of one of the servers you added to your deployment group. For example, enter `http://{your-server-ip-address}`
-6. Go to the source Git repository and modify the contents of the **h1** heading in the file 
-   [app/views/index.jade](https://github.com/azooinmyluggage/fabrikam-node/blob/master/app/views/index.jade).
+6. Go to the source Git repository and modify the contents of the **h1** heading in the file app/views/index.jade with some changed text.
 7. **Commit** your change.
 8. After a few minutes, you will see a new release created in the **Releases** 
    page of VSTS or TFS. Open the release to see the deployment taking place. Congratulations!
