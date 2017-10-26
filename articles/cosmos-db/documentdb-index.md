@@ -33,9 +33,9 @@ These are must read topics and resources to start learning about the DocumentDB 
 
 ## Quickstarts
 
-The Quickstart topics are the fastest way to create a working application with Azure Cosmos DB. In each Quickstart, you'll learn how to use the UI-based Azure portal and your favorite coding language to create database solutions with Azure Cosmos DB. Cloneable web apps from GitHub area available for each Quickstart. 
+The Quickstart topics are the fastest way to create a working application with Azure Cosmos DB. In each Quickstart, you learn how to use the UI-based Azure portal and your favorite coding language to create database solutions with Azure Cosmos DB. Cloneable web apps from GitHub area available for each Quickstart. 
 
-- [.NET + Azure Portal + Web apps](create-documentdb-dotnet.md)
+- [.NET + Azure portal + Web apps](create-documentdb-dotnet.md)
 - [Java + Azure portal + Web apps](create-documentdb-java.md)
 - [Node.js + Azure portal + Web apps](create-documentdb-nodejs.md)
 - [Python + Azure portal + Web apps](create-documentdb-python.md)
@@ -43,7 +43,7 @@ The Quickstart topics are the fastest way to create a working application with A
 
 ## Tutorials
 
-These tutorials are a level deeper than the Quickstarts. In the tutorials you'll build apps from scratch and copy and paste code into the app. You'll also learn how to import data, query data, and distribute your databases globally.
+These tutorials are a level deeper than the Quickstarts. In the tutorials, you build apps from scratch and copy and paste code into the app. You'll also learn how to import data, query data, and distribute your databases globally.
 
 ### Create a web app
 
@@ -88,7 +88,7 @@ These tutorials are a level deeper than the Quickstarts. In the tutorials you'll
 
 ## SDKs
 
-Azure Cosmos DB provides a number of SDKs to enable client side application development.
+Azure Cosmos DB provides a number of SDKs to enable client-side application development.
 
 - [Java](documentdb-sdk-java.md)
 - [.NET](documentdb-sdk-dotnet.md)
@@ -102,7 +102,7 @@ Azure Cosmos DB provides a number of SDKs to enable client side application deve
 - [REST](/rest/api/documentdb/)
 - [REST Resource Provider](/rest/api/documentdbresourceprovider/)
 - [SQL query reference](documentdb-sql-query-reference.md)
-- [Azure Functions reference](../azure-functions/functions-bindings-documentdb)
+- [Azure Functions reference](../azure-functions/functions-bindings-documentdb.md)
 
 ## Samples
 

@@ -31,17 +31,17 @@ These are must read topics and resources to start learning about the MongoDB API
 
 ## Quickstarts
 
-The Quickstart topics are the fastest way to create a working application with Azure Cosmos DB. In each Quickstart you'll learn how to use the UI-based Azure portal and your favorite coding language to create database solutions with Azure Cosmos DB. Cloneable web apps from GitHub area available for each Quickstart. 
+The Quickstart topics are the fastest way to create a working application with Azure Cosmos DB. In each Quickstart, you learn how to use the UI-based Azure portal and your favorite coding language to create database solutions with Azure Cosmos DB. Cloneable web apps from GitHub area available for each Quickstart. 
 
 
 - [MongoDB + Express + AngularJS + Node.js + Web apps](create-mongodb-nodejs.md)
-- [.NET + Azure Portal + Web apps](create-mongodb-dotnet.md)
+- [.NET + Azure portal + Web apps](create-mongodb-dotnet.md)
 - [Java + Azure portal + Web apps](create-mongodb-java.md)
-- [Go + Azure portal + Goglang](create-mongodb-golang.md)
+- [Go + Azure portal + Go](create-mongodb-golang.md)
 
 ## Tutorials
 
-These tutorials are a level deeper than the Quickstarts. In the tutorials you'll build apps from scratch and copy and paste code into the app. You'll also learn how to import data, query data, and distribute your databases globally.
+These tutorials are a level deeper than the Quickstarts. In the tutorials, you build apps from scratch and copy and paste code into the app. You'll also learn how to import data, query data, and distribute your databases globally.
 
 ### Create a console app
 
