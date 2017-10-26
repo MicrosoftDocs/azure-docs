@@ -104,22 +104,13 @@ You should check the value of the [ServicePointManager.DefaultConnectionLimit](h
 ### Queues and topics
 For queues and topics, the timeout is specified either in the [MessagingFactorySettings.OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings#Microsoft_ServiceBus_Messaging_MessagingFactorySettings_OperationTimeout) property, as part of the connection string, or through [ServiceBusConnectionStringBuilder](/dotnet/api/microsoft.azure.servicebus.servicebusconnectionstringbuilder). The error message itself might vary, but it always contains the timeout value specified for the current operation. 
 
-### Event Hubs
-For Event Hubs, the timeout is specified either as part of the connection string, or through [ServiceBusConnectionStringBuilder](/dotnet/api/microsoft.servicebus.servicebusconnectionstringbuilder). The error message itself might vary, but it always contains the timeout value specified for the current operation. 
 
-### Common causes
-There are two common causes for this error: incorrect configuration, or a transient service error.
-
-1. **Incorrect configuration**
-    The operation timeout might be too small for the operational condition. The default value for the operation timeout in the client SDK is 60 seconds. Check to see if your code has the value set to something too small. Note that the condition of the network and CPU usage can affect the time it takes for a particular operation to complete, so the operation timeout should not be set to a very small value.
-2. **Transient service error**
-    Sometimes the Service Bus service can experience delays in processing requests; for example, during periods of high traffic. In such cases, you can retry your operation after a delay, until the operation is successful. If the same operation still fails after multiple attempts, please visit the [Azure service status site](https://azure.microsoft.com/status/) to see if there are any known service outages.
 
 ## Next steps
 
 For the complete Service Bus .NET API reference, see the [Azure .NET API reference](/dotnet/api/overview/azure/service-bus).
 
-To learn more about [Service Bus](https://azure.microsoft.com/services/service-bus/), see the following topics.
+To learn more about [Service Bus](https://azure.microsoft.com/services/service-bus/), see the following articles:
 
 * [Service Bus messaging overview](service-bus-messaging-overview.md)
 * [Service Bus fundamentals](service-bus-fundamentals-hybrid-solutions.md)

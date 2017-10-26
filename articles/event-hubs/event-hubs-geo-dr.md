@@ -43,7 +43,7 @@ You enable Event Hubs geo-disaster recovery in 3 steps:
 
 The following figure shows this workflow:
 
-![][1] 
+![Geo-pairing flow][1] 
 
 ### Step 1: create a geo-pairing
 
@@ -107,7 +107,7 @@ Note the following considerations for this release:
 3. For the preview release, only metadata replication is enabled. Actual data is not replicated.
 4. With the preview release, there is no cost for enabling the feature. However, both the primary and the secondary namespaces will incur charges for the reserved throughput units.
 
-## Next Steps
+## Next steps
 
 * The [sample on GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/GeoDRClient) walks through a simple workflow that creates a geo-pairing and initiates a failover for a disaster recovery scenario.
 * The [REST API reference](/rest/api/eventhub/disasterrecoveryconfigs) describes APIs for performing the Geo-disaster recovery configuration.

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2017
-ms.author: veljko-msft 
+ms.author: vvasic
 
 ---
 # Azure SQL Database metrics and diagnostics logging 
@@ -49,12 +49,12 @@ You can provision a new Azure resource or select an existing resource. After sel
 - [QueryStoreRuntimeStatistics](sql-database-metrics-diag-logging.md#query-store-runtime-statistics): Contains information about the query runtime statistics, such as CPU usage and query duration.
 - [QueryStoreWaitStatistics](sql-database-metrics-diag-logging.md#query-store-wait-statistics): Contains information about the query wait statistics, which tells you what your queries waited on, such as CPU, LOG, and LOCKING.
 - [Errors](sql-database-metrics-diag-logging.md#errors-dataset): Contains information about SQL errors that happened on this database.
-- [DatabaseWaitStatistics](sql-database-metrics-diag-logging.md#database-waits-dataset): Contains information about how much time a database spent waiting on different waiting types.
-- [Time-outs](sql-database-metrics-diag-logging.md#timeouts-dataset): Contains information about how much time a database spent waiting on different waiting types.
+- [DatabaseWaitStatistics](sql-database-metrics-diag-logging.md#database-waits-dataset): Contains information about how much time a database spent waiting on different wait types.
+- [Time-outs](sql-database-metrics-diag-logging.md#timeouts-dataset): Contains information about timeouts that happened on a database.
 - [Blockings](sql-database-metrics-diag-logging.md#blockings-dataset): Contains information about blocking events that happened on a database.
 - [SQLInsights](sql-database-metrics-diag-logging.md#intelligent-insights-dataset): Contains Intelligent Insights. [Learn more about Intelligent Insights](sql-database-intelligent-insights.md).
 
-If you specify Event Hubs or a storage account, you can specify a retention policy that deletes data that is older than a selected time period. If you specify Log Analytics, the retention policy depends on the selected pricing tier. For more information, see [Log Analytics pricing](https://azure.microsoft.com/pricing/details/log-analytics/). 
+If you select Event Hubs or a storage account, you can specify a retention policy. This policy deletes data that is older than a selected time period. If you specify Log Analytics, the retention policy depends on the selected pricing tier. For more information, see [Log Analytics pricing](https://azure.microsoft.com/pricing/details/log-analytics/). 
 
 To learn how to enable logging and understand the metrics and log categories that are supported by the various Azure services, we recommend that you read: 
 
@@ -109,14 +109,16 @@ To enable metrics and diagnostics logging by using PowerShell, use the following
 
 You can combine these parameters to enable multiple output options.
 
-### To configure multiple Azure subscriptions
+### To configure multiple Azure resources
 
-To support multiple subscriptions, use the PowerShell script from [Enable Azure resource metrics logging using PowerShell](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell/). Provide the workspace resource ID as a parameter when executing the script to send diagnostic data from resources in one Azure subscription to a workspace in another Azure subscription.
+To support multiple subscriptions, use the PowerShell script from [Enable Azure resource metrics logging using PowerShell](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell/).
 
-- To configure multiple Azure subscriptions, use the following commands:
+Provide the workspace resource ID &lt;$WSID&gt; as a parameter when executing the script (Enable-AzureRMDiagnostics.ps1) to send diagnostic data from multiple resources to the workspace. To get the workspace ID &lt;$WSID&gt; to which you would like to send diagnostic data, replace &lt;subID&gt; with the subscription ID, replace &lt;RG_NAME&gt; with the resource group name, and replace &lt;WS_NAME&gt; with the workspace name in the following script.
+
+- To configure multiple Azure resources, use the following commands:
 
     ```powershell
-    PS C:\> $WSID = "/subscriptions/<subID>/resourcegroups/oms/providers/microsoft.operationalinsights/workspaces/omsws"
+    PS C:\> $WSID = "/subscriptions/<subID>/resourcegroups/<RG_NAME>/providers/microsoft.operationalinsights/workspaces/<WS_NAME>"
     PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
     ```
 
@@ -324,9 +326,9 @@ Learn more about [Query Store runtime statistics data](https://docs.microsoft.co
 |TimeGenerated [UTC]|Time stamp when the log was recorded.|
 |Type|Always: AzureDiagnostics|
 |ResourceProvider|Name of the resource provider. Always: MICROSOFT.SQL|
-|Category|Name of the category. Always: QueryStoreRuntimeStatistics|
-|OperationName|Name of the operation. Always: QueryStoreRuntimeStatisticsEvent|
-|Resource|Name of the resource.|
+|Category|Name of the category. Always: QueryStoreWaitStatistics|
+|OperationName|Name of the operation. Always: QueryStoreWaitStatisticsEvent|
+|Resource|Name of the resource|
 |ResourceType|Name of the resource type. Always: SERVERS/DATABASES|
 |SubscriptionId|Subscription GUID that the database belongs to.|
 |ResourceGroup|Name of the resource group that the database belongs to.|
@@ -362,9 +364,9 @@ Learn more about [Query Store wait statistics data](https://docs.microsoft.com/e
 |TimeGenerated [UTC]|Time stamp when the log was recorded.|
 |Type|Always: AzureDiagnostics|
 |ResourceProvider|Name of the resource provider. Always: MICROSOFT.SQL|
-|Category|Name of the category. Always: QueryStoreRuntimeStatistics|
-|OperationName|Name of the operation. Always: QueryStoreRuntimeStatisticsEvent|
-|Resource|Name of the resource.|
+|Category|Name of the category. Always: Errors|
+|OperationName|Name of the operation. Always: ErrorEvent|
+|Resource|Name of the resource|
 |ResourceType|Name of the resource type. Always: SERVERS/DATABASES|
 |SubscriptionId|Subscription GUID that the database belongs to.|
 |ResourceGroup|Name of the resource group that the database belongs to.|
@@ -391,9 +393,9 @@ Learn more about [SQL Server error messages](https://msdn.microsoft.com/en-us/li
 |TimeGenerated [UTC]|Time stamp when the log was recorded.|
 |Type|Always: AzureDiagnostics|
 |ResourceProvider|Name of the resource provider. Always: MICROSOFT.SQL|
-|Category|Name of the category. Always: QueryStoreRuntimeStatistics|
-|OperationName|Name of the operation. Always: QueryStoreRuntimeStatisticsEvent|
-|Resource|Name of the resource.|
+|Category|Name of the category. Always: DatabaseWaitStatistics|
+|OperationName|Name of the operation. Always: DatabaseWaitStatisticsEvent|
+|Resource|Name of the resource|
 |ResourceType|Name of the resource type. Always: SERVERS/DATABASES|
 |SubscriptionId|Subscription GUID that the database belongs to.|
 |ResourceGroup|Name of the resource group that the database belongs to.|
@@ -420,9 +422,9 @@ Learn more about [database wait statistics](https://docs.microsoft.com/en-us/sql
 |TimeGenerated [UTC]|Time stamp when the log was recorded.|
 |Type|Always: AzureDiagnostics|
 |ResourceProvider|Name of the resource provider. Always: MICROSOFT.SQL|
-|Category|Name of the category. Always: QueryStoreRuntimeStatistics|
-|OperationName|Name of the operation. Always: QueryStoreRuntimeStatisticsEvent|
-|Resource|Name of the resource.|
+|Category|Name of the category. Always: Timeouts|
+|OperationName|Name of the operation. Always: TimeoutEvent|
+|Resource|Name of the resource|
 |ResourceType|Name of the resource type. Always: SERVERS/DATABASES|
 |SubscriptionId|Subscription GUID that the database belongs to.|
 |ResourceGroup|Name of the resource group that the database belongs to.|
@@ -443,9 +445,9 @@ Learn more about [database wait statistics](https://docs.microsoft.com/en-us/sql
 |TimeGenerated [UTC]|Time stamp when the log was recorded.|
 |Type|Always: AzureDiagnostics|
 |ResourceProvider|Name of the resource provider. Always: MICROSOFT.SQL|
-|Category|Name of the category. Always: QueryStoreRuntimeStatistics|
-|OperationName|Name of the operation. Always: QueryStoreRuntimeStatisticsEvent|
-|Resource|Name of the resource.|
+|Category|Name of the category. Always: Blocks|
+|OperationName|Name of the operation. Always: BlockEvent|
+|Resource|Name of the resource|
 |ResourceType|Name of the resource type. Always: SERVERS/DATABASES|
 |SubscriptionId|Subscription GUID that the database belongs to.|
 |ResourceGroup|Name of the resource group that the database belongs to.|
@@ -456,7 +458,7 @@ Learn more about [database wait statistics](https://docs.microsoft.com/en-us/sql
 |lock_mode_s|Lock mode used by the query.|
 |resource_owner_type_s|Owner of the lock.|
 |blocked_process_filtered_s|Blocked process report XML.|
-|duration_d|Duration of the lock in milliseconds.|
+|duration_d|Duration of the lock in microseconds.|
 
 ### Intelligent Insights dataset
 Learn more about the [Intelligent Insights log format](sql-database-intelligent-insights-use-diagnostics-log.md).

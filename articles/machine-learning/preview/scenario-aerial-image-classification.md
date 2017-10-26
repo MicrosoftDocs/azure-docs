@@ -40,7 +40,7 @@ In this example, image data and pretrained models are housed in an Azure storage
 
 ![Schematic for the aerial image classification real world scenario](media/scenario-aerial-image-classification/scenario-schematic.PNG)
 
-The [step-by-step instructions](https://github.com/MicrosoftDocs/azure-docs-pr/tree/release-ignite-aml-v2/articles/machine-learning/) begin by guiding you through the creation and preparation of an Azure storage account and Spark cluster, including data transfer and dependency installation. They then describe how to launch training jobs and compare the performance of the resulting models. Finally, they illustrate how to apply a chosen model to a large image set on the Spark cluster and analyze the prediction results locally.
+These step-by-step instructions guide you through the creation and preparation of an Azure storage account and Spark cluster, including data transfer and dependency installation. They then describe how to launch training jobs and compare the performance of the resulting models. Finally, they illustrate how to apply a chosen model to a large image set on the Spark cluster and analyze the prediction results locally.
 
 
 ## Set up the execution environment
@@ -75,7 +75,7 @@ Create a new project using this example as a template:
 1. From your Azure Machine Learning Workbench project, open a Command Line Interface (CLI) by clicking File -> Open Command Prompt.
 1. From the command line interface, log in to your Azure account by running the following command:
 
-    ````
+    ```
     az login
     ```
 
@@ -121,7 +121,14 @@ We now create the storage account that hosts project files that must be accessed
     ```
     set STORAGE_ACCOUNT_KEY=[storage account key]
     ```
-1. In your favorite text editor, load the `settings.cfg` file from the Azure Machine Learning Workbench project's "Code" subdirectory, and insert the storage account name and key as indicated. Save and close the `settings.cfg` file.
+1. In your favorite text editor, load the `settings.cfg` file from the Azure Machine Learning Workbench project's "Code" subdirectory, and insert the storage account name and key as indicated. The modified lines in the file should look similar to the following:
+    ```
+    [Settings]
+        # Credentials for the Azure Storage account
+        storage_account_name = storacctname
+        storage_account_key = kpI...88 chars total...Q==
+    ```
+    Save and close the `settings.cfg` file.
 1. If you have not already done so, download and install the [AzCopy](http://aka.ms/downloadazcopy) utility. Ensure that the AzCopy executable is on your system path by typing "AzCopy" and pressing Enter to show its documentation.
 1. Issue the following commands to copy all of the sample data, pretrained models, and model training scripts to the appropriate locations in your storage account:
 

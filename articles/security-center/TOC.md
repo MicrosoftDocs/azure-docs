@@ -13,7 +13,6 @@
 ## [Planning and operations](security-center-planning-and-operations-guide.md)
 ## [Permissions](security-center-permissions.md)
 ## [Supported platforms](security-center-os-coverage.md)
-## [Partner integration](security-center-partner-integration.md)
 ## [FAQ](security-center-faq.md)
 
 # How to
@@ -29,6 +28,10 @@
 ## [Search](security-center-search.md)
 
 ## Prevent
+### [Security solutions](security-center-partner-integration.md)
+#### [Monitor connected solutions](security-center-partner-solutions.md)
+#### [Connect Microsoft ATA](security-center-ata-integration.md)
+#### [Connect Azure AD Identity Protection](security-center-aadip-integration.md)
 ### [Implement security recommendations](security-center-recommendations.md)
 ### [Application recommendations](security-center-application-recommendations.md)
 #### [Add a web application firewall](security-center-add-web-application-firewall.md)
@@ -56,7 +59,6 @@
 #### [Update OS version](security-center-update-os-version.md)
 #### [Vulnerability assessment not installed](security-center-vulnerability-assessment-recommendations.md)
 ### [Monitor security health](security-center-monitoring.md)
-### [Monitor partner solutions](security-center-partner-solutions.md)
 ### [Identity and Access](security-center-identity-access.md)
 
 ## Detect and Respond
