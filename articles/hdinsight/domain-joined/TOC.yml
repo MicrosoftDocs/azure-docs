@@ -6,7 +6,7 @@
     href: apache-domain-joined-introduction.md
   - name: Plan Domain-joined HDInsight
     href: apache-domain-joined-architecture.md
-- name: Start using HBase
+- name: Start using Domain-joined
   items:
   - name: Configure Domain-joined HDInsight
     href: apache-domain-joined-configure.md
@@ -14,7 +14,7 @@
     href: apache-domain-joined-run-hive.md
 - name: How to
   items:
-  - name: Manage
+  - name: Manage clusters
     href: apache-domain-joined-manage.md
   - name: Manage user permissions
     href: ../hdinsight-add-acls-at-file-folder-levels.md
