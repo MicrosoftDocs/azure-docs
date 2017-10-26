@@ -228,7 +228,7 @@ To delete only the newly created server:
 
     ![The "Delete" button](./media/quickstart-create-database-portal/12-delete.png)
 
-3. Confirm the server name you want to delete, and show the databases under it that are affected. Type your server name in the text box, such as our example, **mypgserver-20170401**. Select **Delete**.
+3. Confirm the server name you want to delete, and view the databases under it that are affected. Type your server name in the text box, such as our example, **mypgserver-20170401**. Select **Delete**.
 
 ## Next steps
 > [!div class="nextstepaction"]

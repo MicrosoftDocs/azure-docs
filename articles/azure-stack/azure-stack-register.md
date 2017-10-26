@@ -53,7 +53,7 @@ If you don’t have an Azure subscription that meets these requirements, you can
 Example: 
 ```Powershell
 Login-AzureRmAccount -EnvironmentName "AzureCloud"
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack -Force
+Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
 ```
 
 
