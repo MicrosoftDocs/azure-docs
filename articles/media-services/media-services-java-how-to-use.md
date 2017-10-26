@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: get-started-article
-ms.date: 10/18/2017
+ms.date: 10/26/2017
 ms.author: juliako
 
 ---
