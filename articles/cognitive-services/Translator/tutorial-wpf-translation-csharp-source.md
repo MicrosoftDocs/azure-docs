@@ -40,9 +40,9 @@ namespace MSTranslatorTextDemo
     public partial class MainWindow : Window
     {
         // Translator text subscription key from Microsoft Azure dashboard
-        const string TEXT_TRANSLATION_API_SUBSCRIPTION_KEY = "d6b59802e723410f8751e84b4e24a883";
-        const string TEXT_ANALYTICS_API_SUBSCRIPTION_KEY   = "b2bcd3f59f894ff5bb0c71a1bb5ecf9e";
-        const string BING_SPELL_CHECK_API_SUBSCRIPTION_KEY = "3d7a5b9770b042609c863177a167a7db";
+        const string TEXT_TRANSLATION_API_SUBSCRIPTION_KEY = "YOUR_KEY_GOES_HERE";
+        const string TEXT_ANALYTICS_API_SUBSCRIPTION_KEY   = "YOUR_KEY_GOES_HERE";
+        const string BING_SPELL_CHECK_API_SUBSCRIPTION_KEY = "YOUR_KEY_GOES_HERE";
 
         const string TEXT_TRANSLATION_API_ENDPOINT = "https://api.microsofttranslator.com/v2/Http.svc/";
         const string TEXT_ANALYTICS_API_ENDPOINT   = "https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/";
