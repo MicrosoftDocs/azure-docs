@@ -14,17 +14,18 @@
     href: concepts-assessment-calculation.md
 - name: How-to guides
   items:
-  - name: Create an assessment group
+  - name: Create a group
     href: how-to-create-a-group.md
-  - name: Create an assessment using machine dependencies
+  - name: Create an group using machine dependencies
     href: how-to-create-group-machine-dependencies.md
-  - name: Create an assessment using group dependencies
+  - name: Create a group using VMware tagging
+    href: how-to-tag-v-center.md
+    - name: Refine a group using group dependencies
     href: how-to-create-group-dependencies.md
   - name: Customize an assessment
     href: how-to-modify-assessment.md
-  - name: Tag VMs in vCenter
-    href: how-to-tag-v-center.md
-  - name: Troubleshoot Azure Migrate
+  
+  [Azure Migrate](migrate-overview.md)- name: Troubleshoot Azure Migrate
     href: troubleshooting-general.md
   - name: Set up REST APIs
     href: how-to-set-up-rest-api.md
