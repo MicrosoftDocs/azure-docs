@@ -108,6 +108,4 @@
   - name: Pricing
     href: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/language-understanding-intelligent-services/
   - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/LUIS
-  - name: User Voice 
-    href: https://cognitive.uservoice.com/forums/551524-luis    
+    href: https://stackoverflow.com/questions/tagged/LUIS 
