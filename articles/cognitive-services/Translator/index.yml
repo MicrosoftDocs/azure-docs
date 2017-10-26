@@ -1,0 +1,64 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Bing Web Search Documentation
+metadata:
+  document_id: 
+  title: Translator Text Documentation - Tutorials, API Reference
+  description: Learn how to use Translator Text API to translate text in multiple languages. Tutorials show you how to build apps that use the service.
+  services: cognitive-services
+  author: Jann-Skotdal
+  manager: Chris.Wendt
+  ms.service: cognitive-services
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 10/30/2017
+  ms.author: v-jansko
+abstract:
+  description: Microsoft Translator Text API is a cloud-based machine translation service supporting multiple languages. You can easily conduct real-time text translation with a simple REST API call in any solution requiring multilanguage support. 
+sections:
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: 'Get started using the Translator Text API by making a query and viewing the JSON response:'
+  - type: table
+    style: dataMatrix
+    columns:
+      - image:
+          src: media/index/logo_csharp.svg
+      - image:
+          src: media/index/logo_java.svg
+      - image:
+          src: media/index/logo_nodejs.svg
+      - image:
+          src: media/index/logo_python.svg
+      - image:
+          src: media/index/logo_php.svg
+      - image:
+          src: media/index/logo_ruby.svg
+    rows:
+      - title: 'Call and response: your first query'
+        values:
+        - href: quickstarts/csharp
+        - href: quickstarts/java
+        - href: quickstarts/nodejs
+        - href: quickstarts/python
+        - href: quickstarts/php
+        - href: quickstarts/ruby
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: 'Learn how to develop applications using the Translator Text API:'
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="">Translator Text App </a> | <a href="">Source code</a>
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: API
+      html: <p><a href="">API Reference</a></p>
+   
