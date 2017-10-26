@@ -20,6 +20,7 @@ ms.author: ryanwi
 This article documents the ServiceFabricServiceModel.xsd schema file installed with the Service Fabric SDK.
 
 ## ClusterManifest Element
+|Attribute|Value|
 |---|---|
 |type|[ClusterManifestType](#clustermanifesttype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -36,8 +37,8 @@ This article documents the ServiceFabricServiceModel.xsd schema file installed w
         
 ```
 
-
 ## ApplicationManifest Element
+|Attribute|Value|
 |---|---|
 |type|[ApplicationManifestType](#applicationmanifesttype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -50,8 +51,8 @@ This article documents the ServiceFabricServiceModel.xsd schema file installed w
         
 ```
 
-
 ## ServiceManifest Element
+|Attribute|Value|
 |---|---|
 |type|[ServiceManifestType](#servicemanifesttype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -64,8 +65,8 @@ This article documents the ServiceFabricServiceModel.xsd schema file installed w
         
 ```
 
-
 ## Application Element
+|Attribute|Value|
 |---|---|
 |type|[AppInstanceDefinitionType](#appinstancedefinitiontype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -82,8 +83,8 @@ This article documents the ServiceFabricServiceModel.xsd schema file installed w
         
 ```
 
-
 ## Settings Element
+|Attribute|Value|
 |---|---|
 |type|[SettingsType](#settingstype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -100,8 +101,8 @@ This article documents the ServiceFabricServiceModel.xsd schema file installed w
         
 ```
 
-
 ## InfrastructureInformation Element
+|Attribute|Value|
 |---|---|
 |type|[InfrastructureInformationType](#infrastructureinformationtype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -118,8 +119,8 @@ This article documents the ServiceFabricServiceModel.xsd schema file installed w
         
 ```
 
-
 ## TargetInformation Element
+|Attribute|Value|
 |---|---|
 |type|[TargetInformationType](#targetinformationtype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -136,8 +137,8 @@ This article documents the ServiceFabricServiceModel.xsd schema file installed w
         
 ```
 
-
 ## NodeTypes Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|1 element(s), 0 attribute(s)|
@@ -214,17 +215,20 @@ This article documents the ServiceFabricServiceModel.xsd schema file installed w
                         </xs:element>
                         
 ```
-
-
 ### Content element details
 
 #### NodeType
-name: NodeType
-maxOccurs: unbounded
+|Attribute|Value|
+|---|---|
+|name|NodeType|
+|Attribute|Value|
+|---|---|
+|maxOccurs|unbounded|
 
 Documentation: Describe a node type.
 
 ## NodeType Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|6 element(s), 1 attribute(s)|
@@ -295,57 +299,93 @@ Documentation: Describe a node type.
                                                 </xs:element>
                                         
 ```
-
 ### Attribute details
 
 #### Name
 Documentation: Name of the NodeType
-name: Name
-type: xs:string
-use: required
+|Attribute|Value|
+|---|---|
+|name|Name|
+|Attribute|Value|
+|---|---|
+|type|xs:string|
+|Attribute|Value|
+|---|---|
+|use|required|
 
 ### Content element details
 
 #### Endpoints
-name: Endpoints
-type: FabricEndpointsType
-minOccurs: 0
+|Attribute|Value|
+|---|---|
+|name|Endpoints|
+|Attribute|Value|
+|---|---|
+|type|FabricEndpointsType|
+|Attribute|Value|
+|---|---|
+|minOccurs|0|
 
 Documentation: Describe the endpoints associated with this node type
 
 #### KtlLoggerSettings
-name: KtlLoggerSettings
-type: FabricKtlLoggerSettingsType
-minOccurs: 0
+|Attribute|Value|
+|---|---|
+|name|KtlLoggerSettings|
+|Attribute|Value|
+|---|---|
+|type|FabricKtlLoggerSettingsType|
+|Attribute|Value|
+|---|---|
+|minOccurs|0|
 
 Documentation: Describe the KtlLogger information associated with this node type
 
 #### LogicalDirectories
-name: LogicalDirectories
-minOccurs: 0
+|Attribute|Value|
+|---|---|
+|name|LogicalDirectories|
+|Attribute|Value|
+|---|---|
+|minOccurs|0|
 
 Documentation: Describe the LogicalDirectories settings associated with this node type
 
 #### Certificates
-name: Certificates
-type: CertificatesType
-minOccurs: 0
+|Attribute|Value|
+|---|---|
+|name|Certificates|
+|Attribute|Value|
+|---|---|
+|type|CertificatesType|
+|Attribute|Value|
+|---|---|
+|minOccurs|0|
 
 Documentation: Describe the certificates associated with this node type
 
 #### PlacementProperties
-name: PlacementProperties
-minOccurs: 0
+|Attribute|Value|
+|---|---|
+|name|PlacementProperties|
+|Attribute|Value|
+|---|---|
+|minOccurs|0|
 
 Documentation: Describe the properties for this NodeType that will be used as placement constraints
 
 #### Capacities
-name: Capacities
-minOccurs: 0
+|Attribute|Value|
+|---|---|
+|name|Capacities|
+|Attribute|Value|
+|---|---|
+|minOccurs|0|
 
 Documentation: The capacities of various metrics for this node type
 
 ## Endpoints Element
+|Attribute|Value|
 |---|---|
 |type|[FabricEndpointsType](#fabricendpointstype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -363,8 +403,8 @@ Documentation: The capacities of various metrics for this node type
                                                                           
 ```
 
-
 ## KtlLoggerSettings Element
+|Attribute|Value|
 |---|---|
 |type|[FabricKtlLoggerSettingsType](#fabricktlloggersettingstype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -382,8 +422,8 @@ Documentation: The capacities of various metrics for this node type
                                                                           
 ```
 
-
 ## LogicalDirectories Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|1 element(s), 0 attribute(s)|
@@ -405,18 +445,23 @@ Documentation: The capacities of various metrics for this node type
                                                                           </xs:element>
                                                                           
 ```
-
-
 ### Content element details
 
 #### LogicalDirectory
-name: LogicalDirectory
-type: LogicalDirectoryType
-maxOccurs: unbounded
+|Attribute|Value|
+|---|---|
+|name|LogicalDirectory|
+|Attribute|Value|
+|---|---|
+|type|LogicalDirectoryType|
+|Attribute|Value|
+|---|---|
+|maxOccurs|unbounded|
 
 Documentation: 
 
 ## LogicalDirectory Element
+|Attribute|Value|
 |---|---|
 |type|[LogicalDirectoryType](#logicaldirectorytype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -430,8 +475,8 @@ Documentation:
                                                                               
 ```
 
-
 ## Certificates Element
+|Attribute|Value|
 |---|---|
 |type|[CertificatesType](#certificatestype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -449,8 +494,8 @@ Documentation:
                                                                         
 ```
 
-
 ## PlacementProperties Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|1 element(s), 0 attribute(s)|
@@ -472,19 +517,26 @@ Documentation:
                                                                         </xs:element>
                                                                         
 ```
-
-
 ### Content element details
 
 #### Property
-name: Property
-type: KeyValuePairType
-minOccurs: 0
-maxOccurs: unbounded
+|Attribute|Value|
+|---|---|
+|name|Property|
+|Attribute|Value|
+|---|---|
+|type|KeyValuePairType|
+|Attribute|Value|
+|---|---|
+|minOccurs|0|
+|Attribute|Value|
+|---|---|
+|maxOccurs|unbounded|
 
 Documentation: 
 
 ## Property Element
+|Attribute|Value|
 |---|---|
 |type|[KeyValuePairType](#keyvaluepairtype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -499,8 +551,8 @@ Documentation:
                                                                                         
 ```
 
-
 ## Capacities Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|1 element(s), 0 attribute(s)|
@@ -522,19 +574,26 @@ Documentation:
                                                                         </xs:element>
                                                                 
 ```
-
-
 ### Content element details
 
 #### Capacity
-name: Capacity
-type: KeyValuePairType
-minOccurs: 0
-maxOccurs: unbounded
+|Attribute|Value|
+|---|---|
+|name|Capacity|
+|Attribute|Value|
+|---|---|
+|type|KeyValuePairType|
+|Attribute|Value|
+|---|---|
+|minOccurs|0|
+|Attribute|Value|
+|---|---|
+|maxOccurs|unbounded|
 
 Documentation: 
 
 ## Capacity Element
+|Attribute|Value|
 |---|---|
 |type|[KeyValuePairType](#keyvaluepairtype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -549,8 +608,8 @@ Documentation:
                                                                                         
 ```
 
-
 ## Infrastructure Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|6 element(s), 0 attribute(s)|
@@ -638,41 +697,52 @@ Documentation:
                         </xs:element>
                         
 ```
-
-
 ### Content element details
 
 #### WindowsServer
-name: WindowsServer
+|Attribute|Value|
+|---|---|
+|name|WindowsServer|
 
 Documentation: 
 
 #### Linux
-name: Linux
+|Attribute|Value|
+|---|---|
+|name|Linux|
 
 Documentation: 
 
 #### WindowsAzure
-name: WindowsAzure
+|Attribute|Value|
+|---|---|
+|name|WindowsAzure|
 
 Documentation: 
 
 #### WindowsAzureStaticTopology
-name: WindowsAzureStaticTopology
+|Attribute|Value|
+|---|---|
+|name|WindowsAzureStaticTopology|
 
 Documentation: 
 
 #### Blackbird
-name: Blackbird
+|Attribute|Value|
+|---|---|
+|name|Blackbird|
 
 Documentation: 
 
 #### PaaS
-name: PaaS
+|Attribute|Value|
+|---|---|
+|name|PaaS|
 
 Documentation: 
 
 ## WindowsServer Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|0 element(s), 0 attribute(s)|
@@ -693,8 +763,8 @@ Documentation:
             
 ```
 
-
 ## Linux Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|0 element(s), 0 attribute(s)|
@@ -715,8 +785,8 @@ Documentation:
                                                 
 ```
 
-
 ## WindowsAzure Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|1 element(s), 0 attribute(s)|
@@ -740,16 +810,17 @@ Documentation:
                                                 </xs:element>
                                                 
 ```
-
-
 ### Content element details
 
 #### Roles
-name: Roles
+|Attribute|Value|
+|---|---|
+|name|Roles|
 
 Documentation: 
 
 ## Roles Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|1 element(s), 0 attribute(s)|
@@ -767,18 +838,23 @@ Documentation:
                                                                         </xs:element>
                                                                 
 ```
-
-
 ### Content element details
 
 #### Role
-name: Role
-type: AzureRoleType
-maxOccurs: unbounded
+|Attribute|Value|
+|---|---|
+|name|Role|
+|Attribute|Value|
+|---|---|
+|type|AzureRoleType|
+|Attribute|Value|
+|---|---|
+|maxOccurs|unbounded|
 
 Documentation: 
 
 ## Role Element
+|Attribute|Value|
 |---|---|
 |type|[AzureRoleType](#azureroletype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -792,8 +868,8 @@ Documentation:
                                                                                         
 ```
 
-
 ## WindowsAzureStaticTopology Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|0 element(s), 0 attribute(s)|
@@ -812,8 +888,8 @@ Documentation:
                                                 
 ```
 
-
 ## Blackbird Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|1 element(s), 0 attribute(s)|
@@ -837,16 +913,17 @@ Documentation:
                                                 </xs:element>
                                                 
 ```
-
-
 ### Content element details
 
 #### Roles
-name: Roles
+|Attribute|Value|
+|---|---|
+|name|Roles|
 
 Documentation: 
 
 ## Roles Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|1 element(s), 0 attribute(s)|
@@ -864,19 +941,26 @@ Documentation:
                                                                         </xs:element>
                                                                 
 ```
-
-
 ### Content element details
 
 #### Role
-name: Role
-type: BlackbirdRoleType
-minOccurs: 1
-maxOccurs: unbounded
+|Attribute|Value|
+|---|---|
+|name|Role|
+|Attribute|Value|
+|---|---|
+|type|BlackbirdRoleType|
+|Attribute|Value|
+|---|---|
+|minOccurs|1|
+|Attribute|Value|
+|---|---|
+|maxOccurs|unbounded|
 
 Documentation: 
 
 ## Role Element
+|Attribute|Value|
 |---|---|
 |type|[BlackbirdRoleType](#blackbirdroletype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -891,8 +975,8 @@ Documentation:
                                                                                         
 ```
 
-
 ## PaaS Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|2 element(s), 0 attribute(s)|
@@ -923,21 +1007,24 @@ Documentation:
                                                 </xs:element>
                                         
 ```
-
-
 ### Content element details
 
 #### Roles
-name: Roles
+|Attribute|Value|
+|---|---|
+|name|Roles|
 
 Documentation: 
 
 #### Votes
-name: Votes
+|Attribute|Value|
+|---|---|
+|name|Votes|
 
 Documentation: 
 
 ## Roles Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|1 element(s), 0 attribute(s)|
@@ -955,18 +1042,23 @@ Documentation:
                                                                         </xs:element>
                                                                         
 ```
-
-
 ### Content element details
 
 #### Role
-name: Role
-type: PaaSRoleType
-maxOccurs: unbounded
+|Attribute|Value|
+|---|---|
+|name|Role|
+|Attribute|Value|
+|---|---|
+|type|PaaSRoleType|
+|Attribute|Value|
+|---|---|
+|maxOccurs|unbounded|
 
 Documentation: 
 
 ## Role Element
+|Attribute|Value|
 |---|---|
 |type|[PaaSRoleType](#paasroletype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -980,8 +1072,8 @@ Documentation:
                                                                                         
 ```
 
-
 ## Votes Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|1 element(s), 0 attribute(s)|
@@ -999,18 +1091,23 @@ Documentation:
                                                                         </xs:element>
                                                                 
 ```
-
-
 ### Content element details
 
 #### Vote
-name: Vote
-type: PaaSVoteType
-maxOccurs: unbounded
+|Attribute|Value|
+|---|---|
+|name|Vote|
+|Attribute|Value|
+|---|---|
+|type|PaaSVoteType|
+|Attribute|Value|
+|---|---|
+|maxOccurs|unbounded|
 
 Documentation: 
 
 ## Vote Element
+|Attribute|Value|
 |---|---|
 |type|[PaaSVoteType](#paasvotetype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -1024,8 +1121,8 @@ Documentation:
                                                                                         
 ```
 
-
 ## FabricSettings Element
+|Attribute|Value|
 |---|---|
 |type|[SettingsOverridesType](#settingsoverridestype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -1039,8 +1136,8 @@ Documentation:
                         
 ```
 
-
 ## Certificates Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|1 element(s), 0 attribute(s)|
@@ -1059,18 +1156,23 @@ Documentation:
                         </xs:element>
                 
 ```
-
-
 ### Content element details
 
 #### SecretsCertificate
-name: SecretsCertificate
-type: FabricCertificateType
-minOccurs: 0
+|Attribute|Value|
+|---|---|
+|name|SecretsCertificate|
+|Attribute|Value|
+|---|---|
+|type|FabricCertificateType|
+|Attribute|Value|
+|---|---|
+|minOccurs|0|
 
 Documentation: 
 
 ## SecretsCertificate Element
+|Attribute|Value|
 |---|---|
 |type|[FabricCertificateType](#fabriccertificatetype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -1084,8 +1186,8 @@ Documentation:
                                         
 ```
 
-
 ## NodeList Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|1 element(s), 0 attribute(s)|
@@ -1103,18 +1205,23 @@ Documentation:
                         </xs:element>
                 
 ```
-
-
 ### Content element details
 
 #### Node
-name: Node
-type: FabricNodeType
-maxOccurs: unbounded
+|Attribute|Value|
+|---|---|
+|name|Node|
+|Attribute|Value|
+|---|---|
+|type|FabricNodeType|
+|Attribute|Value|
+|---|---|
+|maxOccurs|unbounded|
 
 Documentation: 
 
 ## Node Element
+|Attribute|Value|
 |---|---|
 |type|[FabricNodeType](#fabricnodetype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -1128,8 +1235,8 @@ Documentation:
                                         
 ```
 
-
 ## NodeList Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|1 element(s), 0 attribute(s)|
@@ -1147,18 +1254,23 @@ Documentation:
       </xs:element>
     
 ```
-
-
 ### Content element details
 
 #### Node
-name: Node
-type: FabricNodeType
-maxOccurs: unbounded
+|Attribute|Value|
+|---|---|
+|name|Node|
+|Attribute|Value|
+|---|---|
+|type|FabricNodeType|
+|Attribute|Value|
+|---|---|
+|maxOccurs|unbounded|
 
 Documentation: 
 
 ## Node Element
+|Attribute|Value|
 |---|---|
 |type|[FabricNodeType](#fabricnodetype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -1172,8 +1284,8 @@ Documentation:
           
 ```
 
-
 ## ClientConnectionEndpoint Element
+|Attribute|Value|
 |---|---|
 |type|[InputEndpointType](#inputendpointtype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -1186,8 +1298,8 @@ Documentation:
       
 ```
 
-
 ## LeaseDriverEndpoint Element
+|Attribute|Value|
 |---|---|
 |type|[InternalEndpointType](#internalendpointtype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -1200,8 +1312,8 @@ Documentation:
       
 ```
 
-
 ## ClusterConnectionEndpoint Element
+|Attribute|Value|
 |---|---|
 |type|[InternalEndpointType](#internalendpointtype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -1214,8 +1326,8 @@ Documentation:
       
 ```
 
-
 ## HttpGatewayEndpoint Element
+|Attribute|Value|
 |---|---|
 |type|[InputEndpointType](#inputendpointtype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -1229,8 +1341,8 @@ Documentation:
       
 ```
 
-
 ## HttpApplicationGatewayEndpoint Element
+|Attribute|Value|
 |---|---|
 |type|[InputEndpointType](#inputendpointtype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -1244,8 +1356,8 @@ Documentation:
       
 ```
 
-
 ## ServiceConnectionEndpoint Element
+|Attribute|Value|
 |---|---|
 |type|[InternalEndpointType](#internalendpointtype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -1259,8 +1371,8 @@ Documentation:
       
 ```
 
-
 ## ClusterManagerReplicatorEndpoint Element
+|Attribute|Value|
 |---|---|
 |type|[InternalEndpointType](#internalendpointtype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -1274,8 +1386,8 @@ Documentation:
       
 ```
 
-
 ## RepairManagerReplicatorEndpoint Element
+|Attribute|Value|
 |---|---|
 |type|[InternalEndpointType](#internalendpointtype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -1289,8 +1401,8 @@ Documentation:
       
 ```
 
-
 ## NamingReplicatorEndpoint Element
+|Attribute|Value|
 |---|---|
 |type|[InternalEndpointType](#internalendpointtype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -1304,8 +1416,8 @@ Documentation:
       
 ```
 
-
 ## FailoverManagerReplicatorEndpoint Element
+|Attribute|Value|
 |---|---|
 |type|[InternalEndpointType](#internalendpointtype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -1319,8 +1431,8 @@ Documentation:
       
 ```
 
-
 ## ImageStoreServiceReplicatorEndpoint Element
+|Attribute|Value|
 |---|---|
 |type|[InternalEndpointType](#internalendpointtype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -1334,8 +1446,8 @@ Documentation:
       
 ```
 
-
 ## UpgradeServiceReplicatorEndpoint Element
+|Attribute|Value|
 |---|---|
 |type|[InternalEndpointType](#internalendpointtype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -1349,8 +1461,8 @@ Documentation:
       
 ```
 
-
 ## FaultAnalysisServiceReplicatorEndpoint Element
+|Attribute|Value|
 |---|---|
 |type|[InternalEndpointType](#internalendpointtype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -1364,8 +1476,8 @@ Documentation:
       
 ```
 
-
 ## BackupRestoreServiceReplicatorEndpoint Element
+|Attribute|Value|
 |---|---|
 |type|[InternalEndpointType](#internalendpointtype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -1379,8 +1491,8 @@ Documentation:
       
 ```
 
-
 ## UpgradeOrchestrationServiceReplicatorEndpoint Element
+|Attribute|Value|
 |---|---|
 |type|[InternalEndpointType](#internalendpointtype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -1394,8 +1506,8 @@ Documentation:
       
 ```
 
-
 ## DefaultReplicatorEndpoint Element
+|Attribute|Value|
 |---|---|
 |type|[InternalEndpointType](#internalendpointtype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -1409,8 +1521,8 @@ Documentation:
       
 ```
 
-
 ## ApplicationEndpoints Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|0 element(s), 2 attribute(s)|
@@ -1428,22 +1540,35 @@ Documentation:
       </xs:element>
       
 ```
-
 ### Attribute details
 
 #### StartPort
 Documentation: 
-name: StartPort
-type: xs:int
-use: required
+|Attribute|Value|
+|---|---|
+|name|StartPort|
+|Attribute|Value|
+|---|---|
+|type|xs:int|
+|Attribute|Value|
+|---|---|
+|use|required|
 
 #### EndPort
 Documentation: 
-name: EndPort
-type: xs:int
-use: required
+|Attribute|Value|
+|---|---|
+|name|EndPort|
+|Attribute|Value|
+|---|---|
+|type|xs:int|
+|Attribute|Value|
+|---|---|
+|use|required|
+
 
 ## EphemeralEndpoints Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|0 element(s), 2 attribute(s)|
@@ -1461,22 +1586,35 @@ use: required
       </xs:element>
     
 ```
-
 ### Attribute details
 
 #### StartPort
 Documentation: 
-name: StartPort
-type: xs:int
-use: required
+|Attribute|Value|
+|---|---|
+|name|StartPort|
+|Attribute|Value|
+|---|---|
+|type|xs:int|
+|Attribute|Value|
+|---|---|
+|use|required|
 
 #### EndPort
 Documentation: 
-name: EndPort
-type: xs:int
-use: required
+|Attribute|Value|
+|---|---|
+|name|EndPort|
+|Attribute|Value|
+|---|---|
+|type|xs:int|
+|Attribute|Value|
+|---|---|
+|use|required|
+
 
 ## SharedLogFilePath Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|0 element(s), 1 attribute(s)|
@@ -1497,16 +1635,23 @@ use: required
 
       
 ```
-
 ### Attribute details
 
 #### Value
 Documentation: 
-name: Value
-type: xs:string
-use: required
+|Attribute|Value|
+|---|---|
+|name|Value|
+|Attribute|Value|
+|---|---|
+|type|xs:string|
+|Attribute|Value|
+|---|---|
+|use|required|
+
 
 ## SharedLogFileId Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|0 element(s), 1 attribute(s)|
@@ -1533,15 +1678,20 @@ use: required
 
       
 ```
-
 ### Attribute details
 
 #### Value
 Documentation: 
-name: Value
-use: required
+|Attribute|Value|
+|---|---|
+|name|Value|
+|Attribute|Value|
+|---|---|
+|use|required|
+
 
 ## SharedLogFileSizeInMB Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|0 element(s), 1 attribute(s)|
@@ -1568,15 +1718,20 @@ use: required
 
     
 ```
-
 ### Attribute details
 
 #### Value
 Documentation: 
-name: Value
-use: required
+|Attribute|Value|
+|---|---|
+|name|Value|
+|Attribute|Value|
+|---|---|
+|use|required|
+
 
 ## Description Element
+|Attribute|Value|
 |---|---|
 |type|[xs:string](#xs:string-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -1594,8 +1749,8 @@ use: required
       
 ```
 
-
 ## Parameters Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|1 element(s), 0 attribute(s)|
@@ -1638,19 +1793,26 @@ use: required
       </xs:element>
       
 ```
-
-
 ### Content element details
 
 #### Parameter
-name: Parameter
-block: 
-minOccurs: 0
-maxOccurs: unbounded
+|Attribute|Value|
+|---|---|
+|name|Parameter|
+|Attribute|Value|
+|---|---|
+|block||
+|Attribute|Value|
+|---|---|
+|minOccurs|0|
+|Attribute|Value|
+|---|---|
+|maxOccurs|unbounded|
 
 Documentation: An application parameter to be used in this manifest. The parameter value can be changed during application instantiation, or, if no value is supplied the default value is used.
 
 ## Parameter Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|0 element(s), 2 attribute(s)|
@@ -1686,21 +1848,32 @@ Documentation: An application parameter to be used in this manifest. The paramet
             </xs:element>
           
 ```
-
 ### Attribute details
 
 #### Name
 Documentation: The name of the parameter to be used in the manifest as "[Name]".
-name: Name
-use: required
+|Attribute|Value|
+|---|---|
+|name|Name|
+|Attribute|Value|
+|---|---|
+|use|required|
 
 #### DefaultValue
 Documentation: Default value for the parameter, used if the parameter value is not provided during application instantiation.
-name: DefaultValue
-type: xs:string
-use: required
+|Attribute|Value|
+|---|---|
+|name|DefaultValue|
+|Attribute|Value|
+|---|---|
+|type|xs:string|
+|Attribute|Value|
+|---|---|
+|use|required|
+
 
 ## ServiceManifestImport Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|5 element(s), 0 attribute(s)|
@@ -1735,45 +1908,72 @@ use: required
       </xs:element>
       
 ```
-
-
 ### Content element details
 
 #### ServiceManifestRef
-name: ServiceManifestRef
-type: ServiceManifestRefType
+|Attribute|Value|
+|---|---|
+|name|ServiceManifestRef|
+|Attribute|Value|
+|---|---|
+|type|ServiceManifestRefType|
 
 Documentation: 
 
 #### ConfigOverrides
-name: ConfigOverrides
-minOccurs: 0
+|Attribute|Value|
+|---|---|
+|name|ConfigOverrides|
+|Attribute|Value|
+|---|---|
+|minOccurs|0|
 
 Documentation: Describes configuration overrides for the imported service manifest. Configuration overrides allow the flexibility of re-using the same service manifests across multiple application types by overriding the service manifest's configuration only when used with a particular application type. Configuration overrides can change any default configuration in a service manifest as long as default configuration is defined using the Settings.xml in the ConfigPackage folder. 
 
 #### ResourceOverrides
-name: ResourceOverrides
-type: ResourceOverridesType
-minOccurs: 0
+|Attribute|Value|
+|---|---|
+|name|ResourceOverrides|
+|Attribute|Value|
+|---|---|
+|type|ResourceOverridesType|
+|Attribute|Value|
+|---|---|
+|minOccurs|0|
 
 Documentation: 
 
 #### EnvironmentOverrides
-name: EnvironmentOverrides
-type: EnvironmentOverridesType
-minOccurs: 0
-maxOccurs: unbounded
+|Attribute|Value|
+|---|---|
+|name|EnvironmentOverrides|
+|Attribute|Value|
+|---|---|
+|type|EnvironmentOverridesType|
+|Attribute|Value|
+|---|---|
+|minOccurs|0|
+|Attribute|Value|
+|---|---|
+|maxOccurs|unbounded|
 
 Documentation: 
 
 #### Policies
-name: Policies
-type: ServiceManifestImportPoliciesType
-minOccurs: 0
+|Attribute|Value|
+|---|---|
+|name|Policies|
+|Attribute|Value|
+|---|---|
+|type|ServiceManifestImportPoliciesType|
+|Attribute|Value|
+|---|---|
+|minOccurs|0|
 
 Documentation: 
 
 ## ServiceManifestRef Element
+|Attribute|Value|
 |---|---|
 |type|[ServiceManifestRefType](#servicemanifestreftype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -1786,8 +1986,8 @@ Documentation:
             
 ```
 
-
 ## ConfigOverrides Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|1 element(s), 0 attribute(s)|
@@ -1809,19 +2009,26 @@ Documentation:
             </xs:element>
             
 ```
-
-
 ### Content element details
 
 #### ConfigOverride
-name: ConfigOverride
-type: ConfigOverrideType
-minOccurs: 0
-maxOccurs: unbounded
+|Attribute|Value|
+|---|---|
+|name|ConfigOverride|
+|Attribute|Value|
+|---|---|
+|type|ConfigOverrideType|
+|Attribute|Value|
+|---|---|
+|minOccurs|0|
+|Attribute|Value|
+|---|---|
+|maxOccurs|unbounded|
 
 Documentation: 
 
 ## ConfigOverride Element
+|Attribute|Value|
 |---|---|
 |type|[ConfigOverrideType](#configoverridetype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -1836,8 +2043,8 @@ Documentation:
                 
 ```
 
-
 ## ResourceOverrides Element
+|Attribute|Value|
 |---|---|
 |type|[ResourceOverridesType](#resourceoverridestype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -1851,8 +2058,8 @@ Documentation:
             
 ```
 
-
 ## EnvironmentOverrides Element
+|Attribute|Value|
 |---|---|
 |type|[EnvironmentOverridesType](#environmentoverridestype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -1867,8 +2074,8 @@ Documentation:
             
 ```
 
-
 ## Policies Element
+|Attribute|Value|
 |---|---|
 |type|[ServiceManifestImportPoliciesType](#servicemanifestimportpoliciestype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -1882,8 +2089,8 @@ Documentation:
           
 ```
 
-
 ## ServiceTemplates Element
+|Attribute|Value|
 |---|---|
 |type|[ServiceTemplatesType](#servicetemplatestype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -1901,8 +2108,8 @@ Documentation:
       
 ```
 
-
 ## DefaultServices Element
+|Attribute|Value|
 |---|---|
 |type|[DefaultServicesType](#defaultservicestype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -1918,8 +2125,8 @@ Documentation:
       
 ```
 
-
 ## Principals Element
+|Attribute|Value|
 |---|---|
 |type|[SecurityPrincipalsType](#securityprincipalstype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -1933,8 +2140,8 @@ Documentation:
       
 ```
 
-
 ## Policies Element
+|Attribute|Value|
 |---|---|
 |type|[ApplicationPoliciesType](#applicationpoliciestype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -1948,8 +2155,8 @@ Documentation:
       
 ```
 
-
 ## Diagnostics Element
+|Attribute|Value|
 |---|---|
 |type|[DiagnosticsType](#diagnosticstype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -1963,8 +2170,8 @@ Documentation:
       
 ```
 
-
 ## Certificates Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|2 element(s), 0 attribute(s)|
@@ -1991,25 +2198,36 @@ Documentation:
       </xs:element>
     
 ```
-
-
 ### Content element details
 
 #### SecretsCertificate
-name: SecretsCertificate
-type: FabricCertificateType
-minOccurs: 0
+|Attribute|Value|
+|---|---|
+|name|SecretsCertificate|
+|Attribute|Value|
+|---|---|
+|type|FabricCertificateType|
+|Attribute|Value|
+|---|---|
+|minOccurs|0|
 
 Documentation: Declares a certificate used to encrypt sensitive information within the application manifest. The application author uses the Invoke-ServiceFabricEncryptSecret cmdlet to encrypt the sensitive information, which is copied to a Parameter in the ConfigOverrides section.
 
 #### EndpointCertificate
-name: EndpointCertificate
-type: EndpointCertificateType
-minOccurs: 0
+|Attribute|Value|
+|---|---|
+|name|EndpointCertificate|
+|Attribute|Value|
+|---|---|
+|type|EndpointCertificateType|
+|Attribute|Value|
+|---|---|
+|minOccurs|0|
 
 Documentation: 
 
 ## SecretsCertificate Element
+|Attribute|Value|
 |---|---|
 |type|[FabricCertificateType](#fabriccertificatetype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -2027,8 +2245,8 @@ Documentation:
             
 ```
 
-
 ## EndpointCertificate Element
+|Attribute|Value|
 |---|---|
 |type|[EndpointCertificateType](#endpointcertificatetype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -2042,8 +2260,8 @@ Documentation:
           
 ```
 
-
 ## RunAsPolicy Element
+|Attribute|Value|
 |---|---|
 |type|[RunAsPolicyType](#runaspolicytype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -2057,8 +2275,8 @@ Documentation:
       
 ```
 
-
 ## SecurityAccessPolicy Element
+|Attribute|Value|
 |---|---|
 |type|[SecurityAccessPolicyType](#securityaccesspolicytype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -2072,8 +2290,8 @@ Documentation:
       
 ```
 
-
 ## PackageSharingPolicy Element
+|Attribute|Value|
 |---|---|
 |type|[PackageSharingPolicyType](#packagesharingpolicytype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -2087,8 +2305,8 @@ Documentation:
       
 ```
 
-
 ## EndpointBindingPolicy Element
+|Attribute|Value|
 |---|---|
 |type|[EndpointBindingPolicyType](#endpointbindingpolicytype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -2106,8 +2324,8 @@ Documentation:
       
 ```
 
-
 ## ServicePackageResourceGovernancePolicy Element
+|Attribute|Value|
 |---|---|
 |type|[ServicePackageResourceGovernancePolicyType](#servicepackageresourcegovernancepolicytype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -2126,8 +2344,8 @@ Documentation:
       
 ```
 
-
 ## ResourceGovernancePolicy Element
+|Attribute|Value|
 |---|---|
 |type|[ResourceGovernancePolicyType](#resourcegovernancepolicytype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -2145,8 +2363,8 @@ Documentation:
       
 ```
 
-
 ## ContainerHostPolicies Element
+|Attribute|Value|
 |---|---|
 |type|[ContainerHostPoliciesType](#containerhostpoliciestype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -2164,8 +2382,8 @@ Documentation:
     
 ```
 
-
 ## RepositoryCredentials Element
+|Attribute|Value|
 |---|---|
 |type|[RepositoryCredentialsType](#repositorycredentialstype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -2184,8 +2402,8 @@ Documentation:
       
 ```
 
-
 ## PortBinding Element
+|Attribute|Value|
 |---|---|
 |type|[PortBindingType](#portbindingtype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -2204,8 +2422,8 @@ Documentation:
       
 ```
 
-
 ## CertificateRef Element
+|Attribute|Value|
 |---|---|
 |type|[ContainerCertificateType](#containercertificatetype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -2224,8 +2442,8 @@ Documentation:
       
 ```
 
-
 ## LogConfig Element
+|Attribute|Value|
 |---|---|
 |type|[ContainerLoggingDriverType](#containerloggingdrivertype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -2244,8 +2462,8 @@ Documentation:
         
 ```
 
-
 ## NetworkConfig Element
+|Attribute|Value|
 |---|---|
 |type|[ContainerNetworkConfigType](#containernetworkconfigtype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -2264,8 +2482,8 @@ Documentation:
         
 ```
 
-
 ## Volume Element
+|Attribute|Value|
 |---|---|
 |type|[ContainerVolumeType](#containervolumetype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -2284,8 +2502,8 @@ Documentation:
       
 ```
 
-
 ## SecurityOption Element
+|Attribute|Value|
 |---|---|
 |type|[SecurityOptionsType](#securityoptionstype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -2304,8 +2522,8 @@ Documentation:
     
 ```
 
-
 ## DriverOption Element
+|Attribute|Value|
 |---|---|
 |type|[DriverOptionType](#driveroptiontype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -2324,8 +2542,8 @@ Documentation:
       
 ```
 
-
 ## DriverOption Element
+|Attribute|Value|
 |---|---|
 |type|[DriverOptionType](#driveroptiontype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -2344,8 +2562,8 @@ Documentation:
         
 ```
 
-
 ## EnvironmentVariable Element
+|Attribute|Value|
 |---|---|
 |type|[EnvironmentVariableType](#environmentvariabletype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -2364,8 +2582,8 @@ Documentation:
     
 ```
 
-
 ## EnvironmentVariable Element
+|Attribute|Value|
 |---|---|
 |type|[EnvironmentVariableType](#environmentvariabletype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -2383,9 +2601,9 @@ Documentation:
       </xs:element>
     
 ```
-
 
 ## Settings Element
+|Attribute|Value|
 |---|---|
 |type|[SettingsOverridesType](#settingsoverridestype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -2399,8 +2617,8 @@ Documentation:
     
 ```
 
-
 ## Section Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|1 element(s), 1 attribute(s)|
@@ -2446,24 +2664,34 @@ Documentation:
             </xs:element>
         
 ```
-
 ### Attribute details
 
 #### Name
 Documentation: The name of the section in the Settings.xml file to override.
-name: Name
-use: required
+|Attribute|Value|
+|---|---|
+|name|Name|
+|Attribute|Value|
+|---|---|
+|use|required|
 
 ### Content element details
 
 #### Parameter
-name: Parameter
-minOccurs: 0
-maxOccurs: unbounded
+|Attribute|Value|
+|---|---|
+|name|Parameter|
+|Attribute|Value|
+|---|---|
+|minOccurs|0|
+|Attribute|Value|
+|---|---|
+|maxOccurs|unbounded|
 
 Documentation: The setting to override.
 
 ## Parameter Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|0 element(s), 1 attribute(s)|
@@ -2491,18 +2719,25 @@ Documentation: The setting to override.
                         </xs:element>
                     
 ```
-
 ### Attribute details
 
 #### IsEncrypted
 Documentation: 
                       If true, the value of this parameter is encrypted. The application developer is responsible for creating a certificate and using the Invoke-ServiceFabricEncryptSecret cmdlet to encrypt sensitive information. The certificate information that will be used to encrypt the value is specified in the Certificates section.
                     
-name: IsEncrypted
-type: xs:boolean
-default: false
+|Attribute|Value|
+|---|---|
+|name|IsEncrypted|
+|Attribute|Value|
+|---|---|
+|type|xs:boolean|
+|Attribute|Value|
+|---|---|
+|default|false|
+
 
 ## StatelessService Element
+|Attribute|Value|
 |---|---|
 |type|[StatelessServiceType](#statelessservicetype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -2515,8 +2750,8 @@ default: false
             
 ```
 
-
 ## StatefulService Element
+|Attribute|Value|
 |---|---|
 |type|[StatefulServiceType](#statefulservicetype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -2529,8 +2764,8 @@ default: false
             
 ```
 
-
 ## StatelessServiceGroup Element
+|Attribute|Value|
 |---|---|
 |type|[StatelessServiceGroupType](#statelessservicegrouptype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -2543,8 +2778,8 @@ default: false
             
 ```
 
-
 ## StatefulServiceGroup Element
+|Attribute|Value|
 |---|---|
 |type|[StatefulServiceGroupType](#statefulservicegrouptype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -2557,8 +2792,8 @@ default: false
         
 ```
 
-
 ## Service Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|2 element(s), 4 attribute(s)|
@@ -2606,48 +2841,80 @@ default: false
                 </xs:element>
                 
 ```
-
 ### Attribute details
 
 #### Name
 Documentation: The service name, used to form the fully qualified application name URI. The fully qualified name URI of the service would be: fabric:/ApplicationName/ServiceName.
-name: Name
-type: xs:string
-use: required
+|Attribute|Value|
+|---|---|
+|name|Name|
+|Attribute|Value|
+|---|---|
+|type|xs:string|
+|Attribute|Value|
+|---|---|
+|use|required|
 
 #### GeneratedIdRef
 Documentation: Reference to the auto generated id used by Visual Studio tooling.
-name: GeneratedIdRef
-type: xs:string
-use: optional
+|Attribute|Value|
+|---|---|
+|name|GeneratedIdRef|
+|Attribute|Value|
+|---|---|
+|type|xs:string|
+|Attribute|Value|
+|---|---|
+|use|optional|
 
 #### ServiceDnsName
 Documentation: The DNS name of the service.
-name: ServiceDnsName
-type: xs:string
-use: optional
+|Attribute|Value|
+|---|---|
+|name|ServiceDnsName|
+|Attribute|Value|
+|---|---|
+|type|xs:string|
+|Attribute|Value|
+|---|---|
+|use|optional|
 
 #### ServicePackageActivationMode
 Documentation: ServicePackageActivationMode to be used when creating the service. With SharedProcess mode, replica(s) or instance(s) from different partition(s) of service will share same same activation of service package on a node. With ExclusiveProcess mode, each replica or instance of service will have its own dedicated activation of service package.
-name: ServicePackageActivationMode
-use: optional
-default: SharedProcess
+|Attribute|Value|
+|---|---|
+|name|ServicePackageActivationMode|
+|Attribute|Value|
+|---|---|
+|use|optional|
+|Attribute|Value|
+|---|---|
+|default|SharedProcess|
 
 ### Content element details
 
 #### StatelessService
-name: StatelessService
-type: StatelessServiceType
+|Attribute|Value|
+|---|---|
+|name|StatelessService|
+|Attribute|Value|
+|---|---|
+|type|StatelessServiceType|
 
 Documentation: 
 
 #### StatefulService
-name: StatefulService
-type: StatefulServiceType
+|Attribute|Value|
+|---|---|
+|name|StatefulService|
+|Attribute|Value|
+|---|---|
+|type|StatefulServiceType|
 
 Documentation: 
 
 ## StatelessService Element
+|Attribute|Value|
 |---|---|
 |type|[StatelessServiceType](#statelessservicetype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -2660,8 +2927,8 @@ Documentation:
                             
 ```
 
-
 ## StatefulService Element
+|Attribute|Value|
 |---|---|
 |type|[StatefulServiceType](#statefulservicetype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -2674,8 +2941,8 @@ Documentation:
                         
 ```
 
-
 ## ServiceGroup Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|2 element(s), 2 attribute(s)|
@@ -2713,36 +2980,56 @@ Documentation:
                 </xs:element>
             
 ```
-
 ### Attribute details
 
 #### Name
 Documentation: Name of this service relative to this application Name URI. Fully qualified Name of the service is a combination of Name Uri of the Application and this Name.
-name: Name
-type: xs:string
-use: required
+|Attribute|Value|
+|---|---|
+|name|Name|
+|Attribute|Value|
+|---|---|
+|type|xs:string|
+|Attribute|Value|
+|---|---|
+|use|required|
 
 #### ServicePackageActivationMode
 Documentation: ServicePackageActivationMode to be used when creating the service. With SharedProcess mode, replica(s) or instance(s) from different partition(s) of service will share same same activation of service package on a node. With ExclusiveProcess mode, each replica or instance of service will have its own dedicated activation of service package.
-name: ServicePackageActivationMode
-use: optional
-default: SharedProcess
+|Attribute|Value|
+|---|---|
+|name|ServicePackageActivationMode|
+|Attribute|Value|
+|---|---|
+|use|optional|
+|Attribute|Value|
+|---|---|
+|default|SharedProcess|
 
 ### Content element details
 
 #### StatelessServiceGroup
-name: StatelessServiceGroup
-type: StatelessServiceGroupType
+|Attribute|Value|
+|---|---|
+|name|StatelessServiceGroup|
+|Attribute|Value|
+|---|---|
+|type|StatelessServiceGroupType|
 
 Documentation: 
 
 #### StatefulServiceGroup
-name: StatefulServiceGroup
-type: StatefulServiceGroupType
+|Attribute|Value|
+|---|---|
+|name|StatefulServiceGroup|
+|Attribute|Value|
+|---|---|
+|type|StatefulServiceGroupType|
 
 Documentation: 
 
 ## StatelessServiceGroup Element
+|Attribute|Value|
 |---|---|
 |type|[StatelessServiceGroupType](#statelessservicegrouptype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -2755,8 +3042,8 @@ Documentation:
                             
 ```
 
-
 ## StatefulServiceGroup Element
+|Attribute|Value|
 |---|---|
 |type|[StatefulServiceGroupType](#statefulservicegrouptype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -2769,8 +3056,8 @@ Documentation:
                         
 ```
 
-
 ## LoadMetrics Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|1 element(s), 0 attribute(s)|
@@ -2792,18 +3079,23 @@ Documentation:
             </xs:element>
             
 ```
-
-
 ### Content element details
 
 #### LoadMetric
-name: LoadMetric
-type: LoadMetricType
-maxOccurs: unbounded
+|Attribute|Value|
+|---|---|
+|name|LoadMetric|
+|Attribute|Value|
+|---|---|
+|type|LoadMetricType|
+|Attribute|Value|
+|---|---|
+|maxOccurs|unbounded|
 
 Documentation: 
 
 ## LoadMetric Element
+|Attribute|Value|
 |---|---|
 |type|[LoadMetricType](#loadmetrictype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -2817,8 +3109,8 @@ Documentation:
                     
 ```
 
-
 ## PlacementConstraints Element
+|Attribute|Value|
 |---|---|
 |type|[xs:string](#xs:string-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -2836,8 +3128,8 @@ Documentation:
             
 ```
 
-
 ## ServiceCorrelations Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|1 element(s), 0 attribute(s)|
@@ -2887,17 +3179,20 @@ Documentation:
             </xs:element>
             
 ```
-
-
 ### Content element details
 
 #### ServiceCorrelation
-name: ServiceCorrelation
-maxOccurs: unbounded
+|Attribute|Value|
+|---|---|
+|name|ServiceCorrelation|
+|Attribute|Value|
+|---|---|
+|maxOccurs|unbounded|
 
 Documentation: Defines an affinity relationship with another service. Useful when splitting a previously-monolithic application into microservices.  One service has a local dependency on another service and both services need to run on the same node in order to work.
 
 ## ServiceCorrelation Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|0 element(s), 2 attribute(s)|
@@ -2938,20 +3233,29 @@ Documentation: Defines an affinity relationship with another service. Useful whe
                         </xs:element>
                     
 ```
-
 ### Attribute details
 
 #### ServiceName
 Documentation: The name of the other service as a URI. Example, "fabric:/otherApplication/parentService".
-name: ServiceName
-use: required
+|Attribute|Value|
+|---|---|
+|name|ServiceName|
+|Attribute|Value|
+|---|---|
+|use|required|
 
 #### Scheme
 Documentation: In NonAlignedAffinity the replicas or instances of the different services are placed on the same nodes. AlignedAffinity is used with stateful services. Configuring one stateful service as having aligned affinity with another stateful service ensures that the primaries of those services are placed on the same nodes as each other, and that each pair of secondaries are also placed on the same nodes.
-name: Scheme
-use: required
+|Attribute|Value|
+|---|---|
+|name|Scheme|
+|Attribute|Value|
+|---|---|
+|use|required|
+
 
 ## ServicePlacementPolicies Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|1 element(s), 0 attribute(s)|
@@ -3003,17 +3307,20 @@ use: required
             </xs:element>
         
 ```
-
-
 ### Content element details
 
 #### ServicePlacementPolicy
-name: ServicePlacementPolicy
-maxOccurs: unbounded
+|Attribute|Value|
+|---|---|
+|name|ServicePlacementPolicy|
+|Attribute|Value|
+|---|---|
+|maxOccurs|unbounded|
 
 Documentation: Defines a service placement policy, which specifies that the service should or should not run in certain cluster fault domains.  Useful when the cluster spans geographic distances or and/or geopolitical regions.
 
 ## ServicePlacementPolicy Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|0 element(s), 2 attribute(s)|
@@ -3056,19 +3363,26 @@ Documentation: Defines a service placement policy, which specifies that the serv
                         </xs:element>
                     
 ```
-
 ### Attribute details
 
 #### DomainName
 Documentation: The fault domain where the service should or should not be placed, depending on the Type value.
-name: DomainName
+|Attribute|Value|
+|---|---|
+|name|DomainName|
 
 #### Type
 Documentation: InvalidDomain allows you to specify that a particular Fault Domain is invalid for this workload. RequiredDomain requires that all of the replicas be present in the specified domain. Multiple required domains can be specified. PreferredPrimaryDomain specifies the preferred Fault Domain for primary replicas. Useful in geographically spanned clusters where you are using other locations for redundancy, but would prefer that the primary replicas be placed in a certain location in order to provider lower latency for operations which go to the primary. RequiredDomainDistribution specifies that replicas are required to be distributed among the available fault domains. NonPartiallyPlace controls if the service replicas will be partially place if not all of them can be placed.
-name: Type
-use: required
+|Attribute|Value|
+|---|---|
+|name|Type|
+|Attribute|Value|
+|---|---|
+|use|required|
+
 
 ## LoadMetrics Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|1 element(s), 0 attribute(s)|
@@ -3090,18 +3404,23 @@ use: required
             </xs:element>
         
 ```
-
-
 ### Content element details
 
 #### LoadMetric
-name: LoadMetric
-type: LoadMetricType
-maxOccurs: unbounded
+|Attribute|Value|
+|---|---|
+|name|LoadMetric|
+|Attribute|Value|
+|---|---|
+|type|LoadMetricType|
+|Attribute|Value|
+|---|---|
+|maxOccurs|unbounded|
 
 Documentation: 
 
 ## LoadMetric Element
+|Attribute|Value|
 |---|---|
 |type|[LoadMetricType](#loadmetrictype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -3115,8 +3434,8 @@ Documentation:
                     
 ```
 
-
 ## Members Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|1 element(s), 0 attribute(s)|
@@ -3139,19 +3458,26 @@ Documentation:
                     </xs:element>
                 
 ```
-
-
 ### Content element details
 
 #### Member
-name: Member
-type: ServiceGroupMemberType
-minOccurs: 1
-maxOccurs: unbounded
+|Attribute|Value|
+|---|---|
+|name|Member|
+|Attribute|Value|
+|---|---|
+|type|ServiceGroupMemberType|
+|Attribute|Value|
+|---|---|
+|minOccurs|1|
+|Attribute|Value|
+|---|---|
+|maxOccurs|unbounded|
 
 Documentation: 
 
 ## Member Element
+|Attribute|Value|
 |---|---|
 |type|[ServiceGroupMemberType](#servicegroupmembertype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -3166,8 +3492,8 @@ Documentation:
                             
 ```
 
-
 ## Members Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|1 element(s), 0 attribute(s)|
@@ -3190,19 +3516,26 @@ Documentation:
                     </xs:element>
                 
 ```
-
-
 ### Content element details
 
 #### Member
-name: Member
-type: ServiceGroupMemberType
-minOccurs: 1
-maxOccurs: unbounded
+|Attribute|Value|
+|---|---|
+|name|Member|
+|Attribute|Value|
+|---|---|
+|type|ServiceGroupMemberType|
+|Attribute|Value|
+|---|---|
+|minOccurs|1|
+|Attribute|Value|
+|---|---|
+|maxOccurs|unbounded|
 
 Documentation: 
 
 ## Member Element
+|Attribute|Value|
 |---|---|
 |type|[ServiceGroupMemberType](#servicegroupmembertype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -3216,9 +3549,9 @@ Documentation:
 <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Member" type="ServiceGroupMemberType" minOccurs="1" maxOccurs="unbounded"/>
                             
 ```
-
 
 ## SingletonPartition Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|0 element(s), 0 attribute(s)|
@@ -3236,8 +3569,8 @@ Documentation:
             
 ```
 
-
 ## UniformInt64Partition Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|0 element(s), 3 attribute(s)|
@@ -3270,28 +3603,47 @@ Documentation:
             </xs:element>
             
 ```
-
 ### Attribute details
 
 #### PartitionCount
 Documentation: Total number of partitions (positive integer). Each partition is responsible for a non-overlapping subrange of the overall partition key range.
-name: PartitionCount
-type: xs:string
-use: required
+|Attribute|Value|
+|---|---|
+|name|PartitionCount|
+|Attribute|Value|
+|---|---|
+|type|xs:string|
+|Attribute|Value|
+|---|---|
+|use|required|
 
 #### LowKey
 Documentation: Inclusive low range of the partition key (long).
-name: LowKey
-type: xs:string
-use: required
+|Attribute|Value|
+|---|---|
+|name|LowKey|
+|Attribute|Value|
+|---|---|
+|type|xs:string|
+|Attribute|Value|
+|---|---|
+|use|required|
 
 #### HighKey
 Documentation: Inclusive high range of the partition key (long).
-name: HighKey
-type: xs:string
-use: required
+|Attribute|Value|
+|---|---|
+|name|HighKey|
+|Attribute|Value|
+|---|---|
+|type|xs:string|
+|Attribute|Value|
+|---|---|
+|use|required|
+
 
 ## NamedPartition Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|1 element(s), 0 attribute(s)|
@@ -3328,16 +3680,17 @@ use: required
             </xs:element>
         
 ```
-
-
 ### Content element details
 
 #### Partition
-name: Partition
+|Attribute|Value|
+|---|---|
+|name|Partition|
 
 Documentation: Describes a partition by name.
 
 ## Partition Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|0 element(s), 1 attribute(s)|
@@ -3365,15 +3718,20 @@ Documentation: Describes a partition by name.
                         </xs:element>
                     
 ```
-
 ### Attribute details
 
 #### Name
 Documentation: The name of the partition
-name: Name
-use: required
+|Attribute|Value|
+|---|---|
+|name|Name|
+|Attribute|Value|
+|---|---|
+|use|required|
+
 
 ## Principals Element
+|Attribute|Value|
 |---|---|
 |type|[SecurityPrincipalsType](#securityprincipalstype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -3386,8 +3744,8 @@ use: required
             
 ```
 
-
 ## Policies Element
+|Attribute|Value|
 |---|---|
 |type|[ApplicationPoliciesType](#applicationpoliciestype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -3400,8 +3758,8 @@ use: required
             
 ```
 
-
 ## Diagnostics Element
+|Attribute|Value|
 |---|---|
 |type|[DiagnosticsType](#diagnosticstype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -3414,8 +3772,8 @@ use: required
         
 ```
 
-
 ## Groups Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|1 element(s), 0 attribute(s)|
@@ -3476,17 +3834,20 @@ use: required
             </xs:element>
             
 ```
-
-
 ### Content element details
 
 #### Group
-name: Group
-maxOccurs: unbounded
+|Attribute|Value|
+|---|---|
+|name|Group|
+|Attribute|Value|
+|---|---|
+|maxOccurs|unbounded|
 
 Documentation: Declares a group as a security principal, which can be referenced in policies.
 
 ## Group Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|2 element(s), 1 attribute(s)|
@@ -3538,30 +3899,44 @@ Documentation: Declares a group as a security principal, which can be referenced
                         </xs:element>
                     
 ```
-
 ### Attribute details
 
 #### Name
 Documentation: Name of the local group account. The name will be prefixed with the application ID.
-name: Name
-type: xs:string
-use: required
+|Attribute|Value|
+|---|---|
+|name|Name|
+|Attribute|Value|
+|---|---|
+|type|xs:string|
+|Attribute|Value|
+|---|---|
+|use|required|
 
 ### Content element details
 
 #### NTLMAuthenticationPolicy
-name: NTLMAuthenticationPolicy
-minOccurs: 0
+|Attribute|Value|
+|---|---|
+|name|NTLMAuthenticationPolicy|
+|Attribute|Value|
+|---|---|
+|minOccurs|0|
 
 Documentation: 
 
 #### Membership
-name: Membership
-minOccurs: 0
+|Attribute|Value|
+|---|---|
+|name|Membership|
+|Attribute|Value|
+|---|---|
+|minOccurs|0|
 
 Documentation: 
 
 ## NTLMAuthenticationPolicy Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|0 element(s), 1 attribute(s)|
@@ -3578,17 +3953,26 @@ Documentation:
                                     </xs:element>
                                     
 ```
-
 ### Attribute details
 
 #### IsEnabled
 Documentation: 
-name: IsEnabled
-type: xs:boolean
-use: optional
-default: true
+|Attribute|Value|
+|---|---|
+|name|IsEnabled|
+|Attribute|Value|
+|---|---|
+|type|xs:boolean|
+|Attribute|Value|
+|---|---|
+|use|optional|
+|Attribute|Value|
+|---|---|
+|default|true|
+
 
 ## Membership Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|3 element(s), 0 attribute(s)|
@@ -3621,32 +4005,49 @@ default: true
                                     </xs:element>
                                 
 ```
-
-
 ### Content element details
 
 #### DomainGroup
-name: DomainGroup
-minOccurs: 0
-maxOccurs: unbounded
+|Attribute|Value|
+|---|---|
+|name|DomainGroup|
+|Attribute|Value|
+|---|---|
+|minOccurs|0|
+|Attribute|Value|
+|---|---|
+|maxOccurs|unbounded|
 
 Documentation: 
 
 #### SystemGroup
-name: SystemGroup
-minOccurs: 0
-maxOccurs: unbounded
+|Attribute|Value|
+|---|---|
+|name|SystemGroup|
+|Attribute|Value|
+|---|---|
+|minOccurs|0|
+|Attribute|Value|
+|---|---|
+|maxOccurs|unbounded|
 
 Documentation: 
 
 #### DomainUser
-name: DomainUser
-minOccurs: 0
-maxOccurs: unbounded
+|Attribute|Value|
+|---|---|
+|name|DomainUser|
+|Attribute|Value|
+|---|---|
+|minOccurs|0|
+|Attribute|Value|
+|---|---|
+|maxOccurs|unbounded|
 
 Documentation: 
 
 ## DomainGroup Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|0 element(s), 1 attribute(s)|
@@ -3664,16 +4065,23 @@ Documentation:
                                                 </xs:element>
                                                 
 ```
-
 ### Attribute details
 
 #### Name
 Documentation: 
-name: Name
-type: xs:string
-use: required
+|Attribute|Value|
+|---|---|
+|name|Name|
+|Attribute|Value|
+|---|---|
+|type|xs:string|
+|Attribute|Value|
+|---|---|
+|use|required|
+
 
 ## SystemGroup Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|0 element(s), 1 attribute(s)|
@@ -3691,16 +4099,23 @@ use: required
                                                 </xs:element>
                                                 
 ```
-
 ### Attribute details
 
 #### Name
 Documentation: 
-name: Name
-type: xs:string
-use: required
+|Attribute|Value|
+|---|---|
+|name|Name|
+|Attribute|Value|
+|---|---|
+|type|xs:string|
+|Attribute|Value|
+|---|---|
+|use|required|
+
 
 ## DomainUser Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|0 element(s), 1 attribute(s)|
@@ -3718,16 +4133,23 @@ use: required
                                                 </xs:element>
                                             
 ```
-
 ### Attribute details
 
 #### Name
 Documentation: 
-name: Name
-type: xs:string
-use: required
+|Attribute|Value|
+|---|---|
+|name|Name|
+|Attribute|Value|
+|---|---|
+|type|xs:string|
+|Attribute|Value|
+|---|---|
+|use|required|
+
 
 ## Users Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|1 element(s), 0 attribute(s)|
@@ -3841,17 +4263,20 @@ use: required
                         </xs:element>
                 
 ```
-
-
 ### Content element details
 
 #### User
-name: User
-maxOccurs: unbounded
+|Attribute|Value|
+|---|---|
+|name|User|
+|Attribute|Value|
+|---|---|
+|maxOccurs|unbounded|
 
 Documentation: Declares a user as a security principal, which can be referenced in policies.
 
 ## User Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|2 element(s), 5 attribute(s)|
@@ -3956,58 +4381,100 @@ Documentation: Declares a user as a security principal, which can be referenced 
                                                 </xs:element>
                                         
 ```
-
 ### Attribute details
 
 #### Name
 Documentation: Name of the user account.
-name: Name
-type: xs:string
-use: required
+|Attribute|Value|
+|---|---|
+|name|Name|
+|Attribute|Value|
+|---|---|
+|type|xs:string|
+|Attribute|Value|
+|---|---|
+|use|required|
 
 #### AccountType
 Documentation: Specifies the type of account. Local user accounts are created on the machines where the application is deployed. By default, these accounts do not have the same names as those specified here. Instead, they are dynamically generated and have random passwords. Supported local system account types are LocalUser, NetworkService, LocalService and LocalSystem. Domain accounts are supported on Windows Server deployments where Azure Active Directory is available.
-name: AccountType
-use: optional
-default: LocalUser
+|Attribute|Value|
+|---|---|
+|name|AccountType|
+|Attribute|Value|
+|---|---|
+|use|optional|
+|Attribute|Value|
+|---|---|
+|default|LocalUser|
 
 #### LoadUserProfile
 Documentation: 
-name: LoadUserProfile
-type: xs:boolean
-use: optional
-default: false
+|Attribute|Value|
+|---|---|
+|name|LoadUserProfile|
+|Attribute|Value|
+|---|---|
+|type|xs:boolean|
+|Attribute|Value|
+|---|---|
+|use|optional|
+|Attribute|Value|
+|---|---|
+|default|false|
 
 #### PerformInteractiveLogon
 Documentation: 
-name: PerformInteractiveLogon
-type: xs:boolean
-use: optional
-default: false
+|Attribute|Value|
+|---|---|
+|name|PerformInteractiveLogon|
+|Attribute|Value|
+|---|---|
+|type|xs:boolean|
+|Attribute|Value|
+|---|---|
+|use|optional|
+|Attribute|Value|
+|---|---|
+|default|false|
 
 #### PasswordEncrypted
 Documentation: True if the password is encrypted; false if in plain text.
-name: PasswordEncrypted
-type: xs:boolean
-use: optional
+|Attribute|Value|
+|---|---|
+|name|PasswordEncrypted|
+|Attribute|Value|
+|---|---|
+|type|xs:boolean|
+|Attribute|Value|
+|---|---|
+|use|optional|
 
 ### Content element details
 
 #### NTLMAuthenticationPolicy
-name: NTLMAuthenticationPolicy
-minOccurs: 0
+|Attribute|Value|
+|---|---|
+|name|NTLMAuthenticationPolicy|
+|Attribute|Value|
+|---|---|
+|minOccurs|0|
 
 Documentation: 
 
 #### MemberOf
-name: MemberOf
-minOccurs: 0
+|Attribute|Value|
+|---|---|
+|name|MemberOf|
+|Attribute|Value|
+|---|---|
+|minOccurs|0|
 
 Documentation: 
                         Users can be added to any existing membership group, so it can inherit all the properties and security settings of that membership group. The membership group can be used to secure external resources that need to be accessed by different services or the same service (on a different machine).
                       
 
 ## NTLMAuthenticationPolicy Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|0 element(s), 6 attribute(s)|
@@ -4040,46 +4507,83 @@ Documentation:
                                     </xs:element>
                                     
 ```
-
 ### Attribute details
 
 #### IsEnabled
 Documentation: 
-name: IsEnabled
-type: xs:boolean
-use: optional
-default: true
+|Attribute|Value|
+|---|---|
+|name|IsEnabled|
+|Attribute|Value|
+|---|---|
+|type|xs:boolean|
+|Attribute|Value|
+|---|---|
+|use|optional|
+|Attribute|Value|
+|---|---|
+|default|true|
 
 #### PasswordSecret
 Documentation: 
-name: PasswordSecret
-type: xs:string
-use: required
+|Attribute|Value|
+|---|---|
+|name|PasswordSecret|
+|Attribute|Value|
+|---|---|
+|type|xs:string|
+|Attribute|Value|
+|---|---|
+|use|required|
 
 #### PasswordSecretEncrypted
 Documentation: 
-name: PasswordSecretEncrypted
-type: xs:boolean
-use: optional
-default: false
+|Attribute|Value|
+|---|---|
+|name|PasswordSecretEncrypted|
+|Attribute|Value|
+|---|---|
+|type|xs:boolean|
+|Attribute|Value|
+|---|---|
+|use|optional|
+|Attribute|Value|
+|---|---|
+|default|false|
 
 #### X509StoreLocation
 Documentation: 
-name: X509StoreLocation
-use: optional
-default: LocalMachine
+|Attribute|Value|
+|---|---|
+|name|X509StoreLocation|
+|Attribute|Value|
+|---|---|
+|use|optional|
+|Attribute|Value|
+|---|---|
+|default|LocalMachine|
 
 #### X509StoreName
 Documentation: 
-name: X509StoreName
-default: My
+|Attribute|Value|
+|---|---|
+|name|X509StoreName|
+|Attribute|Value|
+|---|---|
+|default|My|
 
 #### X509Thumbprint
 Documentation: 
-name: X509Thumbprint
-type: xs:string
+|Attribute|Value|
+|---|---|
+|name|X509Thumbprint|
+|Attribute|Value|
+|---|---|
+|type|xs:string|
+
 
 ## MemberOf Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|2 element(s), 0 attribute(s)|
@@ -4128,25 +4632,36 @@ type: xs:string
                                                                         </xs:element>
                                                                 
 ```
-
-
 ### Content element details
 
 #### SystemGroup
-name: SystemGroup
-minOccurs: 0
-maxOccurs: unbounded
+|Attribute|Value|
+|---|---|
+|name|SystemGroup|
+|Attribute|Value|
+|---|---|
+|minOccurs|0|
+|Attribute|Value|
+|---|---|
+|maxOccurs|unbounded|
 
 Documentation: The system group to add the user to.  The system group must be defined in the Groups section.
 
 #### Group
-name: Group
-minOccurs: 0
-maxOccurs: unbounded
+|Attribute|Value|
+|---|---|
+|name|Group|
+|Attribute|Value|
+|---|---|
+|minOccurs|0|
+|Attribute|Value|
+|---|---|
+|maxOccurs|unbounded|
 
 Documentation: The group to add the user to.  The group must be defined in the Groups section.
 
 ## SystemGroup Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|0 element(s), 1 attribute(s)|
@@ -4171,16 +4686,23 @@ Documentation: The group to add the user to.  The group must be defined in the G
                                                                                                 </xs:element>
                                                                                                 
 ```
-
 ### Attribute details
 
 #### Name
 Documentation: The name of the system group.
-name: Name
-type: xs:string
-use: required
+|Attribute|Value|
+|---|---|
+|name|Name|
+|Attribute|Value|
+|---|---|
+|type|xs:string|
+|Attribute|Value|
+|---|---|
+|use|required|
+
 
 ## Group Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|0 element(s), 1 attribute(s)|
@@ -4205,16 +4727,23 @@ use: required
                                                                                                 </xs:element>
                                                                                         
 ```
-
 ### Attribute details
 
 #### NameRef
 Documentation: The name of the group.
-name: NameRef
-type: xs:string
-use: required
+|Attribute|Value|
+|---|---|
+|name|NameRef|
+|Attribute|Value|
+|---|---|
+|type|xs:string|
+|Attribute|Value|
+|---|---|
+|use|required|
+
 
 ## LogCollectionPolicies Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|1 element(s), 0 attribute(s)|
@@ -4240,16 +4769,17 @@ use: required
                         </xs:element>
                         
 ```
-
-
 ### Content element details
 
 #### LogCollectionPolicy
-name: LogCollectionPolicy
+|Attribute|Value|
+|---|---|
+|name|LogCollectionPolicy|
 
 Documentation: 
 
 ## LogCollectionPolicy Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|0 element(s), 1 attribute(s)|
@@ -4265,16 +4795,23 @@ Documentation:
                                                 </xs:element>
                                         
 ```
-
 ### Attribute details
 
 #### Path
 Documentation: 
-name: Path
-type: xs:string
-use: optional
+|Attribute|Value|
+|---|---|
+|name|Path|
+|Attribute|Value|
+|---|---|
+|type|xs:string|
+|Attribute|Value|
+|---|---|
+|use|optional|
+
 
 ## DefaultRunAsPolicy Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|0 element(s), 1 attribute(s)|
@@ -4298,16 +4835,23 @@ use: optional
                         </xs:element>
                         
 ```
-
 ### Attribute details
 
 #### UserRef
 Documentation: The user account that the service code packages will run as.  The user account must be declared in the Principals section. Often it is preferable to run the setup entry point using a local system account rather than an administrators account.
-name: UserRef
-type: xs:string
-use: required
+|Attribute|Value|
+|---|---|
+|name|UserRef|
+|Attribute|Value|
+|---|---|
+|type|xs:string|
+|Attribute|Value|
+|---|---|
+|use|required|
+
 
 ## HealthPolicy Element
+|Attribute|Value|
 |---|---|
 |type|[ApplicationHealthPolicyType](#applicationhealthpolicytype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -4321,8 +4865,8 @@ use: required
                         
 ```
 
-
 ## SecurityAccessPolicies Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|1 element(s), 0 attribute(s)|
@@ -4344,17 +4888,20 @@ use: required
                         </xs:element>
                 
 ```
-
-
 ### Content element details
 
 #### SecurityAccessPolicy
-name: SecurityAccessPolicy
-type: SecurityAccessPolicyType
+|Attribute|Value|
+|---|---|
+|name|SecurityAccessPolicy|
+|Attribute|Value|
+|---|---|
+|type|SecurityAccessPolicyType|
 
 Documentation: 
 
 ## SecurityAccessPolicy Element
+|Attribute|Value|
 |---|---|
 |type|[SecurityAccessPolicyType](#securityaccesspolicytype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -4367,8 +4914,8 @@ Documentation:
                                         
 ```
 
-
 ## Parameter Element
+|Attribute|Value|
 |---|---|
 |type|[ParameterType](#parametertype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -4383,8 +4930,8 @@ Documentation:
                 
 ```
 
-
 ## Parameters Element
+|Attribute|Value|
 |---|---|
 |type|[ParametersType](#parameterstype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -4401,8 +4948,8 @@ Documentation:
   
 ```
 
-
 ## None Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|0 element(s), 0 attribute(s)|
@@ -4416,8 +4963,8 @@ Documentation:
     
 ```
 
-
 ## None Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|0 element(s), 0 attribute(s)|
@@ -4431,8 +4978,8 @@ Documentation:
     
 ```
 
-
 ## None Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|0 element(s), 0 attribute(s)|
@@ -4445,9 +4992,9 @@ Documentation:
 <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" ref="Parameters" minOccurs="0"/>
     
 ```
-
 
 ## CrashDumpSource Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|2 element(s), 1 attribute(s)|
@@ -4486,30 +5033,44 @@ Documentation:
       </xs:element>
       
 ```
-
 ### Attribute details
 
 #### IsEnabled
 Documentation: Whether or not crash dump collection is enabled. By default, it is not enabled.
-name: IsEnabled
-type: xs:string
+|Attribute|Value|
+|---|---|
+|name|IsEnabled|
+|Attribute|Value|
+|---|---|
+|type|xs:string|
 
 ### Content element details
 
 #### Destinations
-name: Destinations
-minOccurs: 0
+|Attribute|Value|
+|---|---|
+|name|Destinations|
+|Attribute|Value|
+|---|---|
+|minOccurs|0|
 
 Documentation: Destinations to which the crash dumps need to be transferred.
 
 #### None
-ref: Parameters
-minOccurs: 0
-maxOccurs: 1
+|Attribute|Value|
+|---|---|
+|ref|Parameters|
+|Attribute|Value|
+|---|---|
+|minOccurs|0|
+|Attribute|Value|
+|---|---|
+|maxOccurs|1|
 
 Documentation: 
 
 ## Destinations Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|3 element(s), 0 attribute(s)|
@@ -4533,35 +5094,58 @@ Documentation:
             </xs:element>
             
 ```
-
-
 ### Content element details
 
 #### LocalStore
-name: LocalStore
-type: LocalStoreType
-minOccurs: 0
-maxOccurs: unbounded
+|Attribute|Value|
+|---|---|
+|name|LocalStore|
+|Attribute|Value|
+|---|---|
+|type|LocalStoreType|
+|Attribute|Value|
+|---|---|
+|minOccurs|0|
+|Attribute|Value|
+|---|---|
+|maxOccurs|unbounded|
 
 Documentation: 
 
 #### FileStore
-name: FileStore
-type: FileStoreType
-minOccurs: 0
-maxOccurs: unbounded
+|Attribute|Value|
+|---|---|
+|name|FileStore|
+|Attribute|Value|
+|---|---|
+|type|FileStoreType|
+|Attribute|Value|
+|---|---|
+|minOccurs|0|
+|Attribute|Value|
+|---|---|
+|maxOccurs|unbounded|
 
 Documentation: 
 
 #### AzureBlob
-name: AzureBlob
-type: AzureBlobType
-minOccurs: 0
-maxOccurs: unbounded
+|Attribute|Value|
+|---|---|
+|name|AzureBlob|
+|Attribute|Value|
+|---|---|
+|type|AzureBlobType|
+|Attribute|Value|
+|---|---|
+|minOccurs|0|
+|Attribute|Value|
+|---|---|
+|maxOccurs|unbounded|
 
 Documentation: 
 
 ## LocalStore Element
+|Attribute|Value|
 |---|---|
 |type|[LocalStoreType](#localstoretype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -4576,8 +5160,8 @@ Documentation:
                   
 ```
 
-
 ## FileStore Element
+|Attribute|Value|
 |---|---|
 |type|[FileStoreType](#filestoretype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -4592,8 +5176,8 @@ Documentation:
                   
 ```
 
-
 ## AzureBlob Element
+|Attribute|Value|
 |---|---|
 |type|[AzureBlobType](#azureblobtype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -4608,8 +5192,8 @@ Documentation:
                 
 ```
 
-
 ## None Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|0 element(s), 0 attribute(s)|
@@ -4624,8 +5208,8 @@ Documentation:
           
 ```
 
-
 ## ETWSource Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|2 element(s), 1 attribute(s)|
@@ -4664,30 +5248,44 @@ Documentation:
       </xs:element>
       
 ```
-
 ### Attribute details
 
 #### IsEnabled
 Documentation: Whether or not ETW trace collection is enabled. By default, it is not enabled.
-name: IsEnabled
-type: xs:string
+|Attribute|Value|
+|---|---|
+|name|IsEnabled|
+|Attribute|Value|
+|---|---|
+|type|xs:string|
 
 ### Content element details
 
 #### Destinations
-name: Destinations
-minOccurs: 0
+|Attribute|Value|
+|---|---|
+|name|Destinations|
+|Attribute|Value|
+|---|---|
+|minOccurs|0|
 
 Documentation: Destinations to which the crash dumps need to be transferred.
 
 #### None
-ref: Parameters
-minOccurs: 0
-maxOccurs: 1
+|Attribute|Value|
+|---|---|
+|ref|Parameters|
+|Attribute|Value|
+|---|---|
+|minOccurs|0|
+|Attribute|Value|
+|---|---|
+|maxOccurs|1|
 
 Documentation: 
 
 ## Destinations Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|3 element(s), 0 attribute(s)|
@@ -4711,35 +5309,58 @@ Documentation:
             </xs:element>
             
 ```
-
-
 ### Content element details
 
 #### LocalStore
-name: LocalStore
-type: LocalStoreETWType
-minOccurs: 0
-maxOccurs: unbounded
+|Attribute|Value|
+|---|---|
+|name|LocalStore|
+|Attribute|Value|
+|---|---|
+|type|LocalStoreETWType|
+|Attribute|Value|
+|---|---|
+|minOccurs|0|
+|Attribute|Value|
+|---|---|
+|maxOccurs|unbounded|
 
 Documentation: 
 
 #### FileStore
-name: FileStore
-type: FileStoreETWType
-minOccurs: 0
-maxOccurs: unbounded
+|Attribute|Value|
+|---|---|
+|name|FileStore|
+|Attribute|Value|
+|---|---|
+|type|FileStoreETWType|
+|Attribute|Value|
+|---|---|
+|minOccurs|0|
+|Attribute|Value|
+|---|---|
+|maxOccurs|unbounded|
 
 Documentation: 
 
 #### AzureBlob
-name: AzureBlob
-type: AzureBlobETWType
-minOccurs: 0
-maxOccurs: unbounded
+|Attribute|Value|
+|---|---|
+|name|AzureBlob|
+|Attribute|Value|
+|---|---|
+|type|AzureBlobETWType|
+|Attribute|Value|
+|---|---|
+|minOccurs|0|
+|Attribute|Value|
+|---|---|
+|maxOccurs|unbounded|
 
 Documentation: 
 
 ## LocalStore Element
+|Attribute|Value|
 |---|---|
 |type|[LocalStoreETWType](#localstoreetwtype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -4754,8 +5375,8 @@ Documentation:
                   
 ```
 
-
 ## FileStore Element
+|Attribute|Value|
 |---|---|
 |type|[FileStoreETWType](#filestoreetwtype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -4770,8 +5391,8 @@ Documentation:
                   
 ```
 
-
 ## AzureBlob Element
+|Attribute|Value|
 |---|---|
 |type|[AzureBlobETWType](#azureblobetwtype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -4786,8 +5407,8 @@ Documentation:
                 
 ```
 
-
 ## None Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|0 element(s), 0 attribute(s)|
@@ -4802,8 +5423,8 @@ Documentation:
           
 ```
 
-
 ## FolderSource Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|2 element(s), 1 attribute(s)|
@@ -4845,30 +5466,44 @@ Documentation:
       </xs:element>
     
 ```
-
 ### Attribute details
 
 #### IsEnabled
 Documentation: Whether or not collection of the contents of this folder is enabled. By default, it is not enabled.
-name: IsEnabled
-type: xs:string
+|Attribute|Value|
+|---|---|
+|name|IsEnabled|
+|Attribute|Value|
+|---|---|
+|type|xs:string|
 
 ### Content element details
 
 #### Destinations
-name: Destinations
-minOccurs: 0
+|Attribute|Value|
+|---|---|
+|name|Destinations|
+|Attribute|Value|
+|---|---|
+|minOccurs|0|
 
 Documentation: Destinations to which the folder contents need to be transferred.
 
 #### None
-ref: Parameters
-minOccurs: 0
-maxOccurs: 1
+|Attribute|Value|
+|---|---|
+|ref|Parameters|
+|Attribute|Value|
+|---|---|
+|minOccurs|0|
+|Attribute|Value|
+|---|---|
+|maxOccurs|1|
 
 Documentation: 
 
 ## Destinations Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|3 element(s), 0 attribute(s)|
@@ -4892,35 +5527,58 @@ Documentation:
             </xs:element>
             
 ```
-
-
 ### Content element details
 
 #### LocalStore
-name: LocalStore
-type: LocalStoreType
-minOccurs: 0
-maxOccurs: unbounded
+|Attribute|Value|
+|---|---|
+|name|LocalStore|
+|Attribute|Value|
+|---|---|
+|type|LocalStoreType|
+|Attribute|Value|
+|---|---|
+|minOccurs|0|
+|Attribute|Value|
+|---|---|
+|maxOccurs|unbounded|
 
 Documentation: 
 
 #### FileStore
-name: FileStore
-type: FileStoreType
-minOccurs: 0
-maxOccurs: unbounded
+|Attribute|Value|
+|---|---|
+|name|FileStore|
+|Attribute|Value|
+|---|---|
+|type|FileStoreType|
+|Attribute|Value|
+|---|---|
+|minOccurs|0|
+|Attribute|Value|
+|---|---|
+|maxOccurs|unbounded|
 
 Documentation: 
 
 #### AzureBlob
-name: AzureBlob
-type: AzureBlobType
-minOccurs: 0
-maxOccurs: unbounded
+|Attribute|Value|
+|---|---|
+|name|AzureBlob|
+|Attribute|Value|
+|---|---|
+|type|AzureBlobType|
+|Attribute|Value|
+|---|---|
+|minOccurs|0|
+|Attribute|Value|
+|---|---|
+|maxOccurs|unbounded|
 
 Documentation: 
 
 ## LocalStore Element
+|Attribute|Value|
 |---|---|
 |type|[LocalStoreType](#localstoretype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -4935,8 +5593,8 @@ Documentation:
                   
 ```
 
-
 ## FileStore Element
+|Attribute|Value|
 |---|---|
 |type|[FileStoreType](#filestoretype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -4951,8 +5609,8 @@ Documentation:
                   
 ```
 
-
 ## AzureBlob Element
+|Attribute|Value|
 |---|---|
 |type|[AzureBlobType](#azureblobtype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -4967,8 +5625,8 @@ Documentation:
                 
 ```
 
-
 ## None Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|0 element(s), 0 attribute(s)|
@@ -4983,8 +5641,8 @@ Documentation:
           
 ```
 
-
 ## Endpoints Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|1 element(s), 0 attribute(s)|
@@ -5006,18 +5664,23 @@ Documentation:
       </xs:element>
     
 ```
-
-
 ### Content element details
 
 #### Endpoint
-name: Endpoint
-type: EndpointOverrideType
-maxOccurs: unbounded
+|Attribute|Value|
+|---|---|
+|name|Endpoint|
+|Attribute|Value|
+|---|---|
+|type|EndpointOverrideType|
+|Attribute|Value|
+|---|---|
+|maxOccurs|unbounded|
 
 Documentation: 
 
 ## Endpoint Element
+|Attribute|Value|
 |---|---|
 |type|[EndpointOverrideType](#endpointoverridetype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -5031,8 +5694,8 @@ Documentation:
           
 ```
 
-
 ## Description Element
+|Attribute|Value|
 |---|---|
 |type|[xs:string](#xs:string-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -5050,8 +5713,8 @@ Documentation:
       
 ```
 
-
 ## ServiceTypes Element
+|Attribute|Value|
 |---|---|
 |type|[ServiceAndServiceGroupTypesType](#serviceandservicegrouptypestype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -5068,8 +5731,8 @@ Documentation:
       
 ```
 
-
 ## CodePackage Element
+|Attribute|Value|
 |---|---|
 |type|[CodePackageType](#codepackagetype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -5083,8 +5746,8 @@ Documentation:
       
 ```
 
-
 ## ConfigPackage Element
+|Attribute|Value|
 |---|---|
 |type|[ConfigPackageType](#configpackagetype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -5099,8 +5762,8 @@ Documentation:
       
 ```
 
-
 ## DataPackage Element
+|Attribute|Value|
 |---|---|
 |type|[DataPackageType](#datapackagetype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -5115,8 +5778,8 @@ Documentation:
       
 ```
 
-
 ## Resources Element
+|Attribute|Value|
 |---|---|
 |type|[ResourcesType](#resourcestype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -5130,8 +5793,8 @@ Documentation:
       
 ```
 
-
 ## Diagnostics Element
+|Attribute|Value|
 |---|---|
 |type|[ServiceDiagnosticsType](#servicediagnosticstype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -5145,8 +5808,8 @@ Documentation:
     
 ```
 
-
 ## StatefulServiceType Element
+|Attribute|Value|
 |---|---|
 |type|[StatefulServiceTypeType](#statefulservicetypetype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -5159,8 +5822,8 @@ Documentation:
       
 ```
 
-
 ## StatelessServiceType Element
+|Attribute|Value|
 |---|---|
 |type|[StatelessServiceTypeType](#statelessservicetypetype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -5173,8 +5836,8 @@ Documentation:
       
 ```
 
-
 ## StatefulServiceGroupType Element
+|Attribute|Value|
 |---|---|
 |type|[StatefulServiceGroupTypeType](#statefulservicegrouptypetype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -5187,8 +5850,8 @@ Documentation:
       
 ```
 
-
 ## StatelessServiceGroupType Element
+|Attribute|Value|
 |---|---|
 |type|[StatelessServiceGroupTypeType](#statelessservicegrouptypetype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -5201,8 +5864,8 @@ Documentation:
     
 ```
 
-
 ## StatefulServiceType Element
+|Attribute|Value|
 |---|---|
 |type|[StatefulServiceTypeType](#statefulservicetypetype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -5219,8 +5882,8 @@ Documentation:
       
 ```
 
-
 ## StatelessServiceType Element
+|Attribute|Value|
 |---|---|
 |type|[StatelessServiceTypeType](#statelessservicetypetype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -5237,8 +5900,8 @@ Documentation:
     
 ```
 
-
 ## LoadMetrics Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|1 element(s), 0 attribute(s)|
@@ -5260,18 +5923,23 @@ Documentation:
       </xs:element>
       
 ```
-
-
 ### Content element details
 
 #### LoadMetric
-name: LoadMetric
-type: LoadMetricType
-maxOccurs: unbounded
+|Attribute|Value|
+|---|---|
+|name|LoadMetric|
+|Attribute|Value|
+|---|---|
+|type|LoadMetricType|
+|Attribute|Value|
+|---|---|
+|maxOccurs|unbounded|
 
 Documentation: 
 
 ## LoadMetric Element
+|Attribute|Value|
 |---|---|
 |type|[LoadMetricType](#loadmetrictype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -5285,8 +5953,8 @@ Documentation:
           
 ```
 
-
 ## PlacementConstraints Element
+|Attribute|Value|
 |---|---|
 |type|[xs:string](#xs:string-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -5304,8 +5972,8 @@ Documentation:
       
 ```
 
-
 ## ServicePlacementPolicies Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|1 element(s), 0 attribute(s)|
@@ -5357,17 +6025,20 @@ Documentation:
       </xs:element>
       
 ```
-
-
 ### Content element details
 
 #### ServicePlacementPolicy
-name: ServicePlacementPolicy
-maxOccurs: unbounded
+|Attribute|Value|
+|---|---|
+|name|ServicePlacementPolicy|
+|Attribute|Value|
+|---|---|
+|maxOccurs|unbounded|
 
 Documentation: Defines a service placement policy, which specifies that the service should or should not run in certain cluster fault domains.  Useful when the cluster spans geographic distances or and/or geopolitical regions.
 
 ## ServicePlacementPolicy Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|0 element(s), 2 attribute(s)|
@@ -5410,19 +6081,26 @@ Documentation: Defines a service placement policy, which specifies that the serv
             </xs:element>
           
 ```
-
 ### Attribute details
 
 #### DomainName
 Documentation: The fault domain where the service should or should not be placed, depending on the Type value.
-name: DomainName
+|Attribute|Value|
+|---|---|
+|name|DomainName|
 
 #### Type
 Documentation: InvalidDomain allows you to specify that a particular Fault Domain is invalid for this workload. RequiredDomain requires that all of the replicas be present in the specified domain. Multiple required domains can be specified. PreferredPrimaryDomain specifies the preferred Fault Domain for primary replicas. Useful in geographically spanned clusters where you are using other locations for redundancy, but would prefer that the primary replicas be placed in a certain location in order to provider lower latency for operations which go to the primary. RequiredDomainDistribution specifies that replicas are required to be distributed among the available fault domains. NonPartiallyPlace controls if the service replicas will be partially place if not all of them can be placed. 
-name: Type
-use: required
+|Attribute|Value|
+|---|---|
+|name|Type|
+|Attribute|Value|
+|---|---|
+|use|required|
+
 
 ## None Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|0 element(s), 0 attribute(s)|
@@ -5436,8 +6114,8 @@ use: required
     
 ```
 
-
 ## LoadMetrics Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|1 element(s), 0 attribute(s)|
@@ -5459,18 +6137,23 @@ use: required
       </xs:element>
       
 ```
-
-
 ### Content element details
 
 #### LoadMetric
-name: LoadMetric
-type: LoadMetricType
-maxOccurs: unbounded
+|Attribute|Value|
+|---|---|
+|name|LoadMetric|
+|Attribute|Value|
+|---|---|
+|type|LoadMetricType|
+|Attribute|Value|
+|---|---|
+|maxOccurs|unbounded|
 
 Documentation: 
 
 ## LoadMetric Element
+|Attribute|Value|
 |---|---|
 |type|[LoadMetricType](#loadmetrictype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -5484,8 +6167,8 @@ Documentation:
           
 ```
 
-
 ## PlacementConstraints Element
+|Attribute|Value|
 |---|---|
 |type|[xs:string](#xs:string-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -5503,8 +6186,8 @@ Documentation:
       
 ```
 
-
 ## ServiceGroupMembers Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|1 element(s), 0 attribute(s)|
@@ -5527,18 +6210,23 @@ Documentation:
       </xs:element>
       
 ```
-
-
 ### Content element details
 
 #### None
-ref: ServiceGroupTypeMember
-minOccurs: 1
-maxOccurs: unbounded
+|Attribute|Value|
+|---|---|
+|ref|ServiceGroupTypeMember|
+|Attribute|Value|
+|---|---|
+|minOccurs|1|
+|Attribute|Value|
+|---|---|
+|maxOccurs|unbounded|
 
 Documentation: 
 
 ## None Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|0 element(s), 0 attribute(s)|
@@ -5553,8 +6241,8 @@ Documentation:
           
 ```
 
-
 ## None Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|0 element(s), 0 attribute(s)|
@@ -5568,8 +6256,8 @@ Documentation:
     
 ```
 
-
 ## ServiceGroupTypeMember Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|1 element(s), 1 attribute(s)|
@@ -5609,23 +6297,31 @@ Documentation:
   </xs:element>
   
 ```
-
 ### Attribute details
 
 #### ServiceTypeName
 Documentation: User defined type identifier for a Microsoft Azure Service Fabric ServiceGroup Member, .e.g Actor
-name: ServiceTypeName
-use: required
+|Attribute|Value|
+|---|---|
+|name|ServiceTypeName|
+|Attribute|Value|
+|---|---|
+|use|required|
 
 ### Content element details
 
 #### LoadMetrics
-name: LoadMetrics
-minOccurs: 0
+|Attribute|Value|
+|---|---|
+|name|LoadMetrics|
+|Attribute|Value|
+|---|---|
+|minOccurs|0|
 
 Documentation: Load metrics reported by this service, used for resource balancing services.
 
 ## LoadMetrics Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|1 element(s), 0 attribute(s)|
@@ -5647,18 +6343,23 @@ Documentation: Load metrics reported by this service, used for resource balancin
         </xs:element>
       
 ```
-
-
 ### Content element details
 
 #### LoadMetric
-name: LoadMetric
-type: LoadMetricType
-maxOccurs: unbounded
+|Attribute|Value|
+|---|---|
+|name|LoadMetric|
+|Attribute|Value|
+|---|---|
+|type|LoadMetricType|
+|Attribute|Value|
+|---|---|
+|maxOccurs|unbounded|
 
 Documentation: 
 
 ## LoadMetric Element
+|Attribute|Value|
 |---|---|
 |type|[LoadMetricType](#loadmetrictype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -5672,8 +6373,8 @@ Documentation:
             
 ```
 
-
 ## Extension Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|0 element(s), 2 attribute(s)|
@@ -5701,21 +6402,32 @@ Documentation:
       </xs:element>
     
 ```
-
 ### Attribute details
 
 #### Name
 Documentation: 
-name: Name
-use: required
+|Attribute|Value|
+|---|---|
+|name|Name|
+|Attribute|Value|
+|---|---|
+|use|required|
 
 #### GeneratedId
 Documentation: 
-name: GeneratedId
-type: xs:string
-use: optional
+|Attribute|Value|
+|---|---|
+|name|GeneratedId|
+|Attribute|Value|
+|---|---|
+|type|xs:string|
+|Attribute|Value|
+|---|---|
+|use|optional|
+
 
 ## Extensions Element
+|Attribute|Value|
 |---|---|
 |type|[ExtensionsType](#extensionstype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -5728,8 +6440,8 @@ use: optional
   
 ```
 
-
 ## Property Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|0 element(s), 2 attribute(s)|
@@ -5748,22 +6460,35 @@ use: optional
       </xs:element>
     
 ```
-
 ### Attribute details
 
 #### Name
 Documentation: 
-name: Name
-type: xs:string
-use: required
+|Attribute|Value|
+|---|---|
+|name|Name|
+|Attribute|Value|
+|---|---|
+|type|xs:string|
+|Attribute|Value|
+|---|---|
+|use|required|
 
 #### Value
 Documentation: 
-name: Value
-type: xs:string
-use: required
+|Attribute|Value|
+|---|---|
+|name|Value|
+|Attribute|Value|
+|---|---|
+|type|xs:string|
+|Attribute|Value|
+|---|---|
+|use|required|
+
 
 ## PersistencePolicy Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|1 element(s), 4 attribute(s)|
@@ -5795,42 +6520,70 @@ use: required
   </xs:element>
   
 ```
-
 ### Attribute details
 
 #### Name
 Documentation: 
-name: Name
-type: xs:string
-use: required
+|Attribute|Value|
+|---|---|
+|name|Name|
+|Attribute|Value|
+|---|---|
+|type|xs:string|
+|Attribute|Value|
+|---|---|
+|use|required|
 
 #### Mode
 Documentation: 
-name: Mode
-use: required
+|Attribute|Value|
+|---|---|
+|name|Mode|
+|Attribute|Value|
+|---|---|
+|use|required|
 
 #### WriteBehind
 Documentation: 
-name: WriteBehind
-type: xs:string
-use: required
+|Attribute|Value|
+|---|---|
+|name|WriteBehind|
+|Attribute|Value|
+|---|---|
+|type|xs:string|
+|Attribute|Value|
+|---|---|
+|use|required|
 
 #### Provider
 Documentation: 
-name: Provider
-type: xs:string
-use: required
+|Attribute|Value|
+|---|---|
+|name|Provider|
+|Attribute|Value|
+|---|---|
+|type|xs:string|
+|Attribute|Value|
+|---|---|
+|use|required|
 
 ### Content element details
 
 #### Properties
-name: Properties
-type: ServiceTypeExtensionPolicyPropertiesType
-minOccurs: 0
+|Attribute|Value|
+|---|---|
+|name|Properties|
+|Attribute|Value|
+|---|---|
+|type|ServiceTypeExtensionPolicyPropertiesType|
+|Attribute|Value|
+|---|---|
+|minOccurs|0|
 
 Documentation: 
 
 ## Properties Element
+|Attribute|Value|
 |---|---|
 |type|[ServiceTypeExtensionPolicyPropertiesType](#servicetypeextensionpolicypropertiestype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -5844,8 +6597,8 @@ Documentation:
       
 ```
 
-
 ## EvictionPolicy Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|1 element(s), 2 attribute(s)|
@@ -5868,31 +6621,49 @@ Documentation:
   </xs:element>
   
 ```
-
 ### Attribute details
 
 #### Name
 Documentation: 
-name: Name
-type: xs:string
-use: required
+|Attribute|Value|
+|---|---|
+|name|Name|
+|Attribute|Value|
+|---|---|
+|type|xs:string|
+|Attribute|Value|
+|---|---|
+|use|required|
 
 #### Provider
 Documentation: 
-name: Provider
-type: xs:string
-use: required
+|Attribute|Value|
+|---|---|
+|name|Provider|
+|Attribute|Value|
+|---|---|
+|type|xs:string|
+|Attribute|Value|
+|---|---|
+|use|required|
 
 ### Content element details
 
 #### Properties
-name: Properties
-type: ServiceTypeExtensionPolicyPropertiesType
-minOccurs: 0
+|Attribute|Value|
+|---|---|
+|name|Properties|
+|Attribute|Value|
+|---|---|
+|type|ServiceTypeExtensionPolicyPropertiesType|
+|Attribute|Value|
+|---|---|
+|minOccurs|0|
 
 Documentation: 
 
 ## Properties Element
+|Attribute|Value|
 |---|---|
 |type|[ServiceTypeExtensionPolicyPropertiesType](#servicetypeextensionpolicypropertiestype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -5906,8 +6677,8 @@ Documentation:
       
 ```
 
-
 ## SetupEntryPoint Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|1 element(s), 0 attribute(s)|
@@ -5929,17 +6700,20 @@ Documentation:
       </xs:element>
       
 ```
-
-
 ### Content element details
 
 #### ExeHost
-name: ExeHost
-type: ExeHostEntryPointType
+|Attribute|Value|
+|---|---|
+|name|ExeHost|
+|Attribute|Value|
+|---|---|
+|type|ExeHostEntryPointType|
 
 Documentation: 
 
 ## ExeHost Element
+|Attribute|Value|
 |---|---|
 |type|[ExeHostEntryPointType](#exehostentrypointtype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -5952,8 +6726,8 @@ Documentation:
           
 ```
 
-
 ## EntryPoint Element
+|Attribute|Value|
 |---|---|
 |type|[EntryPointDescriptionType](#entrypointdescriptiontype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -5967,8 +6741,8 @@ Documentation:
       
 ```
 
-
 ## EnvironmentVariables Element
+|Attribute|Value|
 |---|---|
 |type|[EnvironmentVariablesType](#environmentvariablestype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -5984,8 +6758,8 @@ Documentation:
     
 ```
 
-
 ## Endpoints Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|1 element(s), 0 attribute(s)|
@@ -6007,18 +6781,23 @@ Documentation:
       </xs:element>
     
 ```
-
-
 ### Content element details
 
 #### Endpoint
-name: Endpoint
-type: EndpointType
-maxOccurs: unbounded
+|Attribute|Value|
+|---|---|
+|name|Endpoint|
+|Attribute|Value|
+|---|---|
+|type|EndpointType|
+|Attribute|Value|
+|---|---|
+|maxOccurs|unbounded|
 
 Documentation: 
 
 ## Endpoint Element
+|Attribute|Value|
 |---|---|
 |type|[EndpointType](#endpointtype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -6032,8 +6811,8 @@ Documentation:
           
 ```
 
-
 ## ETW Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|2 element(s), 0 attribute(s)|
@@ -6084,23 +6863,30 @@ Documentation:
       </xs:element>
     
 ```
-
-
 ### Content element details
 
 #### ProviderGuids
-name: ProviderGuids
-minOccurs: 0
+|Attribute|Value|
+|---|---|
+|name|ProviderGuids|
+|Attribute|Value|
+|---|---|
+|minOccurs|0|
 
 Documentation: Lists the ETW provider GUIDs for the components of this service manifest.
 
 #### ManifestDataPackages
-name: ManifestDataPackages
-minOccurs: 0
+|Attribute|Value|
+|---|---|
+|name|ManifestDataPackages|
+|Attribute|Value|
+|---|---|
+|minOccurs|0|
 
 Documentation: Lists the data packages containing ETW manifests for the components of this service manifest. The data package containing ETW manifests should not contain any other files. 
 
 ## ProviderGuids Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|1 element(s), 0 attribute(s)|
@@ -6132,18 +6918,23 @@ Documentation: Lists the data packages containing ETW manifests for the componen
             </xs:element>
             
 ```
-
-
 ### Content element details
 
 #### ProviderGuid
-name: ProviderGuid
-minOccurs: 0
-maxOccurs: unbounded
+|Attribute|Value|
+|---|---|
+|name|ProviderGuid|
+|Attribute|Value|
+|---|---|
+|minOccurs|0|
+|Attribute|Value|
+|---|---|
+|maxOccurs|unbounded|
 
 Documentation: 
 
 ## ProviderGuid Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|0 element(s), 1 attribute(s)|
@@ -6167,15 +6958,20 @@ Documentation:
                   </xs:element>
                 
 ```
-
 ### Attribute details
 
 #### Value
 Documentation: 
-name: Value
-use: required
+|Attribute|Value|
+|---|---|
+|name|Value|
+|Attribute|Value|
+|---|---|
+|use|required|
+
 
 ## ManifestDataPackages Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|1 element(s), 0 attribute(s)|
@@ -6197,19 +6993,26 @@ use: required
             </xs:element>
           
 ```
-
-
 ### Content element details
 
 #### ManifestDataPackage
-name: ManifestDataPackage
-type: DataPackageType
-minOccurs: 0
-maxOccurs: unbounded
+|Attribute|Value|
+|---|---|
+|name|ManifestDataPackage|
+|Attribute|Value|
+|---|---|
+|type|DataPackageType|
+|Attribute|Value|
+|---|---|
+|minOccurs|0|
+|Attribute|Value|
+|---|---|
+|maxOccurs|unbounded|
 
 Documentation: 
 
 ## ManifestDataPackage Element
+|Attribute|Value|
 |---|---|
 |type|[DataPackageType](#datapackagetype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -6224,8 +7027,8 @@ Documentation:
                 
 ```
 
-
 ## ContainerEntryPoint Element
+|Attribute|Value|
 |---|---|
 |type|[xs:string](#xs:string-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -6244,8 +7047,8 @@ Documentation:
       
 ```
 
-
 ## ContainerMountedVolume Element
+|Attribute|Value|
 |---|---|
 |type|[xs:string](#xs:string-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -6264,8 +7067,8 @@ Documentation:
       
 ```
 
-
 ## ContainerEnvironmentBlock Element
+|Attribute|Value|
 |---|---|
 |type|[xs:string](#xs:string-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -6284,8 +7087,8 @@ Documentation:
     
 ```
 
-
 ## UnmanagedDll Element
+|Attribute|Value|
 |---|---|
 |type|[UnmanagedDllType](#unmanageddlltype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -6298,8 +7101,8 @@ Documentation:
         
 ```
 
-
 ## ManagedAssembly Element
+|Attribute|Value|
 |---|---|
 |type|[ManagedAssemblyType](#managedassemblytype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -6312,8 +7115,8 @@ Documentation:
       
 ```
 
-
 ## Program Element
+|Attribute|Value|
 |---|---|
 |type|[xs:string](#xs:string-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -6329,8 +7132,8 @@ Documentation:
       
 ```
 
-
 ## Arguments Element
+|Attribute|Value|
 |---|---|
 |type|[xs:string](#xs:string-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -6344,8 +7147,8 @@ Documentation:
       
 ```
 
-
 ## WorkingFolder Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|0 element(s), 0 attribute(s)|
@@ -6368,8 +7171,8 @@ Documentation:
       
 ```
 
-
 ## ConsoleRedirection Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|0 element(s), 2 attribute(s)|
@@ -6399,20 +7202,29 @@ Documentation:
       </xs:element>
     
 ```
-
 ### Attribute details
 
 #### FileRetentionCount
 Documentation: 
-name: FileRetentionCount
-default: 2
+|Attribute|Value|
+|---|---|
+|name|FileRetentionCount|
+|Attribute|Value|
+|---|---|
+|default|2|
 
 #### FileMaxSizeInKb
 Documentation: 
-name: FileMaxSizeInKb
-default: 20480
+|Attribute|Value|
+|---|---|
+|name|FileMaxSizeInKb|
+|Attribute|Value|
+|---|---|
+|default|20480|
+
 
 ## ImageName Element
+|Attribute|Value|
 |---|---|
 |type|[xs:string](#xs:string-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -6425,8 +7237,8 @@ default: 20480
       
 ```
 
-
 ## Commands Element
+|Attribute|Value|
 |---|---|
 |type|[xs:string](#xs:string-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -6441,8 +7253,8 @@ default: 20480
       
 ```
 
-
 ## EntryPoint Element
+|Attribute|Value|
 |---|---|
 |type|[xs:string](#xs:string-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -6457,8 +7269,8 @@ default: 20480
       
 ```
 
-
 ## FromSource Element
+|Attribute|Value|
 |---|---|
 |type|[xs:string](#xs:string-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -6473,8 +7285,8 @@ default: 20480
     
 ```
 
-
 ## ExeHost Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|0 element(s), 0 attribute(s)|
@@ -6508,8 +7320,8 @@ default: 20480
         
 ```
 
-
 ## RunFrequency Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|0 element(s), 1 attribute(s)|
@@ -6533,15 +7345,20 @@ default: 20480
                   </xs:element>
                 
 ```
-
 ### Attribute details
 
 #### IntervalInSeconds
 Documentation: 
-name: IntervalInSeconds
-use: required
+|Attribute|Value|
+|---|---|
+|name|IntervalInSeconds|
+|Attribute|Value|
+|---|---|
+|use|required|
+
 
 ## DllHost Element
+|Attribute|Value|
 |---|---|
 |type|[DllHostEntryPointType](#dllhostentrypointtype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -6554,8 +7371,8 @@ use: required
         
 ```
 
-
 ## ContainerHost Element
+|Attribute|Value|
 |---|---|
 |type|[ContainerHostEntryPointType](#containerhostentrypointtype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -6568,8 +7385,8 @@ use: required
       
 ```
 
-
 ## DefaultServiceTypeHealthPolicy Element
+|Attribute|Value|
 |---|---|
 |type|[ServiceTypeHealthPolicyType](#servicetypehealthpolicytype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -6587,8 +7404,8 @@ use: required
       
 ```
 
-
 ## ServiceTypeHealthPolicy Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|0 element(s), 0 attribute(s)|
@@ -6618,8 +7435,8 @@ use: required
     
 ```
 
-
 ## Section Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|1 element(s), 1 attribute(s)|
@@ -6658,25 +7475,37 @@ use: required
       </xs:element>
     
 ```
-
 ### Attribute details
 
 #### Name
 Documentation: 
-name: Name
-type: xs:string
-use: required
+|Attribute|Value|
+|---|---|
+|name|Name|
+|Attribute|Value|
+|---|---|
+|type|xs:string|
+|Attribute|Value|
+|---|---|
+|use|required|
 
 ### Content element details
 
 #### Parameter
-name: Parameter
-minOccurs: 0
-maxOccurs: unbounded
+|Attribute|Value|
+|---|---|
+|name|Parameter|
+|Attribute|Value|
+|---|---|
+|minOccurs|0|
+|Attribute|Value|
+|---|---|
+|maxOccurs|unbounded|
 
 Documentation: 
 
 ## Parameter Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|0 element(s), 4 attribute(s)|
@@ -6705,34 +7534,59 @@ Documentation:
             </xs:element>
           
 ```
-
 ### Attribute details
 
 #### Name
 Documentation: 
-name: Name
-type: xs:string
-use: required
+|Attribute|Value|
+|---|---|
+|name|Name|
+|Attribute|Value|
+|---|---|
+|type|xs:string|
+|Attribute|Value|
+|---|---|
+|use|required|
 
 #### Value
 Documentation: 
-name: Value
-type: xs:string
-use: required
+|Attribute|Value|
+|---|---|
+|name|Value|
+|Attribute|Value|
+|---|---|
+|type|xs:string|
+|Attribute|Value|
+|---|---|
+|use|required|
 
 #### MustOverride
 Documentation: If true, the value of this parameter must be overridden by higher level configuration.
-name: MustOverride
-type: xs:boolean
-default: false
+|Attribute|Value|
+|---|---|
+|name|MustOverride|
+|Attribute|Value|
+|---|---|
+|type|xs:boolean|
+|Attribute|Value|
+|---|---|
+|default|false|
 
 #### IsEncrypted
 Documentation: If true, the value of this parameter is encrypted.
-name: IsEncrypted
-type: xs:boolean
-default: false
+|Attribute|Value|
+|---|---|
+|name|IsEncrypted|
+|Attribute|Value|
+|---|---|
+|type|xs:boolean|
+|Attribute|Value|
+|---|---|
+|default|false|
+
 
 ## ApplicationInstance Element
+|Attribute|Value|
 |---|---|
 |type|[ApplicationInstanceType](#applicationinstancetype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -6749,8 +7603,8 @@ default: false
   
 ```
 
-
 ## ApplicationPackageRef Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|0 element(s), 0 attribute(s)|
@@ -6767,8 +7621,8 @@ default: false
       
 ```
 
-
 ## ServicePackageRef Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|0 element(s), 1 attribute(s)|
@@ -6786,15 +7640,20 @@ default: false
       </xs:element>
       
 ```
-
 ### Attribute details
 
 #### Name
 Documentation: 
-name: Name
-use: required
+|Attribute|Value|
+|---|---|
+|name|Name|
+|Attribute|Value|
+|---|---|
+|use|required|
+
 
 ## ServiceTemplates Element
+|Attribute|Value|
 |---|---|
 |type|[ServiceTemplatesType](#servicetemplatestype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -6807,8 +7666,8 @@ use: required
       
 ```
 
-
 ## DefaultServices Element
+|Attribute|Value|
 |---|---|
 |type|[DefaultServicesType](#defaultservicestype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -6821,8 +7680,8 @@ use: required
     
 ```
 
-
 ## ApplicationPackage Element
+|Attribute|Value|
 |---|---|
 |type|[ApplicationPackageType](#applicationpackagetype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -6839,8 +7698,8 @@ use: required
   
 ```
 
-
 ## DigestedEnvironment Element
+|Attribute|Value|
 |---|---|
 |type|[EnvironmentType](#environmenttype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -6853,8 +7712,8 @@ use: required
       
 ```
 
-
 ## DigestedCertificates Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|2 element(s), 0 attribute(s)|
@@ -6874,25 +7733,36 @@ use: required
       </xs:element>
     
 ```
-
-
 ### Content element details
 
 #### SecretsCertificate
-name: SecretsCertificate
-type: FabricCertificateType
-minOccurs: 0
+|Attribute|Value|
+|---|---|
+|name|SecretsCertificate|
+|Attribute|Value|
+|---|---|
+|type|FabricCertificateType|
+|Attribute|Value|
+|---|---|
+|minOccurs|0|
 
 Documentation: 
 
 #### EndpointCertificate
-name: EndpointCertificate
-type: EndpointCertificateType
-minOccurs: 0
+|Attribute|Value|
+|---|---|
+|name|EndpointCertificate|
+|Attribute|Value|
+|---|---|
+|type|EndpointCertificateType|
+|Attribute|Value|
+|---|---|
+|minOccurs|0|
 
 Documentation: 
 
 ## SecretsCertificate Element
+|Attribute|Value|
 |---|---|
 |type|[FabricCertificateType](#fabriccertificatetype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -6906,8 +7776,8 @@ Documentation:
             
 ```
 
-
 ## EndpointCertificate Element
+|Attribute|Value|
 |---|---|
 |type|[EndpointCertificateType](#endpointcertificatetype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -6921,8 +7791,8 @@ Documentation:
           
 ```
 
-
 ## ServicePackage Element
+|Attribute|Value|
 |---|---|
 |type|[ServicePackageType](#servicepackagetype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -6939,8 +7809,8 @@ Documentation:
   
 ```
 
-
 ## Description Element
+|Attribute|Value|
 |---|---|
 |type|[xs:string](#xs:string-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -6954,8 +7824,8 @@ Documentation:
       
 ```
 
-
 ## ServicePackageResourceGovernancePolicy Element
+|Attribute|Value|
 |---|---|
 |type|[ServicePackageResourceGovernancePolicyType](#servicepackageresourcegovernancepolicytype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -6970,8 +7840,8 @@ Documentation:
       
 ```
 
-
 ## DigestedServiceTypes Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|1 element(s), 0 attribute(s)|
@@ -6990,17 +7860,20 @@ Documentation:
       </xs:element>
       
 ```
-
-
 ### Content element details
 
 #### ServiceTypes
-name: ServiceTypes
-type: ServiceTypesType
+|Attribute|Value|
+|---|---|
+|name|ServiceTypes|
+|Attribute|Value|
+|---|---|
+|type|ServiceTypesType|
 
 Documentation: 
 
 ## ServiceTypes Element
+|Attribute|Value|
 |---|---|
 |type|[ServiceTypesType](#servicetypestype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -7013,8 +7886,8 @@ Documentation:
           
 ```
 
-
 ## DigestedCodePackage Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|5 element(s), 2 attribute(s)|
@@ -7048,58 +7921,98 @@ Documentation:
       </xs:element>
       
 ```
-
 ### Attribute details
 
 #### ContentChecksum
 Documentation: 
-name: ContentChecksum
-type: xs:string
+|Attribute|Value|
+|---|---|
+|name|ContentChecksum|
+|Attribute|Value|
+|---|---|
+|type|xs:string|
 
 #### IsShared
 Documentation: 
-name: IsShared
-type: xs:boolean
+|Attribute|Value|
+|---|---|
+|name|IsShared|
+|Attribute|Value|
+|---|---|
+|type|xs:boolean|
 
 ### Content element details
 
 #### CodePackage
-name: CodePackage
-type: CodePackageType
+|Attribute|Value|
+|---|---|
+|name|CodePackage|
+|Attribute|Value|
+|---|---|
+|type|CodePackageType|
 
 Documentation: 
 
 #### RunAsPolicy
-name: RunAsPolicy
-type: RunAsPolicyType
-minOccurs: 0
-maxOccurs: 2
+|Attribute|Value|
+|---|---|
+|name|RunAsPolicy|
+|Attribute|Value|
+|---|---|
+|type|RunAsPolicyType|
+|Attribute|Value|
+|---|---|
+|minOccurs|0|
+|Attribute|Value|
+|---|---|
+|maxOccurs|2|
 
 Documentation: 
 
 #### DebugParameters
-name: DebugParameters
-type: DebugParametersType
-minOccurs: 0
-maxOccurs: 1
+|Attribute|Value|
+|---|---|
+|name|DebugParameters|
+|Attribute|Value|
+|---|---|
+|type|DebugParametersType|
+|Attribute|Value|
+|---|---|
+|minOccurs|0|
+|Attribute|Value|
+|---|---|
+|maxOccurs|1|
 
 Documentation: 
 
 #### ContainerHostPolicies
-name: ContainerHostPolicies
-type: ContainerHostPoliciesType
-minOccurs: 0
+|Attribute|Value|
+|---|---|
+|name|ContainerHostPolicies|
+|Attribute|Value|
+|---|---|
+|type|ContainerHostPoliciesType|
+|Attribute|Value|
+|---|---|
+|minOccurs|0|
 
 Documentation: Specifies policies for activating container hosts.
 
 #### ResourceGovernancePolicy
-name: ResourceGovernancePolicy
-type: ResourceGovernancePolicyType
-minOccurs: 0
+|Attribute|Value|
+|---|---|
+|name|ResourceGovernancePolicy|
+|Attribute|Value|
+|---|---|
+|type|ResourceGovernancePolicyType|
+|Attribute|Value|
+|---|---|
+|minOccurs|0|
 
 Documentation: Specifies resource limits for codepackage.
 
 ## CodePackage Element
+|Attribute|Value|
 |---|---|
 |type|[CodePackageType](#codepackagetype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -7112,8 +8025,8 @@ Documentation: Specifies resource limits for codepackage.
             
 ```
 
-
 ## RunAsPolicy Element
+|Attribute|Value|
 |---|---|
 |type|[RunAsPolicyType](#runaspolicytype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -7128,8 +8041,8 @@ Documentation: Specifies resource limits for codepackage.
             
 ```
 
-
 ## DebugParameters Element
+|Attribute|Value|
 |---|---|
 |type|[DebugParametersType](#debugparameterstype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -7144,8 +8057,8 @@ Documentation: Specifies resource limits for codepackage.
             
 ```
 
-
 ## ContainerHostPolicies Element
+|Attribute|Value|
 |---|---|
 |type|[ContainerHostPoliciesType](#containerhostpoliciestype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -7163,8 +8076,8 @@ Documentation: Specifies resource limits for codepackage.
             
 ```
 
-
 ## ResourceGovernancePolicy Element
+|Attribute|Value|
 |---|---|
 |type|[ResourceGovernancePolicyType](#resourcegovernancepolicytype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -7182,8 +8095,8 @@ Documentation: Specifies resource limits for codepackage.
           
 ```
 
-
 ## DigestedConfigPackage Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|3 element(s), 2 attribute(s)|
@@ -7208,43 +8121,69 @@ Documentation: Specifies resource limits for codepackage.
       </xs:element>
       
 ```
-
 ### Attribute details
 
 #### ContentChecksum
 Documentation: 
-name: ContentChecksum
-type: xs:string
+|Attribute|Value|
+|---|---|
+|name|ContentChecksum|
+|Attribute|Value|
+|---|---|
+|type|xs:string|
 
 #### IsShared
 Documentation: 
-name: IsShared
-type: xs:boolean
+|Attribute|Value|
+|---|---|
+|name|IsShared|
+|Attribute|Value|
+|---|---|
+|type|xs:boolean|
 
 ### Content element details
 
 #### ConfigPackage
-name: ConfigPackage
-type: ConfigPackageType
+|Attribute|Value|
+|---|---|
+|name|ConfigPackage|
+|Attribute|Value|
+|---|---|
+|type|ConfigPackageType|
 
 Documentation: 
 
 #### ConfigOverride
-name: ConfigOverride
-type: ConfigOverrideType
-minOccurs: 0
+|Attribute|Value|
+|---|---|
+|name|ConfigOverride|
+|Attribute|Value|
+|---|---|
+|type|ConfigOverrideType|
+|Attribute|Value|
+|---|---|
+|minOccurs|0|
 
 Documentation: 
 
 #### DebugParameters
-name: DebugParameters
-type: DebugParametersType
-minOccurs: 0
-maxOccurs: 1
+|Attribute|Value|
+|---|---|
+|name|DebugParameters|
+|Attribute|Value|
+|---|---|
+|type|DebugParametersType|
+|Attribute|Value|
+|---|---|
+|minOccurs|0|
+|Attribute|Value|
+|---|---|
+|maxOccurs|1|
 
 Documentation: 
 
 ## ConfigPackage Element
+|Attribute|Value|
 |---|---|
 |type|[ConfigPackageType](#configpackagetype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -7257,8 +8196,8 @@ Documentation:
             
 ```
 
-
 ## ConfigOverride Element
+|Attribute|Value|
 |---|---|
 |type|[ConfigOverrideType](#configoverridetype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -7272,8 +8211,8 @@ Documentation:
             
 ```
 
-
 ## DebugParameters Element
+|Attribute|Value|
 |---|---|
 |type|[DebugParametersType](#debugparameterstype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -7288,8 +8227,8 @@ Documentation:
           
 ```
 
-
 ## DigestedDataPackage Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|2 element(s), 2 attribute(s)|
@@ -7313,36 +8252,56 @@ Documentation:
       </xs:element>
       
 ```
-
 ### Attribute details
 
 #### ContentChecksum
 Documentation: 
-name: ContentChecksum
-type: xs:string
+|Attribute|Value|
+|---|---|
+|name|ContentChecksum|
+|Attribute|Value|
+|---|---|
+|type|xs:string|
 
 #### IsShared
 Documentation: 
-name: IsShared
-type: xs:boolean
+|Attribute|Value|
+|---|---|
+|name|IsShared|
+|Attribute|Value|
+|---|---|
+|type|xs:boolean|
 
 ### Content element details
 
 #### DataPackage
-name: DataPackage
-type: DataPackageType
+|Attribute|Value|
+|---|---|
+|name|DataPackage|
+|Attribute|Value|
+|---|---|
+|type|DataPackageType|
 
 Documentation: 
 
 #### DebugParameters
-name: DebugParameters
-type: DebugParametersType
-minOccurs: 0
-maxOccurs: 1
+|Attribute|Value|
+|---|---|
+|name|DebugParameters|
+|Attribute|Value|
+|---|---|
+|type|DebugParametersType|
+|Attribute|Value|
+|---|---|
+|minOccurs|0|
+|Attribute|Value|
+|---|---|
+|maxOccurs|1|
 
 Documentation: 
 
 ## DataPackage Element
+|Attribute|Value|
 |---|---|
 |type|[DataPackageType](#datapackagetype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -7355,8 +8314,8 @@ Documentation:
             
 ```
 
-
 ## DebugParameters Element
+|Attribute|Value|
 |---|---|
 |type|[DebugParametersType](#debugparameterstype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -7371,8 +8330,8 @@ Documentation:
           
 ```
 
-
 ## DigestedResources Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|2 element(s), 0 attribute(s)|
@@ -7414,24 +8373,33 @@ Documentation:
       </xs:element>
       
 ```
-
-
 ### Content element details
 
 #### DigestedEndpoints
-name: DigestedEndpoints
-minOccurs: 0
+|Attribute|Value|
+|---|---|
+|name|DigestedEndpoints|
+|Attribute|Value|
+|---|---|
+|minOccurs|0|
 
 Documentation: 
 
 #### DigestedCertificates
-name: DigestedCertificates
-minOccurs: 0
-maxOccurs: 1
+|Attribute|Value|
+|---|---|
+|name|DigestedCertificates|
+|Attribute|Value|
+|---|---|
+|minOccurs|0|
+|Attribute|Value|
+|---|---|
+|maxOccurs|1|
 
 Documentation: 
 
 ## DigestedEndpoints Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|1 element(s), 0 attribute(s)|
@@ -7459,18 +8427,23 @@ Documentation:
             </xs:element>
             
 ```
-
-
 ### Content element details
 
 #### DigestedEndpoint
-name: DigestedEndpoint
-minOccurs: 0
-maxOccurs: unbounded
+|Attribute|Value|
+|---|---|
+|name|DigestedEndpoint|
+|Attribute|Value|
+|---|---|
+|minOccurs|0|
+|Attribute|Value|
+|---|---|
+|maxOccurs|unbounded|
 
 Documentation: 
 
 ## DigestedEndpoint Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|4 element(s), 0 attribute(s)|
@@ -7493,39 +8466,62 @@ Documentation:
                   </xs:element>
                 
 ```
-
-
 ### Content element details
 
 #### Endpoint
-name: Endpoint
-type: EndpointType
+|Attribute|Value|
+|---|---|
+|name|Endpoint|
+|Attribute|Value|
+|---|---|
+|type|EndpointType|
 
 Documentation: 
 
 #### SecurityAccessPolicy
-name: SecurityAccessPolicy
-type: SecurityAccessPolicyType
-minOccurs: 0
+|Attribute|Value|
+|---|---|
+|name|SecurityAccessPolicy|
+|Attribute|Value|
+|---|---|
+|type|SecurityAccessPolicyType|
+|Attribute|Value|
+|---|---|
+|minOccurs|0|
 
 Documentation: 
 
 #### EndpointBindingPolicy
-name: EndpointBindingPolicy
-type: EndpointBindingPolicyType
-minOccurs: 0
+|Attribute|Value|
+|---|---|
+|name|EndpointBindingPolicy|
+|Attribute|Value|
+|---|---|
+|type|EndpointBindingPolicyType|
+|Attribute|Value|
+|---|---|
+|minOccurs|0|
 
 Documentation: 
 
 #### ResourceGovernancePolicy
-name: ResourceGovernancePolicy
-type: ResourceGovernancePolicyType
-minOccurs: 0
-maxOccurs: 1
+|Attribute|Value|
+|---|---|
+|name|ResourceGovernancePolicy|
+|Attribute|Value|
+|---|---|
+|type|ResourceGovernancePolicyType|
+|Attribute|Value|
+|---|---|
+|minOccurs|0|
+|Attribute|Value|
+|---|---|
+|maxOccurs|1|
 
 Documentation: 
 
 ## Endpoint Element
+|Attribute|Value|
 |---|---|
 |type|[EndpointType](#endpointtype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -7538,8 +8534,8 @@ Documentation:
                         
 ```
 
-
 ## SecurityAccessPolicy Element
+|Attribute|Value|
 |---|---|
 |type|[SecurityAccessPolicyType](#securityaccesspolicytype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -7553,8 +8549,8 @@ Documentation:
                         
 ```
 
-
 ## EndpointBindingPolicy Element
+|Attribute|Value|
 |---|---|
 |type|[EndpointBindingPolicyType](#endpointbindingpolicytype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -7568,8 +8564,8 @@ Documentation:
                         
 ```
 
-
 ## ResourceGovernancePolicy Element
+|Attribute|Value|
 |---|---|
 |type|[ResourceGovernancePolicyType](#resourcegovernancepolicytype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -7584,8 +8580,8 @@ Documentation:
                       
 ```
 
-
 ## DigestedCertificates Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|1 element(s), 0 attribute(s)|
@@ -7605,19 +8601,26 @@ Documentation:
             </xs:element>
           
 ```
-
-
 ### Content element details
 
 #### EndpointCertificate
-name: EndpointCertificate
-type: EndpointCertificateType
-minOccurs: 0
-maxOccurs: unbounded
+|Attribute|Value|
+|---|---|
+|name|EndpointCertificate|
+|Attribute|Value|
+|---|---|
+|type|EndpointCertificateType|
+|Attribute|Value|
+|---|---|
+|minOccurs|0|
+|Attribute|Value|
+|---|---|
+|maxOccurs|unbounded|
 
 Documentation: 
 
 ## EndpointCertificate Element
+|Attribute|Value|
 |---|---|
 |type|[EndpointCertificateType](#endpointcertificatetype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -7632,8 +8635,8 @@ Documentation:
                 
 ```
 
-
 ## Diagnostics Element
+|Attribute|Value|
 |---|---|
 |type|[ServiceDiagnosticsType](#servicediagnosticstype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -7646,8 +8649,8 @@ Documentation:
     
 ```
 
-
 ## ClusterCertificate Element
+|Attribute|Value|
 |---|---|
 |type|[FabricCertificateType](#fabriccertificatetype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -7665,8 +8668,8 @@ Documentation:
       
 ```
 
-
 ## ServerCertificate Element
+|Attribute|Value|
 |---|---|
 |type|[FabricCertificateType](#fabriccertificatetype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -7684,8 +8687,8 @@ Documentation:
       
 ```
 
-
 ## ClientCertificate Element
+|Attribute|Value|
 |---|---|
 |type|[FabricCertificateType](#fabriccertificatetype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -7703,8 +8706,8 @@ Documentation:
       
 ```
 
-
 ## UserRoleClientCertificate Element
+|Attribute|Value|
 |---|---|
 |type|[FabricCertificateType](#fabriccertificatetype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -7722,8 +8725,8 @@ Documentation:
     
 ```
 
-
 ## NodeList Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|1 element(s), 0 attribute(s)|
@@ -7741,18 +8744,23 @@ Documentation:
       </xs:element>
     
 ```
-
-
 ### Content element details
 
 #### Node
-name: Node
-type: InfrastructureNodeType
-maxOccurs: unbounded
+|Attribute|Value|
+|---|---|
+|name|Node|
+|Attribute|Value|
+|---|---|
+|type|InfrastructureNodeType|
+|Attribute|Value|
+|---|---|
+|maxOccurs|unbounded|
 
 Documentation: 
 
 ## Node Element
+|Attribute|Value|
 |---|---|
 |type|[InfrastructureNodeType](#infrastructurenodetype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -7766,8 +8774,8 @@ Documentation:
           
 ```
 
-
 ## Endpoints Element
+|Attribute|Value|
 |---|---|
 |type|[FabricEndpointsType](#fabricendpointstype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -7785,8 +8793,8 @@ Documentation:
       
 ```
 
-
 ## Certificates Element
+|Attribute|Value|
 |---|---|
 |type|[CertificatesType](#certificatestype-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -7804,8 +8812,8 @@ Documentation:
     
 ```
 
-
 ## CurrentInstallation Element
+|Attribute|Value|
 |---|---|
 |type|[WindowsFabricDeploymentInformation](#windowsfabricdeploymentinformation-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -7819,8 +8827,8 @@ Documentation:
       
 ```
 
-
 ## TargetInstallation Element
+|Attribute|Value|
 |---|---|
 |type|[WindowsFabricDeploymentInformation](#windowsfabricdeploymentinformation-type)|
 |content|0 element(s), 0 attribute(s)|
@@ -7834,8 +8842,8 @@ Documentation:
     
 ```
 
-
 ## Parameters Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|1 element(s), 0 attribute(s)|
@@ -7860,18 +8868,23 @@ Documentation:
       </xs:element>
     
 ```
-
-
 ### Content element details
 
 #### Parameter
-name: Parameter
-minOccurs: 0
-maxOccurs: unbounded
+|Attribute|Value|
+|---|---|
+|name|Parameter|
+|Attribute|Value|
+|---|---|
+|minOccurs|0|
+|Attribute|Value|
+|---|---|
+|maxOccurs|unbounded|
 
 Documentation: 
 
 ## Parameter Element
+|Attribute|Value|
 |---|---|
 |type|anonymous complexType|
 |content|0 element(s), 0 attribute(s)|
@@ -7889,7 +8902,6 @@ Documentation:
             </xs:element>
           
 ```
-
 
 ## ClusterManifestType Type
 ## WindowsInfrastructureType Type
