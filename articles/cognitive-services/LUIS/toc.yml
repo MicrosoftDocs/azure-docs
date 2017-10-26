@@ -97,9 +97,17 @@
       href: https://github.com/Microsoft/Cognitive-LUIS-Python
     - name: Windows
       href: https://github.com/Microsoft/Cognitive-LUIS-Windows
+  - name: Samples
+  href: https://github.com/Microsoft/LUIS-Samples
 - name: Resources
   items: 
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: LUIS FAQ
     href: luis-resources-faq.md
+  - name: Pricing
+    href: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/language-understanding-intelligent-services/
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/LUIS
+  - name: User Voice 
+    href: https://cognitive.uservoice.com/forums/551524-luis    
