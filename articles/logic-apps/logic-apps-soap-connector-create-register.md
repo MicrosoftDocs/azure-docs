@@ -88,7 +88,7 @@ choose **Logic Apps Connector**. In the toolbar, choose **Edit**.
 in these tables for creating, securing, and defining the 
 actions and triggers for your SOAP connector.
 
-   1. For **Custom connectors**, select **SOAP** for you **API Endpoint** 
+   1. For **Custom connectors**, select **SOAP** for your **API Endpoint** 
    so you can provide the WSDL file that describes your API.
 
       ![Provide the WSDL file for your API](./media/logic-apps-soap-connector-create-register/provide-wsdl-file.png)
@@ -127,7 +127,7 @@ identities flow appropriately between your service and any clients.
    
    ![Authentication type](./media/logic-apps-soap-connector-create-register/security-authentication-options.png)
 
-   To change the authentication type, choose **Edit**. You can select **Basic Authentication**. To use parameter labels other than default values, update them under **Parameter Label**.
+   To change the authentication type, choose **Edit**. You can select **Basic authentication**. To use parameter labels other than default values, update them under **Parameter label**.
 
    ![Basic authentication](./media/logic-apps-soap-connector-create-register/security.png)
 
