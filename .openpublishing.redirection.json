@@ -14043,18 +14043,22 @@
             "redirect_url": "/azure/virtual-network/virtual-network-deploy-multinic-classic-ps",
             "redirect_document_id": false
         },
-	{
+        {
             "source_path": "articles/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md",
             "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-join-windows-vm-template",
             "redirect_document_id": false
         },
-	{
+        {
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-distributed-data.md",
             "redirect_url": "/azure/sql-data-warehouse/massively-parallel-processing-mpp-architecture",
             "redirect_document_id": false
         },
         {
-             "source_path": "articles/active-directory/active-directory-conditional-access.md",
+            "source_path": "articles/active-directory/active-directory-preview-explainer.md",
+            "redirect_url": "/azure/active-directory/active-directory-whatis",
+            "redirect_document_id": false
+        },
+        {    "source_path": "articles/active-directory/active-directory-conditional-access.md",
              "redirect_url": "/azure/active-directory/active-directory-conditional-access-azure-portal",
              "redirect_document_id": false
         },
