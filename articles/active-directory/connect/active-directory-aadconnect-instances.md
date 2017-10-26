@@ -51,9 +51,8 @@ This cloud has been supported by earlier releases of DirSync. From build 1.1.180
 | \*.gov.us.microsoftonline.com |
 | +Certificate Revocation Lists |
 
-[!NOTE]
+> [!NOTE]
 > As of AAD Connect version 1.1.647.0, setting the AzureInstance value in the registry is no longer required provided that *.windows.net is open on your proxy server(s).
->
 
 Features currently not present in the Microsoft Azure Government cloud:
 
