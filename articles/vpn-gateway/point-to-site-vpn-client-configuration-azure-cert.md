@@ -83,6 +83,7 @@ Azure does not provide mobileconfig file for native Azure certificate authentica
 
 Use the following steps to configure the native VPN client on Mac for certificate authentication. You have to complete these steps on every Mac that will connect to Azure:
 
+This step 1 is not necessary and can cause confusion. Importing a PFX in MAC already imports the Client Cert as well as populates the Root Certificate.
 1. Import the **VpnServerRoot** root certificate to your Mac. This can be done by copying the file over to your Mac and double-clicking on it.  
 Click **Add** to import.
 
