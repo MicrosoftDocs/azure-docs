@@ -31,7 +31,7 @@ This how-to article covers common operations using the management plane cmdlets 
 > * Protecting access to your storage account 
 > * Enabling Storage Analytics
 
-This article provides links to several other PowerShell articles for Storage, such as how to enable and access the Storage Analyics, how to use the data plane cmdlets, and how to access the Azure independent clouds such as China Cloud, German Cloud, and Government Cloud.
+This article provides links to several other PowerShell articles for Storage, such as how to enable and access the Storage Analytics, how to use the data plane cmdlets, and how to access the Azure independent clouds such as China Cloud, German Cloud, and Government Cloud.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -59,7 +59,7 @@ Get-AzureRMStorageAccount | Select StorageAccountName, Location
 
 ## Get a reference to a storage account
 
-Next, you need a reference to a storage account. You can either create a new storage account or get a reference to an existing storage account. The following sections shows both methods. 
+Next, you need a reference to a storage account. You can either create a new storage account or get a reference to an existing storage account. The following sectionS shows both methods. 
 
 ### Use an existing storage account 
 
@@ -162,7 +162,7 @@ To regenerate the other key, use `key2` as the key  name instead of `key1`.
 Regenerate one of your keys and then retrieve it again to see the new value.
 
 > [!NOTE] 
-> You should perform careful planning before regenerating the key for a production storage account. Renegerating one or both keys will invalidate the access for any application using the key that was regenerated. For more information, please see [Renegate storage access keys](storage-create-storage-account.md#regenerate-storage-access-keys).
+> You should perform careful planning before regenerating the key for a production storage account. Regenerating one or both keys will invalidate the access for any application using the key that was regenerated. For more information, please see [Regenate storage access keys](storage-create-storage-account.md#regenerate-storage-access-keys).
 
 
 ### Delete a storage account 
