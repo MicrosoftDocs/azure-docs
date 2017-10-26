@@ -64,7 +64,7 @@
   items:
   - name: Learning path - create solutions
     href: learning-path-create-solutions-with-the-team-data-science-process.md
-  - name: Workshop - implement an alalytics solution
+  - name: Workshop - implement an analytics solution
     href: https://msdata.visualstudio.com/AlgorithmsAndDataScience/_git/LearnAnalytics-CreatingSolutionswiththeTeamDataScienceProcess?path=%2FREADME.md&version=GBmaster&_a=contents
 - name: How To
   items:
