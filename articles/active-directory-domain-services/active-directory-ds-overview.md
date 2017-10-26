@@ -33,7 +33,8 @@ All these approaches suffer from high cost and administrative overhead. Administ
 
 We designed Azure AD Domain Services to provide an easier alternative.
 
->[!VIDEO https://www.youtube.com/watch?v=T1Nd9APNceQ]
+<iframe width="560" height="315" src="https://www.youtube.com/watch?v=T1Nd9APNceQ" frameborder="0" allowfullscreen></iframe>
+
 
 ## Introducing Azure AD Domain Services
 Azure AD Domain Services provides managed domain services such as domain join, group policy, LDAP, Kerberos/NTLM authentication that are fully compatible with Windows Server Active Directory. You can consume these domain services without the need for you to deploy, manage, and patch domain controllers in the cloud. Azure AD Domain Services integrates with your existing Azure AD tenant, thus making it possible for users to log in using their corporate credentials. Additionally, you can use existing groups and user accounts to secure access to resources, thus ensuring a smoother 'lift-and-shift' of on-premises resources to Azure Infrastructure Services.
