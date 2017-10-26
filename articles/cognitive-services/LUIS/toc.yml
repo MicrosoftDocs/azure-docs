@@ -104,7 +104,7 @@
   - name: LUIS FAQ
     href: luis-resources-faq.md
   - name: Pricing
-    href: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/language-understanding-intelligent-services/
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/
   - name: Samples
     href: https://github.com/Microsoft/LUIS-Samples 
   - name: Stack Overflow
