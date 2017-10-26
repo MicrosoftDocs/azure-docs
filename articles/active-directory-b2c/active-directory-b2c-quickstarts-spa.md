@@ -7,13 +7,13 @@ author: saraford
 manager: krassk
 editor: PatAltimore
 
-ms.assetid: TODO
+ms.assetid: 5a8a46af-28bb-4b70-a7f0-01a5240d0255
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: javascript
 ms.topic: article
-ms.date: 9/25/2017
+ms.date: 10/26/2017
 ms.author: saraford
 
 ---
