@@ -35,17 +35,17 @@ With this automatic backup feature, you can restore the server and its databases
 ## Restore a database to a previous point in time by using the Azure CLI
 Use Azure Database for MySQL to restore the server to a previous point in time. The restored data is copied to a new server, and the existing server is left as is. For example, if a table is accidentally dropped at noon today, you can restore to the time just before noon. Then, you can retrieve the missing table and data from the restored copy of the server. 
 
-To restore the server, use the Azure CLI [az postgres server restore](/cli/azure/postgres/server#restore) command.
+To restore the server, use the Azure CLI [az mysql server restore](/cli/azure/mysql/server#restore) command.
 
 ### Run the restore command
 
 To restore the server, at the Azure CLI command prompt, enter the following command:
 
 ```azurecli-interactive
-az postgres server restore --resource-group myResourceGroup --name myserver-restored --restore-point-in-time 2017-04-13T13:59:00Z --source-server myserver4demo
+az mysql server restore --resource-group myResourceGroup --name myserver-restored --restore-point-in-time 2017-04-13T13:59:00Z --source-server myserver4demo
 ```
 
-The `az postgres server restore` command requires the following parameters:
+The `az mysql server restore` command requires the following parameters:
 | Setting | Suggested value | Description  |
 | --- | --- | --- |
 | resource-group | myResourceGroup |  The resource group where the source server exists.  |
@@ -57,7 +57,7 @@ When you restore a server to an earlier point in time, a new server is created. 
 
 The location and pricing tier values for the restored server remain the same as the original server. 
 
-The `az postgres server restore` command is synchronous. After the server is restored, you can use it again to repeat the process for a different point in time. 
+The `az mysql server restore` command is synchronous. After the server is restored, you can use it again to repeat the process for a different point in time. 
 
 After the restore process finishes, locate the new server and verify that the data is restored as expected.
 
