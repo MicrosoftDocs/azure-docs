@@ -1,17 +1,17 @@
 ---
 title: Azure managed application sample projects | Microsoft Docs
 description: Summarizes sample projects available for Azure managed applications
-services: azure-resource-manager
+services: managed-applications
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.service: azure-resource-manager
+ms.service: managed-applications
 ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/23/2017
+ms.date: 10/26/2017
 ms.author: tomfitz
 ---
 # Sample projects for Azure managed applications

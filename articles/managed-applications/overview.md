@@ -1,15 +1,15 @@
 ---
 title: Overview of Azure managed applications | Microsoft Docs
 description: Describes the concepts for Azure managed applications
-services: azure-resource-manager
+services: managed-applications
 author: tfitzmac
 manager: timlt
 
-ms.service: azure-resource-manager
+ms.service: managed-applications
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/23/2017
+ms.date: 10/26/2017
 ms.author: tomfitz
 ---
 
@@ -49,7 +49,7 @@ For information about publishing a managed application to the Marketplace, see [
 
 ## Resource groups for managed applications
 
-Typically, the resources for a managed application reside in two resource groups.
+Typically, the resources for a managed application reside in two resource groups. The consumer manages one resource group, and the publisher manages the other resource group. When defining the managed application, the publisher specifies the levels of access. The following image shows a scenario where the publisher requests the owner role for the managed resource group. The publisher placed a read-only lock on this resource group for the consumer.
 
 ![Resource group access](./media/overview/access.png)
 
@@ -57,15 +57,17 @@ Typically, the resources for a managed application reside in two resource groups
 
 This resource group holds the managed application instance. This resource group may only contain one resource. The resource type of the managed application is **Microsoft.Solutions/applications**.
 
-The consumer has full access to the resource group and uses it to manage the lifecycle of the managed application. The publisher does not have access to this resource group.
+The consumer has full access to the resource group and uses it to manage the lifecycle of the managed application.
 
 ### Managed resource group
 
-This resource group holds all the resources that are required by the managed application. The consumer has limited access to this resource group because the consumer does not manage the individual resources for the managed application. The publisher has full access to this resource group.
+This resource group holds all the resources that are required by the managed application. For example, this resource group contains the virtual machines, storage accounts, and virtual networks for the solution. The consumer has limited access to this resource group because the consumer does not manage the individual resources for the managed application. The publisher's access to this resource group corresponds to the role specified in the managed application definition. For example, the publisher might request the Owner or Contributor role for this resource group.
 
 When the consumer deletes the managed application, the managed resource group is also deleted.
 
 ## Next steps
 
-* For information about publishing managed applications to the Marketplace, see [Create marketplace application](publish-marketplace-app.md).
+* For an introduction to defining and deploying a managed application, see [Create and deploy an Azure managed application with Azure CLI](managed-apps-quickstart-cli.md)
 * For information about publishing an internal application, see [Create service catalog application](publish-service-catalog-app.md).
+* For information about publishing managed applications to the marketplace, see [Create marketplace application](publish-marketplace-app.md).
+

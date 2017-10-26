@@ -1,15 +1,15 @@
 ---
 title: Update resources in Azure managed applications | Microsoft Docs
 description: Describes how to work on resources in the managed resource group for an Azure managed application.
-services: azure-resource-manager
+services: managed-applications
 author: tfitzmac
 manager: timlt
 
-ms.service: azure-resource-manager
+ms.service: managed-applications
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/24/2017
+ms.date: 10/26/2017
 ms.author: tomfitz
 ---
 
@@ -17,7 +17,7 @@ ms.author: tomfitz
 
 This article describes how to update resources that are deployed as part of a managed application. As the publisher of a managed application, you have access to the resources in the managed resource group. To update these resources, you need to find the managed resource group associated with a managed application, and access the resource in that resource group.
 
-This article assumes you have deployed the managed application in [Publish a managed application for internal consumption](publish-service-catalog-app.md). If you have not deployed that managed application, you can still use this article to become familiar with the steps for updating a managed resource group.
+This article assumes you have deployed the managed application in the [Managed Web Application (IaaS) with Azure management services](https://github.com/Azure/azure-managedapp-samples/tree/master/samples/201-managed-web-app) sample project. That managed application includes a **Standard_D1_v2** virtual machine. If you have not deployed that managed application, you can still use this article to become familiar with the steps for updating a managed resource group.
 
 The following image shows the deployed managed application.
 
@@ -93,5 +93,5 @@ The policy assignment appears in the portal.
 ## Next steps
 
 * For an introduction to managed applications, see [Managed application overview](overview.md).
-* For examples of the files, see [Managed application samples](https://github.com/Azure/azure-managedapp-samples/tree/master/samples).
+* For sample projects, see [Sample projects for Azure managed applications](sample-projects.md).
 * For information about publishing managed applications to the Azure Marketplace, see [Managed applications in the Marketplace](publish-marketplace-app.md).
