@@ -86,7 +86,7 @@ client library quick starts:
 * [Android Client QuickStart]
 * [Apache Cordova Client QuickStart]
 * [iOS Client QuickStart]
-* [Windows Store Client QuickStart]
+* [Microsoft Store Client QuickStart]
 * [Xamarin.iOS Client QuickStart]
 * [Xamarin.Android Client QuickStart]
 * [Xamarin.Forms Client QuickStart]
@@ -250,7 +250,7 @@ You can find a complete example in the [todo sample on GitHub].
 ### <a name="howto-staticschema"></a>How to: Define tables using a static schema
 You can explicitly define the columns to expose via the WebAPI.  The azure-mobile-apps Node.js SDK automatically
 adds any additional columns required for offline data sync to the list that you provide.  For example, the
-QuickStart client applications require a table with two columns: text (a string) and complete (a boolean).  
+QuickStart client applications require a table with two columns: text (a string) and complete (a boolean).
 The table can be defined in the table definition JavaScript file (located in the tables directory) as follows:
 
     var azureMobileApps = require('azure-mobile-apps');
@@ -909,15 +909,15 @@ setting the **MS_DebugMode** app setting to true in the [Azure portal]. Generate
 Logs on the [Azure portal].
 
 ### <a name="in-portal-editing"></a><a name="work-easy-tables"></a>How to: Work with Easy Tables in the Azure portal
-Easy Tables in the portal let you create and work with tables right in the portal. You can upload dataset to Easy Tables 
-in CSV format. Note that you cannot use properties names (in your CSV dataset) that conflict with system properties names 
+Easy Tables in the portal let you create and work with tables right in the portal. You can upload dataset to Easy Tables
+in CSV format. Note that you cannot use properties names (in your CSV dataset) that conflict with system properties names
 of Azure Mobile Apps backend. The system properties names are:
 * createdAt
 * updatedAt
 * deleted
 * version
 
-You can even edit table operations using the App Service Editor. When you click **Easy tables** in your backend site 
+You can even edit table operations using the App Service Editor. When you click **Easy tables** in your backend site
 settings, you can add, modify, or delete a table. You can also see data in the table.
 
 ![Work with Easy Tables](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-easy-tables.png)
@@ -970,7 +970,7 @@ download the project to your local computer. To edit script files in the online 
 [Xamarin.iOS Client QuickStart]: app-service-mobile-xamarin-ios-get-started.md
 [Xamarin.Android Client QuickStart]: app-service-mobile-xamarin-android-get-started.md
 [Xamarin.Forms Client QuickStart]: app-service-mobile-xamarin-forms-get-started.md
-[Windows Store Client QuickStart]: app-service-mobile-windows-store-dotnet-get-started.md
+[Microsoft Store Client QuickStart]: app-service-mobile-windows-store-dotnet-get-started.md
 [offline data sync]: app-service-mobile-offline-data-sync.md
 [How to configure Azure Active Directory Authentication]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
 [How to configure Facebook Authentication]: ../app-service/app-service-mobile-how-to-configure-facebook-authentication.md

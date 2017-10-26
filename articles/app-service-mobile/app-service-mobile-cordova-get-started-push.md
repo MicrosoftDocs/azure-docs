@@ -39,7 +39,7 @@ To complete this tutorial, you need:
 * A completed [Apache Cordova quick start][5] project.
 * (Android) A [Google account][6] with a verified email address.
 * (iOS) An [Apple Developer Program membership][7] and an iOS device (iOS Simulator does not support push).
-* (Windows) A [Windows Store Developer Account][8] and a Windows 10 device.
+* (Windows) A [Microsoft Store Developer Account][8] and a Windows 10 device.
 
 ## <a name="configure-hub"></a>Configure a notification hub
 [!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
