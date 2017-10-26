@@ -199,6 +199,9 @@
       - name: HBase
         tocHref: /azure/hdinsight/hbase
         topicHref: /azure/hdinsight/hbase/apache-hbase-overview
+      - name: Domain-joined
+        tocHref: /azure/hdinsight/domain-joined
+        topicHref: /azure/hdinsight/hbase/apache-domain-joined-introduction
   - name: IoT Hub
     tocHref: /azure/iot-hub/
     topicHref: /azure/iot-hub/
