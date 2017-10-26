@@ -34,7 +34,7 @@
     tocHref: /azure/app-service/
     topicHref: /azure/app-service/
     items:
-    - name: Web App for Containers
+    - name: App Service on Linux
       tocHref: /azure/app-service/containers/
       topicHref: /azure/app-service/containers/
     - name: App Service Environments
@@ -94,6 +94,9 @@
   - name: Batch
     tocHref: /azure/batch/
     topicHref: /azure/batch/
+  - name: Batch AI
+    tocHref: /azure/batch-ai/
+    topicHref: /azure/batch-ai/
   - name: Billing
     tocHref: /azure/billing/
     topicHref: /azure/billing/
@@ -112,13 +115,16 @@
   - name: Cognitive Services
     tocHref: /azure/cognitive-services/
     topicHref: /azure/cognitive-services/
-    items: 
+    items:
     - name: Bing Custom Search
       tocHref: /azure/cognitive-services/bing-custom-search/
       topicHref: /azure/cognitive-services/bing-custom-search/
     - name: Bing Web Search
       tocHref: /azure/cognitive-services/bing-web-search/
       topicHref: /azure/cognitive-services/bing-web-search/
+    - name: Speech
+      tocHref: /azure/cognitive-services/Speech/
+      topicHref: /azure/cognitive-services/Speech/
     - name: Computer Vision
       tocHref: /azure/cognitive-services/computer-vision/
       topicHref: /azure/cognitive-services/computer-vision/
@@ -146,6 +152,9 @@
   - name: Container Instances
     tocHref: /azure/container-instances/
     topicHref: /azure/container-instances/
+  - name: AKS
+    tocHref: /azure/aks/
+    topicHref: /azure/aks/
   - name: Container Service
     tocHref: /azure/container-service/
     topicHref: /azure/container-service/

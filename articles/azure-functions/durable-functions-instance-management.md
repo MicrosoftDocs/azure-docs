@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
-ms.author: cgillum
+ms.author: azfuncdf
 ---
 
 # Manage instances in Durable Functions (Azure Functions)
@@ -60,7 +60,7 @@ module.exports = function (context, input) {
 ```
 
 > [!NOTE]
-> It is generally recommended that you use a random identifier for the instance ID. This will help ensure an equal load distribution when scaling orchestrator functions across multiple VMs. The proper time to use non-random instance IDs is when the ID must come from an external source or when implementing the [singleton orchestrator](durable-functions-counter.md) pattern.
+> We recommend that you use a random identifier for the instance ID. This will help ensure an equal load distribution when scaling orchestrator functions across multiple VMs. The proper time to use non-random instance IDs is when the ID must come from an external source or when implementing the [singleton orchestrator](durable-functions-singletons.md) pattern.
 
 ## Querying instances
 
@@ -143,4 +143,4 @@ public static Task Run(
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn how to work with singletons](durable-functions-singletons.md)
+> [Learn how to use the HTTP APIs for instance management](durable-functions-http-api.md)

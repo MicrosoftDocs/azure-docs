@@ -21,6 +21,9 @@ ms.author: shlo
 
 #### This tutorial
 
+> [!NOTE]
+> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [documentation for Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+
 During the data integration journey, one of the widely used scenarios is to incrementally load data periodically to refresh updated analysis result after initial data loads and analysis. In this tutorial, you focus on loading only new or updated records from the data sources into data sinks. It runs more efficiently when compared to full loads, particularly for large data sets.    
 
 You can use Data Factory to create high-watermark solutions to achieve incremental data loading by using Lookup, Copy, and Stored Procedure activities in a pipeline.  
@@ -477,13 +480,11 @@ In this tutorial, you create a pipeline with two lookup activities, one copy act
     					}
     				]
     			}
-    		],
+    		]
     		
     	}
     }
-    ```json
-
-	If you are using a source table with a name different from the one used in the tutorial (**data_source_table**), replace **data_source_table** in the sqlReaderQuery with the name of your source table. 
+    ```
 	
 
 2. Run the Set-AzureRmDataFactoryV2Pipeline cmdlet to create the pipeline: IncrementalCopyPipeline.

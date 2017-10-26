@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
-ms.author: cgillum
+ms.author: azfuncdf
 ---
 
 # Sub-orchestrations in Durable Functions (Azure Functions)
 
 In addition to calling activity functions, orchestrator functions can  call other orchestrator functions. For example, you can build a larger orchestration out of a library of orchestrator functions. Or you can run multiple instances of an orchestrator function in parallel.
 
-An orchestrator function can call another orchestrator function by calling the [CallSubOrchestratorAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallSubOrchestratorAsync_) or the [CallSubOrchestratorWithRetryAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallSubOrchestratorWithRetryAsync_) method. For more information on automatic retry, see the [Error Handling & Compensation](durable-functions-error-handling.md#automatic-retry-on-failure) topic.
+An orchestrator function can call another orchestrator function by calling the [CallSubOrchestratorAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallSubOrchestratorAsync_) or the [CallSubOrchestratorWithRetryAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallSubOrchestratorWithRetryAsync_) method. The [Error Handling & Compensation](durable-functions-error-handling.md#automatic-retry-on-failure) article has more information on automatic retry.
 
 Sub-orchestrator functions behave just like activity functions from the caller's perspective. They can return a value, throw an exception, and can be awaited by the parent orchestrator function.
 
@@ -62,7 +62,7 @@ public static async Task ProvisionNewDevices(
     var provisioningTasks = new List<Task>();
     foreach (string deviceId in deviceIds)
     {
-        Task provisionTask = ctx.CallSubOrchestratorAsync("DeviceProvisioningOrchestration");
+        Task provisionTask = ctx.CallSubOrchestratorAsync("DeviceProvisioningOrchestration", deviceId);
         provisioningTasks.Add(provisionTask);
     }
 
@@ -75,4 +75,4 @@ public static async Task ProvisionNewDevices(
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn how to handle errors](durable-functions-error-handling.md)
+> [Learn what task hubs are and how to configure them](durable-functions-task-hubs.md)

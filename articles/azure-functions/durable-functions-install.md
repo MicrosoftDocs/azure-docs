@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
-ms.author: cgillum
+ms.author: azfuncdf
 ---
 
 # Install the Durable Functions extension and samples (Azure Functions)
@@ -56,7 +56,9 @@ If you prefer, you can use the Azure portal for Durable Functions development.
 ### Create an orchestrator function
 
 1. Create a new function app at [functions.azure.com](https://functions.azure.com/signin).
-2. Create a new function and select the **Durable Functions Orchestrator trigger** template. This template downloads the extension from NuGet.org and creates a new orchestrator function.
+2. Configure the function app to [use the 2.0 runtime version](functions-versions.md).
+3. Create a new function, and select the **Durable Functions Orchestrator - C#** template.
+4. Under **Extensions not installed**, click **Install** to download the extension from NuGet.org.
 
 ### Copy sample code to the function app
 
