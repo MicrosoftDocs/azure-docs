@@ -12,6 +12,8 @@
   items:
   - name: Assessment calculations
     href: concepts-assessment-calculation.md
+  - name: Dependency visualization
+    href: concepts-dependency-visualization.md
 - name: How-to guides
   items:
   - name: Create a group
