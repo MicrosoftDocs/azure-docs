@@ -4,7 +4,7 @@
 - name: Get Started
   items:
   - name: Start with Interactive Query
-    href: ./hadoop/apache-interactive-query-get-started.md
+    href: ./apache-interactive-query-get-started.md
 - name: How To
   items:
   - name: Use cluster storage
@@ -18,7 +18,8 @@
   - name: Use Hadoop for interactive queries
     items:
     - name: Hive with Hadoop
-      href: hdinsight-use-hive.md
+      href: ../hadoop/hdinsight-use-hive.md
+      maintainContext: true
       items:
       - name: Use Zeppelin
         href: ../hdinsight-connect-hive-zeppelin.md
@@ -60,7 +61,7 @@
       href: ../hadoop/apache-hadoop-hive-java-udf.md
       maintainContext: true
     - name: Submit Hadoop jobs
-      href: submit-apache-hadoop-jobs-programmatically.md
+      href: ../hadoop/submit-apache-hadoop-jobs-programmatically.md
   - name: Develop
     items:
     - name: Use empty edge nodes
