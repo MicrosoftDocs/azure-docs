@@ -189,7 +189,7 @@
   - name: Monitor and manage
     items: 
     - name: Use .NET
-      href: quickstart-create-data-factory-dot-net.md#monitor-pipeline-run
+      href: monitor-programmatically.md
     - name: Use Azure Monitor
       href: monitor-using-azure-monitor.md
     - name: Monitor visually
