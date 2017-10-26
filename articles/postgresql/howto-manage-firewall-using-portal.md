@@ -18,7 +18,7 @@ To step through this how-to guide, you need:
 - A server [Create an Azure Database for PostgreSQL](quickstart-create-server-database-portal.md)
 
 ## Create a server-level firewall rule in the Azure portal
-1. On the PostgreSQL server blade, under Settings heading, click **Connection security** to open the Connection security blade for the Azure Database for PostgreSQL.
+1. On the PostgreSQL server page, under Settings heading, click **Connection security** to open the Connection security page for the Azure Database for PostgreSQL.
 
   ![Azure portal - click Connection Security](./media/howto-manage-firewall-using-portal/1-connection-security.png)
 
