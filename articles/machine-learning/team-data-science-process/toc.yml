@@ -60,6 +60,12 @@
     href: walkthroughs-sql-server.md
   - name: T-SQL and Python with SQL DW
     href: walkthroughs-sql-data-warehouse.md
+- name: Training
+  items:
+  - name: Learning path - create solutions
+    href: learning-path-create-solutions-with-the-team-data-science-process.md
+  - name: Workshop - implement an alalytics solution
+    href: https://msdata.visualstudio.com/AlgorithmsAndDataScience/_git/LearnAnalytics-CreatingSolutionswiththeTeamDataScienceProcess?path=%2FREADME.md&version=GBmaster&_a=contents
 - name: How To
   items:
   - name: Use TDSP in Azure ML
