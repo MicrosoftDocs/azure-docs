@@ -20,16 +20,16 @@
  
 ## Manage
 ### [Manage with Azure PowerShell](cdn-manage-powershell.md)
-### Configure time-to-live
-#### [Web Apps/Cloud Services, ASP.NET, or IIS content](cdn-manage-expiration-of-cloud-service-content.md)
-#### [Storage blob service content](cdn-manage-expiration-of-blob-content.md)
 ### [Restrict access by country](cdn-restrict-access-by-country.md)
 ### [Improve performance by compressing files](cdn-improve-performance.md)
 ### [How caching works](cdn-how-caching-works.md)
-#### [Control Azure CDN caching behavior with Delivery Rules](cdn-delivery-rules.md)
-#### Cache content by query string
+#### [Control Azure CDN caching behavior with caching rules](cdn-delivery-rules.md)
+#### Cache content by query strings
 ##### [Standard tier](cdn-query-string.md)
 ##### [Premium tier](cdn-query-string-premium.md)
+#### Configure time-to-live
+##### [Web Apps/Cloud Services, ASP.NET, or IIS content](cdn-manage-expiration-of-cloud-service-content.md)
+##### [Storage blob service content](cdn-manage-expiration-of-blob-content.md)
 ### [Purge cached assets](cdn-purge-endpoint.md)
 ### [Pre-load cached assets](cdn-preload-endpoint.md)
 ### [Token authentication](cdn-token-auth.md)
