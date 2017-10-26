@@ -42,7 +42,7 @@ See the language-specific example:
 
 ### Trigger - C# example
 
-The following example logs the message body of the event hub trigger.
+The following example shows [precompiled C#](functions-dotnet-class-library.md) code that logs the message body of the event hub trigger.
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
@@ -52,9 +52,31 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 }
 ```
 
+You can also receive the event as an [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) object, which gives you access to the event metadata (requires a using statement for `Microsoft.ServiceBus.Messaging`.
+
+```csharp
+[FunctionName("EventHubTriggerCSharp")]
+public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnection")] EventData myEventHubMessage, TraceWriter log)
+{
+    log.Info($"{Encoding.UTF8.GetString(myEventHubMessage.GetBytes())}");
+}
+```
+To receive events in a batch, change the method signature to `string[]` or `EventData[]`.
+
+```cs
+[FunctionName("EventHubTriggerCSharp")]
+public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnection")] string[] eventHubMessages, TraceWriter log)
+{
+    foreach (var message in eventHubMessages)
+    {
+        log.Info($"C# Event Hub trigger function processed a message: {message}");
+    }
+}
+```
+
 ### Trigger - C# script example
 
-The following example logs the message body of the event hub trigger.
+The following example shows an event hub trigger binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function logs the message body of the event hub trigger.
 
 Here's the binding data in the *function.json* file:
 
@@ -78,7 +100,7 @@ public static void Run(string myEventHubMessage, TraceWriter log)
 }
 ```
 
-You can also receive the event as an [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) object, which gives you access to the event metadata.
+You can also receive the event as an [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) object, which gives you access to the event metadata:
 
 ```cs
 #r "Microsoft.ServiceBus"
@@ -105,7 +127,7 @@ public static void Run(string[] eventHubMessages, TraceWriter log)
 
 ### Trigger - F# example
 
-The following example logs the message body of the event hub trigger.
+The following example shows an event hub trigger binding in a *function.json* file and an [F# function](functions-reference-fsharp.md) that uses the binding. The function logs the message body of the event hub trigger.
 
 Here's the binding data in the *function.json* file:
 
@@ -128,7 +150,7 @@ let Run(myEventHubMessage: string, log: TraceWriter) =
 
 ### Trigger - JavaScript example
 
-The following example logs the message body of the event hub trigger.
+The following example shows an event hub trigger binding in a *function.json* file and a [JavaScript](functions-reference-node.md) function that uses the binding. The function logs the message body of the event hub trigger.
 
 Here's the binding data in the *function.json* file:
 
@@ -153,9 +175,9 @@ module.exports = function (context, myEventHubMessage) {
 
 ## Trigger - C# attributes
 
-For C# (Visual Studio) development, use the [Microsoft.Azure.WebJobs.ServiceBus.EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs) attribute, which is defined in the [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) NuGet package.
+For [precompiled C#](functions-dotnet-class-library.md) functions, use the [Microsoft.Azure.WebJobs.ServiceBus.EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs) attribute, which is defined in NuGet package [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
 
-The attribute's constructor takes the name of the event hub and the name of an app setting that contains the connection string. For more information about these settings, see [Trigger - function.json properties](#trigger---functionjson-properties).
+The attribute's constructor takes the name of the event hub, the name of the consumer group, and the name of an app setting that contains the connection string. For more information about these settings, see [Trigger - settings](#trigger---settings). Here's an example showing how to use the attribute:
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
@@ -164,20 +186,22 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 
 ## Trigger - settings
 
-The following table documents the binding properties in the *function.json* file.
+The following settings appear only in the *function.json* file:
 
 |Property  |Description  |
 |---------|---------|
-|**type** | Must be set to `eventHubTrigger`. |
-|**direction** | Must be set to `in`. This parameter is set automatically when you create the trigger in the Azure portal. |
-|**name** | The variable name used in function code that represents the event item. | 
+|**type** | Must be set to `eventHubTrigger`. This property is set automatically when you create the trigger in the Azure portal.|
+|**direction** | Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. |
+|**name** | The name of the variable that represents the event item in function code. | 
+
+The following settings appear in the *function.json* file and the C# attribute constructor:
+
+|Property  |Description  |
+|---------|---------|
 |**path** | The name of the event hub. | 
 |**consumerGroup** | An optional property that sets the [consumer group](../event-hubs/event-hubs-features.md#event-consumers)
 used to subscribe to events in the hub. If omitted, the `$Default` consumer group is used. | 
-|**connection** | The name of an app setting that contains the connection string to the event hub's namespace.
-Copy this connection string by clicking the **Connection Information** button for the *namespace*, not the event hub
-itself. This connection string must have at least read permissions to activate the trigger.
-|
+|**connection** | The name of an app setting that contains the connection string to the event hub's namespace. Copy this connection string by clicking the **Connection Information** button for the *namespace*, not the event hub itself. This connection string must have at least read permissions to activate the trigger.|
 
 ## Trigger - host.json properties
 
@@ -187,8 +211,7 @@ The [host.json](functions-host-json.md#eventhub) file contains settings that con
 
 ## Event Hubs output binding
 
-Use the Event Hubs output binding to write events to an event hub event stream. You must have send permission to an
-event hub to write events to it.
+Use the Event Hubs output binding to write events to an event stream. You must have send permission to an event hub to write events to it.
 
 ## Output example
 
@@ -201,7 +224,7 @@ See the language-specific example:
 
 ### Output - C# example
 
-The following example writes a message to an event hub, using the method return value as the output:
+The following example shows a [precompiled C# function](functions-dotnet-class-library.md) that writes a message to an event hub, using the method return value as the output:
 
 ```csharp
 [FunctionName("EventHubOutput")]
@@ -215,7 +238,7 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, Trac
 
 ### Output - C# script example
 
-The following example writes a message to an event hub.
+The following example shows a blob trigger binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function writes a message to an event hub.
 
 Here's the binding data in the *function.json* file:
 
@@ -229,7 +252,7 @@ Here's the binding data in the *function.json* file:
 }
 ```
 
-Here's the C# script code:
+Here's C# script code that creates one message:
 
 ```cs
 using System;
@@ -256,7 +279,7 @@ public static void Run(TimerInfo myTimer, ICollector<string> outputEventHubMessa
 
 ### Output - F# example
 
-The following example writes a message to an event hub.
+The following example shows a blob trigger binding in a *function.json* file and an [F# function](functions-reference-fsharp.md) that uses the binding. The function writes a message to an event hub.
 
 Here's the binding data in the *function.json* file:
 
@@ -281,7 +304,7 @@ let Run(myTimer: TimerInfo, outputEventHubMessage: byref<string>, log: TraceWrit
 
 ### Output - JavaScript example
 
-The following example writes a message to an event hub.
+The following example shows a blob trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function writes a message to an event hub.
 
 Here's the binding data in the *function.json* file:
 
@@ -295,7 +318,7 @@ Here's the binding data in the *function.json* file:
 }
 ```
 
-Here's the JavaScript code:
+Here's JavaScript code that sends a single message:
 
 ```javascript
 module.exports = function (context, myTimer) {
@@ -323,9 +346,9 @@ module.exports = function(context) {
 
 ## Output - C# attributes
 
-For C# (Visual Studio) development, use the [Microsoft.Azure.WebJobs.ServiceBus.EventHubAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs) attribute, which is defined in the [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) NuGet package.
+For [precompiled C#](functions-dotnet-class-library.md) functions, use the [Microsoft.Azure.WebJobs.ServiceBus.EventHubAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs) attribute, which is defined in NuGet package [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
 
-The attribute's constructor takes the name of the event hub and the name of an app setting that contains the connection string. For more information about these settings, see [Output - function.json properties](#output---functionjson-properties).
+The attribute's constructor takes the name of the event hub and the name of an app setting that contains the connection string. For more information about these settings, see [Output - settings](#output---settings). Here's a `Blob` attribute example:
 
 ```csharp
 [FunctionName("EventHubOutput")]
@@ -335,28 +358,27 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, Trac
 
 ## Output - settings
 
-The following table documents the binding properties in the *function.json* file.
+The following settings appear only in the *function.json* file:
 
 |Property  |Description  |
 |---------|---------|
 |**type** | Must be set to `eventHub`. |
 |**direction** | Must be set to `out`. This parameter is set automatically when you create the binding in the Azure portal. |
 |**name** | The variable name used in function code that represents the event. | 
+
+The following settings appear in the *function.json* file and the C# attribute constructor:
+
+|Property  |Description  |
+|---------|---------|
 |**path** | The name of the event hub. | 
-|**connection** | The name of an app setting that contains the connection string to the event hub's namespace.
-Copy this connection string by clicking the **Connection Information** button for the *namespace*, not the event hub
-itself. This connection string must have send permissions to send the message to the event stream.
-|
+|**connection** | The name of an app setting that contains the connection string to the event hub's namespace. Copy this connection string by clicking the **Connection Information** button for the *namespace*, not the event hub itself. This connection string must have send permissions to send the message to the event stream.|
 
 ## Output - usage
 
-In C# and C# script, you can output messages to the configured event hub with the following parameter types:
+In C# and C# script, send messages by using a method parameter such as `out string paramName`. In C# script, `paramName` is the value specified in the `name` property of *function.json*. To write multiple messages, you can use `ICollector<string>` or
+`IAsyncCollector<string>` in place of `out string`.
 
-* `out string`
-* `ICollector<string>` (to output multiple messages)
-* `IAsyncCollector<string>` (async version of `ICollector<T>`)
-
-In JavaScript, access the output event by using `context.bindings.<name>`.
+In JavaScript, access the output event by using `context.bindings.<name>`. `<name>` is the value specified in the `name` property of *function.json*.
 
 ## Next steps
 
