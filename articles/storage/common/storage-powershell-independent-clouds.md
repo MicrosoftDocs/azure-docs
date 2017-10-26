@@ -96,7 +96,7 @@ This command returns output similar to the following:
 | ResourceManagerUrl | http://management.microsoftazure.de/ |
 | SqlDatabaseDnsSuffix | .database.cloudapi.de |
 | StorageEndpointSuffix | core.cloudapi.de |
-[...]
+| ... | ... | 
 
 To retrieve just the storage endpoint suffix property, retrieve the specific cloud and ask for just that one property.
 
