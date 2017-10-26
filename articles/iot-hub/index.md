@@ -44,7 +44,7 @@ Learn how to use IoT Hub to connect, monitor, and control billions of Internet o
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="/media/common/i_video.svg" alt="" />
+                            <img src="https://docs.microsoft.com/media/common/i_video.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -62,7 +62,7 @@ Learn how to use IoT Hub to connect, monitor, and control billions of Internet o
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="/media/common/i_get-started.svg" alt="" />
+                            <img src="https://docs.microsoft.com/media/common/i_get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -80,7 +80,7 @@ Learn how to use IoT Hub to connect, monitor, and control billions of Internet o
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="/media/common/i_get-started.svg" alt="" />
+                            <img src="https://docs.microsoft.com/media/common/i_get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -98,7 +98,7 @@ Learn how to use IoT Hub to connect, monitor, and control billions of Internet o
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="/media/common/i_road-map.svg" alt="" />
+                            <img src="https://docs.microsoft.com/media/common/i_road-map.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -122,6 +122,18 @@ Learn how to use IoT Hub to connect, monitor, and control billions of Internet o
                     <div class="cardText">
                         <h3>Command-Line</h3>
                         <p><a href="/cli/azure/iot">Azure CLI</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+	<li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Code samples</h3>
+                        <p><a href="https://azure.microsoft.com/en-us/resources/samples/?service=iot-hub">Code samples</a></p>
                     </div>
                 </div>
             </div>
