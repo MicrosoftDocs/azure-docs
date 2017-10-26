@@ -27,11 +27,7 @@
     href: luis-nodejs-tutorial-build-bot-framework-sample.md
   - name: Integrate LUIS with a bot using C#
     href: luis-csharp-tutorial-build-bot-framework-sample.md
-  - name: Import utterances from a CSV log
-    href: luis-tutorial-node-import-utterances-csv.md
-  - name: Import utterances from exported JSON
-    href: luis-tutorial-node-import-utterances-csv.md
-  - name: Train LUIS programmatically
+  - name: Import utterances from a log
     href: luis-tutorial-node-import-utterances-csv.md
 - name: Concepts
   items: 
