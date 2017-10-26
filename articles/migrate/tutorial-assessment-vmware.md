@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/26/2017
+ms.date: 10/26/2017
 ms.author: raynew
 
 ---
@@ -36,7 +36,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 - **VMware**: You need at least one VMware VM located on an ESXi host or cluster running version 5.0 or higher. The host or cluster must be managed by a vCenter server running version 5.5 or 6.0.
 - **vCenter account**: You need a read-only account with administrator credentials for the vCenter server. Azure Migrate uses this account to discover VMs.
-- **Permissions**: You need permissions on the vCenter server, to create a VM by importing a file in .OVA format. 
+- **Permissions**: On the vCenter server, you need permissions to create a VM by importing a file in .OVA format. 
 - **Statistics settings**: The statistics settings for the vCenter server should be set to level 2 before you start deployment.
 
 
@@ -159,5 +159,5 @@ You can drill down to see costs for a specific machine.
 
 ## Next steps
 
-- Learn how to create more detailed assessment groups using [machine](how-to-create-group-machine-dependencies.md) or [group](how-to-create-group-dependencies.md) dependency mapping.
+- Learn how to create more detailed assessment groups using [machine dependency mapping](how-to-create-group-machine-dependencies.md).
 - [Learn more](concepts-assessment-calculation.md) about how assessments are calculated.
