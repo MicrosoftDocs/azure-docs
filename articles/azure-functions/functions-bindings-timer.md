@@ -1,5 +1,5 @@
 ---
-title: Azure Functions timer trigger | Microsoft Docs
+title: Azure Functions timer trigger
 description: Understand how to use timer triggers in Azure Functions.
 services: functions
 documentationcenter: na
@@ -23,35 +23,152 @@ ms.custom:
 ---
 # Azure Functions timer trigger
 
-[!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
-
-This article explains how to configure and code timer triggers in Azure Functions. 
-Azure Functions has a timer trigger binding that lets you run your function code based on a defined schedule. 
+This article explains how to work with timer triggers in Azure Functions. 
+A timer trigger lets you run a function based on a defined schedule. 
 
 The timer trigger supports multi-instance scale-out. A single instance of a particular timer function is run across all instances.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-<a id="trigger"></a>
+## Trigger - example
 
-## Timer trigger
-The timer trigger to a function uses the following JSON object in the `bindings` array of function.json:
+See the language-specific example:
+
+* [Precompiled C#](#trigger---c-example)
+* [C# script](#trigger---c-script-example)
+* [JavaScript](#trigger---javascript-example)
+
+### Trigger - C# example
+
+The following example shows a [precompiled C# function](functions-dotnet-class-library.md) that runs every five minutes:
+
+```cs
+[FunctionName("TimerTriggerCSharp")]
+public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWriter log)
+{
+    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
+}
+```
+
+### Trigger example in C# #
+
+The following example shows a timer trigger binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function writes a log indicating whether this function invocation is due to a missed schedule occurrence.
+
+Here's the binding data in the *function.json* file:
 
 ```json
 {
-    "schedule": "<CRON expression - see below>",
-    "name": "<Name of trigger parameter in function signature>",
+    "schedule": "0 */5 * * * *",
+    "name": "myTimer",
     "type": "timerTrigger",
     "direction": "in"
 }
 ```
 
-The value of `schedule` is a [CRON expression](http://en.wikipedia.org/wiki/Cron#CRON_expression) that includes these six fields: 
+Here's the C# script code:
 
-	{second} {minute} {hour} {day} {month} {day-of-week}
-&nbsp;
+```csharp
+public static void Run(TimerInfo myTimer, TraceWriter log)
+{
+    if(myTimer.IsPastDue)
+    {
+        log.Info("Timer is running late!");
+    }
+    log.Info($"C# Timer trigger function executed at: {DateTime.Now}" );  
+}
+```
+
+### Trigger - F# example
+
+The following example shows a timer trigger binding in a *function.json* file and a [F# script function](functions-reference-fsharp.md) that uses the binding. The function writes a log indicating whether this function invocation is due to a missed schedule occurrence.
+
+Here's the binding data in the *function.json* file:
+
+```json
+{
+    "schedule": "0 */5 * * * *",
+    "name": "myTimer",
+    "type": "timerTrigger",
+    "direction": "in"
+}
+```
+
+Here's the F# script code:
+
+```fsharp
+let Run(myTimer: TimerInfo, log: TraceWriter ) =
+    if (myTimer.IsPastDue) then
+        log.Info("F# function is running late.")
+    let now = DateTime.Now.ToLongTimeString()
+    log.Info(sprintf "F# function executed at %s!" now)
+```
+
+### Trigger - JavaScript
+
+The following example shows a timer trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function writes a log indicating whether this function invocation is due to a missed schedule occurrence.
+
+Here's the binding data in the *function.json* file:
+
+```json
+{
+    "schedule": "0 */5 * * * *",
+    "name": "myTimer",
+    "type": "timerTrigger",
+    "direction": "in"
+}
+```
+
+Here's the F# script code:
+
+```JavaScript
+module.exports = function (context, myTimer) {
+    var timeStamp = new Date().toISOString();
+
+    if(myTimer.isPastDue)
+    {
+        context.log('Node.js is running late!');
+    }
+    context.log('Node.js timer trigger function ran!', timeStamp);   
+
+    context.done();
+};
+```
+
+## Trigger - C# attributes
+
+For [precompiled C#](functions-dotnet-class-library.md) functions, use the [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs), defined in NuGet package [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions).
+
+The attribute's constructor takes a CRON expression or a `TimeSpan`. For more information, see [Trigger - settings](#trigger---settings) later in this article. Here's a `TimerTriggerAttribute` attribute example:
+
+```csharp
+[FunctionName("TimerTriggerCSharp")]
+public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWriter log)
+ ```
+
+## Trigger - settings
+
+The following settings appear only in the *function.json* file:
+
+|Property  |Description  |
+|---------|---------|
+|`type` | Must be set to `timerTrigger`. This property is set automatically when you create the trigger in the Azure portal.|
+|`direction` | Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. |
+|`name` | The name of the variable that represents the timer object in function code. | 
+
+The `schedule` setting is configured in the *function.json* file and the C# attribute constructor.  On the Consumption plan, you can define schedules with a CRON expression. If you're using an App Service Plan, you can also use a `TimeSpan` string. The following sections explain CRON expressions.
+
+### CRON format 
+
+A [CRON expression](http://en.wikipedia.org/wiki/Cron#CRON_expression) for the Azure Functions timer trigger includes these six fields: 
+
+```
+{second} {minute} {hour} {day} {month} {day-of-week}
+```
+
 >[!NOTE]   
->Many of the cron expressions you find online omit the `{second}` field. If you copy from one of them, you need to adjust for the extra `{second}` field. For specific examples, see [Schedule examples](#examples) below.
+>Many of the CRON expressions you find online omit the `{second}` field. If you copy from one of them, you need to adjust for the extra `{second}` field.
+
+### CRON time zones
 
 The default time zone used with the CRON expressions is Coordinated Universal Time (UTC). To have your CRON expression based on another time zone, create a new app setting for your function app named `WEBSITE_TIME_ZONE`. Set the value to the name of the desired time zone as shown in the [Microsoft Time Zone Index](https://technet.microsoft.com/library/cc749073(v=ws.10).aspx). 
 
@@ -66,12 +183,9 @@ Alternatively, you could add a new app setting for your function app named `WEBS
 ```json
 "schedule": "0 0 10 * * *",
 ```	
+## CRON examples
 
-
-<a name="examples"></a>
-
-## Schedule examples
-Here are some samples of CRON expressions you can use for the `schedule` property. 
+Here are some examples of CRON expressions you can use for the timer trigger in Azure Functions. 
 
 To trigger once every five minutes:
 
@@ -109,9 +223,8 @@ To trigger At 9:30 AM every weekday:
 "schedule": "0 30 9 * * 1-5",
 ```
 
-<a name="usage"></a>
+## Trigger - usage
 
-## Trigger usage
 When a timer trigger function is invoked, the 
 [timer object](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) 
 is passed into the function. The following JSON is an example representation of the timer object. 
@@ -128,68 +241,10 @@ is passed into the function. The following JSON is an example representation of 
 }
 ```
 
-<a name="sample"></a>
-
-## Trigger sample
-Suppose you have the following timer trigger in the `bindings` array of function.json:
-
-```json
-{
-    "schedule": "0 */5 * * * *",
-    "name": "myTimer",
-    "type": "timerTrigger",
-    "direction": "in"
-}
-```
-
-See the language-specific sample that reads the timer object to see whether it's running late.
-
-* [C#](#triggercsharp)
-* [F#](#triggerfsharp)
-* [Node.js](#triggernodejs)
-
-<a name="triggercsharp"></a>
-
-### Trigger sample in C# #
-```csharp
-public static void Run(TimerInfo myTimer, TraceWriter log)
-{
-    if(myTimer.IsPastDue)
-    {
-        log.Info("Timer is running late!");
-    }
-    log.Info($"C# Timer trigger function executed at: {DateTime.Now}" );  
-}
-```
-
-<a name="triggerfsharp"></a>
-
-### Trigger sample in F# #
-```fsharp
-let Run(myTimer: TimerInfo, log: TraceWriter ) =
-    if (myTimer.IsPastDue) then
-        log.Info("F# function is running late.")
-    let now = DateTime.Now.ToLongTimeString()
-    log.Info(sprintf "F# function executed at %s!" now)
-```
-
-<a name="triggernodejs"></a>
-
-### Trigger sample in Node.js
-```JavaScript
-module.exports = function (context, myTimer) {
-    var timeStamp = new Date().toISOString();
-
-    if(myTimer.isPastDue)
-    {
-        context.log('Node.js is running late!');
-    }
-    context.log('Node.js timer trigger function ran!', timeStamp);   
-
-    context.done();
-};
-```
-
 ## Next steps
-[!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
 
+> [!div class="nextstepaction"]
+> [Go to a quickstart that uses a timer trigger](functions-create-scheduled-function.md)
+
+> [!div class="nextstepaction"]
+> [Learn more about Azure functions triggers and bindings](functions-triggers-bindings.md)

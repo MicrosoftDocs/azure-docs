@@ -207,7 +207,9 @@ used to subscribe to events in the hub. If omitted, the `$Default` consumer grou
 
 The [host.json](functions-host-json.md#eventhub) file contains settings that control Event Hubs trigger behavior.
 
+<!-- the first PR has to be merged before this can be uncommented.
 [!INCLUDE [functions-host-json-event-hubs](../../includes/functions-host-json-event-hubs.md)]
+ -->
 
 ## Event Hubs output binding
 
