@@ -1,5 +1,11 @@
 - name: HDInsight documentation
   href: index.md
+- name: Interactive Query
+  href: ./interactive-query/apache-interactive-query-get-started.md
+- name: HBase
+  href: ./hbase/apache-hbase-overview.md
+- name: Domain-joined
+  href: ./domain-joined/apache-domain-joined-introduction.md
 - name: Hadoop
   href: ./hadoop/apache-hadoop-introduction.md
 - name: Spark
