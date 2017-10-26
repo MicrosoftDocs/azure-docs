@@ -15,14 +15,14 @@
   ms.topic: article
   ms.tgt_pltfrm: na
   ms.workload: identity
-  ms.date: 10/25/2017
+  ms.date: 10/26/2017
   ms.author: piotrci
 
 ---
 
 # Product names and service plan identifiers for licensing
 
-When managing licenses in [the Azure portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) or the Office 365 portal, you see product names that look something like *Office 365 Enterprise E3*. When you use PowerShell v1.0 cmdlets, the same product is identified using a specific but less friendly name: *ENTERPRISEPACK*. When using PowerShell v2.0 cmdlets or Microsoft Graph, the same product is identified using a GUID value: *6fd2c87f-b296-42f0-b197-1e91e994b900*. The following table lists the most commonly used Microsoft online services products and provides their various ID values:
+When managing licenses in [the Azure portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) or the Office 365 portal, you see product names that look something like *Office 365 Enterprise E3*. When you use PowerShell v1.0 cmdlets, the same product is identified using a specific but less friendly name: *ENTERPRISEPACK*. When using PowerShell v2.0 cmdlets or Microsoft Graph, the same product is identified using a GUID value: *6fd2c87f-b296-42f0-b197-1e91e994b900*. The following table lists the most commonly used Microsoft online service products and provides their various ID values:
 
 - **Product Name**: Used in management portals
 - **String ID**: Used by PowerShell v1.0 cmdlets when performing operations on licenses
@@ -114,7 +114,7 @@ This section lists the most common service plans that are mutually exclusive, gr
 
 The following service plans cannot be assigned together:
 
-| Service Plan Name | Guid Id |
+| Service Plan Name | GUID |
 | --- | --- |
 | CRMIUR	| c42a56bd-9e70-4ace-be17-dc8eeae369d7 |
 | CRMPLAN1	| 119cf168-b6cf-41fb-b82e-7fee7bae5814 |
@@ -130,7 +130,7 @@ The following service plans cannot be assigned together:
 
 The following service plans cannot be assigned together:
 
-| Service Plan Name | Guid Id |
+| Service Plan Name | GUID |
 | --- | --- |
 | EXCHANGE_B_STANDARD	| 90927877-dcff-4af6-b346-2332c0b15bb7 |
 | EXCHANGE_L_STANDARD	| d42bdbd6-c335-4231-ab3d-c8f348d5aff5 |
@@ -145,7 +145,7 @@ The following service plans cannot be assigned together:
 
 The following service plans cannot be assigned together:
 
-| Service Plan Name | Guid Id |
+| Service Plan Name | GUID |
 | --- | --- |
 | INTUNE_A	| c1ec4a95-1f05-45b3-a911-aa3fa01094f5 |
 | INTUNE_A_VL	| 3e170737-c728-4eae-bbb9-3f3360f7184c |
@@ -155,7 +155,7 @@ The following service plans cannot be assigned together:
 
 The following service plans cannot be assigned together:
 
-| Service Plan Name | Guid Id |
+| Service Plan Name | GUID |
 | --- | --- |
 | ONEDRIVEENTERPRISE	| afcafa6a-d966-4462-918c-ec0b4e0fe642 |
 | SHAREPOINT_S_DEVELOPER	| a361d6e2-509e-4e25-a8ad-950060064ef4 |
@@ -171,7 +171,7 @@ The following service plans cannot be assigned together:
 
 The following service plans cannot be assigned together:
 
-| Service Plan Name | Guid Id |
+| Service Plan Name | GUID |
 | --- | --- |
 | MCOIMP	| afc06cb0-b4f4-4473-8286-d644f70d8faf |
 | MCOSTANDARD_MIDMARKET	| b2669e95-76ef-4e7e-a367-002f60a39f3e |
@@ -180,7 +180,7 @@ The following service plans cannot be assigned together:
 
 The following service plans cannot be assigned together:
 
-| Service Plan Name | Guid Id |
+| Service Plan Name | GUID |
 | --- | --- |
 | MCOPSTN1	| 4ed3ff63-69d7-4fb7-b984-5aec7f605ca8 |
 | MCOPSTN2	| 5a10155d-f5c1-411a-a8ec-e99aae125390 |
@@ -189,7 +189,7 @@ The following service plans cannot be assigned together:
 
 The following service plans cannot be assigned together:
 
-| Service Plan Name | Guid Id |
+| Service Plan Name | GUID |
 | --- | --- |
 | YAMMER_ENTERPRISE	| 7547a3fe-08ee-4ccb-b430-5077c5041653 |
 | YAMMER_EDU	| 2078e8df-cff6-4290-98cb-5408261a760a |
