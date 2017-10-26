@@ -26,11 +26,12 @@ The Azure Migrate service helps you to assess on-premises workloads for migratio
 
 ## Why use Azure Migrate?
 
-Azure Migrate helps you to assess the following:
+Azure Migrate helps you to do the following:
 
-- **Azure readiness**: Whether your on-premises machines are suitable for running in Azure. To increase confidence when creating groups of machines for assessment, you can verify machine dependencies using dependency visualization.
-- **Size recommendations**: Recommended sizing for Azure VMs after migration, based on the performance history of on-premises VMs. 
-- **Monthly costs**: Estimated costs for running on-premises machines in Azure.
+- **Assess Azure readiness**: Whether your on-premises machines are suitable for running in Azure. To increase confidence when creating groups of machines for assessment, you can verify machine dependencies using dependency visualization.
+- **Get size recommendations**: Recommended sizing for Azure VMs after migration, based on the performance history of on-premises VMs. 
+- **Estimate monthly costs**: Estimated costs for running on-premises machines in Azure.
+- **Migrate with high confidence**: When you gather on-premises machines into groups for assessment, you can visualize dependencies to accurately assess dependencies for a specific machine, or for all machines in a group.
 
 ## Current limitations
 
@@ -50,10 +51,10 @@ Azure Migrate assessments are based on the settings summarized in the table.
 --- | ---
 **Target location** | The Azure location to which you want to migrate. By default, this is the location in which you create the Azure Migrate project. You can modify this setting.   
 **Storage redundancy** | The type of storage that the Azure VMs will use after migration. LRS is the default.
-**Pricing plans** | The assessment takes into account whether you're enrolled in software assurance, and cuse the [Azure Hybrid Use Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/). It considers whether you have any Azure offers that should be applied, and allows you to specify any subscription-specific discount (in percentage), that you might be getting on top of the offer. 
-**Pricing tier**: You can specify the [pricing tier (basic/standard)](../virtual-machines/windows/sizes-general.md) of Azure VMs. This helps you to migrate to a suitable Azure VM family, based on whether you're migrating a production environment. By default the [standard](../virtual-machines/windows/sizes-general.md) tier is used.
+**Pricing plans** | The assessment takes into account whether you're enrolled in software assurance, and can use the [Azure Hybrid Use Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/). It also considers whether you have any Azure offers that should be applied, and allows you to specify any subscription-specific discount (in percentage), that you get on top of the offer. 
+**Pricing tier** | You can specify the [pricing tier (basic/standard)](../virtual-machines/windows/sizes-general.md) of Azure VMs. This helps you to migrate to a suitable Azure VM family, based on whether you're in a production environment. By default the [standard](../virtual-machines/windows/sizes-general.md) tier is used.
 **Performance history** | By default, Azure Migrate evaluates the performance of on-premises machines using a month of history, with a 95% percentile value. You can modify this setting.
-**Comfort factor** | Azure Migrate considers a buffer (comfort factor) during assessment. This buffer is applied on top of machine utilization data for VMs (CPU, memory, disk, and network). The comfort factor is added to account for issues such as seasonal usage, short performance history, and likely increases in future usage.<br/><br/> For example, 10-core VM with 20% utilization will normally result in a 2-core VM. However, if we add a comfort factor of 2.0, the result will be a 4-core VM instead. The default comfort setting is 1.3.
+**Comfort factor** | Azure Migrate considers a buffer (comfort factor) during assessment. This buffer is applied on top of machine utilization data for VMs (CPU, memory, disk, and network). The comfort factor accounts for issues such as seasonal usage, short performance history, and likely increases in future usage.<br/><br/> For example, 10-core VM with 20% utilization will normally result in a 2-core VM. However, if we add a comfort factor of 2.0, the result will be a 4-core VM instead. The default comfort setting is 1.3.
 
 
 ## How does Azure Migrate work?
@@ -61,10 +62,10 @@ Azure Migrate assessments are based on the settings summarized in the table.
 1.	You create an Azure Migrate project.
 2.	Azure Migrate uses an on-premises VM called the collector appliance, to discover information about your on-premises machines. To create the appliance, you download the setup file in Open Virtualization Appliance (.ova) format, and import it as a VM on your on-premises vCenter server.
 3.	You connect to the VM using read-only credentials for the vCenter server, and run the collector.
-4.	The collector collects VM metadata using VMware PowerCLI cmdlets. Discovery is agentless, and doesn't install anything on VMware hosts or VMs. The collected metadata includes VM information, including cores, memory, disks, disk sizes, and network adapters. It also collects performance data for VMs, inlcuding CPU and memory usage, disk IOPS, disk throughput (MBps) and network output (MBps).
+4.	The collector collects VM metadata using VMware PowerCLI cmdlets. Discovery is agentless, and doesn't install anything on VMware hosts or VMs. The collected metadata includes VM information (cores, memory, disks, disk sizes, and network adapters). It also collects performance data for VMs, including CPU and memory usage, disk IOPS, disk throughput (MBps) and network output (MBps).
 5.	The metadata is pushed to the Azure Migrate project. You can view it in the Azure portal.
-6.	For the purposes of assessment, you gather VMs into groups. For example, you can group VMs that run the same app. You can group VMs using tagging in vCenter, or in the Azure portal.
-7.	You run an assessment for a group.
+6.	For the purposes of assessment, you gather VMs into groups. For example, you might group VMs that run the same app. You can group VMs using tagging in vCenter, or in the vCenter portal. For increased confidence you can use visualization to verify dependencies for a specific machines, or for all machines in a group.
+7.	You create an assessment for a group.
 8.	After the assessment finishes, you can view it in the portal, or download it in Excel format.
 
 
