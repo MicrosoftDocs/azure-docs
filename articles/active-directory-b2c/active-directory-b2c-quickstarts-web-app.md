@@ -43,7 +43,7 @@ In the sample application project folder, open the `B2C-WebAPI-DotNet.sln` solut
 
 The solution consists of two projects:
 
-* **TaskWebApp** – An ASP.NET MVC web Aapplication where a user can manage his or her To-do list items.  
+* **TaskWebApp** – An ASP.NET MVC web application where a user can manage their to-do list items.  
 * **TaskService** – An ASP.NET Web API backend that manages all CRUD operations performed on a user's To-do list items. The web app calls this API and displays the results.
 
 For this quickstart, you need to run both the `TaskWebApp` and `TaskService` projects at the same time. 
@@ -57,7 +57,7 @@ For this quickstart, you need to run both the `TaskWebApp` and `TaskService` pro
 Select **Debug > Start Debugging** to build and run both applications. Each application opens in its own browser tab:
 
 * `https://localhost:44316/` - This page is the ASP.NET web application. You interact directly with this application in the quickstart.
-* `https://localhost:44332/` - This page is the web API. This is called by the ASP.NET web application.
+* `https://localhost:44332/` - This page is the web API that is called by the ASP.NET web application.
 
 ## Create an account
 
@@ -67,13 +67,13 @@ Click the **Sign up / Sign in** link in the ASP.NET web application to start the
 
 ### Sign up using a social identity provider
 
-To sign up using a social identity provider, click the the button of the identity provider you want to use. If you prefer to use an email address, jump to the [Sign up using an email address](#sign-up-using-an-email-address) section.
+To sign up using a social identity provider, click the button of the identity provider you want to use. If you prefer to use an email address, jump to the [Sign up using an email address](#sign-up-using-an-email-address) section.
 
 ![Sign In or Sign Up provider](media/active-directory-b2c-quickstarts-web-app/sign-in-or-sign-up-web.png)
 
-You need to authenticate (sign-in) using your social account credentials and authorize the application read information from your social account. By granting access, the application can retrieve profile information from the social account such as your name and city. 
+You need to authenticate (sign-in) using your social account credentials and authorize the application to read information from your social account. By granting access, the application can retrieve profile information from the social account such as your name and city. 
 
-For example, if you chose to use Twitter, the authentication and authorization looks similar to the following.
+For example, the authentication and authorization is similar to the following for Twitter.
 
 ![Authenticate and authorize using a social account](media/active-directory-b2c-quickstarts-web-app/twitter-authenticate-authorize-web.png)
 
@@ -81,7 +81,7 @@ Finish the sign-in process for the identity provider. For example, click **Sign 
 
 Your new account profile details are pre-populated with information from your social account.
 
-![New account signup profile details](media/active-directory-b2c-quickstarts-web-app/new-account-sign-up-profile-details-web.png)
+![New account sign-up profile details](media/active-directory-b2c-quickstarts-web-app/new-account-sign-up-profile-details-web.png)
 
 Update the Display Name, Job Title, and City fields and click **Continue**.  The values you enter are used for your Azure B2C user account profile.
 
@@ -91,11 +91,11 @@ Next step: [Jump to view your claims](#view-your-claims) section.
 
 ### Sign up using an email address
 
-If you choose to not use a social account to provide authentication, you can create a Azure AD B2C user account using a valid email address. An Azure AD B2C local user account will use Azure Active Directory as the identity provider. To use your email address, click the **Don't have an account? Sign up now** link.
+If you choose to not use a social account to provide authentication, you can create an Azure AD B2C user account using a valid email address. An Azure AD B2C local user account uses Azure Active Directory as the identity provider. To use your email address, click the **Don't have an account? Sign up now** link.
 
 ![Sign In or Sign Up using email](media/active-directory-b2c-quickstarts-web-app/sign-in-or-sign-up-email-web.png)
 
-Enter a valid email address and click **Send verification code**. You must use a valid email address to receive the verification code from Azure AD B2C. 
+Enter a valid email address and click **Send verification code**. A valid email address is required to receive the verification code from Azure AD B2C. 
 
 Enter the verification code you receive in email and click **Verify code**.
 
@@ -107,9 +107,9 @@ You have successfully created a new Azure B2C local user account.
 
 ## Reset your password
 
-If you created your account using an email address, Azure B2C has functionality to allow users to reset their password. In the web application menu bar, click your profile name and select **Reset Password** to edit the profile you created.
+If you created your account using an email address, Azure B2C has functionality to allow users to reset their password. To edit the profile you created, click your profile name in the menu bar and select **Reset Password**.
 
-You need to verify your email address. Verify your email address by entering it and clicking **Send verification code**. A verification code is sent to your email address.
+Verify your email address by entering it and clicking **Send verification code**. A verification code is sent to your email address.
 
 Enter the verification code you received in email and click **Verify code**.
 
@@ -119,7 +119,7 @@ Enter your new password and click **Continue**.
 
 ## View your claims
 
-You can click **Claims** in the web application menu bar to view the claims associated with your last action. 
+Click **Claims** in the web application menu bar to view the claims associated with your last action. 
 
 ![Sign up with new account using email](media/active-directory-b2c-quickstarts-web-app/view-claims-sign-up-web.png)
 
@@ -141,11 +141,11 @@ Click **Claims**. Changes you made to **Display name** and **City** are reflecte
 
 ![View claims](media/active-directory-b2c-quickstarts-web-app/view-claims-update-web.png)
 
- Notice the  **Claim type** `http://schemas.microsoft.com/claims/authnclassreference` has updated to `b2c_1_edit_profile` indicating the last action the user performed was a profile edit.
+ Notice the  **Claim type** `http://schemas.microsoft.com/claims/authnclassreference` has updated to `b2c_1_edit_profile` indicating the last action performed was a profile edit.
 
 ## Access a resource
 
-You can click **To-Do List** to enter and modify your to-do list items. The ASP.NET Web Application sends an access token to the web API (the resource in this example) requesting permission to perform CRUD operations on the user's to-do list items. 
+Click **To-Do List** to enter and modify your to-do list items. The ASP.NET web application includes an access token in the request to the web API resource requesting permission to perform operations on the user's to-do list items. 
 
 Enter text in the **New Item** text box. Click **Add** to call the Azure AD B2C secured web API that adds a to-do list item.
 
@@ -155,8 +155,8 @@ Enter text in the **New Item** text box. Click **Add** to call the Azure AD B2C 
 
 Other scenarios to test drive are as follows:
 
-* Sign out of the application and click **To-do list**. Notice how you are prompted to sign in and your list items are presisted. 
-* Create a new account using a different type of account, e.g. use a social identity provider if you created an account using an email address previously.
+* Sign out of the application and click **To-do list**. Notice how you are prompted to sign in and your list items are persisted. 
+* Create a new account using a different type of account. For example, use a social identity provider if you created an account using an email address previously.
 
 ## Next steps
 
