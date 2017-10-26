@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2017
+ms.date: 10/26/2017
 ms.author: magoedte
 ---
 
@@ -23,6 +23,12 @@ In the Azure Portal you can set up a Log Analytics workspace, which is a unique 
 * On-premises computers monitored by System Center Operations Manager
 * Device collections from System Center Configuration Manager 
 * Diagnostic or log data from Azure storage
+
+For other sources, such as Azure VMs and Windows or Linux computers in your environment, see the following topics:
+
+*  [Collect data about Azure Virtual Machines](log-analytics-quick-collect-azurevm.md) 
+*  [Collect data about Linux computers](log-analytics-quick-collect-linux-computer.md)
+*  [Collect data about Windows computers](log-analytics-quick-collect-windows-computer.md)
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
