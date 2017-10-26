@@ -184,7 +184,7 @@ The following table lists the permissions you can use to control access to your 
 
 ## Additional reference material
 
-Other reference topics in the IoT Hub developer guide include:
+For further details, please refer to the following topics in the IoT Hub developer guide:
 
 * [IoT Hub endpoints][lnk-endpoints] describes the various endpoints that each IoT hub exposes for run-time and management operations.
 * [Throttling and quotas][lnk-quotas] describes the quotas and throttling behaviors that apply to the IoT Hub service.
@@ -194,37 +194,37 @@ Other reference topics in the IoT Hub developer guide include:
 <!-- links and images -->
 
 [img-tokenservice]: ./media/iot-hub-devguide-security/tokenservice.png
-[lnk-endpoints]: iot-hub-devguide-endpoints.md
-[lnk-quotas]: iot-hub-devguide-quotas-throttling.md
-[lnk-sdks]: iot-hub-devguide-sdks.md
-[lnk-query]: iot-hub-devguide-query-language.md
-[lnk-devguide-mqtt]: iot-hub-mqtt-support.md
+[lnk-endpoints]: ../iot-hub/iot-hub-devguide-endpoints.md
+[lnk-quotas]: ../iot-hub/iot-hub-devguide-quotas-throttling.md
+[lnk-sdks]: ../iot-hub/iot-hub-devguide-sdks.md
+[lnk-query]: ../iot-hub/iot-hub-devguide-query-language.md
+[lnk-devguide-mqtt]: ../iot-hub/iot-hub-mqtt-support.md
 [lnk-openssl]: https://www.openssl.org/
 [lnk-selfsigned]: https://technet.microsoft.com/library/hh848633
 
 [lnk-resource-provider-apis]: https://docs.microsoft.com/rest/api/iot-dps
-[lnk-sas-tokens]: iot-hub-devguide-security.md#security-tokens
+[lnk-sas-tokens]: ../iot-hub/iot-hub-devguide-security.md#security-tokens
 [lnk-amqp]: https://www.amqp.org/
 [lnk-azure-resource-manager]: ../azure-resource-manager/resource-group-overview.md
 [lnk-cbs]: https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc
 [lnk-event-hubs-publisher-policy]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab
 [lnk-management-portal]: https://portal.azure.com
 [lnk-sasl-plain]: http://tools.ietf.org/html/rfc4616
-[lnk-identity-registry]: iot-hub-devguide-identity-registry.md
+[lnk-identity-registry]: ../iot-hub/iot-hub-devguide-identity-registry.md
 [lnk-dotnet-sas]: https://msdn.microsoft.com/library/microsoft.azure.devices.common.security.sharedaccesssignaturebuilder.aspx
 [lnk-java-sas]: https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.service.auth._iot_hub_service_sas_token
 [lnk-tls-psk]: https://tools.ietf.org/html/rfc4279
-[lnk-protocols]: iot-hub-protocol-gateway.md
-[lnk-custom-auth]: iot-hub-devguide-security.md#custom-device-authentication
-[lnk-x509]: iot-hub-devguide-security.md#supported-x509-certificates
-[lnk-devguide-device-twins]: iot-hub-devguide-device-twins.md
-[lnk-devguide-directmethods]: iot-hub-devguide-direct-methods.md
-[lnk-devguide-jobs]: iot-hub-devguide-jobs.md
+[lnk-protocols]: ../iot-hub/iot-hub-protocol-gateway.md
+[lnk-custom-auth]: ../iot-hub/iot-hub-devguide-security.md#custom-device-authentication
+[lnk-x509]: ../iot-hub/iot-hub-devguide-security.md#supported-x509-certificates
+[lnk-devguide-device-twins]: ../iot-hub/iot-hub-devguide-device-twins.md
+[lnk-devguide-directmethods]: ../iot-hub/iot-hub-devguide-direct-methods.md
+[lnk-devguide-jobs]: ../iot-hub/iot-hub-devguide-jobs.md
 [lnk-service-sdk]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/service
 [lnk-client-sdk]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/device
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer
 [lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
 
-[lnk-getstarted-tutorial]: iot-hub-csharp-csharp-getstarted.md
-[lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
-[lnk-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
+[lnk-getstarted-tutorial]: ../iot-hub/iot-hub-csharp-csharp-getstarted.md
+[lnk-c2d-tutorial]: ../iot-hub/iot-hub-csharp-csharp-c2d.md
+[lnk-d2c-tutorial]: ../iot-hub/iot-hub-csharp-csharp-process-d2c.md
