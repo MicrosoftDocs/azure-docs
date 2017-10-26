@@ -4,7 +4,7 @@ description: Deploy your first .NET Core Hello World app to App Service on Linux
 keywords: azure app service, web app, dotnet, core, linux, oss
 services: app-service
 documentationCenter: ''
-authors: cephalin
+author: cephalin
 manager: syntaxc4
 editor: ''
 
