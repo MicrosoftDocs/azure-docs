@@ -26,8 +26,7 @@
     href: how-to-create-group-dependencies.md
   - name: Customize an assessment
     href: how-to-modify-assessment.md
-  
-  [Azure Migrate](migrate-overview.md)- name: Troubleshoot Azure Migrate
+  - name: Troubleshoot Azure Migrate
     href: troubleshooting-general.md
   - name: Set up REST APIs
     href: how-to-set-up-rest-api.md
