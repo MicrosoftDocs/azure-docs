@@ -59,7 +59,7 @@ The code connects to the Azure Media Services API using Azure AD service princip
 * `clientKey`: The client key of the Azure AD application.
 * `restApiEndpoint`: The REST API endpoint of the Azure Media Services account.
 
-You can create an Azure AD application and obtain the preceding configuration values from the Azure portal. For more information, see the **Service principal authentication** section of [Getting started with Azure AD authentication using the Azure portal](https://docs.microsoft.com/en-us/azure/media-services/media-services-portal-get-started-with-aad).
+You can create an Azure AD application and obtain the preceding configuration values from the Azure portal. For more information, see the **Service principal authentication** section of [Getting started with Azure AD authentication using the Azure portal](https://docs.microsoft.com/azure/media-services/media-services-portal-get-started-with-aad).
 
 The code also relies on a locally stored video file. You must edit the code to provide your own local file to upload.
 

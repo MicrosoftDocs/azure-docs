@@ -64,7 +64,7 @@ For information about the Media Services REST API version history, see [Azure Me
     * Improvements to the H.264 decoder used in the Standard Encoder, eliminates certain rare artifacts. 
 
 #### Media Analytics
-* GA of Azure Media Redactor - This Media Processor (MP) will perform anonymization by blurring the faces of selected individuals, and is ideal for use in public safety and news media scenarios. For an overview on this new processor see the blog post [here](https://azure.microsoft.com/en-us/blog/azure-media-redactor/). For detailed documentation and settings, see [Redact faces with Azure Media Analytics](media-services-face-redaction.md).
+* GA of Azure Media Redactor - This Media Processor (MP) will perform anonymization by blurring the faces of selected individuals, and is ideal for use in public safety and news media scenarios. For an overview on this new processor see the blog post [here](https://azure.microsoft.com/blog/azure-media-redactor/). For detailed documentation and settings, see [Redact faces with Azure Media Analytics](media-services-face-redaction.md).
 
 
 
