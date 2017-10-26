@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/25/2017
+ms.date: 10/26/2017
 ms.author: raynew
 ---
 
@@ -24,7 +24,7 @@ This article describes how to create a group of machines for [Azure Migrate](mig
 
 
 ## Prepare machines for dependency mapping
-To include machines in dependency mapping, you need to download and install the Microsoft Monitoring Agent (MMA), and the Dependency agent, on each VM you want to evaluate. In addition, if you have machines with no internet connectivity, you need to download and install [OMS gateway](../log-analytics/log-analytics-oms-gateway.md). 
+To include machines in dependency mapping, you need to download and install agents on each on-premises machine that you want to evaluate. In addition, if you have machines with no internet connectivity, you need to download and install [OMS gateway](../log-analytics/log-analytics-oms-gateway.md) on them.
 
 ### Download and install the VM agents
 1. In **Overview**, click **Manage** > **Machines**, and select the required machine.
@@ -32,7 +32,8 @@ To include machines in dependency mapping, you need to download and install the 
 3. On the **Dependencies** page, download and install the Microsoft Monitoring Agent (MMA), and the Dependency agent on each VM you want to evaluate.
 4. Copy the workspace ID and key. You need these when you install the MMA on the on-premises machine.
 
-### Install the Microsoft Monitoring Agent
+### Install the MMA
+
 To install the agent on a Windows machine:
 
 1. Double-click the downloaded agent.
@@ -52,14 +53,15 @@ To install the agent on a Linux machine:
 
 ### Install the Dependency agent
 1. To install the Dependency agent on a Windows machine, double-click the setup file and follow the wizard.
-2. To install the Dependency agent on a Linux machine, install as root using the following command: 
+2. To install the Dependency agent on a Linux machine, install as root using the following command:
+
     ```sh InstallDependencyAgent-Linux64.bin```
 
 [Learn more](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems) about operating systems supported by the Dependency agent. 
 
 ## Create a group
 
-1. After you install the agents, go back to the portal and click **Manage** > **Machines**.
+1. After you install the agents, go to the portal and click **Manage** > **Machines**.
 2. The **Dependencies** column should now show as **View Dependencies**. Click the column to view the dependencies.
 3. For each machine, you can verify:
     - Whether the MMA and the dependency agent are installed, and whether the machine has been discovered.
@@ -77,4 +79,5 @@ To install the agent on a Linux machine:
 
 ## Next steps
 
-[Learn more](concepts-assessment-calculation.md) about how assessments are calculated.
+- [Learn how](how-to-create-group-dependencies.md) to refine the group by checking group dependencies
+- [Learn more](concepts-assessment-calculation.md) about how assessments are calculated.
