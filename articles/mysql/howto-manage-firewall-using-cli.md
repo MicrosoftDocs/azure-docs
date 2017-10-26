@@ -1,6 +1,6 @@
 ---
 title: Create and manage Azure Database for MySQL firewall rules using Azure CLI | Microsoft Docs
-description: This article describes how to create and manage Azure Database for MySQL firewall rules using Azure CLI command line.
+description: This article describes how to create and manage Azure Database for MySQL firewall rules using Azure CLI command-line.
 services: mysql
 author: v-chenyh
 ms.author: v-chenyh
@@ -9,7 +9,7 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 10/25/2017
 ---
 
 # Create and manage Azure Database for MySQL firewall rules by using the Azure CLI
@@ -27,14 +27,14 @@ The **az mysql server firewall-rule** command is used from the Azure CLI to crea
 Commands:
 - **create**: Create an Azure MySQL server firewall rule.
 - **delete**: Delete an Azure MySQL server firewall rule.
-- **list: List the Azure MySQL server firewall rules.
-- **show: Show the details of an Azure MySQL server firewall rule.
+- **list**: List the Azure MySQL server firewall rules.
+- **show**: Show the details of an Azure MySQL server firewall rule.
 - **update**: Update an Azure MySQL server firewall rule.
 
 ## Log in to Azure and list your Azure Database for MySQL Servers
 Securely connect Azure CLI with your Azure account by using the **az login** command.
 
-1. From the command line, run the following command:
+1. From the command-line, run the following command:
 ```azurecli
 az login
 ```
@@ -75,12 +75,24 @@ Using the Azure MySQL server name and the resource group name, create a new fire
 ```azurecli-interactive
 az mysql server firewall-rule create --resource-group myResourceGroup  --server mysqlserver4demo --name "Firewall Rule 1" --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.15
 ```
+
 To allow access for a single IP address, provide the same IP address as the Start IP and End IP, as in this example.
 ```azurecli-interactive
 az mysql server firewall-rule create --resource-group myResourceGroup  
 --server mysql --name "Firewall Rule with a Single Address" --start-ip-address 1.1.1.1 --end-ip-address 1.1.1.1
 ```
-Upon success, the command output lists the details of the firewall rule you have created, in JSON format (by default). If there is a failure, the output shows error message text instead.
+
+To allow applications from Azure IP addresses to connect to your Azure Database for MySQL server, provide the IP address 0.0.0.0 as the Start IP and End IP, as in this example.
+```azurecli-interactive
+az mysql server firewall-rule create --resource-group myResourceGroup  
+--server mysql --name "Firewall Rule to Allow Azure connections" --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
+```
+
+> [!IMPORTANT]
+> This option configures the firewall to allow all connections from Azure including connections from the subscriptions of other customers. When selecting this option, make sure your login and user permissions limit access to only authorized users.
+> 
+
+Upon success, each create command output lists the details of the firewall rule you have created, in JSON format (by default). If there is a failure, the output shows error message text instead.
 
 ## Update a firewall rule on Azure Database for MySQL server 
 Using the Azure MySQL server name and the resource group name, update an existing firewall rule on the server. Provide the name of the existing firewall rule as input, as well as the start IP and end IP attributes to update.
