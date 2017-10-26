@@ -9,7 +9,7 @@ editor: ''
 tags: aks, azure-container-service
 keywords: Docker, Containers, Micro-services, Kubernetes, Azure
 
-ms.assetid: 
+ms.assetid:
 ms.service: container-service
 ms.devlang: aurecli
 ms.topic: tutorial
@@ -35,37 +35,37 @@ This tutorial, part seven of eight, covers the following tasks:
 
 ## Before you begin
 
-In previous tutorials, an application was packaged into container images, these images uploaded to Azure Container Registry, and a Kubernetes cluster created. 
+In previous tutorials, an application was packaged into container images, these images uploaded to Azure Container Registry, and a Kubernetes cluster created.
 
 If you have not done these steps, and would like to follow along, return to [Tutorial 1 – Create container images](./tutorial-kubernetes-prepare-app.md).
 
 ## Configure the monitoring solution
 
-In the Azure portal, click **New** and search for `Container Monitoring Solution`. Once located, click on **Create**.
+In the Azure portal, select **New** and search for `Container Monitoring Solution`. Once located, select **Create**.
 
 ![Add solution](./media/container-service-tutorial-kubernetes-monitor/add-solution.png)
 
-Create a new OMS workspace, or select an existing one. The OMS Workspace form guides you through this process. 
+Create a new OMS workspace, or select an existing one. The OMS Workspace form guides you through this process.
 
 When creating the workspace, select **Pin to dashboard** for easy retrieval.
 
 ![OMS Workspace](./media/container-service-tutorial-kubernetes-monitor/oms-workspace.png)
 
-When done, select **Ok**. Once validation has completed, select **Create** to create the container monitoring solution.
+When done, select **OK**. Once validation has completed, select **Create** to create the container monitoring solution.
 
 Once the workspace has been created, it is presented to you in the Azure portal.
 
 ## Get Workspace settings
 
-The Log analytics Workspace ID and Key are needed for configuring the solution agent on the Kubernetes nodes. 
+The Log analytics Workspace ID and Key are needed for configuring the solution agent on the Kubernetes nodes.
 
-To retrieve these values, Select **OMS Workspace** from the container solutions left-hand menu. Select **Advanced settings** and take note of the **Workspace ID** and the **Primary Key**.
+To retrieve these values, Select **OMS Workspace** from the container solutions left-hand menu. Select **Advanced settings** and take note of the **WORKSPACE ID** and the **PRIMARY KEY**.
 
 ## Configure monitoring agents
 
 The following Kubernetes manifest file can be used to configure the container monitoring agents on a Kubernetes cluster. It creates a Kubernetes [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/), which runs a single pod on each cluster node.
 
-Save the following text to a file named `oms-daemonset.yaml`, and replace the placeholder values for **myWorkspaceID** and **myWorkspaceKey** with your Log Analytics Workspace ID and Key. 
+Save the following text to a file named `oms-daemonset.yaml`, and replace the placeholder values for **WSID** (`<WSID>`) and **KEY** (`<KEY>`) with your Log Analytics Workspace ID and Key.
 
 ```YAML
 apiVersion: extensions/v1beta1
@@ -81,19 +81,19 @@ spec:
     dockerProviderVersion: 10.0.0-25
   spec:
    containers:
-     - name: omsagent 
+     - name: omsagent
        image: "microsoft/oms"
        imagePullPolicy: Always
        env:
        - name: WSID
          value: <WSID>
-       - name: KEY 
+       - name: KEY
          value: <KEY>
        securityContext:
          privileged: true
        ports:
        - containerPort: 25225
-         protocol: TCP 
+         protocol: TCP
        - containerPort: 25224
          protocol: UDP
        volumeMounts:
@@ -101,7 +101,7 @@ spec:
           name: docker-sock
         - mountPath: /var/opt/microsoft/omsagent/state/containerhostname
           name: container-hostname
-        - mountPath: /var/log 
+        - mountPath: /var/log
           name: host-log
        livenessProbe:
         exec:
@@ -112,15 +112,15 @@ spec:
         initialDelaySeconds: 60
         periodSeconds: 60
    nodeSelector:
-    beta.kubernetes.io/os: linux    
+    beta.kubernetes.io/os: linux
    # Tolerate a NoSchedule taint on master that ACS Engine sets.
    tolerations:
     - key: "node-role.kubernetes.io/master"
       operator: "Equal"
       value: "true"
-      effect: "NoSchedule"     
+      effect: "NoSchedule"
    volumes:
-    - name: docker-sock 
+    - name: docker-sock
       hostPath:
        path: /var/run/docker.sock
     - name: container-hostname
@@ -128,7 +128,7 @@ spec:
        path: /etc/hostname
     - name: host-log
       hostPath:
-       path: /var/log 
+       path: /var/log
 ```
 
 Create the DaemonSet with the following command:
