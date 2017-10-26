@@ -47,7 +47,7 @@
 ## [Azure CLI](/cli/azure/batch)
 ## [.NET](/dotnet/api/microsoft.azure.batch)
 ## [Java](/java/api/com.microsoft.azure.batch)
-## [Node.js](https://docs.microsoft.com/nodejs/api/overview/azure/batch)
+## [Node.js](/nodejs/api/overview/azure/batch)
 ## [Python SDK](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.html)
 ## [REST](/rest/api/batchservice)
 ## [Batch diagnostic logs](batch-diagnostics.md)
