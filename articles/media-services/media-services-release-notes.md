@@ -36,7 +36,7 @@ These release notes summarize changes from previous releases and known issues.
 | When querying entities, there is a limit of 1000 entities returned at one time because public REST v2 limits query results to 1000 results. |You need to use **Skip** and **Take** (.NET)/ **top** (REST) as described in [this .NET example](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) and [this REST API example](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). |
 | Some clients can come across a repeat tag issue in the Smooth Streaming manifest. |For more information, see [this](media-services-deliver-content-overview.md#known-issues) section. |
 | Azure Media Services .NET SDK objects cannot be serialized and as a result do not work with Azure Caching. |If you try to serialize the SDK AssetCollection object to add it to Azure Caching, an exception is thrown. |
-| Encoding jobs fail with a message string "Stage: DownloadFile. Code: System.NullReferenceException". |The typical encoding workflow is to upload input video file(s) to an input Asset, and submit one or more encoding jobs for that input Asset, without further modifying that input Asset. However, if you modify the input Asset (for example by adding/deleting/renaming files within the Asset), then subsequent jobs may fail with a DownloadFile error. The workaround is to delete the input Asset, and re-upload input file(s) to a new Asset. |
+
 
 ## <a id="rest_version_history"></a>REST API Version History
 For information about the Media Services REST API version history, see [Azure Media Services REST API Reference].
@@ -57,6 +57,9 @@ For information about the Media Services REST API version history, see [Azure Me
 5.	The Premium Encoder now supports QuickTime/MOV file formats as input as long as the video codec is either one of the [Apple ProRes flavors listed here](https://docs.microsoft.com/en-us/azure/media-services/media-services-media-encoder-standard-formats), and the audio is either AAC or PCM.
 > [!NOTE]
 > The Premium Encoder does not support, for example, DVC/DVCPro video wrapped in QuickTime/MOV files, as input.  However, the Standard Encoder does support these video codecs.
+>
+>
+
 6.	Bug fixes in Encoders:
     * You can now submit Jobs using an Input Asset, and after these complete, modify the Asset (for example by adding/deleting/renaming files within the Asset), and submit additional Jobs. 
     * Improved quality of JPEG thumbnails produced by the Standard Encoder
