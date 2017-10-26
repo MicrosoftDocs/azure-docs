@@ -1,15 +1,15 @@
 ---
-title: Standard storage for Windows VM disks on Azure | Microsoft Docs
-description: Discuss cost-effective Standard Storage and unmanaged and managed Windows VM disks.
-services: virtual-machines-windows
+title: Standard storage for Linux VM disks on Azure | Microsoft Docs
+description: Discuss cost-effective Standard Storage and unmanaged and managed Linux VM disks.
+services: virtual-machines-linux
 documentationcenter: ''
 author: yuemlu
-manager: aungoo-msft
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 
 ms.assetid: e2a20625-6224-4187-8401-abadc8f1de91
-ms.service: virtual-machines-windows
+ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na

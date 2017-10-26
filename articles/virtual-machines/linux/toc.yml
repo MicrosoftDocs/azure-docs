@@ -69,6 +69,13 @@
     href: maintenance-and-updates.md
   - name: Storage
     href: azure-vm-storage-overview.md
+    items:
+    - name: Premium storage
+      href: premium-storage.md
+    - name: Premium storage performance
+      href: premium-storage-performance.md
+    - name: Standard storage
+      href: standard-storage.md
   - name: Networking
     href: network-overview.md
   - name: Auto-scale applications

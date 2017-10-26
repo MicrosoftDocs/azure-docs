@@ -4,7 +4,7 @@ description: Design high-performance applications using Azure Premium Storage. P
 services: virtual-machines-windows
 documentationcenter: na
 author: aungoo-msft
-manager: tadb
+manager: jeconnoc
 editor: tysonn
 
 ms.assetid: e6a409c3-d31a-4704-a93c-0a04fdc95960
