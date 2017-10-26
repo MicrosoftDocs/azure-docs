@@ -27,6 +27,8 @@
     href: luis-nodejs-tutorial-build-bot-framework-sample.md
   - name: Integrate LUIS with a bot using C#
     href: luis-csharp-tutorial-build-bot-framework-sample.md
+  - name: Import utterances from a log
+    href: luis-tutorial-node-import-utterances-csv.md
 - name: Concepts
   items: 
   - name: Intents
@@ -86,7 +88,7 @@
   - name: Authoring APIs
     href: https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f
   - name: Endpoint API
-    href: https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78      
+    href: https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78         
   - name: SDKs
     items:
     - name: Android
@@ -103,3 +105,9 @@
     href: https://azure.microsoft.com/roadmap/
   - name: LUIS FAQ
     href: luis-resources-faq.md
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/
+  - name: Samples
+    href: https://github.com/Microsoft/LUIS-Samples 
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/LUIS 

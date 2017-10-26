@@ -20,6 +20,9 @@ ms.author: abnarain
 # Azure Data Factory - Security considerations for data movement
 This article describes basic security infrastructure that data movement services in Azure Data Factory use to secure your data. Azure Data Factory management resources are built on Azure security infrastructure and use all possible security measures offered by Azure.
 
+> [!NOTE]
+> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [data movement security considerations for Data Factory version 1](v1/data-factory-data-movement-security-considerations.md).
+
 In a Data Factory solution, you create one or more data [pipelines](concepts-pipelines-activities.md). A pipeline is a logical grouping of activities that together perform a task. These pipelines reside in the region where the data factory was created. 
 
 Even though Data Factory is available in only **East US** and **East US 2** region (version 2 preview), the data movement service is available [globally in several regions](concepts-integration-runtime.md#azure-ir). If the data movement service is not yet deployed to that region, the Data Factory service ensures that data does not leave a geographical area/ region unless you explicitly instruct the service to use an alternate region. 
