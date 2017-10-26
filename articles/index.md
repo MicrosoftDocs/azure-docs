@@ -1222,6 +1222,12 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 <p>Azure Resource Manager</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/azure/managed-applications">
+                                                <img src="media/index/i_managed-applicataion.svg" alt="" />
+                                                <p>Managed Applications</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                 </div>
                             </li>
@@ -3641,18 +3647,18 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/azure-resource-manager/">
+                                <a href="/azure/managed-applications">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/azuredefaultblack.svg" alt="" />
+                                                        <img src="media/index/i_managed-applicataion.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Resource Manager</h3>
-                                                    <p>Deploy and manage Azure resources</p>
+                                                    <h3>Managed Applications</h3>
+                                                    <p>Manage deployed solutions for your customers</p>
                                                 </div>
                                             </div>
                                         </div>
