@@ -20,7 +20,7 @@ ms.author: dobett
 ---
 # Frequently asked questions for IoT Suite
 
-See also, the connected factory specific [FAQ](iot-suite-faq-cf.md).
+See also, the connected factory-specific [FAQ](iot-suite-faq-cf.md).
 
 ### Where can I find the source code for the preconfigured solutions?
 
@@ -42,9 +42,33 @@ The new preconfigured solution offers two deployment options:
 
 Currently, only the remote monitoring solution uses the microservices architecture as it covers the broadest scenario.
 
+### What advantages does the new open-sourced microservices-based architecture provide in the new update?
+
+Over the last two years, cloud architecture has greatly evolved. Micro services have emerged as a great pattern to achieve scale and flexibility, without sacrificing development speed. This architectural pattern is used in several Microsoft services internally with great reliability and scalability results. We are putting these learning in practice so that our customers benefit from them.
+
+### Is the new microservices architecture available for all the three preconfigured solutions?
+
+We are starting with remote monitoring as it covers the first and broadest scenario.  Our goal is to continue our helping customers accelerate their IoT solutions, and we will enable more scenarios in the future.
+
 ### Can I continue to leverage my existing investments in Azure IoT Suite?
 
-Yes. Any solution that exists today will continue to work in your Azure subscription and the source code will remain available in GitHub.
+Yes. Any solution that exist today will continue to work in your Azure subscription and the open-sourced code in GitHub remains available in GitHub.
+
+### Is the new preconfigured solution available in the same geographic region as the existing solution?
+
+Yes, the new remote monitoring is available in the same geographic regions.
+
+### What is the difference between the basic and standard deployment options? How do I decide between the two deployment options?
+
+Each deployment option responds to different needs. The basic deployment is designed to get started and develop PoC and small pilots. It provides a streamlined architecture with the minimum necessary resources and a smaller cost. The standard deployment is designed to build and customize a production-ready solution, and provides a deployment with the necessary elements to realize that, resulting in a higher cost. Choose an option based on your current needs. We expect customers to use one, the other or a combination of both depending on their project stage.
+
+### How can I ensure I keep my costs down while I develop my solution?
+
+In addition to providing two differentiated deployments, the new Remote monitoring solution has a setting to enable or disable all the simulated devices on demand. Disabling the simulation reduces the data ingested in the solution and, thus, the overall cost.
+
+### Can I continue to leverage my existing investments in Azure IoT Suite?
+
+Yes. Any solution that exists today continues to work in your Azure subscription and the source code remains available in GitHub.
 
 ### What's the difference between deleting a resource group in the Azure portal and clicking delete on a preconfigured solution in azureiotsuite.com?
 
