@@ -22,7 +22,7 @@ To step through this how-to guide, you need:
 
   ![Azure portal - click Connection Security](./media/howto-manage-firewall-using-portal/1-connection-security.png)
 
-2. Click **Add My IP** on the toolbar. This will automatically create a firewall rule with the public IP address of your computer, as perceived by the Azure system.
+2. Click **Add My IP** on the toolbar. This automatically creates a firewall rule with the public IP address of your computer, as perceived by the Azure system.
 
   ![Azure portal - click Add My IP](./media/howto-manage-firewall-using-portal/2-add-my-ip.png)
 
@@ -31,7 +31,7 @@ Use a search engine or other online tool to check your own IP address (for examp
 
   ![Bing search for What is my IP](./media/howto-manage-firewall-using-portal/3-what-is-my-ip.png)
 
-4. Add additional address ranges. In the firewall rules for the Azure Database for PostgreSQL, you can specify a single IP address, or a range of addresses. If you want to limit the rule to a single IP address, type the same address in the field for Start IP and End IP. Opening the firewall enables administrators, users, and applications to login to any database on the PostgreSQL server to which they have valid credentials.
+4. Add additional address ranges. In the firewall rules for the Azure Database for PostgreSQL, you can specify a single IP address, or a range of addresses. If you want to limit the rule to a single IP address, type the same address in the field for Start IP and End IP. Opening the firewall enables administrators, users, and applications to log in to any database on the PostgreSQL server to which they have valid credentials.
 
   ![Azure portal - firewall rules ](./media/howto-manage-firewall-using-portal/4-specify-addresses.png)
 
