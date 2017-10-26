@@ -59,6 +59,13 @@
     href: maintenance-and-updates.md
   - name: Storage
     href: about-disks-and-vhds.md
+    items:
+    - name: Premium storage
+      href: premium-storage.md
+    - name: Premium storage performance
+      href: premium-storage-performance.md
+    - name: Standard storage
+      href: standard-storage.md
   - name: Networking
     href: network-overview.md
   - name: Auto-scale applications
@@ -218,6 +225,8 @@
       href: incremental-snapshots.md
     - name: Convert disk between Standard and Premium
       href: convert-disk-storage.md
+    - name: Migrate to Premium storage with Azure Site Recovery
+      href: migrate-to-premium-storage-using-azure-site-recovery.md
     - name: Use File storage
       href: mount-azure-file-storage.md
     - name: Deploy disks with template

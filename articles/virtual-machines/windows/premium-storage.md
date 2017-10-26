@@ -122,7 +122,7 @@ These are some of the features of the DS-series, DSv2-series, GS-series, Ls-seri
 
     Note that these limits are for disk traffic only. These limits don't include cache hits and network traffic. A separate bandwidth is available for VM network traffic. Bandwidth for network traffic is different from the dedicated bandwidth used by premium storage disks.
 
-    For the most up-to-date information about maximum IOPS and throughput (bandwidth) for Premium Storage-supported VMs, see [Windows VM sizes](sizes.md) or [Linux VM sizes](../sizes.md).
+    For the most up-to-date information about maximum IOPS and throughput (bandwidth) for Premium Storage-supported VMs, see [Windows VM sizes](sizes.md) or [Linux VM sizes](sizes.md).
 
     For more information about premium storage disks and their IOPS and throughput limits, see the table in the next section.
 
