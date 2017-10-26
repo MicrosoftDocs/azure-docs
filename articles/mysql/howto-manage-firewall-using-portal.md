@@ -19,13 +19,13 @@ Server-level firewall rules enable administrators to access an Azure Database fo
 
    ![Azure portal - click Connection security](./media/howto-manage-firewall-using-portal/1-connection-security.png)
 
-2. Click **Add My IP** on the toolbar. This will automatically create a firewall rule with the public IP address of your computer, as perceived by the Azure system.
+2. Click **Add My IP** on the toolbar. This automatically creates a firewall rule with the public IP address of your computer, as perceived by the Azure system.
 
    ![Azure portal - click Add My IP](./media/howto-manage-firewall-using-portal/2-add-my-ip.png)
 
 3. Verify your IP address before saving the configuration. In some situations, the IP address observed by Azure portal differs from the IP address used when accessing the internet and Azure servers. Therefore, you may need to change the Start IP and End IP to make the rule function as expected.
 
-   Use a search engine or other online tool to check your own IP address (for example, search "what is my IP address").
+   Use a search engine or other online tool to check your own IP address. For example, search "what is my IP address". 
 
    ![Bing for What is my IP](./media/howto-manage-firewall-using-portal/3-what-is-my-ip.png)
 
