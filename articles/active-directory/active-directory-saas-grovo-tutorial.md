@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2017
+ms.date: 10/26/2017
 ms.author: jeedes
 
 ---
@@ -163,7 +163,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 10. In a different web browser window, login to Grovo as Administrator.
 
-11. Go to **Admin** > **Integrations**.
+11. Go to **ADMIN** > **Integrations**.
  
 	![Grovo Configuration](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_admin.png) 
 
@@ -171,7 +171,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Grovo Configuration](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_setup.png)
 
-13. In **SP Initiated SAML 2.0** popup window perform the following steps.
+13. In **SP Initiated SAML 2.0** popup window, perform the following steps.
 
 	![Grovo Configuration](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_saml.png)
 
