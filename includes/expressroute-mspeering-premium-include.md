@@ -1,4 +1,4 @@
 >[!NOTE]
->Microsoft peering requires the Premium add-on.
+>To configure Microsoft peering, your ExpressRoute circuit must use the Premium add-on SKU tier. 
 >
 >

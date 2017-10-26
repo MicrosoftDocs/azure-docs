@@ -118,6 +118,8 @@ cd acr-helloworld
 
 The Dockerfile included in the sample shows how the container is built. It starts from an official [aspnetcore](https://store.docker.com/community/images/microsoft/aspnetcore) image, copies the application files into the container, installs dependencies, compiles the output using the official [aspnetcore-build](https://store.docker.com/community/images/microsoft/aspnetcore-build) image, and finally, builds an optimized aspnetcore image.
 
+The Dockerfile is located at `./AcrHelloworld/Dockerfile` in the cloned source.
+
 ```dockerfile
 FROM microsoft/aspnetcore:2.0 AS base
 # Update <acrName> with the name of your registry
