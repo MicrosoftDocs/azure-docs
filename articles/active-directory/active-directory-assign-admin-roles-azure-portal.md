@@ -32,7 +32,7 @@ The following administrator roles are available:
 
 * **Conditional Access Administrator**: Users with this role have the ability to manage Azure Active Directory conditional access settings.
   > [!NOTE]
-  > To deploy Exchange Active Sync conditional access policy in Azure, the user must also be Global Administrator.
+  > To deploy Exchange ActiveSync conditional access policy in Azure, the user must also be Global Administrator.
   
 * **CRM Service Administrator**: Users with this role have global permissions within Microsoft CRM Online, when the service is present, as well as the ability to manage support tickets and monitor service health. More information at [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
