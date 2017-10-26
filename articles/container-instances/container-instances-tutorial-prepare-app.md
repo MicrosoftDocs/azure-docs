@@ -22,20 +22,20 @@ ms.custom: mvc
 
 # Create container for deployment to Azure Container Instances
 
-Azure Container Instances enables deployment of Docker containers onto Azure infrastructure without provisioning any virtual machines or adopting any higher-level service. In this tutorial, you will build a simple web application in Node.js and package it in a container that can be run using Azure Container Instances. We will cover:
+Azure Container Instances enables deployment of Docker containers onto Azure infrastructure without provisioning any virtual machines or adopting any higher-level service. In this tutorial, you build a small web application in Node.js and package it in a container that can be run using Azure Container Instances. We cover:
 
 > [!div class="checklist"]
 > * Cloning application source from GitHub
 > * Creating container images from application source
 > * Testing the images in a local Docker environment
 
-In subsequent tutorials, you will upload your image to an Azure Container Registry, and then deploy them to Azure Container Instances.
+In subsequent tutorials, you upload your image to an Azure Container Registry, and then deploy it to Azure Container Instances.
 
 ## Before you begin
 
-This tutorial requires that you are running the Azure CLI version 2.0.20 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+This tutorial requires that you are running the Azure CLI version 2.0.20 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
 
-This tutorial assumes a basic understanding of core Docker concepts such as containers, container images, and basic docker commands. If needed, see [Get started with Docker]( https://docs.docker.com/get-started/) for a primer on container basics.
+This tutorial assumes a basic understanding of core Docker concepts such as containers, container images, and basic `docker` commands. If needed, see [Get started with Docker]( https://docs.docker.com/get-started/) for a primer on container basics.
 
 To complete this tutorial, you need a Docker development environment. Docker provides packages that easily configure Docker on any [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), or [Linux](https://docs.docker.com/engine/installation/#supported-platforms) system.
 
@@ -102,9 +102,9 @@ Open the browser to http://localhost:8080 to confirm that the container is runni
 In this tutorial, you created a container image that can be deployed to Azure Container Instances. The following steps were completed:
 
 > [!div class="checklist"]
-> * Cloning the application source from GitHub
-> * Creating container images from application source
-> * Testing the container locally
+> * Cloned the application source from GitHub
+> * Created container images from application source
+> * Tested the container locally
 
 Advance to the next tutorial to learn about storing container images in an Azure Container Registry.
 
