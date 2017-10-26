@@ -43,25 +43,25 @@ The Azure CLI enables deployment of a container to Azure Container Instances in 
 
 Container registry login server (update with your registry name):
 
-```azurecli-interactive
+```azurecli
 az acr show --name <acrName> --query loginServer
 ```
 
 Container registry password:
 
-```azurecli-interactive
+```azurecli
 az acr credential show --name <acrName> --query "passwords[0].value"
 ```
 
 To deploy your container image from the container registry with a resource request of 1 CPU core and 1 GB of memory, run the following command:
 
-```azurecli-interactive
+```azurecli
 az container create --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-password <acrPassword> --ip-address public -g myResourceGroup
 ```
 
 Within a few seconds, you should receive an initial response from Azure Resource Manager. To view the state of the deployment, use:
 
-```azurecli-interactive
+```azurecli
 az container show --name aci-tutorial-app --resource-group myResourceGroup --query state
 ```
 
@@ -83,7 +83,7 @@ az container show --name aci-tutorial-app --resource-group myResourceGroup --que
 
 You can also view the log output of the container:
 
-```azurecli-interactive
+```azurecli
 az container logs --name aci-tutorial-app -g myResourceGroup
 ```
 
