@@ -199,7 +199,7 @@ New-AzureRmManagedApplicationDefinition `
   -DisplayName "Managed Storage Account" `
   -Description "Managed Azure Storage Account" `
   -Authorization "<group-id>:$ownerID" `
-  -PackageFileUri $blog.ICloudBlob.StorageUri.PrimaryUri.AbsoluteUri
+  -PackageFileUri $blob.ICloudBlob.StorageUri.PrimaryUri.AbsoluteUri
 ```
 
 ## Create the managed application by using the portal
