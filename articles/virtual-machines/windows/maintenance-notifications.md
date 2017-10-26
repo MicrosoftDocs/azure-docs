@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/14/2017
+ms.date: 10/26/2017
 ms.author: zivr
 
 ---
@@ -118,9 +118,9 @@ Restart-AzureRmVM -PerformMaintenance -name $vm.Name -ResourceGroupName $rg.Reso
 
 **Q: If I follow your recommendations for High Availability by using an Availability Set, am I safe?**
 
-**A:**Virtual machines deployed in an availability set or virtual machine scale sets have the notion of Update Domains (UD). When performing maintenance, Azure honors the UD constraint and will not reboot virtual machines from different UD (within the same availability set).  Azure also wait for at least 30 minutes before moving to the next group of virtual machines. 
+**A:**Virtual machines deployed in an availability set or virtual machine scale sets have the notion of Update Domains (UD). When performing maintenance, Azure honors the UD constraint and will not reboot virtual machines from different UD (within the same availability set).  Azure also waits for at least 30 minutes before moving to the next group of virtual machines. 
 
-For more information about high availability, refer to Manage the availability of Windows virtual machines in Azure or Manage the availability of Linux virtual machines in Azure .
+For more information about high availability, refer to Manage the availability of Windows virtual machines in Azure or Manage the availability of Linux virtual machines in Azure.
 
 **Q: I have disaster recovery set in another region. Am I safe? **
 
@@ -141,10 +141,10 @@ For more information on Azure regions, refer to Regions and availability for vir
 **A:** In general, workloads which are deployed in a cloud service, availability set, or virtual machines scale set, are resilient to planned maintenance.  During planned maintenance, only a single update domain is impacted at any given time. Be aware that the order of update domains being impacted does not necessarily happen sequentially.
 
 You may want to start maintenance yourself in the following cases:
-- You application runs on a single virtual machine and you need to apply all maintenance during off-hours
+- Your application runs on a single virtual machine and you need to apply all maintenance during off-hours
 - You need to coordinate the time of the maintenance as part of your SLA
 - You need more than 30 minutes between each VM restart even within an availability set.
-- You wish to take down the entire application (multiple tiers, multiple update domains) in order to complete the maintenance faster.
+- You want to take down the entire application (multiple tiers, multiple update domains) in order to complete the maintenance faster.
 
 **Q: Is there a way to know exactly when my virtual machine will be impacted?**
 
@@ -152,28 +152,28 @@ You may want to start maintenance yourself in the following cases:
 
 **Q: How long will it take you to reboot my virtual machine? **
 
-**A:** Depending on the size of your VM, reboot may take up to several minutes. Note that in case you use cloud services, VM scale set, or availability set, you will be given 30 minutes between each group of VMs (UD). 
+**A:** Depending on the size of your VM, reboot may take up to several minutes. Note that in case you use cloud services, scale sets, or availability set, you will be given 30 minutes between each group of VMs (UD). 
 
-**Q: What will be the experience in the case of cloud services, VM scale set, and Service Fabric?**
+**Q: What will be the experience in the case of cloud services, scale sets, and Service Fabric?**
 
 **A:** While these platforms are impacted by planned maintenance, customers using these platforms are considered safe given that only VMs in a single Upgrade Domain (UD) will be impacted at any given time.  
 
 **Q: I have received an email about hardware decommissioning, is this the same as planned maintenance?**
 
-**A:** While hardware decommissioning is a planned maintenance, we have not yet onboarded this use case to the new experience.  We expect customers to get confused in case they receive two similar emails about two different planned maintenance waves.
+**A:** While hardware decommissioning is a planned maintenance event, we have not yet onboarded this use case to the new experience.  We expect customers to get confused in case they receive two similar emails about two different planned maintenance waves.
 
 **Q: I don’t see any maintenance information on my VMs. What went wrong?**
 
 **A:** There are several reasons why you’re not seeing any maintenance information on your VMs:
 1.	You are using a subscription marked as Microsoft internal.
-2.	Your VMs are not scheduled for maintenance. It could be that the maintenance wave has ended, canceled or modified so that you VMs are no longer impacted by it.
+2.	Your VMs are not scheduled for maintenance. It could be that the maintenance wave has ended, canceled or modified so that your VMs are no longer impacted by it.
 3.	You don’t have the ‘maintenance’ column added to your VM list view. While we have added this column to the default view, customers who configured to see non-default columns must manually add the **Maintenance** column to their VM list view.
 
 **Q: My VM is scheduled for maintenance for the second time. Why?**
 
 **A:** There are several use cases where you will see your VM scheduled for maintenance after you have already completed your maintenance-redeploy:
-1.	We have canceled the maintenance wave and restarted it with a different payload. It could be that we've detected faulted payload and we simply need ot deploy an additional payload.
-2.	You VM was service healed to another node due to a hardware fault
+1.	We have canceled the maintenance wave and restarted it with a different payload. It could be that we've detected faulted payload and we simply need to deploy an additional payload.
+2.	Your VM was *service healed* to another node due to a hardware fault
 3.	You have selected to stop (deallocate) and restart the  VM
 4.	You have **auto shutdown** turned on for the VM
 
