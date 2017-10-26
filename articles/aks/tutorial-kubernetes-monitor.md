@@ -51,19 +51,19 @@ When creating the workspace, select **Pin to dashboard** for easy retrieval.
 
 ![OMS Workspace](./media/container-service-tutorial-kubernetes-monitor/oms-workspace.png)
 
-When done, select **Ok** and **Create** to create the container monitoring solution.
+When done, select **Ok**. Once validation has completed, select **Create** to create the container monitoring solution.
 
-Once the workspace has been created, it will be presented to you in the Azure portal.
+Once the workspace has been created, it is presented to you in the Azure portal.
 
 ## Get Workspace settings
 
 The Log analytics Workspace ID and Key are needed for configuring the solution agent on the Kubernetes nodes. 
 
-To retrieve these values, Select **OMS Workspace** from the container solutions left hand menu. Select **Advanced settings** and take note of the **Workspace ID** and the **Primary Key**.
+To retrieve these values, Select **OMS Workspace** from the container solutions left-hand menu. Select **Advanced settings** and take note of the **Workspace ID** and the **Primary Key**.
 
 ## Configure monitoring agents
 
-The following Kuberentes manifest file can be used to configure the container monitoring agents on a Kubernetes cluster. It creates a Kubernetes [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/), which runs a single pod on each cluster node.
+The following Kubernetes manifest file can be used to configure the container monitoring agents on a Kubernetes cluster. It creates a Kubernetes [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/), which runs a single pod on each cluster node.
 
 Save the following text to a file named `oms-daemonset.yaml`, and replace the placeholder values for **myWorkspaceID** and **myWorkspaceKey** with your Log Analytics Workspace ID and Key. 
 
