@@ -35,7 +35,7 @@ Below is a snapshot of the current versions of all programming interfaces to Azu
 | [.NET SDK](https://aka.ms/search-sdk) |3.0 |Generally Available, released November 2016 |
 | [.NET SDK Preview](https://aka.ms/search-sdk-preview) |2.0-preview |Preview, released August 2016 |
 | [Service REST API](https://docs.microsoft.com/rest/api/searchservice/) |2016-09-01 |Generally Available |
-| [Service REST API Preview](search-api-2015-02-28-preview.md) |2015-02-28-Preview |Preview |
+| [Service REST API Preview](search-api-2016-09-01-preview.md) |2016-09-01-Preview |Preview |
 | [.NET Management SDK](https://aka.ms/search-mgmt-sdk) |2015-08-19 |Generally Available |
 | [Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/) |2015-08-19 |Generally Available |
 
