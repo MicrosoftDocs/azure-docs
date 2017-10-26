@@ -92,17 +92,17 @@ Now that the application and your cluster are ready, you can deploy it to the cl
 
 1. Open the **Cloud.json** file under the **PublishProfiles** directory and fill in the `ConnectionIPOrURL` and `ConnectionPort` fields appropriately. An example is provided: 
 
-```bash
-{
-     "ClusterConnectionParameters": 
-     {
-        "ConnectionIPOrURL": "lnxxug0tlqm5.westus.cloudapp.azure.com",
-        "ConnectionPort": "19080",
-        "ClientKey": "",
-        "ClientCert": ""
-     }
-}
-```
+    ```bash
+    {
+         "ClusterConnectionParameters": 
+         {
+            "ConnectionIPOrURL": "lnxxug0tlqm5.westus.cloudapp.azure.com",
+            "ConnectionPort": "19080",
+            "ClientKey": "",
+            "ClientCert": ""
+         }
+    }
+    ```
 
 2. Right click on the project and select **Publish Application...** under the **Service Fabric** dropdown. Choose **PublishProfiles/Cloud.json** as the Target Profile and click Publish. 
 
