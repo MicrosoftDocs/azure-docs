@@ -61,16 +61,16 @@ For a complete walkthrough of creating and monitoring a pipeline using Python SD
 To monitor the pipeline run, add the following code:
 
 ```python
-    #Monitor the pipeline run
-    time.sleep(30)
-    pipeline_run = adf_client.pipeline_runs.get(rg_name, df_name, run_response.run_id)
-    print("\n\tPipeline run status: {}".format(pipeline_run.status))
-    activity_runs_paged = list(adf_client.activity_runs.list_by_pipeline_run(rg_name, df_name, pipeline_run.run_id, datetime.now() - timedelta(1),  datetime.now() + timedelta(1)))
-    print_activity_run_details(activity_runs_paged[0])
+#Monitor the pipeline run
+time.sleep(30)
+pipeline_run = adf_client.pipeline_runs.get(rg_name, df_name, run_response.run_id)
+print("\n\tPipeline run status: {}".format(pipeline_run.status))
+activity_runs_paged = list(adf_client.activity_runs.list_by_pipeline_run(rg_name, df_name, pipeline_run.run_id, datetime.now() - timedelta(1),  datetime.now() + timedelta(1)))
+print_activity_run_details(activity_runs_paged[0])
 ```
 
 ## REST API
-For a complete walkthrough of creating and monitoring a pipeline using Python SDK, see [Create a data factory and pipeline using REST API](quickstart-create-data-factory-rest-api.md).
+For a complete walkthrough of creating and monitoring a pipeline using REST API, see [Create a data factory and pipeline using REST API](quickstart-create-data-factory-rest-api.md).
  
 1. Run the following script to continuously check the pipeline run status until it finishes copying the data.
 
@@ -98,7 +98,7 @@ For a complete walkthrough of creating and monitoring a pipeline using Python SD
     ```
 
 ## PowerShell
-For a complete walkthrough of creating and monitoring a pipeline using Python SDK, see [Create a data factory and pipeline using REST API](quickstart-create-data-factory-powershell.md).
+For a complete walkthrough of creating and monitoring a pipeline using PowerShell, see [Create a data factory and pipeline using PowerShell](quickstart-create-data-factory-powershell.md).
 
 1. Run the following script to continuously check the pipeline run status until it finishes copying the data.
 
