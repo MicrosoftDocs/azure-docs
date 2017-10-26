@@ -77,7 +77,8 @@ az vm perform-maintenance rgName vmName
 
 ## FAQ
 
-**Q: Why do you need to reboot my virtual machines now? **
+
+**Q: Why do you need to reboot my virtual machines now?**
 
 **A:** While the majority of updates and upgrades to the Azure platform do not impact virtual machine's availability, there are cases where we can't avoid rebooting virtual machines hosted in Azure. We have accumulated several changes which require us to restart our servers which will result in virtual machines reboot.
 
@@ -87,7 +88,7 @@ az vm perform-maintenance rgName vmName
 
 For more information about high availability, refer to Manage the availability of Windows virtual machines in Azure or Manage the availability of Linux virtual machines in Azure.
 
-**Q: I have disaster recovery set in another region. Am I safe? **
+**Q: I have disaster recovery set in another region. Am I safe?**
 
 **A:** Each Azure region is paired with another region within the same geography (such as US, Europe, or Asia). Planned Azure updates are rolled out to paired regions one at a time to minimize downtime and risk of application outage. During planned maintenance, Azure may schedule a similar window for users to start the maintenance, however the scheduled maintenance window will be different between the paired regions.  
 
@@ -114,8 +115,8 @@ You may want to start maintenance yourself in the following cases:
 **Q: Is there a way to know exactly when my virtual machine will be impacted?**
 
 **A:** When setting the schedule, we define a time window of several days. However, the exact sequencing of servers (and VMs) within this window is unknown. Customers who would like to know the exact time for their VMs can use scheduled events and query from within the virtual machine and receive a 10 minutes notification prior to a VM reboot.
-
-**Q: How long will it take you to reboot my virtual machine? **
+  
+**Q: How long will it take you to reboot my virtual machine?**
 
 **A:** Depending on the size of your VM, reboot may take up to several minutes. Note that in case you use cloud services, scale sets, or availability set, you will be given 30 minutes between each group of VMs (UD). 
 
@@ -141,7 +142,6 @@ You may want to start maintenance yourself in the following cases:
 2.	Your VM was *service healed* to another node due to a hardware fault
 3.	You have selected to stop (deallocate) and restart the  VM
 4.	You have **auto shutdown** turned on for the VM
-
 
 
 ## Next Steps
