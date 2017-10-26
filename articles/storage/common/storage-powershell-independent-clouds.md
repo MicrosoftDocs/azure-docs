@@ -52,6 +52,20 @@ Login-AzureRmAccount –Environment AzureUSGovernment
 
 To access the China Cloud, use **AzureChinaCloud**. To access the German Cloud, use **AzureGermanCloud**.
 
+At this point, if you need the list of locations to create a storage account or another resource, you can query the locations available for the selected cloud using [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation).
+
+```powershell
+Get-AzureRmLocation | select Location, DisplayName
+```
+
+The following table shows the locations for the German cloud.
+
+|Location | DisplayName |
+|----|----|
+| germanycentral | Germany Central|
+| germanynortheast | Germany Northeast | 
+
+
 ## Endpoint suffix
 
 The endpoint suffix for each of these environments is different from the Azure Public endpoint. For example, the blob endpoint suffix for Azure Public is **blob.core.windows.net**. For the Government Cloud, the blob endpoint suffix is **blob.core.usgovcloudapi.net**. 
@@ -66,7 +80,7 @@ This code snippet retrieves all of the environments and the endpoint suffix for 
 Get-AzureRmEnvironment | select Name, StorageEndpointSuffix 
 ```
 
-This command returns the following table.
+This command returns the following results.
 
 | Name| StorageEndpointSuffix|
 |----|----|
@@ -76,13 +90,13 @@ This command returns the following table.
 | AzureUSGovernment | core.usgov.cloudapi.net |
 
 
-To retrieve all of the properties for the specified environment -- in this instance, German Cloud, call **Get-AzureRmEnvironment** and specify the cloud. This will return a list of properties; look for **StorageEndpointSuffix** in the list.
+To retrieve all of the properties for the specified environment, call **Get-AzureRmEnvironment** and specify the cloud. This code returns a list of properties; look for **StorageEndpointSuffix** in the list. The following example is for the German Cloud.
 
 ```powershell
 Get-AzureRmEnvironment -Name AzureGermanCloud 
 ```
 
-This command returns output similar to the following:
+The results are similar to the following:
 
 |Property Name|Value|
 |----|----|
@@ -95,7 +109,7 @@ This command returns output similar to the following:
 | PublishSettingsFileUrl| https://manage.microsoftazure.de/publishsettings/index |
 | ResourceManagerUrl | http://management.microsoftazure.de/ |
 | SqlDatabaseDnsSuffix | .database.cloudapi.de |
-| StorageEndpointSuffix | core.cloudapi.de |
+| **StorageEndpointSuffix** | core.cloudapi.de |
 | ... | ... | 
 
 To retrieve just the storage endpoint suffix property, retrieve the specific cloud and ask for just that one property.
