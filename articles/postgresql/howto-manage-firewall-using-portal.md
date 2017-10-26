@@ -40,7 +40,7 @@ Use a search engine or other online tool to check your own IP address (for examp
   ![Azure portal - click Save](./media/howto-manage-firewall-using-portal/5-save-firewall-rule.png)
 
 ## Connecting from Azure
-To allow applications from Azure to connect to your Azure Database for MySQL server, Azure connections must be enabled. When an application from Azure attempts to connect to your database server, the firewall verifies that Azure connections are allowed. A firewall setting with starting and ending address equal to 0.0.0.0 indicates these connections are allowed. If the connection attempt is not allowed, the request does not reach the Azure Database for MySQL server.
+To allow applications from Azure to connect to your Azure Database for PostgreSQL server, Azure connections must be enabled. When an application from Azure attempts to connect to your database server, the firewall verifies that Azure connections are allowed. A firewall setting with starting and ending address equal to 0.0.0.0 indicates these connections are allowed. If the connection attempt is not allowed, the request does not reach the Azure Database for PostgreSQL server.
 
 > [!IMPORTANT]
 > This option configures the firewall to allow all connections from Azure including connections from the subscriptions of other customers. When selecting this option, make sure your login and user permissions limit access to only authorized users.
