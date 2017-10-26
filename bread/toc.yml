@@ -196,12 +196,15 @@
     tocHref: /azure/hdinsight/
     topicHref: /azure/hdinsight/
     items:
+      - name: Interactive Query
+        tocHref: /azure/hdinsight/interactive-query
+        topicHref: /azure/hdinsight/interactive-query/apache-interactive-query-get-started
       - name: HBase
         tocHref: /azure/hdinsight/hbase
         topicHref: /azure/hdinsight/hbase/apache-hbase-overview
       - name: Domain-joined
         tocHref: /azure/hdinsight/domain-joined
-        topicHref: /azure/hdinsight/hbase/apache-domain-joined-introduction
+        topicHref: /azure/hdinsight/domain-joined/apache-domain-joined-introduction
   - name: IoT Hub
     tocHref: /azure/iot-hub/
     topicHref: /azure/iot-hub/
