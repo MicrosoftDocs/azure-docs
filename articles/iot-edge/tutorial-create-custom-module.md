@@ -73,21 +73,56 @@ The following steps show you how to create a IoT Edge module using Visual Studio
     static int temperatureThreshold { get; set; } = 25;
     ```
 
-1. In the **onDesiredPropertiesUpdate** method, replace the code in the try block with the following code. This modifies the method to update the **temperatureThreshold** field based on the desired properties sent by the service via the device twin.
+1. Add the following method to the **Program** class to update the **temperatureThreshold** field based on the desired properties sent by the service via the device twin:
 
     ```csharp
-    await Task.Run( () => {
-         Console.WriteLine("Desired property change:");
-         Console.WriteLine(JsonConvert.SerializeObject(desiredProperties));
+    static async Task onDesiredPropertiesUpdate(TwinCollection desiredProperties, object userContext)
+    {
+        try
+        {
+            await Task.Run( () => {
+                Console.WriteLine("Desired property change:");
+                Console.WriteLine(JsonConvert.SerializeObject(desiredProperties));
 
-        if (desiredProperties["TemperatureThreshold"].exists())
-            temperatureThreshold = desiredProperties["TemperatureThreshold"];
-    });
+                if (desiredProperties["TemperatureThreshold"].exists())
+                    temperatureThreshold = desiredProperties["TemperatureThreshold"];
+            });
+        }
+        catch (AggregateException ex)
+        {
+            foreach (Exception exception in ex.InnerExceptions)
+            {
+                Console.WriteLine();
+                Console.WriteLine("Error when receiving desired property: {0}", exception);
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine();
+            Console.WriteLine("Error when receiving desired property: {0}", ex.Message);
+        }
+    }
     ```
 
-7. In the **InitEdgeModule** method, replace the call to **IoTHubModuleClient.SetEventHandlerAsync** with the following code:
+7. In the **InitEdgeModule** method, replace the code in the try block with the following code. 
 
     ```csharp
+    // Open a connection to the Edge runtime using MQTT transport and 
+    // the connection string provded as an environment variable
+    ITransportSettings[] settings =
+    {
+        new MqttTransportSettings(TransportType.Mqtt_Tcp_Only)
+        { RemoteCertificateValidationCallback = (sender, certificate, chain, sslPolicyErrors) => true }
+    };
+
+    DeviceClient IoTHubModuleClient = DeviceClient.CreateFromConnectionString(Environment.GetEnvironmentVariable("EdgeHubConnectionString"), settings);
+    await IoTHubModuleClient.OpenAsync();
+    Console.WriteLine("IoT Hub module client initialized.");
+
+    // Attach callback for Twin desired properties updates
+    await IoTHubModuleClient.SetDesiredPropertyUpdateCallbackAsync (onDesiredPropertiesUpdate, null);
+
+    // Register callback to be called when a message is sent to "input1"
     await IoTHubModuleClient.SetEventHandlerAsync("input1", FilterMessages, IoTHubModuleClient);
     ```
 
@@ -183,13 +218,29 @@ The following steps show you how to create a IoT Edge module using Visual Studio
 1. On the [Azure portal](https://portal.azure.com), navigate to the device detail blade, click **deploy modules**. 
 2. Select **custom module**, copy snippet
 
-    ```
-    {snippet}
+    ```json
+    {
+       "filtermodule":{
+          "version":"1.0",
+          "type":"docker",
+          "status":"running",
+          "restartPolicy":"always",
+          "settings":{
+             "image":"{your registry}/filtermodule:latest",
+             "createOptions":""
+          }
+       }
+    }
     ``` 
 3. Update routes.
 
-    ```
-    {snippet}
+    ```json
+    {
+       "routes":{
+          "allMessagesToIoTHub":"FROM /* INTO $upstream",
+          "sensorToFilter":"FROM /messages/modules/tempSensor/* INTO BrokeredEndpoint(\"/modules/filtermodule/inputs/input1\")"
+       }
+    }
     ```
 
 4. Click **start**. 
@@ -197,9 +248,7 @@ The following steps show you how to create a IoT Edge module using Visual Studio
 
 ## View generated data
 
-You can view the filtered data in one of the following ways:
-* In VS Code, you can use the **View | Command Palette... | IoT: Start Monitoring D2C Messages** menu command to monitor data arriving in the IoT Hub. 
-* In the Azure portal, you can use the hub explorer to view the data from your IoT Edge device.
+ In VS Code, use the **View | Command Palette... | IoT: Start Monitoring D2C Messages** menu command to monitor data arriving in the IoT Hub. 
 
 ## Next steps
 
