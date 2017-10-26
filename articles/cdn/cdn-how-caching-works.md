@@ -19,7 +19,7 @@ ms.author: v-deasim
 ---
 # How caching works
 
-This article provides an overview of general caching concepts and how Azure CDN uses caching to improve performance. If you’d like to learn about how to customize caching behavior on your CDN endpoint, see [Control Azure CDN caching behavior with query strings](cdn-query-string.md) and [Control Azure CDN caching behavior with Delivery Rules](cdn-delivery-rules.md).
+This article provides an overview of general caching concepts and how Azure CDN uses caching to improve performance. If you’d like to learn about how to customize caching behavior on your CDN endpoint, see [Control Azure CDN caching behavior with query strings](cdn-query-string.md) and [Control Azure CDN caching behavior with caching rules](cdn-caching-rules.md).
 
 ## Introduction to caching
 
@@ -82,7 +82,7 @@ The following cache-directive headers define cache duration and cache sharing:
    - Used as a client request header with the following directive: `no-cache`. This directive instructs the server to deliver a fresh version of the resource.
    - `Pragma: no-cache` is equivalent to `Cache-Control: no-cache`.
 
-By default, DSA optimizations ignore these headers. You can adjust how the Azure CDN treats these headers by using CDN Delivery Rules. For more information, see [Control Azure CDN caching behavior with Delivery Rules](cdn-delivery-rules.md).
+By default, DSA optimizations ignore these headers. You can adjust how the Azure CDN treats these headers by using CDN caching rules. For more information, see [Control Azure CDN caching behavior with caching rules](cdn-caching-rules.md).
 
 ## Cache validators
 
@@ -125,6 +125,6 @@ The following table describes the default caching behavior for the Azure CDN pro
 
 ## Next steps
 
-- Learn how to customize and override the default caching behavior on the CDN through Delivery Rules and Query String Caching configurations.
+- Learn how to customize and override the default caching behavior on the CDN through caching rules and query string caching configurations.
 
 
