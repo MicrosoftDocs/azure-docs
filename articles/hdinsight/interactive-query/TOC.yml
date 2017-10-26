@@ -62,6 +62,7 @@
       maintainContext: true
     - name: Submit Hadoop jobs
       href: ../hadoop/submit-apache-hadoop-jobs-programmatically.md
+      maintainContext: true
   - name: Develop
     items:
     - name: Use empty edge nodes
