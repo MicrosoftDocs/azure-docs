@@ -35,7 +35,7 @@ The tool supports the following file formats for ingestion:
 ### Do I need to use Bot Framework in order to use QnA Maker?
 No, you don’t. However, QnA Maker is offered as one of several templates in [Azure Bot Service](https://azure.microsoft.com/services/bot-service/). Bot Service enables rapid intelligent bot development through Microsoft Bot Framework, and it runs in a serverless environment. 
 
-Bots scale based on demand. You pay only for the resources that you consume.
+Bots scale based on demand. You pay for only the resources that you consume.
 
 ### How do I embed the QnA Maker service in my website?
 Follow these steps to embed the QnA Maker service as a web-chat control in your website:
@@ -74,7 +74,7 @@ The QnA Maker tool ingests and matches data in UTF-16 encoding. Any language sho
 If you have content from multiple languages, be sure to create a separate service for each language.
 
 ### What is the format of the downloaded chat logs?
-The chat logs are tab-separated files, with the query and the frequency as the columns. Frequency is the number of times the same query was seen. The file is sorted in descending order of frequency. Select questions from the downloaded file that you want to test, and then upload it to see what responses the system returned for them.
+The chat logs are tab-separated files, with the query and the frequency as the columns. Frequency is the number of times that the same query was seen. The file is sorted in descending order of frequency. Select questions from the downloaded file that you want to test, and then upload it to see what responses the system returned for them.
 
 ### Where is the test web-chat URL from the old portal? How do I share my knowledge base with others now?
 The new service doesn't include the test URL. The reason is that all calls are metered, as part of Cognitive Services. Because the test URL exposed the subscription key and the knowledge base ID, it was a security risk. 
