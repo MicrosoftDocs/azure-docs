@@ -19,6 +19,9 @@ ms.author: spelluru
 # Programmatically monitor an Azure data factory
 This article describes how to monitor a pipeline in a data factory by using different software development kits (SDKs). 
 
+> [!NOTE]
+> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is in general availability (GA), see [Monitor and manage pipelines in Data Factory version1](v1/data-factory-monitor-manage-pipelines.md).
+
 ## .NET
 For a complete walkthrough of creating and monitoring a pipeline using .NET SDK, see [Create a data factory and pipeline using .NET](quickstart-create-data-factory-dot-net.md).
 
