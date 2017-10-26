@@ -21,7 +21,7 @@ ms.author: alkohli
 
 > [!IMPORTANT]
 > - Migration is currently an assisted operation. If you intend to migrate data from your StorSimple 5000-7000 series device to an 8000 series device, you need to schedule migration with Microsoft Support. Microsoft Support will then enable your subscription for migration. For more information, see [Contact Microsoft Support](storsimple-8000-contact-microsoft-support.md).
-
+>
 > - Before you contact Microsoft Support, be sure to reivew and complete the [Migration prerequisites](#migration-prerequisites) indicated in the article.
 
 ## Overview
@@ -30,7 +30,8 @@ This article introduces the migration feature that allows the StorSimple 5000-70
 
 This article is applicable for both the on-premises 8000 series device as well as the StorSimple Cloud Appliance.
 
-> [!IMPORTANT] Migration from StorSimple 5000/7000 to StorSimple 8000 is by subscription only. Please contact Microsoft Support to enable migration.
+> [!IMPORTANT]
+> Migration from StorSimple 5000/7000 to StorSimple 8000 is by subscription only. Please contact Microsoft Support to enable migration.
 
 ## Migration feature versus host-side migration
 
@@ -66,8 +67,8 @@ Before you begin migration, ensure that:
 * Your 5000 or 7000 series source device is running software version v2.1.1.518. Earlier versions are not supported.
 * To verify the version that your 5000 or 7000 series is running, look at the top-right corner of your Web UI. This should display the software version that your device is running. For migration, your 5000 or 7000 series should be running v2.1.1.518.
 
-    * If your live device is not running v2.1.1.518, please upgrade your system to the required minimal version. For detailed instructions, refer to [Upgrade your system to v2.1.1.518](URL).
-    * If you are running v2.1.1.518, go to web UI to see if there are any notifications for registry restore failures. If registry restore had failed, run registry restore. For more information, go to how to [Rrun registry restore](URL).
+    * If your live device is not running v2.1.1.518, please upgrade your system to the required minimal version. For detailed instructions, refer to [Upgrade your system to v2.1.1.518](http://onlinehelp.storsimple.com/111_Appliance/6_System_Upgrade_Guides/Current_(v2.1.1)/000_Software_Patch_Upgrade_Guide_v2.1.1.518).
+    * If you are running v2.1.1.518, go to web UI to see if there are any notifications for registry restore failures. If registry restore had failed, run registry restore. For more information, go to how to [Run registry restore](http://onlinehelp.storsimple.com/111_Appliance/2_User_Guides/1_Current_(v2.1.1)/1_Web_UI_User_Guide_WIP/2_Configuration/4_Cloud_Accounts/1_Cloud_Credentials#Restoring_Backup_Registry).
     * If you have a down device that was not running v2.1.1.518, perform a failover to a replacement device that is running v2.1.1.518. For detailed instructions, refer to DR of your 5000/7000 series StorSimple device.
     * Back up the data for your device by taking a cloud snapshot.
     * Check for any other active backup jobs that are running on the source device. This includes the jobs on the StorSimple Data Protection Console host. Wait for the current jobs to complete.
@@ -135,4 +136,4 @@ Perform the following steps to install StorSimple Migration tool on your compute
 
 ## Next step
 
-Learn step-by-step how to [migrate data from 5000-7000 series to 8000 series device](URL).
+Learn step-by-step how to [migrate data from 5000-7000 series to 8000 series device](storsimple-overview.md).
