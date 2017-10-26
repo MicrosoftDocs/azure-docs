@@ -26,6 +26,23 @@
     - name: Using Azure Data Lake Store
       href: ../hdinsight-hadoop-use-data-lake-store.md
       maintainContext: true
+  - name: Use Multi-user cluster
+    items:
+    - name: Overview
+      href: ../domain-joined/apache-domain-joined-introduction.md
+      maintainContext: true
+    - name: Plan Domain-joined HDInsight
+      href: ../domain-joined/apache-domain-joined-architecture.md
+      maintainContext: true
+    - name: Configure Domain-joined HDInsight
+      href: ../domain-joined/apache-domain-joined-configure.md
+      maintainContext: true
+    - name: Configure Hive policies
+      href: ../domain-joined/apache-domain-joined-run-hive.md
+      maintainContext: true
+    - name: Manage multi-user cluster
+      href: ../domain-joined/apache-domain-joined-manage.md
+      maintainContext: true
   - name: Use Hadoop for batch queries
     items:
     - name: Hive with Hadoop
