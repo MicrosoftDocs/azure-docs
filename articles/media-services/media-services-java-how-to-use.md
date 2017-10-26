@@ -54,10 +54,10 @@ The following code shows how to create an asset, upload a media file to the asse
 Set up a Media Services account before using this code. For information about setting up an account, see [How to Create a Media Services Account](media-services-portal-create-account.md).
 
 The code connects to the Azure Media Services API using Azure AD service principal authentication. Create an Azure AD application and specify the values for the following variables in the code:
-* `tenant`: The Azure AD tenant domain where the Azure AD application resides.
-* `clientId`: The client ID of the Azure AD application.
-* `clientKey`: The client key of the Azure AD application.
-* `restApiEndpoint`: The REST API endpoint of the Azure Media Services account.
+* `tenant`: The Azure AD tenant domain where the Azure AD application resides
+* `clientId`: The client ID of the Azure AD application
+* `clientKey`: The client key of the Azure AD application
+* `restApiEndpoint`: The REST API endpoint of the Azure Media Services account
 
 You can create an Azure AD application and obtain the preceding configuration values from the Azure portal. For more information, see the **Service principal authentication** section of [Getting started with Azure AD authentication using the Azure portal](https://docs.microsoft.com/azure/media-services/media-services-portal-get-started-with-aad).
 
