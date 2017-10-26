@@ -34,7 +34,7 @@ Currently, integrated security solutions include:
 - Next-generation firewall ([Check Point](https://www.checkpoint.com/products/vsec-microsoft-azure/), [Barracuda](https://campus.barracuda.com/product/nextgenfirewallf/article/NGF/AzureDeployment/), [Fortinet](http://docs.fortinet.com/d/fortigate-fortios-handbook-the-complete-guide-to-fortios-5.2), and [Cisco](http://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/azure/ftdv-azure-qsg.html))
 - Vulnerability assessment ([Qualys](https://www.qualys.com/public-clouds/microsoft-azure/))  
 
-The endpoint protection integration experience may vary according to the solution. The table below provides more details about each solution:
+The endpoint protection integration experience may vary according to the solution. The following table has more details about each solution's experience:
 
 | Endpoint Protection               | Platforms                             | Security Center Installation | Security Center Discovery |
 |-----------------------------------|---------------------------------------|------------------------------|---------------------------|
