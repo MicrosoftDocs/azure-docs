@@ -102,7 +102,7 @@ composer install
 
 In the repository root, create a text file named *.env*. Copy the following variables into the *.env* file. Replace the _&lt;root_password>_ placeholder with the MySQL root user's password.
 
-```fundamental
+```
 APP_ENV=local
 APP_DEBUG=true
 APP_KEY=
@@ -236,7 +236,7 @@ In this step, you connect the PHP application to the MySQL database you created 
 
 In the repository root, create an _.env.production_ file and copy the following variables into it. Replace the placeholder _&lt;mysql_server_name>_ in both *DB_HOST* and *DB_USERNAME*.
 
-```fundamental
+```
 APP_ENV=production
 APP_DEBUG=true
 APP_KEY=

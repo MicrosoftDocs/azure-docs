@@ -111,7 +111,7 @@ To do this, open each certificate you received in a text editor.
 
 Create a file for the merged certificate, called _mergedcertificate.crt_. In a text editor, copy the content of each certificate into this file. The order of your certificates should follow the order in the certificate chain, beginning with your certificate and ending with the root certificate. It looks like the following example:
 
-```fundamental
+```
 -----BEGIN CERTIFICATE-----
 <your entire Base64 encoded SSL certificate>
 -----END CERTIFICATE-----
@@ -259,7 +259,7 @@ Connect to your web app's FTP endpoint by following the instructions at [Deploy 
 
 In _/home/site/wwwroot_, create an _.htaccess_ file with the following code:
 
-```fundamental
+```
 RewriteEngine On
 RewriteCond %{HTTP:X-ARR-SSL} ^$
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]

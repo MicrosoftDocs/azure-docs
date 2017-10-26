@@ -239,7 +239,7 @@ Deploy your code to the API app by pushing commits from your local Git repositor
 
 3. Exclude the *node_modules* directory created by npm in an earlier step in the tutorial from Git. Create a new `.gitignore` file in the current directory and add the following text on a new line anywhere in the file.
 
-    ```fundamental
+    ```
     node_modules/
     ```
     Confirm the `node_modules` folder is being ignored with  `git status`.
