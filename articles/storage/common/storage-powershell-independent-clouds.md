@@ -124,7 +124,7 @@ $storageAccount = Get-AzureRmStorageAccount `
   -Name $storageAccountName 
   # Output the endpoints.
 Write-Host "blob endpoint = " $storageAccount.PrimaryEndPoints.Blob 
-Write-Host "files endpoint = " $storageAccount.PrimaryEndPoints.File
+Write-Host "file endpoint = " $storageAccount.PrimaryEndPoints.File
 Write-Host "queue endpoint = " $storageAccount.PrimaryEndPoints.Queue
 Write-Host "table endpoint = " $storageAccount.PrimaryEndPoints.Table
 ```
@@ -133,7 +133,7 @@ For a storage account in the Government Cloud, this returns the following:
 
 ```
 blob endpoint = http://myexistingstorageaccount.blob.core.usgovcloudapi.net/
-files endpoint = http://myexistingstorageaccount.files.core.usgovcloudapi.net/
+file endpoint = http://myexistingstorageaccount.file.core.usgovcloudapi.net/
 queue endpoint = http://myexistingstorageaccount.queue.core.usgovcloudapi.net/
 table endpoint = http://myexistingstorageaccount.table.core.usgovcloudapi.net/
 ```
@@ -154,6 +154,6 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 
 * [Persisting user logins across PowerShell sessions](/powershell/azure/context-persistence)
 * [Azure Government storage](../../azure-government/documentation-government-services-storage.md)
-s* [Microsoft Azure Government Developer Guide](../../azure-government/documentation-government-developer-guide.md)
+* [Microsoft Azure Government Developer Guide](../../azure-government/documentation-government-developer-guide.md)
 * [Developer Notes for Azure China Applications](https://msdn.microsoft.com/library/azure/dn578439.aspx)
 * [Azure Germany Documentation](../../germany/germany-welcome.md)
