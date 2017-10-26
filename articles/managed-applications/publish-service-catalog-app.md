@@ -9,7 +9,7 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/25/2017
+ms.date: 10/26/2017
 ms.author: tomfitz
 ---
 # Publish a managed application for internal consumption
@@ -30,7 +30,9 @@ For this article, your managed application contains only a storage account. It i
 
 Every managed application definition contains a file named **mainTemplate.json**. In it, you define the Azure resources to provision. The template is no different than a regular Resource Manager template.
 
-Create a file named **mainTemplate.json**. Add the following JSON to your file. It defines the parameters for creating a storage account, and specifies the properties for the storage account.
+Create a file named **mainTemplate.json**. The name is case-sensitive.
+
+Add the following JSON to your file. It defines the parameters for creating a storage account, and specifies the properties for the storage account.
 
 ```json
 {
@@ -73,11 +75,15 @@ Create a file named **mainTemplate.json**. Add the following JSON to your file. 
 }
 ```
 
+Save the mainTemplate.json file.
+
 ## Create the user interface definition
 
 The Azure portal uses the **createUiDefinition.json** file to generate the user interface for users who create the managed application. You define how users provide input for each parameter. You can use options like a drop-down list, text box, password box, and other input tools. To learn how to create a UI definition file for a managed application, see [Get started with CreateUiDefinition](create-uidefinition-overview.md).
 
-Create a file named **createUiDefinition.json**. The Azure portal uses this file to generate the interface when users create the managed application. It defines how the user can provide the values that are needed for the managed application.
+Create a file named **createUiDefinition.json**. The name is case-sensitive.
+
+Add the following JSON to the file.
 
 ```json
 {
@@ -127,9 +133,11 @@ Create a file named **createUiDefinition.json**. The Azure portal uses this file
 }
 ```
 
+Save the createUIDefinition.json file.
+
 ## Package the files
 
-Add the two files to a .zip file. The two files must be at the root level of the .zip file. If you put them in a folder, you receive an error when creating the managed application definition that states the required files are not present. 
+Add the two files to a .zip file named app.zip. The two files must be at the root level of the .zip file. If you put them in a folder, you receive an error when creating the managed application definition that states the required files are not present. 
 
 Upload the package to an accessible location from where it can be consumed. 
 
@@ -181,6 +189,8 @@ New-AzureRmResourceGroup -Name appDefinitionGroup -Location westcentralus
 Now, create the managed application definition resource.
 
 ```powershell
+$blob = Get-AzureStorageBlob -Container appcontainer -Blob app.zip -Context $ctx
+
 New-AzureRmManagedApplicationDefinition `
   -Name "ManagedStorage" `
   -Location "westcentralus" `
@@ -188,8 +198,8 @@ New-AzureRmManagedApplicationDefinition `
   -LockLevel ReadOnly `
   -DisplayName "Managed Storage Account" `
   -Description "Managed Azure Storage Account" `
-  -Authorization "<group-id>:$roleid" `
-  -PackageFileUri "<uri-to-zip-file>"
+  -Authorization "<group-id>:$ownerID" `
+  -PackageFileUri $blog.ICloudBlob.StorageUri.PrimaryUri.AbsoluteUri
 ```
 
 ## Create the managed application by using the portal
@@ -229,6 +239,6 @@ After the deployment finishes, the managed application exists in a resource grou
 ## Next steps
 
 * For an introduction to managed applications, see [Managed application overview](overview.md).
-* For examples of the files, see [Managed application samples](https://github.com/Azure/azure-managedapp-samples/tree/master/samples).
+* For example projects, see [Sample projects for Azure managed applications](sample-projects.md).
 * For information about publishing managed applications to the Azure Marketplace, see [Azure managed applications in the Marketplace](publish-marketplace-app.md).
 * To learn how to create a UI definition file for a managed application, see [Get started with CreateUiDefinition](create-uidefinition-overview.md).
