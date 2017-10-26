@@ -86,7 +86,7 @@ npm start
 
 When the app is fully loaded, you see something similar to the following message:
 
-```
+```console
 --
 MEAN.JS - Development Environment
 
@@ -212,7 +212,7 @@ NODE_ENV=production node server.js
 
 When the app is loaded, check to make sure that it's running in the production environment:
 
-```
+```console
 --
 MEAN.JS
 

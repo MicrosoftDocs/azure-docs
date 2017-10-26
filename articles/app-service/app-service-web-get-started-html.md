@@ -3,8 +3,8 @@ title: Create a static HTML web app in Azure | Microsoft Docs
 description: Learn how to run web apps in Azure App Service by deploying a static HTML sample app.
 services: app-service\web
 documentationcenter: ''
-author: rick-anderson
-manager: wpickett
+author: cephalin
+manager: cfowler
 editor: ''
 
 ms.assetid: 60495cc5-6963-4bf0-8174-52786d226c26
@@ -13,8 +13,8 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 05/26/2017
-ms.author: riande
+ms.date: 10/26/2017
+ms.author: cephalin
 ms.custom: mvc
 ---
 # Create a static HTML web app in Azure
@@ -95,11 +95,7 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
 
 ## Browse to the app
 
-In a browser, go to the Azure web app URL:
-
-```
-http://<app_name>.azurewebsites.net
-```
+In a browser, go to the Azure web app URL: `http://<app_name>.azurewebsites.net`.
 
 The page is running as an Azure App Service web app.
 

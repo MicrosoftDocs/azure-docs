@@ -89,7 +89,7 @@ git clone https://github.com/azure-samples/mysql-spring-boot-todo
 
 Update the `spring.datasource.password` and  value in *spring-boot-mysql-todo/src/main/resources/application.properties* with the same root password used to open the MySQL prompt:
 
-```
+```fundamental
 spring.datasource.password=mysqlpass
 ```
 

@@ -3,8 +3,8 @@ title: Create a PHP web app in Azure | Microsoft Docs
 description: Deploy your first PHP Hello World in Azure App Service Web Apps in minutes.
 services: app-service\web
 documentationcenter: ''
-author: syntaxc4
-manager: erikre
+author: cephalin
+manager: cfowler
 editor: ''
 
 ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
@@ -13,8 +13,8 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 07/21/2017
-ms.author: cfowler
+ms.date: 10/26/2017
+ms.author: cephalin;cfowler
 ms.custom: mvc
 ---
 # Create a PHP web app in Azure

@@ -3,7 +3,7 @@ title: Create a Python web app in Azure | Microsoft Docs
 description: Deploy your first Python Hello World in Azure App Service Web Apps in minutes.
 services: app-service\web
 documentationcenter: ''
-author: syntaxc4
+author: cephalin
 manager: cfowler
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/17/2017
-ms.author: cfowler
+ms.date: 10/26/2017
+ms.author: cephalin;cfowler
 ms.custom: mvc, devcenter
 ---
 # Create a Python web app in Azure
