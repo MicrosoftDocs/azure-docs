@@ -31,7 +31,7 @@ You can also join organization owned devices to Azure AD. This mechanism offers 
 * Restricted access to apps and resources from devices compliant with corporate policy.
 
 | **Type of device** | **Device platforms** | **Mechanism** |
-|:---| --- |
+|:---| --- | --- |
 | Personal devices | Windows 10, iOS, Android, Mac OS | Azure AD registered |
 | Organization owned device not joined to on-premises AD | Windows 10 | Azure AD joined |
 | Organization owned device joined to an on-premises AD | Windows 10 | Hybrid Azure AD joined |
