@@ -38,7 +38,7 @@ Server-level firewall rules enable administrators to access an Azure Database fo
 
    ![Azure portal - click Save](./media/howto-manage-firewall-using-portal/4-save-firewall-rule.png)
 
-## Connecting from Azure
+## Connect from Azure
 To allow applications from Azure to connect to your Azure Database for MySQL server, Azure connections must be enabled. When an application from Azure attempts to connect to your database server, the firewall verifies that Azure connections are allowed. A firewall setting with starting and ending address equal to 0.0.0.0 indicates these connections are allowed. If the connection attempt is not allowed, the request does not reach the Azure Database for MySQL server.
 
 > [!IMPORTANT]
