@@ -21,7 +21,7 @@ ms.custom: mvc
 
 # Run a sample Batch job with the Azure CLI
 
-The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This guide details using the Azure CLI to .
+The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This guide details using the Azure CLI to create a Batch account, a *pool* of compute nodes (virtual machines), and a sample *job* that runs a set of parallel *tasks* on the pool. This example is very basic but introduces you to the key concepts of the Batch service.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -131,11 +131,11 @@ Output is similar to the following:
   "vmSize": "standard_a1_v2"
 ```
 
-The pool is completely provisioned when the `allocationState` is `Steady`.
+You can go ahead and schedule a job while the pool is resizing. The pool is completely provisioned when the `allocationState` is `Steady`. 
 
 ## Create a Batch job
 
-Create a Batch job by using the [az batch job create](/cli/azure/batch/pool#az_batch_job_create) command. A job specifies a pool to run tasks on and optionally a priority and schedule for the work. The following example creates a job *myjob-linux* to run on the pool *mypool-linux*.
+Create a Batch job by using the [az batch job create](/cli/azure/batch/job#az_batch_job_create) command. A job specifies a pool to run tasks on and optionally a priority and schedule for the work. The following example creates a job *myjob-linux* to run on the pool *mypool-linux*.
 
 ```azurecli-interactive 
 az batch job create --id myjob-linux --pool-id mypool-linux
@@ -150,7 +150,7 @@ az batch job create --id myjob-windows --pool-id mypool-windows
 
 ## Create sample tasks
 
-Use the following command to create Batch tasks.
+Now use the [az batch task create](/cli/azure/batch/task#az_batch_task_create)create some tasks to run in the job. Batch tasks.
 
 ```azurecli-interactive 
 ```
