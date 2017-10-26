@@ -205,6 +205,21 @@
       - name: Domain-joined
         tocHref: /azure/hdinsight/domain-joined
         topicHref: /azure/hdinsight/domain-joined/apache-domain-joined-introduction
+      - name: Hadoop
+        tocHref: /azure/hdinsight/hadoop
+        topicHref: /azure/hdinsight/hadoop/apache-hadoop-introduction
+      - name: Spark
+        tocHref: /azure/hdinsight/spark
+        topicHref: /azure/hdinsight/spark/apache-spark-overview
+      - name: Kafka
+        tocHref: /azure/hdinsight/kafka
+        topicHref: /azure/hdinsight/kafka/apache-kafka-introduction
+      - name: Storm
+        tocHref: /azure/hdinsight/storm
+        topicHref: /azure/hdinsight/storm/apache-storm-overview
+      - name: R Server
+        tocHref: /azure/hdinsight/r-server
+        topicHref: /azure/hdinsight/r-server-overview
   - name: IoT Hub
     tocHref: /azure/iot-hub/
     topicHref: /azure/iot-hub/
