@@ -188,7 +188,7 @@
       href: encrypt-credentials-self-hosted-integration-runtime.md
   - name: Monitor and manage
     items: 
-    - name: Use .NET
+    - name: Use SDKs
       href: monitor-programmatically.md
     - name: Use Azure Monitor
       href: monitor-using-azure-monitor.md

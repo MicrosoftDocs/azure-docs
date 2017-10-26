@@ -19,10 +19,10 @@ ms.author: spelluru
 # Programmatically monitor an Azure data factory
 This article describes how to monitor a pipeline in a data factory by using different software development kits (SDKs). 
 
-## .NET SDK
+## .NET
 For a complete walkthrough of creating and monitoring a pipeline using .NET SDK, see [Create a data factory and pipeline using .NET](quickstart-create-data-factory-dot-net.md).
 
-1. Add the following code to the **Main** method to continuously check the status of the pipeline run until it finishes copying the data.
+1. Add the following code to continuously check the status of the pipeline run until it finishes copying the data.
 
     ```csharp
     // Monitor the pipeline run
@@ -39,7 +39,7 @@ For a complete walkthrough of creating and monitoring a pipeline using .NET SDK,
     }
     ```
 
-2. Add the following code to the **Main** method that retrieves copy activity run details, for example, size of the data read/written.
+2. Add the following code to that retrieves copy activity run details, for example, size of the data read/written.
 
     ```csharp
     // Check the copy activity run details
@@ -58,7 +58,7 @@ For a complete walkthrough of creating and monitoring a pipeline using .NET SDK,
 ## Python
 For a complete walkthrough of creating and monitoring a pipeline using Python SDK, see [Create a data factory and pipeline using Python](quickstart-create-data-factory-python.md).
 
-To monitor the pipeline run, add the following code the **Main** method:
+To monitor the pipeline run, add the following code:
 
 ```python
     #Monitor the pipeline run
