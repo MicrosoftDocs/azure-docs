@@ -36,13 +36,14 @@ Regardless if you are just starting to integrate with Azure Active Directory, Mi
 
 If you have a development-related question, you may be able to find the answer you need on our documentation, our [github samples](https://github.com/azure-samples), or answers to [Stack Overflow](https://www.stackoverflow.com) questions.
 
-> [!TIP]
-> Scope your search to Stack Overflow, our documentation, and our code samples by using the following on your [favorite search engine](https://bing.com):
-> ```
-> {Your Search Terms} (site:stackoverflow.com OR site:docs.microsoft.com OR site:github.com/azure-samples OR site:cloudidentity.com OR site:developer.microsoft.com/en-us/graph)
-> ```
-> Where *{Your Search Terms}* is your search keywords.
-
+### Scoped Search
+Scope your search to Stack Overflow, our documentation, and our code samples by using the following on your [favorite search engine](https://bing.com):
+```
+{Your Search Terms} (site:stackoverflow.com OR site:docs.microsoft.com OR site:github.com/azure-samples OR site:cloudidentity.com OR site:developer.microsoft.com/en-us/graph)
+```
+Where *{Your Search Terms}* is your search keywords.
+<br/>
+<br/>
 
 ## Use our development support tools
 
