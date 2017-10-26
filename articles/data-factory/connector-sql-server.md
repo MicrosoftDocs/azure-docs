@@ -504,7 +504,7 @@ When copying data from/to SQL Server, the following mappings are used from SQL S
 | text |String, Char[] |
 | time |TimeSpan |
 | timestamp |Byte[] |
-| tinyint |Byte |
+| tinyint |Int16 |
 | uniqueidentifier |Guid |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
