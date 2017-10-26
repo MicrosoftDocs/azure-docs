@@ -118,8 +118,8 @@ In the **Configure App Service Plan** dialog, configure the new App Service plan
 | Setting  | Suggested value | For more information |
 | ----------------- | ------------ | ----|
 |**App Service Plan**| myAppServicePlan | [App Service plans](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) |
-|**Location**| West Europe | [Azure regions](https://azure.microsoft.com/regions/) |
-|**Size**| Free | [Pricing tiers](https://azure.microsoft.com/pricing/details/app-service/)|
+|**Location**| West Europe | [Azure regions](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) |
+|**Size**| Free | [Pricing tiers](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)|
 
 ### Create a SQL Server instance
 
