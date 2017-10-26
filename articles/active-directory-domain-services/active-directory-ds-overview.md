@@ -33,6 +33,7 @@ All these approaches suffer from high cost and administrative overhead. Administ
 
 We designed Azure AD Domain Services to provide an easier alternative.
 
+### Watch an introductory video
 <iframe width="560" height="315" src="https://www.youtube.com/embed/T1Nd9APNceQ" frameborder="0" allowfullscreen></iframe>
 
 
