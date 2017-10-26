@@ -1,5 +1,5 @@
 ---
-title: Create a Java Application | Microsoft Docs
+title: Create an Azure Service Fabric Java Application | Microsoft Docs
 description: Create a Java application for Azure using the Service Fabric quick start sample.
 services: service-fabric
 documentationcenter: java
@@ -50,28 +50,28 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 ## Run the application locally
 1. Start your local cluster by running the following command:
 
-```bash
-sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
-```
-The startup of the local cluster takes some time. To confirm that the cluster is fully up, access the Service Fabric Explorer at **http://localhost:19080**. The five healthy nodes indicate the local cluster is up and running. 
-
-![Local cluster healthy](./media/service-fabric-quickstart-java/localclusterup.png)
+    ```bash
+    sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
+    ```
+    The startup of the local cluster takes some time. To confirm that the cluster is fully up, access the Service Fabric Explorer at **http://localhost:19080**. The five healthy nodes indicate the local cluster is up and running. 
+    
+    ![Local cluster healthy](./media/service-fabric-quickstart-java/localclusterup.png)
 
 2. Open Eclipse.
 3. Click File -> Open Projects from File System... 
 4. Click Directory and choose the `Voting` directory from the `service-fabric-java-quickstart` folder you cloned from Github. Click Finish. 
 
-![Eclipse Import Dialog](./media/service-fabric-quickstart-java/eclipseimport.png)
-
+    ![Eclipse Import Dialog](./media/service-fabric-quickstart-java/eclipseimport.png)
+    
 5. You now have the `Voting` project in the Package Explorer for Eclipse. 
 6. Right click on the project and select **Publish Application...** under the **Service Fabric** dropdown. Choose **PublishProfiles/Local.json** as the Target Profile and click Publish. 
 
-![Publish Dialog Local](./media/service-fabric-quickstart-java/localjson.png)
-
+    ![Publish Dialog Local](./media/service-fabric-quickstart-java/localjson.png)
+    
 7. Open your favorite web browser and access the application by accessing **http://localhost:8080**. 
 
-![Application front-end Local](./media/service-fabric-quickstart-java/runninglocally.png)
-
+    ![Application front-end Local](./media/service-fabric-quickstart-java/runninglocally.png)
+    
 You can now add a set of voting options, and start taking votes. The application runs and stores all data in your Service Fabric cluster, without the need for a separate database.
 
 ## Deploy the application to Azure
@@ -91,7 +91,8 @@ For information about creating your own cluster, see [Create your first Service 
 Now that the application and your cluster are ready, you can deploy it to the cluster directly from Eclipse.
 
 1. Open the **Cloud.json** file under the **PublishProfiles** directory and fill in the `ConnectionIPOrURL` and `ConnectionPort` fields appropriately. An example is provided: 
-```json
+
+```bash
 {
      "ClusterConnectionParameters": 
      {
@@ -101,16 +102,16 @@ Now that the application and your cluster are ready, you can deploy it to the cl
         "ClientCert": ""
      }
 }
-
 ```
+
 2. Right click on the project and select **Publish Application...** under the **Service Fabric** dropdown. Choose **PublishProfiles/Cloud.json** as the Target Profile and click Publish. 
 
     ![Publish Dialog Cloud](./media/service-fabric-quickstart-java/cloudjson.png)
 
 3. Open your favorite web browser and access the application by accessing **http://\<ConnectionIPOrURL>:8080**. 
 
-![Application front-end cloud](./media/service-fabric-quickstart-java/runningcloud.png)
-
+    ![Application front-end cloud](./media/service-fabric-quickstart-java/runningcloud.png)
+    
 ## Scale applications and services in a cluster
 Services can be scaled across a cluster to accommodate for a change in the load on the services. You scale a service by changing the number of instances running in the cluster. You have multiple ways of scaling your services, you can use scripts or commands from Service Fabric CLI (sfctl). In this example,we are using Service Fabric Explorer.
 
