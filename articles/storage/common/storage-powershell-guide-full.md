@@ -59,7 +59,7 @@ Get-AzureRMStorageAccount | Select StorageAccountName, Location
 
 ## Get a reference to a storage account
 
-Next, you need a reference to a storage account. You can either create a new storage account or get a reference to an existing storage account. The following sectionS shows both methods. 
+Next, you need a reference to a storage account. You can either create a new storage account or get a reference to an existing storage account. The following section shows both methods. 
 
 ### Use an existing storage account 
 
