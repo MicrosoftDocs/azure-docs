@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/25/2017
+ms.date: 10/26/2017
 ms.author: raynew
 
 ---
@@ -30,19 +30,19 @@ An Azure Migrate assessment has three stages. Azure Migrate starts with a suitab
 
 ## Azure suitability analysis
 
-VMs you want to migrate to Azure must meet Azure requirements and limitations. For example, if an on-premises VM disk is more than 1024 GB, it can't be hosted on Azure. The compliance checks are summarized in the following table. 
+VMs you want to migrate to Azure must meet Azure requirements and limitations. For example, if an on-premises VM disk is more than 4 TB, it can't be hosted on Azure. The compliance checks are summarized in the following table. 
 
 **Check** | **Details**
 --- | ---
-**Compute: Boot** | The boot type of the guest OS disk must be BIOS, and not UEFI.
-**Compute: Cores** | The number of cores in the machines must be equal to (or less than) the maximum number of cores (32) supported for an Azure VM.<br/><br/> If performance history is available, Azure Migrate considers the utilized cores for comparison. If a comfort factor is specified in the assessment settings, the number of utilized cores is multiplied with the comfort factor.<br/><br/> If there's no performance history, Azure Migrate uses the allocated cores, without applying the comfort factor.
-**Compute: Memory** | The machine memory size must be equal to (or less than) the maximum memory (448 GB) allowed for an Azure VM. <br/><br/> If performance history is available, Azure Migrate considers the utilized memory for comparison. If a comfort factor is specified, the utilized memory is multiplied with the comfort factor.<br/><br/> If there's no history the allocated memory is used, without applying the comfort factor.<br/><br/> 
-**Compute: OS Windows Server 2003-2008** | 32-bit and 64-bit support.<br/><br/> Azure provides best effort support only.
-**Compute: OS Windows Server 2008 R2 + SPs** | 64-bit support.<br/><br/> Azure provides full support.
-**Compute: OS Windows Client 7 and later** | 64-bit support.<br/><br/> Azure provides support with Visual Studio subscription only.
-**Linux** | 64-bit support for these [operating systems](../virtual-machines/linux/endorsed-distros.md)<br/><br/> Azure provides full support.
+**Boot type** | The boot type of the guest OS disk must be BIOS, and not UEFI.
+**C** | The number of cores in the machines must be equal to (or less than) the maximum number of cores (32) supported for an Azure VM.<br/><br/> If performance history is available, Azure Migrate considers the utilized cores for comparison. If a comfort factor is specified in the assessment settings, the number of utilized cores is multiplied by the comfort factor.<br/><br/> If there's no performance history, Azure Migrate uses the allocated cores, without applying the comfort factor.
+**Memory** | The machine memory size must be equal to (or less than) the maximum memory (448 GB) allowed for an Azure VM. <br/><br/> If performance history is available, Azure Migrate considers the utilized memory for comparison. If a comfort factor is specified, the utilized memory is multiplied by the comfort factor.<br/><br/> If there's no history the allocated memory is used, without applying the comfort factor.<br/><br/> 
+**OS: Windows Server 2003-2008** | 32-bit and 64-bit support.<br/><br/> Azure provides best effort support only.
+**OS: Windows Server 2008 R2 + SPs** | 64-bit support.<br/><br/> Azure provides full support.
+**OS: Windows Client 7 and later** | 64-bit support.<br/><br/> Azure provides support with Visual Studio subscription only.
+**OS: Linux** | 64-bit support.<br/><br/> Azure provides full support for these [operating systems](../virtual-machines/linux/endorsed-distros.md)<br/><br/>.
 **Storage disk** | Allocated size of a disk must be 4 TB (4096 GB) or less.<br/><br/> The number of disks attached to the machine must be 65 or less, including the OS disk. 
-**Networking** | The machines must have 32 or less NICs attached.
+**Networking** | A machine must have 32 or less NICs attached to it.
 
 
 ## Performance-based sizing
@@ -50,9 +50,11 @@ VMs you want to migrate to Azure must meet Azure requirements and limitations. F
 After a machine is marked as suitable for Azure, Azure Migrate maps it to a VM size in Azure, using the following criteria:
 
 - **Storage check**: Azure Migrate tries to map every disk attached to the machine to a disk in Azure:
-       - Azure Migrate multiplies the I/O per second (IOPS) with the comfort factor. It also multiples the throughput ( in MBps) of each disk with the comfort factor. This provides the effective disk IOPS and throughput. Based on this. Azure Migrate maps the disk to a standard or premium disk in Azure.
+       - Azure Migrate multiplies the I/O per second (IOPS) by the comfort factor. It also multiples the throughput ( in MBps) of each disk by the comfort factor. This provides the effective disk IOPS and throughput. Based on this, Azure Migrate maps the disk to a standard or premium disk in Azure.
     - If the service can't find a disk with the required IOPS & throughput, it marks the machine as unsuitable for Azure.
-    - If it finds a set of suitable disks, Azure Migrate selects the ones that support the storage redundancy method and location specified in the assessment settings. If there are multiple eligible disks, it selects the one with the lowest cost.
+    - If it finds a set of suitable disks, Azure Migrate selects the ones that support the storage redundancy method, and the location specified in the assessment settings.
+    - If there are multiple eligible disks, it selects the one with the lowest cost.
+- **Storage disk throughput** | [Learn more](../azure-subscription-service-limits.md#storage-limits) about Azure limits per disk and VM.<br/><br/> Azure Migrate supports managed disks only.
 - **Network check**: Azure Migrate tries to find an Azure VM that can support the number of NICs on the on-premises machine.
     - To do this, it aggregates the data transmitted per second (MBps) out of the machine (network out) across all NICs, and applies the comfort factor to the aggregated number. This number if used to find an Azure VM that can support the required network performance.
     - Azure Migrate takes the network settings from the VM, and assumes it to be a network outside the datacenter.
@@ -71,8 +73,7 @@ After sizing recommendations are complete, Azure Migrate calculates post-migrati
 - **Compute cost**: Using the recommended Azure VM size, Azure Migrate uses the Billing API to calculate
 the monthly cost for the VM. The calculation takes the operating system, software assurance, location, and currency settings into account. It aggregates the cost across all machines, to calculate the total monthly compute cost.
 - **Storage cost**: The monthly storage cost for a machine is calculated by aggregating the monthly cost of
-all disks attached to machine. Azure Migrate aggregates the storage costs across all VMs, to calculate
-total monthly storage cost. Currently, the calculation doesn't take offers specified in the assessment settings into account.
+all disks attached to the machine. Azure Migrate calculates the total monthly storage costs by aggregating the storage costs of all machines. Currently, the calculation doesn't take offers specified in the assessment settings into account.
 
 Costs are displayed in the currency specified in the assessment settings. 
 
