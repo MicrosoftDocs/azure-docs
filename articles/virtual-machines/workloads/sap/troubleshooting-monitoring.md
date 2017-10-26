@@ -12,7 +12,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/08/2016
+ms.date: 10/31/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 

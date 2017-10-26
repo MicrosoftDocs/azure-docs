@@ -12,7 +12,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/01/2017
+ms.date: 10/31/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 
@@ -33,7 +33,7 @@ To setup the High availability using SUSE clustering, the following pre-requisit
 
 ### Setup details
 - In this guide, we used the following setup.
-- Operating System: SUSE 12 SP1
+- Operating System: SLES 12 SP1 for SAP
 - HANA Large Instances: 2xS192 (4 sockets, 2 TB)
 - HANA Version: HANA 2.0 SP1
 - Server Names: sapprdhdb95 (node1) and sapprdhdb96 (node2)
@@ -63,7 +63,11 @@ To setup the end to end HA using STONITH, the following steps needs to be follow
 ## 1.	Identify the SBD device
 This section describes on how to determine the SBD device for your setup after Microsoft service management team has configured the STONITH. **This section only applies to the existing customer**. If you are a new customer, Microsoft service management team does provide SBD device name to you and you can skip this section.
 
-1.1	Modify */etc/iscsi/initiatorname.isci* to *iqn.1996-04.de.suse:01: <Tenant><Location><SID><NodeNumber>*.  
+1.1	Modify */etc/iscsi/initiatorname.isci* to 
+``` 
+iqn.1996-04.de.suse:01:<Tenant><Location><SID><NodeNumber> 
+```
+
 Microsoft service management does provide this string. This needs to be done on **both** the nodes, however the node number is different on each node.
 
 ![initiatorname.png](media/HowToHLI/HASetupWithStonith/initiatorname.png)

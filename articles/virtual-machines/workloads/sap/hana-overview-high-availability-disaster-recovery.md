@@ -12,7 +12,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/08/2017
+ms.date: 10/31/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 
@@ -219,12 +219,12 @@ Enter the `hdbuserstore` command as follows:
 
 **For non MDC HANA setup**
 ```
-hdbuserstore set <key> <host><3[instance]15> <user> <password>
+hdbuserstore set <key> <host>:<3[instance]15> <user> <password>
 ```
 
 **For MDC HANA setup**
 ```
-hdbuserstore set <key> <host><3[instance]13> <user> <password>
+hdbuserstore set <key> <host>:<3[instance]13> <user> <password>
 ```
 
 In the following example, the user is **SCADMIN01**, the hostname is **lhanad01**, and the instance number is **01**:

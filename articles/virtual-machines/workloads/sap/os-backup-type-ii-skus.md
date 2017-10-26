@@ -12,7 +12,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/08/2017
+ms.date: 10/31/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 
@@ -22,25 +22,75 @@ ms.custom: H1Hack27Feb2017
 This document describes the steps to perform an operating system backup and restore for the **Type II  SKUs** of the HANA Large Instances. 
 
 >[!NOTE]
->You need to install the ReaR software for the OS backup scripts to work. You can download the ReaR software from http://relax-and-recover.org/download/  
+>The OS backup scripts uses the ReaR software, which is pre-installed in the server.  
 
 After the provisioning is complete by the Microsoft Service Management team, by default, the server is configured with two backups schedule to back up the full operating system. You can check the schedule of the backup job by using the following command:
 ```
-crontab –l
+#crontab –l
 ```
 You can change the backup schedule any time using the following command:
 ```
-crontab -e
+#crontab -e
 ```
-You can restore an individual file from the backup. To restore, use the following command:
+## How to take a manual backup?
+
+The operating system backup is scheduled using a **cron job** already. However, you can perform the operating system backup manually as well. To perform a manual backup, run the following command:
+
 ```
-tar  -xvf  <backup file>  <file to restore> 
+#rear -v mkbackup
+```
+The following screen show shows the sample manual backup:
+
+![how](media/HowToHLI/OSBackupTypeIISKUs/HowtoTakeManualBackup.PNG)
+
+
+## How to restore a backup?
+
+You can restore a full backup or an individual file from the backup. To restore, use the following command:
+
+```
+#tar  -xvf  <backup file>  [Optional <file to restore>]
 ```
 After the restore, the file is recovered in the current working directory.
 
-The following command shows the restore of a file /etc/fstabfrom the backup file backup.tar.gz
+The following command shows the restore of a file */etc/fstabfrom* the backup file *backup.tar.gz*
 ```
-tar  -xvf  /osbackups/hostname/backup.tar.gz  etc/fstab 
+#tar  -xvf  /osbackups/hostname/backup.tar.gz  etc/fstab 
 ```
 >[!NOTE] 
 >You need to copy the file to desired location after it is restored from the backup.
+
+The following screen shot shows the restore of a complete backup:
+
+![HowtoRestoreaBackup.PNG](media/HowToHLI/OSBackupTypeIISKUs/HowtoRestoreaBackup.PNG)
+
+## How to install the ReaR tool and change the configuration? 
+
+The Relax-and-Recover (ReaR) packages are **pre-installed** in the **Type II SKUs** of HANA Large Instances, and no action needed from you. You can directly start using the ReaR for the operating system backup.
+However, in the circumstances where you need to install the packages in your own, you can follow the listed steps to install and configure the ReaR tool.
+
+To install the **ReaR** backup packages, use the following commands:
+
+For **SLES** operating system, use the following command:
+```
+#zypper install <rear rpm package>
+```
+For **RHEL** operating system, use the following command: 
+```
+#yum install rear -y
+```
+To configure the ReaR tool, you need to update parameters **OUTPUT_URL**  and **BACKUP_URL**  in the *file /etc/rear/local.conf*.
+```
+OUTPUT=ISO
+ISO_MKISOFS_BIN=/usr/bin/ebiso
+BACKUP=NETFS
+OUTPUT_URL="nfs://nfsip/nfspath/"
+BACKUP_URL="nfs://nfsip/nfspath/"
+BACKUP_OPTIONS="nfsvers=4,nolock"
+NETFS_KEEP_OLD_BACKUP_COPY=
+EXCLUDE_VG=( vgHANA-data-HC2 vgHANA-data-HC3 vgHANA-log-HC2 vgHANA-log-HC3 vgHANA-shared-HC2 vgHANA-shared-HC3 )
+BACKUP_PROG_EXCLUDE=("${BACKUP_PROG_EXCLUDE[@]}" '/media' '/var/tmp/*' '/var/crash' '/hana' '/usr/sap'  ‘/proc’)
+```
+
+The following screen shot shows the restore of a complete backup:
+![RearToolConfiguration.PNG](media/HowToHLI/OSBackupTypeIISKUs/RearToolConfiguration.PNG)
