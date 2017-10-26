@@ -23,6 +23,10 @@ This article is the reference documentation for `api-version=2016-09-01-Preview`
 * [Synonyms API](search-synonyms.md) to upload synonym maps and expand search.
 * [`moreLikeThis` query parameter](search-more-like-this.md) to find documents that are relevant to a specific document.
 
+Please ensure to target the preview API version `api-version=2016-09-01-Preview` to try these experimental features. The following example illustrates how the preview api version is specified in making a more-like-this query.
+
+    GET https://[service name].search.windows.net/indexes/[index name]/docs?moreLikeThis=a1&api-version=2016-09-01-Preview
+
 > [!NOTE]
 > Preview features are available for testing and experimentation with the goal of gathering feedback and are subject to change. **We strongly advise against using preview APIs in production applications.**
 
