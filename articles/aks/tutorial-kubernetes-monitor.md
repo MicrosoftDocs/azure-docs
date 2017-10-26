@@ -65,7 +65,7 @@ To retrieve these values, Select **OMS Workspace** from the container solutions 
 
 The following Kubernetes manifest file can be used to configure the container monitoring agents on a Kubernetes cluster. It creates a Kubernetes [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/), which runs a single pod on each cluster node.
 
-Save the following text to a file named `oms-daemonset.yaml`, and replace the placeholder values for **WSID** (`<WSID>`) and **KEY** (`<KEY>`) with your Log Analytics Workspace ID and Key.
+Save the following text to a file named `oms-daemonset.yaml`, and replace the placeholder values for `WSID` and `KEY` with your Log Analytics Workspace ID and Key.
 
 ```YAML
 apiVersion: extensions/v1beta1
