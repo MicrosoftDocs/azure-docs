@@ -25,16 +25,19 @@ See the following articles for detailed information about Data Management Gatewa
 *  [Move data between on-premises and cloud using Azure Data Factory](data-factory-move-data-between-onprem-and-cloud.md)
 
 
-## CURRENT VERSION (2.10.6347.7)
+## CURRENT VERSION 
+We no more maintain the Release notes here. Get latest release notes [here](https://go.microsoft.com/fwlink/?linkid=853077)
 
+
+
+
+## Earlier versions
+## 2.10.6347.7
 ### Enhancements-
 - You can add DNS entries to whitelist service bus rather than whitelisting all Azure IP addresses from your firewall (if needed). You can find respective DNS entry on Azure portal (Data Factory -> ‘Author and Deploy’ -> ‘Gateways’ -> "serviceUrls" (in JSON)
 - HDFS connector now supports self-signed public certificate by letting you skip SSL validation.
 - Fixed: Issue with gateway offline during update (due to clock skew)
 
-
-
-## Earlier versions
 
 ## 2.9.6313.2
 ### Enhancements-
