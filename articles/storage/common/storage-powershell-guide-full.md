@@ -35,7 +35,7 @@ This article provides links to several other PowerShell articles for Storage, su
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-This exercise requires the Azure PowerShell module version 3.6 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). 
+This exercise requires the Azure PowerShell module version 4.4 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). 
 
 For this exercise, you can type the commands into a regular PowerShell window, or you can use the [Windows PowerShell Integrated Scripting Environment (ISE)](/powershell/scripting/getting-started/fundamental/windows-powershell-integrated-scripting-environment--ise-) and type the commands into an editor, then test one or more commands at a time as you go through the examples. You can highlight the rows you want to execute and click Run Selected to just run those commands.
 
