@@ -77,7 +77,7 @@ ConnectionName          = VNet1toSite2
 
 ## <a name="VNet"></a>2. Create a virtual network and a gateway subnet
 
-If you don't already have a virtual network, create one. When creating a virtual network, make sure that the address spaces you specify don't overlap any of the address spaces that you have on your on-premises network.
+If you don't already have a virtual network, create one. When creating a virtual network, make sure that the address spaces you specify don't overlap any of the address spaces that you have on your on-premises network. This means that you may need your on-premises network administrator to carve out an IP address range that you can use specifically for this virtual network. Otherwise, traffic will not route correctly if a duplicate address range exists on both sides of the connection.
 
 [!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-include.md)]
 
