@@ -43,7 +43,7 @@ az group create --name myResourceGroup --location eastus
 
 Create a Batch account with the [az batch account create](/cli/azure/batch/account#az_batch_account_create) command. 
 
-The following example creates a Batch account named *myBatchAccount* in *myResourceGroup* .  
+The following example creates a Batch account named *myBatchAccount* in *myResourceGroup*.  
 
 ```azurecli-interactive 
 az batch account create --name myBatchAccount --resource-group myResourceGroup --location eastus
@@ -252,17 +252,16 @@ Output is similar to the following:
 ```
 Name        URL                                                                                         Is Directory      Content Length
 ----------  ------------------------------------------------------------------------------------------  --------------  ----------------
-stdout.txt  https://mybatchaccount.eastus.batch.azure.com/jobs/myjob-linux/tasks/mytask3/files/stdout.txt  False                       1021
+stdout.txt  https://mybatchaccount.eastus.batch.azure.com/jobs/myjob-linux/tasks/mytask3/files/stdout.txt  False                  1021
 certs       https://mybatchaccount.eastus.batch.azure.com/jobs/myjob-linux/tasks/mytask3/files/certs       True
 wd          https://mybatchaccount.eastus.batch.azure.com/jobs/myjob-linux/tasks/mytask3/files/wd          True
-stderr.txt  https://mybatchaccount.eastus.batch.azure.com/jobs/myjob-linux/tasks/mytask3/files/stderr.txt  False                          0
+stderr.txt  https://mybatchaccount.eastus.batch.azure.com/jobs/myjob-linux/tasks/mytask3/files/stderr.txt  False                     0
 
 ```
 
 Use the [az batch task file download](/cli/azure/batch/task#az_batch_task_file_download) command to download one of the output files to a local directory. This task returns its output in `stdout.txt`. 
 
 ```azurecli-interactive
-
 az batch task file download --job-id myjob-linux --task-id mytask3 --file-path stdout.txt --destination ./stdout.txt
 ```
 
@@ -295,7 +294,7 @@ _=/usr/bin/printenv
 
 ## Clean up resources
 
-When no longer needed, you can use the [az group delete](/cli/azure/group#delete) command to remove the resource group, VM, and all related resources. Exit the SSH session to your VM, then delete the resources as follows:
+When no longer needed, you can use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group, batch account, pools, and all related resources. Delete the resources as follows:
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup
