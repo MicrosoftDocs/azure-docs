@@ -21,8 +21,7 @@ ms.author: v-jansko
 
 ## 2: Subscribe to Microsoft Translator 	
 - After you sign into Azure, go to the [Cognitive Services](https://portal.azure.com/#create/Microsoft.CognitiveServices) section
-- Under "API Type" select the Text or Speech API
-	- You can only add one Translator API subscription at a time
+- Under "API Type" select the Translator Text API
 - In the Pricing Tier section, select the pricing tier that best fits your needs
 	- Each subscription has a free tier. The free tier has the same features and functionalities as the paid plans and does not have an expiration date
 - Fill out the rest of the form, and select the Create button
