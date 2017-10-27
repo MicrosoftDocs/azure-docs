@@ -34,7 +34,7 @@ For more details, please reference the official [Jupyter documentation](http://j
 You can access many different kernels in Azure ML Workbench by simply configure run configurations and compute targets in the `aml_config` folder in your project. Adding a new compute target by issuing `az ml computetarget attach` command is the equivalent of adding a new kernel.
 
 >[!NOTE]
->Review the [Configure Execution](experiment-execution-configuration.md) for more details on run configurations and compute targets.
+>Review the [Configure Execution](experimentation-service-configuration.md) for more details on run configurations and compute targets.
 
 ### Kernel naming convention
 The kernels are typically named in the format of "\<project name> \<run config name>". For example, if you have a run configuration named _docker-python_ in a project named _myIris_, you can find a kernel named "myIris docker-python" in the kernel list when you open a Jupyter notebook.
@@ -102,5 +102,5 @@ You can now click on a `.ipynb` notebook file, open it, and set the kernel (if i
 
 ## Next Steps
 - To learn how to use Jupyter notebook, visit the [Jupyter official documentation](http://jupyter-notebook.readthedocs.io/en/latest/).    
-- To gain a deeper understanding of Azure ML experimentation execution environment, review [Overview of Azure Machine Learning experiment execution service](experiment-execution-configuration.md)
+- To gain a deeper understanding of Azure ML experimentation execution environment, review [Overview of Azure Machine Learning experimentation service](experimentation-service-configuration.md)
 

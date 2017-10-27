@@ -53,10 +53,6 @@ This FAQ is split into the following sections:
 * **Q:  Can my users register data in such a way that other users cannot see this data?**
 
   > **A:** Yes, when users register data using the Password Reset Registration Portal it is saved into private authentication fields that are only visible by Global Administrators and the user.
-    >
-    > [!NOTE]
-    > If an **Azure Administrator account** registers their authentication phone number it is also populated into the mobile phone field and is visible.
-    >
   >
   >
 * **Q:  Do my users have to be registered before they can use password reset?**
@@ -238,7 +234,7 @@ This FAQ is split into the following sections:
   >
 * **Q:  If my on-premises account is disabled, how is my cloud account/access affected?**
 
-  > **A:** If your on-premises ID is disabled, your cloud ID/access will also be disabled at the next sync interval via AAD Connect byt default this is every 30 minutes.
+  > **A:** If your on-premises ID is disabled, your cloud ID/access will also be disabled at the next sync interval via AAD Connect by default this is every 30 minutes.
   >
   >
 * **Q:  If my on-premises account is constrained by an on-premises Active Directory password policy, does SSPR obey this policy when I change the password?**
