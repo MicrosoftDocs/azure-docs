@@ -122,6 +122,11 @@ In your firewall, you might have to open TCP ports 80 and 443 for outgoing traff
 
 See [Data retention and privacy][data].
 
+## Debug Logging
+Application Insights uses *org.apache.http*. This is relocated within Application Insights core jars under the namespace *com.microsoft.applicationinsights.core.dependencies.http*. This enables Application Insights to handle scenarios where different versions of the same *org.apache.http* exist in one code base. 
+
+**It is important to note**: if you enable DEBUG level logging for all namespaces in the app, it will be honored by all executing modules including *org.apache.http* – renamed as *com.microsoft.applicationinsights.core.dependencies.http*. Application Insights will not be able to apply filtering for these calls because the log call is being made by the apache library.DEBUG logs produce a considerable amount of log data and is not recommended for live production instances. 
+
 ## Next steps
 **I set up Application Insights for my Java server app. What else can I do?**
 
