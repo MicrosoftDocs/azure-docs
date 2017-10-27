@@ -1,6 +1,6 @@
 ---
-title: What is an Azure API Management API
-description: This topic gives an overview of what is an Azure API Management API.
+title: How to create APIs in Azure API Management
+description: Learn how to create and configure APIs in Azure API Management.
 services: api-management
 documentationcenter: ''
 author: juliako
@@ -13,49 +13,81 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2017
+ms.date: 12/15/2016
 ms.author: apimpm
 
 ---
-# What is an API Management API
+# How to create APIs in Azure API Management
+An API in API Management represents a set of operations that can be invoked by client applications. New APIs are created in the publisher portal, and then the desired operations are added. Once the operations are added, the API is added to a product and can be published. Once an API is published, it can be subscribed to and used by developers.
 
-APIs are the foundation of an API Management (APIM) service instance. An APIM API does not host APIs, it creates facades for your APIs in order to customize the facade according to your needs without touching the backend API. Each APIM API represents a set of operations available to developers. Each APIM API contains a reference to the backend service that implements the API, and its operations map to the operations implemented by the backend service. 
+This guide shows the first step in the process: how to create and configure a new API in API Management. For more information on adding operations and publishing a product, see [How to add operations to an API][How to add operations to an API] and [How to create and publish a product][How to create and publish a product].
 
-## Importing APIs
+## <a name="create-new-api"> </a>Create a new API
+APIs are created and configured in the publisher portal. To access the publisher portal, click **Publisher portal** in the Azure Portal for your API Management service.
 
-Backend APIs can be imported into an APIM API or created and managed manually. Once a backend API is imported into APIM, the APIM API becomes a facade for the backend API. At the time, you import a backend API, both the source API and the APIM API are identical. The APIM doc set shows various ways you can evolve the APIM version of the API.
+![Publisher portal][api-management-management-console]
 
-> [!NOTE]
-> **API Management** currently supports both 1.2 and 2.0 version of OpenAPI (Swagger) document for import. Make sure that, even though [OpenAPI 2.0 specification](http://swagger.io/specification) declares that `host`, `basePath`, and `schemes` properties are optional, your OpenAPI 2.0 document **MUST** contain those properties; otherwise it won't get imported. 
+> If you have not yet created an API Management service instance, see [Create an API Management service instance][Create an API Management service instance] in the [Get started with Azure API Management][Get started with Azure API Management] tutorial.
+> 
 > 
 
-For more information, see [Import and publish your first API](api-management-get-started.md);
+Click **APIs** from the **API Management** menu on the left, and then click **add API**.
 
-## Add blank API
+![Create API][api-management-create-api]
 
-You can add blank APIs and then add desired operations. Once the operations are added, the API is added to a product and can be published. Once an API is published, it can be subscribed to and used by developers.
+Use the **Add new API** window to configure the new API.
+
+![Add new API][api-management-add-new-api]
 
 The following fields are used to configure the new API.
 
-|Name|Description|
-|---|---|
-|Display name|Provides a descriptive name for the API. It is displayed in the developer portal.|
-|Name|Provides a unique name for the API|
-|Description|Provides an optional description of the API.|
-|Web service URL|References the HTTP service implementing the API. API management forwards requests to this address.|
-|API URL suffix| The suffix is appended to the base URL for the API management service. The base URL is common for all APIs hosted by an API Management service instance. API Management distinguishes APIs by their suffix and therefore the suffix must be unique for every API for a given publisher.|
-|URL scheme|Determines which protocols can be used to access the API. |
-|Products|To optionally add this new API to a product, type the product name. This step can be repeated multiple times to add the API to multiple products.|
+* **Web API name** provides a unique and descriptive name for the API. It is displayed in the developer and publisher portals.
+* **Web service URL** references the HTTP service implementing the API. API management forwards requests to this address.
+* **Web API URL suffix** is appended to the base URL for the API management service. The base URL is common for all APIs hosted by an API Management service instance. API Management distinguishes APIs by their suffix and therefore the suffix must be unique for every API for a given publisher.
+* **Web API URL scheme** determines which protocols can be used to access the API. HTTPs is specified by default.
+* To optionally add this new API to a product, click the **Products (optional)** drop-down and choose a product. This step can be repeated multiple times to add the API to multiple products.
 
-For more information, see [Test an APIM instance with mocked API responses](mock-api-responses.md).
+Once the desired values are configured, click **Save**. Once the new API is created, the summary page for the API is displayed in the publisher portal.
+
+![API summary][api-management-api-summary]
 
 ## <a name="configure-api-settings"> </a>Configure API settings
+You can use the **Settings** tab to verify and edit the configuration for an API. **Web API name**, **Web service URL**, and **Web API URL suffix** are initially set when the API is created and can be modified here. **Description** provides an optional description, and **Web API URL scheme** determines which protocols can be used to access the API.
 
-If you want to verify and edit the configuration for an API, click on the API and select the **Settings** tab. **Name**, **Web service URL**, and **API URL suffix** are initially set when the API is created and can be modified here. 
+![API settings][api-management-api-settings]
 
-You can also configure gateway authentication for the backend service implementing the API, under the **Security** section.
+To configure gateway authentication for the backend service implementing the API, select the **Security** tab. The **With credentials** drop-down can be used to configure **HTTP basic** or **Client certificates** authentication. To use HTTP basic authentication, simply enter the desired credentials. For information on using client certificate authentication, see [How to secure back-end services using client certificate authentication in Azure API Management][How to secure back-end services using client certificate authentication in Azure API Management].
+
+The **Security** tab can also be used to configure **User authorization** using OAuth 2.0. For more information, see [How to authorize developer accounts using OAuth 2.0 in Azure API Management][How to authorize developer accounts using OAuth 2.0 in Azure API Management].
+
+![Basic authentication settings][api-management-api-settings-credentials]
+
+Click **Save** to save any changes you make to the API settings.
 
 ## <a name="next-steps"> </a>Next steps
+Once an API is created and the settings configured, the next steps are to add the operations to the API, add the API to a product, and publish it so that it is available for developers. For more information, see the following articles.
 
-Once an API is created and the settings configured, the next steps are to add the operations to the API, add the API to a product, and publish it so that it is available for developers.  
+* [How to add operations to an API][How to add operations to an API]
+* [How to create and publish a product][How to create and publish a product]
 
+[api-management-create-api]: ./media/api-management-howto-create-apis/api-management-create-api.png
+[api-management-management-console]: ./media/api-management-howto-create-apis/api-management-management-console.png
+[api-management-add-new-api]: ./media/api-management-howto-create-apis/api-management-add-new-api.png
+[api-management-api-settings]: ./media/api-management-howto-create-apis/api-management-api-settings.png
+[api-management-api-settings-credentials]: ./media/api-management-howto-create-apis/api-management-api-settings-credentials.png
+[api-management-api-summary]: ./media/api-management-howto-create-apis/api-management-api-summary.png
+[api-management-echo-operations]: ./media/api-management-howto-create-apis/api-management-echo-operations.png
+
+[What is an API?]: #what-is-api
+[Create a new API]: #create-new-api
+[Configure API settings]: #configure-api-settings
+[Configure API operations]: #configure-api-operations
+[Next steps]: #next-steps
+
+[How to add operations to an API]: api-management-howto-add-operations.md
+[How to create and publish a product]: api-management-howto-add-products.md
+
+[Get started with Azure API Management]: api-management-get-started.md
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
+[How to secure back-end services using client certificate authentication in Azure API Management]: api-management-howto-mutual-certificates.md
+[How to authorize developer accounts using OAuth 2.0 in Azure API Management]: api-management-howto-oauth2.md
