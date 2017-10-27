@@ -19,7 +19,7 @@ ms.author: robinsh
 # Perform Azure Cosmos DB Table API operations with Azure PowerShell 
 
 >[!NOTE]
-> Azure Cosmos DB Table API is a premium offering for storage tables. In most cases, the commands in this article will work against both standard Azure Storage tables and Cosmos DB premium tables, but this article is specific to Cosmos DB premium tables. If you are using standard Azure Storage tables rather than Cosmos DB premium tables, please see [Azure Table Storage with PowerShell](table-storage-how-to-use-powershell.md).
+> Azure Cosmos DB Table API is a premium offering for storage tables. In most cases, the commands in this article work against both standard Azure Storage tables and Cosmos DB premium tables, but this article is specific to Cosmos DB premium tables. If you are using standard Azure Storage tables rather than Cosmos DB premium tables, see [Azure Table Storage with PowerShell](table-storage-how-to-use-powershell.md).
 >
 
 The Cosmos DB Table API enables you to store and query huge sets of structured, non-relational data. The main components of the service are tables, entities, and properties. A table is a collection of entities. An entity is a set of properties. Each entity can have up to 252 properties, which are all name-value pairs. This article assumes that you are already familiar with the Azure Table Storage Service concepts. For detailed information, see [Understanding the Table Service Data Model](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model) and [Get started with Azure Table storage using .NET](table-storage-how-to-use-dotnet.md).
@@ -41,7 +41,7 @@ Cosmos DB Table API is in preview, so you have to install the assemblies locally
 
 To perform these exercises, you need a Cosmos DB database account. If you don't already have one, create a new Cosmos DB account using the [Azure portal](https://portal.azure.com). For help creating a new database account, see [Azure Cosmos DB: Create a database account](create-table-dotnet.md#create-a-database-account).
 
-Get the database account name and resource group from the portal; you need these in your script to access the tables. 
+Get the database account name and resource group from the portal; you need these values to put in your script to access the tables. 
 
 ## Sign in to Azure
 
@@ -54,7 +54,7 @@ Login-AzureRmAccount
 ## Create a table or reference a table
 
 You use the same command to get a reference to a table and to create a table. 
-To create a table or to get a reference to a table, use **Get-AzureStorageTableTable**. If you call this with the name of a table that doesn't exist, it will create a new table with that name and return a reference to the new table. If the table does exist, it returns a reference to that table.
+To create a table or to get a reference to a table, use **Get-AzureStorageTableTable**. If you call this cmdlet with the name of a table that doesn't exist, it creates a new table with that name and return a reference to the new table. If the table does exist, it returns a reference to that table.
 
 ```powershell
 # set the name of the resource group in which your Cosmos DB Account resides.
@@ -68,14 +68,14 @@ $cosmosDBAccountName = "contosocosmostbl"
 # set the table name 
 $tableName = "contosotable1"
 
-# Get a reference to a table. This will create the table if it doesn't exist.
+# Get a reference to a table. This creates the table if it doesn't exist.
 $storageTable = Get-AzureStorageTableTable `
   -resourceGroup $resourceGroup `
   -tableName $tableName `
   -cosmosDbAccount $cosmosDBAccountName 
 ```
 
-You can't list the tables in the Cosmos DB Account using PowerShell, but you can log into the portal and see the table. Now let's look at how to manage the entities in the table.
+You can't list the tables in the Cosmos DB Account using PowerShell, but you can sign in to the portal and see the table. Now let's look at how to manage the entities in the table.
 
 [!INCLUDE [storage-table-entities-powershell-include](../../includes/storage-table-entities-powershell-include.md)]
 
@@ -102,7 +102,7 @@ In this how-to article, you learned about common Table storage operations with P
 > * Query a table
 > * Delete table entities
 
-For more information, please see the following articles.
+For more information, see the following articles:
 
 * [Working with Azure Storage Tables from PowerShell](https://blogs.technet.microsoft.com/paulomarques/2017/01/17/working-with-azure-storage-tables-from-powershell/)
 

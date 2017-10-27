@@ -54,7 +54,7 @@ To retrieve all entities, use **Get-AzureStorageTableRowAll**.
 Get-AzureStorageTableRowAll -table $storageTable | ft
 ```
 
-This yields results similar to the following table.
+This command yields results similar to the following table:
 
 | userid | username | partition | rowkey |
 |----|---------|---------------|----|
@@ -70,7 +70,7 @@ To retrieve all entities in a specific partition, use **Get-AzureStorageTableRow
 ```powershell
 Get-AzureStorageTableRowByPartitionKey -table $storageTable -partitionKey $partitionKey1 | ft
 ```
-The results look similar to the following table.
+The results look similar to the following table:
 
 | userid | username | partition | rowkey |
 |----|---------|---------------|----|
@@ -118,7 +118,7 @@ This query retrieves one record.
 
 ### Updating entities 
 
-These are three steps for updating entities. First, retrieve the entity to be changed. Second, make the change. Third, commit the change using **Update-AzureStorageTableRow**.
+There are three steps for updating entities. First, retrieve the entity to be changed. Second, make the change. Third, commit the change using **Update-AzureStorageTableRow**.
 
 Update the entity with username = 'Jessie' to have username = 'Jessie2'. This example also shows another way to create a custom filter using .NET types. 
 

@@ -20,7 +20,7 @@ ms.author: robinsh
 # Perform Azure Table storage operations with Azure PowerShell 
 
 >[!NOTE]
-> The Azure Cosmos DB Table API is an offering for premium storage tables. Azure Table Storage is the original offering for standard storage tables. In most cases, the commands in this article will work against both standard and premium tables, but this article is specific to standard Azure Storage tables. If you are using Cosmos DB premium tables rather than standard Azure Storage tables, please see [Cosmos DB Storage Tables with PowerShell](table-powershell.md).
+> The Azure Cosmos DB Table API is an offering for premium storage tables. Azure Table Storage is the original offering for standard storage tables. In most cases, the commands in this article work against both standard and premium tables, but this article is specific to standard Azure Storage tables. If you are using Cosmos DB premium tables rather than standard Azure Storage tables, please see [Cosmos DB Storage Tables with PowerShell](table-powershell.md).
 >
 
 Azure Table Storage is a NoSQL datastore, which you can use to store and query huge sets of structured, non-relational data. The main components of the service are tables, entities, and properties. A table is a collection of entities. An entity is a set of properties. Each entity can have up to 252 properties, which are all name-value pairs. This article assumes that you are already familiar with the Azure Table Storage Service concepts. For detailed information, see [Understanding the Table Service Data Model](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model) and [Get started with Azure Table storage using .NET](table-storage-how-to-use-dotnet.md).
@@ -111,7 +111,7 @@ $storageTable = Get-AzureStorageTable –Name $tableName –Context $ctx
 
 ## Delete a table
 
-To delete a table, use [Remove-AzureStorageTable](/powershell/module/azure.storage/Remove-AzureStorageTable). This removes the table, including all of its data.
+To delete a table, use [Remove-AzureStorageTable](/powershell/module/azure.storage/Remove-AzureStorageTable). This cmdlet removes the table, including all of its data.
 
 ```powershell
 Remove-AzureStorageTable –Name $tableName –Context $ctx
@@ -140,7 +140,7 @@ In this how-to article, you learned about common Table storage operations with P
 > * Delete table entities
 > * Delete a table
 
-For more information, please see the following articles.
+For more information, see the following articles
 
 * [Storage PowerShell cmdlets](/powershell/module/azurerm.storage#storage)
 
