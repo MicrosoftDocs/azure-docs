@@ -72,7 +72,7 @@ Active Directory Health Check collects data from the following sources using the
 
 Data is collected on the domain controller and forwarded to Log Analytics every seven days.  
 
-# Understanding how recommendations are prioritized
+## Understanding how recommendations are prioritized
 Every recommendation made is given a weighting value that identifies the relative importance of the recommendation. Only the 10 most important recommendations are shown.
 
 ### How weights are calculated
