@@ -140,7 +140,7 @@ module.exports = function (context) {
 };
 ```
 
-## Trigger - C# attributes
+## Trigger - .NET attributes
  
 For [precompiled C#](functions-dotnet-class-library.md) functions, use the following attributes to configure a queue trigger:
 
@@ -358,7 +358,7 @@ module.exports = function(context) {
 };
 ```
 
-## Output - C# attributes
+## Output - .NET attributes
  
 For [precompiled C#](functions-dotnet-class-library.md) functions, use the following attributes to configure an output queue binding:
 

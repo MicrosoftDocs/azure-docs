@@ -56,7 +56,7 @@ public static void Run([BlobTrigger("samples-workitems/{name}")] Stream myBlob, 
 }
 ```
 
-For more information about the `BlobTrigger` attribute, see [Trigger - C# attributes](#trigger---c-attributes).
+For more information about the `BlobTrigger` attribute, see [Trigger - .NET attributes](#trigger---c-attributes).
 
 ### Trigger - C# script example
 
@@ -131,7 +131,7 @@ module.exports = function(context) {
 };
 ```
 
-## Trigger - C# attributes
+## Trigger - .NET attributes
 
 For [precompiled C#](functions-dotnet-class-library.md) functions, use the following attributes to configure a blob trigger:
 
@@ -418,7 +418,7 @@ module.exports = function(context) {
 };
 ```
 
-## Input & output - C# attributes
+## Input & output - .NET attributes
 
 For [precompiled C#](functions-dotnet-class-library.md) functions, use the following attributes:
 

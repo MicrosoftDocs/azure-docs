@@ -271,7 +271,7 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
-## Input - C# attributes
+## Input - .NET attributes
  
 For [precompiled C#](functions-dotnet-class-library.md) functions, use the following attributes to configure a table input binding:
 
@@ -523,7 +523,7 @@ module.exports = function (context) {
 };
 ```
 
-## Output - C# attributes
+## Output - .NET attributes
 
  For [precompiled C#](functions-dotnet-class-library.md) functions, use the following attributes to configure a table output binding:
 
