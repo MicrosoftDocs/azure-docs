@@ -1224,7 +1224,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         </li>
                                         <li>
                                             <a href="/azure/managed-applications">
-                                                <img src="media/index/i_managed-applicataion.svg" alt="" />
+                                                <img src="media/index/i_managed-application.svg" alt="" />
                                                 <p>Managed Applications</p>
                                             </a>
                                         </li>
@@ -3653,7 +3653,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/i_managed-applicataion.svg" alt="" />
+                                                        <img src="media/index/i_managed-application.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
