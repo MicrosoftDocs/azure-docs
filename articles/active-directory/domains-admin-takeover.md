@@ -1,6 +1,6 @@
 ---
 title: Administrator takeover of an unmanaged directory in Azure Active Directory | Microsoft Docs
-description: This article describes two ways to take over a DNS domain name in an unmanaged directory in Azure Active Directory. 
+description: How to take over a DNS domain name in an unmanaged directory in Azure Active Directory. 
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/25/2017
+ms.date: 10/26/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;oldportal
 
 ---
 # Take over an unmanaged directory as administrator in Azure Active Directory
-This article describes two ways to take over a DNS domain name in an unmanaged directory in Azure Active Directory (Azure AD). When a self-service (or email-verified) user signs up for a cloud service that uses Azure Active Directory (Azure AD), they are added to an unmanaged Azure AD directory based on the email domain. They become guest user of the directory with access to the service that they signed up for, tagged with creationmethod=EmailVerified.
+This article describes two ways to take over a DNS domain name in an unmanaged directory in Azure Active Directory (Azure AD). When a self-service user signs up for a cloud service that uses Azure Active Directory (Azure AD), they are added to an unmanaged Azure AD directory based on the email domain. They become guest user of the directory with access to the service that they signed up for, tagged with creationmethod=EmailVerified.
 
-## Decide how to manage an unmanaged directory
+## Decide how you want to take over an unmanaged directory
 During the process of admin takeover, you can prove ownership as described in [Add a custom domain name to Azure AD](add-custom-domain.md). The next sections explain the admin experience in more detail, but here's a summary:
 
 * When you perform a so-called "external" admin takeover of an unmanaged Azure directory, you add the DNS domain name of the unmanaged directory to your managed Azure directory. When you add the domain name, a mapping of users to resources is created in your managed Azure directory so that users can continue to access services without interruption.
@@ -58,7 +58,7 @@ When you do an internal takeover, the directory gets converted from an unmanaged
 For example, an IT administrator from Bellows College discovers that users from the school have signed up for self-service offerings from the DNS domain name BellowsCollege.com. As the registered owner of the DNS name, the IT administrator can validate ownership of the DNS name in Azure and then take over the unmanaged directory. The directory then becomes a managed directory, and the IT administrator is assigned the global administrator role for the BellowsCollege.com directory.
 
 ## How to perform a DNS domain name takeover
-You have a few options for how to perform a domain validation (and merge or take over an unmanaged domain):
+You have a few options for how to perform a domain validation (and take over an unmanaged domain).
 
 ### Azure portal
 
@@ -67,30 +67,30 @@ If you add a new domain name to an Azure AD directory, and a directory already e
 ### Office 365
 
 You can use the options on the [Manage domains](https://support.office.com/article/Navigate-to-the-Office-365-Manage-domains-page-026af1f2-0e6d-4f2d-9b33-fd147420fac2/) page in Office 365 to work with your domains and DNS records. See [Verify your domain in Office 365](https://support.office.com/article/Verify-your-domain-in-Office-365-6383f56d-3d09-4dcb-9b41-b5f5a5efd611/). 
-  > [!IMPORTANT]
-  > Please be aware that this will take over and not merge the unmanaged directory. If you want to merge the unmanaged directory, do not use this method.
+> [!IMPORTANT]
+> Please be aware that this is for an internal admin takeover only. If you want to do an external admin takeover, do not use this method.
 
 ### Microsoft PowerShell
 
-   The following steps are required to perform a validation using Microsoft PowerShell.
+The following steps are required to perform a validation using Microsoft PowerShell.
 
-   | Step | Cmdlet to use |
-   | --- | --- |
-   | Create a credential object |Get-Credential |
-   | Connect to Azure AD |Connect-MsolService |
-   | Get a list of domains |Get-MsolDomain |
-   | Create a challenge |Get-MsolDomainVerificationDns |
-   | Create DNS record |Do this on your DNS server |
-   | Verify the challenge |Confirm-MsolEmailVerifiedDomain |
+| Step | Cmdlet to use |
+| --- | --- |
+| Create a credential object |Get-Credential |
+| Connect to Azure AD |Connect-MsolService |
+| Get a list of domains |Get-MsolDomain |
+| Create a challenge |Get-MsolDomainVerificationDns |
+| Create DNS record |Do this on your DNS server |
+| Verify the challenge |Confirm-MsolEmailVerifiedDomain |
 
 For example:
 
 1. Connect to Azure AD using the credentials that were used to respond to the self-service offering:
   ````
-        import-module MSOnline
-        $msolcred = get-credential
-  
-        connect-msolservice -credential $msolcred
+    import-module MSOnline
+    $msolcred = get-credential
+    
+    connect-msolservice -credential $msolcred
   ````
 2. Get a list of domains:
   
@@ -125,30 +125,7 @@ For example:
 
 A successful challenge returns you to the prompt without an error.
 
-## How do I control self-service settings?
-Admins have two self-service controls today. They can control whether:
-
-* Users can join the directory via email.
-* Users can license themselves for applications and services.
-
-### How can I control these capabilities?
-An admin can configure these capabilities using these Azure AD cmdlet Set-MsolCompanySettings parameters:
-
-* **AllowEmailVerifiedUsers** controls whether a user can create or join an unmanaged directory. If you set that parameter to $false, no email-verified users can join the directory.
-* **AllowAdHocSubscriptions** controls the ability for users to perform self-service signup. If you set that parameter to $false, no users can perform self-service signup.
-
-### How do the controls work together?
-These two parameters can be used in conjunction to define more precise control over self-service signup. For example, the following command will allow users to perform self-service signup, but only if those users already have an account in Azure AD (in other words, users who would need an email-verified account to be created cannot perform self-service signup):
-````
-    Set-MsolCompanySettings -AllowEmailVerifiedUsers $false -AllowAdHocSubscriptions $true
-````
-The following flowchart explains the different combinations for these parameters and the resulting conditions for the directory and self-service signup.
-
-![][1]
-
-For more information and examples of how to use these parameters, see [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0).
-
-## See Also
+## Next steps
 * [Add a custom domain name to Azure AD](add-custom-domain.md)
 * [How to install and configure Azure PowerShell](/powershell/azure/overview)
 * [Azure PowerShell](/powershell/azure/overview)
