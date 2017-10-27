@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Supportability
-ms.date: 03/19/2017
+ms.date: 10/09/2017
 ms.author: BernardoAMunoz
 ---
 
@@ -55,6 +55,12 @@ Below is a complete list of all the checks executed through resource health by r
 |Executed Checks|
 |---|
 |<ul><li>Can users upload data to Data Lake Store in the region?</li><li>Can users download data from Data Lake Store in the region?</li></ul>|
+
+## Microsoft.devices/iothubs
+
+|Executed Checks|
+|---|
+|<ul><li>Is the IoT hub up and running?</li></ul>|
 
 ## Microsoft.documentdb/databaseAccounts
 |Executed Checks|

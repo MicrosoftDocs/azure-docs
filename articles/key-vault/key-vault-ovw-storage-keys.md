@@ -8,7 +8,7 @@ ms.service: key-vault
 author: BrucePerlerMS
 ms.author: bruceper
 manager: mbaldwin
-ms.date: 09/14/2017
+ms.date: 10/12/2017
 ---
 # Azure Key Vault Storage Account Keys
 
@@ -20,7 +20,7 @@ For more general information on Azure Storage Accounts, see [About Azure storage
 
 ## Supporting interfaces
 
-The Azure Storage Account keys feature is initially available through the REST, .NET/C# and PowerShell interfaces. For more information, see [Key Vault Reference](https://docs.microsoft.com/azure/key-vault/).
+You'll find a complete listing and links to our programming and scripting interfaces in the [Key Vault Developer's Guide](key-vault-developers-guide.md#coding-with-key-vault).
 
 
 ## What Key Vault manages

@@ -286,4 +286,3 @@ For SQL Database limits, see [SQL Database Resource Limits](sql-database/sql-dat
 [Virtual Machine and Cloud Service Sizes for Azure](virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 [Sizes for Cloud Services](cloud-services/cloud-services-sizes-specs.md)
-

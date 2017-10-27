@@ -39,6 +39,8 @@
       href: azure-stack-deploy.md
     - name: Deploy
       href: azure-stack-run-powershell-script.md
+    - name: Install PowerShell
+      href: azure-stack-powershell-configure-quickstart.md
     - name: Register
       href: azure-stack-register.md
     - name: Connect to Azure Stack
@@ -51,6 +53,8 @@
     items:
     - name: Integrate DNS
       href: azure-stack-integrate-dns.md
+    - name: Identity
+      href: azure-stack-integrate-identity.md
     - name: Publish endpoints
       href: azure-stack-integrate-endpoints.md  
   - name: Manage
@@ -91,6 +95,8 @@
       href: azure-stack-manage-windows-azure-pack.md
     - name: Replace hardware
       items:
+      - name: Node actions
+        href: azure-stack-node-actions.md
       - name: Replace disk
         href: azure-stack-replace-disk.md
   - name: Security, compliance & identity
@@ -135,10 +141,16 @@
         href: azure-stack-mysql-resource-provider-deploy.md
       - name: Deploy SQL resource provider
         href: azure-stack-sql-resource-provider-deploy.md
+      - name: Create SQL databases
+        href: azure-stack-sql-resource-provider-databases.md
+      - name: Add hosting servers
+        href: azure-stack-sql-resource-provider-hosting-servers.md
     - name: Offer App Service as PaaS
       items:
       - name: App Service on Azure Stack overview
         href: azure-stack-app-service-overview.md
+      - name: Capacity planning
+        href: azure-stack-app-service-capacity-planning.md
       - name: Before you get started
         href: azure-stack-app-service-before-you-get-started.md
       - name: Deploy App Service resource provider
@@ -196,7 +208,7 @@
 - name: Reference
   items:
   - name: Azure Stack PowerShell
-    href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.9
+    href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.10
 - name: Resources
   items:
   - name: Azure Roadmap

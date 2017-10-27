@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/05/2017
+ms.date: 10/02/2017
 ms.author: ryanwi
 
 ---
@@ -64,6 +64,7 @@ Configure the container port-to-host port mapping by specifying a `PortBinding` 
 ```xml
 <ServiceManifestImport>
 ...
+  <ConfigOverrides />
   <Policies>
     <ContainerHostPolicies CodePackageRef="Code">
       <PortBinding ContainerPort="80" EndpointRef="MyContainerServiceTypeEndpoint"/>
@@ -90,7 +91,7 @@ Right-click **MyFirstContainer** in the Solution Explorer and choose **Publish**
 
 ![Publish Dialog](./media/service-fabric-quickstart-dotnet/publish-app.png)
 
-Type in the Connection Endpoint of the cluster in the **Connection Endpoint** field and click **Publish**. When signing up for the party cluster, the Connection Endpoint is provided in the browser - for example, `winh1x87d1d.westus.cloudapp.azure.com:19000`.
+Type in the connection endpoint of the cluster in the **Connection Endpoint** field. When signing up for the party cluster, the connection endpoint is provided in the browser - for example, `winh1x87d1d.westus.cloudapp.azure.com:19000`.  Click **Publish** and the application deploys.
 
 Open a browser and navigate to http://winh1x87d1d.westus.cloudapp.azure.com:80. You should see the IIS default web page:
 ![IIS default web page][iis-default]

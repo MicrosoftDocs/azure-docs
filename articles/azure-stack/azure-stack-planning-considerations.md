@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 10/16/2017
 ms.author: twooley
 
 ---
@@ -106,11 +106,13 @@ The following table summarizes these domain naming decisions.
 
 ## Certificate requirements
 
-For deployment, you’ll need to provide Secure Sockets Layer (SSL) certificates for public-facing endpoints. Certificates have the following requirements:
+For deployment, you’ll need to provide Secure Sockets Layer (SSL) certificates for public-facing endpoints. At a high level, certificates have the following requirements:
+
+> [!IMPORTANT]
+> The certificate information in this article is provided only as general guidance. Before you acquire any certificates for Azure Stack, work with your OEM hardware partner. They will provide more detailed certificate guidance and requirements.
 
 - You can use a single wildcard certificate or you can use a set of dedicated certificates, and use wildcards only for endpoints such as storage and Key Vault.
-- Certificates must be issued by a public trusted certificate authority (CA) or enterprise CA.
-- The certificate can't be issued by an intermediate CA.
+- Certificates must be issued by a public trusted certificate authority (CA) or a customer-managed CA.
  
 The following table shows the services and number of public-facing endpoints that require certificates for initial Azure Stack deployment. 
 
@@ -122,7 +124,7 @@ The following table shows the services and number of public-facing endpoints tha
 | Portal (user) | portal. [region].[external_domain] |
 | Key Vault (user) | &#42;.vault.[region].[external_domain] |
 | Key Vault (administrator) | &#42;.adminvault.[region].[external_domain] |
-| Storage | &#42;blob.[region].[external_domain]<br>&#42;table.[region].[external_domain]<br>&#42;queue.[region].[external_domain]  |
+| Storage | &#42;.blob.[region].[external_domain]<br>&#42;.table.[region].[external_domain]<br>&#42;.queue.[region].[external_domain]  |
 | Graph** | graph.[region].[external_domain] |
 | AD FS** | adfs.[region].[external_domain] |
 | | |

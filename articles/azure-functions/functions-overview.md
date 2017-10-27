@@ -15,21 +15,21 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 02/27/2017
+ms.date: 10/03/2017
 ms.author: glenga
 
 ms.custom: H1Hack27Feb2017, mvc
 
 ---
 # An introduction to Azure Functions  
-Azure Functions is a solution for easily running small pieces of code, or "functions," in the cloud. You can write just the code you need for the problem at hand, without worrying about a whole application or the infrastructure to run it. Functions can make development even more productive, and you can use your development language of choice, such as C#, F#, Node.js, Python, or PHP. Pay only for the time your code runs and trust Azure to scale as needed. Azure Functions lets you develop serverless applications on Microsoft Azure.
+Azure Functions is a solution for easily running small pieces of code, or "functions," in the cloud. You can write just the code you need for the problem at hand, without worrying about a whole application or the infrastructure to run it. Functions can make development even more productive, and you can use your development language of choice, such as C#, F#, Node.js, Java, Python, or PHP. Pay only for the time your code runs and trust Azure to scale as needed. Azure Functions lets you develop serverless applications on Microsoft Azure.
 
 This topic provides a high-level overview of Azure Functions. If you want to jump right in and get started with Azure Functions, start with [Create your first Azure Function](functions-create-first-azure-function.md). If you are looking for more technical information about Functions, see the [developer reference](functions-reference.md).
 
 ## Features
 Here are some key features of Azure Functions:
 
-* **Choice of language** - Write functions using C#, F#, Node.js, Python, PHP, batch, bash, or any executable.
+* **Choice of language** - Write functions using C#, F#, Node.js, Java, Python, PHP, batch, bash, or any executable.
 * **Pay-per-use pricing model** - Pay only for the time spent running your code. See the Consumption hosting plan option in the [pricing section](#pricing).  
 * **Bring your own dependencies** - Functions supports NuGet and NPM, so you can use your favorite libraries.  
 * **Integrated security** - Protect HTTP-triggered functions with OAuth providers such as Azure Active Directory, Facebook, Google, Twitter, and Microsoft Account.  
@@ -46,6 +46,7 @@ Functions provides templates to get you started with key scenarios, including th
 * **TimerTrigger** - Execute cleanup or other batch tasks on a predefined schedule. For an example, see [Create a function triggered by a timer](functions-create-scheduled-function.md).
 * **GitHub webhook** - Respond to events that occur in your GitHub repositories. For an example, see [Create a function triggered by a GitHub webhook](functions-create-github-webhook-triggered-function.md).
 * **Generic webhook** - Process webhook HTTP requests from any service that supports webhooks. For an example, see [Create a function triggered by a generic webhook](functions-create-generic-webhook-triggered-function.md).
+* **CosmosDBTrigger** - Process Azure Cosmos DB documents when they are added or updated in collections in a NoSQL database. For an example, see [Create a function triggered by Azure Cosmos DB](functions-create-cosmos-db-triggered-function.md).
 * **BlobTrigger** - Process Azure Storage blobs when they are added to containers. You might use this function for image resizing. For more information, see [Blob storage bindings](functions-bindings-storage-blob.md).
 * **QueueTrigger** - Respond to messages as they arrive in an Azure Storage queue. For an example, see [Create a function that connects to other Azure services](functions-create-an-azure-connected-function.md).
 * **EventHubTrigger** -  Respond to events delivered to an Azure Event Hub. Particularly useful in application instrumentation, user experience or workflow processing, and Internet of Things (IoT) scenarios. For more information, see [Event Hubs bindings](functions-bindings-event-hubs.md).

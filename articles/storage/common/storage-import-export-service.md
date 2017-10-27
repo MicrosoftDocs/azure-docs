@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/14/2017
+ms.date: 10/03/2017
 ms.author: muralikk
 
 ---
@@ -47,8 +47,7 @@ You can use Azure Import/Export service to copy data to **Block** blobs or **Pag
 To begin the process of importing to or exporting from storage, you first create a job. A job can be an import job or an export job:
 
 * Create an import job when you want to transfer data you have on-premises to blobs in your Azure storage account.
-* Create an export job when you want to transfer data currently stored as blobs in your storage account to hard drives that are shipped to you.s
-When you create a job, you notify the Import/Export service that you will be shipping one or more hard drives to an Azure data center.
+* Create an export job when you want to transfer data currently stored as blobs in your storage account to hard drives that are shipped to us. When you create a job, you notify the Import/Export service that you will be shipping one or more hard drives to an Azure data center.
 
 * For an import job, you will be shipping hard drives containing your data.
 * For an export job, you will be shipping empty hard drives.
@@ -177,12 +176,10 @@ At a high level, an import job involves the following steps:
 
 ### Inside an export job
 > [!IMPORTANT]
-79
 > The service only support export of Azure Blobs and does not support export of Azure Files..
-80
 > 
-81
-> 
+>
+
 At a high level, an export job involves the following steps:
 
 * Determine the data to be exported and the number of drives you will need.
@@ -366,25 +363,28 @@ See more details about using the WAImportExport tool in [Preparing hard drives f
 Also, refer to the [Sample workflow to prepare hard drives for an import job](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md) for more detailed step-by-step instructions.  
 
 ### Create the import job
-1. Once you have prepared your drive, navigate to your storage account in the Azure portal and view the Dashboard. Under **Quick Glance**, click **Create an Import Job**. Review the steps and select the checkbox to indicate that you have prepared your drive and that you have the drive journal file available.
-2. In Step 1, provide contact information for the person responsible for this import job and a valid return address. If you wish to save verbose log data for the import job, check the option to **Save the verbose log in my 'waimportexport' blob container**.
-3. In Step 2, upload the drive journal files that you obtained during the drive preparation step. You will need to upload one file for each drive that you have prepared.
+1. Once you have prepared your drive, navigate to More services -> STORAGE -> "Import/export jobs" on the Azure portal. Click **Create Import/export Job**.
+
+2. In Step 1 Basics, select "Import into Azure", enter a string for job name, select a subscription, enter or select a resource group. Enter a descriptive name for the import job. Note that the name you enter may contain only lowercase letters, numbers, hyphens, and underscores, must start with a letter, and may not contain spaces. You will use the name you choose to track your jobs while they are in progress and once they are completed.
+
+3. In Step 2 Job details, upload the drive journal files that you obtained during the drive preparation step. If waimportexport.exe version1 was used, you will need to upload one file for each drive that you have prepared. Select the storage account that the data will be imported into in the "Import destination" Storage account section. The Drop-Off location  will be automatically populated based on the region of the storage account selected.
    
    ![Create import job - Step 3](./media/storage-import-export-service/import-job-03.png)
-4. In Step 3, enter a descriptive name for the import job. Note that the name you enter may contain only lowercase letters, numbers, hyphens, and underscores, must start with a letter, and may not contain spaces. You will use the name you choose to track your jobs while they are in progress and once they are completed.
+4. In Step 3 Return shipping info, select the carrier from the drop down list and enter a valid carrier account number that you have created with that carrier. Microsoft will use this account to ship the drives back to you once your import job is complete. Provide a complete and valid contact name, phone, email, street address, city, zip, state/proviince and country/region.
    
-   Next, select your data center region from the list. The data center region will indicate the data center and address to which you must ship your package. See the FAQ below for more information.
-5. In Step 4, select your return carrier from the list and enter your carrier account number. Microsoft will use this account to ship the drives back to you once your import job is complete.
+5. In the Summary Page, Azure DataCenter shipping address is provided to be used for shipping disks to Azure DC. Ensure that the job name and the full address are mentioned on the shipping label. 
+
+6. Click OK on the Summary Page to complete Import job creation.
+
+7. After shipping the disks, return to the **Import/Export** page on the Azure portal, 
+     a) Navigate and click on the import job
+     b) Click on **Update job status and tracking info once drives are shipped**. 
+     c) Select the check box "Mark as shipped"
+     d) Provide the Carrier and Tracking number.
+    
+   If the tracking number is not updated within 2 weeks of creating the job, the job will expire.
    
-   If you have your tracking number, select your delivery carrier from the list and enter your tracking number.
-   
-   If you do not have a tracking number yet, choose **I will provide my shipping information for this import job once I have shipped my package**, then complete the import process.
-6. To enter your tracking number after you have shipped your package, return to the **Import/Export** page for your storage account in the Azure portal, select your job from the list, and choose **Shipping Info**. Navigate through the wizard and enter your tracking number in Step 2.
-   
-    If the tracking number is not updated within 2 weeks of creating the job, the job will expire.
-   
-    If the job is in the Creating, Shipping or Transferring state, you can also update your carrier account number in Step 2 of the wizard. Once the job is in the Packaging state, you cannot update your carrier account number for that job.
-7. You can track your job progress on the portal dashboard. See what each job state in the previous section means by [Viewing your job status](#viewing-your-job-status).
+8. You can track your job progress on the portal dashboard. See what each job state in the previous section means by [Viewing your job status](#viewing-your-job-status).
 
 ## Create an export job
 Create an export job to notify the Import/Export service that you'll be shipping one or more empty drives to the data center so that data can be exported from your storage account to the drives and the drives then shipped to you.
@@ -396,9 +396,10 @@ Following pre-checks are recommended for preparing your drives for an export job
 2. Check that you can read/write to the hard drive that will be shipped for the export job.
 
 ### Create the export job
-1. To create an export job, navigate to your storage account in the Azure portal, and view the Dashboard. Under **Quick Glance**, click **Create an Export Job** and proceed through the wizard.
-2. In Step 2, provide contact information for the person responsible for this export job. If you wish to save verbose log data for the export job, check the option to **Save the verbose log in my 'waimportexport' blob container**.
-3. In Step 3, specify which blob data you wish to export from your storage account to your blank drive or drives. You can choose to export all blob data in the storage account, or you can specify which blobs or sets of blobs to export.
+1. To create an export job, navigate to More services -> STORAGE -> "Import/export jobs" on the Azure portal. Click **Create Import/export Job**.
+2. In Step 1 Basics, select "Export from Azure", enter a string for job name, select a subscription, enter or select a resource group. Enter a descriptive name for the import job. Note that the name you enter may contain only lowercase letters, numbers, hyphens, and underscores, must start with a letter, and may not contain spaces. You will use the name you choose to track your jobs while they are in progress and once they are completed. provide contact information for the person responsible for this export job. 
+
+3. In Step 2 Job details, select the storage account that the data will be exported from in the Storage account section. The Drop-Off location  will be automatically be populated based on the region of the storage account selected. Specify which blob data you wish to export from your storage account to your blank drive or drives. You can choose to export all blob data in the storage account, or you can specify which blobs or sets of blobs to export.
    
    To specify a blob to export, use the **Equal To** selector, and specify the relative path to the blob, beginning with the container name. Use *$root* to specify the root container.
    
@@ -419,26 +420,29 @@ Following pre-checks are recommended for preparing your drives for an export job
    You must provide the blob paths in valid formats to avoid errors during processing, as shown in this screenshot.
    
    ![Create export job - Step 3](./media/storage-import-export-service/export-job-03.png)
-4. In Step 4, enter a descriptive name for the export job. The name you enter may contain only lowercase letters, numbers, hyphens, and underscores, must start with a letter, and may not contain spaces.
+
+4. In Step 3 Return shipping info, select the carrier from the drop down list and enter a valid carrier account number that you have created with that carrier. Microsoft will use this account to ship the drives back to you once your import job is complete. Provide a complete and valid contact name, phone, email, street address, city, zip, state/proviince and country/region..
    
-   The data center region will indicate the data center to which you must ship your package. See the FAQ below for more information.
-5. In Step 5, select your return carrier from the list, and enter your carrier account number. Microsoft will use this account to ship your drives back to you once your export job is complete.
+ 5. In the Summary Page, Azure DataCenter shipping address is provided to be used for shipping disks to Azure DC. Ensure that the job name and the full address are mentioned on the shipping label. 
+
+6. Click OK on the Summary Page to complete Import job creation
+
+7. After shipping the disks, return to the **Import/Export** page on the Azure portal, 
+     a) Navigate and click on the import job
+     b) Click on **Update job status and tracking info once drives are shipped**. 
+     c) Select the check box "Mark as shipped"
+     d) Provide the Carrier and Tracking number.
+    
+   If the tracking number is not updated within 2 weeks of creating the job, the job will expire.
    
-   If you have your tracking number, select your delivery carrier from the list and enter your tracking number.
-   
-   If you do not have a tracking number yet, choose **I will provide my shipping information for this export job once I have shipped my package**, then complete the export process.
-6. To enter your tracking number after you have shipped your package, return to the **Import/Export** page for your storage account in the Azure portal, select your job from the list, and choose **Shipping Info**. Navigate through the wizard and enter your tracking number in Step 2.
-   
-    If the tracking number is not updated within 2 weeks of creating the job, the job will expire.
-   
-    If the job is in the Creating, Shipping or Transferring state, you can also update your carrier account number in Step 2 of the wizard. Once the job is in the Packaging state, you cannot update your carrier account number for that job.
-   
+8. You can track your job progress on the portal dashboard. See what each job state in the previous section means by [Viewing your job status](#viewing-your-job-status).
+
    > [!NOTE]
    > If the blob to be exported is in use at the time of copying to hard drive, Azure Import/Export service will take a snapshot of the blob and copy the snapshot.
    > 
    > 
-7. You can track your job progress on the dashboard in the Azure portal. See what each job state means in the previous section on "Viewing your job status".
-8. After you receive the drives with your exported data, you can view and copy the BitLocker keys generated by the service for your drive. Navigate to your storage account in the Azure portal and click the Import/Export tab. Select your export job from the list, and click the View Keys button. The BitLocker keys appear as shown below:
+ 
+9. After you receive the drives with your exported data, you can view and copy the BitLocker keys generated by the service for your drive. Navigate to export job in the Azure portal and click the Import/Export tab. Select your export job from the list, and click the BitLocker Keys option. The BitLocker keys appear as shown below:
    
    ![View BitLocker keys for export job](./media/storage-import-export-service/export-job-bitlocker-keys.png)
 

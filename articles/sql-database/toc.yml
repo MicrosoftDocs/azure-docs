@@ -137,12 +137,16 @@
       href: sql-database-disaster-recovery.md
     - name: Perform recovery drill
       href: sql-database-disaster-recovery-drills.md
-  - name: Load & move data
+  - name: Migrate to SQL Database
     items:
     - name: Migrate SQL Server DB
       href: sql-database-cloud-migrate.md
     - name: T-SQL changes
       href: sql-database-transact-sql-information.md
+    - name: Manage database after migration
+      href: sql-database-manage-after-migration.md
+  - name: Load & move data
+    items:
     - name: Copy a DB
       href: sql-database-copy.md
     - name: Import a DB
@@ -171,8 +175,6 @@
       href: sql-database-operate-query-store.md
     - name: Extended events
       href: sql-database-xevent-db-diff-from-svr.md
-    - name: Compatibility levels
-      href: sql-database-compatibility-level-query-performance-130.md
     - name: Monitor in-memory
       href: sql-database-in-memory-oltp-monitoring.md
   - name: Scale out
@@ -273,7 +275,7 @@
       href: sql-database-long-term-backup-retention-configure.md
     - name: Geo-replicate - Portal
       href: sql-database-geo-replication-portal.md
-    - name: Load & move data
+  - name: Load & move data
     items:
     - name: Load data with BCP
       href: sql-database-load-from-csv-with-bcp.md

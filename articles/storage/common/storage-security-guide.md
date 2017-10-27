@@ -514,7 +514,7 @@ For more information about CORS and how to enable it, please check out these res
 
    **Resources**
 
-* [Why We're Not Recommending "FIPS Mode" Anymore](http://blogs.technet.com/b/secguide/archive/2014/04/07/why-we-re-not-recommending-fips-mode-anymore.aspx)
+* [Why We're Not Recommending "FIPS Mode" Anymore](https://blogs.technet.microsoft.com/secguide/2014/04/07/why-were-not-recommending-fips-mode-anymore/)
 
   This blog article gives an overview of FIPS and explains why they don't enable FIPS mode by default.
 * [FIPS 140 Validation](https://technet.microsoft.com/library/cc750357.aspx)

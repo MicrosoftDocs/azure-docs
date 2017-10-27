@@ -165,7 +165,7 @@ To expose the pod to the world with a public IP address, type the following comm
 kubectl expose pods iis --port=80 --type=LoadBalancer
 ```
 
-With this command, Kubernetes creates a service and an [Azure load balancer rule](container-service-kubernetes-load-balancing.md) with a public IP address for the service. 
+With this command, Kubernetes creates a service and an Azure load balancer rule with a public IP address for the service. 
 
 Run the following command to see the status of the service.
 

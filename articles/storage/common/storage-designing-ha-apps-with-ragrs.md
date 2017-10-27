@@ -34,7 +34,7 @@ There are code snippets included in this article, and a link to a complete sampl
 
 ## Key features of RA-GRS
 
-Keep in mind these key points when designing your ppplication for RA-GRS:
+Keep in mind these key points when designing your application for RA-GRS:
 
 * Azure Storage maintains a read-only copy of the data you store in your primary region in a secondary region. As noted above, the storage service determines the location of the secondary region.
 

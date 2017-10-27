@@ -12,6 +12,7 @@
 ### [Archive](hdinsight-release-notes-archive.md)
 
 # Get Started
+## [Plan for HDInsight cluster capacity](hdinsight-capacity-planning.md)
 ## [Start with Hadoop](hdinsight-hadoop-linux-tutorial-get-started.md)
 ## Start with Spark
 ### [Create a Spark cluster](hdinsight-apache-spark-jupyter-spark-sql.md)
@@ -22,7 +23,7 @@
 ## [Start with R Server](hdinsight-hadoop-r-server-get-started.md)
 ## [Start with HBase & NoSQL](hdinsight-hbase-tutorial-get-started-linux.md)
 ## [Start with Storm](hdinsight-apache-storm-tutorial-get-started-linux.md)
-## [Start with Interactive Query)](hdinsight-hadoop-use-interactive-hive.md)
+## [Start with Interactive Query](hdinsight-hadoop-use-interactive-hive.md)
 ## [Start with Kafka (Preview)](hdinsight-apache-kafka-get-started.md)
 ## [Hadoop sandbox](hdinsight-hadoop-emulator-get-started.md)
 ## [Data Lake Tools with Hortonworks Sandbox](hdinsight-hadoop-emulator-visual-studio.md)
@@ -87,7 +88,6 @@
 ### [ScaleR and SparkR](hdinsight-hadoop-r-scaler-sparkr.md)
 ## Use HBase
 ### [Use Phoenix and SQLLine](hdinsight-hbase-phoenix-squirrel-linux.md)
-### [Analyze real-time tweets](hdinsight-hbase-analyze-twitter-sentiment.md)
 ### [Create clusters on a virtual network](hdinsight-hbase-provision-vnet.md)
 ### [Configure HBase replication](hdinsight-hbase-replication.md)
 ### [Develop an app with Java](hdinsight-hbase-build-java-maven-linux.md)
@@ -99,7 +99,7 @@
 #### [Develop Java-based topologies with Maven](hdinsight-storm-develop-java-topology.md)
 #### [Develop C# topologies with Hadoop tools](hdinsight-storm-develop-csharp-visual-studio-topology.md)
 #### [Process events with C# topologies](hdinsight-storm-develop-csharp-event-hub-topology.md)
-#### [Process events with Java topologies](hdinsight-storm-develop-java-event-hub-topology.md)
+#### [Process events with Java topologies](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/)
 #### [Analyze real-time sensor data](hdinsight-storm-sensor-data-analysis.md)
 #### [Correlate events over time](hdinsight-storm-correlation-topology.md)
 #### [Develop topologies using Python](hdinsight-storm-develop-python-topology.md)
@@ -167,6 +167,8 @@
 ### [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
 ### [Use SSH tunneling](hdinsight-linux-ambari-ssh-tunnel.md)
 ### [Restrict access to data](hdinsight-storage-sharedaccesssignature-permissions.md)
+### [Authorize users for Ambari Views](hdinsight-authorize-users-to-ambari.md)
+### [Manage user permissions at the file and folder levels](hdinsight-add-acls-at-file-folder-levels.md)
 ## Manage
 ### [Create Linux clusters](hdinsight-hadoop-provision-linux-clusters.md)
 #### [Use Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
@@ -200,6 +202,7 @@
 ### [Use Azure Log Analytics](hdinsight-hadoop-oms-log-analytics-tutorial.md)
 ### [Cluster-specific dashboards](hdinsight-hadoop-oms-log-analytics-management-solutions.md)
 ### [Use queries with Log Analytics](hdinsight-hadoop-oms-log-analytics-use-queries.md)
+### [Monitor cluster performance](hdinsight-key-scenarios-to-monitor.md)
 ## [Troubleshoot](hdinsight-troubleshoot-guide.md)
 ### [HBASE troubleshooting](hdinsight-troubleshoot-hbase.md)
 ### [HDFS troubleshooting](hdinsight-troubleshoot-hdfs.md)

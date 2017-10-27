@@ -13,12 +13,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 10/08/2017
 ms.author: wgries
 ---
 
 # Troubleshoot Azure File Sync (preview)
-With Azure File Sync (preview), shares can be replicated to Windows Servers on-premises or in Azure. You and your users would then access the file share through the Windows Server, such as through a SMB or NFS share. This is particularly useful for scenarios in which data will be accessed and modified far away from an Azure datacenter, such as in a branch office scenario. Data may be replicated between multiple Windows Server endpoints, such as between multiple branch offices.
+Azure File Sync (preview) allows you to centralize your organization's file shares in Azure Files without giving up the flexibility, performance, and compatibility of an on-premises file server. It does this by transforming your Windows Servers into a quick cache of your Azure File share. You can use any protocol available on Windows Server to access your data locally (including SMB, NFS, and FTPS) and you can have as many caches as you need across the world.
 
 This article is designed to help you troubleshoot and resolve issues encountered with your Azure File Sync deployment. Failing that, this guide illustrates how to collect important logs from the system to aid in a deeper investigation of the issues. The following options are available for getting support for Azure File Sync:
 
@@ -32,7 +32,22 @@ If the Azure File Sync agent installation is failing, run the following command 
 StorageSyncAgent.msi /l*v Installer.log
 ```
 
-Once the installation fails, review the installer.log to determine the cause.
+Once the installation fails, review the installer.log to determine the cause. 
+
+> [!Note]  
+> The agent installation will fail if you select to use Microsoft Update and the Windows Update service is not running.
+
+## Cloud Endpoint creation fails with the following error: "The specified Azure FileShare is already in use by a different CloudEndpoint"
+This error occurs if the Azure File share is already in use by another Cloud Endpoint. 
+
+If you're receiving this error and the Azure File share is not currently in use by a Cloud Endpoint, perform the following steps below to clear the Azure File Sync metadata on the Azure File share:
+
+> [!Warning]  
+> Deleting the metadata on an Azure File share that is currently in use by a Cloud endpoint will cause Azure File Sync operations to fail. 
+
+1. Navigate to your Azure File share in the Azure Portal.  
+2. Right click the Azure File share and select **Edit metadata**
+3. Right click SyncService and select **Delete**.
 
 ## Server is not listed under Registered Servers in the Azure portal
 If a server is not listed under Registered Servers for a Storage Sync Service, perform the following steps:
@@ -44,6 +59,16 @@ If a server is not listed under Registered Servers for a Storage Sync Service, p
 ![A screenshot of the Server Registration dialog with the "server is already registered" error message](media/storage-sync-files-troubleshoot/server-registration-1.png)
 
 This message is displayed if the server was previously registered with a Storage Sync Service. To unregister the server with the current Storage Sync Service and register with a new Storage Sync Service, follow the steps to [Unregister a server with Azure File Sync](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
+
+If the server is not listed under Registered Servers in the Storage Sync Service, run the following PowerShell commands on the server that you want to unregister:
+
+```PowerShell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+Reset-StorageSyncServer
+```
+
+> [!Note]  
+> If the server is part of a cluster, there is an optional `Reset-StorageSyncServer -CleanClusterRegistration` parameter that will also remove the cluster registration. This switch should be used when the last node in the cluster is unregistered.
 
 ## How to troubleshoot sync not working on a server
 If sync is failing on a server, perform the following:

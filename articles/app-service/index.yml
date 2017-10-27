@@ -57,6 +57,15 @@ sections:
         src: https://docs.microsoft.com/en-us/azure/app-service/media/index/logo_html5.svg
       text: HTML
       href: https://docs.microsoft.com/en-us/azure/app-service/app-service-web-get-started-html
+  - type: paragraph
+    text: 'Learn how to deploy continuously:'
+  - type: list
+    style: icon48
+    items: 
+    - image:
+        src: https://docs.microsoft.com/en-us/azure/media/index/logo_vs-team-services.svg
+      text: VSTS
+      href: https://docs.microsoft.com/en-us/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp?toc=/vsts/deploy-azure/toc.json&bc=/vsts/deploy-azure/breadcrumb/toc.json
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph

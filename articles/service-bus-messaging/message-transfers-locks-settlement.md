@@ -42,7 +42,7 @@ If the application produces bursts of messages, illustrated here with a plain lo
 With an assumed 70 millisecond TCP roundtrip latency distance from an on-premises site to Service Bus and giving just 10 ms for Service Bus to accept and store each message, the following loop takes up at least 8 seconds, not counting payload transfer time or potential route congestion effects:
 
 ```csharp
-for (int i = 0; i \< 100; i++)
+for (int i = 0; i < 100; i++)
 {
   // creating the message omitted for brevity
   await client.SendAsync(…);
@@ -54,8 +54,8 @@ If the application starts the 10 asynchronous send operations in immediate succe
 Making the same assumptions as for the prior loop, the total overlapped execution time for the following loop might stay well under one second:
 
 ```csharp
-var tasks = new List\<Task\>();
-for (int i = 0; i \< 100; i++)
+var tasks = new List<Task>();
+for (int i = 0; i < 100; i++)
 {
   tasks.Add(client.SendAsync(…));
 }
@@ -69,8 +69,8 @@ Semaphores, as shown in the following code snippet in C#, are synchronization ob
 ```csharp
 var semaphore = new SemaphoreSlim(10);
 
-var tasks = new List\<Task\>();
-for (int i = 0; i \< 100; i++)
+var tasks = new List<Task>();
+for (int i = 0; i < 100; i++)
 {
   await semaphore.WaitAsync();
 
@@ -82,10 +82,10 @@ await Task.WhenAll(tasks.ToArray());
 Applications should **never** initiate an asynchronous send operation in a "fire and forget" manner without retrieving the outcome of the operation. Doing so can load the internal and invisible task queue up to memory exhaustion, and prevent the application from detecting send errors:
 
 ```csharp
-for (int i = 0; i \< 100; i++)
+for (int i = 0; i < 100; i++)
 {
 
-  client.SendAsync(message); DON’T DO THIS
+  client.SendAsync(message); // DON’T DO THIS
 }
 ```
 

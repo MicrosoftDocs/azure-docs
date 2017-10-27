@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/28/2017
+ms.date: 10/06/2017
 ms.author: bwren
 
 ms.custom: H1Hack27Feb2017
@@ -55,6 +55,9 @@ Webhook actions require the properties in the following table.
 
 Webhooks include a URL and a payload formatted in JSON that is the data sent to the external service.  By default, the payload will include the values in the following table.  You can choose to replace this payload with a custom one of your own.  In that case you can use the variables in the table for each of the parameters to include their value in your custom payload.
 
+>[!NOTE]
+> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the webook payload has changed.  Details of the format are in [Azure Log Analytics REST API](https://aka.ms/loganalyticsapiresponse).  You can see an example in [Samples](#sample-payload) below.
+
 | Parameter | Variable | Description |
 |:--- |:--- |:--- |
 | AlertRuleName |#alertrulename |Name of the alert rule. |
@@ -95,6 +98,7 @@ For example, to create a custom payload that includes just the alert name and th
 
 You can walk through a complete example of creating an alert rule with a webhook to start an external service at [Create an alert webhook action in OMS Log Analytics to send message to Slack](log-analytics-alerts-webhooks.md).
 
+
 ## Runbook actions
 Runbook actions start a runbook in Azure Automation.  In order to use this type of action, you must have the [Automation solution](log-analytics-add-solutions.md) installed and configured in your OMS workspace.  You can select from the runbooks in the automation account that you configured in the Automation solution.
 
@@ -108,6 +112,9 @@ Runbook actions require the properties in the following table.
 Runbook actions start the runbook using a [webhook](../automation/automation-webhooks.md).  When you create the alert rule, it will automatically create a new webhook for the runbook with the name **OMS Alert Remediation** followed by a GUID.  
 
 You cannot directly populate any parameters of the runbook, but the [$WebhookData parameter](../automation/automation-webhooks.md) will include the details of the alert, including the results of the log search that created it.  The runbook will need to define **$WebhookData** as a parameter for it to access the properties of the alert.  The alert data is available in json format in a single property called **SearchResults** in the **RequestBody** property of **$WebhookData**.  This will have with the properties in the following table.
+
+>[!NOTE]
+> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the runbook payload has changed.  Details of the format are in [Azure Log Analytics REST API](https://aka.ms/loganalyticsapiresponse).  You can see an example in [Samples](#sample-payload) below.
 
 | Node | Description |
 |:--- |:--- |
@@ -143,6 +150,418 @@ For example, the following runbook would extract the records returned by the log
             $Value     = $Record.CounterValue
         }
     }
+
+
+## Sample payload
+This section shows sample payload for webhook and runbook actions in both a legacy and an [upgraded Log Analytics workspace](log-analytics-log-search-upgrade.md).
+
+### Webhook actions
+
+#### Legacy workspace.
+Following is a sample payload for a webhook action in a legacy workspace.
+
+    {
+    "WorkspaceId": "workspaceID",
+    "AlertRuleName": "WebhookAlert",
+    "SearchQuery": "Type=Usage",
+    "SearchResult": {
+        "id": "subscriptions/subscriptionID/resourceGroups/ResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/workspace-workspaceID/search/SearchGUID|10.1.0.7|2017-09-27T10-30-38Z",
+        "__metadata": {
+        "resultType": "raw",
+        "total": 1,
+        "top": 2147483647,
+        "RequestId": "SearchID|10.1.0.7|2017-09-27T10-30-38Z",
+        "CoreSummaries": [
+            {
+            "Status": "Successful",
+            "NumberOfDocuments": 135000000
+            }
+        ],
+        "Status": "Successful",
+        "NumberOfDocuments": 135000000,
+        "StartTime": "2017-09-27T10:30:38.9453282Z",
+        "LastUpdated": "2017-09-27T10:30:44.0907473Z",
+        "ETag": "636421050440907473",
+        "sort": [
+            {
+            "name": "TimeGenerated",
+            "order": "desc"
+            }
+        ],
+        "requestTime": 361
+        },
+        "value": [
+        {
+            "Computer": "-",
+            "SourceSystem": "OMS",
+            "TimeGenerated": "2017-09-26T13:59:59Z",
+            "ResourceUri": "/subscriptions/df1ec963-d784-4d11-a779-1b3eeb9ecb78/resourcegroups/mms-eus/providers/microsoft.operationalinsights/workspaces/workspace-861bd466-5400-44be-9552-5ba40823c3aa",
+            "DataType": "Operation",
+            "StartTime": "2017-09-26T13:00:00Z",
+            "EndTime": "2017-09-26T13:59:59Z",
+            "Solution": "LogManagement",
+            "BatchesWithinSla": 8,
+            "BatchesOutsideSla": 0,
+            "BatchesCapped": 0,
+            "TotalBatches": 8,
+            "AvgLatencyInSeconds": 0.0,
+            "Quantity": 0.002502,
+            "QuantityUnit": "MBytes",
+            "IsBillable": false,
+            "MeterId": "a4e29a95-5b4c-408b-80e3-113f9410566e",
+            "LinkedMeterId": "00000000-0000-0000-0000-000000000000",
+            "id": "954f7083-cd55-3f0a-72cb-3d78cd6444a3",
+            "Type": "Usage",
+            "MG": "00000000-0000-0000-0000-000000000000",
+            "__metadata": {
+            "Type": "Usage",
+            "TimeGenerated": "2017-09-26T13:59:59Z"
+            }
+        }
+        ]
+    },
+    "SearchIntervalStartTimeUtc": "2017-09-26T08:10:40Z",
+    "SearchIntervalEndtimeUtc": "2017-09-26T09:10:40Z",
+    "AlertThresholdOperator": "Greater Than",
+    "AlertThresholdValue": 0,
+    "ResultCount": 1,
+    "SearchIntervalInSeconds": 3600,
+    "LinkToSearchResults": "https://workspaceID.portal.mms.microsoft.com/#Workspace/search/index?_timeInterval.intervalEnd=2017-09-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Type%3DUsage",
+    "Description": null,
+    "Severity": "Low"
+    }
+
+
+#### Upgraded workspace.
+Following is a sample payload for a webhook action in an upgraded workspace.
+
+    {
+    "WorkspaceId": "workspaceID",
+    "AlertRuleName": "WebhookAlert",
+    "SearchQuery": "Usage",
+    "SearchResult": {
+        "tables": [
+        {
+            "name": "PrimaryResult",
+            "columns": [
+            {
+                "name": "TenantId",
+                "type": "string"
+            },
+            {
+                "name": "Computer",
+                "type": "string"
+            },
+            {
+                "name": "TimeGenerated",
+                "type": "datetime"
+            },
+            {
+                "name": "SourceSystem",
+                "type": "string"
+            },
+            {
+                "name": "StartTime",
+                "type": "datetime"
+            },
+            {
+                "name": "EndTime",
+                "type": "datetime"
+            },
+            {
+                "name": "ResourceUri",
+                "type": "string"
+            },
+            {
+                "name": "LinkedResourceUri",
+                "type": "string"
+            },
+            {
+                "name": "DataType",
+                "type": "string"
+            },
+            {
+                "name": "Solution",
+                "type": "string"
+            },
+            {
+                "name": "BatchesWithinSla",
+                "type": "long"
+            },
+            {
+                "name": "BatchesOutsideSla",
+                "type": "long"
+            },
+            {
+                "name": "BatchesCapped",
+                "type": "long"
+            },
+            {
+                "name": "TotalBatches",
+                "type": "long"
+            },
+            {
+                "name": "AvgLatencyInSeconds",
+                "type": "real"
+            },
+            {
+                "name": "Quantity",
+                "type": "real"
+            },
+            {
+                "name": "QuantityUnit",
+                "type": "string"
+            },
+            {
+                "name": "IsBillable",
+                "type": "bool"
+            },
+            {
+                "name": "MeterId",
+                "type": "string"
+            },
+            {
+                "name": "LinkedMeterId",
+                "type": "string"
+            },
+            {
+                "name": "Type",
+                "type": "string"
+            }
+            ],
+            "rows": [
+            [
+                "workspaceID",
+                "-",
+                "2017-09-26T13:59:59Z",
+                "OMS",
+                "2017-09-26T13:00:00Z",
+                "2017-09-26T13:59:59Z",
+                "/subscriptions/SubscriptionID/resourcegroups/ResourceGroupName/providers/microsoft.operationalinsights/workspaces/workspace-workspaceID",
+                null,
+                "Operation",
+                "LogManagement",
+                8,
+                0,
+                0,
+                8,
+                0,
+                0.002502,
+                "MBytes",
+                false,
+                "a4e29a95-5b4c-408b-80e3-113f9410566e",
+                "00000000-0000-0000-0000-000000000000",
+                "Usage"
+            ]
+            ]
+        }
+        ]
+    },
+    "SearchIntervalStartTimeUtc": "2017-09-26T08:10:40Z",
+    "SearchIntervalEndtimeUtc": "2017-09-26T09:10:40Z",
+    "AlertThresholdOperator": "Greater Than",
+    "AlertThresholdValue": 0,
+    "ResultCount": 1,
+    "SearchIntervalInSeconds": 3600,
+    "LinkToSearchResults": "https://workspaceID.portal.mms.microsoft.com/#Workspace/search/index?_timeInterval.intervalEnd=2017-09-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
+    "Description": null,
+    "Severity": "Low"
+    }
+
+
+### Runbooks
+
+#### Legacy workspace
+Following is a sample payload for a runbook action in a legacy workspace.
+
+    {
+        "SearchResults": {
+            "id": "subscriptions/subscriptionID/resourceGroups/ResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/workspace-workspaceID/search/searchGUID|10.1.0.7|TimeStamp",
+            "__metadata": {
+                "resultType": "raw",
+                "total": 1,
+                "top": 2147483647,
+                "RequestId": "searchGUID|10.1.0.7|2017-09-27T10-51-43Z",
+                "CoreSummaries": [{
+                    "Status": "Successful",
+                    "NumberOfDocuments": 135000000
+                }],
+                "Status": "Successful",
+                "NumberOfDocuments": 135000000,
+                "StartTime": "2017-09-27T10:51:43.3075124Z",
+                "LastUpdated": "2017-09-27T10:51:51.1002092Z",
+                "ETag": "636421063111002092",
+                "sort": [{
+                    "name": "TimeGenerated",
+                    "order": "desc"
+                }],
+                "requestTime": 511
+            },
+            "value": [{
+                "Computer": "-",
+                "SourceSystem": "OMS",
+                "TimeGenerated": "2017-09-26T13:59:59Z",
+                "ResourceUri": "/subscriptions/AnotherSubscriptionID/resourcegroups/SampleResourceGroup/providers/microsoft.operationalinsights/workspaces/workspace-workspaceID",
+                "DataType": "Operation",
+                "StartTime": "2017-09-26T13:00:00Z",
+                "EndTime": "2017-09-26T13:59:59Z",
+                "Solution": "LogManagement",
+                "BatchesWithinSla": 8,
+                "BatchesOutsideSla": 0,
+                "BatchesCapped": 0,
+                "TotalBatches": 8,
+                "AvgLatencyInSeconds": 0.0,
+                "Quantity": 0.002502,
+                "QuantityUnit": "MBytes",
+                "IsBillable": false,
+                "MeterId": "a4e29a95-5b4c-408b-80e3-113f9410566e",
+                "LinkedMeterId": "00000000-0000-0000-0000-000000000000",
+                "id": "954f7083-cd55-3f0a-72cb-3d78cd6444a3",
+                "Type": "Usage",
+                "MG": "00000000-0000-0000-0000-000000000000",
+                "__metadata": {
+                    "Type": "Usage",
+                    "TimeGenerated": "2017-09-26T13:59:59Z"
+                }
+            }]
+        }
+    }
+
+#### Upgraded workspace
+Following is a sample payload for a runbook action in an upgraded workspace.
+
+    {
+    "WorkspaceId": "workspaceID",
+    "AlertRuleName": "AutomationAlert",
+    "SearchQuery": "Usage",
+    "SearchResult": {
+        "tables": [
+        {
+            "name": "PrimaryResult",
+            "columns": [
+            {
+                "name": "TenantId",
+                "type": "string"
+            },
+            {
+                "name": "Computer",
+                "type": "string"
+            },
+            {
+                "name": "TimeGenerated",
+                "type": "datetime"
+            },
+            {
+                "name": "SourceSystem",
+                "type": "string"
+            },
+            {
+                "name": "StartTime",
+                "type": "datetime"
+            },
+            {
+                "name": "EndTime",
+                "type": "datetime"
+            },
+            {
+                "name": "ResourceUri",
+                "type": "string"
+            },
+            {
+                "name": "LinkedResourceUri",
+                "type": "string"
+            },
+            {
+                "name": "DataType",
+                "type": "string"
+            },
+            {
+                "name": "Solution",
+                "type": "string"
+            },
+            {
+                "name": "BatchesWithinSla",
+                "type": "long"
+            },
+            {
+                "name": "BatchesOutsideSla",
+                "type": "long"
+            },
+            {
+                "name": "BatchesCapped",
+                "type": "long"
+            },
+            {
+                "name": "TotalBatches",
+                "type": "long"
+            },
+            {
+                "name": "AvgLatencyInSeconds",
+                "type": "real"
+            },
+            {
+                "name": "Quantity",
+                "type": "real"
+            },
+            {
+                "name": "QuantityUnit",
+                "type": "string"
+            },
+            {
+                "name": "IsBillable",
+                "type": "bool"
+            },
+            {
+                "name": "MeterId",
+                "type": "string"
+            },
+            {
+                "name": "LinkedMeterId",
+                "type": "string"
+            },
+            {
+                "name": "Type",
+                "type": "string"
+            }
+            ],
+            "rows": [
+            [
+                "861bd466-5400-44be-9552-5ba40823c3aa",
+                "-",
+                "2017-09-26T13:59:59Z",
+                "OMS",
+                "2017-09-26T13:00:00Z",
+                "2017-09-26T13:59:59Z",
+            "/subscriptions/SubscriptionID/resourcegroups/ResourceGroupName/providers/microsoft.operationalinsights/workspaces/workspace-861bd466-5400-44be-9552-5ba40823c3aa",
+                null,
+                "Operation",
+                "LogManagement",
+                8,
+                0,
+                0,
+                8,
+                0,
+                0.002502,
+                "MBytes",
+                false,
+                "a4e29a95-5b4c-408b-80e3-113f9410566e",
+                "00000000-0000-0000-0000-000000000000",
+                "Usage"
+            ]
+        }
+        ]
+    },
+    "SearchIntervalStartTimeUtc": "2017-09-26T08:10:40Z",
+    "SearchIntervalEndtimeUtc": "2017-09-26T09:10:40Z",
+    "AlertThresholdOperator": "Greater Than",
+    "AlertThresholdValue": 0,
+    "ResultCount": 1,
+    "SearchIntervalInSeconds": 3600,
+    "LinkToSearchResults": "https://workspaceID.portal.mms.microsoft.com/#Workspace/search/index?_timeInterval.intervalEnd=2017-09-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
+    "Description": null,
+    "Severity": "Critical"
+    }
+
 
 
 ## Next steps

@@ -135,7 +135,7 @@ In the previous example, the `telemetryConfig` device twin desired and reported 
 You can use twins to synchronize long-running operations such as firmware updates. For more information on how to use properties to synchronize and track a long running operation across devices, see [Use desired properties to configure devices][lnk-twin-properties].
 
 ## Back-end operations
-The solution back end operates on the device twin using the following atomic operations, exposed through HTTP:
+The solution back end operates on the device twin using the following atomic operations, exposed through HTTPS:
 
 1. **Retrieve device twin by id**. This operation returns the device twin document, including tags and desired, reported, and system properties.
 2. **Partially update device twin**. This operation enables the solution back end to partially update the tags or desired properties in a device twin. The partial update is expressed as a JSON document that adds or updates any property. Properties set to `null` are removed. The following example creates a new desired property with value `{"newProperty": "newValue"}`, overwrites the existing value of `existingProperty` with `"otherNewValue"`, and removes `otherOldProperty`. No other changes are made to existing desired properties or tags:

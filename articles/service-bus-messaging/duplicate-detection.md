@@ -17,7 +17,7 @@ ms.author: sethm
 
 ---
 
-# Duplicate Detection
+# Duplicate detection
 
 If an application encounters a fatal error immediately after it sends a message, and the restarted application instance therefore erroneously believes that the prior message delivery did not occur, a subsequent send causes the same message to appear in the system twice.
 
