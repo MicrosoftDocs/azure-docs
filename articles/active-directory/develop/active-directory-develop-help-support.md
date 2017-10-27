@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/13/2017
+ms.date: 10/27/2017
 ms.author: andret
 ms.custom: aaddev 
 
@@ -37,12 +37,11 @@ Regardless if you are just starting to integrate with Azure Active Directory, Mi
 If you have a development-related question, you may be able to find the answer you need on our documentation, our [github samples](https://github.com/azure-samples), or answers to [Stack Overflow](https://www.stackoverflow.com) questions.
 
 ### Scoped Search
-Scope your search to Stack Overflow, our documentation, and our code samples by using the following on your [favorite search engine](https://bing.com):
+For faster results, scope your search to Stack Overflow, our documentation, and our code samples by using the following on your [favorite search engine](https://bing.com):
 ```
 {Your Search Terms} (site:stackoverflow.com OR site:docs.microsoft.com OR site:github.com/azure-samples OR site:cloudidentity.com OR site:developer.microsoft.com/en-us/graph)
 ```
 Where *{Your Search Terms}* is your search keywords.
-<br/>
 <br/>
 
 ## Use our development support tools
@@ -54,6 +53,7 @@ Where *{Your Search Terms}* is your search keywords.
 |[Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)| Tool that lets you make requests and see responses against the Microsoft Graph API|
 
 <br/>
+
 [![Stack Overflow](media/active-directory-develop-help-support/stackoverflow-logo.png)](https://www.stackoverflow.com)
 ## Post a question to Stack Overflow
 
