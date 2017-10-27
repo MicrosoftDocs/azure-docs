@@ -22,8 +22,7 @@
 ### [Manage with Azure PowerShell](cdn-manage-powershell.md)
 ### [Restrict access by country](cdn-restrict-access-by-country.md)
 ### [Improve performance by compressing files](cdn-improve-performance.md)
-### Caching
-#### [How caching works](cdn-how-caching-works.md)
+### [How caching works](cdn-how-caching-works.md)
 #### [Control Azure CDN caching behavior with caching rules](cdn-caching-rules.md)
 #### Cache content by query strings
 ##### [Standard tier](cdn-query-string.md)

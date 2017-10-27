@@ -1,5 +1,5 @@
 ---
-title: How caching works | Microsoft Docs
+title: How caching works in Azure CDN | Microsoft Docs
 description: 'Caching is the process of storing data locally so that future requests for that data can be accessed more quickly.'
 services: cdn
 documentationcenter: ''
@@ -58,7 +58,7 @@ Similar to a web browser, you can control how CDN caching is performed by sendin
 
 ## HTTP cache-directive headers
 
-The following cache-directive headers define cache duration and cache sharing: 
+Azure CDN supports the following cache-directive headers, which define cache duration and cache sharing: 
 
 `Cache-Control`  
 - Introduced in HTTP 1.1 to give web publishers more control over their content and to address the limitations of the `Expires` header.
