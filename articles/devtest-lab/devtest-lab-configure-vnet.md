@@ -18,8 +18,8 @@ ms.author: tarcher
 
 ---
 # Configure a virtual network in Azure DevTest Labs
-As explained in the article, [Add a VM with artifacts to a lab](devtest-lab-add-vm-with-artifacts.md), when you create a VM in a lab, you can specify a configured virtual network. 
-One scenario for doing this is if you need to access your corpnet resources from your VMs using the virtual network that was configured with ExpressRoute or site-to-site VPN.
+As explained in the article [Add a VM with artifacts to a lab](devtest-lab-add-vm-with-artifacts.md), when you create a VM in a lab, you can specify a configured virtual network. 
+For example, you might need to access your corpnet resources from your VMs using the virtual network that was configured with ExpressRoute or site-to-site VPN.
 
 This article explains how to add your existing virtual network into a lab's Virtual Network settings so that it is available to choose when creating VMs.
 
@@ -38,14 +38,14 @@ The following steps walk you through adding an existing virtual network (and sub
 1. On the **Virtual network** pane, select **[Select virtual network]**.
    
     ![Select an existing virtual network](./media/devtest-lab-configure-vnet/lab-settings-vnets-vnet1.png)
-1. On the **Choose virtual network** pane, select the desired virtual network. This lists all the virtual networks that are under the same region in the subscription as the lab.  
+1. On the **Choose virtual network** pane, select the desired virtual network. A list is displayed showing all of the virtual networks that are under the same region in the subscription as the lab.
 1. After selecting a virtual network, you are returned to the **Virtual network** pane. Select the subnet in the list at the bottom.
 
     ![Subnet list](./media/devtest-lab-configure-vnet/lab-settings-vnets-vnet2.png)
     
-    The Lab Subnet blade is displayed.
+    The Lab Subnet pane is displayed.
 
-    ![Lab subnet blade](./media/devtest-lab-configure-vnet/lab-subnet.png)
+    ![Lab subnet pane](./media/devtest-lab-configure-vnet/lab-subnet.png)
      
    - Specify a **Lab subnet name**.
    - To allow a subnet to be used in lab VM creation, select **Use in virtual machine creation**.
