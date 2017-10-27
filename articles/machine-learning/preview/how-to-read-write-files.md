@@ -138,7 +138,7 @@ C:\users\<username>\.azureml\share\<exp_acct_name>\<workspace_name>\<proj_name>\
 
 You can place input data directly in these folders and expect that your local or Docker runs on the machine can pick it up. You can also write files to this folder from your local or Docker runs, and expect files get persisted in that folder, surviving the execution lifecycle.
 
-For more information, see [Azure Machine Learning Workbench execution configuration files](experiment-execution-configuration-reference.md).
+For more information, see [Azure Machine Learning Workbench execution configuration files](experiment-execution-configuration-reference.md). (PLEASE FIX LINK)
 
 >[!NOTE]
 >The `AZUREML_NATIVE_SHARE_DIRECTORY` environment variable is not supported in an HDInsight compute context. However, it is easy to achieve the same result by explicitly using an absolute Azure Blob storage path to read from and write to the attached blob storage.
