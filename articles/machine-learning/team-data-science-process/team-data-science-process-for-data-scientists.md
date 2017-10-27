@@ -1,5 +1,5 @@
 ---
-title: Learning Path – Create Solutions with the Team Data Science Process | Microsoft Docs
+title: Team Data Science Process for data scientists | Microsoft Docs
 description: Provides guidance to understand an analytics workload using the Team Data Science Process and Azure Machine Learning.
 services: machine-learning
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2017
+ms.date: 10/27/2017
 ms.author: bradsev;
 
 ---
 
-# Learning Path – Create solutions with the Team Data Science Process
+# Team Data Science Process for data scientists
 
 In this learning path, you are guided through understanding an analytics workload, using the Team Data Science Process and Azure Machine Learning, the foundations of data transfer and storage, data source documentation, storage, and analytics processing using various tools in a comprehensive solution.
 
