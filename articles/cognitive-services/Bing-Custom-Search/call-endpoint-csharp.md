@@ -107,6 +107,11 @@ namespace bing_custom_search_example_dotnet
     }
 }
 ```
+9. Run the code using the commands below replacing **PATH TO OUTPUT** with the path referenced by the build step:
+    <pre>
+    dotnet build
+    dotnet **PATH TO OUTPUT**
+    </pre>
 
 ### Next steps
 - [Configure and consume custom hosted UI](./hosted-ui.md)
