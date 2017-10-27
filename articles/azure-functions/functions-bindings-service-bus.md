@@ -201,11 +201,11 @@ In JavaScript, access the queue or topic message by using `context.bindings.<nam
 
 ## Trigger - poison messages
 
-Service Bus does its own poison message handling, which can't be controlled or configured in Azure Functions configuration or code. 
+Poison message handling can't be controlled or configured in Azure Functions. Service Bus does its own poison message handling.
 
 ## Trigger - PeekLock behavior
 
-The Functions runtime receives a message in [`PeekLock` mode](../service-bus-messaging/service-bus-performance-improvements.md#receive-mode) and calls `Complete` on the message if the function finishes successfully, or calls `Abandon` if the function fails. If the function runs longer than the `PeekLock` timeout, the lock is automatically renewed.
+The Functions runtime receives a message in [`PeekLock` mode](../service-bus-messaging/service-bus-performance-improvements.md#receive-mode). It calls `Complete` on the message if the function finishes successfully, or calls `Abandon` if the function fails. If the function runs longer than the `PeekLock` timeout, the lock is automatically renewed.
 
 ## Trigger - host.json
 
@@ -228,7 +228,7 @@ See the language-specific example:
 
 ### Trigger - C# example
 
-The following example shows a [precompiled C# function](functions-dotnet-class-library.md) that sends a Service Bus queue message when it is triggered by an HTTP request:
+The following example shows a [precompiled C# function](functions-dotnet-class-library.md) that sends a Service Bus queue message:
 
 ```cs
 [FunctionName("ServiceBusOutput")]
@@ -293,7 +293,7 @@ public static void Run(TimerInfo myTimer, TraceWriter log, ICollector<string> ou
 
 ### Output - F# example
 
-The following example shows a Service Bus output binding in a *function.json* file and a [F# script function](functions-reference-fsharp.md) that uses the binding. The function uses a timer trigger to send a queue message every 15 seconds.
+The following example shows a Service Bus output binding in a *function.json* file and an [F# script function](functions-reference-fsharp.md) that uses the binding. The function uses a timer trigger to send a queue message every 15 seconds.
 
 Here's the binding data in the *function.json* file:
 
@@ -394,7 +394,7 @@ The following settings are configured in the *function.json* file and the C# att
 |Property  |Description  |
 |---------|---------|
 |`queueName`|Name of the queue.  Set only if sending queue messages, not for a topic.
-|`topicName`|Name of the topic to monitor. Set only if sending topic mesages, not for a queue.|
+|`topicName`|Name of the topic to monitor. Set only if sending topic messages, not for a queue.|
 |`subscriptionName`|Name of the subscription to monitor. Set only if sending topic messages, not for a queue.|
 |`connection`|The name of an app setting that contains the Service Bus connection string to use for this trigger binding. [Create an app setting](functions-how-to-use-azure-function-app-settings.md) that contains the connection string to the Service Bus namespace. Then specify the 
   name of the app setting in the `connection` property. Obtain the connection string by following the steps shown at [Obtain the management credentials](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials). The connection string must be for a Service Bus namespace, not limited to a specific queue or topic. If you leave `connection` empty, the trigger assumes that a default Service Bus connection string is specified in an app setting named `AzureWebJobsServiceBus`.|
