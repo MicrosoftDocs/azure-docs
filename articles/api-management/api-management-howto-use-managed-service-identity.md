@@ -48,7 +48,7 @@ For example, a complete template might look like the following:
         "publisherEmail": {
             "type": "string",
             "minLength": 1,
-            "defaultValue": "sasolank@microsoft.com",
+            "defaultValue": "admin@contoso.com",
             "metadata": {
                 "description": "The email address of the owner of the service"
             }
@@ -56,7 +56,7 @@ For example, a complete template might look like the following:
         "publisherName": {
             "type": "string",
             "minLength": 1,
-            "defaultValue": "Microsoft",
+            "defaultValue": "Contoso",
             "metadata": {
                 "description": "The name of the owner of the service"
             }
