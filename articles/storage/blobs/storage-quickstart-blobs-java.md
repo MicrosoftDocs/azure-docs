@@ -59,7 +59,7 @@ This command clones the repository to your local git folder. To open the project
 
 Select the root directory and browse to the “javaQuickstarts” folder inside the cloned repo. Select this as the root directory. Make sure the javaBlobQuickstart project appears under **Projects:** and then click finish.
 
-Once the project finishes importing, close the welcome screen, then open **AzureApp.java** (located in **com.fabrikam.testAzureApp** inside of **src/main/java**) and replace the `accountname` and `accountkey` inside of the **storageConnectionString** string. Then run the application.
+Once the project finishes importing, close the welcome screen, then open **AzureApp.java** (located in **com.fabrikam.testAzureApp** inside of **src/main/java**) and replace the `accountname` and `accountkey` inside of the `storageConnectionString` string. Then run the application.
      
 
 ## Configure your storage connection string
