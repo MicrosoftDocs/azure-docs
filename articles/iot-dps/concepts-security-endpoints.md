@@ -185,5 +185,5 @@ The following table lists the permissions you can use to control access to your 
 
 <!-- links and images -->
 
-[img-add-shared-access-policy]: ./media/how-to-control-access/how-to-add-shared-access-policy.png
+[img-add-shared-access-policy]: ./media/how-to-control-access/how-to-add-shared-access-policy.PNG
 [lnk-sdks]: ../iot-hub/iot-hub-devguide-sdks.md
