@@ -14,7 +14,7 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.tgt_pltfrm: 
 ms.workload: 
-ms.date: 10/23/2017
+ms.date: 10/27/2017
 ms.author: danlep
 ms.custom: mvc
 ---
@@ -25,7 +25,7 @@ The Azure CLI is used to create and manage Azure resources from the command line
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.?? or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
@@ -111,7 +111,7 @@ Output is similar to the following:
   "taskSchedulingPolicy": {
     "nodeFillType": "spread"
   },
-  "url": "https://danlep1026b.eastus.batch.azure.com/pools/mypool-linux",
+  "url": "https://mybatchaccount.eastus.batch.azure.com/pools/mypool-linux",
   "userAccounts": null,
   "virtualMachineConfiguration": {
     "containerConfiguration": null,
@@ -150,26 +150,148 @@ az batch job create --id myjob-windows --pool-id mypool-windows
 
 ## Create sample tasks
 
-Now use the [az batch task create](/cli/azure/batch/task#az_batch_task_create)create some tasks to run in the job. Batch tasks.
+Now use the [az batch task create](/cli/azure/batch/task#az_batch_task_create) command to create some tasks to run in the job. In this example, the task is a bash command line that runs the `printenv` command to show environment variables on a Linux compute node. When you use Batch, this command line is where you specify your app or script.
+
+The following script creates 4 parallel tasks (*testtask1* to *testtask4*), which Batch distributes to the Linux pool nodes.
 
 ```azurecli-interactive 
+for i in {1..4}
+do
+   az batch task create --task-id mytask$i --job-id myjob-linux --command-line "/bin/bash -c \"printenv\""
+done
 ```
 
+The following script creates tasks to run the `set` command on the Windows pool nodes:
+
+```azurecli-interactive
+for i in {1..4}
+do
+    az batch task create --task-id mytask$i --job-id myjob-windows --command-line "cmd /c \"set\""
+done
+```
 ## View task status
 
-Use the following command to view the status of the Batch tasks.
+Use the [az batch task show](/cli/azure/batch/task#az_batch_task_show) command to view the status of the Batch tasks. The following example shows the status of *mytask3* running on one of the Linux pool nodes.
 
 ```azurecli-interactive 
+az batch task show --job-id myjob-linux --task-id mytask3
+```
+
+Output is similar to the following. An `exitCode` of 0 indicates that the task completed successfully. The `nodeId` indicates the ID of the pool node on which the task ran.
+
+```JSON
+{
+  "affinityInfo": null,
+  "applicationPackageReferences": null,
+  "authenticationTokenSettings": null,
+  "commandLine": "/bin/bash -c \"printenv\"",
+  "constraints": {
+    "maxTaskRetryCount": 0,
+    "maxWallClockTime": "10675199 days, 2:48:05.477581",
+    "retentionTime": "10675199 days, 2:48:05.477581"
+  },
+  "containerSettings": null,
+  "creationTime": "2017-10-27T20:01:21.215678+00:00",
+  "dependsOn": null,
+  "displayName": null,
+  "eTag": "0x8D51D757E6BA775",
+  "environmentSettings": null,
+  "executionInfo": {
+    "containerInfo": null,
+    "endTime": "2017-10-27T20:01:25.199188+00:00",
+    "exitCode": 0,
+    "failureInfo": null,
+    "lastRequeueTime": null,
+    "lastRetryTime": null,
+    "requeueCount": 0,
+    "result": "success",
+    "retryCount": 0,
+    "startTime": "2017-10-27T20:01:24.625964+00:00"
+  },
+  "exitConditions": null,
+  "id": "mytask3",
+  "lastModified": "2017-10-27T20:01:21.215678+00:00",
+  "multiInstanceSettings": null,
+  "nodeInfo": {
+    "affinityId": "TVM:tvm-1392786932_2-20171026t223740z",
+    "nodeId": "tvm-1392786932_2-20171026t223740z",
+    "nodeUrl": "https://mybatchaccount.eastus.batch.azure.com/pools/mypool-linux/nodes/tvm-1392786932_2-20171026t223740z",
+    "poolId": "mypool-linux",
+    "taskRootDirectory": "workitems/myjob-linux/job-1/mytask3",
+    "taskRootDirectoryUrl": "https://mybatchaccount.eastus.batch.azure.com/pools/mypool-linux/nodes/tvm-1392786932_2-20171026t223740z/files/workitems/myjob-linux/job-1/mytask3"
+  },
+  "outputFiles": null,
+  "previousState": "running",
+  "previousStateTransitionTime": "2017-10-27T20:01:24.625827+00:00",
+  "resourceFiles": null,
+  "state": "completed",
+  "stateTransitionTime": "2017-10-27T20:01:25.199188+00:00",
+  "stats": null,
+  "url": "https://mybatchaccount.eastus.batch.azure.com/jobs/myjob-linux/tasks/mytask3",
+  "userIdentity": {
+    "autoUser": {
+      "elevationLevel": "nonAdmin",
+      "scope": null
+    },
+    "userName": null
+  }
+}
+
 ```
 
 ## View task output
 
-Use the following command to view the output of one of the Batch tasks.
+Use the [az batch task file list](/cli/azure/batch/task#az_batch_task_file_list) command to list the files created by one of the Batch tasks. The following command lists the files created by *mytask3* on the Linux pool: 
 
 ```azurecli-interactive 
+az batch task file list --job-id myjob-linux --task-id mytask3 -o table
 ```
 
+Output is similar to the following:
 
+```
+Name        URL                                                                                         Is Directory      Content Length
+----------  ------------------------------------------------------------------------------------------  --------------  ----------------
+stdout.txt  https://mybatchaccount.eastus.batch.azure.com/jobs/myjob-linux/tasks/mytask3/files/stdout.txt  False                       1021
+certs       https://mybatchaccount.eastus.batch.azure.com/jobs/myjob-linux/tasks/mytask3/files/certs       True
+wd          https://mybatchaccount.eastus.batch.azure.com/jobs/myjob-linux/tasks/mytask3/files/wd          True
+stderr.txt  https://mybatchaccount.eastus.batch.azure.com/jobs/myjob-linux/tasks/mytask3/files/stderr.txt  False                          0
+
+```
+
+Use the [az batch task file download](/cli/azure/batch/task#az_batch_task_file_download) command to download one of the output files to a local directory. This task returns its output in `stdout.txt`. 
+
+```azurecli-interactive
+
+az batch task file download --job-id myjob-linux --task-id mytask3 --file-path stdout.txt --destination ./stdout.txt
+```
+
+You can view the contents of `stdout.txt` in a text editor. The contents show the Azure Batch environment variables that are set on the node. When you create your own Batch jobs, you can reference these environment variables in task command lines, and in the programs and scripts run by the command lines.
+
+```
+AZ_BATCH_TASK_DIR=/mnt/batch/tasks/workitems/myjob-linux/job-1/mytask3
+USER=_azbatch
+AZ_BATCH_NODE_STARTUP_DIR=/mnt/batch/tasks/startup
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/mnt/batch/tasks/shared:/mnt/batch/tasks/workitems/myjob-linux/job-1/mytask3/wd
+AZ_BATCH_CERTIFICATES_DIR=/mnt/batch/tasks/workitems/myjob-linux/job-1/mytask3/certs
+PWD=/mnt/batch/tasks/workitems/myjob-linux/job-1/mytask3/wd
+AZ_BATCH_ACCOUNT_URL=https://mybatchaccount.eastus.batch.azure.com/
+AZ_BATCH_TASK_WORKING_DIR=/mnt/batch/tasks/workitems/myjob-linux/job-1/mytask3/wd
+AZ_BATCH_NODE_SHARED_DIR=/mnt/batch/tasks/shared
+SHLVL=1
+HOME=/mnt/batch/tasks/workitems/myjob-linux/job-1/mytask3/wd
+AZ_BATCH_TASK_USER=_azbatch
+AZ_BATCH_NODE_ROOT_DIR=/mnt/batch/tasks
+AZ_BATCH_JOB_ID=myjob-linux
+AZ_BATCH_NODE_IS_DEDICATED=true
+AZ_BATCH_NODE_ID=tvm-1392786932_2-20171026t223740z
+AZ_BATCH_POOL_ID=mypool-linux
+AZ_BATCH_TASK_ID=mytask3
+AZ_BATCH_ACCOUNT_NAME=mybatchaccount
+AZ_BATCH_TASK_USER_IDENTITY=PoolNonAdmin
+_=/usr/bin/printenv
+
+```
 
 ## Clean up resources
 
@@ -185,4 +307,4 @@ In this quick start, you’ve .... To learn more about Azure Batch, continue to 
 
 
 > [!div class="nextstepaction"]
-> [Azure Batch tutorials](./tutorial-.....md)
+> [Azure Batch tutorials](batch-dotnet-get-started.md)
