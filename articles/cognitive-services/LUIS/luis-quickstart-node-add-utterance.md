@@ -32,9 +32,10 @@ You can find your app ID and version number by logging into https://www.luis.ai 
 
 1. Copy the following code snippet:
 
+
+   [!code-nodejs[Console app code that calls a LUIS endpoint for Node.js](~/samples-luis/documentation-samples/authoring-api-samples/node/add-single-utterance.js)]
+
 <!-- 
-   [!code-nodejs[Console app code that calls a LUIS endpoint for Node.js](~/samples-luis/documentation-samples/endpoint-api-samples/node/call-endpoint.js)]
--->
    ```javascript
 var rp = require('request-promise');
 var fse = require('fs-extra');
@@ -130,7 +131,7 @@ var sendUtteranceToApi = async (options) => {
     }   
 }   
    ```
-
+-->
 2. Set the `LUIS_APP_ID` environment variable as described in the code comments. 
 
 3. Set the `LUIS_SUBSCRIPTION_KEY` environment variable to your Cognitive Services programmatic key.
