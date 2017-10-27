@@ -12,7 +12,7 @@ ms.topic: article
 ms.date: 09/10/2017
 ---
 # Persisting changes and working with large files
-With the Azure Machine Learning Experimentation service, you can configure a variety of execution targets. Some targets are local, such as a local computer or a Docker container on a local computer. Others are remote, such as a Docker container on a remote machine or an HDInsight cluster. For more information, see [Overview of Azure Machine Learning experiment execution service](experiment-execution-configuration.md). 
+With the Azure Machine Learning Experimentation service, you can configure a variety of execution targets. Some targets are local, such as a local computer or a Docker container on a local computer. Others are remote, such as a Docker container on a remote machine or an HDInsight cluster. For more information, see [Overview of Azure Machine Learning experiment execution service](experiment-execution-configuration.md).  THIS IS ALSO BROKEN
 
 Before you can execute on a target, you must copy the project folder to the compute target. You must do so even with a local execution that uses a local temp folder for this purpose. 
 
