@@ -1,7 +1,7 @@
 ﻿---
 
 title: CHD requirements for PCI DSS-compliant environments
-description:PCI DSS Requirement 3
+description: PCI DSS Requirement 3
 services: security
 documentationcenter: na
 author: simorjay
