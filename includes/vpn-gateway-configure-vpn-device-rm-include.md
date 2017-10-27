@@ -1,4 +1,4 @@
-See the following links for configuration information:
+**See the following links for configuration information:**
 
 - For information about compatible VPN devices, see [VPN Devices](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md).
 
