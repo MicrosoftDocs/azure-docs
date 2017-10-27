@@ -14,18 +14,18 @@ ms.topic: article
 ms.date: 09/11/2017
 ---
 # Sample of custom source connections (Python) 
-Before reading this appendix, read [Python extensibility overview](data-prep-python-extensibility-overview.md).
+Before you read this appendix, read [Python extensibility overview](data-prep-python-extensibility-overview.md).
 
 ## Load data from data.world
 
 ### Prerequisites
 
 #### Register yourself at data.world
-You need an API token is from the data.world website.
+You need an API token from the data.world website.
 
 #### Install data.world library
 
-Open the Azure Machine Learning Workbench command-line interface by selecting **File > Open command-line interface**.
+Open the Azure Machine Learning Workbench command-line interface by selecting **File** > **Open command-line interface**.
 
 ```console
 pip install git+git://github.com/datadotworld/data.world-py.git

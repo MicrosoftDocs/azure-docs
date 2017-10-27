@@ -1,4 +1,4 @@
----
+    ---
 title: Example transform data flow transformations possible with Azure Machine Learning Data Preparation  | Microsoft Docs
 description: This document provides a set of examples of transform data flow transforms possible with Azure Machine Learning data preparation
 services: machine-learning
@@ -15,7 +15,7 @@ ms.date: 09/11/2017
 ---
 
 # Sample of custom data flow transforms (Python) 
-The name of the transform in the menu is **Transform Dataflow (Script)**. Before reading this appendix, read [Python extensibility overview](data-prep-python-extensibility-overview.md).
+The name of the transform in the menu is **Transform Dataflow (Script)**. Before you read this appendix, read [Python extensibility overview](data-prep-python-extensibility-overview.md).
 
 ## Transform frame
 ### Create a new column dynamically 
@@ -38,7 +38,7 @@ Reformulates the data to meet a formula for reducing the outliers in a column.
 
 ## Transform data flow
 ### Fill down 
-Fill down requires two transforms. It assumes data that looks like the following;
+Fill down requires two transforms. It assumes data that looks like the following:
 
 
 |State         |City       |
@@ -63,7 +63,7 @@ Now create a Transform Data Flow (Script) transform that contains the following 
     df = df.fillna( method='pad')
 ```
 
-The data now looks like the following;
+The data now looks like the following:
 
 |State         |newState         |City       |
 |--------------|--------------|-----------|
