@@ -73,6 +73,8 @@ In the world we live in, multi-Factor authentication (MFA) is an essential part 
 
 With this public preview, MFA management and reporting are an integrated part of the core Azure AD configuration experience, allowing you to manage the MFA Management portal functionality within the Azure AD experience.
 
+For more information, see [Reference for multi-factor authentication reporting in the Azure portal](active-directory-reporting-activity-sign-ins-mfa.md) 
+
 
 ---
 **Type:** New feature  
@@ -109,8 +111,6 @@ For more information, see [PIM for Azure resources](privileged-identity-manageme
 **Service Category:** Access Reviews  
 **Product Capability:** Governance  
 
-
-What's new in Azure AD?
 
 Access reviews (preview) enable organizations to efficiently manage group memberships and access to enterprise applications: 
 
