@@ -28,16 +28,16 @@ A timer trigger lets you run a function on a schedule.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## Trigger - example
+## Example
 
 See the language-specific example:
 
 * [Precompiled C#](#trigger---c-example)
 * [C# script](#trigger---c-script-example)
-* [F# script](#trigger---f-script-example)
+* [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
 
-### Trigger - C# example
+### C# example
 
 The following example shows a [precompiled C# function](functions-dotnet-class-library.md) that runs every five minutes:
 
@@ -49,7 +49,7 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWr
 }
 ```
 
-### Trigger - C# script example
+### C# script example
 
 The following example shows a timer trigger binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function writes a log indicating whether this function invocation is due to a missed schedule occurrence.
 
@@ -77,7 +77,7 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
 }
 ```
 
-### Trigger - F# example
+### F# example
 
 The following example shows a timer trigger binding in a *function.json* file and a [F# script function](functions-reference-fsharp.md) that uses the binding. The function writes a log indicating whether this function invocation is due to a missed schedule occurrence.
 
@@ -102,7 +102,7 @@ let Run(myTimer: TimerInfo, log: TraceWriter ) =
     log.Info(sprintf "F# function executed at %s!" now)
 ```
 
-### Trigger - JavaScript example
+### JavaScript example
 
 The following example shows a timer trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function writes a log indicating whether this function invocation is due to a missed schedule occurrence.
 
@@ -133,7 +133,7 @@ module.exports = function (context, myTimer) {
 };
 ```
 
-## Trigger - C# attributes
+## C# attributes
 
 For [precompiled C#](functions-dotnet-class-library.md) functions, use the [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs), defined in NuGet package [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions).
 
@@ -146,7 +146,7 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWr
 
 You can specify a `TimeSpan` instead of a CRON expression if your function app runs on an App Service plan (not a Consumption plan).
 
-## Trigger - settings
+## Settings
 
 The following settings appear only in the *function.json* file:
 
@@ -228,7 +228,7 @@ To trigger At 9:30 AM every weekday:
 "schedule": "0 30 9 * * 1-5",
 ```
 
-## Trigger - usage
+## Usage
 
 When a timer trigger function is invoked, the 
 [timer object](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) 
@@ -246,7 +246,7 @@ is passed into the function. The following JSON is an example representation of 
 }
 ```
 
-## Trigger - scale-out
+## Scale-out
 
 The timer trigger supports multi-instance scale-out. A single instance of a particular timer function is run across all instances.
 
