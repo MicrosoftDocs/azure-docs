@@ -84,6 +84,8 @@ If you don't already have a virtual network, create one. When creating a virtual
 >
 >
 
+### About gateway subnets
+
 [!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-include.md)]
 
 [!INCLUDE [No NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
