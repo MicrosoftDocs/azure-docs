@@ -24,11 +24,11 @@ ms.custom: H1Hack27Feb2017
 
 There are several ways to authenticate with an Azure container registry, each of which applicable to one or more registry usage scenarios.
 
-You can log in to a registry directly, which we'll call [individual login](#individual-login), and your applications and container orchestrators can perform unattended, or "headless," authentication by using a [service principal](#service-principal).
+You can log in to a registry directly, which we'll call [individual login](#individual-login-with-azure-ad), and your applications and container orchestrators can perform unattended, or "headless," authentication by using an Azure Active Directory (Azure AD) [service principal](#service-principal).
 
 Azure Container Registry does not support anonymous login. For public images, you can use [Docker Hub](https://docs.docker.com/docker-hub/).
 
-## Individual login
+## Individual login with Azure AD
 
 Authenticate to your registry with the [az acr login](/cli/azure/acr?view=azure-cli-latest#az_acr_login) command in the [Azure CLI](/cli/azure/install-azure-cli):
 
@@ -36,11 +36,11 @@ Authenticate to your registry with the [az acr login](/cli/azure/acr?view=azure-
 az acr login --name <acrName>
 ```
 
-When you log in with `az acr login`, the CLI creates an AAD [service principal](#service-principal) for you automatically, and uses it to seamlessly authenticate your session. Once you've logged in this way, your credentials are cached, and subsequent `docker` commands do not require a username or password.
+When you log in with `az acr login`, the CLI creates an Azure AD [service principal](#service-principal) for you automatically, and uses it to seamlessly authenticate your session. Once you've logged in this way, your credentials are cached, and subsequent `docker` commands do not require a username or password.
 
 ## Service principal
 
-You can assign a [service principal](../active-directory/develop/active-directory-application-objects.md) to your registry and use it for basic Docker authentication. Using a service principal is recommended for most authentication scenarios, including "headless" authentication from applications or container orchestrators.
+You can assign a [service principal](../active-directory/develop/active-directory-application-objects.md) to your registry and use it for basic Docker authentication. Using a service principal is recommended for most authentication scenarios. This includes headless authentication from applications and container orchestrators, as well as users performing an [individual login](#individual-login-with-azure-ad) in the Azure CLI.
 
 Service principals allow [role-based access](../active-directory/role-based-access-control-configure.md) to a registry. Available roles are:
   * **Reader**: pull only access
