@@ -110,8 +110,6 @@ For more information, see [PIM for Azure resources](privileged-identity-manageme
 **Product Capability:** Governance  
 
 
-What's new in Azure AD?
-
 Access reviews (preview) enable organizations to efficiently manage group memberships and access to enterprise applications: 
 
 - You can recertify guest user access using access reviews of their access to applications and memberships of groups. The insights provided by the access reviews enable reviewers to efficiently decide whether guests should have continued access.
