@@ -133,7 +133,7 @@ module.exports = function (context, myTimer) {
 };
 ```
 
-## C# attributes
+## .NET attributes
 
 For [precompiled C#](functions-dotnet-class-library.md) functions, use the [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs), defined in NuGet package [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions).
 
@@ -156,7 +156,7 @@ The following settings appear only in the *function.json* file:
 |`direction` | Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. |
 |`name` | The name of the variable that represents the timer object in function code. | 
 
-The following setting is configured in the *function.json* file and the C# attribute constructor.  
+The following setting is configured in the *function.json* file and the .NET attribute constructor.  
 
 |Property  |Description  |
 |---------|---------|

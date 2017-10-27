@@ -173,7 +173,7 @@ module.exports = function (context, myEventHubMessage) {
 };
 ```
 
-## Trigger - C# attributes
+## Trigger - .NET attributes
 
 For [precompiled C#](functions-dotnet-class-library.md) functions, use the [Microsoft.Azure.WebJobs.ServiceBus.EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs) attribute, which is defined in NuGet package [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
 
@@ -194,7 +194,7 @@ The following settings appear only in the *function.json* file:
 |**direction** | Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. |
 |**name** | The name of the variable that represents the event item in function code. | 
 
-The following settings are configured in the *function.json* file and the C# attribute constructor:
+The following settings are configured in the *function.json* file and the .NET attribute constructor:
 
 |Property  |Description  |
 |---------|---------|
@@ -237,7 +237,7 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, Trac
 
 ### Output - C# script example
 
-The following example shows a blob trigger binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function writes a message to an event hub.
+The following example shows an event hub trigger binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function writes a message to an event hub.
 
 Here's the binding data in the *function.json* file:
 
@@ -278,7 +278,7 @@ public static void Run(TimerInfo myTimer, ICollector<string> outputEventHubMessa
 
 ### Output - F# example
 
-The following example shows a blob trigger binding in a *function.json* file and an [F# function](functions-reference-fsharp.md) that uses the binding. The function writes a message to an event hub.
+The following example shows an event hub trigger binding in a *function.json* file and an [F# function](functions-reference-fsharp.md) that uses the binding. The function writes a message to an event hub.
 
 Here's the binding data in the *function.json* file:
 
@@ -303,7 +303,7 @@ let Run(myTimer: TimerInfo, outputEventHubMessage: byref<string>, log: TraceWrit
 
 ### Output - JavaScript example
 
-The following example shows a blob trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function writes a message to an event hub.
+The following example shows an event hub trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function writes a message to an event hub.
 
 Here's the binding data in the *function.json* file:
 
@@ -343,7 +343,7 @@ module.exports = function(context) {
 };
 ```
 
-## Output - C# attributes
+## Output - .NET attributes
 
 For [precompiled C#](functions-dotnet-class-library.md) functions, use the [Microsoft.Azure.WebJobs.ServiceBus.EventHubAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs) attribute, which is defined in NuGet package [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
 
@@ -365,7 +365,7 @@ The following settings appear only in the *function.json* file:
 |**direction** | Must be set to `out`. This parameter is set automatically when you create the binding in the Azure portal. |
 |**name** | The variable name used in function code that represents the event. | 
 
-The following settings are configured in the *function.json* file and the C# attribute constructor:
+The following settings are configured in the *function.json* file and the .NET attribute constructor:
 
 |Property  |Description  |
 |---------|---------|

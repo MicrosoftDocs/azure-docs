@@ -141,7 +141,7 @@ module.exports = function(context, myQueueItem) {
 };
 ```
 
-## Trigger - C# attributes
+## Trigger - .NET attributes
 
 For [precompiled C#](functions-dotnet-class-library.md) functions, use the following attributes to configure a Service Bus trigger:
 
@@ -178,7 +178,7 @@ The following settings appear only in the *function.json* file:
 |`direction` | Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. |
 |`name` | The name of the variable that represents the queue or topic message in function code. Set to `$return` to reference the function return value. | 
 
-The following settings are configured in the *function.json* file and the C# attribute constructor:
+The following settings are configured in the *function.json* file and the .NET attribute constructor:
 
 |Property  |Description  |
 |---------|---------|
@@ -389,7 +389,7 @@ The following settings appear only in the *function.json* file:
 |`direction` | Must be set to `out`. This property is set automatically when you create the trigger in the Azure portal. |
 |`name` | The name of the variable that represents the queue or topic in function code. Set to `$return` to reference the function return value. | 
 
-The following settings are configured in the *function.json* file and the C# attribute constructor:
+The following settings are configured in the *function.json* file and the .NET attribute constructor:
 
 |Property  |Description  |
 |---------|---------|
