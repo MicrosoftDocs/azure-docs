@@ -201,7 +201,7 @@ This exercise simulates the effect of Contoso Concert Hall experiencing a high l
 1. Execute the script using **F5**.
 
 
-1. In the [Azure portal](https://portal.azure.com) browse to the list of databases on the *tenants1-\<username\>* server. 
+1. In the [Azure portal](https://portal.azure.com) browse to the list of databases on the *tenants1* server. 
 1. Click on the **contosoconcerthall** database.
 1. Click on the pool that **contosoconcerthall** is in. Locate the pool in the **Elastic database pool** section.
 
