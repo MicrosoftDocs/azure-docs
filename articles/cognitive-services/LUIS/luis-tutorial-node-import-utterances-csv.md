@@ -53,7 +53,7 @@ The code for this tutorial is at [CSV Upload Sample](https://github.com/Microsof
 | [_upload.js](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/demo-upload-example-utterances/demo-Upload-utterances-from-querylog/_upload.js)  |  This file contains methods for uploading JSON to the [Batch Add Labels API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09) |
 
 
-## Install
+## Install Node.js dependencies
 Install the Node.js dependencies from NPM in the terminal/command line.
 
 ````
