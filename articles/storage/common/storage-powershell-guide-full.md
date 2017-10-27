@@ -214,7 +214,8 @@ Now that you understand how to manage your storage account with PowerShell, you 
 * [How to manage files with PowerShell](../files/storage-how-to-use-files-powershell.md)
 * [How to manage queues with PowerShell](../queues/storage-powershell-how-to-use-queues.md)
 * [How to manage Azure Storage standard tables with PowerShell](../../cosmosdb/table-storage-how-to-use-powershell.md)
-* [How to manage Cosmos DB premium tables with PowerShell](../../cosmosdb/table-powershell.md)
+
+To check out the new premium table storage in Cosmos DB, see [How to manage Cosmos DB premium tables with PowerShell](../../cosmosdb/table-powershell.md).
 
 ## Azure's independently-deployed clouds
 
