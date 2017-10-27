@@ -87,6 +87,11 @@ In the event that your VNet is already configured to force tunnel all the traffi
 
 If this is configured properly then the ASE will start up with no issues.  
 
+
+<!--IMAGES-->
+[1]: ./media/forced-tunnel-support/forced-tunnel-flow.png
+
+<!--Links-->
 [management]: ./management-addresses.md
 [network]: ./network-info.md
 [routes]: ../../virtual-network/virtual-networks-udr-overview.md
