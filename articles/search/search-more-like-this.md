@@ -4,7 +4,7 @@ description: "Preliminary documentation for the MoreLikeThis (preview) feature, 
 services: "search"
 documentationCenter: ""
 authors: "mhko"
-manager: "pablocas"
+manager: "jlembicz"
 editor: ""
 
 ms.service: "search"
@@ -12,7 +12,7 @@ ms.devlang: "rest-api"
 ms.workload: "search"
 ms.topic: "article"
 ms.tgt_pltfrm: "na"
-ms.date: "07/07/2016"
+ms.date: "10/27/2016"
 ms.author: "nateko"
 ---
 # MoreLikeThis in Azure Search (preview)
@@ -35,4 +35,4 @@ POST /indexes/hotels/docs/search?api-version=2016-09-01-Preview
 
 ## Feature availability
 
-The moreLikeThis feature is currently in preview and only supported in the preview api-versions. Because the API version is specified on the request, it's possible to combine generally available (GA) and preview APIs in the same app. However, preview APIs are not under SLA and features may change, so we do not recommend using them in production applications.
+The moreLikeThis feature is currently in preview and only supported in the preview api-versions, `2015-02-28-Preview` and `2016-09-01-Preview`. Because the API version is specified on the request, it's possible to combine generally available (GA) and preview APIs in the same app. However, preview APIs are not under SLA and features may change, so we do not recommend using them in production applications.
