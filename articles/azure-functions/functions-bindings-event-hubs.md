@@ -37,7 +37,7 @@ See the language-specific example:
 
 * [Precompiled C#](#trigger---c-example)
 * [C# script](#trigger---c-script-example)
-* [F#](#trigger---f-script-example)
+* [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### Trigger - C# example
@@ -52,7 +52,7 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 }
 ```
 
-You can also receive the event as an [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) object, which gives you access to the event metadata (requires a using statement for `Microsoft.ServiceBus.Messaging`.
+To get access to the event metadata, bind to an [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) object (requires a using statement for `Microsoft.ServiceBus.Messaging`).
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
@@ -61,7 +61,7 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
     log.Info($"{Encoding.UTF8.GetString(myEventHubMessage.GetBytes())}");
 }
 ```
-To receive events in a batch, change the method signature to `string[]` or `EventData[]`.
+To receive events in a batch, make `string` or `EventData` an array:
 
 ```cs
 [FunctionName("EventHubTriggerCSharp")]
@@ -100,7 +100,7 @@ public static void Run(string myEventHubMessage, TraceWriter log)
 }
 ```
 
-You can also receive the event as an [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) object, which gives you access to the event metadata:
+To get access to the event metadata, bind to an [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) object (requires a using statement for `Microsoft.ServiceBus.Messaging`).
 
 ```cs
 #r "Microsoft.ServiceBus"
@@ -113,7 +113,7 @@ public static void Run(EventData myEventHubMessage, TraceWriter log)
 }
 ```
 
-To receive events in a batch, change the method signature to `string[]` or `EventData[]`.
+To receive events in a batch, make `string` or `EventData` an array:
 
 ```cs
 public static void Run(string[] eventHubMessages, TraceWriter log)
@@ -199,8 +199,7 @@ The following settings appear in the *function.json* file and the C# attribute c
 |Property  |Description  |
 |---------|---------|
 |**path** | The name of the event hub. | 
-|**consumerGroup** | An optional property that sets the [consumer group](../event-hubs/event-hubs-features.md#event-consumers)
-used to subscribe to events in the hub. If omitted, the `$Default` consumer group is used. | 
+|**consumerGroup** | An optional property that sets the [consumer group](../event-hubs/event-hubs-features.md#event-consumers) used to subscribe to events in the hub. If omitted, the `$Default` consumer group is used. | 
 |**connection** | The name of an app setting that contains the connection string to the event hub's namespace. Copy this connection string by clicking the **Connection Information** button for the *namespace*, not the event hub itself. This connection string must have at least read permissions to activate the trigger.|
 
 ## Trigger - host.json properties
@@ -213,7 +212,7 @@ The [host.json](functions-host-json.md#eventhub) file contains settings that con
 
 Use the Event Hubs output binding to write events to an event stream. You must have send permission to an event hub to write events to it.
 
-## Output example
+## Output - example
 
 See the language-specific example:
 

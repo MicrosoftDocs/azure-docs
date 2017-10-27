@@ -24,9 +24,7 @@ ms.custom:
 # Azure Functions timer trigger
 
 This article explains how to work with timer triggers in Azure Functions. 
-A timer trigger lets you run a function based on a defined schedule. 
-
-The timer trigger supports multi-instance scale-out. A single instance of a particular timer function is run across all instances.
+A timer trigger lets you run a function on a schedule. 
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -36,6 +34,7 @@ See the language-specific example:
 
 * [Precompiled C#](#trigger---c-example)
 * [C# script](#trigger---c-script-example)
+* [F# script](#trigger---f-script-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### Trigger - C# example
@@ -50,7 +49,7 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWr
 }
 ```
 
-### Trigger example in C# #
+### Trigger - C# script example
 
 The following example shows a timer trigger binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function writes a log indicating whether this function invocation is due to a missed schedule occurrence.
 
@@ -103,7 +102,7 @@ let Run(myTimer: TimerInfo, log: TraceWriter ) =
     log.Info(sprintf "F# function executed at %s!" now)
 ```
 
-### Trigger - JavaScript
+### Trigger - JavaScript example
 
 The following example shows a timer trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function writes a log indicating whether this function invocation is due to a missed schedule occurrence.
 
@@ -138,12 +137,14 @@ module.exports = function (context, myTimer) {
 
 For [precompiled C#](functions-dotnet-class-library.md) functions, use the [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs), defined in NuGet package [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions).
 
-The attribute's constructor takes a CRON expression or a `TimeSpan`. For more information, see [Trigger - settings](#trigger---settings) later in this article. Here's a `TimerTriggerAttribute` attribute example:
+The attribute's constructor takes a CRON expression, as shown in the following example:
 
 ```csharp
 [FunctionName("TimerTriggerCSharp")]
 public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWriter log)
  ```
+
+You can specify a `TimeSpan` instead of a CRON expression if your function app runs on an App Service plan (not a Consumption plan).
 
 ## Trigger - settings
 
@@ -155,7 +156,11 @@ The following settings appear only in the *function.json* file:
 |`direction` | Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. |
 |`name` | The name of the variable that represents the timer object in function code. | 
 
-The `schedule` setting is configured in the *function.json* file and the C# attribute constructor.  On the Consumption plan, you can define schedules with a CRON expression. If you're using an App Service Plan, you can also use a `TimeSpan` string. The following sections explain CRON expressions.
+The following setting is configured in the *function.json* file and the C# attribute constructor.  
+
+|Property  |Description  |
+|---------|---------|
+|`schedule`|On the Consumption plan, you can define schedules with a CRON expression. If you're using an App Service Plan, you can also use a `TimeSpan` string. The following sections explain CRON expressions.|
 
 ### CRON format 
 
@@ -166,7 +171,7 @@ A [CRON expression](http://en.wikipedia.org/wiki/Cron#CRON_expression) for the A
 ```
 
 >[!NOTE]   
->Many of the CRON expressions you find online omit the `{second}` field. If you copy from one of them, you need to adjust for the extra `{second}` field.
+>Many of the CRON expressions you find online omit the `{second}` field. If you copy from one of them, add the missing `{second}` field.
 
 ### CRON time zones
 
@@ -183,7 +188,7 @@ Alternatively, you could add a new app setting for your function app named `WEBS
 ```json
 "schedule": "0 0 10 * * *",
 ```	
-## CRON examples
+### CRON examples
 
 Here are some examples of CRON expressions you can use for the timer trigger in Azure Functions. 
 
@@ -240,6 +245,10 @@ is passed into the function. The following JSON is an example representation of 
     "IsPastDue":false
 }
 ```
+
+## Trigger - scale-out
+
+The timer trigger supports multi-instance scale-out. A single instance of a particular timer function is run across all instances.
 
 ## Next steps
 
