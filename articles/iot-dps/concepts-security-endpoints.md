@@ -31,14 +31,14 @@ You must have appropriate permissions to access any of the provisioning service 
 
 ## Access control and permissions
 
-You can grant [permissions](#iot-dps-permissions) in the following ways:
+You can grant [permissions](#device-provisioning-service-permissions) in the following ways:
 
-* **Shared access authorization policies**. Shared access policies can grant any combination of [permissions](#iot-dps-permissions). You can define policies in the [Azure portal][lnk-management-portal], or programmatically by using the [Device Provisioning Service REST APIs][lnk-resource-provider-apis]. A newly created provisioning service has the following default policy:
+* **Shared access authorization policies**. Shared access policies can grant any combination of [permissions](#device-provisioning-service-permissions). You can define policies in the [Azure portal][lnk-management-portal], or programmatically by using the [Device Provisioning Service REST APIs][lnk-resource-provider-apis]. A newly created provisioning service has the following default policy:
 
   * **provisioningserviceowner**: Policy with all permissions.
 
 > [!NOTE]
-> See [permissions](#iot-dps-permissions) for detailed information.
+> See [permissions](#device-provisioning-service-permissions) for detailed information.
 
 ## Authentication
 
@@ -47,7 +47,7 @@ Azure IoT Hub Device Provisioning Service grants access to endpoints by verifyin
 > [!NOTE]
 > The Device Provisioning Service resource provider is secured through your Azure subscription, as are all providers in the [Azure Resource Manager][lnk-azure-resource-manager].
 
-For more information about how to construct and use security tokens, see [IoT Hub security tokens][lnk-sas-tokens].
+For more information about how to construct and use security tokens, see the next section.
 
 HTTP is the only supported protocol, and it implements authentication by including a valid token in the **Authorization** request header.
 
@@ -55,11 +55,10 @@ HTTP is the only supported protocol, and it implements authentication by includi
 `SharedAccessSignature sr=mydps.azure-devices-provisioning.net&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501&skn=provisioningserviceowner`
 
 > [!NOTE]
-> The [Azure IoT SDKs][lnk-sdks] automatically generate tokens when connecting to the service. In some cases, the Azure IoT SDKs do not support all the protocols or all the authentication methods.
-
+> The [Azure IoT Device Provisioning Service SDKs][lnk-sdks] automatically generate tokens when connecting to the service.
 
 ## Security tokens
-The Device Provisioning Service uses security tokens to authenticate services to avoid sending keys on the wire. Additionally, security tokens are limited in time validity and scope. [Azure IoT SDKs][lnk-sdks] automatically generate tokens without requiring any special configuration. Some scenarios do require you to generate and use security tokens directly. Such scenarios include the direct use of the HTTP surface.
+The Device Provisioning Service uses security tokens to authenticate services to avoid sending keys on the wire. Additionally, security tokens are limited in time validity and scope. [Azure IoT Device Provisioning Service SDKs][lnk-sdks] automatically generate tokens without requiring any special configuration. Some scenarios do require you to generate and use security tokens directly. Such scenarios include the direct use of the HTTP surface.
 
 ### Security token structure
 
@@ -146,13 +145,15 @@ Here are the service functions exposed on the endpoints:
 | `{your-service}.azure-devices-provisioning.net/enrollmentGroups` |Provides operations for managing device enrollment groups. |
 | `{your-service}.azure-devices-provisioning.net/registrations/{id}` |Provides operations for retrieving and managing the status of device registrations. |
 
-## <!-- TBD: [RV] I rewrote this example using a fictious policy named 'enrollmentread'.Such a policy is not created by default. The user needs to be given steps to create such a policy via portal -->
+
 As an example, a service generated using a pre-created shared access policy called **enrollmentread** would create a token with the following parameters:
 
 * resource URI: `{mydps}.azure-devices-provisioning.net`,
 * signing key: one of the keys of the `enrollmentread` policy,
 * policy name: `enrollmentread`,
 * any expiration time.
+
+![Create a shared access policy for your DPS instance in the portal] (./media/how-to-control-access/how-to-add-shared-access-policy.png)
 
 ```nodejs
 var endpoint ="mydps.azure-devices-provisioning.net";
@@ -182,49 +183,7 @@ The following table lists the permissions you can use to control access to your 
 | **RegistrationStatusRead** |Grants read access to the device registration status. <br/>This permission is used by back-end cloud services. |
 | **RegistrationStatusWrite**  |Grants delete access to the device registration status. <br/>This permission is used by back-end cloud services. |
 
-## Additional reference material
-
-For further details, please refer to the following topics in the IoT Hub developer guide:
-
-* [IoT Hub endpoints][lnk-endpoints] describes the various endpoints that each IoT hub exposes for run-time and management operations.
-* [Throttling and quotas][lnk-quotas] describes the quotas and throttling behaviors that apply to the IoT Hub service.
-* [Azure IoT device and service SDKs][lnk-sdks] lists the various language SDKs you can use when you develop both device and service apps that interact with IoT Hub.
-* [IoT Hub query language][lnk-query] describes the query language you can use to retrieve information from IoT Hub about your device twins and jobs.
-
 <!-- links and images -->
 
-[img-tokenservice]: ./media/iot-hub-devguide-security/tokenservice.png
-[lnk-endpoints]: ../iot-hub/iot-hub-devguide-endpoints.md
-[lnk-quotas]: ../iot-hub/iot-hub-devguide-quotas-throttling.md
+[img-add-shared-access-policy]: ./media/how-to-control-access/how-to-add-shared-access-policy.png
 [lnk-sdks]: ../iot-hub/iot-hub-devguide-sdks.md
-[lnk-query]: ../iot-hub/iot-hub-devguide-query-language.md
-[lnk-devguide-mqtt]: ../iot-hub/iot-hub-mqtt-support.md
-[lnk-openssl]: https://www.openssl.org/
-[lnk-selfsigned]: https://technet.microsoft.com/library/hh848633
-
-[lnk-resource-provider-apis]: https://docs.microsoft.com/rest/api/iot-dps
-[lnk-sas-tokens]: ../iot-hub/iot-hub-devguide-security.md#security-tokens
-[lnk-amqp]: https://www.amqp.org/
-[lnk-azure-resource-manager]: ../azure-resource-manager/resource-group-overview.md
-[lnk-cbs]: https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc
-[lnk-event-hubs-publisher-policy]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab
-[lnk-management-portal]: https://portal.azure.com
-[lnk-sasl-plain]: http://tools.ietf.org/html/rfc4616
-[lnk-identity-registry]: ../iot-hub/iot-hub-devguide-identity-registry.md
-[lnk-dotnet-sas]: https://msdn.microsoft.com/library/microsoft.azure.devices.common.security.sharedaccesssignaturebuilder.aspx
-[lnk-java-sas]: https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.service.auth._iot_hub_service_sas_token
-[lnk-tls-psk]: https://tools.ietf.org/html/rfc4279
-[lnk-protocols]: ../iot-hub/iot-hub-protocol-gateway.md
-[lnk-custom-auth]: ../iot-hub/iot-hub-devguide-security.md#custom-device-authentication
-[lnk-x509]: ../iot-hub/iot-hub-devguide-security.md#supported-x509-certificates
-[lnk-devguide-device-twins]: ../iot-hub/iot-hub-devguide-device-twins.md
-[lnk-devguide-directmethods]: ../iot-hub/iot-hub-devguide-direct-methods.md
-[lnk-devguide-jobs]: ../iot-hub/iot-hub-devguide-jobs.md
-[lnk-service-sdk]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/service
-[lnk-client-sdk]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/device
-[lnk-device-explorer]: https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer
-[lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
-
-[lnk-getstarted-tutorial]: ../iot-hub/iot-hub-csharp-csharp-getstarted.md
-[lnk-c2d-tutorial]: ../iot-hub/iot-hub-csharp-csharp-c2d.md
-[lnk-d2c-tutorial]: ../iot-hub/iot-hub-csharp-csharp-process-d2c.md
