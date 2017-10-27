@@ -86,7 +86,7 @@ In this section, you create the device app to upload a file to IoT hub.
     ```
 
     > [!NOTE]
-    > For the sake of simplicity the connection string is included in the code: this is not a recommended practice and depending on your use-case and architecture you may want to consider more secure ways of storing this secret, like using arguments taken from the command-line.
+    > For the sake of simplicity the connection string is included in the code: this is not a recommended practice and depending on your use-case and architecture you may want to consider more secure ways of storing this secret.
 
 1. Add the following code to connect the client:
 
@@ -98,21 +98,15 @@ In this section, you create the device app to upload a file to IoT hub.
 1. Create a callback and use the **uploadToBlob** function to upload the file.
 
     ```nodejs
-    function printResultFor() {
-      return function printResult(err) {
-        if (err) console.log(op + ' error: ' + err.toString());
-      };
-    }
-    
     fs.stat(filename, function (err, stats) {
-    	const rr = fs.createReadStream(filename);
+        const rr = fs.createReadStream(filename);
     
-    	client.uploadToBlob(filename, rr, stats.size, function (err) {
-          if (err) {
-            console.error('Error uploading file: ' + err.toString());
-          } else {
-            console.log('File uploaded');
-          }
+        client.uploadToBlob(filename, rr, stats.size, function (err) {
+            if (err) {
+                console.error('Error uploading file: ' + err.toString());
+            } else {
+                console.log('File uploaded');
+            }
         });
     });
     ```
@@ -156,7 +150,7 @@ You can use the **iothubowner** connection string from your IoT Hub to complete 
     ```
 
     > [!NOTE]
-    > For the sake of simplicity the connection string is included in the code: this is not a recommended practice and depending on your use-case and architecture you may want to consider more secure ways of storing this secret, like using arguments taken from the command-line.
+    > For the sake of simplicity the connection string is included in the code: this is not a recommended practice and depending on your use-case and architecture you may want to consider more secure ways of storing this secret.
 
 1. Add the following code to connect the client:
 
@@ -168,10 +162,14 @@ You can use the **iothubowner** connection string from your IoT Hub to complete 
 
     ```nodejs
     function receiveFileUploadNotification(err, receiver){
-      receiver.on('message', function (msg) {
-        console.log('File upload from device:')
-        console.log(msg.getData().toString('utf-8'));
-      });
+        if (err) {
+            console.error('error getting the file notification receiver: ' + err.toString());
+        } else {
+            receiver.on('message', function (msg) {
+            console.log('File upload from device:')
+            console.log(msg.getData().toString('utf-8'));
+            });
+        }
     }
     
     serviceClient.open(function (err) {
