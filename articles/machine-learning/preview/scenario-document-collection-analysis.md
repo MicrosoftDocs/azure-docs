@@ -98,7 +98,7 @@ The files in this example are organized as follows.
 
 | File Name | Type | Description |
 |-----------|------|-------------|
-| `aml_config` | Folder | Azure Machine Learning Workbench configuration folder, refer to [this documentation](./experiment-execution-configuration-reference.md) for detailed experiment execution configuration |
+| `aml_config` | Folder | Azure Machine Learning Workbench configuration folder, refer to [this documentation](./experimentation-service-configuration-reference.md) for detailed experiment execution configuration |
 | `Code` | Folder | The code folder used to save the Python scripts and Python package |
 | `Data` | Folder | The data folder used to save intermediate files |
 | `notebooks` | Folder | The Jupyter notebooks folder |
