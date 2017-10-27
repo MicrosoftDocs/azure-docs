@@ -129,13 +129,13 @@ Use the following steps to create a Hive query language (HiveQL) script that def
 
     There are two variables used in the script:
 
-    * `${hiveTableName}`: Contains the name of the table to be created
+    * `${hiveTableName}`: Contains the name of the table to be created.
 
-    * `${hiveDataFolder}`: Contains the location to store the data files for the table
+    * `${hiveDataFolder}`: Contains the location to store the data files for the table.
 
     The workflow definition file, workflow.xml in this tutorial, passes these values to this HiveQL script at runtime.
 
-4. To exit the editor, select Ctrl-X. When prompted, select `Y` to save the file, enter `useooziewf.hql` as the file name, and then select **Enter**.
+4. To exit the editor, select Ctrl+X. When prompted, select `Y` to save the file, enter `useooziewf.hql` as the file name, and then select **Enter**.
 
 5. Use the following commands to copy `useooziewf.hql` to `wasb:///tutorials/useoozie/useooziewf.hql`:
 
@@ -220,7 +220,7 @@ Oozie workflow definitions are written in Hadoop Process Definition Language (hP
 
      Also note the `<archive>sqljdbc4.jar</archive>` entry in the Sqoop section. This entry instructs Oozie to make this archive available for Sqoop when this action runs.
 
-3. To save the file, select Ctrl-X, enter `Y`, and then select **Enter**. 
+3. To save the file, select Ctrl+X, enter `Y`, and then select **Enter**. 
 
 4. Use the following command to copy the `workflow.xml` file to `/tutorials/useoozie/workflow.xml`:
 
@@ -389,14 +389,14 @@ The job definition describes where to find the workflow.xml. It also describes w
      > [!NOTE]
      > The `oozie.wf.application.path` entry defines where to find the workflow.xml file. This file contains the workflow that was run by this job.
 
-5. To save the file, select Ctrl-X, enter `Y`, and then select **Enter**.
+5. To save the file, select Ctrl+X, enter `Y`, and then select **Enter**.
 
 ## Submit and manage the job
 
 The following steps use the Oozie command to submit and manage Oozie workflows on the cluster. The Oozie command is a friendly interface over the [Oozie REST API](https://oozie.apache.org/docs/4.1.0/WebServicesAPI.html).
 
 > [!IMPORTANT]
-> When you use the Oozie command, you must use the FQDN for the HDInsight head node. This FQDN is only accessible from the cluster, or if the cluster is on an Azure Virtual Network, from other machines on the same network.
+> When you use the Oozie command, you must use the FQDN for the HDInsight head node. This FQDN is only accessible from the cluster, or if the cluster is on an Azure virtual network, from other machines on the same network.
 
 
 1. To obtain the URL to the Oozie service, use the following command:
@@ -587,7 +587,7 @@ You can use the coordinator to specify a start, an end, and the occurrence frequ
     > * `${coordTimezone}`: Coordinator jobs are in a fixed time zone with no daylight savings time, typically represented by using UTC. This time zone is referred as the *Oozie processing timezone.*
     > * `${wfPath}`: The path to the workflow.xml.
 
-2. To save the file, select Ctrl-X, enter `Y`, and then select **Enter**.
+2. To save the file, select Ctrl+X, enter `Y`, and then select **Enter**.
 
 3. To copy the file to the working directory for this job, use the following command:
 
@@ -640,9 +640,9 @@ You can use the coordinator to specify a start, an end, and the occurrence frequ
         </property>
         ```
 
-       These values set the start time to 12:00 PM on May 10, 2017 and the end time to May 12, 2017. The interval for running this job is set to daily. The frequency is in minutes, so 24 hours x 60 minutes = 1440 minutes. Finally, the time zone is set to UTC.
+       These values set the start time to 12:00 PM on May 10, 2017, and the end time to May 12, 2017. The interval for running this job is set to daily. The frequency is in minutes, so 24 hours x 60 minutes = 1440 minutes. Finally, the time zone is set to UTC.
 
-5. To save the file, select Ctrl-X, enter `Y`, and then select **Enter**.
+5. To save the file, select Ctrl+X, enter `Y`, and then select **Enter**.
 
 6. To run the job, use the following command:
 
@@ -685,9 +685,9 @@ The following are specific errors you might encounter and how to resolve them.
 
     JA009: Cannot initialize Cluster. Please check your configuration for map
 
-**Cause**: The WASB addresses used in the **job.xml** file doesn't contain the storage container or storage account name. The WASB address format must be `wasb://containername@storageaccountname.blob.core.windows.net`.
+**Cause**: The Azure Blob storage addresses used in the **job.xml** file doesn't contain the storage container or storage account name. The Blob storage address format must be `wasb://containername@storageaccountname.blob.core.windows.net`.
 
-**Resolution**: Change the WASB addresses the job uses.
+**Resolution**: Change the Blob storage addresses that the job uses.
 
 ### JA002: Oozie is not allowed to impersonate &lt;USER>
 
