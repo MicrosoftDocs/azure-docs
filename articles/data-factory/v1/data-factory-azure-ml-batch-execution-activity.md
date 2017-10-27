@@ -33,6 +33,9 @@ robots: noindex
 > * [.NET Custom Activity](data-factory-use-custom-activities.md)
 
 ## Introduction
+> [!NOTE]
+> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [transform data using machine learning in Data Factory version 2](../transform-data-using-machine-learning.md).
+
 
 ### Azure Machine Learning
 [Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/) enables you to build, test, and deploy predictive analytics solutions. From a high-level point of view, it is done in three steps:

@@ -31,7 +31,7 @@ You can start using the new version of the CLI in two ways:
 To create a Linux App Service Plan, you can use the following command:
 
 ```azurecli-interactive
-az appservice plan create -n appname -g rgname --islinux -l "South Central US" --sku S1 --number-of-workers 1
+az appservice plan create -n appname -g rgname --is-linux -l "South Central US" --sku S1 --number-of-workers 1
 ```
 
 ## Create a custom Docker container Web App
