@@ -24,7 +24,7 @@ This example shows how to request search results from your custom search instanc
 
 3. Install [Python](https://www.python.org/).
 4. Create a folder for your code.
-5. From a command prompt or terminal, navigate to the folder you just created.
+5. From an administrator command prompt or terminal, navigate to the folder you just created.
 6. Run the following commands:
     <pre>
     pip install pipenv
