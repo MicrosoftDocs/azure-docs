@@ -3711,11 +3711,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/hdinsight/hdinsight-domain-joined-configure-use-powershell.md",
-            "redirect_url": "/azure/hdinsight/hdinsight-domain-joined-configure",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/documentdb/documentdb-automation-region-management.md",
             "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/cli-samples",
             "redirect_document_id": false
@@ -14240,32 +14235,32 @@
         },
         {
             "source_path": "articles/hdinsight/hdinsight-domain-joined-architecture.md",
-            "redirect_url": "/azure/hdinsight/hbase/apache-domain-joined-architecture",
+            "redirect_url": "/azure/hdinsight/domain-joined/apache-domain-joined-architecture",
             "redirect_document_id": true
         },
         {
             "source_path": "articles/hdinsight/hdinsight-domain-joined-configure-use-powershell.md",
-            "redirect_url": "/azure/hdinsight/hbase/apache-domain-joined-configure-use-powershell",
+            "redirect_url": "/azure/hdinsight/domain-joined/apache-domain-joined-configure",
             "redirect_document_id": true
         },
         {
             "source_path": "articles/hdinsight/hdinsight-domain-joined-configure.md",
-            "redirect_url": "/azure/hdinsight/hbase/apache-domain-joined-configure",
+            "redirect_url": "/azure/hdinsight/domain-joined/apache-domain-joined-configure",
             "redirect_document_id": true
         },
         {
             "source_path": "articles/hdinsight/hdinsight-domain-joined-introduction.md",
-            "redirect_url": "/azure/hdinsight/hbase/apache-domain-joined-introduction",
+            "redirect_url": "/azure/hdinsight/domain-joined/apache-domain-joined-introduction",
             "redirect_document_id": true
         },
         {
             "source_path": "articles/hdinsight/hdinsight-domain-joined-manage.md",
-            "redirect_url": "/azure/hdinsight/hbase/apache-domain-joined-manage",
+            "redirect_url": "/azure/hdinsight/domain-joined/apache-domain-joined-manage",
             "redirect_document_id": true
         },
         {
             "source_path": "articles/hdinsight/hdinsight-domain-joined-run-hive.md",
-            "redirect_url": "/azure/hdinsight/hbase/apache-domain-joined-run-hive",
+            "redirect_url": "/azure/hdinsight/domain-joined/apache-domain-joined-run-hive",
             "redirect_document_id": true
         },
         {
