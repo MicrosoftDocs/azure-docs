@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 10/17/2017
+ms.date: 10/27/2017
 ms.author: robinsh
 ---
 
