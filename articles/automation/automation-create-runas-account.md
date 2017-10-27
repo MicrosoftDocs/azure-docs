@@ -40,7 +40,7 @@ The process creates the following items in your Automation account.
 ## Prerequisites
 If you choose to [use PowerShell to create the Run As accounts](#create-run-as-account-using-powershell), this process requires:
 
-* The PowerShell script can be run only on Windows 10 and Windows Server 2016 with Azure Resource Manager modules 3.4.1 and later. It is not supported on earlier versions of Windows.
+* Windows 10 and Windows Server 2016 with Azure Resource Manager modules 3.4.1 and later. The PowerShell script does not support earlier versions of Windows.
 * Azure PowerShell 1.0 and later. For information about the PowerShell 1.0 release, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
 * An Automation account, which is referenced as the value for the *–AutomationAccountName* and *-ApplicationDisplayName* parameters.
 
