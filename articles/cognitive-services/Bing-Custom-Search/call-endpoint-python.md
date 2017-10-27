@@ -45,6 +45,10 @@ url = 'https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?q=' + se
 r = requests.get(url, headers={'Ocp-Apim-Subscription-Key': subscriptionKey})
 print(r.text)
 ```
+9. Run the code using the command below:
+    <pre>
+    python BingCustomSearch.py
+    </pre>
 
 ### Next steps
 - [Configure and consume custom hosted UI](./hosted-ui.md)
