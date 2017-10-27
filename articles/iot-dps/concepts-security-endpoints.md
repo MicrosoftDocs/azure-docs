@@ -153,7 +153,7 @@ As an example, a service generated using a pre-created shared access policy call
 * policy name: `enrollmentread`,
 * any expiration time.
 
-![Create a shared access policy for your DPS instance in the portal] (./media/how-to-control-access/how-to-add-shared-access-policy.png)
+![Create a shared access policy for your DPS instance in the portal][img-add-shared-access-policy]
 
 ```nodejs
 var endpoint ="mydps.azure-devices-provisioning.net";
