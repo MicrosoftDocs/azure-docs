@@ -26,7 +26,7 @@ This tutorial builds on the code in the [Send Cloud-to-Device messages with IoT 
 - Securely provide a device with an Azure blob URI for uploading a file.
 - Use the IoT Hub file upload notifications to trigger processing the file in your app back end.
 
-The [Get started with IoT Hub](iot-hub-node-node-getstarted.md) and [Send Cloud-to-Device messages with IoT Hub](iot-hub-node-node-c2d.md) tutorials show the basic device-to-cloud and cloud-to-device messaging functionality of IoT Hub. The [Process Device-to-Cloud messages](iot-hub-node-node-process-d2c.md) tutorial describes a way to reliably store device-to-cloud messages in Azure blob storage. However, in some scenarios you cannot easily map the data your devices send into the relatively small device-to-cloud messages that IoT Hub accepts. For example:
+The [Get started with IoT Hub](iot-hub-node-node-getstarted.md) and [Send Cloud-to-Device messages with IoT Hub](iot-hub-node-node-c2d.md) tutorials show the basic device-to-cloud and cloud-to-device messaging functionality of IoT Hub. However, in some scenarios you cannot easily map the data your devices send into the relatively small device-to-cloud messages that IoT Hub accepts. For example:
 
 * Large files that contain images
 * Videos
@@ -37,8 +37,8 @@ These files are typically batch processed in the cloud using tools such as [Azur
 
 At the end of this tutorial you run two Node.js console apps:
 
-* **SimulatedDevice**, a modified version of the app created in the [Send Cloud-to-Device messages with IoT Hub] tutorial. This app uploads a file to storage using a SAS URI provided by your IoT hub.
-* **ReadFileUploadNotification**, which receives file upload notifications from your IoT hub.
+* **SimulatedDevice.js**, which uploads a file to storage using a SAS URI provided by your IoT hub.
+* **ReadFileUploadNotification.js**, which receives file upload notifications from your IoT hub.
 
 > [!NOTE]
 > IoT Hub supports many device platforms and languages (including C, .NET, Javascript, Python, and Java) through Azure IoT device SDKs. Refer to the [Azure IoT Developer Center] for step-by-step instructions on how to connect your device to Azure IoT Hub.
@@ -52,7 +52,7 @@ To complete this tutorial, you need the following:
 
 ## Upload a file from a device app
 
-In this section, you modify the device app you created in [Send Cloud-to-Device messages with IoT Hub](iot-hub-node-node-c2d.md) to upload a file to IoT hub.
+In this section, you create the device app to upload a file to IoT hub.
 
 1. Create an empty folder called ```simulateddevice```.  In the ```simulateddevice``` folder, create a package.json file using the following command at your command prompt.  Accept all the defaults:
 
@@ -84,6 +84,9 @@ In this section, you modify the device app you created in [Send Cloud-to-Device 
     var connectionString = '{deviceconnectionstring}';
     var filename = 'myimage.png';
     ```
+
+    > [!NOTE]
+    > For the sake of simplicity the connection string is included in the code: this is not a recommended practice and depending on your use-case and architecture you may want to consider more secure ways of storing this secret, like using arguments taken from the command-line.
 
 1. Add the following code to connect the client:
 
@@ -201,15 +204,15 @@ node SimulatedDevice.js
 
 The following screenshot shows the output from the **SimulatedDevice** app:
 
-![Output from simulated-device app](media/iot-hub-java-java-upload/simulated-device.png)
+![Output from simulated-device app](media/iot-hub-node-node-upload/simulated-device.png)
 
 The following screenshot shows the output from the **FileUploadNotification** app:
 
-![Output from read-file-upload-notification app](media/iot-hub-java-java-upload/read-file-upload-notification.png)
+![Output from read-file-upload-notification app](media/iot-hub-node-node-upload/read-file-upload-notification.png)
 
 You can use the portal to view the uploaded file in the storage container you configured:
 
-![Uploaded file](media/iot-hub-java-java-upload/uploaded-file.png)
+![Uploaded file](media/iot-hub-node-node-upload/uploaded-file.png)
 
 ## Next steps
 
