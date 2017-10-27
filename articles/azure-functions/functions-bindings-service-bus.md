@@ -20,95 +20,43 @@ ms.author: glenga
 
 ---
 # Azure Functions Service Bus bindings
-[!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-This article explains how to configure and work with Azure Service Bus bindings in Azure Functions. 
-
-Azure Functions supports trigger and output bindings for Service Bus queues and topics.
+This article explains how to work with Azure Service Bus bindings in Azure Functions. Azure Functions supports trigger and output bindings for Service Bus queues and topics.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-<a name="trigger"></a>
-
 ## Service Bus trigger
+
 Use the Service Bus trigger to respond to messages from a Service Bus queue or topic. 
 
-The Service Bus queue and topic triggers are defined by the following JSON objects in the `bindings` array of function.json:
+## Trigger example
 
-* *queue* trigger:
+See the language-specific example:
 
-    ```json
-    {
-        "name" : "<Name of input parameter in function signature>",
-        "queueName" : "<Name of the queue>",
-        "connection" : "<Name of app setting that has your queue's connection string - see below>",
-        "accessRights" : "<Access rights for the connection string - see below>",
-        "type" : "serviceBusTrigger",
-        "direction" : "in"
-    }
-    ```
+* [Precompiled C#](#trigger---c-example)
+* [C# script](#trigger---c-script-example)
+* [JavaScript](#trigger---javascript-example)
 
-* *topic* trigger:
+### Trigger - C# example
 
-    ```json
-    {
-        "name" : "<Name of input parameter in function signature>",
-        "topicName" : "<Name of the topic>",
-        "subscriptionName" : "<Name of the subscription>",
-        "connection" : "<Name of app setting that has your topic's connection string - see below>",
-        "accessRights" : "<Access rights for the connection string - see below>",
-        "type" : "serviceBusTrigger",
-        "direction" : "in"
-    }
-    ```
+The following example shows a [precompiled C# function](functions-dotnet-class-library.md) that logs a Service Bus queue message.
 
-Note the following:
+```cs
+[FunctionName("ServiceBusQueueTriggerCSharp")]                    
+public static void Run(
+    [ServiceBusTrigger("myqueue", AccessRights.Manage, Connection = "ServiceBusConnection")] 
+    string myQueueItem, 
+    TraceWriter log)
+{
+    log.Info($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
+}
+```
 
-* For `connection`, [create an app setting in your function app](functions-how-to-use-azure-function-app-settings.md) that contains the connection string to your Service Bus namespace, then specify the 
-  name of the app setting in the `connection` property in your trigger. You obtain the connection string by following the steps shown at 
-  [Obtain the management credentials](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials).
-  The connection string must be for a Service Bus namespace, not limited to a specific queue or topic.
-  If you leave `connection` empty, the trigger assumes that a default Service Bus connection string is specified 
-  in an app setting named `AzureWebJobsServiceBus`.
-* For `accessRights`, available values are `manage` and `listen`. The default is `manage`, which indicates that the 
-  `connection` has the **Manage** permission. If you use a connection string that does not have the **Manage** permission, 
-  set `accessRights` to `listen`. Otherwise, the Functions runtime might fail trying to do operations that require manage 
-  rights.
+### Trigger - C# script example
 
-## Trigger behavior
-* **Single-threading** - By default, the Functions runtime processes multiple messages concurrently. To direct the runtime 
-  to process only a single queue or topic message at a time, set `serviceBus.maxConcurrentCalls` to 1 in *host.json*. 
-  For information about *host.json*, see [Folder Structure](functions-reference.md#folder-structure) and 
-  [host.json](https://github
-  .com/Azure/azure-webjobs-sdk-script/wiki/host.json).
-* **Poison message handling** - Service Bus does its own poison message handling, which can't be controlled or configured 
-  in Azure Functions configuration or code. 
-* **PeekLock behavior** - The Functions runtime receives a message in 
-  [`PeekLock` mode](../service-bus-messaging/service-bus-performance-improvements.md#receive-mode) 
-  and calls `Complete` on the message if the function finishes successfully, or calls `Abandon` if the function fails. 
-  If the function runs longer than the `PeekLock` timeout, the lock is automatically renewed.
+The following example shows a Service Bus trigger binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function logs a Service Bus queue message.
 
-<a name="triggerusage"></a>
-
-## Trigger usage
-This section shows you how to use your Service Bus trigger in your function code. 
-
-In C# and F#, the Service Bus trigger message can be deserialized to any of the following input types:
-
-* `string` - useful for string messages
-* `byte[]` - useful for binary data
-* Any [Object](https://msdn.microsoft.com/library/system.object.aspx) - useful for JSON-serialized data.
-  If you declare a custom input type, such as `CustomType`, Azure Functions tries to deserialize the JSON data
-  into your specified type.
-* `BrokeredMessage` - gives you the deserialized message with the [BrokeredMessage.GetBody<T>()](https://msdn.microsoft.com/library/hh144211.aspx)
-  method.
-
-In Node.js, the Service Bus trigger message is passed into the function as either a string or JSON object.
-
-<a name="triggersample"></a>
-
-## Trigger sample
-Suppose you have the following function.json:
+Here's the binding data in the *function.json* file:
 
 ```json
 {
@@ -125,15 +73,7 @@ Suppose you have the following function.json:
 }
 ```
 
-See the language-specific sample that processes a Service Bus queue message.
-
-* [C#](#triggercsharp)
-* [F#](#triggerfsharp)
-* [Node.js](#triggernodejs)
-
-<a name="triggercsharp"></a>
-
-### Trigger sample in C# #
+Here's the C# script code:
 
 ```cs
 public static void Run(string myQueueItem, TraceWriter log)
@@ -142,18 +82,56 @@ public static void Run(string myQueueItem, TraceWriter log)
 }
 ```
 
-<a name="triggerfsharp"></a>
+### Trigger - F# example
 
-### Trigger sample in F# #
+The following example shows a Service Bus trigger binding in a *function.json* file and an [F# function](functions-reference-fsharp.md) that uses the binding. The function logs a Service Bus queue message. 
+
+Here's the binding data in the *function.json* file:
+
+```json
+{
+"bindings": [
+    {
+    "queueName": "testqueue",
+    "connection": "MyServiceBusConnection",
+    "name": "myQueueItem",
+    "type": "serviceBusTrigger",
+    "direction": "in"
+    }
+],
+"disabled": false
+}
+```
+
+Here's the F# script code:
 
 ```fsharp
 let Run(myQueueItem: string, log: TraceWriter) =
     log.Info(sprintf "F# ServiceBus queue trigger function processed message: %s" myQueueItem)
 ```
 
-<a name="triggernodejs"></a>
+### Trigger - JavaScript example
 
-### Trigger sample in Node.js
+The following example shows a Service Bus trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function logs a Service Bus queue message. 
+
+Here's the binding data in the *function.json* file:
+
+```json
+{
+"bindings": [
+    {
+    "queueName": "testqueue",
+    "connection": "MyServiceBusConnection",
+    "name": "myQueueItem",
+    "type": "serviceBusTrigger",
+    "direction": "in"
+    }
+],
+"disabled": false
+}
+```
+
+Here's the JavaScript script code:
 
 ```javascript
 module.exports = function(context, myQueueItem) {
@@ -162,69 +140,113 @@ module.exports = function(context, myQueueItem) {
 };
 ```
 
-<a name="output"></a>
+## Trigger - C# attributes
+
+For [precompiled C#](functions-dotnet-class-library.md) functions, use the following attributes to configure a Service Bus trigger:
+
+* [ServiceBusTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusTriggerAttribute.cs), defined in NuGet package [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus)
+
+  The attribute's constructor takes the name of the queue or the topic and subscription. You can also specify the access rights and an app setting that points to a Service Bus connection string. Here's an example:
+
+  ```csharp
+  [FunctionName("ServiceBusQueueTriggerCSharp")]                    
+  public static void Run(
+      [ServiceBusTrigger("myqueue", AccessRights.Manage, Connection = "ServiceBusConnection")] 
+      string myQueueItem, TraceWriter log)
+  ```
+
+* [ServiceBusAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs), defined in NuGet package [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus)
+
+  Enables you to specify a Service Bus account at the parameter, method, or class level. Parameter level overrides method and class level, and method level overrides class level. Here's an example:
+
+  ```csharp
+  [ServiceBusAccount("ServiceBusConnection")]
+  [FunctionName("ServiceBusQueueTriggerCSharp")]
+  public static void Run(
+      [ServiceBusTrigger("myqueue", AccessRights.Manage)] 
+      string myQueueItem, TraceWriter log)
+  ```
+
+## Trigger - settings
+
+The following settings appear only in the *function.json* file:
+
+|Property  |Description  |
+|---------|---------|
+|`type` | Must be set to `serviceBusTrigger`. This property is set automatically when you create the trigger in the Azure portal.|
+|`direction` | Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. |
+|`name` | The name of the variable that represents the queue or topic message in function code. Set to `$return` to reference the function return value. | 
+
+The following settings are configured in the *function.json* file and the C# attribute constructor:
+
+|Property  |Description  |
+|---------|---------|
+|`queueName`|Name of the queue to monitor.  Set only if monitoring a queue, not for a topic.
+|`topicName`|Name of the topic to monitor. Set only if monitoring a topic, not for a queue.|
+|`subscriptionName`|Name of the subscription to monitor. Set only if monitoring a topic, not for a queue.|
+|`connection`|The name of an app setting that contains the Service Bus connection string to use for this trigger binding. [Create an app setting](functions-how-to-use-azure-function-app-settings.md) that contains the connection string to the Service Bus namespace. Then specify the 
+  name of the app setting in the `connection` property. Obtain the connection string by following the steps shown at [Obtain the management credentials](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials). The connection string must be for a Service Bus namespace, not limited to a specific queue or topic. If you leave `connection` empty, the trigger assumes that a default Service Bus connection string is specified in an app setting named `AzureWebJobsServiceBus`.|
+|`accessRights`|Access rights for the connection string. Available values are `manage` and `listen`. The default is `manage`, which indicates that the 
+  `connection` has the **Manage** permission. If you use a connection string that does not have the **Manage** permission, set `accessRights` to `listen`. Otherwise, the Functions runtime might fail trying to do operations that require manage 
+  rights.|
+
+## Trigger - usage
+
+In C# and C# script, access the queue or topic message by using a method parameter such as `string paramName`. In C# script, `paramName` is the value specified in the `name` property of *function.json*. You can use any of the following types instead of `string`:
+
+* `byte[]` - Useful for binary data.
+* A custom type - If the message contains JSON, Azure Functions tries to deserialize the JSON data.
+* `BrokeredMessage` - Gives you the deserialized message with the [BrokeredMessage.GetBody<T>()](https://msdn.microsoft.com/library/hh144211.aspx)
+  method.
+
+In JavaScript, access the queue or topic message by using `context.bindings.<name>`. `<name>` is the value specified in the `name` property of *function.json*. The Service Bus message is passed into the function as either a string or JSON object.
+
+## Trigger - poison messages
+
+Service Bus does its own poison message handling, which can't be controlled or configured in Azure Functions configuration or code. 
+
+## Trigger - PeekLock behavior
+
+The Functions runtime receives a message in [`PeekLock` mode](../service-bus-messaging/service-bus-performance-improvements.md#receive-mode) and calls `Complete` on the message if the function finishes successfully, or calls `Abandon` if the function fails. If the function runs longer than the `PeekLock` timeout, the lock is automatically renewed.
+
+## Trigger - host.json
+
+The [host.json](functions-host-json.md#servicebus) file contains settings that control Service Bus trigger behavior.
+
+[!INCLUDE [functions-host-json-event-hubs](../../includes/functions-host-json-service-bus.md)]
 
 ## Service Bus output binding
-The Service Bus queue and topic output for a function use the following JSON objects in the `bindings` array of function.json:
 
-* *queue* output:
+Use Azure Service Bus output binding to send queue or topic messages.
 
-	```json
-    {
-        "name" : "<Name of output parameter in function signature>",
-        "queueName" : "<Name of the queue>",
-        "connection" : "<Name of app setting that has your queue's connection string - see below>",
-        "accessRights" : "<Access rights for the connection string - see below>",
-        "type" : "serviceBus",
-        "direction" : "out"
-    }
-	```
-* *topic* output:
+## Output - example
 
-	```json
-    {
-        "name" : "<Name of output parameter in function signature>",
-        "topicName" : "<Name of the topic>",
-        "subscriptionName" : "<Name of the subscription>",
-        "connection" : "<Name of app setting that has your topic's connection string - see below>",
-        "accessRights" : "<Access rights for the connection string - see below>",
-        "type" : "serviceBus",
-        "direction" : "out"
-    }
-	```
+See the language-specific example:
 
-Note the following:
+* [Precompiled C#](#output---c-example)
+* [C# script](#output---c-script-example)
+* [F# script](#output---f-script-example)
+* [JavaScript](#output---javascript-example)
 
-* For `connection`, [create an app setting in your function app](functions-how-to-use-azure-function-app-settings.md) that contains the connection string to your Service Bus namespace, then specify the 
-  name of the app setting in the `connection` property in your output binding. You obtain the connection string by following the steps shown at 
-  [Obtain the management credentials](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials).
-  The connection string must be for a Service Bus namespace, not limited to a specific queue or topic.
-  If you leave `connection` empty, the output binding assumes that a default Service Bus connection string is specified 
-  in an app setting named `AzureWebJobsServiceBus`.
-* For `accessRights`, available values are `manage` and `listen`. The default is `manage`, which indicates that the 
-  `connection` has the **Manage** permission. If you use a connection string that does not have the **Manage** permission, 
-  set `accessRights` to `listen`. Otherwise, the Functions runtime might fail trying to do operations that require manage 
-  rights.
+### Trigger - C# example
 
-<a name="outputusage"></a>
+The following example shows a [precompiled C# function](functions-dotnet-class-library.md) that sends a Service Bus queue message when it is triggered by an HTTP request:
 
-## Output usage
-In C# and F#, Azure Functions can create a Service Bus queue message from any of the following types:
+```cs
+[FunctionName("ServiceBusOutput")]
+[return: ServiceBus("myqueue", Connection = "ServiceBusConnection")]
+public static string ServiceBusOutput([HttpTrigger] dynamic input, TraceWriter log)
+{
+    log.Info($"C# function processed: {input.Text}");
+    return input.Text;
+}
+```
 
-* Any [Object](https://msdn.microsoft.com/library/system.object.aspx) - Parameter definition looks like `out T paramName` (C#).
-  Functions deserializes the object into a JSON message. If the output value is null when the function exits, Functions creates the message with a null object.
-* `string` - Parameter definition looks like `out string paraName` (C#). If the parameter value is non-null when the function exits, Functions creates a message.
-* `byte[]` - Parameter definition looks like `out byte[] paraName` (C#). If the parameter value is non-null when the function exits, Functions creates a message.
-* `BrokeredMessage` Parameter definition looks like `out BrokeredMessage paraName` (C#). If the parameter value is non-null when the function exits, Functions creates a message.
+### Output - C# script example
 
-For creating multiple messages in a C# function, you can use `ICollector<T>` or `IAsyncCollector<T>`. A message is created when you call the `Add` method.
+The following example shows a Service Bus output binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function uses a timer trigger to send a queue message every 15 seconds.
 
-In Node.js, you can assign a string, a byte array, or a Javascript object (deserialized into JSON) to `context.binding.<paramName>`.
-
-<a name="outputsample"></a>
-
-## Output sample
-Suppose you have the following function.json, that defines a Service Bus queue output:
+Here's the binding data in the *function.json* file:
 
 ```json
 {
@@ -248,15 +270,7 @@ Suppose you have the following function.json, that defines a Service Bus queue o
 }
 ```
 
-See the language-specific sample that sends a message to the service bus queue.
-
-* [C#](#outcsharp)
-* [F#](#outfsharp)
-* [Node.js](#outnodejs)
-
-<a name="outcsharp"></a>
-
-### Output sample in C# #
+Here's C# script code that creates a single message:
 
 ```cs
 public static void Run(TimerInfo myTimer, TraceWriter log, out string outputSbQueue)
@@ -267,21 +281,47 @@ public static void Run(TimerInfo myTimer, TraceWriter log, out string outputSbQu
 }
 ```
 
-Or, to create multiple messages:
+Here's C# script code that creates multiple messages:
 
 ```cs
 public static void Run(TimerInfo myTimer, TraceWriter log, ICollector<string> outputSbQueue)
 {
-    string message = $"Service Bus queue message created at: {DateTime.Now}";
+    string message = $"Service Bus queue messages created at: {DateTime.Now}";
     log.Info(message); 
     outputSbQueue.Add("1 " + message);
     outputSbQueue.Add("2 " + message);
 }
 ```
 
-<a name="outfsharp"></a>
+### Output - F# example
 
-### Output sample in F# #
+The following example shows a Service Bus output binding in a *function.json* file and a [F# script function](functions-reference-fsharp.md) that uses the binding. The function uses a timer trigger to send a queue message every 15 seconds.
+
+Here's the binding data in the *function.json* file:
+
+```json
+{
+    "bindings": [
+        {
+            "schedule": "0/15 * * * * *",
+            "name": "myTimer",
+            "runsOnStartup": true,
+            "type": "timerTrigger",
+            "direction": "in"
+        },
+        {
+            "name": "outputSbQueue",
+            "type": "serviceBus",
+            "queueName": "testqueue",
+            "connection": "MyServiceBusConnection",
+            "direction": "out"
+        }
+    ],
+    "disabled": false
+}
+```
+
+Here's F# script code that creates a single message:
 
 ```fsharp
 let Run(myTimer: TimerInfo, log: TraceWriter, outputSbQueue: byref<string>) =
@@ -290,9 +330,35 @@ let Run(myTimer: TimerInfo, log: TraceWriter, outputSbQueue: byref<string>) =
     outputSbQueue = message
 ```
 
-<a name="outnodejs"></a>
+### Output - JavaScript example
 
-### Output sample in Node.js
+The following example shows a Service Bus output binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function uses a timer trigger to send a queue message every 15 seconds.
+
+Here's the binding data in the *function.json* file:
+
+```json
+{
+    "bindings": [
+        {
+            "schedule": "0/15 * * * * *",
+            "name": "myTimer",
+            "runsOnStartup": true,
+            "type": "timerTrigger",
+            "direction": "in"
+        },
+        {
+            "name": "outputSbQueue",
+            "type": "serviceBus",
+            "queueName": "testqueue",
+            "connection": "MyServiceBusConnection",
+            "direction": "out"
+        }
+    ],
+    "disabled": false
+}
+```
+
+Here's JavaScript script code that creates a single message:
 
 ```javascript
 module.exports = function (context, myTimer) {
@@ -303,7 +369,7 @@ module.exports = function (context, myTimer) {
 };
 ```
 
-Or, to create multiple messages:
+Here's JavaScript script code that creates multiple messages:
 
 ```javascript
 module.exports = function (context, myTimer) {
@@ -315,7 +381,43 @@ module.exports = function (context, myTimer) {
     context.done();
 };
 ```
+## Trigger - settings
+
+The following settings appear only in the *function.json* file:
+
+|Property  |Description  |
+|---------|---------|
+|`type` | Must be set to `serviceBus`. This property is set automatically when you create the trigger in the Azure portal.|
+|`direction` | Must be set to `out`. This property is set automatically when you create the trigger in the Azure portal. |
+|`name` | The name of the variable that represents the queue or topic in function code. Set to `$return` to reference the function return value. | 
+
+The following settings are configured in the *function.json* file and the C# attribute constructor:
+
+|Property  |Description  |
+|---------|---------|
+|`queueName`|Name of the queue.  Set only if sending queue messages, not for a topic.
+|`topicName`|Name of the topic to monitor. Set only if sending topic mesages, not for a queue.|
+|`subscriptionName`|Name of the subscription to monitor. Set only if sending topic messages, not for a queue.|
+|`connection`|The name of an app setting that contains the Service Bus connection string to use for this trigger binding. [Create an app setting](functions-how-to-use-azure-function-app-settings.md) that contains the connection string to the Service Bus namespace. Then specify the 
+  name of the app setting in the `connection` property. Obtain the connection string by following the steps shown at [Obtain the management credentials](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials). The connection string must be for a Service Bus namespace, not limited to a specific queue or topic. If you leave `connection` empty, the trigger assumes that a default Service Bus connection string is specified in an app setting named `AzureWebJobsServiceBus`.|
+|`accessRights`|Access rights for the connection string. Available values are `manage` and `listen`. The default is `manage`, which indicates that the 
+  `connection` has the **Manage** permission. If you use a connection string that does not have the **Manage** permission, set `accessRights` to `listen`. Otherwise, the Functions runtime might fail trying to do operations that require manage 
+  rights.|
+
+## Output - usage
+
+In C# and C# script, access the queue or topic by using a method parameter such as `out string paramName`. In C# script, `paramName` is the value specified in the `name` property of *function.json*. You can use any of the following parameter types:
+
+* `out T paramName` - `T` can be any JSON-serializable type. If the parameter value is null when the function exits, Functions creates the message with a null object.
+* `out string` - If the parameter value is null when the function exits, Functions does not create a message.
+* `out byte[]` - If the parameter value is null when the function exits, Functions does not create a message.
+* `BrokeredMessage` - If the parameter value is null when the function exits, Functions does not create a message.
+
+For creating multiple messages in a C# or C# script function, you can use `ICollector<T>` or `IAsyncCollector<T>`. A message is created when you call the `Add` method.
+
+In JavaScript, access the queue or topic by using `context.bindings.<name>`. `<name>` is the value specified in the `name` property of *function.json*. You can assign a string, a byte array, or a Javascript object (deserialized into JSON) to `context.binding.<name>`.
 
 ## Next steps
-[!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
 
+> [!div class="nextstepaction"]
+> [Learn more about Azure functions triggers and bindings](functions-triggers-bindings.md)

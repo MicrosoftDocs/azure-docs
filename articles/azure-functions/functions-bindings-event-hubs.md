@@ -366,7 +366,7 @@ The following settings appear only in the *function.json* file:
 |**direction** | Must be set to `out`. This parameter is set automatically when you create the binding in the Azure portal. |
 |**name** | The variable name used in function code that represents the event. | 
 
-The following settings appear in the *function.json* file and the C# attribute constructor:
+The following settings are configured in the *function.json* file and the C# attribute constructor:
 
 |Property  |Description  |
 |---------|---------|
