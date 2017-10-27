@@ -82,7 +82,15 @@
     - name: Manage versions
       href: luis-how-to-manage-versions.md
     - name: Collaborate on a LUIS app
-      href: luis-how-to-collaborate.md    
+      href: luis-how-to-collaborate.md
+  - name: Author your LUIS app programmatically
+    items: 
+    - name: Add an utterance programmatically
+      href: luis-get-started-node-get-intent.md
+    - name: Get LUIS app info
+      href: luis-get-started-node-get-intent.md
+    - name: Train on suggested utterances
+      href: luis-get-started-node-get-intent.md      
 - name: Reference
   items: 
   - name: Authoring APIs
