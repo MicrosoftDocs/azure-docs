@@ -20,7 +20,7 @@ ms.author: bradsev;
 
 # Team Data Science Process for data scientists
 
-In this learning path, you are guided through understanding an analytics workload, using the Team Data Science Process and Azure Machine Learning, the foundations of data transfer and storage, data source documentation, storage, and analytics processing using various tools in a comprehensive solution.
+In this article, you are guided through understanding an analytics workload, using the Team Data Science Process and Azure Machine Learning, the foundations of data transfer and storage, data source documentation, storage, and analytics processing using various tools in a comprehensive solution.
 
 You can use this learning path to guide your own self-study. Read the *Description* column to follow the path, click on the *Topic* links for study references, and check your skills using the *Knowledge Check* column.
 

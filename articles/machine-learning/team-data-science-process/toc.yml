@@ -64,8 +64,6 @@
   items:
   - name: TDSP for data scientists
     href: team-data-science-process-for-data-scientists.md
-  - name: TDSP for DevOps
-    href: team-data-science-process-for-devops.md
 - name: How To
   items:
   - name: Use TDSP in Azure ML
