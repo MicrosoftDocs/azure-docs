@@ -57,7 +57,7 @@ To successfully complete this step in the tutorial, you need to connect to both 
 
 ### Connect to cluster
 
-When you connect to a cluster, you can query it for information. In this tutorial, we look at the cluster to learn about what nodes the cluster is aware of. This example uses a certificate to connect with that was created in the [first step]() of this series. Make sure your set the `$endpoint` and `$thumbprint` variables to your values.
+When you connect to a cluster, you can query it for information. In this tutorial, we look at the cluster to learn about what nodes the cluster is aware of. This example uses a certificate to connect with that was created in the [first step](service-fabric-tutorial-create-vnet-and-windows-cluster.md) of this series. Make sure you set the `$endpoint` and `$thumbprint` variables to your values.
 
 ```powershell
 $endpoint = "<mycluster>.southcentralus.cloudapp.azure.com:19000"
