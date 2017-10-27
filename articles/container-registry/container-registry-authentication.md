@@ -89,9 +89,9 @@ You can enable the admin user in the Azure portal by navigating your registry, s
 > The admin account is designed for a single user to access the registry, mainly for testing purposes. We do not recommend sharing the admin account credentials with multiple users. All users authenticating with the admin account appear as a single user to the registry. Changing or disabling this account disables registry access for all users who use its credentials.
 >
 
-### Next steps
+## Next steps
 * [Push your first image using the Docker CLI](container-registry-get-started-docker-cli.md).
-* For more information about authentication in the Container Registry preview, see the [blog post](https://blogs.msdn.microsoft.com/stevelasker/2016/11/17/azure-container-registry-user-accounts/).
+* For more information about authentication in Azure Container Registry, see the [Azure Container Registry user accounts](https://blogs.msdn.microsoft.com/stevelasker/2016/11/17/azure-container-registry-user-accounts/) blog post.
 
 <!-- IMAGES -->
 [auth-portal-01]: ./media/container-registry-authentication/auth-portal-01.png
