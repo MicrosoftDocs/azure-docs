@@ -121,7 +121,7 @@ Depending on the configuration option you select, the script creates the followi
         $keyValue = [System.Convert]::ToBase64String($PfxCert.GetRawCertData())
         $KeyId = (New-Guid).Guid
 
-        $KeyCredential = New-Object  Microsoft.Azure.Commands.Resources.Models.ActiveDirectory.PSADKeyCredential
+        $KeyCredential = New-Object  Microsoft.Azure.Graph.RBAC.Version1_6.ActiveDirectory.PSADKeyCredential
         $KeyCredential.StartDate = $CurrentDate
         $KeyCredential.EndDate= [DateTime]$PfxCert.GetExpirationDateString()
         $KeyCredential.EndDate = $KeyCredential.EndDate.AddDays(-1)
