@@ -24,13 +24,13 @@ ms.custom: H1Hack27Feb2017
 
 There are several ways to authenticate with an Azure container registry, each of which applicable to one or more registry usage scenarios.
 
-You can manually log in to a registry to work with images directly, which we'll call [individual login](#individual-login-with-AAD), and your applications and container orchestrators can perform unattended, or "headless," authentication by using a [service principal](#service-principal).
+You can log in to a registry directly, which we'll call [individual login](#individual-login), and your applications and container orchestrators can perform unattended, or "headless," authentication by using a [service principal](#service-principal).
 
-Anonymous access is not available on Azure container registries. For public images, you can use [Docker Hub](https://docs.docker.com/docker-hub/).
+Azure Container Registry does not support anonymous login. For public images, you can use [Docker Hub](https://docs.docker.com/docker-hub/).
 
-## Individual login with Azure Active Directory
+## Individual login
 
-Authenticate to your registry by executing the [az acr login](/cli/azure/acr?view=azure-cli-latest#az_acr_login) command in the [Azure CLI](/cli/azure/install-azure-cli):
+Authenticate to your registry with the [az acr login](/cli/azure/acr?view=azure-cli-latest#az_acr_login) command in the [Azure CLI](/cli/azure/install-azure-cli):
 
 ```azurecli
 az acr login --name <acrName>
@@ -41,18 +41,6 @@ When you log in with `az acr login`, the CLI creates an AAD [service principal](
 ## Service principal
 
 You can assign a [service principal](../active-directory/develop/active-directory-application-objects.md) to your registry and use it for basic Docker authentication. Using a service principal is recommended for most authentication scenarios, including "headless" authentication from applications or container orchestrators.
-
-To login directly with a service principal, provide the app ID and password of the service principal to the `docker login` command:
-
-```
-docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
-```
-
-Once logged in, Docker caches the credentials, so you don't need to remember the app ID.
-
-> [!TIP]
-> You can regenerate the password of a service principal by running the `az ad sp reset-credentials` command.
->
 
 Service principals allow [role-based access](../active-directory/role-based-access-control-configure.md) to a registry. Available roles are:
   * **Reader**: pull only access
@@ -65,21 +53,37 @@ You can assign multiple service principals to a registry, which allows you to de
 
   * Continuous integration and deployment solutions (such as Visual Studio Team Services or Jenkins) that build container images and push them to a registry.
 
+> [!TIP]
+> You can regenerate the password of a service principal by running the `az ad sp reset-credentials` command.
+>
+
+You can also login directly with a service principal. Provide the app ID and password of the service principal to the `docker login` command:
+
+```
+docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
+```
+
+Once logged in, Docker caches the credentials, so you don't need to remember the app ID.
+
 ## Admin account
 
-With each registry you create, an admin account is created automatically. By default, the admin account is disabled, but you can enable it and manage the credentials in the [Azure portal](container-registry-get-started-portal.md#create-a-container-registry) or by using the Azure CLI.
+Each container registry includes an admin user account, which is disabled by default. You can enable the admin user and manage its credentials in the [Azure portal](container-registry-get-started-portal.md#create-a-container-registry), or by using the Azure CLI.
 
-The admin account is provided with two passwords, both of which can be regenerated. Two passwords allow you to maintain connections to the registry by using one password while you regenerate the other. If the admin account is enabled, you can pass the user name and either password to the `docker login` command for basic authentication to the registry. For example:
+The admin account is provided with two passwords, both of which can be regenerated. Two passwords allow you to maintain connection to the registry by using one password while you regenerate the other. If the admin account is enabled, you can pass the user name and either password to the `docker login` command for basic authentication to the registry. For example:
 
 ```
 docker login myregistry.azurecr.io -u myAdminName -p myPassword1
 ```
 
-You can use the `--admin-enabled` parameter of the Azure CLI command [az acr update](/cli/azure/acr?view=azure-cli-latest#az_acr_update) to enable the admin user for an existing registry:
+To enable the admin user for an existing registry, you can use the `--admin-enabled` parameter of the [az acr update](/cli/azure/acr?view=azure-cli-latest#az_acr_update) command in the Azure CLI:
 
 ```azurecli
 az acr update -n <acrName> --admin-enabled true
 ```
+
+You can enable the admin user in the Azure portal by navigating your registry, selecting **Access keys** under **SETTINGS**, then **Enable** under **Admin user**.
+
+![Enable admin user UI in the Azure portal][auth-portal-01]
 
 > [!IMPORTANT]
 > The admin account is designed for a single user to access the registry, mainly for testing purposes. We do not recommend sharing the admin account credentials with multiple users. All users authenticating with the admin account appear as a single user to the registry. Changing or disabling this account disables registry access for all users who use its credentials.
@@ -88,3 +92,6 @@ az acr update -n <acrName> --admin-enabled true
 ### Next steps
 * [Push your first image using the Docker CLI](container-registry-get-started-docker-cli.md).
 * For more information about authentication in the Container Registry preview, see the [blog post](https://blogs.msdn.microsoft.com/stevelasker/2016/11/17/azure-container-registry-user-accounts/).
+
+<!-- IMAGES -->
+[auth-portal-01]: ./media/container-registry-authentication/auth-portal-01.png
