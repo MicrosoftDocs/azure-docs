@@ -273,7 +273,7 @@ The output looks something like:
 5. Reinstall **draft**
 
    1. Remove **draftd** from the cluster by typing `helm delete --purge draft`. 
-  e 2. Reinstall **draft** by using the same `draft-init` command, but with the `--ingress-enabled` option:
+   2. Reinstall **draft** by using the same `draft-init` command, but with the `--ingress-enabled` option:
     ```bash
     draft init --ingress-enabled
     ```
