@@ -20,21 +20,20 @@ You choose the culture when you start creating your LUIS app, and it cannot be m
 
 LUIS understands utterances in the following languages. Support for prebuilt entities varies. See [Prebuilt entities in LUIS](Pre-builtEntities.md) for details. 
 
-Locale  | Language | Prebuilt entity support |
-------| ------- | ------- |
-en-US | American English | :ballot_box_with_check:  |
-fr-CA | Canadian French |   -   |
-fr-FR | French (France) | :ballot_box_with_check: |
-it-IT | Italian | :ballot_box_with_check: |
-nl-NL | Dutch |  -   |
-de-DE | German |  :ballot_box_with_check: |
-es-ES | Spanish (Spain) | :ballot_box_with_check: |
-es-MX | Spanish (Mexico)|  -   |
-pt-BR | Portuguese (Brazil) | :ballot_box_with_check: |
-ja-JP | Japanese | :ballot_box_with_check: |
-ko-KR | Korean |   -   |
-zh-CN | Chinese | :ballot_box_with_check: |
-
+| Language |Locale  |  Prebuilt entity support | Notes |
+| ------- |------|  ------- | ------- |
+| American English |`en-US` | ✔  ||
+| Canadian French |`fr-CA` |   -   ||
+| French (France) |`fr-FR` | ✔ ||
+| Italian |`it-IT` | ✔ ||
+| Dutch |`nl-NL` |  -   ||
+| German |`de-DE` | ✔ ||
+| Spanish (Spain) |`es-ES` | ✔ ||
+| Spanish (Mexico)|`es-MX` |  -   ||
+| Portuguese (Brazil) |`pt-BR` | ✔ ||
+| Japanese |`ja-JP` | ✔ ||
+| Korean |`ko-KR` |   -   ||
+| Chinese |`zh-CN` | ✔ | See support notes listed below|
 
 
 ## Chinese support notes
