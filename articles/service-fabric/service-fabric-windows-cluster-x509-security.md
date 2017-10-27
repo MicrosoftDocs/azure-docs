@@ -109,7 +109,7 @@ The following table lists the certificates that you need on your cluster setup:
 | ClusterCertificateCommonNames |Recommended for a production environment. This certificate is required to secure the communication between the nodes on a cluster. You can use one or two cluster certificate common names. The CertificateIssuerThumbprint corresponds to the thumbprint of the issuer of this certificate. If more than one certificate with the same common name is used, you can specify multiple issuer thumbprints.|
 | ServerCertificate |Recommended for a test environment. This certificate is presented to the client when it tries to connect to this cluster. For convenience, you can choose to use the same certificate for ClusterCertificate and ServerCertificate. You can use two different server certificates, a primary and a secondary, for upgrade. Set the thumbprint of the primary certificate in the Thumbprint section and that of the secondary in the ThumbprintSecondary variables. |
 | ServerCertificateCommonNames |Recommended for a production environment. This certificate is presented to the client when it tries to connect to this cluster. The CertificateIssuerThumbprint corresponds to the thumbprint of the issuer of this certificate. If more than one certificate with the same common name is used, you can specify multiple issuer thumbprints. For convenience, you can choose to use the same certificate for ClusterCertificateCommonNames and ServerCertificateCommonNames. You can use one or two server certificate common names. |
-| ClientCertificateThumbprints |Install this set of certificates on the authenticated clients. You can have a number of different client certificates installed on the machines that you want to allow access to the cluster. Set the thumbprint of each certificate in the CertificateThumbprint variable. If you set IsAdmin to *true*, the client with this certificate installed on it can do administrator management activities on the cluster. If IsAdmin is *false*, the client with this certificate can perform the actions only allowed for user-access rights, typically read-only. For more information on roles, see [Role-Based Access Control (RBAC)](service-fabric-cluster-security.md#role-based-access-control-rbac) |
+| ClientCertificateThumbprints |Install this set of certificates on the authenticated clients. You can have a number of different client certificates installed on the machines that you want to allow access to the cluster. Set the thumbprint of each certificate in the CertificateThumbprint variable. If you set IsAdmin to *true*, the client with this certificate installed on it can do administrator management activities on the cluster. If IsAdmin is *false*, the client with this certificate can perform the actions only allowed for user-access rights, typically read-only. For more information on roles, see [Role-Based Access Control (RBAC)](service-fabric-cluster-security.md#role-based-access-control-rbac). |
 | ClientCertificateCommonNames |Set the common name of the first client certificate for the CertificateCommonName. The CertificateIssuerThumbprint is the thumbprint for the issuer of this certificate. To learn more about common names and the issuer, see [Work with certificates](https://msdn.microsoft.com/library/ms731899.aspx). |
 | ReverseProxyCertificate |Recommended for a test environment. This optional certificate can be specified if you want to secure your [reverse proxy](service-fabric-reverseproxy.md). Make sure that reverseProxyEndpointPort is set in nodeTypes if you use this certificate. |
 | ReverseProxyCertificateCommonNames |Recommended for a production environment. This optional certificate can be specified if you want to secure your [reverse proxy](service-fabric-reverseproxy.md). Make sure that reverseProxyEndpointPort is set in nodeTypes if you use this certificate. |
@@ -255,9 +255,9 @@ Now export the certificate to a .pfx file with a protected password. First, get 
 Alternatively, if you have an Azure subscription, follow the steps in the section [Add certificates to your key vault](service-fabric-cluster-creation-via-arm.md#add-certificates-to-your-key-vault).
 
 ## Install the certificates
-After you have certificate(s), you can install them on the cluster nodes. Your nodes need to have the latest Windows PowerShell 3.x installed on them. Repeat these steps on each node for both cluster and server certificates and any secondary certificates.
+After you have certificates, you can install them on the cluster nodes. Your nodes need to have the latest Windows PowerShell 3.x installed on them. Repeat these steps on each node for both cluster and server certificates and any secondary certificates.
 
-1. Copy the .pfx file(s) to the node.
+1. Copy the .pfx file or files to the node.
 
 2. Open a PowerShell window as an administrator, and enter the following commands. Replace *$pswd* with the password that you used to create this certificate. Replace *$PfxFilePath* with the full path of the .pfx copied to this node.
    
@@ -282,31 +282,31 @@ After you have certificate(s), you can install them on the cluster nodes. Your n
    
     $cert = Get-ChildItem -Path cert:\LocalMachine\My | Where-Object -FilterScript { $PSItem.ThumbPrint -eq $pfxThumbPrint; }
    
-    # Specify the user, the permissions and the permission type
+    # Specify the user, the permissions, and the permission type
     $permission = "$($serviceAccount)","FullControl","Allow"
     $accessRule = New-Object -TypeName System.Security.AccessControl.FileSystemAccessRule -ArgumentList $permission
    
-    # Location of the machine related keys
+    # Location of the machine-related keys
     $keyPath = Join-Path -Path $env:ProgramData -ChildPath "\Microsoft\Crypto\RSA\MachineKeys"
     $keyName = $cert.PrivateKey.CspKeyContainerInfo.UniqueKeyContainerName
     $keyFullPath = Join-Path -Path $keyPath -ChildPath $keyName
    
-    # Get the current acl of the private key
+    # Get the current ACL of the private key
     $acl = (Get-Item $keyFullPath).GetAccessControl('Access')
    
-    # Add the new ace to the acl of the private key
+    # Add the new ACE to the ACL of the private key
     $acl.SetAccessRule($accessRule)
    
-    # Write back the new acl
+    # Write back the new ACL
     Set-Acl -Path $keyFullPath -AclObject $acl -ErrorAction Stop
    
-    # Observe the access rights currently assigned to this certificate.
+    # Observe the access rights currently assigned to this certificate
     get-acl $keyFullPath| fl
     ```
 4. Repeat the previous steps for each server certificate. You also can use these steps to install the client certificates on the machines that you want to allow access to the cluster.
 
 ## Create the secure cluster
-After configuring the security section of the ClusterConfig.X509.MultiMachine.json file, you can proceed to the [Create the cluster](service-fabric-cluster-creation-for-windows-server.md#create-the-cluster) section to configure the nodes and create the standalone cluster. Remember to use the ClusterConfig.X509.MultiMachine.json file while you create the cluster. For example, your command might look like the following:
+After you configure the security section of the ClusterConfig.X509.MultiMachine.json file, you can proceed to the [Create the cluster](service-fabric-cluster-creation-for-windows-server.md#create-the-cluster) section to configure the nodes and create the standalone cluster. Remember to use the ClusterConfig.X509.MultiMachine.json file while you create the cluster. For example, your command might look like the following:
 
 ```powershell
 .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.X509.MultiMachine.json
