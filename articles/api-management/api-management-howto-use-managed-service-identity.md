@@ -112,6 +112,9 @@ The below example shows how to obtain a certificate from Azure Key Vault. It con
 * Update the access policies of an Azure Key Vault instance and allow the API Management instance to obtain secrets from it
 * Update the API Management instance by setting a custom domain name using a certificate from the Key Vault instance
 
+> [!Important]
+> If the object version of the certificate is not provided, API Management will automatically obtain the newer version of the certificate after it is uploaded to Key Vault. 
+
 ```json
 {
 	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -158,7 +161,7 @@ The below example shows how to obtain a certificate from Azure Key Vault. It con
 		"proxyCustomHostname1": {
             "type": "string",
             "metadata": {
-                "description": "Proxy Custom hostname 1."
+                "description": "Proxy Custom hostname."
             }
         },
         "keyVaultIdToCertificate": {
@@ -233,6 +236,7 @@ The below example shows how to obtain a certificate from Azure Key Vault. It con
       } 
 	}]
 }
+···
 
 > [!Note]
 > Currently it is not supported to obtain certificates from Key Vault for mutual certificate authentication between API Management and the backend.
