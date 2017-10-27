@@ -72,6 +72,13 @@ To configure kubectl to connect to your Kubernetes cluster, run the [az acs kube
 ```azurecli-interactive 
 az acs kubernetes get-credentials --resource-group myResourceGroup --name myK8SCluster
 ```
+Troubleshooting Notes: At this point, if the above command gives authenication failed error, then check whether the ssh key file [id_rsa (two files - id_rsa.pub and id_rsa.] is available in the ~/.ssh/ folder. Try creating a new SSH Key and add the SSH key to the VMs. To generate and add new SSH Key, type 
+ssh-keygen -t rsa 
+Enter the filename(<private_key_file_name>) to save the ssh key. Example: Enter ~/.ssh/id_rsa. This will generate two files [one for public key and private key].
+Type eval $(ssh-agent -s), to run the ssh-agent in background.
+Then, type ssh-add ~/.ssh/<private_key_file_name> Example:ssh-add ~/.ssh/id_rsa 
+If the cluster VMs are created with portal, you can also configure the ssh public key for the VMs through the portal via Reset option and try the above steps with the same ssh key to connect to the cluster.
+
 
 To verify the connection to your cluster, run the [kubectl get nodes](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) command.
 
