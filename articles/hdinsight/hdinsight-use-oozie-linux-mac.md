@@ -100,7 +100,7 @@ Oozie expects you to store all the resources required for a job in the same dire
 
 ## Add a database driver
 
-Because this workflow uses Sqoop to export data to the SQL Database, you must provide a copy of the JDBC driver used to interact with the SQL database. To copy the JDBC driver to the working directory, use the following command from the SSH session:
+Because this workflow uses Sqoop to export data to the SQL database, you must provide a copy of the JDBC driver used to interact with the SQL database. To copy the JDBC driver to the working directory, use the following command from the SSH session:
 
 ```bash
 hdfs dfs -put /usr/share/java/sqljdbc_4.1/enu/sqljdbc*.jar /tutorials/useoozie/
@@ -135,7 +135,7 @@ Use the following steps to create a Hive query language (HiveQL) script that def
 
     The workflow definition file, workflow.xml in this tutorial, passes these values to this HiveQL script at runtime.
 
-4. To exit the editor, select Ctrl-X. When prompted, select `Y` to save the file, and then use `Enter` to use the `useooziewf.hql` file name.
+4. To exit the editor, select Ctrl-X. When prompted, select `Y` to save the file, enter `useooziewf.hql` as the file name, and then select **Enter**.
 
 5. Use the following commands to copy `useooziewf.hql` to `wasb:///tutorials/useoozie/useooziewf.hql`:
 
@@ -218,9 +218,9 @@ Oozie workflow definitions are written in Hadoop Process Definition Language (hP
 
      The workflow has several entries, such as `${jobTracker}`. You will replace these entries with the values you use in the job definition. You will create the job definition later in this document.
 
-     Also note the `<archive>sqljdbc4.jar</arcive>` entry in the Sqoop section. This entry instructs Oozie to make this archive available for Sqoop when this action runs.
+     Also note the `<archive>sqljdbc4.jar</archive>` entry in the Sqoop section. This entry instructs Oozie to make this archive available for Sqoop when this action runs.
 
-3. To save the file, select Ctrl-X, and then enter `Y` and then `Enter`. 
+3. To save the file, select Ctrl-X, enter `Y`, and then select **Enter**. 
 
 4. Use the following command to copy the `workflow.xml` file to `/tutorials/useoozie/workflow.xml`:
 
@@ -382,14 +382,14 @@ The job definition describes where to find the workflow.xml. It also describes w
      > If the path is a `wasb` path, you must use the full path. Do not shorten it to just `wasb:///`.
 
    * Replace `YourName` with your login name for the HDInsight cluster.
-   * Replace `serverName`, `adminLogin`, and `adminPassword` with the information for your SQL Database.
+   * Replace `serverName`, `adminLogin`, and `adminPassword` with the information for your SQL database.
 
      Most of the information in this file is used to populate the values used in the workflow.xml or ooziewf.hql files, such as `${nameNode}`.
 
      > [!NOTE]
      > The `oozie.wf.application.path` entry defines where to find the workflow.xml file. This file contains the workflow that was run by this job.
 
-5. To save the file, select Ctrl-X, and then enter `Y` and then `Enter`.
+5. To save the file, select Ctrl-X, enter `Y`, and then select **Enter**.
 
 ## Submit and manage the job
 
@@ -470,7 +470,7 @@ The following steps use the Oozie command to submit and manage Oozie workflows o
 
     If you check the status after this command, it's in a running state, and information is returned for the actions within the job.
 
-6. After the task finishes successfully, you can verify that the data was generated and exported to the SQL Database table by using the following command:
+6. After the task finishes successfully, you can verify that the data was generated and exported to the SQL database table by using the following command:
 
     ```bash
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D oozietest
@@ -550,7 +550,7 @@ To access the Oozie web UI, complete the following steps:
 
        ![Job DAG](./media/hdinsight-use-oozie-linux-mac/jobdag.png)
 
-7. If you select one of the actions from the **Job Info** tab, it brings up information for the action. For example, select the **RunHiveScript** action.
+7. If you select one of the actions from the **Job Info** tab, it brings up information for the action. For example, select the **RunSqoopExport** action.
 
     ![Action info](./media/hdinsight-use-oozie-linux-mac/action.png)
 
@@ -587,7 +587,7 @@ You can use the coordinator to specify a start, an end, and the occurrence frequ
     > * `${coordTimezone}`: Coordinator jobs are in a fixed time zone with no daylight savings time, typically represented by using UTC. This time zone is referred as the *Oozie processing timezone.*
     > * `${wfPath}`: The path to the workflow.xml.
 
-2. To save the file, select Ctrl-X, and then enter `Y` and then `Enter`.
+2. To save the file, select Ctrl-X, enter `Y`, and then select **Enter**.
 
 3. To copy the file to the working directory for this job, use the following command:
 
@@ -642,7 +642,7 @@ You can use the coordinator to specify a start, an end, and the occurrence frequ
 
        These values set the start time to 12:00 PM on May 10, 2017 and the end time to May 12, 2017. The interval for running this job is set to daily. The frequency is in minutes, so 24 hours x 60 minutes = 1440 minutes. Finally, the time zone is set to UTC.
 
-5. To save the file, select Ctrl-X, and then enter `Y` and then `Enter`.
+5. To save the file, select Ctrl-X, enter `Y`, and then select **Enter**.
 
 6. To run the job, use the following command:
 
