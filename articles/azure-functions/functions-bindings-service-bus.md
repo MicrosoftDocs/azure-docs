@@ -186,9 +186,7 @@ The following settings are configured in the *function.json* file and the C# att
 |`subscriptionName`|Name of the subscription to monitor. Set only if monitoring a topic, not for a queue.|
 |`connection`|The name of an app setting that contains the Service Bus connection string to use for this trigger binding. [Create an app setting](functions-how-to-use-azure-function-app-settings.md) that contains the connection string to the Service Bus namespace. Then specify the 
   name of the app setting in the `connection` property. Obtain the connection string by following the steps shown at [Obtain the management credentials](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials). The connection string must be for a Service Bus namespace, not limited to a specific queue or topic. If you leave `connection` empty, the trigger assumes that a default Service Bus connection string is specified in an app setting named `AzureWebJobsServiceBus`.|
-|`accessRights`|Access rights for the connection string. Available values are `manage` and `listen`. The default is `manage`, which indicates that the 
-  `connection` has the **Manage** permission. If you use a connection string that does not have the **Manage** permission, set `accessRights` to `listen`. Otherwise, the Functions runtime might fail trying to do operations that require manage 
-  rights.|
+|`accessRights`|Access rights for the connection string. Available values are `manage` and `listen`. The default is `manage`, which indicates that the `connection` has the **Manage** permission. If you use a connection string that does not have the **Manage** permission, set `accessRights` to `listen`. Otherwise, the Functions runtime might fail trying to do operations that require manage rights.|
 
 ## Trigger - usage
 
