@@ -36,11 +36,15 @@ A LUIS app is a place for a developer to define a custom language model. The out
 
 ## Key Development concepts
 
-LUIS has two sets of APIs. The authoring APIs allow you and your collaborators to create, edit, train, and publish your model. The endpoint APIs allow you and your users to pass short utterance phrases (500 characters maximum) to LUIS. LUIS processes the utterance phrase and respond with identified intents and entities.
+LUIS has two sets of APIs. The authoring APIs allow you and your collaborators to create, edit, train, and publish your model. The endpoint APIs allow you and your users to pass short utterance phrases (500 characters maximum) to LUIS. LUIS processes the utterance phrase and responds with identified intents and entities.
 
 * **Authoring APIs and LUIS.ai** Both the authoring APIs and LUIS.ai give you control of your LUIS app model definition and management. This control includes management of: models, versions, collaborators, external APIs, Azure subscription keys, testing, and training.
 
 * **Endpoint APIs** The endpoint APIs allow users to pass a query of a short utterance phrase to LUIS. The query can either be in the HTTP GET query string or in an HTTP POST body. LUIS identifies the intents and entities within that query. When you publish your LUIS app, the endpoint URL is created. You can open that link in a browser window and immediately enter an utterance query to interact with your LUIS model.
+
+> [!NOTE]
+> * The Authoring APIs and LUIS.ai use the programmatic key found in your [LUIS.ai][luis.ai] account page.
+> * The Endpoint APIs use the LUIS subscription key found in the [Azure portal][azure-portal].
 
 ## Plan your LUIS app
 Before you create your LUIS app, plan your LUIS app with some sample user utterances.
