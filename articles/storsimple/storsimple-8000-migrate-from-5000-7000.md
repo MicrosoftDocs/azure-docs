@@ -5,7 +5,6 @@ services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: ''
 
 ms.assetid: 
 ms.service: storsimple
@@ -13,7 +12,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/26/2017 
+ms.date: 10/2/2017 
 ms.author: alkohli
 
 ---
@@ -73,6 +72,8 @@ Before you begin migration, ensure that:
 
 * Your 5000 or 7000 series source device is running software version v2.1.1.518. Earlier versions are not supported.
 * To verify the version that your 5000 or 7000 series is running, look at the top-right corner of your Web UI. This should display the software version that your device is running. For migration, your 5000 or 7000 series should be running v2.1.1.518.
+
+    ![Check software version on legacy device](media/storsimple-8000-migrate-from-5000-7000/check-version-legacy-device1.png)
 
     * If your live device is not running v2.1.1.518, please upgrade your system to the required minimal version. For detailed instructions, refer to [Upgrade your system to v2.1.1.518](http://onlinehelp.storsimple.com/111_Appliance/6_System_Upgrade_Guides/Current_(v2.1.1)/000_Software_Patch_Upgrade_Guide_v2.1.1.518).
     * If you are running v2.1.1.518, go to web UI to see if there are any notifications for registry restore failures. If registry restore had failed, run registry restore. For more information, go to how to [Run registry restore](http://onlinehelp.storsimple.com/111_Appliance/2_User_Guides/1_Current_(v2.1.1)/1_Web_UI_User_Guide_WIP/2_Configuration/4_Cloud_Accounts/1_Cloud_Credentials#Restoring_Backup_Registry).
@@ -134,13 +135,8 @@ Perform the following steps to install StorSimple Migration tool on your compute
     * `SubscriptionName and SubscriptionId` –  Name and ID for your Azure subscription. In your StorSimple Device Manager service landing page, under **General**, click **Properties**. Copy the Subscription name and Subscription ID associated with your service.
     * `ResourceName` – Name of your StorSimple Device Manager service in the Azure portal. Also shown under service properties.
     * `ResourceGroup` – Name of the resource group associated with your StorSimple Device Manager service in the Azure portal. Also shown under service properties.
+    ![Check service properties for target device](media/storsimple-8000-migrate-from-5000-7000/check-service-properties1.png)
     * `TenantId` –  Azure Active Directory Tenant ID in Azure portal. Log in to Microsoft Azure as an administrator. In the Microsoft Azure portal, click **Azure Active Directory**. Under **Manage**, click **Properties**. The tenant ID is shown in the **Directory ID** box.
+    ![Check Tenant ID for Azure Active Directory](media/storsimple-8000-migrate-from-5000-7000/check-tenantid-aad.png)
 
-3.	Save the changes made to the config file.
-4.	Run the _StorSimple8000SeriesMigrationTool.exe_ to launch the tool. When prompted for credentials, provide the credentials associated with your subscription in Azure portal.
-5.	The StorSimple Migration tool UI is displayed.
-
-
-## Next step
-
-Download step-by-step instructions on how to [migrate data from 5000-7000 series to 8000 series device](storsimple-overview.md).
+    
