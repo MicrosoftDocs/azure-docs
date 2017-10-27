@@ -3,7 +3,7 @@ title: Restore an app in Azure
 description: Learn how to restore your app from a snapshot.
 services: app-service
 documentationcenter: ''
-author: ahmedelnably,nking92
+author: ahmedelnably
 manager: cfowler
 editor: ''
 
