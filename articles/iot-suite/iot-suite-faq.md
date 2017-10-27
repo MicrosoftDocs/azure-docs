@@ -56,7 +56,7 @@ Yes, the new remote monitoring is available in the same geographic regions.
 
 ### What is the difference between the basic and standard deployment options? How do I decide between the two deployment options?
 
-Each deployment option responds to different needs. The basic deployment is designed to get started and develop PoC and small pilots. It provides a streamlined architecture with the minimum necessary resources and a smaller cost. The standard deployment is designed to build and customize a production-ready solution, and provides a deployment with the necessary elements to realize that, resulting in a higher cost. Choose an option based on your current needs. We expect customers to use one, the other or a combination of both depending on their project stage.
+Each deployment option responds to different needs. The basic deployment is designed to get started and develop PoC and small pilots. It provides a streamlined architecture with the minimum necessary resources and a lower cost. The standard deployment is designed to build and customize a production-ready solution, and provides a deployment with the necessary elements to realize that. For reliability and scale, application microservices are built as Docker containers and deployed using an orchestrator (Kubernetes by default). The orchestrator is responsible for deployment, scaling, and management of the application. You should choose an option based on your current needs. You might use one, the other, or a combination of both depending on your project stage.
 
 ### Can I continue to leverage my existing investments in Azure IoT Suite?
 
