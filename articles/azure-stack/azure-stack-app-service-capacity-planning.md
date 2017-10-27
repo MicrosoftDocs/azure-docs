@@ -93,7 +93,7 @@ In production environments, the File Server role experiences intensive disk I/O.
 - a non-Windows file server
 - file server cluster
 - NAS (Network Attached Storage) device
-For more information, see [provision a file server](azure-stack-app-service-before-you-get-started#prepare-the-file-server).
+For more information, see [provision a file server](azure-stack-app-service-before-you-get-started.md#prepare-the-file-server).
 
 ## Next steps
 
