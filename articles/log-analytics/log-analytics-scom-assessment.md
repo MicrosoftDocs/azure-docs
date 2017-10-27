@@ -162,7 +162,7 @@ By default, the Microsoft System Center Advisor SCOM Assessment Run Assessment R
 4.	In the available management servers list, select the management server where the rule should run.  This should be the same management server you configured earlier to associate the Run As account with.
 5.	Ensure that you change override value to **True** for the **Enabled** parameter value.<br><br> ![override parameter](./media/log-analytics-scom-assessment/rule.png)
 
-While still in this window, configure the run frequency using the next procedure.
+    While still in this window, configure the run frequency using the next procedure.
 
 #### Configure the run frequency
 
