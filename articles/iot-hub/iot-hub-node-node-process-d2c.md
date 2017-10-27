@@ -1,5 +1,5 @@
 ---
-title: Routing messages from IoT Hub (Node) | Microsoft Docs
+title: Routing messages with IoT Hub (Node) | Microsoft Docs
 description: How to process IoT Hub device-to-cloud messages by using routing rules and custom endpoints to dispatch messages to other back-end services.
 services: iot-hub
 documentationcenter: node
@@ -17,7 +17,7 @@ ms.date: 10/17/2017
 ms.author: v-masebo
 
 ---
-# Routing messages from IoT Hub (Node)
+# Routing messages with IoT Hub (Node)
 
 [!INCLUDE [iot-hub-selector-process-d2c](../../includes/iot-hub-selector-process-d2c.md)]
 
@@ -27,7 +27,7 @@ This tutorial builds on the code shown in the [Get started with IoT Hub] tutoria
 
 At the end of this tutorial, you run three Node.js console apps:
 
-* **SimulatedDevice**, a modified version of the app created in the [Get started with IoT Hub] tutorial, sends data-point device-to-cloud messages every second, and interactive device-to-cloud messages every 10 seconds. This app uses the MQTT protocol to communicate with IoT Hub.
+* **SimulatedDevice**, a modified version of the app created in the [Get started with IoT Hub] tutorial, sends data-point device-to-cloud messages every second, and interactive device-to-cloud messages per random interval. This app uses the MQTT protocol to communicate with IoT Hub.
 * **ReadDeviceToCloudMessages** displays the telemetry sent by your device app.
 * **ReadCriticalQueue** de-queues the critical messages from the Service Bus queue attached to the IoT hub.
 
@@ -45,7 +45,7 @@ You should have some basic knowledge of [Azure Storage] and [Azure Service Bus].
 ## Send interactive messages from a device app
 In this section, you modify the device app you created in the [Get started with IoT Hub] tutorial to occasionally send messages that require immediate processing.
 
-1. Use a text editor to open the simulateddevice\SimulatedDevice.js file. This file contains the code for the **SimulatedDevice** app you created in the [Get started with IoT Hub] tutorial.
+1. Use a text editor to open the **simulateddevice\SimulatedDevice.js** file. This file contains the code for the **SimulatedDevice** app you created in the [Get started with IoT Hub] tutorial.
 
 2. Replace the **connectCallback** function with the following code:
 
@@ -60,10 +60,16 @@ In this section, you modify the device app you created in the [Get started with 
         setInterval(function(){
     	var data, message;
     	if (Math.random() > 0.7) {
-    		data = "This is a critical message.";
-    		message = new Message(data);
-            	message.properties.add("level", "critical");
-            	console.log("Sending message: " + message.getData());
+    		if (Math.random() > 0.5) {
+                data = "This is a critical message.";
+                message = new Message(data);
+                message.properties.add("level", "critical");
+	        } else {
+	            data = "This is a storage message.";
+	            message = new Message(data);
+                message.properties.add("level", "storage");
+            }
+            console.log("Sending message: " + message.getData());
     	}
     	else {
             	var temperature = 20 + (Math.random() * 15);
@@ -79,33 +85,37 @@ In this section, you modify the device app you created in the [Get started with 
     };
     ```
    
-    This method randomly adds the property `"level": "critical"` to messages sent by the device, which simulates a message that requires immediate action by the application back-end. The application passes this information in the message properties, instead of in the message body, so that IoT Hub can route the message to the proper message destination.
+    This method randomly adds the property `"level": "critical"` and `"level": "storage"` to messages sent by the device, which simulates a message that requires immediate action by the application back-end or one that needs to be permanently stored. The application passes this information in the message properties, instead of in the message body, so that IoT Hub can route the message to the proper message destination.
    
    > [!NOTE]
    > You can use message properties to route messages for various scenarios including cold-path processing, in addition to the hot path example shown here.
 
-2. Save and close the simulateddevice\SimulatedDevice.js file.
+2. Save and close the **simulateddevice\SimulatedDevice.js** file.
 
     > [!NOTE]
     > For the sake of simplicity, this tutorial does not implement any retry policy. In production code, you should implement a retry policy such as exponential backoff, as suggested in the MSDN article [Transient Fault Handling].
 
 ## Add queues to your IoT hub and route messages to them
 
-In this section, you create a Service Bus queue and a Storage account, connect them to your IoT hub, and configure your IoT hub to send messages to the queue based on the presence of a property on the message and all messages to the Storage account. For more information about how to process messages from Service Bus queues, see [Get started with queues][lnk-sb-queues-node] and how to manage storage, see [Get started with Azure Storage][Azure Storage].
+In this section, you create both a Service Bus queue and a Storage account, connect them to your IoT hub, and configure your IoT hub to send messages to the queue based on the presence of a property on the message and all messages to the Storage account. For more information about how to process messages from Service Bus queues, see [Get started with queues][lnk-sb-queues-node] and how to manage storage, see [Get started with Azure Storage][Azure Storage].
 
 1. Create a Service Bus queue as described in [Get started with queues][lnk-sb-queues-node]. Make a note of the namespace and queue name.
 
-1. Create a Storage account as described in [Azure Storage Documentation][lnk-storage].  Use the BLOB type and made note of the account name.
+1. Create a Storage account as described in [Azure Storage Documentation][lnk-storage]. Make a note of the account name.
 
 2. In the Azure portal, open your IoT hub and click **Endpoints**.
 
     ![Endpoints in IoT hub][30]
 
-3. In the **Endpoints** blade, click **Add** at the top to add your queue to your IoT hub. Name the endpoint **CriticalQueue** and use the drop-downs to select **Service Bus queue**, the Service Bus namespace in which your queue resides, and the name of your queue. Click **Add** again, name the endpoint **GeneralQueue** and use the drop-downs to select **Storage account**, and create a storage container.  Make note of the name.  When you are done, click **Save** at the bottom.
+3. In the **Endpoints** blade, click **Add** at the top to add your queue to your IoT hub. Name the endpoint **CriticalQueue** and use the drop-downs to select **Service Bus queue**, the Service Bus namespace in which your queue resides, and the name of your queue. When you are done, click **OK** at the bottom.  
+
+1. Click **Add** again, name the endpoint **GeneralQueue** and create a **Storage account** and a **Storage container**.  Make note of the names.  When you are done, click **OK** at the bottom.
 
     ![Adding an endpoint][31]
 
-4. Now click **Routes** in your IoT Hub. Click **Add** at the top of the blade to create a routing rule that routes messages to the queue you just added. Select **DeviceTelemetry** as the source of data. Enter `level="critical"` as the condition, and choose **CriticalQueue** as a custom endpoint as the routing rule endpoint. Click **Add** again, select **Messages** as the source of data, and choose **GeneralQueue** as the endpoint.  When you are done, click **Save** at the bottom.
+4. Now click **Routes** in your IoT Hub. Click **Add** at the top of the blade to create a routing rule that routes messages to the queue you just added. Select **Device Messages** as the source of data. Enter `level="critical"` as the condition, and choose **CriticalQueue** as a custom endpoint as the routing rule endpoint. Click **Save** at the bottom.  
+
+1. Click **Add** again, select **Device Messages** as the source of data, enter `level="storage"` as the condition, and choose **GeneralQueue** as the endpoint.  When you are done, click **Save** at the bottom.
 
     ![Adding a route][32]
 
@@ -157,7 +167,7 @@ In this section, you create a Node.js console app that reads critical messages f
     	    console.log(receivedMessage);
         } else { console.log(error); }
     	});
-    }, 1000);
+    }, 3000);
     ```
 
 7. Save and close the **ReadCriticalQueue.js** file.
@@ -190,7 +200,7 @@ Now you are ready to run the three applications.
    
    ![Run simulated-device][simulateddevice]
 
-1. In the Azure Portal, go to your storage account, under **Blob Service**, click **Browse blobs...**.  Select your container, click the JSON file, and click **Download** to view the data.
+1. In the Azure Portal, go to your storage account, under **Blob Service**, click **Browse blobs...**.  Select your container, navigate to and click the JSON file, and click **Download** to view the data.
 
 ## Next steps
 

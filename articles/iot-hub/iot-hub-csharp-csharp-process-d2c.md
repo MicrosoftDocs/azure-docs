@@ -1,5 +1,5 @@
 ---
-title: Routing messages from IoT Hub (.Net) | Microsoft Docs
+title: Routing messages with IoT Hub (.Net) | Microsoft Docs
 description: How to process IoT Hub device-to-cloud messages by using routing rules and custom endpoints to dispatch messages to other back-end services.
 services: iot-hub
 documentationcenter: .net
@@ -17,7 +17,7 @@ ms.date: 07/25/2017
 ms.author: dobett
 
 ---
-# Routing messages from IoT Hub (.NET)
+# Routing messages with IoT Hub (.NET)
 
 [!INCLUDE [iot-hub-selector-process-d2c](../../includes/iot-hub-selector-process-d2c.md)]
 
