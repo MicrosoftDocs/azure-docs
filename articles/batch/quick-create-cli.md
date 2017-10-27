@@ -39,7 +39,7 @@ The following example creates a resource group named *myResourceGroup* in the *e
 az group create --name myResourceGroup --location eastus
 ```
 
-## Create Batch account
+## Create a Batch account
 
 Create a Batch account with the [az batch account create](/cli/azure/batch/account#az_batch_account_create) command. 
 
