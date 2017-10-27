@@ -25,6 +25,9 @@ If you want to **copy files as-is** between file-based stores (binary copy), ski
 * [ORC format](#orc-format)
 * [Parquet format](#parquet-format)
 
+> [!NOTE]
+> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is in general availability (GA), see [supported file and compression formats in Data Factory version1](v1//data-factory-supported-file-and-compression-formats.md).
+
 ## Text format
 
 If you want to read from a text file or write to a text file, set the `type` property in the `format` section of the dataset to **TextFormat**. You can also specify the following **optional** properties in the `format` section. See [TextFormat example](#textformat-example) section on how to configure.
