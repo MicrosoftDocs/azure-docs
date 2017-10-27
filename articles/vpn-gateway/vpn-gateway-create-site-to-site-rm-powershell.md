@@ -80,7 +80,7 @@ ConnectionName          = VNet1toSite2
 If you don't already have a virtual network, create one. When creating a virtual network, make sure that the address spaces you specify don't overlap any of the address spaces that you have on your on-premises network. 
 
 >[!NOTE]
->In order for this VNet to connect to an on-premises location, you need to coordinate with your on-premises network administrator to carve out an IP address range that you can use specifically for this virtual network. Otherwise, traffic will not route correctly if a duplicate address range exists on both sides of the VPN connection.
+>In order for this VNet to connect to an on-premises location, you need to coordinate with your on-premises network administrator to carve out an IP address range that you can use specifically for this virtual network. If a duplicate address range exists on both sides of the VPN connection, traffic does not route the way you may expect it to. Additionally, if you want to connect this VNet to another VNet, the address space cannot overlap with other VNet. Because of this, take care to plan your network configuration accordingly.
 >
 >
 
