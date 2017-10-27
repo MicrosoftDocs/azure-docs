@@ -26,7 +26,6 @@ ms.author: renash
 
 [!INCLUDE [storage-check-out-samples-dotnet](../../../includes/storage-check-out-samples-dotnet.md)]
 
-## About this tutorial
 This tutorial will demonstrate the basics of using .NET to develop applications or services that use Azure Files to store file data. In this tutorial, we create a simple console application and show how to perform basic actions with .NET and Azure Files:
 
 * Get the contents of a file

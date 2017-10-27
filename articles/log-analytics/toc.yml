@@ -11,6 +11,8 @@
     href: log-analytics-quick-collect-azurevm.md
   - name: Collect - Linux computer
     href: log-analytics-quick-collect-linux-computer.md
+  - name: Collect - Windows Computer
+    href: log-analytics-quick-collect-windows-computer.md
 - name: Tutorials
   items:
   - name: 1 - Analyze data
@@ -43,8 +45,10 @@
          href: log-analytics-log-search-faq.md
        - name: Log Search portals
          href: log-analytics-log-search-portals.md   
-- name: How To
+- name: How-to guides
   items:
+  - name: Create Log Analytics workspace
+    href: log-analytics-quick-create-workspace.md
   - name: Collect data
     items:
     - name: Connected sources

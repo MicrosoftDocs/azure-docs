@@ -19,6 +19,9 @@ ms.author: shlo
 # Azure Data Factory FAQ
 This article applies to version 2 of the Azure Data Factory service. It provides answers to frequently asked questions about Data Factory.  
 
+> [!NOTE]
+> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [frequently asked questions for Data Factory version 1](v1/data-factory-faq.md).
+
 ## What is Azure Data Factory? 
 Data Factory is a fully managed, cloud-based, data-integration service that automates the movement and transformation of data. Like a factory that runs equipment to transform raw materials into finished goods, Azure Data Factory orchestrates existing services that collect raw data and transform it into ready-to-use information. 
 
