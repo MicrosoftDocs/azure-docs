@@ -20,42 +20,42 @@ This quickstart migrates the sample AdventureWorks 2014 database from an on-prem
 - An instance of SQL Server with an AdventureWorks 2014 database that is directly connected to Azure.
 - An empty Azure SQL database.
 - [Microsoft Data Migration Assistant](https://aka.ms/get-dma)
-- Azure DMS requires a VNET created by using the Azure Resource Manager (ARM) deployment model, which provides site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) or [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)..
+- Azure Data Migration Service requires a VNET created by using the Azure Resource Manager deployment model, which provides site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) or [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
 
 ## Create a migration project
 1. Open Microsoft Data Migration assistant and choose **+** to create a new project.
-1. Set **Project type** to "Migration"
-1. Give the project a memorable name
-1. Choose "SQL Server" for **Source server type**
-1. For **Target server type**, choose "Azure SQL Database"
-1. **Migration scope** must be set to "Schema only"
+1. Set **Project type** to "Migration."
+1. Give the project a memorable name.
+1. Choose "SQL Server" for **Source server type**.
+1. For **Target server type**, choose "Azure SQL Database."
+1. **Migration scope** must be set to "Schema only."
 ![Create a new project](media/quickstart-sql-server-to-azure-sql/DMANewProject.png)
-1. Click **Create**
+1. Click **Create**.
 
-## Select source
-1. Enter your server name or IP address
+## Select schema source
+1. Enter your server name or IP address.
 1. Choose the appropriate **authentication type** for your server.  This example uses SQL Authentication, your screen may look slightly different.
-1. Enter your **username** and **password**
+1. Enter your **username** and **password**.
 1. Ensure **Encrypt connection** is checked and if you are using a self-signed certificate also check **Trust server certificate**
-1. Click **Connect**
+1. Click **Connect**.
 ![Select migration source](media/quickstart-sql-server-to-azure-sql/DMASelectSource.png)
-1. Choose AdventureWorks 2014 and click **Next**
+1. Choose AdventureWorks 2014 and click **Next**.
 
 > [!NOTE]
 > Credentials used to connect to the source SQL Server instance must have CONTROL SERVER permission.
 
-## Select target
-1. Enter the name of your Azure SQL server
+## Select schema target
+1. Enter the name of your Azure SQL server.
 1. Choose the appropriate **Authentication type** for your server.  This example uses SQL Authentication, your screen may look slightly different.
-1. Ensure **Encrypt connection** is checked
-1. Click **Connect**
-1. Choose your Azure SQL database and then click **Next**
+1. Ensure **Encrypt connection** is checked.
+1. Click **Connect**.
+1. Choose your Azure SQL database and then click **Next**.
 ![Select migration target](media/quickstart-sql-server-to-azure-sql/DMASelectTarget.png)
 
 > [!NOTE]
 > The principal used to connect to the target Azure SQL database must have CONTROL DATABASE permission on the target database.
 
-## Select objects
+## Select schema objects
 Choose the objects you want to migrate to the target.  By default all of the database objects are selected.  You can click on individual objects and see any issues associated with it.  For purposes of this quickstart, you don't need to be concerned with any of the listed issues.
 
 ![Select objects](media/quickstart-sql-server-to-azure-sql/DMASelectObjects.png)
@@ -79,24 +79,24 @@ Setting|Suggested value|Description
 ---|---|---
 Service name |*example-name*|Choose a unique name that identifies your Azure Data Migration Service.
 Subscription|*my subscription*|The Azure subscription that you want to use. If you have multiple subscriptions, choose the appropriate subscription in which the resource is billed for.
-Network|*mynetworkname*| Create a new network with a unique name
+Network|*mynetworkname*| Create a new network with a unique name.
 Location |*mylocation*| Choose the location that is closest to your source or target server.
 
 ![Create migration service](media/quickstart-sql-server-to-azure-sql/DMSCreateMigrationService.png)
 
 ## Create new migration project
-1. Click on "New Migration Project"
-1. Give the project a memorable name
-1. Select "SQL Server" as the **Source server type**
-1. Set **Target server type** to  "Azure SQL Database"
+1. Click on "New Migration Project."
+1. Give the project a memorable name.
+1. Select "SQL Server" as the **Source server type**.
+1. Set **Target server type** to  "Azure SQL Database."
 ![New migration](media/quickstart-sql-server-to-azure-sql/DMSNewMigration.png)
-1. Click **Start**
+1. Click **Start**.
 
-## Select target
+## Select data target
 Setting|Suggested value|Description
 ---|---|---
 Server name |*example-name*|Enter the fully qualified name of your Azure SQL server.
-Authentication type||Choose the appropriate type for your server, either "SQL Authentication" or "Windows Authentication"
+Authentication type||Choose the appropriate type for your server, either "SQL Authentication" or "Windows Authentication."
 User name|*myusername*| Your user name
 Password |*mypassword*| Your password
 
@@ -104,7 +104,7 @@ Password |*mypassword*| Your password
 
 Ensure **Encrypt connection** is checked and if you are using a self-signed certificate also check **Trust server certificate**.
 
-## Select source
+## Select data source
 Setting|Suggested value|Description
 ---|---|---
 Server name |*example-name*|Enter the fully qualified name or IP address of your SQL Server.
@@ -127,7 +127,7 @@ Check AdventureWorks2014 and select your target database.  You can make a databa
 Click **Save**
 
 ## Select tables
-If it exists in the source, target, and is empty, a table is automatically checked for migration.  Expand AdventureWorks2014 and review the selected tables. When you are satisfied that they are all selected, click **Save**
+If it exists in the source, target, and is empty, a table is automatically checked for migration.  Expand AdventureWorks2014 and review the selected tables. When you are satisfied that they are all selected, click **Save**.
 
 ![Select Tables to Migrate](media/quickstart-sql-server-to-azure-sql/DMSSelectTables.png)
 
@@ -135,13 +135,13 @@ If it exists in the source, target, and is empty, a table is automatically check
 ## Run and monitor
 To see detailed migration status:
 
-1. Click **Run migration**
-1. Click your migration's name
-1. Click AdventureWorks2014
+1. Click **Run migration**.
+1. Click your migration's name.
+1. Click AdventureWorks2014.
 
 ![Migration status](media/quickstart-sql-server-to-azure-sql/DMSMonitor.png)
 
  
 ## Next steps
-- Request a [preview of DMS](https://aka.ms/get-dms)
-- Overview of [Data Migration Assistant](https://aka.ms/dma)
+- Request a [preview of Azure Data Migration Service](https://aka.ms/get-dms).
+- Overview of [Data Migration Assistant](https://aka.ms/dma).
