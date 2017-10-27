@@ -39,11 +39,49 @@ The custom module that you create in this tutorial filters the temparture data g
 * The IoT Hub connection string for the IoT hub that your IoT Edge device connects to.  
 * [Visual Studio Code](https://code.visualstudio.com/). 
 * The following Visual Studio Code extensions: 
-  * [C# for Visual Studio Code (powered by OmniSharp) extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). (You can install the extension from the extensions panel in Visual Studio Code.) 
-  * [Azure IoT Edge extension](TBD). 
+  * [C# for Visual Studio Code (powered by OmniSharp) extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). (You can install the extension from the extensions panel in Visual Studio Code.)
+  * **Azure IoT Edge extension**
+    > Note: The IoT Edge extension is not yet available in Marketplace. Perform the following steps to install it:
+    > 1. Install the [Azure IoT Toolkit extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) from the extensions panel in VS Code.
+    > 2. Downlad the **Azure IoT Edge extension** VSIX here: [https://aka.ms/edge-extension](https://aka.ms/edge-extension
+    > 3. Install the extension VSIX by using the **View | Command Palette... | Extensions: Install from VSIX...** menu command, navigating to the downloaded VSIX on your computer and clicking **Open**. (You can also install the extension by clicking **...** in the upper-right corner of the extension panel and selecting **Install from VSIX...**.)
 * [Docker](https://docs.docker.com/engine/installation/). The Community Edition (CE) for your platform is sufficient for this tutorial. 
 * [.NET Core 2.0 SDK](https://www.microsoft.com/net/core#windowscmd). 
 * [Nuget CLI](https://docs.microsoft.com/en-us/nuget/guides/install-nuget#nuget-cli). 
+
+## Bug Bash Configuration steps
+For the bug bash perform the following steps to configure VS Code.
+1. Use the **View | Integrated Terminal** menu command to open the Visual Studio Code integrated terminal.
+1. In integrated terminal, add a Nuget source for the **AzureIotEdgeModule** template Noget package.  
+  - For Nuget V3 
+ 
+    ```cmd/sh
+    nuget sources add -name AzureIoTEdgeModule -source https://www.myget.org/F/dotnet-template-azure-iot-edge-module/api/v3/index.json 
+    ``` 
+
+  - For Nuget V2 
+    ```cmd/sh     
+    nuget sources add -name AzureIoTEdgeModule -source https://www.myget.org/F/dotnet-template-azure-iot-edge-module/api/v2/index.json 
+    ```
+
+2. Install the **AzureIoTEdgeModule** template in dotnet
+
+    ```
+    dotnet new -i Azure.IoT.Edge.Module
+    ```
+
+3. Add a Nuget source for the preview version of the Microsoft.Azure.Devices.Client package. The preview version used in this tutorial is not yet available in the public gallery. 
+  - For Nuget V3 
+ 
+    ```cmd/sh
+    nuget sources Add -Name "Edge Private Preview" -Source https://www.myget.org/F/aziot-device-sdk/api/v3/index.json
+    ```
+
+  - For Nuget V2 
+    ```cmd/sh
+    nuget sources Add -Name "Edge Private Preview" -Source https://www.myget.org/F/aziot-device-sdk/api/v2/index.json
+    ```
+
 
 ## Create a Docker container registry
 For this tutorial, you will need a Docker registry to publish your IoT Edge module to. You can use any Docker-compatible container registry, for example: [Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/) or [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). If you already have a Docker-compatible container registry, you can use it; otherwise, you can get a free private Docker repository on Docker Hub when you sign up for a Docker ID. 
@@ -66,11 +104,58 @@ The following steps show you how to create a IoT Edge module using Visual Studio
     dotnet new aziotedgemodule -n FilterModule
     ```
 3. Use the  **File | Open Folder** menu command, browse to the **FilterModule**  folder, and click **Select Folder** to open the project in VS Code.
-4. Use the **View | Command Palette... | Edge: Init Edge project** menu command to add assets to debug the app (Should this be "app" or "module"?).
+4. In VS Code explorer, click **Program.cs** to open it.
 5. Add the following field to the **Program** class.
 
     ```csharp
     static int temperatureThreshold { get; set; } = 25;
+    ```
+
+1. Add the following classes to the **Program** class. These classes define the expected schema for the body of incoming messages.
+
+    ```csharp
+    class MessageBody
+    {
+        public Machine machine {get;set;}
+        public Ambient ambient {get; set;}
+        public string timeCreated {get; set;}
+    }
+    class Machine
+    {
+       public double temperature {get; set;}
+       public double pressure {get; set;}         
+    }
+    class Ambient
+    {
+       public double temperature {get; set;}
+       public int humidity {get; set;}         
+    }
+    ```
+
+7. In the **InitEdgeModule** method, replace the code in the **try** block with the following code. This code registers our callback for desired properties updates on the twin and the **FilterHandler** method as the default handler for messages from the Edge Hub.
+
+    ```csharp
+    // Open a connection to the Edge runtime using MQTT transport and 
+    // the connection string provded as an environment variable
+    ITransportSettings[] settings =
+    {
+        new MqttTransportSettings(TransportType.Mqtt_Tcp_Only)
+        { RemoteCertificateValidationCallback = (sender, certificate, chain, sslPolicyErrors) => true }
+    };
+
+    DeviceClient IoTHubModuleClient = DeviceClient.CreateFromConnectionString(Environment.GetEnvironmentVariable("EdgeHubConnectionString"), settings);
+    await IoTHubModuleClient.OpenAsync();
+    Console.WriteLine("IoT Hub module client initialized.");
+
+    // Attach callback for Twin desired properties updates
+    await IoTHubModuleClient.SetDesiredPropertyUpdateCallbackAsync (onDesiredPropertiesUpdate, null);
+
+    // Register callback to be called when a message is received by the module
+    await IoTHubModuleClient.SetEventDefaultHandlerAsync(FilterMessages, IoTHubModuleClient);
+
+    // Register callback to be called when a message is received by the module
+    // await IoTHubModuleClient.SetEventDefaultHandlerAsync(PipeMessage, IoTHubModuleClient);
+
     ```
 
 1. Add the following method to the **Program** class to update the **temperatureThreshold** field based on the desired properties sent by the service via the device twin:
@@ -104,60 +189,19 @@ The following steps show you how to create a IoT Edge module using Visual Studio
     }
     ```
 
-7. In the **InitEdgeModule** method, replace the code in the try block with the following code. 
-
-    ```csharp
-    // Open a connection to the Edge runtime using MQTT transport and 
-    // the connection string provded as an environment variable
-    ITransportSettings[] settings =
-    {
-        new MqttTransportSettings(TransportType.Mqtt_Tcp_Only)
-        { RemoteCertificateValidationCallback = (sender, certificate, chain, sslPolicyErrors) => true }
-    };
-
-    DeviceClient IoTHubModuleClient = DeviceClient.CreateFromConnectionString(Environment.GetEnvironmentVariable("EdgeHubConnectionString"), settings);
-    await IoTHubModuleClient.OpenAsync();
-    Console.WriteLine("IoT Hub module client initialized.");
-
-    // Attach callback for Twin desired properties updates
-    await IoTHubModuleClient.SetDesiredPropertyUpdateCallbackAsync (onDesiredPropertiesUpdate, null);
-
-    // Register callback to be called when a message is sent to "input1"
-    await IoTHubModuleClient.SetEventHandlerAsync("input1", FilterMessages, IoTHubModuleClient);
-    ```
-
-1. Add the following classes after the **InitEdgeModule** method. These classes define the expected schema for the body of incoming messages.
-
-    ```csharp
-    class MessageBody
-    {
-        public Machine machine {get;set;}
-        public Ambient ambient {get; set;}
-        public string timeCreated {get; set;}
-    }
-    class Machine
-    {
-       public double temperature {get; set;}
-       public double pressure {get; set;}         
-    }
-    class Ambient
-    {
-       public double temperature {get; set;}
-       public int humidity {get; set;}         
-    }
-    ```
-
-1. Replace the **PipeMessage** method with the following method. This method is called whenever the module is sent a message from the Edge Hub. It filters messages based on the temperature value in the body of the message, and the temperature threshold set via the twin.
+1. Add the following method to the **Program** class. This method is called whenever the module is sent a message from the Edge Hub. It filters messages based on the temperature value in the body of the message, and the temperature threshold set via the twin.
 
     ```csharp
     static async Task FilterMessages(Message message, object userContext)
     {
+        int counterValue = Interlocked.Increment(ref counter);
+
         try {
-            DeviceClient IoTHubClient = (DeviceClient)userContext;
+            DeviceClient deviceClient = (DeviceClient)userContext;
 
             byte[] messageBytes = message.GetBytes();
             string messageString = Encoding.UTF8.GetString(messageBytes);
-            Console.WriteLine($"Received new message: [{messageString}]");
+            Console.WriteLine($"Received message {counterValue}: [{messageString}]");
 
             // Get message body
             var messageBody = JsonConvert.DeserializeObject<MessageBody>(messageString);
@@ -173,8 +217,11 @@ The following steps show you how to create a IoT Edge module using Visual Studio
                 }
 
                 filteredMessage.Properties.Add("MessageType", "Alert");
-                await IoTHubClient.SendEventAsync("alertOutput", filteredMessage);
+                await deviceClient.SendEventAsync("alertOutput", filteredMessage);
             }
+
+            // We need to indicate that we have completed the message treatment
+            await deviceClient.CompleteAsync(message);
         }
         catch (AggregateException ex)
         {
@@ -183,11 +230,17 @@ The following steps show you how to create a IoT Edge module using Visual Studio
                 Console.WriteLine();
                 Console.WriteLine("Error in sample: {0}", exception);
             }
+            // We need to indicate that we have not completed the message treatment
+            DeviceClient deviceClient = (DeviceClient)userContext;
+            await deviceClient.AbandonAsync(message);
         }
         catch (Exception ex)
         {
             Console.WriteLine();
             Console.WriteLine("Error in sample: {0}", ex.Message);
+            // We need to indicate that we have not completed the message treatment
+            DeviceClient deviceClient = (DeviceClient)userContext;
+            await deviceClient.AbandonAsync(message);
         }
     }
     ```
