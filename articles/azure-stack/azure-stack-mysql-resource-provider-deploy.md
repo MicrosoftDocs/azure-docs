@@ -133,8 +133,6 @@ $tempDir\DeployMySQLProvider.ps1 -AzCredential $AdminCreds `
 
 You can specify these parameters in the command line. If you do not, or any parameter validation fails, you are prompted to provide the required ones.
 
-### DeploySqlProvider.ps1 parameters
-You can specify these parameters in the command line. If you do not, or any parameter validation fails, you are prompted to provide the required ones.
 
 | Parameter Name | Description | Comment or Default Value |
 | --- | --- | --- |
