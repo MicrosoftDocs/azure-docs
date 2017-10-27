@@ -139,4 +139,10 @@ Perform the following steps to install StorSimple Migration tool on your compute
     * `TenantId` –  Azure Active Directory Tenant ID in Azure portal. Log in to Microsoft Azure as an administrator. In the Microsoft Azure portal, click **Azure Active Directory**. Under **Manage**, click **Properties**. The tenant ID is shown in the **Directory ID** box.
     ![Check Tenant ID for Azure Active Directory](media/storsimple-8000-migrate-from-5000-7000/check-tenantid-aad.png)
 
-    
+3.	Save the changes made to the config file.
+4.	Run the _StorSimple8000SeriesMigrationTool.exe_ to launch the tool. When prompted for credentials, provide the credentials associated with your subscription in Azure portal. 
+5.	The StorSimple Migration tool UI is displayed.
+  
+
+## Next steps
+Download the step-by-step instructions on how to [Migrate data from a StorSimple 5000-7000 series to an 8000 series device](storsimple-overview.md).
