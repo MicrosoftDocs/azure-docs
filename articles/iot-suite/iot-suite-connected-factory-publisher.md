@@ -380,7 +380,14 @@ docker run -h publisher microsoft/iot-edge-opc-publisher <applicationname> [<IoT
 
 #### Using bind mounts (shared filesystem)
 
-In some scenarios, you want to read configuration information from, or write log files to, locations on the host instead of using the container file system. To configure this behavior, use the `-v` option of `docker run` in the bind mount mode.
+In some scenarios, you want to read configuration information from, or write log files to, locations on the host instead of using the container file system. To configure this behavior, use the `-v` option of `docker run` in the bind mount mode. For example:
+
+```cmd/sh
+-v //D/docker:/build/out/Logs
+-v //D/docker:/build/out/CertificateStores
+-v //D/docker:/shared
+-v //D/docker:/root/.dotnet/corefx/cryptography/x509stores
+```
 
 #### Store for X509 certificates
 

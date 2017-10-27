@@ -54,7 +54,7 @@ No. The VMs in an availability set must use either all managed disks or all unma
 
 **Is Managed Disks the default option in the Azure portal?**
 
-Not currently, but it will become the default in the future.
+Yes. 
 
 **Can I create an empty managed disk?**
 
