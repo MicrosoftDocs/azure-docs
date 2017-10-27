@@ -37,7 +37,7 @@
   - name: Use HSM with SDK
     href: use-hsm-with-sdk.md
   - name: Control access to Provisioning Service
-    href: concept-security-endpoints.md
+    href: how-to-control-access.md
 - name: Reference
   items:
   - name: REST
