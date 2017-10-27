@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: get-started-article
-ms.date: 10/18/2017
+ms.date: 10/26/2017
 ms.author: juliako
 
 ---
@@ -28,11 +28,11 @@ The following are required to complete this tutorial:
 
 * An Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 * A Media Services account. To create a Media Services account, see [How to Create a Media Services Account](media-services-portal-create-account.md).
-* The current  [Azure Media Services Java SDK package][Azure Media Services SDK Maven Package].
+* The current [Azure Media Services Java SDK Maven Package](http://search.maven.org/#artifactdetails%7Ccom.microsoft.azure%7Cazure-media%7C0.9.8%7Cjar)
 
 ## How to: Import the Azure Media Services Java client SDK package
 
-To start using the Media Services SDK for Java, add a reference to the current version of the `azure-media` package from the [Maven repository][Azure Media Services SDK Maven Package].
+To start using the Media Services SDK for Java, add a reference to the current version (0.9.8) of the `azure-media` package from the [Azure Media Services Java SDK Maven Package](http://search.maven.org/#artifactdetails%7Ccom.microsoft.azure%7Cazure-media%7C0.9.8%7Cjar)
 
 For example, if your build tool is `gradle`, add the following dependency to your `build.gradle` file:
 
@@ -54,10 +54,10 @@ The following code shows how to create an asset, upload a media file to the asse
 Set up a Media Services account before using this code. For information about setting up an account, see [How to Create a Media Services Account](media-services-portal-create-account.md).
 
 The code connects to the Azure Media Services API using Azure AD service principal authentication. Create an Azure AD application and specify the values for the following variables in the code:
-* `tenant`: The Azure AD tenant domain where the Azure AD application resides.
-* `clientId`: The client ID of the Azure AD application.
-* `clientKey`: The client key of the Azure AD application.
-* `restApiEndpoint`: The REST API endpoint of the Azure Media Services account.
+* `tenant`: The Azure AD tenant domain where the Azure AD application resides
+* `clientId`: The client ID of the Azure AD application
+* `clientKey`: The client key of the Azure AD application
+* `restApiEndpoint`: The REST API endpoint of the Azure Media Services account
 
 You can create an Azure AD application and obtain the preceding configuration values from the Azure portal. For more information, see the **Service principal authentication** section of [Getting started with Azure AD authentication using the Azure portal](https://docs.microsoft.com/azure/media-services/media-services-portal-get-started-with-aad).
 
