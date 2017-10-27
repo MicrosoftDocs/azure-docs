@@ -158,7 +158,7 @@ You can use the **iothubowner** connection string from your IoT Hub to complete 
     var serviceClient = Client.fromConnectionString(connectionString);
     ```
 
-1. Create a callback and use the **getFileNotificationReceiver** function to recieve status updates.
+1. Create a callback and use the **getFileNotificationReceiver** function to receive status updates.
 
     ```nodejs
     function receiveFileUploadNotification(err, receiver){
@@ -202,15 +202,15 @@ node SimulatedDevice.js
 
 The following screenshot shows the output from the **SimulatedDevice** app:
 
-![Output from simulated-device app](media/iot-hub-node-node-upload/simulated-device.png)
+![Output from simulated-device app](./media/iot-hub-node-node-upload/simulated-device.png)
 
 The following screenshot shows the output from the **FileUploadNotification** app:
 
-![Output from read-file-upload-notification app](media/iot-hub-node-node-upload/read-file-upload-notification.png)
+![Output from read-file-upload-notification app](./media/iot-hub-node-node-upload/read-file-upload-notification.png)
 
 You can use the portal to view the uploaded file in the storage container you configured:
 
-![Uploaded file](media/iot-hub-node-node-upload/uploaded-file.png)
+![Uploaded file](./media/iot-hub-node-node-upload/uploaded-file.png)
 
 ## Next steps
 
@@ -220,24 +220,9 @@ In this tutorial, you learned how to use the file upload capabilities of IoT Hub
 * [Introduction to C SDK][lnk-c-sdk]
 * [Azure IoT SDKs][lnk-sdks]
 
-<!-- Images. -->
-[50]: ./media/iot-hub-node-node-file-upload/run-apps1.png
-[1]: ./media/iot-hub-node-node-file-upload/image-properties.png
-[3]: ./media/iot-hub-node-node-file-upload/enable-file-notifications.png
-
 <!-- Links -->
 [Azure IoT Developer Center]: http://www.azure.com/develop/iot
-
-[Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-[Azure Storage]:../storage/common/storage-create-storage-account.md#create-a-storage-account
-[lnk-configure-upload]: iot-hub-configure-file-upload.md
-[Azure IoT service SDK NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
-[lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [lnk-create-hub]: iot-hub-rm-template-powershell.md
 [lnk-c-sdk]: iot-hub-device-sdk-c-intro.md
 [lnk-sdks]: iot-hub-devguide-sdks.md
-
-[lnk-iotedge]: iot-hub-windows-iot-edge-simulated-device.md
-
-
