@@ -28,7 +28,7 @@ When any attributes of a user or device change, the system evaluates all dynamic
 > [!NOTE]
 > - You can set up a rule for dynamic membership on security groups or Office 365 groups.
 >
-> - This feature requires an Azure AD Premium P1 license for each user member added to at least one dynamic group.
+> - This feature requires an Azure AD Premium P1 license for each user member added to at least one dynamic group. It is not mandatory to actually assign licenses to users for them to be members in dynamic groups, but you do need to have the minimum number of licenses in the tenant to cover all such users. For example: if you have a total of 1,000 unique users in all dynamic groups in your tenant, you need to have at least 1,000 licenses for Azure AD Premium P1, or above, to meet the license requirement.
 >
 > - You can create a dynamic group for devices or users, but you cannot create a rule that contains both user and device objects.
 
