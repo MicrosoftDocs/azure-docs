@@ -202,15 +202,15 @@ node SimulatedDevice.js
 
 The following screenshot shows the output from the **SimulatedDevice** app:
 
-![Output from simulated-device app](./media/iot-hub-node-node-upload/simulated-device.png)
+![Output from simulated-device app](./media/iot-hub-node-node-file-upload/simulated-device.png)
 
 The following screenshot shows the output from the **FileUploadNotification** app:
 
-![Output from read-file-upload-notification app](./media/iot-hub-node-node-upload/read-file-upload-notification.png)
+![Output from read-file-upload-notification app](./media/iot-hub-node-node-file-upload/read-file-upload-notification.png)
 
 You can use the portal to view the uploaded file in the storage container you configured:
 
-![Uploaded file](./media/iot-hub-node-node-upload/uploaded-file.png)
+![Uploaded file](./media/iot-hub-node-node-file-upload/uploaded-file.png)
 
 ## Next steps
 
