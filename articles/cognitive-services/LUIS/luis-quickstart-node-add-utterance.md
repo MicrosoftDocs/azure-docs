@@ -14,7 +14,7 @@ ms.author: v-demak
 
 # Add an utterance to a LUIS app using Node.js 
 
-This quickstart shows you how programmatically add an utterances to your Language Understanding Intelligent Service (LUIS) app in just a few minutes. When you're finished, you'll be able to use Node.js code to add an utterance to a LUIS app.
+This quickstart shows you how to programmatically add utterances to your Language Understanding Intelligent Service (LUIS) app in just a few minutes. When you're finished, you'll be able to use Node.js code to add an utterance to a LUIS app.
 
 ## Before you begin
 You need a Cognitive Services API key to make calls to the sample LUIS app we use in this walkthrough. 
@@ -28,7 +28,6 @@ To get an API key follow these steps:
 
 You can find your app ID and version number by logging into https://www.luis.ai and go to App Settings. 
 
-
 ## Add an utterance by calling the Authoring API with Node.js
 
 1. Copy the following code snippet:
@@ -36,20 +35,17 @@ You can find your app ID and version number by logging into https://www.luis.ai 
 <!-- 
    [!code-nodejs[Console app code that calls a LUIS endpoint for Node.js](~/samples-luis/documentation-samples/endpoint-api-samples/node/call-endpoint.js)]
 -->
-```javascript
-
+   ```javascript
 var rp = require('request-promise');
 var fse = require('fs-extra');
 var path = require('path');
 
-// To run this sample, change these constants.
-
-// This is your programmatic key, available in luis.ai under Account Settings
+// To run this sample, change these constants:
+// Programmatic key, available in luis.ai under Account Settings
 const LUIS_subscriptionKey = "67073e45132a459db515ca04cea325c2";
-
-// The ID of your LUIS app to which you want to add an utterance
+// ID of your LUIS app to which you want to add an utterance
 const LUIS_appId = "d45092ab-d857-4595-abac-32ca59f1f29a";
-// The version number of your LUIS app
+// Version number of your LUIS app
 const LUIS_versionId = "0.1";
 
 // uploadFile is the file containing JSON for an utterance to add to the LUIS app.
@@ -133,12 +129,36 @@ var sendUtteranceToApi = async (options) => {
         throw err;
     }   
 }   
-```
+   ```
+
 2. Set the `LUIS_APP_ID` environment variable as described in the code comments. 
 
 3. Set the `LUIS_SUBSCRIPTION_KEY` environment variable to your Cognitive Services programmatic key.
 
-4. Run the code.
+4. Save the JSON description of the utterance you want to add. The JSON has the following format:
+
+   ```json
+[
+    {
+        "text": "go to Seattle",
+        "intentName": "BookFlight",
+        "entityLabels": [
+            {
+                "entityName": "Location",
+                "startCharIndex": 6,
+                "endCharIndex": 12
+            }
+        ]
+    }
+]
+   ```
+5. Edit the `uploadFile` constant to match the name of the file you created with the utterance:
+
+```javascript
+    const uploadFile = "./utterance-to-upload.json"
+```
+
+6. Run the code.
 <!-- 
 ![Console window displays JSON result from LUIS](./media/luis-get-started-Node.js-get-intent/console-turn-on.png)
 -->

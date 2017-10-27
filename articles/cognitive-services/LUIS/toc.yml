@@ -25,12 +25,6 @@
     items: 
     - name: Add an utterance programmatically using Node.js
       href: luis-quickstart-node-add-utterance.md
-    - name: Add an utterance programmatically using C#
-      href: luis-quickstart-node-add-utterance.md
-    - name: Add an utterance programmatically using Java
-      href: luis-quickstart-node-add-utterance.md  
-    - name: Add an utterance programmatically using Python
-      href: luis-quickstart-node-add-utterance.md 
 - name: Tutorials
   items: 
   - name: Integrate LUIS with a bot using Node.js
