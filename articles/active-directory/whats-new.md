@@ -20,7 +20,7 @@ ms.reviewer: dhanyahk
 ---
 # What's new in Azure Active Directory?
 
-We are improving Azure Active Directory on an ongoing basis for you. To enable you to stay up to date with the most recent developments, this topic provides you with information about:
+We are improving Azure Active Directory on an ongoing basis. To enable you to stay up to date with the most recent developments, this topic provides you with information about:
 
 -	The latest releases 
 -	Known issues 
