@@ -20,7 +20,7 @@ ms.author: alkohli
 # Migrate data from StorSimple 5000-7000 series to 8000 series device
 
 > [!IMPORTANT]
-> - Migration is currently an assisted operation. If you intend to migrate data from your StorSimple 5000-7000 series device to an 8000 series device, you need to schedule migration with Microsoft Support. Microsoft Support will then enable your subscription for migration. For more information, see [Contact Microsoft Support](storsimple-8000-contact-microsoft-support.md).
+> - Migration is currently an assisted operation. If you intend to migrate data from your StorSimple 5000-7000 series device to an 8000 series device, you need to schedule migration with Microsoft Support. Microsoft Support will then enable your subscription for migration. For more information, see how to [Open a Support ticket](storsimple-8000-contact-microsoft-support.md).
 >
 > - Before you contact Microsoft Support, be sure to reivew and complete the [Migration prerequisites](#migration-prerequisites) indicated in the article.
 
@@ -42,7 +42,6 @@ The migration feature simulates a disaster recovery (DR) process from 7000/5000 
 | 1.   | The migration process preserves the history of backups that were taken on 5000/7000 series.                                               | When users try to access the data, this migration will download the data from Azure thus incurring data download costs.                                     |
 | 2.   | No data is migrated on the host side.                                                                                                     | The process needs downtime between the start of the backup and latest backup being surfaced on the 8000 series (can be estimated using the migration tool). |
 | 3.   | This process preserves all the policies, bandwidth templates, encryption, and other settings on 8000 series devices.                      | User access will bring back only the data accessed by the users and will not rehydrate the entire dataset.                                                  |
-|      |                                                                                                                                           |                                                                                                                                                             |
 | 4.   | This process requires additional time to convert all the older backups in Azure which is done asynchronously without impacting production | Migration can only be done at a cloud configuration level.  Individual volumes in a cloud configuration cannot be migrated separately                       |
 
 A host-side migration allows setting up of 8000 series independently and copying the data from 5000/7000 series device to 8000 series device. This is equivalent to migrating data from one storage device to another. A variety of tools such as Diskboss, robocopy are used to copy the data.
@@ -120,15 +119,15 @@ Perform the following steps to install StorSimple Migration tool on your compute
 
     Open the tool config file _StorSimple8000SeriesMigrationTool.exe.config_ in the folder. Here is the snippet of the file.
     
-```
-    <add key="UserName" value="username@xyz.com" />
-    <add key="SubscriptionName" value="YourSubscriptionName" />
-    <add key="SubscriptionId" value="YourSubscriptionId" />
-    <add key="TenantId" value="YourTenantId" />
-    <add key="ResourceName" value="YourResourceName" />
-    <add key="ResourceGroupName" value="YourResourceGroupName" />
+    ```
+        <add key="UserName" value="username@xyz.com" />
+        <add key="SubscriptionName" value="YourSubscriptionName" />
+        <add key="SubscriptionId" value="YourSubscriptionId" />
+        <add key="TenantId" value="YourTenantId" />
+        <add key="ResourceName" value="YourResourceName" />
+        <add key="ResourceGroupName" value="YourResourceGroupName" />
 
-```
+    ```
 2. Edit the values corresponding to the keys and replace with:
 
     * `UserName` – User name to log in to Azure portal.
