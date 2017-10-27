@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2017
+ms.date: 10/27/2017
 ms.author: magoedte;banders
 ms.custom: H1Hack27Feb2017
 
@@ -119,16 +119,16 @@ If you have recommendations that you want to ignore, you can create a text file 
 1. In the Azure portal on the Log Analytics workspace page for your selected workspace, click the **Log Search** tile.
 2. Use the following query to list recommendations that have failed for computers in your environment.
 
-   ```
-   Type=ADAssessmentRecommendation RecommendationResult=Failed | select Computer, RecommendationId, Recommendation | sort Computer
-   ```
->[!NOTE]
-> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the above query would change to the following.
->
-> `ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
+    ```
+    Type=ADAssessmentRecommendation RecommendationResult=Failed | select Computer, RecommendationId, Recommendation | sort Computer
+    ```
+    >[!NOTE]
+    > If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the above query would change to the following.
+    >
+    > `ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
-   Here's a screen shot showing the Log Search query:
-   ![failed recommendations](./media/log-analytics-ad-assessment/ad-failed-recommendations.png)
+    Here's a screen shot showing the Log Search query:<br><br> ![failed recommendations](./media/log-analytics-ad-assessment/ad-failed-recommendations.png)
+
 3. Choose recommendations that you want to ignore. You’ll use the values for RecommendationId in the next procedure.
 
 ### To create and use an IgnoreRecommendations.txt text file
@@ -147,10 +147,10 @@ After the next scheduled health check runs, by default every seven days, the spe
     ```
     Type=ADAssessmentRecommendation RecommendationResult=Ignored | select  Computer, RecommendationId, Recommendation | sort  Computer
     ```
->[!NOTE]
-> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the above query would change to the following.
->
-> `ADAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
+    >[!NOTE]
+    > If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the above query would change to the following.
+    >
+    > `ADAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
 2. If you decide later that you want to see ignored recommendations, remove any IgnoreRecommendations.txt files, or you can remove RecommendationIDs from them.
 

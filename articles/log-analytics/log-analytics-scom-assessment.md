@@ -160,20 +160,19 @@ By default, the Microsoft System Center Advisor SCOM Assessment Run Assessment R
 2. In the search results, select the one that includes the text *Type: Management Server*.
 3. Right-click the rule and then click **Overrides** > **For a specific object of class: Management Server**.
 4.	In the available management servers list, select the management server where the rule should run.  This should be the same management server you configured earlier to associate the Run As account with.
-5.	Ensure that you change override value to **True** for the **Enabled** parameter value.  
-    ![override parameter](./media/log-analytics-scom-assessment/rule.png)
+5.	Ensure that you change override value to **True** for the **Enabled** parameter value.<br><br> ![override parameter](./media/log-analytics-scom-assessment/rule.png)
 
-While still in this window, configure the frequency of the run using the next procedure.
+While still in this window, configure the run frequency using the next procedure.
 
 #### Configure the run frequency
 
-The assessment is configured to run every 10,080 minutes (or seven days), the default interval. You can override the value to a minimum value of 1440 minutes (or one day). The value represents the minimum time gap required between successive assessment runs. To override the interval, use the steps below.
+The assessment is configured to run every 10,080 minutes (or seven days) by default. You can override the value to a minimum value of 1440 minutes (or one day). The value represents the minimum time gap required between successive assessment runs. To override the interval, use the steps below.
 
 1. In the **Authoring** workspace of the Operations Manager console, search for the rule *Microsoft System Center Advisor SCOM Assessment Run Assessment Rule* in the **Rules** section.
 2. In the search results, select the one that includes the text *Type: Management Server*.
 3. Right-click the rule and then click **Override the Rule** > **For all objects of class: Management Server**.
-4. Change the **Interval** parameter value to your desired interval value. In the example below, the value is set to 1440 minutes (one day).  
-    ![interval parameter](./media/log-analytics-scom-assessment/interval.png)  
+4. Change the **Interval** parameter value to your desired interval value. In the example below, the value is set to 1440 minutes (one day).<br><br> ![interval parameter](./media/log-analytics-scom-assessment/interval.png)<br>  
+
     If the value is set to less than 1440 minutes, then the rule runs on a one day interval. In this example, the rule ignores the interval value and runs at a frequency of one day.
 
 
@@ -219,8 +218,7 @@ View the summarized compliance assessments for your infrastructure and then dril
 3. In the Log Analytics subscriptions pane, select a workspace and then click the **OMS Portal** tile.  
 4. On the **Overview** page, click the **System Center Operations Manager Health Check** tile.
 5. On the **System Center Operations Manager Health Check** page, review the summary information in one of the focus area blades and then click one to view recommendations for that focus area.
-6. On any of the focus area pages, you can view the prioritized recommendations made for your environment. Click a recommendation under **Affected Objects** to view details about why the recommendation is made.  
-    ![focus area](./media/log-analytics-scom-assessment/log-analytics-scom-healthcheck-dashboard-02.png)
+6. On any of the focus area pages, you can view the prioritized recommendations made for your environment. Click a recommendation under **Affected Objects** to view details about why the recommendation is made.<br><br> ![focus area](./media/log-analytics-scom-assessment/log-analytics-scom-healthcheck-dashboard-02.png)<br>
 7. You can take corrective actions suggested in **Suggested Actions**. When the item has been addressed, later assessments will record that recommended actions were taken and your compliance score will increase. Corrected items appear as **Passed Objects**.
 
 ## Ignore recommendations
@@ -237,13 +235,12 @@ If you have recommendations that you want to ignore, you can create a text file 
     Type=SCOMAssessmentRecommendationRecommendationResult=Failed | select Computer, RecommendationId, Recommendation | sort Computer
     ```
 
->[!NOTE]
-> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the above query would change to the following.
->
-> `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
+    >[!NOTE]
+    > If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the above query would change to the following.
+    >
+    > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
-    Here's a screen shot showing the Log Search query:  
-    ![log search](./media/log-analytics-scom-assessment/scom-log-search.png)
+    Here's a screen shot showing the Log Search query:<br><br> ![log search](./media/log-analytics-scom-assessment/scom-log-search.png)<br>
 
 3. Choose recommendations that you want to ignore. You'll use the values for RecommendationId in the next procedure.
 
@@ -263,10 +260,10 @@ If you have recommendations that you want to ignore, you can create a text file 
     Type=SCOMAssessmentRecommendationRecommendationResult=Ignored | select  Computer, RecommendationId, Recommendation | sort  Computer
     ```
 
->[!NOTE]
-> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the above query would change to the following.
->
-> `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Ignore" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
+    >[!NOTE]
+    > If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the above query would change to the following.
+    >
+    > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Ignore" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
 3. If you decide later that you want to see ignored recommendations, remove any IgnoreRecommendations.txt files, or you can remove RecommendationIDs from them.
 

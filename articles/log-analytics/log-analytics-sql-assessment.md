@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2017
+ms.date: 10/27/2017
 ms.author: magoedte;banders
 ms.custom: H1Hack27Feb2017
 
@@ -164,8 +164,7 @@ View the summarized compliance assessments for your infrastructure and then dril
 3. In the Log Analytics subscriptions pane, select a workspace and then click the **OMS Portal** tile.  
 4. On the **Overview** page, click the **SQL Health Check** tile. 
 5. On the **Health Check** page, review the summary information in one of the focus area blades and then click one to view recommendations for that focus area.
-6. On any of the focus area pages, you can view the prioritized recommendations made for your environment. Click a recommendation under **Affected Objects** to view details about why the recommendation is made.  
-    ![image of SQL Health Check recommendations](./media/log-analytics-sql-assessment/sql-healthcheck-dashboard-02.png)
+6. On any of the focus area pages, you can view the prioritized recommendations made for your environment. Click a recommendation under **Affected Objects** to view details about why the recommendation is made.<br><br> ![image of SQL Health Check recommendations](./media/log-analytics-sql-assessment/sql-healthcheck-dashboard-02.png)<br>
 7. You can take corrective actions suggested in **Suggested Actions**. When the item has been addressed, later assessments will record that recommended actions were taken and your compliance score will increase. Corrected items appear as **Passed Objects**.
 
 ## Ignore recommendations
@@ -177,17 +176,16 @@ If you have recommendations that you want to ignore, you can create a text file 
 1. In the Azure portal on the Log Analytics workspace page for your selected workspace, click the **Log Search** tile.
 2. Use the following query to list recommendations that have failed for computers in your environment.
 
-   ```
-   Type=SQLAssessmentRecommendation RecommendationResult=Failed | select Computer, RecommendationId, Recommendation | sort Computer
-   ```
+    ```
+    Type=SQLAssessmentRecommendation RecommendationResult=Failed | select Computer, RecommendationId, Recommendation | sort Computer
+    ```
 
->[!NOTE]
-> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the above query would change to the following.
->
-> `SQLAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
-> 
-   Here's a screen shot showing the Log Search query:
-   ![failed recommendations](./media/log-analytics-sql-assessment/sql-assess-failed-recommendations.png)
+    >[!NOTE]
+    > If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the above query would change to the following.
+    >
+    > `SQLAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
+
+    Here's a screen shot showing the Log Search query:<br><br> ![failed recommendations](./media/log-analytics-sql-assessment/sql-assess-failed-recommendations.png)<br>
 
 3. Choose recommendations that you want to ignore. You’ll use the values for RecommendationId in the next procedure.
 
@@ -203,15 +201,14 @@ If you have recommendations that you want to ignore, you can create a text file 
 1. After the next scheduled assessment runs, by default every 7 days, the specified recommendations are marked Ignored and will not appear on the assessment dashboard.
 2. You can use the following Log Search queries to list all the ignored recommendations.
 
-   ```
-   Type=SQLAssessmentRecommendation RecommendationResult=Ignored | select Computer, RecommendationId, Recommendation | sort Computer
-   ```
+    ```
+    Type=SQLAssessmentRecommendation RecommendationResult=Ignored | select Computer, RecommendationId, Recommendation | sort Computer
+    ```
 
->[!NOTE]
-> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the above query would change to the following.
->
-> `SQLAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
-
+    >[!NOTE]
+    > If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the above query would change to the following.
+    >
+    > `SQLAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
 3. If you decide later that you want to see ignored recommendations, remove any IgnoreRecommendations.txt files, or you can remove RecommendationIDs from them.
 
