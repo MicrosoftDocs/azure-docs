@@ -52,7 +52,7 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 }
 ```
 
-To get access to the event metadata, bind to an [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) object (requires a using statement for `Microsoft.ServiceBus.Messaging`).
+To get access to the event metadata, bind to an [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) object (requires a `using` statement for `Microsoft.ServiceBus.Messaging`).
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
@@ -150,7 +150,7 @@ let Run(myEventHubMessage: string, log: TraceWriter) =
 
 ### Trigger - JavaScript example
 
-The following example shows an event hub trigger binding in a *function.json* file and a [JavaScript](functions-reference-node.md) function that uses the binding. The function logs the message body of the event hub trigger.
+The following example shows an event hub trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function logs the message body of the event hub trigger.
 
 Here's the binding data in the *function.json* file:
 
@@ -177,7 +177,7 @@ module.exports = function (context, myEventHubMessage) {
 
 For [precompiled C#](functions-dotnet-class-library.md) functions, use the [Microsoft.Azure.WebJobs.ServiceBus.EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs) attribute, which is defined in NuGet package [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
 
-The attribute's constructor takes the name of the event hub, the name of the consumer group, and the name of an app setting that contains the connection string. For more information about these settings, see [Trigger - settings](#trigger---settings). Here's an example showing how to use the attribute:
+The attribute's constructor takes the name of the event hub, the name of the consumer group, and the name of an app setting that contains the connection string. For more information about these settings, see the [trigger settings section](#trigger---settings). Here's an example showing how to use the attribute:
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
@@ -194,7 +194,7 @@ The following settings appear only in the *function.json* file:
 |**direction** | Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. |
 |**name** | The name of the variable that represents the event item in function code. | 
 
-The following settings appear in the *function.json* file and the C# attribute constructor:
+The following settings are configured in the *function.json* file and the C# attribute constructor:
 
 |Property  |Description  |
 |---------|---------|
@@ -218,7 +218,7 @@ See the language-specific example:
 
 * [Precompiled C#](#output---c-example)
 * [C# script](#output---c-script-example)
-* [F#](#output---f-script-example)
+* [F#](#output---f-example)
 * [JavaScript](#output---javascript-example)
 
 ### Output - C# example
@@ -347,7 +347,7 @@ module.exports = function(context) {
 
 For [precompiled C#](functions-dotnet-class-library.md) functions, use the [Microsoft.Azure.WebJobs.ServiceBus.EventHubAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs) attribute, which is defined in NuGet package [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
 
-The attribute's constructor takes the name of the event hub and the name of an app setting that contains the connection string. For more information about these settings, see [Output - settings](#output---settings). Here's a `Blob` attribute example:
+The attribute's constructor takes the name of the event hub and the name of an app setting that contains the connection string. For more information about these settings, see [Output - settings](#output---settings). Here's an `EventHub` attribute example:
 
 ```csharp
 [FunctionName("EventHubOutput")]
