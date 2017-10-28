@@ -20,7 +20,7 @@ ms.author: adegeo
 
 # Scale a Service Fabric cluster
 
-This tutorial is part three of a series and shows you how to scale your existing cluster out and in. When you've finished, you will know how to scale your cluster and how to clean up and left-over resources.
+This tutorial is part three of a series and shows you how to scale your existing cluster out and in. When you've finished, you will know how to scale your cluster and how to clean up any left-over resources.
 
 In this tutorial, you learn how to:
 
@@ -100,7 +100,7 @@ Virtual machine scale sets (in most cases) always removes the virtual machine in
 Get-ServiceFabricNode | Sort-Object NodeInstanceId -Descending | Select-Object -First 1
 ```
 
-The service fabric cluster needs to know that this node is going to be removed. So there are three actions you need to take.
+The service fabric cluster needs to know that this node is going to be removed. There are three steps you need to take:
 
 1. Disable the node so that it no longer is a replicate for data.  
 `Disable-ServiceFabricNode`
@@ -111,7 +111,7 @@ The service fabric cluster needs to know that this node is going to be removed. 
 2. Remove the node from the cluster.  
 `Remove-ServiceFabricNodeState`
 
-Once these three steps have been applied to the node, it can be removed from the scale set. If you're using any durability tier besides [bronze][durability], this is done for you when the scale set instance is removed.
+Once these three steps have been applied to the node, it can be removed from the scale set. If you're using any durability tier besides [bronze][durability], these steps are done for you when the scale set instance is removed.
 
 The following code block gets the last created node, disables, stops, and removes the node from the cluster.
 
