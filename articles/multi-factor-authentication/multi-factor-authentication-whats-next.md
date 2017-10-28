@@ -157,7 +157,11 @@ Whether Trusted IPs is enabled or not, two-step verification is required for bro
 5. Under Multi-Factor Authentication, select **Manage service settings**.
 6. On the Service Settings page, under Trusted IPs, you have two options:
    
-   * **For requests from federated users originating from my intranet** – Check the box. All federated users who are signing in from the corporate network will bypass two-step verification using a claim issued by AD FS.
+   * **For requests from federated users originating from my intranet** – Check the box. All federated users who are signing in from the corporate network will bypass two-step verification using a claim issued by AD FS. Ensure that AD FS has a rule to add the intranet claim to the appropriate traffic. You should create the following rule in AD FS if it does not already exist: "c:[Type
+== "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);"
+
+
+
    * **For requests from a specific range of public IPs** – Enter the IP addresses in the text box provided using CIDR notation. For example: xxx.xxx.xxx.0/24 for IP addresses in the range xxx.xxx.xxx.1 – xxx.xxx.xxx.254, or xxx.xxx.xxx.xxx/32 for a single IP address. You can enter up to 50 IP address ranges. Users who sign in from these IP addresses bypass two-step verification.
 7. Click **Save**.
 8. Once the updates have been applied, click **Close**.
