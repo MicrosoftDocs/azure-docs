@@ -26,6 +26,8 @@
     href: tutorial-wpf-translation-csharp.md
 - name: How-Tos
   items:
+  - name: Sign-up for Translator Text API
+    href: translator-text-how-to-signup.md
   - name: Translator Hub
     href: translator-hub-overview.md
   - name: Collaborative Translation Framework (CTF)
