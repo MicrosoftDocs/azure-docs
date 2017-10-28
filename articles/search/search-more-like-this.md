@@ -1,21 +1,21 @@
 ---
-pageTitle: "Synonyms in Azure Search (preview) | Microsoft Docs"
-description: "Preliminary documentation for the MoreLikeThis (preview) feature, exposed in the Azure Search REST API."
-services: "search"
-documentationCenter: ""
-authors: "mhko"
-manager: "jlembicz"
-editor: ""
+title: moreLikeThis in Azure Search (preview) | Microsoft Docs
+description: Preliminary documentation for the moreLikeThis (preview) feature, exposed in the Azure Search REST API.
+services: search
+documentationCenter: na
+authors: mhko
+manager: jlembicz
+editor: na
 
-ms.service: "search"
-ms.devlang: "rest-api"
-ms.workload: "search"
-ms.topic: "article"
+ms.service: search
+ms.devlang: rest-api
+ms.workload: search
+ms.topic: article
 ms.tgt_pltfrm: "na"
-ms.date: "10/27/2016"
-ms.author: "nateko"
+ms.date: 10/27/2016
+ms.author: nateko
 ---
-# MoreLikeThis in Azure Search (preview)
+# moreLikeThis in Azure Search (preview)
 
 `moreLikeThis=[key]` is a query parameter in the [Search API](https://docs.microsoft.com/rest/api/searchservice/search-documents). The `moreLikeThis` parameter finds documents that are similar to the document specified by the document key. When a search request is made with `moreLikeThis`, a list of search terms is generated based on the frequency and rarity of terms in the specified document. Those terms are then used to make the request. By default, the contents of all `searchable` fields are considered unless the `searchFields` parameter is used to restrict the fields. The `moreLikeThis` parameter cannot be used with the search parameter, `search=[string]`.
 
@@ -33,6 +33,6 @@ POST /indexes/hotels/docs/search?api-version=2016-09-01-Preview
     }  
 ```  
 
-## Feature availability
+# Feature availability
 
 The moreLikeThis feature is currently in preview and only supported in the preview api-versions, `2015-02-28-Preview` and `2016-09-01-Preview`. Because the API version is specified on the request, it's possible to combine generally available (GA) and preview APIs in the same app. However, preview APIs are not under SLA and features may change, so we do not recommend using them in production applications.

@@ -156,7 +156,7 @@ Synonym expansions do not apply to wildcard search terms; prefix, fuzzy, and reg
 
 - You can create multiple synonym maps for your search application (for example, by language if your application supports a multi-lingual customer base). Currently, a field can only use one of them. You can update a field's synonymMaps property at any time.
 
-## Next Steps
+## Next steps
 
 - If you have an existing index in a development (non-production) environment, experiment with a small dictionary to see how the addition of synonyms changes the search experience, including impact on scoring profiles, hit highlighting, and suggestions.
 

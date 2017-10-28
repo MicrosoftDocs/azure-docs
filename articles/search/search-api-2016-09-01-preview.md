@@ -3,7 +3,7 @@ title: Azure Search Service REST API Version 2016-09-01-Preview | Microsoft Docs
 description: Azure Search Service REST API Version 2016-09-01-Preview includes experimental features such as Synonyms and moreLikeThis searches.
 services: search
 documentationcenter: na
-author: nateko
+author: mhko
 manager: jlembicz
 editor: ''
 

@@ -78,7 +78,7 @@
 ### [Suggestions](https://docs.microsoft.com/rest/api/searchservice/suggesters)
 ### [Faceted navigation](search-faceted-navigation.md)
 ### [Synonyms preview](search-synonyms.md)
-### [MoreLikeThis preview](search-more-like-this.md)
+### [moreLikeThis preview](search-more-like-this.md)
 
 # Reference
 
