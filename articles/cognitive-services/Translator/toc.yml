@@ -15,7 +15,12 @@
   - name: Translate text PHP
   - name: Translate text Python
   - name: Translate text Ruby
+- name: Tutorials
+  items: 
+  - name: Microsoft Translator App
+    href: tutorial-wpf-translation-csharp.md
 - name: How-Tos
+  items:
   - name: Translator Hub
     href: translator-hub-overview.md
   - name: Collaborative Translation Framework (CTF)
