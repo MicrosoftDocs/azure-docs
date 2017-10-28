@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2017
+ms.date: 10/27/2017
 ms.author: maheshu
 
 ---
@@ -30,7 +30,6 @@ This article shows you how to use the Azure portal to disable Azure Active Direc
 Deleting the managed domain does not delete your Azure AD directory or otherwise adversely impact the directory.
 >
 
-## Delete your managed domain
 Perform the following steps to delete your Azure AD Domain Services managed domain:
 1. Navigate to the [Azure AD Domain Services extension](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices) in the Azure portal.
 2. Click the name of your managed domain.
@@ -47,6 +46,4 @@ Perform the following steps to delete your Azure AD Domain Services managed doma
 
 The managed domain is deleted in about 15-20 minutes.
 
-
-## Next steps
 Consider [sharing feedback](active-directory-ds-contact-us.md) to help us understand what features would help you chose Azure AD Domain Services in the future. This feedback helps us evolve the service to better suit your deployment needs and use-cases.
