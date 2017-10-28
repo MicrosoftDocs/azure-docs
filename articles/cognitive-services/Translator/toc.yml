@@ -11,10 +11,15 @@
   - name: Translate text C#
     href: quickstarts/csharp.md
   - name: Translate text Java
+    href:
   - name: Translate text Node.js
+    href:
   - name: Translate text PHP
+    href:
   - name: Translate text Python
+    href:
   - name: Translate text Ruby
+    href:
 - name: Tutorials
   items: 
   - name: Microsoft Translator App
