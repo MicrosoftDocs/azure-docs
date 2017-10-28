@@ -56,9 +56,9 @@ Caching is integral to the way a CDN operates to speed up delivery and reduce or
 
 Similar to a web browser, you can control how CDN caching is performed by sending cache-directive headers. Cache-directive headers are HTTP headers, which are typically added by the origin server. Although most of these headers were originally designed to address caching in client browsers, they are now also used by all intermediate caches, such as CDNs. Two headers can be used to define cache freshness: `Cache-Control` and `Expires`. `Cache-Control` is more current and takes precedence over `Expires`, if both exist. There are also two types of headers used for validation (called validators): `ETag` and `Last-Modified`. `ETag` is more current and takes precedence over `Last-Modified`, if both exist.  
 
-## HTTP cache-directive headers
+## Cache-directive headers
 
-Azure CDN supports the following cache-directive headers, which define cache duration and cache sharing: 
+Azure CDN supports the following HTTP cache-directive headers, which define cache duration and cache sharing: 
 
 `Cache-Control`  
 - Introduced in HTTP 1.1 to give web publishers more control over their content and to address the limitations of the `Expires` header.
@@ -84,9 +84,9 @@ Azure CDN supports the following cache-directive headers, which define cache dur
 
 By default, DSA optimizations ignore these headers. You can adjust how the Azure CDN treats these headers by using CDN caching rules. For more information, see [Control Azure CDN caching behavior with caching rules](cdn-caching-rules.md).
 
-## Cache validators
+## Validators
 
-When the cache is stale, validators are used to compare the cached version of a file with the version on the origin server. **Azure CDN from Verizon** supports both ETag and Last-Modified validators by default, while **Azure CDN from Akamai** supports only Last-Modified by default.
+When the cache is stale, HTTP cache validators are used to compare the cached version of a file with the version on the origin server. **Azure CDN from Verizon** supports both ETag and Last-Modified validators by default, while **Azure CDN from Akamai** supports only Last-Modified by default.
 
 `ETag`
 - **Azure CDN from Verizon** uses `ETag` by default while **Azure CDN from Akamai** does not.

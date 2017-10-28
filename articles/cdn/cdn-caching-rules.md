@@ -26,7 +26,7 @@ ms.author: v-deasim
 Azure CDN offers two ways to control how your files are cached: 
 
 - Caching rules: This article describes how you can use CDN caching rules to set or modify default cache expiration behavior both globally and with custom conditions, such as a URL path and file extension. Azure CDN provides two types of caching rules:
-   - Global caching rules: You can set one global caching rule for each endpoint in your profile, which affects all requests to the endpoint. The global caching rule overrides any HTTP cache-directive headers that are set.
+   - Global caching rules: You can set one global caching rule for each endpoint in your profile, which affects all requests to the endpoint. The global caching rule overrides any HTTP cache-directive headers, if set.
    - Custom caching rules: You can set one or more custom caching rules for each endpoint in your profile. Custom caching rules match specific paths and file extensions, are processed in order, and override the global caching rule, if set. 
 
 - Query string caching: You can adjust how Azure CDN treats caching for requests with query strings. For information, see [Control Azure CDN caching behavior with query strings](cdn-query-string.md). If the file is not cacheable, the query string caching setting has no effect, based on caching rules and CDN default behaviors.
@@ -43,11 +43,14 @@ How to set CDN caching rules:
    1. Under **Global caching rules**, set **Query string caching behavior** to **Ignore query strings**.
    2. Set **Caching behavior** to **Set if missing**.
    3. For **Cache expiration duration**, enter 10 in the **Days** field.
-      The global caching rule affects all requests to the endpoint. This rule honors the origin cache-directive headers if they exist (`Cache-Control` or `Expires`); otherwise, if they are not specified, it sets the cache to 10 days. 
+
+       The global caching rule affects all requests to the endpoint. This rule honors the origin cache-directive headers if they exist (`Cache-Control` or `Expires`); otherwise, if they are not specified, it sets the cache to 10 days. 
+
 4. Create a custom caching rule as follows:
-    1. Under **Global caching rules**, set **Match condition** to **Path** and **Match value** to `/images/*.jpg`.
+    1. Under **Custom caching rules**, set **Match condition** to **Path** and **Match value** to `/images/*.jpg`.
     2. Set **Caching behavior** to **Override** and enter 30 in the **Days** field.
-       This rule sets a cache duration of 30 days on any `.jpg` image files in the `/images` folder of your endpoint and overrides any `Cache-Control` or `Expires` HTTP headers that are sent by the origin server.
+       
+       This custom caching rule sets a cache duration of 30 days on any `.jpg` image files in the `/images` folder of your endpoint and overrides any `Cache-Control` or `Expires` HTTP headers that are sent by the origin server.
 
   ![Caching rules dialog](./media/cdn-caching-rules/cdn-caching-rules-dialog.png)
 
@@ -80,7 +83,7 @@ For custom cache rules, two match conditions are available:
 ### Global and custom rule processing order
 Global and custom caching rules are processed in the following order:
 
-- Global caching rules take precedence over the default CDN caching behavior. 
+- Global caching rules take precedence over the default CDN caching behavior (HTTP cache-directive header settings). 
 
 - Custom caching rules take precedence over global caching rules, where they apply. Custom caching rules are processed in order from top to bottom. That is, if a request matches both conditions, rules at the bottom of the list take precedence over rules at the top of the list. Therefore, you should place more specific rules lower in the list.
 
