@@ -76,7 +76,7 @@ With the `Get-ServiceFabricClusterHealth` command, status is returned to you wit
 
 ## Scale out
 
-When you scale out, you add more virtual machines to the scale set, these become nodes that Service Fabric can use. Service Fabric knows about scale out operations and reacts automatically, deploying the appropriate applications to the newly created nodes.
+When you scale out, you add more virtual machines to the scale set, these become nodes that Service Fabric uses. Service Fabric knows when the scale set has more instances added (by scaling out) and reacts automatically. The following code gets a scale set by name and increases the **capacity** of the scale set by 1 and sends that update back to Azure.
 
 ```powershell
 $scaleset = Get-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm
@@ -87,12 +87,12 @@ Update-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1
 
 ## Scale in
 
-Scaling in is the same as scaling out, except you use a lower **capacity** value. Normally, Service Fabric is unaware that it has suddenly lost a node when you remove scale set instances. It just knows that a node has gone missing. To prevent that bad state, inform service fabric that you expect the node to go missing, so that it doesn't show up as unhealthy. 
+Scaling in is the same as scaling out, except you use a lower **capacity** value. Normally, Service Fabric is unaware that it has suddenly lost a node when it was removed by the scale set. It just knows that a node has gone missing. To prevent that bad state, inform service fabric that you expect the node to go missing, so that it doesn't show up as unhealthy. 
 
 ### Remove the service fabric node
 
 > [!NOTE]
-> This part only applies to the *Bronze* durability tier. For more information about durability, see [Service Fabric cluster capacity planning](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster).
+> This part only applies to the *Bronze* durability tier. For more information about durability, see [Service Fabric cluster capacity planning][durability].
 
 Virtual machine scale sets (in most cases) always removes the virtual machine instance that was last created. So we need to find the matching service fabric node, which you can find by checking the biggest `NodeInstanceId` property value on the service fabric nodes.
 
@@ -111,7 +111,7 @@ The service fabric cluster needs to know that this node is going to be removed. 
 2. Remove the node from the cluster.  
 `Remove-ServiceFabricNodeState`
 
-Once these three things have been done to the node, it can be removed from the scale set. If you're using any durability tier besides bronze, this is done for you when the scale set instance is removed.
+Once these three steps have been applied to the node, it can be removed from the scale set. If you're using any durability tier besides [bronze][durability], this is done for you when the scale set instance is removed.
 
 The following code block gets the last created node, disables, stops, and removes the node from the cluster.
 
@@ -190,3 +190,5 @@ In this tutorial, you learned how to:
 > * Read the cluster node count
 > * Add cluster nodes (scale out)
 > * Remove cluster nodes (scale in)
+
+[durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster
