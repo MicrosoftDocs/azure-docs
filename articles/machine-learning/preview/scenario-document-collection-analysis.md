@@ -116,6 +116,7 @@ The files in this example are organized as follows.
 | `notebooks/3_Topic_Model_Training.ipynb` | iPython Notebook | Train LDA topic model |
 | `notebooks/4_Topic_Model_Summarization.ipynb` | iPython Notebook | Summarize the contents of the document collection based on a trained LDA topic model |
 | `notebooks/5_Topic_Model_Analysis.ipynb` | iPython Notebook | Analyze the topical content of a collection of text documents and correlate topical information against other meta-data associated with the document collection |
+| `notebooks/6_Interactive_Visualization.ipynb` | iPython Notebook | Interactive visualization of learned topic model |
 | `notebooks/winprocess.py` | Python file | The python script for multiprocessing used by notebooks |
 | `README.md` | Markdown file | The README markdown file |
 
@@ -220,6 +221,8 @@ The topic summarization and analysis consists of two notebooks, while there are 
 In `4_Topic_Model_Summarization.ipynb`, it shows how to summarize the contents of the document based on a trained LDA topic model. The summarization is applied to an LDA topic model learned in step 3. It shows how to measure the importance or quality of a topic using topic to document purity measure. This purity measure assumes latent topics that dominate the documents in which they appear are more semantically important than latent topics that are weakly spread across many documents. This concept was introduced in the paper "[Latent Topic Modeling for Audio Corpus Summarization](http://people.csail.mit.edu/hazen/publications/Hazen-Interspeech11.pdf)."
 
 Notebook `5_Topic_Model_Analysis.ipynb` shows how to analyze the topical content of a collection of documents and correlate topical information against other meta-data associated with the document collection. A few plots are introduced in this notebook to help the users better understand the learned topic and the document collection.
+
+Notebook `6_Interactive_Visualization.ipynb` shows how to interactively visualize learned topic model. It includes four interactive visualization tasks.
 
 ## Conclusion
 
