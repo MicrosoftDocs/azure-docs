@@ -1,6 +1,6 @@
 ---
-title: 
-description: 
+title: Translator Text API
+description: Use Translator Text API to translate text in multiple languages
 services: cognitive-services
 author: chriswendt1
 manager: olivierf
@@ -12,7 +12,7 @@ ms.date: 10/30/2017
 ms.author: Chris.Wendt
 ---
 
-# Follow these 4 steps to begin using the Microsoft Translator API
+# How use the Microsoft Translator Text API
 
 
 ## 1: Sign into Azure 	
