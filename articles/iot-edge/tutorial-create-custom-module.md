@@ -53,7 +53,7 @@ The custom module that you create in this tutorial filters the temparture data g
 ## Bug Bash Configuration steps
 For the bug bash perform the following steps to configure VS Code.
 1. Use the **View | Integrated Terminal** menu command to open the Visual Studio Code integrated terminal.
-1. In integrated terminal, add a Nuget source for the **AzureIotEdgeModule** template Noget package.  
+1. In integrated terminal, add a Nuget source for the **AzureIotEdgeModule** template Nuget package.  
   - For Nuget V3 
  
     ```cmd/sh
@@ -71,7 +71,7 @@ For the bug bash perform the following steps to configure VS Code.
     dotnet new -i Azure.IoT.Edge.Module
     ```
 
-3. Add a Nuget source for the preview version of the Microsoft.Azure.Devices.Client package. The preview version used in this tutorial is not yet available in the public gallery. 
+3. The preview version of the **Microsoft.Azure.Devices.Client** package used in this tutorial is not yet available in the public gallery. Choose one of the following commands to add a Nuget source that contains the correct version. This ensures that your IoT Edge module will build correctly. 
   - For Nuget V3 
  
     ```cmd/sh
@@ -97,8 +97,8 @@ For this tutorial, you will need a Docker registry to publish your IoT Edge modu
 3. In the explorer, click **IOT HUB DEVICES** and then click **...**. Click **Set IoT Hub Connection String** and enter the connection string for the IoT hub that your IoT Edge device connects to in the pop-up window.  
 
 ## Create a custom IoT Edge module project
-The following steps show you how to create a IoT Edge module using Visual Studio Code and the IoT Edge extension.
-1. Use the **View | Integrated Terminal** menu command to open the Visual Studio Code integrated terminal.
+The following steps show you how to create an IoT Edge module using Visual Studio Code and the IoT Edge extension.
+1. Use the **View | Integrated Terminal** menu command to open the VS Code integrated terminal.
 2. In the integrated terminal, enter the following command to create a project for the new module:
 
     ```cmd/sh
@@ -302,7 +302,7 @@ The following steps show you how to create a IoT Edge module using Visual Studio
 
 ## View generated data
 
- In VS Code, use the **View | Command Palette... | IoT: Start Monitoring D2C Messages** menu command to monitor data arriving in the IoT Hub. 
+In VS Code, use the **View | Command Palette... | IoT: Start Monitoring D2C Messages** menu command to monitor data arriving in the IoT Hub. 
 
 ## Next steps
 
