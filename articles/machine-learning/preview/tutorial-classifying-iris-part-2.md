@@ -222,7 +222,7 @@ Azure ML allows you to easily configure additional execution environments such a
    az account list -o table
    
    REM set the current Azure subscription to the one you want to use.
-   az set account -s <subscriptionId>
+   az account set -s <subscriptionId>
    
    REM verify your current subscription is set correctly
    az account show
