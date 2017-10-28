@@ -94,8 +94,6 @@ List all available images for a given release follows:
 azure vm image list --location eastus --publisher Canonical --offer UbuntuServer --sku 16.04.0-LTS
 ```
 
-For more examples on browsing and using available images, see [Navigate and select Azure virtual machine images with the Azure CLI](cli-ps-findimage.md#use-azure-cli-10).
-
 The `azure vm quick-create` and `azure vm create` commands have aliases you can use to quickly access the more common distros and their latest releases. Using aliases is often quicker than specifying the publisher, offer, SKU, and version each time you create a VM:
 
 | Alias | Publisher | Offer | SKU | Version |

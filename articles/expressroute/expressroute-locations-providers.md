@@ -146,7 +146,7 @@ If your connectivity provider is not listed in previous sections, you can still 
 | **Location** | **Exchange** | **Connectivity Providers** |
 | --- | --- | --- |
 | **Amsterdam** | Equinix, Telecity | Eurofiber , Fastweb S.p.A, Nianet |
-| **Chicago** | Equinix | Windstream |
+| **Chicago** | Equinix | Lightower, Windstream |
 | **Dallas** | Equinix, Megaport | C3ntro Telecom, Cox Business, Data Foundry, Transtelco |
 | **Frankfurt** | Telecity | Nianet, QSC AG |
 | **Hong Kong** | Equinix | Macroview Telecom |

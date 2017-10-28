@@ -29,7 +29,7 @@ Learn how to use Python in streaming MapReduce operations. Hadoop provides a str
 * A Linux-based Hadoop on HDInsight cluster
 
   > [!IMPORTANT]
-  > The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+  > The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * A text editor
 

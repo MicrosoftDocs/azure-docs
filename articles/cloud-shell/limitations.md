@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2017
+ms.date: 07/10/2017
 ms.author: juluk
 ---
 
@@ -39,6 +39,9 @@ Right-click copy paste options are also available, however this is subject to br
 
 ## Editing .bashrc
 Take caution when editing .bashrc as it can cause unexpected errors for Cloud Shell.
+
+## .bash_history
+Your history of bash commands may be inconcsistent due to Cloud Shell session disruption or concurrent sessions.
 
 ## Usage limits
 Cloud Shell is intended for interactive use cases, as a result any long-running non-interactive sessions are ended without warning.

@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2017
+ms.date: 07/07/2017
 ms.author: rajram
 
 ---
@@ -21,8 +21,6 @@ ms.author: rajram
 This article describes how to setup your auto scale setting for your resource in Azure portal.
 
 Azure Monitor auto scale applies only to Virtual Machine Scale Sets (VMSS), cloud services, app service plans and app service environments. 
-
-# Lets get started
 
 ## Discover the auto scale settings in your subscription(s)
 You can discover all the resources for which auto scale is applicable in Azure Monitor. Follow the steps listed below for a step-by-step walkthrough.
@@ -58,8 +56,8 @@ Congratulations. You now now succesfully created your first scale setting to aut
 
 > Note: The same steps are applicable to get started with a VMSS or cloud service role.
 
-# Other considerations
-## Scale based on a schedule
+## Other considerations
+### Scale based on a schedule
 In addition to scale based on CPU always, you can also set your scale differently on specific days of the week.
 
 - Click on 'Add a scale condition'
@@ -68,7 +66,7 @@ In addition to scale based on CPU always, you can also set your scale differentl
 - Select the days, and the start/end time when the scale condition should be applied for the selected days
 
 ![Scale condition based on schedule][9]
-## Scale differently on specific dates
+### Scale differently on specific dates
 In addition to scale based on CPU always, you can also set your scale differently on specific dates.
 
 - Click on 'Add a scale condition'
@@ -78,21 +76,21 @@ In addition to scale based on CPU always, you can also set your scale differentl
 
 ![Scale condition based on dates][10]
 
-## View the scale history of your resource
+### View the scale history of your resource
 Whenever your resource is scaled up/down, there is an event logged in activity log. You can view the scale history of your resource for the last 24 hours by switching to the 'Run history' tab.
 
 ![Run history][11]
 
 If you want to view the complete scale history (for upto 90 days), you can click on 'Click here to see more details'. This will launch the activity log with your resource and category as 'autoscale' pre-selected.
 
-## View the scale definition of the resource
+### View the scale definition of the resource
 Auto scale setting is an ARM resource. You can view the scale definition in JSON by switching to the 'JSON' tab.
 
 ![Scale definition][12]
 
 You can make changes in JSON directly, if required. These changes will get reflected on save.
 
-## Disable autoscale and manually scale your instances
+### Disable autoscale and manually scale your instances
 There might be times when you want to disbable your current scale setting and manually scale your resource.
 
 Click on the 'Disable autoscale' button at the top.
@@ -103,6 +101,10 @@ Note that this option disables your configuration, and you can still get back to
 ![Set manual scale][14]
 
 You can always get back to autscale by clicking on 'Enable autoscale' and then 'save'.
+
+## Next Steps
+- [Create an Activity Log Alert to monitor all autoscale engine operations on your subscription.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
+- [Create an Activity Log Alert to monitor all failed autoscale scale in/scale out operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
 
 <!--Reference-->
 [1]:https://portal.azure.com

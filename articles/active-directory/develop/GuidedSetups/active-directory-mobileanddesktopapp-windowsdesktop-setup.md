@@ -25,7 +25,7 @@ This section provides step-by-step instructions for how to create a new project 
 
 The application created by this guide exposes a button to graph and show results on screen and a sign-out button.
 
-> Prefer to download this sample's Visual Studio project instead? [Download a project](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/master.zip) and skip to the [Configuration](#create-an-application-express "Configuration Step") step to configure the code sample before executing.
+> Prefer to download this sample's Visual Studio project instead? [Download a project](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/master.zip) and skip to the [Configuration step](#create-an-application-express) to configure the code sample before executing.
 
 
 ### Create your application
@@ -74,7 +74,7 @@ public partial class App : Application
 The section below shows how an application can query a protected backend server like Microsoft Graph. 
 A MainWindow.xaml file should automatically be created as a part of your project template. Open this file this file and then follow the instructions below:
 
-1.	Replace your application’s `<Grid>` with be the following:
+Replace your application’s `<Grid>` with be the following:
 
 ```xml
 <Grid>

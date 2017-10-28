@@ -13,20 +13,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 4/6/2017
+ms.date: 7/10/2017
 ms.author: scottnap
 
 ---
 # Introducing iDNS for Azure Stack
 ================================
 
-iDNS is a new feature in Technology Preview 2 for Azure Stack that
+iDNS is a feature in Azure Stack that
 allows you to resolve external DNS names (such as http://www.bing.com).
 It also allows you to register internal virtual network names. By doing so,
 you can resolve VMs on the same virtual network by name rather than IP address,
 without having to provide custom DNS server entries.
 
-It’s something that’s always been there in Azure, but now it's available in Windows Server 2016 and Azure Stack, too.
+It’s something that’s always been there in Azure, but it's available in Windows Server 2016 and Azure Stack too.
 
 ## What does iDNS do?
 With iDNS in Azure Stack, you get the following capabilities, without
@@ -59,7 +59,7 @@ name label specified under the zone **westus.cloudapp.azure.com**. The
 prefix and the suffix together compose a Fully Qualified Domain Name
 (FQDN) that can be resolved from anywhere on the public Internet.
 
-In TP2, Azure Stack only supports iDNS for internal name
+Azure Stack only supports iDNS for internal name
 registration, so it cannot do the following.
 
 * Create a DNS record under an existing hosted DNS zone (for example,
@@ -67,29 +67,4 @@ registration, so it cannot do the following.
 * Create a DNS zone (such as Contoso.com).
 * Create a record under your own custom DNS zone.
 * Support the purchase of domain names.
-
-## Changes in DNS from Azure Stack TP1
-In the Technology Preview 1 (TP1) release of Azure Stack, you had to
-provide custom DNS servers if you wanted to be able to resolve hosts by
-name rather than by IP address. This means that if you were creating a
-virtual network or a VM, you had to provide at least one DNS server
-entry. For the TP1 POC environment, this meant entering the IP of
-the POC Fabric DNS server, namely 192.168.200.2.
-
-If you created a VM via the portal, you had to select **Custom
-DNS** in the virtual network or ethernet adapter settings.
-
-![Screenshot of specifying a custom DNS server](media/azure-stack-understanding-dns-in-tp2/image1.png)
-
-In TP2, you can select Azure DNS and do not need to specify custom DNS
-server entries.
-
-If you created a VM via a template with your own image, you
-had to add the **DHCPOptions** property and the DNS server in order to
-get the DNS name resolution to work. The following image shows what this looked like.
-
-![Screenshot of DHCPOptions property](media/azure-stack-understanding-dns-in-tp2/image2.png)
-
-In TP2, you no longer need to make these changes to your VM templates to
-allow your VMs to resolve Internet names. They should just work.
 

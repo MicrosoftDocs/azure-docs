@@ -169,7 +169,7 @@ You can get the JAR file from the Maven repo and drop it into the **libs** folde
             ....
         <application/>
 
-4. Create an instance of AuthenticationContext at your main activity. The details of this call are beyond the scope of this topic, but you can get a good start by looking at the [Android Native Client sample](https://github.com/AzureADSamples/NativeClient-Android). In the following example, SharedPreferences is the default cache, and Authority is in the form of `https://login.windows.net/yourtenant.onmicrosoft.com`:
+4. Create an instance of AuthenticationContext at your main activity. The details of this call are beyond the scope of this topic, but you can get a good start by looking at the [Android Native Client sample](https://github.com/AzureADSamples/NativeClient-Android). In the following example, SharedPreferences is the default cache, and Authority is in the form of `https://login.microsoftonline.com/yourtenant.onmicrosoft.com`:
 
     `mContext = new AuthenticationContext(MainActivity.this, authority, true); // mContext is a field in your activity`
 
@@ -259,7 +259,7 @@ Your app manifest should have the following permissions to use AccountManager ac
 ### Authority URL and AD FS
 Active Directory Federation Services (AD FS) is not recognized as production STS, so you need to turn of instance discovery and pass false at the AuthenticationContext constructor.
 
-The authority URL needs an STS instance and a [tenant name](https://login.windows.net/yourtenant.onmicrosoft.com).
+The authority URL needs an STS instance and a [tenant name](https://login.microsoftonline.com/yourtenant.onmicrosoft.com).
 
 ### Querying cache items
 ADAL provides a default cache in SharedPreferences with some simple cache query functions. You can get the current cache from AuthenticationContext by using:

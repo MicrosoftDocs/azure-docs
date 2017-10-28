@@ -31,7 +31,7 @@ Learn how to use Spark on HDInsight to analyze Application Insight telemetry dat
 * Familiarity with creating a Linux-based HDInsight cluster. For more information, see [Create Spark on HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 
   > [!IMPORTANT]
-  > The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+  > The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * A web browser.
 

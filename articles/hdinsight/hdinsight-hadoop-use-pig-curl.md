@@ -33,7 +33,7 @@ Learn how to run Pig Latin jobs by making REST requests to an Azure HDInsight cl
 * An Azure HDInsight (Hadoop on HDInsight) cluster (Linux-based or Windows-based)
 
   > [!IMPORTANT]
-  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * [Curl](http://curl.haxx.se/)
 

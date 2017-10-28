@@ -24,7 +24,7 @@ The scope of this topic is to provide you with reference information about the *
 
 See:
 
-* [Sign-in activities](active-directory-reporting-azure-portal.md#sign-in-activities) for more conceptual information
+* [Sign-in activities](active-directory-reporting-azure-portal.md#activity-reports) for more conceptual information
 * [Getting started with the Azure Active Directory Reporting API](active-directory-reporting-api-getting-started.md) for more information about the reporting API.
 
 For questions, issues or feedback, please contact [AAD Reporting Help](mailto:aadreportinghelp@microsoft.com).

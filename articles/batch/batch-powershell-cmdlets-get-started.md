@@ -197,7 +197,7 @@ Now create the pool, and specify the package reference object as the argument to
 
     New-AzureBatchPool -Id "PoolWithAppPackage" -VirtualMachineSize "Small" -CloudServiceConfiguration $configuration -BatchContext $context -ApplicationPackageReferences $appPackageReference
 
-You can find more information on application packages in [Application deployment with Azure Batch application packages](batch-application-packages.md).
+You can find more information on application packages in [Deploy applications to compute nodes with Batch application packages](batch-application-packages.md).
 
 > [!IMPORTANT]
 > You must [link an Azure Storage account](#linked-storage-account-autostorage) to your Batch account to use application packages.
@@ -234,5 +234,5 @@ You've now updated the pool's properties in the Batch service. To actually deplo
 
 ## Next steps
 * For detailed cmdlet syntax and examples, see [Azure Batch cmdlet reference](/powershell/module/azurerm.batch/#batch).
-* For more information about applications and application packages in Batch, see [Application deployment with Azure Batch application packages](batch-application-packages.md).
+* For more information about applications and application packages in Batch, see [Deploy applications to compute nodes with Batch application packages](batch-application-packages.md).
 

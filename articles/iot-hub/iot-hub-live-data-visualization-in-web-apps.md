@@ -4,7 +4,7 @@ description: Use the Web Apps feature of Microsoft Azure App Service to visualiz
 services: iot-hub
 documentationcenter: ''
 author: shizn
-manager: timtl
+manager: timlt
 tags: ''
 keywords: 'real time data visualization, live data visualization, sensor data visualization'
 
@@ -79,7 +79,7 @@ On GitHub, we've made available a web application that displays real-time sensor
 
    ![Configure your web app deployment to use the local Git repository](media/iot-hub-live-data-visualization-in-web-apps/5_configure-web-app-deployment-local-git-repository-azure.png)
 
-2. Click **Deployment Credentials**, create a user name and password to use to connect to the Git repository in Azure, and then click **OK**.
+2. Click **Deployment Credentials**, create a user name and password to use to connect to the Git repository in Azure, and then click **Save**.
 
 3. Click **Overview**, and note the value of **Git clone url**.
 

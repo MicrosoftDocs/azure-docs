@@ -43,7 +43,7 @@ Beeline is a Hive client that is included on the head nodes of your HDInsight cl
 * A Linux-based Hadoop on HDInsight cluster.
 
   > [!IMPORTANT]
-  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * An SSH client or a local Beeline client. Most of the steps in this document assume that you are using Beeline from an SSH session to the cluster. For information on running Beeline from outside the cluster, see the [use Beeline remotely](#remote) section.
 

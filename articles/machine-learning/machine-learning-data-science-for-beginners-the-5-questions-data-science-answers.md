@@ -1,6 +1,6 @@
 ---
-title: The 5 data science questions - Data Science for Beginners - Azure | Microsoft Docs
-description: Get a quick introduction to data science from Data Science for Beginners, five short videos that start with The 5 Questions Data Science Answers.
+title: The 5 data science questions - Data Science for Beginners - Azure Machine Learning | Microsoft Docs
+description: Data Science for Beginners is teaches basic concepts in 5 short videos, starting with The 5 Questions Data Science Answers. From Azure Machine Learning.
 keywords: doing data science,data science beginners,data science for beginners,data science basics,data science questions,data science video,data science introduction
 services: machine-learning
 documentationcenter: na
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/09/2017
+ms.date: 07/13/2017
 ms.author: cgronlun;garye
 
 ---
@@ -22,13 +22,14 @@ ms.author: cgronlun;garye
 Get a quick introduction to data science from *Data Science for Beginners* in five short videos from a top data scientist. These videos are basic but useful, whether you're interested in doing data science or you work with data scientists.
 
 This first video is about the kinds of questions that data science can answer. To get the most out of the series, watch them all. [Go to the list of videos](#other-videos-in-this-series)
+<br>
 
 > [!VIDEO https://channel9.msdn.com/Shows/SupervisionNotRequired/8/player]
 >
 >
 
 ## Other videos in this series
-*Data Science for Beginners* is a quick introduction to data science taking about 25 minutes total. Check out the other four videos:
+*Data Science for Beginners* is a quick introduction to data science taking about 25 minutes total. Check out all five videos:
 
 * Video 1: The 5 questions data science answers
 * Video 2: [Is your data ready for data science?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 sec)*
@@ -53,14 +54,14 @@ It might surprise you, but *there are only five questions that data science answ
 * How is this organized?
 * What should I do next?
 
-  Each one of these questions is answered by a separate family of machine learning methods, called algorithms.
+Each one of these questions is answered by a separate family of machine learning methods, called algorithms.
 
 It's helpful to think about an algorithm as a recipe and your data as the ingredients. An algorithm tells how to combine and mix the data in order to get an answer. Computers are like a blender. They do most of the hard work of the algorithm for you and they do it pretty fast.
 
 ## Question 1: Is this A or B? uses classification algorithms
 Let's start with the question: Is this A or B?
 
-![Classification algorithms: Is this A or B?](./media/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers/machine-learning-data-science-classification-algorithms.png)
+![Classification algorithms: Is this A or B?](./media/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers/classification-algorithms.png)
 
 This family of algorithms is called two-class classification.
 
@@ -71,14 +72,14 @@ For example:
 * Will this tire fail in the next 1,000 miles: Yes or no?
 * Which brings in more customers: a $5 coupon or a 25% discount?
 
-This question can also be rephrased to include more than two options: Is this A or B or C or D, etc.?  This is called multiclass classification and it's useful when you have several—or several thousand—possible answers. Multiclass classification chooses the most likely one.
+This question can also be rephrased to include more than two options: Is this A or B or C or D, etc.?  This is called multiclass classification and it's useful when you have several — or several thousand — possible answers. Multiclass classification chooses the most likely one.
 
 ## Question 2: Is this weird? uses anomaly detection algorithms
 The next question data science can answer is: Is this weird? This question is answered by a family of algorithms called anomaly detection.
 
-![Anomaly Detection algorithms: Is this weird?](./media/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers/machine-learning-data-science-anomaly-detection-algorithms.png)
+![Anomaly Detection algorithms: Is this weird?](./media/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers/anomaly-detection-algorithms.png)
 
-If you have a credit card, you’ve already benefitted from anomaly detection. Your credit card company analyzes your purchase patterns, so that they can alert you to possible fraud. Charges that are "weird" might be a purchase at a store where you don't normally shop or buying an unusually pricey item.
+If you have a credit card, you’ve already benefited from anomaly detection. Your credit card company analyzes your purchase patterns, so that they can alert you to possible fraud. Charges that are "weird" might be a purchase at a store where you don't normally shop or buying an unusually pricey item.
 
 This question can be useful in lots of ways. For instance:
 
@@ -90,7 +91,7 @@ Anomaly detection flags unexpected or unusual events or behaviors. It gives clue
 ## Question 3: How much? or How many? uses regression algorithms
 Machine learning can also predict the answer to How much? or How many? The algorithm family that answers this question is called regression.
 
-![Regression algorithms: How much? or How many?](./media/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers/machine-learning-data-science-regression-algorithms.png)
+![Regression algorithms: How much? or How many?](./media/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers/regression-algorithms.png)
 
 Regression algorithms make numerical predictions, such as:
 
@@ -106,7 +107,7 @@ Sometimes you want to understand the structure of a data set - How is this organ
 
 There are a lot of ways to tease out the structure of data. One approach is clustering. It separates data into natural "clumps," for easier interpretation. With clustering, there is no one right answer.
 
-![Clustering algorithms: How is this organized?](./media/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers/machine-learning-data-science-clustering-algorithms.png)
+![Clustering algorithms: How is this organized?](./media/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers/clustering-algorithms.png)
 
 Common examples of clustering questions are:
 
@@ -122,7 +123,7 @@ Reinforcement learning was inspired by how the brains of rats and humans respond
 
 Typically, reinforcement learning is a good fit for automated systems that have to make lots of small decisions without human guidance.
 
-![Reinforcement Learning algorithms: What should I do next?](./media/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers/machine-learning-data-science-reinforcement-learning-algorithms.png)
+![Reinforcement Learning algorithms: What should I do next?](./media/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers/reinforcement-learning-algorithms.png)
 
 Questions it answers are always about what action should be taken - usually by a machine or a robot. Examples are:
 

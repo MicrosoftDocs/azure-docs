@@ -14,20 +14,22 @@
     items:
     - name: Human in the loop
       href: Review-Tool-User-Guide/human-in-the-loop.md
-    - name: Create team
-      href: Review-Tool-User-Guide/Sign-up.md
-    - name: Upload images
-      href: Review-Tool-User-Guide/Upload-Images.md
+    - name: Settings
+      href: Review-Tool-User-Guide/Configure.md
+    - name: Team and subteams
+      href: Review-Tool-User-Guide/SubTeams.md
+    - name: About Tags
+      href: Review-Tool-User-Guide/Tags.md
     - name: Image reviews
       href: Review-Tool-User-Guide/Review-Moderated-Images.md
     - name: Text reviews
       href: Review-Tool-User-Guide/Text-Reviews.md
-    - name: Team and subteams
-      href: Review-Tool-User-Guide/SubTeams.md
+    - name: Verifying credentials
+      href: Review-Tool-User-Guide/Credentials.md
+    - name: About Connectors
+      href: Review-Tool-User-Guide/Connectors.md
     - name: Using workflows
       href: Review-Tool-User-Guide/Workflows.md
-    - name: Settings
-      href: Review-Tool-User-Guide/Configure.md
     - name: View dashboard
       href: Review-Tool-User-Guide/View-Dashboard.md
 - name: Reference

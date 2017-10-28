@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/27/2017
+ms.date: 07/14/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 
@@ -25,7 +25,7 @@ The StorSimple Manager service runs in Microsoft Azure and connects to multiple 
 
 The StorSimple Manager landing page lists all the StorSimple Manager services that you can use to manage your StorSimple storage devices. For each StorSimple Manager service, the following information is presented on the StorSimple Manager page:
 
-* **Name** – The name that was assigned to your StorSimple Manager service when it was created. The service name cannot be changed after the service is created.
+* **Name** – The name that was assigned to your StorSimple Manager service when it was created. **The service name cannot be changed after the service is created. This is also true for other entities such as devices, volumes, volume containers, and backup policies that cannot be renamed in the Azure classic portal.**
 * **Status** – The status of the service, which can be **Active**, **Creating**, or **Online**.
 * **Location** – The geographical location in which the StorSimple device will be deployed.
 * **Subscription** – The billing subscription that is associated with your service.

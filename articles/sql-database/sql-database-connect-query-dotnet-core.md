@@ -1,6 +1,6 @@
 ---
 title: Use .NET core to query Azure SQL Database | Microsoft Docs
-description: This topic shows you how to use .NET core to create a program that connects to an Azure SQL Database and query it using Transact-SQL.
+description: This topic shows you how to use .NET core to create a program that connects to an Azure SQL Database and query it using Transact-SQL statements.
 services: sql-database
 documentationcenter: ''
 author: CarlRabeler
@@ -14,13 +14,13 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 07/03/2017
+ms.date: 07/05/2017
 ms.author: carlrab
 
 ---
-# Use .NET (C#) with Visual Studio to connect and query an Azure SQL database
+# Use .NET core (C#) to query an Azure SQL database
 
-This quick start tutorial demonstrates how to use [.NET core](https://www.microsoft.com/net/) on Windows/Linux/macOS to create a C# program to connect to an Azure SQL database and query data using Transact-SQL statements to query data.
+This quick start tutorial demonstrates how to use [.NET core](https://www.microsoft.com/net/) on Windows/Linux/macOS to create a C# program to connect to an Azure SQL database and use Transact-SQL statements to query data.
 
 ## Prerequisites
 
@@ -137,7 +137,7 @@ namespace sqltest
 
 1. At the command prompt, run the following commands:
 
-   ```
+   ```csharp
    dotnet restore
    dotnet run
    ```

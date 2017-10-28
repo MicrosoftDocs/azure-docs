@@ -40,9 +40,8 @@ A Site-to-Site VPN gateway connection is used to connect your on-premises networ
 
 Verify that you have met the following criteria before beginning your configuration:
 
-* Verify that you want to work with the Resource Manager deployment model. [!INCLUDE [deployment models](../../includes/vpn-gateway-classic-rm-include.md)] 
-* A compatible VPN device and someone who is able to configure it. For more information about compatible VPN devices and device configuration, see [About VPN Devices](vpn-gateway-about-vpn-devices.md).
-* An externally facing public IPv4 IP address for your VPN device. This IP address cannot be located behind a NAT.
+* Make sure you have a compatible VPN device and someone who is able to configure it. For more information about compatible VPN devices and device configuration, see [About VPN Devices](vpn-gateway-about-vpn-devices.md).
+* Verify that you have an externally facing public IPv4 address for your VPN device. This IP address cannot be located behind a NAT.
 * If you are unfamiliar with the IP address ranges located in your on-premises network configuration, you need to coordinate with someone who can provide those details for you. When you create this configuration, you must specify the IP address range prefixes that Azure will route to your on-premises location. None of the subnets of your on-premises network can over lap with the virtual network subnets that you want to connect to. 
 
 ### <a name="values"></a>Example values

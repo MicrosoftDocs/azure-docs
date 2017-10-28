@@ -71,6 +71,14 @@ All services publicly exposed on the internet must be authenticated:
 > [!NOTE]
 > Some services are only available on specific cluster types. For example, HBase is only available on HBase cluster types.
 
+### Ambari
+
+| Service | Nodes | Port | Path | Protocol | 
+| --- | --- | --- | --- | --- |
+| Ambari web UI | Head nodes | 8080 | / | HTTP |
+| Ambari REST API | Head nodes | 8080 | /api/v1 | HTTP |
+
+
 ### HDFS ports
 
 | Service | Nodes | Port | Protocol | Description |

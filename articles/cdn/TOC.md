@@ -14,6 +14,7 @@
 ### [Optimization overview](cdn-optimization-overview.md)
 ####[Large file optimization](cdn-large-file-optimization.md)
 ####[Media streaming optimization](cdn-media-streaming-optimization.md)
+####[Dynamic site acceleration](cdn-dynamic-site-acceleration.md)
  
 ## Manage
 ### [Enable HTTPS on a custom domain](cdn-custom-ssl.md)

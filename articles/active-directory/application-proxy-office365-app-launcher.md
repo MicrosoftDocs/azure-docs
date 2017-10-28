@@ -12,9 +12,10 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/15/2017
+ms.date: 07/06/2017
 ms.author: kgremban
-
+ms.reviewer: harshja
+ms.custom: it-pro
 ---
 
 # Set a custom home page for published apps by using Azure AD Application Proxy
@@ -30,8 +31,6 @@ By using the Azure AD PowerShell module, you can define custom home page URLs fo
 
 ## Before you start
 
-### Determine the home page URL
-
 Before you set the home page URL, keep in mind the following:
 
 * Ensure that the path you specify is a subdomain path of the root domain URL.
@@ -39,6 +38,16 @@ Before you set the home page URL, keep in mind the following:
   If the root-domain URL is, for example, https://apps.contoso.com/app1/, the home page URL that you configure must start with https://apps.contoso.com/app1/.
 
 * If you make a change to the published app, the change might reset the value of the home page URL. When you update the app in the future, you should recheck and, if necessary, update the home page URL.
+
+## Change the home page in the Azure portal
+
+1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
+2. Navigate to **Azure Active Directory** > **App registrations** and choose your application from the list. 
+3. Select **Properties** from the settings.
+4. Update the **Home page URL** field with your new path. 
+5. Select **Save**
+
+## Change the home page with PowerShell
 
 ### Install the Azure AD PowerShell module
 
@@ -54,7 +63,7 @@ To install the package, follow these steps:
     If you're running the command as a non-admin, use the `-scope currentuser` option.
 2. During the installation, select **Y** to install two packages from Nuget.org. Both packages are required. 
 
-## Step 1: Find the ObjectID of the app
+### Find the ObjectID of the app
 
 Obtain the ObjectID of the app, and then search for the app by its home page.
 
@@ -82,7 +91,7 @@ Obtain the ObjectID of the app, and then search for the app by its home page.
     ObjectId    : 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
     ```
 
-## Step 2: Update the home page URL
+### Update the home page URL
 
 In the same PowerShell module that you used for step 1, do the following:
 

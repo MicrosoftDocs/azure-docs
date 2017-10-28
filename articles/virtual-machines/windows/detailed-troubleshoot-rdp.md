@@ -116,6 +116,8 @@ Network Security Groups allow more granular control of allowed inbound and outbo
 
 For more information, see [What is a Network Security Group (NSG)?](../../virtual-network/virtual-networks-nsg.md)
 
+You can also use IP Verify to validate the NSG configuration. For more information, see [Azure network monitoring overview](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview). 
+
 ## Source 5: Windows-based Azure VM
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_5.png)
 

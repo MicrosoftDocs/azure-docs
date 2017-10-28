@@ -68,8 +68,10 @@ Use the following steps to configure registry keys to track on Windows computers
    * **Ignore** (Ignore symlinks during recurions to not include the files/directories referenced)
    * **Follow** (Follow the symlinks during recursion to also include the files/directories referenced)
    * **Manage** (Follow the symlinks and alter the treatment of returned content) 
+   
    > [!NOTE]   
    > The "Manage" links option is not recommended since file content retrieval is not currently supported.
+   
 3. **Recurse** (Recurse through folder levels and track all files meeting the path statement)
 4. **Sudo** (Enable access files or directories that require sudo privilege)
 

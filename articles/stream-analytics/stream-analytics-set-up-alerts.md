@@ -14,56 +14,37 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/28/2017
+ms.date: 06/26/2017
 ms.author: jeffstok
 
 ---
 # Set up alerts for Azure Stream Analytics jobs
 ## Introduction: Monitor page
-You can set up alerts to trigger an alert when a metric reaches a condition that you specify.
+You can set up alerts to trigger an alert when a metric reaches a condition that you specify. For example, you might set up an alert for a condition like the following:
 
-For example, “If Output Events for the last 15 minutes is <100, send email notification to email id: xyz@company.com”.
+`If there are zero input events in the last 5 minutes, send email notification to sa-admin@example.com`
 
 Rules can be set up on metrics through the portal, or can be configured [programmatically](https://code.msdn.microsoft.com/windowsazure/Receive-Email-Notifications-199e2c9a) over Operation Logs data.
 
-## Set up alerts through the Azure Classic Portal
-There are two ways to set up alerts in the Azure Classic portal:  
-
-1. The **Monitor** tab of your Stream Analytics job  
-2. The Operations Log in the Management services  
-
-## Set up alert through the Monitor tab of the job in the portal
-1. Select the metric in the monitor tab, and click the **Add Rule** button in the bottom of the dashboard, and setup your rules.  
-   
-   ![Dashboard](./media/stream-analytics-set-up-alerts/01-stream-analytics-set-up-alerts.png)  
-2. Define the name and description of the Alert  
-   
-   ![Create Rule](./media/stream-analytics-set-up-alerts/02-stream-analytics-set-up-alerts.png)  
-3. Enter the thresholds, alert evaluation window and the actions for the alert  
-   
-   ![Define Conditions](./media/stream-analytics-set-up-alerts/03-stream-analytics-set-up-alerts.png)  
-
-## Set up alerts through the Operations logs
-1. Go to the **Alerts** tab in Management Services in the [Azure Classic Portal](https://manage.windowsazure.com).  
-2. Click **Add Rule**  
-   
-   ![Criteria](./media/stream-analytics-set-up-alerts/04-stream-analytics-set-up-alerts.png)  
-3. Define the name and description of the Alert. Select ‘Stream Analytics’ as Service Type, and the job name as the Service Name.  
-   
-   ![Define Alert](./media/stream-analytics-set-up-alerts/05-stream-analytics-set-up-alerts.png)  
-
 ## Set up alerts in the Azure portal
-In the Azure portal, browse to the Stream Analytics job you are interested in alerting on and click the **Monitoring** section.  In the **Metric** blade that opens, click the **Add alert** command.
+1. In the Azure portal, open the Stream Analytics job you want to create an alert for. 
 
-  ![Azure portal setup](./media/stream-analytics-set-up-alerts/06-stream-analytics-set-up-alerts.png)  
+2. In the **Job** blade, click the **Monitoring** section.  
 
-You can name your alert rule, and choose a description that will show up in the notification email.
+3. In the **Metric** blade, click the **Add alert** command.
 
-When you select Metrics you'll choose a condition and threshold Value for the metric.
+      ![Azure portal setup](./media/stream-analytics-set-up-alerts/06-stream-analytics-set-up-alerts.png)  
 
-  ![Azure portal select metric](./media/stream-analytics-set-up-alerts/07-stream-analytics-set-up-alerts.png)  
+4. Enter a name and a description.
+
+5. Use the selectors to define the condition under which the alert will be sent.
+
+6. Provide information about where the alert should go.
+
+      ![Setting up an alert for an Azure Streaming Analytics job](./media/stream-analytics-set-up-alerts/stream-analytics-add-alert.png)  
 
 For more detail on configuring alerts in the Azure portal, see [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).  
+
 
 ## Get help
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)

@@ -71,7 +71,7 @@ These steps create settings at directory level, which apply to all Unified group
 5. Finally, apply the settings:
   
   ```
-  New-AzureADDirectorySetting -DirectorySetting $settings
+  New-AzureADDirectorySetting -DirectorySetting $setting
   ```
 
 Upon successful completion, the cmdlet returns the ID of the new settings object:

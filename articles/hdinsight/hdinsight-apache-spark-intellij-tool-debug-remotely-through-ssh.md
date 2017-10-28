@@ -28,7 +28,7 @@ This article provides step-by-step guidance on how to use the HDInsight Tools in
 
 * **HDInsight Tools in Azure Toolkit for IntelliJ**. This is part of the Azure Toolkit for IntelliJ. For more information, see [Installing the Azure Toolkit for IntelliJ](https://docs.microsoft.com/en-us/azure/azure-toolkit-for-intellij-installation).
 * **Azure Toolkit for IntelliJ**. Use this to create Spark applications for HDInsight cluster. For more information, follow the instructions at [Use Azure Toolkit for IntelliJ to create Spark applications for HDInsight cluster](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-intellij-tool-plugin).
-* **HDInsight SSH service with username and password management.** For more information, see [Connect to HDInsight (Hadoop) using SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) and [Connect to HDInsight (Hadoop) using SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-linux-ambari-ssh-tunnel). 
+* **HDInsight SSH service with username and password management.** For more information, see [Connect to HDInsight (Hadoop) using SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) and [Use SSH Tunneling to access Ambari web UI, JobHistory, NameNode, Oozie, and other web UIs](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-linux-ambari-ssh-tunnel). 
  
 
 ## Create a Spark Scala application and configure it for remote debugging
@@ -40,6 +40,7 @@ This article provides step-by-step guidance on how to use the HDInsight Tools in
       - **Spark on HDInsight (Scala)**
       - **Spark on HDInsight (Java)**
       - **Spark on HDInsight Cluster Run Sample (Scala)**
+   - Build tool: Scala project creation wizard support Maven or SBT managing the dependencies and building for scala project. You select one according need.
 2. In the next window, provide the project details.
 
    ![Selecting the Spark SDK](./media/hdinsight-apache-spark-intellij-tool-debug-remotely/hdinsight-new-project.png)

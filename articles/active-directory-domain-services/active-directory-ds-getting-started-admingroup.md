@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/28/2017
+ms.date: 07/10/2017
 ms.author: maheshu
 
 ---
@@ -31,7 +31,7 @@ In this configuration task, you create an administrative group in your Azure AD 
 > You do not have Domain Administrator or Enterprise Administrator permissions on the managed domain that you created by using Azure Active Directory Domain Services. On managed domains, these permissions are reserved by the service and are not made available to users within the tenant. However, you can use the special administrative group created in this configuration task to perform some privileged operations. These operations include joining computers to the domain, belonging to the administration group on domain-joined machines, and configuring Group Policy.
 >
 
-The wizard automatically creates the administrative group in your Azure AD directory. This group is called 'AAD DC Administrators'. You can configure group membership using the **Administrator group** wizard page.
+The wizard automatically creates the administrative group in your Azure AD directory. This group is called 'AAD DC Administrators'. If you have an existing group with this name in your Azure AD directory, the wizard selects this group. You can configure group membership using the **Administrator group** wizard page.
 
 1. To configure group membership, click **AAD DC Administrators**.
 

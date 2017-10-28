@@ -26,7 +26,7 @@ In this article we walk you through how to use your DSVM to perform various data
 2. Use a Jupyter notebook to experiment with your data on a browser using Python 2, Python 3, Microsoft R an enterprise ready version of R designed for scalability and performance
 3. Operationalize models built using R and Python on Azure Machine Learning so client applications can access your models using a simple web services interface
 4. Administer your Azure resources using  Azure portal or Powershell
-5. Extend your storage space and share large-scale datasets / code across your whole team by creating an Azure File Storage as a mountable drive on your DSVM
+5. Extend your storage space and share large-scale datasets / code across your whole team by creating an Azure File storage as a mountable drive on your DSVM
 6. Share code with your team using GitHub and access your repository using the pre-installed Git clients - Git Bash, Git GUI.
 7. Access various Azure data and analytics services like Azure blob storage, Azure Data Lake, Azure HDInsight (Hadoop), Azure Cosmos DB, Azure SQL Data Warehouse & databases
 8. Build reports and dashboard using the Power BI Desktop pre-installed on the DSVM and deploy them on the cloud

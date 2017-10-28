@@ -74,7 +74,7 @@ Blocked|InvalidRequest.Blocked
 
 - Renamed the `modulesRequested` query parameter to [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#modules).  
   
-- Ranamed the Annotations to Tags. See [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#modules) query parameter to Tags.  
+- Renamed the Annotations to Tags. See [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#modules) query parameter to Tags.  
 
 - Changed the list of supported markets of the ShoppingSources filter value to en-US only. See [imageType](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imagetype).  
  

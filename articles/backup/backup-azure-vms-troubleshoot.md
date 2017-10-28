@@ -13,7 +13,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/15/2017
+ms.date: 07/06/2017
 ms.author: trinadhk;markgal;jpallavi;
 
 ---
@@ -84,17 +84,17 @@ If you see your backup(>12 hours) or restore taking time(>6 hours):
 
 ## VM Agent
 ### Setting up the VM Agent
-Typically, the VM Agent is already present in VMs that are created from the Azure gallery. However, virtual machines that are migrated from on-premises datacenters would not have the VM Agent installed. For such VMs, the VM Agent needs to be installed explicitly. Read more about [installing the VM agent on an existing VM](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx).
+Typically, the VM Agent is already present in VMs that are created from the Azure gallery. However, virtual machines that are migrated from on-premises datacenters would not have the VM Agent installed. For such VMs, the VM Agent needs to be installed explicitly.
 
 For Windows VMs:
 
 * Download and install the [agent MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). You need Administrator privileges to complete the installation.
-* for classic virtual machines, [Update the VM property](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) to indicate that the agent is installed.
+* For Classic virtual machines, [Update the VM property](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) to indicate that the agent is installed. This step is not required for Resource Manager virtual machines.
 
 For Linux VMs:
 
 * Install latest from distribution repository. We **strongly recommend** installing agent only through distribution repository. For details on package name, please refer to [Linux agent repository](https://github.com/Azure/WALinuxAgent) 
-* For classic VMs, [Update the VM property](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) to indicate that the agent is installed.
+* For classic VMs, [Update the VM property](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) to indicate that the agent is installed. This step is not required for Resource Manager virtual machines.
 
 ### Updating the VM Agent
 For Windows VMs:

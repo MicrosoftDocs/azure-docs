@@ -17,9 +17,9 @@ ms.date: 07/05/2017
 ms.author: markvi;dhanyahk
 
 ---
-# Azure Active Directory reporting latencies - preview
+# Azure Active Directory reporting latencies
 
-With reporting in the Azure Active Directory [preview](active-directory-preview-explainer.md), you get all the information you need to determine how your environment is doing. The amount of time it takes for reporting data to show up in the Azure portal is also known as latency. 
+With [reporting](active-directory-preview-explainer.md) in the Azure Active Directory, you get all the information you need to determine how your environment is doing. The amount of time it takes for reporting data to show up in the Azure portal is also known as latency. 
 
 This topic lists the latency information for the all reporting categories in the Azure portal. 
 

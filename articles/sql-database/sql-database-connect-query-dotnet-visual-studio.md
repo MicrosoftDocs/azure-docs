@@ -1,6 +1,6 @@
 ---
 title: Use Visual Studio and .NET to query Azure SQL Database | Microsoft Docs
-description: This topic shows you how to use Visual Studio to create a program that connects to an Azure SQL Database and query it using Transact-SQL.
+description: This topic shows you how to use Visual Studio to create a program that connects to an Azure SQL Database and query it using Transact-SQL statements.
 services: sql-database
 documentationcenter: ''
 author: CarlRabeler
@@ -14,13 +14,13 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 07/03/2017
+ms.date: 07/05/2017
 ms.author: carlrab
 
 ---
 # Use .NET (C#) with Visual Studio to connect and query an Azure SQL database
 
-This quick start tutorial demonstrates how to use the [.NET framework](https://www.microsoft.com/net/) to create a C# program with Visual Studio to connect to an Azure SQL database and query data using Transact-SQL statements to query data.
+This quick start tutorial demonstrates how to use the [.NET framework](https://www.microsoft.com/net/) to create a C# program with Visual Studio to connect to an Azure SQL database and use Transact-SQL statements to query data.
 
 ## Prerequisites
 
@@ -137,6 +137,6 @@ namespace sqltest
 ## Next steps
 
 - Learn how to [connect and query an Azure SQL database using .NET core](sql-database-connect-query-dotnet-core.md) on Windows/Linux/macOS.  
-- [Getting started with .NET Core on Windows/Linux/macOS using the command line](/dotnet/core/tutorials/using-with-xplat-cli.md).
+- Learn about [Getting started with .NET Core on Windows/Linux/macOS using the command line](/dotnet/core/tutorials/using-with-xplat-cli.md).
 - Learn how to [Design your first Azure SQL database using SSMS](sql-database-design-first-database.md) or [Design your first Azure SQL database using .NET](sql-database-design-first-database-csharp.md).
 - For more information about .NET, see [.NET documentation](https://docs.microsoft.com/dotnet/).

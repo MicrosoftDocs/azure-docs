@@ -173,7 +173,7 @@ The "Update user" audit event includes additional information about what user at
 | InviteTicket |List of invitation tickets for the user. |
 | InviteReplyUrl |List of urls to reply upon invitation acceptance. |
 | InviteResources |List of resources to which the user has been invited. |
-| LastDirSyncTime |Last time the object was updated because of synchronizing from the authoritative (customer, on-premise) directory. |
+| LastDirSyncTime |Last time the object was updated because of synchronizing from the authoritative (customer, on-premises) directory. |
 | MSExchRemoteRecipientType |Maps to MSO recipient types. Refer to [MSO recipient types] https://msdn.microsoft.com/library/microsoft.office.interop.outlook.recipient.type.aspx for recipient types |
 | PreferredDataLocation |The preferred location for the user's, group's, contact's, public folder's, or device's data. |
 | ProxyAddresses |The address by which an Exchange Server recipient object is recognized in a foreign mail system. |
@@ -189,12 +189,12 @@ The "Update user" audit event includes additional information about what user at
 | Classification |The classification for a Unified Group (HBI, MBI, etc). |
 | Description |Human-readable descriptive phrases about the object. |
 | DisplayName |The display name for an object |
-| DirSyncEnabled |Indicates whether synchronization occurs from an authoritative (customer, on-premise) directory. |
+| DirSyncEnabled |Indicates whether synchronization occurs from an authoritative (customer, on-premises) directory. |
 | GroupLicenseAssignment |License assignment of a group |
 | GroupType |Type of Group, Unified (0) |
 | IsMembershipRuleLocked |Indicates that the MembershipRule property is set by the self-service group management service and cannot be changed by users. Applicable only to groups where GroupType includes GroupType.DynamicMembership |
 | IsPublic |Flag to indicate if the group is public/private. |
-| LastDirSyncTime |Last time the object was updated as a result of synchronizing from the authoritative (customer, on premise) directory. |
+| LastDirSyncTime |Last time the object was updated as a result of synchronizing from the authoritative (customer, on-premises) directory. |
 | Mail |Primary e-mail address |
 | MailEnabled |Indicates whether this group has e-mail capability. |
 | MailNickname |Moniker for an address book object, typically the portion of its email name preceding the "@" symbol. |
@@ -209,7 +209,7 @@ The "Update user" audit event includes additional information about what user at
 | Attribute | Description |
 | --- | --- |
 | AccountEnabled |Indicates whether a security principal can authenticate. |
-| CloudAccountEnabled |Indicates whether a security principal can authenticate. Written by InTune when the device is mastered on premise. |
+| CloudAccountEnabled |Indicates whether a security principal can authenticate. Written by InTune when the device is mastered on-premises. |
 | CloudDeviceOSType |Type of the device based on the OS e.g. Windows RT, iOS. When set by a cloud service (such as Intune), this attribute becomes authoritative in the directory for DeviceOSType. |
 | CloudDeviceOSVersion |Version of the OS. When set by a cloud service (such as Intune), this attribute becomes authoritative in the directory for DeviceOSVersion. |
 | CloudDisplayName |Value of the displayName LDAP attribute. When set by a cloud service (such as Intune), this attribute becomes authoritative in the directory for displayName. |
@@ -220,11 +220,11 @@ The "Update user" audit event includes additional information about what user at
 | DeviceOSType |Type of the device based on the OS e.g. Windows RT, iOS. Written by the Registration Service and intended to be updated by the MDM management service or STS light management service. |
 | DeviceOSVersion |Version of the OS. Written by the Registration Service and intended to be updated by the MDM management service or STS light management service. |
 | DevicePhysicalIds |Multivalued attribute intended to store identifiers of the physical device. This may include BIOS IDs, TPM thumbprints, hardware specific IDs, etc. |
-| DirSyncEnabled |Indicates whether synchronization occurs from an authoritative (customer, on premise) directory. |
+| DirSyncEnabled |Indicates whether synchronization occurs from an authoritative (customer, on-premises) directory. |
 | DisplayName |The display name for an object |
 | IsCompliant |This attribute is used to manage the mobile device management status of the device. |
 | IsManaged |This attribute is used to indicate the device is managed by a cloud MDM. |
-| LastDirSyncTime |Last time the object was updated because of synchronizing from the authoritative (customer, on premise) directory. |
+| LastDirSyncTime |Last time the object was updated because of synchronizing from the authoritative (customer, on-premises) directory. |
 
 ## "Update Device Configuration" attributes
 | Attribute | Description |
@@ -292,8 +292,8 @@ The "Update user" audit event includes additional information about what user at
 | --- | --- |
 | AllowedDataLocation |A location in which the company's users are allowed to be provisioned. |
 | AuthorizedServiceInstance |Names of service instances to which a plan may be deployed. |
-| DirSyncEnabled |Indicates whether synchronization occurs from an authoritative (customer, on premise) directory. |
-| DirSyncStatus |Indicates whether synchronization of address book objects in this tenant context occurs from an authoritative (customer, on premise) directory; an expansion of the DirSyncEnabled property on Company objects. |
+| DirSyncEnabled |Indicates whether synchronization occurs from an authoritative (customer, on-premises) directory. |
+| DirSyncStatus |Indicates whether synchronization of address book objects in this tenant context occurs from an authoritative (customer, on-premises) directory; an expansion of the DirSyncEnabled property on Company objects. |
 | DirSyncFeatures |Bit flag to keep track of set of enabled and disabled dirsync features for the tenant. |
 | DirectoryFeatures |Enabled/disabled directory features. |
 | DirSyncConfiguration |Contains all DirSync configuration specific to the current tenant. |

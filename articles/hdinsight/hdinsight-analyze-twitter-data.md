@@ -26,7 +26,7 @@ In this tutorial, you will get tweets by using a Twitter streaming API, and then
 on Azure HDInsight to get a list of Twitter users who sent the most tweets that contained a certain word.
 
 > [!IMPORTANT]
-> The steps in this document require a Windows-based HDInsight cluster. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date). For steps specific
+> The steps in this document require a Windows-based HDInsight cluster. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). For steps specific
 > to a Linux-based cluster, see [Analyze Twitter data using Hive in HDInsight (Linux)](hdinsight-analyze-twitter-data-linux.md).
 
 ## Prerequisites

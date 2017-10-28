@@ -1,6 +1,6 @@
 ---
 title: Team Data Science Process walkthroughs  | Microsoft Docs
-description: Walkthoughs show how to combine cloud and on-premise tools and services into a workflow or pipeline to create an intelligent application.
+description: Walkthoughs show how to combine cloud and on-premises tools and services into a workflow or pipeline to create an intelligent application.
 services: machine-learning
 documentationcenter: ''
 author: bradsev
@@ -18,7 +18,7 @@ ms.author: bradsev
 
 ---
 # Team Data Science Process walkthroughs
-The **end-to-end walkthroughs** itemized here each demonstrate the steps in the Team Data Science Process for **specific scenarios**. They illustrate how to combine cloud, on-premise tools, and services into a workflow or pipeline to create an **intelligent application**. The walkthroughs are grouped by **platform** they use: Spark, HDInsight (Hadoop), Azure Data Lake, and SQL Server.
+The **end-to-end walkthroughs** itemized here each demonstrate the steps in the Team Data Science Process for **specific scenarios**. They illustrate how to combine cloud, on-premises tools, and services into a workflow or pipeline to create an **intelligent application**. The walkthroughs are grouped by **platform** they use: Spark, HDInsight (Hadoop), Azure Data Lake, and SQL Server.
 
 
 ## HDInsight Spark using PySpark and Scala

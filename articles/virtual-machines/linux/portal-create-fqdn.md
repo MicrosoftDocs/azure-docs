@@ -19,11 +19,11 @@ ms.author: iainfou
 ms.custom: H1Hack27Feb2017
 
 ---
-# Create a Fully Qualified Domain Name in the Azure portal for a Linux VM
+# Create a fully qualified domain name in the Azure portal for a Linux VM
 
 When you create a virtual machine (VM) in the [Azure portal](https://portal.azure.com), a public IP resource for the virtual machine is automatically created. You use this IP address to remotely access the VM. Although the portal does not create a [fully qualified domain name](https://en.wikipedia.org/wiki/Fully_qualified_domain_name), or FQDN, you can add one once the VM is created. This article demonstrates the steps to create a DNS name or FQDN.
 
-## Create FQDN
+## Create a FQDN
 This article assumes that you have already created a VM. If needed, you can [create a VM in the portal](quick-create-portal.md) or [with the Azure CLI](quick-create-cli.md). Follow these steps once your VM is up and running:
 
 [!INCLUDE [virtual-machines-common-portal-create-fqdn](../../../includes/virtual-machines-common-portal-create-fqdn.md)]

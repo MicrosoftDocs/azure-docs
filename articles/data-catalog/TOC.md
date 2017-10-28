@@ -20,6 +20,8 @@
 ## [Manage data assets](data-catalog-how-to-manage.md)
 ## [Save searches and pin data assets](data-catalog-how-to-save-pin.md)
 ## [Set up the business glossary](data-catalog-how-to-business-glossary.md)
+## [Secure access to data catalog](data-catalog-how-to-secure-catalog.md)
+## [View related data assets](data-catalog-how-to-view-related-data-assets.md) 
 
 # Reference
 ## [REST](/rest/api/datacatalog/)

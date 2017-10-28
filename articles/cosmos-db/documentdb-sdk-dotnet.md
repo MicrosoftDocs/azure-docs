@@ -21,6 +21,7 @@ ms.custom: H1Hack27Feb2017
 # DocumentDB .NET SDK: Download and release notes
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
+> * [.NET Change Feed](documentdb-sdk-dotnet-changefeed.md)
 > * [.NET Core](documentdb-sdk-dotnet-core.md)
 > * [Node.js](documentdb-sdk-node.md)
 > * [Java](documentdb-sdk-java.md)
@@ -49,7 +50,7 @@ ms.custom: H1Hack27Feb2017
 ## Release notes
 
 ### <a name="1.15.0"/>1.15.0
-*	Added the support for specifying custom JsonSerializerSettings while instantiating DocumentClient.
+*	Added support for specifying custom JsonSerializerSettings while instantiating [DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient?view=azure-dotnet).
 
 ### <a name="1.14.1"/>1.14.1
 *	Fixed an issue that affected x64 machines that don’t support SSE4 instruction and throw an SEHException when running DocumentDB API queries.

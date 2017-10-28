@@ -18,7 +18,8 @@ ms.author: alfredop
 
 ---
 # Delegating offers in Azure Stack
-As a service administrator, you often want to put other people in charge
+
+As the Azure Stack cloud operator, you often want to put other people in charge
 of creating offers and signing up users for you. For example, this can
 happen if you are a service provider and you want resellers to sign up
 customers and manage them on your behalf. It can also happen in an
@@ -33,17 +34,17 @@ providers, up to five levels.
 
 ![](media/azure-stack-delegated-provider/image1.png)
 
-Administrators can delegate the creation of offers and tenants
+Azure Stack cloud operators can delegate the creation of offers and tenants
 to other users by using the delegation functionality.
 
 ## Roles and steps in delegation
 To understand delegation, keep in mind that there are three roles
 involved:
 
-* The **service administrator** manages the Azure Stack
+* The **cloud operator** manages the Azure Stack
   infrastructure, creates an offer template, and delegates others to
   offer it to their users.
-* The delegated users are called **delegated providers**. They can
+* The delegated cloud administrators are called **delegated providers**. They can
   belong to other organizations (such as other Azure Active
   Directory tenants).
 * **Users** sign up for the offers and use them for managing their
@@ -54,7 +55,7 @@ delegation.
 
 1. Identify the delegated providers. Do this by subscribing them to an
    offer based on a plan that contains only the subscriptions service.
-   Users who subscribe to this offer acquire some of the service
+   Users who subscribe to this offer acquire some of the cloud
    administrator’s capabilities, including the ability to extend offers
    and sign users up for them.
 2. Delegate an offer to the delegated provider. This offer functions as
@@ -70,7 +71,7 @@ subscription. In this scenario, this subscription identifies the
 delegated providers as having the right to present offers on behalf of
 the main provider.
 
-Once this relationship is established, the system administrator can
+Once this relationship is established, the cloud operator can
 delegate an offer to the delegated provider. The delegated provider is
 now able to take the offer, rename it (but not change its substance),
 and offer it to its customers.
@@ -80,8 +81,9 @@ users can sign up for it, carry out the instructions in the following
 sections.
 
 ## Set up roles
+
 To see a delegated provider at work, you need additional Azure
-Active Directory accounts in addition to your service administrator
+Active Directory accounts in addition to your cloud operator
 account. If you do not have them, create the two accounts. The accounts
 can belong to any AAD tenant. We will refer to them as the delegated
 provider (DP) and the user.
@@ -92,8 +94,8 @@ provider (DP) and the user.
 | User |User |
 
 ## Identify the delegated providers
-1. Sign in as service administrator.
-2. Create the offer that will enable tenants to become
+1. Sign in as cloud operator.
+2. Create the offer that will enable users to become
    delegated providers. This requires that you create a plan and an
    offer based on it:
    
@@ -113,21 +115,22 @@ provider (DP) and the user.
 > [!NOTE]
 > As with all Azure Stack offers, you have the option of making
 > the offer public and letting users sign up for it, or keeping it
-> private and having service administrator manage the sign-up. Delegated
+> private and have the cloud operator manage the sign-up. Delegated
 > providers are usually a small group and you want to control who is
 > admitted to it, so keeping this offer private will make sense in most
 > cases.
 > 
 > 
 
-## Service admin creates the delegated offer
+## Cloud operator creates the delegated offer
+
 You have now established your delegated provider. The next step is to
 create the plan and offer that you are going to delegate, and which your
 customers will use. You should define this offer exactly as you want the
 customers to see it, because the delegated provider will not be able to
 change the plans and quotas it includes.
 
-1. As service administrator, [create a
+1. As cloud operator, [create a
    plan](azure-stack-create-plan.md)
    and [an
    offer](azure-stack-create-offer.md)
@@ -152,6 +155,7 @@ change the plans and quotas it includes.
 > 
 
 ## Delegated provider customizes the offer
+
 Sign in to the **tenant portal** as the delegated provider and create a new offer using the delegated offer as a template.
 
 1. Click **New** &gt; **Tenant Offers + Plans** &gt; **Offer**.
@@ -164,7 +168,7 @@ Sign in to the **tenant portal** as the delegated provider and create a new offe
    ![](media/azure-stack-delegated-provider/image6.png)
 
     >[!NOTE] 
-    > Note the difference compared to offer creation as experienced by the service administrator. The delegated provider does not           > construct the offer from base plans and add-on plans; she can only choose from offers that have been delegated to her, and will       > not make changes to them.
+    > Note the difference compared to offer creation as experienced by the cloud operator. The delegated provider does not construct the offer from base plans and add-on plans; they can only choose from offers that have been delegated to them, and can't make changes to those offers.
 
 1. Make the offer public by clicking **Browse** &gt; **Offers**, selecting the offer, and clicking **Change State**.
 2. The delegated provider exposes these offers through his or her own portal URL. Note that these offers are visible only through this    delegated portal. To find and change this URL:
@@ -197,6 +201,7 @@ This concludes the process of offer delegation. The user can now sign up
 for this offer by getting a subscription for it.
 
 ## Multiple-tier delegation
+
 Multiple-tier delegation allows the delegated provider to delegate the
 offer to other entities. This allows, for example, the creation of
 deeper reseller channels, in which the provider managing Azure Stack
@@ -205,9 +210,8 @@ Azure Stack supports up to five levels of delegation.
 
 To create multiple tiers of offer delegation, the delegated provider in
 turn delegates the offer to the next provider. The process is the same
-for the delegated provider as it was for the service administrator (see
-[Service admin creates the delegated
-offer](#service-admin-creates-the-delegated-offer)).
+for the delegated provider as it was for the cloud operator (see
+[Cloud operator creates the delegated offer](#cloud-operator-creates-the-delegated-offer)).
 
 ## Next steps
 [Provision a VM](azure-stack-provision-vm.md)

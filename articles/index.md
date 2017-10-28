@@ -57,7 +57,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                     </div>
                                 </div>
                                 <div class="cardText">
-                                    <span class="likeAnH3">Free PluralSight Video Training for Azure</span>
+                                    <span class="likeAnH3">Free Pluralsight Video Training for Azure</span>
                                 </div>
                             </div>
                         </div>
@@ -137,6 +137,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                         <li><a class="barLink" href="/azure/app-service-web/">Web Apps</a></li>
                                                         <li><a class="barLink" href="/azure/azure-functions/">Serverless Functions</a></li>
                                                         <li><a class="barLink" href="/azure/container-service/">Kubernetes</a></li>
+                                                        <li><a class="barLink" href="/azure/service-fabric/">Service Fabric</a></li>
                                                     </ul>
                                                 </div>
                                             </div>

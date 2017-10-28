@@ -1,6 +1,6 @@
 ---
-title: " Scale Media Processing using the Azure portal | Microsoft Docs"
-description: This tutorial walks you through the steps of scaling Media Processing using the Azure portal.
+title: Scale media processing using the Azure portal | Microsoft Docs
+description: This tutorial walks you through the steps of scaling media processing using the Azure portal.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 07/04/2017
 ms.author: juliako
 
 ---
@@ -28,6 +28,14 @@ ms.author: juliako
 > 
 
 ## Overview
+
+A Media Services account is associated with a Reserved Unit Type, which determines the speed with which your media processing tasks are processed. You can pick between the following reserved unit types: **S1**, **S2**, or **S3**. For example, the same encoding job runs faster when you use the **S2** reserved unit type compare to the **S1** type.
+
+In addition to specifying the reserved unit type, you can specify to provision your account with **Reserved Units** (RUs). The number of provisioned RUs determines the number of media tasks that can be processed concurrently in a given account.
+
+>[!NOTE]
+>RUs work for parallelizing all media processing, including indexing jobs using Azure Media Indexer. However, unlike encoding, indexing jobs do not get processed faster with faster reserved units.
+
 > [!IMPORTANT]
 > Make sure to review the [overview](media-services-scale-media-processing-overview.md) topic to get more information about scaling media processing topic.
 > 

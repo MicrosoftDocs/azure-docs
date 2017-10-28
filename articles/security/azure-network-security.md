@@ -213,7 +213,7 @@ A Point-to-Site (P2S) configuration lets you create a secure connection from an 
 
 Point-to-Site connections are useful when you want to connect to your VNet from a remote location, such as from home or a conference center, or when you only have a few clients that need to connect to a virtual network.
 
-P2S connections do not require a VPN device or a public-facing IP address. You establish the VPN connection from the client computer. Therefore, P2S is not recommended way to connect to Azure in case you need a persistent connection from many on-premise devices and computers to your Azure network.
+P2S connections do not require a VPN device or a public-facing IP address. You establish the VPN connection from the client computer. Therefore, P2S is not recommended way to connect to Azure in case you need a persistent connection from many on-premises devices and computers to your Azure network.
 
 ![Site-to-Site VPN](media/azure-network-security/azure-network-security-fig-6.png)
 

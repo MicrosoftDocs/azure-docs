@@ -32,7 +32,7 @@ You are able to create clusters on VMs running these operating systems:
 * Windows Server 2016 
 * Linux Ubuntu 16.04 (in public preview) 
 
-## Create Service Fabric standalone clusters on-premise or with any cloud provider
+## Create Service Fabric standalone clusters on-premises or with any cloud provider
 Service Fabric provides an install package for you to create standalone Service Fabric clusters on-premises or on any cloud provider
 
 For more information on setting up standalone service fabric clusters on Windows Server, read [Service Fabric cluster creation for Windows Server](service-fabric-cluster-creation-for-windows-server.md)

@@ -156,7 +156,7 @@ Now that we've taken a look at how to specify paths, let's look at the options w
 
 * Data type: **String**, **Number**, **Point**, **Polygon**, or **LineString** (can contain only one entry per data type per path)
 * Index kind: **Hash** (equality queries), **Range** (equality, range or Order By queries), or **Spatial** (spatial queries) 
-* Precision: 1-8 or -1 (Maximum precision) for numbers, 1-100 (Maximum precision) for string
+* Precision: For hash index this varies from 1 to 8 for both strings and numbers with default as 3. For range index this value can be -1 (Maximum precision) and vary between 1-100 (Maximum precision) for string or number values.
 
 #### Index kind
 Azure Cosmos DB supports Hash and Range index kinds for every path (that can configured for strings, numbers or both).
@@ -254,7 +254,7 @@ You can however move to Lazy or None indexing mode while a transformation is in 
 * When you move to Lazy, the index policy change is made effective immediately and Azure Cosmos DB starts recreating the index asynchronously. 
 * When you move to None, then the index is dropped effective immediately. Moving to None is useful when you want to cancel an in progress transformation and start fresh with a different indexing policy. 
 
-If you’re using the .NET SDK, you can kick of an indexing policy change using the new **ReplaceDocumentCollectionAsync** method and track the percentage progress of the index transformation using the **IndexTransformationProgress** response property from a **ReadDocumentCollectionAsync** call. Other SDKs and the REST API support equivalent properties and methods for making indexing policy changes.
+If you’re using the .NET SDK, you can kick off an indexing policy change using the new **ReplaceDocumentCollectionAsync** method and track the percentage progress of the index transformation using the **IndexTransformationProgress** response property from a **ReadDocumentCollectionAsync** call. Other SDKs and the REST API support equivalent properties and methods for making indexing policy changes.
 
 Here's a code snippet that shows how to modify a collection's indexing policy from Consistent indexing mode to Lazy.
 

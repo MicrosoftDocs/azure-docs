@@ -22,16 +22,16 @@ ms.author: sethm;babanisa
 
 You can view two types of logs for Azure Event Hubs:
 * **[Activity logs](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)**. These logs have information about operations performed on a job. The logs are always enabled.
-* **[Diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**. You can configure diagnostic logs for a richer view into everything that happens with a job. Diagnostic logs cover activities from the time the job is created until the job is deleted, including updates and activities that occur while the job is running.
+* **[Diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**. You can configure diagnostic logs for a richer view of everything that happens with a job. Diagnostic logs cover activities from the time the job is created until the job is deleted, including updates and activities that occur while the job is running.
 
 ## Turn on diagnostic logs
 Diagnostics logs are disabled by default. To enable diagnostic logs:
 
-1.	In the Azure portal, go to the streaming job blade.
+1.	In the [Azure portal](https://portal.azure.com), under **Monitoring + Management**, click **Diagnostics logs**.
 
-2.	Under **Monitoring**, go to the **Diagnostics logs** blade.
+    ![Blade navigation to diagnostic logs](./media/event-hubs-diagnostic-logs/image1.png)
 
-	![Blade navigation to diagnostic logs](./media/event-hubs-diagnostic-logs/image1.png)  
+2.	Click the resource you want to monitor.
 
 3.	Click **Turn on diagnostics**.
 
@@ -43,9 +43,7 @@ Diagnostics logs are disabled by default. To enable diagnostic logs:
 
 5.	Set the archive target that you want; for example, a storage account, an event hub, or Azure Log Analytics.
 
-6.	Select the categories of logs that you want to collect; for example, **Execution** or **Authoring**.
-
-7.	Save the new diagnostics settings.
+6.	Save the new diagnostics settings.
 
 New settings take effect in about 10 minutes. After that, logs appear in the configured archival target, on the **Diagnostics logs** blade.
 
@@ -54,11 +52,11 @@ For more information about configuring diagnostics, see the [overview of Azure d
 ## Diagnostic logs categories
 Event Hubs captures diagnostic logs for two categories:
 
-* **ArchivalLogs**: logs related to Event Hubs archives, specifically, logs related to archive errors.
+* **ArchiveLogs**: logs related to Event Hubs archives, specifically, logs related to archive errors.
 * **OperationalLogs**: information about what is happening during Event Hubs operations, specifically, the operation type, including event hub creation, resources used, and the status of the operation.
 
 ## Diagnostic logs schema
-All logs are stored in JavaScript Object Notation (JSON) format. Each entry has string fields that use the format described in the following examples.
+All logs are stored in JavaScript Object Notation (JSON) format. Each entry has string fields that use the format described in the following sections.
 
 ### Archive logs schema
 
@@ -79,7 +77,7 @@ durationInSeconds | Duration of failure.
 message | Error message.
 category | ArchiveLogs
 
-The following is an example of an archive log JSON string:
+The following code is an example of an archive log JSON string:
 
 ```json
 {
@@ -98,9 +96,9 @@ The following is an example of an archive log JSON string:
 }
 ```
 
-### Operation logs schema
+### Operational logs schema
 
-Operation log JSON strings include elements listed in the following table:
+Operational log JSON strings include elements listed in the following table:
 
 Name | Description
 ------- | -------
@@ -114,7 +112,7 @@ Status | Operation status.
 Caller | Caller of operation (Azure portal or management client).
 category | OperationalLogs
 
-The following is an example of an operation log JSON string:
+The following code is an example of an operational log JSON string:
 
 ```json
 Example:

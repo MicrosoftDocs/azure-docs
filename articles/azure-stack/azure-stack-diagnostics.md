@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 5/11/2017
+ms.date: 7/10/2017
 ms.author: adshar
 
 ---
@@ -91,13 +91,7 @@ To identify all the logs that get collected from all the components, refer to th
 ### To run Get-AzureStackLog
 1.	Log in as AzureStack\AzureStackAdmin on the host.
 2.	Open a PowerShell window as an administrator.
-3.	Run the following commands to import the PowerShell modules:
-
-    -	`cd C:\CloudDeployment\AzureStackDiagnostics\Microsoft.AzureStack.Diagnostics.DataCollection`
-
-    -	`Import-Module .\Microsoft.AzureStack.Diagnostics.DataCollection.psd1`
-
-4.	Run `Get-AzureStackLog`.  
+3.	Run `Get-AzureStackLog`.  
 
     **Examples**
 

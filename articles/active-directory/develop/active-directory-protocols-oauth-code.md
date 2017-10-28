@@ -282,13 +282,13 @@ The following is an example of an unsuccessful response when the client request 
 
 ```
 HTTP/1.1 401 Unauthorized
-WWW-Authenticate: Bearer authorization_uri="https://login.window.net/contoso.com/oauth2/authorize",  error="invalid_token",  error_description="The access token is missing.",
+WWW-Authenticate: Bearer authorization_uri="https://login.microsoftonline.com/contoso.com/oauth2/authorize",  error="invalid_token",  error_description="The access token is missing.",
 ```
 
 #### Error parameters
 | Parameter | Description |
 | --- | --- |
-| authorization_uri |The URI (physical endpoint) of the authorization server. This value is also used as a lookup key to get more information about the server from a discovery endpoint. <p><p> The client must validate that the authorization server is trusted. When the resource is protected by Azure AD, it is sufficient to verify that the URL begins with https://login.windows.net or another hostname that Azure AD supports. A tenant-specific resource should always return a tenant-specific authorization URI. |
+| authorization_uri |The URI (physical endpoint) of the authorization server. This value is also used as a lookup key to get more information about the server from a discovery endpoint. <p><p> The client must validate that the authorization server is trusted. When the resource is protected by Azure AD, it is sufficient to verify that the URL begins with https://login.microsoftonline.com or another hostname that Azure AD supports. A tenant-specific resource should always return a tenant-specific authorization URI. |
 | error |An error code value defined in Section 5.2 of the [OAuth 2.0 Authorization Framework](http://tools.ietf.org/html/rfc6749). |
 | error_description |A more detailed description of the error. This message is not intended to be end-user friendly. |
 | resource_id |Returns the unique identifier of the resource. The client application can use this identifier as the value of the `resource` parameter when it requests a token for the resource. <p><p> It is important for the client application to verify this value, otherwise a malicious service might be able to induce an **elevation-of-privileges** attack <p><p> The recommended strategy for preventing an attack is to verify that the `resource_id` matches the base of the web API URL that being accessed. For example, if https://service.contoso.com/data is being accessed, the `resource_id` can be htttps://service.contoso.com/. The client application must reject a `resource_id` that does not begin with the base URL unless there is a reliable alternate way to verify the id. |

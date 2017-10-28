@@ -157,7 +157,7 @@ SerDe is the best choice for parsing nested JSON documents, it allows you to def
       ![Setting up correct config values for JDK][image-hdi-hivejson-jdk]
 2. Install [Maven 3.3.1](http://mirror.olnevhost.net/pub/apache/maven/maven-3/3.3.1/binaries/apache-maven-3.3.1-bin.zip)
    
-    Add the bin folder to your path by going to Control Panel-->Edit the System Variables for your account Environment variables. The following screenshot shows you how to do this.
+    Add the bin folder to your path by going to Control Panel-->Edit the System Variables for your account Environment variables. The following screenshot shows you how to do this.
    
     ![Setting up Maven][image-hdi-hivejson-maven]
 3. Clone the project from [Hive-JSON-SerDe](https://github.com/sheetaldolas/Hive-JSON-Serde/tree/master) github site. You can do this by clicking on the “Download Zip” button as shown in the following screenshot.

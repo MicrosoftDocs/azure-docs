@@ -176,7 +176,7 @@ In this task you will define the multi-factor authentication strategy to use.  A
 
 Multi-factor design options:
 
-| Asset to secure | MFA in the cloud | MFA on-premise |
+| Asset to secure | MFA in the cloud | MFA on-premises |
 | --- | --- | --- |
 | Microsoft apps |yes |yes |
 | SaaS apps in the app gallery |yes |yes |

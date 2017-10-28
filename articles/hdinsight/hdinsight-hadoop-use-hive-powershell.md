@@ -32,7 +32,7 @@ This document provides an example of using Azure PowerShell in the Azure Resourc
 * **An Azure HDInsight cluster**: It does not matter whether the cluster is Windows or Linux-based.
 
   > [!IMPORTANT]
-  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * **A workstation with Azure PowerShell**.
 
