@@ -27,11 +27,11 @@ The Azure Resource Manager template used in this document demonstrates how to cr
 > [!NOTE]
 > The information in this document and example in this document require HDInsight version 3.6.
 >
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## Architecture
 
-![architecture diagram](./media/hdinsight-storm-sensor-data-analysis/devicesarchitecture.png)
+![architecture diagram](./media/apache-storm-sensor-data-analysis/devicesarchitecture.png)
 
 This example consists of the following components:
 
@@ -60,7 +60,7 @@ The topology reads data from Event Hub by using the `org.apache.storm.eventhubs.
 
 The following diagram explains the layout of the topology:
 
-![topology diagram](./media/hdinsight-storm-sensor-data-analysis/sensoranalysis.png)
+![topology diagram](./media/apache-storm-sensor-data-analysis/sensoranalysis.png)
 
 > [!NOTE]
 > This diagram is a simplified view of the topology. An instance of each component is created for each partition in your Event Hub. These instances are distributed across the nodes in the cluster, and data is routed between them as follows:
@@ -91,9 +91,9 @@ You need the following items installed on your development environment:
 * [Java and the JDK 1.7](http://www.oracle.com/technetwork/java/javase/downloads/index.html): Used to develop the Storm topology.
 * [Maven](http://maven.apache.org/what-is-maven.html): Used to build and compile the project.
 * [Git](http://git-scm.com/): Used to download the project from GitHub.
-* An **SSH** client: Used to connect to the Linux-based HDInsight clusters. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+* An **SSH** client: Used to connect to the Linux-based HDInsight clusters. For more information, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-To create an event hub, use the steps in [Create an event hub](../event-hubs/event-hubs-create.md) document.
+To create an event hub, use the steps in [Create an event hub](../../event-hubs/event-hubs-create.md) document.
 
 > [!IMPORTANT]
 > Save the event hub name, namespace, and the key for the RootManageSharedAccessKey. This information is used to configure the Storm topology.
@@ -167,7 +167,7 @@ Before testing, you must start the dashboard to view the output of the topology 
 
 3. Open a web browser and enter `http://localhost:3000/` as the address. A page similar to the following image is displayed:
    
-    ![web dashboard](./media/hdinsight-storm-sensor-data-analysis/emptydashboard.png)
+    ![web dashboard](./media/apache-storm-sensor-data-analysis/emptydashboard.png)
    
     Leave this command prompt open. After testing, use Ctrl-C to stop the web server.
 
@@ -236,7 +236,7 @@ Before testing, you must start the dashboard to view the output of the topology 
  
    Once started, the topology reads entries from Event Hub, and sends them to the dashboard running on your local machine. You should see lines appear in the web dashboard, similar to the following image:
    
-    ![dashboard with data](./media/hdinsight-storm-sensor-data-analysis/datadashboard.png)
+    ![dashboard with data](./media/apache-storm-sensor-data-analysis/datadashboard.png)
 
 2. While the dashboard is running, use the `node app.js` command from the previous steps to send new data to Event Hubs. Because the temperature values are randomly generated, the graph should update to show large changes in temperature.
    
@@ -247,7 +247,7 @@ Before testing, you must start the dashboard to view the output of the topology 
 
 ## Create a Storm and HBase cluster
 
-The steps in this section use an [Azure Resource Manager template](../azure-resource-manager/resource-group-template-deploy.md) to create an Azure Virtual Network and a Storm and HBase cluster on the virtual network. The template also creates an Azure Web App and deploys a copy of the dashboard into it.
+The steps in this section use an [Azure Resource Manager template](../../azure-resource-manager/resource-group-template-deploy.md) to create an Azure Virtual Network and a Storm and HBase cluster on the virtual network. The template also creates an Azure Web App and deploys a copy of the dashboard into it.
 
 > [!NOTE]
 > A virtual network is used so that the topology running on the Storm cluster can directly communicate with the HBase cluster using the HBase Java API.
@@ -256,11 +256,11 @@ The Resource Manager template used in this document is located in a public blob 
 
 1. Click the following button to sign in to Azure and open the Resource Manager template in the Azure portal.
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-storm-cluster-in-vnet-3.6.json" target="_blank"><img src="./media/hdinsight-storm-sensor-data-analysis/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-storm-cluster-in-vnet-3.6.json" target="_blank"><img src="./media/apache-storm-sensor-data-analysis/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 2. From the **Custom deployment** section, enter the following values:
    
-    ![HDInsight parameters](./media/hdinsight-storm-sensor-data-analysis/parameters.png)
+    ![HDInsight parameters](./media/apache-storm-sensor-data-analysis/parameters.png)
    
    * **Base Cluster Name**: This value is used as the base name for the Storm and HBase clusters. For example, entering **abc** creates a Storm cluster named **storm-abc** and an HBase cluster named **hbase-abc**.
    * **Cluster Login User Name**: The admin user name for the Storm and HBase clusters.
@@ -278,7 +278,7 @@ The Resource Manager template used in this document is located in a public blob 
 
 Once the resources have been created, information about the resource group is displayed.
 
-![Resource group for the vnet and clusters](./media/hdinsight-storm-sensor-data-analysis/groupblade.png)
+![Resource group for the vnet and clusters](./media/apache-storm-sensor-data-analysis/groupblade.png)
 
 > [!IMPORTANT]
 > Notice that the names of the HDInsight clusters are **storm-BASENAME** and **hbase-BASENAME**, where BASENAME is the name you provided to the template. You use these names in a later step when connecting to the clusters. Also note that the name of the dashboard site is **basename-dashboard**. This value is used later in this document.
@@ -391,7 +391,7 @@ In your development environment, use the following steps to deploy the Storm top
    > [!NOTE]
    > It may take several minutes to upload the files.
 
-    For more information on using the `scp` and `ssh` commands with HDInsight, see [Use SSH with HDInsight](./hdinsight-hadoop-linux-use-ssh-unix.md)
+    For more information on using the `scp` and `ssh` commands with HDInsight, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md)
 
 3. Once the file has been uploaded, connect to the Storm cluster using SSH.
    
@@ -413,7 +413,7 @@ In your development environment, use the following steps to deploy the Storm top
 
 5. After the topology has started, open a browser to the website you published on Azure, then use the `node app.js` command to send data to Event Hub. You should see the web dashboard update to display the information.
    
-    ![dashboard](./media/hdinsight-storm-sensor-data-analysis/datadashboard.png)
+    ![dashboard](./media/apache-storm-sensor-data-analysis/datadashboard.png)
 
 ## View HBase data
 
@@ -472,24 +472,24 @@ Use the following steps to connect to HBase and verify that the data has been wr
 
 ## Delete your clusters
 
-[!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+[!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
 To delete the clusters, storage, and web app at one time, delete the resource group that contains them.
 
 ## Next steps
 
-For more examples of Storm topologies with HDInsight, see [Example topologies for Storm on HDInsight](hdinsight-storm-example-topology.md)
+For more examples of Storm topologies with HDInsight, see [Example topologies for Storm on HDInsight](apache-storm-example-topology.md)
 
 For more information about Apache Storm, see the [Apache Storm](https://storm.incubator.apache.org/) site.
 
-For more information about HBase on HDInsight, see the [HBase with HDInsight Overview](hdinsight-hbase-overview.md).
+For more information about HBase on HDInsight, see the [HBase with HDInsight Overview](../hbase/apache-hbase-overview.md).
 
 For more information about Socket.io, see the [socket.io](http://socket.io/) site.
 
 For more information about D3.js, see [D3.js - Data Driven Documents](http://d3js.org/).
 
-For information about creating topologies in Java, see [Develop Java topologies for Apache Storm on HDInsight](hdinsight-storm-develop-java-topology.md).
+For information about creating topologies in Java, see [Develop Java topologies for Apache Storm on HDInsight](apache-storm-develop-java-topology.md).
 
-For information about creating topologies in .NET, see [Develop C# topologies for Apache Storm on HDInsight using Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md).
+For information about creating topologies in .NET, see [Develop C# topologies for Apache Storm on HDInsight using Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md).
 
 [azure-portal]: https://portal.azure.com
