@@ -133,7 +133,7 @@ Learn how to use IoT Hub to connect, monitor, and control billions of Internet o
                 <div class="card">
                     <div class="cardText">
                         <h3>Code samples</h3>
-                        <p><a href="https://azure.microsoft.com/en-us/resources/samples/?service=iot-hub">Code samples</a></p>
+                        <p><a href="https://azure.microsoft.com/resources/samples/?service=iot-hub">Code samples</a></p>
                     </div>
                 </div>
             </div>
