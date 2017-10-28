@@ -5,7 +5,6 @@ services: multi-factor-authentication
 documentationcenter: ''
 author: kgremban
 manager: femila
-editor: yossib
 
 ms.assetid: 514ef423-8ee6-4987-8a4e-80d5dc394cf9
 ms.service: multi-factor-authentication
@@ -13,8 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/13/2017
+ms.date: 06/13/2017
 ms.author: kgremban
+ms.reviewer: yossib
+ms.custom: it-pro
+
 ROBOTS: NOINDEX
 ---
 # Assigning an Azure MFA, Azure AD Premium, or Enterprise Mobility license to users

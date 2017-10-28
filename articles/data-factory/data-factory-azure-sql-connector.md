@@ -1,6 +1,6 @@
 ---
-title: Move data to/from Azure SQL Database | Microsoft Docs
-description: Learn how to move data to/from Azure SQL Database using Azure Data Factory.
+title: Copy data to/from Azure SQL Database | Microsoft Docs
+description: Learn how to copy data to/from Azure SQL Database using Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 06/04/2017
 ms.author: jingwang
 
 ---
-# Move data to and from Azure SQL Database using Azure Data Factory
+# Copy data to and from Azure SQL Database using Azure Data Factory
 This article explains how to use the Copy Activity in Azure Data Factory to move data to and from Azure SQL Database. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity.  
 
 ## Supported scenarios
@@ -139,8 +139,8 @@ GO
 | --- | --- | --- | --- |
 | writeBatchTimeout |Wait time for the batch insert operation to complete before it times out. |timespan<br/><br/> Example: “00:30:00” (30 minutes). |No |
 | writeBatchSize |Inserts data into the SQL table when the buffer size reaches writeBatchSize. |Integer (number of rows) |No (default: 10000) |
-| sqlWriterCleanupScript |Specify a query for Copy Activity to execute such that data of a specific slice is cleaned up. For more information, see [repeatability section](#repeatability-during-copy). |A query statement. |No |
-| sliceIdentifierColumnName |Specify a column name for Copy Activity to fill with auto generated slice identifier, which is used to clean up data of a specific slice when rerun. For more information, see [repeatability section](#repeatability-during-copy). |Column name of a column with data type of binary(32). |No |
+| sqlWriterCleanupScript |Specify a query for Copy Activity to execute such that data of a specific slice is cleaned up. For more information, see [repeatable copy](#repeatable-copy). |A query statement. |No |
+| sliceIdentifierColumnName |Specify a column name for Copy Activity to fill with auto generated slice identifier, which is used to clean up data of a specific slice when rerun. For more information, see [repeatable copy](#repeatable-copy). |Column name of a column with data type of binary(32). |No |
 | sqlWriterStoredProcedureName |Name of the stored procedure that upserts (updates/inserts) data into the target table. |Name of the stored procedure. |No |
 | storedProcedureParameters |Parameters for the stored procedure. |Name/value pairs. Names and casing of parameters must match the names and casing of the stored procedure parameters. |No |
 | sqlWriterTableType |Specify a table type name to be used in the stored procedure. Copy activity makes the data being moved available in a temp table with this table type. Stored procedure code can then merge the data being copied with existing data. |A table type name. |No |
@@ -614,24 +614,16 @@ Notice that the target table has an identity column.
 
 Notice that as your source and target table have different schema (target has an additional column with identity). In this scenario, you need to specify **structure** property in the target dataset definition, which doesn’t include the identity column.
 
-## Map source to sink columns
-To learn about mapping columns in source dataset to columns in sink dataset, see [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md).
-
-## Repeatable copy
-When copying data to SQL Server Database, the copy activity appends data to the sink table by default. To perform an UPSERT instead,  See [Repeatable write to SqlSink](data-factory-repeatable-copy.md#repeatable-write-to-sqlsink) article. 
-
-When copying data from relational data stores, keep repeatability in mind to avoid unintended outcomes. In Azure Data Factory, you can rerun a slice manually. You can also configure retry policy for a dataset so that a slice is rerun when a failure occurs. When a slice is rerun in either way, you need to make sure that the same data is read no matter how many times a slice is run. See [Repeatable read from relational sources](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
-
 ## Invoke stored procedure from SQL sink
 For an example of invoking a stored procedure from SQL sink in a copy activity of a pipeline, see [Invoke stored procedure for SQL sink in copy activity](data-factory-invoke-stored-procedure-from-copy-activity.md) article. 
 
-## SQL Database to .NET type mapping
+## Type mapping for Azure SQL Database
 As mentioned in the [data movement activities](data-factory-data-movement-activities.md) article Copy activity performs automatic type conversions from source types to sink types with the following 2-step approach:
 
 1. Convert from native source types to .NET type
 2. Convert from .NET type to native sink type
 
-When moving data to and from Azure SQL, the following mappings are used from SQL type to .NET type and vice versa. The mapping is same as the SQL Server Data Type Mapping for ADO.NET.
+When moving data to and from Azure SQL Database, the following mappings are used from SQL type to .NET type and vice versa. The mapping is same as the SQL Server Data Type Mapping for ADO.NET.
 
 | SQL Server Database Engine type | .NET Framework type |
 | --- | --- |
@@ -667,6 +659,14 @@ When moving data to and from Azure SQL, the following mappings are used from SQL
 | varbinary |Byte[] |
 | varchar |String, Char[] |
 | xml |Xml |
+
+## Map source to sink columns
+To learn about mapping columns in source dataset to columns in sink dataset, see [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md).
+
+## Repeatable copy
+When copying data to SQL Server Database, the copy activity appends data to the sink table by default. To perform an UPSERT instead,  See [Repeatable write to SqlSink](data-factory-repeatable-copy.md#repeatable-write-to-sqlsink) article. 
+
+When copying data from relational data stores, keep repeatability in mind to avoid unintended outcomes. In Azure Data Factory, you can rerun a slice manually. You can also configure retry policy for a dataset so that a slice is rerun when a failure occurs. When a slice is rerun in either way, you need to make sure that the same data is read no matter how many times a slice is run. See [Repeatable read from relational sources](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
 
 ## Performance and Tuning
 See [Copy Activity Performance & Tuning Guide](data-factory-copy-activity-performance.md) to learn about key factors that impact performance of data movement (Copy Activity) in Azure Data Factory and various ways to optimize it.

@@ -13,7 +13,7 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/23/2017
+ms.date: 06/16/2017
 ms.author: dobett
 
 ---

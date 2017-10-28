@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/02/2017
+ms.date: 06/24/2017
 ms.author: markvi
 
 ---
@@ -77,7 +77,7 @@ To load balance the management activities around your Identity Protection implem
 | :--                          | ---                                |  ---   |
 | Global administrator         | Full access to Identity Protection, Onboard Identity Protection| |
 | Security administrator       | Full access to Identity Protection | Onboard Identity Protection,  reset passwords for a user |
-| Security reader              | Ready-only access to Identity Protection | Onboard Identity Protection, remidiate users, configiger policies,  reset passwords |
+| Security reader              | Ready-only access to Identity Protection | Onboard Identity Protection, remidiate users, configure policies,  reset passwords |
 
 
 

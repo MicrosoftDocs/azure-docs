@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 2/20/2017
+ms.date: 06/29/2017
 ms.author: anoopkv
 ---
 
@@ -49,14 +49,17 @@ Complete these prerequisite steps before you manually install Mobility Service o
 |---|--|
 |Microsoft-ASR\_UA\*Windows\*release.exe | Windows Server 2008 R2 SP1 (64-bit) </br> Windows Server 2012 (64-bit) </br> Windows Server 2012 R2 (64-bit) |
 |Microsoft-ASR\_UA\*RHEL6-64*release.tar.gz| Red Hat Enterprise Linux (RHEL) 6.4, 6.5, 6.6, 6.7, 6.8 (64-bit only) </br> CentOS 6.4, 6.5, 6.6, 6.7, 6.8 (64-bit only) |
+|Microsoft-ASR\_UA\*RHEL7-64\*release.tar.gz | Red Hat Enterprise Linux (RHEL) 7.1, 7.2 (64-bit only) </br> CentOS 7.0, 7.1, 7.2 (64-bit only)</br> CentOs 7.3 (migration only) |
 |Microsoft-ASR\_UA\*SLES11-SP3-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP3 (64-bit only)|
-|Microsoft-ASR_UA\*OL6-64\*release.tar.gz | Oracle Enterprise Linux 6.4, 6.5 (64-bit only)|
+|Microsoft-ASR\_UA\*SLES11-SP4-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP4 (64-bit only)|
+|Microsoft-ASR\_UA\*OL6-64\*release.tar.gz | Oracle Enterprise Linux 6.4, 6.5 (64-bit only)|
+|Microsoft-ASR\_UA\*UBUNTU-14.04-64\*release.tar.gz | Ubuntu Linux 14.04 (64-bit only)|
 
 
 ## Install Mobility Service manually by using the GUI
 
->[!NOTE]
-> The GUI-based installation works only with Windows operating systems.
+>[!IMPORTANT]
+> If you are using a **Configuration Server** to replicate **Azure IaaS virtual machines** from one Azure Subscription/Region to another then **use the Command-line based installation** method
 
 [!INCLUDE [site-recovery-install-mob-svc-gui](../../includes/site-recovery-install-mob-svc-gui.md)]
 

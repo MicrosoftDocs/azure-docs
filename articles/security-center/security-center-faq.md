@@ -13,12 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/22/2017
+ms.date: 06/16/2017
 ms.author: terrylan
 
 ---
 # Azure Security Center frequently asked questions (FAQ)
 This FAQ answers questions about Azure Security Center, a service that helps you prevent, detect, and respond to threats with increased visibility into and control over the security of your Microsoft Azure resources.
+
+> [!NOTE]
+> Beginning in early June 2017, Security Center will use the Microsoft Monitoring Agent to collect and store data. To learn more, see [Azure Security Center Platform Migration](security-center-platform-migration.md). The information in this article represents Security Center functionality after transition to the Microsoft Monitoring Agent.
+>
+>
 
 ## General questions
 ### What is Azure Security Center?
@@ -29,11 +34,11 @@ Azure Security Center is enabled with your Microsoft Azure subscription and acce
 
 ## Billing
 ### How does billing work for Azure Security Center?
-Security Center is offered in two tiers: Free and Standard.
+Security Center is offered in two tiers:
 
-The Free tier enables you to set security policies and receive security alerts, incidents, and recommendations that guide you through the process of configuring needed controls. With the Free tier, you can also monitor the security state of your Azure resources and partner solutions integrated with your Azure subscription.
+The **Free tier** provides visibility into the security state of your Azure resources, basic security policy, security recommendations, and integration with security products and services from partners.
 
-The Standard tier provides the Free tier features plus advanced detections: threat intelligence, behavioral analysis, crash analysis, and anomaly detection. The Standard tier is offered free for the first 60 days. Should you choose to continue to use the service beyond 60 days, we will automatically start to charge for the service. To upgrade, select Pricing Tier in the [security policy](security-center-policies.md#set-security-policies-for-subscriptions). To learn more, see [Security Center pricing](security-center-pricing.md).
+The **Standard tier** adds advanced threat detection capabilities, including threat intelligence, behavioral analysis, anomaly detection, security incidents, and threat attribution reports. The Standard tier is free for the first 60 days. Should you choose to continue to use the service beyond 60 days, we automatically start to charge for the service.  To upgrade, select Pricing Tier in the [security policy](security-center-policies.md#set-security-policies). To learn more, see [Security Center pricing](security-center-pricing.md).
 
 ## Permissions
 Azure Security Center uses [Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-configure.md), which provides [built-in roles](../active-directory/role-based-access-built-in-roles.md) that can be assigned to users, groups, and services in Azure.
@@ -43,53 +48,31 @@ Security Center assesses the configuration of your resources to identify securit
 See [Permissions in Azure Security Center](security-center-permissions.md) to learn more about roles and allowed actions in Security Center.
 
 ## Data collection
-Security Center collects data from your virtual machines to assess their security state, provide security recommendations, and alert you to threats. When you first access Security Center, data collection is enabled on all virtual machines in your subscription. Data collection is recommended but you can opt-out by [disabling data collection](#how-do-i-disable-data-collection) in the Security Center policy.
+Security Center collects data from your virtual machines to assess their security state, provide security recommendations, and alert you to threats. When you first access Security Center, data collection is enabled on all virtual machines in your subscription. You can also enable data collection in the Security Center policy.
 
 ### How do I disable data collection?
-You can disable **Data collection** for a subscription in the Security policy at any time. ([Sign in to the Azure portal](https://portal.azure.com), select **Browse**, select **Security Center**, and select **Policy**.)  When you select a subscription, a new blade opens and provides you the option to turn off **Data collection**. Azure Monitoring Agents are automatically removed from the subscription's existing virtual machines when you turn off data collection.
-
-> [!NOTE]
-> Security policies can be set at the Azure subscription level and resource group level but you must select a subscription to turn off data collection.
->
->
+If you are using the Azure Security Center Free tier, you can disable data collection from virtual machines at any time. Data collection is required for subscriptions on the Standard tier. You can disable data collection for a subscription in the Security policy. ([Sign in to the Azure portal](https://portal.azure.com), select **Browse**, select **Security Center**, and select **Policy**.)  When you select a subscription, a new blade opens and provides you the option to turn off **Data collection**.
 
 ### How do I enable data collection?
-You can enable data collection for your Azure subscription in the Security policy. To enable data collection, [sign in to the Azure portal](https://portal.azure.com), select **Browse**, select **Security Center**, and select **Policy**. Set **Data collection** to **On** and configure the storage accounts where you want data to be collected to (see question “[Where is my data stored?](#where-is-my-data-stored)”). When **Data collection** is enabled, it automatically collects security configuration and event information from all supported virtual machines in the subscription.
-
-> [!NOTE]
-> Security policies can be set at the Azure subscription level and resource group level but configuration of data collection occurs at the subscription level only.
->
->
+You can enable data collection for your Azure subscription in the Security policy. To enable data collection. [Sign in to the Azure portal](https://portal.azure.com), select **Browse**, select **Security Center**, and select **Policy**. Set **Data collection** to **On**.
 
 ### What happens when data collection is enabled?
-Data collection is enabled via the Azure Monitoring Agent and the Azure Security Monitoring extension. The Azure Security Monitoring extension scans for various security relevant configurations and sends it into [Event Tracing for Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW) traces. In addition, the operating system creates event log entries.  The Azure Monitoring Agent reads event log entries and ETW traces and copies them to your storage account for analysis.  This is the storage account you configured in the security policy. For more information about the storage account, see question “[Where is my data stored?](#where-is-my-data-stored)”
+When data collection is enabled, the Microsoft Monitoring Agent is automatically provisioned on all existing and any new supported virtual machines that are deployed in the subscription.
 
-### Does the Monitoring Agent or Security Monitoring extension impact the performance of my server(s)?
-The agent and extension consumes a nominal amount of system resources and should have little impact on the performance. For more information on performance impact and the agent and extension, see the [planning and operations guide](security-center-planning-and-operations-guide.md#data-collection-and-storage).
+### Does the Monitoring Agent impact the performance of my servers?
+The agent consumes a nominal amount of system resources and should have little impact on the performance. For more information on performance impact and the agent and extension, see the [planning and operations guide](security-center-planning-and-operations-guide.md#data-collection-and-storage).
 
 ### Where is my data stored?
-For each region in which you have virtual machines running, you choose the storage account where data collected from those virtual machines is stored. This makes it easy for you to keep data in the same geographic area for privacy and data sovereignty purposes. You choose the storage account for a subscription in the Security policy. ([Sign in to the Azure portal](https://portal.azure.com), select **Browse**, select **Security Center**, and select **Policy**.) When you select a subscription, a new blade opens. To select a region, select **Choose storage accounts**. If you do not choose a storage account for each region, a storage account is created for you and placed in the securitydata resource group.
-
-> [!NOTE]
-> Security policies can be set at the Azure subscription level and resource group level but selecting a region for your storage account occurs at the subscription level only.
->
->
-
-To learn more about Azure storage and storage accounts, see [Storage Documentation](https://azure.microsoft.com/documentation/services/storage/) and [About Azure storage accounts](../storage/storage-create-storage-account.md).
+Data collected from this agent is stored in either an existing Log Analytics workspace associated with your subscription or a new workspace. For more information, see [Data Security](security-center-data-security.md).
 
 ## Using Azure Security Center
 ### What is a security policy?
-A security policy defines the set of controls that are recommended for resources within the specified subscription or resource group. In Azure Security Center, you define policies for your Azure subscriptions and resource groups according to your company's security requirements and the type of applications or sensitivity of the data in each subscription.
+A security policy defines the set of controls that are recommended for resources within the specified subscription. In Azure Security Center, you define policies for your Azure subscriptions according to your company's security requirements and the type of applications or sensitivity of the data in each subscription.
 
-For example, resources used for development or test may have different security requirements than those used for production applications. Likewise, applications with regulated data like PII (Personally Identifiable Information) may require a higher level of security. The security policies enabled in Azure Security Center drive security recommendations and monitoring. To learn more about security policies, see [Security health monitoring in Azure Security Center](security-center-monitoring.md).
-
-> [!NOTE]
-> If there is a conflict between subscription level policy and resource group level policy, the resource group level policy takes precedence.
->
->
+The security policies enabled in Azure Security Center drive security recommendations and monitoring. To learn more about security policies, see [Security health monitoring in Azure Security Center](security-center-monitoring.md).
 
 ### Who can modify a security policy?
-Security policies are configured for each subscription or resource group. To modify a security policy at the subscription level or resource group level, you must be an Owner or Contributor of that subscription.
+To modify a security policy, you must be a Security Administrator or an Owner or Contributor of that subscription.
 
 To learn how to configure a security policy, see [Setting security policies in Azure Security Center](security-center-policies.md).
 
@@ -105,7 +88,7 @@ Azure Security Center analyzes the security state of your Azure resources. When 
 Only recommendations that are enabled in Security Policies are shown here.
 
 ### How can I see the current security state of my Azure resources?
-A **Resources health** tile on the **Security Center** blade shows the overall security posture of your environment broken down by virtual machines, web applications, and other resources. Each resource has an indicator showing if any potential security vulnerabilities have been identified. Clicking the Resources health tile displays your resources and identifies where attention is required or issues may exist.
+The **Security Center Overview** blade shows the overall security posture of your environment broken down by Compute, Networking, Storage & data, and Applications. Each resource type has an indicator showing if any potential security vulnerabilities have been identified. Clicking each tile displays a list of security issues identified by Security Center, along with an inventory of the resources in your subscription.
 
 ### What triggers a security alert?
 Azure Security Center automatically collects, analyzes, and fuses log data from your Azure resources, the network, and partner solutions like antimalware and firewalls. When threats are detected, a security alert is created. Examples include detection of:
@@ -126,35 +109,21 @@ Azure Security Center monitors the following Azure resources:
 * Virtual machines (VMs) (including [Cloud Services](../cloud-services/cloud-services-choose-me.md))
 * Azure Virtual Networks
 * Azure SQL service
+* Azure Storage account
+* Azure Web Apps (in [App Service Environment](../app-service/app-service-app-service-environments-readme.md))
 * Partner solutions integrated with your Azure subscription such as a web application firewall on VMs and on [App Service Environment](../app-service/app-service-app-service-environments-readme.md)
 
 ## Virtual Machines
 ### What types of virtual machines are supported?
-Security health monitoring and recommendations are available for virtual machines (VMs) created using both the [classic and Resource Manager deployment models](../azure-classic-rm.md).
+Monitoring and recommendations are available for virtual machines (VMs) created using both the [classic and Resource Manager deployment models](../azure-classic-rm.md).
 
-Supported Windows VMs:
-
-* Windows Server 2008 R2
-* Windows Server 2012
-* Windows Server 2012 R2
-* Windows Server 2016
-
-Supported Linux VMs:
-
-* Ubuntu versions 12.04, 14.04, 16.04, 16.10
-* Debian versions 7, 8
-* CentOS versions 6.\*, 7.*
-* Red Hat Enterprise Linux (RHEL) versions 6.\*, 7.*
-* SUSE Linux Enterprise Server (SLES) versions 11 SP4+, 12.*
-* Oracle Linux versions 6.\*, 7.*
-
-VMs running in a cloud service are also supported. Only cloud services web and worker roles running in production slots are monitored. To learn more about cloud service, see [Cloud Services overview](../cloud-services/cloud-services-choose-me.md).
+See [Supported platforms in Azure Security Center](security-center-os-coverage.md) for a list of supported platforms.
 
 ### Why doesn't Azure Security Center recognize the antimalware solution running on my Azure VM?
-Azure Security Center only has visibility into antimalware installed through Azure extensions. For example, Security Center is not able to detect antimalware that was pre-installed on an image you provided or if you installed antimalware on your virtual machines using your own processes (such as configuration management systems).
+Azure Security Center has visibility into antimalware installed through Azure extensions. For example, Security Center is not able to detect antimalware that was pre-installed on an image you provided or if you installed antimalware on your virtual machines using your own processes (such as configuration management systems).
 
 ### Why do I get the message "Missing Scan Data" for my VM?
-It can take some time (less than an hour) for scan data to populate after Data Collection is enabled in Azure Security Center. Scans do not populate for VMs in a stopped state.
+This message appears when there is no scan data for a VM. It can take some time (less than an hour) for scan data to populate after Data Collection is enabled in Azure Security Center. After the initial population of scan data, you may receive this message because there is no scan data at all or there is no recent scan data. Scans do not populate for a VM in a stopped state. This message could also appear if scan data has not populated recently (in accordance with the retention policy for the Windows agent, which has a default value of 30 days).
 
 ### Why do I get the message "VM Agent is Missing?"
 The VM Agent must be installed on VMs to enable Data Collection. The VM Agent is installed by default for VMs that are deployed from the Azure Marketplace. For information on how to install the VM Agent on other VMs, see the blog post [VM Agent and Extensions](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/).

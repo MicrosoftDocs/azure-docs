@@ -5,7 +5,6 @@ services: multi-factor-authentication
 documentationcenter: ''
 author: kgremban
 manager: femila
-editor: yossib
 
 ms.assetid: 96168849-241a-4499-a224-d829913caa7e
 ms.service: multi-factor-authentication
@@ -13,10 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/24/2017
+ms.date: 06/14/2017
 ms.author: kgremban
+ms.reviewer: yossib
 
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017, it-pro
 ---
 # Configure Azure Multi-Factor Authentication Server to work with AD FS 2.0
 This article is for organizations that are federated with Azure Active Directory, and want to secure resources that are on-premises or in the cloud. Protect your resources by using the Azure Multi-Factor Authentication Server and configuring it to work with AD FS so that two-step verification is triggered for high-value end points.
@@ -34,9 +34,9 @@ To secure AD FS 2.0 with a proxy, install the Azure Multi-Factor Authentication 
    <center>![Setup](./media/multi-factor-authentication-get-started-adfs-adfs2/setup1.png)</center>
 
 4. To detect username, password, and domain variables automatically, enter the login URL (like https://sso.contoso.com/adfs/ls) within the Auto-Configure Form-Based Website dialog box and click **OK**.
-5. Check the **Require Azure Multi-Factor Authentication user match** box if all users have been or will be imported into the Server and subject to two-step verification. If a significant number of users have not yet been imported into the Server and/or will be exempt from two-step verification, leave the box unchecked. 
+5. Check the **Require Azure Multi-Factor Authentication user match** box if all users have been or will be imported into the Server and subject to two-step verification. If a significant number of users have not yet been imported into the Server and/or will be exempt from two-step verification, leave the box unchecked.
 6. If the page variables cannot be detected automatically, click the **Specify Manually…** button in the Auto-Configure Form-Based Website dialog box.
-7. In the Add Form-Based Website dialog box, enter the URL to the AD FS login page in the Submit URL field (like https://sso.contoso.com/adfs/ls) and enter an Application name (optional). The Application name appears in Azure Multi-Factor Authentication reports and may be displayed within SMS or Mobile App authentication messages. 
+7. In the Add Form-Based Website dialog box, enter the URL to the AD FS login page in the Submit URL field (like https://sso.contoso.com/adfs/ls) and enter an Application name (optional). The Application name appears in Azure Multi-Factor Authentication reports and may be displayed within SMS or Mobile App authentication messages.
 8. Set the Request format to **POST or GET**.
 9. Enter the Username variable (ctl00$ContentPlaceHolder1$UsernameTextBox) and Password variable (ctl00$ContentPlaceHolder1$PasswordTextBox). If your form-based login page displays a domain textbox, enter the Domain variable as well. To find the names of the input boxes on the login page, go to the login page in a web browser, right-click on the page and select **View Source**.
 10. Check the **Require Azure Multi-Factor Authentication user match** box if all users have been or will be imported into the Server and subject to two-step verification. If a significant number of users have not yet been imported into the Server and/or will be exempt from two-step verification, leave the box unchecked.
@@ -48,7 +48,7 @@ To secure AD FS 2.0 with a proxy, install the Azure Multi-Factor Authentication 
     - Select how to authenticate the primary credentials
 
 12. Since the AD FS proxy server is not likely to be joined to the domain, you can use LDAP to connect to your domain controller for user import and pre-authentication. In the Advanced Form-Based Website dialog box, click the **Primary Authentication** tab and select **LDAP Bind** for the Pre-authentication Authentication type.
-13. When complete, click **OK** to return to the Add Form-Based Website dialog box. 
+13. When complete, click **OK** to return to the Add Form-Based Website dialog box.
 14. Click **OK** to close the dialog box.
 15. Once the URL and page variables have been detected or entered, the website data displays in the Form-Based panel.
 16. Click the **Native Module** tab and select the server, the website that the AD FS proxy is running under (like “Default Web Site”), or the AD FS proxy application (like “ls” under “adfs”) to enable the IIS plug-in at the desired level.
@@ -90,14 +90,14 @@ You can secure AD FS when the AD FS proxy is not used. Install the Azure Multi-F
 3. Click **Add**.
 4. In the Add Base URL dialogue box, enter the URL for the AD FS website where HTTP authentication is performed (like https://sso.domain.com/adfs/ls/auth/integrated) into the Base URL field. Then, enter an Application name (optional). The Application name appears in Azure Multi-Factor Authentication reports and may be displayed within SMS or Mobile App authentication messages.
 5. If desired, adjust the Idle timeout and Maximum session times.
-6. Check the **Require Azure Multi-Factor Authentication user match** box if all users have been or will be imported into the Server and subject to two-step verification. If a significant number of users have not yet been imported into the Server and/or will be exempt from two-step verification, leave the box unchecked. 
+6. Check the **Require Azure Multi-Factor Authentication user match** box if all users have been or will be imported into the Server and subject to two-step verification. If a significant number of users have not yet been imported into the Server and/or will be exempt from two-step verification, leave the box unchecked.
 7. Check the cookie cache box if desired.
 
    <center>![Setup](./media/multi-factor-authentication-get-started-adfs-adfs2/noproxy.png)</center>
 
 8. Click **OK**.
 9. Click the **Native Module** tab and select the server, the website (like “Default Web Site”), or the AD FS application (like “ls” under “adfs”) to enable the IIS plug-in at the desired level.
-10. Click the **Enable IIS authentication** box at the top of the screen. 
+10. Click the **Enable IIS authentication** box at the top of the screen.
 
 Azure Multi-Factor Authentication is now securing AD FS.
 

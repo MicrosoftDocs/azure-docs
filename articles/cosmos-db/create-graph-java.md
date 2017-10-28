@@ -1,20 +1,20 @@
 ---
 title: Build an Azure Cosmos DB Java application using the Graph API | Microsoft Docs
 description: Presents a Java code sample you can use to connect to and query graph data in Azure Cosmos DB using Gremlin.
-services: cosmosdb
+services: cosmos-db
 documentationcenter: ''
 author: mimig1
 manager: jhubbard
 editor: ''
 
 ms.assetid: daacbabf-1bb5-497f-92db-079910703046
-ms.service: cosmosdb
-ms.custom: quick start connect
+ms.service: cosmos-db
+ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 05/10/2017
+ms.date: 06/27/2017
 ms.author: arramac
 
 ---
@@ -22,23 +22,23 @@ ms.author: arramac
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quick start demonstrates how to create an Azure Cosmos DB account for Graph API (preview), database, and graph using the Azure portal. You then build and run a console app using the OSS [Gremlin Java](https://mvnrepository.com/artifact/com.tinkerpop.gremlin/gremlin-java) driver.  
+This quick start demonstrates how to create an Azure Cosmos DB account for Graph API (preview), database, and graph using the Azure portal. You then build and run a console app using the OSS [Gremlin Java](https://mvnrepository.com/artifact/org.apache.tinkerpop/gremlin-driver) driver.  
 
 ## Prerequisites
 
 * Before you can run this sample, you must have the following prerequisites:
-   * JDK 1.7+ (Run `apt-get install default-jdk` if you don't have JDK)
+   * JDK 1.7+ (Run `apt-get install default-jdk` if you don't have JDK), and set environment variables like `JAVA_HOME`
    * Maven (Run `apt-get install maven` if you don't have Maven)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Create a database account
 
-[!INCLUDE [cosmosdb-create-dbaccount-graph](../../includes/cosmosdb-create-dbaccount-graph.md)]
+[!INCLUDE [cosmos-db-create-dbaccount-graph](../../includes/cosmos-db-create-dbaccount-graph.md)]
 
 ## Add a graph
 
-[!INCLUDE [cosmosdb-create-graph](../../includes/cosmosdb-create-graph.md)]
+[!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
 ## Clone the sample application
 
@@ -56,7 +56,7 @@ Now let's clone a Graph API (preview) app from github, set the connection string
 
 Let's make a quick review of what's happening in the app. Open the `Program.java` file and you find that these lines of code. 
 
-* The Gremlin `Client` is initialized from the configuration in `src/remote-secure.yaml` that you set earlier.
+* The Gremlin `Client` is initialized from the configuration in `src/remote.yaml`.
 
     ```java
     Cluster cluster = Cluster.build(new File("src/remote.yaml")).create();
@@ -82,11 +82,11 @@ Now go back to the Azure portal to get your connection string information and co
 
 1. In the [Azure portal](http://portal.azure.com/), in your Azure Cosmos DB account, in the left navigation click **Keys**, and then click **Read-write Keys**. You use the copy buttons on the right side of the screen to copy the URI and Primary Key into the `Program.java` file in the next step.
 
-    ![View and copy an access key in the Azure portal, Keys blade](./media/create-documentdb-dotnet/keys.png)
+    ![View and copy an access key in the Azure portal, Keys blade](./media/create-graph-java/keys.png)
 
-2. In Open the `src/remote-secure.yaml` file. 
+2. Open the `src/remote.yaml` file. 
 
-3. Fill in your *host*, *port*, *username*, *password*, *connectionPool*, and *serializer* configurations in the `src/remote-secure.yaml` file:
+3. Fill in your *host*, *port*, *username*, *password*, *connectionPool*, and *serializer* configurations in the `src/remote.yaml` file:
 
     Setting|Suggested value|Description
     ---|---|---
@@ -99,7 +99,7 @@ Now go back to the Azure portal to get your connection string information and co
 
 ## Run the console app
 
-1. Run `mvn package` in a terminal to install required npm modules
+1. Run `mvn package` in a terminal to install required Java packages.
 
 2. Run `mvn exec:java -D exec.mainClass=GetStarted.Program` in a terminal to start your Java application.
 
@@ -115,7 +115,7 @@ You can now go back to Data Explorer in the Azure portal and browse and query yo
 
 ## Review SLAs in the Azure portal
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmosdb-tutorial-review-slas.md)]
+[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
 ## Clean up resources
 

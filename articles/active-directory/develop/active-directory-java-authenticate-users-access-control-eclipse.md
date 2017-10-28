@@ -15,6 +15,7 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
+ms.custom: aaddev
 
 ---
 # How to Authenticate Web Users with Azure Access Control Service Using Eclipse

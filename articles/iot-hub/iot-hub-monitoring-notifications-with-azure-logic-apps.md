@@ -140,6 +140,7 @@ You learn how to create a logic app that connects your IoT hub and your mailbox 
    1. Select the queue that you created and enter `175` for **Maximum message count**
 
       ![Specify the maximum message count for the service bus connection in your logic app](media/iot-hub-monitoring-notifications-with-azure-logic-apps/8_specify-maximum-message-count-for-service-bus-connection-logic-app-azure-portal.png)
+   1. Click "Save" button to save the changes.
 
 1. Create an SMTP service connection.
    1. Click **New step** > **Add an action**.

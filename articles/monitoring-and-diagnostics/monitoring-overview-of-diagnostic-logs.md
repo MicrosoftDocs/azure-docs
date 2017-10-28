@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/09/2017
+ms.date: 07/05/2017
 ms.author: johnkem; magoedte
 
 ---
@@ -183,9 +183,9 @@ The schema for Diagnostic Logs varies depending on the resource and log category
 | Azure Batch |[Azure Batch diagnostic logging](../batch/batch-diagnostics.md) |
 | Customer Insights | Schema not available. |
 | Content Delivery Network | Schema not available. |
+| CosmosDB | Schema not available. |
 | Data Lake Analytics |[Accessing diagnostic logs for Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
 | Data Lake Store |[Accessing diagnostic logs for Azure Data Lake Store](../data-lake-store/data-lake-store-diagnostic-logs.md) |
-| Express Route | Schema not available. |
 | Event Hubs |[Azure Event Hubs diagnostic logs](../event-hubs/event-hubs-diagnostic-logs.md) |
 | Key Vault |[Azure Key Vault Logging](../key-vault/key-vault-logging.md) |
 | Load Balancer |[Log analytics for Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md) |
@@ -211,6 +211,7 @@ The schema for Diagnostic Logs varies depending on the resource and log category
 |Microsoft.DataLakeAnalytics/accounts|Requests|Request Logs|
 |Microsoft.DataLakeStore/accounts|Audit|Audit Logs|
 |Microsoft.DataLakeStore/accounts|Requests|Request Logs|
+|Microsoft.DocumentDB/databaseAccounts|DataPlaneRequests|DataPlaneRequests|
 |Microsoft.EventHub/namespaces|ArchiveLogs|Archive Logs|
 |Microsoft.EventHub/namespaces|OperationalLogs|Operational Logs|
 |Microsoft.EventHub/namespaces|AutoScaleLogs|Auto Scale Logs|
@@ -224,13 +225,11 @@ The schema for Diagnostic Logs varies depending on the resource and log category
 |Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|Application Gateway Access Log|
 |Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|Application Gateway Performance Log|
 |Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|Application Gateway Firewall Log|
-|Microsoft.Network/expressRouteCircuits|GWMCountersTable|Table of GWM counters|
 |Microsoft.RecoveryServices/Vaults|AzureBackupReport|Azure Backup Reporting Data|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryJobs|Azure Site Recovery Jobs|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryEvents|Azure Site Recovery Events|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicatedItems|Azure Site Recovery Replicated Items|
 |Microsoft.Search/searchServices|OperationLogs|Operation Logs|
-|Microsoft.ServerManagement/nodes|RequestLogs|Request Logs|
 |Microsoft.ServiceBus/namespaces|OperationalLogs|Operational Logs|
 |Microsoft.StreamAnalytics/streamingjobs|Execution|Execution|
 |Microsoft.StreamAnalytics/streamingjobs|Authoring|Authoring|

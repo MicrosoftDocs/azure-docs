@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/17/2017
+ms.date: 07/05/2017
 ms.author: jroth
 
 ---
@@ -37,6 +37,7 @@ To use Automated Patching, consider the following prerequisites:
 
 * Windows Server 2012
 * Windows Server 2012 R2
+* Windows Server 2016
 
 **SQL Server version**:
 

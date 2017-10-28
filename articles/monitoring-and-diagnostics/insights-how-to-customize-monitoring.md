@@ -13,12 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2015
+ms.date: 06/06/2017
 ms.author: robb
 
 ---
 # Overview of Metrics in Microsoft Azure
-All Azure services track key metrics that allow you to monitor the health, performance, availability and usage of your services. You can view these metrics in the Azure portal, and you can also use the [REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx) or [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights/) to access the full set of metrics programmatically.
+All Azure services track key metrics that allow you to monitor the health, performance, availability and usage of your services. You can view these metrics in the Azure portal, and you can also use the [REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx) or [.NET SDK](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor) to access the full set of metrics programmatically.
 
 For some services, you may need to turn on diagnostics in order to see any metrics. For others, such as virtual machines, you will get a basic set of metrics, but need to enable the full set high-frequency metrics. See [Enable monitoring and diagnostics](insights-how-to-use-diagnostics.md) to learn more.
 
@@ -58,7 +58,7 @@ You can also see usage quotas on the blade for resources that have quotas:
 
 ![Usage](./media/insights-how-to-customize-monitoring/Insights_UsageChart.png)
 
-Like with metrics, you can use the [REST API](https://msdn.microsoft.com/library/azure/dn931963.aspx) or [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights/) to access the full set of usage quotas programmatically.
+Like with metrics, you can use the [REST API](https://msdn.microsoft.com/library/azure/dn931963.aspx) or [.NET SDK](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor) to access the full set of usage quotas programmatically.
 
 ## Next steps
 * [Receive alert notifications](insights-receive-alert-notifications.md) whenever a metric crosses a threshold.

@@ -13,8 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/06/2017
+ms.date: 06/02/2017
 ms.author: garye
+
+ROBOTS: NOINDEX
+redirect_url: machine-learning-consume-web-services
+redirect_document_id: TRUE 
 
 ---
 # Connect to an Azure Machine Learning Web Service

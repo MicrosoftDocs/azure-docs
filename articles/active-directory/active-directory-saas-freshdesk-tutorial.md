@@ -127,11 +127,11 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 
 8. In the menu on the top, click **Admin**.
    
-   	![Admin](./media/active-directory-saas-freshdesk-tutorial/IC776768.png "Admin")
+   ![Admin](./media/active-directory-saas-freshdesk-tutorial/IC776768.png "Admin")
 
 9. In the **General Settings** tab, click **Security**.
    
-   	![Security](./media/active-directory-saas-freshdesk-tutorial/IC776769.png "Security")
+   ![Security](./media/active-directory-saas-freshdesk-tutorial/IC776769.png "Security")
 
 10. In the **Security** section, perform the following steps:
    

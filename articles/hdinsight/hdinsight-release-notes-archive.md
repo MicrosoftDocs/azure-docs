@@ -14,7 +14,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/06/2017
+ms.date: 06/29/2017
 ms.author: nitinme
 ROBOTS: NOINDEX
 

@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: f980fb52-8ec2-4dd9-85e2-8e52e449f1ba
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article

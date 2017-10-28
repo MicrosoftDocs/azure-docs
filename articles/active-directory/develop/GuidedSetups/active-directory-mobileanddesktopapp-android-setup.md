@@ -15,12 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
+ms.custom: aaddev
 
 ---
 
 ## Set up your project
 
-> Prefer to download this sample's Android Studio project instead? [Download a project](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip) and skip to the [Configuration](#create-an-application-express) step to configure the code sample before executing    .
+> Prefer to download this sample's Android Studio project instead? [Download a project](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip) and skip to the [Configuration](#create-an-application-express "Configuration Step") step to configure the code sample before executing    .
 
 
 ### Create a new project 
@@ -56,53 +57,6 @@ The package above installs the Microsoft Authentication Library (MSAL). MSAL han
 
 ```xml
 <TextView
-    android:text="Welcome, "
-    android:textColor="#3f3f3f"
-    android:textSize="50px"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginLeft="10dp"
-    android:layout_marginTop="15dp"
-    android:id="@+id/welcome"
-    android:visibility="invisible"/>
-
-<Button
-    android:id="@+id/callGraph"
-    android:text="Call Microsoft Graph"
-    android:textColor="#FFFFFF"
-    android:background="#00a1f1"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="200dp"
-    android:textAllCaps="false" />
-
-<TextView
-    android:text="Getting Graph Data..."
-    android:textColor="#3f3f3f"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginLeft="5dp"
-    android:id="@+id/graphData"
-    android:visibility="invisible"/>
-
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="0dip"
-    android:layout_weight="1"
-    android:gravity="center|bottom"
-    android:orientation="vertical" >
-
-    <Button
-        android:text="Sign Out"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
-        android:textColor="#FFFFFF"
-        android:background="#00a1f1"
-        android:textAllCaps="false"
-        android:id="@+id/clearCache"
-        android:visibility="invisible" />
-</LinearLayout>    <TextView
     android:text="Welcome, "
     android:textColor="#3f3f3f"
     android:textSize="50px"

@@ -254,7 +254,7 @@ The following attributes can be set when creating an index. For details about sc
 
 `name` - Sets the name of the field.
 
-`type` - Sets the data type for the field. See [Supported Data Types](#DataTypes) for a list of supported types.
+`type` - Sets the data type for the field.
 
 `searchable` - Marks the field as full-text search-able. This means it will undergo analysis such as word-breaking during indexing. If you set a `searchable` field to a value like "sunny day", internally it will be split into the individual tokens "sunny" and "day". This enables full-text searches for these terms. Fields of type `Edm.String` or `Collection(Edm.String)` are `searchable` by default. Fields of other types cannot be `searchable`.
 
@@ -1456,7 +1456,7 @@ Also, URL encoding is only necessary when calling the REST API directly using GE
 > 
 > 
 
-`$filter=[string]` (optional) - A structured search expression in standard OData syntax. See [OData Expression Syntax](#ODataExpressionSyntax) for details on the subset of the OData expression grammar that Azure Search supports.
+`$filter=[string]` (optional) - A structured search expression in standard OData syntax.
 
 > [!NOTE]
 > When calling **Search** using POST, this parameter is named `filter` instead of `$filter`.

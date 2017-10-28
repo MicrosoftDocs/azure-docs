@@ -9,7 +9,7 @@
 | Max size of a block blob |50,000 X 100 MB (approx. 4.75 TB) |
 | Max size of a block in an append blob |4 MB |
 | Max size of an append blob |50,000 X 4 MB (approx. 195 GB) |
-| Max size of a page blob |1 TB |
+| Max size of a page blob |8 TB |
 | Max size of a table entity |1 MB |
 | Max number of properties in a table entity |252 |
 | Max size of a message in a queue |64 KB |

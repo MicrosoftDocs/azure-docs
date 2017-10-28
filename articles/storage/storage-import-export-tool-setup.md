@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2017
+ms.date: 06/29/2017
 ms.author: muralikk
 
 ---
@@ -28,23 +28,23 @@ The Microsoft Azure Import/Export Tool is the drive preparation and repair tool 
 
 ## Prerequisites
 
-If you are **preparing drives** for an import job, you will need to meet the following prerequisites:
+If you are **preparing drives** for an import job, the following prerequisites must be met:
 
 * You must have an active Azure subscription.
 * Your subscription must include a storage account with enough available space to store the files you are going to import.
-* You need at least one of the account keys for the storage account.
+* You need at least one of the storage account access keys.
 * You need a computer (the "copy machine") with Windows 7, Windows Server 2008 R2, or a newer Windows operating system installed.
 * The .NET Framework 4 must be installed on the copy machine.
 * BitLocker must be enabled on the copy machine.
-* You will need one or more empty 3.5-inch SATA hard drives connected to the copy machine.
+* You need one or more empty 3.5-inch SATA hard drives connected to the copy machine.
 * The files you plan to import must be accessible from the copy machine, whether they are on a network share or a local hard drive.
 
-If you are attempting to **repair an import** that has partially failed, you will need:
+If you are attempting to **repair an import** that has partially failed, you need:
 
 * The copy log files
 * The storage account key
 
-If you are attempting to **repair an export**  that has partially failed, you will need:
+If you are attempting to **repair an export**  that has partially failed, you need:
 
 * The copy log files
 * The manifest files (optional)
@@ -52,7 +52,7 @@ If you are attempting to **repair an export**  that has partially failed, you wi
 
 ## Installing the Azure Import/Export Tool
 
-First, [download the Azure Import/Export Tool](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip) and extract it to a directory on your computer, for example `c:\WAImportExport`.
+First, [download the Azure Import/Export Tool](https://www.microsoft.com/download/details.aspx?id=55280) and extract it to a directory on your computer, for example `c:\WAImportExport`.
 
 The Azure Import/Export Tool consists of the following files:
 
@@ -61,45 +61,37 @@ The Azure Import/Export Tool consists of the following files:
 * hddid.dll
 * Microsoft.Data.Services.Client.dll
 * Microsoft.WindowsAzure.Storage.dll
+* Microsoft.WindowsAzure.Storage.pdb
+* Microsoft.WindowsAzure.Storage.xml
 * WAImportExport.exe
 * WAImportExport.exe.config
+* WAImportExport.pdb
 * WAImportExportCore.dll
+* WAImportExportCore.pdb
 * WAImportExportRepair.dll
+* WAImportExportRepair.pdb
 
 Next, open a Command Prompt window in **Administrator mode**, and change into the directory containing the extracted files.
 
-To output help for the command, run the tool without parameters:
+To output help for the command, run the tool (`WAImportExport.exe`) without parameters:
 
 ```
-WAImportExport, a client tool for Windows Azure Import/Export service. Microsoft (c) 2013
+WAImportExport, a client tool for Windows Azure Import/Export Service. Microsoft (c) 2013
 
 
 Copy directories and/or files with a new copy session:
-    WAImportExport.exe PrepImport
-        /j:<JournalFile>
-        /id:<SessionId> [/logdir:<LogDirectory>]
-        [/sk:<StorageAccountKey>]
-        [/silentmode]
-        [/InitialDriveSet:<driveset.csv>]
+    WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>]
+        [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>]
         DataSet:<dataset.csv>
 
 Add more drives:
-    WAImportExport.exe PrepImport
-        /j:<JournalFile>
-        /id:<SessionId>
-        /AdditionalDriveSet:<driveset.csv>
+    WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> /AdditionalDriveSet:<driveset.csv>
 
 Abort an interrupted copy session:
-    WAImportExport.exe PrepImport
-        /j:<JournalFile>
-        /id:<SessionId>
-        /AbortSession
+    WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> /AbortSession
 
 Resume an interrupted copy session:
-    WAImportExport.exe PrepImport
-        /j:<JournalFile>
-        /id:<SessionId>
-        /ResumeSession
+    WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> /ResumeSession
 
 List drives:
     WAImportExport.exe PrepImport /j:<JournalFile> /ListDrives
@@ -174,7 +166,7 @@ Parameters:
     /ExportBlobListFile:<ExportBlobListFile>
         - Required. Path to the XML file containing list of blob paths or blob path
           prefixes for the blobs to be exported. The file format is the same as the
-          blob list blob format in the Put Job operation of the Import/Export service
+          blob list blob format in the Put Job operation of the Import/Export Service
           REST API.
     /DriveSize:<DriveSize>
         - Required. Size of drives to be used for export. For example, 500GB, 1.5TB.

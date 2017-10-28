@@ -110,7 +110,7 @@ This [schema file](https://github.com/Azure/iisnode/blob/master/src/config/iisno
 ### My node application is making too many outbound calls.
 Many applications would want to make outbound connections as part of their regular operation. For example, when a request comes in, your node app would want to contact a REST API elsewhere and get some information to process the request. You would want to use a keep alive agent when making http or https calls. For example, you could use the agentkeepalive module as your keep alive agent when making these outbound calls. This makes sure that the sockets are reused on your azure webapp VM and reducing the overhead of creating new sockets for every outbound request. Also, this makes sure that you are using less number of sockets to make many outbound requests and therefore you don’t exceed the maxSockets that are allocated per VM. Recommendation on Azure Webapps would be to set the agentKeepAlive maxSockets value to a total of 160 sockets per VM. This means that if you have 4 node.exe running on the VM, you would want to set the agentKeepAlive maxSockets to 40 per node.exe which is 160 total per VM.
 
-Example agentKeepALive configuration:
+Example [agentKeepALive](https://www.npmjs.com/package/agentkeepalive) configuration:
 
 ```
 var keepaliveAgent = new Agent({    

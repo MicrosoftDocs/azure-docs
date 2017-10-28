@@ -63,7 +63,7 @@ There are two main causes to this issue:
 
 -   Depending on the security settings enabled in Internet Explorer, if the website is not part of a **Trusted Zone**, sometimes our script be blocked from executing for the application.
 
-  *  To resolve this, instruct the user to **Add the application’s website** to the **Trusted Sites** list within their **Internet Explorer security settings**. You can send your users to the [How to add a site to my trusted sites list](https://answers.microsoft.com/ie/forum/ie9-windows_7/how-do-i-add-a-site-to-my-trusted-sites-list/98cc77c8-b364-e011-8dfc-68b599b31bf5) article for detailed instructions.
+  *  To resolve this, instruct the user to **Add the application’s website** to the **Trusted Sites** list within their **Internet Explorer security settings**. You can send your users to the [How to add a site to my trusted sites list](https://answers.microsoft.com/en-us/ie/forum/ie9-windows_7/how-do-i-add-a-site-to-my-trusted-sites-list/98cc77c8-b364-e011-8dfc-68b599b31bf5) article for detailed instructions.
 
 -   In rare circumstances, Internet Explorer’s security validation can sometimes cause the page to load more slowly than the execution of our script.
 

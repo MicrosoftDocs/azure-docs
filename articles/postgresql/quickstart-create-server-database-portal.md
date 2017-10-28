@@ -5,14 +5,11 @@ services: postgresql
 author: SaloniSonpal
 ms.author: salonis
 manager: jhubbard
-editor: jasonh
-ms.assetid: 
+editor: jasonwhowell
 ms.service: postgresql-database
-ms.custom: quick start create
-ms.tgt_pltfrm: portal
-ms.devlang: na
+ms.custom: mvc
 ms.topic: hero-article
-ms.date: 05/10/2017
+ms.date: 06/19/2017
 ---
 
 # Create an Azure Database for PostgreSQL in the Azure portal
@@ -167,6 +164,5 @@ If you just would like to delete the newly created server:
 3.	Confirm the server name you want to delete, and show the databases under it that is affected. Type **mypgserver-20170401** in the text box, and then click Delete.
 
 ## Next steps
-- Migrate your database using [Export and Import](./howto-migrate-using-export-and-import.md) or [Dump and Restore](./howto-migrate-using-dump-and-restore.md).
-- To create Azure Database for PostgreSQL server using Azure CLI, see [Create PostgreSQL server - CLI](./quickstart-create-server-database-azure-cli.md).
-- For a technical overview, see [About the Azure Database for PostgreSQL service](./overview.md).
+> [!div class="nextstepaction"]
+> [Migrate your database using Export and Import](./howto-migrate-using-export-and-import.md)

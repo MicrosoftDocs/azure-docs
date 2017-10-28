@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 03/31/2017
 ms.author: LuisCa
 
-ROBOTS: NOINDEX, NOFOLLOW
+ROBOTS: NOINDEX
 redirect_url: machine-learning-datamarket-deprecation
+redirect_document_id: TRUE 
 
 ---
 # Azure Machine Learning Recommendations API Documentation

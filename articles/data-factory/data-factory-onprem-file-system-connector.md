@@ -1,6 +1,6 @@
 ---
-title: Move data to/from a file system using Azure Data Factory | Microsoft Docs
-description: Learn how to move data to and from an on-premises file system by using Azure Data Factory.
+title: Copy data to/from a file system using Azure Data Factory | Microsoft Docs
+description: Learn how to copy data to and from an on-premises file system by using Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -17,7 +17,7 @@ ms.date: 05/11/2017
 ms.author: jingwang
 
 ---
-# Move data to and from an on-premises file system by using Azure Data Factory
+# Copy data to and from an on-premises file system by using Azure Data Factory
 This article explains how to use the Copy Activity in Azure Data Factory to copy data to/from an on-premises file system. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity.
 
 ## Supported scenarios

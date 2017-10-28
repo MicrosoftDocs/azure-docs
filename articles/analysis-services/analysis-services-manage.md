@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 04/18/2017
+ms.date: 06/14/2017
 ms.author: owend
 
 ---
@@ -22,7 +22,7 @@ ms.author: owend
 Once you've created an Analysis Services server in Azure, there may be some administration and management tasks you need to perform right away or sometime down the road. For example, run processing to the refresh data, control who can access the models on your server, or monitor your server's health. Some management tasks can only be performed in Azure portal, others in SQL Server Management Studio (SSMS), and some tasks can be done in either.
 
 ## Azure portal
-The [Azure portal](http://portal.azure.com/) is where you can create and delete servers, monitor server resources, change size, and manage who has access to your servers.  If you're having some problems, you can also submit a support request.
+[Azure portal](http://portal.azure.com/) is where you can create and delete servers, monitor server resources, change size, and manage who has access to your servers.  If you're having some problems, you can also submit a support request.
 
 ![Get server name in Azure](./media/analysis-services-manage/aas-manage-portal.png)
 
@@ -44,7 +44,7 @@ To get all the latest features, and the smoothest experience when connecting to 
    
     ![Get server name in Azure](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
 2. In SSMS > **Object Explorer**, click **Connect** > **Analysis Services**.
-3. In the **Connect to Server** dialog box, paste in the server name, then in **Authentication**, choose one of the following:
+3. In the **Connect to Server** dialog box, paste in the server name, then in **Authentication**, choose one of the following authentication types:
    
     **Windows Authentication** to use your Windows domain\username and password credentials.
 
@@ -55,7 +55,7 @@ To get all the latest features, and the smoothest experience when connecting to 
     ![Connect in SSMS](./media/analysis-services-manage/aas-manage-connect-ssms.png)
 
 ## Server administrators and database users
-In Azure Analysis Services, there are two types of users, server administrators and database users. Both types of users must be in your Azure Active Directory and must be specified by organizational email address or UPN. This is different from on-premises tabular model databases, which support server administrators and database users by Windows domain usernames. To learn more, see [Manage users in Azure Analysis Services](analysis-services-manage-users.md).
+In Azure Analysis Services, there are two types of users, server administrators and database users. Both types of users must be in your Azure Active Directory and must be specified by organizational email address or UPN. To learn more, see [Authentication and user permissions](analysis-services-manage-users.md).
 
 
 ## Troubleshooting connection problems

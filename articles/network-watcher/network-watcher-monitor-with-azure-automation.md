@@ -44,6 +44,7 @@ Before you start this scenario, you must have the following pre-requisites:
 - You must have a set of credentials configure in Azure Automation. Learn more at [Azure Automation security](../automation/automation-security-overview.md)
 - A valid SMTP server (Office 365, your on-premises email or another) and credentials defined in Azure Automation
 - A configured Virtual Network Gateway in Azure.
+- An existing storage account to store the logs in.
 
 > [!NOTE]
 > The infrastructure depicted in the preceding image is for illustration purposes and are not created with the steps contained in this article.
@@ -103,7 +104,7 @@ Set-AzureRmContext -SubscriptionId $subscriptionId
 $nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" }
 $networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
 $connection = Get-AzureRmVirtualNetworkGatewayConnection -Name "2to3" -ResourceGroupName "testrg"
-$sa = New-AzureRmStorageAccount -Name "contosoexamplesa" -SKU "Standard_LRS" -ResourceGroupName "testrg" -Location "WestCentralUS"
+$sa = Get-AzureRmStorageAccount -Name "<storage account name>" -ResourceGroupName "<resource group name" 
 $result = Start-AzureRmNetworkWatcherResourceTroubleshooting -NetworkWatcher $networkWatcher -TargetResourceId $connection.Id -StorageId $sa.Id -StoragePath "$($sa.PrimaryEndpoints.Blob)logs"
 
 
@@ -127,8 +128,6 @@ else
     Write-Output ("Connection Status is: $($result.connectionStatus)")
     }
 ```
-
-![Step 5][5]
 
 ### Step 6
 

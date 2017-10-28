@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/23/2017
+ms.date: 06/13/2017
 ms.author: kgremban
 
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017,it-pro
 ---
 # Integrate your existing NPS infrastructure with Azure Multi-Factor Authentication - Public preview
 
 The Network Policy Server (NPS) extension for Azure MFA adds cloud-based MFA capabilities to your authentication infrastructure using your existing servers. With the NPS extension, you can add phone call, SMS, or phone app verification to your existing authentication flow without having to install, configure, and maintain new servers. 
 
-This extension was created for organizations that want to protect VPN connections without deploying the Azure MFA Server. The NPS extension acts as an adapter between RADIUS and cloud-based Azure MFA to provide a second factor of authentication for federated or synced users. 
+This extension was created for organizations that want to protect VPN connections without deploying the Azure MFA Server. The NPS extension acts as an adapter between RADIUS and cloud-based Azure MFA to provide a second factor of authentication for federated or synced users.
 
 When using the NPS extension for Azure MFA, the authentication flow includes the following components: 
 
@@ -37,11 +37,11 @@ The following diagram illustrates this high-level authentication request flow: 
 
 ## Plan your deployment
 
-The NPS extension automatically handles redundancy, so you don't need a special configuration. 
+The NPS extension automatically handles redundancy, so you don't need a special configuration.
 
-You can create as many Azure Multi-Factor Authentication enabled NPS servers as you need. If you do install multiple servers, you should use a difference client certificate for each one of them. Creating a cert for each server means that you can update each cert individually, and not worry about downtime across all your servers. 
+You can create as many Azure Multi-Factor Authentication enabled NPS servers as you need. If you do install multiple servers, you should use a difference client certificate for each one of them. Creating a cert for each server means that you can update each cert individually, and not worry about downtime across all your servers.
 
-VPN servers route authentication requests, so they need to be aware of the new Azure MFA-enabled NPS servers. 
+VPN servers route authentication requests, so they need to be aware of the new Azure MFA-enabled NPS servers.
 
 ## Prerequisites
 
@@ -57,7 +57,7 @@ Windows Server 2008 R2 SP1 or above.
 
 ### Libraries
 
-These libraries are installed automatically with the extension. 
+These libraries are installed automatically with the extension.
 -	[Visual C++ Redistributable Packages for Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
 -	[Microsoft Azure Active Directory Module for Windows PowerShell version 1.1.166.0](https://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185)
 
@@ -71,7 +71,7 @@ When you install the extension, you need the directory ID and admin credentials 
 
 ## Prepare your environment
 
-Before you install the NPS extension, you want to prepare you environment to handle the authentication traffic. 
+Before you install the NPS extension, you want to prepare you environment to handle the authentication traffic.
 
 ### Enable the NPS role on a domain-joined server
 
@@ -80,17 +80,17 @@ The NPS server connects to Azure Active Directory and authenticates the MFA requ
 1. On your server, open the **Add Roles and Features Wizard** from the Server Manager Quickstart menu.
 2. Choose **Role-based or feature-based installation** for your installation type.
 3. Select the **Network Policy and Access Services** server role. A window may pop up to inform you of required features to run this role.
-4. Continue through the wizard until the Confirmation page. Select **Install**. 
+4. Continue through the wizard until the Confirmation page. Select **Install**.
 
-Now that you have a server designated for NPS, you should also configure this server to handle incoming RADIUS requests from the VPN solution. 
+Now that you have a server designated for NPS, you should also configure this server to handle incoming RADIUS requests from the VPN solution.
 
 ### Configure your VPN solution to communicate with the NPS server
 
-Depending on which VPN solution you use, the steps to configure your RADIUS authentication policy vary. Configure this policy to point to your RADIUS NPS server. 
+Depending on which VPN solution you use, the steps to configure your RADIUS authentication policy vary. Configure this policy to point to your RADIUS NPS server.
 
 ### Sync domain users to the cloud
 
-This step may already be complete on your tenant, but it's good to double-check that Azure AD Connect has synchronized your databases recently. 
+This step may already be complete on your tenant, but it's good to double-check that Azure AD Connect has synchronized your databases recently.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
 2. Select **Azure Active Directory** > **Azure AD Connect**
@@ -98,9 +98,23 @@ This step may already be complete on your tenant, but it's good to double-check 
 
 If you need to kick off a new round of synchronization, us the instructions in [Azure AD Connect sync: Scheduler](../active-directory/connect/active-directory-aadconnectsync-feature-scheduler.md#start-the-scheduler).
 
+### Determine which authentication methods your users can use
+
+There are two factors that affect which authentication methods are available with an NPS extension deployment:
+
+1. The password encryption algorithm used between the RADIUS client (VPN, Netscaler server, or other) and the NPS servers.
+   - **PAP** supports all the authentication methods of Azure MFA in the cloud: phone call, text message, mobile app notification, and mobile app verification code.
+   - **CHAPV2** supports phone call and mobile app notification.
+   - **EAP** is not supported.
+2. The input methods that the client application (VPN, Netscaler server, or other) can handle. For example, does the VPN client have some means to allow the user to type in a verification code from a text or mobile app?
+
+When you deploy the NPS extension, use these factors to evaluate which methods are available for your users. If your RADIUS client supports PAP, but the client UX doesn't have input fields for a verification code, then phone call and mobile app notification are the two supported options.
+
+You can [disable unsupported authentication methods](multi-factor-authentication-whats-next.md#selectable-verification-methods) in Azure.
+
 ### Enable users for MFA
 
-Before you deploy the full NPS extension, you need to enable MFA for the users that you want to perform two-step verification. More immediately, to test the extension as you deploy it, you need at least one test account that is fully registered for Multi-Factor Authentication. 
+Before you deploy the full NPS extension, you need to enable MFA for the users that you want to perform two-step verification. More immediately, to test the extension as you deploy it, you need at least one test account that is fully registered for Multi-Factor Authentication.
 
 Use these steps to get a test account started:
 1. [Enable an account for MFA](multi-factor-authentication-get-started-user-states.md).
@@ -112,9 +126,9 @@ Your users also need to follow these steps to enroll before they can authenticat
 ## Install the NPS extension
 
 > [!IMPORTANT]
-> Install the NPS extension on a different server than the VPN access point. 
+> Install the NPS extension on a different server than the VPN access point.
 
-### Download and install the NPS extension for Azure MFA 
+### Download and install the NPS extension for Azure MFA
 
 1.	[Download the NPS Extension](https://aka.ms/npsmfa) from the Microsoft Download Center.
 2.	Copy the binary to the Network Policy Server you want to configure.
@@ -141,11 +155,11 @@ Unless you want to use your own certificates (instead of the self-signed certifi
 
    `.\AzureMfaNpsExtnConfigSetup.ps1`
 
-4. PowerShell prompts for your tenant ID. Use the Directory ID GUID that you copied from the Azure portal in the prerequisites section. 
+4. PowerShell prompts for your tenant ID. Use the Directory ID GUID that you copied from the Azure portal in the prerequisites section.
 5. Sign in to Azure AD as an administrator.
 6. PowerShell shows a success message when the script is finished.  
 
-Repeat these steps on any additional NPS servers that you want to set up for load balancing. 
+Repeat these steps on any additional NPS servers that you want to set up for load balancing.
 
 ## Configure your NPS extension
 
@@ -155,6 +169,10 @@ This section includes design considerations and suggestions for successful NPS e
 
 - The NPS extension for Azure MFA does not include tools to migrate users and settings from MFA Server to the cloud. For this reason, we suggest using the extension for new deployments, rather than existing deployment. If you use the extension on an existing deployment, your users will have to perform proof-up again to populate their MFA details in the cloud.  
 - The NPS extension uses the UPN from the on-premises Active directory to identify the user on Azure MFA for performing the Secondary Auth. The extension cannot be configured to use a different identifier like alternate login ID or custom AD field other than UPN.  
+- Not all encryption protocols support all verification methods.
+   - **PAP** supports phone call, text message, mobile app notification, and mobile app verification code
+   - **CHAPV2** supports phone call and mobile app notification
+   - **EAP** is not supported
 
 ### Control RADIUS clients that require MFA
 
@@ -216,6 +234,7 @@ Verify that AD Connect is running, and that the user is present in both Windows 
 ### Why do I see HTTP connect errors in logs with all my authentications failing?
 
 Verify that https://adnotifications.windowsazure.com is reachable from the server running the NPS extension.
+
 
 ## Next steps
 

@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2016
+ms.date: 06/29/2017
 ms.author: juliako
 
 ---
@@ -37,7 +37,6 @@ The following topics show how to enable telemetry:
 [Enabling telemetry with .NET](media-services-dotnet-telemetry.md) 
 
 [Enabling telemetry with REST](media-services-rest-telemetry.md)
-
 
 ## Consuming telemetry information
 
@@ -64,11 +63,9 @@ This should allow many of the common queries to be efficient:
 - Retrieving all data for a given service in a date range.
 - Retrieving the most recent data for a service.
 
-
 ### Telemetry table storage output schema
 
 Telemetry data is stored in aggregate in one table, "TelemetryMetrics20160321" where "20160321" is date of the created table. Telemetry system creates a separate table for each new day based at 00:00 UTC. The table is used to store recurring values such as ingest bitrate within a given window of time, bytes sent, etc. 
-
 
 Property|Value|Examples/notes
 ---|---|---
@@ -80,7 +77,6 @@ Name|The name of the telemetry event|ChannelHeartbeat/StreamingEndpointRequestLo
 ObservedTime|The time the telemetry event occurred (UTC)|2016-09-09T22:42:36.924Z<br/><br/>The observed time is provided by the entity sending the telemetry (for example a channel). There can be time synchronization issues between components so this value is approximate
 ServiceID|{service ID}|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
 Entity-specific properties|As defined by the event|StreamName: stream1, Bitrate 10123, …<br/><br/>The remaining properties are defined for the given event type. Azure Table content is key value pairs.  (that is, different rows in the table have different sets of properties).
-
 
 ### Entity-specific schema
 
@@ -109,7 +105,6 @@ BytesSent|Aggregated bytes sent|2987358
 ServerLatency|Average server latency (including storage)|129
 E2ELatency|Average end-to-end latency|250
 
-
 **Live channel**
 
 Property|Value|Examples/notes
@@ -135,7 +130,6 @@ UnalignedPresentationTime|Whether we received fragment(s) (across quality levels
 UnexpectedBitrate|True, if calculated/actual bitrate for audio/video track > 40,000 bps and IncomingBitrate == 0 OR IncomingBitrate and actualBitrate differ by 50% |True
 Healthy|True, if <br/>overlapCount, <br/>DiscontinuityCount, <br/>NonIncreasingCount, <br/>UnalignedKeyFrames, <br/>UnalignedPresentationTime, <br/>UnexpectedBitrate<br/> are all 0|True<br/><br/>Healthy is a composite function that returns false when any of the following conditions hold:<br/><br/>- OverlapCount > 0<br/>- DiscontinuityCount > 0<br/>- NonincreasingCount > 0<br/>- UnalignedKeyFrames == True<br/>- UnalignedPresentationTime == True<br/>- UnexpectedBitrate == True
 
-
 **Live archive**
 
 Property|Value|Examples/notes
@@ -153,7 +147,6 @@ TrackType|Type of the track|Audio/video
 CustomAttribute|Hex string that differentiates between different track with same name and bitrate (multi camera angle)|
 Bitrate|Track bitrate|785000
 Healthy|True, if FragmentDiscardedCount == 0 && ArchiveAcquisitionError == False|True (these two values are not present in the metric but they are present in the source event)<br/><br/>Healthy is a composite function that returns false when any of the following conditions hold:<br/><br/>- FragmentDiscardedCount > 0<br/>- ArchiveAcquisitionError == True
-
 
 ## General Q&A
 

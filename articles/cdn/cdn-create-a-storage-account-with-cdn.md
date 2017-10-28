@@ -42,7 +42,7 @@ administrator or a co-administrator for the associated subscription.
 	
 	The **Create storage account** blade appears.   
 
-  	 ![Create Storage Account][create-new-storage-account]  
+	![Create Storage Account][create-new-storage-account]  
 
 3. In the **Name** field, type a subdomain name. This entry can contain 3-24 lowercase letters and numbers.
    

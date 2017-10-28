@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2016
-ms.author: estfan
+ms.author: LADocs; padmavc
 
 ---
 # Overview: B2B scenarios and communication with the Enterprise Integration Pack

@@ -12,12 +12,13 @@ ms.assetid: a473ea0a-3eaa-4e5b-aaa1-fec7e9069f20
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: na   
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
 
 ---
+
 # Build an IoT solution by using Stream Analytics
 ## Introduction
 In this tutorial, you will learn how to use Azure Stream Analytics to get real-time insights from your data. Developers can easily combine streams of data, such as click-streams, logs, and device-generated events, with historical records or reference data to derive business insights. As a fully managed, real-time stream computation service that's hosted in Microsoft Azure, Azure Stream Analytics provides built-in resiliency, low latency, and scalability to get you up and running in minutes.

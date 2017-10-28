@@ -13,12 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 05/23/2017
 ms.author: kgremban
 ---
 
 
-# Publish applications using Azure AD Application Proxy - Public Preview
+# Publish applications using Azure AD Application Proxy
 
 > [!div class="op_single_selector"]
 > * [Azure portal](application-proxy-publish-azure-portal.md)
@@ -38,7 +38,7 @@ If you're new to Application Proxy, learn more about this feature with the artic
 > If this is your first time using Application Proxy, choose an application that's already set up for password-based authentication. Application Proxy supports other types of authentication, but password-based apps are the easiest to get up and running quickly. 
 
 1. Sign in as an administrator in the [Azure portal](https://portal.azure.com/).
-2. Select **Azure Active Directory** > **Enterprise applications** > **Add**.
+2. Select **Azure Active Directory** > **Enterprise applications** > **New application**.
 
   ![Add an enterprise application](./media/application-proxy-publish-azure-portal/add-app.png)
 

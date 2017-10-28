@@ -20,17 +20,17 @@ ms.author: sama
 >[!NOTE] 
 >This feature is in public preview.  It is recommended that you use a test tenant when using this feature.  We don't plan on any breaking changes from the preview to the general availability release, but we reserve the right to make such changes to improve the feature.  Once you've had a chance to try feature, please provide feedback on your experiences and how we can make it better.  You can provide feedback through the Azure portal with the smiley face tool on the top right.   If there is a business requirement for you to go live using this feature during the preview phase, let us know your scenarios and we can provide you with the proper guidance and assistance.  You can contact us at [aadb2cpreview@microsoft.com](mailto:aadb2cpreview@microsoft.com).
 
-Language customization allows you to change your user journey to a different language to suit your customer needs.  We provide translations for 37 languages (see [Additional information](#additional-information)).  Even if your experience is only provided for a single language, you can customize any text on the pages to suit your needs.  
+Language customization allows you to change your user journey to a different language to suit your customer needs.  We provide translations for 36 languages (see [Additional information](#additional-information)).  Even if your experience is only provided for a single language, you can customize any text on the pages to suit your needs.  
 
 ## How does Language customization work?
-Language customization allows you to select which languages your user journey is available in.  Once the feature is enabled, you can provide the query string parameter, ui_locales, from your application.  When you call into Azure AD B2C, we translate your page to the locale that you have indicated.  Using type of configuration gives you complete control over the languages in your user journey and ignores the language settings of the customer's browser.  Alternatively, you may not need that level of control over what languages your customer see.  If you don't provide a ui_locales parameter, the customer's experience is dictated by their browser's settings.  You can still control which languages your user journey is translated to by adding it as a supported language.  If a customer's browser is set to show a language you don't want to support, then the language you selected as a default in supported cultures is shown instead.
+Language customization allows you to select which languages your user journey is available in.  Once the feature is enabled, you can provide the query string parameter, ui_locales, from your application.  When you call into Azure AD B2C, we translate your page to the locale that you have indicated.  Using type of configuration gives you complete control over the languages in your user journey and ignores the language settings of the customer's browser. Alternatively, you may not need that level of control over what languages your customer see.  If you don't provide a ui_locales parameter, the customer's experience is dictated by their browser's settings.  You can still control which languages your user journey is translated to by adding it as a supported language.  If a customer's browser is set to show a language you don't want to support, then the language you selected as a default in supported cultures is shown instead.
 
 1. **ui-locales specified language** - Once you enable Language customization, your user journey is translated to the language specified here
 2. **Browser requested language** - If no ui-locales was specified, it translates to the browser requested language, **if it was included in Supported languages**
-3. **Policy default language** - If the language doesn't specify a language, or it specifies one that is not supported, it translates to the policy default language
+3. **Policy default language** - If the browser doesn't specify a language, or it specifies one that is not supported, it translates to the policy default language
 
 >[!NOTE]
->If you are using custom user attributes, you need to provide your own translations.  See '[Customize your strings](#customize-your-strings)' for details.
+>If you are using custom user attributes, you need to provide your own translations. See '[Customize your strings](#customize-your-strings)' for details.
 >
 
 ## Support ui_locales requested languages 
@@ -46,7 +46,7 @@ By enabling 'Language customization' on a policy, you can now control the langua
 Create a list of allowed languages for your user journey to be translated in when the ui_locales parameter is not provided.
 1. Ensure your policy has 'Language customization' enabled from previous instructions.
 2. From your **Edit policy** blade, select **Language customization**.
-3. You are taken to your **Supported languages** blade.  From here, you can select **Add resource**.
+3. You are taken to your **Supported languages** blade.  From here, you can select **Add language**.
 4. Select all the languages that you would like to be supported.  
 
 >[!NOTE]
@@ -146,6 +146,8 @@ We recommend only putting in entries to your Language resources for strings you 
 When you enable 'Language customization', your previous edits for labels using Page UI customization are removed except for custom user attributes.  This change is done to avoid conflicts in where you can edit your strings.  You can continue to change your labels and other strings by uploading language resources in 'Language customization'.
 ### Microsoft is committed to provide the most up-to-date translations for your use
 We will continuously improve translations and keep them in compliance for you.  We will identify bugs and changes in global terminology and make the updates that will work seamlessly in your user journey.
+### Support for right-to-left languages
+There is no support for right-to-left languages, if you require this feature please vote for this feature on [Azure Feedback](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/19393000-provide-language-support-for-right-to-left-languag).
 ### Social Identity provider translations
 We provide the ui_locales OIDC parameter to social logins but they are not honored by some social identity providers, including Facebook and Google. 
 ### Browser behavior
@@ -170,7 +172,6 @@ We are planning to provide an extension of this feature that allows you to uploa
 | Finnish               | fi            |
 | French                | fr            |
 | Gujarati              | gu            |
-| Hebrew                | he            |
 | Hindi                 | hi            |
 | Croatian              | hr            |
 | Hungarian             | hu            |

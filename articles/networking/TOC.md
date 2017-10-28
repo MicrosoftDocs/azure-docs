@@ -1,6 +1,7 @@
 # Overview
 ## [About Azure networking](networking-overview.md)
 ## Architecture
+### [Virtual Datacenters](networking-virtual-datacenter.md)
 ### [Asymmetric routing with multiple network paths](../expressroute/expressroute-asymmetric-routing.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Secure network designs](../best-practices-network-security.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Hub-spoke topology](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)
@@ -44,6 +45,7 @@
 ### [Verify IP flows for a VM](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ## Sample scripts
 ### [Azure CLI](cli-samples.md)
+### [PowerShell](powershell-samples.md)
 ## Tutorials
 ### [Load balance VMs](../virtual-machines/linux/tutorial-load-balance-nodejs.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Connect a computer to a virtual network](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
@@ -57,9 +59,10 @@
 ## [REST](https://msdn.microsoft.com/library/mt163658.aspx)
 
 # Resources
-## [Networking blog](http://azure.microsoft.com/blog/topics/networking)
 ## [Author templates](/azure/azure-resource-manager/resource-group-authoring-templates?toc=%2fazure%2fnetworking%2ftoc.json)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Community templates](https://azure.microsoft.com/resources/templates/)
+## [Networking blog](http://azure.microsoft.com/blog/topics/networking)
 ## [Pricing](https://azure.microsoft.com/pricing)
 ## [Regional availability](https://azure.microsoft.com/regions/services/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)

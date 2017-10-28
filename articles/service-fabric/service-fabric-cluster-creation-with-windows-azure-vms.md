@@ -13,8 +13,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/24/2017
+ms.date: 06/21/2017
 ms.author: ryanwi;chackdan
+
+redirect_url: /azure/service-fabric/service-fabric-cluster-creation-via-arm
 
 ---
 # Create a three node standalone Service Fabric cluster with Azure virtual machines running Windows Server

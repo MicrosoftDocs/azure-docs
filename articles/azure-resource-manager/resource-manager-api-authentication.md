@@ -28,8 +28,6 @@ Your app can access the Resource Manager APIs in couple of ways:
 
 This topic provides step-by-step instructions to create an app that employs both these authorization methods. It shows how to perform each step with REST API or C#. The complete ASP.NET MVC application is available at [https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense).
 
-All the code for this topic is running as a web app that you can try at [http://vipswapper.azurewebsites.net/cloudsense](http://vipswapper.azurewebsites.net/cloudsense).
-
 ## What the web app does
 The web app:
 

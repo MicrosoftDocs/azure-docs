@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: 563862ca-c65a-46f6-975d-10df7ff6aa9c
 ms.service: sql-database
-ms.custom: monitor and tune
+ms.custom: develop apps
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -37,7 +37,7 @@ The first part of the paper examines various batching techniques for .NET applic
 ## Batching strategies
 ### Note about timing results in this topic
 > [!NOTE]
-> Results are not benchmarks but are meant to show **relative performance**. Timings are based on an average of at least 10 test runs. Operations are inserts into an empty table. These tests were measured awhile ago, and they do not necessarily correspond to throughput that you might experience today. The relative benefit of the batching technique should be similar.
+> Results are not benchmarks but are meant to show **relative performance**. Timings are based on an average of at least 10 test runs. Operations are inserts into an empty table. These tests were measured pre-V12, and they do not necessarily correspond to throughput that you might experience in a V12 database using the new [service tiers](sql-database-service-tiers.md). The relative benefit of the batching technique should be similar.
 > 
 > 
 
@@ -116,7 +116,7 @@ Although the use of transactions can increase performance, continue to [observe 
 
 The previous example demonstrates that you can add a local transaction to any ADO.NET code with two lines. Transactions offer a quick way to improve the performance of code that makes sequential insert, update, and delete operations. However, for the fastest performance, consider changing the code further to take advantage of client-side batching, such as table-valued parameters.
 
-For more information about transactions in ADO.NET, see [Local Transactions in ADO.NET](https://msdn.microsoft.com/library/vstudio/2k2hy99x.aspx).
+For more information about transactions in ADO.NET, see [Local Transactions in ADO.NET](https://docs.microsoft.com/dotnet/framework/data/adonet/local-transactions).
 
 ### Table-valued parameters
 Table-valued parameters support user-defined table types as parameters in Transact-SQL statements, stored procedures, and functions. This client-side batching technique allows you to send multiple rows of data within the table-valued parameter. To use table-valued parameters, first define a table type. The following Transact-SQL statement creates a table type named **MyTableType**.
@@ -615,5 +615,5 @@ The following list provides a summary of the batching recommendations discussed 
 * Consider buffering on size and time as a way of implementing batching for more scenarios.
 
 ## Next steps
-This article focused on how database design and coding techniques related to batching can improve your application performance and scalability. But this is just one factor in your overall strategy. For more ways to improve performance and scalability, see [Azure SQL Database performance guidance for single databases](sql-database-performance-guidance.md) and [Price and performance considerations for an elastic pool](sql-database-elastic-pool.md).
+This article focused on how database design and coding techniques related to batching can improve your application performance and scalability. But this is just one factor in your overall strategy. For more ways to improve performance and scalability, see [Azure SQL Database performance guidance for single databases](sql-database-performance-guidance.md) and [Price and performance considerations for an elastic pool](sql-database-elastic-pool-guidance.md).
 

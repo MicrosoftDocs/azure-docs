@@ -1,4 +1,4 @@
-﻿# Overview
+# Overview
 ## [About virtual machines](../../virtual-machines-windows-about.md)
 ## [Disks and VHDs](../../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Virtual Networks](../../../virtual-network/virtual-networks-overview.md)
@@ -99,6 +99,7 @@
 ## [Storage REST](/rest/api/storageservices)
 
 # Resources
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)
 ## [Regional availability](https://azure.microsoft.com/regions/services/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)

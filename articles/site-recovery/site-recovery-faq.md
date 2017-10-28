@@ -1,19 +1,19 @@
-﻿---
+---
 title: 'Azure Site Recovery: Frequently asked questions | Microsoft Docs'
 description: This article discusses popular questions about Azure Site Recovery.
 services: site-recovery
 documentationcenter: ''
 author: rayne-wiselman
-manager: cfreeman
+manager: carmonm
 editor: ''
 
 ms.assetid: 5cdc4bcd-b4fe-48c7-8be1-1db39bd9c078
-ms.service: get-started-article
+ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/21/2017
+ms.date: 05/22/2017
 ms.author: raynew
 
 ---
@@ -22,20 +22,19 @@ This article includes frequently asked questions about Azure Site Recovery. If y
 
 ## General
 ### What does Site Recovery do?
-Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy, by orchestrating and automating replication from on-premises virtual machines and physical servers to Azure, or to a secondary datacenter. [Learn more](site-recovery-overview.md).
+Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy, by orchestrating and automating replication of Azure VMs between regions, on-premises virtual machines and physical servers to Azure, and on-premises machines to a secondary datacenter. [Learn more](site-recovery-overview.md).
 
 ### What can Site Recovery protect?
+* **Azure VMs**: Site Recovery can replicate any workload running on a supported Azure VM
 * **Hyper-V virtual machines**: Site Recovery can protect any workload running on a Hyper-V VM.
 * **Physical servers**: Site Recovery can protect physical servers running Windows or Linux.
 * **VMware virtual machines**: Site Recovery can protect any workload running in a VMware VM.
 
 ### Does Site Recovery support the Azure Resource Manager model?
-In addition to Site Recovery in the Azure classic portal, Site Recovery is available in the Azure portal with support for Resource Manager. For most deployment scenarios Site Recovery in the Azure portal provides a streamlined deployment experience and you can replicate VMs and physical servers into classic storage or Resource Manager storage. Here are the supported deployments:
+Site Recovery is available in the Azure portal with support for Resource Manager. Site Recovery supports legacy deployments in the Azure classic portal. You can't create new vaults in the classic portal, and new features aren't supported.
 
-* [Replicate VMware VMs or physical servers to Azure in the Azure portal](site-recovery-vmware-to-azure.md)
-* [Replicate Hyper-V VMs in VMM clouds to Azure in the Azure portal](site-recovery-vmm-to-azure.md)
-* [Replicate Hyper-V VMs (without VMM) to Azure in the Azure portal](site-recovery-hyper-v-site-to-azure.md)
-* [Replicate Hyper-V VMs in VMM clouds to a secondary site in the Azure portal](site-recovery-vmm-to-vmm.md)
+### Can I replicate Azure VMs?
+Yes, you can replicate supported Azure VMs between Azure regions. [Learn more](site-recovery-azure-to-azure.md).
 
 ### What do I need in Hyper-V to orchestrate replication with Site Recovery?
 For the Hyper-V host server what you need depends on the deployment scenario. Check out the Hyper-V prerequisites in:
@@ -82,6 +81,10 @@ The Site Recovery license is per protected instance, where an instance is a VM, 
 
 - If a VM disk replicates to a standard storage account, the Azure storage charge is for the storage consumption. For example, if the source disk size is 1 TB, and 400 GB is used, Site Recovery creates a 1 TB VHD in Azure, but the storage charged is 400 GB (plus the amount of storage space used for replication logs).
 - If a VM disk replicates to a premium storage account, the Azure storage charge is for the provisioned storage size, rounded out for the nearest premium storage disk option. For example, if the source disk size is 50 GB, Site Recovery creates a 50 GB disk in Azure, and Azure maps this to the nearest premium storage disk (P10).  Costs are calculated on P10, and not on the 50 GB disk size.  [Learn more](https://aka.ms/premium-storage-pricing).  If you're using premium storage, a standard storage account for replication logging is also required, and the amount of standard storage space used for these logs is also billed.
+- No disks are created till a test failover or a failover. In the replication state, storage charges under the category of "Page blob and disk" as per the [Storage pricing calculator](https://azure.microsoft.com/en-in/pricing/calculator/) are incurred. These charges are based on the storage type of premium/standard and the data redundancy type -LRS, GRS,RA-GRS etc.
+- If the option to use managed disks on a failover is selected, [charges for managed disks](https://azure.microsoft.com/en-in/pricing/details/managed-disks/) apply after a failover/test failover. Managed disks charges do not apply during replication.
+- If the option to use managed disks on a failover is not selected, storage charges under the category of "Page blob and disk" as per the [Storage pricing calculator](https://azure.microsoft.com/en-in/pricing/calculator/) are incurred after failover. These charges are based on the storage type of premium/standard and the data redundancy type -LRS,GRS,RA-GRS etc.
+- Storage transactions are charged during steady-state replication and for regular VM operations after a failover / test failover. But these charges are negligible.
 
 Costs are also incurred during test failover, where the VM, storage, egress, and storage transactions costs will be applied.
 
@@ -110,6 +113,8 @@ Yes, ExpressRoute can be used to replicate virtual machines to Azure. Azure Site
 
 ### Are there any prerequisites for replicating virtual machines to Azure?
 Virtual machines you want to replicate to Azure should comply with [Azure requirements](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+
+Your Azure user account needs to have certain [permissions](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) to enable replication of a new virtual machine to Azure.
 
 ### Can I replicate Hyper-V generation 2 virtual machines to Azure?
 Yes. Site Recovery converts from generation 2 to generation 1 during failover. At failback the machine is converted back to generation 2. [Read more](http://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).

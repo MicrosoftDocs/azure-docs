@@ -3,8 +3,8 @@ title: Configure the upgrade of a Service Fabric application | Microsoft Docs
 description: Learn how to configure the settings for upgrading a Service Fabric application by using Microsoft Visual Studio.
 services: service-fabric
 documentationcenter: na
-author: cawaMS
-manager: paulyuk
+author: mikkelhegn
+manager: mfussell
 editor: tglee
 
 ms.assetid: 1757ba85-0b7b-4f16-8a23-2ddaa61c86c6
@@ -13,17 +13,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 11/18/2016
-ms.author: cawa
+ms.date: 06/29/2017
+ms.author: mikkelhegn
 
 ---
 # Configure the upgrade of a Service Fabric application in Visual Studio
-Visual Studio tools for Azure Service Fabric provide upgrade support for publishing to local or remote clusters. There are two advantages to upgrading your application to a newer version instead of replacing the application during testing and debugging:
+Visual Studio tools for Azure Service Fabric provide upgrade support for publishing to local or remote clusters. There are three scenarios in which you want to upgrade your application to a newer version instead of replacing the application during testing and debugging:
 
 * Application data won't be lost during the upgrade.
 * Availability remains high so there won't be any service interruption during the upgrade, if there are enough service instances spread across upgrade domains.
-
-Tests can be run against an application while it's being upgraded.
+* Tests can be run against an application while it's being upgraded.
 
 ## Parameters needed to upgrade
 You can choose from two types of deployment: regular or upgrade. A regular deployment erases any previous deployment information and data on the cluster, while an upgrade deployment preserves it. When you upgrade a Service Fabric application in Visual Studio, you need to provide application upgrade parameters and health check policies. Application upgrade parameters help control the upgrade, while health check policies determine whether the upgrade was successful. See [Service Fabric application upgrade: upgrade parameters](service-fabric-application-upgrade-parameters.md) for more details.

@@ -151,10 +151,13 @@ Absolutely. Azure Backup provides VM-level backup for Azure VMs using the VM ext
 Yes. Install the Azure Backup agent on the guest Windows OS, and back up files and folders to temporary storage. Backup jobs fail once temporary storage data is wiped out. Also, if the temporary storage data has been deleted, you can only restore to non-volatile storage.
 
 
-## Azure Backup Server and Data Protection Manager
+## Azure Backup Server and System Center Data Protection Manager
 
 ### Can I use Azure Backup Server to create a Bare Metal Recovery (BMR) backup for a physical server? <br/>
 Yes.
+
+### Can I Register my DPM Server to multiple vaults? <br/>
+No. A DPM or MABS server can be registered to only one vault.
 
 ### Which version of System Center Data Protection Manager is supported? <br/>
 We recommend that you install the [latest](http://aka.ms/azurebackup_agent) Azure Backup agent on the latest update rollup (UR) for System Center Data Protection Manager (DPM). As of August 2016, Update Rollup 11 is the latest update.

@@ -10,7 +10,7 @@ tags: ''
 
 ms.assetid: 3b28cf15-f820-4b3c-8310-908d6d5b9d0c
 ms.service: sql-database
-ms.custom: monitor and tune
+ms.custom: monitor & tune
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -24,7 +24,7 @@ ms.author: genemi
 
 This topic explains how the implementation of extended events in Azure SQL Database is slightly different compared to extended events in Microsoft SQL Server.
 
-- SQL Database  gained the extended events feature in the second half of calendar 2015.
+- SQL Database V12 gained the extended events feature in the second half of calendar 2015.
 - SQL Server has had extended events since 2008.
 - The feature set of extended events on SQL Database is a robust subset of the features on SQL Server.
 

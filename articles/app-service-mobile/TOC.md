@@ -217,21 +217,22 @@
 ## [Azure portal](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 # Resources
-## [Pricing](https://azure.microsoft.com/en-us/pricing/details/app-service/)
+## [App Service Best practices](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [List of WebJob resources](../app-service-web/websites-webjobs-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ## [MSDN forum](https://social.msdn.microsoft.com/forums/azure/home?forum=azuremobile)
+## [Pricing](https://azure.microsoft.com/en-us/pricing/details/app-service/)
+## [Service updates](https://azure.microsoft.com/updates/?product=mobile-services)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-mobile-services)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=mobile-services)
 ## Samples
 ### [Field engineer](https://azure.microsoft.com/resources/samples/app-service-mobile-dotnet-fieldengineer/)
 ### [Structured data sync](https://azure.microsoft.com/resources/samples/app-service-mobile-dotnet-todo-list-files/)
 ### Quickstart completed
-#### [Windows](https://azure.microsoft.com/resources/samples/app-service-mobile-windows-quickstart/)
-#### [Xamarin.Android](https://azure.microsoft.com/resources/samples/app-service-mobile-xamarin-android-quickstart/)
 #### [.NET backend](https://azure.microsoft.com/resources/samples/app-service-mobile-dotnet-backend-quickstart/)
 #### [Node.js backend](https://azure.microsoft.com/resources/samples/app-service-mobile-nodejs-backend-quickstart/)
-## [Service updates](https://azure.microsoft.com/updates/?product=mobile-services)
-## [App Service Best practices](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-## [List of WebJob resources](../app-service-web/websites-webjobs-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Windows](https://azure.microsoft.com/resources/samples/app-service-mobile-windows-quickstart/)
+#### [Xamarin.Android](https://azure.microsoft.com/resources/samples/app-service-mobile-xamarin-android-quickstart/)
 
 
 

@@ -13,20 +13,35 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/10/2017
+ms.date: 05/26/2017
 ms.author: sngun
 
 ---
 # Add the Windows Server 2016 VM image to the Azure Stack marketplace
 
-By default, there aren’t any virtual machine images available in the Azure stack marketplace. The administrator must add a Virtual Machine image to the Azure Stack marketplace before users can create them. This topic describes the steps required to add a Windows Server 2016 image to the marketplace by using PowerShell. The steps described in this topic are helpful if you have deployed your Azure Stack instance in a disconnected scenario.
+By default, there aren’t any virtual machine images available in the Azure stack marketplace. The administrator must add an image to the marketplace before users can use them. You can add the Windows Server 2016 image to the Azure Stack marketplace by using one of the following two methods:
 
-> [!NOTE]
-> If you are operating in a connected scenario and if you have registered your Azure Stack instance with Azure, then you can download the Windows Server 2016 VM image from the Azure Marketplace by using the steps described in the [Download marketplace items from Azure to Azure Stack](azure-stack-download-azure-marketplace-item.md) topic. 
+* [Add the image by downloading it from the Azure Marketplace](#add-the-image-by-downloading-it-from-the-Azure-marketplace) - Use this option if you are operating in a connected scenario and if you have registered your Azure Stack instance with Azure.
 
-1. After deploying Azure Stack, sign in to the MAS-CON01 virtual machine.
+* [Add the image by using PowerShell](#add-the-image-by-using-powershell) - Use this option if you have deployed Azure Stack in a disconnected scenario or in scenarios with limited connectivity.
 
-2. Go to https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016 and download the Windows Server 2016 evaluation. When prompted, select the **ISO** version of the download. Record the path to the download location, which is used later in these steps.
+## Add the image by downloading it from the Azure Marketplace
+
+1. After deploying Azure Stack, sign in to the Azure Stack POC computer.
+
+2. click **More services** > **Marketplace Management** > **Add from Azure** 
+
+3. Find or search for the **Windows Server 2016 Datacenter – Eval** image > click **Download**
+
+   ![Download image from Azure](media/azure-stack-add-default-image/download-image.png)
+
+After the download completes, the image it is added to the **Marketplace Management** blade and it is also made available from the **Virtual Machines** blade.
+
+## Add the image by using PowerShell
+
+1. After deploying Azure Stack, sign in to the Azure Stack POC computer.
+
+2. Go to https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016 and download the Windows Server 2016 evaluation. When prompted, select the **ISO** version of the download. Record the path to the download location, which is used later in these steps. This step requires internet connectivity.
 
 3. Open PowerShell ISE as an administrator.
 
@@ -52,7 +67,7 @@ By default, there aren’t any virtual machine images available in the Azure sta
     
     ```PowerShell
     $TenantID = Get-DirectoryTenantID `
-      -AADTenantName "<myaadtenant>.onmicrosoft.com" `
+      -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
       -EnvironmentName AzureStackAdmin
     ```
     b. **Active Directory Federation Services**, use the following cmdlet:

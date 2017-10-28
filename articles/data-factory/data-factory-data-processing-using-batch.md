@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2017
+ms.date: 06/19/2017
 ms.author: spelluru
 
 ---
@@ -107,16 +107,16 @@ Create an **Azure Batch pool** with at least 2 compute nodes.
 
    ![](./media/data-factory-data-processing-using-batch/image3.png)
 
-   **Inputfolder** and **outputfolder** are top-level folders in **mycontainer,** and the **inputfolder** has subfolders with date-time stamps (YYYY-MM-DD-HH).
+   `Inputfolder` and `outputfolder` are top-level folders in `mycontainer`. The `inputfolder` has subfolders with date-time stamps (YYYY-MM-DD-HH).
 
-   If you are using **Azure Storage Explorer**, in the next step, you need to upload files with names: inputfolder/2015-11-16-00/file.txt, inputfolder/2015-11-16-01/file.txt and so on. This step automatically creates the folders.
+   If you are using **Azure Storage Explorer**, in the next step, you need to upload files with names: `inputfolder/2015-11-16-00/file.txt`, `inputfolder/2015-11-16-01/file.txt` and so on. This step automatically creates the folders.
 3. Create a text file **file.txt** on your machine with content that has the keyword **Microsoft**. For example: “test custom activity Microsoft test custom activity Microsoft”.
 4. Upload the file to the following input folders in Azure blob storage.
 
    ![](./media/data-factory-data-processing-using-batch/image4.png)
 
-   If you are using **Azure Storage Explorer**, upload the file **file.txt** to **mycontainer**. Click **Copy** on the toolbar to create a copy of the blob. In the **Copy Blob** dialog box, change the **destination blob name** to **inputfolder/2015-11-16-00/file.txt.** Repeat this step to create inputfolder/2015-11-16-01/file.txt, inputfolder/2015-11-16-02/file.txt, inputfolder/2015-11-16-03/file.txt, inputfolder/2015-11-16-04/file.txt and so on. This action automatically creates the folders.
-5. Create another container named: **customactivitycontainer**. You upload the custom activity zip file to this container.
+   If you are using **Azure Storage Explorer**, upload the file **file.txt** to **mycontainer**. Click **Copy** on the toolbar to create a copy of the blob. In the **Copy Blob** dialog box, change the **destination blob name** to `inputfolder/2015-11-16-00/file.txt`. Repeat this step to create `inputfolder/2015-11-16-01/file.txt`, `inputfolder/2015-11-16-02/file.txt`, `inputfolder/2015-11-16-03/file.txt`, `inputfolder/2015-11-16-04/file.txt` and so on. This action automatically creates the folders.
+5. Create another container named: `customactivitycontainer`. You upload the custom activity zip file to this container.
 
 #### Visual Studio
 Install Microsoft Visual Studio 2012 or later to create the custom Batch activity to be used in the Data Factory solution.
@@ -364,7 +364,7 @@ The method has a few key components that you need to understand.
 3. Create a zip file **MyDotNetActivity.zip** that contains all the binaries in the **\\bin\\Debug** folder. You may want to include the MyDotNetActivity.**pdb** file so that you get additional details such as line number in the source code that caused the issue when a failure occurs.
 
    ![](./media/data-factory-data-processing-using-batch/image5.png)
-4. Upload **MyDotNetActivity.zip** as a blob to the blob container: **customactivitycontainer** in the Azure blob storage that the **StorageLinkedService** linked service in the **ADFTutorialDataFactory** uses. Create the blob container **customactivitycontainer** if it does not already exist.
+4. Upload **MyDotNetActivity.zip** as a blob to the blob container: `customactivitycontainer` in the Azure blob storage that the **StorageLinkedService** linked service in the **ADFTutorialDataFactory** uses. Create the blob container `customactivitycontainer` if it does not already exist.
 
 #### Execute method
 This section provides more details and notes about the code in the Execute method.
@@ -443,7 +443,7 @@ This section provides more details and notes about the code in the Execute metho
 ### Create the data factory
 In the [Create the custom activity](#create-the-custom-activity) section, you created a custom activity and uploaded the zip file with binaries and the PDB file to an Azure blob container. In this section, you create an Azure **data factory** with a **pipeline** that uses the **custom activity**.
 
-The input dataset for the custom activity represents the blobs (files) in the input folder (mycontainer\\inputfolder) in blob storage. The output dataset for the activity represents the output blobs in the output folder (mycontainer\\outputfolder) in blob storage.
+The input dataset for the custom activity represents the blobs (files) in the input folder (`mycontainer\\inputfolder`) in blob storage. The output dataset for the activity represents the output blobs in the output folder (`mycontainer\\outputfolder`) in blob storage.
 
 Drop one or more files in the input folders:
 
@@ -664,7 +664,7 @@ In this step, you create another dataset of type AzureBlob to represent the outp
 	}
 	```
 
-	An output blob/file is generated for each input slice. Here is how an output file is named for each slice. All the output files are generated in one output folder: **mycontainer\\outputfolder**.
+	An output blob/file is generated for each input slice. Here is how an output file is named for each slice. All the output files are generated in one output folder: `mycontainer\\outputfolder`.
 
 	| **Slice** | **Start time**          | **Output file**       |
 	|-----------|-------------------------|-----------------------|
@@ -767,7 +767,7 @@ In this step, you test the pipeline by dropping files into the input folders. Le
 
    ![](./media/data-factory-data-processing-using-batch/image13.png)
 6. Use Azure portal to view the **tasks** associated with the **slices** and see what VM each slice ran on. See [Data Factory and Batch integration](#data-factory-and-batch-integration) section for details.
-7. You should see the output files in the **outputfolder** of **mycontainer** in your Azure blob storage.
+7. You should see the output files in the `outputfolder` of `mycontainer` in your Azure blob storage.
 
    ![](./media/data-factory-data-processing-using-batch/image15.png)
 
@@ -784,7 +784,7 @@ In this step, you test the pipeline by dropping files into the input folders. Le
 10. Now, in the **OutputDataset** blade, right-click the slice with **SLICE START TIME** set to **11/16/2015 01:00:00 AM**, and click **Run** to rerun/re-process the slice. Now, the slice has five files instead of one file.
 
     ![](./media/data-factory-data-processing-using-batch/image17.png)
-11. After the slice runs and its status is **Ready**, verify the content in the output file for this slice (**2015-11-16-01.txt**) in the **outputfolder** of **mycontainer** in your blob storage. There should be a line for each file of the slice.
+11. After the slice runs and its status is **Ready**, verify the content in the output file for this slice (**2015-11-16-01.txt**) in the `outputfolder` of `mycontainer` in your blob storage. There should be a line for each file of the slice.
 
 	```
 	2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-01/file.txt.
@@ -800,7 +800,7 @@ In this step, you test the pipeline by dropping files into the input folders. Le
 >
 
 #### Data Factory and Batch integration
-The Data Factory service creates a job in Azure Batch with the name: **adf-poolname:job-xxx**.
+The Data Factory service creates a job in Azure Batch with the name: `adf-poolname:job-xxx`.
 
 ![Azure Data Factory - Batch jobs](media/data-factory-data-processing-using-batch/data-factory-batch-jobs.png)
 
@@ -851,7 +851,7 @@ Debugging consists of a few basic techniques:
    ![](./media/data-factory-data-processing-using-batch/image21.png)
 
    > [!NOTE]
-   > You see a **container** in your Azure Blob storage named: **adfjobs**. This container is not automatically deleted, but you can safely delete it after you are done testing the solution. Similarly, the Data Factory solution creates an Azure Batch **job** named: **adf-\<pool ID/name\>:job-0000000001**. You can delete this job after you test the solution if you like.
+   > You see a **container** in your Azure Blob storage named: `adfjobs`. This container is not automatically deleted, but you can safely delete it after you are done testing the solution. Similarly, the Data Factory solution creates an Azure Batch **job** named: `adf-\<pool ID/name\>:job-0000000001`. You can delete this job after you test the solution if you like.
    >
    >
 7. The custom activity does not use the **app.config** file from your package. Therefore, if your code reads any connection strings from the configuration file, it does not work at runtime. The best practice when using Azure Batch is to hold any secrets in an **Azure KeyVault**, use a certificate-based service principal to protect the keyvault, and distribute the certificate to Azure Batch pool. The .NET custom activity then can access secrets from the KeyVault at runtime. This solution is a generic one and can scale to any type of secret, not just connection string.
@@ -861,7 +861,7 @@ Debugging consists of a few basic techniques:
 #### Extend the sample
 You can extend this sample to learn more about Azure Data Factory and Azure Batch features. For example, to process slices in a different time range, do the following steps:
 
-1. Add the following subfolders in the **inputfolder**: 2015-11-16-05, 2015-11-16-06, 201-11-16-07, 2011-11-16-08, 2015-11-16-09 and place input files in those folders. Change the end time for the pipeline from `2015-11-16T05:00:00Z` to `2015-11-16T10:00:00Z`. In the **Diagram View**, double-click the **InputDataset**, and confirm that the input slices are ready. Double-click **OuptutDataset** to see the state of output slices. If they are in Ready state, check the outputfolder for the output files.
+1. Add the following subfolders in the `inputfolder`: 2015-11-16-05, 2015-11-16-06, 201-11-16-07, 2011-11-16-08, 2015-11-16-09 and place input files in those folders. Change the end time for the pipeline from `2015-11-16T05:00:00Z` to `2015-11-16T10:00:00Z`. In the **Diagram View**, double-click the **InputDataset**, and confirm that the input slices are ready. Double-click **OuptutDataset** to see the state of output slices. If they are in Ready state, check the output folder for the output files.
 2. Increase or decrease the **concurrency** setting to understand how it affects the performance of your solution, especially the processing that occurs on Azure Batch. (See Step 4: Create and run the pipeline for more on the **concurrency** setting.)
 3. Create a pool with higher/lower **Maximum tasks per VM**. To use the new pool you created, update the Azure Batch linked service in the Data Factory solution. (See Step 4: Create and run the pipeline for more on the **Maximum tasks per VM** setting.)
 4. Create an Azure Batch pool with **autoscale** feature. Automatically scaling compute nodes in an Azure Batch pool is the dynamic adjustment of processing power used by your application. 

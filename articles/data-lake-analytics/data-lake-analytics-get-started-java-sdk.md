@@ -3,8 +3,8 @@ title: Use Data Lake Analytics Java SDK to develop applications | Microsoft Docs
 description: Use Azure Data Lake Analytics Java SDK to develop applications
 services: data-lake-analytics
 documentationcenter: ''
-author: edmacauley
-manager: jhubbard
+author: saveenr
+manager: saveenr
 editor: cgronlun
 
 ms.assetid: 07830b36-2fe3-4809-a846-129cf67b6a9e
@@ -17,7 +17,7 @@ ms.date: 12/05/2016
 ms.author: edmaca
 
 ---
-# Tutorial: Get started with Azure Data Lake Analytics using Java SDK
+# Get started with Azure Data Lake Analytics using Java SDK
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 Learn how to use the Azure Data Lake Analytics Java SDK to create an Azure Data Lake account and perform basic operations such as create folders, upload and download data files, delete your account, and work with jobs. For more information about Data Lake, see [Azure Data Lake Analytics](data-lake-analytics-overview.md).
@@ -28,7 +28,6 @@ In this tutorial, you will develop a Java console application which contains sam
 * Java Development Kit (JDK) 8 (using Java version 1.8).
 * IntelliJ or another suitable Java development environment. This is optional but recommended. The instructions below use IntelliJ.
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-* **Enable your Azure subscription** for Data Lake Analytics public preview. See [instructions](data-lake-analytics-get-started-portal.md).
 * Create an Azure Active Directory (AAD) application and retrieve its **Client ID**, **Tenant ID**, and **Key**. For more information about AAD applications and instructions on how to get a client ID, see [Create Active Directory application and service principal using portal](../azure-resource-manager/resource-group-create-service-principal-portal.md). The Reply URI and Key will also be available from the portal once you have the application created and key generated.
 
 ## How do I authenticate using Azure Active Directory?

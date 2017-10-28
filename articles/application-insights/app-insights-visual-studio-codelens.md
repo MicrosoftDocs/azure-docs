@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
-ms.author: daviste
+ms.author: cfreeman
 
 ---
 # Application Insights telemetry in Visual Studio CodeLens

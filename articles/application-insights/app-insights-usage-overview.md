@@ -12,7 +12,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 05/03/2017
-ms.author: awills
+ms.author: cfreeman
 ---
 
 # Usage analysis for web applications with Application Insights

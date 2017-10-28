@@ -103,10 +103,12 @@ Follow the instructions below to configure the client library:
 
 ![GetStartedCSharp-CheckInstrallation.png](../Images/GetStartedCSharp-CheckInstallation.png)
 
-4. Open MainWindow.xaml.cs in your MyFirstApp project, add this using directives to the beginning of the file: 
+4. Open MainWindow.xaml.cs in your MyFirstApp project, add this using directives to the beginning of the file:
+
         using System.IO;
         using Microsoft.ProjectOxford.Face;
         using Microsoft.ProjectOxford.Face.Contract; 
+        
 5. Insert the following code in the MainWindow class: 
         private readonly IFaceServiceClient faceServiceClient = new FaceServiceClient("_key_"); 
    Replace the word _key_ with the subscription key you obtained in step 1.

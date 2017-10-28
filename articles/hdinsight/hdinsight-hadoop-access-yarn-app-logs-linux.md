@@ -1,5 +1,5 @@
 ---
-title: Access Hadoop YARN application logs on Linux-based HDInsight | Microsoft Docs
+title: Access Hadoop YARN application logs on Linux-based HDInsight - Azure | Microsoft Docs
 description: Learn how to access YARN application logs on a Linux-based HDInsight (Hadoop) cluster using both the command-line and a web browser.
 services: hdinsight
 documentationcenter: ''
@@ -24,7 +24,7 @@ ms.author: larryfr
 Learn how to access the logs for YARN (Yet Another Resource Negotiator) applications that have finished on a Hadoop cluster in Azure HDInsight.
 
 > [!IMPORTANT]
-> The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight component versioning](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight component versioning](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 ## <a name="YARNTimelineServer"></a>YARN Timeline Server
 

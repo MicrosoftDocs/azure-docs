@@ -45,6 +45,57 @@ Check out the step-by-step deployment guide, [Citrix XA 7.6 on Azure](http://www
 
 ## Fully managed (PaaS/SaaS) offerings
 
+### Citrix XenApp Essentials (released April 2017)
+Available now on the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Citrix.XenAppEssentials), Citrix XenApp Essentials is the new application virtualization service, combining the power and flexibility of the Citrix Cloud platform with the simple, prescriptive, and easy-to-consume vision of Microsoft Azure RemoteApp. 
+
+Existing Azure RemoteApp customers can [register for a free trial](https://www.citrix.com/products/citrix-cloud/form/xenapp-essentials-msft-trial/).  Note: Only Citrix user service charge is free, Azure compute and storage costs apply
+
+Learn More:
+- [Migrate from Azure RemoteApp to Citrix XenApp Essentials](remoteapp-migrate-citrix.md)
+- [Citrix and Microsoft](https://www.citrix.com/global-partners/microsoft/remote-app.html)
+- [Citrix XenApp Essentials presentation](https://www.youtube.com/watch?v=91Z7CCfQ-9k).  
+
+### Citrix Cloud XenApp Service and XenDesktop Service 
+
+[Citrix Cloud XenApp Service and XenDesktop Service](https://www.citrix.com/products/citrix-cloud/services.html) is the best solution for the delivery of both apps and desktops, plus advanced management and monitoring capabilities. 
+
+#### Conexlink (Platform name: MyCloudIT)
+[MyCloudIT](https://mycloudit.com) is an automation platform for IT companies to simplify, optimize, and scale the migration and delivery of remote desktops, remote applications, and infrastructure in the Microsoft Azure Cloud. 
+
+The MyCloudIT platform reduces deployment time by 95%, Azure cost by 30%, and moves their client's entire IT infrastructure into the cloud in a matter of a few key strokes. Partners can now manage customers from one global dashboard, service end users around the world like never before, and grow revenues without adding additional overhead or extensive Azure training.  
+
+> Primary location: Dallas, TX, USA
+> 
+> Operation region: Worldwide
+> 
+> Partner status: [Gold](https://partnercenter.microsoft.com/pcv/solution-providers/conexlink_4298787366/843036_1?k=Conexlink)
+> 
+> Microsoft Cloud Service Provider: Yes
+> 
+> Offer session-based RemoteApp and Desktop solutions: Yes, both
+> 
+> Azure RemoteApp migration solutions: Yes, [learn more](https://mycloudit.com/remote-app-microsoft/)
+> 
+> Brian Garoutte, VP of Business Development
+> 
+> Phone: 972-218-0741
+>   
+> Email: [brian.garoutte@conexlink.com](mailto:brian.garoutte@conexlink.com)
+
+### Frame
+
+IT organizations in enterprise and government, managed service providers, and leading software vendors choose Frame to create and manage their secure, software-defined workspaces in the cloud. From small to large organizations, Frame makes it incredibly easy to let users access Windows applications on any browser from any device. The Frame platform includes everything an admin needs to deploy applications from the cloud including the Azure infrastructure and RDS licenses (bringing your own Azure account and licenses is optional). 
+
+Learn more about [Frame on Azure](https://www.fra.me/ara). 
+
+> Primary location: San Mateo, CA, USA
+>
+> Operation region: Worldwide
+>
+> Microsoft Partner: Yes
+> 
+> Phone: 1-480-269-4668
+
 ### Awingu
 Awingu provides a simple online workspace solution running legacy apps, SaaS and documents from an html5 browser. As such, making any applications securely available on any type of device. For SaaS services, a wide range op Single-Sign-On options is available. Also diverse (cloud) files systems can be deeply integrated into your workspace. 
 Next to full mobility, Awingu's rich online workspace will give optimal security with granular controls (e.g. downloading/uploading), full usage auditing, Multi-Factor Authentication (e.g. Azure MFA), session recording and more. Out-of-the-box, Awingu enables document and application session sharing for optimized and secure collaboration.
@@ -87,80 +138,11 @@ Learn more about [Awingu on as alternative to Azure RemoteApp](http://alternativ
 > 
 > Email: [info.us@awingu.com](mailto:info.us@awingu.com)
 
-### Citrix XenApp Essentials (released April 2017)
-Available now on the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Citrix.XenAppEssentials), Citrix XenApp Essentials is the new application virtualization service, combining the power and flexibility of the Citrix Cloud platform with the simple, prescriptive, and easy-to-consume vision of Microsoft Azure RemoteApp.  
-
-Existing Azure RemoteApp customers can [register for a free trial](https://www.citrix.com/global-partners/microsoft/remote-app.html).  Note: Only Citrix user service charge is free, Azure compute and storage costs apply
-
-Learn more about [Citrix XenApp Essentials](https://www.citrix.com/global-partners/microsoft/remote-app.html).
-
-### Citrix Cloud XenApp Service and XenDesktop Service 
-
-[Citrix Cloud XenApp Service and XenDesktop Service](https://www.citrix.com/products/citrix-cloud/services.html) is the best solution for the delivery of both apps and desktops, plus advanced management and monitoring capabilities. 
-
-### Citrix Service Provider Program
-The Citrix Service Provider Program makes it easy for service providers to deliver the simplicity of virtual cloud computing to SMBs, offering them the services they want in an easy, pay-as-you-go model. Citrix Service Providers grow their Microsoft SPLA businesses and expand their RDS platform investments with any device, anywhere access, the broadest application support, a rich experience, added security and increased scalability. In turn, Citrix Service Providers attract more subscribers, increase customer satisfaction and reduce their operational costs. [Learn more](http://www.citrix.com/products/service-providers.html) or [find a partner](https://www.citrix.com/buy/partnerlocator.html).
-
-### Frame
-
-IT organizations in enterprise and government, managed service providers, and leading software vendors choose Frame to create and manage their secure, software-defined workspaces in the cloud. From small to large organizations, Frame makes it incredibly easy to let users access Windows applications on any browser from any device. The Frame platform includes everything an admin needs to deploy applications from the cloud including the Azure infrastructure and RDS licenses (bringing your own Azure account and licenses is optional). 
-
-Learn more about [Frame on Azure](https://www.fra.me/ara). 
-
-> Primary location: San Mateo, CA, USA
->
-> Operation region: Worldwide
->
-> Microsoft Partner: Yes
-> 
-> Phone: 1-480-269-4668
-
 ### Microsoft Hosted Service Provider
 Hosting partners typically offer a fully managed hosted Windows desktop and application service, which may include managing the Azure resources, operating systems, applications, and helpdesk using the partner's licensing agreements with Microsoft and other software providers along with being a Service Provider License Agreement to allow reselling of Subscriber Access License (SAL). The following information provides details and contact information for some of the hosters that specialize in assisting customers with their Azure RemoteApp migration. Check out [the current list of Hosted Service Providers](http://aka.ms/rdsonazurecertified) that have completed the RDS on IaaS learning path and assessment.  
 
-#### ASPEX
-[ASPEX](http://www.aspex.be/en) specializes in ISVs transitioning to the Cloud and ISV‘ looking to optimize their current cloud setups. ASPEX offers a wide range of managed services, devops, and consulting services.  
-
-> Primary location: Antwerp, Belgium
-> 
-> Operation region: Western Europe
-> 
-> Partner status: [Silver](https://partnercenter.microsoft.com/pcv/solution-providers/aspex_9397f5dd-ebdd-405b-b926-19a5bda61f7a/cfe00bac-ea36-4591-a60b-ec001c4c3dff)
-> 
-> Microsoft Cloud Service Provider: Yes
-> 
-> Offer session-based RemoteApp and Desktop solutions: Yes, both
-> 
-> Azure RemoteApp migration solutions: Yes, [learn more](https://www.aspex.be/en/azure-remote-apps)
-> 
-> Phone: +3232202198
-> 
-> Mail: [info@aspex.be](mailto:info@aspex.be)
-> 
-> Web: [http://cloud.aspex.be/contact-ara-0](http://cloud.aspex.be/contact-ara-0)
-
-#### Conexlink (Platform name: MyCloudIT)
-[MyCloudIT](https://mycloudit.com) is an automation platform for IT companies to simplify, optimize, and scale the migration and delivery of remote desktops, remote applications, and infrastructure in the Microsoft Azure Cloud. 
-
-The MyCloudIT platform reduces deployment time by 95%, Azure cost by 30%, and moves their client's entire IT infrastructure into the cloud in a matter of a few key strokes. Partners can now manage customers from one global dashboard, service end users around the world like never before, and grow revenues without adding additional overhead or extensive Azure training.  
-
-> Primary location: Dallas, TX, USA
-> 
-> Operation region: Worldwide
-> 
-> Partner status: [Gold](https://partnercenter.microsoft.com/pcv/solution-providers/conexlink_4298787366/843036_1?k=Conexlink)
-> 
-> Microsoft Cloud Service Provider: Yes
-> 
-> Offer session-based RemoteApp and Desktop solutions: Yes, both
-> 
-> Azure RemoteApp migration solutions: Yes, [learn more](https://mycloudit.com/remote-app-microsoft/)
-> 
-> Brian Garoutte, VP of Business Development
-> 
-> Phone: 972-218-0741
->   
-> Email: [brian.garoutte@conexlink.com](mailto:brian.garoutte@conexlink.com)
+### Citrix Service Provider Program
+The Citrix Service Provider Program makes it easy for service providers to deliver the simplicity of virtual cloud computing to SMBs, offering them the services they want in an easy, pay-as-you-go model. Citrix Service Providers grow their Microsoft SPLA businesses and expand their RDS platform investments with any device, anywhere access, the broadest application support, a rich experience, added security and increased scalability. In turn, Citrix Service Providers attract more subscribers, increase customer satisfaction and reduce their operational costs. [Learn more](http://www.citrix.com/products/service-providers.html) or [find a partner](https://www.citrix.com/buy/partnerlocator.html).
 
 #### Acuutech
 [Acuutech](http://www.acuutech.com) specializes in providing hosted desktop solutions, delivering full desktop and ISV applications experiences built on Microsoft technology to a global client base from Azure and their own datacenters.
@@ -200,6 +182,77 @@ The MyCloudIT platform reduces deployment time by 95%, Azure cost by 30%, and mo
 > Suite 200, Houston, TX 77098
 >   
 > Phone: +1 713 691 0800
+
+#### ASPEX
+[ASPEX](http://www.aspex.be/en) specializes in ISVs transitioning to the Cloud and ISV‘ looking to optimize their current cloud setups. ASPEX offers a wide range of managed services, devops, and consulting services.  
+
+> Primary location: Antwerp, Belgium
+> 
+> Operation region: Western Europe
+> 
+> Partner status: [Silver](https://partnercenter.microsoft.com/pcv/solution-providers/aspex_9397f5dd-ebdd-405b-b926-19a5bda61f7a/cfe00bac-ea36-4591-a60b-ec001c4c3dff)
+> 
+> Microsoft Cloud Service Provider: Yes
+> 
+> Offer session-based RemoteApp and Desktop solutions: Yes, both
+> 
+> Azure RemoteApp migration solutions: Yes, [learn more](https://www.aspex.be/en/azure-remote-apps)
+> 
+> Phone: +3232202198
+> 
+> Mail: [info@aspex.be](mailto:info@aspex.be)
+> 
+> Web: [http://cloud.aspex.be/contact-ara-0](http://cloud.aspex.be/contact-ara-0)
+
+#### Caase.com
+[Caase.com](http://www.caase.com/) helps businesses, local governments, non-governmental bodies and healthcare institutions with their journey towards a smarter way of work in the Microsoft Cloud. Being productive and secure at any place, with any device and at low IT cost. Caase.com is a true specialist for Microsoft Office365, Azure, Enterprise Mobility and Security and Windows. With our consultancy, migration services, adoption programs, training, management and support Caase.com creates an optimized and secure platform for collaboration for both customers’ employees, partners and suppliers.
+Caase.com is the mastermind of the Azure Remote Workspace (mobile workplace) and the Digital Workplace (Social Intranet). Both solutions – accomplished with adoption – are the foundation which ensures that the users of these solutions have the most pleasant, successful and effective experience in their route to the Microsoft Cloud.
+Dutch translation ánd a supporting movie over here: http://caase.com/over-ons/
+
+> Operation region: Dutch based, global reach
+> 
+> Partner status: [Gold](https://partnercenter.microsoft.com/pcv/solution-providers/caasecom_4295593260/51159_3)
+> 
+> Microsoft Cloud Service Provider: Yes
+> 
+> Offer session-based RemoteApp and Desktop solutions: Yes, both
+> 
+> Azure RemoteApp migration solutions: Yes, [learn more](http://caase.com/diensten/microsoft-azure/).
+> 
+> 
+> Netherlands:
+> 
+> Rigtersbleek-Zandvoort 10 (De Spinnerij)
+> 
+> 7521 BE, Enschede
+> 
+> Phone: +31 (0) 88 4320 000
+
+
+#### Nerdio
+[Nerdio for Azure](http://getnerdio.com/nfa/) is an IT automation platform that delivers ridiculously simple provisioning, management and optimization of complete IT environments in the Microsoft cloud. Stand up virtual desktops, remote apps and servers in a couple of hours. Administer the environment in three clicks or less with Nerdio Admin Portal. Use intelligent auto-scaling and save 40 to 60% in Azure IaaS resources.
+
+> Primary location: Chicago, IL
+> Operation region: Worldwide
+> Partner status: [Gold](https://partnercenter.microsoft.com/en-us/pcv/solution-providers/adar-inc_341c9afa-f12c-46f5-8f7b-3f9ef59a66a5/3a7ae479-3ac2-42f6-84e2-d456dc7424e1)
+> Microsoft Cloud Service Provider: Yes
+> 
+> Offer session-based RemoteApp and Desktop solutions: Yes, both
+> 
+> Azure RemoteApp migration solutions: Yes
+> 
+> 
+> 8001 Lincoln Ave
+> 
+> Suite 212
+> 
+> Skokie, IL 60077
+> 
+> USA
+> 
+> (844) 4NERDIO ext. 6
+> 
+> [sayhello@getnerdio.com](mailto:sayhello@getnerdio.com)
 
 #### **SaaSplaza**
 [SaaSplaza](http://www.saasplaza.com/) offers complete Microsoft Dynamics portfolio (NAV, AX, GP, SL, CRM) private and public cloud (Azure).

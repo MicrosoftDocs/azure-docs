@@ -72,7 +72,7 @@ Obtain the ObjectID of the app, and then search for the app by its home page.
 3. Find the app based on its home page URL. You can find the URL in the portal by going to **Azure Active Directory** > **Enterprise applications** > **All applications**. This example uses *sharepoint-iddemo*.
 
     ```
-    Get-AzureADApplications | where { $_.Homepage -like “sharepoint-iddemo” } | fl DisplayName, Homepage, ObjectID
+    Get-AzureADApplication | where { $_.Homepage -like “sharepoint-iddemo” } | fl DisplayName, Homepage, ObjectID
     ```
 4. You should get a result that's similar to the one shown here. Copy the ObjectID GUID to use in the next secion.
 
@@ -89,7 +89,7 @@ In the same PowerShell module that you used for step 1, do the following:
 1. Confirm that you have the correct app, and replace *8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4* with the GUID (ObjectID) that you copied in the preceding step.
 
     ```
-    Get-AzureADApplication -AppObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4.
+    Get-AzureADApplication -ObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4.
     ```
 
  Now that you've confirmed the app, you're ready to update the home page, as follows.
@@ -106,17 +106,17 @@ In the same PowerShell module that you used for step 1, do the following:
 3. Set the home page URL to the value that you want. The value must be a subdomain path of the published app. For example, if you change the home page URL from *https://sharepoint-iddemo.msappproxy.net/* to *https://sharepoint-iddemo.msappproxy.net/hybrid/*, app users will go directly to the custom home page.
 
     ```
-    $appnew.Homepage = “https://sharepoint-iddemo.msappproxy.net/hybrid/”
+    $homepage = “https://sharepoint-iddemo.msappproxy.net/hybrid/”
     ```
 4. Make the update by using the GUID (ObjectID) that you copied in "Step 1: Find the ObjectID of the app."
 
     ```
-    Set-AzureADApplication -AppObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4 - Application $appnew
+    Set-AzureADApplication -ObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4 -Homepage $homepage
     ```
 5. To confirm that the change was successful, restart the app.
 
     ```
-    Get-AzureADApplication -AppObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
+    Get-AzureADApplication -ObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
     ```
 
 >[!NOTE]

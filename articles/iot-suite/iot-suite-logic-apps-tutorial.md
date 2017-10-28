@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/09/2017
+ms.date: 06/16/2017
 ms.author: corywink
 
 ---
@@ -49,7 +49,7 @@ To begin, set up the logic app to use with the preconfigured solution.
 6. Select **Request**. This action specifies that an incoming HTTP request with a specific JSON formatted payload acts as a trigger.
 7. Paste the following code into the Request Body JSON Schema:
    
-    ```
+    ```json
     {
       "$schema": "http://json-schema.org/draft-04/schema#",
       "id": "/",
@@ -105,14 +105,14 @@ In this section, you connect your preconfigured solution to the Logic App you cr
 
 1. Use your git client to clone the latest version of the [azure-iot-remote-monitoring github repository][lnk-rmgithub]. For example:
    
-    ```
+    ```cmd
     git clone https://github.com/Azure/azure-iot-remote-monitoring.git
     ```
 2. In Visual Studio, open the **RemoteMonitoring.sln** from the local copy of the repository.
 3. Open the **ActionRepository.cs** file in the **Infrastructure\\Repository** folder.
 4. Update the **actionIds** dictionary with the **Http Post to this URL** you noted from your Logic App as follows:
    
-    ```
+    ```csharp
     private Dictionary<string,string> actionIds = new Dictionary<string, string>()
     {
         { "Send Message", "<Http Post to this URL>" },
@@ -128,9 +128,9 @@ In this section, you deploy your updated version of the remote monitoring soluti
 2. To deploy locally, follow the [local deployment][lnk-localdeploy] instructions.
 3. To deploy to the cloud and update your existing cloud deployment, follow the [cloud deployment][lnk-clouddeploy] instructions. Use the name of your original deployment as the deployment name. For example if the original deployment was called **demologicapp**, use the following command:
    
-   ``
+   ```cmd
    build.cmd cloud release demologicapp
-   ``
+   ```
    
    When the build script runs, be sure to use the same Azure account, subscription, region, and Active Directory instance you used when you provisioned the solution.
 

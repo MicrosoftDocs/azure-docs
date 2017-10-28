@@ -5,66 +5,39 @@ services: postgresql
 author: salonisonpal
 ms.author: salonis
 manager: jhubbard
-editor: jasonh
-ms.assetid:
+editor: jasonwhowell
 ms.service: postgresql-database
-ms.tgt_pltfrm: portal
-ms.devlang: azurecli
-ms.topic: article
-ms.date: 04/30/2017
+ms.devlang: azure-cli
+ms.custom: mvc
+ms.topic: sample
+ms.date: 05/31/2017
 ---
 # Monitor and scale a single PostgreSQL server using Azure CLI
 This sample CLI script scales a single Azure Database for PostgreSQL server to a different performance level after querying the metrics. 
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+[!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
+
+If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## Sample script
-```azurecli
-#!/bin/bash
-
-# Create a resource group
-az group create \
---name myresourcegroup \
---location westus
-
-# Create a PostgreSQL server in the resource group
-# Name of a server maps to DNS name and is thus required to be globally unique in Azure.
-# Substitute the <server_admin_password> with your own value.
-az postgres server create \
---name mypgserver-20170401 \
---resource-group myresourcegroup \
---location westus \
---admin-user mylogin \
---admin-password <server_admin_password> \
---performance-tier Basic \
---compute-units 50 \
-
-# Monitor usage metrics - Compute
-az monitor metrics list \
---resource-id "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforPostgreSQL/servers/mypgserver-20170401" \
---metric-names compute_consumption_percent \
---time-grain PT1M
-
-# Monitor usage metrics - Storage
-az monitor metrics list \
---resource-id "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforPostgreSQL/servers/mypgserver-20170401" \
---metric-names storage_used \
---time-grain PT1M
-
-# Scale up the server to provision more Compute Units within the same Tier
-az postgres server update \
---resource-group myresourcegroup \
---name mypgserver-20170401 \
---compute-units 100
-```
+In this sample script, change the highlighted lines to customize the admin username and password. Replace the subscription id used in the az monitor commands with your own subscription id.
+[!code-azurecli-interactive[main](../../../cli_scripts/postgresql/scale-postgresql-server/scale-postgresql-server.sh?highlight=15-16 "Create and scale Azure Database for PostgreSQL.")]
 
 ## Clean up deployment
 After the script sample has been run, the following command can be used to remove the resource group and all resources associated with it.
-```azurecli
-az group delete --name myresourcegroup
-```
+[!code-azurecli-interactive[main](../../../cli_scripts/postgresql/scale-postgresql-server/delete-postgresql.sh "Delete the resource group.")]
+
+## Script explanation
+This script uses the following commands. Each command in the table links to command specific documentation.
+
+| **Command** | **Notes** |
+|---|---|
+| [az group create](/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
+| [az postgres server create](/cli/azure/postgres/server#create) | Creates a PostgreSQL server that hosts the databases. |
+| [az monitor metrics list](/cli/azure/monitor/metrics#list) | List the metric value for the resources. |
+| [az group delete](/cli/azure/group#delete) | Deletes a resource group including all nested resources. |
 
 ## Next steps
-- For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
-- Additional Azure Database for PostgreSQL CLI script samples can be found in the [Azure Database for PostgreSQL documentation](../sample-scripts-azure-cli.md).
-- For more information on scaling, see [Service Tiers](../concepts-service-tiers.md) and [Compute Units and Storage Units](../concepts-compute-unit-and-storage.md).
+- Read more information on the Azure CLI: [Azure CLI documentation](/cli/azure/overview)
+- Try additional scripts: [Azure CLI samples for Azure Database for PostgreSQL](../sample-scripts-azure-cli.md)
+- Read more information on scaling: [Service Tiers](../concepts-service-tiers.md) and [Compute Units and Storage Units](../concepts-compute-unit-and-storage.md)

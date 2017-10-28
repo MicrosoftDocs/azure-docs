@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
-ms.author: cephalin
+ms.author: cephalin;aelnably
 
 ---
 # Back up your app in Azure
@@ -26,7 +26,7 @@ For information on restoring an app from backup, see [Restore an app in Azure](w
 <a name="whatsbackedup"></a>
 
 ## What gets backed up
-App Service can backup the followin information to an Azure storage account and container that you have configured your app to use. 
+App Service can backup the following information to an Azure storage account and container that you have configured your app to use. 
 
 * App configuration
 * File content
@@ -58,32 +58,35 @@ The following database solutions are supported with backup feature:
 <a name="manualbackup"></a>
 
 ## Create a manual backup
-1. In the [Azure portal](https://portal.azure.com), navigate to your app's blade, select **Settings**, then **Backups**. The **Backups** blade is displayed.
+1. In the [Azure Portal](https://portal.azure.com), navigate to your app's blade, select **Backups**. The **Backups** blade will be displayed.
    
     ![Backups page][ChooseBackupsPage]
    
    > [!NOTE]
-   > If you see this message, click it to upgrade your App Service plan before you can proceed with backups.
-   > For more information, see [Scale up an app in Azure](web-sites-scale.md).  
-   > ![Choose storage account](./media/web-sites-backup/01UpgradePlan.png)
+   > If you see the message below, click it to upgrade your App Service plan before you can proceed with backups.
+   > See [Scale up an app in Azure](web-sites-scale.md) for more information.  
+   > ![Choose storage account](./media/web-sites-backup/01UpgradePlan1.png)
    > 
    > 
-2. In the **Backups** blade, click **Storage: Not configured** to configure a storage account.
+
+2. In the **Backup** blade, Click **Configure**
+![Click Configure](./media/web-sites-backup/ClickConfigure1.png)
+3. In the **Backup Configuration** blade, click **Storage: Not configured** to configure a storage account.
    
     ![Choose storage account][ChooseStorageAccount]
-3. Choose your backup destination by selecting a **Storage Account** and **Container**. The storage account must belong to the same subscription as the app you want to backup. If you wish, you can create a storage account or a new container in the respective blades. When you're done, click **Select**.
+4. Choose your backup destination by selecting a **Storage Account** and **Container**. The storage account must belong to the same subscription as the app you want to back up. If you wish, you can create a new storage account or a new container in the respective blades. When you're done, click **Select**.
    
-    ![Choose storage account](./media/web-sites-backup/02ChooseStorageAccount1.png)
-4. In the **Configure Backup Settings** blade that is still left open, click **Database Settings**, then select the databases you want to include in the backups (SQL database, MySQL, or PostgreSQL), then click **OK**.  
+    ![Choose storage account](./media/web-sites-backup/02ChooseStorageAccount1-1.png)
+5. In the **Backup Configuration** blade that is still left open, you can configure **Backup Database**, then select the databases you want to include in the backups (SQL database or MySQL), then click **OK**.  
    
-    ![Choose storage account](./media/web-sites-backup/03ConfigureDatabase.png)
+    ![Choose storage account](./media/web-sites-backup/03ConfigureDatabase1.png)
    
    > [!NOTE]
    > For a database to appear in this list, its connection string must exist in the **Connection strings** section of the **Application settings** blade for your app.
    > 
    > 
-5. In the **Configure Backup Settings** blade, click **Save**.    
-6. In the command bar of the **Backups** blade, click **Backup Now**.
+6. In the **Backup Configuration** blade, click **Save**.    
+7. In the  **Backups** blade, click **Backup**.
    
     ![BackUpNow button][BackUpNow]
    
@@ -94,24 +97,12 @@ Once the storage account and container is configured you can initiate a manual b
 <a name="automatedbackups"></a>
 
 ## Configure automated backups
-1. In the **Backups** blade, click **Schedule: Not configured**. 
+1. In the **Backup Configuration** blade, set **Scheduled backup** to **On**. 
    
-    ![Choose storage account](./media/web-sites-backup/05ScheduleBackup.png)
-2. On the **Backup Schedule Settings** blade, set **Scheduled Backup** to **On**, then configure the backup schedule as desired and click **OK**.
+    ![Choose storage account](./media/web-sites-backup/05ScheduleBackup1.png)
+2. Backup schedule options will show up, set **Scheduled Backup** to **On**, then configure the backup schedule as desired and click **OK**.
    
     ![Enable automated backups][SetAutomatedBackupOn]
-3. In the **Configure Backup Settings** blade that is still left open, click **Storage Settings**, then choose your backup destination by selecting a **Storage Account** and **Container**. The storage account must belong to the same subscription as the app you want to backup. If you wish, you can create a storage account or a new container in the respective blades. When you're done, click **Select**.
-   
-    ![Choose storage account](./media/web-sites-backup/02ChooseStorageAccount1.png)
-4. In the **Configure Backup Settings** blade, click **Database Settings**, then select the databases you want to include in the backups (SQL database, MySQL, or PostgreSQL), then click **OK**. 
-   
-    ![Choose storage account](./media/web-sites-backup/03ConfigureDatabase.png)
-   
-   > [!NOTE]
-   > For a database to appear in this list, its connection string must exist in the **Connection strings** section of the **Application settings** blade for your app.
-   >  If you are using [MySQL in-app](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app), you won't see any databases listed since the connection string is not exposed in the portal under **Application settings**
-   > 
-5. In the **Configure Backup Settings** blade, click **Save**.    
 
 <a name="partialbackups"></a>
 
@@ -127,7 +118,7 @@ Partial backups allows you choose exactly which files you want to backup.
 ### Exclude files from your backup
 Suppose you have an app that contains log files and static images that have been backup once and are not going to change. In such cases you can exclude those folders and files from being stored in your future backups. To exclude files and folders from your backups, create a `_backup.filter` file in the `D:\home\site\wwwroot` folder of your app. Specify the list of files and folders you want to exclude in this file. 
 
-An easy way to access your files is to use Kudu . Click **Adavanced Tools -> Go** setting for your web app to access Kudu.
+An easy way to access your files is to use Kudu . Click **Advanced Tools -> Go** setting for your web app to access Kudu.
 
 ![Kudu using portal][kudu-portal]
 
@@ -173,18 +164,18 @@ using REST API (see [Use REST to backup and restore App Service apps](websites-c
 
 
 <!-- IMAGES -->
-[ChooseBackupsPage]:./media/web-sites-backup/01ChooseBackupsPage.png
-[ChooseStorageAccount]:./media/web-sites-backup/02ChooseStorageAccount.png
-[IncludedDatabases]:./media/web-sites-backup/03IncludedDatabases.png
-[BackUpNow]:./media/web-sites-backup/04BackUpNow.png
-[BackupProgress]:./media/web-sites-backup/05BackupProgress.png
-[SetAutomatedBackupOn]:./media/web-sites-backup/06SetAutomatedBackupOn.png
-[Frequency]:./media/web-sites-backup/07Frequency.png
-[StartDate]:./media/web-sites-backup/08StartDate.png
-[StartTime]:./media/web-sites-backup/09StartTime.png
-[SaveIcon]:./media/web-sites-backup/10SaveIcon.png
-[ImagesFolder]:./media/web-sites-backup/11Images.png
-[LogsFolder]:./media/web-sites-backup/12Logs.png
-[GhostUpgradeWarning]:./media/web-sites-backup/13GhostUpgradeWarning.png
+[ChooseBackupsPage]: ./media/web-sites-backup/01ChooseBackupsPage1.png
+[ChooseStorageAccount]: ./media/web-sites-backup/02ChooseStorageAccount-1.png
+[IncludedDatabases]: ./media/web-sites-backup/03IncludedDatabases.png
+[BackUpNow]: ./media/web-sites-backup/04BackUpNow1.png
+[BackupProgress]: ./media/web-sites-backup/05BackupProgress.png
+[SetAutomatedBackupOn]: ./media/web-sites-backup/06SetAutomatedBackupOn1.png
+[Frequency]: ./media/web-sites-backup/07Frequency.png
+[StartDate]: ./media/web-sites-backup/08StartDate.png
+[StartTime]: ./media/web-sites-backup/09StartTime.png
+[SaveIcon]: ./media/web-sites-backup/10SaveIcon.png
+[ImagesFolder]: ./media/web-sites-backup/11Images.png
+[LogsFolder]: ./media/web-sites-backup/12Logs.png
+[GhostUpgradeWarning]: ./media/web-sites-backup/13GhostUpgradeWarning.png
 [kudu-portal]:./media/web-sites-backup/kudu-portal.PNG
 

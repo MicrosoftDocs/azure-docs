@@ -2,6 +2,7 @@
 documentType: LandingData
 title: Azure Stack documentation
 metadata:
+  document_id: cbf798da-6f1a-7d4d-7707-5d5e02589e22
   title: Azure Stack Documentation - Tutorials, API Reference
   description: Learn how to use Azure Stack preview to deliver Azure services from your datacenter. Learn and demonstrate features from a proof of concept environment.
   services: azure-stack

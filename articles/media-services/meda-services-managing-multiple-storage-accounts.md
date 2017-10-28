@@ -1,4 +1,4 @@
-﻿---
+---
 title: Managing Media Services Assets across Multiple Storage Accounts | Microsoft Docs
 description: This articles give you guidance on how to manage media services assets across multiple storage accounts.
 services: media-services
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2017
+ms.date: 06/29/2017
 ms.author: juliako
 
 ---

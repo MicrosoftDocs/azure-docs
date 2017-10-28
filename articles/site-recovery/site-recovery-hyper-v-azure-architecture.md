@@ -9,13 +9,14 @@ editor: ''
 
 ms.assetid: c413efcd-d750-4b22-b34b-15bcaa03934a
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/05/2017
+ms.date: 06/14/2017
 ms.author: raynew
-
+ROBOTS: NOINDEX, NOFOLLOW
+redirect_url: site-recovery-architecture-hyper-v-to-azure
 ---
 # How does Hyper-V replication to Azure work?
 

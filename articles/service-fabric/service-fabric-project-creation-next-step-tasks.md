@@ -3,7 +3,7 @@ title: Service Fabric project creation next steps | Microsoft Docs
 description: This article contains links to a set of core development tasks for Service Fabric
 services: service-fabric
 documentationcenter: .net
-author: seanmck
+author: rwike77
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/28/2017
-ms.author: seanmck
+ms.date: 06/29/2017
+ms.author: rwike77
 
 ---
 # Your Service Fabric application and next steps

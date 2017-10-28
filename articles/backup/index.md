@@ -5,7 +5,7 @@ services: backup
 author: carolz
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid:
 ms.service: backup
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -73,7 +73,7 @@ Learn how to use Azure Backup in the cloud to protect data for long-term retenti
         </a>
     </li>
      <li>
-        <a href="/azure/backup/backup-azure-vms-first-look">
+        <a href="/azure/backup/backup-azure-backup-server-vmware">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -83,7 +83,7 @@ Learn how to use Azure Backup in the cloud to protect data for long-term retenti
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started backing up Azure virtual machines with Azure Backup</h3>
+                        <h3>Get Started backing up a VMware server with Azure Backup Server</h3>
                     </div>
                 </div>
             </div>
@@ -138,6 +138,16 @@ Learn how to use Azure Backup in the cloud to protect data for long-term retenti
             </div>
         </div>
     </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/recoveryservices">Recovery Services REST API Reference</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
 </ul>
-
-

@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/23/2017
+ms.date: 06/27/2017
 ms.author: babanisa;sethm
 
 ---
@@ -25,7 +25,8 @@ You can view two types of logs for Azure Service Bus:
 * **[Diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**. You can configure diagnostic logs for richer information about everything that happens within a job. Diagnostic logs cover activities from the time the job is created until the job is deleted, including updates and activities that occur while the job is running.
 
 ## Turn on diagnostic logs
-Diagnostics logs are disabled by default. To enable diagnostic logs, do the following:
+
+Diagnostics logs are disabled by default. To enable diagnostic logs, perform the following steps:
 
 1.	In the [Azure portal](https://portal.azure.com), go to the streaming job blade.
 
@@ -53,7 +54,7 @@ For more information about configuring diagnostics, see the [overview of Azure d
 
 ## Diagnostic logs schema
 
-All logs are stored in JavaScript Object Notation (JSON) format. Each entry has string fields that use the format described in the following example.
+All logs are stored in JavaScript Object Notation (JSON) format. Each entry has string fields that use the format described in the following section.
 
 ## Operation logs example
 
@@ -76,20 +77,22 @@ category | OperationalLogs
 Here's an example of an operation log JSON string:
 
 ```json
-Example:
 {
-	 "ActivityId": "6aa994ac-b56e-4292-8448-0767a5657cc7",
-	 "EventName": "Create Queue",
-	 "resourceId": "/SUBSCRIPTIONS/1A2109E3-9DA0-455B-B937-E35E36C1163C/RESOURCEGROUPS/DEFAULT-SERVICEBUS-CENTRALUS/PROVIDERS/MICROSOFT.SERVICEBUS/NAMESPACES/SHOEBOXEHNS-CY4001",
-	 "SubscriptionId": "1a2109e3-9da0-455b-b937-e35e36c1163c",
-	 "EventTimeString": "9/28/2016 8:40:06 PM +00:00",
-	 "EventProperties": "{\"SubscriptionId\":\"1a2109e3-9da0-455b-b937-e35e36c1163c\",\"Namespace\":\"shoeboxehns-cy4001\",\"Via\":\"https://shoeboxehns-cy4001.servicebus.windows.net/f8096791adb448579ee83d30e006a13e/?api-version=2016-07\",\"TrackingId\":\"5ee74c9e-72b5-4e98-97c4-08a62e56e221_G1\"}",
-	 "Status": "Succeeded",
-	 "Caller": "ServiceBus Client",
-	 "category": "OperationalLogs"
+  "ActivityId": "6aa994ac-b56e-4292-8448-0767a5657cc7",
+  "EventName": "Create Queue",
+  "resourceId": "/SUBSCRIPTIONS/1A2109E3-9DA0-455B-B937-E35E36C1163C/RESOURCEGROUPS/DEFAULT-SERVICEBUS-CENTRALUS/PROVIDERS/MICROSOFT.SERVICEBUS/NAMESPACES/SHOEBOXEHNS-CY4001",
+  "SubscriptionId": "1a2109e3-9da0-455b-b937-e35e36c1163c",
+  "EventTimeString": "9/28/2016 8:40:06 PM +00:00",
+  "EventProperties": "{\"SubscriptionId\":\"1a2109e3-9da0-455b-b937-e35e36c1163c\",\"Namespace\":\"shoeboxehns-cy4001\",\"Via\":\"https://shoeboxehns-cy4001.servicebus.windows.net/f8096791adb448579ee83d30e006a13e/?api-version=2016-07\",\"TrackingId\":\"5ee74c9e-72b5-4e98-97c4-08a62e56e221_G1\"}",
+  "Status": "Succeeded",
+  "Caller": "ServiceBus Client",
+  "category": "OperationalLogs"
 }
 ```
 
 ## Next steps
+
+Visit the following links to learn more about Service Bus:
+
 * [Introduction to Service Bus](service-bus-messaging-overview.md)
 * [Get started with Service Bus](service-bus-dotnet-get-started-with-queues.md)

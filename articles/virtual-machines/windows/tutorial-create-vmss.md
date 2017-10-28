@@ -16,6 +16,7 @@ ms.devlang:
 ms.topic: article
 ms.date: 05/02/2017
 ms.author: iainfou
+ms.custom: mvc
 ---
 
 # Create a Virtual Machine Scale Set and deploy a highly available app on Windows
@@ -196,7 +197,7 @@ $scaleset = Get-AzureRmVmss `
   -VMScaleSetName myScaleSet
 
 # Loop through the instanaces in your scale set
-for ($i=0; $i -le ($set.Sku.Capacity - 1); $i++) {
+for ($i=0; $i -le ($scaleset.Sku.Capacity - 1); $i++) {
     Get-AzureRmVmssVM -ResourceGroupName myResourceGroupScaleSet `
       -VMScaleSetName myScaleSet `
       -InstanceId $i

@@ -14,7 +14,7 @@ ms.devlang: nodejs
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 4/17/2017
+ms.date: 6/15/2017
 ms.author: xshi
 ms.custom: H1Hack27Feb2017
 
@@ -189,6 +189,7 @@ Congratulations! You've successfully configured Edison.
 3. Then navigate to the repo folder to run the following command to install all packages, it may take serval minutes to complete.
    
    ```bash
+   cd iot-hub-node-intel-edison-client-app
    npm install
    ```
 
@@ -203,9 +204,9 @@ Congratulations! You've successfully configured Edison.
 
    ![Config file](media/iot-hub-intel-edison-kit-node-get-started/13_configure_file.png)
 
-   There are two macros in this file you can configurate. The first one is `INTERVAL`, which defines the time interval between two messages that send to cloud. The second one `SIMULATED_DATA`,which is a Boolean value for whether to use simulated sensor data or not.
+   There are two macros in this file you can configurate. The first one is `INTERVAL`, which defines the time interval between two messages that send to cloud. The second one `simulatedData`,which is a Boolean value for whether to use simulated sensor data or not.
 
-   If you **don't have the sensor**, set the `SIMULATED_DATA` value to `1` to make the sample application create and use simulated sensor data.
+   If you **don't have the sensor**, set the `simulatedData` value to `true` to make the sample application create and use simulated sensor data.
 
 1. Save and exit by pressing Control-O > Enter > Control-X.
 

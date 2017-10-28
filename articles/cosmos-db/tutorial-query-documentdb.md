@@ -1,7 +1,7 @@
 ---
 title: How to query with SQL in Azure Cosmos DB? | Microsoft Docs
 description: Learn to query with DocumentDB data with SQL in Azure Cosmos DB
-services: cosmosdb
+services: cosmos-db
 documentationcenter: ''
 author: mimig1
 manager: jhubbard
@@ -9,7 +9,7 @@ editor: ''
 tags: ''
 
 ms.assetid: 
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.custom: tutorial-develop
 ms.devlang: na
 ms.topic: article
@@ -22,7 +22,7 @@ ms.author: mimig
 
 # Azure Cosmos DB: How to query using SQL?
 
-The Azure Cosmos DB [DocumentDB API](../documentdb/documentdb-introduction.md) supports querying documents using SQL. This article provides a sample document and two sample SQL queries and results.
+The Azure Cosmos DB [DocumentDB API](documentdb-introduction.md) supports querying documents using SQL. This article provides a sample document and two sample SQL queries and results.
 
 This article covers the following tasks: 
 
@@ -63,10 +63,10 @@ The SQL queries in this article use the following sample document.
 ```
 ## Where can I run SQL queries?
 
-You can run queries using the Data Explorer in the Azure portal, via the [REST API and SDKs](../documentdb/documentdb-query-collections-query-explorer.md), and even the [Query playground](https://www.documentdb.com/sql/demo), which runs queries on an existing set of sample data.
+You can run queries using the Data Explorer in the Azure portal, via the [REST API and SDKs](documentdb-sdk-dotnet.md), and even the [Query playground](https://www.documentdb.com/sql/demo), which runs queries on an existing set of sample data.
 
 For more information about SQL queries, see:
-* [SQL query and SQL syntax](../documentdb/documentdb-sql-query.md)
+* [SQL query and SQL syntax](documentdb-sql-query.md)
 
 ## Prerequisites
 
@@ -84,23 +84,34 @@ Given the sample family document above, following SQL query returns the document
 
 **Results**
 
-    [{
-        "id": "AndersenFamily",
-        "lastName": "Andersen",
-        "parents": [
-           { "firstName": "Thomas" },
-           { "firstName": "Mary Kay"}
-        ],
-        "children": [
-           {
-               "firstName": "Henriette Thaulow", "gender": "female", "grade": 5,
-               "pets": [{ "givenName": "Fluffy" }]
-           }
-        ],
-        "address": { "state": "WA", "county": "King", "city": "seattle" },
-        "creationDate": 1431620472,
-        "isRegistered": true
-    }]
+```json
+{
+  "id": "WakefieldFamily",
+  "parents": [
+      { "familyName": "Wakefield", "givenName": "Robin" },
+      { "familyName": "Miller", "givenName": "Ben" }
+  ],
+  "children": [
+      {
+        "familyName": "Merriam", 
+        "givenName": "Jesse", 
+        "gender": "female", "grade": 1,
+        "pets": [
+            { "givenName": "Goofy" },
+            { "givenName": "Shadow" }
+        ]
+      },
+      { 
+        "familyName": "Miller", 
+         "givenName": "Lisa", 
+         "gender": "female", 
+         "grade": 8 }
+  ],
+  "address": { "state": "NY", "county": "Manhattan", "city": "NY" },
+  "creationDate": 1431620462,
+  "isRegistered": false
+}
+```
 
 ## Example query 2
 

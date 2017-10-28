@@ -178,7 +178,7 @@ As shown in the diagram, the *Web1* and *Web2* VMs are connected to the *FrontEn
 1. Separation of traffic between the WEB and DB servers.
 2. Load balancing rules forward traffic from the load balancer to all web servers on port 80.
 3. Load balancer NAT rules forward traffic coming into the load balancer on port 50001 to port 3389 on the WEB1 VM.
-4. No access to the front-end or back-end VMs from the Internet, except requirements 1 and 3.
+4. No access to the front-end or back-end VMs from the Internet, except requirements 2 and 3.
 5. No outbound Internet access from the WEB or DB servers.
 6. Access from the FrontEnd subnet is allowed to port 3389 of any web server.
 7. Access from the FrontEnd subnet is allowed to port 3389 of any DB server.

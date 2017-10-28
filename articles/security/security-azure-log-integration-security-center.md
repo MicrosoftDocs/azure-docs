@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Log integration with security center | Microsoft Docs
 description: Learn how to get Azure Security center alerts working with Log integration
 services: security
@@ -15,6 +15,7 @@ ms.tgt_pltfrm: na
 ums.workload: na
 ms.date: 03/22/2017
 ms.author: barclayn
+ms.custom: azlog
 
 ---
 

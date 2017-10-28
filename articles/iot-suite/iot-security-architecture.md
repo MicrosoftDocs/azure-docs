@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2017
+ms.date: 07/03/2017
 ms.author: yurid
 
 ---
@@ -23,7 +23,7 @@ ms.author: yurid
 When designing a system, it is important to understand the potential threats to that system, and add appropriate defenses accordingly, as the system is designed and architected. It is particularly important to design the product from the start with security in mind because understanding how an attacker might be able to compromise a system helps make sure appropriate mitigations are in place from the beginning. 
 
 ## Security starts with a threat model
-Microsoft has long used threat models for its products and has made the company’s threat modeling process publically available. The company experience demonstrates that the modelling has unexpected benefits beyond the immediate understanding of what threats are the most concerning. For example, it also creates an avenue for an open discussion with others outside the development team, which can lead to new ideas and improvements in the product.
+Microsoft has long used threat models for its products and has made the company’s threat modeling process publically available. The company experience demonstrates that the modeling has unexpected benefits beyond the immediate understanding of what threats are the most concerning. For example, it also creates an avenue for an open discussion with others outside the development team, which can lead to new ideas and improvements in the product.
 
 The objective of threat modeling is to understand how an attacker might be able to compromise a system and then make sure appropriate mitigations are in place. Threat modeling forces the design team to consider mitigations as the system is designed rather than after a system is deployed. This fact is critically important, because retrofitting security defenses to a myriad of devices in the field is infeasible, error prone and will leave customers at risk.
 
@@ -60,7 +60,7 @@ Three rules of thumb to keep in mind when building a threat model:
 #### Threats
 The four core elements of a threat model are:
 
-* Processes (web services, Win32 services, *nix daemons, etc. Note that some complex entities (for example field gateways and sensors) can be abstracted as a process when a technical drill down in these areas is not possible.
+* Processes (web services, Win32 services, *nix daemons, etc. Note that some complex entities (for example field gateways and sensors) can be abstracted as a process when a technical drill-down in these areas is not possible.
 * Data stores (anywhere data is stored, such as a configuration file or database)
 * Data flow (where data moves between other elements in the application)
 * External Entities (anything that interacts with the system, but is not under the control of the application, examples include users and satellite feeds)
@@ -94,7 +94,7 @@ Each zone is separated by a Trust Boundary, which is noted as the dotted red lin
 
 The components depicted within each boundary are also subjected to STRIDE, enabling a full 360 threat modeling view of the solution. The sections below elaborate on each of the components and specific security concerns and solutions that should be put into place.
 
-The sections that follows will discuss standard components typically found in these zones.
+The sections that follow will discuss standard components typically found in these zones.
 
 ### The Device Zone
 The device environment is the immediate physical space around the device where physical access and/or “local network” peer-to-peer digital access to the device is feasible. A “local network” is assumed to be a network that is distinct and insulated from – but potentially bridged to – the public Internet, and includes any short-range wireless radio technology that permits peer-to-peer communication of devices. It does *not* include any network virtualization technology creating the illusion of such a local network and it does also not include public operator networks that require any two devices to communicate across public network space if they were to enter a peer-to-peer communication relationship.
@@ -102,15 +102,15 @@ The device environment is the immediate physical space around the device where p
 ### The Field Gateway Zone
 Field gateway is a device/appliance or some general-purpose server computer software that acts as communication enabler and, potentially, as a device control system and device data processing hub. The field gateway zone includes the field gateway itself and all devices that are attached to it. As the name implies, field gateways act outside dedicated data processing facilities, are usually location bound, are potentially subject to physical intrusion, and will have limited operational redundancy. All to say that a field gateway is commonly a thing one can touch and sabotage while knowing what its function is. 
 
-A field gateway is different from a mere traffic router in that it has had an active role in managing access and information flow, meaning it is an application addressed entity and network connection or session terminal. An NAT device or firewall, in contrast, do not qualify as field gateways since they are not explicit connection or session terminals, but rather a route (or block) connections or sessions made through them. The field gateway has two distinct surface areas. One faces the devices that are attached to it and represents the inside of the zone, and the other faces all external parties and is the edge of the zone.   
+A field gateway is different from a mere traffic router in that it has had an active role in managing access and information flow, meaning it is an application addressed entity and network connection or session terminal. An NAT device or firewall, in contrast, does not qualify as field gateways since they are not explicit connection or session terminals, but rather a route (or block) connections or sessions made through them. The field gateway has two distinct surface areas. One faces the devices that are attached to it and represents the inside of the zone, and the other faces all external parties and is the edge of the zone.   
 
 ### The cloud gateway zone
-Cloud gateway is a system that enables remote communication from and to devices or field gateways from several different sites across public network space, typically towards a cloud-based control and data analysis system, a federation of such systems. In some cases, a cloud gateway may immediately facilitate access to special-purpose devices from terminals such as tablets or phones. In the context discussed here, “cloud” is meant to refer to a dedicated data processing system that is not bound to the same site as the attached devices or field gateways. Also in a Cloud Zone, operational measures prevent targeted physical access and is not necessarily exposed to a “public cloud” infrastructure.  
+Cloud gateway is a system that enables remote communication from and to devices or field gateways from several different sites across public network space, typically towards a cloud-based control and data analysis system, a federation of such systems. In some cases, a cloud gateway may immediately facilitate access to special-purpose devices from terminals such as tablets or phones. In the context discussed here, “cloud” is meant to refer to a dedicated data processing system that is not bound to the same site as the attached devices or field gateways. Also in a Cloud Zone, operational measures prevent targeted physical access and are not necessarily exposed to a “public cloud” infrastructure.  
 
 A cloud gateway may potentially be mapped into a network virtualization overlay to insulate the cloud gateway and all of its attached devices or field gateways from any other network traffic. The cloud gateway itself is neither a device control system nor a processing or storage facility for device data; those facilities interface with the cloud gateway. The cloud gateway zone includes the cloud gateway itself along with all field gateways and devices directly or indirectly attached to it. The edge of the zone is a distinct surface area where all external parties communicate through.
 
 ### The services zone
-A “service” is defined for this context as any software component or module that is interfacing with devices through a field- or cloud gateway for data collection and analysis, as well as for command and control.  Services are mediators. They act under their identity towards gateways and other subsystems, store and analyze data, autonomously issue commands to devices based on data insights or schedules and expose information and control capabilities to authorized end-users.
+A “service” is defined for this context as any software component or module that is interfacing with devices through a field- or cloud gateway for data collection and analysis, as well as for command and control.  Services are mediators. They act under their identity towards gateways and other subsystems, store and analyze data, autonomously issue commands to devices based on data insights or schedules and expose information and control capabilities to authorized end users.
 
 ### Information-devices vs. special-purpose devices
 PCs, phones, and tablets are primarily interactive information devices. Phones and tablets are explicitly optimized around maximizing battery lifetime. They preferably turn off partially when not immediately interacting with a person, or when not providing services like playing music or guiding their owner to a particular location. From a systems perspective, these information technology devices are mainly acting as proxies towards people. They are “people actuators” suggesting actions and “people sensors” collecting input. 
@@ -125,7 +125,7 @@ Connected special-purpose devices have a significant number of potential interac
 As we explore the interaction patterns, we will look at “device control” and “device data” with the same level of attention while threat modeling. “Device control” can be classified as any information that is provided to a device by any party with the goal of changing or influencing its behavior towards its state or the state of its environment. “Device data” can be classified as any information that a device emits to any other party about its state and the observed state of its environment. 
 
 ## Threat modeling the Azure IoT reference architecture
-Microsoft uses the framework outlined above to do threat modelling for Azure IoT. In the section below we therefore use the concrete example of Azure IoT Reference Architecture to demonstrate how to think about threat modelling for IoT and how to address the threats identified. In our case we identified four main areas of focus:
+Microsoft uses the framework outlined above to do threat modeling for Azure IoT. In the section below we therefore use the concrete example of Azure IoT Reference Architecture to demonstrate how to think about threat modeling for IoT and how to address the threats identified. In our case we identified four main areas of focus:
 
 * Devices and Data Sources,
 * Data Transport,
@@ -239,7 +239,7 @@ A cloud gateway is system that enables remote communication from and to devices 
 Cloud gateway is mostly custom built piece of software running as a service with exposed endpoints to which field gateway and devices connect. As such it must be designed with security in mind. Please follow [SDL](http://www.microsoft.com/sdl) process for designing and building this service. 
 
 #### Services zone
-A control system (or controller) is a software solution that interfaces with a device, or a field gateway, or cloud gateway for the purpose of controlling one or multiple devices and/or to collect and/or store and/or analyze device data for presentation, or subsequent control purposes. Control systems are the only entities in the scope of this discussion that may immediately facilitate interaction with people. The exception are intermediate physical control surfaces on devices, like a switch that allows a person to turn the device off or change other properties, and for which there is no functional equivalent that can be accessed digitally. 
+A control system (or controller) is a software solution that interfaces with a device, or a field gateway, or cloud gateway for the purpose of controlling one or multiple devices and/or to collect and/or store and/or analyze device data for presentation, or subsequent control purposes. Control systems are the only entities in the scope of this discussion that may immediately facilitate interaction with people. The exception is intermediate physical control surfaces on devices, like a switch that allows a person to turn the device off or change other properties, and for which there is no functional equivalent that can be accessed digitally. 
 
 Intermediate physical control surfaces are those where any sort of governing logic constrains the function of the physical control surface such that an equivalent function can be initiated remotely or input conflicts with remote input can be avoided – such intermediated control surfaces are conceptually attached to a local control system that leverages the same underlying functionality as any other remote control system that the device may be attached to in parallel. Top threats to the cloud computing can be read at [Cloud Security Alliance (CSA)](https://cloudsecurityalliance.org/research/top-threats/) page.
 

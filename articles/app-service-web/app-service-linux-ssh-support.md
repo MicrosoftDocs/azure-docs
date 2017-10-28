@@ -26,7 +26,7 @@ ms.author: wesmc
 
 [Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) is a cryptographic network protocol for using network services securely. It is most commonly used to log into a system remotely securely from a command-line and execute administrative commands remotely.
 
-Web App on Linux provides SSH support with each of the built-in Docker images used for the Runtime Stack of new web apps. 
+Web App on Linux provides SSH support into the app container with each of the built-in Docker images used for the Runtime Stack of new web apps. 
 
 ![Runtime Stacks](./media/app-service-linux-ssh-support/app-service-linux-runtime-stack.png)
 
@@ -69,7 +69,7 @@ These steps are are shown in the Azure App Service repository as an example [her
 	  && echo "root:Docker!" | chpasswd
 	``` 
 
-2. Add a [`COPY` instruction](https://docs.docker.com/engine/reference/builder/#copy) to the Dockerfile to copy a [sshd_config](http://man.openbsd.org/sshd_config) file to the */etc/ssh/* directory. Your configuration file should be based on our sshd_config file in the Azure-App-Service GitHub repository [here](https://github.com/Azure-App-Service/node/blob/master/6.9.3-1/sshd_config).
+2. Add a [`COPY` instruction](https://docs.docker.com/engine/reference/builder/#copy) to the Dockerfile to copy a [sshd_config](http://man.openbsd.org/sshd_config) file to the */etc/ssh/* directory. Your configuration file should be based on our sshd_config file in the Azure-App-Service GitHub repository [here](https://github.com/Azure-App-Service/node/blob/master/6.11/sshd_config).
 
 	> [!NOTE] 
 	> The *sshd_config* file must include the following or the connection fails: 

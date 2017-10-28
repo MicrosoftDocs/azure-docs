@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
-ms.author: padmavc
+ms.author: LADocs; padmavc
 
 ---
 # Track B2B messages in the Operations Management Suite portal by using a query

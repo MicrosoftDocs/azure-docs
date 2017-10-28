@@ -19,10 +19,6 @@ ms.author: yanacai
 ---
 # Debug user defined C# code for failed U-SQL jobs
 
-Learn how to debug U-SQL jobs failed with user defined code bugs using Azure Data Lake Tools for Visual Studio.
-
-## Background
-
 U-SQL provides extensibility model through C#, users can write user defined C# code, like user defined extractor, reducer, etc., to achieve more extensibility (learn more about [U-SQL User Defined Code](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-u-sql-programmability-guide#user-defined-functions---udf)). However, no developers can code without making mistakes, and debugging in big data systems is hard since many systems only provide limited runtime debugging information like logs, etc. 
 
 ADL Tools for Visual Studio offers a feature called **Failed Vertex Debug**, using which you can easily clone failed environment (including intermediate input data and user code, etc.) from cloud to your local machine to trace and debug failed jobs with the same runtime and exact input data in cloud.
@@ -31,16 +27,11 @@ The following video demonstrates **Failed Vertex Debug** in ADL Tools for Visual
 
 > [!VIDEO https://e0d1.wpc.azureedge.net/80E0D1/OfficeMixProdMediaBlobStorage/asset-d3aeab42-6149-4ecc-b044-aa624901ab32/b0fc0373c8f94f1bb8cd39da1310adb8.mp4?sv=2012-02-12&sr=c&si=a91fad76-cfdd-4513-9668-483de39e739c&sig=K%2FR%2FdnIi9S6P%2FBlB3iLAEV5pYu6OJFBDlQy%2FQtZ7E7M%3D&se=2116-07-19T09:27:30Z&rscd=attachment%3B%20filename%3DDebugyourcustomcodeinUSQLADLA.mp4]
 >
->
 
 > [!NOTE]
 > Visual Studio may hang or crash if you don’t have the following two windows upgrades: [Microsoft Visual C++ 2015 Redistributable Update 2](https://www.microsoft.com/download/details.aspx?id=51682), 
 > [Universal C Runtime for Windows](https://www.microsoft.com/download/details.aspx?id=50410&wa=wsignin1.0).
 > 
-> 
-
-## Prerequisites
-* Have gone through the [Get started](data-lake-analytics-data-lake-tools-get-started.md) article.
 
 ## Download failed vertex to local
 
@@ -125,7 +116,6 @@ After you have completed debugging, you can resubmit the failed job.
 
 * [U-SQL programmability guide](data-lake-analytics-u-sql-programmability-guide.md)
 * [Develop U-SQL User defined operators for Azure Data Lake Analytics jobs](data-lake-analytics-u-sql-develop-user-defined-operators.md)
-* [Tutorial: Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md)
 * [Tutorial: develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 
 

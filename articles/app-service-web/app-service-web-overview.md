@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/04/2017
 ms.author: cephalin
-
+ms.custom: mvc
 ---
 # Web Apps overview
 *App Service Web Apps* is a fully managed compute platform that is optimized for hosting websites and web applications. This [platform-as-a-service](https://en.wikipedia.org/wiki/Platform_as_a_service) (PaaS) offering of Microsoft Azure lets you focus on your business logic while Azure takes care of the infrastructure to run and scale your apps.

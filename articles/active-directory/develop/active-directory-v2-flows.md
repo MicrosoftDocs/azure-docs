@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
+ms.custom: aaddev
 
 ---
 # App types for the Azure Active Directory v2.0 endpoint

@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
+ms.date: 05/31/2017
 ms.author: sngun;AlfredoPizzirani
 
 ---
@@ -40,7 +40,7 @@ To set up usage data reporting in Azure Stack, you must [register your Azure Sta
 * **Location** – Location where the current Azure Stack resource is deployed.
 * **Resource URI** – fully qualified URI of the resource for which usage is being reported. 
 * **Subscription ID** – Subscription ID of the Azure Stack user.
-* **Time** – Start and end time of the usage data. There is some delay between the time when these resources are consumed in Azure Stack and when the usage data is reported to commerce.
+* **Time** – Start and end time of the usage data. There is some delay between the time when these resources are consumed in Azure Stack and when the usage data is reported to commerce. Azure Stack aggregates usage data for every 24 hours and reporting usage data to commerce pipeline in Azure takes another few hours. So, usage that occurs shortly before midnight may show up in Azure the following day.
 
 ## Test usage data reporting 
 
@@ -56,10 +56,10 @@ At TP3, because Azure Stack resources are not charged, the price is shown as $0.
 ## Which Azure Stack instances are charged?
 At TP3, resource usage is free for Azure Stack POC and multi-node instances. 
 
-At general availability, Azure Stack multi-node systems will be charged whereas the single-node POC environment will continue to be available at no cost. For multi-node systems, workload VMs, Storage services, and App Services are charged. 
+At general availability, Azure Stack multi-node systems are charged whereas the single-node POC environment remains available at no cost. For multi-node systems, workload VMs, Storage services, and App Services are charged. 
 
 ## Are users charged for the infrastructure VMs?
-No, the usage data for Azure Stack infrastructure VMs, which are created during deployment is reported to Azure, but there are no charges for these VMs. The infrastructure VMs include the VMs that are created by the Azure Stack deployment script, and the VMs that are needed to run Microsoft first-party resource providers such as Compute, Storage, SQL etc.
+No, the usage data for Azure Stack infrastructure VMs, which are created during deployment is reported to Azure, but there are no charges for these VMs. The infrastructure VMs include the VMs that are created by the Azure Stack deployment script, and the VMs that run Microsoft first-party resource providers such as Compute, Storage, SQL.
 
 ## What Azure meters are used when reporting usage data?
 The following are the two sets of meters that are used in usage data reporting:  
@@ -83,7 +83,7 @@ Yes, Azure Stack administrators can test the usage data reporting by [registerin
 Users can see the Azure Stack usage data in the usage details file. To know about how to get the usage details file, refer to the [download usage file from the Azure Account Center](../billing/billing-download-azure-invoice-daily-usage-date.md#download-usage-from-the-account-center-csv) article. The usage details file contains the Azure Stack meters that identify Azure Stack storage and VMs. All resources used in Azure Stack are reported under the region named “Azure Stack.”
 
 ## Why doesn’t the usage reported in Azure Stack match the report generated from Azure Account Center?
-There is a delay between when the usage data is generated in Azure Stack versus when it is submitted to Azure commerce. The delay is the time required to upload usage data from Azure Stack to Azure commerce. Due to this delay, usage that occurs shortly before midnight may show up in Azure the following day. If you use the [Azure Stack Usage APIs](azure-stack-provider-resource-api.md), and compare the results to the usage reported in the Azure billing portal, you may see a difference.
+There is a delay between when the usage data is generated in Azure Stack versus when it is submitted to Azure commerce. The delay is the time required to upload usage data from Azure Stack to Azure commerce. Due to this delay, usage that occurs shortly before midnight may show up in Azure the following day. If you use the [Azure Stack Usage APIs](azure-stack-provider-resource-api.md), and compare the results to the usage reported in the Azure billing portal, you can see a difference.
 
 ## Next steps
 

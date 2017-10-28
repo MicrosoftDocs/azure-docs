@@ -30,7 +30,7 @@ Decisions:
 
 * Are you going to use Azure Managed Disks or unmanaged disks?
 * Do you need to use Standard or Premium storage for your workload?
-* Do you need disk striping to create disks larger than 1023 GB?
+* Do you need disk striping to create disks larger than 4TB?
 * Do you need disk striping to achieve optimal I/O performance for your workload?
 * What set of storage accounts do you need to host your IT workload or infrastructure?
 
@@ -59,20 +59,19 @@ Durability and high availability is provided by the underlying Azure Storage env
 
 You can read [more about the replication options for high availability](../../storage/storage-introduction.md#replication-for-durability-and-high-availability).
 
-Operating system disks and data disks have a maximum size of 1023 gigabytes (GB). The maximum size of a blob is 1024 GB and that must contain the metadata (footer) of the VHD file (a GB is 1024<sup>3</sup> bytes). You can use Storage Spaces in Windows Server 2012 to surpass this limit by pooling together data disks to present logical volumes larger than 1023GB to your VM.
+Operating system disks and data disks have a maximum size of 4TB. You can use Storage Spaces in Windows Server 2012 or later to surpass this limit by pooling together data disks to present logical volumes larger than 4TB to your VM.
 
 There are some scalability limits when designing your Azure Storage deployments - for more information, see [Microsoft Azure subscription and service limits, quotas, and constraints](../../azure-subscription-service-limits.md#storage-limits). Also see [Azure storage scalability and performance targets](../../storage/storage-scalability-targets.md).
 
 For application storage, you can store unstructured object data such as documents, images, backups, configuration data, logs, etc. using blob storage. Rather than your application writing to a virtual disk attached to the VM, the application can write directly to Azure blob storage. Blob storage also provides the option of [hot and cool storage tiers](../../storage/storage-blob-storage-tiers.md) depending on your availability needs and cost constraints.
 
 ## Striped disks
-Besides allowing you to create disks larger than 1023 GB, in many instances, using striping for data disks enhances performance by allowing multiple blobs to back the storage for a single volume. With striping, the I/O required to write and read data from a single logical disk proceeds in parallel.
+Besides allowing you to create disks larger than 4TB, in many instances, using striping for data disks enhances performance by allowing multiple blobs to back the storage for a single volume. With striping, the I/O required to write and read data from a single logical disk proceeds in parallel.
 
-Azure imposes limits on the number of data disks and amount of bandwidth available, depending on the VM size. For details, see [Sizes for virtual machines](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Azure imposes limits on the number of data disks and amount of bandwidth available, depending on the VM size. For details, see [Sizes for virtual machines](sizes.md).
 
 If you are using disk striping for Azure data disks, consider the following guidelines:
 
-* Data disks should always be the maximum size (1023 GB).
 * Attach the maximum data disks allowed for the VM size.
 * Use Storage Spaces.
 * Avoid using Azure data disk caching options (caching policy = None).

@@ -116,11 +116,7 @@ In the Stream Analytics job, click **Start** > **Now** > **Start**. Once the job
 
 ## Create and publish a Power BI report to visualize the data
 
-1. Ensure the sample application is running. If not, run the following command to run the application on Pi:
-
-   ```bash
-   gulp run
-   ```
+1. Ensure the sample application is running on your device. If not, you can refer to the tutorials under [Setup your device](https://docs.microsoft.com/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started).
 1. Sign in to your [Power BI](https://powerbi.microsoft.com/en-us/) account.
 1. Go to the group workspace that you set when you created the output for the Stream Analytics job.
 1. Click **Streaming datasets**.

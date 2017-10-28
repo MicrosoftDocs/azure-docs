@@ -32,7 +32,7 @@ Before creating the example, you must subscribe to Speech API which is part of C
 
 Create an Android application project to implement use of the Speech Recognition API
 
-1.	Open Android Studio.
+1.	Open Android Studio.Import build.gradle package under samples/SpeechRecoExample.
 2.	Paste your subscription key into the **primaryKey** string in the **..\samples\SpeechRecoExample\res\values** folder. 
     
     >[!NOTE]

@@ -6,7 +6,6 @@ keywords: multifactor authentication client, authentication problem, correlation
 documentationcenter: ''
 author: kgremban
 manager: femila
-editor: yossib
 
 ms.assetid: 8f3aef42-7f66-4656-a7cd-d25a971cb9eb
 ms.service: multi-factor-authentication
@@ -14,20 +13,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/15/2017
+ms.date: 06/15/2017
 ms.author: kgremban
+ms.reviewer: yossib
 ms.custom: end-user
 ---
 # Having trouble with two-step verification
-This article discusses some issues that you may experience with two-step verification. If the issue you're having is not included here, please provide detailed feedback in the comments section so that we can improve.
+This article discusses some issues that you may experience with two-step verification. If the issue you're having is not included here, provide detailed feedback in the comments section so that we can improve.
 
 ## I lost my phone or it was stolen
 There are two ways to get back in to your account. The first is to sign in using your alternate authentication phone number, if you have set one up. The second is to ask your administrator to clear your settings.
 
-If your phone was lost or stolen, we also recommend that you have your administrator reset your app passwords and clear any remembered devices. If your admin isn't sure how to accomplish this, point them to this article: [Manage users and devices](../multi-factor-authentication-manage-users-and-devices.md).
+If your phone was lost or stolen, we also recommend that you have your administrator reset your app passwords and clear any remembered devices. If your admin isn't sure how to accomplish this task, point them to this article: [Manage users and devices](../multi-factor-authentication-manage-users-and-devices.md).
 
 ### Use an alternate phone number
-If you have set up multiple verification options, including a secondary phone number or an authenticator app on a different device, you can use one of these to sign in.
+If you have set up multiple verification options, including a secondary phone number or an authenticator app on a different device, you can use one of them to sign in.
 
 To sign in using the alternate phone number, follow these steps:
 
@@ -44,7 +44,7 @@ To sign in using the alternate phone number, follow these steps:
 > It is important to configure a secondary authentication phone number. If your primary phone number and your mobile app are on the same phone, you need a third option if your phone is lost or stolen.   
 
 ### Clear your settings
-If you have not configured a secondary authentication phone number, then you will have to contact your administrator for help. Have them clear your settings so the next time you sign in, you will be prompted to [set up your account](multi-factor-authentication-end-user-first-time.md) again.
+If you have not configured a secondary authentication phone number, you have to contact your administrator for help. Have them clear your settings so the next time you sign in, you will be prompted to [set up your account](multi-factor-authentication-end-user-first-time.md) again.
 
 ## I am not receiving a text or call on my phone
 There are several reasons why you may try to sign in, but not receive the text or phone call. If you've successfully received texts or phone calls to your phone in the past, then this is probably an issue with the phone provider, not your account. Make sure that you have good cell signal, and if you are trying to receive a text message make sure that your phone and service plan support text messages.
@@ -56,14 +56,14 @@ If you've waited several minutes for a text or call, the fastest way to get into
     ![Different Verification](./media/multi-factor-authentication-end-user-troubleshoot/diff_option.png)
 2. Select the phone number or delivery method you want to use.
    
-    If you received multiple verification codes, only the newest one works.
+    If you received multiple verification codes, use the newest one.
 
 If you don’t have another method configured, contact your admin and ask them to clear your settings. The next time you sign in, you will be prompted to [set up multi-factor authentication](multi-factor-authentication-end-user-first-time.md) again.
 
 If you often have delays due to bad cell signal, we recommend you use the [Microsoft Authenticator app](microsoft-authenticator-app-how-to.md) on your smartphone. The app can generate random security codes that you use to sign in, and these codes don't require any cell signal or internet connection.
 
 ## App passwords are not working
-First, make sure that you have entered the app password correctly.  If it is still not working try signing-in and [create a new app password](multi-factor-authentication-end-user-app-passwords.md).  If this does not work, contact your administrator and have them [delete your existing app passwords](../multi-factor-authentication-manage-users-and-devices.md) and then you can create a new one.
+First, make sure that you have entered the app password correctly. If it still isn't working, try signing-in and [create an app password](multi-factor-authentication-end-user-app-passwords.md).  If it still doesn't work, contact your administrator and have them [delete your existing app passwords](../multi-factor-authentication-manage-users-and-devices.md) and then you can create a new one.
 
 ## I didn't find an answer to my problem.
 If you've tried these troubleshooting steps but are still running into problems, contact your administrator or the person who set up multi-factor authentication for you. They should be able to assist you.

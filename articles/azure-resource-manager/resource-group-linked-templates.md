@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/14/2017
+ms.date: 05/31/2017
 ms.author: tomfitz
 
 ---
@@ -28,7 +28,7 @@ You create a link between two templates by adding a deployment resource within t
 ```json
 "resources": [ 
   { 
-      "apiVersion": "2015-01-01", 
+      "apiVersion": "2017-05-10", 
       "name": "linkedTemplate", 
       "type": "Microsoft.Resources/deployments", 
       "properties": { 
@@ -48,7 +48,7 @@ You create a link between two templates by adding a deployment resource within t
 Like other resource types, you can set dependencies between the linked template and other resources. Therefore, when other resources require an output value from the linked template, you can make sure the linked template is deployed before them. Or, when the linked template relies on other resources, you can make sure other resources are deployed before the linked template. You can retrieve a value from a linked template with the following syntax:
 
 ```json
-"[reference('linkedTemplate').outputs.exampleProperty]"
+"[reference('linkedTemplate').outputs.exampleProperty.value]"
 ```
 
 The Resource Manager service must be able to access the linked template. You cannot specify a local file or a file that is only available on your local network for the linked template. You can only provide a URI value that includes either **http** or **https**. One option is to place your linked template in a storage account, and use the URI for that item, such as shown in the following example:
@@ -70,7 +70,7 @@ The following example shows a parent template that links to another template. Th
 },
 "resources": [
     {
-        "apiVersion": "2015-01-01",
+        "apiVersion": "2017-05-10",
         "name": "linkedTemplate",
         "type": "Microsoft.Resources/deployments",
         "properties": {
@@ -96,7 +96,7 @@ The next example uses the **parametersLink** property to link to a parameter fil
 ```json
 "resources": [ 
   { 
-     "apiVersion": "2015-01-01", 
+     "apiVersion": "2017-05-10", 
      "name": "linkedTemplate", 
      "type": "Microsoft.Resources/deployments", 
      "properties": { 
@@ -137,116 +137,6 @@ You can also use [deployment()](resource-group-template-functions-deployment.md#
 }
 ```
 
-## Conditionally linking to templates
-You can link to different templates by passing in a parameter value that is used to construct the URI of the linked template. This approach works well when you need to specify during deployment the linked template to use. For example, you can specify one template to use for an existing storage account, and another template to use for a new storage account.
-
-The following example shows a parameter for a storage account name, and a parameter to specify whether the storage account is new or existing.
-
-```json
-"parameters": {
-    "storageAccountName": {
-        "type": "String"
-    },
-    "newOrExisting": {
-        "type": "String",
-        "allowedValues": [
-            "new",
-            "existing"
-        ]
-    }
-},
-```
-
-You create a variable for the template URI that includes the value of the new or existing parameter.
-
-```json
-"variables": {
-    "templatelink": "[concat('https://raw.githubusercontent.com/exampleuser/templates/master/',parameters('newOrExisting'),'StorageAccount.json')]"
-},
-```
-
-You provide that variable value for the deployment resource.
-
-```json
-"resources": [
-    {
-        "apiVersion": "2015-01-01",
-        "name": "linkedTemplate",
-        "type": "Microsoft.Resources/deployments",
-        "properties": {
-            "mode": "incremental",
-            "templateLink": {
-                "uri": "[variables('templatelink')]",
-                "contentVersion": "1.0.0.0"
-            },
-            "parameters": {
-                "StorageAccountName": {
-                    "value": "[parameters('storageAccountName')]"
-                }
-            }
-        }
-    }
-],
-```
-
-The URI resolves to a template named either **existingStorageAccount.json** or **newStorageAccount.json**. Create templates for those URIs.
-
-The following example shows the **existingStorageAccount.json** template.
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "storageAccountName": {
-      "type": "String"
-    }
-  },
-  "variables": {},
-  "resources": [],
-  "outputs": {
-    "storageAccountInfo": {
-      "value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')),providers('Microsoft.Storage', 'storageAccounts').apiVersions[0])]",
-      "type" : "object"
-    }
-  }
-}
-```
-
-The next example shows the **newStorageAccount.json** template. Notice that like the existing storage account template the storage account object is returned in the outputs. The master template works with either linked template.
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "storageAccountName": {
-      "type": "string"
-    }
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "name": "[parameters('StorageAccountName')]",
-      "apiVersion": "2016-01-01",
-      "location": "[resourceGroup().location]",
-      "sku": {
-        "name": "Standard_LRS"
-      },
-      "kind": "Storage",
-      "properties": {
-      }
-    }
-  ],
-  "outputs": {
-    "storageAccountInfo": {
-      "value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('StorageAccountName')),providers('Microsoft.Storage', 'storageAccounts').apiVersions[0])]",
-      "type" : "object"
-    }
-  }
-}
-```
-
 ## Complete example
 The following example templates show a simplified arrangement of linked templates to illustrate several of the concepts in this article. It assumes the templates have been added to the same container in a storage account with public access turned off. The linked template passes a value back to the main template in the **outputs** section.
 
@@ -261,7 +151,7 @@ The **parent.json** file consists of:
   },
   "resources": [
     {
-      "apiVersion": "2015-01-01",
+      "apiVersion": "2017-05-10",
       "name": "linkedTemplate",
       "type": "Microsoft.Resources/deployments",
       "properties": {
@@ -275,8 +165,8 @@ The **parent.json** file consists of:
   ],
   "outputs": {
     "result": {
-      "type": "object",
-      "value": "[reference('linkedTemplate').outputs.result]"
+      "type": "string",
+      "value": "[reference('linkedTemplate').outputs.result.value]"
     }
   }
 }
@@ -312,8 +202,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateUri 
 In Azure CLI 2.0, you get a token for the container and deploy the templates with the following code:
 
 ```azurecli
-seconds='@'$(( $(date +%s) + 1800 ))
-expiretime=$(date +%Y-%m-%dT%H:%MZ --date=$seconds)
+expiretime=$(date -u -d '30 minutes' +%Y-%m-%dT%H:%MZ)
 connection=$(az storage account show-connection-string \
     --resource-group ManageGroup \
     --name storagecontosotemplates \

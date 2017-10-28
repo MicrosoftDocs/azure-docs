@@ -6,7 +6,6 @@ keywords: authentication server, azure multi factor authentication app activatio
 documentationcenter: ''
 author: kgremban
 manager: femila
-editor: yossib
 
 ms.assetid: e94120e4-ed77-44b8-84e4-1c5f7e186a6b
 ms.service: multi-factor-authentication
@@ -14,8 +13,10 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/26/2017
+ms.date: 06/26/2017
 ms.author: kgremban
+ms.reviewer: yossib
+ms.custom: it-pro
 ---
 
 # Getting started with the Azure Multi-Factor Authentication Server
@@ -24,45 +25,27 @@ ms.author: kgremban
 
 Now that we have determined to use on-premises Multi-Factor Authentication Server, let’s get going. This page covers a new installation of the server and setting it up with on-premises Active Directory. If you already have the MFA server installed and are looking to upgrade, see [Upgrade to the latest Azure Multi-Factor Authentication Server](multi-factor-authentication-server-upgrade.md). If you're looking for information on installing just the web service, see [Deploying the Azure Multi-Factor Authentication Server Mobile App Web Service](multi-factor-authentication-get-started-server-webservice.md).
  
+## Plan your deployment
 
-## Download the Azure Multi-Factor Authentication Server
-There are two different ways that you can download the Azure Multi-Factor Authentication Server. Both are done via the Azure portal. The first is by managing the Multi-Factor Auth Provider directly. The second is via the service settings. The second option requires either a Multi-Factor Auth Provider or an Azure MFA, Azure AD Premium, or Enterprise Mobility Suite license.
+Before you download the Azure Multi-Factor Authentication Server, think about what your load and high availability requirements are. Use this information to decide how and where to deploy. 
 
-> [!Important]
-> These two options seem similar, but it is important to know which one to use. If your users have licenses that come with MFA (Azure MFA, Azure AD Premium, or Enterprise Mobility + Security), don't create a Multi-Factor Auth Provider to get to the server download. Instead, use option 2 to download the server from the service settings page. 
+A good guideline for the amount of memory you need is the number of users you expect to authenticate on a regular basis. 
 
-### Option 1: Download Azure Multi-Factor Authentication Server from the Azure classic portal
+| Users | RAM |
+| ----- | --- |
+| 1-10,000 | 4 GB |
+| 10,001-50,000 | 8 GB |
+| 50,001-100,000 | 12 GB |
+| 100,000-200,001 | 16 GB |
+| 200,001+ | 32 GB |
 
-Use this download option if you already have a Multi-Factor Auth Provider because you pay for MFA on a per-enabled user or per-authentication basis. 
+Do you need to set up multiple servers for high availability or load balancing? There are a number of ways to set up this configuration with Azure MFA Server. When you install your first Azure MFA Server, it becomes the master. Any additional servers become subordinate, and automatically synchronize users and configuration with the master. Then, you can configure one primary server and have the rest act as backup, or you can set up load balancing among all the servers. 
 
-1. Sign in to the [Azure classic portal](https://manage.windowsazure.com) as an administrator.
-2. On the left, select **Active Directory**.
-3. On the Active Directory page, click **Multi-Factor Auth Providers**
-    ![Multi-Factor Auth Providers](./media/multi-factor-authentication-get-started-server/authproviders.png)
-4. At the bottom click **Manage**. A new page opens.
-5. Click **Downloads**.
-6. Click the **Download** link above **Generate Activation Credentials**.
-   ![Download](./media/multi-factor-authentication-get-started-server/download4.png)
-7. Save the download.
+When a master Azure MFA Server goes offline, the subordinate servers can still process two-step verification requests. However, you can't add new users and existing users can't update their settings until the master is back online or a subordinate gets promoted. 
 
-### Option 2: Download Azure Multi-Factor Authentication Server from the service settings
+## Prepare your environment
 
-Use this download option if you have Enterprise Mobility Suite, Azure AD Premium, or Enterprise Cloud Suite licenses. 
-
-1. Sign in to the [Azure classic portal](https://manage.windowsazure.com) as an administrator.
-2. On the left, select **Active Directory**.
-3. Double-click your instance of Azure AD.
-4. At the top click **Configure**
-5. Scroll down to the **multi-factor authentication** section, and select **Manage service settings**
-6. On the services settings page, at the bottom of the screen click **Go to the portal**. A new page opens.
-   ![Download](./media/multi-factor-authentication-get-started-server/servicesettings.png)
-7. Click **Downloads.**
-8. Click the **Download** link above **Generate Activation Credentials**.
-    ![Download](./media/multi-factor-authentication-get-started-server/download4.png)
-9. Save the download.
-
-## Install and Configure the Azure Multi-Factor Authentication Server
-Now that you have downloaded the server you can install and configure it.  Be sure that the server you are installing it on meets the following requirements:
+Make sure the server  that you're using for Azure Multi-Factor Authentication meets the following requirements:
 
 | Azure Multi-Factor Authentication Server Requirements | Description |
 |:--- |:--- |
@@ -70,7 +53,6 @@ Now that you have downloaded the server you can install and configure it.  Be su
 | Software |<li>Windows Server 2008 or greater if the host is a server OS</li><li>Windows 7 or greater if the host is a client OS</li><li>Microsoft .NET 4.0 Framework</li><li>IIS 7.0 or greater if installing the user portal or web service SDK</li> |
 
 ### Azure Multi-Factor Authentication Server firewall requirements
-- - -
 Each MFA server must be able to communicate on port 443 outbound to the following addresses:
 
 * https://pfd.phonefactor.net
@@ -93,7 +75,44 @@ If you aren't using the Event Confirmation feature, and your users aren't using 
 | 134.170.165.72/29 |255.255.255.248 |134.170.165.72 – 134.170.165.79 |
 | 70.37.154.200/29 |255.255.255.248 |70.37.154.201 – 70.37.154.206 |
 
-### To install and configure the Azure Multi-Factor Authentication server
+## Download the Azure Multi-Factor Authentication Server
+There are two different ways that you can download the Azure Multi-Factor Authentication Server. Both are done via the Azure portal. The first is by managing the Multi-Factor Auth Provider directly. The second is via the service settings. The second option requires either a Multi-Factor Auth Provider or an Azure MFA, Azure AD Premium, or Enterprise Mobility Suite license.
+
+> [!Important]
+> These two options seem similar, but it is important to know which one to use. If your users have licenses that come with MFA (Azure MFA, Azure AD Premium, or Enterprise Mobility + Security), don't create a Multi-Factor Auth Provider to get to the server download. Instead, use option 2 to download the server from the service settings page. 
+
+### Option 1: Download Azure Multi-Factor Authentication Server from the Azure classic portal
+
+Use this download option if you already have a Multi-Factor Auth Provider because you pay for MFA on a per-enabled user or per-authentication basis. 
+
+1. Sign in to the [Azure classic portal](https://manage.windowsazure.com) as an administrator.
+2. On the left, select **Active Directory**.
+3. On the Active Directory page, click **Multi-Factor Auth Providers**
+    ![Multi-Factor Auth Providers](./media/multi-factor-authentication-get-started-server/authproviders.png)
+4. At the bottom click **Manage**. A new page opens.
+5. Click **Downloads**.
+6. Click the **Download** link.
+   ![Download](./media/multi-factor-authentication-get-started-server/download4.png)
+7. Save the download.
+
+### Option 2: Download Azure Multi-Factor Authentication Server from the service settings
+
+Use this download option if you have Enterprise Mobility Suite, Azure AD Premium, or Enterprise Cloud Suite licenses. 
+
+1. Sign in to the [Azure classic portal](https://manage.windowsazure.com) as an administrator.
+2. On the left, select **Active Directory**.
+3. Double-click your instance of Azure AD.
+4. At the top click **Configure**
+5. Scroll down to the **multi-factor authentication** section, and select **Manage service settings**
+6. On the services settings page, at the bottom of the screen click **Go to the portal**. A new page opens.
+   ![Download](./media/multi-factor-authentication-get-started-server/servicesettings.png)
+7. Click **Downloads.**
+8. Click the **Download** link.
+    ![Download](./media/multi-factor-authentication-get-started-server/download4.png)
+9. Save the download.
+
+## Install and Configure the Azure Multi-Factor Authentication Server
+Now that you have downloaded the server you can install and configure it.  Be sure that the server you are installing it on meets requirements listed in the planning section. 
 
 These steps followed an express setup with the configuration wizard. If you don't see the wizard or want to rerun it, you can select it from the **Tools** menu on the server.
 
@@ -111,13 +130,12 @@ Now that the server is installed and configured you can quickly import users int
 2. At the bottom, select **Import from Active Directory**.
 3. Now you can either search for individual users or search the AD directory for OUs with users in them.  In this case, we specify the users OU.
 4. Highlight all the users on the right and click **Import**.  You should receive a pop-up telling you that you were successful.  Close the import window.
-
-![Cloud](./media/multi-factor-authentication-get-started-server/import2.png)
+   ![Cloud](./media/multi-factor-authentication-get-started-server/import2.png)
 
 ## Send users an email
 Now that you have imported your users into the MFA Server, send an email to inform them that they have been enrolled for two-step verification.
 
-The email you send should be determined by how you configured your users for two-step verification. For example, if you were able to import phone numbers from the company directory, the email should include the default phone numbers so that users know what to expect. If you didn't import phone numbers or users are going to use the mobile app, send them an email that directs them to complete their account enrollment. Include a hyperlink to the Azure Multi-Factor Authentication User Portal in the email.
+The email you send should be determined by how you configured your users for two-step verification. For example, if you were able to import phone numbers from the company directory, the email should include the default phone numbers so that users know what to expect. If you didn't import phone numbers, or your users are going to use the mobile app, send them an email that directs them to complete their account enrollment. Include a hyperlink to the Azure Multi-Factor Authentication User Portal in the email.
 
 The content of the email also varies depending on the method of verification that has been set for the user (phone call, SMS, or mobile app).  For example, if the user is required to use a PIN when they authenticate, the email tells them what their initial PIN has been set to.  Users are required to change their PIN during their first verification.
 

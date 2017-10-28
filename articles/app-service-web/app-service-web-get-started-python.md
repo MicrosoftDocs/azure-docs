@@ -1,6 +1,6 @@
 ---
-title: Create your first Python web app in Azure in five minutes | Microsoft Docs
-description: Deploy your first Python Hello World in App Service Web App in minutes.
+title: Create a Python web app in Azure | Microsoft Docs
+description: Deploy your first Python Hello World in Azure App Service Web Apps in minutes.
 services: app-service\web
 documentationcenter: ''
 author: syntaxc4
@@ -15,34 +15,37 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 03/17/2017
 ms.author: cfowler
-
+ms.custom: mvc
 ---
-# Create a Python application on Web App
+# Create a Python web app in Azure
 
-This quickstart tutorial walks through how to develop and deploy a Python app to Azure. We’ll run the app using Azure App Service, and create and configure a new web app within it using the Azure CLI. We’ll then use git to deploy our Python app to Azure.
+[Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) provides a highly scalable, self-patching web hosting service.  This quickstart walks through how to develop and deploy a Python app to Azure Web Apps. You create the web app using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), and you use Git to deploy sample Python code to the web app.
 
-![hello-world-in-browser](media/app-service-web-get-started-python/hello-world-in-browser.png)
+![Sample app running in Azure](media/app-service-web-get-started-python/hello-world-in-browser.png)
 
-You can follow the steps below using a Mac, Windows, or Linux machine. It should take you only about 5 minutes to complete all of the steps below.
-
+You can follow the steps below using a Mac, Windows, or Linux machine. Once the prerequisites are installed, it takes about five minutes to complete the steps.
 ## Prerequisites
 
-Before running this sample, install the following prerequisites locally:
+To complete this tutorial:
 
-1. [Download and install git](https://git-scm.com/)
-1. [Download and install Python](https://www.python.org/downloads/)
-1. Download and install the [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
+1. [Install Git](https://git-scm.com/)
+1. [Install Python](https://www.python.org/downloads/)
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## Download the sample
 
-Clone the Hello World sample app repository to your local machine.
+In a terminal window, run the following command to clone the sample app repository to your local machine.
 
 ```bash
 git clone https://github.com/Azure-Samples/python-docs-hello-world
 ```
 
-> [!TIP]
-> Alternatively, you can [download the sample](https://github.com/Azure-Samples/Python-docs-hello-world/archive/master.zip) as a zip file and extract it.
+You use this terminal window to run all the commands in this quickstart.
 
 Change to the directory that contains the sample code.
 
@@ -52,187 +55,48 @@ cd Python-docs-hello-world
 
 ## Run the app locally
 
-Run the application locally by opening a terminal window an using `Python` command line for the sample to launch the built in Python web server.
+Run the application locally by opening a terminal window and using the `Python` command to launch the built-in Python web server.
 
 ```bash
 python main.py
 ```
 
-Open a web browser, and navigate to the sample.
-
-```bash
-http://localhost:5000
-```
+Open a web browser, and navigate to the sample app at http://localhost:5000.
 
 You can see the **Hello World** message from the sample app displayed in the page.
 
-![localhost-hello-world-in-browser](media/app-service-web-get-started-python/localhost-hello-world-in-browser.png)
+![Sample app running locally](media/app-service-web-get-started-python/localhost-hello-world-in-browser.png)
 
 In your terminal window, press **Ctrl+C** to exit the web server.
 
-## Log in to Azure
+[!INCLUDE [Log in to Azure](../../includes/login-to-azure.md)] 
 
-We are now going to use the Azure CLI 2.0 in a terminal window to create the resources needed to host our Python app in Azure. Log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions.
+[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user.md)] 
 
-```azurecli
-az login
-```
+[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group.md)] 
 
-## Configure a Deployment User
+[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)] 
 
-For FTP and local Git it is necessary to have a deployment user configured on the server to authenicate your deployment. Creating a deployment user is a one time configuration, take a note of the username and password as they will be used in a step below.
+[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app.md)] 
 
-> [!NOTE]
-> A deployment user is required for FTP and Local Git deployment to a web app.
-> The `username` and `password` are account-level, and as such are different from your Azure Subscription credentials. **These credentials are only required to be created once**.
->
+![Empty web app page](media/app-service-web-get-started-python/app-service-web-service-created.png)
 
-Use the [az appservice web deployment user set](/cli/azure/appservice/web/deployment/user#set) command to create your account-level credentials.
-
-```azurecli
-az appservice web deployment user set --user-name <username> --password <password>
-```
-
-## Create a resource group
-
-Create a resource group with the [az group create](/cli/azure/group#create). An Azure resource group is a logical container into which Azure resources like web apps, databases and storage accounts are deployed and managed.
-
-```azurecli
-az group create --name myResourceGroup --location westeurope
-```
-
-## Create an Azure App Service
-
-Create an App Service plan with the [az appservice plan create](/cli/azure/appservice/plan#create) command.
-
-> [!NOTE]
-> An App Service plan represents the collection of physical resources used to host your apps. All applications assigned to an App Service plan share the resources defined by it allowing you to save cost when hosting multiple apps.
->
-> App Service plans define:
-> * Region (North Europe, East US, Southeast Asia)
-> * Instance Size (Small, Medium, Large)
-> * Scale Count (one, two or three instances, etc.)
-> * SKU (Free, Shared, Basic, Standard, Premium)
->
-
-The following example creates an App Service Plan named `quickStartPlan` using the **FREE** pricing tier.
-
-```azurecli
-az appservice plan create --name quickStartPlan --resource-group myResourceGroup --sku FREE
-```
-
-When the App Service Plan has been created, the Azure CLI shows information similar to the following example.
-
-```json
-{
-"appServicePlanName": "quickStartPlan",
-"geoRegion": "North Europe",
-"id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/quickStartPlan",
-"kind": "app",
-"location": "North Europe",
-"maximumNumberOfWorkers": 1,
-"name": "quickStartPlan",
-"provisioningState": "Succeeded",
-"resourceGroup": "myResourceGroup",
-"sku": {
-  "capacity": 0,
-  "family": "F",
-  "name": "F1",
-  "size": "F1",
-  "tier": "Free"
-},
-"status": "Ready",
-"type": "Microsoft.Web/serverfarms",
-}
-```
-
-## Create a web app
-
-Now that an App Service plan has been created, create a web app within the `quickStartPlan` App Service plan. The web app gives us a hosting space to deploy our code as well as provides a URL for us to view the deployed application. Use the [az appservice web create](/cli/azure/appservice/web#create) command to create the web app.
-
-In the command below please substitute your own unique app name where you see the `<app_name>` placeholder. The `<app_name>` will be used as the default DNS site for the web app, and so the name needs to be unique across all apps in Azure. You can later map any custom DNS entry to the web app before you expose it to your users.
-
-```azurecli
-az appservice web create --name <app_name> --resource-group myResourceGroup --plan quickStartPlan
-```
-
-When the web app has been created, the Azure CLI shows information similar to the following example.
-
-```json
-{
-  "clientAffinityEnabled": true,
-  "defaultHostName": "<app_name>.azurewebsites.net",
-  "enabled": true,
-  "enabledHostNames": [
-    "<app_name>.azurewebsites.net",
-    "<app_name>.scm.azurewebsites.net"
-  ],
-  "hostNames": [
-    "<app_name>.azurewebsites.net"
-  ],
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/sites/<app_name>",
-  "kind": "app",
-  "location": "North Europe",
-  "outboundIpAddresses": "13.69.190.80,13.69.191.239,13.69.186.193,13.69.187.34",
-  "resourceGroup": "myResourceGroup",
-  "serverFarmId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/quickStartPlan",
-  "state": "Running",
-  "type": "Microsoft.Web/sites",
-}
-```
-
-Browse to the site to see your newly created web app.
-
-```bash
-http://<app_name>.azurewebsites.net
-```
-
-![app-service-web-service-created](media/app-service-web-get-started-python/app-service-web-service-created.png)
-
-We’ve now created an empty new web app in Azure. Let’s now configure our web app to use Python and deploy our app to it.
+You’ve created an empty new web app in Azure.
 
 ## Configure to use Python
 
-Use the [az appservice web config update](/cli/azure/app-service/web/config#update) command to configure the web app to use Python version `3.4`.
+Use the [az webapp config set](/cli/azure/webapp/config#set) command to configure the web app to use Python version `3.4`.
 
-> [!TIP]
-> Setting the Python version this way uses a default container provided by the platform, if you would like to use your own container refer to the CLI reference for the  [az appservice web config container update](https://docs.microsoft.com/cli/azure/appservice/web/config/container#update) command.
-
-```azurecli
-az appservice web config update --python-version 3.4 --name <app-name> --resource-group myResourceGroup
+```azurecli-interactive
+az webapp config set --python-version 3.4 --name <app_name> --resource-group myResourceGroup
 ```
 
-## Configure local git deployment
 
-You can deploy to your web app in a variety of ways including FTP, local Git as well as GitHub, Visual Studio Team Services and Bitbucket.
+Setting the Python version this way uses a default container provided by the platform. To use your own container, see the CLI reference for the [az webapp config container set](/cli/azure/webapp/config/container#set) command.
 
-Use the [az appservice web source-control config-local-git](/cli/azure/appservice/web/source-control#config-local-git) command to configure local git access to the web app.
+[!INCLUDE [Configure local git](../../includes/app-service-web-configure-local-git.md)] 
 
-```azurecli
-az appservice web source-control config-local-git --name <app_name> --resource-group myResourceGroup --query url --output tsv
-```
-
-Copy the output from the terminal as it will be used in the next step.
-
-```bash
-https://<username>@<app_name>.scm.azurewebsites.net:443/<app_name>.git
-```
-
-## Push to Azure from Git
-
-Add an Azure remote to your local Git repository.
-
-```bash
-git remote add azure <paste-previous-command-output-here>
-```
-
-Push to the Azure remote to deploy your application. You will be prompted for the password you supplied earlier as part of the creation of the deployment user.
-
-```azurecli
-git push azure master
-```
-
-During deployment, Azure App Service will communicate it's progress with Git.
+[!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)] 
 
 ```bash
 Counting objects: 18, done.
@@ -284,58 +148,48 @@ Browse to the deployed application using your web browser.
 http://<app_name>.azurewebsites.net
 ```
 
-This time, the page that displays the Hello World message is running using our Python code running as an Azure App Service web app.
+The Python sample code is running in an Azure App Service web app.
 
-![hello-world-in-browser](media/app-service-web-get-started-python/hello-world-in-browser.png)
+![Sample app running in Azure](media/app-service-web-get-started-python/hello-world-in-browser.png)
 
-## Updating and Deploying the Code
+**Congratulations!** You've deployed your first Python app to App Service.
 
-Using a local text editor, open the `main.py` file within the Python app, and make a small change to the text within the string next to `return` statement:
+## Update and redeploy the code
+
+Using a local text editor, open the `main.py` file in the Python app, and make a small change to the text next to the `return` statement:
 
 ```python
 return 'Hello, Azure!'
 ```
 
-Commit your changes in git, then push the code changes to Azure.
+Commit your changes in Git, and then push the code changes to Azure.
 
 ```bash
 git commit -am "updated output"
 git push azure master
 ```
 
-Once deployment has completed, switch back to the browser window that opened in the Browse to the app step, and hit refresh.
+Once deployment has completed, switch back to the browser window that opened in the [Browse to the app](#browse-to-the-app) step, and refresh the page.
 
-![hello-azure-in-browser](media/app-service-web-get-started-python/hello-azure-in-browser.png)
+![Updated sample app running in Azure](media/app-service-web-get-started-python/hello-azure-in-browser.png)
 
 ## Manage your new Azure web app
 
-Go to the Azure portal to take a look at the web app you just created.
+Go to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> to manage the web app you created.
 
-To do this, sign in to [https://portal.azure.com](https://portal.azure.com).
+From the left menu, click **App Services**, and then click the name of your Azure web app.
 
-From the left menu, click **App Services**, then click the name of your Azure web app.
+![Portal navigation to Azure web app](./media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-list.png)
 
-![Portal navigation to Azure web app](./media/app-service-web-get-started-python/app-service-list.png)
+You see your web app's Overview page. Here, you can perform basic management tasks like browse, stop, start, restart, and delete. 
 
-You have landed in your web app's _blade_ (a portal page that opens horizontally).
+![App Service blade in Azure portal](media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-detail.png)
 
-By default, your web app's blade shows the **Overview** page. This page gives you a view of how your app is doing. Here, you can also perform basic management tasks like browse, stop, start, restart, and delete. The tabs on the left side of the blade shows the different configuration pages you can open.
-
-![App Service blade in Azure portal](media/app-service-web-get-started-python/app-service-detail.png)
-
-These tabs in the blade show the many great features you can add to your web app. The following list gives you just a few of the possibilities:
-
-* Map a custom DNS name
-* Bind a custom SSL certificate
-* Configure continuous deployment
-* Scale up and out
-* Add user authentication
-
-**Congratulations!** You've deployed your first Python app to App Service.
+The left menu provides different pages for configuring your app. 
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Explore sample Web Apps CLI scripts](app-service-cli-samples.md)
+> [Python with PostgreSQL](app-service-web-tutorial-docker-python-postgresql-app.md)

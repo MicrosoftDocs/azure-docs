@@ -1,6 +1,6 @@
 ---
 title: Connect a gateway to Azure IoT Suite using an Intel NUC | Microsoft Docs
-description: Use the Microsoft IoT Commercial Gateway Kit and the remote monitoring preconfigured solution. Use the gateway to enable a SensorTag device to connect to the remote monitoring solution, send telemetry to the cloud, and respond to methods invoked from the solution dashboard.
+description: Use the Microsoft IoT Commercial Gateway Kit and the remote monitoring preconfigured solution. Use the Azure IoT Edge gateway to enable a SensorTag device to connect to the remote monitoring solution, send telemetry to the cloud, and respond to methods invoked from the solution dashboard.
 services: ''
 suite: iot-suite
 documentationcenter: ''
@@ -17,13 +17,13 @@ ms.date: 05/05/2017
 ms.author: dobett
 
 ---
-# Connect your Azure IoT gateway to the remote monitoring preconfigured solution and send telemetry from a SensorTag
+# Connect your Azure IoT Edge gateway to the remote monitoring preconfigured solution and send telemetry from a SensorTag
 
 [!INCLUDE [iot-suite-gateway-kit-selector](../../includes/iot-suite-gateway-kit-selector.md)]
 
 This tutorial shows you how to use Azure IoT Edge to send temperature and humidity data from SensorTag device to the remote monitoring preconfigured solution. The SensorTag connects to the Intel NUC gateway using Bluetooth. The tutorial uses:
 
-- The Azure IoT Edge to implement a sample gateway.
+- Azure IoT Edge to implement a sample gateway.
 - The IoT Suite remote monitoring preconfigured solution as the cloud-based back end.
 
 ## Overview
@@ -107,18 +107,18 @@ Configure Bluetooth on the Intel NUC to enable the SensorTag device to connect a
 
 [!INCLUDE [iot-suite-gateway-kit-prepare-nuc-software](../../includes/iot-suite-gateway-kit-prepare-nuc-software.md)]
 
-## Build the custom gateway module
+## Build the custom IoT Edge module
 
-You can now build the custom gateway module that enables the gateway to send messages to the remote monitoring solution. For more information about configuring a gateway and gateway modules, see [Azure IoT Edge concepts][lnk-gateway-concepts].
+You can now build the custom IoT Edge module that enables the gateway to send messages to the remote monitoring solution. For more information about configuring a gateway and IoT Edge modules, see [Azure IoT Edge concepts][lnk-gateway-concepts].
 
-Download the source code for the custom modules from GitHub using the following commands:
+Download the source code for the custom IoT Edge modules from GitHub using the following commands:
 
 ```bash
 cd ~
 git clone https://github.com/Azure-Samples/iot-remote-monitoring-c-intel-nuc-gateway-getting-started.git
 ```
 
-Build the custom module using the following commands:
+Build the custom IoT Edge module using the following commands:
 
 ```bash
 cd ~/iot-remote-monitoring-c-intel-nuc-gateway-getting-started/basic
@@ -127,11 +127,11 @@ sed -i -e 's/\r$//' build.sh
 ./build.sh
 ```
 
-The build script places the libsensor2remotemonitoring.so custom module in the build folder.
+The build script places the libsensor2remotemonitoring.so custom IoT Edge module in the build folder.
 
-## Configure and run the gateway
+## Configure and run the IoT Edge gateway
 
-You can now configure the gateway to send telemetry from your SensorTag device to your remote monitoring dashboard. For more information about configuring a gateway and gateway modules, see [Azure IoT Edge concepts][lnk-gateway-concepts].
+You can now configure the IoT Edge gateway to send telemetry from your SensorTag device to your remote monitoring dashboard. For more information about configuring a gateway and IoT Edge modules, see [Azure IoT Edge concepts][lnk-gateway-concepts].
 
 > [!TIP]
 > In this tutorial, you use the standard `vi` text editor on the Intel NUC. If you have not used `vi` before, you should complete an introductory tutorial, such as [Unix - The vi Editor Tutorial][lnk-vi-tutorial] to familiarize yourself with this editor. Alternatively, you can install the more user-friendly [nano](https://www.nano-editor.org/) editor using the command `smart install nano -y`.
@@ -189,9 +189,9 @@ cd ~/iot-remote-monitoring-c-intel-nuc-gateway-getting-started/basic
 /usr/share/azureiotgatewaysdk/samples/ble_gateway/ble_gateway remote_monitoring.json
 ```
 
-The gateway starts on the Intel NUC and sends telemetry from the SensorTag to the remote monitoring solution:
+The IoT Edge gateway starts on the Intel NUC and sends telemetry from the SensorTag to the remote monitoring solution:
 
-![Gateway sends telemetry from the SensorTag][img-telemetry]
+![IoT Edge gateway sends telemetry from the SensorTag][img-telemetry]
 
 Press **Ctrl-C** to exit the program at any time.
 
@@ -221,4 +221,4 @@ Visit the [Azure IoT Dev Center](https://azure.microsoft.com/develop/iot/) for m
 [lnk-demo-config]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Docs/configure-preconfigured-demo.md
 [lnk-vi-tutorial]: http://www.tutorialspoint.com/unix/unix-vi-editor.htm
 [lnk-sensortag]: http://www.ti.com/ww/en/wireless_connectivity/sensortag/
-[lnk-gateway-concepts]: https://docs.microsoft.com/azure/iot-hub/iot-hub-linux-gateway-sdk-get-started
+[lnk-gateway-concepts]: https://docs.microsoft.com/azure/iot-hub/iot-hub-linux-iot-edge-get-started

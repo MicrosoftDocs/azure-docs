@@ -55,6 +55,19 @@ By default, Azure Diagnostics always sends logs and metrics to an Azure Storage 
   </Sink>
 </SinksConfig>
 ```
+```JSON
+"SinksConfig": {
+    "Sink": [
+        {
+            "name": "HotPath",
+            "EventHub": {
+                "Url": "https://diags-mycompany-ns.servicebus.windows.net/diageventhub",
+                "SharedAccessKeyName": "SendRule"
+            }
+        }
+    ]
+}
+```
 
 In this example, the event hub URL is set to the fully qualified namespace of the event hub: Event Hubs namespace  + "/" + event hub name.  
 
@@ -69,11 +82,23 @@ The **Sink** name can be set to any valid string as long as the same value is us
 
 The Event Hubs sink must also be declared and defined in the **PrivateConfig** section of the *.wadcfgx* config file.
 
-```
+```XML
 <PrivateConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
   <StorageAccount name="" key="" endpoint="" />
-  <EventHub Url="https://diags-mycompany-ns.servicebus.windows.net/diageventhub" SharedAccessKeyName="SendRule" SharedAccessKey="9B3SwghJOGEUvXigc6zHPInl2iYxrgsKHZoy4nm9CUI=" />
+  <EventHub Url="https://diags-mycompany-ns.servicebus.windows.net/diageventhub" SharedAccessKeyName="SendRule" SharedAccessKey="{base64 encoded key}" />
 </PrivateConfig>
+```
+```JSON
+{
+    "storageAccountName": "",
+    "storageAccountKey": "",
+    "storageAccountEndPoint": "",
+    "EventHub": {
+        "Url": "https://diags-mycompany-ns.servicebus.windows.net/diageventhub",
+        "SharedAccessKeyName": "SendRule",
+        "SharedAccessKey": "{base64 encoded key}"
+    }
+}
 ```
 
 The `SharedAccessKeyName` value must match a Shared Access Signature (SAS) key and policy that has been defined in the **Event Hubs** namespace. Browse to the Event Hubs dashboard in the [Azure portal](https://manage.windowsazure.com), click the **Configure** tab, and set up a named policy (for example, "SendRule") that has *Send* permissions. The **StorageAccount** is also declared in **PrivateConfig**. There is no need to change values here if they are working. In this example, we leave the values empty, which is a sign that a downstream asset will set the values. For example, the *ServiceConfiguration.Cloud.cscfg* environment configuration file sets the environment-appropriate names and keys.  
@@ -95,35 +120,84 @@ The following are some example configurations.
   <PerformanceCounterConfiguration counterSpecifier="\Memory\Available MBytes" sampleRate="PT3M" />
   <PerformanceCounterConfiguration counterSpecifier="\Web Service(_Total)\ISAPI Extension Requests/sec" sampleRate="PT3M" />
   <PerformanceCounterConfiguration counterSpecifier="\Web Service(_Total)\Bytes Total/Sec" sampleRate="PT3M" />
-  <PerformanceCounterConfiguration counterSpecifier="\ASP.NET Applications(__Total__)\Requests/Sec" sampleRate="PT3M" />
-  <PerformanceCounterConfiguration counterSpecifier="\ASP.NET Applications(__Total__)\Errors Total/Sec" sampleRate="PT3M" />
-  <PerformanceCounterConfiguration counterSpecifier="\ASP.NET\Requests Queued" sampleRate="PT3M" />
-  <PerformanceCounterConfiguration counterSpecifier="\ASP.NET\Requests Rejected" sampleRate="PT3M" />
-  <PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT3M" />
 </PerformanceCounters>
 ```
+```JSON
+"PerformanceCounters": {
+    "scheduledTransferPeriod": "PT1M",
+    "sinks": "HotPath",
+    "PerformanceCounterConfiguration": [
+        {
+            "counterSpecifier": "\\Processor(_Total)\\% Processor Time",
+            "sampleRate": "PT3M"
+        },
+        {
+            "counterSpecifier": "\\Memory\\Available MBytes",
+            "sampleRate": "PT3M"
+        },
+        {
+            "counterSpecifier": "\\Web Service(_Total)\\ISAPI Extension Requests/sec",
+            "sampleRate": "PT3M"
+        }
+    ]
+}
+```
 
-In the following example, the sink is applied to the parent **PerformanceCounters** node in the hierarchy, which means all child **PerformanceCounters** will be sent to Event Hubs.  
+In the above example, the sink is applied to the parent **PerformanceCounters** node in the hierarchy, which means all child **PerformanceCounters** will be sent to Event Hubs.  
 
 ```xml
 <PerformanceCounters scheduledTransferPeriod="PT1M">
   <PerformanceCounterConfiguration counterSpecifier="\Memory\Available MBytes" sampleRate="PT3M" />
   <PerformanceCounterConfiguration counterSpecifier="\Web Service(_Total)\ISAPI Extension Requests/sec" sampleRate="PT3M" />
-  <PerformanceCounterConfiguration counterSpecifier="\Web Service(_Total)\Bytes Total/Sec" sampleRate="PT3M" />
-  <PerformanceCounterConfiguration counterSpecifier="\ASP.NET Applications(__Total__)\Requests/Sec" sampleRate="PT3M" />
-  <PerformanceCounterConfiguration counterSpecifier="\ASP.NET Applications(__Total__)\Errors Total/Sec" sampleRate="PT3M" />
   <PerformanceCounterConfiguration counterSpecifier="\ASP.NET\Requests Queued" sampleRate="PT3M" sinks="HotPath" />
   <PerformanceCounterConfiguration counterSpecifier="\ASP.NET\Requests Rejected" sampleRate="PT3M" sinks="HotPath"/>
   <PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT3M" sinks="HotPath"/>
 </PerformanceCounters>
+```
+```JSON
+"PerformanceCounters": {
+    "scheduledTransferPeriod": "PT1M",
+    "PerformanceCounterConfiguration": [
+        {
+            "counterSpecifier": "\\Processor(_Total)\\% Processor Time",
+            "sampleRate": "PT3M",
+            "sinks": "HotPath"
+        },
+        {
+            "counterSpecifier": "\\Memory\\Available MBytes",
+            "sampleRate": "PT3M"
+        },
+        {
+            "counterSpecifier": "\\Web Service(_Total)\\ISAPI Extension Requests/sec",
+            "sampleRate": "PT3M"
+        },
+        {
+            "counterSpecifier": "\\ASP.NET\\Requests Rejected",
+            "sampleRate": "PT3M",
+            "sinks": "HotPath"
+        },
+        {
+            "counterSpecifier": "\\ASP.NET\\Requests Queued",
+            "sampleRate": "PT3M",
+            "sinks": "HotPath"
+        }
+    ]
+}
 ```
 
 In the previous example, the sink is applied to only three counters: **Requests Queued**, **Requests Rejected**, and **% Processor time**.  
 
 The following example shows how a developer can limit the amount of sent data to be the critical metrics that are used for this service’s health.  
 
-```
+```XML
 <Logs scheduledTransferPeriod="PT1M" sinks="HotPath" scheduledTransferLogLevelFilter="Error" />
+```
+```JSON
+"Logs": {
+    "scheduledTransferPeriod": "PT1M",
+    "scheduledTransferLogLevelFilter": "Error",
+    "sinks": "HotPath"
+}
 ```
 
 In this example, the sink is applied to logs and is filtered only to error level trace.
@@ -316,6 +390,118 @@ The complementary *ServiceConfiguration.Cloud.cscfg* for this example looks like
   </Role>
 </ServiceConfiguration>
 ```
+
+Equivalent Json based settings for virtual machines is as follows:
+```JSON
+"settings": {
+    "WadCfg": {
+        "DiagnosticMonitorConfiguration": {
+            "overallQuotaInMB": 4096,
+            "sinks": "applicationInsights.errors",
+            "DiagnosticInfrastructureLogs": {
+                "scheduledTransferLogLevelFilter": "Error"
+            },
+            "Directories": {
+                "scheduledTransferPeriod": "PT1M",
+                "IISLogs": {
+                    "containerName": "wad-iis-logfiles"
+                },
+                "FailedRequestLogs": {
+                    "containerName": "wad-failedrequestlogs"
+                }
+            },
+            "PerformanceCounters": {
+                "scheduledTransferPeriod": "PT1M",
+                "sinks": "HotPath",
+                "PerformanceCounterConfiguration": [
+                    {
+                        "counterSpecifier": "\\Memory\\Available MBytes",
+                        "sampleRate": "PT3M"
+                    },
+                    {
+                        "counterSpecifier": "\\Web Service(_Total)\\ISAPI Extension Requests/sec",
+                        "sampleRate": "PT3M"
+                    },
+                    {
+                        "counterSpecifier": "\\Web Service(_Total)\\Bytes Total/Sec",
+                        "sampleRate": "PT3M"
+                    },
+                    {
+                        "counterSpecifier": "\\ASP.NET Applications(__Total__)\\Requests/Sec",
+                        "sampleRate": "PT3M"
+                    },
+                    {
+                        "counterSpecifier": "\\ASP.NET Applications(__Total__)\\Errors Total/Sec",
+                        "sampleRate": "PT3M"
+                    },
+                    {
+                        "counterSpecifier": "\\ASP.NET\\Requests Queued",
+                        "sampleRate": "PT3M"
+                    },
+                    {
+                        "counterSpecifier": "\\ASP.NET\\Requests Rejected",
+                        "sampleRate": "PT3M"
+                    },
+                    {
+                        "counterSpecifier": "\\Processor(_Total)\\% Processor Time",
+                        "sampleRate": "PT3M"
+                    }
+                ]
+            },
+            "WindowsEventLog": {
+                "scheduledTransferPeriod": "PT1M",
+                "DataSource": [
+                    {
+                        "name": "Application!*"
+                    }
+                ]
+            },
+            "Logs": {
+                "scheduledTransferPeriod": "PT1M",
+                "scheduledTransferLogLevelFilter": "Error",
+                "sinks": "HotPath"
+            }
+        },
+        "SinksConfig": {
+            "Sink": [
+                {
+                    "name": "HotPath",
+                    "EventHub": {
+                        "Url": "https://diageventhub-py-ns.servicebus.windows.net/diageventhub-py",
+                        "SharedAccessKeyName": "SendRule"
+                    }
+                },
+                {
+                    "name": "applicationInsights",
+                    "ApplicationInsights": "",
+                    "Channels": {
+                        "Channel": [
+                            {
+                                "logLevel": "Error",
+                                "name": "errors"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "StorageAccount": ""
+}
+
+
+"protectedSettings": {
+    "storageAccountName": "",
+    "storageAccountKey": "",
+    "storageAccountEndPoint": "",
+    "EventHub": {
+        "Url": "https://diageventhub-py-ns.servicebus.windows.net/diageventhub-py",
+        "SharedAccessKeyName": "SendRule",
+        "SharedAccessKey": "YOUR_KEY_HERE"
+    }
+}
+```
+
 ## Next steps
 You can learn more about Event Hubs by visiting the following links:
 

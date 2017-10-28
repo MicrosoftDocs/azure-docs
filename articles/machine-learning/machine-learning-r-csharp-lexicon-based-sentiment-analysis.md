@@ -1,7 +1,24 @@
 ---
+title: (deprecated) Lexicon Based Sentiment Analysis - Azure | Microsoft Docs 
+description: (deprecated) Lexicon Based Sentiment Analysis 
+services: machine-learning 
+documentationcenter: '' 
+author: pengxia 
+manager: jhubbard 
+editor: cgronlun 
+ 
+ms.assetid: 912f41af-966c-4d79-a413-6f9fc02823df 
+ms.service: machine-learning 
+ms.workload: data-services 
+ms.tgt_pltfrm: na 
+ms.devlang: na 
+ms.topic: article
+ms.date: 01/06/2017 
+ms.author: pengxia
 
-ROBOTS: NOINDEX, NOFOLLOW
+ROBOTS: NOINDEX
 redirect_url: https://gallery.cortanaintelligence.com/
+redirect_document_id: TRUE
 
 ---
 # (deprecated) Lexicon Based Sentiment Analysis

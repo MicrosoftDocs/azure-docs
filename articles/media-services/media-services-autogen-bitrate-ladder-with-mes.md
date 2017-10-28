@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2016
+ms.date: 06/06/2017
 ms.author: juliako
 
 ---
@@ -24,6 +24,9 @@ ms.author: juliako
 This topic shows how to use Media Encoder Standard (MES) to auto-generate a bitrate ladder (bitrate-resolution pairs) based on the input resolution and bitrate. The auto-generated preset will never exceed the input resolution and bitrate. For example, if the input is 720p at 3Mbps, output will remain 720p at best, and will start at rates lower than 3Mbps.
 
 To use this feature, you need to specify the **Adaptive Streaming** preset when creating an encoding task. When using the **Adaptive Streaming** preset, the MES encoder will intelligently cap a bitrate ladder. However, you will not be able to control the encoding costs, since the service determines how many layers to use and at what resolution. You can see examples of output layers produced by MES as a result of encoding with the **Adaptive Streaming** preset at the [end](#output) of this topic.
+
+>[!NOTE]
+> This preset should be used only when the intent is to produce a streamable output Asset. In particular, the output Asset will contain MP4 files where audio and video are not interleaved. If you need the output to contain MP4 files which have video and audio interleaved (for example, for use as a progressive download file), use one of the presets listed [in this section](media-services-mes-presets-overview.md).
 
 ## <a id="encoding_with_dotnet"></a>Encoding with Media Services .NET SDK
 

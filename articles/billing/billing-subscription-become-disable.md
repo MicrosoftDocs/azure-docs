@@ -5,7 +5,7 @@ keywords: azure subscription disabled
 services: ''
 documentationcenter: ''
 author: genlin
-manager: narmstr
+manager: jlian
 editor: ''
 tags: billing
 
@@ -15,7 +15,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 06/13/2017
 ms.author: genli
 
 ---

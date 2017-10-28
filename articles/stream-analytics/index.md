@@ -10,7 +10,7 @@ ms.service: stream-analytics
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 01/23/2017
+ms.date: 05/23/2017
 ms.author: carolz
 ---
 
@@ -151,7 +151,7 @@ Learn how to run Internet of Things (IoT) analytics in the cloud with Stream Ana
                 <div class="card">
                     <div class="cardText">
                         <h3>Languages</h3>
-                        <p><a href="/dotnet/api/streamanalytics.tests.operationtests">.NET</a></p>
+                        <p><a href="/dotnet/api/microsoft.azure.management.streamanalytics?view=azuremgmtstreamanalytics-1.8.3">.NET</a></p>
                         <p><a href="https://msdn.microsoft.com/library/azure/dn834998">Query language</a></p>
                     </div>
                 </div>

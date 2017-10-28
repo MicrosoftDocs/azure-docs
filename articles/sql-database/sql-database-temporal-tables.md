@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: c8c0f232-0751-4a7f-a36e-67a0b29fa1b8
 ms.service: sql-database
-ms.custom: development
+ms.custom: develop databases
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA

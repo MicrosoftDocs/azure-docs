@@ -12,7 +12,7 @@ ms.devlang: dotnet
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 12/08/2016
+ms.date: 05/19/2017
 ms.author: brjohnst
 
 ---
@@ -48,13 +48,17 @@ For the purposes of querying an index, you can use one of your query keys. Your 
 ## Create an instance of the SearchIndexClient class
 To issue queries with the Azure Search .NET SDK, you will need to create an instance of the `SearchIndexClient` class. This class has several constructors. The one you want takes your search service name, index name, and a `SearchCredentials` object as parameters. `SearchCredentials` wraps your api-key.
 
-The code below creates a new `SearchIndexClient` for the "hotels" index (created in [Create an Azure Search index using the .NET SDK](search-create-index-dotnet.md)) using values for the search service name and api-key that are stored in the application's config file (`app.config` or `web.config`):
+The code below creates a new `SearchIndexClient` for the "hotels" index (created in [Create an Azure Search index using the .NET SDK](search-create-index-dotnet.md)) using values for the search service name and api-key that are stored in the application's config file (`appsettings.json` in the case of the [sample application](http://aka.ms/search-dotnet-howto)):
 
 ```csharp
-string searchServiceName = ConfigurationManager.AppSettings["SearchServiceName"];
-string queryApiKey = ConfigurationManager.AppSettings["SearchServiceQueryApiKey"];
+private static SearchIndexClient CreateSearchIndexClient(IConfigurationRoot configuration)
+{
+    string searchServiceName = configuration["SearchServiceName"];
+    string queryApiKey = configuration["SearchServiceQueryApiKey"];
 
-SearchIndexClient indexClient = new SearchIndexClient(searchServiceName, "hotels", new SearchCredentials(queryApiKey));
+    SearchIndexClient indexClient = new SearchIndexClient(searchServiceName, "hotels", new SearchCredentials(queryApiKey));
+    return indexClient;
+}
 ```
 
 `SearchIndexClient` has a `Documents` property. This property provides all the methods you need to query Azure Search indexes.

@@ -39,6 +39,8 @@ The following types of content are delivered in other Azure or Microsoft content
 
 * **Marketing content**: Content that provides a high-level feature/benefit description or that just lists at a high level the capabilities of a service is probably marketing content. It belongs in marketing areas of the site. To publish marketing content, file a work request for azure.microsoft.com.
 
+* **Open Source Software (OSS) technical documentation**: Technical documentation for Open Source Software should not be published to Docs.Microsoft.Com. The documentation files should be co-located in the same repository where the source code resides, making discovery easy and intuitive. As with the source code itself, the community is also responsible for the review process and quality control of the documentation.
+
 * **Placeholder articles for future content**: Do not publish "coming soon" articles as placeholders for future content. We only publish actual technical content articles that contain relevant, useful technical content.
 
 * **Pricing information**: You can talk about the impact technical choices have on cost in a general way, but do not quote specific pricing details in technical articles. Instead, provide a link to the pricing page for the service you're talking about.

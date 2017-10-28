@@ -1,20 +1,20 @@
 ---
 title: 'Azure Cosmos DB: Build an app with Java and the DocumentDB API | Microsoft Docs'
 description: Presents a Java code sample you can use to connect to and query the Azure Cosmos DB DocumentDB API
-services: cosmosdb
+services: cosmos-db
 documentationcenter: ''
 author: mimig1
 manager: jhubbard
 editor: ''
 
 ms.assetid: 89ea62bb-c620-46d5-baa0-eefd9888557c
-ms.service: cosmosdb
-ms.custom: quick start connect
+ms.service: cosmos-db
+ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: hero-article
-ms.date: 05/10/2017
+ms.date: 06/27/2017
 ms.author: mimig
 
 ---
@@ -22,7 +22,7 @@ ms.author: mimig
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quick start demonstrates how to create an Azure Cosmos DB account, document database, and collection using the Azure portal. You'll then build and run a console app built on the [DocumentDB Java API](../documentdb/documentdb-sdk-java.md).
+This quick start demonstrates how to create an Azure Cosmos DB account, document database, and collection using the Azure portal. You'll then build and run a console app built on the [DocumentDB Java API](documentdb-sdk-java.md).
 
 ## Prerequisites
 
@@ -34,11 +34,11 @@ This quick start demonstrates how to create an Azure Cosmos DB account, document
 
 ## Create a database account
 
-[!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
+[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 ## Add a collection
 
-[!INCLUDE [cosmosdb-create-collection](../../includes/cosmosdb-create-collection.md)]
+[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
 ## Clone the sample application
 
@@ -49,12 +49,12 @@ Now let's clone a DocumentDB API app from github, set the connection string, and
 2. Run the following command to clone the sample repository. 
 
     ```bash
-    git clone https://github.com/Azure-Samples/azure-cosmos-db-java-getting-started.git
+    git clone https://github.com/Azure-Samples/azure-cosmos-db-documentdb-java-getting-started.git
     ```
 
 ## Review the code
 
-Let's make a quick review of what's happening in the app. Open the `app.js` file and you find that these lines of code create the Azure Cosmos DB resources. 
+Let's make a quick review of what's happening in the app. Open the `Program.java` file and find these lines of code that create the Azure Cosmos DB resources. 
 
 * The `DocumentClient` is initialized.
 
@@ -135,13 +135,11 @@ Now go back to the Azure portal to get your connection string information and co
 
     `"https://FILLME.documents.azure.com"`
 
-4. Then copy your PRIMARY KEY value from the portal and make it the value of the master key to the DocumentClient constructor in `Program.java'. You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
-
-    `config.primaryKey "FILLME"`
+4. Then copy your PRIMARY KEY value from the portal and replace the second parameter “FILL ME” with the key in the DocumentClient constructor in `Program.java'. You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
     
 ## Run the app
 
-1. Run `mvn package` in a terminal to install required npm modules
+1. Run `mvn package` in a terminal to install the required Java packages.
 
 2. Run `mvn exec:java -D exec.mainClass=GetStarted.Program` in a terminal to start your Java application.
 
@@ -149,7 +147,7 @@ You can now go back to Data Explorer and see query, modify, and work with this n
 
 ## Review SLAs in the Azure portal
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmosdb-tutorial-review-slas.md)]
+[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
 ## Clean up resources
 
@@ -163,6 +161,6 @@ If you're not going to continue to use this app, delete all resources created by
 In this quickstart, you've learned how to create an Azure Cosmos DB account, create a collection using the Data Explorer, and run an app. You can now import additional data to your Cosmos DB account. 
 
 > [!div class="nextstepaction"]
-> [Import data into Azure Cosmos DB](../documentdb/documentdb-import-data.md)
+> [Import data into Azure Cosmos DB](import-data.md)
 
 

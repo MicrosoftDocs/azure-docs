@@ -68,6 +68,8 @@
     href: Web-Language-Model/Home.md
 - name: Resources
   items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cognitive-services/
   - name: Videos

@@ -3,7 +3,7 @@ title: Understand the OpenID Connect authentication code flow in Azure AD | Micr
 description: This article describes how to use HTTP messages to authorize access to web applications and web APIs in your tenant using Azure Active Directory and OpenID Connect.
 services: active-directory
 documentationcenter: .net
-author: priyamohanram
+author: dstrockis
 manager: mbaldwin
 editor: ''
 
@@ -14,7 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
-ms.author: priyamo
+ms.author: dastrock
+ms.custom: aaddev
 
 ---
 # Authorize access to web applications using OpenID Connect and Azure Active Directory

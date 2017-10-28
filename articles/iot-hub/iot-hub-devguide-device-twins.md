@@ -332,7 +332,7 @@ Other reference topics in the IoT Hub developer guide include:
 * The [IoT Hub endpoints][lnk-endpoints] article describes the various endpoints that each IoT hub exposes for run-time and management operations.
 * The [Throttling and quotas][lnk-quotas] article describes the quotas that apply to the IoT Hub service and the throttling behavior to expect when you use the service.
 * The [Azure IoT device and service SDKs][lnk-sdks] article lists the various language SDKs you can use when you develop both device and service apps that interact with IoT Hub.
-* The [IoT Hub query language for device twins and jobs][lnk-query] article describes the IoT Hub query language you can use to retrieve information from IoT Hub about your device twins and jobs.
+* The [IoT Hub query language for device twins, jobs, and message routing][lnk-query] article describes the IoT Hub query language you can use to retrieve information from IoT Hub about your device twins and jobs.
 * The [IoT Hub MQTT support][lnk-devguide-mqtt] article provides more information about IoT Hub support for the MQTT protocol.
 
 ## Next steps
@@ -354,7 +354,7 @@ If you would like to try out some of the concepts described in this article, you
 [lnk-query]: iot-hub-devguide-query-language.md
 [lnk-jobs]: iot-hub-devguide-jobs.md
 [lnk-identity]: iot-hub-devguide-identity-registry.md
-[lnk-d2c]: iot-hub-devguide-messaging.md#device-to-cloud-messages
+[lnk-d2c]: iot-hub-devguide-messages-d2c.md
 [lnk-methods]: iot-hub-devguide-direct-methods.md
 [lnk-security]: iot-hub-devguide-security.md
 [lnk-c2d-guidance]: iot-hub-devguide-c2d-guidance.md

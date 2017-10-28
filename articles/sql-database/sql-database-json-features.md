@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: 55860105-2f5f-4b10-87a0-99faa32b5653
 ms.service: sql-database
-ms.custom: development
+ms.custom: develop databases
 ms.devlang: NA
 ms.date: 11/15/2016
 ms.author: jovanpop

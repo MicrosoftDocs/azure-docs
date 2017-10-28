@@ -62,10 +62,7 @@ Datadog is the world’s leading monitoring service for cloud-scale applications
 [Go to the documentation.][datadog-doc]
 
 ## Dynatrace
-The Dynatrace OneAgent integrates with Azure VMs and App Services via the according Azure extension mechanisms.
-This way we can gather performance metrics about hosts, network and services.
-Besides just displaying metrics we visualize environments end-to-end, showing transactions from the client side to the database layer.
-AI-based correlation of problems and fully integrated root-cause-analysis, including method level insights into code and database, make troubleshooting and performance optimizations much easier.
+The Dynatrace OneAgent integrates with Azure VMs and App Services via the according Azure extension mechanisms. This way Dynatrace OneAgent can gather performance metrics about hosts, network and services. Besides just displaying metrics Dynatrace visualizes environments end-to-end, showing transactions from the client side to the database layer. AI-based correlation of problems and fully integrated root-cause-analysis, including method level insights into code and database, make troubleshooting and performance optimizations much easier.
 
 [Go to the documentation.][dynatrace-doc]
 
@@ -143,7 +140,7 @@ Sumo Logic is a secure, cloud-native, machine data analytics service, delivering
 [cloudmonix-doc]: http://cloudmonix.com/features/azure-management/ "CloudMonix introduction."
 [cloudyn-doc]: https://www.cloudyn.com/azure-monitoring "Cloudyn introduction."
 [datadog-doc]: http://docs.datadoghq.com/integrations/azure/ "Datadog documentation."
-[dynatrace-doc]: https://blog.ruxit.com/ruxit-monitoring-azure-web-apps/ "Dynatrace documentation."
+[dynatrace-doc]: https://help.dynatrace.com/infrastructure-monitoring/paas/how-do-i-monitor-microsoft-azure-web-apps/ "Dynatrace documentation."
 [newrelic-doc]: https://newrelic.com/azure "NewRelic documentation."
 [opsgenie-doc]: https://www.opsgenie.com/docs/integrations/azure-integration "OpsGenie documentation."
 [pagerduty-doc]: https://www.pagerduty.com/docs/guides/azure-integration-guide/ "PagerDuty documentation."

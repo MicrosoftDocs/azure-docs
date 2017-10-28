@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2017
+ms.date: 06/16/2017
 ms.author: terrylan
 
 ---
@@ -21,7 +21,7 @@ ms.author: terrylan
 This article helps you quickly get started with Azure Security Center by guiding you through the security monitoring and policy management components of Security Center.
 
 > [!NOTE]
-> This article introduces the service by using an example deployment. This article is not a step-by-step guide.
+> Beginning in early June 2017, Security Center will use the Microsoft Monitoring Agent to collect and store data. See [Azure Security Center Platform Migration](security-center-platform-migration.md) to learn more. The information in this article represents Security Center functionality after transition to the Microsoft Monitoring Agent.
 >
 >
 
@@ -36,9 +36,16 @@ You access Security Center from the [Azure portal](https://azure.microsoft.com/f
 In Security Center, you only see information related to an Azure resource when you are assigned the role of Owner, Contributor, or Reader for the subscription or resource group that a resource belongs to. See [Permissions in Azure Security Center](security-center-permissions.md) to learn more about roles and allowed actions in Security Center.
 
 ## Data collection
-Security Center collects data from your virtual machines (VMs) to assess their security state, provide security recommendations, and alert you to threats. When you first access Security Center, data collection is enabled on all VMs in your subscription. Data collection is recommended, but you can opt out by turning off data collection in the Security Center policy.
+Security Center collects data from your virtual machines (VMs) to assess their security state, provide security recommendations, and alert you to threats. When you first access Security Center, data collection is enabled on all VMs in your subscription. Security Center provisions the Microsoft Monitoring Agent on all existing supported Azure VMs and any new ones that are created. See [Enable data collection](security-center-enable-data-collection.md) to learn more about how data collection works.
+
+Data collection is recommended. If you are using the Free tier of Security Center, you can disable data collection from VMs by turning off data collection in the security policy. Data collection is required for subscriptions on the Standard tier of Security Center. See [Security Center pricing](security-center-pricing.md) to learn more about the Free and Standard pricing tiers.
 
 The following steps describe how to access and use the components of Security Center. In these steps, we show you how to turn off data collection if you choose to opt out.
+
+> [!NOTE]
+> This article introduces the service by using an example deployment. This article is not a step-by-step guide.
+>
+>
 
 ## Access Security Center
 In the portal, follow these steps to access Security Center:
@@ -55,21 +62,13 @@ In the portal, follow these steps to access Security Center:
 You can configure security policies for your Azure subscriptions and resource groups. Let's configure a security policy for your subscription:
 
 1. On the **Security Center** blade, select the **Policy** tile.
-   ![Security policy][3]
-2. On the **Security policy - Define policy per subscription or resource group** blade, select a subscription.
-3. On the **Security policy** blade, **Data collection** is enabled to automatically collect logs. The monitoring extension is provisioned on all current and new VMs in the subscription. (You can opt out of data collection by setting **Data collection** to **Off**, but this prevents Security Center from giving you security alerts and recommendations.)
-4. On the **Security policy** blade, select **Choose a storage account per region**. For each region in which you have VMs running, you choose the storage account where data collected from those VMs is stored. If you do not choose a storage account for each region, a storage account is created for you and placed in the securitydata resource group. The data that's collected is logically isolated from other customers' data for security reasons.
+2. On the **Security policy - Define policy per subscription** blade, select a subscription.
+3. On the **Security policy** blade, **Data collection** is enabled to automatically collect logs. The monitoring extension is provisioned on all current and new VMs in the subscription. (On the Free tier of Security Center, you can opt out of data collection by setting **Data collection** to **Off**. Setting **Data Collection** to **Off** prevents Security Center from giving you security alerts and recommendations.)
+4. On the **Security policy** blade, select **Prevention policy**. This opens the **Prevention policy** blade.
+5. On the **Prevention policy** blade, turn on the recommendations that you want to see as part of your security policy. Examples:
 
-   > [!NOTE]
-   > We recommend that you enable data collection and choose a storage account at the subscription level first. Security policies can be set at the Azure subscription level and resource group level, but configuration of data collection and storage account occurs at the subscription level only.
-   >
-   >
-5. On the **Security policy** blade, select **Prevention policy**. This opens the **Prevention policy** blade.
-   ![Prevention policy][4]
-6. On the **Prevention policy** blade, turn on the recommendations that you want to see as part of your security policy. Examples:
-
-   * Setting **System updates** to **On** scans all supported virtual machines for missing OS updates.
-   * Setting **OS vulnerabilities** to **On** scans all supported virtual machines to identify any OS configurations that might make the virtual machine more vulnerable to attack.
+   * Setting **System updates** to **On** scans all supported VMs for missing OS updates.
+   * Setting **OS vulnerabilities** to **On** scans all supported VMs to identify any OS configurations that might make the VM more vulnerable to attack.
 
 ### View recommendations
 1. Return to the **Security Center** blade and select the **Recommendations** tile. Security Center periodically analyzes the security state of your Azure resources. When Security Center identifies potential security vulnerabilities, it shows recommendations on the **Recommendations** blade.
@@ -77,11 +76,11 @@ You can configure security policies for your Azure subscriptions and resource gr
 2. Select a recommendation on the **Recommendations** blade to view more information and/or to take action to resolve the issue.
 
 ### View the security state of your resources
-1. Return to the **Security Center** blade. The **Prevention** section of the dashboard contains indicators of the security state for virtual machines, networking, data, and applications.
+1. Return to the **Security Center** blade. The **Prevention** section of the dashboard contains indicators of the security state for VMs, networking, data, and applications.
 2. Select **Compute** to view more information. The **Compute** blade opens showing three tabs:
 
-  - **Overview** - Contains monitoring and virtual machine recommendations.
-  - **Virtual machines** - Lists all virtual machines and current security states.
+  - **Overview** - Contains monitoring and VM recommendations.
+  - **Virtual machines** - Lists all VMs and current security states.
   - **Cloud services** - Lists web and worker roles monitored by Security Center.
 
     ![The Resources health tile in Azure Security Center][6]
@@ -112,6 +111,7 @@ This article introduced you to the security monitoring and policy management com
 * Configure a security policy for your Azure subscription. To learn more, see [Setting security policies in Azure Security Center](security-center-policies.md).
 * Use the recommendations in Security Center to help you protect your Azure resources. To learn more, see [Managing security recommendations in Azure Security Center](security-center-recommendations.md).
 * Review and manage your current security alerts. To learn more, see [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md).
+- [Azure Security Center data security](security-center-data-security.md) - Learn how data is managed and safeguarded in Security Center.
 * Learn more about the [advanced threat detection features](security-center-detection-capabilities.md) that come with the [Standard tier](security-center-pricing.md) of Security Center. The Standard tier is offered free for the first 60 days.
 * If you have questions about using Security Center, see the [Azure Security Center FAQ](security-center-faq.md).
 

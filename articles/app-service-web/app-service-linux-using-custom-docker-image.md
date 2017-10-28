@@ -89,7 +89,10 @@ To switch from using a custom image to using a built-in image:
 
 ## Troubleshooting ##
 
-When your application fails to start with your custom Docker image, check the Docker logs in the LogFiles/docker directory. You can access this directory either through your SCM site or via FTP. 
+When your application fails to start with your custom Docker image, check the Docker logs in the LogFiles/docker directory. You can access this directory either through your SCM site or via FTP.
+To log the `stdout` and `stderr` from your container, you need to enable **Web server logging** under **Diagnostics Logs**.
+
+![Enabling Logging][8]
 
 ![Using Kudu to view Docker logs][7]
 
@@ -115,3 +118,4 @@ Post questions and concerns on [our forum](https://social.msdn.microsoft.com/for
 [5]: ./media/app-service-linux-using-custom-docker-image/existingapp-configure-builtin.png
 [6]: ./media/app-service-linux-using-custom-docker-image/setting-port.png
 [7]: ./media/app-service-linux-using-custom-docker-image/kudu-docker-logs.png
+[8]: ./media/app-service-linux-using-custom-docker-image/logging.png

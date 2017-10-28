@@ -1,16 +1,15 @@
-The following table shows the gateway types and the estimated aggregate throughput by gateway SKU. This table applies to both the Resource Manager and classic deployment models. Pricing differs between gateway SKUs. For more information, see [VPN Gateway Pricing](https://azure.microsoft.com/pricing/details/vpn-gateway).
+Azure offers the following VPN gateway SKUs:
 
-Note that the UltraPerformance gateway SKU is not represented in this table. For information about the UltraPerformance SKU, see the [ExpressRoute](../articles/expressroute/expressroute-about-virtual-network-gateways.md) documentation.
+|**SKU**   | **S2S/VNet-to-VNet<br>Tunnels** | **P2S<br>Connections** | **Aggregate<br>Throughput** |
+|---       | ---                             | ---                    | ---                         |
+|**VpnGw1**| Max. 30                         | Max. 128               | 500 Mbps                    |
+|**VpnGw2**| Max. 30                         | Max. 128               | 1 Gbps                      |
+|**VpnGw3**| Max. 30                         | Max. 128               | 1.25 Gbps                   |
+|**Basic** | Max. 10                         | Max. 128               | 100 Mbps                    | 
+|          |                                 |                        |                             | 
 
-|  | **VPN Gateway throughput (1)** | **VPN Gateway max IPsec tunnels (2)** | **ExpressRoute Gateway throughput** | **VPN Gateway and ExpressRoute coexist** |
-| --- | --- | --- | --- | --- |
-| **Basic SKU (3)(5)(6)** |100 Mbps |10 |500 Mbps (6) |No |
-| **Standard SKU (4)(5)** |100 Mbps |10 |1000 Mbps |Yes |
-| **High Performance SKU (4)** |200 Mbps |30 |2000 Mbps |Yes |
+- Throughput is based on measurements of multiple tunnels aggregated through a single gateway. It is not a guaranteed throughput due to Internet traffic conditions and your application behaviors.
 
-* (1) The VPN throughput is a rough estimate based on the measurements between VNets in the same Azure region. It is not a guaranteed throughput for cross-premises connections across the Internet. It is the maximum possible throughput measurement.
-* (2) The number of tunnels refer to RouteBased VPNs. A PolicyBased VPN can only support one Site-to-Site VPN tunnel.
-* (3) BGP is not supported for the Basic SKU.
-* (4) PolicyBased VPNs are not supported for this SKU. They are supported for the Basic SKU only.
-* (5) Active-active S2S VPN Gateway connections are not supported for this SKU. Active-active is supported on the HighPerformance SKU only.
-* (6) Basic SKU is deprecated for use with Expressroute.
+- Pricing information can be found on the [Pricing](https://azure.microsoft.com/pricing/details/vpn-gateway) page.
+
+- SLA (Service Level Agreement) information can be found on the [SLA](https://azure.microsoft.com/en-us/support/legal/sla/vpn-gateway/) page.

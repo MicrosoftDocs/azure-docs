@@ -44,7 +44,7 @@ The enterprise scaffold is intended to be the foundation of each new subscriptio
 > 
 > 
 
-The following image describes the components of the scaffold. The foundation relies on a solid plan for departments, accounts, and subscriptions. The pillars consist of Resource Manager policies and strong naming standards. The rest of scaffold comes from core Azure capabilities and features that enable a secure and manageable environment.
+The following image describes the components of the scaffold. The foundation relies on a solid plan for departments, accounts, and subscriptions. The pillars consist of Resource Manager policies and strong naming standards. The rest of the scaffold comes from core Azure capabilities and features that enable a secure and manageable environment.
 
 ![scaffold components](./media/resource-manager-subscription-governance/components.png)
 

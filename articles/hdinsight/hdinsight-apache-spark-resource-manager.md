@@ -1,5 +1,5 @@
 ---
-title: Manage resources for Apache Spark cluster on Azure HDInsight| Microsoft Docs
+title: Manage resources for Apache Spark cluster on Azure HDInsight | Microsoft Docs
 description: Learn how to use manage resources for Spark clusters on Azure HDInsight for better performance.
 services: hdinsight
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 05/25/2017
 ms.author: nitinme
 
 ---
@@ -34,7 +34,7 @@ You must have the following:
 1. From the [Azure Portal](https://portal.azure.com/), from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard). You can also navigate to your cluster under **Browse All** > **HDInsight Clusters**.
 2. From the Spark cluster blade, click **Dashboard**. When prompted, enter the admin credentials for the Spark cluster.
 
-    ![Launch Ambari](./media/hdinsight-apache-spark-resource-manager/hdispark.cluster.launch.dashboard.png "Start Resource Manager")
+    ![Launch Ambari](./media/hdinsight-apache-spark-resource-manager/hdinsight-launch-cluster-dashboard.png "Start Resource Manager")
 3. This should launch the Ambari Web UI, as shown below.
 
     ![Ambari Web UI](./media/hdinsight-apache-spark-resource-manager/ambari-web-ui.png "Ambari Web UI")   
@@ -165,7 +165,7 @@ Since we use Spark dynamic allocation, the only resources that are consumed by t
 ### Tools and extensions
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applicatons](hdinsight-apache-spark-intellij-tool-plugin.md)
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Use Zeppelin notebooks with a Spark cluster on HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
+* [Use Zeppelin notebooks with a Spark cluster on HDInsight](hdinsight-apache-spark-zeppelin-notebook.md)
 * [Kernels available for Jupyter notebook in Spark cluster for HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 * [Use external packages with Jupyter notebooks](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 * [Install Jupyter on your computer and connect to an HDInsight Spark cluster](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
@@ -181,5 +181,4 @@ Since we use Spark dynamic allocation, the only resources that are consumed by t
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md

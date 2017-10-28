@@ -47,6 +47,13 @@ The functions with the types **mvbin**, **mvstr**, and **mvref** can only work o
 ## Functions Reference
 | List of functions |  |  |  |  |
 | --- | --- | --- | --- | --- | --- |
+| **Certificate** | | | | |
+| [CertExtensionOids](#certextensionoids) |[CertFormat](#certformat) |[CertFriendlyName](#certfriendlyname) |[CertHashString](#certhashstring) | |
+| [CertIssuer](#certissuer) |[CertIssuerDN](#certissuerdn) |[CertIssuerOid](#certissueroid) |[CertKeyAlgorithm](#certkeyalgorithm) | |
+| [CertKeyAlgorithmParams](#certkeyalgorithmparams) |[CertNameInfo](#certnameinfo) |[CertNotAfter](#certnotafter) |[CertNotBefore](#certnotbefore) | |
+| [CertPublicKeyOid](#certpublickeyoid) |[CertPublicKeyParametersOid](#certpublickeyparametersoid) |[CertSerialNumber](#certserialnumber) |[CertSignatureAlgorithmOid](#certsignaturealgorithmoid) | |
+| [CertSubject](#certsubject) |[CertSubjectNameDN](#certsubjectnamedn) |[CertSubjectNameOid](#certsubjectnameoid) |[CertThumbprint](#certthumbprint) | |
+[ CertVersion](#certversion) |[IsCert](#iscert) | | | |
 | **Conversion** | | | | |
 | [CBool](#cbool) |[CDate](#cdate) |[CGuid](#cguid) |[ConvertFromBase64](#convertfrombase64) | |
 | [ConvertToBase64](#converttobase64) |[ConvertFromUTF8Hex](#convertfromutf8hex) |[ConvertToUTF8Hex](#converttoutf8hex) |[CNum](#cnum) | |
@@ -66,7 +73,8 @@ The functions with the types **mvbin**, **mvstr**, and **mvref** can only work o
 | [Contains](#contains) |[Count](#count) |[Item](#item) |[ItemOrNull](#itemornull) | |
 | [Join](#join) |[RemoveDuplicates](#removeduplicates) |[Split](#split) | | |
 | **Program Flow** | | | | |
-| [Error](#error) |[IIF](#iif) |[Switch](#switch) | | |
+| [Error](#error) |[IIF](#iif) |[Select](#select) |[Switch](#switch) | |
+| [Where](#where) |[With](#with) | | | |
 | **Text** | | | | |
 | [GUID](#guid) |[InStr](#instr) |[InStrRev](#instrrev) |[LCase](#lcase) | |
 | [Left](#left) |[Len](#len) |[LTrim](#ltrim) |[Mid](#mid) | |
@@ -144,6 +152,204 @@ Returns a DateTime based on the employee’s start time
 
 `CDate("2013-01-10 4:00 PM -8")`  
 Returns a DateTime representing "2013-01-11 12:00 AM"
+
+
+
+
+
+
+
+
+- - -
+### CertExtensionOids
+**Description:**  
+Returns the Oid values of all the critical extensions of a certificate object.
+
+**Syntax:**  
+`mvstr CertExtensionOids(binary certificateRawData)`  
+*	certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
+
+- - -
+### CertFormat
+**Description:**  
+Returns the name of the format of this X.509v3 certificate.
+
+**Syntax:**  
+`str CertFormat(binary certificateRawData)`  
+*	certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
+
+- - -
+### CertFriendlyName
+**Description:**  
+Returns the associated alias for a certificate.
+
+**Syntax:**  
+`str CertFriendlyName(binary certificateRawData)`  
+*	certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
+
+- - -
+### CertHashString
+**Description:**  
+Returns the SHA1 hash value for the X.509v3 certificate as a hexadecimal string.
+
+**Syntax:**  
+`str CertHashString(binary certificateRawData)`  
+*	certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
+
+- - -
+### CertIssuer
+**Description:**  
+Returns the name of the certificate authority that issued the X.509v3 certificate.
+
+**Syntax:**  
+`str CertIssuer(binary certificateRawData)`  
+*	certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
+
+- - -
+### CertIssuerDN
+**Description:**  
+Returns the distinguished name of the certificate issuer.
+
+**Syntax:**  
+`str CertIssuerDN(binary certificateRawData)`  
+*	certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
+
+- - -
+### CertIssuerOid
+**Description:**  
+Returns the Oid of the certificate issuer.
+
+**Syntax:**  
+`str CertIssuerOid(binary certificateRawData)`  
+*	certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
+
+- - -
+### CertKeyAlgorithm
+**Description:**  
+Returns the key algorithm information for this X.509v3 certificate as a string.
+
+**Syntax:**  
+`str CertKeyAlgorithm(binary certificateRawData)`  
+*	certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
+
+- - -
+### CertKeyAlgorithmParams
+**Description:**  
+Returns the key algorithm parameters for the X.509v3 certificate as a hexadecimal string.
+
+**Syntax:**  
+`str CertKeyAlgorithm(binary certificateRawData)`  
+*	certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
+
+- - -
+### CertNameInfo
+**Description:**  
+Returns the subject and issuer names from a certificate.
+
+**Syntax:**  
+`str CertNameInfo(binary certificateRawData, str x509NameType, bool includesIssuerName)`  
+*	certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
+*	X509NameType: The X509NameType value for the subject.
+*	includesIssuerName: true to include the issuer name; otherwise, false.
+
+- - -
+### CertNotAfter
+**Description:**  
+Returns the date in local time after which a certificate is no longer valid.
+
+**Syntax:**  
+`dt CertNotAfter(binary certificateRawData)`  
+*	certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
+
+- - -
+### CertNotBefore
+**Description:**  
+Returns the date in local time on which a certificate becomes valid.
+
+**Syntax:**  
+`dt CertNotBefore(binary certificateRawData)`  
+*	certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
+
+- - -
+### CertPublicKeyOid
+**Description:**  
+Returns the Oid of the public key for the X.509v3 certificate.
+
+**Syntax:**  
+`str CertKeyAlgorithm(binary certificateRawData)`  
+*	certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
+
+- - -
+### CertPublicKeyParametersOid
+**Description:**  
+Returns the Oid of the public key parameters for the X.509v3 certificate.
+
+**Syntax:**  
+`str CertPublicKeyParametersOid(binary certificateRawData)`  
+*	certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
+
+- - -
+### CertSerialNumber
+**Description:**  
+Returns the serial number of the X.509v3 certificate.
+
+**Syntax:**  
+`str CertSerialNumber(binary certificateRawData)`  
+*	certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
+
+- - -
+### CertSignatureAlgorithmOid
+**Description:**  
+Returns the Oid of the algorithm used to create the signature of a certificate.
+
+**Syntax:**  
+`str CertSignatureAlgorithmOid(binary certificateRawData)`  
+*	certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
+
+- - -
+### CertSubject
+**Description:**  
+Gets the subject distinguished name from a certificate.
+
+**Syntax:**  
+`str CertSubject(binary certificateRawData)`  
+*	certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
+
+- - -
+### CertSubjectNameDN
+**Description:**  
+Returns the subject distinguished name from a certificate.
+
+**Syntax:**  
+`str CertSubjectNameDN(binary certificateRawData)`  
+*	certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
+
+- - -
+### CertSubjectNameOid
+**Description:**  
+Returns the Oid of the subject name from a certificate.
+
+**Syntax:**  
+`str CertSubjectNameOid(binary certificateRawData)`  
+*	certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
+
+- - -
+### CertThumbprint
+**Description:**  
+Returns the thumbprint of a certificate.
+
+**Syntax:**  
+`str CertThumbprint(binary certificateRawData)`  
+*	certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
+
+- - -
+### CertVersion
+**Description:**  
+Returns the X.509 format version of a certificate.
+
+**Syntax:**  
+`str CertThumbprint(binary certificateRawData)`  
+*	certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
 
 - - -
 ### CGuid
@@ -502,6 +708,14 @@ If the expression can be evaluates as a DateTime type, then the IsDate function 
 **Remarks:**  
 Used to determine if CDate() can be successful.
 
+- - -
+### IsCert
+**Description:**  
+Returns true if the raw data can be serialized into .NET X509Certificate2 certificate object.
+
+**Syntax:**  
+`bool CertThumbprint(binary certificateRawData)`  
+*	certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
 - - -
 ### IsEmpty
 **Description:**  
@@ -951,6 +1165,24 @@ The RTrim function removes trailing white spaces from a string.
 Returns " Test".
 
 - - -
+### Select
+**Description:**  
+Process all values in a multi-valued attribute (or output of an expression) based on function specified.
+
+**Syntax:**  
+`mvattr Select(variable item, mvattr attribute, func function)`  
+`mvattr Select(variable item, exp expression, func function)`
+
+* item: Represents an element in the multi-valued attribute
+* attribute: the multi-valued attribute
+* expression: an expression that returns a collection of values
+* condition: any function that can process an item in the attribute
+
+**Examples:**  
+`Select($item,[otherPhone],Replace($item,“-”,“”))`  
+Return all the values in the multi-valued attribute otherPhone after hyphens (-) have been removed.
+
+- - -
 ### Split
 **Description:**  
 The Split function takes a string separated with a delimiter and makes it a multi-valued string.
@@ -1038,6 +1270,42 @@ The UCase function converts all characters in a string to upper case.
 **Example:**  
 `UCase("TeSt")`  
 Returns "TEST".
+
+- - -
+### Where
+
+**Description:**  
+Returns a subset of values from a multi-valued attribute (or output of an expression) based on specific condition.
+
+**Syntax:**  
+`mvattr Where(variable item, mvattr attribute, exp condition)`  
+`mvattr Where(variable item, exp expression, exp condition)`  
+* item: Represents an element in the multi-valued attribute
+* attribute: the multi-valued attribute
+* condition: any expression that can be evaluated to true or false
+* expression: an expression that returns a collection of values
+
+**Example:**  
+`Where($item,[userCertificate],CertNotAfter($item)>Now())`  
+Return the certificate values in the multi-valued attribute userCertificate which aren’t expired.
+
+- - -
+### With
+**Description:**  
+The With function provides a way to simplify a complex expression by using a variable to represent a subexpression which appears one or more times in the complex expression.
+
+**Syntax:**
+`With(var variable, exp subExpression, exp complexExpression)`  
+* variable: Represents the subexpression.
+* subExpression: subexpression represented by variable.
+* complexExpression: A complex expression.
+
+**Example:**  
+`With($unExpiredCerts,Where($item,[userCertificate],CertNotAfter($item)>Now()),IIF(Count($unExpiredCerts)>0,$unExpiredCerts,NULL))`  
+Is functionally equivalent to:  
+`IIF (Count(Where($item,[userCertificate],CertNotAfter($item)>Now()))>0, Where($item,[userCertificate],CertNotAfter($item)>Now()),NULL)`  
+Which returns only unexpired certificate values in the userCertificate attribute.
+
 
 - - -
 ### Word

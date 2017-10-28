@@ -29,7 +29,7 @@ Microsoft Azure Machine Learning provides a collaborative, drag-and-drop tool yo
 * **Endpoint**: *Endpoints* are the Azure Machine Learning object used to take features as input, apply a specified machine learning model and return scored output.
 * **Scoring Webservice**: A *scoring webservice* is a collection of endpoints as mentioned above.
 
-Each endpoint has apis for batch execution and synchronous execution. Stream Analytics uses synchronous execution. The specific service is named a [Request/Response Service](../machine-learning/machine-learning-consume-web-services.md#request-response-service-rrs) in AzureML studio.
+Each endpoint has apis for batch execution and synchronous execution. Stream Analytics uses synchronous execution. The specific service is named a [Request/Response Service](../machine-learning/machine-learning-consume-web-services.md) in AzureML studio.
 
 ## Machine Learning resources needed for Stream Analytics jobs
 For the purposes of Stream Analytics job processing, a Request/Response endpoint, an [apikey](../machine-learning/machine-learning-connect-to-azure-machine-learning-web-service.md#get-an-azure-machine-learning-authorization-key), and a swagger definition are all necessary for successful execution. Stream Analytics has an additional endpoint that constructs the url for swagger endpoint, looks up the interface and returns a default UDF definition to the user.
@@ -196,8 +196,7 @@ For further assistance, try our [Azure Stream Analytics forum](https://social.ms
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
-* [Get started using Azure Stream Analytics](stream-analytics-get-started.md)
+* [Get started using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
 * [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-

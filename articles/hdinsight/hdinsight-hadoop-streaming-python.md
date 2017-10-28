@@ -1,7 +1,8 @@
 ---
-title: Develop Python MapReduce jobs with HDInsight | Microsoft Docs
-description: Learn how to create and run Python MapReduce jobs on Linux-based HDInsight clusters.
+title: Develop Python streaming MapReduce jobs with HDInsight - Azure | Microsoft Docs
+description: Learn how to use Python in streaming MapReduce jobs. Hadoop provides a streaming API for MapReduce for writing in languages other than Java.
 services: hdinsight
+keyword: mapreduce python,python map reduce,python mapreduce
 documentationcenter: ''
 author: Blackmist
 manager: jhubbard
@@ -10,7 +11,7 @@ tags: azure-portal
 
 ms.assetid: 7631d8d9-98ae-42ec-b9ec-ee3cf7e57fb3
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -19,16 +20,16 @@ ms.date: 05/03/2017
 ms.author: larryfr
 
 ---
-# Develop Python streaming programs for HDInsight
+# Develop Python streaming MapReduce programs for HDInsight
 
-Learn how to use Python in MapReduce operations. Hadoop provides a streaming API for MapReduce that enables you to write map and reduce functions in languages other than Java. The steps in this document implement the Map and Reduce components in Python.
+Learn how to use Python in streaming MapReduce operations. Hadoop provides a streaming API for MapReduce that enables you to write map and reduce functions in languages other than Java. The steps in this document implement the Map and Reduce components in Python.
 
 ## Prerequisites
 
 * A Linux-based Hadoop on HDInsight cluster
 
   > [!IMPORTANT]
-  > The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight component versioning](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+  > The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 * A text editor
 
@@ -128,146 +129,11 @@ Python can easily handle these requirements by using the `sys` module to read fr
 
 To ensure that your files have the right line endings, use the following PowerShell script:
 
-```powershell
-# Set $original_file to the Python file name
-$text = [IO.File]::ReadAllText($original_file) -replace "`r`n", "`n"
-[IO.File]::WriteAllText($original_file, $text)
-```
+[!code-powershell[main](../../powershell_scripts/hdinsight/streaming-python/streaming-python.ps1?range=138-140)]
 
 Use the following PowerShell script to upload the files, run the job, and view the output:
 
-```powershell
-# Login to your Azure subscription
-# Is there an active Azure subscription?
-$sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
-if(-not($sub))
-{
-    Add-AzureRmAccount
-}
-
-# Get cluster info
-$clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
-# Get the login (HTTPS) credentials for the cluster
-$creds=Get-Credential -Message "Enter the login for the cluster" -UserName "admin"
-$clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
-$storageInfo = $clusterInfo.DefaultStorageAccount.split('.')
-$defaultStoreageType = $storageInfo[1]
-$defaultStorageName = $storageInfo[0]
-
-# Progress indicator
-$activity="Python MapReduce"
-Write-Progress -Activity $activity -Status "Uploading mapper and reducer..."
-
-# Upload the files
-switch ($defaultStoreageType)
-{
-    "blob" {
-        # Get the blob storage information for the cluster
-        $resourceGroup = $clusterInfo.ResourceGroup
-        $storageContainer=$clusterInfo.DefaultStorageContainer
-        $storageAccountKey=(Get-AzureRmStorageAccountKey `
-            -Name $defaultStorageName `
-            -ResourceGroupName $resourceGroup)[0].Value
-        # Create a storage context and upload the file
-        $context = New-AzureStorageContext `
-            -StorageAccountName $defaultStorageName `
-            -StorageAccountKey $storageAccountKey
-        # Upload the mapper.py file
-        Set-AzureStorageBlobContent `
-            -File .\mapper.py `
-            -Blob "mapper.py" `
-            -Container $storageContainer `
-            -Context $context
-        # Upload the reducer.py file
-        Set-AzureStorageBlobContent `
-            -File .\reducer.py `
-            -Blob "reducer.py" `
-            -Container $storageContainer `
-            -Context $context `
-    }
-    "azuredatalakestore" {
-        # Get the Data Lake Store name
-        # Get the root of the HDInsight cluster azuredatalakestore
-        $clusterRoot=$clusterInfo.DefaultStorageRootPath
-        # Upload the files. Prepend the destination with the cluster root
-        Import-AzureRmDataLakeStoreItem -AccountName $defaultStorageName `
-            -Path .\mapper.py `
-            -Destination "$clusterRoot/mapper.py" `
-            -Force
-        Import-AzureRmDataLakeStoreItem -AccountName $defaultStorageName `
-            -Path .\reducer.py `
-            -Destination "$clusterRoot/reducer.py" `
-            -Force
-    }
-    default {
-        Throw "Unknown storage type: $defaultStoreageType"
-    }
-}
-
-# Create the streaming job definition
-# Note: This assumes that the mapper.py and reducer.py
-#       are in the root of default storage. If you put them in a
-#       subdirectory, change the -Files parameter to the correct path.
-$jobDefinition = New-AzureRmHDInsightStreamingMapReduceJobDefinition `
-    -Files "/mapper.py", "/reducer.py" `
-    -Mapper "mapper.py" `
-    -Reducer "reducer.py" `
-    -InputPath "/example/data/gutenberg/davinci.txt" `
-    -OutputPath "/example/wordcountout"
-
-# Start the job
-Write-Progress -Activity $activity -Status "Starting the MapReduce job..."
-$job = Start-AzureRmHDInsightJob `
-    -ClusterName $clusterName `
-    -JobDefinition $jobDefinition `
-    -HttpCredential $creds
-
-# Wait for the job to complete
-Write-Progress -Activity $activity -Status "Waiting for the job to complete..."
-Wait-AzureRmHDInsightJob `
-    -JobId $job.JobId `
-    -ClusterName $clusterName `
-    -HttpCredential $creds
-
-# Display the results of the job
-Write-Progress -Activity $activity -Status "Downloading job output..."
-switch ($defaultStoreageType)
-{
-    "blob" {
-        # Get the blob storage information for the cluster
-        $resourceGroup = $clusterInfo.ResourceGroup
-        $storageContainer=$clusterInfo.DefaultStorageContainer
-        $storageAccountKey=(Get-AzureRmStorageAccountKey `
-            -Name $defaultStorageName `
-            -ResourceGroupName $resourceGroup)[0].Value
-        # Create a storage context and download the file
-        $context = New-AzureStorageContext `
-            -StorageAccountName $defaultStorageName `
-            -StorageAccountKey $storageAccountKey
-        # Download the file
-        Get-AzureStorageBlobContent `
-            -Container $storageContainer `
-            -Blob "example/wordcountout/part-00000" `
-            -Context $context `
-            -Destination "./output.txt"
-        # Display the output
-        Get-Content "./output.txt"
-    }
-    "azuredatalakestore" {
-        # Get the Data Lake Store name
-        # Get the root of the HDInsight cluster azuredatalakestore
-        $clusterRoot=$clusterInfo.DefaultStorageRootPath
-        # Download the file. Prepend the destination with the cluster root
-        # NOTE: Unlike getting a blob, this just gets the content and no
-        #       file is created locally.
-        $sourcePath=$clusterRoot + "example/wordcountout/part-00000"
-        Get-AzureRmDataLakeStoreItemContent -Account $defaultStorageName -Path $sourcePath -Confirm
-    }
-    default {
-        Throw "Unknown storage type: $defaultStoreageType"
-    }
-}
-```
+[!code-powershell[main](../../powershell_scripts/hdinsight/streaming-python/streaming-python.ps1?range=5-134)]
 
 ## Run from an SSH session
 
@@ -295,7 +161,7 @@ switch ($defaultStoreageType)
 3. To ensure the mapper.py and reducer.py have the correct line endings, use the following commands:
 
     ```bash
-    perl -pi -e 's/\r\n/\n/g' mappery.py
+    perl -pi -e 's/\r\n/\n/g' mapper.py
     perl -pi -e 's/\r\n/\n/g' reducer.py
     ```
 

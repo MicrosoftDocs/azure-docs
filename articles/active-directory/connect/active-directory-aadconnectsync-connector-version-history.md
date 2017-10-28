@@ -1,4 +1,4 @@
----
+﻿---
 title: Connector Version Release History | Microsoft Docs
 description: This topic lists all releases of the Connectors for Forefront Identity Manager (FIM) and Microsoft Identity Manager (MIM)
 services: active-directory
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/11/2017
+ms.date: 06/29/2017
 ms.author: billmath
 
 ---
@@ -34,7 +34,25 @@ Related links:
 * [PowerShell Connector](active-directory-aadconnectsync-connector-powershell.md) reference documentation
 * [Lotus Domino Connector](active-directory-aadconnectsync-connector-domino.md) reference documentation
 
-## 1.1.522.0
+## 1.1.551.0 (AADConnect 1.1.553.0)
+
+### Fixed issues:
+
+* Generic Web Services:
+  * The Wsconfig tool did not convert correctly the Json array from "sample request" for the REST service method. Because of this, there were problems with serialization this Json array for the REST request.
+  * Web Service Connector Configuration Tool does not support usage of space symbols in JSON attribute names Substitution pattern can be added manually to the WSConfigTool.exe.config file, e.g. ```<appSettings> <add key=”JSONSpaceNamePattern” value="__" /> </appSettings>```
+
+* Lotus Notes:
+  * When the option **Allow custom certifiers for Organization/Organizational Units** is disabled then the connector fails during export (Update) After the export flow all attributes are exported to Domino but at the time of export a KeyNotFoundException is returned to Sync. This happens because the rename operation fails when it tries to change DN (UserName attribute) by changing one of the attributes below:  
+    - LastName
+    - FirstName
+    - MiddleInitial
+    - AltFullName
+    - AltFullNameLanguage
+    - ou
+    - altcommonname
+
+  * When **Allow custom certifiers for Organization/Organizational Units** option is enabled, but required certifiers is still empty, then KeyNotFoundException occurs.
 
 ### Enhancements:
 

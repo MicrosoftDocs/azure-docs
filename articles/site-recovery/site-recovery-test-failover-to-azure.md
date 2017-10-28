@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 2/15/2017
+ms.date: 06/05/2017
 ms.author: pratshar
 
 ---
 # Test 	Failover to Azure in Site Recovery
-> [!div class="op_single_selector"]
-> * [Test Failover to Azure](./site-recovery-test-failover-to-azure.md)
-> * [Test Failover (VMM to VMM)](./site-recovery-test-failover-vmm-to-vmm.md)
+
 
 
 This article provides information and instructions for doing a test failover or a DR drill of virtual machines and physical servers that are protected with Site Recovery using Azure as the recovery site.
@@ -54,7 +52,7 @@ This procedure describes how to run a test failover for a recovery plan. Alterna
 
 
 > [!TIP]
-> Site Recovery attempts to create test virtual machines in a subnet of same name and using the same IP as that provided in **Compute and Network** settings of the virtual machine. If subnet of same name is not available in the Azure virtual network provided for test failover, then test virtual machine is created in the first subnet alphabetically. If the target IP is part of the chosen subnet, then site recovery tries to create the test failover virtual machine using the target IP. If the target IP is not part of the chosen subnet then test failover virtual machine gets created using any available IP in the chosen subnet. 
+> Site Recovery attempts to create test virtual machines in a subnet of same name and using the same IP as that provided in **Compute and Network** settings of the virtual machine. If subnet of same name is not available in the Azure virtual network provided for test failover, then test virtual machine is created in the first subnet alphabetically. If the target IP is part of the chosen subnet, then site recovery tries to create the test failover virtual machine using the target IP. If the target IP is not part of the chosen subnet then test failover virtual machine gets created using any available IP in the chosen subnet.
 >
 >
 
@@ -72,19 +70,19 @@ When a test failover is triggered, it involves following steps:
 
 In certain cases, failover of virtual machines requires an extra intermediate step that usually takes around 8  to 10 minutes to complete. These cases are as following:
 
-* VMware virtual machines using mobility service of version older than 9.8
-* Physical servers 
+* VMware virtual machines using a version of the Mobility service older than 9.8
+* Physical servers
 * VMware Linux virtual machines
 * Hyper-V virtual machines protected as physical servers
-* VMware virtual machines where following drivers are not present as boot drivers 
-	* storvsc 
-	* vmbus 
-	* storflt 
-	* intelide 
+* VMware virtual machines where following drivers are not present as boot drivers
+	* storvsc
+	* vmbus
+	* storflt
+	* intelide
 	* atapi
 * VMware virtual machines that don't have DHCP service enabled irrespective of whether they are using DHCP or static IP addresses
 
-In all the other cases this intermediate step is not required and the time taken for the failover is significantly lower. 
+In all the other cases this intermediate step is not required and the time taken for the failover is significantly lower.
 
 
 ## Creating a network for test failover

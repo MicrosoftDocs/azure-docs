@@ -12,9 +12,10 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: erikje
+ms.custom: mvc
 
 ---
 # Azure Stack POC deployment quickstart

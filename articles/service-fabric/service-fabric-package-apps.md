@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 3/24/2017
+ms.date: 6/28/2017
 ms.author: ryanwi
 
 ---
@@ -175,6 +175,17 @@ If you copied an uncompressed version of your application package, and you want 
 Similarly, if you uploaded a compressed version of the package and you want to use an uncompressed package, you must update the versions to avoid the checksum mismatch.
 
 The package is now packaged correctly, validated, and compressed (if needed), so it is ready for [deployment](service-fabric-deploy-remove-applications.md) to one or more Service Fabric clusters.
+
+### Compress packages when deploying using Visual Studio
+You can instruct Visual Studio to compress packages on deployment, by adding the `CopyPackageParameters` element to your publish profile, and set the `CompressPackage` attribute to `true`.
+
+``` xml
+    <PublishProfile xmlns="http://schemas.microsoft.com/2015/05/fabrictools">
+        <ClusterConnectionParameters ConnectionEndpoint="mycluster.westus.cloudapp.azure.com" />
+        <ApplicationParameterFile Path="..\ApplicationParameters\Cloud.xml" />
+        <CopyPackageParameters CompressPackage="true"/>
+    </PublishProfile>
+```
 
 ## Next steps
 [Deploy and remove applications][10] describes how to use PowerShell to manage application instances
