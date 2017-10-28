@@ -2,7 +2,7 @@
 title: 
 description: 
 services: cognitive-services
-author: v-jansko
+author: chriswendt1
 manager: olivierf
 
 ms.service: cognitive-services
