@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.technology: microsoft translator
 ms.topic: article
 ms.date: 10/30/2017
-ms.author: v-jansko
+ms.author: Chris.Wendt
 ---
 
 # Follow these 4 steps to begin using the Microsoft Translator API
