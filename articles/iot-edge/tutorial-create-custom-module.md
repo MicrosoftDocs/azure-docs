@@ -41,7 +41,8 @@ The custom module that you create in this tutorial filters the temparture data g
 * The following Visual Studio Code extensions: 
   * [C# for Visual Studio Code (powered by OmniSharp) extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). (You can install the extension from the extensions panel in Visual Studio Code.)
   * **Azure IoT Edge extension**
-    > Note: The IoT Edge extension is not yet available in Marketplace. Perform the following steps to install it:
+
+    > [!IMPORTANT] The IoT Edge extension is not yet available in Marketplace. Perform the following steps to install it:
     > 1. Install the [Azure IoT Toolkit extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) from the extensions panel in VS Code.
     > 2. Downlad the **Azure IoT Edge extension** VSIX here: [https://aka.ms/edge-extension](https://aka.ms/edge-extension
     > 3. Install the extension VSIX by using the **View | Command Palette... | Extensions: Install from VSIX...** menu command, navigating to the downloaded VSIX on your computer and clicking **Open**. (You can also install the extension by clicking **...** in the upper-right corner of the extension panel and selecting **Install from VSIX...**.)
@@ -259,7 +260,7 @@ The following steps show you how to create a IoT Edge module using Visual Studio
     ```csh/sh
     docker login
     ```
-    > Note: By default, the **docker login** command connects to your private Docker Hub repository. If you are working with a different container registry, for example, Azure container registry, you may need to specify the login server for that registry as the **\[SERVER\]** parameter to the **docker login** command. For details about **docker login**, enter the following command:
+    > [!NOTE] By default, the **docker login** command connects to your private Docker Hub repository. If you are working with a different container registry, for example, Azure container registry, you may need to specify the login server for that registry as the **\[SERVER\]** parameter to the **docker login** command. For details about **docker login**, enter the following command:
     >
     > ```csh/sh
     > docker help login
