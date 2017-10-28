@@ -19,6 +19,9 @@ ms.author: spelluru
 robots: noindex
 ---
 # Create, monitor, and manage Azure data factories using Azure Data Factory .NET SDK
+> [!NOTE]
+> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [copy activity tutorial in version 2 documentation](../quickstart-create-data-factory-dot-net.md). 
+
 ## Overview
 You can create, monitor, and manage Azure data factories programmatically using Data Factory .NET SDK. This article contains a walkthrough that you can follow to create a sample .NET console application that creates and monitors a data factory. 
 

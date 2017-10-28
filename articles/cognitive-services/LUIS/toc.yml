@@ -4,6 +4,8 @@
   items: 
   - name: Learn about Language Understanding Intelligent Service
     href: Home.md
+  - name: Supported languages
+    href: luis-supported-languages.md
 - name: Quickstarts
   expanded: true
   items: 
@@ -39,8 +41,6 @@
     href: luis-concept-utterance.md
   - name: Features
     href: luis-concept-feature.md
-  - name: Support for multiple languages
-    href: luis-concept-language-support.md
 - name: How-to guides
   items: 
   - name: Plan your app
