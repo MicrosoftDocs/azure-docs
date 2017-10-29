@@ -10,7 +10,7 @@ ms.topic: article
 
 # Use Terraform to create an Azure virtual machine scale set from a Packer custom image
 
-In this article, you use [Terraform](https://www.terraform.io/) to create and deploy an [Azure virtual machine scaleset](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview) created with a custom image produced using [Packer](https://www.packer.io/intro/index.html) with managed disks using the [Hashicorp Configuration Language](https://www.terraform.io/docs/configuration/syntax.html) (HCL).  
+In this article, you use [Terraform](https://www.terraform.io/) to create and deploy an [Azure virtual machine scale set](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview) created with a custom image produced using [Packer](https://www.packer.io/intro/index.html) with managed disks using the [Hashicorp Configuration Language](https://www.terraform.io/docs/configuration/syntax.html) (HCL).  
 
 In this tutorial, you learn how to:
 
@@ -19,7 +19,7 @@ In this tutorial, you learn how to:
 > * Use variables and outputs for Terraform deployment 
 > * Create and deploy a network infrastructure
 > * Create a custom virtual machine image using Packer
-> * Create and deploy a virtual machine scaleset using the custom image
+> * Create and deploy a virtual machine scale set using the custom image
 > * Create and deploy a jumpbox 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F) before you begin.
@@ -78,7 +78,7 @@ output "vmss_public_ip" {
 
 In this step, you create the following network infrastructure in a new Azure resource group: 
   - One VNET with the address space of 10.0.0.0/16 
-  - One subnet with the addess space of 10.0.2.0/24
+  - One subnet with the address space of 10.0.2.0/24
   - Two public IP addresses. One used by the virtual machine scale set load balancer; the other used to connect to the SSH jumpbox
 
 You also need a resource group where all the resources are created. 
@@ -129,7 +129,7 @@ resource "azurerm_public_ip" "vmss" {
 ``` 
 
 > [!NOTE]
-> It is recommended to tag the resources being deployed in Azure to facilitate their identification in the future.
+> We recommended tagging the resources being deployed in Azure to facilitate their identification in the future.
 
 ## Create the network infrastructure
 
@@ -148,10 +148,10 @@ terraform apply
 ```
 
 Verify that the fully qualified domain name of the public IP address corresponds to your configuration:
-![Virtual machine scale set terraform fully qualified domain name for Public IP address](./media/terraform-create-vm-scaleset-network-disks-using-packer-hcl/tf-create-vmss-step4-fqdn.png)
+![Virtual machine scale set Terraform fully qualified domain name for Public IP address](./media/terraform-create-vm-scaleset-network-disks-using-packer-hcl/tf-create-vmss-step4-fqdn.png)
 
 The resource group contains the following resources: 
-![Virtual machine scale set terraform network resources](./media/terraform-create-vm-scaleset-network-disks-using-packer-hcl/tf-create-vmss-step4-rg.png)
+![Virtual machine scale set Terraform network resources](./media/terraform-create-vm-scaleset-network-disks-using-packer-hcl/tf-create-vmss-step4-rg.png)
 
 
 ## Create an Azure image using Packer
@@ -164,13 +164,13 @@ Follow the tutorial to create a deprovisioned Ubuntu image with NGINX installed.
 > [!NOTE]
 > For purposes of this tutorial, in the Packer image, a command is run to installs nginx. You can also run your own script while creating.
 
-## Edit the infrastructure to add the virtual machine scaleset
+## Edit the infrastructure to add the virtual machine scale set
 
 In this step, you create the following resources on the network that was previously deployed:
-- Azure loadbalancer to serve the application and attach it to the public IP address that was deployed in step 4
+- Azure load balancer to serve the application and attach it to the public IP address that was deployed in step 4
 - One Azure load balancer and rules to serve the application and attach it to the public IP address configured earlier.
-- Azure backend address pool and assign it to the loadbalancer 
-- A health probe port used by the application and configured on the loadbalancer 
+- Azure backend address pool and assign it to the load balancer 
+- A health probe port used by the application and configured on the load balancer 
 - A virtual machine scale set sitting behind the load balancer, running on the vnet deployed earlier
 - [Nginx](http://nginx.org/) on the nodes of the virtual machine scale installed from custom image
 
@@ -316,7 +316,7 @@ terraform plan
 ```
 
 The output of the command looks like the following.
-![Terraform add vmss plan](./media/terraform-create-vm-scaleset-network-disks-using-packer-hcl/tf-create-vmss-step6-plan.png)
+![Terraform add virtual machine scale set plan](./media/terraform-create-vm-scaleset-network-disks-using-packer-hcl/tf-create-vmss-step6-plan.png)
 
 Deploy the additional resources in Azure: 
 
@@ -324,8 +324,8 @@ Deploy the additional resources in Azure:
 terraform apply 
 ```
 
-The content of the resource group looks like this:
-![Terraform virtual machine scaleset resource group](./media/terraform-create-vm-scaleset-network-disks-using-packer-hcl/tf-create-vmss-step6-apply.png)
+The content of the resource group looks like the following image:
+![Terraform virtual machine scale set resource group](./media/terraform-create-vm-scaleset-network-disks-using-packer-hcl/tf-create-vmss-step6-apply.png)
 
 Open a browser and connect to the fully qualified domain name that was returned by the command. 
 
@@ -335,7 +335,7 @@ Open a browser and connect to the fully qualified domain name that was returned 
 This optional step enables SSH access to the instances of the virtual machine scale set by using a jumpbox.
 
 Add the following resources to your existing deployment:
-- A network interface connected to the same subnet than the virtual machine scaleset
+- A network interface connected to the same subnet than the virtual machine scale set
 - A virtual machine with this network interface
 
 Add the following code to the end of the `vmss.tf` file:
@@ -430,7 +430,7 @@ terraform apply
 
 Once the deployment has completed, the content of the resource group looks like:
 
-![Terraform virtual machine scaleset resource group](./media/terraform-create-vm-scaleset-network-disks-using-packer-hcl/tf-create-create-vmss-step8.png)
+![Terraform virtual machine scale set resource group](./media/terraform-create-vm-scaleset-network-disks-using-packer-hcl/tf-create-create-vmss-step8.png)
 
 > [!NOTE]
 > Login with a password is disabled on the jumpbox and the virtual machine scale set that you deployed. Log in with SSH to access the VMs.
@@ -447,12 +447,12 @@ Type `yes` when asked to confirm for the deletion of the resources. The destruct
 
 ## Next Steps
 
-In this tutorial, you deployed a virtual machine scaleset and a Jumpbox on Azure using Terraform. You learned how to:
+In this tutorial, you deployed a virtual machine scale set and a Jumpbox on Azure using Terraform. You learned how to:
 
 > [!div class="checklist"]
-> * Initialise Terraform deployment
+> * Initialize Terraform deployment
 > * Use variables and outputs for Terraform deployment 
 > * Create and deploy a network infrastructure
 > * Create a custom virtual machine image using Packer
-> * Create and deploy a virtual machine scaleset using the custom image
+> * Create and deploy a virtual machine scale set using the custom image
 > * Create and deploy a jumpbox 
