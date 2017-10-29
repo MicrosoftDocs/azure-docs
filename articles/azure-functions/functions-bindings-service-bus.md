@@ -147,7 +147,16 @@ For [precompiled C#](functions-dotnet-class-library.md) functions, use the follo
 
 * [ServiceBusTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusTriggerAttribute.cs), defined in NuGet package [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus)
 
-  The attribute's constructor takes the name of the queue or the topic and subscription. You can also specify the access rights and an app setting that points to a Service Bus connection string. Here's an example:
+  The attribute's constructor takes the name of the queue or the topic and subscription. You can also specify the connection's access rights. If you don't specify access rights, the default is `Manage`. How to choose the access rights setting is explained in the [Trigger - settings](#trigger---settings) section. Here's a queue example:
+
+  ```csharp
+  [FunctionName("ServiceBusQueueTriggerCSharp")]                    
+  public static void Run(
+      [ServiceBusTrigger("myqueue", AccessRights.Manage)] 
+      string myQueueItem, TraceWriter log)
+  ```
+
+  You can set the `Connection` property to specify the storage account to use, as shown in the following example:
 
   ```csharp
   [FunctionName("ServiceBusQueueTriggerCSharp")]                    
@@ -158,15 +167,26 @@ For [precompiled C#](functions-dotnet-class-library.md) functions, use the follo
 
 * [ServiceBusAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs), defined in NuGet package [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus)
 
-  Enables you to specify a Service Bus account at the parameter, method, or class level. Parameter level overrides method and class level, and method level overrides class level. Here's an example:
+  Provides another way to specify the Service Bus account to use. The constructor takes the name of an app setting that contains a Service Bus connection string. The attribute can be applied at the parameter, method, or class level. The following example shows class level and method level:
 
   ```csharp
-  [ServiceBusAccount("ServiceBusConnection")]
-  [FunctionName("ServiceBusQueueTriggerCSharp")]
-  public static void Run(
-      [ServiceBusTrigger("myqueue", AccessRights.Manage)] 
-      string myQueueItem, TraceWriter log)
+  [ServiceBusAccount("ClassLevelServiceBusAppSetting")]
+  public static class AzureFunctions
+  {
+      [ServiceBusAccount("MethodLevelServiceBusAppSetting")]
+      [FunctionName("ServiceBusQueueTriggerCSharp")]
+      public static void Run(
+          [ServiceBusTrigger("myqueue", AccessRights.Manage)] 
+          string myQueueItem, TraceWriter log)
   ```
+
+The Service Bus account to use is determined in the following order:
+
+* The `ServiceBusTrigger` attribute's `Connection` property.
+* The `ServiceBusAccount` attribute applied to the same parameter as `ServiceBusTriggerAttribute`.
+* The `ServiceBusAccount` attribute applied to the function.
+* The `ServiceBusAccount` attribute applied to the class.
+* The "AzureWebJobsServiceBus" app setting.
 
 ## Trigger - settings
 
@@ -379,6 +399,29 @@ module.exports = function (context, myTimer) {
     context.done();
 };
 ```
+
+## Output - .NET attributes
+
+For [precompiled C#](functions-dotnet-class-library.md) functions, use the [ServiceBusAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAttribute.cs), which is defined in NuGet package [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
+
+  The attribute's constructor takes the name of the queue or the topic and subscription. You can also specify the connection's access rights. If you don't specify access rights, the default is `Manage`. How to choose the access rights setting is explained in the [Output - settings](#output---settings) section. Here's a queue example:
+
+  ```csharp
+  [FunctionName("ServiceBusOutput")]
+  [return: ServiceBus("myqueue")]
+  public static string ServiceBusOutput([HttpTrigger] dynamic input, TraceWriter log)
+  ```
+
+  You can set the `Connection` property to specify the Service Bus account to use, as shown in the following example:
+
+  ```csharp
+  [FunctionName("ServiceBusOutput")]
+  [return: ServiceBus("myqueue", Connection = "ServiceBusConnection")]
+  public static string ServiceBusOutput([HttpTrigger] dynamic input, TraceWriter log)
+  ```
+
+For information about other ways to specify the Service Bus account to use, see [Trigger - .NET attributes](#trigger---net-attributes).
+
 ## Output - settings
 
 The following settings appear only in the *function.json* file:
