@@ -188,7 +188,7 @@ For [precompiled C#](functions-dotnet-class-library.md) functions, use the follo
 The storage account to use is determined in the following order:
 
 * The `QueueTrigger` attribute's `Connection` property.
-* The `StorageAccount` attribute applied to the same parameter as `QueueTrigger`.
+* The `StorageAccount` attribute applied to the same parameter as `QueueTriggerAttribute`.
 * The `StorageAccount` attribute applied to the function.
 * The `StorageAccount` attribute applied to the class.
 * The "AzureWebJobsStorage" app setting.

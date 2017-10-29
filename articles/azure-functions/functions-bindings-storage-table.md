@@ -314,7 +314,7 @@ For [precompiled C#](functions-dotnet-class-library.md) functions, use the follo
   [StorageAccount("ClassLevelStorageAppSetting")]
   public static class AzureFunctions
   {
-      [FunctionName("QueueTrigger")]
+      [FunctionName("TableInput")]
       [StorageAccount("FunctionLevelStorageAppSetting")]
       public static void Run( //...
   ```
@@ -322,7 +322,7 @@ For [precompiled C#](functions-dotnet-class-library.md) functions, use the follo
 The storage account to use is determined in the following order:
 
 * The `Table` attribute's `Connection` property.
-* The `StorageAccount` attribute applied to the same parameter as `QueueTrigger`.
+* The `StorageAccount` attribute applied to the same parameter as `TableAttribute`.
 * The `StorageAccount` attribute applied to the function.
 * The `StorageAccount` attribute applied to the class.
 * The default storage account for the function app ("AzureWebJobsStorage" app setting).
