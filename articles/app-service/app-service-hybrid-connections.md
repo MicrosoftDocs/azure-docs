@@ -88,7 +88,14 @@ Every Hybrid Connection is tied to a Service Bus namespace, and each Service Bus
 
 If you want to remove your Hybrid Connection from your app, right click on it and select **Disconnect**.  
 
-Once a Hybrid Connection is added to your app, you can see details on it by simply clicking on it.  
+Once a Hybrid Connection is added to your app, you can see details on it by simply clicking on it. 
+
+###Creating a Hybrid Connection in the Azure Relay portal###
+
+In addition to the portal experience from within your app, there is also an ability to create Hybrid Connections from within the Azure Relay portal. In order for a Hybrid Connection to be used by the Azure App Service it must satisfy two criteria. It must:
+
+* Require Client Authorization
+* Have a metadata item named endpoint that contains a host:port combination as the value
 
 ![][5]
 
@@ -119,7 +126,7 @@ There is an additional cost to using Hybrid Connections.  For details on Hybrid 
 
 In order for Hybrid Connections to work, you need a relay agent in the network that hosts your Hybrid Connection endpoint.  That relay agent is called the Hybrid Connection Manager (HCM).  This tool can be downloaded from the **Networking > Configure your Hybrid Connection endpoints** UI available from your app in the [Azure portal][portal].  
 
-This tool runs on Windows server 2008 R2 and later versions of Windows.  Once installed the HCM runs as a service.  This service connects to Azure Service Bus Relay based on the configured endpoints.  The connections from the HCM are outbound to Azure over port 443.    
+This tool runs on Windows server 2012 and later versions of Windows.  Once installed the HCM runs as a service.  This service connects to Azure Service Bus Relay based on the configured endpoints.  The connections from the HCM are outbound to Azure over port 443.    
 
 The HCM has a UI to configure it.  After the HCM is installed, you can bring up the UI by running the HybridConnectionManagerUi.exe that sits in the Hybrid Connection Manager installation directory.  It is also easily reached on Windows 10 by typing *Hybrid Connection Manager UI* in your search box.  
 
@@ -151,8 +158,7 @@ For your HCM to be able to support the Hybrid Connections it is configured with,
 The HCM supports both new Hybrid Connections, as well as the older BizTalk Hybrid Connections.
 
 > [!NOTE]
-> Azure Relay relies on Web Sockets for connectivity. Because Windows Server 2008 R2 does not support Web Sockets, you cannot use the new Hybrid Connections if the HCM is installed on Windows Server 2008 R2. You will need to install the HCM on Windows Server 2012 or later if you want to use Hybrid Connections that use Azure Relay.
->
+> Azure Relay relies on Web Sockets for connectivity. This capability is only available on Windows Server 2012 or newer. Because of that the Hybrid Connection Manager is not supported on anything earlier than Windows Server 2012.
 >
 
 ### Redundancy ###
@@ -166,7 +172,7 @@ If you wish somebody outside of your subscription to host an HCM instance for a 
 
 ## Troubleshooting ##
 
-When your Hybrid Connection is set up with a running application and there is at least one HCM configured with that Hybrid Connection, the status will say **Connected** in the portal.  If it does not say **Connected**, either your app is down or your HCM cannot connect out to Azure on ports 80 or 443.  
+The connection status for a Hybrid Connection means that at least one HCM is configured with that Hybrid Conneciton and is able to reach Azure.  If the status for your Hybrid Connection does not say **Connected**, then your Hybrid Connection is not configured on any HCM that has access to Azure.
 
 The primary reason that clients cannot connect to their endpoint is because the endpoint was specified using an IP address instead of a DNS name.  If your app cannot reach the desired endpoint and you used an IP address, switch to using a DNS name that is valid on the host where the HCM is running.  Other things to check are that the DNS name resolves properly on the host where the HCM is running and that there is connectivity from the host where the HCM is running to the Hybrid Connection endpoint.  
 
