@@ -60,7 +60,8 @@ variable "resource_group_name" {
 
 ```
 
-**Note:** The default value of the resource_group_name variable is unset, define your own value.
+> [!NOTE]
+> The default value of the resource_group_name variable is unset, define your own value.
 
 Save the file.
 
@@ -147,15 +148,17 @@ Run the following command to deploy the infrastructure in Azure.
 terraform apply
 ```
 
-Verify that the fully qualified domain name of the public IP address corresponds to your configuration:
+Verify that the fully qualified domain name of the public IP address corresponds to your configuration.
+
 ![Virtual machine scale set Terraform fully qualified domain name for Public IP address](./media/terraform-create-vm-scaleset-network-disks-using-packer-hcl/tf-create-vmss-step4-fqdn.png)
 
-The resource group contains the following resources: 
+The resource group contains the following resources.
+
 ![Virtual machine scale set Terraform network resources](./media/terraform-create-vm-scaleset-network-disks-using-packer-hcl/tf-create-vmss-step4-rg.png)
 
 
 ## Create an Azure image using Packer
-In this step, you create a custom Linux image using the tutorial, [Build image with Packer](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/build-image-with-packer).
+Create a custom Linux image using the steps outlined in the tutorial, [How to use Packer to create Linux virtual machine images in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/build-image-with-packer).
  
 Follow the tutorial to create a deprovisioned Ubuntu image with NGINX installed.
 
@@ -315,7 +318,8 @@ Run the following command to visualize the virtual machine scale set deployment:
 terraform plan
 ```
 
-The output of the command looks like the following.
+The output of the command looks like the following image.
+
 ![Terraform add virtual machine scale set plan](./media/terraform-create-vm-scaleset-network-disks-using-packer-hcl/tf-create-vmss-step6-plan.png)
 
 Deploy the additional resources in Azure: 
@@ -324,7 +328,8 @@ Deploy the additional resources in Azure:
 terraform apply 
 ```
 
-The content of the resource group looks like the following image:
+The content of the resource group looks like the following image.
+
 ![Terraform virtual machine scale set resource group](./media/terraform-create-vm-scaleset-network-disks-using-packer-hcl/tf-create-vmss-step6-apply.png)
 
 Open a browser and connect to the fully qualified domain name that was returned by the command. 
@@ -428,7 +433,7 @@ Deploy the jumpbox.
 terraform apply 
 ```
 
-Once the deployment has completed, the content of the resource group looks like:
+Once the deployment has completed, the content of the resource group looks like the following image.
 
 ![Terraform virtual machine scale set resource group](./media/terraform-create-vm-scaleset-network-disks-using-packer-hcl/tf-create-create-vmss-step8.png)
 
@@ -443,7 +448,7 @@ The following commands delete the resources created in this tutorial:
 terraform destroy
 ```
 
-Type `yes` when asked to confirm for the deletion of the resources. The destruction process takes few minutes to complete.
+Type `yes` when asked to confirm for the deletion of the resources. The destruction process can take a few minutes to complete.
 
 ## Next Steps
 
