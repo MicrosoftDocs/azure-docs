@@ -55,9 +55,9 @@ df = lds.dataframes['simpsons_episodes']
 
 ```
 
-## Load CosmosDB data into data preparation
+## Load Azure CosmosDB data into data preparation
 
-Create a new script-based data flow, and then use the following script to load the data from CosmosDB. (The libraries need to be installed first. For more information, see the previous reference document that we link to.)
+Create a new script-based data flow, and then use the following script to load the data from Azure CosmosDB. (The libraries need to be installed first. For more information, see the previous reference document that we link to.)
 
 ```python
 import pydocumentdb
