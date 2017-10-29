@@ -68,11 +68,13 @@ Here's the *function.json* file:
             "direction": "in",
             "name": "myQueueItem",
             "queueName": "myqueue-items",
-            "connection":"MyStorageConnectionString"
+            "connection":"MyStorageConnectionAppSetting"
         }
     ]
 }
 ```
+
+The [settings](#trigger---settings) section explains these properties.
 
 Here's the C# script code:
 
@@ -103,6 +105,8 @@ public static void Run(CloudQueueMessage myQueueItem,
 }
 ```
 
+The [usage](#trigger---usage) section explains `myQueueItem`, which is named by the `name` property in function.json.  The [message metadata section](#trigger---message-metadata) explains all of the other variables shown.
+
 ### Trigger - JavaScript example
 
 The following example shows a blob trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function polls the `myqueue-items` queue and writes a log each time a queue item is processed.
@@ -118,11 +122,13 @@ Here's the *function.json* file:
             "direction": "in",
             "name": "myQueueItem",
             "queueName": "myqueue-items",
-            "connection":"MyStorageConnectionString"
+            "connection":"MyStorageConnectionAppSetting"
         }
     ]
 }
 ```
+
+The [settings](#trigger---settings) section explains these properties.
 
 Here's the JavaScript code:
 
@@ -133,39 +139,59 @@ module.exports = function (context) {
     context.log('expirationTime =', context.bindingData.expirationTime);
     context.log('insertionTime =', context.bindingData.insertionTime);
     context.log('nextVisibleTime =', context.bindingData.nextVisibleTime);
-    context.log('id=', context.bindingData.id);
+    context.log('id =', context.bindingData.id);
     context.log('popReceipt =', context.bindingData.popReceipt);
     context.log('dequeueCount =', context.bindingData.dequeueCount);
     context.done();
 };
 ```
 
+The [usage](#trigger---usage) section explains `myQueueItem`, which is named by the `name` property in function.json.  The [message metadata section](#trigger---message-metadata) explains all of the other variables shown.
+
 ## Trigger - .NET attributes
  
 For [precompiled C#](functions-dotnet-class-library.md) functions, use the following attributes to configure a queue trigger:
 
-* [QueueTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueTriggerAttribute.cs), defined in NuGet package [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs/2.1.0-beta1)
+* [QueueTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueTriggerAttribute.cs), defined in NuGet package [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
 
   The attribute's constructor takes the name of the queue to monitor, as shown in the following example:
 
   ```csharp
   [FunctionName("QueueTrigger")]
-  public static void QueueTrigger([QueueTrigger("myqueue-items")] string myQueueItem, TraceWriter log)
+  public static void Run(
+      [QueueTrigger("myqueue-items")] string myQueueItem, 
+      TraceWriter log)
   ```
 
-* [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), defined in NuGet package [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs/2.1.0-beta1)
-
-  Enables you to specify a different storage account than the function app's default storage account. This attribute can be applied at the parameter, method, or class level. Parameter level overrides method and class level, and method level overrides class level. Here's an example:
+  You can set the `Connection` property to specify the storage account to use, as shown in the following example:
 
   ```csharp
-  [StorageAccount("QueueFunctionsStorage")]
-  public static class QueueFunctions
-  {
-      // Queue trigger
-      [FunctionName("QueueTrigger")]
-      [StorageAccount("QueueTriggerStorage")]
-      public static void QueueTrigger([QueueTrigger("myqueue-items")] string myQueueItem, TraceWriter log)
+  [FunctionName("QueueTrigger")]
+  public static void Run(
+      [QueueTrigger("myqueue-items", Connection = "StorageConnectionAppSetting")] string myQueueItem, 
+      TraceWriter log)
   ```
+ 
+* [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), defined in NuGet package [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
+
+  Provides another way to specify the storage account to use. The constructor takes the name of an app setting that contains a storage connection string. The attribute can be applied at the parameter, method, or class level. The following example shows class level and method level:
+
+  ```csharp
+  [StorageAccount("ClassLevelStorageAppSetting")]
+  public static class AzureFunctions
+  {
+      [FunctionName("QueueTrigger")]
+      [StorageAccount("FunctionLevelStorageAppSetting")]
+      public static void Run( //...
+  ```
+
+The storage account to use is determined in the following order:
+
+* The `QueueTrigger` attribute's `Connection` property.
+* The `StorageAccount` attribute applied to the same parameter as `QueueTrigger`.
+* The `StorageAccount` attribute applied to the function.
+* The `StorageAccount` attribute applied to the class.
+* The "AzureWebJobsStorage" app setting.
 
 ## Trigger - settings
 
@@ -201,7 +227,7 @@ The queue trigger provides several metadata properties. These properties can be 
 
 |Property|Type|Description|
 |--------|----|-----------|
-|`QueueTrigger`|`string`|Queue payload (if a valid string)>|
+|`QueueTrigger`|`string`|Queue payload (if a valid string). If the queue message payload as a string, `QueueTrigger` has the same value as the variable named by the `name` property in *function.json*.|
 |`DequeueCount`|`int`|The number of times this message has been dequeued.|
 |`ExpirationTime`|`DateTimeOffset?`|The time that the message expires.|
 |`Id`|`string`|Queue message ID.|
@@ -227,7 +253,7 @@ Use the Azure Queue storage output binding to write messages to a queue.
 
 ## Output - example
 
-See the language-specific example that retrieves and logs queue metadata.
+See the language-specific example:
 
 * [Precompiled C#](#output---c-example)
 * [C# script](#output---c-script-example)
@@ -276,11 +302,13 @@ Here's the *function.json* file:
       "direction": "out",
       "name": "$return",
       "queueName": "outqueue",
-      "connection": "MyStorageConnectionString",
+      "connection": "MyStorageConnectionAppSetting",
     }
   ]
 }
 ``` 
+
+The [settings](#output---settings) section explains these properties.
 
 Here's C# script code that creates a single queue message:
 
@@ -335,11 +363,13 @@ Here's the *function.json* file:
       "direction": "out",
       "name": "$return",
       "queueName": "outqueue",
-      "connection": "MyStorageConnectionString",
+      "connection": "MyStorageConnectionAppSetting",
     }
   ]
 }
 ``` 
+
+The [settings](#output---settings) section explains these properties.
 
 Here's the JavaScript code:
 
@@ -360,31 +390,25 @@ module.exports = function(context) {
 
 ## Output - .NET attributes
  
-For [precompiled C#](functions-dotnet-class-library.md) functions, use the following attributes to configure an output queue binding:
+For [precompiled C#](functions-dotnet-class-library.md) functions, use the [QueueAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs), which is defined in NuGet package [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
-* [QueueAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs), defined in NuGet package [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
+The attribute applies to an `out` parameter or the return value of the function. The attribute's constructor takes the name of the queue, as shown in the following example:
 
-  Applies to an `out` parameter or the return value of the function. The attribute's constructor takes the name of the queue, as shown in the following example:
+```csharp
+[FunctionName("QueueOutput")]
+[return: Queue("myqueue-items")]
+public static string QueueOutput([HttpTrigger] dynamic input,  TraceWriter log)
+```
 
-  ```csharp
-  [FunctionName("QueueOutput")]
-  [return: Queue("myqueue-items")]
-  public static string QueueOutput([HttpTrigger] dynamic input,  TraceWriter log)
-  ```
+You can set the `Connection` property to specify the storage account to use, as shown in the following example:
 
-* [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), defined in NuGet package [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
+```csharp
+[FunctionName("QueueOutput")]
+[return: Queue("myqueue-items, Connection = "StorageConnectionAppSetting")]
+public static string QueueOutput([HttpTrigger] dynamic input,  TraceWriter log)
+```
 
-  Enables you to specify a different storage account than the function's default storage account. This attribute can be applied at the parameter, method, or class level. Parameter level overrides method and class level, and method level overrides class level. Here's an example:
-
-  ```csharp
-  [StorageAccount("QueueFunctionsStorage")]
-  public static class QueueFunctions
-  {
-      [FunctionName("QueueOutput")]
-      [return: Queue("myqueue-items")]
-      [StorageAccount("QueueOutputStorage")]
-      public static string QueueOutput([HttpTrigger] dynamic input, TraceWriter log)
-  ```
+For information about other ways to specify the storage account to use, see [Trigger - .NET attributes](#trigger---net-attributes).
 
 ## Output - settings
 

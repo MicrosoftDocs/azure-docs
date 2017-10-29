@@ -73,11 +73,13 @@ Here's the binding data in the *function.json* file:
             "type": "blobTrigger",
             "direction": "in",
             "path": "samples-workitems",
-            "connection":"MyStorageAccount"
+            "connection":"MyStorageAccountAppSetting"
         }
     ]
 }
 ```
+
+The [settings](#trigger---settings) section explains these properties.
 
 Here's C# script code that binds to a `Stream`:
 
@@ -116,11 +118,13 @@ Here's the *function.json* file:
             "type": "blobTrigger",
             "direction": "in",
             "path": "samples-workitems",
-            "connection":"MyStorageAccount"
+            "connection":"MyStorageAccountAppSetting"
         }
     ]
 }
 ```
+
+The [settings](#trigger---settings) section explains these properties.
 
 Here's the JavaScript code:
 
@@ -146,21 +150,35 @@ For [precompiled C#](functions-dotnet-class-library.md) functions, use the follo
       [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageSmall)
   ```
 
+  You can set the `Connection` property to specify the storage account to use, as shown in the following example:
+
+   ```csharp
+  [FunctionName("ResizeImage")]
+  public static void Run(
+      [BlobTrigger("sample-images/{name}", Connection = "StorageConnectionAppSetting")] Stream image, 
+      [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageSmall)
+  ```
+
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), defined in NuGet package [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
 
-  Enables you to specify a different storage account than the function app's default storage account. This attribute can be applied at the parameter, method, or class level. Parameter level overrides method and class level, and method level overrides class level. Here's an example:
+  Provides another way to specify the storage account to use. The constructor takes the name of an app setting that contains a storage connection string. The attribute can be applied at the parameter, method, or class level. The following example shows class level and method level:
 
   ```csharp
-  [StorageAccount("BlobFunctionsStorage")]
-  public static class BlobFunctions
+  [StorageAccount("ClassLevelStorageAppSetting")]
+  public static class AzureFunctions
   {
-      [FunctionName("ResizeImage")]
-      [StorageAccount("ResizeImageStorage")]
-      public static void Run(
-          [BlobTrigger("sample-images/{name}")] Stream image, 
-          [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageSmall,
-          TraceWriter log)
+      [FunctionName("BlobTrigger")]
+      [StorageAccount("FunctionLevelStorageAppSetting")]
+      public static void Run( //...
   ```
+
+The storage account to use is determined in the following order:
+
+* The `BlobTrigger` attribute's `Connection` property.
+* The `StorageAccount` attribute applied to the same parameter as `QueueTrigger`.
+* The `StorageAccount` attribute applied to the function.
+* The `StorageAccount` attribute applied to the class.
+* The default storage account for the function app ("AzureWebJobsStorage" app setting).
 
 ## Trigger - settings
 
@@ -339,7 +357,7 @@ In the *function.json* file, the `queueTrigger` metadata property is used to spe
   "bindings": [
     {
       "queueName": "myqueue-items",
-      "connection": "MyStorageConnection",
+      "connection": "MyStorageConnectionAppSetting",
       "name": "myQueueItem",
       "type": "queueTrigger",
       "direction": "in"
@@ -348,20 +366,22 @@ In the *function.json* file, the `queueTrigger` metadata property is used to spe
       "name": "myInputBlob",
       "type": "blob",
       "path": "samples-workitems/{queueTrigger}",
-      "connection": "MyStorageConnection",
+      "connection": "MyStorageConnectionAppSetting",
       "direction": "in"
     },
     {
       "name": "myOutputBlob",
       "type": "blob",
       "path": "samples-workitems/{queueTrigger}-Copy",
-      "connection": "MyStorageConnection",
+      "connection": "MyStorageConnectionAppSetting",
       "direction": "out"
     }
   ],
   "disabled": false
 }
 ``` 
+
+The [settings](#input--output---settings) section explains these properties.
 
 Here's the C# script code:
 
@@ -384,7 +404,7 @@ In the *function.json* file, the `queueTrigger` metadata property is used to spe
   "bindings": [
     {
       "queueName": "myqueue-items",
-      "connection": "MyStorageConnection",
+      "connection": "MyStorageConnectionAppSetting",
       "name": "myQueueItem",
       "type": "queueTrigger",
       "direction": "in"
@@ -393,20 +413,22 @@ In the *function.json* file, the `queueTrigger` metadata property is used to spe
       "name": "myInputBlob",
       "type": "blob",
       "path": "samples-workitems/{queueTrigger}",
-      "connection": "MyStorageConnection",
+      "connection": "MyStorageConnectionAppSetting",
       "direction": "in"
     },
     {
       "name": "myOutputBlob",
       "type": "blob",
       "path": "samples-workitems/{queueTrigger}-Copy",
-      "connection": "MyStorageConnection",
+      "connection": "MyStorageConnectionAppSetting",
       "direction": "out"
     }
   ],
   "disabled": false
 }
 ``` 
+
+The [settings](#input--output---settings) section explains these properties.
 
 Here's the JavaScript code:
 
@@ -420,34 +442,27 @@ module.exports = function(context) {
 
 ## Input & output - .NET attributes
 
-For [precompiled C#](functions-dotnet-class-library.md) functions, use the following attributes:
+For [precompiled C#](functions-dotnet-class-library.md) functions, use the [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs), which is defined in NuGet package [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
-* [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs), defined in NuGet package [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
+The attribute's constructor takes the path to the blob and a `FileAccess` parameter indicating read or write, as shown in the following example:
 
-  The attribute's constructor takes the path to the blob and a `FileAccess` parameter indicating read or write, as shown in the following example:
+```csharp
+[FunctionName("ResizeImage")]
+public static void Run(
+    [BlobTrigger("sample-images/{name}")] Stream image, 
+    [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageSmall)
+```
 
-  ```csharp
-  [FunctionName("ResizeImage")]
-  public static void Run(
-      [BlobTrigger("sample-images/{name}")] Stream image, 
-      [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageSmall)
-  ```
+You can set the `Connection` property to specify the storage account to use, as shown in the following example:
 
-* [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), defined in NuGet package [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
+```csharp
+[FunctionName("ResizeImage")]
+public static void Run(
+    [BlobTrigger("sample-images/{name}")] Stream image, 
+    [Blob("sample-images-md/{name}", FileAccess.Write, Connection = "StorageConnectionAppSetting")] Stream imageSmall)
+```
 
-  Enables you to specify a different storage account than the function app's default storage account. This attribute can be applied at the parameter, method, or class level. Parameter level overrides method and class level, and method level overrides class level. Here's an example:
-
-  ```csharp
-  [StorageAccount("BlobFunctionsStorage")]
-  public static class BlobFunctions
-  {
-    [FunctionName("ResizeImage")]
-    [StorageAccount("ResizeImageStorage")]
-    public static void Run(
-        [BlobTrigger("sample-images/{name}")] Stream image, 
-        [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageSmall,
-        TraceWriter log)
-  ```
+For information about other ways to specify the storage account to use, see [Trigger - .NET attributes](#trigger---net-attributes).
 
 ## Input & output - settings
 

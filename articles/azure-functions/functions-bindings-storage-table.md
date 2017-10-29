@@ -35,6 +35,7 @@ See the language-specific example:
 * [Precompiled C# read multiple entities](#input---c-example-2)
 * [C# script - read one entity](#input---c-script-example-1)
 * [C# script - read multiple entities](#input---c-script-example-2)
+* [F#](#input---f-example-2)
 * [JavaScript](#input---javascript-example)
 
 ### Input - C# example 1
@@ -101,7 +102,7 @@ The *function.json* file specifies a `partitionKey` and a `rowKey`. The `rowKey`
   "bindings": [
     {
       "queueName": "myqueue-items",
-      "connection": "MyStorageConnection",
+      "connection": "MyStorageConnectionAppSetting",
       "name": "myQueueItem",
       "type": "queueTrigger",
       "direction": "in"
@@ -112,13 +113,15 @@ The *function.json* file specifies a `partitionKey` and a `rowKey`. The `rowKey`
       "tableName": "Person",
       "partitionKey": "Test",
       "rowKey": "{queueTrigger}",
-      "connection": "MyStorageConnection",
+      "connection": "MyStorageConnectionAppSetting",
       "direction": "in"
     }
   ],
   "disabled": false
 }
 ```
+
+The [settings](#input---settings) section explains these properties.
 
 Here's the C# script code:
 
@@ -148,7 +151,7 @@ Here's the *function.json* file:
   "bindings": [
     {
       "queueName": "myqueue-items",
-      "connection": "MyStorageConnection",
+      "connection": "MyStorageConnectionAppSetting",
       "name": "myQueueItem",
       "type": "queueTrigger",
       "direction": "in"
@@ -156,7 +159,7 @@ Here's the *function.json* file:
     {
       "name": "tableBinding",
       "type": "table",
-      "connection": "MyStorageConnection",
+      "connection": "MyStorageConnectionAppSetting",
       "tableName": "Person",
       "direction": "in"
     }
@@ -164,6 +167,8 @@ Here's the *function.json* file:
   "disabled": false
 }
 ```
+
+The [settings](#input---settings) section explains these properties.
 
 The C# script code adds a reference to the Azure Storage SDK so that the entity type can derive from `TableEntity`:
 
@@ -197,7 +202,7 @@ The *function.json* file specifies a `partitionKey` and a `rowKey`. The `rowKey`
   "bindings": [
     {
       "queueName": "myqueue-items",
-      "connection": "MyStorageConnection",
+      "connection": "MyStorageConnectionAppSetting",
       "name": "myQueueItem",
       "type": "queueTrigger",
       "direction": "in"
@@ -208,13 +213,15 @@ The *function.json* file specifies a `partitionKey` and a `rowKey`. The `rowKey`
       "tableName": "Person",
       "partitionKey": "Test",
       "rowKey": "{queueTrigger}",
-      "connection": "MyStorageConnection",
+      "connection": "MyStorageConnectionAppSetting",
       "direction": "in"
     }
   ],
   "disabled": false
 }
 ```
+
+The [settings](#input---settings) section explains these properties.
 
 Here's the F# code:
 
@@ -242,7 +249,7 @@ The *function.json* file specifies a `partitionKey` and a `rowKey`. The `rowKey`
   "bindings": [
     {
       "queueName": "myqueue-items",
-      "connection": "MyStorageConnection",
+      "connection": "MyStorageConnectionAppSetting",
       "name": "myQueueItem",
       "type": "queueTrigger",
       "direction": "in"
@@ -253,13 +260,15 @@ The *function.json* file specifies a `partitionKey` and a `rowKey`. The `rowKey`
       "tableName": "Person",
       "partitionKey": "Test",
       "rowKey": "{queueTrigger}",
-      "connection": "MyStorageConnection",
+      "connection": "MyStorageConnectionAppSetting",
       "direction": "in"
     }
   ],
   "disabled": false
 }
 ```
+
+The [settings](#input---settings) section explains these properties.
 
 Here's the JavaScript code:
 
@@ -287,21 +296,36 @@ For [precompiled C#](functions-dotnet-class-library.md) functions, use the follo
       TraceWriter log)
   ```
 
-* [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)  in package [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
-
-  Enables you to specify a different storage account than the function app's default storage account. This attribute can be applied at the parameter, method, or class level. Parameter level overrides method and class level, and method level overrides class level. Here's an example:
+  You can set the `Connection` property to specify the storage account to use, as shown in the following example:
 
   ```csharp
-  [StorageAccount("TableFunctionsStorage")]
-  public static class TableFunctions
-  {
-    [FunctionName("TableInput")]
-    [StorageAccount("TableInputStorage")]
-    public static void TableInput([
-        QueueTrigger("table-items")] string input, 
-        [Table("MyTable", "Http", "{queueTrigger}")] MyPoco poco,
-        TraceWriter log)
+  [FunctionName("TableInput")]
+  public static void TableInput(
+      [QueueTrigger("table-items")] string input, 
+      [Table("MyTable", "Http", "{queueTrigger}", Connection = "StorageConnectionAppSetting")] MyPoco poco, 
+      TraceWriter log)
   ```
+
+* [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), defined in NuGet package [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
+
+  Provides another way to specify the storage account to use. The constructor takes the name of an app setting that contains a storage connection string. The attribute can be applied at the parameter, method, or class level. The following example shows class level and method level:
+
+  ```csharp
+  [StorageAccount("ClassLevelStorageAppSetting")]
+  public static class AzureFunctions
+  {
+      [FunctionName("QueueTrigger")]
+      [StorageAccount("FunctionLevelStorageAppSetting")]
+      public static void Run( //...
+  ```
+
+The storage account to use is determined in the following order:
+
+* The `Table` attribute's `Connection` property.
+* The `StorageAccount` attribute applied to the same parameter as `QueueTrigger`.
+* The `StorageAccount` attribute applied to the function.
+* The `StorageAccount` attribute applied to the class.
+* The default storage account for the function app ("AzureWebJobsStorage" app setting).
 
 ## Input - settings
 
@@ -348,8 +372,7 @@ Use an Azure Table storage output binding to write entities to a table in an Azu
 
 ## Output - example
 
-See the language-specific example that creates table entities.
-
+See the language-specific example:
 
 * [Precompiled C#](#output---c-example)
 * [C# script](#output---c-script-example)
@@ -396,7 +419,7 @@ Here's the *function.json* file:
     },
     {
       "tableName": "Person",
-      "connection": "MyStorageConnection",
+      "connection": "MyStorageConnectionAppSetting",
       "name": "tableBinding",
       "type": "table",
       "direction": "out"
@@ -405,6 +428,8 @@ Here's the *function.json* file:
   "disabled": false
 }
 ```
+
+The [settings](#output---settings) section explains these properties.
 
 Here's the C# script code:
 
@@ -449,7 +474,7 @@ Here's the *function.json* file:
     },
     {
       "tableName": "Person",
-      "connection": "MyStorageConnection",
+      "connection": "MyStorageConnectionAppSetting",
       "name": "tableBinding",
       "type": "table",
       "direction": "out"
@@ -458,6 +483,8 @@ Here's the *function.json* file:
   "disabled": false
 }
 ```
+
+The [settings](#output---settings) section explains these properties.
 
 Here's the F# code:
 
@@ -494,7 +521,7 @@ Here's the *function.json* file:
     },
     {
       "tableName": "Person",
-      "connection": "MyStorageConnection",
+      "connection": "MyStorageConnectionAppSetting",
       "name": "tableBinding",
       "type": "table",
       "direction": "out"
@@ -503,6 +530,8 @@ Here's the *function.json* file:
   "disabled": false
 }
 ```
+
+The [settings](#output---settings) section explains these properties.
 
 Here's the JavaScript code:
 
@@ -525,34 +554,29 @@ module.exports = function (context) {
 
 ## Output - .NET attributes
 
- For [precompiled C#](functions-dotnet-class-library.md) functions, use the following attributes to configure a table output binding:
+ For [precompiled C#](functions-dotnet-class-library.md) functions, use the [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), which is defined in NuGet package [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
-* [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), which is defined in NuGet package [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
+The attribute's constructor takes the table name. It can be used on an `out` parameter or on the return value of the function, as shown in the following example:
 
-  The attribute's constructor takes the table name. It can be used on an `out` parameter or on the return value of the function, as shown in the following example:
+```csharp
+[FunctionName("TableOutput")]
+[return: Table("MyTable")]
+public static MyPoco TableOutput(
+    [HttpTrigger] dynamic input, 
+    TraceWriter log)
+```
 
-  ```csharp
-  [FunctionName("TableOutput")]
-  [return: Table("MyTable")]
-  public static MyPoco TableOutput(
-      [HttpTrigger] dynamic input, 
-      TraceWriter log)
-  ```
+You can set the `Connection` property to specify the storage account to use, as shown in the following example:
 
-* [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), which is defined in NuGet package [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
+```csharp
+[FunctionName("TableOutput")]
+[return: Table("MyTable", Connection = "StorageConnectionAppSetting")]
+public static MyPoco TableOutput(
+    [HttpTrigger] dynamic input, 
+    TraceWriter log)
+```
 
-  Enables you to specify a different storage account than the function app's default storage account. This attribute can be applied at the parameter, method, or class level. Parameter level overrides method and class level, and method level overrides class level. Here's an example:
-
-  ```csharp
-  [StorageAccount("TableFunctionsStorage")]
-  public static class TableFunctions
-  {
-    [FunctionName("TableOutput")]
-    [StorageAccount("TableOutputStorage")]
-    [return: Table("MyTable")]
-    public static MyPoco TableOutput([HttpTrigger] dynamic input, TraceWriter log)
-  }
-  ```
+For information about other ways to specify the storage account to use, see [Input - .NET attributes](#input---net-attributes).
 
 ## Output - settings
 
