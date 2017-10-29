@@ -152,7 +152,7 @@ Verify that the fully qualified domain name of the public IP address corresponds
 
 ![Virtual machine scale set Terraform fully qualified domain name for Public IP address](./media/terraform-create-vm-scaleset-network-disks-using-packer-hcl/tf-create-vmss-step4-fqdn.png)
 
-The resource group contains the following resources.
+The resource group contains the following resources:
 
 ![Virtual machine scale set Terraform network resources](./media/terraform-create-vm-scaleset-network-disks-using-packer-hcl/tf-create-vmss-step4-rg.png)
 
@@ -318,7 +318,7 @@ Run the following command to visualize the virtual machine scale set deployment:
 terraform plan
 ```
 
-The output of the command looks like the following image.
+The output of the command looks like the following image:
 
 ![Terraform add virtual machine scale set plan](./media/terraform-create-vm-scaleset-network-disks-using-packer-hcl/tf-create-vmss-step6-plan.png)
 
@@ -328,7 +328,7 @@ Deploy the additional resources in Azure:
 terraform apply 
 ```
 
-The content of the resource group looks like the following image.
+The content of the resource group looks like the following image:
 
 ![Terraform virtual machine scale set resource group](./media/terraform-create-vm-scaleset-network-disks-using-packer-hcl/tf-create-vmss-step6-apply.png)
 
@@ -433,7 +433,7 @@ Deploy the jumpbox.
 terraform apply 
 ```
 
-Once the deployment has completed, the content of the resource group looks like the following image.
+Once the deployment has completed, the content of the resource group looks like the following image:
 
 ![Terraform virtual machine scale set resource group](./media/terraform-create-vm-scaleset-network-disks-using-packer-hcl/tf-create-create-vmss-step8.png)
 
