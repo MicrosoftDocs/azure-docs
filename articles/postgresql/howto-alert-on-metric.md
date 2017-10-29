@@ -54,7 +54,7 @@ You can configure and get information about alert rules using:
    | Threshold | Threshold value for the metric, for example 85 (percent). |
    | Period | The period of time that the metric rule must be satisfied before the alert triggers. For example, **Over the last 30 minutes**. |
 
-   Based on the example, the alert looks for Storage percentage above 85% over a 30-minute period. That alert triggers when the average Storage percentage has been above 85% for 30 minutes. Once the first trigger occurs, it triggers again when the average Storage percentage is below 85% over 30 minutes.
+   Based on the example, the alert looks for Storage percentage above 85% over a 30-minute period. That alert triggers when the average Storage percentage has been above 85% for 30 minutes. Once the first trigger occurs, it triggers again when the average Storage percentage is above 85% over 30 minutes.
 
 5. Choose the notification method you want for the alert rule. 
 
