@@ -545,7 +545,7 @@ The `IFormatter` interface serializes and de-serializes an object graph with the
 
 As a regular C# type, a U-SQL UDT definition can include overrides for operators such as +/==/!=. It can also include static methods. For example, if we are going to use this UDT as a parameter to a U-SQL MIN aggregate function, we have to define < operator override.
 
-Earlier in this guide, we demonstrated an example for fiscal period identification from the specific date in the format Qn:Pn (Q1:P10). The following example shows how to define a custom type for fiscal period values.
+Earlier in this guide, we demonstrated an example for fiscal period identification from the specific date in the format `Qn:Pn (Q1:P10)`. The following example shows how to define a custom type for fiscal period values.
 
 Following is an example of a code-behind section with custom UDT and IFormatter interface:
 
@@ -648,9 +648,9 @@ var result = new FiscalPeriod(binaryReader.ReadInt16(), binaryReader.ReadInt16()
 }
 ```
 
-The defined type includes two numbers: quarter and month. Operators ==/!=/>/< and static method ToString() are defined here.
+The defined type includes two numbers: quarter and month. Operators `==/!=/>/<` and static method `ToString()` are defined here.
 
-As mentioned earlier, UDT can be used in SELECT expressions, but cannot be used in OUTPUTTER/EXTRACTOR without custom serialization. It either has to be serialized as a string with ToString() or used with a custom OUTPUTTER/EXTRACTOR.
+As mentioned earlier, UDT can be used in SELECT expressions, but cannot be used in OUTPUTTER/EXTRACTOR without custom serialization. It either has to be serialized as a string with `ToString()` or used with a custom OUTPUTTER/EXTRACTOR.
 
 Now let’s discuss usage of UDT. In a code-behind section, we changed our GetFiscalPeriod function to the following:
 
