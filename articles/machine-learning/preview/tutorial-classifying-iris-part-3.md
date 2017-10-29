@@ -117,6 +117,9 @@ To deploy the web service, along with the model file, you also need a scoring sc
 
 Now you are ready to prepare your environment to operationalize the model.
 
+>[!NOTE]
+>Deploying models requires you to have owner access to an Azure subscription.
+
 ## Prepare to operationalize locally
 Use _local mode_ deployment to run in Docker containers on your local computer.
 

@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/11/2017
+ms.date: 10/26/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 
@@ -48,6 +48,10 @@ ms.custom: H1Hack27Feb2017
 </table></br>
 
 ## Release notes
+
+### <a name="1.18.0"/>1.18.0 
+
+* Added several reliability fixes and improvements.
 
 ### <a name="1.17.0"/>1.17.0 
 
@@ -254,6 +258,7 @@ Any requests to Azure Cosmos DB using a retired SDK are rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.18.0](#1.18.0) |October 17, 2017 |--- |
 | [1.17.0](#1.17.0) |August 10, 2017 |--- |
 | [1.16.1](#1.16.1) |August 07, 2017 |--- |
 | [1.16.0](#1.16.0) |August 02, 2017 |--- |

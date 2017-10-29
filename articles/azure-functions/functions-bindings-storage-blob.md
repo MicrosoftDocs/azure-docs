@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/25/2017f
+ms.date: 10/27/2017
 ms.author: glenga
 ---
 
