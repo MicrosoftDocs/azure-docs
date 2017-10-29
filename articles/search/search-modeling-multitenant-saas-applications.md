@@ -41,7 +41,7 @@ There are a few different [pricing tiers](https://azure.microsoft.com/pricing/de
 |  | Basic | Standard1 | Standard2 | Standard3 | Standard3 HD |
 | --- | --- | --- | --- | --- | --- |
 | Maximum Replicas per Service |3 |12 |12 |12 |12 |
-| Maximum Partitions per Service |1 |12 |12 |12 |1 |
+| Maximum Partitions per Service |1 |12 |12 |12 |3 |
 | Maximum Search Units (Replicas*Partitions) per Service |3 |36 |36 |36 |36 (max 3 partitions) |
 | Maximum Documents per Service |1 million |180 million |720 million |1.4 billion |600 million |
 | Maximum Storage per Service |2 GB |300 GB |1.2 TB |2.4 TB |600 GB |
