@@ -79,18 +79,17 @@ In this section, you will create two Ranger policies for accessing hivesampletab
 ## Create Hive ODBC data source
 The instructions can be found in [Create Hive ODBC data source](hdinsight-connect-excel-hive-odbc-driver.md).  
 
-    Property|Description
-    ---|---
-    Data Source Name|Give a name to your data source
-    Host|Enter &lt;HDInsightClusterName>.azurehdinsight.net. For example, myHDICluster.azurehdinsight.net
-    Port|Use <strong>443</strong>. (This port has been changed from 563 to 443.)
-    Database|Use <strong>Default</strong>.
-    Hive Server Type|Select <strong>Hive Server 2</strong>
-    Mechanism|Select <strong>Azure HDInsight Service</strong>
-    HTTP Path|Leave it blank.
-    User Name|Enter hiveuser1@contoso158.onmicrosoft.com. Update the domain name if it is different.
-    Password|Enter the password for hiveuser1.
-    </table>
+ | Property  |Description |
+ | --- | --- |
+ | Data Source Name | Give a name to your data source |
+ | Host | Enter &lt;HDInsightClusterName>.azurehdinsight.net. For example, myHDICluster.azurehdinsight.net |
+ | Port | Use **443**. (This port has been changed from 563 to 443.) |
+ | Database | Use **Default**. |
+ | Hive Server Type | Select **Hive Server 2** |
+ | Mechanism | Select **Azure HDInsight Service** |
+ | HTTP Path | Leave it blank. |
+ | User Name | Enter hiveuser1@contoso158.onmicrosoft.com. Update the domain name if it is different. |
+ | Password | Enter the password for hiveuser1. |
 
 Make sure to click **Test** before saving the data source.
 

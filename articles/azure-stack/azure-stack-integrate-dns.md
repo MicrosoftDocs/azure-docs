@@ -136,4 +136,4 @@ Most DNS registrars require you to provide a minimum of two DNS servers to compl
 
 ## Next steps
 
-[Azure Stack datacenter integration - publish endpoints](azure-stack-integrate-endpoints.md)
+[Azure Stack datacenter integration - Identity](azure-stack-integrate-identity.md)
