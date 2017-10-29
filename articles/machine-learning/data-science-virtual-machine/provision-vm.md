@@ -19,21 +19,20 @@ ms.author: bradsev
 # Provision the Windows Data Science Virtual Machine on Azure
 The Microsoft Data Science Virtual Machine is a Windows Azure virtual machine (VM) image pre-installed and configured with several popular tools that are commonly used for data analytics and machine learning. The tools included are:
 
-* Microsoft ML Server Developer Edition
-* Azure Machine Learning Workbench
+* [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning-services/) Workbench
+* [Microsoft ML Server](https://docs.microsoft.com/machine-learning-server/index) Developer Edition
 * Anaconda Python distribution
 * Jupyter notebook (with R, Python, PySpark kernels)
 * Visual Studio Community Edition
 * Power BI desktop
 * SQL Server 2017 Developer Edition
 * Standalone Spark instance for local development and testing
+* [JuliaPro](https://juliacomputing.com/products/juliapro.html)
 * Machine learning and Data Analytics tools
-  * [Microsoft Cognitive Toolkit](https://github.com/Microsoft/CNTK): A deep learning software toolkit from Microsoft.
-  * [TensorFlow](https://www.tensorflow.org/): An open-source software library for Machine Intelligence and deep learning.
+  * Deep Learning Frameworks: A rich set of AI frameworks including [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/), [TensorFlow](https://www.tensorflow.org/), [Chainer](https://chainer.org/), mxNet, Keras are included on the VM.
   * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): A fast machine learning system supporting techniques such as online, hashing, allreduce, reductions, learning2search, active, and interactive learning.
   * [XGBoost](https://xgboost.readthedocs.org/en/latest/): A tool providing fast and accurate boosted tree implementation.
   * [Rattle](http://rattle.togaware.com/) (the R Analytical Tool To Learn Easily): A tool that makes getting started with data analytics and machine learning in R easy, with GUI-based data exploration, and modeling with automatic R code generation.
-  * [mxnet](https://github.com/dmlc/mxnet): a deep learning framework designed for both efficiency and flexibility
   * [Weka](http://www.cs.waikato.ac.nz/ml/weka/) : A visual data mining and machine learning software in Java.
   * [Apache Drill](https://drill.apache.org/): A schema-free SQL Query Engine for Hadoop, NoSQL and Cloud Storage.  Supports ODBC and JDBC interfaces to enable querying NoSQL and files from standard BI tools like PowerBI, Excel, Tableau.
 * Libraries in R and Python for use in Azure Machine Learning and other Azure services
@@ -50,10 +49,10 @@ Data scientists use a variety of tools to complete these tasks. It can be quite 
 
 The Microsoft Data Science Virtual Machine jump-starts your analytics project. It enables you to work on tasks in various languages including R, Python, SQL, and C#. Visual Studio provides an IDE to develop and test your code that is easy to use. The Azure SDK included in the VM allows you to build your applications using various services on Microsoft’s cloud platform. 
 
-There are no software charges for this data science VM image. You only pay for the Azure usage fees which dependent on the size of the virtual machine you provision. More details on the compute fees can be found in the Pricing details section on the [Data Science Virtual Machine](https://azure.microsoft.com/marketplace/partners/microsoft-ads/standard-data-science-vm/) page. 
+There are no software charges for this data science VM image. You only pay for the Azure usage fees which dependent on the size of the virtual machine you provision. More details on the compute fees can be found in the Pricing details section on the [Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.windows-data-science-vm?tab=PlansAndPrice) page. 
 
 ## Other Versions of the Data Science Virtual Machine
-A [CentOS](linux-dsvm-intro.md) image is also available, with many of the same tools as the Windows image. An [Ubuntu](dsvm-ubuntu-intro.md) image is available as well, with many similar tools plus deep learning frameworks.
+An [Ubuntu](dsvm-ubuntu-intro.md) image is available as well, with many similar tools plus a few additional deep learning frameworks. A [CentOS](linux-dsvm-intro.md) image is also available. We also offer a [Windows Server 2012 edition](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.standard-data-science-vm) of the data science virtual machine though a few tools are only available on the Windows Server 2016 edition.  Otherwise, this article also applies to the Windows Server 2012 edition.
 
 ## Prerequisites
 Before you can create a Microsoft Data Science Virtual Machine, you must have the following:
@@ -66,24 +65,23 @@ Here are the steps to create an instance of the Microsoft Data Science Virtual M
 
 1. Navigate to the virtual machine listing on [Azure portal](https://portal.azure.com/#create/microsoft-ads.windows-data-science-vmwindows2016).
 2. Select the **Create** button at the bottom to be taken into a wizard.![configure-data-science-vm](./media/provision-vm/configure-data-science-virtual-machine.png)
-3. The wizard used to create the Microsoft Data Science Virtual Machine requires **inputs** for each of the **five steps** enumerated on the right of this figure. Here are the inputs needed to configure each of these steps:
+3. The wizard used to create the Microsoft Data Science Virtual Machine requires **inputs** for each of the **four steps** enumerated on the right of this figure. Here are the inputs needed to configure each of these steps:
    
    1. **Basics**
       
       1. **Name**: Name of your data science server you are creating.
-      2. **User Name**: Admin account login id.
-      3. **Password**: Admin account password.
-      4. **Subscription**: If you have more than one subscription, select the one on which the machine is to be created and billed.
-      5. **Resource Group**: You can create a new one or use an existing group.
-      6. **Location**: Select the data center that is most appropriate. Usually it is the data center that has most of your data or is closest to your physical location for fastest network access.
+      2. **VM Disk Type**: Choose between SSD or HDD. For GPU (NC-Series), choose **HDD** as the disk type. 
+      3. **User Name**: Admin account login id.
+      4. **Password**: Admin account password.
+      5. **Subscription**: If you have more than one subscription, select the one on which the machine is to be created and billed.
+      6. **Resource Group**: You can create a new one or use an existing group.
+      7. **Location**: Select the data center that is most appropriate. Usually it is the data center that has most of your data or is closest to your physical location for fastest network access.
    2. **Size**: Select one of the server types that meets your functional requirement and cost constraints. You can get more choices of VM sizes by selecting “View All”.
    3. **Settings**:
       
-      1. **Disk Type**: Choose Premium if you prefer a solid-state drive (SSD), else choose “Standard”.
-      2. **Storage Account**: You can create a new Azure storage account in your subscription or use an existing one in the same *Location* that was chosen on the **Basics** step of the wizard.
-      3. **Other parameters**: Usually you just use the default values. You can hover over the informational link for help on the specific fields in case you want to consider the use of non-default values.
-   4. **Summary**: Verify that all information you entered is correct.
-   5. **Buy**: Click **Buy** to start the provisioning. A link is provided to the terms of the transaction. The VM does not have any additional charges beyond the compute for the server size you chose in the **Size** step. 
+      1. **Use Managed Disks**: Choose Managed if you want Azure to manage the disks for the VM.  Otherwise you need to specify a new or exitsting storage account. 
+      2. **Other parameters**: Usually you just use the default values. You can hover over the informational link for help on the specific fields in case you want to consider the use of non-default values.
+   4. **Summary**: Verify that all information you entered is correct and click **Create**. **NOTE**: The VM does not have any additional charges beyond the compute for the server size you chose in the **Size** step. 
 
 > [!NOTE]
 > The provisioning should take about 10-20 minutes. The status of the provisioning is displayed on the Azure portal.
@@ -116,14 +114,14 @@ For development using Python, Anaconda Python distribution 2.7 and 3.5 has been 
 Anaconda Python 2.7 is installed under C:\Anaconda and Anaconda Python 3.5 is installed under c:\Anaconda\envs\py35. See [PTVS documentation](https://github.com/Microsoft/PTVS/wiki/Selecting-and-Installing-Python-Interpreters#hey-i-already-have-an-interpreter-on-my-machine-but-ptvs-doesnt-seem-to-know-about-it) for detailed steps. 
 
 ### Jupyter Notebook
-Anaconda distribution also comes with a Jupyter notebook, an environment to share code and analysis. A Jupyter notebook server has been pre-configured with Python 2.7, Python 3.4, Python 3.5, and R kernels. There is a desktop icon named "Jupyter Notebook to launch the browser to access the Notebook server. If you are on the VM via remote desktop, you can also visit [https://localhost:9999/](https://localhost:9999/) to access the Jupyter notebook server when logged in to the VM.
+Anaconda distribution also comes with a Jupyter notebook, an environment to share code and analysis. A Jupyter notebook server has been pre-configured with Python 2.7, Python 3.5, PySpark, Julia and R kernels. There is a desktop icon named "Jupyter Notebook" to start the Jupyter server and launch the browser to access the Notebook server. 
 
 > [!NOTE]
 > Continue if you get any certificate warnings. 
 > 
 > 
 
-We have packaged several sample notebooks in Python and in R. The Jupyter notebooks show how to work with Microsoft R Server, SQL Server 2016 R Services (In-database analytics), Python, Microsoft Cognitive ToolKit for deep learning and other Azure technologies once you log in to Jupyter. You can see the link to the samples on the notebook home page after you authenticate to the Jupyter notebook using the password you created in an earlier step. 
+We have packaged several sample notebooks in Python and in R. The Jupyter notebooks show how to work with Microsoft ML Server, SQL Server ML Services (In-database analytics), Python, Microsoft Cognitive ToolKit, Tensorflow and other Azure technologies once you access Jupyter. You can see the link to the samples on the notebook home page after you authenticate to the Jupyter notebook using the password you created in an earlier step. 
 
 ### Visual Studio 2017 Community edition
 Visual Studio Community edition installed on the VM. It is a free version of the popular IDE from Microsoft that you can use for evaluation purposes and for small teams. You can check out the licensing terms [here](https://www.visualstudio.com/support/legal/mt171547).  Open Visual Studio by double-clicking the desktop icon or the **Start** menu. You can also search for programs with **Win** + **S** and entering “Visual Studio”. Once there you can create projects in languages like C#, Python, R, node.js. Plugins are also installed that make it convenient to work with Azure services like Azure Data Catalog, Azure HDInsight (Hadoop, Spark), and Azure Data Lake. 
@@ -134,7 +132,7 @@ Visual Studio Community edition installed on the VM. It is a free version of the
 > 
 
 ### SQL Server 2017 Developer edition
-A developer version of SQL Server 2016 with ML Services to run in-database analytics is provided on the VM in either R or Python. ML Services provide a platform for developing and deploying intelligent applications. You can use the rich and powerful these languages and the many packages from the community to create models and generate predictions for your SQL Server data. You can keep analytics close to the data because ML Services (In-database) integrates both the R and Python language within the SQL Server. This eliminates the costs and security risks associated with data movement.
+A developer version of SQL Server 2017 with ML Services to run in-database analytics is provided on the VM in either R or Python. ML Services provide a platform for developing and deploying intelligent applications. You can use the rich and powerful these languages and the many packages from the community to create models and generate predictions for your SQL Server data. You can keep analytics close to the data because ML Services (In-database) integrates both the R and Python language within the SQL Server. This eliminates the costs and security risks associated with data movement.
 
 > [!NOTE]
 > The SQL Server developer edition can only be used for development and test purposes. You need a license to run it in production. 
