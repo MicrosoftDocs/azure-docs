@@ -17,7 +17,7 @@ ms.date: 09/12/2017
 # Sample of custom column transforms (Python) 
 The name of this transform in the menu is **Add Column (Script)**.
 
-Before reading this appendix, read [Python extensibility overview](data-prep-python-extensibility-overview.md).
+Before you read this appendix, read [Python extensibility overview](data-prep-python-extensibility-overview.md).
 
 ## Test equivalence and replace values 
 If the value in Col1 is less than 4, then the new column should have a value of 1. If the value in Col1 is more than 4, the new column has the value 2. 

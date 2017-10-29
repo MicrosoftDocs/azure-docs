@@ -1,4 +1,4 @@
-    ---
+---
 title: Example transform data flow transformations possible with Azure Machine Learning Data Preparation  | Microsoft Docs
 description: This document provides a set of examples of transform data flow transforms possible with Azure Machine Learning data preparation
 services: machine-learning
