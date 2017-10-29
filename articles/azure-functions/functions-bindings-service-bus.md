@@ -226,7 +226,7 @@ See the language-specific example:
 * [F#](#output---f-example)
 * [JavaScript](#output---javascript-example)
 
-### Trigger - C# example
+### Output - C# example
 
 The following example shows a [precompiled C# function](functions-dotnet-class-library.md) that sends a Service Bus queue message:
 
@@ -379,7 +379,7 @@ module.exports = function (context, myTimer) {
     context.done();
 };
 ```
-## Trigger - settings
+## Output - settings
 
 The following settings appear only in the *function.json* file:
 
