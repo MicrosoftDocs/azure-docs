@@ -32,7 +32,7 @@ The Hybrid Connections feature consists of two outbound calls to Service Bus Rel
 
 Through the two joined connections, your app has a TCP tunnel to a fixed host:port combination on the other side of the HCM.  The connection uses TLS 1.2 for security and SAS keys for authentication/authorization.    
 
-![][1]
+![Hybrid connection high level flow][1]
 
 When your app makes a DNS request that matches a configured Hybrid Connection endpoint, the outbound TCP traffic will be redirected through the Hybrid Connection.  
 
@@ -69,11 +69,11 @@ There are a few things you cannot do with Hybrid Connections, including:
 
 Hybrid Connections can be created through your App Service app in the Azure portal or from Azure Relay in the Azure portal.  It is highly recommended that you create Hybrid Connections through the App Service app that you wish to use with the Hybrid Connection.  To create a Hybrid Connection, go to the [Azure portal][portal] and select your app.  Select **Networking > Configure your Hybrid Connection endpoints**.  From here you can see the Hybrid Connections that are configured for your app.  
 
-![][2]
+![Hybrid connection list][2]
 
 To add a new Hybrid Connection, click Add Hybrid Connection.  The UI that opens up lists the Hybrid Connections that you have already created.  To add one or more of them to your app, click on the ones you want and hit **Add selected Hybrid Connection**.  
 
-![][3]
+![Hybrid connection portal][3]
 
 If you want to create a new Hybrid Connection, click **Create new Hybrid Connection**.  From here, you specify the: 
 
@@ -82,7 +82,7 @@ If you want to create a new Hybrid Connection, click **Create new Hybrid Connect
 - Endpoint port
 - Service Bus namespace you wish to use
 
-![][4]
+![Create a hybrid connection][4]
 
 Every Hybrid Connection is tied to a Service Bus namespace, and each Service Bus namespace is in an Azure region.  It is important to try and use a Service Bus namespace in the same region as your app so as to avoid network induced latency.
 
@@ -90,14 +90,14 @@ If you want to remove your Hybrid Connection from your app, right click on it an
 
 Once a Hybrid Connection is added to your app, you can see details on it by simply clicking on it. 
 
-###Creating a Hybrid Connection in the Azure Relay portal###
+![Hybrid Connection details][5]
+
+### Creating a Hybrid Connection in the Azure Relay portal ###
 
 In addition to the portal experience from within your app, there is also an ability to create Hybrid Connections from within the Azure Relay portal. In order for a Hybrid Connection to be used by the Azure App Service it must satisfy two criteria. It must:
 
 * Require Client Authorization
 * Have a metadata item named endpoint that contains a host:port combination as the value
-
-![][5]
 
 ## Hybrid Connections and App Service Plans ##
 
@@ -112,11 +112,9 @@ Hybrid Connections are only available in Basic, Standard, Premium, and Isolated 
 
 Since there are App Service Plan restrictions, there is also UI in the App Service Plan that shows you how many Hybrid Connections are being used and by what apps.  
 
-![][6]
+![App Servie plan level properties][6]
 
 You can see details on your Hybrid Connection by clicking on it.  In the properties shown here, you can see all the information you saw at the app view, and you can also see how many other apps in the same App Service Plan are using that Hybrid Connection.
-
-![][7]
 
 While there is a limit on the number of Hybrid Connection endpoints that can be used in an App Service Plan, each Hybrid Connection used can be used across any number of apps in that App Service Plan.  In other words, a single Hybrid Connection that is used in 5 separate apps in an App Service Plan counts as 1 Hybrid Connection.
 
@@ -130,24 +128,26 @@ This tool runs on Windows server 2012 and later versions of Windows.  Once insta
 
 The HCM has a UI to configure it.  After the HCM is installed, you can bring up the UI by running the HybridConnectionManagerUi.exe that sits in the Hybrid Connection Manager installation directory.  It is also easily reached on Windows 10 by typing *Hybrid Connection Manager UI* in your search box.  
 
+![Hybrid Connection portal][7]
+
 When the HCM UI is started, the first thing you see is a table that lists all of the Hybrid Connections that are configured with this instance of the HCM.  If you wish to make any changes, you will need to authenticate with Azure. 
 
 To add one or more Hybrid Connections to your HCM:
 
 1. Start the HCM UI
 1. Click Configure another Hybrid Connection
-![][8]
+![Add an HC in the HCM][8]
 
 1. Sign in with your Azure account
 1. Choose a subscription
 1. Click on the Hybrid Connections you want the HCM to relay
-![][9]
+![Select an HC][9]
 
 1. Click Save
 
 At this point, you will see the Hybrid Connections you added.  You can also click on the configured Hybrid Connection and see details about the it.
 
-![][10]
+![HC details][10]
 
 For your HCM to be able to support the Hybrid Connections it is configured with, it needs:
 
