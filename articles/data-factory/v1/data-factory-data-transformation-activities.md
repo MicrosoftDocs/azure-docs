@@ -30,6 +30,9 @@ robots: noindex
 > * [.NET custom](data-factory-use-custom-activities.md)
 
 ## Overview
+> [!NOTE]
+> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [data transformation activities in Data Factory version 2](../transform-data.md).
+
 This article explains data transformation activities in Azure Data Factory that you can use to transform and processes your raw data into predictions and insights. A transformation activity executes in a computing environment such as Azure HDInsight cluster or an Azure Batch. It provides links to articles with detailed information on each transformation activity.
 
 Data Factory supports the following data transformation activities that can be added to [pipelines](data-factory-create-pipelines.md) either individually or chained with another activity.

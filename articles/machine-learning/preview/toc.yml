@@ -44,7 +44,7 @@
   - name: Configure compute environment
     items: 
     - name: Configure experimentation
-      href: experiment-execution-configuration.md    
+      href: experimentation-service-configuration.md    
     - name: Create DSVM and HDI Spark cluster
       href: how-to-create-dsvm-hdi.md
     - name: Train with GPUs
@@ -147,7 +147,7 @@
   - name: Experimentation    
     items:
     - name: Experimentation Service configuration
-      href: experiment-execution-configuration-reference.md
+      href: experimentation-service-configuration-reference.md
     - name: Logging API
       href: reference-logging-api.md
   - name: Model Management
@@ -175,7 +175,7 @@
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/machine-learning/
+    href: https://azure.microsoft.com/pricing/details/machine-learning-services/
   - name: MSDN forum
     href: https://social.msdn.microsoft.com/Forums/windowsdesktop/home?forum=MachineLearning
   - name: Stack Overflow
