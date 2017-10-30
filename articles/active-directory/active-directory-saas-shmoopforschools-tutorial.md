@@ -73,11 +73,11 @@ To configure the integration of Shmoop For Schools into Azure AD, you need to ad
 
 ## Configure and test Azure AD single sign-on
 
-In this section, you configure and test Azure AD single sign-on with Shmoop For Schools based on a test user called "Britta Simon".
+In this section, you configure and test Azure AD single sign-on with Shmoop For Schools based on a test user called "Britta Simon."
 
 For single sign-on to work, Azure AD needs to know who the counterpart user in Shmoop For Schools is to a user in Azure AD. In other words, you need to establish a link between an Azure AD user and the related user in Shmoop For Schools.
 
-In Shmoop For Schools, assign the value of the **user name** in Azure AD as the value of the **Username**. This establishes the link relationship.
+In Shmoop For Schools, assign the value of the **user name** in Azure AD as the value of the **Username**. Now you have established the link relationship.
 
 To configure and test Azure AD single sign-on with Shmoop For Schools, complete the following building blocks:
 
@@ -112,12 +112,12 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual sign-on URL and identifier. Contact the [Shmoop For Schools Client support team](mailto:support@shmoop.com) to get these values. 
  
-4. The Shmoop For Schools application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on the application integration page. The following screenshot shows an example of how to do this:
+4. The Shmoop For Schools application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on the application integration page. The following screenshot shows how to configuire the assertions:
 
 	![Configure single sign-on](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_attribute.png)
 
 	> [!NOTE]
-	> Shmoop for School supports two roles for users: **Teacher** and **Student**. You need to set up these roles in Azure AD so that users can be assigned the appropriate roles. See  [Roles-based access control in cloud applications using Azure AD](http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/) to understand how to configure roles in Azure AD.
+	> Shmoop for School supports two roles for users: **Teacher** and **Student**. Set up these roles in Azure AD so that users can be assigned the appropriate roles. See  [Roles-based access control in cloud applications using Azure AD](http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/) to understand how to configure roles in Azure AD.
 	
 5. In the **User Attributes** section in the **Single sign-on** dialog box, configure the SAML token attribute as shown in the previous image.  Then take the following steps:
 
@@ -125,7 +125,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| -------------- | --------------- |
 	| role           | user.assignedroles |
 
-	a. To open the **Add Attribute** dialog box, select **Add attribute** .
+	a. To open the **Add Attribute** dialog box, select **Add attribute**.
 	
 	![Configure single sign-on ](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_attribute_04.png)
 	
@@ -166,7 +166,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 8. To configure single sign-on on the **Shmoop For Schools** side, you need to send the **Metadata URL** to the [Shmoop For Schools support team](mailto:support@shmoop.com).
 
 > [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com) while you are setting up the app! After you add this app from the **Active Directory** > **Enterprise Applications** section, simply select the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature at [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985).
+> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com) while you are setting up the app! After you add this app from the **Active Directory** > **Enterprise Applications** section, select the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature at [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985).
 > 
 
 ### Create an Azure AD test user
