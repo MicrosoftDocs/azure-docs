@@ -16,5 +16,5 @@ ms.date: 10/30/2017
 ms.author: vikdesai
 
 ---
-[!INCLUDE [virtual-machines-buy-compute-reservations](../../../includes/virtual-machines-buy-compute-reservations.md)]
+[!INCLUDE [virtual-machines-buy-compute-reservations](../../../includes/virtual-machines-common-buy-compute-reservations.md)]
 
