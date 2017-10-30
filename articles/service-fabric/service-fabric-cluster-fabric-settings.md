@@ -226,7 +226,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |ServiceDescriptionCacheLimit | Int, default is 0 |Static| The maximum number of entries maintained in the LRU service description cache at the Naming Store Service (set to 0 for no limit). |
 |RepairInterval | Time in seconds, default is 5 |Static| Specify timespan in seconds. Interval in which the naming inconsistency repair between the authority owner and name owner will start. |
 |MaxNamingServiceHealthReports | Int, default is 10 |Dynamic|The maximum number of slow operations that Naming store service reports unhealthy at one time. If 0; all slow operations are sent. |
-| MaxMessageSize |Int, default is 4*1024*1024 |Static|The maximum message size for client node communication when using naming. DOS attack alleviation; default value is 4MB. |
+| MaxMessageSize |Int, default is 4\*1024\*1024 |Static|The maximum message size for client node communication when using naming. DOS attack alleviation; default value is 4MB. |
 | MaxFileOperationTimeout |Time in seconds, default is 30 |Dynamic|Specify timespan in seconds. The maximum timeout allowed for file store service operation. Requests specifying a larger timeout will be rejected. |
 | MaxOperationTimeout |Time in seconds, default is 600 |Dynamic|Specify timespan in seconds. The maximum timeout allowed for client operations. Requests specifying a larger timeout will be rejected. |
 | MaxClientConnections |Int, default is 1000 |Dynamic|The maximum allowed number of client connections per gateway. |

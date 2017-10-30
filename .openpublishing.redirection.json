@@ -7116,6 +7116,16 @@
             "redirect_document_id": false
         },
 		{
+            "source_path": "articles/site-recovery/site-recovery-architecture-hyper-v-to-azure.md",
+            "redirect_url": "concepts-hyper-v-to-azure-architecture",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/site-recovery-architecture-to-secondary-site.md",
+            "redirect_url": "concepts-hyper-v-to-secondary-architecture",
+            "redirect_document_id": false
+        },
+		{
             "source_path": "articles/site-recovery/azure-to-azure-walkthrough-architecture.md",
             "redirect_url": "concepts-azure-to-azure-architecture",
             "redirect_document_id": false
