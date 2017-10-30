@@ -30,8 +30,6 @@ To create a virtual network rule, there must first be a [virtual network service
 >
 > *Portal:* When you use the Azure portal to access this feature, the portal supports only the following regions:
 > - WestCentralUS, WestUS2, and EastUS.
->
-> *PowerShell:* When you access this feature by using PowerShell, almost all regions are supported, except EastUs2.
 
 
 #### How to create a virtual network rule
