@@ -72,7 +72,7 @@ To see the restart policy in action, create a container instance from the [micro
 az container create \
     --resource-group myResourceGroup \
     --name mycontainer \
-    --image microsoft/aci-wordcount:v2 \
+    --image microsoft/aci-wordcount:latest \
     --restart-policy OnFailure
 ```
 
@@ -82,7 +82,7 @@ az container create \
 New-AzureRmContainerGroup `
     -ResourceGroupName myResourceGroup `
     -Name mycontainer `
-    -Image microsoft/aci-wordcount:v2 `
+    -Image microsoft/aci-wordcount:latest `
     -RestartPolicy OnFailure
 ```
 
@@ -110,7 +110,7 @@ For example, you can modify the behavior of the script in the example container 
 az container create \
     --resource-group myResourceGroup \
     --name mycontainer \
-    --image microsoft/aci-wordcount:v2 \
+    --image microsoft/aci-wordcount:latest \
     --restart-policy OnFailure \
     --environment-variables NumWords=5 MinLength=8
 ```
@@ -121,7 +121,7 @@ az container create \
 New-AzureRmContainerGroup `
     -ResourceGroupName myResourceGroup `
     -Name mycontainer `
-    -Image microsoft/aci-wordcount:v2 `
+    -Image microsoft/aci-wordcount:latest `
     -RestartPolicy OnFailure `
     -EnvironmentVariable @{"NumWords"="5";"MinLength"="8"}
 ```
@@ -142,7 +142,7 @@ For example, to analyze *Romeo and Juliet*:
 az container create \
     --resource-group myResourceGroup \
     --name mycontainer \
-    --image microsoft/aci-wordcount:v2 \
+    --image microsoft/aci-wordcount:latest \
     --restart-policy OnFailure \
     --command-line wordcount.py http://shakespeare.mit.edu/romeo_juliet/full.html
 ```
@@ -153,7 +153,7 @@ az container create \
 New-AzureRmContainerGroup `
     -ResourceGroupName myResourceGroup `
     -Name mycontainer `
-    -Image microsoft/aci-wordcount:v2 `
+    -Image microsoft/aci-wordcount:latest `
     -RestartPolicy OnFailure `
     -Command "wordcount.py http://shakespeare.mit.edu/romeo_juliet/full.html"
 ```
