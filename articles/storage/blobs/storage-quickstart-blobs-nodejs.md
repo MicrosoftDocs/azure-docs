@@ -37,7 +37,7 @@ First, create a new general-purpose storage account to use for this quickstart.
 1. Go to the [Azure portal](https://portal.azure.com) and log in using your Azure account. 
 2. On the Hub menu, select **New** > **Storage** > **Storage account - blob, file, table, queue**. 
 3. Enter a name for your storage account. The name must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. It must also be unique.
-4. Set `Deployment model` to **Resource manager**.
+4. Set `Deployment model` to **Resource Manager**.
 5. Set `Account kind` to **General purpose**.
 6. Set `Performance` to **Standard**. 
 7. Set `Replication` to **Locally Redundant storage (LRS)**.
@@ -75,9 +75,9 @@ var blobService = storage.createBlobService(connectionString);
 
 ## Run the sample
 
-This sample creates a test file in My Documents, uploads it to Blob storage, lists the blobs in the container, then downloads the file with a new name so you can compare the old and new files. 
+This sample creates a test file in My Documents, uploads it to Blob storage, lists the blobs in the container, then downloads the file with a new name so you can compare the old and new files.
 
-Run the sample by typing `node index.js`. It shows output in a console window that is similar to the following: 
+Run the sample by typing `node index.js`. It shows output in a console window that is similar to the example:
 
 ```
 Azure Storage Node.js Client Library Blobs Quick Start
@@ -130,7 +130,7 @@ The first thing to do is create the reference to the `b` used to access and mana
 
 In this section, you create a new container, and then set permissions on the container so the blobs are public and can be accessed with just a URL. The container is called **quickstartblobs**.
 
-This example uses CreateIfNotExists because we want to create a new container each time the sample is run. In a production environment where you use the same container throughout an application, it's better practice to only call CreateIfNotExists once, or to create the container ahead of time so you don't need to create it in the code.
+This example uses CreateIfNotExists because we want to create a new container each time the sample is run. In a production environment where you use the same container throughout an application, its better practice to only call CreateIfNotExists once, or to create the container ahead of time so you don't need to create it in the code.
 
 ```node
 // Create a container for organizing blobs within the storage account.
