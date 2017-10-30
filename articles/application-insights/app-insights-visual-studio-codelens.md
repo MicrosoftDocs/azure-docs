@@ -1,4 +1,4 @@
----
+﻿---
 title: Application Insights telemetry in Visual Studio CodeLens | Microsoft Docs
 description: Quickly access your Application Insights request and exception telemetry with CodeLens in Visual Studio.
 services: application-insights
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
-ms.author: cfreeman
+ms.author: bwren
 
 ---
 # Application Insights telemetry in Visual Studio CodeLens

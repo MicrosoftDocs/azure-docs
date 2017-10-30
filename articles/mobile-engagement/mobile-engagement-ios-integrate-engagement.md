@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 09/14/2016
+ms.date: 07/17/2017
 ms.author: piyushjo
 
 ---
@@ -23,17 +23,17 @@ ms.author: piyushjo
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
 > * [iOS](mobile-engagement-ios-integrate-engagement.md)
 > * [Android](mobile-engagement-android-integrate-engagement.md)
-> 
-> 
+>
+>
 
 This procedure describes the simplest way to activate Engagement's Analytics and Monitoring functions in your iOS application.
 
-The Engagement SDK requires iOS6+ and Xcode 8: the deployment target of your application must be at least iOS 6.
+The Engagement SDK requires iOS7+ and Xcode 8+: the deployment target of your application must be at least iOS 7.
 
 > [!NOTE]
 > If you really depend on XCode 7 then you may use the [iOS Engagement SDK v3.2.4](https://aka.ms/r6oouh). There is a known bug on the Reach module of this previous version while running on iOS 10 devices see [the reach module integration](mobile-engagement-ios-integrate-engagement-reach.md) for more details. If you choose to use the SDK v3.2.4 then just skip the `UserNotifications.framework` import in the next step.
-> 
-> 
+>
+>
 
 The following steps are enough to activate the report of logs needed to compute all statistics regarding Users, Sessions, Activities, Crashes and Technicals. The report of logs needed to compute other statistics like Events, Errors and Jobs must be done manually using the Engagement API  (see [How to use the advanced Mobile Engagement tagging API in your iOS app](mobile-engagement-ios-use-engagement-api.md) since these statistics are application dependent.
 
@@ -41,7 +41,7 @@ The following steps are enough to activate the report of logs needed to compute 
 * Download the iOS SDK from [here](http://aka.ms/qk2rnj).
 * Add the Engagement SDK to your iOS project: in Xcode, right click on your project and select **"Add files to ..."** and choose the `EngagementSDK` folder.
 * Engagement requires additional frameworks to work: in the project explorer, open your project pane and select the correct target. Then, open the **"Build phases"** tab and in the **"Link Binary With Libraries"** menu, add these frameworks:
-  
+
   * `UserNotifications.framework` - set the link as `Optional`
   * `AdSupport.framework` - set the link as `Optional`
   * `SystemConfiguration.framework`
@@ -52,18 +52,18 @@ The following steps are enough to activate the report of logs needed to compute 
 
 > [!NOTE]
 > The AdSupport framework can be removed. Engagement needs this framework to collect the IDFA. However, IDFA collection can be disabled \<ios-sdk-engagement-idfa\> to comply with the new Apple policy regarding this ID.
-> 
-> 
+>
+>
 
 ## Initialize the Engagement SDK
 You need to modify your Application Delegate:
 
 * At the top of your implementation file, import the Engagement agent:
-  
+
       [...]
       #import "EngagementAgent.h"
 * Initialize Engagement inside the method '**applicationDidFinishLaunching:**' or '**application:didFinishLaunchingWithOptions:**':
-  
+
       - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
       {
         [...]
@@ -105,13 +105,13 @@ If you cannot or do not want to overload your `UIViewController` classes, you ca
 
 > [!IMPORTANT]
 > The iOS SDK automatically calls the `endActivity()` method when the application is closed. Thus, it is *HIGHLY* recommended to call the `startActivity` method whenever the activity of the user change, and to *NEVER* call the `endActivity` method, since calling this method forces the current session to be ended.
-> 
-> 
+>
+>
 
 ## Location reporting
 Apple terms of service do not allow applications to use location tracking for statistics purpose only. Thus, it is recommended to enable location reports only if your application also use the location tracking for another reason.
 
-Starting with iOS 8, you must provide a description for how your app uses location services by setting a string for the key [NSLocationWhenInUseUsageDescription] or [NSLocationAlwaysUsageDescription] in your app's Info.plist file. If you want to report location in the background with Engagement, add the key NSLocationAlwaysUsageDescription. In all other cases, add the key NSLocationWhenInUseUsageDescription.
+Starting with iOS 8, you must provide a description for how your app uses location services by setting a string for the key [NSLocationWhenInUseUsageDescription] or [NSLocationAlwaysUsageDescription] in your app's Info.plist file. If you want to report location in the background with Engagement, add the key NSLocationAlwaysUsageDescription. In all other cases, add the key NSLocationWhenInUseUsageDescription. Note that you need both NSLocationAlwaysAndWhenInUseUsageDescription and NSLocationWhenInUseUsageDescription to report background location on iOS 11.
 
 ### Lazy area location reporting
 Lazy area location reporting allows to report the country, region and locality associated to devices. This type of location reporting only uses network locations (based on Cell ID or WIFI). The device area is reported at most once per session. The GPS is never used, and thus this type of location report has very few (not to say no) impact on the battery.
@@ -149,8 +149,8 @@ By default, real time location reporting is only active when the application run
 
 > [!NOTE]
 > When the application runs in background, only network based locations are reported, even if you enabled the GPS.
-> 
-> 
+>
+>
 
 Implementation of this function will call [startMonitoringSignificantLocationChanges] when your application goes into the background. Be aware that it will automatically relaunch your application into the background if a new location event arrives.
 

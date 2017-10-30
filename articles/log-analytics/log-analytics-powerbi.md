@@ -13,11 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/18/2016
+ms.date: 07/24/2017
 ms.author: bwren
 
 ---
 # Export Log Analytics data to Power BI
+
+>[!NOTE]
+> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then this process for exporting Log Analytics data to Power BI will no longer work.  Any existing schedules that you created before upgrading will become disabled. You will also no longer see the ability to turn on the Power BI export capability in Settings under Preview Features, as this feature is fully released in upgraded workspaces. 
+>
+> After upgrade, Azure Log Analytics uses the same platform as Application Insights, and you use the same process to export Log Analytics queries to Power BI as [the process to export Application Insights queries to Power BI](../application-insights/app-insights-export-power-bi.md#export-analytics-queries).  You can either export the query using the Analytics console as described in that article, or you can select the **Power BI** button at the top of the screen in the Log Search portal.
+>
+> Users will need access to the Workspace Resource in Azure to use the Power BI export capabilitiy in upgraded workspaces. Without access, users will see an error message when importing the query to Power BI desktop that they do not have access.
+
+
+
 [Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) is a cloud based business analytics service from Microsoft that provides rich visualizations and reports for analysis of different sets of data.  Log Analytics can automatically export data from the OMS repository into Power BI so you can leverage its visualizations and analysis tools.
 
 When you configure Power BI with Log Analytics, you create log queries that export their results to corresponding datasets in Power BI.  The query and export continues to automatically run on a schedule that you define to keep the dataset up to date with the latest data collected by Log Analytics.
@@ -31,8 +41,8 @@ The fields in the dataset will match the properties of the records returned by t
 
 > [!NOTE]
 > It is a best practice to use a log search query that returns raw data as opposed to performing any consolidation using commands such as [Measure](log-analytics-search-reference.md#measure).  You can perform any aggregation and calculations in Power BI from the raw data.
-> 
-> 
+>
+>
 
 ## Connecting OMS workspace to Power BI
 Before you can export from Log Analytics to Power BI, you must connect your OMS workspace to your Power BI account using the following procedure.  
@@ -114,4 +124,3 @@ We save the report by clicking on the Save button at the top of the screen and v
 ## Next steps
 * Learn about [log searches](log-analytics-log-searches.md) to build queries that can be exported to Power BI.
 * Learn more about [Power BI](http://powerbi.microsoft.com) to build visualizations based on Log Analytics exports.
-

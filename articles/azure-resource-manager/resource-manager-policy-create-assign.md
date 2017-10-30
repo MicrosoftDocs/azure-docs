@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/29/2017
+ms.date: 09/19/2017
 ms.author: tomfitz
 
 ---
@@ -27,6 +27,23 @@ To implement a policy, you must perform these steps:
 4. For either case, assign the policy to a scope (such as a subscription or resource group). The rules of the policy are now enforced.
 
 This article focuses on the steps to create a policy definition and assign that definition to a scope through REST API, PowerShell, or Azure CLI. If you prefer to use the portal to assign policies, see [Use Azure portal to assign and manage resource policies](resource-manager-policy-portal.md). This article does not focus on the syntax for creating the policy definition. For information about policy syntax, see [Resource policy overview](resource-manager-policy.md).
+
+## Exclusion scopes
+
+You can exclude a scope when assigning a policy. This ability simplifies policy assignments because you can assign a policy at the subscription level but specify where the policy is not applied. For example, in your subscription, you have a resource group that is intended for network infrastructure. Application teams deploy their resources to other resource groups. You don't want those teams to create network resources that may lead to security issues. However, in the network resource group, you want to allow network resources. You assign the policy at the subscription level but exclude the network resource group. You can specify multiple sub scopes.
+
+```json
+{
+    "properties":{
+        "policyDefinitionId":"<ID for policy definition>",
+        "notScopes":[
+            "/subscriptions/<subid>/resourceGroups/networkresourceGroup1"
+        ]
+    }
+}
+```
+
+If you specify an exclusion scope in your assignment, use the **2017-06-01-preview** API version.
 
 ## REST API
 
@@ -164,8 +181,28 @@ Before proceeding to create a policy definition, look at the built-in policies. 
 ### Create policy definition
 You can create a policy definition using the `New-AzureRmPolicyDefinition` cmdlet.
 
+To create a policy definition from a file, pass the path to the file. For an external file, use:
+
 ```powershell
-$policy = New-AzureRmPolicyDefinition -Name coolAccessTier -Description "Policy to specify access tier." -Policy '{
+$definition = New-AzureRmPolicyDefinition `
+    -Name denyCoolTiering `
+    -DisplayName "Deny cool access tiering for storage" `
+    -Policy 'https://raw.githubusercontent.com/Azure/azure-policy-samples/master/samples/Storage/storage-account-access-tier/azurepolicy.rules.json'
+```
+
+For a local file, use:
+
+```powershell
+$definition = New-AzureRmPolicyDefinition `
+    -Name denyCoolTiering `
+    -Description "Deny cool access tiering for storage" `
+    -Policy "c:\policies\coolAccessTier.json"
+```
+
+To create a policy definition with an inline rule, use:
+
+```powershell
+$definition = New-AzureRmPolicyDefinition -Name denyCoolTiering -Description "Deny cool access tiering for storage" -Policy '{
   "if": {
     "allOf": [
       {
@@ -190,12 +227,43 @@ $policy = New-AzureRmPolicyDefinition -Name coolAccessTier -Description "Policy 
 }'
 ```            
 
-The output is stored in a `$policy` object, which is used during policy assignment. 
+The output is stored in a `$definition` object, which is used during policy assignment. 
 
-Rather than specifying the JSON as a parameter, you can provide the path to a .json file containing the policy rule.
+The following example creates a policy definition that includes parameters:
 
 ```powershell
-$policy = New-AzureRmPolicyDefinition -Name coolAccessTier -Description "Policy to specify access tier." -Policy "c:\policies\coolAccessTier.json"
+$policy = '{
+    "if": {
+        "allOf": [
+            {
+                "field": "type",
+                "equals": "Microsoft.Storage/storageAccounts"
+            },
+            {
+                "not": {
+                    "field": "location",
+                    "in": "[parameters(''allowedLocations'')]"
+                }
+            }
+        ]
+    },
+    "then": {
+        "effect": "Deny"
+    }
+}'
+
+$parameters = '{
+    "allowedLocations": {
+        "type": "array",
+        "metadata": {
+          "description": "The list of locations that can be specified when deploying storage accounts.",
+          "strongType": "location",
+          "displayName": "Allowed locations"
+        }
+    }
+}' 
+
+$definition = New-AzureRmPolicyDefinition -Name storageLocations -Description "Policy to specify locations for storage accounts." -Policy $policy -Parameter $parameters 
 ```
 
 ### Assign policy
@@ -204,17 +272,17 @@ You apply the policy at the desired scope by using the `New-AzureRmPolicyAssignm
 
 ```powershell
 $rg = Get-AzureRmResourceGroup -Name "ExampleGroup"
-New-AzureRMPolicyAssignment -Name accessTierAssignment -Scope $rg.ResourceId -PolicyDefinition $policy
+New-AzureRMPolicyAssignment -Name accessTierAssignment -Scope $rg.ResourceId -PolicyDefinition $definition
 ```
 
 To assign a policy that requires parameters, create and object with those values. The following example retrieves a built-in policy and passes in parameters values:
 
 ```powershell
 $rg = Get-AzureRmResourceGroup -Name "ExampleGroup"
-$policy = Get-AzureRmPolicyDefinition -Id /providers/Microsoft.Authorization/policyDefinitions/e5662a6-4747-49cd-b67b-bf8b01975c4c
+$definition = Get-AzureRmPolicyDefinition -Id /providers/Microsoft.Authorization/policyDefinitions/e5662a6-4747-49cd-b67b-bf8b01975c4c
 $array = @("West US", "West US 2")
 $param = @{"listOfAllowedLocations"=$array}
-New-AzureRMPolicyAssignment -Name locationAssignment -Scope $rg.ResourceId -PolicyDefinition $policy -PolicyParameterObject $param
+New-AzureRMPolicyAssignment -Name locationAssignment -Scope $rg.ResourceId -PolicyDefinition $definition -PolicyParameterObject $param
 ```
 
 ### View policy assignment
@@ -254,7 +322,21 @@ It returns all available policy definitions, including built-in policies. Each p
 ```azurecli
 {                                                            
   "description": "This policy enables you to restrict the locations your organization can specify when deploying resources. Use to enforce your geo-compliance requirements.",                      
-  "displayName": "Allowed locations",                                                                                                                "id": "/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c",                                                 "name": "e56962a6-4747-49cd-b67b-bf8b01975c4c",                                                                                                    "policyRule": {                                                                                                                                      "if": {                                                                                                                                              "not": {                                                                                                                                             "field": "location",                                                                                                                               "in": "[parameters('listOfAllowedLocations')]"                                                                                                   }                                                                                                                                                },                                                                                                                                                 "then": {                                                                                                                                            "effect": "Deny"                                                                                                                                 }                                                                                                                                                },                                                                                                                                                 "policyType": "BuiltIn"
+  "displayName": "Allowed locations",
+  "id": "/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c",
+  "name": "e56962a6-4747-49cd-b67b-bf8b01975c4c",
+  "policyRule": {
+    "if": {
+      "not": {
+        "field": "location",
+        "in": "[parameters('listOfAllowedLocations')]"
+      }
+    },
+    "then": {
+      "effect": "Deny"
+    }
+  },
+  "policyType": "BuiltIn"
 }
 ```
 
@@ -264,8 +346,10 @@ Before proceeding to create a policy definition, look at the built-in policies. 
 
 You can create a policy definition using Azure CLI with the policy definition command.
 
+To create a policy definition with an inline rule, use:
+
 ```azurecli
-az policy definition create --name coolAccessTier --description "Policy to specify access tier." --rules '{
+az policy definition create --name denyCoolTiering --description "Deny cool access tiering for storage" --rules '{
   "if": {
     "allOf": [
       {

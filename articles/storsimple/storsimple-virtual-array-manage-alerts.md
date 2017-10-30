@@ -147,7 +147,7 @@ The following tables list some of the StorSimple alerts that you might encounter
 
 | Alert text | Event | More information / recommended actions |
 |:--- |:--- |:--- |
-| You are experiencing unexpected delays in data transfer. |Slow data transfer. |Throttling errors occur when you exceed the scalability targets of a storage service. The storage service does this to ensure that no single client or tenant can use the service at the expense of others. For more information on troubleshooting your Azure storage account, go to [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](../storage/storage-monitoring-diagnosing-troubleshooting.md). |
+| You are experiencing unexpected delays in data transfer. |Slow data transfer. |Throttling errors occur when you exceed the scalability targets of a storage service. The storage service does this to ensure that no single client or tenant can use the service at the expense of others. For more information on troubleshooting your Azure storage account, go to [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](../storage/common/storage-monitoring-diagnosing-troubleshooting.md). |
 | You are running low on local reservation disk space on <*device name*>. |Slow response time. |10% of the total provisioned size for <*device name*> is reserved on the local device and you are now running low on the reserved space. The workload on <*device name*> is generating a higher rate of churn or you might have recently migrated a large amount of data. This may result in reduced performance. Consider one of the following actions to resolve this:<ul><li>Increase the cloud bandwidth to this device.</li><li>Reduce or move workloads to another volume or share.</li></ul> |
 
 ### Security alerts

@@ -3,9 +3,8 @@ title: Role-Based Access Control in the Azure portal | Microsoft Docs
 description: Get started in access management with Role-Based Access Control in the Azure Portal. Use role assignments to assign permissions to your resources.
 services: active-directory
 documentationcenter: ''
-author: kgremban
+author: andredm7
 manager: femila
-editor: ''
 
 ms.assetid: 8078f366-a2c4-4fbb-a44b-fc39fd89df81
 ms.service: active-directory
@@ -13,9 +12,9 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/27/2017
-ms.author: kgremban
-
+ms.date: 07/17/2017
+ms.author: andredm
+ms.reviewer: rqureshi
 ---
 # Use Role-Based Access Control to manage access to your Azure subscription resources
 > [!div class="op_single_selector"]
@@ -37,7 +36,7 @@ You can see who has access to a resource, resource group, or subscription from i
    
     ![Users blade - inherited vs assigned access screenshot](./media/role-based-access-control-configure/view-access.png)
 
-Notice that some users were **Assigned** access while others **Inherited** it. Access is either assigned specifically to the resource group or inherited from an assignment to the parent subscription.
+Notice that some roles are scoped to **This resource** while others are **Inherited** it from another scope. Access is either assigned specifically to the resource group or inherited from an assignment to the parent subscription.
 
 > [!NOTE]
 > Classic subscription admins and co-admins are considered owners of the subscription in the new RBAC model.
@@ -56,9 +55,10 @@ You grant access from within the resource, resource group, or subscription that 
 After successfully adding a role assignment, it will appear on the **Users** blade.
 
 ## Remove Access
-1. Use the check boxes on the Access control blade to select one or more role assignments.
+1. Hover your cursor over the name of the assignment that you want to remove. A check box appears next to the name.
+2. Use the check boxes to select one or more role assignments.
 2. Select **Remove**.  
-3. A box will pop up asking you to confirm the action. Select **Yes** to remove the role assignments.
+3. Select **Yes** to confirm the removal.
 
 Inherited assignments cannot be removed. If you need to remove an inherited assignment, you need to do it at the scope where the role assignment was created. In the **Scope** column, next to **Inherited** there is a link that takes you to the resources where this role was assigned. Go to the resource listed there to remove the role assignment.
 

@@ -3,7 +3,7 @@ title: Azure Active Directory audit API reference | Microsoft Docs
 description: How to get started with the Azure Active Directory audit API
 services: active-directory
 documentationcenter: ''
-author: markusvi
+author: MarkusVi
 manager: femila
 editor: ''
 
@@ -13,8 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/05/2017
+ms.date: 10/17/2017
 ms.author: dhanyahk;markvi
+ms.reviewer: dhanyahk 
 
 ---
 # Azure Active Directory audit API reference

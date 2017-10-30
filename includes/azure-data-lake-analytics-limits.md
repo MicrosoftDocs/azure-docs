@@ -2,6 +2,7 @@ Data Lake Analytics makes the complex task of managing distributed infrastructur
 
 | **Resource** | **Default Limit** | **Comments** |
 | --- | --- | --- |
-| max concurrent jobs |3 | |
-| Max parallelism per account |60 |Use any combination of up to a maximum of 60 units of parallelism across three jobs. |
+| Maximum number of concurrent jobs |20 | |
+| Maximum number of Analytics Units (AUs) per account |250 | Use any combination of up to a maximum of 250 AUs across 20 jobs. |
+| Maximum script size for job submission | 3 MB | |
 

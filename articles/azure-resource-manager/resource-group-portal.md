@@ -129,7 +129,7 @@ Deleting a resource group deletes all the resources contained within it. You can
 
 ![delete group](./media/resource-group-portal/delete-group.png)
 
-## Next Steps
+## Next steps
 * To view activity logs, see [Audit operations with Resource Manager](resource-group-audit.md).
 * To view details about a deployment, see [View deployment operations](resource-manager-deployment-operations.md).
 * To deploy resources through the portal, see [Deploy resources with Resource Manager templates and Azure portal](resource-group-template-deploy-portal.md).

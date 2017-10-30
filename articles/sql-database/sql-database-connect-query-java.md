@@ -13,7 +13,7 @@ ms.custom: mvc,develop apps
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: java
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 07/10/2017
 ms.author: andrela
 
@@ -66,7 +66,7 @@ Get the connection information needed to connect to the Azure SQL database. You 
    <dependency>
 	   <groupId>com.microsoft.sqlserver</groupId>
 	   <artifactId>mssql-jdbc</artifactId>
-	   <version>6.2.0.jre8</version>
+	   <version>6.2.1.jre8</version>
    </dependency>
    ```
 
@@ -131,7 +131,8 @@ Get the connection information needed to connect to the Azure SQL database. You 
 						       System.out.println(resultSet.getString(1) + " "
 							       + resultSet.getString(2));
 						   }
-				   }
+					connection.close();
+				   }				   
            }
 		   catch (Exception e) {
 		    	   e.printStackTrace();

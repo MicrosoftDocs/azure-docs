@@ -14,15 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/25/2017
+ms.date: 07/25/2017
 ms.author: dobett
 
 ---
 # Predictive maintenance preconfigured solution walkthrough
 
-## Introduction
-
-The IoT Suite predictive maintenance preconfigured solution is an end-to-end solution for a business scenario that predicts the point at which a failure is likely to occur. You can use this preconfigured solution proactively for activities such as optimizing maintenance. The solution combines key Azure IoT Suite services, such as IoT Hub, Stream analytics, and an [Azure Machine Learning][lnk-machine-learning] workspace. This workspace contains a model, based on a public sample data set, to predict the Remaining Useful Life (RUL) of an aircraft engine. The solution fully implements the IoT business scenario as a starting point for you to plan and implement a solution that meets your own specific business requirements.
+The predictive maintenance preconfigured solution is an end-to-end solution for a business scenario that predicts the point at which a failure is likely to occur. You can use this preconfigured solution proactively for activities such as optimizing maintenance. The solution combines key Azure IoT Suite services, such as IoT Hub, Stream analytics, and an [Azure Machine Learning][lnk-machine-learning] workspace. This workspace contains a model, based on a public sample data set, to predict the Remaining Useful Life (RUL) of an aircraft engine. The solution fully implements the IoT business scenario as a starting point for you to plan and implement a solution that meets your own specific business requirements.
 
 ## Logical architecture
 
@@ -30,7 +28,7 @@ The following diagram outlines the logical components of the preconfigured solut
 
 ![][img-architecture]
 
-The blue items are Azure services that are provisioned in the region you select when you provision the preconfigured solution. The list of regions where you can deploy the preconfigured solution displays on the [provisioning page][lnk-azureiotsuite].
+The blue items are Azure services provisioned in the region where you deployed the preconfigured solution. The list of regions where you can deploy the preconfigured solution displays on the [provisioning page][lnk-azureiotsuite].
 
 The green item is a simulated device that represents an aircraft engine. You can learn more about these simulated devices in the following section.
 
@@ -54,13 +52,17 @@ The simulated devices can handle the following commands sent from the IoT hub in
 IoT Hub provides device command acknowledgment.
 
 ## Azure Stream Analytics job
-**Job: Telemetry** operates on the incoming device telemetry stream using two statements. The first selects all telemetry from the devices and sends this data to blob storage from where it is visualized in the web app. The second statement computes average sensor values over a two-minute sliding window and sends this data through the Event hub to an **event processor**.
+
+**Job: Telemetry** operates on the incoming device telemetry stream using two statements:
+
+* The first selects all telemetry from the devices and sends this data to blob storage. From here, it is visualized in the web app.
+* The second computes average sensor values over a two-minute sliding window and sends this data through the Event hub to an **event processor**.
 
 ## Event processor
 The **event processor host** runs in an Azure Web Job. The **event processor** takes the average sensor values for a completed cycle. It then passes those values to an API that exposes trained model to calculate the RUL for an engine. The API is exposed by a Machine Learning workspace that is provisioned as part of the solution.
 
 ## Machine Learning
-The Machine Learning component uses a model derived from data collected from real aircraft engines. You can navigate to the Machine Learning workspace from the tile on the [azureiotsuite.com][lnk-azureiotsuite] page for your provisioned solution when the solution is in the **Ready** state.
+The Machine Learning component uses a model derived from data collected from real aircraft engines. You can navigate to the Machine Learning workspace from the tile on the [azureiotsuite.com][lnk-azureiotsuite] page for your provisioned solution. The tile is available when the solution is in the **Ready** state.
 
 
 ## Next steps

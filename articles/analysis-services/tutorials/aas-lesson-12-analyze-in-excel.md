@@ -3,7 +3,7 @@ title: "Azure Analysis Services tutorial lesson 12: Analyze in Excel | Microsoft
 description: Describes how to use Analyze in Excel in the Azure Analysis Services tutorial project. 
 services: analysis-services
 documentationcenter: ''
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: ''
 tags: ''
@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 09/20/2017
 ms.author: owend
 ---
 # Lesson 12: Analyze in Excel

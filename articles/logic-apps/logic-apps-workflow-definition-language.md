@@ -47,7 +47,7 @@ Here is the basic structure of a workflow definition:
 |$schema|No|Specifies the location for the JSON schema file that describes the version of the definition language. This location is required when you reference a definition externally. For this document, the location is: <p>`https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#`|  
 |contentVersion|No|Specifies the definition version. When you deploy a workflow using the definition, you can use this value to make sure that the right definition is used.|  
 |parameters|No|Specifies parameters used to input data into the definition. A maximum of 50 parameters can be defined.|  
-|triggers|No|Specifies information for the triggers that initiate the workflow. A maximum of 250 triggers can be defined.|  
+|triggers|No|Specifies information for the triggers that initiate the workflow. A maximum of 10 triggers can be defined.|  
 |actions|No|Specifies actions that are taken as the flow executes. A maximum of 250 actions can be defined.|  
 |outputs|No|Specifies information about the deployed resource. A maximum of 10 outputs can be defined.|  
   
@@ -184,7 +184,7 @@ You can also call functions within expressions. The following table shows the fu
 |Expression|Evaluation|  
 |----------------|----------------|  
 |"@function('Hello')"|Calls the function member of the definition with the literal string Hello as the first parameter.|  
-|"@function('It's Cool!')"|Calls the function member of the definition with the literal string 'It's Cool!' as the first parameter|  
+|"@function('It''s Cool!')"|Calls the function member of the definition with the literal string 'It's Cool!' as the first parameter|  
 |"@function().prop1"|Returns the value of the prop1 property of the `myfunction` member of the definition.|  
 |"@function('Hello').prop1"|Calls the function member of the definition with the literal string 'Hello' as the first parameter and returns the prop1 property of the object.|  
 |"@function(parameters('Hello'))"|Evaluates the Hello parameter and passes the value to function|  

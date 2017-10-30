@@ -3,7 +3,7 @@ title: Access and usage reports for Azure MFA | Microsoft Docs
 description: This describes how to use the Azure Multi-Factor Authentication feature - reports.
 services: multi-factor-authentication
 documentationcenter: ''
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 editor: curtand
 
@@ -14,11 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
-ms.author: kgremban
+ms.author: joflore
+ms.reviewer: alexwe
 
 ---
 # Reports in Azure Multi-Factor Authentication
-Azure Multi-Factor Authentication provides several reports that can be used by you and your organization. These reports can be accessed through the Multi-Factor Authentication Management Portal. The following is a list of the available reports:
+
+Azure Multi-Factor Authentication provides several reports that can be used by you and your organization. These reports can be accessed through the Multi-Factor Authentication Management Portal. The following table lists the available reports:
 
 | Report | Description |
 |:--- |:--- |
@@ -30,6 +32,7 @@ Azure Multi-Factor Authentication provides several reports that can be used by y
 | Queued |Lists reports queued for processing and their status. A link to download or view the report is provided when the report is complete. |
 
 ## View reports
+
 1. Sign in to the [Azure classic portal](https://manage.windowsazure.com).
 2. On the left, select Active Directory.
 3. Follow one of these two options, depending on whether you use Auth Providers:
@@ -39,6 +42,15 @@ Azure Multi-Factor Authentication provides several reports that can be used by y
 
 <center>![Cloud](./media/multi-factor-authentication-manage-reports/report.png)</center>
 
+## Powershell reporting
+
+Identify users who have registered for MFA using the Powershell that follows.
+
+```Get-MsolUser -All | where {$_.StrongAuthenticationMethods -ne $null} | Select-Object -Property UserPrincipalName```
+
+Identify users who have not registered for MFA using the Powershell that follows.
+
+```Get-MsolUser -All | where {$_.StrongAuthenticationMethods.Count -eq 0} | Select-Object -Property UserPrincipalName```
 
 **Additional Resources**
 

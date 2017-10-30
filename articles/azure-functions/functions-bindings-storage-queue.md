@@ -3,8 +3,8 @@ title: Azure Functions queue storage bindings | Microsoft Docs
 description: Understand how to use Azure Storage triggers and bindings in Azure Functions.
 services: functions
 documentationcenter: na
-author: lindydonna
-manager: erikre
+author: ggailey777
+manager: cfowler
 editor: ''
 tags: ''
 keywords: azure functions, functions, event processing, dynamic compute, serverless architecture
@@ -16,7 +16,7 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/30/2017
-ms.author: donnam, glenga
+ms.author: glenga
 
 ---
 # Azure Functions Queue Storage bindings
@@ -70,7 +70,7 @@ The queue trigger provides several metadata properties. These properties can be 
 * **ExpirationTime** - Type `DateTimeOffset?`. The time that the message expires.
 * **Id** - Type `string`. Queue message ID.
 * **InsertionTime** - Type `DateTimeOffset?`. The time that the message was added to the queue.
-* **NextVisibleTime** - Type `DateTimeOffset?. The time that the message will next be visible.
+* **NextVisibleTime** - Type `DateTimeOffset?`. The time that the message will next be visible.
 * **PopReceipt** - Type `string`. The message's pop receipt.
 
 See how to use the queue metadata in [Trigger sample](#triggersample).
@@ -282,7 +282,7 @@ module.exports = function(context) {
 
 ## Next steps
 
-For an example of a function that uses queue storage triggers and bindings, see [Create an Azure Function connected to an Azure service](functions-create-an-azure-connected-function.md).
+For an example of a function that uses queue storage triggers and bindings, see [Create a function triggered by Azure Queue storage](functions-create-storage-queue-triggered-function.md).
 
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
 

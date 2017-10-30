@@ -2,7 +2,7 @@
 title: What are Service Health Notifications | Microsoft Docs
 description: Service health notifications allow you to view service health messages publish by Microsoft Azure.
 author: anirudhcavale
-manager: carmonm
+manager: orenr
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics

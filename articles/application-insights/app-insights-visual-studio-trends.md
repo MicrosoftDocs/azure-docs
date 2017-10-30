@@ -1,4 +1,4 @@
----
+﻿---
 title: Analyzing Trends in Visual Studio | Microsoft Docs
 description: Analyze, visualize, and explore trends in your Application Insights telemetry in Visual Studio.
 services: application-insights
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
-ms.author: cfreeman
+ms.author: bwren
 
 ---
 # Analyzing Trends in Visual Studio
