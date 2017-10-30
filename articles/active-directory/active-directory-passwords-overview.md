@@ -21,7 +21,7 @@ ms.custom: it-pro
 ---
 # Azure AD self-service password reset for the IT professional
 
-Azure Active Direcotry (Azure AD) self-service password reset (SSPR) allows users to reset their passwords on their own when and where they need to, while allowing administrators control of how their password gets reset. Users no longer need to call the help desk just to reset their password.
+Azure Active Directory (Azure AD) self-service password reset (SSPR) allows users to reset their passwords on their own when and where they need to, while allowing administrators control of how their password gets reset. Users no longer need to call the help desk just to reset their password.
 
 * **Self-service password change** – User knows their password but wants to change it to something new.
 * **Self-service password reset** – User is unable to sign in, and wants to reset their password using one or more of the following validated authentication methods.

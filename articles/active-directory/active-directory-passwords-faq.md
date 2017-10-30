@@ -234,7 +234,7 @@ This FAQ is split into the following sections:
   >
 * **Q:  If my on-premises account is disabled, how is my cloud account/access affected?**
 
-  > **A:** If your on-premises ID is disabled, your cloud ID/access will also be disabled at the next sync interval via AAD Connect byt default this is every 30 minutes.
+  > **A:** If your on-premises ID is disabled, your cloud ID/access will also be disabled at the next sync interval via AAD Connect by default this is every 30 minutes.
   >
   >
 * **Q:  If my on-premises account is constrained by an on-premises Active Directory password policy, does SSPR obey this policy when I change the password?**
@@ -265,7 +265,7 @@ This FAQ is split into the following sections:
 * [Register for self-service password reset](active-directory-passwords-reset-register.md).
 * [Do you have a Licensing question?](active-directory-passwords-licensing.md)
 * [What data is used by SSPR and what data should you populate for your users?](active-directory-passwords-data.md)
-* [What authentication methods are availalbe to users?](active-directory-passwords-how-it-works.md#authentication-methods)
+* [What authentication methods are available to users?](active-directory-passwords-how-it-works.md#authentication-methods)
 * [What are the policy options with SSPR?](active-directory-passwords-policy.md)
 * [What is password writeback and why do I care about it?](active-directory-passwords-writeback.md)
 * [How do I report on activity in SSPR?](active-directory-passwords-reporting.md)

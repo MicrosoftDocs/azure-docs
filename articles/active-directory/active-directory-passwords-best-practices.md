@@ -56,7 +56,7 @@ Many of our larger customers choose to host webpage and create a root DNS entry,
 * Password reset registration portal - http://aka.ms/ssprsetup
 * Password change portal - https://account.activedirectory.windowsazure.com/ChangePassword.aspx
 
-For your benifit we have created a sample page, that you can use and customize to your organizations needs, that can be downloaded from [GitHub](https://github.com/ajamess/password-reset-page).
+For your benefit we have created a sample page, that you can use and customize to your organizations needs, that can be downloaded from [GitHub](https://github.com/ajamess/password-reset-page).
 
 ## Using enforced registration
 
@@ -85,6 +85,6 @@ Disabling self-service password reset is as simple as opening your Azure AD tena
 * [How do I report on activity in SSPR?](active-directory-passwords-reporting.md)
 * [What are all of the options in SSPR and what do they mean?](active-directory-passwords-how-it-works.md)
 * [I think something is broken. How do I troubleshoot SSPR?](active-directory-passwords-troubleshoot.md)
-* [I have a question that wasnt covered somewhere else](active-directory-passwords-faq.md)
+* [I have a question that was not covered somewhere else](active-directory-passwords-faq.md)
 
 [Email]: ./media/active-directory-passwords-best-practices/sspr-emailtemplates.png "Customize these email templates to fit your organizational requirements"

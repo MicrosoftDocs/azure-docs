@@ -34,8 +34,8 @@ This guide assumes you already have a working trial or licensed Azure AD tenant.
 
 2. From the **"Properties"** screen, under the option "Self Service Password Reset Enabled" choose one of the following:
     * None - No one is able to use SSPR functionality.
-    * Selected - Only members of a specific Azure AD group that you choose are able to use SSPR functionality. We reccomend to define a group of users and use this setting when deploying this for a proof of concept.
-    * All - All users with accounts in your Azure AD tenant are able to use SSPR functionality. We reccomend that this be set when you are ready to deploy this functionality to your entire tenant after you have completed a proof of concept.
+    * Selected - Only members of a specific Azure AD group that you choose are able to use SSPR functionality. We recommend to define a group of users and use this setting when deploying this for a proof of concept.
+    * All - All users with accounts in your Azure AD tenant are able to use SSPR functionality. We recommend that this be set when you are ready to deploy this functionality to your entire tenant after you have completed a proof of concept.
 
 3. From the **"Authentication methods"** screen choose
     * Number of methods required to reset - We support a minimum of one or a maximum of two
@@ -50,7 +50,7 @@ This guide assumes you already have a working trial or licensed Azure AD tenant.
             
     ![Authentication][Authentication]
 
-4. RECCOMMENDED: **"Customization"** allows you to change the "Contact your administrator" link to point to a page or email address you define. We reccomend that you set this link to something like an email address or website that your users are used to using for support.
+4. RECCOMMENDED: **"Customization"** allows you to change the "Contact your administrator" link to point to a page or email address you define. We recommend that you set this link to something like an email address or website that your users are used to using for support.
 
 5. OPTIONAL: The **"Registration"** screen provides administrators the options for:
     * Require users to register when signing in
@@ -97,13 +97,13 @@ The following links provide additional information regarding password reset usin
 * [Register for self-service password reset](active-directory-passwords-reset-register.md).
 * [Do you have a Licensing question?](active-directory-passwords-licensing.md)
 * [What data is used by SSPR and what data should you populate for your users?](active-directory-passwords-data.md)
-* [What authentication methods are availalbe to users?](active-directory-passwords-how-it-works.md#authentication-methods)
+* [What authentication methods are available to users?](active-directory-passwords-how-it-works.md#authentication-methods)
 * [What are the policy options with SSPR?](active-directory-passwords-policy.md)
 * [What is password writeback and why do I care about it?](active-directory-passwords-writeback.md)
 * [How do I report on activity in SSPR?](active-directory-passwords-reporting.md)
 * [What are all of the options in SSPR and what do they mean?](active-directory-passwords-how-it-works.md)
 * [I think something is broken. How do I troubleshoot SSPR?](active-directory-passwords-troubleshoot.md)
-* [I have a question that wasnt covered somewhere else](active-directory-passwords-faq.md)
+* [I have a question that was not covered somewhere else](active-directory-passwords-faq.md)
 
 ## Next steps
 
