@@ -67,7 +67,7 @@ This article answers common questions about Azure Files features and functionali
     Currently, Azure Files supports only locally redundant storage (LRS) and geo-redundant storage (GRS). We plan to support zone-redundant storage (ZRS) and read-access geo-redundant (RA-GRS) storage in the future, but we don't have timelines to share at this time.
 
 * <a id="tier-options"></a>**What storage tiers are supported in Azure Files?**  
-    Currently, Azure Files supports only the standard storage tier. We don't have timelines to share for premium storage and cool blob storage support at this time. 
+    Currently, Azure Files supports only the standard storage tier. We don't have timelines to share for premium storage and cool storage support at this time. 
     
     > [!NOTE]
     > You cannot create Azure File shares from blob-only storage accounts or from premium storage accounts.
