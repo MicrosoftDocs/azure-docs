@@ -44,7 +44,7 @@ Yes. The OMS workspace is created by default, but it isn't used unless you use d
 
 ## How do I manage the workspace?
 
-You can use the OMS Log Analytics workspace outside Azure Migrate, and it's not deleted if you delete the migration project in which it was created. If you no longer need the workspace, [delete it](..log-analytics/log-analytics-manage-access.md) manually.
+You can use the OMS Log Analytics workspace outside Azure Migrate, and it's not deleted if you delete the migration project in which it was created. If you no longer need the workspace, [delete it](../log-analytics/log-analytics-manage-access.md) manually.
 
 You shouldn't delete the workspace created by Azure Migrate, unless you delete the migration project. If you do, dependencies won't work as expected.
 
