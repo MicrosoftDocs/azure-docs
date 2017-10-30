@@ -125,7 +125,7 @@
       - name: Restore a disk
         href: ../../backup/tutorial-restore-disk.md
       - name: Restore individual files
-        href: ../../azure/backup/tutorial-restore-files.md
+        href: ../../backup/tutorial-restore-files.md
   - name: Manage VMs
     items:
     - name: Common CLI tasks
