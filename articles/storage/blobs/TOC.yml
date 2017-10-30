@@ -43,11 +43,11 @@
   - name: Optimize storage application performance and scalability
     items:
       - name: Create a VM and storage account
-        href: storage-scalable-app-create-vm.md
+        href: storage-blob-scalable-app-create-vm.md
       - name: Upload large data to azure storage
-        href: storage-scalable-app-upload-files.md
+        href: storage-blob-scalable-app-upload-files.md
       - name: Download larges amount of data
-        href: storage-scalable-app-download-files.md
+        href: storage-blob-scalable-app-download-files.md
       - name: Verify throughput and latency metrics
 - name: Samples
   items:
