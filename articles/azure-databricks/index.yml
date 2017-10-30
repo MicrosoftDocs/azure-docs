@@ -30,15 +30,9 @@ sections:
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: 'Learn how to create and monitor a data factory:'
+    text: 'TBD'
   - type: list
     style: ordered
     items:
-    - html: <a href="/azure/data-factory/tutorial-deploy-ssis-packages-azure">Deploy SSIS packages to Azure</a>    
-    - html: <a href="/azure/data-factory/tutorial-copy-data-dot-net">Copy data in cloud</a>
-    - html: <a href="../data-factory/tutorial-hybrid-copy-powershell">Copy on-premises data to cloud</a>
-    - html: <a href="../data-factory/tutorial-bulk-copy">Copy data in bulk</a>    
-    - html: <a href="../data-factory/tutorial-incremental-copy-powershell">Copy data incrementally</a>        
-    - html: <a href="../data-factory/tutorial-transform-data-spark-powershell">Transform data in cloud using Spark</a>    
-    - html: <a href="../data-factory/tutorial-transform-data-hive-virtual-network">Transform data in virtual network</a>        
-    - html: <a href="../data-factory/tutorial-control-flow">Control flow</a>         
+    - html: TBD    
+    - html: TBD

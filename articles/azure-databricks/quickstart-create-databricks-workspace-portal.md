@@ -24,13 +24,43 @@ In this article, you learn how to create an Azure Databricks workspace and then 
 ## Prerequisites
 
 * **An Azure subscription**. Before you begin this tutorial, you must have an Azure subscription. See [Create your free Azure account today](https://azure.microsoft.com/free).
+* **A modern web browser**. The Azure  portal uses HTML5 and Javascript, and may not function correctly in older web browsers.
+
 
 ## Create an Azure Databricks workspace
 
+1. Sign in to the [Azure  portal](https://portal.azure.com).
 
+2. Click **+**, click **Data + Analytics**, and then click **Azure Databricks (Preview)**. Under **Azure Databricks**, click **Create**.
+
+3. Under **Azure Databricks Service**, provide the following values:
+
+    ![Create an Azure Databricks workspace](./media/quickstart-create-databricks-workspace-portal/create-databricks-workspace.png "Create an Azure Databricks workspace")
+
+    * For **Workspace name**, provide a name for your Databricks workspace.
+    * For **Subscription**, from the drop-down, select your Azure subscription.
+    * For **Resource group**, specify whether you want to create a new resource group or use an existing one. Resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group overview](../azure-resource-manager/resource-group-overview.md).
+    * For **Location**, select **East US 2**.
+
+4. Click **Create**.
 
 ## Create an Apache Spark cluster in Databricks
 
+1. In the Azure Portal, go to the Databricks workspace that you created, and then click **Initialize Workspace**.
+
+    ![Initialize an Azure Databricks workspace](./media/quickstart-create-databricks-workspace-portal/initialize-databricks-workspace.png "Initialize an Azure Databricks workspace")
+
+2. You will be redirected to the Azure Databricks portal. From the portal, click **Cluster**.
+
+    ![Databricks on Azure](./media/quickstart-create-databricks-workspace-portal/databricks-on-azure.png "Databricks on Azure")
+
+3. In the **New cluster** page, enter a name for the cluster, accept all other default values, and then click **Create cluster**.
+
+    ![Create Databricks Spark cluster on Azure](./media/quickstart-create-databricks-workspace-portal/create-databricks-spark-cluster.png "Create Databricks Spark cluster on Azure")
+
+    For more information on creating clusters, see [Create a Spark cluster in Azure Databricks](https://docs.azuredatabricks.net/user-guide/clusters/create.html).
+
+4. Once the cluster is running, you can attach notebooks to the cluster and run Spark jobs.
 
 ## Run a Spark SQL job on the cluster
 

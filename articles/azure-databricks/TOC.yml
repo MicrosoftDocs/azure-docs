@@ -1,5 +1,5 @@
 - name: Azure Databricks documentation
-  href: placeholder-index.yml
+  href: index.yml
 - name: Overview
   items:
   - name: Introduction to Azure Databricks
