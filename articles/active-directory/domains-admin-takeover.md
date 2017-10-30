@@ -1,6 +1,6 @@
 ---
-title: Administrator takeover of an unmanaged directory in Azure Active Directory | Microsoft Docs
-description: How to take over a DNS domain name in an unmanaged directory in Azure Active Directory. 
+title: Administrator takeover of an unmanaged directory or shadow tenant in Azure Active Directory | Microsoft Docs
+description: How to take over a DNS domain name in an unmanaged directory (or shadow tenant) in Azure Active Directory. 
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -13,10 +13,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/26/2017
+ms.date: 10/27/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
-ms.custom: it-pro;oldportal
+ms.custom: it-pro
 
 ---
 # Take over an unmanaged directory as administrator in Azure Active Directory
@@ -25,19 +25,69 @@ This article describes two ways to take over a DNS domain name in an unmanaged d
 ## Decide how you want to take over an unmanaged directory
 During the process of admin takeover, you can prove ownership as described in [Add a custom domain name to Azure AD](add-custom-domain.md). The next sections explain the admin experience in more detail, but here's a summary:
 
-* When you perform a so-called "external" admin takeover of an unmanaged Azure directory, you add the DNS domain name of the unmanaged directory to your managed Azure directory. When you add the domain name, a mapping of users to resources is created in your managed Azure directory so that users can continue to access services without interruption.
+* When you perform a so-called ["internal" admin takeover](#internal-admin-takeover) of an unmanaged Azure directory, you are added as the global administrator of the unmanaged directory. No users, domains, or service plans are migrated to any other directory you administer.
 
-* When you perform a so-called "internal" admin takeover of an unmanaged Azure directory, you are added as the global administrator of the unmanaged directory. No users, domains, or service plans are migrated to any other directory you administer. 
+* When you perform a so-called ["external" admin takeover](#external-admin-takeover) of an unmanaged Azure directory, you add the DNS domain name of the unmanaged directory to your managed Azure directory. When you add the domain name, a mapping of users to resources is created in your managed Azure directory so that users can continue to access services without interruption. 
 
-### External admin takeover
-For example, as an admin of a managed directory, you add a domain, and that domain happens to have an unmanaged directory associated with it. Let's say that you you already have a managed directory for Contoso.com, a domain name that is registered to your organization. You discover that users from your organization have performed self-service signup for an offering by using email domain name user@contoso.co.uk, which is another domain name that your organization owns. Those users currently have accounts in an unmanaged directory for contoso.co.uk.
+## Internal admin takeover
+
+Some products that include SharePoint and OneDrive, such as Office 365, do not support external takeover. If that is your scenario, or if you are an admin and want to take over an unmanaged or "shadow" tenant create by users who used self-service sign-up, you can do this with an internal admin takeover.
+
+1. Create a user context in the unmanaged tenant through signing up with such as Power BI. For convenience of example, these steps assume that path.
+
+2. Open the [Power BI site](https://powerbi.com) and select **Start Free**. Enter a user account that uses the domain name for the organization; for example, `admin@fourthcoffee.xyz`. After you enter in the verification code, check your email for the confirmation code.
+
+3. In the confirmation email from Power BI, select **Confirm**.
+
+4. Sign in to the [Office 365 Admin center](https://portal.office.com/adminportal/Home) with the Power BI user account. You receive a message that instructs you to **Become the Admin** of the domain name that was already verified in the unmanaged tenant. select **Yes, I want to be the admin**.
+  
+  ![first screenshot for Become the Admin](../media/domains-admin-takeover/become-admin-firstimage1.png)
+  
+5. Add the TXT record to prove that you own the domain name **fourthcoffee.xyz** at your domain name registrar. In this example, it is GoDaddy.com.
+  
+  ![Add a txt record for the domain name](../media/domains-admin-takeover/become-admin-txt-record.png)
+
+When the DNS TXT records are verified at your domain name registrar, you can manage the Azure AD tenant.
+
+![Architectural perspective of what happens during internal takeover](../media/domains-admin-takeover/architecture.png)
+
+Once you have completed the above steps and are now the global administrator of the Fourth Coffee tenant in Office 365. To integrate the domain name with your other Azure services, you can remove it from Office 365 and add it to a different managed tenant in Azure.
+
+### Adding the domain name to a managed tenant in Azure AD 
+
+1. Open the [Office 365 Admin center](https://portal.office.com/adminportal/Home).
+2. Select **Users** tab, and create a new user account with a name like *user@fourthcoffeexyz.onmicrosoft.com* that does not reference the custom domain name. 
+3. Ensure that the new user account has global admin privileges for the Azure AD tenant.
+4. Open ***Domains** tab in the Office 365 Admin center, select the domain name and select **Remove**. 
+  
+  ![remove the domain name from Office 365](../media/domains-admin-takeover/remove-domain-from-o365.png)
+  
+5. If you have any users or groups in Office 365 that reference the removed domain name, they must be renamed to the .onmicrosoft.com domain. If you force delete the domain name, all users are automatically renamed, in this example to *user@fourthcoffeexyz.onmicrosoft.com*.
+  
+6. Sign in to the [Azure AD admin center](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with an account that is the global admin for the Azure AD tenant.
+  
+7. Select **Domain names**”, then add the domain name. You'll have to enter the DNS TXT records to verify ownership of the domain name. 
+  
+  ![domain added to Azure AD](../media/domains-admin-takeover/add-domain-to-azure-ad.png)
+  
+> [!NOTE]
+> Any users of PowerBi BI or Rights Management who have licenses assigned in the Office 365 tenant must save their dashboards if the domain name is removed. They must sign in with a user name like *user@fourthcoffeexyz.onmicrosoft.com* rather than *user@fourthcoffee.xyz*.
+
+## External admin takeover
+
+If you already manage a tenant with Azure services or Office 365, you are can't add a custom domain name if it is already verified in an unmanaged Azure AD tenant.
+You can take it over with an external admin takeover. When you verify ownership of the domainname, Azure AD removes the domain name from the unmanaged tenant and moves it to your existing tenant. 
+
+
+
+
+
+
+
 
 If you don't want to manage two separate directories, merge the unmanaged directory for contoso.co.uk into your existing IT managed directory for contoso.com.
 
 Merging an unmanaged directory follows the same DNS validation process as only taking it over as admin. The difference is users and services are remapped to the existing managed directory.
-
-#### What's the advantage of merging an unmanaged directory?
-With an external takeover, a mapping of users-to-resources is created so users can continue to access services without interruption. Many applications, including RMS for individuals, handle the mapping of users-to-resources well, and users can continue to access those services without change. If an application does not handle the mapping of users-to-resources effectively, external takeover may be explicitly blocked to prevent users from a poor experience.
 
 #### External admin takeover support by service
 Currently the following services support external admin takeover:
@@ -49,26 +99,6 @@ The following do not require additional admin action to migrate user data after 
 
 * SharePoint/OneDrive
 
-### Internal admin takeover
-When you do an internal takeover, the directory gets converted from an unmanaged directory to a managed directory. You must complete DNS domain name validation, where you create an MX record or a TXT record in the DNS zone. That action:
-
-* Validates that you own the domain
-* Makes the directory managed, with you as the global administrator of the directory
-
-For example, an IT administrator from Bellows College discovers that users from the school have signed up for self-service offerings from the DNS domain name BellowsCollege.com. As the registered owner of the DNS name, the IT administrator can validate ownership of the DNS name in Azure and then take over the unmanaged directory. The directory then becomes a managed directory, and the IT administrator is assigned the global administrator role for the BellowsCollege.com directory.
-
-## How to perform a DNS domain name takeover
-You have a few options for how to perform a domain validation (and take over an unmanaged domain).
-
-### Azure portal
-
-If you add a new domain name to an Azure AD directory, and a directory already exists for the domain, you are given the option to merge the unmanaged directory. Sign in to the Azure portal using an account that is a global administrator for your existing directory and then proceed as described in [Add a custom domain name to Azure AD](add-custom-domain.md).
-
-### Office 365
-
-You can use the options on the [Manage domains](https://support.office.com/article/Navigate-to-the-Office-365-Manage-domains-page-026af1f2-0e6d-4f2d-9b33-fd147420fac2/) page in Office 365 to work with your domains and DNS records. See [Verify your domain in Office 365](https://support.office.com/article/Verify-your-domain-in-Office-365-6383f56d-3d09-4dcb-9b41-b5f5a5efd611/). 
-> [!IMPORTANT]
-> Please be aware that this is for an internal admin takeover only. If you want to do an external admin takeover, do not use this method.
 
 ### Microsoft PowerShell
 
