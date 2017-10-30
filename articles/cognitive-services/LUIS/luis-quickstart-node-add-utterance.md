@@ -59,7 +59,6 @@ You can find your app ID and version number by logging into https://www.luis.ai 
 ```javascript
     const uploadFile = "./utterance-to-upload.json"
 ```
-
 6. Run the code.
 <!-- 
 ![Console window displays JSON result from LUIS](./media/luis-get-started-Node.js-get-intent/console-turn-on.png)
