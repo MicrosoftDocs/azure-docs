@@ -29,7 +29,7 @@ This article explains how to work with Azure Service Bus bindings in Azure Funct
 
 Use the Service Bus trigger to respond to messages from a Service Bus queue or topic. 
 
-## Trigger example
+## Trigger - example
 
 See the language-specific example:
 
