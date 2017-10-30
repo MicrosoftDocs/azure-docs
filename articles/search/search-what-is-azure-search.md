@@ -26,7 +26,7 @@ Functionality is exposed through a simple [REST API](/rest/api/searchservice/) o
 
 | Category | Features |
 |----------|----------|
-|Full text search and text analysis | [**Full text search**](search-lucene-query-architecture.md) is a primary use case for most search-based apps. Queries can be formulated using a supported syntax: <br/><br/>[**Simple query syntax**](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search), which offers logical operators, phrase search operators, suffix operators, precedence operators.<br/><br/>[**Lucene query syntax**](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) offers all of simple query support, plus fuzzy search, proximity search, term boosting, and regular expressions.| 
+|Full text search and text analysis | [**Full text search**](search-lucene-query-architecture.md) is a primary use case for most search-based apps. Queries can be formulated using a supported syntax. <br/><br/>[**Simple query syntax**](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) provides logical operators, phrase search operators, suffix operators, precedence operators.<br/><br/>[**Lucene query syntax**](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) includes all operations in simple syntax, with extensions for fuzzy search, proximity search, term boosting, and regular expressions.| 
 | Data integration | Azure Search indexes accept data from any source, provided it is submitted as a JSON data structure. <br/><br/> Optionally, for supported data sources in Azure, you can use [**indexers**](search-indexer-overview.md) to automatically crawl [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), [Azure Cosmos DB](search-howto-index-documentdb.md), or [Azure Blob storage](search-howto-indexing-azure-blob-storage.md) to sync your search index's content with your primary data store. Azure Blob indexers can perform *document cracking* for [indexing major file formats](search-howto-indexing-azure-blob-storage.md), including Microsoft Office, PDF, and HTML documents. |
 | Search analytics | [**Custom lexical analyzers**](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) are available for complex search queries using phonetic matching and regular expressions. |
 | Language support | [**Language analyzers**](https://docs.microsoft.com/rest/api/searchservice/language-support) from Lucene, as well as Microsoft's natural language processors available in 56 different languages to intelligently handle language-specific linguistics including verb tenses, gender, irregular plural nouns (for example, 'mouse' vs. 'mice'), word de-compounding, word-breaking (for languages with no spaces), and more. |
@@ -37,7 +37,7 @@ Functionality is exposed through a simple [REST API](/rest/api/searchservice/) o
 | Tools for prototyping and inspection | In the portal, you can use the [**Import data wizard**](search-import-data-portal.md) to configure indexers, index designer to stand up an index, and [**Search explorer**](search-explorer.md) to test queries and refine scoring profiles. You can also open any index to view its schema. |
 | Infrastructure | The **highly available platform** ensures an extremely reliable search service experience. When scaled properly, [Azure Search offers a 99.9% SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/).<br/><br/> **Fully managed and scalable** as an end-to-end solution, Azure Search requires absolutely no infrastructure management. Your service can be tailored to your needs by scaling in two dimensions to handle more document storage, higher query loads, or both.
 
-## How it works
+## How to use Azure Search
 ### Step 1: Provision service
 You can spin up an Azure Search service in the [Azure portal](https://portal.azure.com/) or through the [Azure Resource Management API](/rest/api/searchmanagement/). You can choose either the free service shared with other subscribers, or a [paid tier](https://azure.microsoft.com/pricing/details/search/) that dedicates resources used only by your service. For paid tiers, you can scale a service in two dimensions: 
 
@@ -61,7 +61,7 @@ The push model is provided through the SDK or REST APIs, used for sending update
 ### Step 4: Search
 After populating an index, you can [issue search queries](/rest/api/searchservice/Search-Documents) to your service endpoint using simple HTTP requests with REST API or the .NET SDK.
 
-## How it compares
+## How Azure Search compares
 
 Customers often ask how [full text search in Azure Search](search-lucene-query-architecture.md) compares with [full text search](https://en.wikipedia.org/wiki/Full_text_search) in their database product. Our response is that Azure Search language capabilities are richer and more flexible, with support for Lucene queries, language analyzers from Lucene and Microsoft, custom analyzers for phonetic or other specialized inputs, and the ability to merge data from multiple sources in the search index. 
 
