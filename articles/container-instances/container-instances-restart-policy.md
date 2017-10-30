@@ -26,7 +26,7 @@ The ease and speed of deploying containers in Azure Container Instances provides
 
 With a configurable restart policy, you can specify that your containers are stopped when their processes have completed. Because container instances are billed by the second, you're charged only for the compute resources used while the container executing your task is running.
 
-The examples in this article use the [Azure CLI](/cli/azure/install-azure-cli). You must have Azure CLI version 2.0.21 or greater installed locally, or use the CLI in the [Azure Cloud Shell](../cloud-shell/overview.md).
+The examples presented in this article use the Azure CLI. You must have Azure CLI version 2.0.21 or greater [installed locally](/cli/azure/install-azure-cli), or use the CLI in the [Azure Cloud Shell](../cloud-shell/overview.md).
 
 ## Container restart policy
 
@@ -40,7 +40,7 @@ When you create a container in Azure Container Instances, you can specify one of
 
 ## Specify a restart policy
 
-How you specify a restart policy depends on how you create your containers. In the Azure CLI, specify the `--restart-policy` parameter when you call [az container create][az-container-create].
+How you specify a restart policy depends on how you create your container instances, such as with the Azure CLI, Azure PowerShell cmdlets, or in the Azure portal. In the Azure CLI, specify the `--restart-policy` parameter when you call [az container create][az-container-create].
 
 ```azurecli-interactive
 az container create \
@@ -76,7 +76,7 @@ Example output:
 "Terminated"
 ```
 
-You can view the results of the example container's task by viewing the container logs. Run the [az container logs][az-container-logs] command to view the script's output:
+Once the example container's status shows *Terminated*, you can view the results of the its task by viewing the container logs. Run the [az container logs][az-container-logs] command to view the script's output:
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer
@@ -122,7 +122,13 @@ az container create \
     --environment-variables NumWords=5 MinLength=8
 ```
 
-By specifying `NumWords=5` and `MinLength=8` for the container's environment variables, the container logs should now show the following task output:
+By specifying `NumWords=5` and `MinLength=8` for the container's environment variables, the container logs should display different output.
+
+```azurecli-interactive
+az container logs --resource-group myResourceGroup --name mycontainer2
+```
+
+Output:
 
 ```bash
 [('CLAUDIUS', 120),
