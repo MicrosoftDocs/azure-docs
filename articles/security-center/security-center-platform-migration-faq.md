@@ -50,7 +50,7 @@ When automatic provisioning (previously named Log Collection) is enabled or when
 - For migrated subscriptions only, Security Center will also remove the previous Azure Monitoring Agent.
 
 > [!NOTE]
-> You can override the automatic installation of the Microsoft Monitoring Agent and configure your own workspace.  See [how to stop the automatic agent installation and workspace creation](#how-do-i-stop-the-automatic-agent-installation-and-workspace-creation) and [recommended steps when opting out of automatic provisioning](#what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning).
+> You can override the automatic installation of the Microsoft Monitoring Agent and use your own workspace.  See [how to stop the automatic agent installation and workspace creation](#how-do-i-stop-the-automatic-agent-installation-and-workspace-creation) and [how to use your existing workspace](#how-can-i-use-my-existing-log-analytics-workspace).
 >
 >
 
