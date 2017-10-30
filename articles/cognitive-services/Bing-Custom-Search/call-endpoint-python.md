@@ -24,7 +24,7 @@ This example shows how to request search results from your custom search instanc
 
 3. Install [Python](https://www.python.org/).
 4. Create a folder for your code.
-5. From a command prompt or terminal, navigate to the folder you just created.
+5. From an administrator command prompt or terminal, navigate to the folder you just created.
 6. Run the following commands:
     <pre>
     pip install pipenv
@@ -33,18 +33,22 @@ This example shows how to request search results from your custom search instanc
 7. Create the file BingCustomSearch.py and copy the following code to it.
 8. Replace **YOUR-SUBSCRIPTION-KEY** and **YOUR-CUSTOM-CONFIG-ID** with your key and configuration ID (see step 1).
 
-``` Python
-import json
-import requests
-
-subscriptionKey = "YOUR-SUBSCRIPTION-KEY"
-customConfigId = "YOUR-CUSTOM-CONFIG-ID"
-searchTerm = "microsoft"
-
-url = 'https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?q=' + searchTerm + '&customconfig=' + customConfigId
-r = requests.get(url, headers={'Ocp-Apim-Subscription-Key': subscriptionKey})
-print(r.text)
-```
+    ``` Python
+    import json
+    import requests
+    
+    subscriptionKey = "YOUR-SUBSCRIPTION-KEY"
+    customConfigId = "YOUR-CUSTOM-CONFIG-ID"
+    searchTerm = "microsoft"
+    
+    url = 'https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?q=' + searchTerm + '&customconfig=' + customConfigId
+    r = requests.get(url, headers={'Ocp-Apim-Subscription-Key': subscriptionKey})
+    print(r.text)
+    ```
+9. Run the code using the command below:
+    <pre>
+    python BingCustomSearch.py
+    </pre>
 
 ### Next steps
 - [Configure and consume custom hosted UI](./hosted-ui.md)
