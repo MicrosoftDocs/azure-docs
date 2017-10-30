@@ -2,14 +2,14 @@
 title: Speech Translation API Documentation | Microsoft Docs
 description: Use the Microsoft Translator Speech Translation API to transcribe conversational speech from one language into text of another language.
 services: cognitive-services
-author: chriswendt1
-manager: arulm
+author: jann-skotdal
+manager: chriswendt1
 
 ms.service: cognitive-services
 ms.technology: translator
 ms.topic: article
 ms.date: 10/26/2016
-ms.author: christw
+ms.author: v-jansko
 ---
 
 # Speech Translation API
