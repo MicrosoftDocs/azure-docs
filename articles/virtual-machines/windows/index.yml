@@ -14,7 +14,7 @@ metadata:
   ms.topic: landing-page
   ms.date: 01/23/2017
   ms.author: carolz
-abstract:
+:abstract:
   description: Azure Windows Virtual Machines provides on-demand, high-scale, secure, virtualized infrastructure using Windows Server. Learn how to create, configure, manage, and scale Windows VMs with our quickstarts, tutorials, and samples.
   aside:
     image:
@@ -27,7 +27,8 @@ abstract:
     width: 250
 sections:
 - title: 5-Minute Quickstarts
-  items  - type: paragraph
+  items: 
+  - type: paragraph
     text: 'Learn how to deploy an IIS web-server within a Virtual Machine running Windows Server 2016:'
   - type: list
     style: icon48
