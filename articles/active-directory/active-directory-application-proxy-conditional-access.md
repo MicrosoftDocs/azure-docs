@@ -3,7 +3,7 @@ title: Conditional access to on-prem apps - Azure AD | Microsoft Docs
 description: Covers how to set up conditional access for applications you publish to be accessed remotely using Azure AD Application Proxy.
 services: active-directory
 documentationcenter: ''
-author: kgremban
+author: LizCasey
 manager: femila
 
 ms.assetid: 2e97722b-eb4e-4078-b607-9fed210d8a0f
