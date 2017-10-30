@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 10/16/2017
 ms.author: juluk
 ---
 
@@ -53,10 +53,10 @@ If exiting a session, be sure to exit from each session window as each process r
 
 ## Changing the text size
 ![](media/using-the-shell-window/text-size.png)
-* Click the settings icon on the top left of the window, then hover over the "Text size" option and select your desired text size.
+* Click the settings icon on the top left of the window, then hover over the "Text size" option and select your desired text size. Your selection will be persisted across sessions.
 
 ## Exit command
-Running `exit` terminates the active session. This behavior occurs by default after 10 minutes without interaction.
+Running `exit` terminates the active session. This behavior occurs by default after 20 minutes without interaction.
 
 ## Next steps
 

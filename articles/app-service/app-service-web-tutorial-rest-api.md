@@ -12,9 +12,10 @@ ms.service: app-service-api
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.date: 06/13/2017
 ms.author: rachelap
+ms.custom: mvc, devcenter
 
 ---
 # Build a Node.js RESTful API and deploy it to an API app in Azure

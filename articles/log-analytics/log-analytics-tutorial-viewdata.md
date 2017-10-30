@@ -2,20 +2,20 @@
 title: View or analyze Azure Log Analytics data collected | Microsoft Docs
 description: This article includes a tutorial that describes how to create log searches and analyze data stored in your Log Analytics resource using the Log Search portal.  The tutorial includes running some simple queries to return different types of data and analyzing results.
 services: log-analytics
-documentationcenter: ''
+documentationcenter: log-analytics
 author: mgoedtel
 manager: carmonm
 editor: ''
-
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/20/2017
+ms.date: 09/26/2017
 ms.author: magoedte
-
+ms.custom: mvc
 ---
+
 # View or analyze data collected with Log Analytics log search
 
 In Log Analytics you can leverage log searches by constructing queries to analyze the collected data, use pre-existing dashboards which you can customize with graphical views of your most valuable searches.  Now that you have defined collection of operational data from your Azure VMs and Activity Logs, in this tutorial you learn how to:
@@ -26,6 +26,10 @@ In Log Analytics you can leverage log searches by constructing queries to analyz
 > * Learn how to work with performance data
 
 To complete the example in this tutorial, you must have an existing virtual machine [connected to the Log Analytics workspace](log-analytics-quick-collect-azurevm.md).  
+
+Creating and editing queries, in addition to working interactively with returned data, can be accomplished one of two ways.  For basic queries, use the Log Search page in the Azure portal, or for advanced querying, you can use the Advanced Analytics portal. To learn more about the difference in functionality between the two portals, see [Portals for creating and editing log queries in Azure Log Analytics](log-analytics-log-search-portals.md)
+
+In this tutorial, we will be working with Log Search in the Azure portal. 
 
 ## Log in to Azure portal
 Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com). 
@@ -40,7 +44,7 @@ You may have noticed the banner across the top of your Log Analytics resource pa
 
 Log Analytics recently introduced a new query language to makes it easier to construct queries, correlate data from various sources, and analyze to quickly identify trends or issues.
 
-Upgrading is simple.  Start the process by clicking on the purple banner that says **Learn more and upgrade**.  Read through the additional information about the upgrade on the upgrade information page and then click **Upgrade Now**.
+Upgrading is simple.  Start the process by clicking on the banner that says **Learn more and upgrade**.  Read through the additional information about the upgrade on the upgrade information page and then click **Upgrade Now**.
 
 The process will take a few minutes to complete and during this time, you can track its progress under **Notifications** from the menu. You can learn more about the [Benefits of the new query language](log-analytics-log-search-upgrade.md#why-the-new-language).
 

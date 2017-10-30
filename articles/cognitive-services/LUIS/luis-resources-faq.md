@@ -105,6 +105,14 @@ By default, utterances from users are logged. To download a log of utterances th
 * If you delete an utterance from your LUIS app, it is removed from the LUIS web service and not available for export.
 * If you delete an account, all apps and their utterances are deleted. Data is retained on the servers for 60 days before permanent deletion.
 
+## What are the transactions limits on the Authoring API?
+You use a Programmatic key with the Authoring API for programmatically editing your LUIS app. Up to 100000 calls per month and 5 transactions per second are allowed for programmatic authoring.
+
+## What is the tenant ID in the Add a key to your app dialog?
+In Azure, a tenant represents the client or organization associated with a service. You can find your tenant ID in the Azure portal under Azure Active Directory > Manage > Properties, in the Directory ID field.
+
+![Tenant ID in Azure portal](./media/luis-manage-keys/luis-assign-key-tenant-id.png)
+
 ## Next steps
 
 * You can find many answers in the [Stack Overflow questions tagged with LUIS](https://stackoverflow.com/questions/tagged/luis).

@@ -8,7 +8,7 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 09/27/2017
 ms.author: jingwang
 
 ---
@@ -24,6 +24,9 @@ If you want to **copy files as-is** between file-based stores (binary copy), ski
 * [Avro format](#avro-format)
 * [ORC format](#orc-format)
 * [Parquet format](#parquet-format)
+
+> [!NOTE]
+> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally availabile (GA), see [supported file and compression formats in Data Factory version1](v1//data-factory-supported-file-and-compression-formats.md).
 
 ## Text format
 
@@ -471,15 +474,17 @@ To specify compression for a dataset, use the **compression** property in the da
 {
     "name": "AzureBlobDataSet",
     "properties": {
-        "availability": {
-            "frequency": "Day",
-              "interval": 1
-        },
         "type": "AzureBlob",
-        "linkedServiceName": "StorageLinkedService",
+        "linkedServiceName": {
+            "referenceName": "StorageLinkedService",
+            "type": "LinkedServiceReference"
+        },
         "typeProperties": {
             "fileName": "pagecounts.csv.gz",
             "folderPath": "compression/file/",
+            "format": {
+                "type": "TextFormat"
+            },
             "compression": {
                 "type": "GZip",
                 "level": "Optimal"

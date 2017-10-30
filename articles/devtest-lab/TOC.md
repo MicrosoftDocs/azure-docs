@@ -14,8 +14,9 @@
 # How-to guides
 ## Use VMs in a lab
 ### [Create VMs](devtest-lab-add-vm.md)
-### [Create claimable VM](devtest-lab-add-claimable-vm.md)
+### [Create and manage claimable VMs](devtest-lab-add-claimable-vm.md)
 ### [Create and manage VMs with Azure CLI](devtest-lab-vmcli.md)
+### [Restart a VM](devtest-lab-restart-vm.md)
 
 ## Use environments in a lab
 ### [Create an environment](devtest-lab-create-environment-from-arm.md)
@@ -28,6 +29,7 @@
 ### [Set policies and schedules ](devtest-lab-set-lab-policy.md)
 ### [Configure cost management](devtest-lab-configure-cost-management.md)
 ### [Configure marketplace images](devtest-lab-configure-marketplace-images.md)
+### [Enable a licensed image](devtest-lab-enable-licensed-images.md)
 ### [Add tags to a lab](devtest-lab-add-tag.md)
 
 ## [Select custom image or formula](devtest-lab-comparing-vm-base-image-types.md)
@@ -56,8 +58,8 @@
 ## [Scale your lab](devtest-lab-scale-lab.md)
 
 # Reference
-## [Azure CLI](/cli/azure/lab)
-## [Azure PowerShell](/powershell/module/azurerm.devtestlabs/#devtest_labs)
+## [CLI 2.0](/cli/azure/lab)
+## [PowerShell](/powershell/module/azurerm.devtestlabs/#devtest_labs)
 ### [Create or modify labs automatically](devtest-lab-use-arm-and-powershell-for-lab-resources.md)
 ## [REST API](https://docs.microsoft.com/rest/api/dtl/)
 ## [Resource Manager templates](https://github.com/Azure/azure-devtestlab/tree/master/Samples)

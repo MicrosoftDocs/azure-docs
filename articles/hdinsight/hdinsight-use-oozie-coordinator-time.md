@@ -15,7 +15,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 10/04/2017
 ms.author: jgao
 ROBOTS: NOINDEX
 ---
@@ -430,7 +430,7 @@ Azure PowerShell currently doesn't provide any cmdlets for defining Oozie jobs. 
     $hiveOutputFolder = "$storageUri/tutorials/useoozie/output"
 
     #Sqoop action variables
-    $sqlDatabaseConnectionString = "jdbc:sqlserver://$sqlDatabaseServer.database.windows.net;user=$sqlDatabaseLogin@$sqlDatabaseServer;password=$sqlDatabaseLoginPassword;database=$sqlDatabaseName"
+    $sqlDatabaseConnectionString = "Data Source=$sqlDatabaseServer.database.windows.net;user=$sqlDatabaseLogin@$sqlDatabaseServer;password=$sqlDatabaseLoginPassword;database=$sqlDatabaseName"  
     $sqlDatabaseTableName = "log4jLogsCount"
 
     $passwd = ConvertTo-SecureString $clusterPassword -AsPlainText -Force
@@ -556,7 +556,6 @@ Azure PowerShell currently doesn't provide any cmdlets for defining Oozie jobs. 
         if($oozieServerSatus -notmatch "NORMAL")
         {
             Write-Host "Oozie server status is $oozieServerSatus...cannot submit Oozie jobs. Check the server status and re-run the job."
-            exit 1
         }
     }
     ```
@@ -611,7 +610,6 @@ Azure PowerShell currently doesn't provide any cmdlets for defining Oozie jobs. 
         if($JobStatus -notmatch "SUCCEEDED")
         {
             Write-Host "Check logs at http://headnode0:9014/cluster for detais."
-            exit -1
         }
     }
     ```
@@ -660,7 +658,8 @@ Azure PowerShell currently doesn't provide any cmdlets for defining Oozie jobs. 
     # killOozieJob($oozieJobId)
     ```
 
-    Remove the # signs if you want to run the additional functions.
+Remove the # signs if you want to run the additional functions.
+
 9. If your HDinsight cluster is version 2.1, replace "https://$clusterName.azurehdinsight.net:443/oozie/v2/" with "https://$clusterName.azurehdinsight.net:443/oozie/v1/". HDInsight cluster version 2.1 does not supports version 2 of the web services.
 10. Click **Run Script** or press **F5** to run the script. The output will be similar to:
 

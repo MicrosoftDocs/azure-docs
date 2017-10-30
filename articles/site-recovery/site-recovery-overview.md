@@ -18,7 +18,6 @@ ms.author: raynew
 
 ---
 # What is Site Recovery?
-
 Welcome to the Azure Site Recovery service! This article provides a quick overview of the service.
 
 ## Business continuity and disaster recovery (BCDR) with Azure Recovery Services
@@ -61,7 +60,7 @@ Site Recovery can manage replication for:
 --- | ---
 **What can I replicate?** | Azure VMs between Azure regions (in preview)<br/><br/>  On-premises VMware VMs, Hyper-V VMs, physical servers (Windows and Linux) to Azure<br/<br/> On-premises VMware VMs, Hyper-V VMs, physical servers to a secondary site. For Hyper-V VMs, replication to a secondary site is only supported if Hyper-V hosts are managed by System Center VMM.
 **Which regions are supported for Site Recovery?** | [Supported regions](https://azure.microsoft.com/regions/services/) |
-**What operating systems do replicated machines need?** | [Azure VM requirements](site-recovery-support-matrix-azure-to-azure.md#support-for-replicated-machine-os-versions)s<br></br>[VMware VM requirements](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)<br/><br/> For Hyper-V VMs, any [guest OS](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) supported by Azure and Hyper-V is supported.<br/><br/> [Physical server requirements](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)
+**What operating systems do replicated machines need?** | [Azure VM requirements](site-recovery-support-matrix-azure-to-azure.md#support-for-replicated-machine-os-versions)<br></br>[VMware VM requirements](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)<br/><br/> For Hyper-V VMs, any [guest OS](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) supported by Azure and Hyper-V is supported.<br/><br/> [Physical server requirements](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)
 **What VMware servers/hosts do I need?** | VMware VMs can be located on [supported vSphere hosts/vCenter servers](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers)
 **What workloads can I replicate?** | You can replicate any workload running on a supported replication machine. In addition, the Site Recovery team have performed app-specific testing for a [number of apps](site-recovery-workload.md#workload-summary).
 

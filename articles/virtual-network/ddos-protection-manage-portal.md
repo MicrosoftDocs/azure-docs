@@ -22,7 +22,7 @@ ms.author: kumud
 # Manage Azure DDoS Protection Standard using the Azure portal
 
 >[!IMPORTANT]
->Azure DDoS Protection Standard (DDoS Protection) is currently in preview. A limited number of Azure resources support DDoS Protection, and in a select number of regions. You need to [register for the service](http://aka.ms/ddosprotection) during the limited preview to get DDoS Protection enabled for your subscription. You are contacted by the Azure DDoS team upon registration to guide you through the enablement process. DDoS Protection is available in US East, US West, and US Central regions. During preview, you are not charged for using the service.
+>Azure DDoS Protection Standard (DDoS Protection) is currently in preview. A limited number of Azure resources support DDoS Protection, and in a select number of regions. You need to [register for the service](http://aka.ms/ddosprotection) during the limited preview to get DDoS Protection enabled for your subscription. You are contacted by the Azure DDoS team upon registration to guide you through the enablement process. DDoS Protection is available in US East, US West, and West Central US regions. During preview, you are not charged for using the service.
 
 This article shows you how to use the Azure portal to enable DDoS Protection, disable DDoS Protection, and use telemetry to mitigate an attack. 
 

@@ -104,7 +104,7 @@ In this article, you learned how to use the Microsoft Hive ODBC driver to retrie
 * [Use Zeppelin to run Hive queries in Azure HDInsight ](./hdinsight-connect-hive-zeppelin.md).
 * [Connect Excel to Hadoop by using Power Query](./hdinsight-connect-excel-power-query.md).
 * [Connect to Azure HDInsight and run Hive queries using Data Lake Tools for Visual Studio](./hdinsight-hadoop-visual-studio-tools-get-started.md).
-* [Use Visual Studio Code for Hive, LLAP or pySpark](hdinsight-for-vscode.md).
+* [Use Azure HDInsight Tool for Visual Studio Code](hdinsight-for-vscode.md).
 * [Upload data to HDInsight](./hdinsight-upload-data.md).
 
 [hdinsight-use-sqoop]: hdinsight-use-sqoop.md

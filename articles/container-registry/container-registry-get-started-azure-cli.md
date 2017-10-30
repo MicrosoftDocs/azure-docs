@@ -15,7 +15,7 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2017
+ms.date: 10/16/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017
 ---
@@ -24,7 +24,7 @@ ms.custom: H1Hack27Feb2017
 
 Azure Container Registry is a managed Docker container registry service used for storing private Docker container images. This guide details creating an Azure Container Registry instance using the Azure CLI.
 
-This quickstart requires that you are running the Azure CLI version 2.0.12 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
+This quickstart requires that you are running the Azure CLI version 2.0.20 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
 
 You must also have Docker installed locally. Docker provides packages that easily configure Docker on any [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), or [Linux](https://docs.docker.com/engine/installation/#supported-platforms) system.
 
@@ -40,21 +40,23 @@ az group create --name myResourceGroup --location eastus
 
 ## Create a container registry
 
-Azure Container Registry is available in several SKUs: `Basic`, `Managed_Basic`, `Managed_Standard`, and `Managed_Premium`. Although the `Managed_*` SKUs provide advanced capabilities like managed storage and Webhooks, they're currently in preview, and are unavailable in some Azure regions. We select the `Basic` SKU in this quickstart due to its availability in all regions.
+In this quickstart, we create a *Basic* registry. Azure Container Registry is available in several different SKUs, described briefly in the following table. For extended details on each, see [Container registry SKUs](container-registry-skus.md).
+
+[!INCLUDE [container-registry-sku-matrix](../../includes/container-registry-sku-matrix.md)]
 
 Create an ACR instance using the [az acr create](/cli/azure/acr#create) command.
 
 The name of the registry **must be unique**. In the following example *myContainerRegistry007* is used. Update this to a unique value.
 
 ```azurecli
-az acr create --name myContainerRegistry007 --resource-group myResourceGroup --admin-enabled --sku Basic
+az acr create --name myContainerRegistry007 --resource-group myResourceGroup --sku Basic
 ```
 
 When the registry is created, the output is similar to the following:
 
-```azurecli
+```json
 {
-  "adminUserEnabled": true,
+  "adminUserEnabled": false,
   "creationDate": "2017-09-08T22:32:13.175925+00:00",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myContainerRegistry007",
   "location": "eastus",
@@ -80,7 +82,7 @@ Throughout the rest of this quickstart, we use `<acrname>` as a placeholder for 
 
 Before pushing and pulling container images, you must log in to the ACR instance. To do so, use the [az acr login](/cli/azure/acr#login) command.
 
-```azurecli-interactive
+```azurecli
 az acr login --name <acrname>
 ```
 
@@ -96,19 +98,19 @@ docker pull microsoft/aci-helloworld
 
 The image needs to be tagged with the ACR login server name. Run the following command to return the login server name of the ACR instance.
 
-```bash
+```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
 Tag the image using the [docker tag](https://docs.docker.com/engine/reference/commandline/tag/) command. Replace *<acrLoginServer>* with the login server name of your ACR instance.
 
-```
+```bash
 docker tag microsoft/aci-helloworld <acrLoginServer>/aci-helloworld:v1
 ```
 
 Finally, use [docker push](https://docs.docker.com/engine/reference/commandline/push/) to push the image to the ACR instance. Replace *<acrLoginServer>* with the login server name of your ACR instance.
 
-```
+```bash
 docker push <acrLoginServer>/aci-helloworld:v1
 ```
 
@@ -122,7 +124,7 @@ az acr repository list -n <acrname> -o table
 
 Output:
 
-```json
+```bash
 Result
 ----------------
 aci-helloworld
@@ -136,7 +138,8 @@ az acr repository show-tags -n <acrname> --repository aci-helloworld -o table
 
 Output:
 
-```Result
+```bash
+Result
 --------
 v1
 ```

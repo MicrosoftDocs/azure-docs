@@ -6,16 +6,13 @@ keywords:
 author: cbrooksmsft
 ms.author: cbrooks
 ms.date: 08/18/2017
-ms.topic: hero-article
+ms.topic: article
 ms.service: storage
 ---
 
 # Route Blob storage events to a custom web endpoint (preview)
 
 Azure Event Grid is an eventing service for the cloud. In this article, you use the Azure CLI to subscribe to Blob storage events, and trigger the event to view the result. 
-
-> [!IMPORTANT]
-> You must be registered for the Blob storage events preview to complete this tutorial.  Learn more about the preview program [here](storage-blob-event-overview.md#join-the-preview).
 
 Typically, you send events to an endpoint that responds to the event, such as a webhook or Azure Function. To simplify the example shown in this article, we send the events to a URL that merely collects the messages. You create this URL by using an open source, third-party tool called [RequestBin](https://requestb.in/).
 
@@ -51,7 +48,7 @@ To use Azure Storage, you need a storage account.  Blob storage events are curre
 A Blob storage account is a specialized storage account for storing your unstructured data as blobs (objects) in Azure Storage. Blob storage accounts are similar to your existing general-purpose storage accounts and share all the great durability, availability, scalability, and performance features that you use today including 100% API consistency for block blobs and append blobs. For applications requiring only block or append blob storage, we recommend using Blob storage accounts.
 
 > [!NOTE]
-> For the preview release, Blob storage events are available only for storage accounts in the **westcentralus** location.
+> Event Grid is currently in preview, and available only for storage accounts in the **westcentralus** and **westus2** regions.
 
 Replace `<storage_account_name>` with a unique name for your storage account, and `<resource_group_name>` with the resource group you created earlier.
 

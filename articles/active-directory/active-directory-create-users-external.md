@@ -3,7 +3,7 @@ title: Add users from other directories or partner companies in Azure Active Dir
 description: Explains how to add users or change user information in Azure Active Directory, including external and guest users.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: LizCasey
 manager: femila
 editor: ''
 
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/25/2017
+ms.date: 10/10/2017
 ms.author: curtand
 
 ms.custom: oldportal;it-pro;

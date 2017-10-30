@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/20/2017
+ms.date: 09/27/2017
 ms.author: markvi
 ms.reviewer: calebb
 
@@ -116,7 +116,7 @@ In the current implementation of Azure Active Directory, you can define conditio
 - Device platforms
 - Locations
 - Client apps
-- Time
+
 
 ![Conditions](./media/active-directory-conditional-access-azure-portal/01.png)
 

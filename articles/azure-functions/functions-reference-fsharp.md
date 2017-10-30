@@ -20,12 +20,7 @@ ms.author: syclebsc
 
 ---
 # Azure Functions F# Developer Reference
-> [!div class="op_single_selector"]
-> * [C# script](functions-reference-csharp.md)
-> * [F# script](functions-reference-fsharp.md)
-> * [Node.js](functions-reference-node.md)
-> 
-> 
+[!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
 
 F# for Azure Functions is a solution for easily running small pieces of code, or "functions," in the cloud. Data flows into your F# function via function arguments. Argument names are specified in `function.json`, and there are predefined names for accessing things like the function logger and cancellation tokens.
 
@@ -129,7 +124,7 @@ The following namespaces are automatically opened:
 * `Microsoft.Azure.WebJobs.Host`.
 
 ## Referencing External Assemblies
-Similarly, framework assembly references be added with the `#r "AssemblyName"` directive.
+Similarly, framework assembly references can be added with the `#r "AssemblyName"` directive.
 
 ```fsharp
 #r "System.Web.Http"
@@ -272,8 +267,6 @@ For more information, see the following resources:
 * [F# Guide](/dotnet/articles/fsharp/index)
 * [Best Practices for Azure Functions](functions-best-practices.md)
 * [Azure Functions developer reference](functions-reference.md)
-* [Azure Functions C# developer reference](functions-reference-csharp.md)
-* [Azure Functions NodeJS developer reference](functions-reference-node.md)
 * [Azure Functions triggers and bindings](functions-triggers-bindings.md)
 * [Azure Functions testing](functions-test-a-function.md)
 * [Azure Functions scaling](functions-scale.md)

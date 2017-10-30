@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/12/2017
+ms.date: 10/03/2017
 ms.author: larryfr
 
 ---
@@ -38,7 +38,7 @@ Learn how to use the WebHCat REST API to run MapReduce jobs on a Hadoop on HDIns
 > [!NOTE]
 > When you use Curl or any other REST communication with WebHCat, you must authenticate the requests by providing the HDInsight cluster administrator user name and password. You must use the cluster name as part of the URI that is used to send the requests to the server.
 >
-> For the commands in this section, replace **USERNAME** with the user to authenticate to the cluster, and **PASSWORD** with the password for the user account. Replace **CLUSTERNAME** with the name of your cluster.
+> For the commands in this section, replace **admin** with the user to authenticate to the cluster. Replace **CLUSTERNAME** with the name of your cluster. When prompted, provide the password for the user account.
 >
 > The REST API is secured by using [basic access authentication](http://en.wikipedia.org/wiki/Basic_access_authentication). You should always make requests by using HTTPS to ensure that your credentials are securely sent to the server.
 
@@ -46,10 +46,10 @@ Learn how to use the WebHCat REST API to run MapReduce jobs on a Hadoop on HDIns
 1. From a command line, use the following command to verify that you can connect to your HDInsight cluster:
 
     ```bash
-    curl -u USERNAME:PASSWORD -G https://CLUSTERNAME.azurehdinsight.net/templeton/v1/status
+    curl -u admin -G https://CLUSTERNAME.azurehdinsight.net/templeton/v1/status
     ```
 
-    You should receive a response similar to the following JSON:
+    You receive a response similar to the following JSON:
 
         {"status":"ok","version":"v1"}
 
@@ -58,12 +58,12 @@ Learn how to use the WebHCat REST API to run MapReduce jobs on a Hadoop on HDIns
    * **-u**: Indicates the user name and password used to authenticate the request
    * **-G**: Indicates that this operation is a GET request
 
-     The beginning of the URI, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, is the same for all requests.
+   The beginning of the URI, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, is the same for all requests.
 
 2. To submit a MapReduce job, use the following command:
 
     ```bash
-    curl -u USERNAME:PASSWORD -d user.name=USERNAME -d jar=/example/jars/hadoop-mapreduce-examples.jar -d class=wordcount -d arg=/example/data/gutenberg/davinci.txt -d arg=/example/data/CurlOut https://CLUSTERNAME.azurehdinsight.net/templeton/v1/mapreduce/jar
+    curl -u admin -d user.name=admin -d jar=/example/jars/hadoop-mapreduce-examples.jar -d class=wordcount -d arg=/example/data/gutenberg/davinci.txt -d arg=/example/data/CurlOut https://CLUSTERNAME.azurehdinsight.net/templeton/v1/mapreduce/jar
     ```
 
     The end of the URI (/mapreduce/jar) tells WebHCat that this request starts a MapReduce job from a class in a jar file. The parameters used in this command are as follows:
@@ -74,14 +74,14 @@ Learn how to use the WebHCat REST API to run MapReduce jobs on a Hadoop on HDIns
     * **class**: The class that contains the MapReduce logic
     * **arg**: The arguments to be passed to the MapReduce job. In this case, the input text file and the directory that are used for the output
 
-     This command should return a job ID that can be used to check the status of the job:
+   This command should return a job ID that can be used to check the status of the job:
 
        {"id":"job_1415651640909_0026"}
 
 3. To check the status of the job, use the following command:
 
     ```bash
-    curl -G -u USERNAME:PASSWORD -d user.name=USERNAME https://CLUSTERNAME.azurehdinsight.net/templeton/v1/jobs/JOBID | jq .status.state
+    curl -G -u admin -d user.name=admin https://CLUSTERNAME.azurehdinsight.net/templeton/v1/jobs/JOBID | jq .status.state
     ```
 
     Replace the **JOBID** with the value returned in the previous step. For example, if the return value was `{"id":"job_1415651640909_0026"}`, then the JOBID would be `job_1415651640909_0026`.

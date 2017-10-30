@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 09/30/2017
 ms.author: jingwang
 
 ---
@@ -92,7 +92,10 @@ The following properties are supported for SQL Server linked service:
                 "value": "Data Source=<servername>\\<instance name if using named instance>;Initial Catalog=<databasename>;Integrated Security=True;"
             },
              "userName": "<domain\\username>",
-             "password": "<password>"
+             "password": {
+                "type": "SecureString",
+                "value": "<password>"
+             }
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",

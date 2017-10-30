@@ -41,8 +41,9 @@ to look like.
   >  [!NOTE]
   > The FTP sample format is supported in snapshots and automated upload while syslog is supported in automated upload only. Downloading a sample log downloads a sample FTP log.
 6. **Choose the traffic logs** that you want to upload. You can upload up to 20 files at once. Compressed and zipped files are also supported.
-7. Click **Create**. After upload completes, it might take some time for them to be parsed and analyzed. If it does, Cloud App Discovery sends an email notification when they're ready.
   
+7. Click **Create**. After upload completes, it might take some time for them to be parsed and analyzed. If it does, Cloud App Discovery sends an email notification when they're ready.
+
 8. Select **Manage snapshot reports** and the select your snapshot report.
   
   ![Snapshot report management](./media/cloudappdiscovery-set-up-snapshots/create-snapshot-manage.png)

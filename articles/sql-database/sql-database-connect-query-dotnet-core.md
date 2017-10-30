@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 
 ms.service: sql-database
 ms.custom: mvc,develop apps
-ms.workload: drivers
+ms.workload: "On Demand"
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
@@ -69,7 +69,7 @@ Get the connection information needed to connect to the Azure SQL database. You 
 
     ```xml
     <ItemGroup>
-        <PackageReference Include="System.Data.SqlClient" Version="4.3.0" />
+        <PackageReference Include="System.Data.SqlClient" Version="4.4.0" />
     </ItemGroup>
     ```
 

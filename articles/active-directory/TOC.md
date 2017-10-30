@@ -5,8 +5,11 @@
 ## [Choose a hybrid identity solution](choose-hybrid-identity-solution.md)
 ## [Associate Azure subscriptions](active-directory-how-subscriptions-associated-directory.md)
 ## [FAQs](active-directory-faq.md)
+## [What's New](whats-new.md)
+
 
 # Get started
+## [Get started with Azure AD](get-started-azure-ad.md)
 ## [Sign up for Azure AD Premium](active-directory-get-started-premium.md)
 ## [Add a custom domain name](add-custom-domain.md)
 ## [Configure company branding](customize-branding.md)
@@ -42,8 +45,8 @@
 #### [Identify and resolve license problems in a group](active-directory-licensing-group-problem-resolution-azure-portal.md)
 #### [Migrate individual licensed users to group-based licensing](active-directory-licensing-group-migration-azure-portal.md)
 #### [Additional scenarios for group-based licensing](active-directory-licensing-group-advanced.md)
-#### [Provide terms of use for users and apps](active-directory-tou.md)
 #### [Azure PowerShell examples for group-based licensing](active-directory-licensing-ps-examples.md)
+#### [Reference for products and service plans in Azure AD](active-directory-licensing-product-and-service-plan-reference.md)
 ### [Manage user profiles](active-directory-users-profile-azure-portal.md)
 ### [Reset a password](active-directory-users-reset-password-azure-portal.md)
 ### [Manage user work information](active-directory-users-work-info-azure-portal.md)
@@ -65,6 +68,7 @@
 #### [Migrate individual licensed users to group-based licensing](active-directory-licensing-group-migration-azure-portal.md)
 #### [Additional scenarios for group-based licensing](active-directory-licensing-group-advanced.md)
 #### [Azure PowerShell examples for group-based licensing](active-directory-licensing-ps-examples.md)
+#### [Reference for products and service plans in Azure AD](active-directory-licensing-product-and-service-plan-reference.md)
 ### [Set up Office 365 groups expiration](active-directory-groups-lifecycle-azure-portal.md)
 ### [View all groups](active-directory-groups-view-azure-portal.md)
 ### [Enable dedicated groups](active-directory-accessmanagement-dedicated-groups.md)
@@ -95,6 +99,7 @@
 #### [Latencies](active-directory-reporting-latencies-azure-portal.md)
 #### [Notifications](active-directory-reporting-notifications.md)
 #### [Sign-in activity error codes](active-directory-reporting-activity-sign-ins-errors.md)
+#### [Multi-factor authentication](active-directory-reporting-activity-sign-ins-mfa.md)
 ### Troubleshoot
 #### [Missing audit data](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [Missing data in downloads](active-directory-reporting-troubleshoot-missing-data-download.md)
@@ -137,7 +142,7 @@
 ### Tasks
 #### [Set up Azure AD registered Windows 10 devices](device-management-azuread-registered-devices-windows10-setup.md)
 #### [Set up Azure AD joined devices](device-management-azuread-joined-devices-setup.md)
-#### [Set up hybrid Azure AD joined devices](device-management-hybrid-azuread-joined-devices-setup.md) 
+#### [Set up hybrid Azure AD joined devices](device-management-hybrid-azuread-joined-devices-setup.md)
 #### [Deploy on-premises](active-directory-device-registration-on-premises-setup.md)
 #### [Azure AD join during Windows 10 first-run experience](device-management-azuread-joined-devices-frx.md)
 ### Troubleshoot
@@ -148,14 +153,14 @@
 ### [Overview](active-directory-enable-sso-scenario.md)
 ### [Getting started](active-directory-integrating-applications-getting-started.md)
 ### [SaaS app integration tutorials](active-directory-saas-tutorial-list.md)
-### [Cloud App Discovery](cloudappdiscovery-overview.md)
-#### [What is Cloud App Discovery?](active-directory-cloudappdiscovery-whatis.md)
-#### [Set up steps](cloudappdiscovery-get-started.md)
+### [Cloud App Discovery](cloudappdiscovery-get-started.md)
 #### [Create snapshot reports](cloudappdiscovery-set-up-snapshots.md)
 #### [Configure continuous reporting](https://docs.microsoft.com/cloud-app-security/discovery-docker)
-#### [Use a custom log parser](https://docs.microsoft.comcommit/cloud-app-security/custom-log-parser)
-#### [Update registry settings](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
-#### [Understand security and privacy](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
+#### [Use a custom log parser](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
+#### Agent-based discovery
+##### [What is Cloud App Discovery?](active-directory-cloudappdiscovery-whatis.md)
+##### [Update registry settings](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
+##### [Understand security and privacy](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
 
 
 ### [Access apps remotely with App Proxy](active-directory-application-proxy-get-started.md)
@@ -203,6 +208,7 @@
 #### [Manage user account provisioning](active-directory-enterprise-apps-manage-provisioning.md)
 #### [Manage single sign-on for enterprise apps](active-directory-enterprise-apps-manage-sso.md)
 #### [Advanced certificate signing for SAML apps](active-directory-enterprise-apps-advance-certificate-options.md)
+#### [Hide a third-party app from a user's experience](active-directory-coreapps-hide-third-party-app.md)
 
 ### [Manage access to apps](active-directory-managing-access-to-apps.md)
 #### [Self-service access](active-directory-self-service-application-access.md)
@@ -298,15 +304,15 @@
 #### [Best practices](active-directory-conditional-access-best-practices.md)
 #### [Understand device policies for Office 365 services](active-directory-conditional-access-device-policies.md)
 #### Tasks
+##### [Migrate classic policies](active-directory-conditional-access-migration.md)
 ##### [Set up device-based conditional access](active-directory-conditional-access-policy-connected-applications.md)
 ##### [Set up app-based conditional access](active-directory-conditional-access-mam.md)
+##### [Provide terms of use for users and apps](active-directory-tou.md)
 ##### [Set up VPN connectivity](active-directory-conditional-access-vpn-connectivity-windows10.md)
 ##### [Set up SharePoint and Exchange Online](active-directory-conditional-access-no-modern-authentication.md)
 ##### [Remediation](active-directory-conditional-access-device-remediation.md)
 #### [Technical reference](active-directory-conditional-access-technical-reference.md)
 #### [FAQs](active-directory-conditional-faqs.md)
-#### [Classic portal](active-directory-conditional-access.md)
-##### [Get started](active-directory-conditional-access-azuread-connected-apps.md)
 
 ### Windows Hello
 #### [Authenticate without passwords](active-directory-azureadjoin-passport.md)

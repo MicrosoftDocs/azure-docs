@@ -14,8 +14,8 @@ ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/25/2017
+ms.topic: troubleshooting
+ms.date: 10/26/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
 

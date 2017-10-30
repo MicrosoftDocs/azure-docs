@@ -116,7 +116,9 @@
 - name: Reference
   items:
   - name: Azure Stack PowerShell
-    href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.9
+    href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.10
+  - name: Azure Stack CLI
+    href: /cli/azure/?view=azure-cli-2017-03-09-profile
 - name: Resources
   items:
   - name: Azure Roadmap

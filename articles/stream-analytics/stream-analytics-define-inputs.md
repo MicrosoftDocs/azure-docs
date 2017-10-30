@@ -32,6 +32,12 @@ Stream Analytics also supports input known as *reference data*. This is auxiliar
 
 To learn how to create reference data inputs, see [Use Reference Data](stream-analytics-use-reference-data.md).  
 
+## Compression
+
+Azure Stream Analytics supports compression across all data stream input sources (Event Hubs, IoT Hub, and Blob storage). This feature adds a new dropdown option to the **New input** blade in Azure Portal, allowing you to optionally choose to compress data streams. Supported types are currently None, GZip, and Deflate compression. 
+
+Compression is not supported in tandem with Avro serialization, and is not applicable to reference data. 
+
 ## Create data stream input from Event Hubs
 
 Azure Event Hubs provides highly scalable publish-subscribe event ingestors. An event hub can collect millions of events per second, so that you can process and analyze the massive amounts of data produced by your connected devices and applications. Event Hubs and Stream Analytics together provide you with an end-to-end solution for real-time analytics—Event Hubs let you feed events into Azure in real time, and Stream Analytics jobs can process those events in real time. For example, you can send web clicks, sensor readings, or online log events to Event Hubs. You can then create Stream Analytics jobs to use Event Hubs as the input data streams for real-time filtering, aggregating, and correlation.
@@ -53,6 +59,7 @@ The following table explains each property in the **New input** blade in the Azu
 | **Event hub consumer group** (optional) |The consumer group to use to ingest data from the event hub. If no consumer group is specified, the Stream Analytics job uses the default consumer group. We recommend that you use a distinct consumer group for each Stream Analytics job. |
 | **Event serialization format** |The serialization format (JSON, CSV, or Avro) of the incoming data stream. |
 | **Encoding** | UTF-8 is currently the only supported encoding format. |
+| **Compression** (optional) | The compression type (None, GZip, or Deflate) of the incoming data stream. |
 
 When your data comes from an event hub, you have access to the following metadata fields in your Stream Analytics query:
 
@@ -71,6 +78,10 @@ SELECT
     PartitionId
 FROM Input
 ````
+
+> [!NOTE]
+> When using Event Hub as an endpoint for IoT Hub Routes, you can access to the IoT Hub medadata using the [GetMetadataPropertyValue function](https://msdn.microsoft.com/en-us/library/azure/mt793845.aspx).
+> 
 
 ## Create data stream input from IoT Hub
 Azure Iot Hub is a highly scalable publish-subscribe event ingestor optimized for IoT scenarios.
@@ -98,6 +109,7 @@ The following table explains each property in the **New input** blade in the Azu
 | **Consumer group** (optional) |The consumer group to use to ingest data from the IoT hub. If no consumer group is specified, a Stream Analytics job uses the default consumer group. We recommend that you use a different consumer group for each Stream Analytics job. |
 | **Event serialization format** |The serialization format (JSON, CSV, or Avro) of the incoming data stream. |
 | **Encoding** |UTF-8 is currently the only supported encoding format. |
+| **Compression** (optional) | The compression type (None, GZip, or Deflate) of the incoming data stream. |
 
 When your data comes from an IoT hub, you have access to the following metadata fields in your Stream Analytics query:
 
@@ -140,6 +152,7 @@ The following table explains each property in the **New input** blade in the Azu
 | **Time format** (optional) |  If you use the time variable in the path, the time format in which the files are organized. Currently the only supported value is `HH`. |
 | **Event serialization format** | The serialization format (JSON, CSV, or Avro) for incoming data streams. |
 | **Encoding** | For CSV and JSON, UTF-8 is currently the only supported encoding format. |
+| **Compression** (optional) | The compression type (None, GZip, or Deflate) of the incoming data stream. |
 
 When your data comes from a Blob storage source, you have access to the following metadata fields in your Stream Analytics query:
 

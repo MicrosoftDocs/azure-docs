@@ -99,7 +99,8 @@ In a text editor, open the file **samples\\simulated\_device\_cloud\_upload\\src
           }
           },
           "args": {
-            "macAddress": "01:01:01:01:01:01"
+            "macAddress": "01:01:01:01:01:01",
+            "messagePeriod" : 2000
           }
         },
       {
@@ -111,7 +112,8 @@ In a text editor, open the file **samples\\simulated\_device\_cloud\_upload\\src
           }
           },
           "args": {
-            "macAddress": "02:02:02:02:02:02"
+            "macAddress": "02:02:02:02:02:02",
+            "messagePeriod" : 2000
           }
         },
       {

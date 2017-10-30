@@ -19,44 +19,44 @@ ms.custom: aaddev
 
 ---
 # Advanced certificate signing options in the SAML token for gallery apps in Azure Active Directory
-Today Azure Active Directory supports thousands of pre-integrated applications in the Azure AD Application Gallery, including over 500 that support single sign-on using the SAML 2.0 protocol. When a user authenticates to an application through Azure AD using SAML, Azure AD sends a token to the application (via an HTTP POST). Then, the application validates and uses the token to log the user in instead of prompting for a username and password. These SAML tokens are signed with the unique certificate that is generated in Azure AD. This SAML token is signed with the specific standard algorithms.
+Today Azure Active Directory (Azure AD) supports thousands of pre-integrated applications in the Azure Active Directory App Gallery. This number includes more than 500 applications that support single sign-on by using the SAML 2.0 protocol. When a user authenticates to an application through Azure AD by using SAML, Azure AD sends a token to the application (via an HTTP POST). Then, the application validates and uses the token to log in the user instead of prompting for a username and password. These SAML tokens are signed with the unique certificate that's generated in Azure AD and by specific standard algorithms.
 
-Azure Active Directory uses some of the default settings for the gallery applications. Based on the application requirement the default values are set up.
+Azure AD uses some of the default settings for the gallery applications. The default values are set up based on the application's requirements.
 
-Azure Active Directory support advance certificate signing settings. To select these options, first select the **SAML advance certificate signing settings** checkbox as shown following.
+Azure AD supports advanced certificate signing settings. To select these options, first select the **Show advanced certificate signing settings** check box:
 
-![Certificate signing options][1]
+![Show advanced certificate signing settings][1]
 
-Once, this checkbox is checked then you can set up the **Certificate signing options** and **Certificate signing algorithm**.
+After you select this check box, you can set up certificate signing options and the certificate signing algorithm.
 
 ## Certificate signing options
 
-Following are the three types of Certificate signing options are supported by Azure AD.
+Azure AD supports three certificate signing options:
 
-1. **Sign SAML assertion** - This is the default option set for most of the gallery applications. If this option is selected, then Azure AD as an IDP signs the SAML Assertions and Certificate with the X509 certificate of the application. Also it uses the signing algorithm, which is selected in the drop-down below.
+* **Sign SAML assertion**. This default option is set for most of the gallery applications. If this option is selected, Azure AD as an IdP signs the SAML assertion and certificate with the X509 certificate of the application. Also, it uses the signing algorithm, which is selected in the **Signing Algorithm** drop-down list.
 
-2. **Sign SAML response** - If this option is selected then Azure AD as IDP signs the SAML Response with the X509 certificate of the application. Also it uses the signing algorithm, which is selected in the drop-down below.
+* **Sign SAML response**. If this option is selected, Azure AD as an IdP signs the SAML response with the X509 certificate of the application. Also, it uses the signing algorithm, which is selected in the **Signing Algorithm** drop-down list.
 
-3. **Sign SAML response and assertion** - If this option is selected then Azure AD as IDP sign the entire SAML token with the X509 certificate of the application. Also it uses the signing algorithm, which is selected in the drop-down below.
+* **Sign SAML response and assertion**. If this option is selected, Azure AD as an IdP signs the entire SAML token with the X509 certificate of the application. Also, it uses the signing algorithm, which is selected in the **Signing Algorithm** drop-down list.
 
     ![Certificate signing options][4]
 
-## Certificate signing algorithm
+## Certificate signing algorithms
 
-Azure Active Directory support two types of signing algorithm to sign the SAML response.
+Azure AD supports two signing algorithms to sign the SAML response:
 
-1. SHA256 - This is the default algorithm which Azure Active Directory use to sign the SAML Response. This is the newest algorithm and treated as more secure than SHA1. Most of the application does support SHA256 algorithm. If the application only supports Sha1 as signing algorithm, then you can change it. otherwise we recommend using SHA256 algorithm for signing the SAML Response.
+* **SHA-256**. Azure AD uses this default algorithm to sign the SAML response. It's the newest algorithm and is treated as more secure than SHA-1. Most of the applications support the SHA-256 algorithm. If an application supports only SHA-1 as the signing algorithm, you can change it. Otherwise, we recommend that you use the SHA-256 algorithm for signing the SAML response.
 
-    ![SHA256 Certificate signing algorithm][3]
+    ![SHA-256 certificate signing algorithm][3]
 
-2. SHA1 - This is the older algorithm and not treated as secure. If the application support only this signing algorithm, then you can select this option in the drop-down. With that Azure AD signs the SAML Response with Sha1 algorithm.
+* **SHA-1**. This is the older algorithm, and it's treated as less secure than SH-256. If an application supports only this signing algorithm, you can select this option in the **Signing Algorithm** drop-down list. Azure AD then signs the SAML response with the SHA-1 algorithm.
 
-    ![SHA1 Certificate signing algorithm][2]
+    ![SHA-1 certificate signing algorithm][2]
 
 ## Next steps
-* [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
-* [Configuring single sign-on to applications that are not in the Azure Active Directory application gallery](active-directory-saas-custom-apps.md)
-* [Troubleshooting SAML-Based Single Sign-On](develop/active-directory-saml-debugging.md)
+* [Article index for application management in Azure Active Directory](active-directory-apps-index.md)
+* [Configure single sign-on to applications that are not in the Azure Active Directory App Gallery](application-config-sso-how-to-configure-federated-sso-non-gallery.md)
+* [Troubleshoot SAML-based single sign-on](develop/active-directory-saml-debugging.md)
 
 <!--Image references-->
 
