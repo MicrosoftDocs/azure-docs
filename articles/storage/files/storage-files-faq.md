@@ -61,14 +61,13 @@ This article answers common questions about Azure Files features and functionali
 
 * <a id="get-started"></a>**How do I get started using Azure Files?**
 
-    Getting started with Azure Files is easy. First, [create a file share](storage-how-to-create-file-share.md), and then mount it in your preferred operating system: 
+   Getting started with Azure Files is easy. First, [create a file share](storage-how-to-create-file-share.md), and then mount it in your preferred operating system: 
 
     * [Mount in Windows](storage-how-to-use-files-windows.md)
     * [Mount in Linux](storage-how-to-use-files-linux.md)
     * [Mount in macOS](storage-how-to-use-files-mac.md)
 
-    
-    For a more in-depth guide about deploying an Azure Files share to replace production file shares in your organization, see [Planning for an Azure Files deployment](storage-files-planning.md).
+   For a more in-depth guide about deploying an Azure Files share to replace production file shares in your organization, see [Planning for an Azure Files deployment](storage-files-planning.md).
 
 * <a id="redundancy-options"></a>**What storage redundancy options are supported by Azure Files?**
 
@@ -131,7 +130,7 @@ This article answers common questions about Azure Files features and functionali
         
         You can see the attributes for all the files in a folder by adding the **Attributes** field to the table display of File Explorer. To do this, right-click on an existing column (for example, **Size**), select **More**, and then select **Attributes** from the drop-down list.
         
-    * **Use `fsutil` to check for reparse points on a file.**
+   * **Use `fsutil` to check for reparse points on a file.**
        As described in the preceding option, a tiered file always has a reparse point set. A reparse pointer is a special pointer for the Azure File Sync file system filter (StorageSync.sys). To check whether a file has a reparse point, in an elevated Command Prompt or PowerShell window, run the `fsutil` utility:
     
         ```PowerShell
