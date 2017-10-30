@@ -45,10 +45,10 @@ The shard map manager protects users from inconsistent views into shardlet data 
 Instead of using the traditional way to create connections for Dapper, you need to use the [OpenConnectionForKey method](http://msdn.microsoft.com/library/azure/dn824099.aspx). This ensures that all the validation takes place and connections are managed properly when any data moves between shards.
 
 ### Requirements for Dapper integration
-When working with both the elastic database client library and the Dapper APIs, youwant to retain the following properties:
+When working with both the elastic database client library and the Dapper APIs, you want to retain the following properties:
 
 * **Scale out**: We want to add or remove databases from the data tier of the sharded application as necessary for the capacity demands of the application. 
-* **Consistency**: Since the application is scaled out using sharding, you need to perform data-dependent routing. We want to use the data-dependent routing capabilities of the library to do so. In particular, youwant to retain the validation and consistency guarantees provided by connections that are brokered through the shard map manager in order to avoid corruption or wrong query results. This ensures that connections to a given shardlet are rejected or stopped if (for instance) the shardlet is currently moved to a different shard using Split/Merge APIs.
+* **Consistency**: Since the application is scaled out using sharding, you need to perform data-dependent routing. We want to use the data-dependent routing capabilities of the library to do so. In particular, you want to retain the validation and consistency guarantees provided by connections that are brokered through the shard map manager in order to avoid corruption or wrong query results. This ensures that connections to a given shardlet are rejected or stopped if (for instance) the shardlet is currently moved to a different shard using Split/Merge APIs.
 * **Object Mapping**: We want to retain the convenience of the mappings provided by Dapper to translate between classes in the application and the underlying database structures. 
 
 The following section provides guidance for these requirements for applications based on **Dapper** and **DapperExtensions**.

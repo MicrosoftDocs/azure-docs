@@ -42,7 +42,7 @@ In this graphic, colors of the database represent schemas. Databases with the sa
 ![Elastic Database tools][1]
 
 ## Why use the tools?
-Achieving elasticity and scale for cloud applications has been straightforward for VMs and blob storag - simply add or subtract units, or increase power. But it has remained a challenge for stateful data processing in relational databases. Challenges emerged in these scenarios:
+Achieving elasticity and scale for cloud applications has been straightforward for VMs and blob storage - simply add or subtract units, or increase power. But it has remained a challenge for stateful data processing in relational databases. Challenges emerged in these scenarios:
 
 * Growing and shrinking capacity for the relational database part of your workload.
 * Managing hotspots that may arise affecting a specific subset of data - such as a busy end-customer (tenant).
