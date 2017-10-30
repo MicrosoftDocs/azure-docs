@@ -1,18 +1,18 @@
 ---
-title: Translator Text API
-description: Use Translator Text API to translate text in multiple languages
+title: Translator Text API Sign up
+description: How to sign up for the Microsoft Translator Text API.
 services: cognitive-services
-author: chriswendt1
+author: jann-skotdal
 manager: olivierf
 
 ms.service: cognitive-services
 ms.technology: microsoft translator
 ms.topic: article
 ms.date: 10/30/2017
-ms.author: Chris.Wendt
+ms.author: v-jansko
 ---
 
-# How use the Microsoft Translator Text API
+# How sign up for the Microsoft Translator Text API
 
 
 ## 1: Sign into Azure 	
@@ -42,7 +42,7 @@ ms.author: Chris.Wendt
 # Customization
 **Translator Hub**
 
-Use the Translator Hub pre-publishing tool to customize your translations and create a translation system tuned to your own terminology and style. [Learn more](https://www.microsoft.com/en-us/translator/hub.aspx)
+Use the Translator Hub pre-publishing tool to customize your translations and create a translation system tuned to your own terminology and style. [Learn more](translator-hub-overview.md)
  
 # Additional resources
 - [Get Started with Azure (5-minute video)](https://azure.microsoft.com/en-us/get-started/?b=16.24)
