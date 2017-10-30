@@ -148,7 +148,7 @@
     - name: Restore a backup
       href: web-sites-restore.md
     - name: Restore a snapshot
-      href: web-sites-snapshots.md
+      href: app-service-web-restore-snapshots.md
     - name: Clone an app
       href: app-service-web-app-cloning.md
     - name: Move resources
