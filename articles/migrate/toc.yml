@@ -18,7 +18,7 @@
   items:
   - name: Create a group
     href: how-to-create-a-group.md
-  - name: Create an group using machine dependencies
+  - name: Create a group using machine dependencies
     href: how-to-create-group-machine-dependencies.md
   - name: Create a group using VMware tagging
     href: how-to-tag-v-center.md
