@@ -64,7 +64,7 @@ This article answers common questions about Azure Files features and functionali
    For a more in-depth guide about deploying an Azure File share to replace production file shares in your organization, see [Planning for an Azure Files deployment](storage-files-planning.md).
 
 * <a id="redundancy-options"></a>**What storage redundancy options are supported by Azure Files?**  
-    Currently, Azure Files supports only locally redundant storage and geo-redundant storage. We plan to support zone-redundant storage and read-access geo-redundant storage in the future, but we don't have timelines to share at this time.
+    Currently, Azure Files supports only locally redundant storage (LRS) and geo-redundant storage (GRS). We plan to support zone-redundant storage (ZRS) and read-access geo-redundant (RA-GRS) storage in the future, but we don't have timelines to share at this time.
 
 * <a id="tier-options"></a>**What storage tiers are supported in Azure Files?**  
     Currently, Azure Files supports only the standard storage tier. We don't have timelines to share for premium storage and cool blob storage support at this time. 
