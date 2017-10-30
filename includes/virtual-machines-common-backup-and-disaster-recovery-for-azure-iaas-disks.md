@@ -82,7 +82,7 @@ IaaS application data issues are another possibility. Consider an application th
 
 ## Disaster recovery solution: Azure Backup 
 
-[Azure Backup](https://azure.microsoft.com/services/backup/) is used for backups and DR, and it works with [managed disks](../articles/virtual-machines/windows/managed-disks-overview.md) as well as [unmanaged disks](articles/virtual-machines/windows/about-disks-and-vhds.md#unmanaged-disks). You can create a backup job with time-based backups, easy VM restoration, and backup retention policies. 
+[Azure Backup](https://azure.microsoft.com/services/backup/) is used for backups and DR, and it works with [managed disks](../articles/virtual-machines/windows/managed-disks-overview.md) as well as [unmanaged disks](../articles/virtual-machines/windows/about-disks-and-vhds.md#unmanaged-disks). You can create a backup job with time-based backups, easy VM restoration, and backup retention policies. 
 
 If you use [Premium Storage disks](../articles/virtual-machines/windows/premium-storage.md), [managed disks](../articles/virtual-machines/windows/managed-disks-overview.md), or other disk types with the [locally redundant storage](../articles/storage/common/storage-redundancy.md#locally-redundant-storage) option, it's especially important to make periodic DR backups. Azure Backup stores the data in your recovery services vault for long-term retention. Choose the [geo-redundant storage](../articles/storage/common/storage-redundancy.md#geo-redundant-storage) option for the backup recovery services vault. That option ensures that backups are replicated to a different Azure region for safeguarding from regional disasters.
 
@@ -136,7 +136,7 @@ Use the following steps to enable backups of your VMs by using the [Azure portal
 
 3.	Configure the backup policy and select the VM from the same UI.
 
-4.	Make sure the Backup Agent is installed on the VM. If your VM is created by using an Azure gallery image, then the Backup Agent is already installed. Otherwise (that is, if you use a custom image), use the instructions to [install the VM agent on a virtual machine](../articles/backup/backup-azure-arm-vms-prepare,md#install-the-vm-agent-on-the-virtual-machine).
+4.	Make sure the Backup Agent is installed on the VM. If your VM is created by using an Azure gallery image, then the Backup Agent is already installed. Otherwise (that is, if you use a custom image), use the instructions to [install the VM agent on a virtual machine](../articles/backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent-on-the-virtual-machine).
 
 5.	Make sure that the VM allows network connectivity for the backup service to function. Follow the instructions for [network connectivity](../articles/backup/backup-azure-arm-vms-prepare.md#network-connectivity).
 
@@ -152,9 +152,9 @@ If you need to repair or rebuild a VM, you can restore the VM from any of the ba
 
 -	You can restore the disks, and then use the template for the VM to customize and rebuild the restored VM. 
 
-For more information, see the instructions to [use the Azure portal to restore virtual machines](../articles/backup/backup-azure-arm-restore-vms.md). This document also explains the specific steps for restoring backed-up VMs to a paired datacenter by using your geo-redundant backup vault if there is a disaster at the primary datacenter. In that case, Azure Backup uses the Compute service from the secondary region to create the restored virtual machine.
+For more information, see the instructions to [use the Azure portal to restore virtual machines](../articles/backup/baclkup-azure-arm-restore-vms.md). This document also explains the specific steps for restoring backed-up VMs to a paired datacenter by using your geo-redundant backup vault if there is a disaster at the primary datacenter. In that case, Azure Backup uses the Compute service from the secondary region to create the restored virtual machine.
 
-You can also use PowerShell for [restoring a VM](../articles/backup/backup-azure-arm-restore-vms.md#restoring-a-vm-during-azure-datacenter-disaster) or for [creating a new VM from restored disks](../articles/backup/backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
+You can also use PowerShell for [restoring a VM](../articles/backup/backup-azure-arm-restore-vms.md#restore-a-vm-during-an-azure-datacenter-disaster) or for [creating a new VM from restored disks](../articles/backup/backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
 
 ## Alternative solution: Consistent snapshots
 
