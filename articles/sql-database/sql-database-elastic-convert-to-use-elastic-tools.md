@@ -13,7 +13,7 @@ ms.custom: scale out apps
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.workload: data-management
+ms.workload: "Inactive"
 ms.date: 10/24/2016
 ms.author: ddove
 
