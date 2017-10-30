@@ -29,7 +29,6 @@ To create a virtual network rule, there must first be a [virtual network service
 > This feature is in Preview status, as of October 30, 2017. It is not yet fully available in all Azure geographic regions. Informally, we expect the range of available regions to increase dramatically before the end of 2017. 
 >
 > *Portal:* When you use the Azure portal to access this feature, the portal supports only the following regions:
->
 > - WestCentralUS, WestUS2, and EastUS.
 >
 > *PowerShell:* When you access this feature by using PowerShell, almost all regions are supported, except EastUs2.
