@@ -20,7 +20,7 @@ ms.author: adegeo
 
 # Scale a Service Fabric cluster
 
-This tutorial is part three of a series and shows you how to scale your existing cluster out and in. When you've finished, you will know how to scale your cluster and how to clean up any left-over resources.
+This tutorial is part three of a series, and shows you how to scale your existing cluster out and in. When you've finished, you will know how to scale your cluster and how to clean up any left-over resources.
 
 In this tutorial, you learn how to:
 
@@ -51,13 +51,11 @@ az login
 az account set --subscription <guid>
 ```
 
-## Connect to resources
+## Connect to the cluster
 
-To successfully complete this step in the tutorial, you need to connect to both the Service Fabric cluster and the virtual machine scale set (that hosts the cluster).
+To successfully complete this part of the tutorial, you need to connect to both the Service Fabric cluster and the virtual machine scale set (that hosts the cluster). The virtual machine scale set is the Azure resource that hosts Service Fabric on Azure.
 
-### Connect to cluster
-
-When you connect to a cluster, you can query it for information. In this tutorial, we look at the cluster to learn about what nodes the cluster is aware of. This example uses a certificate to connect with that was created in the [first step](service-fabric-tutorial-create-vnet-and-windows-cluster.md) of this series. Make sure you set the `$endpoint` and `$thumbprint` variables to your values.
+When you connect to a cluster, you can query it for information. You can use the cluster to learn about what nodes the cluster is aware of. Connecting to the cluster in the following code uses the same certificate that was created in the [first step](service-fabric-tutorial-create-vnet-and-windows-cluster.md) of this series. Make sure you set the `$endpoint` and `$thumbprint` variables to your values.
 
 ```powershell
 $endpoint = "<mycluster>.southcentralus.cloudapp.azure.com:19000"
@@ -76,7 +74,7 @@ With the `Get-ServiceFabricClusterHealth` command, status is returned to you wit
 
 ## Scale out
 
-When you scale out, you add more virtual machines to the scale set, these become nodes that Service Fabric uses. Service Fabric knows when the scale set has more instances added (by scaling out) and reacts automatically. The following code gets a scale set by name and increases the **capacity** of the scale set by 1 and sends that update back to Azure.
+When you scale out, you add more virtual machine instances to the scale set. These instances become the nodes that Service Fabric uses. Service Fabric knows when the scale set has more instances added (by scaling out) and reacts automatically. The following code gets a scale set by name and increases the **capacity** of the scale set by 1.
 
 ```powershell
 $scaleset = Get-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm
@@ -85,16 +83,18 @@ $scaleset.Sku.Capacity += 1
 Update-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm -VirtualMachineScaleSet $scaleset
 ```
 
+After the update operation is completed, run the `Get-ServiceFabricClusterHealth` command to see the new node information.
+
 ## Scale in
 
-Scaling in is the same as scaling out, except you use a lower **capacity** value. Normally, Service Fabric is unaware that it has suddenly lost a node when it was removed by the scale set. It just knows that a node has gone missing. To prevent that bad state, inform service fabric that you expect the node to go missing, so that it doesn't show up as unhealthy. 
+Scaling in is the same as scaling out, except you use a lower **capacity** value. When you scale in the scale set, you remove virtual machine instances from the scale set. Normally, Service Fabric is unaware what has happened, and it thinks that a node has gone missing. Service Fabric then reports an unhealthy state for the cluster. To prevent that bad state, you must inform service fabric that you expect the node to disappear.
 
 ### Remove the service fabric node
 
 > [!NOTE]
 > This part only applies to the *Bronze* durability tier. For more information about durability, see [Service Fabric cluster capacity planning][durability].
 
-Virtual machine scale sets (in most cases) always removes the virtual machine instance that was last created. So we need to find the matching service fabric node, which you can find by checking the biggest `NodeInstanceId` property value on the service fabric nodes.
+When you scale in a virtual machine scale set, the scale set (in most cases) removes the virtual machine instance that was last created. So you need to find the matching, last created, service fabric node. You can find this last node by checking the biggest `NodeInstanceId` property value on the service fabric nodes. 
 
 ```powershell
 Get-ServiceFabricNode | Sort-Object NodeInstanceId -Descending | Select-Object -First 1
@@ -173,7 +173,8 @@ else
 ```
 
 ### Scale in the scale set
-Now that the service fabric node has been removed from the cluster, the virtual machine scale set can be scaled in. In the example below, the scale set capacity is reduced by 1, and the scale set is then updated on Azure.
+
+Now that the service fabric node has been removed from the cluster, the virtual machine scale set can be scaled in. In the example below, the scale set capacity is reduced by 1.
 
 ```powershell
 $scaleset = Get-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm
