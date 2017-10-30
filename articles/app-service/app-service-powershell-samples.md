@@ -25,8 +25,8 @@ The following table includes links to bash scripts built using the Azure PowerSh
 | | |
 |-|-|
 |**Create app**||
-| [Create a web app with deployment from GitHub](./scripts/app-service-powershell-deploy-github.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creates an Azure web app which pulls code from GitHub. |
-| [Create a web app with continuous deployment from GitHub](./scripts/app-service-powershell-continuous-deployment-github.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creates an Azure web app which continuously deploys code from GitHub. |
+| [Create a web app with deployment from GitHub](./scripts/app-service-powershell-deploy-github.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creates an Azure web app that pulls code from GitHub. |
+| [Create a web app with continuous deployment from GitHub](./scripts/app-service-powershell-continuous-deployment-github.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creates an Azure web app that continuously deploys code from GitHub. |
 | [Create a web app and deploy code with FTP](./scripts/app-service-powershell-deploy-ftp.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Creates an Azure web app and upload files from a local directory using FTP. |
 | [Create a web app and deploy code from a local Git repository](./scripts/app-service-powershell-deploy-local-git.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Creates an Azure web app and configures code push from a local Git repository. |
 | [Create a web app and deploy code to a staging environment](./scripts/app-service-powershell-deploy-staging-environment.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Creates an Azure web app with a deployment slot for staging code changes. |
