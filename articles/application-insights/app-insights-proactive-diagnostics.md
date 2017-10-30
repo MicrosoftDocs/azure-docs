@@ -1,4 +1,4 @@
----
+﻿---
 title: Smart Detection in Azure Application Insights | Microsoft Docs
 description: Application Insights performs automatic deep analysis of your app telemetry and warns you of potential problems.
 services: application-insights
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2016
-ms.author: sewhee
+ms.author: bwren
 
 ---
 # Smart Detection in Application Insights

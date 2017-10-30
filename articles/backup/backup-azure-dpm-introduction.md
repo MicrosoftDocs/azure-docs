@@ -3,8 +3,8 @@ title: Use DPM to back up workloads to Azure portal| Microsoft Docs
 description: An introduction to backing up DPM servers using the Azure Backup service
 services: backup
 documentationcenter: ''
-author: Nkolli1
-manager: shreeshd
+author: adigan
+manager: nkolli
 editor: ''
 keywords: System Center Data Protection Manager, data protection manager, dpm backup
 
@@ -14,9 +14,8 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/08/2016
+ms.date: 08/15/2017
 ms.author: adigan;giridham;jimpark;markgal;trinadhk
-
 ---
 # Preparing to back up workloads to Azure with DPM
 > [!div class="op_single_selector"]
@@ -39,7 +38,7 @@ This article provides an introduction to using Microsoft Azure Backup to protect
 >
 >
 
-System Center DPM backs up file and application data. Data backed up to DPM can be stored on tape, on disk, or backed up to Azure with Microsoft Azure Backup. DPM interacts with Azure Backup as follows:
+[System Center DPM](https://docs.microsoft.com/en-us/system-center/dpm/dpm-overview) backs up file and application data. More information about supported workloads can be found [here](https://docs.microsoft.com/en-us/system-center/dpm/dpm-protection-matrix).Data backed up to DPM can be stored on tape, on disk, or backed up to Azure with Microsoft Azure Backup. DPM interacts with Azure Backup as follows:
 
 * **DPM deployed as a physical server or on-premises virtual machine** — If DPM is deployed as a physical server or as an on-premises Hyper-V virtual machine you can back up data to a Recovery Services vault in addition to disk and tape backup.
 * **DPM deployed as an Azure virtual machine** — From System Center 2012 R2 with Update 3, DPM can be deployed as an Azure virtual machine. If DPM is deployed as an Azure virtual machine you can back up data to Azure disks attached to the DPM Azure virtual machine, or you can offload the data storage by backing it up to a Recovery Services vault.
@@ -57,6 +56,15 @@ Prepare Azure Backup to back up DPM data as follows:
 2. **Download vault credentials** — Download the credentials which you use to register the DPM server to Recovery Services vault.
 3. **Install the Azure Backup Agent** — From Azure Backup, install the agent on each DPM server.
 4. **Register the server** — Register the DPM server to Recovery Services vault.
+
+## Key Definitions
+Here are some key definitions for backup to Azure for DPM:
+
+1. **Vault Credential** — Vault Credentials are needed to authenticate the machine to send backup data to an identified vault in the Azure Backup service. It can be downloaded from the vault and is valid for 48hrs.
+2. **Passphrase** — Passphrase is used to encrypt the backups to cloud. Please save the file in a secure location as it is required during a recovery operation.
+3. **Security PIN** — If you have enabled the [Security Settings](https://docs.microsoft.com/en-us/azure/backup/backup-azure-security-feature) of the vault, Security PIN is needed for performing critical backup operations. This multi-factor authentication adds another layer of security. 
+4. **Recovery Folder** — It is the phrase that the backups from cloud are temporarily downloaded to during cloud recoveries. Its size should roughly be equal to the size of the backup items you wish to recover in parallel.
+
 
 ### 1. Create a recovery services vault
 To create a recovery services vault:
@@ -82,7 +90,7 @@ To create a recovery services vault:
    Once your vault is created, it opens in the portal.
 
 ### Set Storage Replication
-The storage replication option allows you to choose between geo-redundant storage and locally redundant storage. By default, your vault has geo-redundant storage. Leave the option set to geo-redundant storage if this is your primary backup. Choose locally redundant storage if you want a cheaper option that isn't quite as durable. Read more about [geo-redundant](../storage/storage-redundancy.md#geo-redundant-storage) and [locally redundant](../storage/storage-redundancy.md#locally-redundant-storage) storage options in the [Azure Storage replication overview](../storage/storage-redundancy.md).
+The storage replication option allows you to choose between geo-redundant storage and locally redundant storage. By default, your vault has geo-redundant storage. Leave the option set to geo-redundant storage if this is your primary backup. Choose locally redundant storage if you want a cheaper option that isn't quite as durable. Read more about [geo-redundant](../storage/common/storage-redundancy.md#geo-redundant-storage) and [locally redundant](../storage/common/storage-redundancy.md#locally-redundant-storage) storage options in the [Azure Storage replication overview](../storage/common/storage-redundancy.md).
 
 To edit the storage replication setting:
 

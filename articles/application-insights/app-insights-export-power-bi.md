@@ -1,4 +1,4 @@
----
+﻿---
 title: Export to Power BI from Application Insights | Microsoft Docs
 description: Analytics queries can be displayed in Power BI.
 services: application-insights
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
-ms.author: sewhee
+ms.author: bwren
 
 ---
 # Feed Power BI from Application Insights

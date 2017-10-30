@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 07/04/2017
+ms.date: 09/25/2017
 ms.author: pratshar
 
 ---
@@ -24,6 +24,13 @@ This article describes how to failover virtual machines and physical servers pro
 1. Before you do a failover, do a [test failover](site-recovery-test-failover-to-azure.md) to ensure that everything is working as expected.
 1. [Prepare the network](site-recovery-network-design.md) at target location before you do a failover.  
 
+Use the following table to know about the failover options provided by Azure Site Recovery. These options are also listed for different failover scenarios.
+
+| Scenario | Application recovery requirement | Workflow for Hyper-V | Workflow for VMware
+|---|--|--|--|
+|Planned failover due to an upcoming datacenter downtime| Zero data loss for the application when a planned activity is performed| For Hyper-V, ASR replicates data at a copy frequency specified by the user. Planned Failover is used to override the frequency and replicate the final changes before a failover is initiated. <br/> <br/> 1.	Plan a maintenance window as per your business's change management process. <br/><br/> 2.Notify users of upcoming downtime. <br/><br/> 3. Take the user-facing application offline.<br/><br/>4.Initiate Planned Failover using the ASR portal. The on-premises virtual machine is automatically shutdown.<br/><br/>Effective application data loss = 0 <br/><br/>A journal of recovery points is also provided in a retention window for a user who wants to use an older recovery point. (24 hours retention for Hyper-V).| For VMware, ASR replicates data continually using CDP. Failover gives the user the option to failover to the Latest data (including post application shutdown)<br/><br/> 1. Plan a maintenance window as per the change management process <br/><br/>2.Notify users of upcoming downtime <br/><br/>3.	Take the user-facing application offline. <br/><br/>4.	Initiate a Planned Failover using ASR portal to the Latest point after the application is offline. Use the "Unplanned Failover" option on the portal and select the Latest point to failover. The on-premises virtual machine is automatically shutdown.<br/><br/>Effective application data loss = 0 <br/><br/>A journal of recovery points in a retention window is provided for a customer who wants to use an older recovery point. (72 hours of retention for VMware).
+|Failover due to an unplanned datacenter downtime (natural or IT disaster) | Minimal data loss for the application | 1.Initiate the organization’s BCP plan <br/><br/>2. Initiate Unplanned Failover using ASR portal to the Latest or a point from the retention window (journal).| 1.	Initiate the organization’s BCP plan. <br/><br/>2.	Initiate unplanned Failover using ASR portal to the Latest or a point from the retention window (journal).
+
 
 ## Run a failover
 This procedure describes how to run a failover for a [recovery plan](site-recovery-create-recovery-plans.md). Alternatively you can run the failover for a single virtual machine or physical server from the **Replicated items** page
@@ -33,7 +40,7 @@ This procedure describes how to run a failover for a [recovery plan](site-recove
 
 1. Select **Recovery Plans** > *recoveryplan_name*. Click **Failover**
 2. On the **Failover** screen, select a **Recovery Point** to failover to. You can use one of the following options:
-	1.  **Latest** (default): This option first processes all the data that has been sent to Site Recovery service to create a recovery point for each virtual machine before failing them over to it. This option provides the lowest RPO (Recovery Point Objective) as the virtual machine created after failover has all the data that has been replicated to Site Recovery service when the failover was triggered.
+	1.  **Latest** (default): This option starts the job by first processing all the data that has been sent to Site Recovery service. Processing the data creates a recovery point for each virtual machine. This recovery point is used by the virtual machine during failover. This option provides the lowest RPO (Recovery Point Objective) as the virtual machine created after failover has all the data that has been replicated to Site Recovery service when the failover was triggered.
 	1.  **Latest processed**: This option fails over all virtual machines of the recovery plan to the latest recovery point that has already been processed by Site Recovery service. When you are doing test failover of a virtual machine, time stamp of the latest processed recovery point is also shown. If you are doing failover of a recovery plan, you can go to individual virtual machine and look at **Latest Recovery Points** tile to get this information. As no time is spent to process the unprocessed data, this option provides a low RTO (Recovery Time Objective) failover option.
 	1.  **Latest app-consistent**: This option fails over all virtual machines of the recovery plan to the latest application consistent recovery point that has already been processed by Site Recovery service. When you are doing test failover of a virtual machine, time stamp of the latest app-consistent recovery point is also shown. If you are doing failover of a recovery plan, you can go to individual virtual machine and look at **Latest Recovery Points** tile to get this information.
 	1.  **Latest multi-VM processed**: This option is only available for recovery plans that have at least one virtual machine with multi-VM consistency ON. Virtual machines that are part of a replication group failover to the latest common multi-VM consistent recovery point. Other virtual machines failover to their latest processed recovery point.  
@@ -51,16 +58,16 @@ This procedure describes how to run a failover for a [recovery plan](site-recove
 1. Select **Shut down machine before beginning failover** if you want Site Recovery to attempt to do a shutdown of source virtual machines before triggering the failover. Failover continues even if shutdown fails.  
 
 	> [!NOTE]
-	> In case of Hyper-v virtual machines, this option also tries to synchronize the on-premises data that has not yet been sent to the service before triggering the failover.
+	> If Hyper-v virtual machines are protected, the option to shutdown also tries to synchronize the on-premises data that has not yet been sent to the service before triggering the failover.
 	>
 	>
 
 1. You can follow the failover progress on the **Jobs** page. Even if errors occur during an unplanned failover, the recovery plan runs until it is complete.
 1. After the failover, validate the virtual machine by logging in to it. If you want to go another recovery point for the virtual machine, then you can use **Change recovery point** option.
-1. Once you are satisfied with the failed over virtual machine, you can **Commit** the failover. This deletes all the recovery points available with the service and **Change recovery point** option will no longer be available.
+1. Once you are satisfied with the failed over virtual machine, you can **Commit** the failover. Commit deletes all the recovery points available with the service and **Change recovery point** option will no longer be available.
 
 ## Planned failover
-Apart from, Failover, Hyper-V virtual machines protected using Site Recovery also support **Planned failover**. This is a zero data loss failover option. When a planned failover is triggered, first the source virtual machines are shut down, the data yet to be synchronized is synchronized and then a failover is triggered.
+Virtual machines/physical servers protected using Site Recovery also support **Planned failover**. Planned failover is a zero data loss failover option. When a planned failover is triggered, first the source virtual machines are shut down, the data yet to be synchronized is synchronized and then a failover is triggered.
 
 > [!NOTE]
 > When you failover Hyper-v virtual machines from one on-premises site to another on-premises site, to come back to the primary on-premises site you have to first **reverse replicate** the virtual machine back to primary site and then trigger a failover. If the primary virtual machine is not available, then before starting to **reverse replicate** you have to restore the virtual machine from a backup.   
@@ -84,7 +91,7 @@ When a  failover is triggered, it involves following steps:
 
 ## Time taken for failover to Azure
 
-In certain cases, failover of virtual machines requires an extra intermediate step that usually takes around 8  to 10 minutes to complete. These cases are as following:
+In certain cases, failover of virtual machines requires an extra intermediate step that usually takes around 8  to 10 minutes to complete. In the following cases, the time taken to failover will be higher than usual:
 
 * VMware virtual machines using mobility service of version older than 9.8
 * Physical servers 
@@ -113,7 +120,9 @@ You might want to automate certain actions while doing a failover. You can use s
 
 
 ## Next steps
-Once you have failed over virtual machines and the on-premises data center is available, you should [**Re-protect**](site-recovery-how-to-reprotect.md) VMware virtual machines back to the on-premises data center.
+
+> [!WARNING]
+> Once you have failed over virtual machines and the on-premises data center is available, you should [**Reprotect**](site-recovery-how-to-reprotect.md) VMware virtual machines back to the on-premises data center.
 
 Use [**Planned failover**](site-recovery-failback-from-azure-to-hyper-v.md) option to **Failback** Hyper-v virtual machines back to on-premises from Azure.
 

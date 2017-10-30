@@ -13,12 +13,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2017
+ms.date: 09/25/2017
 ms.author: sngun
 
 ---
 
 # Manage API version profiles in Azure Stack
+
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
 API version profiles provide a way to manage version differences between Azure and Azure Stack. An API version profile is a set of AzureRM PowerShell modules with specific API versions. Each cloud platform has a set of supported API version profiles. For example, Azure Stack supports a specific dated profile version such as  **2017-03-09-profile**, and Azure supports the **latest** API version profile. When you install a profile, the AzureRM PowerShell modules that correspond to the specified profile are installed.
 
@@ -37,7 +39,7 @@ Update-Module -Name "AzureRm.BootStrapper"
 
 ## Install a profile
 
-Use the **Install-AzureRmProfile** cmdlet with the **2017-03-09-profile** API version profile to install the AzureRM modules required by Azure Stack. Note that the Azure Stack cloud administrator modules are not installed with this API version profile, and they should be installed separately as specified in the Step 3 of the [Install PowerShell for Azure Stack](azure-stack-powershell-install.md) article.
+Use the **Install-AzureRmProfile** cmdlet with the **2017-03-09-profile** API version profile to install the AzureRM modules required by Azure Stack. Note that the Azure Stack operator modules are not installed with this API version profile, and they should be installed separately as specified in the Step 3 of the [Install PowerShell for Azure Stack](azure-stack-powershell-install.md) article.
 
 ```PowerShell 
 Install-AzureRMProfile -Profile 2017-03-09-profile
@@ -110,4 +112,4 @@ Uninstall-AzureRmProfile -Profile 2017-03-09-profile
 
 ## Next steps
 * [Install PowerShell for Azure Stack](azure-stack-powershell-install.md)
-* [Configure PowerShell for use with Azure Stack](azure-stack-powershell-configure.md)  
+* [Configure the Azure Stack user's PowerShell environment](user/azure-stack-powershell-configure-user.md)  

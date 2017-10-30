@@ -155,7 +155,7 @@ and [Power BI](../log-analytics/log-analytics-powerbi.md). For example:
 * [Analyze streaming data with Stream Analytics and create a real-time analytics dashboard in Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md)
 
 Based on the options that you want set up, make sure that you first 
-[create an Azure storage account](../storage/storage-create-storage-account.md) 
+[create an Azure storage account](../storage/common/storage-create-storage-account.md) 
 or [create an Azure event hub](../event-hubs/event-hubs-create.md). 
 Then select the options for where you want to send diagnostic data:
 

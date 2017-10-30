@@ -27,7 +27,7 @@ Microsoft has developed a series of White Papers, Security Overviews, Best Pract
 
 ### Azure Platform
 
-Azure is an open and flexible cloud service platform that supports the broadest selection of operating systems, programming languages, frameworks, tools, databases, and devices.
+Azure is a public cloud service platform that supports the broadest selection of operating systems, programming languages, frameworks, tools, databases, and devices.
 It supports the following programming languages:
 -	Run Linux containers with Docker integration.
 -	Build apps with JavaScript, Python, .NET, PHP, Java, and Node.js
@@ -286,7 +286,7 @@ SQL Database Threat Detectors use one of the following detection methodologies:
 
 ### Application Gateway Web Application Firewall
 
-[Web Application Firewall](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-web-application-firewall) is a feature of [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-webapplicationfirewall-overview) that provides protection to web applications that use application gateway for standard [Application Delivery Control](https://kemptechnologies.com/in/application-delivery-controllers) functions. Web application firewall does this by protecting them against most of the [OWASP top 10 common web vulnerabilities](https://www.owasp.org/index.php/Top_10_2010-Main)
+[Web Application Firewall](../app-service/environment/app-service-app-service-environment-web-application-firewall.md) is a feature of [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-webapplicationfirewall-overview) that provides protection to web applications that use application gateway for standard [Application Delivery Control](https://kemptechnologies.com/in/application-delivery-controllers) functions. Web application firewall does this by protecting them against most of the [OWASP top 10 common web vulnerabilities](https://www.owasp.org/index.php/Top_10_2010-Main)
 
 ![Application Gateway Web Application Firewally](./media/azure-threat-detection/azure-threat-detection-fig13.png)
 

@@ -13,7 +13,7 @@ ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: anhoh
 ms.custom: mvc
@@ -36,6 +36,9 @@ This tutorial covers the following tasks:
 
 Let's start by creating an Azure Cosmos DB account in the Azure portal.  
 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
+[!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
+
 > [!TIP]
 > * Already have an Azure Cosmos DB account? If so, skip ahead to [Set up your Visual Studio solution](#SetupVS)
 > * Did you have an Azure DocumentDB account? If so, your account is now an Azure Cosmos DB account and you can skip ahead to [Set up your Visual Studio solution](#SetupVS).  
@@ -54,7 +57,7 @@ Let's start by creating an Azure Cosmos DB account in the Azure portal.
 
 ## Set up your MongoDB app
 
-You can use the [Create a web app in Azure that connects to MongoDB running on a virtual machine](../app-service-web/web-sites-dotnet-store-data-mongodb-vm.md) tutorial, with minimal modification, to quickly setup a MongoDB application (either locally or published to an Azure web app) that connects to an API for MongoDB account.  
+You can use the [Create a web app in Azure that connects to MongoDB running on a virtual machine](../app-service/app-service-web-tutorial-nodejs-mongodb-app.md) tutorial, with minimal modification, to quickly setup a MongoDB application (either locally or published to an Azure web app) that connects to an API for MongoDB account.  
 
 1. Follow the tutorial, with one modification.  Replace the Dal.cs code with this:
 

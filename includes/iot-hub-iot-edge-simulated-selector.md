@@ -24,13 +24,22 @@ An IoT Edge gateway can solve these problems in the following ways:
 
 The following diagram shows the main components of the sample, including the IoT Edge modules:
 
-![][1]
+![Diagram - simulated device message goes through gateway to IoT Hub][1]
+
+This sample contains three modules that make up the gateway:
+1. Protocol ingestion module
+1. MAC &lt;-&gt; IoT Hub ID module
+1. IoT Hub communication module
 
 The modules do not pass messages directly to each other. The modules publish messages to an internal broker that delivers the messages to the other modules using a subscription mechanism. For more information, see [Get started with Azure IoT Edge][lnk-gw-getstarted].
 
+![Diagram - gateway modules communicate with broker][2]
+
 ### Protocol ingestion module
 
-This module is the starting point for receiving data from devices, through the gateway, and into the cloud. In the sample, the module:
+The protocol ingestion module is the starting point for process of taking data from devices, through the gateway, and into the cloud. 
+
+In the sample, this module:
 
 1. Creates simulated temperature data. If you use physical devices, the module reads data from those physical devices.
 1. Creates a message.
@@ -38,31 +47,40 @@ This module is the starting point for receiving data from devices, through the g
 1. Adds a property with a fake MAC address to the message.
 1. Makes the message available to the next module in the chain.
 
-The module called **Protocol X ingestion** in the previous diagram is called **Simulated device** in the source code.
+The protocol ingestion module is **simulated_device.c** in the source code.
 
 ### MAC &lt;-&gt; IoT Hub ID module
 
-This module scans for messages that have a Mac address property. In the sample, the protocol ingestion module adds the MAC address property. If the module finds such a property, it adds another property with an IoT Hub device key to the message. The module then makes the message available to the next module in the chain.
+The MAC &lt;-&gt; IoT Hub ID module works as a translator. This sample uses a MAC address as a unique device identifier and correlates it with an IoT Hub device identity. However, you can write your own module that uses a different unique identifier. For example, your devices may have unique serial numbers or the telemetry data may include a unique embedded device name.
+
+In the sample, this module:
+
+1. Scans for messages that have a MAC address property.
+1. If there is a MAC address, adds another property with an IoT Hub device key to the message. 
+1. Makes the message available to the next module in the chain.
 
 The developer sets up a mapping between MAC addresses and IoT Hub identities to associate the simulated devices with IoT Hub device identities. The developer adds the mapping manually as part of the module configuration.
 
-> [!NOTE]
-> This sample uses a MAC address as a unique device identifier and correlates it with an IoT Hub device identity. However, you can write your own module that uses a different unique identifier. For example, your devices may have unique serial numbers or the telemetry data may include a unique embedded device name.
+The MAC &lt;-&gt; IoT Hub ID module is **identitymap.c** in the source code. 
 
 ### IoT Hub communication module
 
-This module takes messages with an IoT Hub device key property that was assigned by the previous module. The module sends the message content to IoT Hub using the HTTP protocol. HTTP is one of the three protocols understood by IoT Hub.
+The IoT Hub communication module opens a single HTTPS connection from the gateway to the IoT Hub. HTTPS is one of the three protocols understood by IoT Hub. This module keeps you from having to open a connection for each device by multiplexing connections from all the devices over the one connection. This approach enables a single gateway to connect many devices. 
 
-Instead of opening a connection for each simulated device, this module opens a single HTTP connection from the gateway to the IoT hub. The module then multiplexes connections from all the simulated devices over that connection. This approach enables a single gateway to connect many more devices.
+In the sample, this module:
+
+1. Takes messages with an IoT Hub device key property that was assigned by the previous module. 
+1. Sends the message content to IoT Hub using the HTTPS protocol. 
+
+The IoT Hub communication module is **iothub.c** in the source code.
 
 ## Before you get started
 
 Before you get started, you must:
 
-* [Create an IoT hub][lnk-create-hub] in your Azure subscription, you need the name of your hub to complete this walkthrough. If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.
-* Add two devices to your IoT hub and make a note of their ids and device keys. You can use the [device explorer][lnk-device-explorer] or [iothub-explorer][lnk-iothub-explorer] tool to add your devices to the IoT hub you created in the previous step and retrieve their keys.
+* [Create an IoT hub][lnk-create-hub] in your Azure subscription. You need the name of your hub for this sample walkthrough. If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.
+* Add two devices to your IoT hub and make a note of their IDs and device keys. You can use the [device explorer][lnk-device-explorer] or [iothub-explorer][lnk-iothub-explorer] tools to add devices to the IoT hub and retrieve their keys.
 
-![][2]
 
 <!-- Images -->
 [1]: media/iot-hub-iot-edge-simulated-selector/image1.png

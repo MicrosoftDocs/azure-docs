@@ -1,21 +1,21 @@
 ---
-title: Azure Container Instances tutorial - Deploy app | Microsoft Docs
+title: Azure Container Instances tutorial - Deploy app
 description: Azure Container Instances tutorial - Deploy app
 services: container-instances
 documentationcenter: ''
 author: seanmck
 manager: timlt
 editor: ''
-tags: 
-keywords: 
+tags:
+keywords:
 
-ms.assetid: 
+ms.assetid:
 ms.service: container-instances
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/04/2017
+ms.date: 10/26/2017
 ms.author: seanmck
 ms.custom: mvc
 ---
@@ -25,9 +25,17 @@ ms.custom: mvc
 This is the last of a three-part tutorial. In previous sections, [a container image was created](container-instances-tutorial-prepare-app.md) and [pushed to an Azure Container Registry](container-instances-tutorial-prepare-acr.md). This section completes the tutorial by deploying the container to Azure Container Instances. Steps completed include:
 
 > [!div class="checklist"]
-> * Defining a container group using an Azure Resource Manager template
-> * Deploying the container group using the Azure CLI
-> * Viewing container logs
+> * Deploying the container from the Azure Container Registry using the Azure CLI
+> * Viewing the application in the browser
+> * Viewing the container logs
+
+## Before you begin
+
+This tutorial requires that you are running the Azure CLI version 2.0.20 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
+
+To complete this tutorial, you need a Docker development environment. Docker provides packages that easily configure Docker on any [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), or [Linux](https://docs.docker.com/engine/installation/#supported-platforms) system.
+
+Azure Cloud Shell does not include the Docker components required to complete every step this tutorial. Therefore, we recommend a local installation of the Azure CLI and Docker development environment.
 
 ## Deploy the container using the Azure CLI
 
@@ -35,25 +43,25 @@ The Azure CLI enables deployment of a container to Azure Container Instances in 
 
 Container registry login server (update with your registry name):
 
-```azurecli-interactive
+```azurecli
 az acr show --name <acrName> --query loginServer
 ```
 
 Container registry password:
 
-```azurecli-interactive
+```azurecli
 az acr credential show --name <acrName> --query "passwords[0].value"
 ```
 
-To deploy your container image from the container registry with a resource request of 1 CPU core and 1GB of memory, run the following command:
+To deploy your container image from the container registry with a resource request of 1 CPU core and 1 GB of memory, run the following command:
 
-```azurecli-interactive
+```azurecli
 az container create --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-password <acrPassword> --ip-address public -g myResourceGroup
 ```
 
-Within a few seconds, you will receive an initial response from Azure Resource Manager. To view the state of the deployment, use:
+Within a few seconds, you should receive an initial response from Azure Resource Manager. To view the state of the deployment, use:
 
-```azurecli-interactive
+```azurecli
 az container show --name aci-tutorial-app --resource-group myResourceGroup --query state
 ```
 
@@ -75,7 +83,7 @@ az container show --name aci-tutorial-app --resource-group myResourceGroup --que
 
 You can also view the log output of the container:
 
-```azurecli-interactive
+```azurecli
 az container logs --name aci-tutorial-app -g myResourceGroup
 ```
 

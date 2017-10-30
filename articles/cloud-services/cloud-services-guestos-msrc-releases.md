@@ -13,12 +13,38 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 8/3/2017
+ms.date: 10/6/2017
 ms.author: raiye
 
 ---
 # Azure Guest OS
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in.
+
+## September Guest OS
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 17-09 | [4038782] |Windows 10 updates |5.11 |September 12, 2017 |
+| Rel 17-09 | [4038779], [4038786], [4038793] |Windows Security only |2.66, 3.53, 4.46 |September 12, 2017 |
+| Rel 17-09 | [4040966], [4040960], [4040965], [4040959], [4033988], [4040955], [4040967], [4040958]|September .NET update |2.66, 3.53, 4.46 |September 12, 2017 |
+| Rel 17-09 | [4036586] |Internet explorer |2.66, 3.53, 4.46 |September 12, 2017 |
+| CVE-2017-8704 | [4038782] |Denial of Service |5.11 |September 12, 2017 |
+| N/A | [4034664] |August non-security rollup  |2.66 |August 8, 2017 |
+| N/A | [4034665] |August non-security rollup |5.11 |August 8, 2017 |
+| N/A | [4034681] |August non-security rollup |4.46 |August 8, 2017 |
+
+## August Guest OS
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 17-07 | [4034658] |Windows 10 updates |5.10 |August 8, 2017 |
+| Rel 17-07 | [4034679] |Windows Security only |2.65 |August 8, 2017 |
+| Rel 17-07 | [4034672] |Windows Security only |4.45 |August 8, 2017 |
+| Rel 17-07 | [4034666] |Windows Security only |3.52 |August 8, 2017 |
+| Rel 17-07 | [4034733] |Internet Explorer |2.65, 3.52, 4.45, 5.10 |August 8, 2017 |
+| Rel 17-07 | [4034664], [4034665], [4034681] |Windows Monthly Rollups |2.65, 3.52, 4.45 |August 8, 2017 |
+| Rel 17-07 | [4034668], [4034660], [4034658], [4034674] |Re-release of CVE-2017-0071, Re-release of  CVE-2017-0228 |5.10 |August 8, 2017 |
+| Rel 17-07 | [4025341] |July non-security rollup |2.65 |July 11, 2017 |
+| Rel 17-07 | [4025331] |July non-security rollup |3.52 |July 11, 2017 |
+| Rel 17-07 | [4025336] |July non-security rollup |4.45 |July 11, 2017 |
 
 ## July Guest OS
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
@@ -30,9 +56,9 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | Rel 17-07 | [4025376] |Flash |3.51, 4.44, 5.9 |July 11, 2017 |
 | Rel 17-07 | [4025252] |Internet Explorer |2.64, 3.51, 4.44 |July 11, 2017 |
 | N/A | [4020322] |Timezone Update |2.64, 3.51, 4.44 |July 11, 2017 |
-| N/A | [4022719] |June non-security rollup |2.64 |July 11, 2017 |
-| N/A | [4022724] |June non-security rollup |3.51 |July 11, 2017 |
-| N/A | [4022726] |June non-security rollup |4.44 |July 11, 2017 |
+| N/A | [4022719] |June non-security rollup |2.64 |June 13, 2017 |
+| N/A | [4022724] |June non-security rollup |3.51 |June 13, 2017 |
+| N/A | [4022726] |June non-security rollup |4.44 |June 13, 2017 |
 
 ## June Guest OS
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
@@ -47,20 +73,20 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | Rel 17-06 | [4015217], [4015221], [4015583], [4015550], [4015219] |Re-release of CVE-2017-0167 |4.43, 5.8 |April 11, 2017 |
 | N/A | [4023136] |Timezone update  |2.63, 3.50, 4.43 |June 13, 2017 |
 | N/A | [4019264] |May non-security rollup |2.63 |June 13, 2017 |
-| N/A | [4014545] |May .NET non-security rollup |2.63 |June 13, 2017 |
-| N/A | [4014508] |May .NET non-security rollup |2.63 |June 13, 2017 |
-| N/A | [4014511] |May .NET non-security rollup |2.63 |June 13, 2017 |
-| N/A | [4014514] |May .NET non-security rollup |2.63|June 13, 2017 |
-| N/A | [4019216] |May non-security rollup |3.50 |June 13, 2017 |
-| N/A | [4014503] |May .NET non-security rollup |3.50 |June 13, 2017 |
-| N/A | [4014506] |May .NET non-security rollup |3.50 |June 13, 2017 |
-| N/A | [4014509] |May .NET non-security rollup |3.50 |June 13, 2017 |
-| N/A | [4014513] |May .NET non-security rollup |3.50 |June 13, 2017 |
-| N/A | [4019215] |May non-security rollup |4.43 |June 13, 2017 |
-| N/A | [4014505] |May .NET non-security rollup |4.43 |June 13, 2017 |
-| N/A | [4014507] |May .NET non-security rollup |4.43 |June 13, 2017 |
-| N/A | [4014510] |May .NET non-security rollup |4.43 |June 13, 2017 |
-| N/A | [4014512] |May .NET non-security rollup |4.43 |June 13, 2017 |
+| N/A | [4014545] |May .NET non-security rollup |2.63 |April 11, 2017 |
+| N/A | [4014508] |May .NET non-security rollup |2.63 |May 9, 2017 |
+| N/A | [4014511] |May .NET non-security rollup |2.63 |May 9, 2017 |
+| N/A | [4014514] |May .NET non-security rollup |2.63 |May 9, 2017 |
+| N/A | [4019216] |May non-security rollup |3.50 |May 9, 2017 |
+| N/A | [4014503] |May .NET non-security rollup |3.50 |May 9, 2017 |
+| N/A | [4014506] |May .NET non-security rollup |3.50 |May 9, 2017 |
+| N/A | [4014509] |May .NET non-security rollup |3.50 |May 9, 2017 |
+| N/A | [4014513] |May .NET non-security rollup |3.50 |May 9, 2017 |
+| N/A | [4019215] |May non-security rollup |4.43 |May 9, 2017 |
+| N/A | [4014505] |May .NET non-security rollup |4.43 |May 9, 2017 |
+| N/A | [4014507] |May .NET non-security rollup |4.43 |May 9, 2017 |
+| N/A | [4014510] |May .NET non-security rollup |4.43 |May 9, 2017 |
+| N/A | [4014512] |May .NET non-security rollup |4.43 |May 9, 2017 |
 
 ## May Guest OS
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
@@ -75,20 +101,20 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | Rel 17-05 | [4022345] |Microsoft Security Advisory |5.7 | May 9, 2017 |
 | Rel 17-05 | [4021279] |.Net /ASP.Net Core Advisory |2.62, 3.49, 4.42, 5.7 | May 9, 2017 |
 | N/A | [4012864] |Timezone Update |2.62, 3.49, 4.42 | May 9, 2017 |
-| N/A | [4014565] |April .NET non-security rollup |2.62 | May 9, 2017 |
-| N/A | [4014559] |April .NET non-security rollup |2.62 | May 9, 2017 |
-| N/A | [4015549] |April non-Security Rollup |2.62 | May 9, 2017 |
+| N/A | [4014565] |April .NET non-security rollup |2.62 | April 11, 2017 |
+| N/A | [4014559] |April .NET non-security rollup |2.62 | April 11, 2017 |
+| N/A | [4015549] |April non-Security Rollup |2.62 | April 11, 2017 |
 | N/A | [4019990] |D3DCompiler update - requirement for .NET 4.7 |3.49 | May 9, 2017 |
-| N/A | [4014563] |April .NET non-security rollup |3.49 | May 9, 2017 |
-| N/A | [4014557] |April .NET non-security rollup |3.49 | May 9, 2017 |
-| N/A | [4014545] |April .NET non-security rollup |3.49 | May 9, 2017 |
-| N/A | [4014548] |April .NET non-security rollup |3.49 | May 9, 2017 |
-| N/A | [4015551] |April non-security rollup |3.49 | May 9, 2017 |
-| N/A | [3173424] |Servicing Stack Update  |4.42 | May 9, 2017 |
-| N/A | [4014555] |April .NET non-security rollup  |4.42 | May 9, 2017 |
-| N/A | [4014567] |April .NET non-security rollup |4.42 | May 9, 2017 |
-| N/A | [4015550] |April non-security rollup |4.42 | May 9, 2017 |
-| N/A | [4013418] |Servicing Stack Update |5.7 | May 9, 2017 |
+| N/A | [4014563] |April .NET non-security rollup |3.49 | April 11, 2017 |
+| N/A | [4014557] |April .NET non-security rollup |3.49 | April 11, 2017 |
+| N/A | [4014545] |April .NET non-security rollup |3.49 | April 11, 2017 |
+| N/A | [4014548] |April .NET non-security rollup |3.49 | April 11, 2017 |
+| N/A | [4015551] |April non-security rollup |3.49 | April 11, 2017 |
+| N/A | [3173424] |Servicing Stack Update  |4.42 | July 12, 2016 |
+| N/A | [4014555] |April .NET non-security rollup  |4.42 | April 11, 2017 |
+| N/A | [4014567] |April .NET non-security rollup |4.42 | April 11, 2017 |
+| N/A | [4015550] |April non-security rollup |4.42 | April 11, 2017 |
+| N/A | [4013418] |Servicing Stack Update |5.7 | March 14, 2017 |
 
 ## April Guest OS
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
@@ -505,6 +531,40 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A |[3007054] |PIN-protected printing option always shows when you print a document within a Windows Store application in Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 | N/A |[2999802] |Solid lines instead of dotted lines are printed in Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 | N/A |[2896881] |Long logon time when you use the AddPrinterConnection VBScript command to map printers for users during logon process in Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
+
+
+[4038782]: http://support.microsoft.com/kb/4038782
+[4038779]: http://support.microsoft.com/kb/4038779
+[4038786]: http://support.microsoft.com/kb/4038786
+[4038793]: http://support.microsoft.com/kb/4038793
+[4040966]: http://support.microsoft.com/kb/4040966
+[4040960]: http://support.microsoft.com/kb/4040960
+[4040965]: http://support.microsoft.com/kb/4040965
+[4040959]: http://support.microsoft.com/kb/4040959
+[4033988]: http://support.microsoft.com/kb/4033988
+[4040955]: http://support.microsoft.com/kb/4040955
+[4040967]: http://support.microsoft.com/kb/4040967
+[4040958]: http://support.microsoft.com/kb/4040958
+[4036586]: http://support.microsoft.com/kb/4036586
+[4034664]: http://support.microsoft.com/kb/4034664
+[4034665]: http://support.microsoft.com/kb/4034665
+[4034681]: http://support.microsoft.com/kb/4034681
+
+[4034658]: http://support.microsoft.com/kb/4034658
+[4034679]: http://support.microsoft.com/kb/4034679
+[4034672]: http://support.microsoft.com/kb/4034672
+[4034666]: http://support.microsoft.com/kb/4034666
+[4034733]: http://support.microsoft.com/kb/4034733
+[4034664]: http://support.microsoft.com/kb/4034664
+[4034665]: http://support.microsoft.com/kb/4034665
+[4034681]: http://support.microsoft.com/kb/4034681
+[4034668]: http://support.microsoft.com/kb/4034668
+[4034660]: http://support.microsoft.com/kb/4034660
+[4034658]: http://support.microsoft.com/kb/4034658
+[4034674]: http://support.microsoft.com/kb/4034674
+[4025341]: http://support.microsoft.com/kb/4025341
+[4025331]: http://support.microsoft.com/kb/4025331
+[4025336]: http://support.microsoft.com/kb/4025336
 
 [4025339]: http://support.microsoft.com/kb/4025337
 [4025337]: http://support.microsoft.com/kb/4025333

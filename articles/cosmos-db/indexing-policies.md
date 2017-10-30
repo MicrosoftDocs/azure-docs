@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 05/22/2017
+ms.date: 08/17/2017
 ms.author: arramac
 
 ---
@@ -56,6 +56,10 @@ The following .NET code snippet shows how to set a custom indexing policy during
 > 
 > 
 
+### Customizing the indexing policy using the portal
+
+You can change the indexing policy of a collection using the Azure portal. Open your Azure Cosmos DB account in the Azure portal, select your collection, in the left navigation menu click **Settings**, and then click **Indexing Policy**. In the **Indexing Policy** blade, change your indexing policy and then click **OK** to save your changes. 
+
 ### <a id="indexing-modes"></a>Database indexing modes
 Azure Cosmos DB supports three indexing modes which can be configured via the indexing policy on an Azure Cosmos DB collection – Consistent, Lazy and None.
 
@@ -69,8 +73,6 @@ Azure Cosmos DB supports three indexing modes which can be configured via the in
 > Configuring the indexing policy with “None” has the side effect of dropping any existing index. Use this if your access patterns are only require “id” and/or “self-link”.
 > 
 > 
-
-The following sample show how create an Azure Cosmos DB collection using the .NET SDK with consistent automatic indexing on all document insertions.
 
 The following table shows the consistency for queries based on the indexing mode (Consistent and Lazy) configured for the collection and the consistency level specified for the query request. This applies to queries made using any interface - REST API, SDKs or from within stored procedures and triggers. 
 

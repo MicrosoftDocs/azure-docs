@@ -4,7 +4,7 @@ description: Learn how to create a Linux VM with multiple NICs attached to it us
 services: virtual-machines-linux
 documentationcenter: ''
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 5d2d04d0-fc62-45fa-88b1-61808a2bc691
@@ -13,12 +13,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/11/2017
+ms.date: 09/26/2017
 ms.author: iainfou
 
 ---
 # How to create a Linux virtual machine in Azure with multiple network interface cards
-You can create a virtual machine (VM) in Azure that has multiple virtual network interfaces (NICs) attached to it. A common scenario is to have different subnets for front-end and back-end connectivity, or a network dedicated to a monitoring or backup solution. This article details how to create a VM with multiple NICs attached to it and how to add or remove NICs from an existing VM. For detailed information, including how to create multiple NICs within your own Bash scripts, read more about [deploying multi-NIC VMs](../../virtual-network/virtual-network-deploy-multinic-arm-cli.md). Different [VM sizes](sizes.md) support a varying number of NICs, so size your VM accordingly.
+You can create a virtual machine (VM) in Azure that has multiple virtual network interfaces (NICs) attached to it. A common scenario is to have different subnets for front-end and back-end connectivity, or a network dedicated to a monitoring or backup solution. This article details how to create a VM with multiple NICs attached to it and how to add or remove NICs from an existing VM. Different [VM sizes](sizes.md) support a varying number of NICs, so size your VM accordingly.
 
 This article details how to create a VM with multiple NICs with the Azure CLI 2.0. You can also perform these steps with the [Azure CLI 1.0](multiple-nics-nodejs.md).
 
@@ -98,7 +98,7 @@ az vm create \
 ```
 
 ## Add a NIC to a VM
-The previous steps created a VM with multiple NICs. You can also add NICs to an existing VM with the Azure CLI 2.0. 
+The previous steps created a VM with multiple NICs. You can also add NICs to an existing VM with the Azure CLI 2.0. Different [VM sizes](sizes.md) support a varying number of NICs, so size your VM accordingly. If needed, you can [resize a VM](change-vm-size.md).
 
 Create another NIC with [az network nic create](/cli/azure/network/nic#create). The following example creates a NIC named *myNic3* connected to the back-end subnet and network security group created in the previous steps:
 
@@ -112,6 +112,7 @@ az network nic create \
 ```
 
 To add a NIC to an existing VM, first deallocate the VM with [az vm deallocate](/cli/azure/vm#deallocate). The following example deallocates the VM named *myVM*:
+
 
 ```azurecli
 az vm deallocate --resource-group myResourceGroup --name myVM
@@ -144,7 +145,7 @@ Remove the NIC with [az vm nic remove](/cli/azure/vm/nic#remove). The following 
 ```azurecli
 az vm nic remove \
     --resource-group myResourceGroup \
-    --vm-name myVM 
+    --vm-name myVM \
     --nics myNic3
 ```
 
@@ -174,6 +175,78 @@ You can also use a `copyIndex()` to then append a number to a resource name, whi
 ```
 
 You can read a complete example of [creating multiple NICs using Resource Manager templates](../../virtual-network/virtual-network-deploy-multinic-arm-template.md).
+
+
+## Configure guest OS for multiple NICs
+When you add multiple NICs to a Linux VM, you need to create routing rules. These rules allow the VM to send and receive traffic that belongs to a specific NIC. Otherwise, traffic that belongs to *eth1*, for example, cannot be processed correctly by the defined default route.
+
+To correct this routing issue, first add two routing tables to */etc/iproute2/rt_tables* as follows:
+
+```bash
+echo "200 eth0-rt" >> /etc/iproute2/rt_tables
+echo "201 eth1-rt" >> /etc/iproute2/rt_tables
+```
+
+To make the change persistent and applied during network stack activation, edit */etc/sysconfig/network-scipts/ifcfg-eth0* and */etc/sysconfig/network-scipts/ifcfg-eth1*. Alter the line *"NM_CONTROLLED=yes"* to *"NM_CONTROLLED=no"*. Without this step, the additional rules/routing are not automatically applied.
+ 
+Next, extend the routing tables. Let's assume we have the following setup in place:
+
+*Routing*
+
+```bash
+default via 10.0.1.1 dev eth0 proto static metric 100
+10.0.1.0/24 dev eth0 proto kernel scope link src 10.0.1.4 metric 100
+10.0.1.0/24 dev eth1 proto kernel scope link src 10.0.1.5 metric 101
+168.63.129.16 via 10.0.1.1 dev eth0 proto dhcp metric 100
+169.254.169.254 via 10.0.1.1 dev eth0 proto dhcp metric 100
+```
+
+*Interfaces*
+
+```bash
+lo: inet 127.0.0.1/8 scope host lo
+eth0: inet 10.0.1.4/24 brd 10.0.1.255 scope global eth0    
+eth1: inet 10.0.1.5/24 brd 10.0.1.255 scope global eth1
+```
+
+You would then create the following files and add the appropriate rules and routes to each:
+
+- */etc/sysconfig/network-scripts/rule-eth0*
+
+    ```bash
+    from 10.0.1.4/32 table eth0-rt
+    to 10.0.1.4/32 table eth0-rt
+    ```
+
+- */etc/sysconfig/network-scripts/route-eth0*
+
+    ```bash
+    10.0.1.0/24 dev eth0 table eth0-rt
+    default via 10.0.1.1 dev eth0 table eth0-rt
+    ```
+
+- */etc/sysconfig/network-scripts/rule-eth1*
+
+    ```bash
+    from 10.0.1.5/32 table eth1-rt
+    to 10.0.1.5/32 table eth1-rt
+    ```
+
+- */etc/sysconfig/network-scripts/route-eth1*
+
+    ```bash
+    10.0.1.0/24 dev eth1 table eth1-rt
+    default via 10.0.1.1 dev eth1 table eth1-rt
+    ```
+
+To apply the changes, restart the *network* service as follows:
+
+```bash
+systemctl restart network
+```
+
+The routing rules are now correctly in place and you can connect with either interface as needed.
+
 
 ## Next steps
 Review [Linux VM sizes](sizes.md) when trying to creating a VM with multiple NICs. Pay attention to the maximum number of NICs each VM size supports. 

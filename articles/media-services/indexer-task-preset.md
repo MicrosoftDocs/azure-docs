@@ -4,7 +4,7 @@ description: This topic gives an overview of task preset for Azure Media Indexer
 services: media-services
 documentationcenter: ''
 author: Asolanki
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.service: media-services

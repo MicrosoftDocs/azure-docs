@@ -4,7 +4,7 @@ description: Learn how to configure an authorization policy for a content key us
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 7af5f9e2-8ed8-43f2-843b-580ce8759fd4

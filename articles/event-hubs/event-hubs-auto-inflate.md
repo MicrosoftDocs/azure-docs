@@ -13,23 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/12/2017
-ms.author: shvija;sethm
+ms.date: 10/05/2017
+ms.author: sethm
 
 ---
 
 # Automatically scale up Azure Event Hubs throughput units
 
-## Overview
+Azure Event Hubs is a highly scalable data streaming platform. As such, Event Hubs customers often increase their usage after onboarding to the service. Such increases require increasing the predetermined throughput units to scale Event Hubs and handle larger transfer rates. The *Auto-inflate* feature of Event Hubs automatically scales up the number of throughput units to meet usage needs. Increasing throughput units prevents throttling scenarios, in which:
 
-Azure Event Hubs is a highly scalable data streaming platform. As such, Event Hubs customers often increase their usage after onboarding to the service. Such increases require increasing the predetermined throughput units (TUs) to scale Event Hubs and handle larger transfer rates. The *Auto-inflate* feature of Event Hubs automatically scales up the number of TUs to meet usage needs. Increasing TUs prevents throttling scenarios, in which:
-
-* Data ingress rates exceed set TUs.
-* Data egress request rates exceed set TUs.
+* Data ingress rates exceed set throughput units.
+* Data egress request rates exceed set throughput units.
 
 ## How Auto-inflate works
 
-Event Hubs traffic is controlled by throughput units. A single TU allows 1 MB per second of ingress and twice that amount of egress. Standard Event Hubs can be configured with 1-20 throughput units. Auto-inflate enables you to start small with the minimum required throughput units. The feature then scales automatically to the maximum limit of throughput units you need, depending on the increase in your traffic. Auto-inflate provides the following benefits:
+Event Hubs traffic is controlled by throughput units. A single throughput unit allows 1 MB per second of ingress and twice that amount of egress. Standard Event Hubs can be configured with 1-20 throughput units. Auto-inflate enables you to start small with the minimum required throughput units. The feature then scales automatically to the maximum limit of throughput units you need, depending on the increase in your traffic. Auto-inflate provides the following benefits:
 
 - An efficient scaling mechanism to start small and scale up as you grow.
 - Automatically scale to the specified upper limit without throttling issues.
@@ -48,7 +46,7 @@ You can enable the Auto-inflate feature on a namespace when creating an Event Hu
  
 ![](./media/event-hubs-auto-inflate/event-hubs-auto-inflate1.png)
 
-With this option enabled, you can start small on your throughput units and scale up as your usage needs increase. The upper limit for inflation does not affect pricing, which depends on the number of TUs used per hour.
+With this option enabled, you can start small on your throughput units and scale up as your usage needs increase. The upper limit for inflation does not affect pricing, which depends on the number of throughput units used per hour.
 
 You can also enable Auto-inflate using the **Scale** option on the settings blade in the portal:
  

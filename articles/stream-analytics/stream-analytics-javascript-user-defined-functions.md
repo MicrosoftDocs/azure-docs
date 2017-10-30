@@ -3,7 +3,7 @@ title: Azure Stream Analytics JavaScript user-defined functions | Microsoft Docs
 description: Perform advanced query mechanics with JavaScript user-defined functions
 keywords: javascript, user defined functions, udf
 services: stream-analytics
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: jeffstok
+ms.author: samacha
 ---
 
 # Azure Stream Analytics JavaScript user-defined functions
@@ -136,7 +136,7 @@ FROM
 ```
 
 ## Get help
-For additional help, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
+For additional help, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)

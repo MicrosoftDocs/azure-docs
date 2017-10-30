@@ -1,226 +1,352 @@
 ---
-title: Control routing and virtual appliances using the Azure CLI 2.0 | Microsoft Docs
-description: Learn how to control routing and virtual appliances using the Azure CLI 2.0.
+title: Create a user-defined route to route network traffic through a network virtual appliance - Azure CLI | Microsoft Docs
+description: Learn how to create a user-defined route to override Azure's default routing by routing network traffic through a network virtual appliance.
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
-ms.assetid: 5452a0b8-21a6-4699-8d6a-e2d8faf32c25
+
 ms.service: virtual-network
-ms.devlang: azurecli
+ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/12/2017
+ms.date: 10/16/2017
 ms.author: jdial
 
 ---
-# Create User-Defined Routes (UDR) using the Azure CLI 2.0
 
-> [!div class="op_single_selector"]
-> * [PowerShell](virtual-network-create-udr-arm-ps.md)
-> * [Azure CLI](virtual-network-create-udr-arm-cli.md)
-> * [Template](virtual-network-create-udr-arm-template.md)
-> * [PowerShell (Classic deployment)](virtual-network-create-udr-classic-ps.md)
-> * [CLI (Classic deployment)](virtual-network-create-udr-classic-cli.md)
+# Create a user-defined route - Azure CLI
 
-## CLI versions to complete the task 
+In this tutorial, learn how to create user-defined routes to route traffic between two [virtual network](virtual-networks-overview.md) subnets through a network virtual appliance. A network virtual appliance is a virtual machine that runs a network application, such as a firewall. To learn more about pre-configured network virtual appliances that you can deploy in an Azure virtual network, see the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances).
 
-You can complete the task using one of the following CLI versions: 
+When you create subnets in a virtual network, Azure creates default [system routes](virtual-networks-udr-overview.md#system-routes) that enable resources in all subnets to communicate with each other, as shown in the following picture:
 
-- [Azure CLI 1.0](virtual-network-create-udr-arm-cli-nodejs.md) – our CLI for the classic and resource management deployment models 
-- [Azure CLI 2.0](#Create-the-UDR-for-the-front-end-subnet) - our next generation CLI for the resource management deployment model (this article)
+![Default routes](./media/create-user-defined-route/default-routes.png)
 
-[!INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
+In this tutorial, you create a virtual network with public, private, and DMZ subnets, as shown in the picture that follows. Typically web servers might be deployed to a public subnet, and an application or database server might be deployed to a private subnet. You create a virtual machine to act as a network virtual appliance in the DMZ subnet, and optionally, create a virtual machine in each subnet that communicate through the network virtual appliance. All traffic between the public and private subnets is routed through the appliance, as shown in the following picture:
 
-[!INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
+![User-defined routes](./media/create-user-defined-route/user-defined-routes.png)
 
-[!INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]
+This article provides steps to create a user-defined route through the Resource Manager deployment model, which is the deployment model we recommend using when creating user-defined routes. If you need to create a user-defined route (classic), see [Create a user-defined route (classic)](virtual-network-create-udr-classic-cli.md). If you're not familiar with Azure's deployment models, see [Understand Azure deployment models](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). To learn more about user-defined routes, see [User-defined routes overview](virtual-networks-udr-overview.md#user-defined-routes).
 
-[!INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]
+## Create routes and network virtual appliance
 
-The sample Azure CLI commands below expect a simple environment already created based on the scenario above. If you want to run the commands as they are displayed in this document, first build the test environment by deploying [this template](http://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR-Before), click **Deploy to Azure**, replace the default parameter values if necessary, and follow the instructions in the portal.
+Azure CLI commands are the same, whether you execute the commands from Windows, Linux, or macOS. However, there are scripting differences between operating system shells. The scripts in the following steps execute in a require installation and execution of Azure CLI commands in a Bash shell. You can either [Install and configure the Azure CLI](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json) on your PC, or just click the **Try it** button in any of the scripts to execute the scripts in the Azure Cloud Shell.
+ 
+1. **Prerequisite**: Create a virtual network with two subnets by completing the steps in [Create a virtual network](#create-a-virtual-network).
+2. If running the Azure CLI from your computer, log in to Azure with the `az login` command. If using the Cloud Shell, you're automatically logged in.
+3. Set a few variables used throughout the remaining steps:
 
+    ```azurecli-interactive
+    #Set variables used in the script.
+    rgName="myResourceGroup"
+    location="eastus"
+    ```
 
-## Create the UDR for the front-end subnet
-To create the route table and route needed for the front end subnet based on the scenario above, follow the steps below.
+4. Create a *DMZ* subnet in the virtual network created in the prerequisite:
 
-1. Create a route table for the front-end subnet with the [az network route-table create](/cli/azure/network/route-table#create) command:
+    ```azurecli-interactive
+    az network vnet subnet create \
+      --name DMZ \
+      --address-prefix 10.0.2.0/24 \
+      --vnet-name myVnet \
+      --resource-group $rgName
+    ```
 
-	```azurecli
-	az network route-table create \
-	--resource-group testrg \
-	--location centralus \
-	--name UDR-FrontEnd
-	```
+5. Create the NVA virtual machine. Assign static public and private IP addresses to the network interface the CLI creates. Static addresses don't change for the life of the virtual machine. The NVA can be a virtual machine running the Linux or Windows operating system. To create the virtual machine, copy the script for either operating system and paste it into the CLI. If creating a Windows VM, paste the script into a text editor, change the value for the *AdminPassword* variable, then paste the modified text into your CLI.
 
-	Output:
+    **Linux**
 
-	```json
-	{
-	"etag": "W/\"<guid>\"",
-	"id": "/subscriptions/<guid>/resourceGroups/testrg/providers/Microsoft.Network/routeTables/UDR-FrontEnd",
-	"location": "centralus",
-	"name": "UDR-FrontEnd",
-	"provisioningState": "Succeeded",
-	"resourceGroup": "testrg",
-	"routes": [],
-	"subnets": null,
-	"tags": null,
-	"type": "Microsoft.Network/routeTables"
-	}
-	```
+    ```azurecli-interactive
+    az vm create \
+      --resource-group $rgName \
+      --name myVm-Nva \
+      --image UbuntuLTS \
+      --private-ip-address 10.0.2.4 \
+      --public-ip-address myPublicIp-myVm-Nva \
+      --public-ip-address-allocation static \
+      --subnet DMZ \
+      --vnet-name myVnet \
+      --admin-username azureuser \
+      --generate-ssh-keys
+    ```
 
-2. Create a route that sends all traffic destined to the back-end subnet (192.168.2.0/24) to the **FW1** VM (192.168.0.4) using the [az network route-table route create](/cli/azure/network/route-table/route#create) command:
+    **Windows**
 
-	```azurecli 
-	az network route-table route create \
-	--resource-group testrg \
-	--name RouteToBackEnd \
-	--route-table-name UDR-FrontEnd \
-	--address-prefix 192.168.2.0/24 \
-	--next-hop-type VirtualAppliance \
-	--next-hop-ip-address 192.168.0.4
-	```
+    ```azurecli-interactive
+    AdminPassword=ChangeToYourPassword
+    az vm create \
+      --resource-group $rgName \
+      --name myVm-Nva \
+      --image win2016datacenter \
+      --private-ip-address 10.0.2.4 \
+      --public-ip-address myPublicIp-myVm-Nva \
+      --public-ip-address-allocation static \
+      --subnet DMZ \
+      --vnet-name myVnet \
+      --admin-username azureuser \
+      --admin-password $AdminPassword      
+    ```
 
-	Output:
+6. Enable IP forwarding for the NVA's network interface. Enabling IP forwarding for a network interface causes Azure not to check the source/destination IP address. If you don't enable this setting, traffic destined for an IP address other than the NIC that receives it, is dropped by Azure.
 
-	```json
-	{
-	"addressPrefix": "192.168.2.0/24",
-	"etag": "W/\"<guid>\"",
-	"id": "/subscriptions/<guid>/resourceGroups/testrg/providers/Microsoft.Network/routeTables/UDR-FrontEnd/routes/RouteToBackEnd",
-	"name": "RouteToBackEnd",
-	"nextHopIpAddress": "192.168.0.4",
-	"nextHopType": "VirtualAppliance",
-	"provisioningState": "Succeeded",
-	"resourceGroup": "testrg"
-	}
-	```
-	Parameters:
+    ```azurecli-interactive
+    az network nic update \
+      --name myVm-NvaVMNic \
+      --resource-group $rgName \
+      --ip-forwarding true
+    ```
 
-	* **--route-table-name**. Name of the route table where the route will be added. For our scenario, *UDR-FrontEnd*.
-	* **--address-prefix**. Address prefix for the subnet where packets are destined to. For our scenario, *192.168.2.0/24*.
-	* **--next-hop-type**. Type of object traffic will be sent to. Possible values are *VirtualAppliance*, *VirtualNetworkGateway*, *VNETLocal*, *Internet*, or *None*.
-	* **--next-hop-ip-address**. IP address for next hop. For our scenario, *192.168.0.4*.
+7. Create a route table for the *Public* subnet.
 
-3. Run the [az network vnet subnet update](/cli/azure/network/vnet/subnet#update) command to associate the route table created above with the **FrontEnd** subnet:
+    ```azurecli-interactive
+    az network route-table create \
+      --name myRouteTable-Public \
+      --resource-group $rgName
+    ```
+    
+8. By default, Azure routes traffic between all subnets within a virtual network. Create a route to change Azure's default routing so that traffic from the Public subnet to the Private subnet is routed through the NVA, instead of directly to the Private subnet.
 
-	```azurecli
-	az network vnet subnet update \
-	--resource-group testrg \
-	--vnet-name testvnet \
-	--name FrontEnd \
-	--route-table UDR-FrontEnd
-	```
+    ```azurecli-interactive    
+    az network route-table route create \
+      --name ToPrivateSubnet \
+      --resource-group $rgName \
+      --route-table-name myRouteTable-Public \
+      --address-prefix 10.0.1.0/24 \
+      --next-hop-type VirtualAppliance \
+      --next-hop-ip-address 10.0.2.4
+    ```
 
-	Output:
+9. Associate the *myRouteTable-Public* route table to the *Public* subnet. Associating a route table to a subnet causes Azure to route all outbound traffic from the subnet according to the routes in the route table. A route table can be associated to zero or multiple subnets, whereas a subnet can have zero, or one route table associated to it.
 
-	```json
-	{
-	"addressPrefix": "192.168.1.0/24",
-	"etag": "W/\"<guid>\"",
-	"id": "/subscriptions/<guid>/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/testvnet/subnets/FrontEnd",
-	"ipConfigurations": null,
-	"name": "FrontEnd",
-	"networkSecurityGroup": null,
-	"provisioningState": "Succeeded",
-	"resourceGroup": "testrg",
-	"resourceNavigationLinks": null,
-	"routeTable": {
-		"etag": null,
-		"id": "/subscriptions/<guid>/resourceGroups/testrg/providers/Microsoft.Network/routeTables/UDR-FrontEnd",
-		"location": null,
-		"name": null,
-		"provisioningState": null,
-		"resourceGroup": "testrg",
-		"routes": null,
-		"subnets": null,
-		"tags": null,
-		"type": null
-		}
-	}
-	```
+    ```azurecli-interactive
+    az network vnet subnet update \
+      --name Public \
+      --vnet-name myVnet \
+      --resource-group $rgName \
+      --route-table myRouteTable-Public
+    ```
 
-	Parameters:
-	
-	* **--vnet-name**. Name of the VNet where the subnet is located. For our scenario, *TestVNet*.
+10. Create the route table for the *Private* subnet.
 
-## Create the UDR for the back-end subnet
+    ```azurecli-interactive
+    az network route-table create \
+      --name myRouteTable-Private \
+      --resource-group $rgName
+    ```
+      
+11. Create a route to route traffic from the *Private* subnet to the *Public* subnet through the NVA virtual machine.
 
-To create the route table and route needed for the back-end subnet based on the scenario above, complete the following steps:
+    ```azurecli-interactive
+    az network route-table route create \
+      --name ToPublicSubnet \
+      --resource-group $rgName \
+      --route-table-name myRouteTable-Private \
+      --address-prefix 10.0.0.0/24 \
+      --next-hop-type VirtualAppliance \
+      --next-hop-ip-address 10.0.2.4
+    ```
 
-1. Run the following command to create a route table for the back-end subnet:
+12. Associate the route table to the *Private* subnet.
 
-	```azurecli
-	az network route-table create \
-	--resource-group testrg \
-	--name UDR-BackEnd \
-	--location centralus
-	```
+    ```azurecli-interactive
+    az network vnet subnet update \
+      --name Private \
+      --vnet-name myVnet \
+      --resource-group $rgName \
+      --route-table myRouteTable-Private
+    ```
+    
+13. **Optional:** Create a virtual machine in the Public and Private subnets and validate that communication between the virtual machines is routed through the network virtual appliance by completing the steps in [Validate routing](#validate-routing).
+14. **Optional**: To delete the resources that you create in this tutorial, complete the steps in [Delete resources](#delete-resources).
 
-2. Run the following command to create a route in the route table to send all traffic destined to the front-end subnet (192.168.1.0/24) to the **FW1** VM (192.168.0.4):
+## Validate routing
 
-	```azurecli
-	az network route-table route create \
-	--resource-group testrg \
-	--name RouteToFrontEnd \
-	--route-table-name UDR-BackEnd \
-	--address-prefix 192.168.1.0/24 \
-	--next-hop-type VirtualAppliance \
-	--next-hop-ip-address 192.168.0.4
-	```
+1. If you haven't already, complete the steps in [Create routes and network virtual appliance](#create-routes-and-network-virtual-appliance).
+2. Click the **Try it** button in the box that follows, which opens the Azure Cloud Shell. If prompted, log in to Azure using your [Azure account](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). If you don't have an Azure account, you can sign up for a [free trial](https://azure.microsoft.com/offers/ms-azr-0044p). The Azure Cloud Shell is a free bash shell with the Azure command-line interface preinstalled. 
 
-3. Run the following command to associate the route table with the **BackEnd** subnet:
+    The following scripts create two virtual machines, one in the *Public* subnet, and one in the *Private* subnet. The scripts also enable IP forwarding for the network interface within the operating system of the NVA to enable the operating system to route traffic through the network interface. A production NVA typically inspects the traffic before routing it, but in this tutorial, the simple NVA just routes the traffic without inspecting it. 
 
-	```azurecli
-	az network vnet subnet update \
-	--resource-group testrg \
-	--vnet-name testvnet \
-	--name BackEnd \
-	--route-table UDR-BackEnd
-	```
+    Click the **Copy** button in the **Linux** or **Windows** scripts that follow and paste the script contents into a text editor. Change the password for the *adminPassword* variable, then paste the script into the Azure Cloud Shell. Run the script for the operating system you selected when you created the network virtual appliance in step 5 of [Create routes and network virtual appliance](#create-routes-and-network-virtual-appliance). 
 
-## Enable IP forwarding on FW1
+    **Linux**
 
-To enable IP forwarding in the NIC used by **FW1**, complete the following steps:
+    ```azurecli-interactive
+    #!/bin/bash
 
-1. Run the [az network nic show](/cli/azure/network/nic#show) command with a JMESPATH filter to display the current **enable-ip-forwarding** value for **Enable IP forwarding**. It should be set to *false*.
+    #Set variables used in the script.
+    rgName="myResourceGroup"
+    location="eastus"
+    adminPassword=ChangeToYourPassword
+    
+    # Create a virtual machine in the Public subnet.
+    az vm create \
+      --resource-group $rgName \
+      --name myVm-Public \
+      --image UbuntuLTS \
+      --vnet-name myVnet \
+      --subnet Public \
+      --public-ip-address myPublicIp-Public \
+      --admin-username azureuser \
+      --admin-password $adminPassword
 
-	```azurecli
-	az network nic show \
-	--resource-group testrg \
-	--nname nicfw1 \
-	--query 'enableIpForwarding' -o tsv
-	```
+    # Create a virtual machine in the Private subnet.
+    az vm create \
+      --resource-group $rgName \
+      --name myVm-Private \
+      --image UbuntuLTS \
+      --vnet-name myVnet \
+      --subnet Private \
+      --public-ip-address myPublicIp-Private \
+      --admin-username azureuser \
+      --admin-password $adminPassword
 
-	Output:
+    # Enable IP forwarding for the network interface in the NVA virtual machine's operating system.    
+    az vm extension set \
+      --resource-group $rgName \
+      --vm-name myVm-Nva \
+      --name customScript \
+      --publisher Microsoft.Azure.Extensions \
+      --settings '{"commandToExecute":"sudo sysctl -w net.ipv4.ip_forward=1"}'
+    ```
 
-		false
+    **Windows**
 
-2. Run the following command to enable IP forwarding:
+    ```azurecli-interactive
 
-	```azurecli
-	az network nic update \
-	--resource-group testrg \
-	--name nicfw1 \
-	--ip-forwarding true
-	```
+    #!/bin/bash
+    #Set variables used in the script.
+    rgName="myResourceGroup"
+    location="eastus"
+    adminPassword=ChangeToYourPassword
+    
+    # Create a virtual machine in the Public subnet.
+    az vm create \
+      --resource-group $rgName \
+      --name myVm-Public \
+      --image win2016datacenter \
+      --vnet-name myVnet \
+      --subnet Public \
+      --public-ip-address myPublicIp-Public \
+      --admin-username azureuser \
+      --admin-password $adminPassword
 
-	You can examine the output streamed to the console, or just retest for the specific **enableIpForwarding** value:
+    # Allow pings through the Windows Firewall.
+    az vm extension set \
+      --publisher Microsoft.Compute \
+      --version 1.9 \
+      --name CustomScriptExtension \
+      --vm-name myVm-Public \
+      --resource-group $rgName \
+      --settings '{"commandToExecute":"netsh advfirewall firewall add rule name=Allow-ping protocol=icmpv4 dir=in action=allow"}'
 
-	```azurecli
-	az network nic show -g testrg -n nicfw1 --query 'enableIpForwarding' -o tsv
-	```
+    # Create a virtual machine in the Private subnet.
+    az vm create \
+      --resource-group $rgName \
+      --name myVm-Private \
+      --image win2016datacenter \
+      --vnet-name myVnet \
+      --subnet Private \
+      --public-ip-address myPublicIp-Private \
+      --admin-username azureuser \
+      --admin-password $adminPassword
 
-	Output:
+    # Allow pings through the Windows Firewall.
+    az vm extension set \
+      --publisher Microsoft.Compute \
+      --version 1.9 \
+      --name CustomScriptExtension \
+      --vm-name myVm-Private \
+      --resource-group $rgName \
+      --settings '{"commandToExecute":"netsh advfirewall firewall add rule name=Allow-ping protocol=icmpv4 dir=in action=allow"}'
 
-		true
+    # Enable IP forwarding for the network interface in the NVA virtual machine's operating system.
+    az vm extension set \
+      --publisher Microsoft.Compute \
+      --version 1.9 \
+      --name CustomScriptExtension \
+      --vm-name myVm-Nva \
+      --resource-group $rgName \
+      --settings '{"commandToExecute":"powershell.exe Set-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters -Name IpEnableRouter -Value 1"}'
 
-	Parameters:
+    # Restart the NVA virtual machine.
+    az vm extension set \
+      --publisher Microsoft.Compute \
+      --version 1.9 \
+      --name CustomScriptExtension \
+      --vm-name myVm-Nva \
+      --resource-group $rgName \
+      --settings '{"commandToExecute":"powershell.exe Restart-Computer -ComputerName myVm-Nva -Force"}'
+    ```
 
-	**--ip-forwarding**: *true* or *false*.
+3. Validate communication between the virtual machines in the Public and Private subnets. 
 
+    - Open an [SSH](../virtual-machines/linux/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json#connect-to-vm) (Linux) or [Remote Desktop](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json#connect-to-vm) (Windows) connection to the public IP address of the *myVm-Public* virtual machine.
+    - From a command prompt on the *myVm-Public* virtual machine, enter `ping myVm-Private`. You receive replies because the NVA routes the traffic from the public to the private subnet.
+    - From the *myVm-Public* virtual machine, run a trace route between the virtual machines in the public and private subnets. Enter the appropriate command that follows, depending upon which operating system you installed in the virtual machines in the Public and Private subnets:
+        - **Windows**: From a command prompt, run the `tracert myvm-private` command.
+        - **Ubuntu**: Run the `tracepath myvm-private` command.
+      Traffic passes through 10.0.2.4 (the NVA) before reaching 10.0.1.4 (the virtual machine in the Private subnet). 
+    - Complete the previous steps by connecting to the *myVm-Private* virtual machine and pinging the *myVm-Public* virtual machine. The trace route shows communication traveling through 10.0.2.4 before reaching 10.0.0.4 (the virtual machine in the Public subnet).
+    - **Optionally**: Use the next hop capability of Azure Network Watcher to validate the next hop between two virtual machines within Azure. Before using Network Watcher, you must first [create an Azure Network Watcher instance](../network-watcher/network-watcher-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for the region you want to use it in. In this tutorial, the US East region is used. Once you've enabled a Network Watcher instance for the region, enter the following command to see the next hop information between the virtual machines in the Public and Private subnets:
+     
+        ```azurecli-interactive
+        az network watcher show-next-hop --resource-group myResourceGroup --vm myVm-Public --source-ip 10.0.0.4 --dest-ip 10.0.1.4
+        ```
+
+       The output returns *10.0.2.4* as the **nextHopIpAddress** and *VirtualAppliance* as the **nextHopType**.
+
+> [!NOTE]
+> To illustrate the concepts in this tutorial, public IP addresses are assigned to the virtual machines in the Public and Private subnets, and all network port access is enabled within Azure for both virtual machines. When creating virtual machines for production use, you may not assign public IP addresses to them and may filter network traffic to the Private subnet by deploying a network virtual appliance in front of it, or by assigning a network security group to the subnets, network interface, or both. To learn more about network security groups, see [Network security groups](virtual-networks-nsg.md).
+
+## Create a virtual network
+
+This tutorial requires an existing virtual network with two subnets. Click the **Try it** button in the box that follows, to quickly create a virtual network. Clicking the **Try it** button opens the [Azure Cloud Shell](../cloud-shell/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Though the Cloud Shell runs PowerShell or a Bash shell, in this section, the Bash shell is used to create the virtual network. The Bash shell has the Azure command-line interface installed. If prompted by the Cloud Shell, log in to Azure using your [Azure account](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). If you don't have an Azure account, you can sign up for a [free trial](https://azure.microsoft.com/offers/ms-azr-0044p). To create the virtual network used in this tutorial, click the **Copy** button in the following box, then paste the script into the Azure Cloud Shell:
+
+```azurecli-interactive
+#!/bin/bash
+
+#Set variables used in the script.
+rgName="myResourceGroup"
+location="eastus"
+
+# Create a resource group.
+az group create \
+  --name $rgName \
+  --location $location
+
+# Create a virtual network with one subnet named Public.
+az network vnet create \
+  --name myVnet \
+  --resource-group $rgName \
+  --address-prefixes 10.0.0.0/16 \
+  --subnet-name Public \
+  --subnet-prefix 10.0.0.0/24
+
+# Create an additional subnet named Private in the virtual network.
+az network vnet subnet create \
+  --name Private \
+  --address-prefix 10.0.1.0/24 \
+  --vnet-name myVnet \
+  --resource-group $rgName
+```
+
+To learn more about how to use the portal, PowerShell, or an Azure Resource Manager template to create a virtual network, see [Create a virtual network](virtual-networks-create-vnet-arm-pportal.md).
+
+## Delete resources
+
+When you finish this tutorial, you might want to delete the resources that you created, so that you don't incur usage charges. Deleting a resource group also deletes all resources that are in the resource group. In a CLI session, enter the following command:
+
+```azurecli-interactive
+az group delete --name myResourceGroup --yes
+```
+
+## Next steps
+
+- Create a [highly available network virtual appliance](/azure/architecture/reference-architectures/dmz/nva-ha?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Network virtual appliances often have multiple network interfaces and IP addresses assigned to them. Learn how to [add network interfaces to an existing virtual machine](virtual-network-network-interface-vm.md#vm-add-nic) and [add IP addresses to an existing network interface](virtual-network-network-interface-addresses.md#add-ip-addresses). Though all virtual machine sizes can have at least two network interfaces attached to them, each virtual machine size supports a maximum number of network interfaces. To learn how many network interfaces each virtual machine size supports, see [Windows](../virtual-machines/windows/sizes.md?toc=%2Fazure%2Fvirtual-network%2Ftoc.json) and [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machine sizes. 
+- Create a user-defined route to force tunnel traffic on-premises through a [site-to-site VPN connection](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md?toc=%2fazure%2fvirtual-network%2ftoc.json).

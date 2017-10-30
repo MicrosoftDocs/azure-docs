@@ -34,7 +34,7 @@ With this integration between Service Map and System Center Operations Manager, 
 * A service principal with access to the Azure subscription that is associated with the Operations Management Suite workspace. For more information, go to [Create a service principal](#creating-a-service-principal).
 
 ## Install the Service Map management pack
-You enable the integration between Operations Manager and Service Map by importing the Microsoft.SystemCenter.ServiceMap management pack bundle (Microsoft.SystemCenter.ServiceMap.mpb). The bundle contains the following management packs:
+You enable the integration between Operations Manager and Service Map by importing the Microsoft.SystemCenter.ServiceMap management pack bundle (Microsoft.SystemCenter.ServiceMap.mpb). You can download the management pack bundle from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=55763). The bundle contains the following management packs:
 * Microsoft Service Map Application Views
 * Microsoft System Center Service Map Internal
 * Microsoft System Center Service Map Overrides

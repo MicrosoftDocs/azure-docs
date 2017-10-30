@@ -13,7 +13,7 @@ ms.devlang: tbd
 ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 06/26/2017
+ms.date: 10/16/2017
 ms.author: sethm
 
 ---
@@ -35,7 +35,7 @@ This tutorial covers the following steps:
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
 ## 1. Create a namespace using the Azure portal
-If you have already created a Service Bus Messaging namespace, jump to the [Create a queue using the Azure portal](#2-create-a-queue-using-the-azure-portal) section.
+If you've already created a Service Bus Messaging namespace, jump to the [Create a queue using the Azure portal](#2-create-a-queue-using-the-azure-portal) section.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
@@ -53,7 +53,7 @@ Launch Visual Studio and create a new **Console app (.NET Framework)** project.
 
 ### Add the Service Bus NuGet package
 1. Right-click the newly created project and select **Manage NuGet Packages**.
-2. Click the **Browse** tab, search for **Microsoft Azure Service Bus**, and then select the **WindowsAzure.ServiceBus** item. Click **Install** to complete the installation, then close this dialog box.
+2. Click the **Browse** tab, search for **WindowsAzure.ServiceBus**, and then select the **WindowsAzure.ServiceBus** item. Click **Install** to complete the installation, then close this dialog box.
    
     ![Select a NuGet package][nuget-pkg]
 
@@ -112,7 +112,7 @@ Launch Visual Studio and create a new **Console app (.NET Framework)** project.
         }
     }
     ```
-3. Run the program, and check the Azure portal: click the name of your queue in the namespace **Overview** blade. The queue **Essentials** blade is displayed. Notice that the **Active Message Count** value should now be 1. Each time you run the sender application without retrieving the messages, this value increases by 1. Also note that the current size of the queue increments each time the app adds a message to the queue.
+3. Run the program, and check the Azure portal: click the name of your queue in the namespace **Overview** window. The queue **Essentials** window is displayed. Notice that the **Active Message Count** value should now be 1. Each time you run the sender application without retrieving the messages, this value increases by 1. Also note that the current size of the queue increments each time the app adds a message to the queue.
    
       ![Message size][queue-message]
 
@@ -175,7 +175,7 @@ Launch Visual Studio and create a new **Console app (.NET Framework)** project.
    
     ![Queue length][queue-message-receive]
 
-Congratulations! You have now created a queue, sent a message, and received a message.
+Congratulations! You have now created a queue, sent a message to that queue, and received a message from the same queue.
 
 ## Next steps
 
@@ -186,4 +186,4 @@ Check out our [GitHub repository with samples](https://github.com/Azure/azure-se
 [nuget-pkg]: ./media/service-bus-dotnet-get-started-with-queues/nuget-package.png
 [queue-message]: ./media/service-bus-dotnet-get-started-with-queues/queue-message.png
 [queue-message-receive]: ./media/service-bus-dotnet-get-started-with-queues/queue-message-receive.png
-[github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
+
