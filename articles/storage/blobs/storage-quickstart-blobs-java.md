@@ -14,7 +14,7 @@ ms.custom: mvc
 
 # Transfer objects to/from Azure Blob storage using Java
 
-In this quickstart, you learn how to use Java to upload, download, and list block blobs in a container in Azure Blob storage on Windows.
+In this quickstart, you learn how to use Java to upload, download, and list block blobs in a container in Azure Blob storage.
 
 ## Prerequisites
 
@@ -74,9 +74,11 @@ In the application, you must provide the connection string for your storage acco
 
 ## Run the sample
 
-This sample creates a test file in My Documents, uploads it to Blob storage, lists the blobs in the container, then downloads the file with a new name so you can compare the old and new files. 
+This sample creates a test file in your default directory (My Documents, for windows users), uploads it to Blob storage, lists the blobs in the container, then downloads the file with a new name so you can compare the old and new files. 
 
 Run the sample by pressing **Ctrl+F11** in Eclipse.
+
+The following is an example of output if you were to run the application on Windows.
 
 ```
 Location of file: C:\Users\<user>\Documents\results.txt
@@ -86,7 +88,7 @@ The program has completed successfully.
 Press the 'Enter' key while in the console to delete the sample files, example container, and exit the application.
 ```
 
- Before you continue, check **MyDocuments** for the two files. You can open them and see they are identical. Copy the URL for the blob out of the console window and paste it into a browser to view the contents of the file in Blob storage. When you press the enter key, it deletes the storage container and the files.
+ Before you continue, check your default directory (My Documents, for windows users) for the two files. You can open them and see they are identical. Copy the URL for the blob out of the console window and paste it into a browser to view the contents of the file in Blob storage. When you press the enter key, it deletes the storage container and the files.
 
 You can also use a tool such as the [Azure Storage Explorer](http://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) to view the files in Blob storage. Azure Storage Explorer is a free cross-platform tool that allows you to access your storage account information. 
 
@@ -196,7 +198,7 @@ The following code downloads the blob uploaded in a previous section, adding a s
 // Download blob. In most cases, you would have to retrieve the reference
 // to cloudBlockBlob here. However, we created that reference earlier, and 
 // haven't changed the blob we're interested in, so we can reuse it. 
-// First, add a _DOWNLOADED before the .txt so you can see both files in MyDocuments.
+// First, add a _DOWNLOADED before the .txt so you can see both files in your default directory.
 blob.downloadToFile(myDocs + File.separator + "results_DOWNLOADED.txt");
 ```
 
