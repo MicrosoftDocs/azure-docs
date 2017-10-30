@@ -60,7 +60,7 @@ Use [git](https://git-scm.com/) to download a copy of the application to your de
 git clone https://github.com/Azure-Samples/storage-blobs-node-quickstart.git
 ```
 
-This command clones the repository to your local git folder. To open the application look for the storage-blobs-node-quickstart folder, open it, and double-click on index.js. 
+This command clones the repository to your local git folder. To open the application look for the storage-blobs-node-quickstart folder, open it, and double-click on index.js.
 
 ## Configure your storage connection string
 
@@ -71,6 +71,14 @@ In the application, you must provide the connection string for your storage acco
 // How to create a storage connection string - http://msdn.microsoft.com/en-us/library/azure/ee758697.aspx
 var connectionString = 'DefaultEndpointsProtocol=https;AccountName=myStorageAccount;AccountKey=MYG3cCFx+zx461234F1B45D5g371CD3EHEQxHw/cd2567NtnR1fNaA60p5bzqzVqkjsodYnQ4Ke58p6PabM4kA==;EndpointSuffix=core.windows.net';
 var blobService = storage.createBlobService(connectionString);
+```
+
+## Install required packages
+
+In the application directory run `npm install` to install any required packages listed in the `package.json` file.
+
+```node
+npm install
 ```
 
 ## Run the sample
