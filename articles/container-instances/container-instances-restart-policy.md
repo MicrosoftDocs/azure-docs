@@ -38,9 +38,7 @@ When you create a container in Azure Container Instances, you can specify one of
 
 ## Specify a restart policy
 
-How you specify a restart policy depends on how you create your containers. Azure CLI and PowerShell examples are shown here.
-
-# [Azure CLI](#tab/azure-cli)
+How you specify a restart policy depends on how you create your containers. In the Azure CLI, specify the `--restart-policy` parameter when you call [az container create][az-container-create].
 
 ```azurecli-interactive
 az container create \
@@ -50,23 +48,11 @@ az container create \
     --restart-policy OnFailure
 ```
 
-# [PowerShell](#tab/azure-powershell)
-
-```powershell
-New-AzureRmContainerGroup `
-    -ResourceGroupName myResourceGroup `
-    -Name mycontainer `
-    -Image mycontainerimage `
-    -RestartPolicy OnFailure
-```
-
----
-
 ## Run to completion example
 
-To see the restart policy in action, create a container instance from the [microsoft/aci-wordcount](https://hub.docker.com/r/microsoft/aci-wordcount/) image, and specify the `OnFailure` restart policy.
+To see the restart policy in action, create a container instance from the [microsoft/aci-wordcount](https://hub.docker.com/r/microsoft/aci-wordcount/) image, and specify the `OnFailure` restart policy. This example container runs a Python script that, by default, analyzes the text of Shakespeare's [Hamlet](http://shakespeare.mit.edu/hamlet/full.html), writes the 10 most common words to STDOUT, and then exits.
 
-# [Azure CLI](#tab/azure-cli)
+Run the example container with the following `az container create` command:
 
 ```azurecli-interactive
 az container create \
@@ -76,19 +62,40 @@ az container create \
     --restart-policy OnFailure
 ```
 
-# [PowerShell](#tab/azure-powershell)
+The container's status will show `Terminated` once the process it runs exits. You can check a container's status with the [az container show][az-container-show] command:
 
-```powershell
-New-AzureRmContainerGroup `
-    -ResourceGroupName myResourceGroup `
-    -Name mycontainer `
-    -Image microsoft/aci-wordcount:latest `
-    -RestartPolicy OnFailure
+```azurecli-interactive
+az container show --resource-group myResourceGroup --name mycontainer --query containers[0].instanceView.currentState.state
 ```
 
----
+Example output:
 
-This container runs a Python script that, by default, analyzes the text of Shakespeare's [Hamlet](http://shakespeare.mit.edu/hamlet/full.html), writes the 10 most common words to STDOUT, and then exits. You can modify the behavior of the script, however, by setting the container's environment variables or specifying a new command line and when you create it.
+```bash
+"Terminated"
+```
+
+You can view the results of the example container's task by viewing the container logs. Run the [az container logs][az-container-logs] command to view the script's output:
+
+```azurecli-interactive
+az container logs --resource-group myResourceGroup --name mycontainer
+```
+
+Example output:
+
+```bash
+[('the', 990),
+ ('and', 702),
+ ('of', 628),
+ ('to', 610),
+ ('I', 544),
+ ('you', 495),
+ ('a', 453),
+ ('my', 441),
+ ('in', 399),
+ ('HAMLET', 386)]
+```
+
+This example shows the output that the script sent to STDOUT. Typically, however, your containerized tasks would write their output to persistent storage, such as an [Azure File share](container-instances-mounting-azure-files-volume.md).
 
 ## Configure containers at runtime
 
@@ -104,62 +111,47 @@ For example, you can modify the behavior of the script in the example container 
 
 *MinLength*: The minimum number of characters in a word for it to be counted. A higher number ignores common words like "an" and "the."
 
-# [Azure CLI](#tab/azure-cli)
-
 ```azurecli-interactive
 az container create \
     --resource-group myResourceGroup \
-    --name mycontainer \
+    --name mycontainer2 \
     --image microsoft/aci-wordcount:latest \
     --restart-policy OnFailure \
     --environment-variables NumWords=5 MinLength=8
 ```
 
-# [PowerShell](#tab/azure-powershell)
+By specifying `NumWords=5` and `MinLength=8` for the container's environment variables, the container logs should now show the following task output:
 
-```powershell
-New-AzureRmContainerGroup `
-    -ResourceGroupName myResourceGroup `
-    -Name mycontainer `
-    -Image microsoft/aci-wordcount:latest `
-    -RestartPolicy OnFailure `
-    -EnvironmentVariable @{"NumWords"="5";"MinLength"="8"}
+```bash
+[('CLAUDIUS', 120),
+ ('POLONIUS', 113),
+ ('GERTRUDE', 82),
+ ('ROSENCRANTZ', 69),
+ ('GUILDENSTERN', 54)]
 ```
-
----
 
 ## Command line override
 
-Specify a command line to override the command line baked into the container image. This is similar to the `--entrypoint` command-line argument to `docker run`.
+Specify a command line when you create a container instance to override the command line baked into the container image. This is similar to the `--entrypoint` command-line argument to `docker run`.
 
 For instance, you can have the example container analyze text other than *Hamlet* by specifying a different command line. The Python script executed by the container, "wordcount.py," accepts a URL as an argument, and will process that page's content instead of the default.
 
 For example, to analyze *Romeo and Juliet*:
 
-# [Azure CLI](#tab/azure-cli)
-
 ```azurecli-interactive
 az container create \
     --resource-group myResourceGroup \
-    --name mycontainer \
+    --name mycontainer3 \
     --image microsoft/aci-wordcount:latest \
     --restart-policy OnFailure \
-    --command-line wordcount.py http://shakespeare.mit.edu/romeo_juliet/full.html
+    --command-line "wordcount.py http://shakespeare.mit.edu/romeo_juliet/full.html"
 ```
-
-# [PowerShell](#tab/azure-powershell)
-
-```powershell
-New-AzureRmContainerGroup `
-    -ResourceGroupName myResourceGroup `
-    -Name mycontainer `
-    -Image microsoft/aci-wordcount:latest `
-    -RestartPolicy OnFailure `
-    -Command "wordcount.py http://shakespeare.mit.edu/romeo_juliet/full.html"
-```
-
----
 
 ## Next steps
 
 For details on how to persist the output of your containers that run to completion, see [Mounting an Azure file share with Azure Container Instances](container-instances-mounting-azure-files-volume.md).
+
+<!-- LINKS -->
+[az-container-create]: /cli/azure/container?view=azure-cli-latest#az_container_create
+[az-container-logs]: /cli/azure/container?view=azure-cli-latest#az_container_logs
+[az-container-show]: /cli/azure/container?view=azure-cli-latest#az_container_show
