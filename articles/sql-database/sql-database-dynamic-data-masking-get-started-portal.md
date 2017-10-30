@@ -13,7 +13,7 @@ ms.custom: security
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.workload: data-services
+ms.workload: "Inactive"
 ms.date: 11/22/2016
 ms.author: ronitr; ronmat
 
