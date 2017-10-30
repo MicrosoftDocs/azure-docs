@@ -158,26 +158,24 @@ You can use the **iothubowner** connection string from your IoT Hub to complete 
     var serviceClient = Client.fromConnectionString(connectionString);
     ```
 
-1. Create a callback and use the **getFileNotificationReceiver** function to receive status updates.
+1. Open the client and use the **getFileNotificationReceiver** function to receive status updates.
 
     ```nodejs
-    function receiveFileUploadNotification(err, receiver){
-        if (err) {
-            console.error('error getting the file notification receiver: ' + err.toString());
-        } else {
-            receiver.on('message', function (msg) {
-            console.log('File upload from device:')
-            console.log(msg.getData().toString('utf-8'));
-            });
-        }
-    }
-    
     serviceClient.open(function (err) {
       if (err) {
         console.error('Could not connect: ' + err.message);
       } else {
         console.log('Service client connected');
-        serviceClient.getFileNotificationReceiver(receiveFileUploadNotification);
+        serviceClient.getFileNotificationReceiver(function receiveFileUploadNotification(err, receiver){
+          if (err) {
+            console.error('error getting the file notification receiver: ' + err.toString());
+          } else {
+            receiver.on('message', function (msg) {
+              console.log('File upload from device:')
+              console.log(msg.getData().toString('utf-8'));
+            });
+          }
+        });
       }
     });
     ```
