@@ -128,7 +128,7 @@ A service endpoint allows VSTS to connect to Jenkins.
 You need a [deployment group](https://www.visualstudio.com/docs/build/concepts/definitions/release/deployment-groups/) to register the VSTS agent so the release definition can deploy to your virtual machine.  Deployment groups make it easy to define logical groups of target machines for deployment, and install the required agent on each machine.
 
    > [!NOTE]
-   > Follow the steps to install the prerequisites and don't execute the script with **sudo**.
+   > In the steps below, follow the steps to install the prerequisites and **don't execute the script with sudo privileges.**
 
 1. Open the **Releases** tab of the **Build &amp; Release** hub, then
    open **Deployment groups**, and choose **+ New**.
@@ -136,7 +136,7 @@ You need a [deployment group](https://www.visualstudio.com/docs/build/concepts/d
    Then choose **Create**.
 3. Choose the operating system for your deployment target virtual machine.  For example, choose **Ubuntu 16.04+**.
 4. Tick the **Use a personal access token in the script for authentication**.
-5. Check the **System prerequisites**.
+5. Select the **System prerequisites** link.  Install the prerequisites for your operating system.
 6. Select the **Copy script to clipboard** to copy the script.
 7. **Log in** to your deployment target virtual machine and **execute** the script.  **Don't** run the script with sudo privileges.
 8. After the installation, you are prompted for deployment group tags.  Accept the defaults.
