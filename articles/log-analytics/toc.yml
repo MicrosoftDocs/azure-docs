@@ -148,6 +148,12 @@
       href: log-analytics-alerts-webhooks.md
     - name: Alert Management solution
       href: log-analytics-solution-alert-management.md
+  - name: Manage
+    items:
+    - name: Manage workspace cost
+      href: log-analytics-manage-cost.md
+    - name: Delete a workspace
+      href: log-analytics-manage-del-workspace.md
   - name: Use solutions
     items:
     - name: Solutions overview
