@@ -59,7 +59,7 @@ Use restore disks to:
   * Add VM to availability set
   * For any other configuration which can be achieved only by using PowerShell/a declarative template definition
   
-### Can I use backups of unmanaged disk VM to restore after I ugrade my disks to managed disks?
+### Can I use backups of unmanaged disk VM to restore after I upgrade my disks to managed disks?
 Yes, you can use the backups taken before migrating disks from unmanaged to managed. By default, restore VM job will create a VM with unmanaged disks. You can use restore disks functionality to restore disks and use them to create a VM on managed disks. 
 
 ## Manage VM backups
