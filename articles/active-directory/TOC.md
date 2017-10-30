@@ -314,8 +314,6 @@
 ##### [Remediation](active-directory-conditional-access-device-remediation.md)
 #### [Technical reference](active-directory-conditional-access-technical-reference.md)
 #### [FAQs](active-directory-conditional-faqs.md)
-#### [Classic portal](active-directory-conditional-access.md)
-##### [Get started](active-directory-conditional-access-azuread-connected-apps.md)
 
 ### Windows Hello
 #### [Authenticate without passwords](active-directory-azureadjoin-passport.md)

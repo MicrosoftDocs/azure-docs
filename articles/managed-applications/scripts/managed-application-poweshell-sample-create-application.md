@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell Script Sample - Deploys a managed application | Microsoft Docs
-description: Azure PowerShell Script Sample - Deploys a managed application definition
+title: Azure PowerShell script sample - Deploy a managed application | Microsoft Docs
+description: Azure PowerShell script sample - Deploy a managed application definition
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -15,7 +15,7 @@ ms.date: 10/27/2017
 ms.author: tomfitz
 ---
 
-# Deploy a managed application for service catalog with PowerShell
+# Deploy a managed application for a service catalog with PowerShell
 
 This script deploys a managed application definition from the service catalog.
 
@@ -29,7 +29,7 @@ This script deploys a managed application definition from the service catalog.
 
 ## Script explanation
 
-This script uses following command to deploy the managed application. Each command in the table links to command specific documentation.
+This script uses the following command to deploy the managed application. Each command in the table links to command-specific documentation.
 
 | Command | Notes |
 |---|---|
@@ -38,6 +38,5 @@ This script uses following command to deploy the managed application. Each comma
 
 ## Next steps
 
-For an introduction to managed applications, see [Azure Managed Application overview](../overview.md).
-
-For more information on the Azure CLI, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+* For an introduction to managed applications, see [Azure Managed Application overview](../overview.md).
+* For more information on PowerShell, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azure/get-started-azureps).
