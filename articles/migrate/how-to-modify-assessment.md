@@ -36,7 +36,7 @@ ms.author: raynew
     **Percentile utilization** | Percentile value to consider for perfomance history. | Default is 95%.
     **Pricing tier** | You can specify the [pricing tier](https://azure.microsoft.com/blog/basic-tier-virtual-machines-2/) for a VM.  | By default the [Standard](../virtual-machines/windows/sizes-general.md) tier is used.
     **Offer** | [Azure offers](https://azure.microsoft.com/support/legal/offer-details/) that apply. | [Pay-as-you-go](https://azure.microsoft.com/offers/ms-azr-0003p/) is the default.
-    **Currency** | Billing currency | Default is US dollars.
+    **Currency** | Billing currency. | Default is US dollars.
     **Discount (%)** | Any subscription-specific discount you receive on top of any offer. | The default setting is 0%.
     **Azure Hybrid Use Benefit** | Indicates whether you're enrolled in the [Azure Hybrid Use Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/). If set to Yes, non-Windows Azure prices are consider for Windows VMs. | Default is Yes.
 
