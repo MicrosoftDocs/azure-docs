@@ -36,14 +36,14 @@ The key reason for this fluidity is that DNN translation uses the full context o
 
 DNN models are at the core of the API and are not visible to end users. 
 The only noticeable differences are
--	The improved translation quality, especially for languages such as Chinese, Japanese, and Arabic. View suported languages on [Microsoft.com](https://www.microsoft.com/en-us/translator/languages.aspx. 
+-	The improved translation quality, especially for languages such as Chinese, Japanese, and Arabic. View suported languages on [Microsoft.com](https://www.microsoft.com/en-us/translator/languages.aspx). 
 -	The incompatibility with the existing Hub and CTF customization features
 
 Learn more about [how DNN works](https://www.microsoft.com/en-us/translator/mt.aspx#nnt) .
 
 ## Next steps
 - [Sign up](/translator-text-how-to-signup.md) for an access key. A Free tier for 2 million characters per month is available, or [view pricing options for paid tiers](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/translator-text-api/)
-- Start coding&mdash; view Quickstarts and Tutorials to get started. [Microsoft Translator on Github](https://github.com/MicrosoftTranslator) provides sample apps with open source code. Further documentation can be found in References. 
+- Start coding&mdash; view Quickstarts, Tutorials, and Sample Apps to get started. Further documentation can be found in References. 
 - Resources provides subscription [FAQ](https://www.microsoft.com/en-us/translator/faq.aspx) as well as links to our [technical](https://stackoverflow.com/questions/tagged/microsoft-translator) and [user](https://cognitive.uservoice.com/knowledgebase/topics/132647-translator) forums
 
 ## See also
