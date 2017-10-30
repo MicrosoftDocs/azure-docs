@@ -41,7 +41,7 @@ When your app makes a DNS request that matches a configured Hybrid Connection en
 >
 >
 
-There are two types of Hybrid Connections; the new Hybrid Connections that are offered as a service under Azure Relay and the older BizTalk Hybrid Connections.  The older BizTalk Hybrid Connections are referred to as Classic Hybrid Connections in the portal.  There is more information later in this document about them.
+There are two types of Hybrid Connections: the new Hybrid Connections that are offered as a service under Azure Relay and the older BizTalk Hybrid Connections.  The older BizTalk Hybrid Connections are referred to as Classic Hybrid Connections in the portal.  There is more information later in this document about them.
 
 ### App Service Hybrid Connection benefits ###
 
@@ -101,7 +101,11 @@ In addition to the portal experience from within your app, there is also an abil
 
 ## Hybrid Connections and App Service Plans ##
 
-Hybrid Connections are only available in Basic, Standard, Premium, and Isolated pricing SKUs.  There are limits tied to the pricing plan.  (Note that you can only create new Hybrid Connections based on Azure Relay. You cannot create new Classic Hybrid Connections.)
+Hybrid Connections are only available in Basic, Standard, Premium, and Isolated pricing SKUs.  There are limits tied to the pricing plan.  
+
+> [!NOTE] 
+> You can only create new Hybrid Connections based on Azure Relay. You cannot create new BizTalk Hybrid Connections.
+>
 
 | Pricing Plan | Number of Hybrid Connections usable in the plan |
 |----|----|
