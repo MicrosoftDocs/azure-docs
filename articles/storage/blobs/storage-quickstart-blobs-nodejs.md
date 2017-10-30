@@ -86,11 +86,11 @@ Azure Storage Node.js Client Library Blobs Quick Start
 
 2. Creating a file in Documents to test the upload and download
 
-Local File: C:\Users\gwallace\Documents\HelloWorld-89d2ca51-bd91-11e7-9bf8-e1c25be7cd46.txt
+Local File: C:\Users\administrator\Documents\HelloWorld-89d2ca51-bd91-11e7-9bf8-e1c25be7cd46.txt
 
 3. Uploading BlockBlob:  demoblockblob-HelloWorld-89d2ca51-bd91-11e7-9bf8-e1c25be7cd46.txt
 
-Uploaded blob URL: https://georgetestsa123.blob.core.windows.net/quickstartblobs-89d2ca50-bd91-11e7-9bf8-e1c25be7cd46/demoblockblob-HelloWorld-89d2ca51-bd91-11e7-9bf8-e1c25be7cd46.txt
+Uploaded blob URL: https://mystorageaccount.blob.core.windows.net/quickstartblobs-89d2ca50-bd91-11e7-9bf8-e1c25be7cd46/demoblockblob-HelloWorld-89d2ca51-bd91-11e7-9bf8-e1c25be7cd46.txt
 
 4. Listing Blobs in Container
 
@@ -100,7 +100,7 @@ Uploaded blob URL: https://georgetestsa123.blob.core.windows.net/quickstartblobs
 
 5. Downloading Blob
 
-Downloaded File: C:\Users\gwallace\Documents\HelloWorld-89d2ca51-bd91-11e7-9bf8-e1c25be7cd46_DOWNLOADED.txt
+Downloaded File: C:\Users\administrator\Documents\HelloWorld-89d2ca51-bd91-11e7-9bf8-e1c25be7cd46_DOWNLOADED.txt
 
 6. Creating a read-only snapshot of the blob
 
@@ -163,7 +163,7 @@ blobService.createBlockBlobFromLocalFile(blockBlobContainerName, blockBlobName, 
 
 ```
 
-There are several upload methods that you can use with Blob storage. For example, if you have a memory stream, you can use the [createBlockBlobFromStream](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_createBlockBlobFromStream) method rather than `createBlockBlobFromLocalFile`.
+There are several upload methods that you can use with Blob storage. For example, if you have a memory stream, you can use the [createBlockBlobFromStream](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_createBlockBlobFromStream) method rather than [createBlockBlobFromLocalFile](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_createBlockBlobFromLocalFile).
 
 Block blobs can be as large as 4.7 TB, and can be anything from Excel spreadsheets to large video files. Page blobs are primarily used for the VHD files used to back IaaS VMs. Append blobs are used for logging, such as when you want to write to a file and then keep adding more information. Most objects stored in Blob storage are block blobs.
 
@@ -174,6 +174,15 @@ Get a list of files in the container using [listBlobsSegmented](/nodejs/api/azur
 If you have 5,000 or fewer blobs in the container, all of the blob names are retrieved in one call to [listBlobsSegmented](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_listBlobsSegmented). If you have more than 5,000 blobs in the container, the service retrieves the list in sets of 5,000 until all of the blob names have been retrieved. So the first time this API is called, it returns the first 5,000 blob names and a continuation token. The second time, you provide the token, and the service retrieves the next set of blob names, and so on, until the continuation token is null, which indicates that all of the blob names have been retrieved.
 
 ```node
+console.log('4. Listing Blobs in Container\n');
+listBlobs(blobService, blockBlobContainerName, null, null, null, function (error, results) {
+    if (error) return callback(error);
+
+    for (var i = 0; i < results.length; i++) {
+        console.log(util.format('   - %s (type: %s)'), results[i].name, results[i].blobType);
+    }
+    console.log('\n');
+
 function listBlobs(blobService, container, token, options, blobs, callback) {
     blobs = blobs || [];
 
