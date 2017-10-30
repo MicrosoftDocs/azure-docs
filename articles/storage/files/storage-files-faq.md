@@ -257,14 +257,14 @@ This article answers common questions about Azure Files features and functionali
 * <a id="share-snapshot-price"></a>**How much do share snapshots cost?**  
      During preview, there is no charge for share snapshot capacity. Standard storage egress and transaction costs apply. After general availability, subscriptions will be charged for capacity and transactions on share snapshots.
      
-     Share snapshots are incremental in nature. The base share snapshot is the share itself. All subsequent share snapshots are incremental and store only the difference from the preceding share snapshot. You are billed only for the changed content. If you have a share with 100 GB of data but only 5 GB has changed since your last share snapshot, the share snapshot consumes only 5 additional GB, and you are billed for 105 GB. For more information about transaction and standard egress charges, see the [Pricing page](https://azure.microsoft.com/pricing/details/storage/files/).
+     Share snapshots are incremental in nature. The base share snapshot is the share itself. All subsequent share snapshots are incremental and store only the difference from the preceding share snapshot. You are billed only for the changed content. If you have a share with 100 GiB of data but only 5 GiB has changed since your last share snapshot, the share snapshot consumes only 5 additional GiB, and you are billed for 105 GiB. For more information about transaction and standard egress charges, see the [Pricing page](https://azure.microsoft.com/pricing/details/storage/files/).
 
 ## Scale and performance
 * <a id="files-scale-limits"></a>**What are the scale limits of Azure Files?**  
     For information about scalability and performance targets for Azure Files, see [Azure Files scalability and performance targets](storage-files-scale-targets.md).
 
 * <a id="need-larger-share"></a>**I need a larger file share than Azure Files currently offers. Can I increase the size of my Azure Files share?**  
-    No. The maximum size of an Azure Files share is 5 TB. Currently, this is a hard limit that we cannot adjust. We are working on a solution to increase the share size to 100 TB, but we don't have timelines to share at this time.
+    No. The maximum size of an Azure Files share is 5 TiB. Currently, this is a hard limit that we cannot adjust. We are working on a solution to increase the share size to 100 TiB, but we don't have timelines to share at this time.
 
 * <a id="open-handles-quota"></a>**How many clients can access the same file simultaneously?**   
     There is a quota of 2,000 open handles on a single file. When you have 2,000 open handles, an error message is displayed that says the quota is reached.
