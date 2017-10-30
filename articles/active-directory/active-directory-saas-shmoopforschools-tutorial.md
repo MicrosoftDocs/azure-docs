@@ -163,10 +163,10 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     e. Generate the **Metadata URL** by using the following pattern: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`.	
 
-8. To configure single sign-on on the **Shmoop For Schools** side, you need to send the **Metadata URL** to [Shmoop For Schools support team](mailto:support@shmoop.com).
+8. To configure single sign-on on the **Shmoop For Schools** side, you need to send the **Metadata URL** to the [Shmoop For Schools support team](mailto:support@shmoop.com).
 
 > [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com) while you are setting up the app! After you add this app from the **Active Directory** > **Enterprise Applications** section, simply select the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature at [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com) while you are setting up the app! After you add this app from the **Active Directory** > **Enterprise Applications** section, simply select the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature at [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985).
 > 
 
 ### Create an Azure AD test user
@@ -205,8 +205,8 @@ The objective of this section is to create a test user called Britta Simon in th
 
 The objective of this section is to create a user called Britta Simon in Shmoop For Schools. Shmoop For Schools supports just-in-time provisioning, which is enabled by default. There is no action item for you in this section. If a new user doesn't yet exist, it is created during the attempt to access Shmoop For Schools.
 
->[!Note]
->If you need to create a user manually, contact [Shmoop For Schools support team](mailto:support@shmoop.com).
+>[!NOTE]
+>If you need to create a user manually, contact THE [Shmoop For Schools support team](mailto:support@shmoop.com).
 
 ### Assign the Azure AD test user
 
@@ -248,7 +248,7 @@ For more information about the Access Panel, see [Introduction to the Access 
 
 ## Additional resources
 
-* [List of Tutorials on how to integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [List of tutorials for how to integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->
