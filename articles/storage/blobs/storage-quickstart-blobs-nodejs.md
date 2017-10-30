@@ -48,13 +48,13 @@ First, create a new general-purpose storage account to use for this quickstart.
 12. Select the `Location` to use for your storage account.
 13. Check **Pin to dashboard** and click **Create** to create your storage account. 
 
-After your storage account is created, it is pinned to the dashboard. Click on it to open it. Under SETTINGS, click **Access keys**. Select a key and copy the CONNECTION STRING to the clipboard, then paste it into Notepad for later use.
+After your storage account is created, it is pinned to the dashboard. Click on it to open it. Under SETTINGS, click **Access keys**. Select a key and copy the CONNECTION STRING to the clipboard, then paste it into a text editor for later use.
 
 ## Download the sample application
 
 The sample application used in this quickstart is a basic console application. 
 
-Use [git](https://git-scm.com/) to download a copy of the application to your development environment. 
+Use [git](https://git-scm.com/) to download a copy of the application to your development environment.
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-blobs-node-quickstart.git
@@ -64,12 +64,12 @@ This command clones the repository to your local git folder. To open the applica
 
 ## Configure your storage connection string
 
-In the application, you must provide the connection string for your storage account. Open the `index.js` file, find the `connectionString` variable. Replace `AzureStorageConnectionString` with the entire value of the connection string with the one you saved from the Azure portal in Notepad. You should have something similar to the following when you're done.
+In the application, you must provide the connection string for your storage account. Open the `index.js` file, find the `connectionString` variable. Replace `AzureStorageConnectionString` with the entire value of the connection string with the one you saved from the Azure portal. Your storageConnectionString should look similar to the following:
 
 ```node
 // Create a blob client for interacting with the blob service from connection string
-// How to create a storage connection string - http://msdn.microsoft.com/en-us/library/azure/ee758697.aspx
-var connectionString = 'DefaultEndpointsProtocol=https;AccountName=myStorageAccount;AccountKey=MYG3cCFx+zx461234F1B45D5g371CD3EHEQxHw/cd2567NtnR1fNaA60p5bzqzVqkjsodYnQ4Ke58p6PabM4kA==;EndpointSuffix=core.windows.net';
+// How to create a storage connection string - http://msdn.microsoft.com/library/azure/ee758697.aspx
+var connectionString = '<connectionStringHere>';
 var blobService = storage.createBlobService(connectionString);
 ```
 
@@ -124,9 +124,9 @@ Sample finished running. When you hit <ENTER> key, the temporary files will be d
 Press <ENTER> key to exit.
 ```
 
-When you press any key to continue, it deletes the storage container and the files. Before you continue, check MyDocuments for the two files -- you can open them and see they are identical. Copy the URL for the blob out of the console window and paste it into a browser to view the contents of the file in Blob storage.
+Before you continue, check MyDocuments for the two files. You can open them and see they are identical.
 
-You can also use a tool such as the [Azure Storage Explorer](http://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) to view the files in Blob storage. Azure Storage Explorer is a free cross-platform tool that allows you to access your storage account information. 
+You can also use a tool such as the [Azure Storage Explorer](http://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) to view the files in Blob storage. Azure Storage Explorer is a free cross-platform tool that allows you to access your storage account information.
 
 After you've verified the files, hit any key to finish the demo and delete the test files. Now that you know what the sample does, open the index.js file to look at the code. 
 
@@ -134,11 +134,11 @@ After you've verified the files, hit any key to finish the demo and delete the t
 
 The first thing to do is create the reference to the `BlobService` used to access and manage Blob storage. These objects build on each other -- each is used by the next one in the list.
 
-* Instantiate the **[BlobService](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService__ctor)** object, which points to the Blob service in your storage account. 
+* Create an instance of the **[BlobService](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService__ctor)** object, which points to the Blob service in your storage account. 
 
 In this section, you create a new container, and then set permissions on the container so the blobs are public and can be accessed with just a URL. The container is called **quickstartblobs**.
 
-This example uses CreateIfNotExists because we want to create a new container each time the sample is run. In a production environment where you use the same container throughout an application, it's better practice to only call CreateIfNotExists once, or to create the container ahead of time so you don't need to create it in the code.
+This example uses CreateIfNotExists because we want to create a new container each time the sample is run. In a production environment where you use the same container throughout an application, it's better practice to only call CreateIfNotExists once. Alternatively, you can create the container ahead of time so you don't need to create it in the code.
 
 ```node
 // Create a container for organizing blobs within the storage account.
@@ -173,7 +173,7 @@ blobService.createBlockBlobFromLocalFile(blockBlobContainerName, blockBlobName, 
 
 There are several upload methods that you can use with Blob storage. For example, if you have a memory stream, you can use the [createBlockBlobFromStream](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_createBlockBlobFromStream) method rather than [createBlockBlobFromLocalFile](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_createBlockBlobFromLocalFile).
 
-Block blobs can be as large as 4.7 TB, and can be anything from Excel spreadsheets to large video files. Page blobs are primarily used for the VHD files used to back IaaS VMs. Append blobs are used for logging, such as when you want to write to a file and then keep adding more information. Most objects stored in Blob storage are block blobs.
+Block blobs can be any type of text or binary file. Page blobs are primarily used for the VHD files used to back IaaS VMs. Append blobs are used for logging, such as when you want to write to a file and then keep adding more information. Most objects stored in Blob storage are block blobs.
 
 ## List the blobs in a container
 
