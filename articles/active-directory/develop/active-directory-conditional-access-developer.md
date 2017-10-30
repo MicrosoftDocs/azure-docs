@@ -44,7 +44,7 @@ Specifically, the following scenarios require code to handle conditional access 
 * Single page apps using ADAL.js
 * Web Apps calling a resource
 
-Conditional access policies can be applied to the app, but also can be applied to a web API your app accesses. To learn more about how to configure a conditional access policy, please see [Getting started with Azure Active Directory Conditional Access](../active-directory-conditional-access-azuread-connected-apps.md#configure-per-application-access-rules).
+Conditional access policies can be applied to the app, but also can be applied to a web API your app accesses. To learn more about how to configure a conditional access policy, please see [Getting started with Azure Active Directory Conditional Access](../active-directory-conditional-access-azuread-connected-apps.md).
 
 Depending on the scenario, an enterprise customer can apply and remove conditional access policies at any time.  In order for your app to continue functioning when a new policy is applied, you need to implement the "challenge" handling. The following examples illustrate challenge handling. 
 
