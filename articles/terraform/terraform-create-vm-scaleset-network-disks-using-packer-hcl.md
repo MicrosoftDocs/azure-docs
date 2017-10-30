@@ -50,7 +50,7 @@ Edit the `variables.tf` file, copy the following code, then save the changes.
 ```tf 
 variable "location" {
   description = "The location where resources are created"
-  default     = "West US"
+  default     = "East US"
 }
 
 variable "resource_group_name" {
