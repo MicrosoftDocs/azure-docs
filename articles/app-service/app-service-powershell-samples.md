@@ -39,6 +39,10 @@ The following table includes links to bash scripts built using the Azure PowerSh
 |**Connect app to resources**||
 | [Connect a web app to a SQL Database](./scripts/app-service-powershell-connect-to-sql.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creates an Azure web app and a SQL database, then adds the database connection string to the app settings. |
 | [Connect a web app to a storage account](./scripts/app-service-powershell-connect-to-storage.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creates an Azure web app and a storage account, then adds the storage connection string to the app settings. |
+|**Back up and restore app**||
+| [Back up a web app](./scripts/app-service-powershell-backup-onetime.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Creates an Azure web app and creates a one-time backup for it. |
+| [Create a scheduled backup for a web app](./scripts/app-service-powershell-backup-scheduled.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Creates an Azure web app and creates a scheduled backup for it. |
+| [Delete a backup for a web app](./scripts/app-service-powershell-backup-delete.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Deletes an existing backup for a web app. |
 |**Monitor app**||
 | [Monitor a web app with web server logs](./scripts/app-service-powershell-monitor.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Creates an Azure web app, enables logging for it, and downloads the logs to your local machine. |
 | | |
