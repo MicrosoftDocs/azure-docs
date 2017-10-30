@@ -43,7 +43,7 @@ Build and publish the application by right-clicking on the application project, 
 > 
 > 
 
-After building the project in Visual Studio, you can use the PowerShell command [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) to copy the application package to the ImageStore. If you want to verify the app package locally, use the [Test-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/test-servicefabricapplicationpackage) cmdlet. The next step is to register the application to the Service Fabric runtime using the [Register-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype) cmdlet. The final step is to start an instance of the application by using the [New-ServiceFabricApplication](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) cmdlet.  These three steps are analogous to using the **Deploy** menu item in Visual Studio.
+After building the project in Visual Studio, you can use the PowerShell command [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) to copy the application package to the ImageStore. If you want to verify the app package locally, use the [Test-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/test-servicefabricapplicationpackage) cmdlet. The next step is to register the application to the Service Fabric runtime using the [Register-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype) cmdlet. The following step is to start an instance of the application by using the [New-ServiceFabricApplication](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) cmdlet.  These three steps are analogous to using the **Deploy** menu item in Visual Studio.  Once provisioning is completed, you should clean up the copied application package from the image store in order to reduce the resources consumed.  If an application type is no longer required, it should be unregistered for the same reason. See [Deploy and remove applications using PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) for more information.
 
 Now, you can use [Service Fabric Explorer to view the cluster and the application](service-fabric-visualizing-your-cluster.md). The application has a web service that can be navigated to in Internet Explorer by typing [http://localhost:8081/visualobjects](http://localhost:8081/visualobjects) in the address bar.  You should see some floating visual objects moving around in the screen.  Additionally, you can use [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication?view=azureservicefabricps) to check the application status.
 
@@ -70,7 +70,6 @@ Now the *ApplicationManifest.xml* file (found under the **VisualObjects** projec
 
  <ServiceManifestRefServiceManifestName="VisualObjects.ActorService" ServiceManifestVersion="2.0" />
 ```
-
 
 Now, build the project by selecting just the **ActorService** project, and then right-clicking and selecting the **Build** option in Visual Studio. If you select **Rebuild all**, you should update the versions for all projects, since the code would have changed. Next, let's package the updated application by right-clicking on ***VisualObjectsApplication***, selecting the Service Fabric Menu, and choosing **Package**. This action creates an application package that can be deployed.  Your updated application is ready to be deployed.
 
@@ -108,6 +107,12 @@ Register-ServiceFabricApplicationType -ApplicationPathInImageStore "VisualObject
 ```
 
 If the preceding command doesn't succeed, it is likely that you need a rebuild of all services. As mentioned in Step 2, you may have to update your WebService version as well.
+
+It's recommended that you remove the application package after the application is successfully registered.  Deleting application packages from the image store frees up system resources.  Keeping unused application packages consumes disk storage and leads to application performance issues.
+
+```powershell
+Remove-ServiceFabricApplicationPackage -ApplicationPackagePathInImageStore "VisualObjects\_V2" -ImageStoreConnectionString fabric:ImageStore
+```
 
 ## Step 5: Start the application upgrade
 Now, we're all set to start the application upgrade by using the [Start-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/start-servicefabricapplicationupgrade?view=azureservicefabricps) command:

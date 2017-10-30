@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2017
+ms.date: 10/13/2017
 ms.author: yurid
 
 ---
@@ -26,7 +26,7 @@ A security policy defines the desired configuration of your workloads and helps 
 Security Center policies contain the following components:
 
 - Data collection: agent provisioning and [data collection](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) settings.
-- Security policy: an [Azure Policy](https://docs.microsoft.com/azure/azure-policy/azure-policy-introduction) that determines which controls are monitored and recommended by Security Center (edit in Security Center, or use Azure Policy to create new definitions, define additional policies, and assign policies across Management Groups).
+- Security policy: determines which controls are monitored and recommended by Security Center (edit the [security policy](https://docs.microsoft.com/en-us/azure/security-center/security-center-policies) in Security Center, or use [Azure Policy](security-center-azure-policy.md), in limited preview to create new definitions, define additional policies, and assign policies across Management Groups).
 - Email notifications: security contacts, and [e-mail notification](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details) settings.
 - Pricing tier: free or standard [pricing selection](https://docs.microsoft.com/azure/security-center/security-center-pricing), which determines which Security Center features are available for resources in scope (can be specified for subscriptions, resource groups, and workspaces). 
 

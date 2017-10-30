@@ -13,7 +13,7 @@ ms.custom: reference
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.workload: "Inactive"
 ms.date: 01/10/2017
 ms.author: carlrab
 

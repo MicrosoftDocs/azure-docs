@@ -3,7 +3,7 @@ title: Protect your API with Azure API Management | Microsoft Docs
 description: Learn how to protect your API with quotas and throttling (rate-limiting) policies.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: juliako
 manager: erikre
 editor: ''
 
