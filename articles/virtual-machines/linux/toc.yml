@@ -117,6 +117,8 @@
         href: create-ssh-keys-detailed.md
   - name: Manage VMs
     items:
+    - name: Buy Reserved VM Instances
+      href: buy-compute-reservations.md
     - name: Common CLI tasks
       href: cli-manage.md
     - name: Move a VM
