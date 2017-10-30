@@ -31,15 +31,14 @@ The [Azure Files and Azure Disks comparison](/azure/storage/common/storage-decid
 Create a new storage disk by using the Azure CLI and get the details needed to configure a Kubernetes volume.
 
 ```azurecli-interactive
-# Create a new standard disk with a 10GB capacity
-az disk create -n myDisk -g myResourceGroup --size-gb 10 --sku Standard_LRS
-
-# Get the diskURI for the created disk
-az disk show -n mydisk -g trash2 --query 'id' -o tsv
+az disk create --name myDisk --resource-group myResourceGroup --size-gb 10 --sku Standard_LRS
 ```
 
-> [!NOTE]
-> All VM types can use standard disks, but premium disk support is limited to [specific VM types](/azure/storage/common/storage-premium-storage#supported-vms).
+Get the `diskURI` for the created disk.
+
+```azurecli-interactive
+az disk show --name myDisk --resource-group myResourceGroup --query 'id' -o tsv
+```
 
 ## Mounting an Azure Disk as a volume
 
@@ -60,14 +59,10 @@ spec:
  volumes:
   - name: azure
     azureDisk:
-      # Replace with the values for your Azure Disk
-      diskURI: /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.Compute/disks/<diskName>
+      diskURI: <disURI>
       diskName: <diskName>
       kind: Managed
 ```
-
-> [!NOTE]
-> Your agent VM size determines how many data disks can be mounted at the same time. Be sure to [check the max data disks for your VM size](/azure/virtual-machines/linux/sizes-general).
 
 Use kubectl to create a pod
 
@@ -85,5 +80,7 @@ You now have a running container with your Azure Disk mounted in the `/mnt/azure
 
 ## Next steps
 
-* Learn more about [Kubernetes volumes](https://kubernetes.io/docs/concepts/storage/volumes)
-* Get more details about [persistent volumes using Azure Disks](https://github.com/kubernetes/examples/tree/master/staging/volumes/azure_disk/claim)
+Learn more about persisten volument using Azure Disks.
+
+> [!div class="nextstepaction"]
+> [Kubernetes plugin for Azure Disks](./tutorial-kubernetes-upgrade-cluster.md)

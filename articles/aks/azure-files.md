@@ -36,17 +36,29 @@ Applications often need to access or persist external state that lives beyond th
 
 To use an Azure Files volume, you can use a file share that already exists, or [create a new file share](/azure/storage/files/storage-how-to-create-file-share).
 
+```azurecli-interactive
+az storage account create --name mystorageaccount007 --resource-group myResourceGroup --sku Standard_LRS
+```
+
+```azurecli-interactive
+az storage account show-connection-string --resource-group myResourceGroup --name myfileshare007 -o tsv
+```
+
+```azurecli-interactive
+az storage share create --name myfileshare007 --account-name mystorageaccount007--connection-string <update>
+```
+
 ## Creating a Secret
 
-Kubernetes needs credentials to access the file share in order to read and write files. Rather than storing the storage account name and key with each pod, it is stored once in a [Secret](https://kubernetes.io/docs/concepts/configuration/secret/) and referenced by each Azure Files volume.
+Kubernetes needs credentials to access the file share. Rather than storing the storage account name and key with each pod, it is stored once in a [Secret](https://kubernetes.io/docs/concepts/configuration/secret/) and referenced by each Azure Files volume.
 
 The values in the secret need to be base64 encoded. Use the following commands to get the values you'll need for the secret definition.
 
 ```azurecli-interactive
-# Format the value for 'azurestorageaccountname'
 echo -n mystorageaccount | base64
+```
 
-# Format the value for 'azurestorageaccountkey'
+```azurecli-interactive
 echo -n `az storage account keys list -n mystorageaccount -g myResourceGroup --query '[0].value' -o tsv` | base64 -w 0
 ```
 
@@ -59,7 +71,6 @@ metadata:
   name: azure-secret
 type: Opaque
 data:
-  # Replace with the values for your storage account
   azurestorageaccountname: <base64_encoded_storage_account_name>
   azurestorageaccountkey: <base64_encoded_storage_account_key>
 ```
@@ -96,8 +107,7 @@ spec:
   - name: azure
     azureFile:
       secretName: azure-secret
-      # Replace with the name of your Azure file share
-      shareName: k8stest
+      shareName: <shareName>
       readOnly: false
 ```
 
@@ -115,7 +125,9 @@ pod "azure-files-pod" created
 
 You now have a running container with your Azure file share mounted in the `/mnt/azure` directory. You can see your volume mounts when inspecting your pod via `kubectl describe pod azure-files-pod`.
 
-
 ## Next steps
 
-* Learn more about [Kubernetes volumes]
+Learn more about persisten volument using Azure Files.
+
+> [!div class="nextstepaction"]
+> [Kubernetes plugin for Azure Files](https://github.com/kubernetes/examples/blob/master/staging/volumes/azure_file/README.md)
