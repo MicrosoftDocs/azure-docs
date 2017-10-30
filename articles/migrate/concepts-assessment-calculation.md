@@ -40,7 +40,7 @@ VMs you want to migrate to Azure must meet Azure requirements and limitations. F
 **OS: Windows Server 2003-2008** | 32-bit and 64-bit support.<br/><br/> Azure provides best effort support only.
 **OS: Windows Server 2008 R2 + SPs** | 64-bit support.<br/><br/> Azure provides full support.
 **OS: Windows Client 7 and later** | 64-bit support.<br/><br/> Azure provides support with Visual Studio subscription only.
-**OS: Linux** | 64-bit support.<br/><br/> Azure provides full support for these [operating systems](../virtual-machines/linux/endorsed-distros.md)<br/><br/>.
+**OS: Linux** | 64-bit support.<br/><br/> Azure provides full support for these [operating systems](../virtual-machines/linux/endorsed-distros.md).
 **Storage disk** | Allocated size of a disk must be 4 TB (4096 GB) or less.<br/><br/> The number of disks attached to the machine must be 65 or less, including the OS disk. 
 **Networking** | A machine must have 32 or less NICs attached to it.
 
