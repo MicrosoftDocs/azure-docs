@@ -3,7 +3,7 @@ title: Azure Stream Analytics JavaScript user-defined aggregates | Microsoft Doc
 description: Perform advanced query mechanics with JavaScript user-defined aggregates
 keywords: javascript, user defined aggregates, uda
 services: stream-analytics
-author: minhe
+author: minhe-msft
 manager: santoshb
 editor: cgronlun
 
@@ -13,10 +13,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 09/28/2017
+ms.date: 10/28/2017
 ms.author: minhe
 ---
-# Azure Stream Analytics JavaScript User-Defined Aggregates (Preview)
+# Azure Stream Analytics JavaScript user-defined aggregates (Preview)
 
 Azure Stream Analytics supports user-defined aggregates (UDA) written in JavaScript, it enables you to implement complex stateful business logic. Within UDA you have full control of the state data structure, state accumulation, state decumulation, and aggregate result computation. The article introduces the two different JavaScript UDA interfaces, steps to create a UDA, and how to use UDA with window-based operations in Stream Analytics query.
 
@@ -117,7 +117,7 @@ The computeResult() method returns aggregate result based on the current state. 
 ## JavaScript UDA supported input and output data types
 For JavaScript UDA data types, refer to section **Stream Analytics and JavaScript type conversion** of [Integrate JavaScript UDFs](stream-analytics-javascript-user-defined-functions.md).
 
-## Adding a JavaScript UDA from Azure portal
+## Adding a JavaScript UDA from the Azure portal
 
 Below we walk through the process of creating a UDA from Portal. The example we use here is computing time weighted averages.
 
@@ -193,7 +193,7 @@ FROM value
 GROUP BY TumblingWindow(minute, 5)
 ````
 
-## Testing Query with UDA
+## Testing query with UDA
 
 Create a local JSON file with below content, upload the file to Stream Analytics job, and test above query.
 
@@ -224,3 +224,15 @@ Create a local JSON file with below content, upload the file to Stream Analytics
   {"EntryTime": "2017-06-10T05:22:00-07:00", "NoiseLevelDB": 110, "DurationSecond": 5.3}
 ]
 ````
+
+## Get help
+
+For additional help, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+
+## Next steps
+
+* [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
+* [Get started using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
+* [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
+* [Azure Stream Analytics query language reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure Stream Analytics management REST API reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
