@@ -4,7 +4,7 @@ description: This article describes how to use Azure Resource Manager to manage 
 keywords: 
 services: time-series-insights
 documentationcenter: 
-author: 
+author: kfile
 manager: jhubbard
 editor: 
 
@@ -15,14 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: big-data
 ms.date: 10/18/2017
-ms.author: 
+ms.author: kfile
 ---
 
 # Manage Time Series Insights Resources with Azure Resource Manager
 
 Azure Time Series Insights is a fully managed analytics, storage, and visualization service that makes it simple to explore and analyze billions of IoT events simultaneously. It gives you a global view of your data, letting you quickly validate your IoT solution and avoid costly downtime to mission-critical devices by helping you discover hidden trends, spot anomalies, and conduct root-cause analyses in near real time. If you are building an application that needs to store or query time series data, you can develop using Time Series Insights using its REST APIs.
 
-This tutorial demonstrates how to manage Time Series Insights with Azure Resource Management (ARM) resources. This helps you manage Time Series Insights environments where using the Azure portal doesn’t make sense, for example if you have a custom application built on top of Time Series Insights.  Using ARM allows you to automate control for the same resources you can configure in the Azure portal.
+This tutorial demonstrates how to manage Time Series Insights with Azure Resource Management  resources. This helps you manage Time Series Insights environments where using the Azure portal doesn’t make sense, for example if you have a custom application built on top of Time Series Insights.  Using Azure Resoure Manager allows you to automate control for the same resources you can configure in the Azure portal.
 
 There are four types of Time Series Insights resources that can be created using this Resource Manager template:  
 
@@ -80,10 +80,10 @@ https://microsoft.sharepoint.com/teams/TSIcore/Shared%20Documents/Getting%20Star
 |**environmentDataRetentionTime**|	The minimum timespan the environment’s events will be available for query. The value must be specified in the ISO 8601 format, for example, "P30D" for a retention policy of 30 days.| Optional	|30      |
 |**eventSourceName**|Name of the event source child resource. The name cannot include: '<', '>', '%', '&', ':', '\\', '?', '/' and any control characters. All other characters are allowed.|Required   |         |      
 |**eventSourceDisplayName**|An optional friendly name to show in tooling or user interfaces instead of the event source name.|	Optional|	Blank (the event source name will be used in this case)     |  
-|**eventHubResourceId**	|The resource ID of the source Event Hub or IoT Hub in ARM, for example, '/subscriptions/{subscriptionId}/resourceGroups /{resourceGroupName}/providers/Microsoft.Devices/IotHubs/{hubName}'.|	Required  |	   |           
+|**eventHubResourceId**	|The resource ID of the source Event Hub or IoT Hub in Azure Resoure Manager, for example, '/subscriptions/{subscriptionId}/resourceGroups /{resourceGroupName}/providers/Microsoft.Devices/IotHubs/{hubName}'.|	Required  |	   |           
 |**eventHubServiceBusNamespace**|The service bus namespace of the source Event Hub.|Required    |   
 |**eventHubName**|The name of the source Event Hub.|Required    |    |
-|**eventHubConsumerGroupName**|The name of the consumer group that Time Series Insights will use to read the data from the event hub. **NOTE**: You should create a dedicated consumer group on the event hub for Time Series Insights. This consumer group should not be shared with other services to avoid contention.|	Required  |         
+|**eventHubConsumerGroupName**|The name of the consumer group that Time Series Insights will use to read the data from the event hub. You should create a dedicated consumer group on the event hub for Time Series Insights. This consumer group should not be shared with other services to avoid contention.|	Required  |         
 |**eventHubKeyName**|The name of the event hub's shared access key that Time Series Insights will use to connect to the event hub.|Required   |   |
 |**eventHubSharedAccessKey**|The shared access key value that Time Series Insights will use to connect to the event hub. This parameter is a secure string, so the value isn't displayed in the deployment logs or history in the Azure portal.|Required  |         |
 |**eventSourceTimestampPropertyName**|The event property that is used as the event source's timestamp. If a value isn't specified for timestampPropertyName, or if null or empty-string is specified, the event creation time is used.|Optional	 |         |      
@@ -152,11 +152,9 @@ The body of the parameters file looks similar to:
   }
 }
 ```
-Notes
+Some of the properties shown in the template file are optional properties (for example, eventSourceDisplayName). If the default values work for your scenario, you don’t need to include these properties in the parameters file.
 
-- Some of the properties shown in the template file are optional properties (for example, eventSourceDisplayName). If the default values work for your scenario, you don’t need to include these properties in the parameters file.
-
-- Note the use of a keyVault reference to read the event hub’s shared access key. For the key vault to be referenced in template files, you must set the **enabledForTemplateDeployment** property on the vault to **true**. 
+Note the use of a keyVault reference to read the event hub’s shared access key. For the key vault to be referenced in template files, you must set the **enabledForTemplateDeployment** property on the vault to **true**. 
 
 You can do this in the Azure portal through the following setting on the KeyVault’s **Advanced access policies**:
 
@@ -164,9 +162,9 @@ You can do this in the Azure portal through the following setting on the KeyVaul
 
 ## Managing Resources through REST APIs
 
-The ARM REST APIs are the foundation of ARM resource management. When provisioning resources through either the management UX or template deployments, the REST APIs are being called.
+The Azure Resoure Manager REST APIs are the foundation of Azure Resoure Manager resource management. When provisioning resources through either the management UX or template deployments, the REST APIs are being called.
 
-This is a quick example of using REST APIs to manage Time Series Insights resources in ARM. 
+This is a quick example of using REST APIs to manage Time Series Insights resources in Azure Resoure Manager. 
 
 Examples shown use ARMClient to invoke the REST APIs. For more information about ARMClient, see http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html.  
 

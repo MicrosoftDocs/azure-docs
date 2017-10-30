@@ -8,6 +8,9 @@
 ## [Create a reference data set](time-series-insights-add-reference-data-set.md)
 ## [Send events](time-series-insights-send-events.md)
 
+# Concepts
+## [Manage Time Series Insights Resources with Azure Resource Manager](time-series-insights-manage-resources-using-azure-resource-manager.md)
+
 # How to
 ## [Create an Event Hub event source](time-series-insights-how-to-add-an-event-source-eventhub.md)
 ## [Create an IoT Hub event source](time-series-insights-how-to-add-an-event-source-iothub.md)
