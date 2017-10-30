@@ -111,7 +111,7 @@ The replay behavior creates constraints on the type of code that can be written 
 
   Non-deterministic operations must be done in activity functions. This includes any interaction with other input or output bindings. This ensures that any non-deterministic values will be generated once on the first execution and saved into the execution history. Subsequent executions will then use the saved value automatically.
 
-* Orchestrator code should be **non-blocking**. For example, no `Thread.Sleep` or equivalent APIs.
+* Orchestrator code should be **non-blocking**. For example, that means no I/O and no calls to `Thread.Sleep` or equivalent APIs.
 
   If an orchestrator needs to delay, it can use the [CreateTimer](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CreateTimer_) API.
 

@@ -1,10 +1,10 @@
 ---
-title: Create a .NET Core web app in a Linux container in Azure | Microsoft Docs
-description: Deploy your first .NET Core Hello World app to Web App for Containers in minutes.
+title: Create a .NET Core web app and deploy to App Service on Linux | Microsoft Docs
+description: Deploy your first .NET Core Hello World app to App Service on Linux in minutes.
 keywords: azure app service, web app, dotnet, core, linux, oss
 services: app-service
 documentationCenter: ''
-authors: cephalin
+author: cephalin
 manager: syntaxc4
 editor: ''
 
@@ -18,13 +18,13 @@ ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
 ---
-# Create a .NET Core web app in a Linux container in Azure
+# Create a .NET Core web app in App Service on Linux
 
-[Web App for Containers](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This quickstart shows how to create a [.NET Core](https://docs.microsoft.com/aspnet/core/) app on Azure Web App for Containers. You create the web app using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), and you use Git to deploy the .NET Core code to the web app.
+[App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This quickstart shows how to create a [.NET Core](https://docs.microsoft.com/aspnet/core/) app on App Service on Linux. You create the web app using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), and you use Git to deploy the .NET Core code to the web app.
 
 ![Sample app running in Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
-You can follow the steps below using a Mac, Windows, or Linux machine. 
+You can follow the steps below using a Mac, Windows, or Linux machine.
 
 ## Prerequisites
 
@@ -35,20 +35,20 @@ To complete this quickstart:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## Create the app locally ##
+## Create the app locally
 
-In a terminal window on your machine, create a directory named `hellodotnetcore` and change the current directory to it. 
+In a terminal window on your machine, create a directory named `hellodotnetcore` and change the current directory to it.
 
 ```bash
 md hellodotnetcore
 cd hellodotnetcore
-``` 
+```
 
 Create a new .NET Core web app.
 
 ```bash
 dotnet new web
-``` 
+```
 
 ## Run the app locally
 
@@ -75,27 +75,23 @@ git commit -m "first commit"
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)] 
+[!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)]
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group.md)] 
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group.md)]
 
-[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)] 
+[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
-## Create a web app
+## Create a web app with built-in image
 
-Create a [web app](../app-service-web-overview.md) in the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp#create) command. Don't forget to replace `<app name>` with a unique app name.
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-dotnetcore-no-h.md)]
 
-The runtime in the following command is set to `DOTNETCORE|1.1`. To see all supported runtimes, run [az webapp list-runtimes](/cli/azure/webapp#list-runtimes).
+Browse to your newly created web app. Replace _&lt;app name>_ with a unique app name.
 
-```azurecli-interactive
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --runtime "DOTNETCORE|1.1" --deployment-local-git
+```bash
+http://<app name>.azurewebsites.net
 ```
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-result.md)] 
-
 ![Empty web app page](media/quickstart-dotnetcore/dotnet-browse-created.png)
-
-You’ve created an empty new web app in a Linux container, with git deployment enabled.
 
 [!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)] 
 
@@ -136,11 +132,11 @@ Browse to the deployed application using your web browser.
 http://<app_name>.azurewebsites.net
 ```
 
-The Node.js sample code is running in an Azure App Service web app.
+The Node.js sample code is running in an web app with built-in image.
 
 ![Sample app running in Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
-**Congratulations!** You've deployed your first Node.js app to App Service.
+**Congratulations!** You've deployed your first Node.js app to App Service on Linux.
 
 ## Update and redeploy the code
 
@@ -180,4 +176,4 @@ The left menu provides different pages for configuring your app.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Build a .NET Core and SQL Database web app in Azure Web App for Containers](tutorial-dotnetcore-sqldb-app.md)
+> [Build a .NET Core and SQL Database web app in Azure App Service on Linux](tutorial-dotnetcore-sqldb-app.md)

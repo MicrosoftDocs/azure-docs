@@ -1,8 +1,8 @@
 ---
-title: How to Authenticate to Microsoft Speech API | Microsoft Docs
+title: How to Authenticate to Microsoft Speech Service | Microsoft Docs
 description: How to request authentication to use Microsoft Speech API
 services: cognitive-services
-author: zhouwang
+author: zhouwangzw
 manager: wolfma
 
 ms.service: cognitive-services
@@ -20,9 +20,9 @@ Microsoft Speech Service supports authentication
 
 ## Using subscription key
 
-To use Microsoft Speech Service, you must first subscribe to Speech API that is part of Microsoft Cognitive Services (previously Project Oxford). You can get free trial subscription keys from the [Cognitive Services Subscription](https://azure.microsoft.com/en-us/try/cognitive-services/) page. After you select the Speech API, click Get API Key to get the key. It returns a primary and secondary key. Both keys are tied to the same quota, so you may use either key.
+To use Microsoft Speech Service, you must first subscribe to Speech API that is part of Microsoft Cognitive Services (previously Project Oxford). You can get free trial subscription keys from the [Cognitive Services Subscription](https://azure.microsoft.com/try/cognitive-services/) page. After you select the Speech API, click Get API Key to get the key. It returns a primary and secondary key. Both keys are tied to the same quota, so you may use either key.
 
-For long-term use or an increased quota sign up an [Azure account](https://azure.microsoft.com/en-us/free/).
+For long-term use or an increased quota sign up an [Azure account](https://azure.microsoft.com/free/).
 
 For using Speech REST API, you need to pass the subscription key in the `Ocp-Apim-Subscription-Key` field in the request header.
 
@@ -41,6 +41,9 @@ Host: speech.platform.bing.com
 Transfer-Encoding: chunked
 Expect: 100-continue
 ```
+
+> [!IMPORTANT]
+> If you use [client libraries](../GetStarted/GetStartedClientLibraries.md) in your application, you need to verify that you can get the authorization token with your subscription key, as described in the next section. The client libraries use the subscription key to get authorization token, and then use the token for authentication.
 
 ## Using authorization token
 

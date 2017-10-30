@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/23/2017
-ms.author: rajanaki
+ms.date: 10/19/2017
+ms.author: raynew
 ---
 
 #  Prerequisites for replication from on-premises to Azure by using Site Recovery
@@ -107,7 +107,7 @@ The following components are required for disaster recovery of Hyper-V VMs in VM
 
 | **Component** | **Details** |
 | --- | --- |
-| **Virtual Machine Manager** |  We recommend that you deploy a VMM server on both the primary site and the secondary site.<br/><br/> You can [replicate between clouds on a single VMM server](site-recovery-vmm-to-vmm.md#prepare-for-single-server-deployment). To replicate between clouds on a single VMM server, you need at least two clouds configured on the VMM server.<br/><br/> VMM servers must be running at least System Center 2012 SP1, with the latest updates.<br/><br/> Each VMM server must have one or more clouds. All clouds must have the Hyper-V Capacity Profile set. <br/><br/>Clouds must have one or more VMM host groups. For more information about setting up VMM clouds, see [Prepare for Azure Site Recovery deployment](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric). |
+| **Virtual Machine Manager** |  We recommend that you deploy a VMM server on both the primary site and the secondary site.<br/><br/> To replicate between clouds on a single VMM server, you need at least two clouds configured on the VMM server.<br/><br/> VMM servers must be running at least System Center 2012 SP1, with the latest updates.<br/><br/> Each VMM server must have one or more clouds. All clouds must have the Hyper-V Capacity Profile set. <br/><br/>Clouds must have one or more VMM host groups. For more information about setting up VMM clouds, see [Prepare for Azure Site Recovery deployment](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric). |
 | **Hyper-V** | Hyper-V servers must be running at least Windows Server 2012 with the Hyper-V role enabled, and have the latest updates installed.<br/><br/> A Hyper-V server must have one or more VMs.<br/><br/>  Hyper-V host servers must be located in host groups in the primary and secondary VMM clouds.<br/><br/> If you run Hyper-V in a cluster on Windows Server 2012 R2, we recommend that you install the update described in Knowledge Base article [2961977](https://support.microsoft.com/kb/2961977).<br/><br/> If you run Hyper-V in a cluster on Windows Server 2012 and have a static IP address-based cluster, a cluster broker isn't automatically created. You must manually configure the cluster broker. For more information about the cluster broker, see [Configure the replica broker role for cluster-to-cluster replication](http://social.technet.microsoft.com/wiki/contents/articles/18792.configure-replica-broker-role-cluster-to-cluster-replication.aspx). |
 | **Provider** | During Site Recovery deployment, install the Azure Site Recovery provider on VMM servers. The provider communicates with Site Recovery over HTTPS (port 443) to orchestrate replication. Data replication occurs between the primary and secondary Hyper-V servers over the LAN or through a VPN connection.<br/><br/> The provider that's running on the VMM server needs access to the following URLs:<br/><br/>[!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)] <br/><br/>The Site Recovery provider must allow firewall communication from the VMM servers to the [Azure datacenter IP ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653), and allow the HTTPS (port 443) protocol. |
 

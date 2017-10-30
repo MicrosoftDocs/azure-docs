@@ -73,13 +73,11 @@ The following features are not currently supported. You can optionally remove th
 
 | Resource provider | Feature | Recommendation |
 | --- | --- | --- |
-| Compute |Unassociated virtual machine disks. | The VHD blobs behind these disks will get migrated when the Storage Account is migrated |
-| Compute |Virtual machine images. | The VHD blobs behind these disks will get migrated when the Storage Account is migrated |
-| Network |Endpoint ACLs. | Remove Endpoint ACLs and retry migration. |
-| Network |Virtual network with both ExpressRoute Gateway and VPN Gateway  | Remove the VPN Gateway before beginning migration and then recreate the VPN Gateway once migration is complete. Learn more about [ExpressRoute migration](../articles/expressroute/expressroute-migration-classic-resource-manager.md).|
-| Network |ExpressRoute with authorization links  | Remove the ExpressRoute circuit to virtaul network connection before beginning migration and then recreate the connection once migration is complete. Learn more about [ExpressRoute migration](../articles/expressroute/expressroute-migration-classic-resource-manager.md). |
-| Network |Application Gateway | Remove the Application Gateway before beginning migration and then recreate the Application Gateway once migration is complete. |
-| Network |Virtual networks using VNet Peering. | Migrate Virtual Network to Resource Manager, then peer. Learn more about [VNet Peering](../articles/virtual-network/virtual-network-peering-overview.md). | 
+| Compute | Unassociated virtual machine disks. | The VHD blobs behind these disks will get migrated when the Storage Account is migrated |
+| Compute | Virtual machine images. | The VHD blobs behind these disks will get migrated when the Storage Account is migrated |
+| Network | Endpoint ACLs. | Remove Endpoint ACLs and retry migration. |
+| Network | Application Gateway | Remove the Application Gateway before beginning migration and then recreate the Application Gateway once migration is complete. |
+| Network | Virtual networks using VNet Peering. | Migrate Virtual Network to Resource Manager, then peer. Learn more about [VNet Peering](../articles/virtual-network/virtual-network-peering-overview.md). | 
 
 ### Unsupported configurations
 The following configurations are not currently supported.
@@ -92,13 +90,15 @@ The following configurations are not currently supported.
 | Compute |Virtual machines that have alerts, Autoscale policies |The migration goes through and these settings are dropped. It is highly recommended that you evaluate your environment before you do the migration. Alternatively, you can reconfigure the alert settings after migration is complete. |
 | Compute |XML VM extensions (BGInfo 1.*, Visual Studio Debugger, Web Deploy, and Remote Debugging) |This is not supported. It is recommended that you remove these extensions from the virtual machine to continue migration or they will be dropped automatically during the migration process. |
 | Compute |Boot diagnostics with Premium storage |Disable Boot Diagnostics feature for the VMs before continuing with migration. You can re-enable boot diagnostics in the Resource Manager stack after the migration is complete. Additionally, blobs that are being used for screenshot and serial logs should be deleted so you are no longer charged for those blobs. |
-| Compute |Cloud services that contain web/worker roles |This is currently not supported. |
-| Network |Virtual networks that contain both virtual machines and web/worker roles |This is currently not supported. |
+| Compute | Cloud services that contain web/worker roles | This is currently not supported. |
+| Compute | Cloud services that contain more than one availability set or multiple availability sets. |This is currently not supported. Please move the Virtual Machines to the same availability set before migrating. |
+| Compute | VM with Azure Security Center extension | Azure Security Center automatically installs extensions on your Virtual Machines to monitor their security and raise alerts. These extensions usually get installed automatically if the Azure Security Center policy is enabled on the subscription. To migrate the Virtual Machines, please disable the security center policy on the subscription which will remove the Security Center monitoring extension from the Virtual Machines. |
+| Compute | VM with backup or snapshot extension | These extensions are installed on a Virtual Machine configured with the Azure Backup service. To migrate these Virtual Machines, follow the guidance [here](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-faq#vault).  |
+| Network |Virtual networks that contain virtual machines and web/worker roles |This is currently not supported. Please move the Web/Worker roles to their own Virtual Network before migrating. Once the classic Virtual Network is migrated, the migrated Azure Resource Manager Virtual Network can be peered with the classic Virtual Network to achieve similar configuration as before.|
+| Network | Classic Express Route circuits |This is currently not supported. These circuits need to be migrated to Azure Resource Manager before beginning IaaS migration. To learn more about this see [Moving ExpressRoute circuits from the classic to the Resource Manager deployment model](../articles/expressroute/expressroute-move.md).|
 | Azure App Service |Virtual networks that contain App Service environments |This is currently not supported. |
 | Azure HDInsight |Virtual networks that contain HDInsight services |This is currently not supported. |
 | Microsoft Dynamics Lifecycle Services |Virtual networks that contain virtual machines that are managed by Dynamics Lifecycle Services |This is currently not supported. |
 | Azure AD Domain Services |Virtual networks that contain Azure AD Domain services |This is currently not supported. |
 | Azure RemoteApp |Virtual networks that contain Azure RemoteApp deployments |This is currently not supported. |
 | Azure API Management |Virtual networks that contain Azure API Management deployments |This is currently not supported. To migrate the IaaS VNET, please change the VNET of the API Management deployment which is a no downtime operation. |
-| Compute |Azure Security Center extensions with a VNET that has a VPN gateway in transit connectivity or ExpressRoute gateway with on-prem DNS server |Azure Security Center automatically installs extensions on your Virtual Machines to monitor their security and raise alerts. These extensions usually get installed automatically if the Azure Security Center policy is enabled on the subscription. ExpressRoute gateway migration is not supported currently, and VPN gateways with transit connectivity loses on-premises access. Deleting ExpressRoute gateway or migrating VPN gateway with transit connectivity causes internet access to VM storage account to be lost when proceeding with committing the migration. The migration will not proceed when this happens as the guest agent status blob cannot be populated. It is recommended to disable Azure Security Center policy on the subscription 3 hours before proceeding with migration. |
-
