@@ -10,17 +10,17 @@
     href: translator-hub-overview.md
 - name: Quickstarts
   items: 
-  - name: Translate text C#
+  - name: Translate text (C#)
     href: quickstarts/csharp.md
-  - name: Translate text Java
+  - name: Translate text (Java)
     href: quickstarts/java.md
-  - name: Translate text Node.js
+  - name: Translate text (Node.js)
     href: quickstarts/nodejs.md
-  - name: Translate text PHP
+  - name: Translate text (PHP)
     href: quickstarts/php.md
-  - name: Translate text Python
+  - name: Translate text (Python)
     href: quickstarts/python.md
-  - name: Translate text Ruby
+  - name: Translate text (Ruby)
     href: quickstarts/ruby.md
 - name: Tutorials
   items: 
