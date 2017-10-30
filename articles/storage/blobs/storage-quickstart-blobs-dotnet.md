@@ -105,11 +105,11 @@ After you've verified the files, hit any key to finish the demo and delete the t
 
 The first thing to do is create the references to the objects used to access and manage Blob storage. These objects build on each other -- each is used by the next one in the list.
 
-* create an instance of the **CloudStorageAccount** object pointing to the storage account. 
+* Create an instance of the **CloudStorageAccount** object pointing to the storage account. 
 
-* create an instance of the **CloudBlobClient** object, which points to the Blob service in your storage account. 
+* Create an instance of the **CloudBlobClient** object, which points to the Blob service in your storage account. 
 
-* create an instance of the **CloudBlobContainer** object, which represents the container you are accessing. Containers are used to organize your blobs like you use folders on your computer to organize your files.
+* Create an instance of the **CloudBlobContainer** object, which represents the container you are accessing. Containers are used to organize your blobs like you use folders on your computer to organize your files.
 
 Once you have the **CloudBlobContainer**, you can create an instance of the **CloudBlockBlob** object that points to the specific  blob in which you are interested, and perform an upload, download, copy, etc. operation.
 
