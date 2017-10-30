@@ -73,8 +73,6 @@ To sign up using a social identity provider, click the button of the identity pr
 
 You need to authenticate (sign-in) using your social account credentials and authorize the application to read information from your social account. By granting access, the application can retrieve profile information from the social account such as your name and city. 
 
-For example, authentication and authorization are similar to the following prompt for Twitter.
-
 ![Authenticate and authorize using a social account](media/active-directory-b2c-quickstarts-web-app/twitter-authenticate-authorize-web.png)
 
 Finish the sign-in process for the identity provider. For example, click **Sign in** button for Twitter.
@@ -83,9 +81,9 @@ Your new account profile details are pre-populated with information from your so
 
 ![New account sign-up profile details](media/active-directory-b2c-quickstarts-web-app/new-account-sign-up-profile-details-web.png)
 
-Update the Display Name, Job Title, and City fields and click **Continue**.  The values you enter are used for your Azure B2C user account profile.
+Update the Display Name, Job Title, and City fields and click **Continue**.  The values you enter are used for your Azure AD B2C user account profile.
 
-You have successfully created a new Azure B2C user account that uses an identity provider. 
+You have successfully created a new Azure AD B2C user account that uses an identity provider. 
 
 Next step: [Jump to view your claims](#view-your-claims) section.
 
@@ -103,11 +101,11 @@ Add your profile information and click **Create**.
 
 ![Sign up with new account using email](media/active-directory-b2c-quickstarts-web-app/sign-up-new-account-profile-email-web.png)
 
-You have successfully created a new Azure B2C local user account.
+You have successfully created a new Azure AD B2C local user account.
 
 ## Reset your password
 
-If you created your account using an email address, Azure B2C has functionality to allow users to reset their password. To edit the profile you created, click your profile name in the menu bar and select **Reset Password**.
+If you created your account using an email address, Azure AD B2C has functionality to allow users to reset their password. To edit the profile you created, click your profile name in the menu bar and select **Reset Password**.
 
 Verify your email address by entering it and clicking **Send verification code**. A verification code is sent to your email address.
 
@@ -141,7 +139,7 @@ Click **Claims**. Changes you made to **Display name** and **City** are reflecte
 
 ![View claims](media/active-directory-b2c-quickstarts-web-app/view-claims-update-web.png)
 
- Notice the  **Claim type** `http://schemas.microsoft.com/claims/authnclassreference` has updated to `b2c_1_edit_profile` indicating the last action performed was a profile edit.
+ Notice the  **Claim type** `http://schemas.microsoft.com/claims/authnclassreference` has updated to `b2c_1_edit_profile` indicating the last action performed was a profile edit. Also note, the name and city are the new values *Sara S.* and *Seattle*.
 
 ## Access a resource
 

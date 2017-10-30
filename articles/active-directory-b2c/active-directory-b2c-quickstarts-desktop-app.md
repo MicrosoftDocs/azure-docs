@@ -57,15 +57,13 @@ To sign up using a social identity provider, click the button of the identity pr
 
 You need to authenticate (sign-in) using your social account credentials and authorize the application to read information from your social account. By granting access, the application can retrieve profile information from the social account such as your name and city. 
 
-For example, authentication and authorization are similar to the following prompt for Twitter.
-
 ![Authenticate and authorize using a social account](media/active-directory-b2c-quickstarts-desktop-app/twitter-authenticate-authorize-wpf.png)
 
 Your new account profile details are pre-populated with information from your social account. Modify the details if you wish and click **Continue**.
 
 ![New account sign-up profile details](media/active-directory-b2c-quickstarts-desktop-app/new-account-sign-up-profile-details-wpf.png)
 
-You have successfully created a new Azure B2C user account that uses an identity provider. After sign-in, the access token is shown in the *Token info* text box. The access token is used when accessing the API resource.
+You have successfully created a new Azure AD B2C user account that uses an identity provider. After sign-in, the access token is shown in the *Token info* text box. The access token is used when accessing the API resource.
 
 ![Authorization token](media/active-directory-b2c-quickstarts-desktop-app/twitter-auth-token.png)
 
@@ -85,7 +83,7 @@ Add your profile information and click **Create**.
 
 ![Sign up with new account using email](media/active-directory-b2c-quickstarts-desktop-app/sign-up-new-account-profile-email-wpf.png)
 
-You have successfully created a new Azure B2C local user account. After sign-in, the access token is shown in the *Token info* text box. The access token is used when accessing the API resource.
+You have successfully created a new Azure AD B2C local user account. After sign-in, the access token is shown in the *Token info* text box. The access token is used when accessing the API resource.
 
 ![Authorization token](media/active-directory-b2c-quickstarts-desktop-app/twitter-auth-token.png)
 
