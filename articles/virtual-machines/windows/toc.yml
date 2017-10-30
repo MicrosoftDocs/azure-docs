@@ -219,6 +219,8 @@
       href: detach-disk.md
     - name: Resize a disk
       href: expand-os-disk.md
+    - name: Backup and disaster recovery for disks
+      href: backup-and-disaster-recovery-for-azure-iaas-disks.md
     - name: Snapshot a disk
       href: snapshot-copy-managed-disk.md
     - name: Back up unmanaged disks
