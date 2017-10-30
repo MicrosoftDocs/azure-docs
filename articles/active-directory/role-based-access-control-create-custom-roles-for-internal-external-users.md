@@ -33,7 +33,7 @@ Using RBAC in the Azure environment requires:
 <!---Loc Comment: Link [Resource Manager providers, regions, API versions and schemas] is broken with an error message "404 - Content Not Found---->
 
 > [!NOTE]
-> Office 365 subscriptions or Azure Active Directory licenses (for example: Access to Azure Active Directory) provisioned from the O365 portal don't quality for using RBAC.
+> Office 365 subscriptions or Azure Active Directory licenses (for example: Access to Azure Active Directory) provisioned from the O365 portal don't qualify for using RBAC.
 
 ## How can RBAC be used
 RBAC can be applied at three different scopes in Azure. From the highest scope to the lowest one, they are as follows:
