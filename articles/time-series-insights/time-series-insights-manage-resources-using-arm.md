@@ -20,25 +20,25 @@ ms.author:
 
 # Manage Time Series Insights Resources with Azure Resource Manager
 
-Azure Time Series Insights is a fully managed analytics, storage, and visualization service that makes it simple to explore and analyze billions of IoT events simultaneously. It gives you a global view of your data, letting you quickly validate your IoT solution and avoid costly downtime to mission-critical devices by helping you discover hidden trends, spot anomalies, and conduct root-cause analyses in near real-time. If you are building an application that needs to store or query time series data, you can develop using Time Series Insights using its REST APIs.
+Azure Time Series Insights is a fully managed analytics, storage, and visualization service that makes it simple to explore and analyze billions of IoT events simultaneously. It gives you a global view of your data, letting you quickly validate your IoT solution and avoid costly downtime to mission-critical devices by helping you discover hidden trends, spot anomalies, and conduct root-cause analyses in near real time. If you are building an application that needs to store or query time series data, you can develop using Time Series Insights using its REST APIs.
 
 This tutorial demonstrates how to manage Time Series Insights with Azure Resource Management (ARM) resources. This helps you manage Time Series Insights environments where using the Azure portal doesn’t make sense, for example if you have a custom application built on top of Time Series Insights.  Using ARM allows you to automate control for the same resources you can configure in the Azure portal.
 
-There are four types of Time Series Insights resources that can be created using this ARM template:  
+There are four types of Time Series Insights resources that can be created using this Resource Manager template:  
 
-- 	Environments
-- 	Event sources
-- 	Reference data sets
-- 	Role assignments
+-	Environments
+-	Event sources
+-	Reference data sets
+-	Role assignments
 
 ![TSI resources
 ](media/manage-resources-using-arm/arm1.png)
 
-A Time Series Insights Environment is a logical grouping of event sources. You can add one or more event sources in an Time Series Insights Environment (current limits in private preview are two event sources per environment). 
+A Time Series Insights Environment is a logical grouping of event sources. You can add one or more event sources in a Time Series Insights Environment (current limits in private preview are two event sources per environment). 
 
 An event source is a data source from which Time Series Insights reads and ingests data into Time Series Insights storage. Time Series Insights supports two event sources:  Azure IoT Hubs and Azure Event Hubs.
 
-Reference data sets provide metadata about the events in the environment. Metadata in the reference data sets will be joined with events during ingress. Reference data sets are defined as resources by their event key properties. The actual metadata that makes up the reference data set is uploaded or modified through data plane APIs.
+Reference data sets provide metadata about the events in the environment. Metadata in the reference data sets are joined with events during ingress. Reference data sets are defined as resources by their event key properties. The actual metadata that makes up the reference data set is uploaded or modified through data plane APIs.
 
 Before Time Series Insights is released publicly, support for Role Assignment resources will also be added. Currently, access control must be controlled via role assignments on the resources in the management plane.
 
@@ -46,9 +46,9 @@ This document covers the different options for managing Time Series Insights res
 
 The high-level options currently available to manage Time Series Insights resources are:
 
-- 	ARM template deployments
-- 	REST APIs
-- 	Azure Management Portal extension (coming soon!)
+- Resource Manager template deployments
+- REST APIs
+- Azure Management portal extension (coming soon!)
 
 ## Prerequisite
 
@@ -58,15 +58,15 @@ Before creating Time Series Insights resources, you must perform the following p
 
 Create a ResourceGroup in your subscription. This can be done through REST APIs, PowerShell, or by using the Azure Management portal. 
 
-## Managing Resources through ARM Template Deployments
+## Managing Resources through Resource Manager template Deployments
 
-A Resource Manager template is a JSON file that defines the infrastructure and configuration of resources in a resource group. For more information see the following documents:
+A Resource Manager template is a JSON file that defines the infrastructure and configuration of resources in a resource group. For more information, see the following documents:
 
 - [Azure Resource Manager overview - Template deployment](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview#template-deployment)
 
 - [Deploy resources with Resource Manager templates and Azure PowerShell](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy)
 
-The template that creates an Time Series Insights Environment and a child EventSource that reads events from an EventHub can be downloaded from the following link: 
+The template that creates a Time Series Insights Environment and a child EventSource that reads events from an EventHub can be downloaded from the following link: 
 
 https://microsoft.sharepoint.com/teams/TSIcore/Shared%20Documents/Getting%20Started/CreateTSIEnvironmentAndEventSourceTemplate.json 
 
@@ -75,27 +75,27 @@ https://microsoft.sharepoint.com/teams/TSIcore/Shared%20Documents/Getting%20Star
 |---------|---------|---------|---------|
 |**environmentName**     | Name of the environment. The name cannot include:   '<', '>', '%', '&', ':', '\\', '?', '/' and any control characters. All other characters are allowed.        |   Required      |         |
 |**environmentDisplayName** |An optional friendly name to show in tooling or user interfaces instead of the environment name.  | Optional | Blank (the environment name will be used in this case)   |
-|**environmentSkuName**	| The name of the SKU. Must be one of the following values: S1, S2, P1. See the SKU Ingress Rates and Capacities table for more details.| Optional|	S1     
+|**environmentSkuName**	| The name of the SKU. Must be one of the following values: S1, S2, P1. For more information, see [SKU ingress rates and capacities](#sku-ingress-rates-and-capacities).| Optional|	S1     
 |**environmentSkuCapacity**|The capacity of the SKU. This value can be changed to support scale out of environments after they have been created. See the SKU Ingress Rates and Capacities table for more details.|Optional|	1         |
-|**environmentDataRetentionTime**|	The minimum timespan the environment’s events will be available for query. The value must be specified in the ISO 8601 format, e.g. "P30D" for a retention policy of 30 days.| Optional	|30      |
+|**environmentDataRetentionTime**|	The minimum timespan the environment’s events will be available for query. The value must be specified in the ISO 8601 format, for example, "P30D" for a retention policy of 30 days.| Optional	|30      |
 |**eventSourceName**|Name of the event source child resource. The name cannot include: '<', '>', '%', '&', ':', '\\', '?', '/' and any control characters. All other characters are allowed.|Required   |         |      
 |**eventSourceDisplayName**|An optional friendly name to show in tooling or user interfaces instead of the event source name.|	Optional|	Blank (the event source name will be used in this case)     |  
-|**eventHubResourceId**	|The resource ID of the source Event Hub or IoT Hub in ARM, e.g. '/subscriptions/{subscriptionId}/resourceGroups /{resourceGroupName}/providers/Microsoft.Devices/IotHubs/{hubName}'.|	Required  |	   |           
+|**eventHubResourceId**	|The resource ID of the source Event Hub or IoT Hub in ARM, for example, '/subscriptions/{subscriptionId}/resourceGroups /{resourceGroupName}/providers/Microsoft.Devices/IotHubs/{hubName}'.|	Required  |	   |           
 |**eventHubServiceBusNamespace**|The service bus namespace of the source Event Hub.|Required    |   
 |**eventHubName**|The name of the source Event Hub.|Required    |    |
 |**eventHubConsumerGroupName**|The name of the consumer group that Time Series Insights will use to read the data from the event hub. **NOTE**: You should create a dedicated consumer group on the event hub for Time Series Insights. This consumer group should not be shared with other services to avoid contention.|	Required  |         
 |**eventHubKeyName**|The name of the event hub's shared access key that Time Series Insights will use to connect to the event hub.|Required   |   |
-|**eventHubSharedAccessKey**|The shared access key value that Time Series Insights will use to connect to the event hub. This parameter is a secure string, so the value won’t show up in the deployment logs or history in the Azure Portal.|Required  |         |
-|**eventSourceTimestampPropertyName**|The event property that will be used as the event source's timestamp. If a value isn't specified for timestampPropertyName, or if null or empty-string is specified, the event creation time will be used.|Optional	 |         |      
+|**eventHubSharedAccessKey**|The shared access key value that Time Series Insights will use to connect to the event hub. This parameter is a secure string, so the value isn't displayed in the deployment logs or history in the Azure portal.|Required  |         |
+|**eventSourceTimestampPropertyName**|The event property that is used as the event source's timestamp. If a value isn't specified for timestampPropertyName, or if null or empty-string is specified, the event creation time is used.|Optional	 |         |      
 |**accessPolicyName**|	The name of the access policy child resource. The name cannot include:   '<', '>', '%', '&', ':', '\\', '?', '/' and any control characters. All other characters are allowed.	|Required	     |           |         |
 |**accessPolicyPrincipalObjectId**|	The objectId of the service principal for the user or application in AAD. The service principal objectId can be obtained by calling the **Get-AzureRMADUser** or the **Get-AzureRMADServicePrincipal** cmdlets. Creating an access policy for AAD groups is not supported.|Required	  |         |         |
-|**accessPolicyRole**|	The role granted to the service principle. The supported roles are *Reader* and *Contributor*. See the appendix for the role definitions.|	Required  |         |
+|**accessPolicyRole**|	The role granted to the service principle. The supported roles are *Reader* and *Contributor*. For more information, see [Time Series Insights RBAC roles](#time-series-insights-rbac-roles).|	Required  |         |
 
-Parameters can be passed at the PowerShell command line, but it’s often cleaner and more convenient to use a Parameters file. In this case, the command to create the environment would look like 
+You can pass parameters at the PowerShell command line, but it’s often cleaner and more convenient to use a Parameters file. In this case, the command to create the environment would look like: 
 
 `PS C:> New-AzureRmResourceGroupDeployment -ResourceGroupName TestTSITemplateDeployment1 -TemplateFile .\CreateEnvironmentTemplate.json -TemplateParameterFile .\CreateEnvironmentParameters.json`
 
-The body of the parameters file looks something like:
+The body of the parameters file looks similar to:
 
 ```
 {
@@ -154,11 +154,11 @@ The body of the parameters file looks something like:
 ```
 Notes
 
-- Some of the properties shown in the template file are optional properties (e.g. eventSourceDisplayName). You don’t need to include these properties in the parameters file if the default values are acceptable for your scenario.
+- Some of the properties shown in the template file are optional properties (for example, eventSourceDisplayName). If the default values work for your scenario, you don’t need to include these properties in the parameters file.
 
 - Note the use of a keyVault reference to read the event hub’s shared access key. For the key vault to be referenced in template files, you must set the **enabledForTemplateDeployment** property on the vault to **true**. 
 
-You can do this in the Azure Portal through the following setting on the KeyVault’s **Advanced access policies**:
+You can do this in the Azure portal through the following setting on the KeyVault’s **Advanced access policies**:
 
 ![Advanced access policies](media/manage-resources-using-arm/arm2.png)
 
@@ -168,7 +168,7 @@ The ARM REST APIs are the foundation of ARM resource management. When provisioni
 
 This is a quick example of using REST APIs to manage Time Series Insights resources in ARM. 
 
-Examples shown use ARMClient to invoke the REST APIs. For more details about ARMClient, see http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html.  
+Examples shown use ARMClient to invoke the REST APIs. For more information about ARMClient, see http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html.  
 
 ### Enable Time Series Insights on your subscription
 
@@ -238,7 +238,7 @@ where PutEventSource.json contains:
   }
 }
 ```
-![arclient PUT](media/manage-resources-using-arm/arm5.png)
+![armclient PUT](media/manage-resources-using-arm/arm5.png)
 
 ### Updating the event source through PATCH
 
@@ -324,13 +324,13 @@ Access policies can be created for users or applications. The supported roles ar
 
 |SKU Name  |Ingress Rate – Min/Day  |Ingress Rate – Max/Day  |Minimum Storage Capacity   |Maximum Storage Capacity |
 |---------|---------|---------|---------|---------|
-|S1     | 1GB/1mill events        | 10GB/10mill events        | 30 GB (30 million events) / month|300 GB (300 million events) / month
-|S2     |10GB/10mill events |100GB/100mill events|300 GB (300 million events) / month|3TB/3bill
+|S1     | 1 GB/1 million events        | 10 GB/10 million events        | 30 GB (30 million events)/ month|300 GB (300 million events) / month
+|S2     |10 GB/10 million events |100 GB/100 million events|300 GB (300 million events)/ month|3 TB/3 billion
 
 
 ### Time Series Insights RBAC roles
 
-In the Reader role, the the principal can perform the following actions on the Time Series Insights environment:
+In the Reader role, the principal can perform the following actions on the Time Series Insights environment:
 - Read (query) data from the Time Series Insights environment. The principal does not have read access to reference data sets. 
 -	Create saved queries.
 

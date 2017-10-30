@@ -63,6 +63,15 @@ The following table explains each property in the New Event Source tab with its 
 | IoT hub policy key | The Shared Access key used to authenticate access to the Service Bus namespace. Type the primary or secondary key here.
 | IoT hub consumer group | The Consumer Group to read events from the IoT Hub. It is highly recommended to use a dedicated consumer group for your event source.
 
+### Add a consumer group to your IoT hub
+
+Consumer groups are used by applications to pull data from Azure IoT Hub. In this tutorial, you create a consumer group to be used by a coming Azure service to read data from your IoT hub.
+
+To add a consumer group to your IoT hub, follow these steps:
+
+1.	In the Azure portal, open your IoT hub.
+2.	In the left pane, click **Endpoints**, select **Events** on the middle pane, enter a name under Consumer groups on the right pane, and then click Save.
+
 ## Next steps
 
 1. Add a data access policy to your environment [Define data access policies](time-series-insights-data-access.md)
