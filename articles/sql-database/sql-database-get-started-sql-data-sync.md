@@ -29,9 +29,6 @@ For complete PowerShell examples that show how to configure SQL Data Sync, see t
 -   [Use PowerShell to sync between multiple Azure SQL databases](scripts/sql-database-sync-data-between-sql-databases.md)
 -   [Use PowerShell to sync between an Azure SQL Database and a SQL Server on-premises database](scripts/sql-database-sync-data-between-azure-onprem.md)
 
-> [!NOTE]
-> The complete technical documentation set for Azure SQL Data Sync, formerly located on MSDN, is available as a .PDF document. Download it [here](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_full_documentation.pdf?raw=true).
-
 ## Step 1 - Create sync group
 
 ### Locate the Data Sync settings
@@ -197,7 +194,6 @@ Congratulations. You have created a sync group that includes both a SQL Database
 
 For more info about SQL Database and SQL Data Sync, see:
 
--   [Download the complete SQL Data Sync technical documentation](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_full_documentation.pdf?raw=true)
 -   [Download the SQL Data Sync REST API documentation](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
 -   [SQL Database Overview](sql-database-technical-overview.md)
 -   [Database Lifecycle Management](https://msdn.microsoft.com/library/jj907294.aspx)
