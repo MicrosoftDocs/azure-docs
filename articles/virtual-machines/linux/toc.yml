@@ -115,6 +115,17 @@
         href: ssh-from-windows.md
       - name: Detailed steps
         href: create-ssh-keys-detailed.md
+  - name: Protect VMs
+    href: ../../backup/backup-introduction-to-azure-backup.md
+    items:
+      - name: Back up a single VM
+        href: ../../backup/quick-backup-vm-cli.md
+      - name: Back up multiple VMs
+        href: ../../backup/tutorial-backup-vm-at-scale.md
+      - name: Restore a disk
+        href: ../../backup/tutorial-restore-disk.md
+      - name: Restore individual files
+        href: ../../azure/backup/tutorial-restore-files.md
   - name: Manage VMs
     items:
     - name: Common CLI tasks
