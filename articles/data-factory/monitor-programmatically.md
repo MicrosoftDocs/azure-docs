@@ -141,7 +141,7 @@ For a complete walkthrough of creating and monitoring a pipeline using PowerShel
     $result.Error -join "`r`n"
     ```
 
-For complete documentation on PowerShell cmdlets, see [Data Factory PowerShell cdmdlet reference](/powershell/module/azurerm.datafactoryv2/?view=azurermps-4.4.1).
+For complete documentation on PowerShell cmdlets, see [Data Factory PowerShell cmdlet reference](/powershell/module/azurerm.datafactoryv2/?view=azurermps-4.4.1).
 
 ## Next steps
 See [Monitor pipelines using Azure Monitor](monitor-using-azure-monitor.md) article to learn about using Azure Monitor to monitor Data Factory pipelines. 
