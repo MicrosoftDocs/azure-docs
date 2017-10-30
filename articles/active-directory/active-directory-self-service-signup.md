@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/25/2017
+ms.date: 10/29/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
-ms.custom: it-pro;oldportal
+ms.custom: it-pro
 
 ---
 # What is self-service signup for Azure Active Directory?
-This article explains self-service signup and how to support it in Azure Active Directory (Azure AD).  
+This article explains self-service signup and how to support it in Azure Active Directory (Azure AD). If you want to take over a domain name from an unmanaged Azure AD tenant, see [Take over an unmanaged directory as administrator](domains-admin-takeover.md).
 
 ## Why use self-service signup?
 * Get customers to services they want faster
@@ -46,7 +46,8 @@ An admin can configure these capabilities using these Azure AD cmdlet Set-MsolCo
 * **AllowAdHocSubscriptions** controls the ability for users to perform self-service signup. If you set that parameter to $false, no users can perform self-service signup.
 
 ### How do the controls work together?
-These two parameters can be used in conjunction to define more precise control over self-service signup. For example, the following command will allow users to perform self-service signup, but only if those users already have an account in Azure AD (in other words, users who would need an email-verified account to be created cannot perform self-service signup):
+These two parameters can be used in conjunction to define more precise control over self-service signup. For example, the following command will allow users to perform self-service signup, but only if those users already have an account in Azure AD (in other words, users who would need an email-verified account to be created first cannot perform self-service signup):
+
 ````
     Set-MsolCompanySettings -AllowEmailVerifiedUsers $false -AllowAdHocSubscriptions $true
 ````
