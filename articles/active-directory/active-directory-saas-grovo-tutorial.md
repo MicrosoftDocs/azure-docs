@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2017
+ms.date: 10/30/2017
 ms.author: jeedes
 
 ---
@@ -62,7 +62,7 @@ To configure the integration of Grovo into Azure AD, you need to add Grovo from 
 
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
-	![The Enterprise applications blade][2]
+	![The Enterprise applications][2]
 	
 3. To add new application, click **New application** button on the top of dialog.
 
@@ -74,13 +74,13 @@ To configure the integration of Grovo into Azure AD, you need to add Grovo from 
 
 ## Configure and test Azure AD single sign-on
 
-In this section, you configure and test Azure AD single sign-on with Grovo based on a test user called "Britta Simon".
+In this section, you configure and test Azure AD single sign-on with Grovo based on a test user called "Britta Simon."
 
 For single sign-on to work, Azure AD needs to know what the counterpart user in Grovo is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Grovo needs to be established.
 
 In Grovo, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
 
-To configure and test Azure AD single sign-on with Grovo, you need to complete the following building blocks:
+To configure and test Azure AD single sign on with Grovo, you need to complete the following building blocks:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
@@ -116,18 +116,18 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     a. In the **Relay state** textbox, type a URL using the following pattern:`https://<subdomain>.grovo.com`
 
-	b. If you wish to configure the application in **SP** initiated mode, Perform the following steps :
+	b. If you wish to configure the application in **SP** initiated mode, perform the following steps:
 
 	![Grovo Domain and URLs single sign-on information](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_url2.png)
 
-	In the **Sign on** textbox, type a URL using the following pattern: `https://<subdomain>.grovo.com/sso/saml2/saml-assertion`
+	In the **Sign on URL** textbox, type a URL using the following pattern: `https://<subdomain>.grovo.com/sso/saml2/saml-assertion`
 
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Identifier, Reply URL, Sign on URL and Relay state. Contact [Grovo support team](https://www.grovo.com/contact-us) to get these values.
  
 5. Grovo application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the "**User Attributes**" section on application integration page. The following screenshot shows an example for this.
 	
-	![Configure Single Sign-On attb](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_attribute.png)
+	![Configure Single Sign-On attribute](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_attribute.png)
 	
 6. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the image and perform the following steps:
 	
@@ -138,9 +138,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	a. Click **Add attribute** to open the **Add Attribute** dialog.
 
-	![Configure Single Sign-On Add](./media/active-directory-saas-grovo-tutorial/tutorial_attribute_04.png)
+	![Configure Single Sign-On Attribute](./media/active-directory-saas-grovo-tutorial/tutorial_attribute_04.png)
 
-	![Configure Single Sign-On Addattb](./media/active-directory-saas-grovo-tutorial/tutorial_attribute_05.png)
+	![Configure Single Sign-On Attribute](./media/active-directory-saas-grovo-tutorial/tutorial_attribute_05.png)
 
 	b. In the **Name** textbox, type the attribute name shown for that row.
 
@@ -151,7 +151,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 7. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
-	![The Certificate download link](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_certificate.png) 
+	![The Certificate Download ink](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_certificate.png) 
 
 8. Click **Save** button.
 
@@ -161,7 +161,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Grovo Configuration](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_configure.png) 
 
-10. In a different web browser window, login to Grovo as Administrator.
+10. In a different web browser window, log in to Grovo as Administrator.
 
 11. Go to **ADMIN** > **Integrations**.
  
@@ -171,13 +171,13 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Grovo Configuration](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_setup.png)
 
-13. In **SP Initiated SAML 2.0** popup window, perform the following steps.
+13. In **SP Initiated SAML 2.0** popup window, perform the following steps:
 
 	![Grovo Configuration](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_saml.png)
 
-	a. In the **Entity id** textbox, paste the value of **SAML Entity ID** which you have copied from Azure portal.
+	a. In the **Entity id** textbox, paste the value of **SAML Entity ID** that you have copied from Azure portal.
 
-	b. In the **Single sign on service endpoint** textbox, paste the value of **SAML Single Sign-On Service URL** which you have copied from Azure portal.
+	b. In the **Single sign on service endpoint** textbox, paste the value of **SAML Single Sign-On Service URL** that you have copied from Azure portal.
 
 	c. Select **Single sign on service endpoint binding** as `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect`.
 	
