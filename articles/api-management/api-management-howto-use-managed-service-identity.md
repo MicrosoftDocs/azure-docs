@@ -238,11 +238,9 @@ The below example shows how to obtain a certificate from Azure Key Vault. It con
 }
 ···
 
-> [!Note]
-> Currently it is not supported to obtain certificates from Key Vault for mutual certificate authentication between API Management and the backend.
-
 ## Next steps
 
 * Learn more about Azure Managed Service Identity
   * [Managed Service Identity Overview](../active-directory/msi-overview.md)
+  * [See more ARM templates](https://github.com/Azure/azure-quickstart-templates)
 
