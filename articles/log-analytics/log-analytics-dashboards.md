@@ -20,7 +20,7 @@ ms.custom: H1Hack27Feb2017
 # Create a custom dashboard for use in Log Analytics
 
 >[!NOTE]
-> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then you cannot create new dashboards or edit existing dashboards. 
+> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then you cannot edit your existing My Dashboard. If your workspace did not have any My Dashboard tiles added, then you will not see My Dashboard in your upgraded workspace. 
 
 This guide helps you understand how Log Analytics dashboards can visualize all of your saved log searches, giving you a single lens to view your environment.
 
