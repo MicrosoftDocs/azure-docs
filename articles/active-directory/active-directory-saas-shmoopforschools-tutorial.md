@@ -24,7 +24,7 @@ In this tutorial, you learn how to integrate Shmoop For Schools with Azure Activ
 Integrating Shmoop For Schools with Azure AD provides you with the following benefits:
 
 - You can control in Azure AD who has access to Shmoop For Schools.
-- You can enable your users to automatically get signed-in to Shmoop For Schools with their Azure AD accounts.
+- You can enable your users to automatically get signed in to Shmoop For Schools with their Azure AD accounts.
 - You can manage your accounts in one central location--the Azure portal.
 
 For more information about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md).
