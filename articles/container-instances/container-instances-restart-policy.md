@@ -26,6 +26,8 @@ The ease and speed of deploying containers in Azure Container Instances provides
 
 With a configurable restart policy, you can specify that your containers are stopped when their processes have completed. Because container instances are billed by the second, you're charged only for the compute resources used while the container executing your task is running.
 
+The examples in this article use the [Azure CLI](/cli/azure/install-azure-cli). You must have Azure CLI version 2.0.21 or greater installed locally, or use the CLI in the [Azure Cloud Shell](../cloud-shell/overview.md).
+
 ## Container restart policy
 
 When you create a container in Azure Container Instances, you can specify one of three restart policy settings.
@@ -62,7 +64,7 @@ az container create \
     --restart-policy OnFailure
 ```
 
-The container's status will show `Terminated` once the process it runs exits. You can check a container's status with the [az container show][az-container-show] command:
+When Azure Container Instances stops a container whose restart policy is `Never` or `OnFailure`, the container's status is set to **Terminated**. You can check a container's status with the [az container show][az-container-show] command:
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name mycontainer --query containers[0].instanceView.currentState.state
@@ -95,7 +97,7 @@ Example output:
  ('HAMLET', 386)]
 ```
 
-This example shows the output that the script sent to STDOUT. Typically, however, your containerized tasks would write their output to persistent storage, such as an [Azure File share](container-instances-mounting-azure-files-volume.md).
+This example shows the output that the script sent to STDOUT. Your containerized tasks, however, might instead write their output to persistent storage for later retrieval. For example, to an [Azure File share](container-instances-mounting-azure-files-volume.md).
 
 ## Configure containers at runtime
 
@@ -134,7 +136,7 @@ By specifying `NumWords=5` and `MinLength=8` for the container's environment var
 
 Specify a command line when you create a container instance to override the command line baked into the container image. This is similar to the `--entrypoint` command-line argument to `docker run`.
 
-For instance, you can have the example container analyze text other than *Hamlet* by specifying a different command line. The Python script executed by the container, "wordcount.py," accepts a URL as an argument, and will process that page's content instead of the default.
+For instance, you can have the example container analyze text other than *Hamlet* by specifying a different command line. The Python script executed by the container, *wordcount.py*, accepts a URL as an argument, and will process that page's content instead of the default.
 
 For example, to analyze *Romeo and Juliet*:
 
@@ -144,7 +146,28 @@ az container create \
     --name mycontainer3 \
     --image microsoft/aci-wordcount:latest \
     --restart-policy OnFailure \
-    --command-line "wordcount.py http://shakespeare.mit.edu/romeo_juliet/full.html"
+    --command-line "python wordcount.py http://shakespeare.mit.edu/romeo_juliet/full.html"
+```
+
+Again, view the output by showing the container's logs:
+
+```azurecli-interactive
+az container logs --resource-group myResourceGroup --name mycontainer3
+```
+
+Output:
+
+```bash
+[('the', 611),
+ ('I', 577),
+ ('and', 486),
+ ('to', 438),
+ ('a', 402),
+ ('of', 364),
+ ('my', 315),
+ ('is', 307),
+ ('in', 290),
+ ('you', 271)]
 ```
 
 ## Next steps
