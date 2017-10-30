@@ -30,16 +30,16 @@ Update 1.0 corresponds to the software version **10.0.10293.0**.
 > [!IMPORTANT]
 > - Updates are disruptive and restart your device. If I/O are in progress, the device incurs downtime. For detailed instructions on how to apply the update, go to [Install Update 1.0](storsimple-virtual-array-install-update1.md).
 >
-> - We strongly recommend that you install Update 1.0 immediately as it contains critical security fixes.
+> - Update 1 is only available to you via the Azure portal if your device is running Update 0.6. If you are running a version lower than Update 0.6, you must install Update 0.6 first and then apply Update 1. If you use the local web UI to install update 1 on your virtual array, you must ensure that you are running Update 0.6. If you are running a version prior to Update 0.6, there is no mechanism to block you from installing Update 1 but if you do so, you will encounter an error.
 
 
 ## What's new in the Update 1.0
 
 Update 1.0 is a critical update and should be deployed immediately. This update contains the following fixes:
 
-**Use of Azure Active Directory (AAD) to authenticate with StorSimple Device Manager service** – From Update 1.0 onwards, Azure Active Directory is used to authenticate with the StorSimple Device Manager service. The old authentication mechanism will be deprecated by December 2017. All the users must include the new authentication URLs in their firewall rules. For more information, go to authentication URLs listed in the networking requirements for your StorSimple Virtual Array.
+**Use of Azure Active Directory (AAD) to authenticate with StorSimple Device Manager service** – From Update 1.0 onwards, Azure Active Directory is used to authenticate with the StorSimple Device Manager service. The old authentication mechanism will be deprecated by December 2017. All the users must include the new authentication URLs in their firewall rules. For more information, go to authentication URLs listed in the [Networking requirements for your StorSimple Virtual Array](storsimple-ova-system-requirements.md).
 
-If the authentication URL is not included in the firewall rules, the users will see a critical alert that their StorSimple device could not authenticate with the service. If the users see this alert, they need to include the new authentication URL. For more information, go to StorSimple networking alerts.
+If the authentication URL is not included in the firewall rules, the users will see a critical alert that their StorSimple device could not authenticate with the service. If the users see this alert, they need to include the new authentication URL. For more information, go to [StorSimple networking alerts](storsimple-8000-manage-alerts.md).
 
 ## Issues fixed in the Update 1.0
 
