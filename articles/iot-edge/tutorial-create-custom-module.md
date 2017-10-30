@@ -133,7 +133,7 @@ The following steps show you how to create an IoT Edge module using Visual Studi
     }
     ```
 
-7. In the **InitEdgeModule** method, replace the code in the **try** block with the following code. This code registers our callback for desired properties updates on the twin and the **FilterHandler** method as the default handler for messages from the Edge Hub.
+7. In the **InitEdgeModule** method, replace the code in the **try** block with the following code. The initialization code in a module creates a **DeviceClient** object, which allows the module to  connect to the local Azure IoT Edge runtime to send and receive messages. This is similar to the way code in a device uses a **DeviceClient** to connect to a remote IoT Hub except for the endpoint and credential information used in the connection string. The connection string parameter used in the **InitEdgeModule** method is supplied to the module by Azure IoT Edge in an environment variable - **EdgeHubConnectionString**. After creating the **DeviceClient**, the code registers a callback for desired properties updates on the module twin and registers the **FilterHandler** method as the default handler for messages from the Edge Hub.
 
     ```csharp
     // Open a connection to the Edge runtime using MQTT transport and 
@@ -159,7 +159,7 @@ The following steps show you how to create an IoT Edge module using Visual Studi
 
     ```
 
-1. Add the following method to the **Program** class to update the **temperatureThreshold** field based on the desired properties sent by the service via the device twin:
+1. Add the following method to the **Program** class to update the **temperatureThreshold** field based on the desired properties sent by the back-end service via the module twin. All modules have their own module twin, just like devices have a device twin. A module twin enables a back-end service to configure the code running inside a module just like a device twin configures the code running on a device.
 
     ```csharp
     static async Task onDesiredPropertiesUpdate(TwinCollection desiredProperties, object userContext)
@@ -190,7 +190,7 @@ The following steps show you how to create an IoT Edge module using Visual Studi
     }
     ```
 
-1. Add the following method to the **Program** class. This method is called whenever the module is sent a message from the Edge Hub. It filters messages based on the temperature value in the body of the message, and the temperature threshold set via the twin.
+1. Add the following method to the **Program** class. This method is called whenever the module is sent a message from the Edge Hub. It filters messages based on the temperature value in the body of the message, and the temperature threshold set via the module twin.
 
     ```csharp
     static async Task FilterMessages(Message message, object userContext)
@@ -269,8 +269,10 @@ The following steps show you how to create an IoT Edge module using Visual Studi
 
 ## Run the solution
 
-1. On the [Azure portal](https://portal.azure.com), navigate to the device detail blade, click **deploy modules**. 
-2. Select **custom module**, copy snippet
+1. In the [Azure portal](https://portal.azure.com), navigate to your IoT hub.
+2. Go to **Device Explorer** and select your IoT Edge device.
+3. Select **Deploy Modules**. 
+4. Select **Custom module**, and copy the following JSON:
 
     ```json
     {
@@ -286,7 +288,9 @@ The following steps show you how to create an IoT Edge module using Visual Studi
        }
     }
     ``` 
-3. Update routes.
+3. Select **Routes**, and copy the following JSON:
+    Modules publish all messages to the Edge runtime. Declarative rules in the runtime define where those messages flow. In this tutorial we need two routes. The first transports messages from the temperature sensor to the filter module, and the second from the filter module to  IoT Hub. `upstream` is a special destination which tells Edge Hub to send messages to IoT Hub. Routes can get slightly more complicated as modules can define their own inputs and outputs; however, in this tutorial we use default inputs and outputs.
+
 
     ```json
     {
