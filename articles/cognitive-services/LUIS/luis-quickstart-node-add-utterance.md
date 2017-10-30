@@ -17,16 +17,13 @@ ms.author: v-demak
 This quickstart shows you how to programmatically add utterances to your Language Understanding Intelligent Service (LUIS) app in just a few minutes. When you're finished, you'll be able to use Node.js code to add an utterance to a LUIS app.
 
 ## Before you begin
-You need a Cognitive Services API key to make calls to the sample LUIS app we use in this walkthrough. 
-To get an API key follow these steps: 
 
-  1. You first need to create a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) in the Azure portal. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-  2. Log in to the Azure portal at https://portal.azure.com. 
-  3. Follow the steps in [Creating Subscription Keys using Azure](./AzureIbizaSubscription.md) to get a key.
+* This quickstart assumes you have already created a LUIS app. See [Create a LUIS app](./luis-get-started-create-app.md) for instructions on how to create a LUIS app. 
+* You need to use a programmatic key. You can find this key under Account Settings in [https://www.luis.ai](https://www.luis.ai).
 
 ## Get the ID and version of your LUIS app
 
-You can find your app ID and version number by logging into https://www.luis.ai and go to App Settings. 
+You can find your app ID and version number by logging into [https://www.luis.ai](https://www.luis.ai) and go to App Settings. 
 
 ## Add an utterance by calling the Authoring API with Node.js
 
@@ -35,7 +32,7 @@ You can find your app ID and version number by logging into https://www.luis.ai 
    [!code-nodejs[Console app code that calls a LUIS endpoint for Node.js](~/samples-luis/documentation-samples/authoring-api-samples/node/add-single-utterance.js)]
 2. Set the `LUIS_APP_ID` environment variable as described in the code comments. 
 
-3. Set the `LUIS_SUBSCRIPTION_KEY` environment variable to your Cognitive Services programmatic key.
+3. Set the `LUIS_SUBSCRIPTION_KEY` environment variable to your Cognitive Services programmatic key. You can find this key under Account Settings in [https://www.luis.ai](https://www.luis.ai).
 
 4. Create a file that contains the JSON description of the utterance you want to add. The JSON has the following format:
 
