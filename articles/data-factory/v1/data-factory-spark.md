@@ -32,6 +32,9 @@ robots: noindex
 > * [Data Lake Analytics U-SQL Activity](data-factory-usql-activity.md)
 > * [.NET Custom Activity](data-factory-use-custom-activities.md)
 
+> [!NOTE]
+> This article applies to version 1 of Azure Data Factory, which is in general availability (GA). If you are using version 2 of the Data Factory service, which is in preview, see [transform data using spark activity in Data Factory version 2](../transform-data-using-spark.md).
+
 ## Introduction
 Spark Activity is one of the [data transformation activities](data-factory-data-transformation-activities.md) supported by Azure Data Factory. This activity runs the specified Spark program on your Apache Spark cluster in Azure HDInsight.    
 
