@@ -3,7 +3,7 @@ title: Getting started with Azure SQL Data Sync (Preview) | Microsoft Docs
 description: This tutorial helps you get started with Azure SQL Data Sync (Preview).
 services: sql-database
 documentationcenter: ''
-author: douglaslms
+author: jognanay
 manager: craigg
 editor: ''
 
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
-ms.author: douglasl
-
+ms.author: jognanay
+ms.reviewer: douglasl
 ---
 # Getting Started with Azure SQL Data Sync (Preview)
 In this tutorial, you learn how to set up Azure SQL Data Sync by creating a hybrid sync group that contains both Azure SQL Database and SQL Server instances. The new sync group is fully configured and synchronizes on the schedule you set.
