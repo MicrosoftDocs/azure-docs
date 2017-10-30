@@ -1,4 +1,3 @@
-- name: Translator Text API Documentation
   href: index.yml
 - name: Overview
   items: 
@@ -6,40 +5,46 @@
     href: translator-info-overview.md
   - name: Supported languages
     href: languages.md
+  - name: Translator Hub
+    href: translator-hub-overview.md
 - name: Quickstarts
   items: 
   - name: Translate text C#
     href: quickstarts/csharp.md
   - name: Translate text Java
-    href:
+    href: quickstarts/java.md
   - name: Translate text Node.js
-    href:
+    href: quickstarts/node.md
   - name: Translate text PHP
-    href:
+    href: quickstarts/php.md
   - name: Translate text Python
-    href:
+    href: quickstarts/python.md
   - name: Translate text Ruby
-    href:
+    href: quickstarts/ruby.md
 - name: Tutorials
   items: 
   - name: Microsoft Translator App
     href: tutorial-wpf-translation-csharp.md
+- name: Samples
+  - items: 
+    - name: Samples on GitHub
+    - href: https://github.com/MicrosoftTranslator 
 - name: How-Tos
   items:
   - name: Sign-up for Translator Text API
     href: translator-text-how-to-signup.md
-  - name: Translator Hub
-    href: translator-hub-overview.md
   - name: Collaborative Translation Framework (CTF)
     href: collaborative-translation-framework-reporting-api.md
 - name: Reference
   items: 
   - name: Translator Text API reference
-    href: http://docs.microsofttranslator.com/text-translate.html
+    href: https://aka.ms/translator-text-api
 - name: Resources
   items:
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
+  - name: FAQ
+    href: https://www.microsoft.com/en-us/translator/faq.aspx 
+  - name: Pricing
+    href: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/translator-text-api/ 
   - name: UserVoice
     href: https://cognitive.uservoice.com/forums/558796-translator
   - name: Stack Overflow
