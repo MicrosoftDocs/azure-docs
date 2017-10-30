@@ -51,6 +51,8 @@
       href: concepts-supported-versions.md
     - name: PostgreSQL extensions
       href: concepts-extensions.md
+    - name: Server paramters
+      href: concepts-server-parameters.md
     - name: Server logs
       href: concepts-server-logs.md
     - name: High availability
@@ -97,6 +99,8 @@
       href: howto-migrate-using-export-and-import.md
   - name: Configure server parameters
     items:
+    - name: Azure portal
+      href: howto-configure-server-parameters-using-cli.md
     - name: Azure CLI
       href: howto-configure-server-parameters-using-cli.md
   - name: Access server logs
