@@ -14,7 +14,7 @@
   - name: Translate text Java
     href: quickstarts/java.md
   - name: Translate text Node.js
-    href: quickstarts/node.md
+    href: quickstarts/nodejs.md
   - name: Translate text PHP
     href: quickstarts/php.md
   - name: Translate text Python
@@ -28,7 +28,7 @@
 - name: Samples
   - items: 
     - name: Samples on GitHub
-    - href: https://github.com/MicrosoftTranslator 
+      href: https://github.com/MicrosoftTranslator 
 - name: How-Tos
   items:
   - name: Sign-up for Translator Text API
