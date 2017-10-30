@@ -34,7 +34,7 @@ Limits on entities depend on the entity type, as shown in the following table:
 
 First, consider whether your system is using too many intents. Intents that are too similar can make it more difficult for LUIS to distinguish between them. Intents should be varied enough to capture the main tasks that the user is asking for, but they don't need to capture every path your code takes. For example, BookFlight and BookHotel might be separate intents in a travel app, but BookInternationalFlight and BookDomesticFlight are too similar. If your system needs to distinguish them, use entities or other logic rather than intents.
 
-If you cannot use fewer intents, divide your intents into multiple LUIS apps, and group related intents. This is a good best practice if you're using multiple apps for your system. For example, let's say you're developing an office assistant that has over 80 intents. If 20 intents relate to scheduling meetings, 20 are about reminders, 20 are about getting information about colleagues, and 20 are for sending email, you can put the intent for each of those categories in a separate LUIS app. 
+If you cannot use fewer intents, divide your intents into multiple LUIS apps, and group related intents. This approach is a good best practice if you're using multiple apps for your system. For example, let's say you're developing an office assistant that has over 80 intents. If 20 intents relate to scheduling meetings, 20 are about reminders, 20 are about getting information about colleagues, and 20 are for sending email, you can put the intent for each of those categories in a separate LUIS app. 
 
 When your system receives an utterance, you can use a variety of techniques to determine how to direct user utterances to LUIS apps:
 
@@ -42,8 +42,8 @@ When your system receives an utterance, you can use a variety of techniques to d
 * Do some preprocessing on the utterance, such as matching on regular expressions, to determine which LUIS app or set of apps receives it.
 
 When you're deciding which approach to use with multiple LUIS apps, consider the following trade-offs:
-* **Saving suggested utterances for training**: Your LUIS apps get a performance boost when you label the user utterances it receives, especially the [suggested utterances](./Label-Suggested-Utterances.md) that LUIS is relatively unsure of. Any LUIS app that doesn't receive an utterance won't have the benefit of learning from it.
-* **Calling LUIS apps in parallel instead of in series**: To improve responsiveness, you might ordinarily design a system to reduce the number of REST API calls that happen in series. But if you send the utterance to multiple LUIS apps and pick the intent with the highest score, you can call them in parallel by sending all the requests asynchronously. If you call a top-level LUIS app to determine a category, and then use the result to send the utterance to another LUIS app, the LUIS calls happen in series.
+* **Saving suggested utterances for training**: Your LUIS apps get a performance boost when you label the user utterances that the apps receive, especially the [suggested utterances](./Label-Suggested-Utterances.md) that LUIS is relatively unsure of. Any LUIS app that doesn't receive an utterance won't have the benefit of learning from it.
+* **Calling LUIS apps in parallel instead of in series**: To improve responsiveness, you might ordinarily design a system to reduce the number of REST API calls that happen in series. But if you send the utterance to multiple LUIS apps and pick the intent with the highest score, you can call the apps in parallel by sending all the requests asynchronously. If you call a top-level LUIS app to determine a category, and then use the result to send the utterance to another LUIS app, the LUIS calls happen in series.
 
 If reducing the number of intents or dividing your intents into multiple apps doesn't work for you, contact support. To do so, gather detailed information about your system, go to the [Language Understanding Intelligent Service](www.luis.ai) site, and then select **Support**. If your Azure subscription includes support services, contact [Azure technical support](https://azure.microsoft.com/en-us/support/options/).
 
@@ -65,7 +65,7 @@ The maximum length of an utterance is 500 characters.
 
 ### What is the best way to start building my app in LUIS?
 
-The best way to build your app is through an incremental process. You could start by defining the schema of your app (intents and entities). For every intent and entity model, you can provide a few dozen labels. Train and publish your app to get an endpoint. Then, upload 100 to 200 unlabeled utterances to your app. You can use the suggestion feature to leverage LUIS intelligence in selecting the most informative utterances to label. You can select the intent or entity that you want to improve, and then label the utterances suggested by LUIS. Labeling a few hundred utterances should result in a decent accuracy for intents. Entities might need more examples to converge.
+The best way to build your app is through an incremental process. You could start by defining the schema of your app (intents and entities). For every intent and entity model, you can provide a few dozen labels. Train and publish your app to get an endpoint. Then, upload 100 to 200 unlabeled utterances to your app. As you select the most informative utterances to label, you can use the suggestion feature to take advantage of LUIS intelligence. You can select the intent or entity that you want to improve, and then label the utterances that are suggested by LUIS. Labeling a few hundred utterances should result in a decent accuracy for intents. Entities might need more examples to converge.
 
 ### What is a good practice to model the intents of my app? Should I create more specific or more generic intents?
 
@@ -78,43 +78,44 @@ Yes, it is good to train your **None** intent with more utterances as you add mo
 ### How can I deal with spelling mistakes in utterances?
 
 You have one of two options: 
-* Use a spell checker on your utterances before sending them to the LUIS endpoint.This might be the easier option.
-* Label utterances that have spelling mistakes that are as diverse as possible, so that LUIS can learn proper spelling as well as typos. This option requires more labeling effort.
+* Use a spell checker on your utterances before sending them to the LUIS endpoint. This option might be the easier of the two.
+* For greatest diversity, label utterances that have spelling mistakes so that LUIS can learn proper spelling as well as typos. This option requires more labeling effort.
 
 ### I see some errors in the batch testing pane for some of the models in my app. How can I address this problem?
 
-This is an indication that there is some discrepancy between your labels and the predictions from your models. You need to do one or both of the following:
-1.	Add more labels to help LUIS make the discrimination among intents better.
-2.	Add phrase list feature(s) to introduce domain-specific vocabulary to help LUIS learn faster.
+The errors indicate that there is some discrepancy between your labels and the predictions from your models. To address the problem, do one or both of the following:
+* To help LUIS improve discrimination among intents, add more labels.
+* To help LUIS learn faster, add phrase-list features that introduce domain-specific vocabulary.
 
 
-### I have an app in one language and would like to create a parallel app in another language. What is the easiest way to do so?
-1.	Export your app.
-2.	Translate the labeled utterances in the JSON of the exported app to the target language.
-3.	You might need to change the names of the intents and entities or leave them as they are.
-4.	Import the app afterwards to have an LUIS app in the target language
+### I have an app in one language and want to create a parallel app in another language. What is the easiest way to do so?
+1. Export your app.
+2. Translate the labeled utterances in the JSON file of the exported app to the target language.
+3. You might need to change the names of the intents and entities or leave them as they are.
+4. Finally, import the app to have a LUIS app in the target language.
 
 ### How do I download a log of user utterances?
-By default, utterances from users are logged. To download a log of utterances that users sent to your LUIS app, click the download icon in the entry for your app in **My Apps**. This log is in comma-separated value (CSV) format.
+By default, your LUIS app logs utterances from users. To download a log of utterances that users send to your LUIS app, under **My App**, select the download icon in the entry for your app. The log is formatted as a comma-separated value (CSV) file.
 
-### How can I disable logging of utterances?
-* You can turn off the logging of user utterances by setting `log=false` in the URL when your client application queries LUIS. However, note that this will disable your LUIS app's ability to suggest utterances or improve performance based on user queries. If you set `log=false` due to data privacy concerns be aware that you won't be able to download a record of user utterances from LUIS or use those utterances to improve your app.
+### How can I disable the logging of utterances?
+You can turn off the logging of user utterances by setting `log=false` in the URL when your client application queries LUIS. However, turning off logging disables your LUIS app's ability to suggest utterances or improve performance that's based on user queries. If you set `log=false` because of data-privacy concerns, you won't be able to download a record of user utterances from LUIS or use those utterances to improve your app.
 
-### How can I delete data from LUIS? 
+### Can I delete data from LUIS? 
 
-* If you delete an utterance from your LUIS app, it is removed from the LUIS web service and not available for export.
-* If you delete an account, all apps and their utterances are deleted. Data is retained on the servers for 60 days before permanent deletion.
+* If you delete an utterance from your LUIS app, it is removed from the LUIS web service and is unavailable for export.
+* If you delete an account, all apps and their utterances are deleted. The data is retained on the servers for 60 days before it is deleted permanently.
 
-### What are the transactions limits on the Authoring API?
-You use a Programmatic key with the Authoring API for programmatically editing your LUIS app. Up to 100,000 calls per month and 5 transactions per second are allowed for programmatic authoring.
+### What are the transaction limits on the Authoring API?
+To edit your LUIS app programmatically, you use a programmatic key with the Authoring API. Programmatic authoring allows up to 100,000 calls per month and five transactions per second.
 
-### What is the tenant ID in the Add a key to your app dialog?
-In Azure, a tenant represents the client or organization associated with a service. You can find your tenant ID in the Azure portal under Azure Active Directory > Manage > Properties, in the Directory ID field.
+### What is the tenant ID in the "Add a key to your app" window?
+In Azure, a tenant represents the client or organization that's associated with a service. Find your tenant ID in the Azure portal in the **Directory ID** box by selecting **Azure Active Directory** > **Manage** > **Properties**.
 
-![Tenant ID in Azure portal](./media/luis-manage-keys/luis-assign-key-tenant-id.png)
+![Tenant ID in the Azure portal](./media/luis-manage-keys/luis-assign-key-tenant-id.png)
 
 ## Next steps
 
-* You can find many answers in the [Stack Overflow questions tagged with LUIS](https://stackoverflow.com/questions/tagged/luis).
-* Another resource is the [MSDN LUIS Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=LUIS) 
+To learn more about LUIS, see the following resources:
+* [Stack Overflow questions tagged with LUIS](https://stackoverflow.com/questions/tagged/luis)
+* [MSDN Language Understanding Intelligent Services (LUIS) Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=LUIS) 
 
