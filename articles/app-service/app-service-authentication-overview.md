@@ -23,10 +23,7 @@ App Service Authentication / Authorization is a feature that provides a way for 
 
 App Service uses federated identity, in which a third-party identity provider stores accounts and authenticates users. The application relies on the provider's identity information so that the app doesn't have to store that information itself. App Service supports five identity providers out of the box: Azure Active Directory, Facebook, Google, Microsoft Account, and Twitter. Your app can use any number of these identity providers to provide your users with options for how they sign in. To expand the built-in support, you can integrate another identity provider or [your own custom identity solution][custom-auth].
 
-If you want to get started right away, see one of the following tutorials:
-
-* [Add authentication to your iOS app][iOS] (or [Android], [Windows], [Xamarin.iOS], [Xamarin.Android], [Xamarin.Forms], or [Cordova])
-* [User authentication for API Apps in Azure App Service][apia-user]
+If you want to get started right away, see one of the following tutorials [Add authentication to your iOS app][iOS] (or [Android], [Windows], [Xamarin.iOS], [Xamarin.Android], [Xamarin.Forms], or [Cordova]).
 
 ## How authentication works in App Service
 In order to authenticate by using one of the identity providers, you first need to configure the identity provider to know about your application. The identity provider will then provide IDs and secrets that you provide to App Service. This completes the trust relationship so that App Service can validate user assertions, such as authentication tokens, from the identity provider.
@@ -76,7 +73,7 @@ You have full control over the requests that can access your application. App Se
 
 * Allow only authenticated requests to reach your application.
   
-    If a browser receives an anonymous request, App Service will redirect to a page for the identity provider that you choose so that users can sign in. If the request comes from a mobile device, the returned response is an HTTP *401 Unauthorized* response.
+    If a browser sends an anonymous request, App Service will redirect to a page for the identity provider that you choose so that users can sign in. If the request comes from a mobile device, the returned response is an HTTP *401 Unauthorized* response.
   
     With this option, you don't need to write any authentication code at all in your app. If you need finer authorization, information about the user is available to your code.
 * Allow all requests to reach your application, but validate authenticated requests, and pass along authentication information in the HTTP headers.
@@ -112,11 +109,6 @@ The following tutorials show how to configure App Service to use different authe
 
 If you want to use an identity system other than the ones provided here, you can also use the [preview custom authentication support in the Mobile Apps .NET server SDK][custom-auth], which can be used in web apps, mobile apps, or API apps.
 
-### Web applications
-The following tutorials show how to add authentication to a web application:
-
-* [Get started with Azure App Service - Part 2][web-getstarted]
-
 ### Mobile applications
 The following tutorials show how to add authentication to your mobile clients by using the server-directed flow:
 
@@ -146,11 +138,11 @@ Use the following resources if you want to use the client-directed flow for Goog
 
 * [Use the Google Sign-In SDK for iOS](../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#google-sdk)
 
-### API applications
+<!-- ### API applications
 The following tutorials show how to protect your API apps:
 
 * [User authentication for API Apps in Azure App Service][apia-user]
-* [Service principal authentication for API Apps in Azure App Service][apia-service]
+* [Service principal authentication for API Apps in Azure App Service][apia-service] -->
 
 [iOS]: ../app-service-mobile/app-service-mobile-ios-get-started-users.md
 [Android]: ../app-service-mobile/app-service-mobile-android-get-started-users.md

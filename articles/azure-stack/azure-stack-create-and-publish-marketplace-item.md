@@ -18,6 +18,9 @@ ms.author: erikje
 
 ---
 # Create and publish a Marketplace item
+
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+
 ## Create a Marketplace item
 1. [Download](http://www.aka.ms/azurestackmarketplaceitem) the Azure Gallery Packager tool and the sample Azure Stack Marketplace item.
 2. Open the sample Marketplace item and rename the **SimpleVMTemplate** folder. (Use the same name as your Marketplace item--for example, **Contoso.TodoList**.) This folder contains:
@@ -65,7 +68,7 @@ ms.author: erikje
 
 ## Publish a Marketplace item
 1. Use PowerShell or Azure Storage Explorer to upload your Marketplace item (.azpkg) to Azure Blob storage. You can upload to local Azure Stack storage or upload to Azure Storage. (It's a temporary location for the package.) Make sure that the blob is publicly accessible.
-2. On the client virtual machine in the Microsoft Azure Stack environment, make sure that your PowerShell session is set up with your service administrator credentials. You can find instructions for how to authenticate PowerShell in Azure Stack in [Deploy a template with PowerShell](azure-stack-deploy-template-powershell.md).
+2. On the client virtual machine in the Microsoft Azure Stack environment, make sure that your PowerShell session is set up with your service administrator credentials. You can find instructions for how to authenticate PowerShell in Azure Stack in [Deploy a template with PowerShell](user/azure-stack-deploy-template-powershell.md).
 3. Use the **Add-AzureRMGalleryItem** PowerShell cmdlet to publish the Marketplace item to Azure Stack. For example:
    
        Add-AzureRMGalleryItem -GalleryItemUri `
@@ -76,7 +79,7 @@ ms.author: erikje
    | SubscriptionID |Admin subscription ID. You can retrieve it by using PowerShell. If you'd prefer to get it in the portal, go to the provider subscription and copy the subscription ID. |
    | GalleryItemUri |Blob URI for your gallery package that has already been uploaded to storage. |
    | Apiversion |Set as **2015-04-01**. |
-4. Go to the portal. You can now see the Marketplace item in the portal--as an admin or as a tenant.
+4. Go to the portal. You can now see the Marketplace item in the portal--as an operator or as a user.
    
    > [!NOTE]
    > The package might take several minutes to appear.

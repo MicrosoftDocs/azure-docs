@@ -11,12 +11,12 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: overview
 ms.date: 05/14/2017
 ms.author: bwren
 ---
 # What is Application Insights?
-Application Insights is an extensible Application Performance Management (APM) service for web developers on multiple platforms. Use it to monitor your live web application. It will automatically detect performance anomalies. It includes powerful analytics tools to help you diagnose issues and to understand what users actually do with your app.  It's designed to help you continuously improve  performance and usability. It works for apps on a wide variety of platforms including .NET, Node.js and J2EE, hosted on-premises or in the cloud. It  integrates with your devOps process, and has connection points to a variety of development tools.
+Application Insights is an extensible Application Performance Management (APM) service for web developers on multiple platforms. Use it to monitor your live web application. It will automatically detect performance anomalies. It includes powerful analytics tools to help you diagnose issues and to understand what users actually do with your app.  It's designed to help you continuously improve  performance and usability. It works for apps on a wide variety of platforms including .NET, Node.js and J2EE, hosted on-premises or in the cloud. It integrates with your DevOps process, and has connection points to a variety of development tools. It can monitor and analyze telemetry from mobile apps by integrating with Visual Studio Mobile Center and HockeyApp.
 
 ![Chart user activity statistics, or drill into specific events.](./media/app-insights-overview/00-sample.png)
 
@@ -112,6 +112,7 @@ There are several ways to get started. Begin with whichever works best for you. 
   * [Node.js](app-insights-nodejs.md)
   * [Other platforms](app-insights-platforms.md)
 * **[Instrument your web pages](app-insights-javascript.md)** for page view, AJAX and other client-side telemetry.
+* **[Analyze mobile app usage](app-insights-mobile-center-quickstart.md)** by integrating with Visual Studio Mobile Center.
 * **[Availability tests](app-insights-monitor-web-app-availability.md)** - ping your website regularly from our servers.
 
 

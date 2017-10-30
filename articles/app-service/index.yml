@@ -57,6 +57,15 @@ sections:
         src: https://docs.microsoft.com/en-us/azure/app-service/media/index/logo_html5.svg
       text: HTML
       href: https://docs.microsoft.com/en-us/azure/app-service/app-service-web-get-started-html
+  - type: paragraph
+    text: 'Learn how to deploy continuously:'
+  - type: list
+    style: icon48
+    items: 
+    - image:
+        src: https://docs.microsoft.com/en-us/azure/media/index/logo_vs-team-services.svg
+      text: VSTS
+      href: https://docs.microsoft.com/en-us/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp?toc=/vsts/deploy-azure/toc.json&bc=/vsts/deploy-azure/breadcrumb/toc.json
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
@@ -68,19 +77,21 @@ sections:
     - html: <a href="/en-us/azure/app-service/app-service-web-tutorial-custom-domain">Map an existing custom domain to your application </a>
     - html: <a href="/en-us/azure/app-service/app-service-web-tutorial-custom-SSL">Bind an existing SSL certificate to your application</a>
     - html: <a href="/en-us/azure/app-service/app-service-web-tutorial-content-delivery-network">Add a CDN to your application</a>
-- title: Free PluralSight Video Training
+- title: Free Pluralsight Video Training
   items:
   - type: list
     style: cards
-    className: cardsW
+    className: cardsFTitle
     items:
-    - html: <p><a href="https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Developing with .NET</a></p>
+    - title: Developing with .NET
+      href: https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
       image: 
-        src: https://docs.microsoft.com/en-us/azure/app-service/media/index/video-training-dotnet.png
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
         href: https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
-    - html: <p><a href="https://www.pluralsight.com/courses/developing-nodejs-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Developing with Node.js</a></p>
+    - title: Developing with Node.js
+      href: https://www.pluralsight.com/courses/developing-nodejs-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
       image: 
-        src: https://docs.microsoft.com/en-us/azure/app-service/media/index/video-training-nodejs.png
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
         href: https://www.pluralsight.com/courses/developing-nodejs-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
 - title: Samples
   items:
@@ -91,7 +102,7 @@ sections:
     className: spaced noBullet
     items:
     - html: <a href="/en-us/powershell/azureps-cmdlets-docs">Azure PowerShell</a>
-    - html: <a href="/cli/azure/appservice">Azure CLI 2.0</a>
+    - html: <a href="/cli/azure/appservice">Azure CLI</a>
 - title: Reference
   items:
   - type: list
@@ -99,8 +110,8 @@ sections:
     className: cardsD
     items:
     - title: Command-Line
-      html: <p><a href="/en-us/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="/cli/azure/appservice">Azure CLI 2.0</a></p>
+      html: <p><a href="/en-us/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="/cli/azure/appservice">Azure CLI</a></p>
     - title: Languages
       html: <p><a href="/en-us/dotnet/api">.NET</a></p><p><a href="/en-us/java/api/">Java</a></p>
     - title: REST
-      html: <p><a href="/en-us/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="/cli/azure/appservice">Azure CLI 2.0</a></p>
+      html: <p><a href="/en-us/rest/api/appservice">REST API Reference</a></p>

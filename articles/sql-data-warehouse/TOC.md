@@ -2,25 +2,28 @@
 
 ## [What is SQL Data Warehouse?](sql-data-warehouse-overview-what-is.md)
 ## [Data warehouse workload](sql-data-warehouse-overview-workload.md)
-## [Distributed data](sql-data-warehouse-distributed-data.md)
-## [Frequently asked questions](sql-data-warehouse-overview-faq.md)
 
 # Get Started
 
 ## [Beginner tutorial](sql-data-warehouse-get-started-tutorial.md)
+## [Elastic Query tutorial](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
 ## [Best practices](sql-data-warehouse-best-practices.md)
 ## [Manage](sql-data-warehouse-overview-manage.md)
 
-
-
 # How To
+
+## Service features
+### [MPP architecture](massively-parallel-processing-mpp-architecture.md)
+### [Performance tiers](performance-tiers.md)
+### [Data warehouse units](what-is-a-data-warehouse-unit-dwu-cdwu.md)
+### [Frequently asked questions](sql-data-warehouse-overview-faq.md)
 
 ## Backup and restore
 
 ### [Backup Overview](sql-data-warehouse-backups.md)
 ### [Restore Overview](sql-data-warehouse-restore-database-overview.md)
 #### [Azure portal](sql-data-warehouse-restore-database-portal.md)
-#### [PowerShell](sql-data-warehouse-restore-database-powershell.md)
+#### [Azure PowerShell](sql-data-warehouse-restore-database-powershell.md)
 #### [REST](sql-data-warehouse-restore-database-rest-api.md)
 
 ## Connect
@@ -34,7 +37,7 @@
 
 ## Create
 ### [Azure portal](sql-data-warehouse-get-started-provision.md)
-### [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
+### [Azure PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 ### [T-SQL](sql-data-warehouse-get-started-create-database-tsql.md)
 
 ## Develop
@@ -80,6 +83,8 @@
 ### [Power BI visualization](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 ### [Stream Analytics](sql-data-warehouse-integrate-azure-stream-analytics.md)
 
+### [Elastic Query with SQL Database and SQL Data Warehouse](how-to-use-elastic-query-with-sql-data-warehouse.md)
+
 ## Load
 
 ### Concepts
@@ -115,13 +120,15 @@
 ### [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 ### [REST API](sql-data-warehouse-manage-compute-rest-api.md)
 ### [T-SQL](sql-data-warehouse-manage-compute-tsql.md)
+### Resource classes
+#### [Guidelines](resource-classes-for-workload-management.md)
+#### [Analyze your workload](analyze-your-workload.md)
 
 ## Performance
 
 ### [Overview](sql-data-warehouse-overview-manage-user-queries.md)
 ### [Columnstore compression](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
 ### [Monitor](sql-data-warehouse-manage-monitor.md)
-### [Workload](sql-data-warehouse-develop-concurrency.md)
 
 ## Security
 

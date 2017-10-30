@@ -3,7 +3,7 @@ title: Trace calls with API Inspector - Azure API Management | Microsoft Docs
 description: Learn how to trace calls using the API Inspector in Azure API Management.
 services: api-management
 documentationcenter: ''
-author: steved0x
+author: vladvino
 manager: erikre
 editor: ''
 

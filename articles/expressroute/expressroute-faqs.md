@@ -81,6 +81,14 @@ ExpressRoute supports [three routing domains](expressroute-circuit-peerings.md) 
   * Dynamics 365 for Customer Service
   * Dynamics 365 for Field Service
   * Dynamics 365 for Project Service
+* Using [route filters](#route-filters-for-microsoft-peering), you get access to the same public services with the Microsoft peering :
+  * Power BI
+  * Dynamics 365 for Finance and Operations
+  * Most of the Azure services, with the following few exceptions :
+    * CDN
+    * Visual Studio Team Services Load Testing
+    * Multi-factor Authentication
+    * Traffic Manager
 
 ## Data and connections
 
@@ -111,6 +119,10 @@ Yes. Each ExpressRoute circuit has a redundant pair of cross connections configu
 ### Will I lose connectivity if one of my ExpressRoute links fail?
 
 You will not lose connectivity if one of the cross connections fails. A redundant connection is available to support the load of your network. You can additionally create multiple circuits in a different peering location to achieve failure resilience.
+
+## How do I ensure high availability on a virtual network connected to ExpressRoute?
+
+You can achieve high availability by connecting multiple ExpressRoute circuits in different peering locations to your virtual network. For example, if one ExpressRoute site goes down, connectivity will fail over to another ExpressRoute site. By default, traffic leaving your virtual network is routed based on Equal Cost Multi-path Routing (ECMP). You can use Connection Weight to prefer one connection to another. See [Optimizing ExpressRoute Routing](expressroute-optimize-routing.md) for additional details on Connection Weight.
 
 ### <a name="onep2plink"></a>If I'm not co-located at a cloud exchange and my service provider offers point-to-point connection, do I need to order two physical connections between my on-premises network and Microsoft?
 
@@ -158,6 +170,12 @@ Yes. You can authorize up to 10 other Azure subscriptions to use a single Expres
 
 For more information, see [Sharing an ExpressRoute circuit across multiple subscriptions](expressroute-howto-linkvnet-arm.md).
 
+### I have multiple Azure subscriptions associated to different Azure Active Directory tenants or Enterprise Agreement enrollments. Can I connect virtual networks that are in separate tenants and enrollments to a single ExpressRoute circuit not in the same tenant or enrollment?
+
+Yes. ExpressRoute authorizations can span subscription, tenant, and enrollment boundaries with no additional confgiruation required. 
+
+For more information, see [Sharing an ExpressRoute circuit across multiple subscriptions](expressroute-howto-linkvnet-arm.md).
+
 ### Are virtual networks connected to the same circuit isolated from each other?
 
 No. From a routing perspective, all virtual networks linked to the same ExpressRoute circuit are part of the same routing domain and are not isolated from each other. If you need route isolation, you need to create a separate ExpressRoute circuit.
@@ -174,7 +192,7 @@ Yes. If you have not advertised default routes (0.0.0.0/0) or Internet route pre
 
 Yes. You can advertise default routes (0.0.0.0/0) to block all Internet connectivity to virtual machines deployed within a virtual network and route all traffic out through the ExpressRoute circuit.
 
-If you advertise default routes, we force traffic to services offered over public peering (such as Azure storage and SQL DB) back to your premises. You will have to configure your routers to return traffic to Azure through the public peering path or over the Internet.
+If you advertise default routes, we force traffic to services offered over public peering (such as Azure storage and SQL DB) back to your premises. You will have to configure your routers to return traffic to Azure through the public peering path or over the Internet. If you've enabled a service endpoint (preview) for the service, the traffic to the service is not forced to your premises. The traffic remains within the Azure backbone network. To learn more about service endpoints, see [Virtual network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md?toc=%2fazure%2fexpressroute%2ftoc.json)
 
 ### Can virtual networks linked to the same ExpressRoute circuit talk to each other?
 
@@ -340,9 +358,9 @@ When using route filters, any customer can turn on Microsoft peering. However, f
 
 No, you do not need authorization for Dynamics 365. You can create a rule and select Dynamics 365 community without authorization.
 
-### I already have Microsoft peering, how can I take advantage of route filters?
+### I enabled Microsoft peering prior to August 1st, 2017, how can I take advantage of route filters?
 
-You can create a route filter, select the services you want to use, and attach the filter to your Microsoft peering. For instructions, see [Configure route filters for Microsoft peering](how-to-routefilter-powershell.md).
+Your existing circuit will continue advertising the prefixes for Office 365 and Dynamics 365. If you want to add Azure public prefixes advertisements over the same Microsoft peering, you can create a route filter, select the services you need advertised (including the Office 365 service(s) you need and Dynamics 365), and attach the filter to your Microsoft peering. For instructions, see [Configure route filters for Microsoft peering](how-to-routefilter-powershell.md).
 
 ### I have Microsoft peering at one location, now I am trying to enable it at another location and I am not seeing any prefixes.
 

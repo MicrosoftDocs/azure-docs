@@ -3,7 +3,7 @@ title: Azure Functions Blob Storage bindings | Microsoft Docs
 description: Understand how to use Azure Storage triggers and bindings in Azure Functions.
 services: functions
 documentationcenter: na
-author: lindydonna
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -15,7 +15,7 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/25/2017
+ms.date: 10/27/2017
 ms.author: glenga
 
 ---
@@ -281,7 +281,7 @@ See the language-specific sample that copies the input blob to the output blob.
 
 ```cs
 // Copy blob from input to output, based on a queue trigger
-public static void Run(string myQueueItem, Stream myInputBlob, out string myOutputBlob, TraceWriter log)
+public static void Run(string myQueueItem, Stream myInputBlob, out Stream myOutputBlob, TraceWriter log)
 {
     log.Info($"C# Queue trigger function processed: {myQueueItem}");
     myOutputBlob = myInputBlob;

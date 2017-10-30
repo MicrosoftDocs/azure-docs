@@ -41,7 +41,7 @@ Owner, Contributor, or Reader role in the provider’s subscription.
 ### Arguments
 | **Argument** | **Description** |
 | --- | --- |
-| *armendpoint* |Azure Resource Manager endpoint of your Azure Stack environment. The Azure Stack convention is that the name of Azure Resource Manager endpoint is in the format `https://adminmanagement.{domain-name}`. For example, if the domain name is local.azurestack.external, then the Resource Manager endpoint is `https://adminmanagement.local.azurestack.external`. |
+| *armendpoint* |Azure Resource Manager endpoint of your Azure Stack environment. The Azure Stack convention is that the name of Azure Resource Manager endpoint is in the format `https://adminmanagement.{domain-name}`. For example, for development kit, the domain name is local.azurestack.external, then the Resource Manager endpoint is `https://adminmanagement.local.azurestack.external`. |
 | *subId* |Subscription ID of the user who is making the call. |
 | *reportedStartTime* |Start time of the query. The value for *DateTime* should be in UTC and at the beginning of the hour, for example, 13:00. For daily aggregation, set this value to UTC midnight. The format is *escaped* ISO 8601, for example, 2015-06-16T18%3a53%3a11%2b00%3a00Z, where colon is escaped to %3a and plus is escaped to %2b so that it is URI friendly. |
 | *reportedEndTime* |End time of the query. The constraints that apply to *reportedStartTime* also apply to this argument. The value for *reportedEndTime* cannot be in the future or the current date. If it is, the result is set to "processing not complete." |
@@ -54,42 +54,31 @@ Owner, Contributor, or Reader role in the provider’s subscription.
 GET
 /subscriptions/sub1/providers/Microsoft.Commerce/subscriberUsageAggregates?reportedStartTime=reportedStartTime=2014-05-01T00%3a00%3a00%2b00%3a00&reportedEndTime=2015-06-01T00%3a00%3a00%2b00%3a00&aggregationGranularity=Daily&subscriberId=sub1.1&api-version=1.0
 
+```json
 {
-
-"value": \[
-
+"value": [
 {
 
 "id":
 "/subscriptions/sub1.1/providers/Microsoft.Commerce/UsageAggregate/sub1.1-
 
 meterID1",
-
 "name": "sub1.1-meterID1",
-
 "type": "Microsoft.Commerce/UsageAggregate",
 
 "properties": {
-
 "subscriptionId":"sub1.1",
-
 "usageStartTime": "2015-03-03T00:00:00+00:00",
-
 "usageEndTime": "2015-03-04T00:00:00+00:00",
-
-"instanceData":"{\\"Microsoft.Resources\\":{\\"resourceUri\\":\\"resourceUri1\\",\\"location\\
-
-":\\"Alaska\\",\\"tags\\":null,\\"additionalInfo\\":null}}",
-
+"instanceData":"{\"Microsoft.Resources\":{\"resourceUri\":\"resourceUri1\",\"location\":\"Alaska\",\"tags\":null,\"additionalInfo\":null}}",
 "quantity":2.4000000000,
-
 "meterId":"meterID1"
 
 }
-
 },
 
 …
+```
 
 ### Response details
 | **Argument** | **Description** |

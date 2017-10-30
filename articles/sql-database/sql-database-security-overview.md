@@ -1,6 +1,6 @@
 ---
 title: Azure SQL Database Security Overview | Microsoft Docs
-description: Learn about Azure SQL Database and SQL Server security, including the differences between the cloud and SQL Server on-premises when it comes to authentication, authorization, connection security, encryption, and compliance.
+description: Learn about Azure SQL Database and SQL Server security, including the differences between the cloud and SQL Server on-premises.
 services: sql-database
 documentationcenter: ''
 author: tmullaney
