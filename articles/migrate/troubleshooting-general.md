@@ -17,7 +17,9 @@ ms.date: 10/26/2017
 ms.author: raynew
 
 ---
-# Troubleshoot common issues
+# Troubleshoot Azure Migrate
+
+## Troubleshoot common errors
 
 [Azure Migrate](migrate-overview.md) assesses on-premises workloads for migration to Azure. Use this article to troubleshoot issues when deploying and using Azure Migrate.
 
@@ -56,7 +58,33 @@ The server clock might be out-of-synchronization with the current time by more t
 
 Yes, every project key ends with “==”. The collector encrypts the project key before processing it.
 
+## Troubleshoot readiness issues
 
+**Issue** | **Fix**
+--- | ---
+Boot type not supported | Change to BIOS before assessment.
+Disk count exceeds limit | Remove unused disks from the machine before assessment.
+Disk size exceeds limit | Shrink disks to less than 4 TB before assessment. 
+Disk unavailable in the specified location | Make sure the disk is in your target location.
+Disk unavailable for the specified redundancy | The disk should use the redundancy storage type defined in the assessment settings (LRS by default).
+Could not determine disk suitability due to an internal error | Try creating a new assessment for the group. 
+VM with required cores and memory not found | Azure couldn't fine a suitable VM type. Reducing the memory and number of cores of the on-premises machine before assessment. 
+One or more unsuitable disks | Make sure on-premises disks are 4 TB or under before assessment.
+One or more unsuitable network adapters | Remove unused network adapters from the machine before assessment.
+Could not determine VM suitability due to an internal error | Try creating a new assessment for the group 
+Could not determine suitability for one or more disks due to an internal error | Try creating a new assessment for the group
+Could not determine suitability for one or more network adapters due to an internal error | Try creating a new assessment for the group
+VM not found for the required storage performance | The storage performance (IOPS/throughput) required for the machine exceeds Azure VM support. Reduce storage requirements for the machine.
+VM not found for the required network performance | The network performance (in/out) required for the machine exceeds Azure VM support. Reduce the networking requirements for the machine. 
+VM not found for the specified pricing tier | Check the pricing tier settings. 
+VM not found in the specified location | Use a different target location for assessment.
+Linux OS support issues | Make sure you're running 64-bit with these supported [operating systems](../virtual-machines/linux/endorsed-distros.md).
+Windows OS support issues | Make sure you're running a supported operating system. [Learn more](concepts-assessment-calculation.md#azure-suitability-analysis)
+Unknown Operation System | Check that the operating system specified in vCenter is correct and repeat the discovery process.
+Requires Visual Studio subscription | Windows client operating systems are only supported on Visual Studio (MSDN) subscriptions.
+
+
+## Troubleshoot logging
 
 **How do I collect logs on the collector VM?**
 Logging is enabled by default. Logs are located as follows:
@@ -69,3 +97,4 @@ To collect Event Tracing for Windows, do the following:
 
 1. On the collector VM, open a PowerShell command window.
 2. Run **Get-EventLog -LogName Application | export-csv eventlog.csv**.
+
