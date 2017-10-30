@@ -113,7 +113,7 @@
       href: key-vault-setup.md
   - name: Manage VMs
     items:
-    - name: Buy Reserved VM Instances
+    - name: Pre-pay for VMs - Reserved VM Instances
       href: buy-compute-reservations.md
     - name: Common PowerShell tasks
       href: ps-common-ref.md

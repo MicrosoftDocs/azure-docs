@@ -1,5 +1,5 @@
 ﻿
-# Buy Reserved VM Instances and save on VM costs
+# Pre-pay for VMs with Reserved VM Instances
 
 Pre-pay for virtual machines and save money with Reserved Virtual Machine Instances. For more information, see Reserved Virtual Machine Instances [offering](https://azure.microsoft.com/en-us/pricing/reserved-vm-instances/).
 
@@ -26,7 +26,7 @@ You can buy Reserved Virtual Machine Instances in the [Azure portal](https://por
 6. After you complete buying the reservation, select **View this Reservation** to see the status of the reservation purchase.
 
 ## Next steps after buying a reservation
-The reservation discount is applied automatically to the running virtual machines. You do'nt need to explicitly assign a reservation to a virtual machine. You can update the scope of the reservation through [Azure portal](https://portal.azure.com), PowerShell, CLI or through the API. 
+The reservation discount is applied automatically to the running virtual machines. You do'nt explicitly assign reservations to virtual machines. Matching virtual machines upto the quantity bought in the selected scope get the discount. You can update the scope of the reservation through [Azure portal](https://portal.azure.com), PowerShell, CLI or through the API. 
 
 To learn how to manage a reservation, see [Manage Azure Reserved Virtual Machine Instances](https://go.microsoft.com/fwlink/?linkid=861613).
 
