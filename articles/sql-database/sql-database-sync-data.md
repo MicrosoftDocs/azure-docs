@@ -3,7 +3,7 @@ title: Sync data (Preview) | Microsoft Docs
 description: This overview introduces Azure SQL Data Sync (Preview).
 services: sql-database
 documentationcenter: ''
-author: jognanay
+author: douglaslms
 manager: craigg
 editor: ''
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
-ms.author: jognanay
+ms.author: douglasl
 ms.reviewer: douglasl
 ---
 # Sync data across multiple cloud and on-premises databases with SQL Data Sync
