@@ -5,7 +5,7 @@ description: Enable single sign-on authentication and user provisioning centrali
 services: active-directory
 keywords: integrate Azure AD with SaaS apps
 documentationcenter: ''
-author: curtand
+author: LizCasey
 manager: femila
 editor: ''
 

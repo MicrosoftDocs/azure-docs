@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
 
@@ -25,7 +25,11 @@ IT Professionals looking to deploy self-service password reset can customize the
 
 ## Customize the contact your administrator link
 
-Even if SSPR is not enabled users still a "contact your administrator" link on the password reset portal.  Clicking this link emails your administrators asking for assistance in changing the user's password. This email is sent to the following recipients in the following order:
+Even if SSPR is not enabled users still a "contact your administrator" link on the password reset portal.  Clicking this link emails your administrators asking for assistance in changing the user's password or sends your users to a URL that you specify. We recommend that you set this to something like an email address or website that your users are used to using for support.
+
+![Contact][Contact]
+
+This email is sent to the following recipients in the following order:
 
 1. If the **Password administrator** role is assigned, administrators with this role are notified
 2. If no Password administrators are assigned, then administrators with the **User administrator** role are notified
@@ -93,16 +97,17 @@ You can change the name attribute under **Azure Active Directory > Properties** 
 
 ## Next steps
 
-The following links provide additional information regarding password reset using Azure AD
+* [How do I complete a successful rollout of SSPR?](active-directory-passwords-best-practices.md)
+* [Reset or change your password](active-directory-passwords-update-your-own-password.md).
+* [Register for self-service password reset](active-directory-passwords-reset-register.md).
+* [Do you have a Licensing question?](active-directory-passwords-licensing.md)
+* [What data is used by SSPR and what data should you populate for your users?](active-directory-passwords-data.md)
+* [What authentication methods are available to users?](active-directory-passwords-how-it-works.md#authentication-methods)
+* [What are the policy options with SSPR?](active-directory-passwords-policy.md)
+* [What is password writeback and why do I care about it?](active-directory-passwords-writeback.md)
+* [How do I report on activity in SSPR?](active-directory-passwords-reporting.md)
+* [What are all of the options in SSPR and what do they mean?](active-directory-passwords-how-it-works.md)
+* [I think something is broken. How do I troubleshoot SSPR?](active-directory-passwords-troubleshoot.md)
+* [I have a question that was not covered somewhere else](active-directory-passwords-faq.md)
 
-* [**Quick Start**](active-directory-passwords-getting-started.md) - Get up and running with Azure AD self service password management 
-* [**Licensing**](active-directory-passwords-licensing.md) - Configure your Azure AD Licensing
-* [**Data**](active-directory-passwords-data.md) - Understand the data that is required and how it is used for password management
-* [**Rollout**](active-directory-passwords-best-practices.md) - Plan and deploy SSPR to your users using the guidance found here
-* [**Policy**](active-directory-passwords-policy.md) - Understand and set Azure AD password policies
-* [**Password Writeback**](active-directory-passwords-writeback.md) - How does password writeback work with your on-premises directory
-* [**Reporting**](active-directory-passwords-reporting.md) - Discover if, when, and where your users are accessing SSPR functionality
-* [**Technical Deep Dive**](active-directory-passwords-how-it-works.md) - Go behind the curtain to understand how it works
-* [**Frequently Asked Questions**](active-directory-passwords-faq.md) - How? Why? What? Where? Who? When? - Answers to questions you always wanted to ask
-* [**Troubleshoot**](active-directory-passwords-troubleshoot.md) - Learn how to resolve common issues that we see with SSPR
-
+[Contact]: ./media/active-directory-passwords-customize/sspr-contact-admin.png "Contact your administrator for help resetting your password email example"
