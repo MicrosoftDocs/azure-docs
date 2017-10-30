@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 
 ms.service: sql-database
 ms.custom: load & move data
-ms.workload: na
+ms.workload: "On Demand"
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
