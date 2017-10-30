@@ -63,8 +63,8 @@ If you need to find the *Name* of your Automation account, in the Azure portal s
 #Check to see which cloud environment to sign into.
 Switch ($Environment)
    {
-       "AzureCloud" {Login-AzureRmAccount}
-       "AzureUSGovernment" {Login-AzureRmAccount -EnvironmentName AzureUSGovernment} 
+       "AzureCloud" {Connect-AzureRmAccount}
+       "AzureUSGovernment" {Connect-AzureRmAccount -EnvironmentName AzureUSGovernment} 
    }
 
 # if you have one Log Analytics workspace you can use the following command to get the resource id of the workspace
@@ -96,8 +96,8 @@ To confirm that your Automation account is sending logs to your Log Analytics wo
 #Check to see which cloud environment to sign into.
 Switch ($Environment)
    {
-       "AzureCloud" {Login-AzureRmAccount}
-       "AzureUSGovernment" {Login-AzureRmAccount -EnvironmentName AzureUSGovernment} 
+       "AzureCloud" {Connect-AzureRmAccount}
+       "AzureUSGovernment" {Connect-AzureRmAccount -EnvironmentName AzureUSGovernment} 
    }
 # if you have one Log Analytics workspace you can use the following command to get the resource id of the workspace
 $workspaceId = (Get-AzureRmOperationalInsightsWorkspace).ResourceId

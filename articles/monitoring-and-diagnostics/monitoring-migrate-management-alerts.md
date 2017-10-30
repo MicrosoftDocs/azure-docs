@@ -35,7 +35,7 @@ Azure Monitor (formerly Azure Insights) offered a capability to create an alert 
 The following PowerShell script returns a list of all alerts on management events that you have in your subscription, as well as the conditions set on each alert.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 $alerts = $null
 foreach ($rg in Get-AzureRmResourceGroup ) {
   $alerts += Get-AzureRmAlertRule -ResourceGroup $rg.ResourceGroupName

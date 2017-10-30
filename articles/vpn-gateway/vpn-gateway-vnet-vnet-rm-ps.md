@@ -133,7 +133,7 @@ We use the following values in the examples:
 2. Connect to your account. Use the following example to help you connect:
 
   ```powershell
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
   ```
 
   Check the subscriptions for the account.
@@ -331,7 +331,7 @@ This step must be done in the context of the new subscription. This part may be 
 2. Connect to subscription 5. Open your PowerShell console and connect to your account. Use the following sample to help you connect:
 
   ```powershell
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
   ```
 
   Check the subscriptions for the account.

@@ -53,7 +53,7 @@ Make sure that you are using the latest version of Azure PowerShell. More info i
 1. Log in to Azure and enter your credentials.
 
   ```powershell
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
   ```
 
 2. Check the subscriptions for the account.

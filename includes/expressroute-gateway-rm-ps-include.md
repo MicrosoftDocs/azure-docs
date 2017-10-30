@@ -20,7 +20,7 @@ The steps for this task use a VNet based on the values in the following configur
 1. Connect to your Azure Subscription.
 
   ```powershell 
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
   Get-AzureRmSubscription 
   Select-AzureRmSubscription -SubscriptionName "Name of subscription"
   ```

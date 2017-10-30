@@ -125,7 +125,7 @@ Delete a resource group in the Azure portal:
     $clustersize=5 
 
     # Set the context to the subscription ID where the cluster will be created
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     Get-AzureRmSubscription
     Select-AzureRmSubscription -SubscriptionId $subscriptionId
 

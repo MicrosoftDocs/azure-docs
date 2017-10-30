@@ -62,7 +62,7 @@ Make sure that you are using the latest version of Azure PowerShell. More inform
 Log in to Azure
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 You are prompted to authenticate with your credentials.
 

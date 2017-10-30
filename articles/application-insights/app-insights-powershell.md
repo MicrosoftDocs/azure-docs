@@ -152,7 +152,7 @@ Create a new .json file - let's call it `template1.json` in this example. Copy t
 ## Create Application Insights resources
 1. In PowerShell, sign in to Azure:
    
-    `Login-AzureRmAccount`
+    `Connect-AzureRmAccount`
 2. Run a command like this:
    
     ```PS

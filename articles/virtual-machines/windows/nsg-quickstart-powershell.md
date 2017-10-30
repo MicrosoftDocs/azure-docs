@@ -26,7 +26,7 @@ To create a Network Security Group and ACL rules you need [the latest version of
 Log in to your Azure account:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 In the following examples, replace example parameter names with your own values. Example parameter names included *myResourceGroup*, *myNetworkSecurityGroup*, and *myVnet*.

@@ -71,7 +71,7 @@ If you don't already have PowerShell version 1.4 or above installed, read [How t
 1. Open Azure PowerShell and sign in to your Azure account. A pop-up window opens for you to enter your Azure account credentials.
    
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 2. Get the subscription IDs for your available subscriptions.
    

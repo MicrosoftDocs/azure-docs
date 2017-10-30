@@ -751,7 +751,7 @@ Before you proceed, review the *Prerequisites* section in this article. After yo
 
 1. Start an Azure PowerShell session, and sign in to your Azure account with the following command:
 
-    `Login-AzureRmAccount`
+    `Connect-AzureRmAccount`
 
 2. If you have multiple subscriptions and want to specify one to use, type the following to see the subscriptions for your account:
 

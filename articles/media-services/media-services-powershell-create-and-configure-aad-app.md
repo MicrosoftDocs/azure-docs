@@ -31,7 +31,7 @@ Learn how to use a PowerShell script to create an Azure Active Directory (Azure 
 ## Create an Azure AD app by using PowerShell  
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Import-Module AzureRM.Resources
 Set-AzureRmContext -SubscriptionId $SubscriptionId
 $ServicePrincipal = New-AzureRMADServicePrincipal -DisplayName $ApplicationDisplayName -Password $Password

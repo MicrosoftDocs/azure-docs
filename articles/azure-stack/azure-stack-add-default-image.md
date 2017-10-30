@@ -86,7 +86,7 @@ Run the following prerequisites, either from the [development kit](azure-stack-c
       -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
       -EnvironmentName AzureStackAdmin
 
-    Login-AzureRmAccount `
+    Connect-AzureRmAccount `
       -EnvironmentName "AzureStackAdmin" `
       -TenantId $TenantID 
     ```
@@ -114,7 +114,7 @@ Run the following prerequisites, either from the [development kit](azure-stack-c
      -ADFS `
      -EnvironmentName "AzureStackAdmin" 
 
-    Login-AzureRmAccount `
+    Connect-AzureRmAccount `
       -EnvironmentName "AzureStackAdmin" `
       -TenantId $TenantID 
     ```

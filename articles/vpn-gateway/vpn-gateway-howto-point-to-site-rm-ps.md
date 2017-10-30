@@ -92,7 +92,7 @@ In this section, you log in and declare the values used for this configuration. 
 1. Open your PowerShell console with elevated privileges, and log in to your Azure account. This cmdlet prompts you for the login credentials. After logging in, it downloads your account settings so that they are available to Azure PowerShell.
 
   ```powershell
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
   ```
 2. Get a list of your Azure subscriptions.
 

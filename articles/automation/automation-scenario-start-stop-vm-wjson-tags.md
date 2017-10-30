@@ -149,7 +149,7 @@ To create, add, and delete tags through PowerShell, you first need to [set up yo
 
     ```powershell
     $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-    Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
+    Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
     -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
     Select-AzureRmSubscription -SubscriptionName "MySubscription"
     ```
@@ -191,7 +191,7 @@ To create, add, and delete tags through PowerShell, you first need to [set up yo
 
     ```powershell
     Conn = Get-AutomationConnection -Name AzureRunAsConnection
-    Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
+    Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
     -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
     Select-AzureRmSubscription -SubscriptionName "MySubscription"
     ```

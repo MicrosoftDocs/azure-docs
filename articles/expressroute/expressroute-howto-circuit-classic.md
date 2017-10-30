@@ -46,7 +46,7 @@ Follow the instructions in [Getting started with Azure PowerShell cmdlets](/powe
 ### Step 3. Log in to your Azure account and select a subscription
 1. Open your PowerShell console with elevated rights and connect to your account. Use the following example to help you connect:
 
-    	Login-AzureRmAccount
+    	Connect-AzureRmAccount
 
 2. Check the subscriptions for the account.
 

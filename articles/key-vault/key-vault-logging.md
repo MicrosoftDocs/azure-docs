@@ -49,7 +49,7 @@ To complete this tutorial, you must have the following:
 ## <a id="connect"></a>Connect to your subscriptions
 Start an Azure PowerShell session and sign in to your Azure account with the following command:  
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
 In the pop-up browser window, enter your Azure account user name and password. Azure PowerShell will get all the subscriptions that are associated with this account and by default, uses the first one.
 

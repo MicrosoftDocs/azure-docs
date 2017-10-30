@@ -63,7 +63,7 @@ $content =$response.Content | ConvertFrom-Json
 $access_token = $content.access_token
 
 # Use the access token to sign in under the MSI service principal
-Login-AzureRmAccount -AccessToken $access_token -AccountId “CLIENT”
+Connect-AzureRmAccount -AccessToken $access_token -AccountId “CLIENT”
 
 # The MSI service principal is now signed in for this session.
 # Next, a call to Azure Resource Manager is made to get the service principal ID for the VM's MSI. 

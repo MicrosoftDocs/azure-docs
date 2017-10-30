@@ -41,7 +41,7 @@ For this tutorial you'll need:
 Open Windows PowerShell and establish access to your Azure account by running the following cmdlet. You will be presented with a sign in screen to enter your credentials. Use the same email and password that you use to sign in to the Azure portal.
 
 ```PowerShell
-Add-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 After successfully signing in see some information on screen that includes the Subscription Name and ID of your default subscription. This is the subscription in which the resources for this tutorial will be created unless you change to a different subscription. If you have multiple subscriptions, run the following cmdlet to return a list of all of your subscriptions:
@@ -276,7 +276,7 @@ The virtual machine is created. Notice that a standard storage account is create
 You can now view this machine in the Azure Portal to see [its public IP address and its fully qualified domain name](virtual-machines-windows-portal-sql-server-provision.md).
 
 ## Example script
-The following script contains the complete PowerShell script for this tutorial. It assumes that you have already setup the Azure subscription to use with the **Add-AzureRmAccount** and **Select-AzureRmSubscription** commands.
+The following script contains the complete PowerShell script for this tutorial. It assumes that you have already setup the Azure subscription to use with the **Connect-AzureRmAccount** and **Select-AzureRmSubscription** commands.
 
 ```PowerShell
 # Variables

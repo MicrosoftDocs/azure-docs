@@ -78,8 +78,8 @@ cls;
 #--------------- 1 -----------------------
 
 'Script assumes you have already logged your PowerShell session into Azure.
-But if not, run  Add-AzureRmAccount (or  Login-AzureRmAccount), just one time.';
-#Add-AzureRmAccount;   # Same as  Login-AzureRmAccount.
+But if not, run Connect-AzureRmAccount, just one time.';
+#Connect-AzureRmAccount
 
 #-------------- 2 ------------------------
 

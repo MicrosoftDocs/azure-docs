@@ -76,7 +76,7 @@ You should see something like this:</br>
 
    ![Loaded modules list](./media/security-azure-log-integration-keyvault-eventhub/loaded-modules.png)
 
-3. Enter the `Login-AzureRmAccount` command. In the login window, enter the credential information for the subscription that you will use for this tutorial.
+3. Enter the `Connect-AzureRmAccount` command. In the login window, enter the credential information for the subscription that you will use for this tutorial.
 
    >[!NOTE]
    >If this is the first time that you're logging in to Azure from this machine, you will see a message about allowing Microsoft to collect PowerShell usage data. We recommend that you enable this data collection because it will be used to improve Azure PowerShell.

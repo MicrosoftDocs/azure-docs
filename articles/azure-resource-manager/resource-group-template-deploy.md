@@ -40,7 +40,7 @@ A template can include parameters that enable you to customize the deployment. F
 The following example creates a resource group, and deploys a template from your local machine:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 
 Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
  

@@ -98,7 +98,7 @@ To run PowerShell cmdlets, you need to have Azure PowerShell installed and runni
 
 To provision an Azure AD admin, execute the following Azure PowerShell commands:
 
-* Add-AzureRmAccount
+* Connect-AzureRmAccount
 * Select-AzureRmSubscription
 
 Cmdlets used to provision and manage Azure AD admin:

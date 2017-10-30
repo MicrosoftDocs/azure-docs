@@ -215,7 +215,7 @@ In the following steps, you will connect to your Azure account and download and 
 2. Open your PowerShell console with elevated rights and connect to your account. Use the following example to help you connect:
 
   ```powershell
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
   ```
 
   Check the subscriptions for the account.

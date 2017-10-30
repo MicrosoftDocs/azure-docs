@@ -147,7 +147,7 @@ To avoid errors when running Mahout jobs, delete temporary and output files betw
 $sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
 if(-not($sub))
 {
-    Add-AzureRmAccount
+    Connect-AzureRmAccount
 }
 
 # Get cluster info

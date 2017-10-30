@@ -162,7 +162,7 @@ An example of creating an HDInsight cluster that uses the SAS is included in the
 1. From the prompt, use the following command to authenticate to your Azure subscription:
 
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 
     When prompted, log in with the account for your Azure subscription.

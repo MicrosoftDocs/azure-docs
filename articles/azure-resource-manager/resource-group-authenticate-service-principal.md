@@ -52,7 +52,7 @@ To set up a service principal, you use:
 To create a service principal with the Contributor role for your subscription, use: 
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 $sp = New-AzureRmADServicePrincipal -DisplayName exampleapp -Password "{provide-password}"
 Sleep 20
 New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
@@ -80,7 +80,7 @@ Param (
  [String] $Password
 )
 
- Login-AzureRmAccount
+ Connect-AzureRmAccount
  Import-Module AzureRM.Resources
 
  if ($SubscriptionId -eq "") 
@@ -132,7 +132,7 @@ Now, you need to log in as the application to perform operations. For the user n
 
 ```powershell   
 $creds = Get-Credential
-Login-AzureRmAccount -Credential $creds -ServicePrincipal -TenantId {tenant-ID}
+Connect-AzureRmAccount -Credential $creds -ServicePrincipal -TenantId {tenant-ID}
 ```
 
 The tenant ID is not sensitive, so you can embed it directly in your script. If you need to retrieve the tenant ID, use:
@@ -146,7 +146,7 @@ The tenant ID is not sensitive, so you can embed it directly in your script. If 
 To create a service principal with a self-signed certificate and the Contributor role for your subscription, use: 
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=exampleappScriptCert" -KeySpec KeyExchange
 $keyValue = [System.Convert]::ToBase64String($cert.GetRawCertData())
 
@@ -174,7 +174,7 @@ Param (
  [String] $ApplicationDisplayName
  )
 
- Login-AzureRmAccount
+ Connect-AzureRmAccount
  Import-Module AzureRM.Resources
 
  if ($SubscriptionId -eq "") 
@@ -252,7 +252,7 @@ Param (
  )
 
  $Thumbprint = (Get-ChildItem cert:\CurrentUser\My\ | Where-Object {$_.Subject -match $CertSubject }).Thumbprint
- Login-AzureRmAccount -ServicePrincipal -CertificateThumbprint $Thumbprint -ApplicationId $ApplicationId -TenantId $TenantId
+ Connect-AzureRmAccount -ServicePrincipal -CertificateThumbprint $Thumbprint -ApplicationId $ApplicationId -TenantId $TenantId
 ```
 
 The application ID and tenant ID are not sensitive, so you can embed them directly in your script. If you need to retrieve the tenant ID, use:
@@ -285,7 +285,7 @@ Param (
  [String] $CertPlainPassword
  )
 
- Login-AzureRmAccount
+ Connect-AzureRmAccount
  Import-Module AzureRM.Resources
  Set-AzureRmContext -SubscriptionId $SubscriptionId
  
@@ -342,7 +342,7 @@ Param (
  $PFXCert = New-Object -TypeName System.Security.Cryptography.X509Certificates.X509Certificate2 -ArgumentList @($CertPath, $CertPassword)
  $Thumbprint = $PFXCert.Thumbprint
 
- Login-AzureRmAccount -ServicePrincipal -CertificateThumbprint $Thumbprint -ApplicationId $ApplicationId -TenantId $TenantId
+ Connect-AzureRmAccount -ServicePrincipal -CertificateThumbprint $Thumbprint -ApplicationId $ApplicationId -TenantId $TenantId
 ```
 
 The application ID and tenant ID are not sensitive, so you can embed them directly in your script. If you need to retrieve the tenant ID, use:

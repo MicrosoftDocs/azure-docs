@@ -53,7 +53,7 @@ For additional information, you can always type ```Get-Help``` and then the Powe
 1. Log in to Azure.   
 
     ```PowerShell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
     ```
 2. Get a list of the subscriptions you have available. Verify that you are working with the right subscription. If not, set it to the right one using the output from `Get-AzureRmSubscription`.

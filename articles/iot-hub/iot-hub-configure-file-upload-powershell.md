@@ -34,10 +34,10 @@ To complete this tutorial, you need the following:
 
 Sign in to your Azure account and select your subscription.
 
-1. At the PowerShell prompt, run the **Login-AzureRmAccount** cmdlet:
+1. At the PowerShell prompt, run the **Connect-AzureRmAccount** cmdlet:
 
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 
 1. If you have multiple Azure subscriptions, signing in to Azure grants you access to all the Azure subscriptions associated with your credentials. Use the following command to list the Azure subscriptions available for you to use:

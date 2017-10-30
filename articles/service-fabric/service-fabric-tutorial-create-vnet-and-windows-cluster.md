@@ -50,7 +50,7 @@ This guide uses Azure PowerShell. When you start a new PowerShell session, sign 
 Run the following script to sign in to your Azure account select your subscription:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Get-AzureRmSubscription
 Set-AzureRmContext -SubscriptionId <guid>
 ```

@@ -86,7 +86,7 @@ Before beginning this configuration, you must log in to your Azure account. The 
 Open your PowerShell console with elevated privileges, and connect to your account. Use the following example to help you connect:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 If you have multiple Azure subscriptions, check the subscriptions for the account.

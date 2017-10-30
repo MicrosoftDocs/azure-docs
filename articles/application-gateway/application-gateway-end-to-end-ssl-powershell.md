@@ -57,7 +57,7 @@ This section walks you through creating a resource group that contains the appli
    1. Sign in to your Azure account.
 
    ```powershell
-   Login-AzureRmAccount
+   Connect-AzureRmAccount
    ```
 
 

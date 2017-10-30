@@ -60,7 +60,7 @@ Make sure that you switch PowerShell mode to use the Azure Resource Manager cmdl
 ### Step 1
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 ### Step 2

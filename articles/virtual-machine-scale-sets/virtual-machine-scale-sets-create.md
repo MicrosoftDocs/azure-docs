@@ -37,7 +37,7 @@ az login
 ```
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 ## Create a resource group

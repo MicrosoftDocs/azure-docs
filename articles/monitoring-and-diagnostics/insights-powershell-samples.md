@@ -35,7 +35,7 @@ The examples in the article illustrate how you can use Azure Monitor cmdlets. Yo
 First, log in to your Azure subscription.
 
 ```PowerShell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 This requires you to sign in. Once you do, your Account, TenantID and default Subscription ID are displayed. All the Azure cmdlets work in the context of your default subscription. To view the list of subscriptions you have access to, use the following command.

@@ -59,7 +59,7 @@ Make sure that you use the latest version of Azure PowerShell. For more informat
 1. Sign in to your Azure account.
 
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 
 2. Select the subscription to use for this scenario.
@@ -100,7 +100,7 @@ The following steps take you through the entire process of creating an applicati
 
 Make sure that you use the latest version of Azure PowerShell. For more information, see [Use Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md).
 
-1. Sign in to Azure by running `Login-AzureRmAccount`. You're prompted to authenticate with your credentials.
+1. Sign in to Azure by running `Connect-AzureRmAccount`. You're prompted to authenticate with your credentials.
 
 2. Check the subscriptions for the account by running `Get-AzureRmSubscription`.
 

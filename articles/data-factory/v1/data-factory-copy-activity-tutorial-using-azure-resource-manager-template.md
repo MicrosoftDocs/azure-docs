@@ -316,7 +316,7 @@ Create a JSON file named **ADFCopyTutorialARM-Parameters.json** that contains pa
    * Run the following command and enter the user name and password that you use to sign in to the Azure portal.
    
 	```PowerShell
-	Login-AzureRmAccount   	
+	Connect-AzureRmAccount   	
 	```  
    * Run the following command to view all the subscriptions for this account.
    

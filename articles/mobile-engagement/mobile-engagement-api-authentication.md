@@ -54,7 +54,7 @@ You should follow the set of instructions below to perform the setup using a Pow
         Import-Module Azure 
 3. Login to the Azure Resource Manager from PowerShell by running the following command and providing your user name and password for your Azure account: 
    
-        Login-AzureRmAccount
+        Connect-AzureRmAccount
 4. If you have multiple subscriptions then you should run the following:
    
     a. Get a list of all your subscriptions and copy the SubscriptionId of the subscription you want to use. Make sure this subscription is the same one which has the Mobile Engagement App which you are going to interact with using the APIs. 

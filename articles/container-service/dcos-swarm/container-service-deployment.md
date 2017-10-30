@@ -174,10 +174,10 @@ You can also deploy an Azure Container Service cluster template with PowerShell.
     Get-AzureRmSubscription
     ```
 
-3. If you need to sign in to Azure, use the `Login-AzureRMAccount` command:
+3. If you need to sign in to Azure, use the `Connect-AzureRmAccount` command:
 
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 
 4. As a best practice, use a new resource group for the deployment. To create a resource group, use the `New-AzureRmResourceGroup` command, and specify a resource group name and destination region:

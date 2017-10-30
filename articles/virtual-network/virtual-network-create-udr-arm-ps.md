@@ -38,7 +38,7 @@ This article provides steps to create a user-defined route through the Resource 
 You can either install and configure the latest version of the PowerShell [AzureRM](https://www.powershellgallery.com/packages/AzureRM/) module on your PC, or just click the **Try it** button in any of the scripts to execute the scripts in the Azure Cloud Shell. The Cloud Shell has the PowerShell AzureRM module installed.
  
 1. **Prerequisite**: Create a virtual network with two subnets by completing the steps in [Create a virtual network](#create-a-virtual-network).
-2. If running PowerShell from your computer, log in to Azure with your [Azure account](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account) using the `login-azurermaccount` command. If using the Cloud Shell, you're automatically logged in. The Cloud Shell may need to restart to change over from the Bash shell used when creating the pre-requisite virtual network.
+2. If running PowerShell from your computer, log in to Azure with your [Azure account](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account) using the `Connect-AzureRmAccount` command. If using the Cloud Shell, you're automatically logged in. The Cloud Shell may need to restart to change over from the Bash shell used when creating the pre-requisite virtual network.
 3. Set a few variables used throughout the steps:
 
     ```azurepowershell-interactive

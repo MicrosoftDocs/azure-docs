@@ -40,7 +40,7 @@ Create an Azure Active Directory application, create a service principal for the
 2. Run the following command and enter the user name and password that you use to sign in to the Azure portal.
 
 	```PowerShell
-	Login-AzureRmAccount
+	Connect-AzureRmAccount
 	```
 3. Run the following command to view all the subscriptions for this account.
 

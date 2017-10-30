@@ -203,7 +203,7 @@ In these steps, you configure the connection from the classic VNet to the Resour
 Open the PowerShell console with elevated rights and log in to your Azure account. The following cmdlet prompts you for the login credentials for your Azure Account. After logging in, your account settings are downloaded so that they are available to Azure PowerShell.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
    
 Get a list of your Azure subscriptions if you have more than one subscription.
