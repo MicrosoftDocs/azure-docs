@@ -20,6 +20,7 @@
 ### [Concurrent node tasks](batch-parallel-node-tasks.md)
 ### [Count tasks by state](batch-get-task-counts.md)
 ### [Create a pool with a custom image](batch-custom-images.md)
+### [Create a pool in a virtual network](batch-virtual-network.md)
 ### [Efficient list queries](batch-efficient-list-queries.md)
 ### [Job preparation and completion tasks](batch-job-prep-release.md)
 ### [Linux compute nodes](batch-linux-nodes.md)
@@ -46,7 +47,7 @@
 ## [Azure CLI](/cli/azure/batch)
 ## [.NET](/dotnet/api/microsoft.azure.batch)
 ## [Java](/java/api/com.microsoft.azure.batch)
-## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-batch/latest)
+## [Node.js](/nodejs/api/overview/azure/batch)
 ## [Python SDK](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.html)
 ## [REST](/rest/api/batchservice)
 ## [Batch diagnostic logs](batch-diagnostics.md)
@@ -62,6 +63,7 @@
 ## [Azure Batch compute node environment variables](batch-compute-node-environment-variables.md)
 
 # Related
+## [Batch AI](../batch-ai/overview.md?toc=%2fazure%2fbatch%2ftoc.json)
 ## [Batch Shipyard](https://github.com/Azure/batch-shipyard)
 ## [Data processing with Batch and Data Factory](../data-factory/v1/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json)
 ## [Batch and HPC solutions in the Azure cloud](batch-hpc-solutions.md)

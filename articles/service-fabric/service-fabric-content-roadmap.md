@@ -183,7 +183,7 @@ Out of the box, Service Fabric components report health on all entities in the c
 
 Service Fabric provides multiple ways to [view health reports](service-fabric-view-entities-aggregated-health.md) aggregated in the health store:
 * [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) or other visualization tools.
-* Health queries (through [PowerShell](/powershell/module/ServiceFabric/), the [C# FabricClient APIs](/api/system.fabric.fabricclient.healthclient) and [Java FabricClient APIs](/java/api/system.fabric._health_client), or [REST APIs](/rest/api/servicefabric)).
+* Health queries (through [PowerShell](/powershell/module/ServiceFabric/), the [C# FabricClient APIs](/dotnet/api/system.fabric.fabricclient.healthclient) and [Java FabricClient APIs](/java/api/system.fabric._health_client), or [REST APIs](/rest/api/servicefabric)).
 * General queries that return a list of entities that have health as one of the properties (through PowerShell, the API, or REST).
 
 The following Microsoft Virtual Academy video describes the Service Fabric health model and how it's used:

@@ -240,6 +240,7 @@
 
 ### Deploy or remove applications
 #### [Deploy applications on a local cluster](service-fabric-get-started-with-a-local-cluster.md)
+#### [Azure Resource Manager](service-fabric-application-arm-resource.md)
 #### [Azure PowerShell](service-fabric-deploy-remove-applications.md)
 #### [Service Fabric CLI](service-fabric-application-lifecycle-sfctl.md)
 #### [Visual Studio](service-fabric-publish-app-remote-cluster.md)
@@ -357,6 +358,7 @@
 ## [Java API](/java/api/overview/azure/servicefabric)
 ## [.NET](/dotnet/api/overview/azure/service-fabric?view=azure-dotnet)
 ## [REST](/rest/api/servicefabric)
+## [Service model XML schema](service-fabric-service-model-schema.md)
 
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)

@@ -44,7 +44,7 @@ Verify that you have met the following criteria before beginning your configurat
 
 ### <a name="values"></a>Example values
 
-The examples in this article use the following values. You can use these values to create a test environment, or refer to them to better understand the examples in this article.
+The examples in this article use the following values. You can use these values to create a test environment, or refer to them to better understand the examples in this article. For more information about VPN Gateway settings in general, see [About VPN Gateway Settings](vpn-gateway-about-vpn-gateway-settings.md).
 
 * **VNet Name:** TestVNet1
 * **Address Space:** 
@@ -127,3 +127,5 @@ For the steps to change a gateway SKU, see [Gateway SKUs](vpn-gateway-about-vpn-
 * For information about BGP, see the [BGP Overview](vpn-gateway-bgp-overview.md) and [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md).
 * For information about Forced Tunneling, see [About Forced Tunneling](vpn-gateway-forced-tunneling-rm.md).
 * For information about Highly Available Active-Active connections, see [Highly Available cross-premises and VNet-to-VNet connectivity](vpn-gateway-highlyavailable.md).
+* For information about creating a site-to-site VPN connection using Azure Resource Manager template, see [Create a Site-to-Site VPN Connection](https://azure.microsoft.com/resources/templates/101-site-to-site-vpn-create/).
+* For information about creating a vnet-to-vnet VPN connection using Azure Resource Manager template, see [Deploy HBase geo replication](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-geo/).

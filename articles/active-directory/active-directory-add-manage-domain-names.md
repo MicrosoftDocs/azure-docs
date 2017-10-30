@@ -3,7 +3,7 @@ title: Managing custom domain names in your Azure Active Directory | Microsoft D
 description: Management concepts and how-tos for managing a custom domain in Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: LizCasey
 manager: femila
 editor: ''
 
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2017
+ms.date: 10/10/2017
 ms.author: curtand
 
 ms.custom: oldportal;it-pro;
