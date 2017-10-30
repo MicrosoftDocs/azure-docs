@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/29/2017
+ms.date: 10/30/2017
 ms.author: terrylan
 
 ---
@@ -48,6 +48,11 @@ When automatic provisioning (previously named Log Collection) is enabled or when
 
 - Enable a Security Center solution on the workspace per the VM’s associated pricing tier in Security Center. For more information on pricing, see [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/).
 - For migrated subscriptions only, Security Center will also remove the previous Azure Monitoring Agent.
+
+> [!NOTE]
+> You can override the automatic installation of the Microsoft Monitoring Agent and configure your own workspace.  See [how to stop the automatic agent installation and workspace creation](#how-do-i-stop-the-automatic-agent-installation-and-workspace-creation) and [recommended steps when opting out of automatic provisioning](#what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning).
+>
+>
 
 The location of the workspace is based on the location of the VM. To learn more, see [Data Security](security-center-data-security.md). If a subscription contains VMs from multiple geolocations, then Security Center creates multiple workspaces. Multiple workspaces are created to maintain data privacy rules.
 
