@@ -71,6 +71,9 @@ Also, the following fixes were made:
 
 ### Known issues
 
+#### PowerShell
+- The release of the AzureRM 1.2.11 PowerShell module comes with a list of breaking changes. For information about upgrading from the 1.2.10 version, see the [migration guide](https://aka.ms/azspowershellmigration).
+ 
 #### Deployment
 - You must specify a time server by IP address during deployment.
 
@@ -81,13 +84,14 @@ Also, the following fixes were made:
 #### Portal
 - You may see a blank dashboard in the portal. To recover the dashboard, select the gear icon in the upper right corner of the portal, and then select **Restore default settings**.
 - When you view the properties of a resource group, the **Move** button is disabled. This behavior is expected. Moving resource groups between subscriptions is not currently supported.
-- For any workflow where you select a subscription, resource group, or location in a drop-down list, you may experience one or more of the following issues:
- 
+-  For any workflow where you select a subscription, resource group, or location in a drop-down list, you may experience one or more of the following issues:
+
    - You may see a blank row at the top of the list. You should still be able to select an item as expected.
    - If the list of items in the drop-down list is short, you may not be able to view any of the item names.
-   - If you have multiple user subscriptions, the resource group drop-down list may be empty.
+   - If you have multiple user subscriptions, the resource group drop-down list may be empty. 
 
    To work around the last two issues, you can type the name of the subscription or resource group (if you know it), or you can use PowerShell instead.
+
 - You will see an **Activation Required** warning alert that advises you to register your Azure Stack Development Kit. This behavior is expected.
 - In the **Activation Required** warning alert details, do not click the link to the **AzureBridge** component. If you do, the **Overview** blade will unsuccessfully try to load, and won't time out.
 - In the administrator portal, you may see an **Error fetching tenants** error in the **Notifications** area. You can safely ignore this error.
