@@ -83,7 +83,7 @@ To manage a Kubernetes cluster, use [kubectl](https://kubernetes.io/docs/user-gu
 If you're using Azure CloudShell, kubectl is already installed. If you want to install it locally, run the following command.
 
 
-```azurecli-interactive
+```azurecli
 az aks install-cli
 ```
 
