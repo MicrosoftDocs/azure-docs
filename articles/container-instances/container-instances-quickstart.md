@@ -111,7 +111,7 @@ All of the code for the container used in this quickstart is available [on GitHu
 > [!div class="nextstepaction"]
 > [Azure Container Instances tutorials](./container-instances-tutorial-prepare-app.md)
 
-To try out options for running containers in an orchestration system on Azure, see the [Service Fabric][service-fabric] or Azure Container Service (AKS)[container-service] quickstarts.  
+To try out options for running containers in an orchestration system on Azure, see the [Service Fabric][service-fabric] or [Azure Container Service (AKS)][container-service] quickstarts.  
 
 <!-- LINKS -->
 [app-github-repo]: https://github.com/Azure-Samples/aci-helloworld.git
@@ -121,8 +121,8 @@ To try out options for running containers in an orchestration system on Azure, s
 [az-container-list]: /cli/azure/container?view=azure-cli-latest#az_container_list
 [az-container-logs]: /cli/azure/container?view=azure-cli-latest#az_container_logs
 [az-container-show]: /cli/azure/container?view=azure-cli-latest#az_container_show
-[service-fabric]: ../service-fabric/service-fabric-quickstart-containers.ms
-[container-service]: ../aks/kubernetes-walkthrough.md.md
+[service-fabric]: ../service-fabric/service-fabric-quickstart-containers.md
+[container-service]: ../aks/kubernetes-walkthrough.md
 
 
 <!-- IMAGES -->
