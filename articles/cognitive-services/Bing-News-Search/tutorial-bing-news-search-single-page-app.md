@@ -87,6 +87,7 @@ The HTML `<body>` tag includes an `onload` attribute that calls `getSubscription
 ![[Bing News Search options]](media/cognitive-services/bing-news-search/news-search-categories.png)
 
 The HTML form includes elements with the following names:
+| | |
 |-|-|
 | `where` | A drop-down menu for selecting the market (location and language) used for the search. |
 | `query` | The text field to enter the search terms. |
@@ -286,7 +287,7 @@ function renderImageResults(items) {
 }
 ```
 The Bing Image Search API returns up to four different kinds of related results, each in its own top-level object. They are:
-
+| | |
 |-|-|
 |`pivotSuggestions`|Queries that replace a pivot word in original search with a different one. For example, if you search for "red flowers," a pivot word might be "red," and a pivot suggestion might be "yellow flowers."|
 |`queryExpansions`|Queries that narrow the original search by adding more terms. For example, if you search for "Microsoft Surface," a query expansion might be "Microsoft Surface Pro."|
@@ -308,6 +309,7 @@ searchItemRenderers = {
 }
 ```
 A renderer function can accept the following parameters:
+| | |
 |-|-|
 |`item`| The JavaScript object containing the item's properties, such as its URL and its description.|
 |`index`| The index of the result item within its collection.|
@@ -383,10 +385,6 @@ Finally, start the CORS proxy with the following command:
 Leave the command window open while you use the tutorial app; closing the window stops the proxy. In the expandable HTTP Headers section below the search results, you can now see the `X-MSEdge-ClientID` header (among others) and verify that it is the same for each request.
 
 ## Next steps
-
-> [!div class="nextstepaction"]
-> [Visual Search mobile app tutorial](computer-vision-web-search-tutorial.md)
-
 > [!div class="nextstepaction"]
 > [Bing News Search API reference](//docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference)
 ![kmsi.PNG](../../active-directory-b2c/images/kmsi.PNG)
