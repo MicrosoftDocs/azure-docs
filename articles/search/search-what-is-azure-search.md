@@ -63,13 +63,13 @@ After populating an index, you can [issue search queries](/rest/api/searchservic
 
 ## How Azure Search compares
 
-Customers often ask how [full text search in Azure Search](search-lucene-query-architecture.md) compares with [full text search](https://en.wikipedia.org/wiki/Full_text_search) in their database product. Our response is that Azure Search language capabilities are richer and more flexible, with support for Lucene queries, language analyzers from Lucene and Microsoft, custom analyzers for phonetic or other specialized inputs, and the ability to merge data from multiple sources in the search index. 
+Customers often ask how Azure Search compares with other search-related solutions. The following table summarizes key differences.
 
-Another inflection point is that a search solution addresses the entire search experience. For example, you might want custom scoring of results, faceted navigation for self-directed filtering, hit highlighting, and typeahead query suggestions. 
-
-Tools for monitoring and understanding query activity can also factor into a search solution decision. For example, Azure Search supports [search traffic analytics](search-traffic-analytics.md) for metrics on clickthrough rate, top searches, searches without clicks, and so on. In products where search is an add-on, you're unlikely to find these features.
-
-Resource utilization is another consideration. Natural language search is often computationally intensive. Some of our customers offloaded search operations to Azure Search as a way to preserve machine resources for transaction processing. By externalizing search, you can easily adjust scale to match query volume.
+| Compared to | Key differences |
+|--|--|
+|Bing or Google | Contrasting Azure Search with web search engine solutions:<br/><br/>Bing and Google offer search solutions for web content, crawling a web site and web content types (HTML, XML, and so forth) for search terms. <br/><br/>Azure Search is for searching private data and documents you own, stored in an index you create. Often, data originates from heterogeneous content types, pushed from database platforms, table storage, blobs (PDF and docs). Searchable data might also consist of geospatial coordinates, or include metadata associated with video or images. |
+|Database search | Contrasting Azure Search with full text search in SQL Server and other database platforms:<br/><br/>Azure Search indexes can store content from disparate data sources and offer specialized features such as language and custom analyzers. The [full text search engine](search-lucene-query-architecture.md) in Azure Search is built on Lucene, an industry standard in information retrieval. Resource utilization is another consideration. Natural language search is often computationally intensive. Offloading search operations to a dedicated solution preserves machine resources for transaction processing. By externalizing search, you can easily adjust scale to match query volume.|
+|Search products | On premises or cloud service solutions are dedicated search solutions with full spectrum funtionality. If you are considering a search product, its typically for control over indexing or query pipelines, access to richer query and filtering syntax, control over rank and relevance, or an enhanced search experience in the form of faceting, hit-highlighting, and typeahead queries. |
 
 Once you've decided to go with dedicated search, your next decision is between a cloud service or an on-premises server. A cloud service is the right choice if you want a [turn-key solution with minimal overhead and maintenance, and adjustable scale](#cloud-service-advantage).
 
