@@ -32,7 +32,7 @@ In this tutorial, you learn how to:
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
 
 
-## Prequisites
+## Prerequisites
 
 - **VMware**: You need at least one VMware VM located on an ESXi host or cluster running version 5.0 or higher. The host or cluster must be managed by a vCenter server running version 5.5 or 6.0.
 - **vCenter account**: You need a read-only account with administrator credentials for the vCenter server. Azure Migrate uses this account to discover VMs.
@@ -139,7 +139,7 @@ Here's an example assessment report. It includes information about whether VMs a
 
 ![Assessment report](./media/tutorial-assessment-vmware/assessment-report.png)
 
-#### Azure Readiness
+#### Azure readiness
 
 - For VMs that are ready, Azure Migrate recommends a VM size in Azure.
 - For VMs that aren't ready, Azure Migrate explains why.
