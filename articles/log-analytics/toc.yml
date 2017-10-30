@@ -11,6 +11,8 @@
     href: log-analytics-quick-collect-azurevm.md
   - name: Collect - Linux computer
     href: log-analytics-quick-collect-linux-computer.md
+  - name: Collect - Windows Computer
+    href: log-analytics-quick-collect-windows-computer.md
 - name: Tutorials
   items:
   - name: 1 - Analyze data
@@ -43,8 +45,10 @@
          href: log-analytics-log-search-faq.md
        - name: Log Search portals
          href: log-analytics-log-search-portals.md   
-- name: How To
+- name: How-to guides
   items:
+  - name: Create Log Analytics workspace
+    href: log-analytics-quick-create-workspace.md
   - name: Collect data
     items:
     - name: Connected sources
@@ -152,7 +156,7 @@
       href: ../operations-management-suite/operations-management-suite-solution-targeting.md?toc=%2fazure%2flog-analytics%2ftoc.json
     - name: Activity Log Analytics
       href: log-analytics-activity.md
-    - name: AD Assessment
+    - name: AD Health Check
       href: log-analytics-ad-assessment.md
     - name: AD Replication Status
       href: log-analytics-ad-replication-status.md
@@ -195,7 +199,7 @@
       href: log-analytics-network-performance-monitor.md
     - name: Office 365
       href: ../operations-management-suite/oms-solution-office-365.md?toc=%2fazure%2flog-analytics%2ftoc.json
-    - name: SCOM Assessment
+    - name: SCOM Health Check
       href: log-analytics-scom-assessment.md
     - name: Security Audit
       href: ../operations-management-suite/oms-security-getting-started.md?toc=%2fazure%2flog-analytics%2ftoc.json
@@ -206,7 +210,7 @@
         href: log-analytics-service-fabric-azure-resource-manager.md
     - name: Service Map
       href: ../operations-management-suite/operations-management-suite-service-map.md?toc=%2fazure%2flog-analytics%2ftoc.json
-    - name: SQL Assessment
+    - name: SQL Health Check
       href: log-analytics-sql-assessment.md
     - name: Surface Hub
       href: log-analytics-surface-hubs.md

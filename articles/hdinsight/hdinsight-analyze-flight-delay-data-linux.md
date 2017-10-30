@@ -14,7 +14,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 10/24/2017
 ms.author: larryfr
 
 ms.custom: H1Hack27Feb2017,hdinsightactive
@@ -162,9 +162,6 @@ Use the following steps to import data from the .csv file into a Hive table name
     ```
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -f flightdelays.hql
     ```
-
-   > [!NOTE]
-   > In this example, `localhost` is used because you're connected to the head node of the HDInsight cluster, which is where HiveServer2 is running.
 
 4. After the __flightdelays.hql__ script finishes running, use the following command to open an interactive Beeline session:
 

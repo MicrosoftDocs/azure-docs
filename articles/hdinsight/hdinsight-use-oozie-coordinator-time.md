@@ -658,7 +658,8 @@ Azure PowerShell currently doesn't provide any cmdlets for defining Oozie jobs. 
     # killOozieJob($oozieJobId)
     ```
 
-    Remove the # signs if you want to run the additional functions.
+Remove the # signs if you want to run the additional functions.
+
 9. If your HDinsight cluster is version 2.1, replace "https://$clusterName.azurehdinsight.net:443/oozie/v2/" with "https://$clusterName.azurehdinsight.net:443/oozie/v1/". HDInsight cluster version 2.1 does not supports version 2 of the web services.
 10. Click **Run Script** or press **F5** to run the script. The output will be similar to:
 
