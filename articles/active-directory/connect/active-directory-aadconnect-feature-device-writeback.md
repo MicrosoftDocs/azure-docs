@@ -27,6 +27,11 @@ The following documentation provides information on how to enable the device wri
 
 * Enable conditional access based on devices to ADFS (2012 R2 or higher) protected applications (relying party trusts).
 
+> [!NOTE]
+> Windows 10 hybrid joined devices get a computer certificate and a PRT, which is only supported by ADFS on Windows Server 2016 or newer. Windows 7 and 8.1 using the workplace join client 2.1 or newer is supported, as these get user certificates.
+> 
+> 
+
 This provides additional security and assurance that access to applications is granted only to trusted devices. For more information on conditional access, see [Managing Risk with Conditional Access](../active-directory-conditional-access.md) and [Setting up On-premises Conditional Access using Azure Active Directory Device Registration](../active-directory-conditional-access-automatic-device-registration-setup.md).
 
 > [!IMPORTANT]
