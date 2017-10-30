@@ -75,16 +75,18 @@ Also, the following fixes were made:
 - You must specify a time server by IP address during deployment.
 
 #### Infrastructure management
-- Do not enable infrastructure backup on the **Infrastructure backup**blade.
+- Do not enable infrastructure backup on the **Infrastructure backup** blade.
 - The baseboard management controller (BMC) IP address and model are not shown in the essential information of a scale unit node. This behavior is expected in Azure Stack Development Kit.
 
 #### Portal
 - You may see a blank dashboard in the portal. To recover the dashboard, select the gear icon in the upper right corner of the portal, and then select **Restore default settings**.
 - When you view the properties of a resource group, the **Move** button is disabled. This behavior is expected. Moving resource groups between subscriptions is not currently supported.
 - For any workflow where you select a subscription, resource group, or location in a drop-down list, you may experience one or more of the following issues:
-    - You may see a blank row at the top of the list. You should still be able to select an item as expected.
+ 
+   - You may see a blank row at the top of the list. You should still be able to select an item as expected.
    - If the list of items in the drop-down list is short, you may not be able to view any of the item names.
    - If you have multiple user subscriptions, the resource group drop-down list may be empty.
+
    To work around the last two issues, you can type the name of the subscription or resource group (if you know it), or you can use PowerShell instead.
 - You will see an **Activation Required** warning alert that advises you to register your Azure Stack Development Kit. This behavior is expected.
 - In the **Activation Required** warning alert details, do not click the link to the **AzureBridge** component. If you do, the **Overview** blade will unsuccessfully try to load, and won't time out.
@@ -104,7 +106,7 @@ Also, the following fixes were made:
 #### Network
 - You can't create a load balancer with a public IP address by using the portal. As a workaround, you can use PowerShell to create the load balancer.
 - You must create a network address translation (NAT) rule when you create a network load balancer. If you don't, you'll receive an error when you try to add a NAT rule after the load balancer is created.
-- Under **Networking**, if you click **Connection** to set up a VPN connection, **VNet-to-VNet** is listed as a possible connection type. Do not select this option. Currently, we support only the **Site-to-site (IPsec)** option.
+- Under **Networking**, if you click **Connection** to set up a VPN connection, **VNet-to-VNet** is listed as a possible connection type. Do not select this option. Currently, only the **Site-to-site (IPsec)** option is supported.
  
 #### SQL/MySQL 
 - It can take up to an hour before tenants can create databases in a new SQL or MySQL SKU. 
@@ -112,3 +114,7 @@ Also, the following fixes were made:
 
 #### App Service
 - A user must register the storage resource provider before they create their first Azure Function in the subscription.
+ 
+#### Usage and billing
+- Public IP address usage meter data shows the same *EventDateTime* value for each record instead of the *TimeDate* stamp that shows when the record was created. Currently, you can’t use this data to perform accurate accounting of public IP address usage.
+ 
