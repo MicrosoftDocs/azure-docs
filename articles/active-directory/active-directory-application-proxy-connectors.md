@@ -3,7 +3,7 @@ title: Classic portal Azure AD App Proxy connectors | Microsoft Docs
 description: Covers how to create and manage groups of connectors in Azure AD Application Proxy.
 services: active-directory
 documentationcenter: ''
-author: kgremban
+author: LizCasey
 manager: femila
 
 ms.assetid: b283796a-9679-4c79-b703-802bb850f65d
