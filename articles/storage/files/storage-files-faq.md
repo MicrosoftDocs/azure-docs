@@ -86,7 +86,7 @@ This article answers common questions about Azure Files features and functionali
     [!INCLUDE [storage-sync-files-change-detection](../../../includes/storage-sync-files-change-detection.md)]
 
 * <a id="afs-conflict-resolution"></a>**If the same file is changed on two servers at approximately the same time, what happens?**  
-    Azure File Sync uses a simple conflict-resolution strategy: we keep both changes to files that are changed on two servers at the same time. The most recently written change keeps the original file name. The older file has the '"source" machine and the conflict number appended to the name. It follows this taxonomy: 
+    Azure File Sync uses a simple conflict-resolution strategy: we keep both changes to files that are changed on two servers at the same time. The most recently written change keeps the original file name. The older file has the "source" machine and the conflict number appended to the name. It follows this taxonomy: 
    
     \<FileNameWithoutExtension\>-\<MachineName\>\[-#\].\<ext\>  
 
