@@ -63,7 +63,6 @@ Several common definitions are widely used in the Architecture and Technical Dep
     - **Type I Class:** S72, S72m, S144, S144m, S192, and S192m
     - **Type II Class:** S384, S384m, S384xm, S576, S768, and S960
 
-- 
 
 There are a variety of additional resources that have been published on the topic of deploying SAP workload on Microsoft Azure public cloud. It is highly recommended that anyone planning and executing a deployment of SAP HANA in Azure is experienced and aware of the principals of Azure IaaS, and the deployment of SAP workloads on Azure IaaS. The following resources provide more information and should be referenced before continuing:
 

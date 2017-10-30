@@ -20,7 +20,7 @@ ms.custom: H1Hack27Feb2017
 # High availability set up in SUSE using the STONITH
 This document provides the detailed step by step instructions to set up the High Availability on SUSE Operating system using the STONITH device.
 
-**Disclaimer:** *This guide is derived by testing the set up in the Microsoft HANA Large Instances environment, which successfully works. As Microsoft Service Management team for HANA Large Instances does not support Operating system, you may need to contact SUSE for any further troubleshooting or clarification on the operating system layer. Microsoft service management team does set up STONITH device and fully supportive and can be involved for troubleshooting for STONITH device issues.*
+**Disclaimer:** *This guide is derived by testing the set up in the Microsoft HANA Large Instances environment, which successfully works. As Microsoft Service Management team for HANA Large Instances does not support Operating system, you may need to contact SUSE for any further troubleshooting or clarification on the operating system layer. Microsoft service management team does set up STONITH device and fully supports and can be involved for troubleshooting for STONITH device issues.*
 ## Overview
 To set up the High availability using SUSE clustering, the following pre-requisites must meet.
 ### Pre-requisites
@@ -31,7 +31,7 @@ To set up the High availability using SUSE clustering, the following pre-requisi
 - NTP (time server) is set up
 - Read and understand the latest version of SUSE documentation on HA set up
 
-### set up details
+### Set up details
 - In this guide, we used the following set up:
 - Operating System: SLES 12 SP1 for SAP
 - HANA Large Instances: 2xS192 (four sockets, 2 TB)
