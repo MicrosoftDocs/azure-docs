@@ -41,15 +41,15 @@ up your app, see [Scale up an app in Azure](web-sites-scale.md).
 
 1. On the **Settings** blade of your app in the Azure Portal, click **Backups** to display the **Backups** blade. Then click **Restore** under the **Snapshot(Preview)** section.
    
-    ![](./media/web-sites-snapshots/1.png)
+    ![](./media/app-service-web-restore-snapshots/1.png)
 
 2. In the **Restore** blade, select the snapshot to restore.
    
-    ![](./media/web-sites-snapshots/2.png)
+    ![](./media/app-service-web-restore-snapshots/2.png)
    
 3. Specify the destination for the app restore in **Restore destination**.
    
-    ![](./media/web-sites-snapshots/3.png)
+    ![](./media/app-service-web-restore-snapshots/3.png)
    
    > [!WARNING]
    > If you choose **Overwrite**, all existing data in your app's current file system is erased and overwritten. Before you click **OK**,
@@ -61,6 +61,6 @@ up your app, see [Scale up an app in Azure](web-sites-scale.md).
 
 4. You can choose to restore your site configuration.
    
-    ![](./media/web-sites-snapshots/4.png)
+    ![](./media/app-service-web-restore-snapshots/4.png)
 
 5. Click **OK**.
