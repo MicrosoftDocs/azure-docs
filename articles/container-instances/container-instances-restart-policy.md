@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/08/2017
+ms.date: 11/04/2017
 ms.author: marsma
 ms.custom:
 ---
@@ -34,7 +34,7 @@ When you create a container in Azure Container Instances, you can specify one of
 | ---------------- | :---------- |
 | `Always` | Containers in the container group are always restarted. This is the **default** setting applied when no restart policy is specified at container creation. |
 | `Never` | Containers in the container group are never restarted. The containers run at most once. |
-| `OnFailure` | Containers in the container group are restarted only when a failure is detected in the container, or the process running in the container. The containers are run at least once. |
+| `OnFailure` | Containers in the container group are restarted only when the process executed in the container fails (when it terminates with a nonzero exit code). The containers are run at least once. |
 
 ## Specify a restart policy
 
@@ -64,7 +64,7 @@ New-AzureRmContainerGroup `
 
 ## Run to completion example
 
-To see the restart policy in action, create a container instance from the [mmacy/aci-wordcount](https://hub.docker.com/r/mmacy/aci-wordcount/) image, and specify the `OnFailure` restart policy.
+To see the restart policy in action, create a container instance from the [microsoft/aci-wordcount](https://hub.docker.com/r/microsoft/aci-wordcount/) image, and specify the `OnFailure` restart policy.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -72,7 +72,7 @@ To see the restart policy in action, create a container instance from the [mmacy
 az container create \
     --resource-group myResourceGroup \
     --name mycontainer \
-    --image mmacy/aci-wordcount:v2 \
+    --image microsoft/aci-wordcount:v2 \
     --restart-policy OnFailure
 ```
 
@@ -82,7 +82,7 @@ az container create \
 New-AzureRmContainerGroup `
     -ResourceGroupName myResourceGroup `
     -Name mycontainer `
-    -Image mmacy/aci-wordcount:v2 `
+    -Image microsoft/aci-wordcount:v2 `
     -RestartPolicy OnFailure
 ```
 
@@ -110,7 +110,7 @@ For example, you can modify the behavior of the script run by the container in t
 az container create \
     --resource-group myResourceGroup \
     --name mycontainer \
-    --image mmacy/aci-wordcount:v2 \
+    --image microsoft/aci-wordcount:v2 \
     --restart-policy OnFailure \
     --environment-variables NumWords=5 MinLength=8
 ```
@@ -121,7 +121,7 @@ az container create \
 New-AzureRmContainerGroup `
     -ResourceGroupName myResourceGroup `
     -Name mycontainer `
-    -Image mmacy/aci-wordcount:v2 `
+    -Image microsoft/aci-wordcount:v2 `
     -RestartPolicy OnFailure `
     -EnvironmentVariable @{"NumWords"="5";"MinLength"="8"}
 ```
@@ -142,7 +142,7 @@ For example, to analyze *Romeo and Juliet*:
 az container create \
     --resource-group myResourceGroup \
     --name mycontainer \
-    --image mmacy/aci-wordcount:v2 \
+    --image microsoft/aci-wordcount:v2 \
     --restart-policy OnFailure \
     --command-line wordcount.py http://shakespeare.mit.edu/romeo_juliet/full.html
 ```
@@ -153,7 +153,7 @@ az container create \
 New-AzureRmContainerGroup `
     -ResourceGroupName myResourceGroup `
     -Name mycontainer `
-    -Image mmacy/aci-wordcount:v2 `
+    -Image microsoft/aci-wordcount:v2 `
     -RestartPolicy OnFailure `
     -Command "wordcount.py http://shakespeare.mit.edu/romeo_juliet/full.html"
 ```
