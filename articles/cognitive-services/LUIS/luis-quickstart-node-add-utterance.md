@@ -37,7 +37,7 @@ You can find your app ID and version number by logging into https://www.luis.ai 
 
 3. Set the `LUIS_SUBSCRIPTION_KEY` environment variable to your Cognitive Services programmatic key.
 
-4. Save the JSON description of the utterance you want to add. The JSON has the following format:
+4. Create a file that contains the JSON description of the utterance you want to add. The JSON has the following format:
 
    ```json
 [
