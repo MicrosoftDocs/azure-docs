@@ -55,7 +55,7 @@ The following table provides a summary of known issues for the StorSimple Virtua
 
 | No. | Feature | Issue | Workaround/comments |
 | --- | --- | --- | --- |
-| **1.** |Updates |The virtual devices created in the preview release cannot be updated to a supported General Availability version. |These virtual devices must be failed over for the General Availability release using a disaster recovery (DR) workflow. |
+| **1.** |Updates |The virtual arrays created in the preview release cannot be updated to a supported General Availability version. |These virtual arrays must be failed over for the General Availability release using a disaster recovery (DR) workflow. |
 | **2.** |Provisioned data disk |Once you have provisioned a data disk of a certain specified size and created the corresponding StorSimple Virtual Array, you must not expand or shrink the data disk. Attempting to do results in a loss of all the data in the local tiers of the device. | |
 | **3.** |Group policy |When a device is domain-joined, applying a group policy can adversely affect the device operation. |Ensure that your virtual array is in its own organizational unit (OU) for Active Directory and no group policy objects (GPO) are applied to it. |
 | **4.** |Local web UI |If enhanced security features are enabled in Internet Explorer (IE ESC), some local web UI pages such as Troubleshooting or Maintenance may not work properly. Buttons on these pages may also not work. |Turn off enhanced security features in Internet Explorer. |
