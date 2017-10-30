@@ -54,7 +54,7 @@ az container create \
 
 To see the restart policy in action, create a container instance from the [microsoft/aci-wordcount](https://hub.docker.com/r/microsoft/aci-wordcount/) image, and specify the `OnFailure` restart policy. This example container runs a Python script that, by default, analyzes the text of Shakespeare's [Hamlet](http://shakespeare.mit.edu/hamlet/full.html), writes the 10 most common words to STDOUT, and then exits.
 
-Run the example container with the following `az container create` command:
+Run the example container with the following [az container create][az-container-create] command:
 
 ```azurecli-interactive
 az container create \
@@ -76,13 +76,13 @@ Example output:
 "Terminated"
 ```
 
-Once the example container's status shows *Terminated*, you can view the results of the its task by viewing the container logs. Run the [az container logs][az-container-logs] command to view the script's output:
+Once the example container's status shows *Terminated*, you can see its task output by viewing the container logs. Run the [az container logs][az-container-logs] command to view the script's output:
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer
 ```
 
-Example output:
+Output:
 
 ```bash
 [('the', 990),
@@ -111,7 +111,7 @@ For example, you can modify the behavior of the script in the example container 
 
 *NumWords*: The number of words sent to STDOUT.
 
-*MinLength*: The minimum number of characters in a word for it to be counted. A higher number ignores common words like "an" and "the."
+*MinLength*: The minimum number of characters in a word for it to be counted. A higher number ignores common words like "of" and "the."
 
 ```azurecli-interactive
 az container create \
