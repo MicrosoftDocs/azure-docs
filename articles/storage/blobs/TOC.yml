@@ -20,6 +20,8 @@
     href: storage-quickstart-blobs-dotnet.md
   - name: Work with blobs - Python 
     href: storage-quickstart-blobs-python.md
+  - name: Work with blobs - Node.JS
+    href: storage-quickstart-blobs-nodejs.md
 - name: Tutorials
   items:
   - name: Upload and process an image
