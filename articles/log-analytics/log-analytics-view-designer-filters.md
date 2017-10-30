@@ -18,7 +18,7 @@ ms.author: bwren
 
 ---
 # Filters in Log Analytics views
-A **filter** in a [Log Analytics view](log-analytics-view-designer.md) allows users to filter the data in the view by the value of a particular property without modifying the view itself.  For example, you could allow users of your view to filter the view for data only from a particular computer or set of computers.  You can create multiple filters on a single view to allow users to filter by multiple properties.
+A **filter** in a [Log Analytics view](log-analytics-view-designer.md) allows users to filter the data in the view by the value of a particular property without modifying the view itself.  For example, you could allow users of your view to filter the view for data only from a particular computer or set of computers.  You can create multiple filters on a single view to allow users to filter by multiple properties.  This article describes how to use a filter and add one to a custom view.
 
 ## Using a filter
 Click **Filter** to open the filter pane for a view.  This allows you to select a time range and values for any filters that are available for the view.  When you select a filter, it displays a list of available values.  You can either select one or more values or type them in. The view is automatically updated to filter on the values you specify. 
