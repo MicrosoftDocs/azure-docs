@@ -25,9 +25,9 @@ This article describes two ways to take over a DNS domain name in an unmanaged d
 ## Decide how you want to take over an unmanaged directory
 During the process of admin takeover, you can prove ownership as described in [Add a custom domain name to Azure AD](add-custom-domain.md). The next sections explain the admin experience in more detail, but here's a summary:
 
-* When you perform a so-called ["internal" admin takeover](#internal-admin-takeover) of an unmanaged Azure directory, you are added as the global administrator of the unmanaged directory. No users, domains, or service plans are migrated to any other directory you administer.
+* When you perform an ["internal" admin takeover](#internal-admin-takeover) of an unmanaged Azure directory, you are added as the global administrator of the unmanaged directory. No users, domains, or service plans are migrated to any other directory you administer.
 
-* When you perform a so-called ["external" admin takeover](#external-admin-takeover) of an unmanaged Azure directory, you add the DNS domain name of the unmanaged directory to your managed Azure directory. When you add the domain name, a mapping of users to resources is created in your managed Azure directory so that users can continue to access services without interruption. 
+* When you perform an ["external" admin takeover](#external-admin-takeover) of an unmanaged Azure directory, you add the DNS domain name of the unmanaged directory to your managed Azure directory. When you add the domain name, a mapping of users to resources is created in your managed Azure directory so that users can continue to access services without interruption. 
 
 ## Internal admin takeover
 
@@ -41,15 +41,15 @@ Some products that include SharePoint and OneDrive, such as Office 365, do not s
 
 4. Sign in to the [Office 365 Admin center](https://portal.office.com/adminportal/Home) with the Power BI user account. You receive a message that instructs you to **Become the Admin** of the domain name that was already verified in the unmanaged tenant. select **Yes, I want to be the admin**.
   
-  ![first screenshot for Become the Admin](../media/domains-admin-takeover/become-admin-firstimage1.png)
+  ![first screenshot for Become the Admin](./media/domains-admin-takeover/become-admin-first.png)
   
 5. Add the TXT record to prove that you own the domain name **fourthcoffee.xyz** at your domain name registrar. In this example, it is GoDaddy.com.
   
-  ![Add a txt record for the domain name](../media/domains-admin-takeover/become-admin-txt-record.png)
+  ![Add a txt record for the domain name](./media/domains-admin-takeover/become-admin-txt-record.png)
 
 When the DNS TXT records are verified at your domain name registrar, you can manage the Azure AD tenant.
 
-![Architectural perspective of what happens during internal takeover](../media/domains-admin-takeover/architecture.png)
+![Architectural perspective of what happens during internal takeover](./media/domains-admin-takeover/architecture.png)
 
 Once you have completed the above steps and are now the global administrator of the Fourth Coffee tenant in Office 365. To integrate the domain name with your other Azure services, you can remove it from Office 365 and add it to a different managed tenant in Azure.
 
@@ -60,7 +60,7 @@ Once you have completed the above steps and are now the global administrator of 
 3. Ensure that the new user account has global admin privileges for the Azure AD tenant.
 4. Open ***Domains** tab in the Office 365 Admin center, select the domain name and select **Remove**. 
   
-  ![remove the domain name from Office 365](../media/domains-admin-takeover/remove-domain-from-o365.png)
+  ![remove the domain name from Office 365](./media/domains-admin-takeover/remove-domain-from-o365.png)
   
 5. If you have any users or groups in Office 365 that reference the removed domain name, they must be renamed to the .onmicrosoft.com domain. If you force delete the domain name, all users are automatically renamed, in this example to *user@fourthcoffeexyz.onmicrosoft.com*.
   
@@ -68,7 +68,7 @@ Once you have completed the above steps and are now the global administrator of 
   
 7. Select **Domain names**”, then add the domain name. You'll have to enter the DNS TXT records to verify ownership of the domain name. 
   
-  ![domain added to Azure AD](../media/domains-admin-takeover/add-domain-to-azure-ad.png)
+  ![domain added to Azure AD](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
   
 > [!NOTE]
 > Any users of PowerBi BI or Rights Management who have licenses assigned in the Office 365 tenant must save their dashboards if the domain name is removed. They must sign in with a user name like *user@fourthcoffeexyz.onmicrosoft.com* rather than *user@fourthcoffee.xyz*.
@@ -76,28 +76,35 @@ Once you have completed the above steps and are now the global administrator of 
 ## External admin takeover
 
 If you already manage a tenant with Azure services or Office 365, you are can't add a custom domain name if it is already verified in an unmanaged Azure AD tenant.
-You can take it over with an external admin takeover. When you verify ownership of the domainname, Azure AD removes the domain name from the unmanaged tenant and moves it to your existing tenant. 
+However, you can use Azure AD to take it over with an external admin takeover, the general procedure for which is in [Add a custom domain to Azure AD](add-custom-domain.md)
 
+When you verify ownership of the domain name, Azure AD removes the domain name from the unmanaged tenant and moves it to your existing tenant. External admin takeover of an unmanaged directory follows the same DNS TXT validation process as internal admin takeover. The difference is that the following are also moved over with the domain name:
 
+- Users
+- Subscriptions
+- License assignments
+ 
+The **Force** option for domain name external admin takeover is supported for only two services, Power BI and Azure RMS.
 
+### Support for external admin takeover
+External admin takeover is supported for the following subscriptions:
 
+- Power BI
+- Azure Rights Management Service (RMS)
+- Exchange Online
 
+The supported service plans include:
 
+- Power BI Free
+- Power BI Pro
+- PowerApps Free
+- PowerFlow Free
+- Azure Rights Management Service Basic (RMS)
+- Azure Rights Management Service Enterprise (RMS)
+- Microsoft Stream
+- Dynamics 365 free trial
 
-
-If you don't want to manage two separate directories, merge the unmanaged directory for contoso.co.uk into your existing IT managed directory for contoso.com.
-
-Merging an unmanaged directory follows the same DNS validation process as only taking it over as admin. The difference is users and services are remapped to the existing managed directory.
-
-#### External admin takeover support by service
-Currently the following services support external admin takeover:
-
-* RMS
-* PowerBI
-
-The following do not require additional admin action to migrate user data after an external admin takeover:
-
-* SharePoint/OneDrive
+Exernal admin takeover is not supported for any service that has service plans that include SharePoint, OneDrive, or Skype For Business, for example through an Office free subscription or the Office Basic SKU.
 
 
 ### Microsoft PowerShell
