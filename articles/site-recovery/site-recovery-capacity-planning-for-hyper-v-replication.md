@@ -1,5 +1,5 @@
 ---
-title: Hyper-V capacity planner tool for Site Recovery | Microsoft Docs
+title: Hyper-V capacity planner tool for Azure Site Recovery | Microsoft Docs
 description: This article describes how to run the Hyper-V capacity planner tool for Azure Site Recovery
 services: site-recovery
 documentationcenter: na
