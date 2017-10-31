@@ -29,6 +29,9 @@ In this tutorial, you learn how to:
 To complete this tutorial, you need:
 
 - SQL Server 2016 Express edition.
+    - TCP/IP protocol is disabled by default with SQL Server Express installation. Enable it by following the [instructions in this article](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
+    - You need to [configure Windows Firewall for database engine access](
+    https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 - An Azure SQL Database instance. You can create an Azure SQL Database instance by following the article [Create an Azure SQL database in the Azure portal](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
 - [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) v3.3 or later.
 - Azure Database Migration Service requires a VNET created by using the Azure Resource Manager deployment model, which provides site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) or [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
