@@ -56,12 +56,9 @@ For those new to Azure we recommend using the Data Science Virtual Machines whic
 
 The Data Science Virtual Machine(DSVM) has many popular data science and deep learning tools already installed and configured. A list of tools available is located [here](../machine-learning/data-science-virtual-machine/overview.md).
 
->[!Note]
->When creating and using Data Science VMs do so through the [Azure Government Portal](https://portal.azure.us). 
->
->
-
 ### Create a Data Science VM
+In order to create the Data Science VMs navigate to the [Azure Government Portal](https://portal.azure.us) and click "New" to access the Azure Government Marketplace.
+
 - [Provision a Windows Data Science VM](../machine-learning/data-science-virtual-machine/provision-vm.md)
 - [Provision a Linux Data Science VM](../machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro.md)
 
