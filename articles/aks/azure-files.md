@@ -26,31 +26,23 @@ Applications often need to access and persist data in an external data volume. A
 
 For more information on Kubernetes volumes, see [Kubernetes volumes][kubernetes-volumes].
 
-## Access modes 
-
-Azure files can be configured with three access modes. 
-
-* ReadWriteOnce - read-write for a single node
-* ReadOnlyMany - read-only for many nodes
-* ReadWriteMany - read-write for many nodes
-
 ## Creating a file share
 
 An existing Azure files instance can be used with Azure Container Service. If you need to create one, use the following set of commands.
 
-If needed, create a resource group for the Azure File share using the [az group create][az-group-create] command. The resource group of the storage account and the Kubernetes cluster must be located in the same region.
+Create a resource group for the Azure File share using the [az group create][az-group-create] command. The resource group of the storage account and the Kubernetes cluster must be located in the same region.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westus2
 ```
 
-Use the [az storage account create][az-storage-create] command to create an Azure Storage account. The storage account name must be unique. Update this command with a unique value.
+Use the [az storage account create][az-storage-create] command to create an Azure Storage account. The storage account name must be unique. Update the value of the `--name` argument with a unique value.
 
 ```azurecli-interactive
 az storage account create --name mystorageaccount --resource-group myResourceGroup --sku Standard_LRS
 ```
 
-Use the [az storage account keys list ][az-storage-key-list] to return the storage key. This value is used to create the Azure Files share.
+Use the [az storage account keys list ][az-storage-key-list] command to return the storage key. Take note of one of the key values, this is in subsequent steps. Update the value of the `--account-name` argument with the unique storage account name.
 
 ```azurecli-interactive
 az storage account keys list --account-name mystorageaccount --resource-group myResourceGroup --output table
@@ -59,7 +51,15 @@ az storage account keys list --account-name mystorageaccount --resource-group my
 Use the [az storage share create][az-storage-share-create] command to create the Azure File share. Update the `--account-key` value with the value collected in the last step.
 
 ```azurecli-interactive
-z storage share create --name myfileshare --account-name mystorageaccount --account-key <key>
+az storage share create --name myfileshare --account-name mystorageaccount --account-key <key>
+```
+
+Output:
+
+```
+{
+  "created": true
+}
 ```
 
 ## Create Kubernetes Secret
