@@ -20,6 +20,9 @@ ms.author: yujhongmicrosoft
 
 # Getting Started with GPUs on Azure Government
 This page will help you get started using GPUs on Azure Government. 
+## Prerequisites
+To get started with GPUs and Data Science VMs on Azure Government, you must have an active Azure Government subscription.
+If you don't have an Azure Government subscription, create a [free account](https://azure.microsoft.com/overview/clouds/government/) before you begin.
 
 ## Variations
 NC-Virtual Machines powered by NVIDIA Tesla® K80 GPUs are available in the following regions:
@@ -52,6 +55,11 @@ For those new to Azure we recommend using the Data Science Virtual Machines whic
 > 
 
 The Data Science Virtual Machine(DSVM) has many popular data science and deep learning tools already installed and configured. A list of tools available is located [here](../machine-learning/data-science-virtual-machine/overview.md).
+
+>[!Note]
+>When creating and using Data Science VMs do so through the [Azure Government Portal](https://portal.azure.us). 
+>
+>
 
 ### Create a Data Science VM
 - [Provision a Windows Data Science VM](../machine-learning/data-science-virtual-machine/provision-vm.md)
