@@ -24,10 +24,9 @@ This article summarizes what's supported when you use the [Azure Site Recovery](
 
 ## Supported scenarios
 
-**Deployment** | **Details 
+**Deployment** | **Details** 
 --- | ---
-**VMware to VMware** | Disaster recovery of on-premises VMware VMs to secondary VMware site.<br/><br/> Download the [InMage Scout user guide]
-(http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage_Scout_Standard_User_Guide_8.0.1.pdf)
+**VMware to VMware** | Disaster recovery of on-premises VMware VMs to secondary VMware site.<br/><br/> Download the [InMage Scout user guide](http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage_Scout_Standard_User_Guide_8.0.1.pdf)
 **Hyper-V to Hyper-V** | Disaster recovery of on-premises Hyper-V VMs in VMM clouds to a secondary VMM cloud.<br></br> Not supported without VMM.
 
 
@@ -54,8 +53,8 @@ The following table summarizes operating system support for machines replicated 
 
 Only Linux machines with the following storage can be replicated:
 
-- File system (EXT3, ETX4, ReiserFS, XFS)
-- Multipath software-device Mapper
+- File system (EXT3, ETX4, ReiserFS, XFS).
+- Multipath software-device Mapper.
 - Volume manager (LVM2).
 - Physical servers with HP CCISS controller storage are not supported.
 - The ReiserFS file system is supported only on SUSE Linux Enterprise Server 11 SP3.
