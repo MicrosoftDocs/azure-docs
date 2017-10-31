@@ -3,7 +3,7 @@ title: Authorize developer accounts using OAuth 2.0 in Azure API Management | Mi
 description: Learn how to authorize users using OAuth 2.0 in API Management.
 services: api-management
 documentationcenter: ''
-author: steved0x
+author: vladvino
 manager: erikre
 editor: ''
 

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 ms.date: 09/19/2017
-ms.author: tamram
+ms.author: renash
 ---
 
 # Develop for Azure Files with Java

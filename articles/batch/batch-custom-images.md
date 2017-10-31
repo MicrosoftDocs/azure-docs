@@ -2,108 +2,94 @@
 title: Provision Azure Batch pools from custom images | Microsoft Docs
 description: You can create a Batch pool from a custom image to provision compute nodes that contain the software and data that you need for your application. Custom images are an efficient way to configure compute nodes to run your Batch workloads.
 services: batch
-author: tamram
+author: v-dotren
 manager: timlt
 
 ms.service: batch
 ms.topic: article
-ms.date: 08/07/2017
-ms.author: tamram
+ms.date: 10/11/2017
+ms.author: v-dotren
 ---
 
-# Use a custom image to create a pool of virtual machines
+# Use a managed custom image to create a pool of virtual machines 
 
-When you create a pool of virtual machines in Azure Batch, you specify a virtual machine (VM) image that provides the operating system for each compute node in the pool. You can create a pool of virtual machines either by using an Azure Marketplace image, or by providing a custom VHD image that you have prepared. When you provide a custom image, you have control over how the operating system is configured at the time that each compute node is provisioned. Your custom image can also include applications and reference data that are available on the compute node as soon as it is provisioned.
+When you create an Azure Batch pool using the Virtual Machine Configuration, you specify a VM image that provides the operating system for each compute node in the pool. You can create a pool of virtual machines either with an Azure Marketplace image, or with a custom image (a VM image you have created and configured yourself). The custom image must be a *managed image* resource in the same Azure subscription and region as the Batch account.
 
-Using a custom image can save you time in getting your pool's compute nodes ready to run your Batch workload. While you can always use an Azure Marketplace image and install software on each compute node after it has been provisioned, this approach may be less efficient than using a custom image. 
+## Why use a custom image?
+When you provide a custom image, you have control over the operating system configuration and the type of operating system and data disks to be used. Your custom image can include applications and reference data that become available on all the Batch pool nodes as soon as they are provisioned.
 
-Some reasons to use a custom image that is configured for your scenario include needing to:
+Using a custom image saves time in preparing your pool's compute nodes to run your Batch workload. While you can use an Azure Marketplace image and install software on each compute node after provisioning, using a custom image might be more efficient.
 
-- **Configure the operating system (OS)** Any special configuration of the operating system can be performed on the custom image. 
-- **Install large applications.** Installing applications on a custom image is more efficient than installing them on each compute node after it is provisioned.
-- **Copy significant amounts of data.** If the data is copied to the custom image, it only needs to be copied once, rather than to each compute node, saving time and bandwidth.
-- **Reboot the VM during the setup process.** Rebooting the VM can be a time-consuming process, especially if you have a number of compute nodes.
+Using a custom image configured for your scenario can provide several advantages:
+
+- **Configure the operating system (OS)**. You can perform special configuration of the operating system on the custom image's operating system disk. 
+- **Pre-install applications.** You can create a custom image with pre-installed applications on the OS disk, which is more efficient and less error-prone than installing applications after provisioning the compute nodes using StartTask.
+- **Save reboot time on VMs.** Application installation typically requires rebooting the VM, which is time-consuming. You can save reboot time by pre-installing applications. 
+- **Copy very large amounts of data once.** You can make static data part of the managed custom image by copying it to a managed image's data disks. This only needs to be done once and makes data available to each node of the pool.
+- **Choice of disk types.** You can create a managed custom image from a VHD, from a managed disk of an Azure VM, a snapshot of these disks, or your own Linux or Windows installation that you have configured. You have the choice of using premium storage for the OS disk and the data disk.
+- **Grow pools to any size.** When you use a managed custom image to create a pool, the pool can grow to any size you request. You do not need to make copies of image blob VHDs to accommodate the number of VMs. 
+
 
 ## Prerequisites
 
-- **A Batch account created with the User Subscription pool allocation mode.** To use a custom image to provision Virtual Machine pools, create your Batch account with the User Subscription [pool allocation mode](batch-api-basics.md#pool-allocation-mode). With this mode, Batch pools are allocated into the subscription where the account resides. See the [Account](batch-api-basics.md#account) section in [Develop large-scale parallel compute solutions with Batch](batch-api-basics.md) for information on setting the pool allocation mode when you create a Batch account.
+- **A managed image resource**. To create a pool of virtual machines using a custom image, you need to create a managed image resource in the same Azure subscription and region as the Batch account. For options to prepare a managed image, see the following section.
+- **Azure Active Directory (AAD) authentication**. The Batch client API must use AAD authentication. Azure Batch support for AAD is documented in [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md).
 
-- **An Azure Storage account.** To create a pool of virtual machines using a custom image, you need a standard, general-purpose Azure Storage account in the same subscription and region. If you create a custom image from an Azure VM, then you will copy the image to the storage account where the VM's OS disk resides, and you won't need to create a separate storage account. 
     
 ## Prepare a custom image
+You can prepare a managed image from a VHD, from an Azure VM with managed disks, or from a VM snapshot. 
 
-To prepare a custom image for use with Batch, you must generalize an existing installation of Linux or Windows. Generalizing an operating system installation removes machine-specific information. The result is an image that can be installed on other computers or VMs.  
+When preparing your image, keep in mind the following points:
 
-> [!IMPORTANT]
-> Batch does not currently support using Azure managed images to provision a pool. The custom image you use to provision a pool must be stored in Azure Storage. 
->
-> When preparing your custom image, keep in mind the following points:
-> - Ensure that the base OS image you use to provision your Batch pools does not have any pre-installed Azure extensions, such as the Custom Script extension. If the image contains a pre-installed extension, Azure may encounter problems deploying the VM.
-> - Ensure that the base OS image you provide uses the default temp drive, as the Batch node agent currently expects the default temp drive.
->
->
+* Ensure that the base OS image you use to provision your Batch pools does not have any pre-installed Azure extensions, such as the Custom Script extension. If the image contains a pre-installed extension, Azure may encounter problems deploying the VM.
+* Ensure that the base OS image you provide uses the default temp drive. The Batch node agent currently expects the default temp drive.
+* The managed image resource referenced by a Batch Pool cannot be deleted for the lifetime of the pool. If the managed image resource is deleted, then the pool cannot grow any further. 
 
-You can use any existing prepared Windows or Linux image as a custom image. For example, if you wish to use a local image, then upload the image to an Azure Storage account that is in the same subscription and region as your Batch account using [AzCopy](../storage/storage-use-azcopy.md) or another upload tool.
+### To create a managed image
+You can use any existing prepared Windows or Linux operating system disk to create a managed image. For example, if you wish to use a local image, then upload the local disk to an Azure Storage account that is in the same subscription and region as your Batch account using AzCopy or another upload tool. For detailed steps to upload a VHD and create a managed image, see the guidance for [Windows](../virtual-machines/windows/upload-generalized-managed.md) or [Linux](../virtual-machines/linux/upload-vhd.md) VMs.
 
-You can also prepare a custom image from a new or existing Azure VM. If you are creating a new VM, you can use an Azure Marketplace image as the base image for your custom image and then customize it. To customize the base image, create an Azure VM and add your applications or data to it. Then generalize the VM to serve as your custom image and save it to Azure Storage. 
+You can also prepare a managed image from a new or existing Azure VM, or VM snapshot. 
 
-To prepare a custom image from an Azure VM, follow these steps:
+* If you are creating a new VM, you can use an Azure Marketplace image as the base image for your managed image and then customize it. 
 
-1. Create an **unmanaged** Azure VM from an Azure Marketplace image. Azure Marketplace includes images for both [Windows](../virtual-machines/windows/quick-create-portal.md) and [Linux](../virtual-machines/linux/quick-create-portal.md).
-    
-    On step 3 of the VM creation process, make sure that you select **No** for **Storage: Use Managed Disks** option. Also take note of the storage account name for the VM's OS disk, as this storage account is also where Azure will save your custom image:
+* If you plan to capture the image using the portal, ensure that the VM is created with a managed disk. This is the default storage setting when you create a VM.
 
-    ![Create an unmanaged VM and note the storage account name](media/batch-custom-images/vm-create-storage.png)
- 
-2. Complete the process of creating your VM, and wait for it to be allocated by Azure. Here's an image that shows a VM in the Azure portal in the running state:
+* Once the VM is running, connect to it via RDP (for Windows) or SSH (for Linux). Install any necessary software or copy desired data, and then generalize the VM.  
 
-    ![Create a VM from a marketplace image](media/batch-custom-images/vm-status-running.png)
+For steps to generalize an Azure VM and create a managed image, see the guidance for [Windows](../virtual-machines/windows/capture-image-resource.md) or [Linux](../virtual-machines/linux/capture-image.md) VMs.
 
-3. Once the VM is running, connect to it via RDP (for Windows) or SSH (for Linux). Install any necessary software or copy desired data, and then generalize the VM. Follow the steps described in [Generalize the VM](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sa-copy-generalized.md#generalize-the-vm). 
-   
-4. Follow the steps to [Log in to Azure PowerShell](../virtual-machines/windows/sa-copy-generalized.md#log-in-to-azure-powershell). To install Azure PowerShell, see [Overview of Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.2.0). 
+Depending on how you plan to create a Batch pool with the image, you need the following identifier for the image:
 
-5. Next, follow the steps to [Deallocate the VM and set the state to generalized](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sa-copy-generalized#deallocate-the-vm-and-set-the-state-to-generalized). 
+* If you plan to create a pool with the image using the Batch APIs, the **resource ID** of the image, which is of the form `/subscriptions/xxxx-xxxxxx-xxxxx-xxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myImage`. 
+* If you plan to use the portal, the **name** of the image. 
 
-    In the Azure portal, notice that the VM is deallocated:
 
-    ![Ensure that the VM is deallocated](media/batch-custom-images/vm-status-deallocated.png)
 
-6.  Create and save the VM image to Azure Storage using the [Save-AzureRmVMImage](https://docs.microsoft.com/powershell/module/azurerm.compute/save-azurermvmimage) PowerShell cmdlet. Follow the instructions described in [Create the image](../virtual-machines/windows/sa-copy-generalized.md#create-the-image).
-    
-    The VM image is saved to the Azure Storage account created when the VM was created, as shown in step 1 of this procedure. the Save-AzureRmVMImage cmdlet saves the image to the **system** container in that storage account. The `-DestinationContainername` parameter names a virtual directory within the **system** container. The `-VHDNamePrefix` parameter specifies a prefix for the blob name. This prefix is prepended to the blob name with a hyphen. 
 
-    For example, suppose you call Save-AzureRmVMImage with the following parameters:  
-
-        Save-AzureRmVMImage -ResourceGroupName sample-resource-group -Name vm-custom-image -DestinationContainerName batchimages -VHDNamePrefix custom -Path C:\Temp\Images\vm-custom-image.json
-
-    The resulting image is saved to the location and blob name shown here:
-
-    ![Location of saved VHD in system container](media/batch-custom-images/vhd-in-vm-storage-account.png)
-
-    > [!NOTE]
-    > An Azure unmanaged VM creates several storage accounts for different purposes. If you did not note the name of the storage container for the OS disk when the VM was created, then find the associated storage account that contains the **system** container. Navigate through the **system** container to find the custom image using the values you specified for the **Save-AzureRmVMImage** command.
 
 ## Create a pool from a custom image in the portal
 
-Once you have saved your custom image and you know its location, you can create a Batch pool from that image. Follow these steps to create a pool from the Azure portal:
+Once you have saved your custom image and you know its resource ID or name, you can create a Batch pool from that image. The following steps show you how to create a pool from the Azure portal.
 
-1. Navigate to your Batch account in the Azure portal. This account must be in the same subscription and region as the storage account containing the custom image. 
+> [!NOTE]
+> If you are creating the pool using one of the Batch APIs, make sure that the identity you use for AAD authentication has permissions to the image resource. See [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md).
+>
+
+1. Navigate to your Batch account in the Azure portal. This account must be in the same subscription and region as the resource group containing the custom image. 
 2. In the **Settings** window on the left, select the **Pools** menu item.
 3. In the **Pools** window, select the **Add** command.
-4. On the **Add Pool** window, select **Custom Image (Linux/Windows)** from the **Image Type** dropdown. The portal displays the **Custom Image** picker. Navigate to the storage account where your custom image is located, and select the desired VHD from the container. 
-5. Select the correct **Publisher/Offer/Sku** for your custom VHD.
+4. On the **Add Pool** window, select **Custom Image (Linux/Windows)** from the **Image Type** dropdown. From the **Custom VM image** dropdown, select the image name (short form of the resource ID).
+5. Select the correct **Publisher/Offer/Sku** for your custom image.
 6. Specify the remaining required settings, including the **Node size**, **Target dedicated nodes**, and **Low priority nodes**, as well as any desired optional settings.
 
-    For example, for a Microsoft Windows Server Datacenter 2016 custom image, the **Add Pool** window appears as shown here:
+    For example, for a Microsoft Windows Server Datacenter 2016 custom image, the **Add Pool** window appears as shown below:
 
     ![Add pool from custom Windows image](media/batch-custom-images/add-pool-custom-image.png)
   
 To check whether an existing pool is based on a custom image, see the **Operating System** property in the resource summary section of the **Pool** window. If the pool was created from a custom image, it is set to **Custom VM Image**.
 
-All custom VHDs associated with a pool are displayed on the pool's **Properties** window.
+All custom images associated with a pool are displayed on the pool's **Properties** window.
  
 ## Next steps
 
 - For an in-depth overview of Batch, see [Develop large-scale parallel compute solutions with Batch](batch-api-basics.md).
-- For information about creating a Batch account, see [Create a Batch account with the Azure portal](batch-account-create-portal.md).

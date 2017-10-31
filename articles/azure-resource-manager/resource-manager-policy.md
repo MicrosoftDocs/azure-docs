@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/19/2017
+ms.date: 10/09/2017
 ms.author: tomfitz
 
 ---
@@ -362,16 +362,17 @@ The following example illustrates how to create a policy set for handling two ta
 {
     "properties": {
         "displayName": "Billing Tags Policy",
+        "policyType": "Custom",
         "description": "Specify cost Center tag and product name tag",
         "parameters": {
             "costCenterValue": {
-                "type": "string",
+                "type": "String",
                 "metadata": {
                     "description": "required value for Cost Center tag"
                 }
             },
             "productNameValue": {
-                "type": "string",
+                "type": "String",
                 "metadata": {
                     "description": "required value for product Name tag"
                 }
@@ -423,7 +424,10 @@ The following example illustrates how to create a policy set for handling two ta
                 }
             }
         ]
-    }
+    },
+    "id": "/subscriptions/<subscription-id>/providers/Microsoft.Authorization/policySetDefinitions/billingTagsPolicy",
+    "type": "Microsoft.Authorization/policySetDefinitions",
+    "name": "billingTagsPolicy"
 }
 ```
 

@@ -22,6 +22,8 @@ ms.custom: mvc
 
 # Update an application in Kubernetes
 
+[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+
 After an application has been deployed in Kubernetes, it can be updated by specifying a new container image or image version. When doing so, the update is staged so that only a portion of the deployment is concurrently updated. This staged update enables the application to keep running during the update. It also provides a rollback mechanism if a deployment failure occurs. 
 
 In this tutorial, part six of seven, the sample Azure Vote app is updated. Tasks that you complete include:

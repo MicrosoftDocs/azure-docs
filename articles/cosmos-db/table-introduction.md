@@ -27,7 +27,7 @@ ms.author: arramac
 * Guaranteed high availability.
 * [Automatic secondary indexing](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
 
-These applications can migrate to Azure Cosmos DB by using the Table API with no code changes and take advantage of premium capabilities.
+These applications can migrate to Azure Cosmos DB by using the Table API with no code changes and take advantage of premium capabilities. The Table API is available for .NET and Python.
 
 We recommend that you watch the following video, where Aravind Ramachandran explains how to get started with the Table API for Azure Cosmos DB:
 
@@ -60,4 +60,6 @@ Here are a few pointers to get you started:
 * [Develop with the Table API in .NET](tutorial-develop-table-dotnet.md)
 * [Query table data by using the Table API](tutorial-query-table.md)
 * [Learn how to set up Azure Cosmos DB global distribution by using the Table API](tutorial-global-distribution-table.md)
-* [Azure Cosmos DB Table API SDK for .NET](table-sdk-dotnet.md)
+* [Azure Cosmos DB Table .NET API](table-sdk-dotnet.md)
+* [Azure Cosmos DB Table SDK for Python](table-sdk-python.md)
+

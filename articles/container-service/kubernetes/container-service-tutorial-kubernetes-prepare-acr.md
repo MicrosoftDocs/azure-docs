@@ -22,6 +22,8 @@ ms.custom: mvc
 
 # Deploy and use Azure Container Registry
 
+[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+
 Azure Container Registry (ACR) is an Azure-based, private registry, for Docker container images. This tutorial, part two of seven, walks through deploying an Azure Container Registry instance, and pushing a container image to it. Steps completed include:
 
 > [!div class="checklist"]
