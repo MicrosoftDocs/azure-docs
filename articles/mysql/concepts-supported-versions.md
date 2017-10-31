@@ -1,4 +1,4 @@
-7--
+---
 title: Supported versions in Azure Database for MySQL | Microsoft Docs
 description: Describes the supported versions in Azure Database for MySQL.
 services: mysql

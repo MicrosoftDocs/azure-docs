@@ -66,7 +66,7 @@ The below support is applicable for any workload running on the mentioned OS.
 
 #### Windows
 
-- Windows Server 2016 (Server Core and Server with Desktop Experience)*
+- Windows Server 2016 (Server Core, Server with Desktop Experience)*
 - Windows Server 2012 R2
 - Windows Server 2012
 - Windows Server 2008 R2 with at least SP1
