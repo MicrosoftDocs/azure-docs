@@ -14,7 +14,7 @@ ms.author: v-gedod
 # Tutorial: Single-page Web app
 The Bing News Search API lets you search the Web and obtain results of the news type relevant to a search query. In this tutorial, we build a single-page Web application that uses the Bing News Search API to display search results on the page. The application includes HTML, CSS, and JavaScript components.
 
-![[Single-page Bing News Search app]](media/news-search-singlepage.png)
+![Single-page Bing News Search app](media/news-search-singlepage.png)
 
 > [!NOTE]
 > The JSON and HTTP headings at the bottom of the page when clicked show the JSON response and HTTP request information. These details can be useful when exploring the service.
@@ -87,7 +87,7 @@ The HTML `<body>` tag includes an `onload` attribute that calls `getSubscription
 ```
 ## Selecting search options
 
-![[Bing News Search options]](media/news-search-categories.png)
+![Bing News Search options](media/news-search-categories.png)
 
 The HTML form includes elements with the following names:
 
