@@ -58,11 +58,11 @@ Although you might experiment with a specific host type, such as Azure Container
 
 ## Authentication
 
-When authenticating with an Azure container registry, there are two primary scenarios: individual authentication, and service (or "headless") authentication. The following table provides a brief overview of each.
+When authenticating with an Azure container registry, there are two primary scenarios: individual authentication, and service (or "headless") authentication. The following table provides a brief overview of these scenarios, and the recommended method of authentication for each.
 
-| Type | Description | Recommended method |
+| Type | Example scenario | Recommended method |
 |---|---|---|
-| Individual identity | A developer pulling image to or pushing images from their development machine. | [az acr login](/cli/azure/acr?view=azure-cli-latest#az_acr_login) |
+| Individual identity | A developer pulling images to or pushing images from their development machine. | [az acr login](/cli/azure/acr?view=azure-cli-latest#az_acr_login) |
 | Headless/service identity | Build and deployment pipelines where the user isn't directly involved. | [Service principal](container-registry-authentication.md#service-principal) |
 
 For in-depth information about Azure Container Registry authentication, see [Authenticate with an Azure container registry](container-registry-authentication.md).
