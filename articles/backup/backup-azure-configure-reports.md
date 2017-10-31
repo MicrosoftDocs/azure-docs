@@ -47,13 +47,16 @@ Use the following steps to configure the storage account for recovery services v
 2. From the list of items that appears under vault, click **Backup Reports** under Monitoring and Reports section to configure the storage account for reports.
 
       ![Select Backup Reports menu item step 2](./media/backup-azure-configure-reports/backup-reports-settings.PNG)
-3. On the Backup Reports blade, click **Configure** button. This opens the Azure Application Insights blade which is used for pushing data to customer storage account.
+3. On the Backup Reports blade, click **Diagnostics Settings** link. This opens the Azure Application Insights blade which is used for pushing data to customer storage account.
 
-      ![Configure storage account step 3](./media/backup-azure-configure-reports/configure-storage-account.PNG)
-4. Set the Status toggle button to **On** and select **Archive to a Storage Account** check box so that reporting data can start flowing in to the storage account.
+      ![Enable Diagnostics step 3](./media/backup-azure-configure-reports/backup-azure-configure-reports.png)
+4. Click on the link **Turn on diagnostics**. This opens UI for configuring storage account. 
+
+      ![Turn on diagnostics step 4](./media/backup-azure-configure-reports/enable-diagnostics.png)
+5. Click on the link **Turn on diagnostics** and select **Archive to a Storage Account** check box so that reporting data can start flowing in to the storage account.
 
       ![Enable diagnostics step 4](./media/backup-azure-configure-reports/set-status-on.png)
-5. Click Storage Account picker and select the storage account from the list for storing reporting data and click **OK**.
+6. Click Storage Account picker and select the storage account from the list for storing reporting data and click **OK**.
 
       ![Select storage account step 5](./media/backup-azure-configure-reports/select-storage-account.png)
 6. Select **AzureBackupReport** check box and also move the slider to select retention period for this reporting data. Reporting data in the storage account is kept for the period selected using this slider.
