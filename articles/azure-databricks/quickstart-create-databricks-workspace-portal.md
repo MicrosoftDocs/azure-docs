@@ -65,4 +65,5 @@ In this article, you learn how to create an Azure Databricks workspace and then 
 ## Run a Spark SQL job on the cluster
 
 
+
 ## Next step 
