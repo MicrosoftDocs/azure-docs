@@ -41,7 +41,7 @@ An existing Azure files instance can be used with Azure Container Service. If yo
 If needed, create a resource group for the Azure File share using the [az group create][az-group-create] command. The resource group of the storage account and the Kubernetes cluster must be located in the same region.
 
 ```azurecli-interactive
-az group create --name myResourceGroup westus2
+az group create --name myResourceGroup --location westus2
 ```
 
 Use the [az storage account create][az-storage-create] command to create an Azure Storage account. The storage account name must be unique. Update this command with a unique value.
@@ -50,16 +50,16 @@ Use the [az storage account create][az-storage-create] command to create an Azur
 az storage account create --name mystorageaccount --resource-group myResourceGroup --sku Standard_LRS
 ```
 
-Use the [az storage account show-connection-string][az-storage-conntection-string] to return the storage account connection string. This value is used to create the Azure Files share.
+Use the [az storage account keys list ][az-storage-key-list] to return the storage key. This value is used to create the Azure Files share.
 
 ```azurecli-interactive
-az storage account show-connection-string --resource-group myResourceGroup --name mystorageaccount -o tsv
+az storage account keys list --account-name mystorageaccount --resource-group myResourceGroup --output table
 ```
 
-Use the [az storage share create][az-storage-share-create] command to create the Azure File share. Update the `--connection-string` value with the value collected in the last step.
+Use the [az storage share create][az-storage-share-create] command to create the Azure File share. Update the `--account-key` value with the value collected in the last step.
 
 ```azurecli-interactive
-az storage share create --name myFileShare --connection-string myconnectionstring
+z storage share create --name myfileshare --account-name mystorageaccount --account-key <key>
 ```
 
 ## Create Kubernetes Secret
@@ -72,10 +72,10 @@ First, encode the name of the storage account. Replace <storage-account> with th
 echo -n <storage-account> | base64
 ```
 
-Next, the storage account access key is needed. Run the following command to return the encoded key. Replace <storage-account> with the storage account name and <resource-group> with the name of the resource group.
+Next, the storage account access key is needed. Run the following command to return the encoded key. Replace <storage-key> with the key collected in an earlier step
 
 ```azurecli-interactive
-echo -n `az storage account keys list --name <storage-account> --resource-group <resource-group> --query '[0].value' -o tsv` | base64
+echo -n <storage-key> | base64
 ```
 
 Create a file named `azure-secret.yml` and copy in the following YAML. Update the `azurestorageaccountname` and `azurestorageaccountkey` values with the base64 encoded values retrieved in the last step.
@@ -151,7 +151,7 @@ Learn more about persistent volumes using Azure Files.
 <!-- LINKS -->
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/volumes/
 [az-storage-create]: /cli/azure/storage/account#az_storage_account_create
-[az-storage-conntection-string]: /cli/azure/storage/account#az_storage_account_show_connection_string
+[az-storage-key-list]: /cli/azure/storage/account/keys#az_storage_account_keys_list
 [az-storage-share-create]: /cli/azure/storage/share#az_storage_share_create
 [kubectl-apply]: https://kubernetes.io/docs/user-guide/kubectl/v1.8/#apply
 [kubernetes-secret]: https://kubernetes.io/docs/concepts/configuration/secret/
