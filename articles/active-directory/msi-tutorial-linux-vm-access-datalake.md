@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/16/2017
+ms.date: 10/31/2017
 ms.author: skwan
 ---
 
@@ -91,7 +91,7 @@ In this tutorial, you authenticate to the Data Lake Store filesystem REST API us
 > [!NOTE]
 > The Data Lake Store filesystem client SDKs do not yet support Managed Service Identity.  This tutorial will be updated when support is added to the SDK.
 
-To complete these steps, you need an SSH client. If you are using Windows, you can use the SSH client in the [Windows Subsystem for Linux](https://msdn.microsoft.com/commandline/wsl/about). 
+To complete these steps, you need an SSH client. If you are using Windows, you can use the SSH client in the [Windows Subsystem for Linux](https://msdn.microsoft.com/commandline/wsl/about). If you need assistance configuring your SSH client's keys, see [How to Use SSH keys with Windows on Azure](../virtual-machines/linux/ssh-from-windows.md), or [How to create and use an SSH public and private key pair for Linux VMs in Azure](../virtual-machines/linux/mac-create-ssh-keys.md).
 
 1. In the portal, navigate to your Linux VM and in the **Overview**, click **Connect**.  
 2. **Connect** to the VM with the SSH client of your choice. 
