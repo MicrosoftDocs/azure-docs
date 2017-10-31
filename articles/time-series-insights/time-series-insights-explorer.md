@@ -18,9 +18,9 @@ ms.date: 10/18/2017
 ms.author: kfile
 ---
 
-Azure Time Series Insights is a fully managed analytics, storage, and visualization service that makes it simple to explore and analyze billions of IoT events simultaneously. It gives you a global view of your data, letting you quickly validate your IoT solution and avoid costly downtime to mission-critical devices by helping you discover hidden trends, spot anomalies, and conduct root-cause analyses in near real-time.
+Azure Time Series Insights is a fully managed analytics, storage, and visualization service that makes it simple to explore and analyze billions of IoT events simultaneously. It gives you a global view of your data, letting you quickly validate your IoT solution and avoid costly downtime to mission-critical devices by helping you discover hidden trends, spot anomalies, and conduct root-cause analyses in near real time.
 
-You use Time Series Insights explorer to create visualations of your data.
+You use Time Series Insights explorer to create visualizations of your data.
 
 ## Prerequisites
 
@@ -30,26 +30,26 @@ Before you can use Time Series Insights explorer, you must:
 - Provide yourself access to that environment
 - Add an event source that is ingesting data
 
-Within minutes of connecting your event source to your TSI environment, you can start exploring and querying your time series data.
+Within minutes of connecting your event source to your Time Series Insights environment, you can start exploring and querying your time series data.
 
 To start, head here: https://insights.timeseries.azure.com/ and select an environment on the left-hand side of the screen. You’ll see all environments that you have access to listed in alphabetical order.
 
-Once you select an environment, either use the ‘FROM’ and ‘TO’ configurations at the top or click and drag over your desired time span.  Click the magnifying glass at the top right, or right click over the selected timespan and select **Search**.  
+Once you select an environment, either use the ‘FROM’ and ‘TO’ configurations at the top or click and drag over your desired time span.  Click the magnifying glass at the top right, or right-click over the selected timespan and select **Search**.  
 
 You can also refresh availability automatically every minute, by selecting the **Auto On** button.
 
-The Azure cloud icon will take you to your environment in the Azure portal.
+The Azure cloud icon takes you to your environment in the Azure portal.
 
 ![Time Series Insights environment](media/time-series-insights-explorer/explorer1.png)
 
-Next, you’ll see a chart that shows a count of all events during the selected timespan.  Here you have a number of controls:
+Next, you see a chart that shows a count of all events during the selected timespan.  Here you have a number of controls:
 
 Terms Editor Panel:  The term space is where you query your environment.  It’s found on the left-hand side of the screen, enables 
 
 - Measure:  This drop down shows all numeric columns (Doubles)
 - Split By: This drop down shows categorical columns (Strings)
 - You can enable step interpolation, show minimum and maximum, and adjust the Y-axis from the control panel next to measure.  Additionally, you can adjust whether data shown is a count, average, or sum of the data.
-- You can add up to five terms to view on the same X-axis.  Use the **copy-down** button to add an additional term or click the add button above to add a fresh term.
+- You can add up to five terms to view on the same X-axis.  Use the **copy-down** button to add an additional term or click the **Add** button to add a fresh term.
 
 ![Terms Editor panel](media/time-series-insights-explorer/explorer2.png)
 
@@ -93,15 +93,15 @@ The heatmap can be used to quickly spot unique or anomalous data series in a giv
 
 ![Heatmap](media/time-series-insights-explorer/explorer6.png)
 
-Events:  When you choose explore events when selecting or right-clicking above, the events panel is made available.  Here, you can see all of your raw events and export your events as JSON or CSV files.  Note – TSI stores all raw data.
+Events:  When you choose explore events when selecting or right-clicking above, the events panel is made available.  Here, you can see all of your raw events and export your events as JSON or CSV files.  Note – Time Series Insights stores all raw data.
 
 ![Events](media/time-series-insights-explorer/explorer7.png)
 
 Stats: Clicking the **STATS** tab after exploring events exposes patterns and column stats.  
 
-- Patterns: this feature proactively surfaces the most statistically significant patterns in a selected data region. This relieves you from having to look at thousands of events to understand what patterns most warrant time and energy. Further, TSI enables you to jump directly into these statistically significant patterns to continue conducting an analysis. This feature is also helpful for post-mortem investigations into historical data. 
+- Patterns: this feature proactively surfaces the most statistically significant patterns in a selected data region. This relieves you from having to look at thousands of events to understand what patterns most warrant time and energy. Further, Time Series Insights enables you to jump directly into these statistically significant patterns to continue conducting an analysis. This feature is also helpful for post-mortem investigations into historical data. 
 
-- Column stats:  Column stats provides charting and tables that break down data from each column of the selected data series over the selected time span.  
+- Column stats:  Column stats provide charting and tables that break down data from each column of the selected data series over the selected time span.  
  
 ![STATS](media/time-series-insights-explorer/explorer8.png) 
 
