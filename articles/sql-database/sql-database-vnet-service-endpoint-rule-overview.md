@@ -14,7 +14,7 @@ ms.custom: "VNet Service endpoints"
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: ''
+ms.workload: "On Demand"
 ms.date: 10/30/2017
 ms.author: genemi
 ---
