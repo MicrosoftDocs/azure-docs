@@ -1,4 +1,4 @@
- m---
+---
 title: Perform operations on Azure Table Storage with PowerShell | Microsoft Docs
 description: Tutorial - Perform operations on Azure Table Storage with PowerShell
 services: storage
@@ -18,7 +18,7 @@ ms.author: robinsh
 ---
 
 # Perform Azure Table Storage operations with Azure PowerShell 
-s
+
 >[!NOTE]
 > The Azure Cosmos DB Table API is an offering for premium storage tables. Azure Table Storage is the original offering for standard storage tables. In most cases, the commands in this article work against both standard and premium tables, but this article is specific to standard Azure Storage tables. If you are using Azure Cosmos DB premium tables rather than standard Azure Storage tables, please see [Azure Cosmos DB Table API operations with PowerShell](table-powershell.md).
 >
