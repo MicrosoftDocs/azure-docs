@@ -67,7 +67,7 @@ Once the project finishes importing, open **AzureApp.java** (located in **blobQu
 In the application, you must provide the connection string for your storage account. Open the **AzureApp.Java** file. Find the `storageConnectionString` variable. Replace the `AccountName` and `AccountKey` values in the connection string with the values you saved from the Azure portal. Your `storageConnectionString` should look similar to the following:
 
 ```java
-    public static final String storageConnectionString ="DefaultEndpointsProtocol=http;" +
+    public static final String storageConnectionString ="DefaultEndpointsProtocol=https;" +
      "AccountName=<Namehere>;" +
     "AccountKey=<Keyhere>";
 ```
