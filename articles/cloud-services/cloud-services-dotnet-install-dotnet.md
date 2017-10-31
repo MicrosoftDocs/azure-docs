@@ -30,7 +30,7 @@ To install .NET on your web and worker roles, include the .NET web installer as 
 ## Add the .NET installer to your project
 To download the web installer for the .NET Framework, choose the version that you want to install:
 
-* [.NET 4.7.1 web installer](http://go.microsoft.com/fwlink/?LinkId=)
+* [.NET 4.7.1 web installer](http://go.microsoft.com/fwlink/?LinkId=852095)
 * [.NET 4.6.1 web installer](http://go.microsoft.com/fwlink/?LinkId=671729)
 
 To add the installer for a *web* role:
