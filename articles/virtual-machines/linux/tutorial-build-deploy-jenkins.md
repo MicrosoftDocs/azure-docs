@@ -128,7 +128,6 @@ A service endpoint allows Team Services to connect to Jenkins.
 You need a [deployment group](https://www.visualstudio.com/docs/build/concepts/definitions/release/deployment-groups/) to register the Team Services agent so the release definition can be deployed to your virtual machine. Deployment groups make it easy to define logical groups of target machines for deployment, and to install the required agent on each machine.
 
    > [!NOTE]
-<<<<<<< HEAD
    > In the following procedure, be sure to install the prerequisites and *don't run the script with sudo privileges.*
 
 1. Open the **Releases** tab of the **Build &amp; Release** hub, open **Deployment groups**, and select **+ New**.
@@ -181,7 +180,7 @@ In this tutorial, you automated the deployment of an app to Azure by using Jenki
 > * Create a deployment group for the Azure virtual machines.
 > * Create a release definition that configures the VMs and deploys the app.
 
-To learn more about how to deploy a LAMP (Linux, Apache, MySQL, and PHP) stack, advance to the next tutorial.
+To learn about how to deploy a LAMP (Linux, Apache, MySQL, and PHP) stack, advance to the next tutorial.
 
 > [!div class="nextstepaction"]
 > [Deploy LAMP stack](tutorial-lamp-stack.md)
