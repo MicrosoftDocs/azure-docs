@@ -1,6 +1,31 @@
 {
     "redirections": [
-        {
+         {
+	    "source_path": "articles/cognitive-services/Video/Home.md",
+	    "redirect_url": "/azure/cognitive-services/video-indexer/video-indexer-overview",
+	    "redirect_document_id": false 
+	},
+	{
+	    "source_path": "articles/cognitive-services/Video/Glossary.md",
+	    "redirect_url": "/azure/cognitive-services/video-indexer/video-indexer-overview",
+	    "redirect_document_id": false 
+	},
+	{
+	    "source_path": "articles/cognitive-services/Video/GetStarted.md",
+	    "redirect_url": "/azure/cognitive-services/video-indexer/video-indexer-overview",
+	    "redirect_document_id": false 
+	},
+	{
+	    "source_path": "articles/cognitive-services/Video/How-To/HowtoAnalyzeVideo_Video.md",
+	    "redirect_url": "/azure/cognitive-services/video-indexer/video-indexer-overview",
+	    "redirect_document_id": false 
+	},
+	{
+	    "source_path": "articles/cognitive-services/Video/How-To/HowtoCallVideoAPIs.md",
+	    "redirect_url": "/azure/cognitive-services/video-indexer/video-indexer-overview",
+	    "redirect_document_id": false 
+	},
+	{
             "source_path": "articles/active-directory/cloudappdiscovery-overview.md",
             "redirect_url": "/azure/active-directory/cloudappdiscovery-get-started",
             "redirect_document_id": false
@@ -538,6 +563,111 @@
         {
             "source_path": "articles/resource-manager-vs-code.md",
             "redirect_url": "/azure/azure-resource-manager/resource-manager-create-first-template",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-resource-manager/managed-application-overview.md",
+            "redirect_url": "/azure/managed-applications/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-resource-manager/managed-application-publishing.md",
+            "redirect_url": "/azure/managed-applications/publish-service-catalog-app",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-resource-manager/managed-application-consumption.md",
+            "redirect_url": "/azure/managed-applications/publish-service-catalog-app",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-resource-manager/managed-application-author-marketplace.md",
+            "redirect_url": "/azure/managed-applications/publish-marketplace-app",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-resource-manager/managed-application-consume-marketplace.md",
+            "redirect_url": "/azure/managed-applications/publish-marketplace-app",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-resource-manager/managed-application-createuidefinition-overview.md",
+            "redirect_url": "/azure/managed-applications/create-uidefinition-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-resource-manager/managed-application-createuidefinition-functions.md",
+            "redirect_url": "/azure/managed-applications/create-uidefinition-functions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-resource-manager/managed-application-createuidefinition-elements.md",
+            "redirect_url": "/azure/managed-applications/create-uidefinition-elements",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-resource-manager/managed-application-microsoft-common-dropdown.md",
+            "redirect_url": "/azure/managed-applications/microsoft-common-dropdown",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-resource-manager/managed-application-microsoft-common-fileupload.md",
+            "redirect_url": "/azure/managed-applications/microsoft-common-fileupload",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-resource-manager/managed-application-microsoft-common-optionsgroup.md",
+            "redirect_url": "/azure/managed-applications/microsoft-common-optionsgroup",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-resource-manager/managed-application-microsoft-common-passwordbox.md",
+            "redirect_url": "/azure/managed-applications/microsoft-common-passwordbox",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-resource-manager/managed-application-microsoft-common-section.md",
+            "redirect_url": "/azure/managed-applications/microsoft-common-section",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-resource-manager/managed-application-microsoft-common-textbox.md",
+            "redirect_url": "/azure/managed-applications/microsoft-common-textbox",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-resource-manager/managed-application-microsoft-compute-credentialscombo.md",
+            "redirect_url": "/azure/managed-applications/microsoft-compute-credentialscombo",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-resource-manager/managed-application-microsoft-compute-sizeselector.md",
+            "redirect_url": "/azure/managed-applications/microsoft-compute-sizeselector",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-resource-manager/managed-application-microsoft-compute-usernametextbox.md",
+            "redirect_url": "/azure/managed-applications/microsoft-compute-usernametextbox",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-resource-manager/managed-application-microsoft-network-publicipaddresscombo.md",
+            "redirect_url": "/azure/managed-applications/microsoft-network-publicipaddresscombo",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-resource-manager/managed-application-microsoft-network-virtualnetworkcombo.md",
+            "redirect_url": "/azure/managed-applications/microsoft-network-virtualnetworkcombo",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-resource-manager/managed-application-microsoft-storage-multistorageaccountcombo.md",
+            "redirect_url": "/azure/managed-applications/microsoft-storage-multistorageaccountcombo",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-resource-manager/managed-application-microsoft-storage-storageaccountselector.md",
+            "redirect_url": "/azure/managed-applications/microsoft-storage-storageaccountselector",
             "redirect_document_id": false
         },
         {
@@ -1318,6 +1448,11 @@
         {
             "source_path": "articles/automation/automation-troubleshooting-hrw-runbook-terminates-suspended.md",
             "redirect_url": "https://docs.microsoft.com/azure/automation/automation-troubleshooting-hybrid-runbook-worker",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/automation/automation-update-account-powershell.md",
+            "redirect_url": "https://docs.microsoft.com/azure/automation/automation-create-runas-accounts",
             "redirect_document_id": false
         },
         {
@@ -6801,6 +6936,87 @@
             "redirect_document_id": false
         },
         {
+          "source_path": "articles/iot-suite/iot-suite-overview.md",
+          "redirect_url": "/azure/iot-suite/iot-suite-options",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-suite-raspberry-pi-kit-get-started.md",
+          "redirect_url": "/azure/iot-suite",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-suite-logic-apps-tutorial.md",
+          "redirect_url": "/azure/iot-suite",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-suite-guidance-on-customizing-preconfigured-solutions.md",
+          "redirect_url": "/azure/iot-suite",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-suite-dynamic-telemetry.md",
+          "redirect_url": "/azure/iot-suite",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-suite-custom-rule.md",
+          "redirect_url": "/azure/iot-suite",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-suite-remote-monitoring-device-info.md",
+          "redirect_url": "/azure/iot-suite",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-suite-getstarted-preconfigured-solutions.md",
+          "redirect_url": "/azure/iot-suite",
+          "redirect_document_id": false
+        },
+
+        {
+          "source_path": "articles/iot-suite/iot-suite-raspberry-pi-kit-c-get-started-simulator.md",
+          "redirect_url": "/azure/iot-suite",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-suite-raspberry-pi-kit-c-get-started-basic.md",
+          "redirect_url": "/azure/iot-suite",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-suite-raspberry-pi-kit-c-get-started-advanced.md",
+          "redirect_url": "/azure/iot-suite",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-suite-raspberry-pi-kit-node-get-started-simulator.md",
+          "redirect_url": "/azure/iot-suite",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-suite-raspberry-pi-kit-node-get-started-basic.md",
+          "redirect_url": "/azure/iot-suite",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-suite-raspberry-pi-kit-node-get-started-advanced.md",
+          "redirect_url": "/azure/iot-suite",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-suite-gateway-kit-get-started-simulator.md",
+          "redirect_url": "/azure/iot-suite",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-suite-gateway-kit-get-started-sensortag.md",
+          "redirect_url": "/azure/iot-suite",
+          "redirect_document_id": false
+        },
+        {
             "source_path": "articles/marketplace/cloud-partner-portal/cloud-partner-portal-delete-an-offer.md",
             "redirect_url": "https://go.microsoft.com/fwlink/?linkid=847458",
             "redirect_document_id": false
@@ -6978,6 +7194,16 @@
         {
             "source_path": "articles/service-fabric/service-fabric-use-data-loss-api.md",
             "redirect_url": "/azure/service-fabric/service-fabric-testability-overview",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/site-recovery-architecture-hyper-v-to-azure.md",
+            "redirect_url": "concepts-hyper-v-to-azure-architecture",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/site-recovery-architecture-to-secondary-site.md",
+            "redirect_url": "concepts-hyper-v-to-secondary-architecture",
             "redirect_document_id": false
         },
 		{
