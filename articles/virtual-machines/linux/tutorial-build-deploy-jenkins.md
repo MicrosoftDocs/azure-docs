@@ -114,44 +114,46 @@ A service endpoint allows Team Services to connect to Jenkins.
 1. Open the **Services** page in Team Services, open the **New Service Endpoint** list, and select **Jenkins**.
    ![Add a Jenkins endpoint](media/tutorial-build-deploy-jenkins/add-jenkins-endpoint.png)
 2. Enter a name for the connection.
-3. Enter the URL of your Jenkins server, and select the **Accept untrusted SSL certificates** option.  An example URL is	**http://{YourJenkinsURL}.westcentralus.cloudapp.azure.com**.
-4. Enter the user name and password for your Jenkins account.
+3. Enter the URL of your Jenkins server, and select the **Accept untrusted SSL certificates** option. An example URL is	**http://{YourJenkinsURL}.westcentralus.cloudapp.azure.com**.
+4. Enter the username and password for your Jenkins account.
 5. Select **Verify connection** to check that the information is correct.
 6. Select **OK** to create the service endpoint.
 
 ## Create a deployment group for Azure virtual machines
 
-You need a [deployment group](https://www.visualstudio.com/docs/build/concepts/definitions/release/deployment-groups/) to register the Team Services agent so that the release definition can be deployed to your virtual machine.  Deployment groups make it easy to define logical groups of target machines for deployment, and to install the required agent on each machine.
+You need a [deployment group](https://www.visualstudio.com/docs/build/concepts/definitions/release/deployment-groups/) to register the Team Services agent so the release definition can be deployed to your virtual machine. Deployment groups make it easy to define logical groups of target machines for deployment, and to install the required agent on each machine.
 
-1. Open the **Releases** tab of the **Build &amp; Release** hub, open **Deployment groups**, and then select **+ New**.
+   > [!NOTE]
+   > In this procedure, follow the steps to install the prerequisites and *don't run the script with sudo privileges.*
+
+1. Open the **Releases** tab of the **Build &amp; Release** hub, open **Deployment groups**, and select **+ New**.
 2. Enter a name for the deployment group, and an optional description. Then select **Create**.
 3. Choose the operating system for your deployment target virtual machine. For example, select **Ubuntu 16.04+**.
 4. Select **Use a personal access token in the script for authentication**.
-5. Check the system prerequisites.
-6. Copy the script.
-7. Log in to your deployment target virtual machine and run the script with sudo privileges.
+5. Select the **System prerequisites** link. Install the prerequisites for your operating system.
+6. Select **Copy script to clipboard** to copy the script.
+7. Log in to your deployment target virtual machine and run the script. Don't run the script with sudo privileges.
 8. After the installation, you are prompted for deployment group tags. Accept the defaults.
 9. In Team Services, check for your newly registered virtual machine in **Targets** under **Deployment Groups**.
 
 ## Create a Team Services release definition
 
-A release definition specifies the process that Team Services uses to deploy the app. In this example, we run a shell script.
+A release definition specifies the process that Team Services uses to deploy the app. In this example, we execute a shell script.
 
 To create the release definition in Team Services:
 
-1. Open **Releases** on the **Build &amp; Release** hub, and select **Create release definition**. 
+1. Open the **Releases** tab of the **Build &amp; Release** hub, and select **Create release definition**. 
 2. Select the **Empty** template by choosing to start with an **Empty process**.
 3. In the **Artifacts** section, select **+ Add Artifact** and choose **Jenkins** for **Source type**. Select your Jenkins service endpoint connection. Then select the Jenkins source job and select **Add**.
-4.  Select the ellipsis next to **Environment 1**.  Select **Add deployment group phase**.
+4. Select the ellipsis next to **Environment 1**. Select **Add deployment group phase**.
 5. Choose your deployment group.
 5. Select **+** to add a task to **Deployment group phase**.
-6. Select the **Shell Script** task and select **Add**.    
-   The **Shell Script** task provides the configuration for a script to run on each server in order to install Node.js and start the app.
-8. For **Script Path**, enter **$(System.DefaultWorkingDirectory)/Fabrikam-Node/deployscript.sh**.
-9. Select **Advanced**, and then select **Specify Working Directory**.
+6. Select the **Shell Script** task and select **Add**. The **Shell Script** task provides the configuration for a script to run on each server in order to install Node.js and start the app.
+8. For **Script Path**, enter	**$(System.DefaultWorkingDirectory)/Fabrikam-Node/deployscript.sh**.
+9. Select **Advanced**, and then enable **Specify Working Directory**.
 10. For **Working Directory**, enter **$(System.DefaultWorkingDirectory)/Fabrikam-Node**.
 11. Edit the name of the release definition to the name that you specified on the **Post-build Actions** tab of the build in Jenkins. Jenkins requires this name to be able to trigger a new release when the source artifacts are updated.
-12. Select **Save**, and select **OK** to save the release definition.
+12. Select **Save** and select **OK** to save the release definition.
 
 ## Execute manual and CI-triggered deployments
 

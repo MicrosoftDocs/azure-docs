@@ -13,7 +13,7 @@ ms.custom: security
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.workload: data-management
+ms.workload: "On Demand"
 ms.date: 07/05/2017
 ms.author: thmullan;jackr
 
