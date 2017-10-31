@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/13/2017
+ms.date: 11/03/2017
 ms.author: tarcher
 
 ms.custom: H1Hack27Feb2017
@@ -26,7 +26,11 @@ Azure DevTest Labs lets you control cost and minimize waste in your labs by mana
 ## Set allowed virtual machine sizes
 The policy for setting the allowed VM sizes helps to minimize lab waste by enabling you to specify which VM sizes are allowed in the lab. If this policy is activated, only VM sizes from this list can be used to create VMs.
 
-1. On the lab's **Configuration and policies** blade, select **Allowed virtual machines sizes**.
+1. In the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040), select a lab and then select **Configuration and policies**.
+
+    ![Access the lab's configuration and policies](./media/devtest-lab-set-lab-policy/policies-menu.png)
+
+1. On the lab's **Configuration and policies** pane, select **Allowed virtual machines sizes**.
    
     ![Allowed virtual machines sizes](./media/devtest-lab-set-lab-policy/allowed-vm-sizes.png)
 
@@ -37,9 +41,9 @@ The policy for setting the allowed VM sizes helps to minimize lab waste by enabl
 1. Select **Save**.
 
 ## Set virtual machines per user
-The policy for **Virtual machines per user** allows you to specify the maximum number of VMs that can be created by an individual user. If a user attempts to create or claim a VM when the user limit has been met, an error message indicates that the VM cannot be created/claimed. 
+The policy for **Virtual machines per user** lets you specify the maximum number of VMs that can be created by an individual user. If a user attempts to create or claim a VM when the user limit has been met, an error message indicates that the VM cannot be created/claimed. 
 
-1. On the lab's **Configuration and policies** menu, select **Virtual machines per user**.
+1. On the lab's **Configuration and policies** pane, select **Virtual machines per user**.
    
     ![Virtual machines per user](./media/devtest-lab-set-lab-policy/max-vms-per-user.png)
 
@@ -50,9 +54,9 @@ The policy for **Virtual machines per user** allows you to specify the maximum n
 1. Select **Save**.
 
 ## Set virtual machines per lab
-The policy for **Virtual machines per lab** allows you to specify the maximum number of VMs that can be created for the current lab. If a user attempts to create a VM when the lab limit has been met, an error message indicates that the VM cannot be created. 
+The policy for **Virtual machines per lab** lets you specify the maximum number of VMs that can be created for the current lab. If a user attempts to create a VM when the lab limit has been met, an error message indicates that the VM cannot be created. 
 
-1. On the lab's **Configuration and policies** menu, select **Virtual machines per lab**.
+1. On the lab's **Configuration and policies** pane, select **Virtual machines per lab**.
    
     ![Virtual machines per lab](./media/devtest-lab-set-lab-policy/max-vms-per-lab.png)
 
@@ -63,9 +67,9 @@ The policy for **Virtual machines per lab** allows you to specify the maximum nu
 1. Select **Save**.
 
 ## Set auto-shutdown
-The auto-shutdown policy helps to minimize lab waste by allowing you to specify the time that this lab's VMs shut down.
+The auto-shutdown policy helps minimize lab waste by letting you specify the time that this lab's VMs shut down.
 
-1. On the lab's **Configuration and policies** blade, select **Auto-shutdown**.
+1. On the lab's **Configuration and policies** pane, select **Auto-shutdown**.
    
     ![Auto-shutdown](./media/devtest-lab-set-lab-policy/auto-shutdown.png)
 
@@ -73,16 +77,16 @@ The auto-shutdown policy helps to minimize lab waste by allowing you to specify 
 
 1. If you enable this policy, specify the time (and time zone) to shut down all VMs in the current lab.
 
-1. Specify **Yes** or **No** for the option to send a notification 15 minutes prior to the specified auto-shutdown time. If you specify **Yes**, enter a webhook URL endpoint to receive the notification. For more information about webhooks, see [Create a webhook or API Azure Function](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
+1. Specify **Yes** or **No** for the option to send a notification 15 minutes prior to the specified auto-shutdown time. If you specify **Yes**, enter a webhook URL endpoint or an email address for where the notification will be posted or sent. For more information about webhooks, see [Create a webhook or API Azure Function](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
 
 1. Select **Save**.
 
-	By default, once enabled, this policy applies to all VMs in the current lab. To remove this setting from a specific VM, open the VM's blade and change its **Auto-shutdown** setting 
+By default, once enabled, this policy applies to all VMs in the current lab. To remove this setting from a specific VM, open the VM's management pane and change its **Auto-shutdown** setting.
 
 ## Set auto-start
-The auto-start policy allows you to specify when the VMs in the current lab should be started.  
+The auto-start policy lets you specify when the VMs in the current lab should be started.  
 
-1. On the lab's **Configuration and policies** blade, select **Auto-start**.
+1. On the lab's **Configuration and policies** pane, select **Auto-start**.
    
     ![Auto-start](./media/devtest-lab-set-lab-policy/auto-start.png)
 
@@ -92,10 +96,10 @@ The auto-start policy allows you to specify when the VMs in the current lab shou
 
 4. Select **Save**.
 
-	Once enabled, this policy is not automatically applied to any VMs in the current lab. To apply this setting to a specific VM, open the VM's blade and change its **Auto-start** setting 
+Once enabled, this policy is not automatically applied to any VMs in the current lab. To apply this setting to a specific VM, open the VM's management pane and change its **Auto-start** setting.
 
 ## Set expiration date
-You can set an expiration date when you [create the VM](devtest-lab-add-vm.md). In **Advanced settings**, choose the calendar icon to specify a date on which the VM will be automatically deleted.  By default, the VM will never expire.
+You can set an expiration date when you [create the VM](devtest-lab-add-vm.md). In **Advanced settings**, choose the calendar icon to specify a date on which the VM is automatically deleted. By default, the VM never expires.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
