@@ -92,7 +92,7 @@ You can enable the admin user in the Azure portal by navigating your registry, s
 
 ## Next steps
 
-* [Push your first image using the Azure CLI](container-registry-get-started-azure-cli)
+* [Push your first image using the Azure CLI](container-registry-get-started-azure-cli.md)
 
 <!-- IMAGES -->
 [auth-portal-01]: ./media/container-registry-authentication/auth-portal-01.png
