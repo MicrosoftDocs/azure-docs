@@ -22,8 +22,9 @@ When you sign up for Log Analytics, depending on the plan you select, there is a
 
 Because Log Analytics can consume large amounts of data from any source on-premise, cloud and hybrid environments, the cost of storing that data for any length of time can be considerable depending on the following factors:
 
-* Number of systems, infrastructure components, cloud resources, etc.
+* Number of systems, infrastructure components, cloud resources, etc. you are collecting from
 * Type of data created by the source, such as message queues, logs, events, security-related data, or performance metrics. For event or log data collection, the volume or number of events or log records generated should be evaluated, especially if it is security generated data.  For performance metrics, consider the frequency of collection and specific instance versus all instances.   
+* The type of management solution enabled in your workspace and its configuration for data collection 
 
 If you are on the *Free* plan, data is limited to seven day retention.  For the *Standalone* or *Paid* tier, data collected is available the last 31 days.  
 
