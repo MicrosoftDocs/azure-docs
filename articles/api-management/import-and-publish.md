@@ -20,8 +20,6 @@ ms.author: apimpm
 
 This tutorial shows how to import an "OpenAPI specification" back-end API residing at http://conferenceapi.azurewebsites.net?format=json. This back-end API is provided by Microsoft and hosted on Azure. The topic also shows how to test the APIM API.
 
-For details about what is API Management (APIM) API, see [What is APIM API?](api-management-howto-create-apis.md)
-
 ![New API](./media/api-management-get-started/created-api.png)
 
 In this tutorial, you learn how to:

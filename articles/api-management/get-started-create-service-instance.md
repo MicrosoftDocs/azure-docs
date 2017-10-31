@@ -1,5 +1,4 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Create an Azure API Management instance | Microsoft Docs
 description: Follow the steps of this tutorial to create a new Azure API Management instance.
 services: api-management
@@ -50,4 +49,5 @@ This tutorial describes the steps for creating a new API Management instance usi
 
 ## Next steps
 
+> [!div class="nextstepaction"]
 [Publish an API with Azure API Management](#api-management-getstarted-publish-api.md)

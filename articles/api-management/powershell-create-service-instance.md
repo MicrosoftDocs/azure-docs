@@ -1,5 +1,4 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Create an Azure API Management instance using PowerShell | Microsoft Docs
 description: Follow the steps of this tutorial to create a new Azure API Management instance.
 services: api-management
@@ -50,7 +49,6 @@ When no longer needed, you can use the [Remove-AzureRmResourceGroup](/powershell
 ```azurepowershell-interactive
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
-
 
 ## Next steps
 
