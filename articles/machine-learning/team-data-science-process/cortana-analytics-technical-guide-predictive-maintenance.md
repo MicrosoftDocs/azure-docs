@@ -53,7 +53,7 @@ When the solution is deployed, various Azure services within Cortana
 Analytics Suite are activated (*i.e.* Event Hub, Stream Analytics,
 HDInsight, Data Factory, Machine Learning, *etc.*). The architecture
 diagram above shows, at a high level, how the Predictive Maintenance for
-Aerospace Solution Template is constructed from end-to-end. You will be able to investigate these services in the azure portal by clicking on them on the solution template diagram created with the deployment of the solution with the exception of HDInsight as this service is provisioned on demand when the related pipeline activities are required to run and deleted afterwards.
+Aerospace Solution Template is constructed from end-to-end. You will be able to investigate these services in the Azure portal by clicking on them on the solution template diagram created with the deployment of the solution with the exception of HDInsight as this service is provisioned on demand when the related pipeline activities are required to run and deleted afterwards.
 You can download a [full-size version of the diagram](http://download.microsoft.com/download/1/9/B/19B815F0-D1B0-4F67-AED3-A40544225FD1/ca-topologies-maintenance-prediction.png).
 
 The following sections describe each piece.
@@ -80,9 +80,9 @@ described above.
 
 ## **Data preparation and analysis**
 ### Azure Stream Analytics
-The [Azure Stream
+Use [Azure Stream
 Analytics](https://azure.microsoft.com/services/stream-analytics/)
-service is used to provide near real-time analytics on the input stream
+service to provide near real-time analytics on the input stream
 from the [Azure Event Hub](#azure-event-hub) service and publish results
 onto a [Power BI](https://powerbi.microsoft.com) dashboard as well as
 archiving all raw incoming events to the [Azure
@@ -91,31 +91,31 @@ for later processing by the [Azure Data
 Factory](https://azure.microsoft.com/documentation/services/data-factory/)
 service.
 
-### HD Insights custom aggregation
-The Azure HD Insight service is used to run
+### HDInsight custom aggregation
+Use theAzure HDInsight service to run
 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx)
 scripts (orchestrated by Azure Data Factory) to provide aggregations on
 the raw events that were archived using the Azure Stream Analytics
 service.
 
 ### Azure Machine Learning
-The [Azure Machine
-Learning](https://azure.microsoft.com/services/machine-learning/)
-service is used (orchestrated by Azure Data Factory) to make predictions
+Use [Azure Machine
+Learning Service](https://azure.microsoft.com/services/machine-learning/)
+(orchestrated by Azure Data Factory) to make predictions
 on the remaining useful life (RUL) of a particular aircraft engine given
 the inputs received.
 
 ## **Data publishing**
 ### Azure SQL Database Service
-The [Azure SQL
+Use [Azure SQL
 Database](https://azure.microsoft.com/services/sql-database/)
-service is used to store (managed by Azure Data Factory) the predictions
+to store (managed by Azure Data Factory) the predictions
 received by the Azure Machine Learning service that will be consumed in
 the [Power BI](https://powerbi.microsoft.com) dashboard.
 
 ## **Data consumption**
 ### Power BI
-The [Power BI](https://powerbi.microsoft.com) service is used to show a
+Use [Power BI](https://powerbi.microsoft.com) service to show a
 dashboard that contains aggregations and alerts provided by the [Azure
 Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) service as well as RUL
 predictions stored in [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) that
@@ -302,7 +302,7 @@ created, see [Predictive Maintenance: Step 1 of 3, data preparation and feature 
 ## **Monitor Progress**
  Once the Data Generator is launched, the pipeline begins to get hydrated and the different components of your solution start kicking into action following the commands issued by the Data Factory. There are two ways you can monitor the pipeline.
 
-1. One of the Stream Analytics job writes the raw incoming data to blob storage. If you click on Blob Storage component of your solution from the screen you successfully deployed the solution and then click Open in the right panel, it will take you to the [azure portal](https://portal.azure.com/). Once there, click on Blobs. In the next panel, you will see a list of Containers. Click on **maintenancesadata**. In the next panel, you will see the **rawdata** folder. Inside the rawdata folder, you will see folders with names such as hour=17, hour=18 etc. If you see these folders, it indicates that the raw data is successfully being generated on your computer and stored in blob storage. You should see csv files that should have finite sizes in MB in those folders.
+1. One of the Stream Analytics job writes the raw incoming data to blob storage. If you click on Blob Storage component of your solution from the screen you successfully deployed the solution and then click Open in the right panel, it will take you to the [Azure portal](https://portal.azure.com/). Once there, click on Blobs. In the next panel, you will see a list of Containers. Click on **maintenancesadata**. In the next panel, you will see the **rawdata** folder. Inside the rawdata folder, you will see folders with names such as hour=17, hour=18 etc. If you see these folders, it indicates that the raw data is successfully being generated on your computer and stored in blob storage. You should see csv files that should have finite sizes in MB in those folders.
 2. The last step of the pipeline is to write data (e.g. predictions from machine learning) into SQL Database. You might have to wait a maximum of three hours for the data to appear in SQL Database. One way to monitor how much data is available in your SQL Database is through [azure portal](https://portal.azure.com/).On the left panel locate SQL DATABASES ![SQL icon](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-SQL-databases.png) and click it. Then locate your database **pmaintenancedb** and click on it. On the next page at the bottom, click on MANAGE
    
     ![Manage icon](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-manage.png).
