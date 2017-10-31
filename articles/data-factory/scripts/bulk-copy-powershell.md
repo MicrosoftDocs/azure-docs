@@ -17,7 +17,7 @@ ms.author: spelluru
 
 # PowerShell script - copy multiple tables in bulk by using Azure Data Factory
 
-This sample PowerShell script copies a number of tables from Azure SQL Database to Azure SQL Data Warehouse.
+This sample PowerShell script copies data from multiple tables in an Azure SQL database to an Azure SQL data warehouse.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
@@ -40,11 +40,12 @@ Create an Azure SQL Database with Adventure Works LT sample data following [Crea
 2. Create corresponding table schemas in SQL Data Warehouse. You can use [Migration Utility](https://www.microsoft.com/download/details.aspx?id=49100) to **migrate schema** from Azure SQL Database to Azure SQL Data Warehouse. You use Azure Data Factory to migrate/copy data in a later step.
 
 **Azure services to access SQL server**
+
 For both SQL Database and SQL Data Warehouse, allow Azure services to access SQL server. Ensure that **Allow access to Azure services** setting is turned **ON** for your Azure SQL server. This setting allows the Data Factory service to read data from your Azure SQL Database and write data to your Azure SQL Data Warehouse. To verify and turn on this setting, do the following steps:
 
-1. Click **More services** hub on the left and click **SQL servers**.
-2. Select your server, and click **Firewall** under **SETTINGS**.
-3. In the **Firewall settings** page, click **ON** for **Allow access to Azure services**.
+1. In the [Azure portal](https://portal.azure.com), click **More services** hub on the left, and click **SQL servers**.
+3. Select your server, and click **Firewall** under **SETTINGS**.
+4. In the **Firewall settings** page, click **ON** for **Allow access to Azure services**.
 
 ## Sample script
 

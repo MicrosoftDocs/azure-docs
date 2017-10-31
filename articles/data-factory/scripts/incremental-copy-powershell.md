@@ -16,8 +16,7 @@ ms.author: spelluru
 ---
 
 # PowerShell script - Incrementally load data by using Azure Data Factory
-
-This sample PowerShell script copies a number of tables from Azure SQL Database to Azure SQL Data Warehouse.
+This sample PowerShell script loads only new or updated records from a source data store to a sink data store after the initial full copy of data from the source to the sink.  
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
@@ -27,7 +26,7 @@ Here are the important steps in this sample:
 1. **Select the watermark column**.
 	Select one column in the source data store, which can be used to slice the new or updated records for every run. Normally, the data in this selected column (for example, last_modify_time or ID) keeps increasing when rows are created or updated. The maximum value in this column is used as a watermark.
 2. **Prepare a data store to store the watermark value**.   
-	In this tutorial, you store the watermark value in an Azure SQL database.
+	In this sample, you store the watermark value in an Azure SQL database.
 3. **Create a pipeline with the following workflow:** 
 	
 	The pipeline in this solution has the following activities:
