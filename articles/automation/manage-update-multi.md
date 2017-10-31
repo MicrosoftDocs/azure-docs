@@ -13,8 +13,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/25/2017
-ms.author: eslesar
+ms.date: 10/31/2017
+ms.author: magoedte;eslesar
 ---
 # Manage updates for multiple Azure virtual machines
 
@@ -55,8 +55,9 @@ Windows agents must either be configured to communicate with a Windows Server Up
 * Red Hat Enterprise 6 (x86/x64), and 7 (x64)  
 * SUSE Linux Enterprise Server 11 (x86/x64) and 12 (x64)  
 * Ubuntu 12.04 LTS and newer x86/x64   
-    > [!NOTE]  
-    > To avoid updates being applied outside of a maintenance window on Ubuntu, reconfigure  Unattended-Upgrade package to disable automatic updates. For information on how to configure this, see [Automatic Updates topic in the Ubuntu Server Guide](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
+
+ > [!NOTE]  
+> To avoid updates being applied outside of a maintenance window on Ubuntu, reconfigure  Unattended-Upgrade package to disable automatic updates. For information on how to configure this, see [Automatic Updates topic in the Ubuntu Server Guide](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
 
 Linux agents must have access to an update repository.
 
