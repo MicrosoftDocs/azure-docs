@@ -1,5 +1,5 @@
 ---
-title: Predictive maintenance preconfigured solution | Microsoft Docs
+title: Predictive maintenance solution overview - Azure | Microsoft Docs
 description: A description of the Azure IoT Suite predictive maintenance preconfigured solution.
 services: ''
 suite: iot-suite
@@ -141,7 +141,7 @@ You can also explore some of the other features and capabilities of the IoT Suit
 [lnk-powerbi]: https://www.github.com/Microsoft/PowerBI-visuals
 [lnk-predictive-walkthrough]: iot-suite-predictive-walkthrough.md
 [lnk_preconfigured_solutions]: iot-suite-what-are-preconfigured-solutions.md
-[lnk_iot_suite]: iot-suite-overview.md
+[lnk_iot_suite]: iot-suite-options.md
 [lnk_infographic]: https://www.microsoft.com/server-cloud/predictivemaintenance/Index.html
 [lnk_regression_model]: http://gallery.cortanaanalytics.com/Collection/Predictive-Maintenance-Template-3
 
