@@ -86,6 +86,7 @@ The HTML `<body>` tag includes an `onload` attribute that calls `getSubscription
 <body onload="document.forms.bing.query.focus(); getSubscriptionKey();">
 ```
 ## Selecting search options
+The following figure shows the query text box and options that define a search for news about school funding.
 
 ![Bing News Search options](media/news-search-categories.png)
 
