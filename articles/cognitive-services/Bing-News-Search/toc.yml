@@ -37,7 +37,7 @@
   items:
   - name: Single-page News app
     href: tutorial-bing-news-search-single-page-app.md
-  - name: Single-page Web app (source code)
+  - name: Single-page News app (source code)
     href: tutorial-bing-news-search-single-page-app-source.md
 - name: Reference
   items:
