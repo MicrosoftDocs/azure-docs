@@ -74,11 +74,9 @@ Minify is a feature that gives a summarized view of your search results.  After 
 	| evaluate autocluster_v2()
 
 
-### Known issue: Search results in a list may include properties with no data
-Log search results in a list may display properties with no data.  Prior to upgrade, these properties wouldn't be included.  This issue will be corrected so that empty properties are not displayed.
+### Known issue: Complex queries in a chart could result in a syntax error
+When you select a value in a chart, it returns a detailed list of records matching the selected value. Charts with complex queries could result in a syntax error if they weren't created using the new query language.
 
-### Known issue: Selecting a value in a chart doesn't display detailed results
-Prior to upgrade, when you selected a value in a chart, it would return a detailed list of records matching the selected value.  After upgrade, only the single summarized line is returned.  This issue is currently being investigated.
 
 ## Log Search API
 
@@ -107,11 +105,9 @@ Your browser requires access to the following addresses to run Log Analytics que
 ## Power BI
 
 ### Question: Does anything change with PowerBI integration?
-Yes.  Once your workspace has been upgraded then the process for exporting Log Analytics data to Power BI will no longer work.  Any existing schedules that you created before upgrading will become disabled.  After upgrade, Azure Log Analytics uses the same platform as Application Insights, and you use the same process to export Log Analytics queries to Power BI as [the process to export Application Insights queries to Power BI](../application-insights/app-insights-export-power-bi.md#export-analytics-queries).
+Yes.  Once your workspace has been upgraded then the process for exporting Log Analytics data to Power BI will no longer work.  Any existing schedules that you created before upgrading will become disabled.  
 
-### Known issue: Power BI request size limit
-There is currently a size limit of 8 MB for a Log Analytics query that can be exported to Power BI.  This limit will be increased soon.
-
+After upgrade, Azure Log Analytics uses the same platform as Application Insights, and you use the same process to export Log Analytics queries to Power BI as [the process to export Application Insights queries to Power BI](../application-insights/app-insights-export-power-bi.md#export-analytics-queries).  Export to Power BI now calls directly the API endpoint. This allows you to get up to 500,000 rows or 64,000,000 bytes of data, export long queries and customize the timeout of the query (default timeout is 3 minutes, and the maximum timeout is 10 minutes).
 
 ## PowerShell cmdlets
 
@@ -151,14 +147,11 @@ Yes.  You must use an API version of 2017-03-15-preview and include a **features
 ### Question: Will my solutions continue to work?
 All solutions will continue to work in an upgraded workspace, although their performance will improve if they are converted to the new query language.  There are known issues with some existing solutions that are described in this section.
 
-### Known issue: Capacity and Performance solution
-Some of the parts in the [Capacity and Performance](log-analytics-capacity.md) view may be empty.  A fix to this issue will be available shortly.
-
 ### Known issue: Application Insights connector
 Perspectives in [Application Insights Connector solution](log-analytics-app-insights-connector.md) are currently not supported in an upgraded workspace.  A fix to this issue is currently under analysis.
 
 ### Known issue: Backup solution
-The Backup Solution will not collect data in an upgraded workspace. A new Backup solution that works with the upgraded workspace will be announced shortly.
+The Backup Solution may not collect data if was installed before upgrading a workspace. Uninstall the solution and then install the latest version.
 
 ## Upgrade process
 
