@@ -60,7 +60,7 @@ Here are the important steps in this sample:
 	(4, 'dddd','9/4/2017 3:21:00 AM'),
 	(5, 'eeee','9/5/2017 8:06:00 AM');
     ```
-	In this tutorial, you use **LastModifytime** as the **watermark** column.  The data in data source store is shown in the following table:
+	In this sample, you use **LastModifytime** as the **watermark** column.  The data in data source store is shown in the following table:
 
 	```
 	PersonID | Name | LastModifytime
@@ -83,7 +83,7 @@ Here are the important steps in this sample:
     WatermarkValue datetime,
     );
     ```
-3. Set the default **value** of high watermark with the table name of source data store.  (In this tutorial, the table name is: **data_source_table**)
+3. Set the default **value** of high watermark with the table name of source data store.  (In this sample, the table name is: **data_source_table**)
 
     ```sql
     INSERT INTO watermarktable
@@ -127,7 +127,7 @@ END
 [!code-powershell[main](../../../powershell_scripts/data-factory/incremental-copy-from-azure-sql-to-blob/incremental-copy-from-azure-sql-to-blob.ps1 "Incremental copy from Azure SQL Database to Azure Blob Storage")]
 
 ## Review the results
-1. In the Azure blob storage (sink store), you should see that the data have been copied to the file defined in the SinkDataset.  In the current tutorial, the file name is `Incremental- d4bf3ce2-5d60-43f3-9318-923155f61037.txt`.  Open the file, you can see records in the file that are same as the data in Azure SQL database.
+1. In the Azure blob storage (sink store), you should see that the data have been copied to the file defined in the SinkDataset.  In the current sample, the file name is `Incremental- d4bf3ce2-5d60-43f3-9318-923155f61037.txt`.  Open the file, you can see records in the file that are same as the data in Azure SQL database.
 
 	```
 	1,aaaa,2017-09-01 00:56:00.0000000
@@ -178,12 +178,12 @@ END
 	```powershell
 	$RunId = Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup "<your resource group>" -dataFactoryName "<your data factory name>"
 	```
-3. Check the status of pipeline by running **Get-AzureRmDataFactoryV2ActivityRun** cmdlet until you see all the activities running successfully. Replace place-holders with your own appropriate time for parameter RunStartedAfter and RunStartedBefore.  In this tutorial, we use -RunStartedAfter "2017/09/14" -RunStartedBefore "2017/09/15"
+3. Check the status of pipeline by running **Get-AzureRmDataFactoryV2ActivityRun** cmdlet until you see all the activities running successfully. Replace place-holders with your own appropriate time for parameter RunStartedAfter and RunStartedBefore.  In this sample, we use -RunStartedAfter "2017/09/14" -RunStartedBefore "2017/09/15"
 
 	```powershell
 	Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $RunId -RunStartedAfter "<start time>" -RunStartedBefore "<end time>"
 	```	
-4.  In the Azure blob storage, you should see another file has been created in Azure blob storage. In this tutorial, the new file name is `Incremental-2fc90ab8-d42c-4583-aa64-755dba9925d7.txt`.  Open that file, you see 2 rows records in it:
+4.  In the Azure blob storage, you should see another file has been created in Azure blob storage. In this sample, the new file name is `Incremental-2fc90ab8-d42c-4583-aa64-755dba9925d7.txt`.  Open that file, you see 2 rows records in it:
 5.  Check the latest value from `watermarktable`, you see the watermark value has been updated again
 
 	```sql

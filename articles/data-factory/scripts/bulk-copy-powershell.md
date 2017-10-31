@@ -31,7 +31,7 @@ This sample PowerShell script copies data from multiple tables in an Azure SQL d
 
 **Prepare the source Azure SQL Database**
 
-Create an Azure SQL Database with Adventure Works LT sample data following [Create an Azure SQL database](../../sql-database/sql-database-get-started-portal.md) article. This tutorial copies all the tables from this sample database to a SQL data warehouse.
+Create an Azure SQL Database with Adventure Works LT sample data following [Create an Azure SQL database](../../sql-database/sql-database-get-started-portal.md) article. This sample copies all the tables from this sample database to a SQL data warehouse.
 
 **Prepare the sink Azure SQL Data Warehouse**
 
