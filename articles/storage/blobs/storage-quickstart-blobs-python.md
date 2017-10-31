@@ -96,8 +96,10 @@ The first thing to do is create the references to the objects used to access and
 
 Once you have the Cloud Blob container, you can instantiate the **CloudBlockBlob** object that points to the specific blob in which you are interested, and perform operations such as upload, download, and copy.
 
-In this section, you instantiate the objects, create a new container, and then set permissions on the container so the blobs are public. The container is called **quickstartblobs**. 
+> [!IMPORTANT]
+> Container names must be lowercase. See [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) for more information about container and blob names.
 
+In this section, you instantiate the objects, create a new container, and then set permissions on the container so the blobs are public. The container is called **quickstartblobs**. 
 
 ```python 
 # Create the BlockBlockService that is used to call the Blob service for the storage account

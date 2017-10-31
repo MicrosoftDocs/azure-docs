@@ -106,6 +106,9 @@ The first thing to do is create the references to the objects used to access and
 
 Once you have the **CloudBlobContainer**, you can create an instance of the **CloudBlockBlob** object that points to the specific [blob](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob) in which you are interested, and perform an upload, download, copy, etc. operation.
 
+> [!IMPORTANT]
+> Container names must be lowercase. See [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) for more information about container and blob names.
+
 In this section, you create an instance of the objects, create a new container, and then set permissions on the container so the blobs are public and can be accessed with just a URL. The container is called **quickstartblobs**. 
 
 This example uses **CreateIfNotExists** because we want to create a new container each time the sample is run. In a production environment where you use the same container throughout an application, it's better practice to only call **CreateIfNotExists** once. Alternatively, you can create the container ahead of time so you don't need to create it in the code.

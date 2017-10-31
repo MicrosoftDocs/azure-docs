@@ -38,16 +38,16 @@ First, create a new general-purpose storage account to use for this quickstart.
 1. Go to the [Azure portal](https://portal.azure.com) and log in using your Azure account. 
 2. On the Hub menu, select **New** > **Storage** > **Storage account - blob, file, table, queue**. 
 3. Enter a name for your storage account. The name must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. It must also be unique.
-4. Set `Deployment model` to **Resource manager**.
-5. Set `Account kind` to **General purpose**.
-6. Set `Performance` to **Standard**. 
-7. Set `Replication` to **Locally Redundant storage (LRS)**.
-8. Set `Storage service encryption` to **Disabled**.
-9. Set `Secure transfer required` to **Disabled**.
-10. Select your subscription. 
-11. For `resource group`, create a new one and give it a unique name. 
-12. Select the `Location` to use for your storage account.
-13. Check **Pin to dashboard** and click **Create** to create your storage account. 
+4. Make sure that the following default values are set: 
+    a. **Deployment model** is set to **Resource manager**.
+    b. **Account kind** is set to **General purpose**.
+    c. **Performance** is set to **Standard**.
+    d. **Replication** is set to **Locally Redundant storage (LRS)**.
+    e. **Secure transfer required** is set to **Disabled**.
+1. Select your subscription. 
+2. For **Resource group**, create a new one and give it a unique name. 
+3. Select the **Location** to use for your storage account.
+4. Check **Pin to dashboard** and click **Create** to create your storage account. 
 
 After your storage account is created, it is pinned to the dashboard. Click on it to open it. Under SETTINGS, click **Access keys**. Select a key and copy the CONNECTION STRING to the clipboard, then paste it into a text editor for later use.
 
@@ -111,7 +111,10 @@ The first thing to do is create the references to the objects used to access and
 
 * Create an instance of the **CloudBlobContainer** object, which represents the container you are accessing. Containers are used to organize your blobs like you use folders on your computer to organize your files.
 
-Once you have the **CloudBlobContainer**, you can create an instance of the **CloudBlockBlob** object that points to the specific  blob in which you are interested, and perform an upload, download, copy, etc. operation.
+Once you have the **CloudBlobContainer**, you can create an instance of the **CloudBlockBlob** object that points to the specific blob in which you are interested, and perform an upload, download, copy, etc. operation.
+
+> [!IMPORTANT]
+> Container names must be lowercase. See [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) for more information about container and blob names.
 
 In this section, you create an instance of the objects, create a new container, and then set permissions on the container so the blobs are public and can be accessed with just a URL. The container is called **quickstartblobs**. 
 
