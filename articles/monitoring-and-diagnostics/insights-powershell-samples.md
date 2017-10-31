@@ -1,8 +1,8 @@
 ﻿---
 title: Azure Monitor PowerShell quick start samples. | Microsoft Docs
 description: Use PowerShell to access Azure Monitor features such as autoscale, alerts, webhooks and searching Activity logs.
-author: kamathashwin
-manager: orenr
+author: rboucher
+manager: carmonm
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
-ms.author: ashwink
+ms.author: robb
 
 ---
 # Azure Monitor PowerShell quick start samples

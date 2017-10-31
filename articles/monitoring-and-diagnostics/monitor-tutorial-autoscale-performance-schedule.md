@@ -20,8 +20,10 @@ Autoscale settings enable you to add/remove instances of service based on preset
 In this tutorial, you will 
 > [!div class="checklist"]
 > * Create a Web App and App Service Plan
-> * Configure an autoscale setting
-> * Trigger a scale-out action
+> * Configure an autoscale setting using the following steps: 
+> * Create a default profile 
+> * Create a recurrance profile 
+> * Create a recurrance profile 
 > * Trigger a scale-in action
 
 
