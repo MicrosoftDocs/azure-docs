@@ -1,11 +1,23 @@
 - name: Azure HDInsight documentation
   href: /azure/hdinsight
-- name: Storm overview
-  href: apache-storm-overview.md
-- name: Start with Storm
-  href: apache-storm-tutorial-get-started-linux.md
-- name: Develop Storm topologies
+- name: Storm on HDInsight
   items:
+  - name: Overview
+    href: apache-storm-overview.md
+  - name: Component versioning
+    href: ../hdinsight-component-versioning.md
+    maintainContext: true
+- name: Get started
+  items:
+  - name: Start using Storm
+    href: apache-storm-tutorial-get-started-linux.md
+  - name: Capacity planning
+    href: ../hdinsight-capacity-planning.md
+    maintainContext: true
+- name: How To
+  items:
+  - name: Develop Storm topologies
+    items:
     - name: Develop topologies using Java
       href: apache-storm-develop-java-topology.md
     - name: Develop topologies using Python
@@ -16,10 +28,10 @@
       href: apache-storm-scp-programming-guide.md
     - name: Storm examples
       href: apache-storm-example-topology.md
-- name: Deploy and monitor topologies
-  href: apache-storm-deploy-monitor-topology-linux.md
-- name: Create streaming pipelines
-  items:
+  - name: Deploy and monitor topologies
+    href: apache-storm-deploy-monitor-topology-linux.md
+  - name: Create streaming pipelines
+    items:
     - name: Kafka and Storm (Java)
       href: ../hdinsight-apache-storm-with-kafka.md
       maintainContext: true
@@ -33,8 +45,6 @@
       href: apache-storm-sensor-data-analysis.md
     - name: HBase (C#)
       href: apache-storm-correlation-topology.md
-- name: How To
-  items:
   - name: Extend clusters
     items:
     - name: Use secure enabled storage account
