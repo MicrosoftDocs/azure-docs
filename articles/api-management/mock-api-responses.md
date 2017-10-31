@@ -89,11 +89,6 @@ The steps in this section show how to create a blank API with no backend. It als
 3. Select **Send** to make a test call.
 4. The **HTTP response** displays the JSON provided as a sample in the first section of the tutorial.
 
-## View video
-
-> [!VIDEO https://youtu.be/i9PjUAvw7DQ/player]
-> 
-> 
 
 ## Next steps
 
