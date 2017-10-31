@@ -22,13 +22,13 @@ ms.custom: mvc
 
 # Using Azure Files with Kubernetes
 
-Applications often need to access and persist data in an external data volume. Azure files can be used as this external data volume. This article details using Azure files with a Kubernetes POD in Azure Container Service.
+Container based applications often need to access and persist data in an external data volume. Azure files can be used as this external data store. This article details using Azure files as a Kubernetes volume in Azure Container Service.
 
 For more information on Kubernetes volumes, see [Kubernetes volumes][kubernetes-volumes].
 
 ## Creating a file share
 
-An existing Azure files instance can be used with Azure Container Service. If you need to create one, use the following set of commands.
+An existing Azure File share can be used with Azure Container Service. If you need to create one, use the following set of commands.
 
 Create a resource group for the Azure File share using the [az group create][az-group-create] command. The resource group of the storage account and the Kubernetes cluster must be located in the same region.
 
@@ -58,15 +58,17 @@ az storage share create --name myfileshare --account-name mystorageaccount --acc
 
 ## Create Kubernetes Secret
 
-Kubernetes needs credentials to access the file share. Rather than storing the Azure Storage account name and key with each pod, it is stored once in a [Kubernetes secret][kubernetes-secret] and referenced by each Azure Files volume. The values in a Kubernetes secret must be base64 encoded. Use the following commands to return encoded values.
+Kubernetes needs credentials to access the file share. Rather than storing the Azure Storage account name and key with each pod, it is stored once in a [Kubernetes secret][kubernetes-secret] and referenced by each Azure Files volume. 
 
-First, encode the name of the storage account. Replace <storage-account> with the name of your Azure storage account.
+The values in a Kubernetes secret manifest must be base64 encoded. Use the following commands to return encoded values.
+
+First, encode the name of the storage account. Replace `storage-account` with the name of your Azure storage account.
 
 ```azurecli-interactive
 echo -n <storage-account> | base64
 ```
 
-Next, the storage account access key is needed. Run the following command to return the encoded key. Replace <storage-key> with the key collected in an earlier step
+Next, the storage account access key is needed. Run the following command to return the encoded key. Replace `storage-key` with the key collected in an earlier step
 
 ```azurecli-interactive
 echo -n <storage-key> | base64
@@ -93,7 +95,7 @@ kubectl apply -f azure-secret.yml
 
 ## Mount file share as volume
 
-You can mount your Azure file share into your pod by configuring the volume in its spec. Create a new file named `azure-files-pod.yml` with the following contents.
+You can mount your Azure Files share into your pod by configuring the volume in its spec. Create a new file named `azure-files-pod.yml` with the following contents. Update `share-name` with the name given to the Azure Files share.
 
 ```yaml
 apiVersion: v1
@@ -111,11 +113,11 @@ spec:
   - name: azure
     azureFile:
       secretName: azure-secret
-      shareName: <shareName>
+      shareName: <share-name>
       readOnly: false
 ```
 
-Use kubectl to create a pod
+Use kubectl to create a pod.
 
 ```azurecli-interactive
 kubectl apply -f azure-files-pod.yml
@@ -125,7 +127,7 @@ You now have a running container with your Azure file share mounted in the `/mnt
 
 ## Next steps
 
-Learn more about persistent volumes using Azure Files.
+Learn more about Kubernetes volumes using Azure Files.
 
 > [!div class="nextstepaction"]
 > [Kubernetes plugin for Azure Files](https://github.com/kubernetes/examples/blob/master/staging/volumes/azure_file/README.md)
