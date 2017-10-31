@@ -30,7 +30,7 @@ The following table includes links to sample Azure PowerShell scripts for Azure 
 |**Transform data**||
 |[Transform data using a Spark cluster](scripts/transform-data-spark-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| This PowerShell script transforms data by running a program on a Spark cluster. |
 |**Lift and shift SSIS packages to Azure**||
-|[Create Azure-SSIS integration runtime](scripts/deploy-azure-ssis-integration-runtime-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| This PowerShell scripts provisions an Azure-SSIS integration runtime that runs SQL Server Integration Services (SSIS) packages in Azure. |
+|[Create Azure-SSIS integration runtime](scripts/deploy-azure-ssis-integration-runtime-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| This PowerShell script provisions an Azure-SSIS integration runtime that runs SQL Server Integration Services (SSIS) packages in Azure. |
 
 
 
