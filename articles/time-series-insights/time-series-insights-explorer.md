@@ -32,9 +32,9 @@ Before you can use Time Series Insights explorer, you must:
 
 Within minutes of connecting your event source to your Time Series Insights environment, you can start exploring and querying your time series data.
 
-To start, head here: https://insights.timeseries.azure.com/ and select an environment on the left-hand side of the screen. You’ll see all environments that you have access to listed in alphabetical order.
+To start, go to [Time Series Insights](https://insights.timeseries.azure.com/) and select an environment on the left side of the window. All environments that you have access to are listed in alphabetical order.
 
-Once you select an environment, either use the ‘FROM’ and ‘TO’ configurations at the top or click and drag over your desired time span.  Click the magnifying glass at the top right, or right-click over the selected timespan and select **Search**.  
+Once you select an environment, either use the **FROM** and **TO** configurations at the top, or click and drag over your desired time span.  Click the magnifying glass at the top right, or right-click over the selected timespan and select **Search**.  
 
 You can also refresh availability automatically every minute, by selecting the **Auto On** button.
 
@@ -81,7 +81,7 @@ The Perspective View tool provides a simultaneous view of up to four unique quer
 
 The Chart lets you visually explore your data. Chart tools include:
 
-- Select/click which enables a selection of a specific timespan or of a single data series.  
+- Select/click, which enables a selection of a specific timespan or of a single data series.  
   - Within a time span selection, you can zoom or explore events.  
   - Within a data series, you can split the series by another column, add the series as a new term, show only the selected series, exclude the selected series, ping that series, or explore events from the selected series.
   - In the filter area to the left of the chart, you can see all displayed data series and reorder by value or name, view all data series or specifically pinned or unpinned series.  You can also select a single data series and split the series by another column, add the series as a new term, show only the selected series, exclude the selected series, pin that series, or explore events from the selected series.
@@ -93,11 +93,11 @@ The heatmap can be used to quickly spot unique or anomalous data series in a giv
 
 ![Heatmap](media/time-series-insights-explorer/explorer6.png)
 
-Events:  When you choose explore events when selecting or right-clicking above, the events panel is made available.  Here, you can see all of your raw events and export your events as JSON or CSV files.  Note – Time Series Insights stores all raw data.
+Events:  When you choose explore events when selecting or right-clicking above, the events panel is made available.  Here, you can see all of your raw events and export your events as JSON or CSV files. Note that Time Series Insights stores all raw data.
 
 ![Events](media/time-series-insights-explorer/explorer7.png)
 
-Stats: Clicking the **STATS** tab after exploring events exposes patterns and column stats.  
+Click the **STATS** tab after exploring events to expose patterns and column stats.  
 
 - Patterns: this feature proactively surfaces the most statistically significant patterns in a selected data region. This relieves you from having to look at thousands of events to understand what patterns most warrant time and energy. Further, Time Series Insights enables you to jump directly into these statistically significant patterns to continue conducting an analysis. This feature is also helpful for post-mortem investigations into historical data. 
 
