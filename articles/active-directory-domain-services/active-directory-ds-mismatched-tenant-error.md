@@ -4,7 +4,7 @@ description: Understand and resolve mismatched directory errors for existing Azu
 services: active-directory-ds
 documentationcenter: ''
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mahesh-unnikrishnan
 editor: curtand
 
 ms.assetid: 40eb75b7-827e-4d30-af6c-ca3c2af915c7
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article 
-ms.date: 07/06/2017
+ms.date: 10/30/2017
 ms.author: maheshu
 
 ---
@@ -54,7 +54,7 @@ You have two options to resolve the mismatched directory error. You may:
 
 - Click the **Delete** button to delete the existing managed domain. Re-create using the [Azure portal](https://portal.azure.com), so that the managed domain and virtual network it is available in belong to the Azure AD directory. You must join afresh to the newly created managed domain, all machines previously joined to the deleted domain.
 
-- Contact Azure support to move the Azure subscription containing the virtual network to the Azure AD directory, to which your managed domain belongs. Click **New support request** and specify **mismatched directory** in the **Details** section of the support request. Include the information provided in the error message as part of the support request.
+- Move the Azure subscription containing the virtual network to the Azure AD directory, to which your managed domain belongs. Follow the steps in the [transfer ownership of an Azure subscription to another account](../billing/billing-subscription-transfer.md) article.
 
 
 ## Related content
