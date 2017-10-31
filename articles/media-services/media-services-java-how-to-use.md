@@ -28,11 +28,11 @@ The following are required to complete this tutorial:
 
 * An Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 * A Media Services account. To create a Media Services account, see [How to Create a Media Services Account](media-services-portal-create-account.md).
-* The current [Azure Media Services Java SDK Maven Package](http://search.maven.org/#artifactdetails%7Ccom.microsoft.azure%7Cazure-media%7C0.9.8%7Cjar)
+* The current [Azure Media Services Java SDK](https://mvnrepository.com/artifact/com.microsoft.azure/azure-media/latest)
 
 ## How to: Import the Azure Media Services Java client SDK package
 
-To start using the Media Services SDK for Java, add a reference to the current version (0.9.8) of the `azure-media` package from the [Azure Media Services Java SDK Maven Package](http://search.maven.org/#artifactdetails%7Ccom.microsoft.azure%7Cazure-media%7C0.9.8%7Cjar)
+To start using the Media Services SDK for Java, add a reference to the current version (0.9.8) of the `azure-media` package from the [Azure Media Services Java SDK](https://mvnrepository.com/artifact/com.microsoft.azure/azure-media/latest)
 
 For example, if your build tool is `gradle`, add the following dependency to your `build.gradle` file:
 
