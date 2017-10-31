@@ -24,46 +24,11 @@ ms.author: twooley
 
 These release notes provide information about improvements, fixes, and known issues in Azure Stack Development Kit. If you're not sure which version you're running, you can [use the portal to check](azure-stack-updates.md#determine-the-current-version).
 
-## Build 20170928.3
-
-### Known issues
-
-#### PowerShell
-- The release of the AzureRM 1.2.11 PowerShell module comes with a list of breaking changes. For information about upgrading from the 1.2.10 version, see the [migration guide](https://aka.ms/azspowershellmigration).
-
-#### Deployment
-- You must specify a time server by IP address during deployment.
-   
-#### Portal
-- You may see a blank dashboard in the portal. To recover the dashboard, select the gear icon in the upper right corner of the portal, and then select **Restore default settings**.
-- Users can browse the full marketplace without a subscription, and can see administrative items like plans and offers. These items are non-functional to users.
-- The **Move** button is disabled when you view the properties of a resource group. This behavior is expected. Moving resource groups between subscriptions is not currently supported.
-- You are not able to view permissions to your subscription using the Azure Stack portals. As a workaround, you can verify permissions by using Powershell.
-- You will see an **Activation Required** warning alert that advises you to register your Azure Stack Development Kit. This behavior is expected.
-- In the **Activation Required** warning alert details, do not click the link to the **AzureBridge** component. If you do, the **Overview** blade will unsuccessfully try to load, and won't time out.
-- Quotas may not show up in the administrator portal after you create them and then try to later view the plan details. As a workaround, in **Services and quotas**, click **Add**, and add a new entry.
-  
-#### Services
-- There is no marketplace experience to create virtual machine scale sets. You can create a scale set by using a template.
-- You can't create a load balancer with a public IP address by using the portal. As a workaround, you can use PowerShell to create the load balancer.
-- You can configure a virtual machine availability set only with a fault domain of one, and an update domain of one.  
-- A user must register the storage resource provider before they create their first Azure Function in the subscription.
-- Deleting user subscriptions results in orphaned resources. As a workaround, first delete user resources or the entire resource group, and then delete user subscriptions. 
-- You must create a network address translation (NAT) rule when you create a network load balancer. If you don't, you'll receive an error when you try to add a NAT rule after the load balancer is created.
-- Users are given the option to create a virtual machine with geo-redundant storage. This configuration causes virtual machine creation to fail.
-- It can take up to an hour before tenants can create databases in a new SQL or MySQL SKU. 
-- Creation of items directly on SQL and MySQL hosting servers that are not performed by the resource provider is not supported and may result in a mismatched state.
-
-#### Infrastructure management
-- Do not enable infrastructure backup on the **Infrastructure backup** blade.
-- The compute resource provider displays an unknown state.
-- The baseboard management controller (BMC) IP address and model are not shown in the essential information of a scale unit node. This behavior is expected in Azure Stack Development Kit.
-
 ## Build 20171020.1
 
 ### Improvements and fixes
 
-To see the list of improvements and fixes in this release, see the [Improvements and fixes](azure-stack-update-1710.md#improvements-and-fixes) section of the 1710 release notes for Azure Stack integrated systems. Some of the items listed in the "Additional quality improvements and fixes" section are relevant only to integrated systems.
+To see the list of improvements and fixes in the 20171020.1 build, see the [Improvements and fixes](azure-stack-update-1710.md#improvements-and-fixes) section of the 1710 release notes for Azure Stack integrated systems. Some of the items listed in the "Additional quality improvements and fixes" section are relevant only to integrated systems.
 
 Also, the following fixes were made:
 - Fixed an issue where the Compute resource provider displayed an unknown state.
@@ -101,13 +66,14 @@ Also, the following fixes were made:
 #### Marketplace
 - When you try to add items to the Azure Stack marketplace by using the **Add from Azure** option, not all items may be visible for download.
 - Users can browse the full marketplace without a subscription, and can see administrative items like plans and offers. These items are non-functional to users.
-- There is no marketplace experience to create virtual machine scale sets. You can create a scale set by using a template.
  
 #### Compute
 - Users are given the option to create a virtual machine with geo-redundant storage. This configuration causes virtual machine creation to fail. 
 - You can configure a virtual machine availability set only with a fault domain of one, and an update domain of one.
+- There is no marketplace experience to create virtual machine scale sets. You can create a scale set by using a template.
+- Scaling settings for virtual machine scale sets are not available in the portal. As a workaround, you can use [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set).
 
-#### Network
+#### Networking
 - You can't create a load balancer with a public IP address by using the portal. As a workaround, you can use PowerShell to create the load balancer.
 - You must create a network address translation (NAT) rule when you create a network load balancer. If you don't, you'll receive an error when you try to add a NAT rule after the load balancer is created.
 - Under **Networking**, if you click **Connection** to set up a VPN connection, **VNet-to-VNet** is listed as a possible connection type. Do not select this option. Currently, only the **Site-to-site (IPsec)** option is supported.
@@ -121,4 +87,46 @@ Also, the following fixes were made:
  
 #### Usage and billing
 - Public IP address usage meter data shows the same *EventDateTime* value for each record instead of the *TimeDate* stamp that shows when the record was created. Currently, you can’t use this data to perform accurate accounting of public IP address usage.
+
+## Build 20170928.3
+
+### Known issues
+
+#### PowerShell
+- The release of the AzureRM 1.2.11 PowerShell module comes with a list of breaking changes. For information about upgrading from the 1.2.10 version, see the [migration guide](https://aka.ms/azspowershellmigration).
+
+#### Deployment
+- You must specify a time server by IP address during deployment.
+
+ #### Infrastructure management
+- Do not enable infrastructure backup on the **Infrastructure backup** blade.
+- The Compute resource provider displays an unknown state.
+- The baseboard management controller (BMC) IP address and model are not shown in the essential information of a scale unit node. This behavior is expected in Azure Stack Development Kit. 
+   
+#### Portal
+- You may see a blank dashboard in the portal. To recover the dashboard, select the gear icon in the upper right corner of the portal, and then select **Restore default settings**.
+- When you view the properties of a resource group, the **Move** button is disabled. This behavior is expected. Moving resource groups between subscriptions is not currently supported.
+- You will see an **Activation Required** warning alert that advises you to register your Azure Stack Development Kit. This behavior is expected.
+- In the **Activation Required** warning alert details, do not click the link to the **AzureBridge** component. If you do, the **Overview** blade will unsuccessfully try to load, and won't time out.
+- Quotas may not show up in the administrator portal after you create them and then try to later view the plan details. As a workaround, in **Services and quotas**, click **Add**, and add a new entry.
+- Deleting user subscriptions results in orphaned resources. As a workaround, first delete user resources or the entire resource group, and then delete user subscriptions.
+- You are not able to view permissions to your subscription using the Azure Stack portals. As a workaround, you can verify permissions by using Powershell.
+  
+#### Marketplace
+- Users can browse the full marketplace without a subscription, and can see administrative items like plans and offers. These items are non-functional to users.
  
+#### Compute
+- Users are given the option to create a virtual machine with geo-redundant storage. This configuration causes virtual machine creation to fail.
+- You can configure a virtual machine availability set only with a fault domain of one, and an update domain of one.
+- There is no marketplace experience to create virtual machine scale sets. You can create a scale set by using a template.
+
+#### Networking
+- You can't create a load balancer with a public IP address by using the portal. As a workaround, you can use PowerShell to create the load balancer.
+- You must create a network address translation (NAT) rule when you create a network load balancer. If you don't, you'll receive an error when you try to add a NAT rule after the load balancer is created.
+
+#### SQL/MySQL
+- It can take up to an hour before tenants can create databases in a new SQL or MySQL SKU. 
+- Creation of items directly on SQL and MySQL hosting servers that are not performed by the resource provider is not supported and may result in a mismatched state.
+
+#### App Service
+- A user must register the storage resource provider before they create their first Azure Function in the subscription.
