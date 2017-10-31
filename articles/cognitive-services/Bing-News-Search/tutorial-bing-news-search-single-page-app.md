@@ -245,7 +245,7 @@ function handleBingResponse() {
 ```
 
 > [!IMPORTANT]
-> A successful HTTP request does *not* necessarily mean that the search itself succeeded. If an error occurs in the search operation, the Bing Image Search API returns a non-200 HTTP status code and includes error information in the JSON response. Additionally, if the request was rate-limited, the API returns an empty response.
+> A successful HTTP request does *not* necessarily mean that the search itself succeeded. If an error occurs in the search operation, the Bing News Search API returns a non-200 HTTP status code and includes error information in the JSON response. Additionally, if the request was rate-limited, the API returns an empty response.
 
 Much of the code in both of the preceding functions is dedicated to error handling. Errors may occur at the following stages:
 
@@ -258,7 +258,7 @@ Much of the code in both of the preceding functions is dedicated to error handli
 Errors are handled by calling `renderErrorMessage()` with any details known about the error. If the response passes the full gauntlet of error tests, we call `renderSearchResults()` to display the search results in the page.
 
 ## Displaying search results
-The main function for displaying the search results is `renderSearchResults()`. This function takes the JSON returned by the Bing Image Search service and renders the news results and the related searches, if any.
+The main function for displaying the search results is `renderSearchResults()`. This function takes the JSON returned by the Bing News Search service and renders the news results and the related searches, if any.
 
 ```javascript
 // render the search results given the parsed JSON response
@@ -274,10 +274,10 @@ The main function for displaying the search results is `renderSearchResults()`. 
         showDiv("sidebar", renderRelatedItems(results.relatedSearches));
 }
 ```
-The main image search results are returned as the top-level `value` object in the JSON response. We pass them to our function `renderImageResults()`, which iterates through them and calls a separate function to render each item into HTML. The resulting HTML is returned to `renderSearchResults()`, where it is inserted into the `results` division in the page.
+The main search results are returned as the top-level `value` object in the JSON response. We pass them to our function `renderResults()`, which iterates through them and calls a separate function to render each item into HTML. The resulting HTML is returned to `renderSearchResults()`, where it is inserted into the `results` division in the page.
 
 ```javascript
-function renderImageResults(items) {
+function renderResults(items) {
     var len = items.length;
     var html = [];
     if (!len) {
@@ -286,19 +286,19 @@ function renderImageResults(items) {
         return "";
     }
     for (var i = 0; i < len; i++) {
-        html.push(searchItemRenderers.images(items[i], i, len));
+        html.push(searchItemRenderers.news(items[i], i, len));
     }
     return html.join("\n\n");
 }
 ```
-The Bing Image Search API returns up to four different kinds of related results, each in its own top-level object. They are:
+The Bing News Search API returns up to four different kinds of related results, each in its own top-level object. They are:
 
 |Relation|Description|
 |-|-|
 |`pivotSuggestions`|Queries that replace a pivot word in original search with a different one. For example, if you search for "red flowers," a pivot word might be "red," and a pivot suggestion might be "yellow flowers."|
 |`queryExpansions`|Queries that narrow the original search by adding more terms. For example, if you search for "Microsoft Surface," a query expansion might be "Microsoft Surface Pro."|
 |`relatedSearches`|Queries that have also been entered by other users who entered the original search. For example, if you search for "Mount Rainier," a related search might be "Mt. Saint Helens."|
-|`similarTerms`|Queries that are similar in meaning to the original search. For example, if you search for "kittens," a similar term might be "cute."|
+|`similarTerms`|Queries that are similar in meaning to the original search. For example, if you search for "schools," a similar term might be "education."|
 
 As previously seen in `renderSearchResults()`, we render only the `relatedItems` suggestions and place the resulting links in the page's sidebar.
 
@@ -394,4 +394,3 @@ Leave the command window open while you use the tutorial app; closing the window
 ## Next steps
 > [!div class="nextstepaction"]
 > [Bing News Search API reference](//docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference)
-![kmsi.PNG](../../active-directory-b2c/images/kmsi.PNG)
