@@ -1,5 +1,5 @@
 ---
-title: Scale a Service Fabric cluster | Microsoft Docs
+title: Scale an Azure Service Fabric cluster | Microsoft Docs
 description: Learn how to quickly scale a Service Fabric cluster.
 services: service-fabric
 documentationcenter: .net
