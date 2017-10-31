@@ -31,11 +31,11 @@ This sample PowerShell script copies a number of tables from Azure SQL Database 
 
 **Prepare the source Azure SQL Database**
 
-Create an Azure SQL Database with Adventure Works LT sample data following [Create an Azure SQL database](../sql-database/sql-database-get-started-portal.md) article. This tutorial copies all the tables from this sample database to a SQL data warehouse.
+Create an Azure SQL Database with Adventure Works LT sample data following [Create an Azure SQL database](../../sql-database/sql-database-get-started-portal.md) article. This tutorial copies all the tables from this sample database to a SQL data warehouse.
 
 **Prepare the sink Azure SQL Data Warehouse**
 
-1. If you don't have an Azure SQL Data Warehouse, see the [Create a SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md#create-a-sql-data-warehouse) article for steps to create one.
+1. If you don't have an Azure SQL Data Warehouse, see the [Create a SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md#create-a-sql-data-warehouse) article for steps to create one.
 
 2. Create corresponding table schemas in SQL Data Warehouse. You can use [Migration Utility](https://www.microsoft.com/download/details.aspx?id=49100) to **migrate schema** from Azure SQL Database to Azure SQL Data Warehouse. You use Azure Data Factory to migrate/copy data in a later step.
 
@@ -51,8 +51,7 @@ For both SQL Database and SQL Data Warehouse, allow Azure services to access SQL
 > [!IMPORTANT]
 > This script creates JSON files that define Data Factory entities (linked service, dataset, and pipeline) on your hard drive in the c:\ folder.
 
-[!code-powershell[main](../../../powershell_scripts/data-factory/bulk-copy-from-sql-databse-to-sql-data-warehouse/bulk-copy-from-sql-databse-to-sql-data-warehouse.ps1 "Copy from Blob Storage -> Blob Storage")]
-
+[!code-powershell[main](../../../powershell_scripts/data-factory/bulk-copy-from-sql-databse-to-sql-data-warehouse/bulk-copy-from-sql-databse-to-sql-data-warehouse.ps1 "Bulk copy from Azure SQL Database => Azure SQL Data Warehouse")]
 
 ## Clean up deployment
 

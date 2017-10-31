@@ -37,12 +37,11 @@ Here are the important steps in this sample:
 	3. A **stored procedure activity** that updates the watermark value for the pipeline running next time. 
 
 ## Prerequisites
-* **Azure SQL Database**. You use the database as the **source** data store. If you don't have an Azure SQL Database, see the [Create an Azure SQL database](../sql-database/sql-database-get-started-portal.md) article for steps to create one.
-* **Azure Storage account**. You use the blob storage as the **sink** data store. If you don't have an Azure storage account, see the [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) article for steps to create one. Create a container named **adftutorial**. 
-* **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps).
+* **Azure SQL Database**. You use the database as the **source** data store. If you don't have an Azure SQL Database, see the [Create an Azure SQL database](../../sql-database/sql-database-get-started-portal.md) article for steps to create one.
+* **Azure Storage account**. You use the blob storage as the **sink** data store. If you don't have an Azure storage account, see the [Create a storage account](../../storage/common/storage-create-storage-account.md#create-a-storage-account) article for steps to create one. Create a container named **adftutorial**. 
 
 ### Create a data source table in your Azure SQL database
-1. Open **SQL Server Management Studio**, in **Server Explorer**, right-click the database and choose the **New Query**.
+1. Launch **SQL Server Management Studio**. In **Server Explorer**, right-click the database and choose the **New Query**.
 2. Run the following SQL command against your Azure SQL database to create a table named `data_source_table` as data source store.  
     
     ```sql
@@ -126,7 +125,7 @@ END
 > [!IMPORTANT]
 > This script creates JSON files that define Data Factory entities (linked service, dataset, and pipeline) on your hard drive in the c:\ folder.
 
-[!code-powershell[main](../../../powershell_scripts/data-factory/incremental-copy-from-azure-sql-to-blob/incremental-copy-from-azure-sql-to-blob.ps1 "Copy from Blob Storage -> Blob Storage")]
+[!code-powershell[main](../../../powershell_scripts/data-factory/incremental-copy-from-azure-sql-to-blob/incremental-copy-from-azure-sql-to-blob.ps1 "Incremental copy from Azure SQL Dtabase to Azure Blob Storage")]
 
 
 ## Clean up deployment
