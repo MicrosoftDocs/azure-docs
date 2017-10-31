@@ -50,7 +50,7 @@ After the model is designed, trained, and published, it is ready to receive and 
 
 LUIS has two sets of APIs: the authoring APIs and the endpoint APIs.
 
-* **Authoring APIs and LUIS.ai** The authoring APIs give you and your collaborators control of your LUIS model definition. This control includes management of: models, versions, collaborators, external APIs, Azure subscription keys, testing, and training. [LUIS.ai][luis.ai] is the authoring website that sits on top of the authoring APIS, making the API calls for you.
+* **Authoring APIs and LUIS.ai** The authoring APIs give you and your collaborators control of your LUIS model definition. This control includes management of: models, versions, collaborators, external APIs, Azure subscription keys, testing, and training. [LUIS.ai][luis.ai] is the authoring website that sits on top of the authoring APIS, making the API calls for you. You can use either [LUIS.ai][luis.ai] or the Authoring APIs or a combination of both to build your model.
 
 * **Endpoint APIs** The endpoint APIs allow users to pass a short, less than 500 character utterance phrase to LUIS. When you publish your LUIS app, the endpoint URL is created. 
 
@@ -71,9 +71,9 @@ For example, a "BookFlight" intent could trigger an API call to an external serv
 ### Identify Entities  
 [Entity][luis-concept-entity-types] identification determines how successfully the end user gets the correct answer. LUIS provides several ways to identify and categorize entities.
 
-* **Prebuilt Entities** LUIS has many prebuilt domains with [prebuilt entities][pre-built-entities]. You can use the entity without having to use the entire domain. The prebuilt entities save you time.
+* **Prebuilt Entities** LUIS has many prebuilt domain models which include intents, utterances, and [prebuilt entities][pre-built-entities]. You can use the prebuilt entities without having to use the intents and utterances of the prebuilt model. The prebuilt entities save you time.
 
-* **Custom Entities** LUIS gives you several ways to identify your own custom entities including simple entities, composite entities, list entities, and hierarchical entities.
+* **Custom Entities** LUIS gives you several ways to identify your own custom [entities][entity-concept] including simple entities, composite entities, list entities, and hierarchical entities.
 
 * **Regular Expressions and Phrase Features** LUIS provides [features](luis-concept-feature.md) such as regular expression patterns and phrase lists, which also help identify entities. 
 
@@ -101,3 +101,4 @@ Watch this short [video tutorial][intro-video] on these steps.
 [bot-framework]:https://docs.microsoft.com/en-us/bot-framework/
 [speech]:../Speech
 [flow]:https://docs.microsoft.com/connectors/luis/
+[entity-concept]:luis-concept-entity-types.md
