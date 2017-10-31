@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/25/2017
+ms.date: 10/31/2017
 ms.author: saraford
 
 ---

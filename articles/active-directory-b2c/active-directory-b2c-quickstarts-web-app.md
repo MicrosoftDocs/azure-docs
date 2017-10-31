@@ -1,5 +1,5 @@
 ---
-title: Test Drive an Azure AD B2C Web Application | Microsoft Docs
+title: Test drive an Azure AD B2C web application | Microsoft Docs
 description: Test drive sign in, sign up, edit profile, and reset password user journeys using a test Azure AD B2C environment
 services: active-directory-b2c
 documentationcenter: .net
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/26/2017
+ms.date: 10/31/2017
 ms.author: saraford
 
 ---
@@ -24,7 +24,7 @@ Azure Active Directory B2C provides cloud identity management to keep your appli
 * Using the **Sign Up or Sign In** policy to create or sign in with a social identity provider or a local account using an email address. 
 * Calling an API secured by Azure AD B2C to create and edit to-do items.
 
-# Prerequisites
+## Prerequisites
 
 * Install [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the following workloads:
     - **ASP.NET and web development**

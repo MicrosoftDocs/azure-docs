@@ -1,5 +1,5 @@
 ---
-title: Test drive an Azure AD B2C single page application | Microsoft Docs
+title: Test drive an Azure AD B2C single-page application | Microsoft Docs
 description: Test drive sign in, sign up, edit profile, and reset password user journeys using a test Azure AD B2C environment
 services: active-directory-b2c
 documentationcenter: ''
@@ -13,11 +13,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 10/26/2017
+ms.date: 10/31/2017
 ms.author: saraford
 
 ---
-# Test drive a single page application configured with Azure AD B2C
+# Test drive a single-page application configured with Azure AD B2C
 
 ## About this sample
 
@@ -26,7 +26,7 @@ Azure Active Directory B2C provides cloud identity management to keep your appli
 * Using the **Sign Up or Sign In** policy to create or sign in with a social identity provider or a local account using an email address. 
 * **Calling an API** to retrieve your display name from an Azure AD B2C secured resource.
 
-# Prerequisites
+## Prerequisites
 
 * Install [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the following workloads:
     - **ASP.NET and web development**
