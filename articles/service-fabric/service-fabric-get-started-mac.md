@@ -76,23 +76,23 @@ Service Fabric provides scaffolding tools which will help you create a Service F
 
 1. You need to have Node.js and NPM installed on you mac. If not you can install Node.js and NPM using Homebrew using the following. To check the versions of Node.js and NPM installed on your Mac, you can use the ``-v`` option.
 
-  ```bash
-  brew install node
-  node -v
-  npm -v
-  ```
+    ```bash
+    brew install node
+    node -v
+    npm -v
+    ```
 2. Install [Yeoman](http://yeoman.io/) template generator on your machine from NPM
 
-  ```bash
-  npm install -g yo
-  ```
+    ```bash
+    npm install -g yo
+    ```
 3. Install the Yeoman generator you want to use, following the steps in the getting started [documentation](service-fabric-get-started-linux.md). To create Service Fabric Applications using Yeoman, follow the steps -
 
-  ```bash
-  npm install -g generator-azuresfjava       # for Service Fabric Java Applications
-  npm install -g generator-azuresfguest      # for Service Fabric Guest executables
-  npm install -g generator-azuresfcontainer  # for Service Fabric Container Applications
-  ```
+    ```bash
+    npm install -g generator-azuresfjava       # for Service Fabric Java Applications
+    npm install -g generator-azuresfguest      # for Service Fabric Guest executables
+    npm install -g generator-azuresfcontainer  # for Service Fabric Container Applications
+    ```
 4. To build a Service Fabric Java application on Mac, you would need - JDK 1.8 and Gradle installed on the host machine. If it is not there already you can install it using [HomeBrew](https://brew.sh/). 
     ```bash
     brew update
