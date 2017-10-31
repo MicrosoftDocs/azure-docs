@@ -35,7 +35,7 @@ VMs you want to migrate to Azure must meet Azure requirements and limitations. F
 **Check** | **Details**
 --- | ---
 **Boot type** | The boot type of the guest OS disk must be BIOS, and not UEFI.
-**C** | The number of cores in the machines must be equal to (or less than) the maximum number of cores (32) supported for an Azure VM.<br/><br/> If performance history is available, Azure Migrate considers the utilized cores for comparison. If a comfort factor is specified in the assessment settings, the number of utilized cores is multiplied by the comfort factor.<br/><br/> If there's no performance history, Azure Migrate uses the allocated cores, without applying the comfort factor.
+**Cores** | The number of cores in the machines must be equal to (or less than) the maximum number of cores (32) supported for an Azure VM.<br/><br/> If performance history is available, Azure Migrate considers the utilized cores for comparison. If a comfort factor is specified in the assessment settings, the number of utilized cores is multiplied by the comfort factor.<br/><br/> If there's no performance history, Azure Migrate uses the allocated cores, without applying the comfort factor.
 **Memory** | The machine memory size must be equal to (or less than) the maximum memory (448 GB) allowed for an Azure VM. <br/><br/> If performance history is available, Azure Migrate considers the utilized memory for comparison. If a comfort factor is specified, the utilized memory is multiplied by the comfort factor.<br/><br/> If there's no history the allocated memory is used, without applying the comfort factor.<br/><br/> 
 **OS: Windows Server 2003-2008** | 32-bit and 64-bit support.<br/><br/> Azure provides best effort support only.
 **OS: Windows Server 2008 R2 + SPs** | 64-bit support.<br/><br/> Azure provides full support.
@@ -54,7 +54,8 @@ After a machine is marked as suitable for Azure, Azure Migrate maps it to a VM s
     - If the service can't find a disk with the required IOPS & throughput, it marks the machine as unsuitable for Azure.
     - If it finds a set of suitable disks, Azure Migrate selects the ones that support the storage redundancy method, and the location specified in the assessment settings.
     - If there are multiple eligible disks, it selects the one with the lowest cost.
-- **Storage disk throughput** | [Learn more](../azure-subscription-service-limits.md#storage-limits) about Azure limits per disk and VM.<br/><br/> Azure Migrate supports managed disks only.
+- **Storage disk throughput**: [Learn more](../azure-subscription-service-limits.md#storage-limits) about Azure limits per disk and VM.
+- **Disk type**: Azure Migrate supports managed disks only.
 - **Network check**: Azure Migrate tries to find an Azure VM that can support the number of NICs on the on-premises machine.
     - To do this, it aggregates the data transmitted per second (MBps) out of the machine (network out) across all NICs, and applies the comfort factor to the aggregated number. This number if used to find an Azure VM that can support the required network performance.
     - Azure Migrate takes the network settings from the VM, and assumes it to be a network outside the datacenter.
