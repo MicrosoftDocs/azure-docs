@@ -350,7 +350,7 @@ These functions can be used for either types of numbers: **integers** and **floa
 |dayOfYear|Returns the day of year component of a string timestamp. For example `74`:<br /><br /> `dayOfYear('2017-03-15T13:27:36Z')`<br /><br /> **Parameter number**: 1<br /><br /> **Name**: Timestamp<br /><br /> **Description**: Required. This is a string that contains the time.| 
 |ticks|Returns the ticks property of a string timestamp. For example `1489603019`:<br /><br /> `ticks('2017-03-15T18:36:59Z')`<br /><br /> **Parameter number**: 1<br /><br /> **Name**: Timestamp<br /><br /> **Description**: Required. This is a string that contains the time.| 
   
-### Workflow Refence functions  
+### Workflow functions  
 
 These functions help you get information about the workflow itself at run time.  
   
