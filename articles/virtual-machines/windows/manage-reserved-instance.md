@@ -42,18 +42,18 @@ To split a reservation through Powershell cmdlets:
     # Get the reservation orders you have access to
     Get-AzureRmReservationOrder
     ```
-1. You can get the details of a reservation, including the quantity, which you plan to split.
+2. You can get the details of a reservation, including the quantity, which you plan to split.
 
     ```powershell
     Get-AzureRmReservation -ReservationOrderId a08160d4-ce6b-4295-bf52-b90a5d4c96a0 -ReservationId b8be062a-fb0a-46c1-808a-5a844714965a
     ```
-1. You can split the reservation into two reservations distributing the quantity.
+3. You can split the reservation into two reservations distributing the quantity.
 
     ```powershell
     # Split the reservation. The sum of the quantity during split must equal the quantity in the reservation being split.
     Split-AzureRmReservation -ReservationOrderId a08160d4-ce6b-4295-bf52-b90a5d4c96a0 -ReservationId b8be062a-fb0a-46c1-808a-5a844714965a -Quantity 3,2
     ```
-1. After you split the reservation into two, you can update the scope in the portal or through the powershell cmdlet.
+4. After you split the reservation into two, you can update the scope in the portal or through the powershell cmdlet.
 
     ```powershell
     Update-AzureRmReservation -ReservationOrderId a08160d4-ce6b-4295-bf52-b90a5d4c96a0 -ReservationId 5257501b-d3e8-449d-a1ab-4879b1863aca -AppliedScopeType Single -AppliedScope /subscriptions/15bb3be0-76d5-491c-8078-61fe3468d414
