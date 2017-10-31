@@ -44,7 +44,7 @@ You can run the tool in a couple of modes:
 
    * In **Select your scenario**, choose **Hyper-V to Azure** or **VMware/Physical to Azure**.
    * In **Average daily data change rate (%)**, put in the information you gather using the [Hyper-V capacity planning tool](site-recovery-capacity-planning-for-hyper-v-replication.md) or the [Azure Site Recovery Deployment Planner](./site-recovery-deployment-planner.md).  
-   * **Compression**  For replicating Hyper-V VMs to Azure compression, this setting doesn't apply. Use a third-party appliance such as Riverbed.
+   * The **Compression**  setting isn't used when replicating Hyper-V VMs to Azure. For compression, use a third-party appliance such as Riverbed.
    * In **Retention Inputs**, specify how long replicas should be retained, in hours.
    * In **Number of hours in which initial replication for the batch of virtual machines should complete** and **Number of virtual machines per initial replication batch**, you input settings that are used to compute initial replication requirements.  When Site Recovery is deployed, the entire initial data set should be uploaded.
 
@@ -123,4 +123,4 @@ After all the details are in place, click **Submit data to the planner tool** to
 
 ## Next steps
 
-[Read about](site-recovery-capacity-planning-for-hyper-v-replication.md) the capacity planner Tool
+[Learn how to run](site-recovery-capacity-planning-for-hyper-v-replication.md) the Capacity Planner Tool.
