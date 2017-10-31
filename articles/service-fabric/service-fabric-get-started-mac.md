@@ -108,7 +108,7 @@ To build Service Fabric services using Java, ensure you have JDK 1.8 installed a
 Follow the instructions at [Service Fabric CLI](service-fabric-cli.md#cli-mac) to install the Service Fabric CLI (`sfctl`) on your Mac.
 The CLI commands for interacting with Service Fabric entities, including clusters, applications and services.
 
-## Create application on you Mac using Yeoman
+## Create application on your Mac using Yeoman
 
 Service Fabric provides scaffolding tools which will help you create a Service Fabric application from terminal using Yeoman template generator. Please follow the steps below to ensure you have the Service Fabric yeoman template generator working on your machine.
 
