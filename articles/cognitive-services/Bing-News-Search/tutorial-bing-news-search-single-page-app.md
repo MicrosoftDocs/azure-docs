@@ -13,7 +13,7 @@ ms.author: v-gedod
 ---
 # Tutorial: Single-page Web app
 The Bing News Search API lets you search the Web and obtain results of the news type relevant to a search query. In this tutorial, we build a single-page Web application that uses the Bing News Search API to display search results on the page. The application includes HTML, CSS, and JavaScript components.
-![[Single-page Bing News Search app]](media/cognitive-services/bing-news-search/media/news-search-singlepage.png)
+![[Single-page Bing News Search app]](media/news-search-singlepage.png)
 > [!NOTE]
 > The JSON and HTTP headings at the bottom of the page when clicked show the JSON response and HTTP request information. These details can be useful when exploring the service.
 
@@ -84,10 +84,11 @@ The HTML `<body>` tag includes an `onload` attribute that calls `getSubscription
 <body onload="document.forms.bing.query.focus(); getSubscriptionKey();">
 ```
 ## Selecting search options
-![[Bing News Search options]](media/cognitive-services/bing-news-search/news-search-categories.png)
+![[Bing News Search options]](media/news-search-categories.png)
 
 The HTML form includes elements with the following names:
-|Element | Description|
+
+|Element|Description|
 |-|-|
 | `where` | A drop-down menu for selecting the market (location and language) used for the search. |
 | `query` | The text field to enter the search terms. |
@@ -287,7 +288,8 @@ function renderImageResults(items) {
 }
 ```
 The Bing Image Search API returns up to four different kinds of related results, each in its own top-level object. They are:
-|Relation |Description |
+
+|Relation|Description|
 |-|-|
 |`pivotSuggestions`|Queries that replace a pivot word in original search with a different one. For example, if you search for "red flowers," a pivot word might be "red," and a pivot suggestion might be "yellow flowers."|
 |`queryExpansions`|Queries that narrow the original search by adding more terms. For example, if you search for "Microsoft Surface," a query expansion might be "Microsoft Surface Pro."|
@@ -309,6 +311,7 @@ searchItemRenderers = {
 }
 ```
 A renderer function can accept the following parameters:
+
 |Parameter|Description|
 |-|-|
 |`item`| The JavaScript object containing the item's properties, such as its URL and its description.|
