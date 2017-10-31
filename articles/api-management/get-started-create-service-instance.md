@@ -1,17 +1,16 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Create an Azure API Management instance | Microsoft Docs
 description: Follow the steps of this tutorial to create a new Azure API Management instance.
 services: api-management
 documentationcenter: ''
-author: vladvino
-manager: anneta
+author: Juliako
+manager: cfowler
 editor: ''
 
 ms.service: api-management
 ms.workload: integration
-ms.topic: article
-ms.date: 10/10/2017
+ms.topic: quickstart
+ms.date: 10/16/2017
 ms.author: apimpm
 ---
 

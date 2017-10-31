@@ -1,21 +1,22 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Test an API Management instance with mocked API responses | Microsoft Docs
+title: Mock API responses with the Azure portal  | Microsoft Docs
 description: This tutorial shows you how to use API Management (APIM) to set a policy on an API so it returns a mocked response. This method endables developers to proceed with implementation and testing of the API Management instance in case the backend is not available to send real responses.
 services: api-management
 documentationcenter: ''
-author: antonba
-manager: anneta
+author: juliako
+manager: cfowler
 editor: ''
 
 ms.service: api-management
-ms.workload: integration
-ms.topic: article
-ms.date: 10/10/2017
+ms.workload: mobile
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: tutorial
+ms.date: 10/16/2017
 ms.author: apimpm
----
 
-# Test an APIM instance with mocked API responses
+---
+# Mock API responses
 
 The steps in this tutorial show you how to use API Management (APIM) to set a policy on an API so it returns a mocked response. This method enables a developer to proceed with implementation and testing of the APIM instance in case the backend is not available to send real responses. Ability to mock up responses can be useful in a number of scenarios:
 
@@ -64,9 +65,12 @@ The steps in this section show how to create a blank API with no backend. It als
 11. In the **Sample** text box, enter  "*{ 'sampleField' : 'test' }*".
 12. Select **Save**.
 
+	![Mocked operation response](./media/mock-api-responses/mock-api-responses02.png)
+
 ## Enable response mocking
 
 1. Select the API you created in the "Create a test API" step.
+2. Select the test operation that you added.
 2. In the window on the right, click the **Design** tab.
 3. In the **Inbound processing** window, click the pencil icon.
 4. In the **Mocking** tab, select **Static responses** for **Mocking behavior**.
@@ -88,4 +92,4 @@ The steps in this section show how to create a blank API with no backend. It als
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Transform and protect a published API](api-management-howto-product-with-rules.md)
+> [Transform and protect a published API](transform-api.md)

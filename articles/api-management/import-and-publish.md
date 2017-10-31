@@ -11,8 +11,8 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
-ms.date: 10/10/2017
+ms.topic: tutorial
+ms.date: 10/16/2017
 ms.author: apimpm
 
 ---
