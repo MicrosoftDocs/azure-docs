@@ -8,7 +8,6 @@ You can buy Reserved Virtual Machine Instances in the [Azure portal](https://por
 -	For Enterprise subscriptions, reservation purchases must be enabled in the [EA portal](https://ea.azure.com).
 
 ## Buy a Reserved Virtual Machine Instance
-
 1. Log in to the [Azure portal](https://portal.azure.com).
 2. Select **More Services -> Reservations**.
 3. Select **Add** to purchase a new reservation.
