@@ -9,9 +9,9 @@
 ## [Send events](time-series-insights-send-events.md)
 
 # Concepts
-## [Manage Time Series Insights Resources with Azure Resource Manager]
+## [Manage Time Series Insights Resources with Azure Resource Manager](time-series-insights-manage-resources-using-azure-resource-manager.md)
 ## [Visualize your data with Time Series Insights explorer](time-series-insights-explorer.md)
-(time-series-insights-manage-resources-using-azure-resource-manager.md)
+
 
 # How to
 ## [Create an Event Hub event source](time-series-insights-how-to-add-an-event-source-eventhub.md)
