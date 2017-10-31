@@ -38,7 +38,7 @@ This article contains information about the legacy (old) virtual network gateway
 
 You can resize a gateway SKU within the same SKU family. For example, if you have a Standard SKU, you can resize to a HighPerformance SKU. You can't resize your VPN gateways between the old SKUs and the new SKU families. For example, you can't go from a Standard SKU to a VpnGw2 SKU.
 
->[IMPORTANT!]
+>[!IMPORTANT]
 >When you resize a gateway, you will have 20-30 minutes of downtime for that gateway while it is being resized.
 >
 >
