@@ -1,6 +1,6 @@
 ---
-title: Integrate VPN with Azure Multi-Factor Authentication by using the Network Policy Server extension | Microsoft Docs
-description: This article discusses integrating your VPN infrastructure with Azure Multi-Factor Authentication by using the Network Policy Server extension for Microsoft Azure.
+title: Integrate VPN with Azure MFA by using the Network Policy Server extension | Microsoft Docs
+description: This article discusses integrating your VPN infrastructure with Azure MFA by using the Network Policy Server extension for Microsoft Azure.
 services: active-directory
 keywords: Azure MFA, integrate VPN, Azure Active Directory, Network Policy Server extension
 documentationcenter: ''
@@ -19,13 +19,13 @@ ms.reviewer: jsnow
 ms.custom: it-pro
 ---
 
-# Integrate your VPN infrastructure with Azure Multi-Factor Authentication by using the Network Policy Server extension for Azure
+# Integrate your VPN infrastructure with Azure MFA by using the Network Policy Server extension for Azure
 
 ## Overview
 
-With the Network Policy Server (NPS) extension for Azure, organizations can safeguard Remote Authentication Dial-In User Service (RADIUS) client authentication by using cloud-based [Azure Multi-Factor Authentication](multi-factor-authentication-get-started-server-rdg.md).
+With the Network Policy Server (NPS) extension for Azure, organizations can safeguard Remote Authentication Dial-In User Service (RADIUS) client authentication by using cloud-based [Azure Multi-Factor Authentication (MFA)](multi-factor-authentication-get-started-server-rdg.md).
 
-This article provides instructions for integrating the NPS infrastructure with Azure Multi-Factor Authentication by using the NPS extension for Azure. This process enables secure two-step verification for users who attempt to connect to your network by using a VPN. 
+This article provides instructions for integrating NPS infrastructure with MFA by using the NPS extension for Azure. This process enables secure two-step verification for users who attempt to connect to your network by using a VPN. 
 
 Network Policy and Access Services gives organizations the ability to:
 
@@ -46,9 +46,9 @@ For more information, see [Network Policy Server](https://docs.microsoft.com/win
 
 To enhance security and provide a high level of compliance, organizations can integrate NPS with Azure Multi-Factor Authentication to ensure that users use two-step verification to connect to the virtual port on the VPN server. For users to be granted access, they must provide their username and password combination and other information that they control. This information must be trusted and not easily duplicated. It can include a cell phone number, a landline number, or an application on a mobile device.
 
-Prior to the availability of the NPS extension for Azure, customers who wanted to implement two-step verification for integrated NPS and Azure Multi-Factor Authentication environments had to configure and maintain a separate multi-factor authentication server in an on-premises environment. This type of authentication is offered by Remote Desktop Gateway and Azure Multi-Factor Authentication Server using RADIUS.
+Prior to the availability of the NPS extension for Azure, customers who wanted to implement two-step verification for integrated NPS and MFA environments had to configure and maintain a separate MFA server in an on-premises environment. This type of authentication is offered by Remote Desktop Gateway and Azure Multi-Factor Authentication Server using RADIUS.
 
-With the NPS extension for Azure, organizations can secure RADIUS client authentication by deploying either an on-premises based multi-factor authentication (MFA) solution or a cloud-based MFA solution.
+With the NPS extension for Azure, organizations can secure RADIUS client authentication by deploying either an on-premises based MFA solution or a cloud-based MFA solution.
  
 ## Authentication flow
 When users connect to a virtual port on a VPN server, they must first authenticate by using a variety of protocols. The protocols allow the use of a combination of user name and password and certificate-based authentication methods. 
@@ -69,7 +69,7 @@ When the NPS extension for Azure is integrated with the NPS, a successful authen
 
 3. The username and password combination is verified in Active Directory. If either the username or password is incorrect, the RADIUS Server sends an *Access-Reject* message. 
 
-4. If all conditions as specified in the NPS Connection Request and Network Policies are met (for example, time of day or group membership restrictions), the NPS extension triggers a request for secondary authentication with Azure Multi-Factor Authentication. 
+4. If all conditions, as specified in the NPS Connection Request and Network Policies, are met (for example, time of day or group membership restrictions), the NPS extension triggers a request for secondary authentication with Azure Multi-Factor Authentication. 
 
 5. Azure Multi-Factor Authentication communicates with Azure Active Directory, retrieves the user’s details, and performs the secondary authentication by using the method that's configured by the user (cell phone call, text message, or mobile app). 
 
@@ -80,7 +80,7 @@ When the NPS extension for Azure is integrated with the NPS, a successful authen
 8. The user is granted access to the virtual port on the VPN server and establishes an encrypted VPN tunnel.
 
 ## Prerequisites
-This section details the prerequisites that must be completed before you can integrate Azure Multi-Factor Authentication with the Remote Desktop Gateway. Before you begin, you must have the following prerequisites in place.
+This section details the prerequisites that must be completed before you can integrate MFA with the Remote Desktop Gateway. Before you begin, you must have the following prerequisites in place:
 
 * VPN infrastructure
 * Network Policy and Access Services role
@@ -138,7 +138,7 @@ This section assumes that you have installed the Network Policy and Access Servi
 >
 
 ### Register Server in Active Directory
-To function properly in this scenario, NPS must be registered in Active Directory.
+To function properly in this scenario, the NPS server must be registered in Active Directory.
 
 1. Open Server Manager.
 
@@ -190,11 +190,11 @@ You can use a standard (wizard-based) or advanced configuration option to config
 
     ![Specify Encryption Settings](./media/nps-extension-vpn/image8.png)
 
-12.	In the **Specify a Realm Name** window, leave the realm name blank, accept the default setting, and then select **Next**.
+12. In the **Specify a Realm Name** window, leave the realm name blank, accept the default setting, and then select **Next**.
 
     ![Specify a Realm Name](./media/nps-extension-vpn/image9.png)
 
-13.	In the **Completing New Dial-up or Virtual Private Network Connections and RADIUS clients** window, select **Finish**.
+13. In the **Completing New Dial-up or Virtual Private Network Connections and RADIUS clients** window, select **Finish**.
 
     ![The "Completing Connections and RADIUS clients" window](./media/nps-extension-vpn/image10.png)
 
@@ -288,13 +288,13 @@ In this section, you confirm that the VPN client is authenticated and authorized
 
 9. In the VPN properties window, select the **Security** tab. 
 
-10.	On the **Security** tab, ensure that only **Microsoft CHAP Version 2 (MS-CHAP v2)** is selected, and then select **OK**.
+10. On the **Security** tab, ensure that only **Microsoft CHAP Version 2 (MS-CHAP v2)** is selected, and then select **OK**.
 
     ![The "Allow  these protocols" option](./media/nps-extension-vpn/image20.png)
 
-11.	Right-click the VPN connection, and then select **Connect**.
+11. Right-click the VPN connection, and then select **Connect**.
 
-12.	In the **Settings** window, select **Connect**.  
+12. In the **Settings** window, select **Connect**.  
     A successful connection appears in the Security log on the RADIUS server as Event ID 6272, as shown here:
 
     ![The Event Properties window](./media/nps-extension-vpn/image21.png)
@@ -342,9 +342,9 @@ In this section, you enable Azure AD accounts for MFA. Use the Azure classic por
 
     ![Enable multi-factor authentication](./media/nps-extension-vpn/image28.png)
  
-10.	Select **Close**. 
+10. Select **Close**. 
 
-11.	Refresh the page.  
+11. Refresh the page.  
     The multi-factor authentication status is changed to *Enabled*.
 
 For information about how to enable users for MFA, see [Get started with Azure Multi-Factor Authentication in the cloud](multi-factor-authentication-get-started-cloud.md). 
@@ -360,7 +360,7 @@ In this section, you configure a trusted device for use with two-step verificati
 
 * **Mobile phone call or text**: You can receive either an automated phone call or a text message. With the phone call option, you answer the call and select the pound sign (#) to authenticate. With the text option, you can either reply to the text message or enter the verification code in the sign-in interface.
 
-* **Office phone call**: This process is the same as that described previously for automated phone calls.
+* **Office phone call**: This process is the same as the process described previously for automated phone calls.
 
 To set up a device to use the mobile app to receive push notification for verification, do the following:
 
@@ -400,7 +400,7 @@ The device is now configured to provide a second method of verification. For inf
 
 ## Install and configure the NPS extension
 
-This section provides instructions for configuring VPN to use Azure Multi-Factor Authentication for client authentication with the VPN server.
+This section provides instructions for configuring VPN to use MFA for client authentication with the VPN server.
 
 After you install and configure the NPS extension, all RADIUS-based client authentication that is processed by this server is required to use MFA. If all your VPN users are not enrolled in Azure Multi-Factor Authentication, you can do either of the following:
 
@@ -412,7 +412,7 @@ Create a new string value named _REQUIRE_USER_MATCH in HKLM\SOFTWARE\Microsoft\A
 
 ![The "Require User Match" setting](./media/nps-extension-vpn/image34.png)
  
-If the value is set to *True* or is blank, all authentication requests are subject to an MFA challenge. If the value is set to *False*, MFA challenges are issued only to users who are enrolled in Multi-Factor Authentication. Use the *False* setting only in testing or in production environments during an onboarding period.
+If the value is set to *True* or is blank, all authentication requests are subject to an MFA challenge. If the value is set to *False*, MFA challenges are issued only to users who are enrolled in Azure Multi-Factor Authentication. Use the *False* setting only in testing or in production environments during an onboarding period.
 
 ### Obtain the Azure Active Directory GUID ID
 
