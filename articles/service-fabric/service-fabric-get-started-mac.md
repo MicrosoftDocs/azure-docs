@@ -46,18 +46,18 @@ To setup a local docker container and have a service fabric cluster running on i
     ```bash
     docker pull servicefabricoss/service-fabric-onebox
     ```
-2. Start a Service Fabric Onebox container instance with the above image -
+2. Start a Service Fabric Onebox container instance with the image -
     ```bash
-    docker run -itd -p 19080:19080 --name sfonebox
+    docker run -itd -p 19080:19080 --name sfonebox servicefabricoss/service-fabric-onebox
     ```
     >[!TIP]
-    >By specifying a name for your conainer instance, you can handle it in a more readable manner. 
+    >By specifying a name for your container instance, you can handle it in a more readable manner. 
 
 3. Login to the docker container in interactive ssh mode -
     ```bash
     docker exec -it sfonebox bash
     ```
-4. Run the setup script which will fetch the dependencies and after that start the cluster on the conainer. 
+4. Run the setup script, that will fetch the required dependencies and after that start the cluster on the container. 
     ```bash
     ./setup.sh     # Fetches and installs the dependencies required for Service Fabric to run
     ./run.sh       # Starts the local cluster
@@ -72,9 +72,9 @@ The CLI commands for interacting with Service Fabric entities, including cluster
 
 ## Create application on you Mac using Yeoman
 
-Service Fabric provides scaffolding tools which will help you create a Service Fabric application from terminal using Yeoman template generator. Please follow the steps below to ensure you have the Service Fabric yeoman template generator working on your machine.
+Service Fabric provides scaffolding tools, which will help you create a Service Fabric application from terminal using Yeoman template generator. Follow the steps below to ensure you have the Service Fabric yeoman template generator working on your machine.
 
-1. You need to have Node.js and NPM installed on you mac. If not you can install Node.js and NPM using Homebrew using the following. To check the versions of Node.js and NPM installed on your Mac, you can use the ``-v`` option.
+1. You need to have Node.js and NPM installed on you Mac. If not you can install Node.js and NPM using Homebrew using the following step. To check the versions of Node.js and NPM installed on your Mac, you can use the ``-v`` option.
 
     ```bash
     brew install node
@@ -120,17 +120,17 @@ Once you create and build your Service Fabric application, you can deploy your a
 
 Service Fabric provides a plugin for the **Eclipse Neon for Java IDE** that can simplify the process of creating, building, and deploying Java services. You can follow the installation steps mentioned in this general [documentation](service-fabric-get-started-eclipse.md#install-or-update-the-service-fabric-plug-in-in-eclipse-neon) about installing or updating Service Fabric Eclipse plugin to the latest version.
 
-All other steps mentioned in the [Service Fabric Eclipse documentation](service-fabric-get-started-eclipse.md) to build an application, add service to application, install/uninstall application will be appicable here as well.
+All other steps mentioned in the [Service Fabric Eclipse documentation](service-fabric-get-started-eclipse.md) to build an application, add service to application, install/uninstall application etc. will be applicable here as well.
 
 Apart from the above steps, to have Service Fabric Eclipse plugin to work with the docker container on your Mac, you should instantiate the container with a path shared with your host, as follows -  
 ```bash
-docker run -itd -p 19080:19080 -v /Users/sayantan/work/workspaces/mySFWorkspace:/tmp/mySFWorkspace --name sfonebox
+docker run -itd -p 19080:19080 -v /Users/sayantan/work/workspaces/mySFWorkspace:/tmp/mySFWorkspace --name sfonebox servicefabricoss/service-fabric-onebox
 ```
 where ``/Users/sayantan/work/workspaces/mySFWorkspace`` is the fully qualified path of the workspace on Mac and ``/tmp/mySFWorkspace`` is the path inside container, where it would be mapped to.
 
 > [!NOTE]
->1. If your workspace name/path is different please update the same accordingly in the ``docker run`` command above.
->2. If you start the contaier with a differernt name other than ``sfonebox``, please update the same in the ``testclient.sh`` file in your Service Fabric actor Java applicaiton.
+>1. If your workspace name/path is different, update the same accordingly in the ``docker run`` command above.
+>2. If you start the container with a differernt name other than ``sfonebox``, please update the same in the ``testclient.sh`` file in your Service Fabric actor Java application.
 
 ## Next steps
 <!-- Links -->
