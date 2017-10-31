@@ -42,7 +42,9 @@ Use the [az storage account create][az-storage-create] command to create an Azur
 az storage account create --name mystorageaccount --resource-group myResourceGroup --sku Standard_LRS
 ```
 
-Use the [az storage account keys list ][az-storage-key-list] command to return the storage key. Take note of one of the key values, this is in subsequent steps. Update the value of the `--account-name` argument with the unique storage account name.
+Use the [az storage account keys list ][az-storage-key-list] command to return the storage key. Update the value of the `--account-name` argument with the unique storage account name.
+
+Take note of one of the key values, this is used in subsequent steps.
 
 ```azurecli-interactive
 az storage account keys list --account-name mystorageaccount --resource-group myResourceGroup --output table
@@ -52,14 +54,6 @@ Use the [az storage share create][az-storage-share-create] command to create the
 
 ```azurecli-interactive
 az storage share create --name myfileshare --account-name mystorageaccount --account-key <key>
-```
-
-Output:
-
-```
-{
-  "created": true
-}
 ```
 
 ## Create Kubernetes Secret
@@ -97,12 +91,6 @@ Use the [kubectl apply][kubectl-apply] command to create the secret.
 kubectl apply -f azure-secret.yml
 ```
 
-Output:
-
-```bash
-secret "azure-secret" created
-```
-
 ## Mount file share as volume
 
 You can mount your Azure file share into your pod by configuring the volume in its spec. Create a new file named `azure-files-pod.yml` with the following contents.
@@ -131,12 +119,6 @@ Use kubectl to create a pod
 
 ```azurecli-interactive
 kubectl apply -f azure-files-pod.yml
-```
-
-Output:
-
-```bash
-pod "azure-files-pod" created
 ```
 
 You now have a running container with your Azure file share mounted in the `/mnt/azure` directory. You can see the volume mount when inspecting your pod via `kubectl describe pod azure-files-pod`.
