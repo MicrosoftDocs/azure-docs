@@ -1,5 +1,5 @@
 ﻿---
-title: Deploy your Azure IoT Suite connected factory gateway | Microsoft Docs
+title: Deploy your connected factory gateway - Azure | Microsoft Docs
 description: How to deploy a gateway on either Windows or Linux to enable connectivity to the connected factory preconfigured solution.
 services: ''
 suite: iot-suite
@@ -151,6 +151,8 @@ You can also perform this step after installing docker from the **Settings** men
 ## Next steps
 
 To learn more about the architecture of the connected factory preconfigured solution, see [Connected factory preconfigured solution walkthrough][lnk-walkthrough].
+
+Learn about the [OPC Publisher reference implementation](iot-suite-connected-factory-publisher.md).
 
 [img-install-docker]: ./media/iot-suite-connected-factory-gateway-deployment/image1.png
 [img-hub-connection]: ./media/iot-suite-connected-factory-gateway-deployment/image2.png

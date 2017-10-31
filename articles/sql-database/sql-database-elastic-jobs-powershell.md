@@ -9,7 +9,7 @@ author: ddove
 ms.assetid: 737d8d13-5632-4e18-9cb0-4d3b8a19e495
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
+ms.workload: "Inactive"
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
@@ -482,7 +482,7 @@ Set the following variables to reflect the desired database information:
 
     $databaseName = "{Database Name}"
     $databaseServerName = "{Server Name}"
-    New-AzureSqlJobDatabaseTarget -DatabaseName $databaseName -ServerName $databaseServerName 
+    New-AzureSqlJobTarget -DatabaseName $databaseName -ServerName $databaseServerName 
 
 ## To create a custom database collection target
 Use the [**New-AzureSqlJobTarget**](/powershell/module/elasticdatabasejobs/new-azuresqljobtarget) cmdlet to define a custom database collection target to enable execution across multiple defined database targets. After creating a database group, databases can be associated with the custom collection target.

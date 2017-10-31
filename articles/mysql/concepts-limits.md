@@ -8,7 +8,7 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 10/8/2017
+ms.date: 10/26/2017
 ---
 # Limitations in Azure Database for MySQL (Preview)
 The Azure Database for MySQL service is in public preview. The following sections describe capacity and functional limits in the database service. Also see [general limitations](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) applicable to the MySQL database engine.
@@ -25,7 +25,7 @@ There is a maximum number of connections, Compute Units, and storage in each ser
 | Basic 100 Compute Units    | 100 connections   |
 | Standard 100 Compute Units | 200 connections   |
 | Standard 200 Compute Units | 400 connections   |
-| Standard 400 Compute Units | 400 connections   |
+| Standard 400 Compute Units | 800 connections   |
 | Standard 800 Compute Units | 1600 connections  |
 | **Max Compute Units**      |                   |
 | Basic service tier         | 100 Compute Units |

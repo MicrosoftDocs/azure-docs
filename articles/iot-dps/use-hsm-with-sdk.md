@@ -1,6 +1,6 @@
 ---
-title: Azure How to - How to use different hardware security models with the Device Provisioning Service Client SDK in Azure | Microsoft Docs
-description: Azure How to - How to use different hardware security models with the Device Provisioning Service Client SDK in Azure
+title: Azure How to - How to use different Hardware Security Module with the Device Provisioning Service Client SDK in Azure | Microsoft Docs
+description: Azure How to - How to use different Hardware Security Module with the Device Provisioning Service Client SDK in Azure
 services: iot-dps 
 keywords: 
 author: yzhong94

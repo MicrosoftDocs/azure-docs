@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/01/2017
+ms.date: 10/27/2017
 ms.author: markvi
 ms.reviewer: spunukol
 
@@ -44,6 +44,7 @@ When you configure a conditional access policy, you need to [select the cloud ap
 
 You can assign a conditional access policy to the following cloud apps from Microsoft:
 
+- Azure Information Protection - [Learn more](https://docs.microsoft.com/information-protection/get-started/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
 - Azure RemoteApp
 
 - Microsoft Dynamics 365
