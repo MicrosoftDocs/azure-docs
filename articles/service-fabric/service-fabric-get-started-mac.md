@@ -43,10 +43,13 @@ Service Fabric does not run natively on OS X. To run a local Service Fabric clus
 To setup a local docker container and have a service fabric cluster running on it, perform the following steps - 
 
 1. Pull the image from docker hub repository -
+
     ```bash
     docker pull servicefabricoss/service-fabric-onebox
     ```
+
 2. Start a Service Fabric Onebox container instance with the image -
+
     ```bash
     docker run -itd -p 19080:19080 --name sfonebox servicefabricoss/service-fabric-onebox
     ```
@@ -54,14 +57,18 @@ To setup a local docker container and have a service fabric cluster running on i
     >By specifying a name for your container instance, you can handle it in a more readable manner. 
 
 3. Login to the docker container in interactive ssh mode -
+
     ```bash
     docker exec -it sfonebox bash
     ```
-4. Run the setup script, that will fetch the required dependencies and after that start the cluster on the container. 
+
+4. Run the setup script, that will fetch the required dependencies and after that start the cluster on the container.
+
     ```bash
     ./setup.sh     # Fetches and installs the dependencies required for Service Fabric to run
     ./run.sh       # Starts the local cluster
     ```
+
 5. After step 4 is completed successfully, you can go to ``http://localhoist:19080`` from your Mac and you would be able to see the Service Fabric explorer.
 
 
@@ -94,6 +101,7 @@ Service Fabric provides scaffolding tools, which will help you create a Service 
     npm install -g generator-azuresfcontainer  # for Service Fabric Container Applications
     ```
 4. To build a Service Fabric Java application on Mac, you would need - JDK 1.8 and Gradle installed on the host machine. If it is not there already you can install it using [HomeBrew](https://brew.sh/). 
+
     ```bash
     brew update
     brew cask install java
@@ -105,12 +113,16 @@ Service Fabric provides scaffolding tools, which will help you create a Service 
 Install the [.NET Core 2.0 SDK for Mac](https://www.microsoft.com/net/core#macos) to start [creating C# Service Fabric applications](service-fabric-create-your-first-linux-application-with-csharp.md). Packages for .NET Core 2.0 Service Fabric applications are hosted on NuGet.org, currently in preview.
 
 ## Deploy application on your Mac from terminal
+
 Once you create and build your Service Fabric application, you can deploy your application using [Service Fabric CLI](service-fabric-cli.md#cli-mac), by following the steps - 
 1. Connect to Service Fabric cluster running inside the container instance on your Mac
+
     ```bash
     sfctl cluster select --endpoint http://localhost:19080
     ```
+
 2. Go inside your project directory and run the install script
+
     ```bash
     cd MyProject
     bash install.sh
