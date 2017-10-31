@@ -151,9 +151,9 @@ blobService.createContainerIfNotExists(blockBlobContainerName, { 'publicAccessLe
 
 Blob storage supports block blobs, append blobs, and page blobs. Block blobs are the most commonly used, and that's what is used in this quickstart.
 
-To upload a file to a blob, get a reference to the blob in the target container. Once you have the blob reference, you can upload data to it by using [createBlockBlobFromLocalFile](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_createBlockBlobFromLocalFile). This operation creates the blob if it doesn't already exist, or overwrites it if it does already exist.
+To upload a file to a blob, you use the[createBlockBlobFromLocalFile](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_createBlockBlobFromLocalFile) method. This operation creates the blob if it doesn't already exist, or overwrites it if it does already exist.
 
-The sample code creates a local file to be used for the upload and download, storing the file to be uploaded as **fileAndPath** and the name of the blob in **localFileName**. The following example uploads the file to your container called **quickstartblobs**.
+The sample code creates a local file to be used for the upload and download, storing the file to be uploaded as **localPath** and the name of the blob in **localFileToUpload**. The following example uploads the file to your container called **quickstartblobs**.
 
 ```node
 // Create a file in ~/Documents to test the upload and download
