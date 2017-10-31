@@ -22,6 +22,7 @@ To complete this quickstart:
 
 * Install an IDE that has Maven integration
     * This tutorial uses [Eclipse](http://www.eclipse.org/downloads/) with the "Eclipse IDE for Java Developers" configuration.
+    
 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
