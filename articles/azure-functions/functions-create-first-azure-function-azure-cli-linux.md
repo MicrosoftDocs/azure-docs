@@ -1,11 +1,10 @@
 ---
-title: Create your first function from the Azure CLI | Microsoft Docs 
-description: Learn how to create your first Azure Function for serverless execution using the Azure CLI.
+title: Create your first function on Linux from the Azure CLI | Microsoft Docs 
+description: Learn how to create your first Azure Function running on a default Linux image for serverless execution using the Azure CLI.
 services: functions 
 keywords: 
 author: ggailey777
 ms.author: glenga
-ms.assetid: 674a01a7-fd34-4775-8b69-893182742ae0
 ms.date: 10/30/2017
 ms.topic: quickstart
 ms.service: functions
@@ -14,9 +13,9 @@ ms.devlang: azure-cli
 manager: cfowler
 ---
 
-# Create your first function using the Azure CLI
+# Create your first function running on Linux using the Azure CLI
 
-This quickstart tutorial walks through how to use Azure Functions to create your first function. You use the Azure CLI to create a function app, which is the [serverless](https://azure.microsoft.com/overview/serverless-computing/) infrastructure that hosts your function. The function code itself is deployed from a GitHub sample repository.    
+This quickstart tutorial walks through how to use Azure Functions to create your first function on Linux. You use the Azure CLI to create a function app running on a built-in image. This app is the [serverless](https://azure.microsoft.com/overview/serverless-computing/) infrastructure that hosts your function. The function code itself is deployed to the image from a GitHub sample repository.    
 
 You can follow the steps below using a Mac, Windows, or Linux computer. 
 
@@ -44,7 +43,6 @@ If you are not using Cloud Shell, sign in first using `az login`.
 ```azurecli-interactive
 az group create --name myResourceGroup --location westeurope
 ```
-
 
 ## Create an Azure Storage account
 
@@ -76,7 +74,13 @@ After the storage account has been created, the Azure CLI shows information simi
 }
 ```
 
-## Create a function app
+## Create a Linux App Service plan
+
+Linux hosting for Functions is currently not supported on consumption plans. You must run on a Linux App Service plan. To learn more about hosting, see [Azure Functions hosting plans comparison](functions-scale.md). 
+
+[!INCLUDE [app-service-plan-no-h](../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
+
+## Create a function app with a built-in image
 
 You must have a function app to host the execution of your functions. The function app provides an environment for serverless execution of your function code. It lets you group functions as a logic unit for easier management, deployment, and sharing of resources. Create a function app by using the [az functionapp create](/cli/azure/functionapp#create) command. 
 
@@ -84,10 +88,8 @@ In the following command, substitute a unique function app name where you see th
 
 ```azurecli-interactive
 az functionapp create --name <app_name> --storage-account  <storage_name>  --resource-group myResourceGroup \
---consumption-plan-location westeurope
+--plan myAppServicePlan
 ```
-By default, a function app is created with the Consumption hosting plan, which means that resources are added dynamically as required by your functions and you only pay when functions are running. For more information, see [Choose the correct hosting plan](functions-scale.md). 
-
 After the function app has been created, the Azure CLI shows information similar to the following example:
 
 ```json
@@ -108,7 +110,7 @@ After the function app has been created, the Azure CLI shows information similar
 }
 ```
 
-Now that you have a function app, you can deploy the actual function code from the GitHub sample repository.
+Because `myAppServicePlan` is a Linux plan, the built-in image is used to create the function app. Now that you have a function app, you can deploy the actual function code from the GitHub sample repository.
 
 ## Deploy your function code  
 
