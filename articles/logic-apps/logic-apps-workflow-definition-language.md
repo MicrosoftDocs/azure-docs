@@ -306,10 +306,11 @@ These functions are used to convert between each of the native types in the lang
 |multipartBody|Returns the body for a part in a multipart output of an action.<br /><br />**Parameter number**: 1<br /><br />**Name**: Action Name<br /><br />**Description**: Required. The name of the action with a multipart response.<br /><br />**Parameter number**: 2<br /><br />**Name**: Index<br /><br />**Description**: Required. The index of the part to retrieve.|
 
 ### Manipulation functions
-
+ 
 These functions apply to XML and objects.
+ 
 |Function name|Description|  
-|-------------------|-----------------|
+|-------------------|-----------------| 
 |coalesce|Returns the first non-null object in the arguments passed in. **Note**: An empty string is not null. For example, if parameters 1 and 2 are not defined, this function returns `fallback`:  <p>`coalesce(parameters('parameter1'), parameters('parameter2') ,'fallback')` <p> **Parameter number**: 1 ... *n* <p> **Name**: Object*n* <p> **Description**: Required. The objects to check for null.|
 |addProperty|Returns an object with an additional property. If the property already exists at runtime an error will be thrown. For example, this function returns the object `{ "abc" : "xyz", "def": "uvw" }`: <p>`addProperty(json('{"abc" : "xyz"}'), 'def', 'uvw')` <p> **Parameter number**: 1 <p> **Name**: Object <p> **Description**: Required. The object to add a new property to. <p> **Parameter number**: 2 <p> **Name**: Property Name <p> **Description**: Required. The name of the new property. <p> **Parameter number**: 3 <p> **Name**: Value <p> **Description**: Required. The value to assign to the new property.|
 |setProperty|Returns an object with an additional property or an existing property set to the given value. For example, this function returns the object `{ "abc" : "uvw" }`: <p>`setProperty(json('{"abc" : "xyz"}'), 'abc', 'uvw')` <p> **Parameter number**: 1 <p> **Name**: Object <p> **Description**: Required. The object in which to set the property.<p> **Parameter number**: 2 <p> **Name**: Property Name<p> **Description**: Required. The name of the new or existing property. <p> **Parameter number**: 3 <p> **Name**: Value <p> **Description**: Required. The value to assign to the property.|
