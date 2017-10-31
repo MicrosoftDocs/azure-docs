@@ -279,7 +279,7 @@ For more information on using the Change Feed Processor library, use the followi
 
 * [Information page](documentdb-sdk-dotnet-changefeed.md) 
 * [Nuget package](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)
-* [Sample code showing steps 1-6 above](https://github.com/rsarosh/Cosmos-ChangeFeedProcessor)
+* [Sample code showing steps 1-6 above](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessor)
 * [Additional samples on GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/ChangeFeedProcessor)
 
 For more information on using the change feed via the SDK, use the following resources:
