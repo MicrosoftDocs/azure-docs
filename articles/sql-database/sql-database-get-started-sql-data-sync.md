@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: a295a768-7ff2-4a86-a253-0090281c8efa
 ms.service: sql-database
 ms.custom: load & move data
-ms.workload: na
+ms.workload: "Active"
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
