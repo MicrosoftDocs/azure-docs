@@ -20,7 +20,7 @@ ms.author: parakhj
 ---
 # Azure Active Directory B2C: Register your application
 
-This Quickstart helps you register an application in a Microsoft Azure Active Directory (Azure AD) B2C tenant in a few minutes. When you're finished, your application is registered for use in the Azure B2C tenant.
+This Quickstart helps you register an application in a Microsoft Azure Active Directory (Azure AD) B2C tenant in a few minutes. When you're finished, your application is registered for use in the Azure AD B2C tenant.
 
 ## Prerequisites
 

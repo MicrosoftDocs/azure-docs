@@ -13,7 +13,7 @@ ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.workload: "Inactive"
 ms.date: 07/16/2016
 ms.author: sashan
 

@@ -15,7 +15,7 @@
     href: container-registry-get-started-powershell.md
 - name: Tutorials
   items:
-  - name: Geo-replication
+  - name: Geo-replication (preview)
     items:
     - name: 1 - Prepare container registry
       href: container-registry-tutorial-prepare-registry.md
