@@ -79,7 +79,7 @@ Before you can submit scripts to HDInsight clusters from VSCode, you need connec
     Once connected, your Azure account name is shown on the status bar at the left-bottom of the VSCode window. 
 
     > [!NOTE]
-    > Open browser with private mode or ignotino mode due to known Azure authentication issue. 
+    > Open browser with private mode or incognito mode due to known Azure authentication issue. 
     > If your Azure account has two factors enabled, it is recommended to use phone authentication instead of Pin.
   
 
@@ -181,8 +181,8 @@ HDInsight Tools for VSCode also enable you to submit interactive PySpark queries
     ![HDInsight for Visual Studio Code Python install](./media/hdinsight-for-vscode/hdinsight-vscode-install-python.png)
 
 6. Set up python environment in your system if you don't install it. 
-- For windows, download and install [Python](https://www.python.org/downloads/).
-- The instruction for MacOS and Linux, see [Set Up PySpark Interactive Environment for Visual Studio Code](set-up-pyspark-interactive-environment.md).
+   - For windows, download and install [Python](https://www.python.org/downloads/).
+   - The instruction for MacOS and Linux, see [Set Up PySpark Interactive Environment for Visual Studio Code](set-up-pyspark-interactive-environment.md).
 7. Select a cluster to submit your PySpark query. Soon after, the query result is shown in the right new tab:
 
    ![submit python job result](./media/hdinsight-for-vscode/pyspark-interactive-result.png) 
