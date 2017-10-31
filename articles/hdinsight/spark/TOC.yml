@@ -1,13 +1,13 @@
 - name: Azure HDInsight Documentation
   href: /azure/hdinsight
-- name: Apache Spark on HDInsight
+- name: Spark on HDInsight
   items:
   - name: Overview
     href: apache-spark-overview.md
-  - name: Cluster capacity planning
-    href: ../hdinsight-capacity-planning.md
+  - name: Hadoop components on HDInsight
+    href: ../hdinsight-component-versioning.md
     maintainContext: true
-- name: Start with Spark
+- name: Get Started
   items:
     - name: Create a Spark cluster
       href: apache-spark-jupyter-spark-sql.md
@@ -193,6 +193,9 @@
         maintainContext: true
     - name: Manage
       items:
+      - name: Cluster capacity planning
+        href: ../hdinsight-capacity-planning.md
+        maintainContext: true
       - name: Create Linux clusters
         href: ../hdinsight-hadoop-provision-linux-clusters.md
         maintainContext: true

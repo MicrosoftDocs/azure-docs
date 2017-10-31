@@ -6,12 +6,14 @@
     href: r-server-overview.md
   - name: Hadoop components on HDInsight
     href: ../hdinsight-component-versioning.md
-    maintainContext: true
+    maintainContext: true  
+- name: Get Started
+  items:
+  - name: Start with R Server
+    href: r-server-get-started.md
   - name: Cluster capacity planning
     href: ../hdinsight-capacity-planning.md
     maintainContext: true
-- name: Start with R Server
-  href: r-server-get-started.md
 - name: How To
   items:
   - name: Use R Server

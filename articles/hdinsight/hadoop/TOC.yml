@@ -1,14 +1,11 @@
 - name: Azure HDInsight Documentation
   href: /azure/hdinsight
-- name: Apache Hadoop on HDInsight
+- name: Hadoop on HDInsight
   items:
   - name: Overview
     href: apache-hadoop-introduction.md
   - name: Hadoop components on HDInsight
     href: ../hdinsight-component-versioning.md
-    maintainContext: true
-  - name: Cluster capacity planning
-    href: ../hdinsight-capacity-planning.md
     maintainContext: true
 - name: Get Started
   items:
@@ -16,6 +13,9 @@
     href: apache-hadoop-linux-tutorial-get-started.md
   - name: Hadoop sandbox
     href: apache-hadoop-emulator-get-started.md
+  - name: Cluster capacity planning
+    href: ../hdinsight-capacity-planning.md
+    maintainContext: true
 - name: How To
   items:
   - name: Use cluster storage
