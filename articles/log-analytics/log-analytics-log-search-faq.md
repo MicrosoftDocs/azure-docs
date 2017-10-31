@@ -151,7 +151,7 @@ All solutions will continue to work in an upgraded workspace, although their per
 Perspectives in [Application Insights Connector solution](log-analytics-app-insights-connector.md) are currently not supported in an upgraded workspace.  A fix to this issue is currently under analysis.
 
 ### Known issue: Backup solution
-The Backup Solution may not collect data if was installed before upgrading a workspace. Uninstall the solution and then install the latest version.
+The Backup Solution may not collect data if was installed before upgrading a workspace. Uninstall the solution and then install the latest version.  The new version of the solution does not support classic Backup vaults, so you must also upgrade to Recovery Services vaults to continue to use the solution.
 
 ## Upgrade process
 
