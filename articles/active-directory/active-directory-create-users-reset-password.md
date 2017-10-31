@@ -3,7 +3,7 @@ title: Reset the password for a user in Azure Active Directory | Microsoft Docs
 description: Explains how an administrator should reset a users' password in an Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: LizCasey
 manager: femila
 editor: ''
 

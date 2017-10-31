@@ -19,32 +19,26 @@ ms.author: glenga
 ms.custom: mvc
 ---
 # Choose between Flow, Logic Apps, Functions, and WebJobs
-This article compares and contrasts the following services in the Microsoft cloud, which can all solve integration 
-problems and automate business processes:
+This article compares and contrasts the following services in the Microsoft cloud, which can all solve integration problems and automate business processes:
 
 * [Microsoft Flow](https://flow.microsoft.com/)
 * [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)
 * [Azure Functions](https://azure.microsoft.com/services/functions/)
 * [Azure App Service WebJobs](../app-service/web-sites-create-web-jobs.md)
 
-All these services are useful when "gluing" together disparate systems. They can all define input, actions, 
-conditions, and output. You can run each of them on a schedule or trigger. However, each service has unique advantages, and comparing them is not a question of "Which service is the best?" but one of "Which service is best suited 
-for this situation?" Often, a combination of these services is the best way to rapidly build a scalable, full-featured 
+All these services are useful when "gluing" together disparate systems. They can all define input, actions, conditions, and output. You can run each of them on a schedule or trigger. However, each service has unique advantages, and comparing them is not a question of "Which service is the best?" but one of "Which service is best suited for this situation?" Often, a combination of these services is the best way to rapidly build a scalable, full-featured 
 integration solution.
 
 <a name="flow"></a>
 
 ## Flow vs. Logic Apps
-We can discuss Microsoft Flow and Azure Logic Apps together because they are both *configuration-first* 
-integration services. They make it easy to build processes and workflows and integrate with various SaaS and enterprise applications. 
+We can discuss Microsoft Flow and Azure Logic Apps together because they are both *configuration-first* integration services. They make it easy to build processes and workflows and integrate with various SaaS and enterprise applications. 
 
 * Flow is built on top of Logic Apps
 * They have the same workflow designer
 * [Connectors](../connectors/apis-list.md) that work in one can also work in the other
 
-Flow empowers any office worker to perform simple integrations (for example, get SMS for important emails) without going through 
-developers or IT. On the other hand, Logic Apps can enable advanced or mission-critical integrations (for example, B2B processes) 
-where enterprise-level DevOps and security practices are required. It is typical for a business workflow to grow in 
+Flow empowers any office worker to perform simple integrations (for example, get SMS for important emails) without going through developers or IT. On the other hand, Logic Apps can enable advanced or mission-critical integrations (for example, B2B processes) where enterprise-level DevOps and security practices are required. It is typical for a business workflow to grow in 
 complexity over time. Accordingly, you can start with a flow at first, then convert it to a logic app as needed.
 
 The following table helps you determine whether Flow or Logic Apps is best for a given integration.
@@ -54,17 +48,14 @@ The following table helps you determine whether Flow or Logic Apps is best for a
 | Audience |Office workers, business users |IT pros, developers |
 | Scenarios |Self-service |Mission-critical |
 | Design Tool |In-browser and mobile app, UI only |In-browser and [Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md), [Code view](../logic-apps/logic-apps-author-definitions.md) available |
-| DevOps |Ad-hoc, develop in production |source control, testing, support, and automation and manageability in [Azure Resource Management](../logic-apps/logic-apps-arm-provision.md) |
+| DevOps |Ad-hoc, develop in production |source control, testing, support, and automation and manageability in [Azure Resource Management](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md) |
 | Admin Experience |[https://flow.microsoft.com](https://flow.microsoft.com) |[https://portal.azure.com](https://portal.azure.com) |
 | Security |Standard practices: [data sovereignty](https://wikipedia.org/wiki/Technological_Sovereignty), [encryption at rest](https://wikipedia.org/wiki/Data_at_rest#Encryption) for sensitive data, etc. |Security assurance of Azure: [Azure Security](https://www.microsoft.com/trustcenter/Security/AzureSecurity), [Security Center](https://azure.microsoft.com/services/security-center/), [audit logs](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/), and more. |
 
 <a name="function"></a>
 
 ## Functions vs. WebJobs
-We can discuss Azure Functions and Azure App Service WebJobs together because they are both *code-first* integration services
-and designed for developers. They enable you to run a script or a piece of code in response to various events, such 
-as [new Storage Blobs](functions-bindings-storage.md) or [a WebHook request](functions-bindings-http-webhook.md). Here are 
-their similarities: 
+We can discuss Azure Functions and Azure App Service WebJobs together because they are both *code-first* integration services and designed for developers. They enable you to run a script or a piece of code in response to various events, such as [new Storage Blobs](functions-bindings-storage.md) or [a WebHook request](functions-bindings-http-webhook.md). Here are their similarities: 
 
 * Both are built on [Azure App Service](../app-service/app-service-web-overview.md) and enjoy features such as 
   [source control](../app-service/app-service-continuous-deployment.md), 
@@ -73,9 +64,9 @@ their similarities:
 * Both support standard scripting and programming languages.
 * Both have NuGet and NPM support.
 
-Functions is the natural evolution of WebJobs in that it takes the best things about WebJobs and improves upon them. The improvements
-include: 
+Functions is the natural evolution of WebJobs in that it takes the best things about WebJobs and improves upon them. The improvements include: 
 
+* [Serverless](https://azure.microsoft.com/overview/serverless-computing/) app model.
 * Streamlined dev, test, and run of code, directly in the browser.
 * Built-in integration with more Azure services and 3rd-party services like [GitHub WebHooks](https://developer.github.com/webhooks/creating/).
 * Pay-per-use, no need to pay for an [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
@@ -117,13 +108,10 @@ As previously mentioned, which service is best suited to you depends on your sit
 
 * For simple business optimization, use Flow.
 * If your integration scenario is too advanced for Flow, or you need DevOps capabilities and security compliances, then use Logic Apps.
-* If a step in your integration scenario requires highly custom transformation or specialized code, then write a 
-  function and trigger the function as an action in your logic app.
+* If a step in your integration scenario requires highly custom transformation or specialized code, then write a  function and trigger the function as an action in your logic app.
 
 You can call a logic app in a flow. You can also call a function in a logic app, and a logic app in a function. 
-The integration between Flow, Logic Apps, and Functions continues to improve over time. You can 
-build something in one service and use it in the other services. Therefore, any investment you make in these three 
-technologies is worthwhile.
+The integration between Flow, Logic Apps, and Functions continues to improve over time. You can build something in one service and use it in the other services. Therefore, any investment you make in these three technologies is worthwhile.
 
 ## Next steps
 Get started with each of the services by creating your first flow, logic app, function app, or WebJob. Click any of the following links:

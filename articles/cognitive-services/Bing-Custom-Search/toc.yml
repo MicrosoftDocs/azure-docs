@@ -4,6 +4,8 @@
   items:
     - name: Customize your search
       href: overview.md
+    - name: Supported countries and markets
+      href: supported-countries-markets.md
 - name: Quickstarts
   expanded: true
   items:
@@ -12,7 +14,7 @@
 - name: How-to  
   items:        
     - name: Define your custom view
-      href: define-your-custom-view.md
+      href: define-your-custom-view.md    
     - name: Search your custom view
       href: search-your-custom-view.md
       items:
@@ -23,7 +25,7 @@
       - name: Node.js
         href: call-endpoint-nodejs.md 
       - name: Python
-        href: call-endpoint-python.md 
+        href: call-endpoint-python.md
     - name: Configure hosted UI
       href: hosted-ui.md
     - name: Handle hit highlighting

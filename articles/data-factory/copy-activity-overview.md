@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 10/19/2017
 ms.author: jingwang
 
 ---
@@ -73,7 +73,7 @@ To use copy activity in Azure Data Factory, you need to:
 
 ### Syntax
 
-The following template of a copy activity lists exhausted supported properties. Specify the ones fits your scenario.
+The following template of a copy activity contains an exhaustive list of supported properties. Specify the ones that fit your scenario.
 
 ```json
 "activities":[
@@ -104,7 +104,7 @@ The following template of a copy activity lists exhausted supported properties. 
             "translator":
             {
                 "type": "TabularTranslator",
-                "ColumnMappings": "<column mapping>"
+                "columnMappings": "<column mapping>"
             },
             "cloudDataMovementUnits": <number>,
             "parallelCopies": <number>,

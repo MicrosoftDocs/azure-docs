@@ -22,6 +22,8 @@ ms.custom: mvc
 
 # Monitor an Azure Container Service cluster with DataDog
 
+[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+
 ## Prerequisites
 This walkthrough assumes that you have [created a Kubernetes cluster using Azure Container Service](container-service-kubernetes-walkthrough.md).
 
