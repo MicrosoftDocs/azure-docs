@@ -27,6 +27,9 @@
 ## [Hadoop sandbox](hdinsight-hadoop-emulator-get-started.md)
 ## [Data Lake Tools with Hortonworks Sandbox](hdinsight-hadoop-emulator-visual-studio.md)
 ## [Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md)
+### [Tools for Visual Studio Code](hdinsight-for-vscode.md)
+### [Tools for Eclipse](hdinsight-apache-spark-eclipse-tool-plugin.md)
+### [Tools for IntelliJ](hdinsight-apache-spark-intellij-tool-plugin.md)
 ## [HDInsight using Azure Storage](hdinsight-hadoop-use-blob-storage.md)
 ## [HDInsight using Azure Data Lake Store](hdinsight-hadoop-use-data-lake-store.md)
 

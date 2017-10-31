@@ -48,16 +48,6 @@ After you have installed the prerequisites, you can install the Azure HDInsight 
 
 For Spark users, the Python extension is recommended for better language service experiences. The Python extension is not required for Hive users. 
 
-**To install Python**
-
-1. Open **Visual Studio Code**.
-2. Click **Extensions** in the left pane. Enter **python** in the search box. You can see a list of python extensions. One of them is **Python**.
-3. Click **Install** next to **Python**. After a few seconds, the **Install** button will be changed to **Reload**.
-4. Click **Reload** to activate the **Python** extension.
-5. Click **Reload Window** to confirm. You can see **Python** in the Extensions pane.
-
-     ![HDInsight for Visual Studio Code Python install](./media/hdinsight-for-vscode/hdinsight-vscode-install-python.png)
-
 ## Open HDInsight workspace
 
 You need create a workspace in VSCode before you can connect to Azure.
@@ -88,21 +78,20 @@ Before you can submit scripts to HDInsight clusters from VSCode, you need connec
 
     Once connected, your Azure account name is shown on the status bar at the left-bottom of the VSCode window. 
 
-    > [!NOTE] 
+    > [!NOTE]
+    > Open browser with private mode or ignotino mode due to known Azure authentication issue. 
     > If your Azure account has two factors enabled, it is recommended to use phone authentication instead of Pin.
-    > There is a known issue about Azure login using Google Chrome.
+  
 
-4. Right-click the script edit to open the context menu:
-
-    ![HDInsight Tools for Visual Studio Code script editor context menu](./media/hdinsight-for-vscode/hdinsight-for-vscode-context-menu.png)
-
-    From the context menu, you can perform the following tasks:
+4. Right-click the script edit to open the context menu. From the context menu, you can perform the following tasks:
 
     - logout
     - list clusters
     - Set default cluster
     - Submit interactive Hive queries
     - Submit Hive batch script
+    - Submit interactive PySpark queries
+    - Submit PySpark batch script
     - Set configuration
 
 ## List HDInsight clusters
@@ -188,18 +177,23 @@ HDInsight Tools for VSCode also enable you to submit interactive PySpark queries
         print(sortedCollection[i])
    ```
 4. Highlight these scripts and right-click the script editor, then click **HDInsight: PySpark Interactive**.
-5. Set up python environment if you don't install it. The instruction, see [Set Up PySpark Interactive Environment for Visual Studio Code](set-up-pyspark-interactive-environment.md).
-6. Select a cluster to submit your PySpark query. Soon after, the query result is shown in the right new tab:
+5. Click the following **Install** button if you have not installed **Python** extension in VSCode.
+    ![HDInsight for Visual Studio Code Python install](./media/hdinsight-for-vscode/hdinsight-vscode-install-python.png)
+
+6. Set up python environment in your system if you don't install it. 
+- For windows, download and install [Python](https://www.python.org/downloads/).
+- The instruction for MacOS and Linux, see [Set Up PySpark Interactive Environment for Visual Studio Code](set-up-pyspark-interactive-environment.md).
+7. Select a cluster to submit your PySpark query. Soon after, the query result is shown in the right new tab:
 
    ![submit python job result](./media/hdinsight-for-vscode/pyspark-interactive-result.png) 
-7. Our tool also supports query the **SQL Clause**.
+8. Our tool also supports query the **SQL Clause**.
 
    ![submit python job result](./media/hdinsight-for-vscode/pyspark-ineteractive-select-result.png)
    The submission status displays on the left of the bottom status bar when running queries. You cannot submit other queries when status is **PySpark Kernel (busy)**, otherwise, the running is hang.
-8. Our clusters can maintain a session. For example, **a=100**, already keep this session in cluster, now you only run **print a** to cluster.
+9. Our clusters can maintain a session. For example, **a=100**, already keep this session in cluster, now you only run **print a** to cluster.
  
 
-## Submit PySpark job
+## Submit PySpark batch job
 
 1. Create a new work folder and a new script file with the .py extension if you don't have one.
 2. Connect to your Azure account, if you haven't done so.
