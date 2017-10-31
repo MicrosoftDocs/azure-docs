@@ -27,7 +27,8 @@ This article summarizes what's supported when you use the [Azure Site Recovery](
 **Deployment** | **Details 
 --- | ---
 **VMware to VMware** | Disaster recovery of on-premises VMware VMs to secondary VMware site.<br/><br/> Download the [InMage Scout user guide]
-(http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage_Scout_Standard_User_Guide_8.0.1.pdf)**Hyper-V to Hyper-V** | Disaster recovery of on-premises Hyper-V VMs in VMM clouds to a secondary VMM cloud.<br></br> Not supported without VMM.
+(http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage_Scout_Standard_User_Guide_8.0.1.pdf)
+**Hyper-V to Hyper-V** | Disaster recovery of on-premises Hyper-V VMs in VMM clouds to a secondary VMM cloud.<br></br> Not supported without VMM.
 
 
 
@@ -38,11 +39,8 @@ This article summarizes what's supported when you use the [Azure Site Recovery](
 **Deployment** | **Support**
 --- | ---
 **VMware VM/physical server** | vCenter 5.5 or 6.0 (support for 5.5 features only)
-**Hyper-V with VMM** | Windows Server 2016 and Windows Server 2012 R2 with the latest updates.<br/><br/> Windows Server 2016 hosts should be managed by VMM 2016.
+**Hyper-V with VMM** | Windows Server 2016 and Windows Server 2012 R2 with the latest updates.<br/><br/> Windows Server 2016 hosts should be managed by VMM 2016.<br/><br/> VMM 2016 clouds with a mixture of Windows Server 2016 and 2012 R2 hosts aren't currently supported.<br/><br/> Deployment that include an upgrade of an existing VMM 2012 R2 to System Center 2016 aren't currently supported.
 
->[!Note]
-  > VMM 2016 clouds with a mixture of Windows Server 2016 and 2012 R2 hosts aren't currently supported.
-  > Configurations that include upgrade of an existing SCVMM 2012 R2 to 2016 is currently not supported.
 
 ## Operating system - replicated machines
 
