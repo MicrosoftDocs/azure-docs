@@ -18,7 +18,7 @@
 | Custom domain [SSL support](../articles/app-service/app-service-web-tutorial-custom-ssl.md) | | |Unlimited SNI SSL connections |Unlimited SNI SSL and 1 IP SSL connections included |Unlimited SNI SSL and 1 IP SSL connections included |
 | Integrated Load Balancer | |X |X |X |X |
 | [Always On](../articles/app-service/web-sites-configure.md) | | |X |X |X |
-| [Scheduled Backups](../articles/app-service/web-sites-backup.md) | | | |Once per day |Once every 5 minutes<sup>8</sup> |
+| [Scheduled Backups](../articles/app-service/web-sites-backup.md) | | | |12 per day |Once every 5 minutes<sup>8</sup> |
 | [Auto Scale](../articles/app-service/web-sites-scale.md) | | | |X |X |
 | [WebJobs](../articles/app-service/web-sites-create-web-jobs.md)<sup>9</sup> |X |X |X |X |X |
 | [Azure Scheduler](https://azure.microsoft.com/services/scheduler/) support | |X |X |X |X |
