@@ -22,11 +22,11 @@ In this tutorial, you learn how to:
 > * Create and deploy a virtual machine scale set using the custom image
 > * Create and deploy a jumpbox 
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Before you begin
-> * [Install Terraform and configure access to Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/terraform-install-configure)
-> * [Create an SSH key pair](https://review.docs.microsoft.com/en-us/azure/virtual-machines/linux/mac-create-ssh-keys) if you don't already have one
+> * [Install Terraform and configure access to Azure](https://docs.microsoft.com/azure/virtual-machines/linux/terraform-install-configure)
+> * [Create an SSH key pair](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys) if you don't already have one
 > * [Install Packer](https://www.packer.io/docs/install/index.html) If you don't already have Packer installed on your local machine
 
 
@@ -158,7 +158,7 @@ The resource group contains the following resources:
 
 
 ## Create an Azure image using Packer
-Create a custom Linux image using the steps outlined in the tutorial, [How to use Packer to create Linux virtual machine images in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/build-image-with-packer).
+Create a custom Linux image using the steps outlined in the tutorial, [How to use Packer to create Linux virtual machine images in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/build-image-with-packer).
  
 Follow the tutorial to create a deprovisioned Ubuntu image with NGINX installed.
 
@@ -335,7 +335,7 @@ The content of the resource group looks like the following image:
 Open a browser and connect to the fully qualified domain name that was returned by the command. 
 
 
-## Add a Jumpbox to the existing network 
+## Add a jumpbox to the existing network 
 
 This optional step enables SSH access to the instances of the virtual machine scale set by using a jumpbox.
 
@@ -450,9 +450,9 @@ terraform destroy
 
 Type `yes` when asked to confirm for the deletion of the resources. The destruction process can take a few minutes to complete.
 
-## Next Steps
+## Next steps
 
-In this tutorial, you deployed a virtual machine scale set and a Jumpbox on Azure using Terraform. You learned how to:
+In this tutorial, you deployed a virtual machine scale set and a jumpbox on Azure using Terraform. You learned how to:
 
 > [!div class="checklist"]
 > * Initialize Terraform deployment
