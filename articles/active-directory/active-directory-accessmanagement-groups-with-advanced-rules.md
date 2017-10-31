@@ -3,7 +3,7 @@ title: Populate groups dynamically based on object attributes in Azure Active Di
 description: How-to's to create advanced rules for group membership including supported expression rule operators and parameters.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: LizCasey
 manager: femila
 editor: ''
 
