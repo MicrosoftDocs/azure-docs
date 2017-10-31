@@ -143,7 +143,7 @@ You now have a running container with your Azure file share mounted in the `/mnt
 
 ## Next steps
 
-Learn more about persistent volumens using Azure Files.
+Learn more about persistent volumes using Azure Files.
 
 > [!div class="nextstepaction"]
 > [Kubernetes plugin for Azure Files](https://github.com/kubernetes/examples/blob/master/staging/volumes/azure_file/README.md)
