@@ -112,7 +112,8 @@ $clustersize=5
 New-AzureRmServiceFabricCluster -Name $clustername -ResourceGroupName $groupname -Location $clusterloc `
 -ClusterSize $clustersize -VmUserName $adminuser -VmPassword $adminpwd -CertificateSubjectName $subname `
 -CertificatePassword $certpwd -CertificateOutputFolder $certfolder `
--OS WindowsServer2016DatacenterwithContainers -VmSku $vmsku -KeyVaultName $vaultname -KeyVaultResouceGroupName $vaultgroupname
+-OS WindowsServer2016DatacenterwithContainers -VmSku $vmsku -KeyVaultName $vaultname -KeyVaultResouceGroupName $vaultgroupname `
+-TemplateFile .\cluster.json -ParameterFile .\cluster.parameters.json
 ```
 
 ## Connect to the secure cluster
