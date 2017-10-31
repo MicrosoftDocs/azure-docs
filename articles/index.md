@@ -4040,7 +4040,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     <a href="https://www.visualstudio.com/vs/azure-tools/">Visual Studio Tools for Azure</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VWDOrVs2015AzurePack.appids">Download</a>
+                                                    <a href="https://www.visualstudio.com/vs/azure-tools/">Download</a>
                                                 </p>
                                             </div>
                                         </div>
