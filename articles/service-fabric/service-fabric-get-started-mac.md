@@ -28,14 +28,41 @@ ms.author: saysa
 You can build Service Fabric applications to run on Linux clusters using Mac OS X. This article covers how to set up your Mac for development.
 
 ## Prerequisites
-Service Fabric does not run natively on OS X. To run a local Service Fabric cluster, we provide a pre-configured Ubuntu virtual machine using Vagrant and VirtualBox. Before you get started, you need:
+Service Fabric does not run natively on OS X. To run a local Service Fabric cluster, we provide a pre-configured docker container image. Before you get started, you need:
 
-* [Vagrant (v1.8.4 or later)](http://www.vagrantup.com/downloads.html)
-* [VirtualBox](http://www.virtualbox.org/wiki/Downloads)
+* At least 4 GB RAM
+* Latest version of [Docker](https://www.docker.com/)
+* Access to Service Fabric Onebox docker container image [servicefabricoss/service-fabric-onebox:latest](https://hub.docker.com/r/servicefabricoss/service-fabric-onebox/)
 
->[!NOTE]
-> You need to use mutually supported versions of Vagrant and VirtualBox. Vagrant might behave erratically on an unsupported VirtualBox version.
->
+>[!TIP]
+> * You can follow the steps mentioned in the official docker [documentation](https://docs.docker.com/docker-for-mac/install/#what-to-know-before-you-install) to install docker on your Mac. 
+> * Once you are done installing kindly validate if it got installed properly following the steps mentioned [here](https://docs.docker.com/docker-for-mac/#check-versions-of-docker-engine-compose-and-machine)
+
+
+## Create a local container and setup Service Fabric
+To setup a local docker container and have a service fabric cluster running on it, perform the following steps - 
+
+1. Pull the image from docker hub repository -
+    ```bash
+    docker pull servicefabricoss/service-fabric-onebox
+    ```
+2. Start a Service Fabric Onebox container instance with the above image -
+    ```bash
+    docker run -itd -p 19080:19080 --name mysftest
+    ```
+    >[!TIP]
+    >By specifying a name for your conainer instance, you can handle it in a more readable manner. 
+
+3. Login to the docker container in interactive ssh mode -
+    ```bash
+    docker exec -it mysftest bash
+    ```
+4. Run the setup script which will fetch the dependencies and after that start the cluster on the conainer. 
+    ```bash
+    ./setup.sh
+    ./run.sh       # starts the local cluster
+    ```
+
 
 ## Create the local VM
 To create the local VM containing a 5-node Service Fabric cluster, perform the following steps:
