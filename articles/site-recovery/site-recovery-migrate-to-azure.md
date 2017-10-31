@@ -27,7 +27,7 @@ Watch this video for a quick overview of the steps required to migrate to Azure.
 >[!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/ASRHowTo-Video2-Migrate-Virtual-Machines-to-Azure/player]
 
 
-## What is migration?
+## What do we mean by migration?
 
 You can deploy Site Recovery to replication on-premises VMs and physical servers, and to migrate them.
 
