@@ -70,7 +70,8 @@ Consumer groups are used by applications to pull data from Azure IoT Hub. In thi
 To add a consumer group to your IoT hub, follow these steps:
 
 1.	In the Azure portal, open your IoT hub.
-2.	In the left pane, click **Endpoints**, select **Events** on the middle pane, enter a name under Consumer groups on the right pane, and then click Save.
+2.	In the left pane, click **Endpoints**, select **Events** on the middle pane, enter a name under **Consumer groups** on the right pane, and then click **Save**.
+![Add a consumer group](media/time-series-insights-how-to-add-an-event-source-iothub/add-consumer-group.png)
 
 ## Next steps
 
