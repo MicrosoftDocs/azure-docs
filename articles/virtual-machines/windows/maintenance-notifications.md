@@ -71,7 +71,7 @@ The following properties are returned under MaintenanceRedeployStatus:
 You can also get the maintenance status for all VMs in a resource group by using [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm) and not specifying a VM.
  
 ```powershell
-Get-AzureRmVM -ResourceGroupName rgName --Status
+Get-AzureRmVM -ResourceGroupName rgName -Status
 ```
 
 The following PowerShell function takes your subscription ID and prints out a list of VMs that are scheduled for maintenance.
