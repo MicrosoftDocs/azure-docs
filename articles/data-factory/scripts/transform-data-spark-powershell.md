@@ -21,6 +21,47 @@ This sample PowerShell script creates a pipeline that transforms data in the clo
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
+## Prerequisites
+* **Azure Storage account**. Create a python script and an input file, and upload them to the Azure storage. The output from the spark program is stored in this storage account. The on-demand Spark cluster uses the same storage account as its primary storage.  
+
+### Upload python script to your Blob Storage account
+1. Create a python file named **WordCount_Spark.py** with the following content: 
+
+    ```python
+    import sys
+    from operator import add
+    
+    from pyspark.sql import SparkSession
+    
+    def main():
+        spark = SparkSession\
+            .builder\
+            .appName("PythonWordCount")\
+            .getOrCreate()
+    		
+        lines = spark.read.text("wasbs://adftutorial@<storageaccountname>.blob.core.windows.net/spark/inputfiles/minecraftstory.txt").rdd.map(lambda r: r[0])
+        counts = lines.flatMap(lambda x: x.split(' ')) \
+            .map(lambda x: (x, 1)) \
+            .reduceByKey(add)
+        counts.saveAsTextFile("wasbs://adftutorial@<storageaccountname>.blob.core.windows.net/spark/outputfiles/wordcount")
+        
+        spark.stop()
+    
+    if __name__ == "__main__":
+    	main()
+    ```
+2. Replace **&lt;storageAccountName&gt;** with the name of your Azure Storage account. Then, save the file. 
+3. In your Azure Blob Storage, create a container named **adftutorial** if it does not exist. 
+4. Create a folder named **spark**.
+5. Create a subfolder named **script** under **spark** folder. 
+6. Upload the **WordCount_Spark.py** file to the **script** subfolder. 
+
+
+### Upload the input file
+1. Create a file named **minecraftstory.txt** with some text. The spark program counts the number of words in this text. 
+2. Create a subfolder named `inputfiles` in the `spark` folder of the blob container. 
+3. Upload the `minecraftstory.txt` to the `inputfiles` subfolder. 
+
 ## Sample script
 > [!IMPORTANT]
 > This script creates JSON files that define Data Factory entities (linked service, dataset, and pipeline) on your hard drive in the c:\ folder.

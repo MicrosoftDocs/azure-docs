@@ -15,11 +15,38 @@ ms.date: 10/31/2017
 ms.author: spelluru
 ---
 
-# Use PowerShell to create a data factory pipeline to copy data in the cloud
+# Use PowerShell to create a data factory pipeline to copy data from on-premises to Azure
 
 This sample PowerShell script creates a pipeline in Azure Data Factory that copies data from an on-premises SQL Server database to an Azure Blob Storage.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
+
+## Prerequisites
+
+- **SQL Server**. You use an on-premises SQL Server database as a **source** data store in this sample.
+- **Azure Storage account**. You use Azure blob storage as a **destination/sink** data store in this sample. if you don't have an Azure storage account, see the [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) article for steps to create one.
+- **Self-hosted integration runtime**. Download MSI file from the [download center](https://www.microsoft.com/download/details.aspx?id=39717) and run it to install a self-hosted integration runtime on your machine.  
+
+### Prepare an on-premises SQL Server for the tutorial
+1. In the on-premises SQL Server database, create a table named **emp** by using the following SQL script: 
+
+   ```sql   
+     CREATE TABLE dbo.emp
+     (
+         ID int IDENTITY(1,1) NOT NULL,
+         FirstName varchar(50),
+         LastName varchar(50),
+         CONSTRAINT PK_emp PRIMARY KEY (ID)
+     )
+     GO
+   ```
+
+2. Insert some sample data into the table:
+
+   ```sql
+     INSERT INTO emp VALUES ('John', 'Doe')
+     INSERT INTO emp VALUES ('Jane', 'Doe')
+   ```
 
 ## Sample script
 
