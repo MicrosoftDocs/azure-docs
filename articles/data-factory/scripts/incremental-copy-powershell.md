@@ -126,6 +126,74 @@ END
 
 [!code-powershell[main](../../../powershell_scripts/data-factory/incremental-copy-from-azure-sql-to-blob/incremental-copy-from-azure-sql-to-blob.ps1 "Incremental copy from Azure SQL Database to Azure Blob Storage")]
 
+## Review the results
+1. In the Azure blob storage (sink store), you should see that the data have been copied to the file defined in the SinkDataset.  In the current tutorial, the file name is `Incremental- d4bf3ce2-5d60-43f3-9318-923155f61037.txt`.  Open the file, you can see records in the file that are same as the data in Azure SQL database.
+
+	```
+	1,aaaa,2017-09-01 00:56:00.0000000
+	2,bbbb,2017-09-02 05:23:00.0000000
+	3,cccc,2017-09-03 02:36:00.0000000
+	4,dddd,2017-09-04 03:21:00.0000000
+	5,eeee,2017-09-05 08:06:00.0000000
+	```	
+2. Check the latest value from `watermarktable`, you see the watermark value has been updated.
+
+	```sql
+	Select * from watermarktable
+	```
+	
+	Here is the sample output:
+ 
+	TableName | WatermarkValue
+	--------- | --------------
+	data_source_table	2017-09-05	8:06:00.000
+
+### Insert data into data source store to verify delta data loading
+
+1. Insert new data into Azure SQL database (data source store):
+
+	```sql
+	INSERT INTO data_source_table
+	VALUES (6, 'newdata','9/6/2017 2:23:00 AM')
+	
+	INSERT INTO data_source_table
+	VALUES (7, 'newdata','9/7/2017 9:01:00 AM')
+	```	
+
+	The updated data in the Azure SQL database is as following:
+
+    ```
+	PersonID | Name | LastModifytime
+	-------- | ---- | --------------
+	1 | aaaa | 2017-09-01 00:56:00.000
+	2 | bbbb | 2017-09-02 05:23:00.000
+	3 | cccc | 2017-09-03 02:36:00.000
+	4 | dddd | 2017-09-04 03:21:00.000
+	5 | eeee | 2017-09-05 08:06:00.000
+	6 | newdata | 2017-09-06 02:23:00.000
+	7 | newdata | 2017-09-07 09:01:00.000
+    ```
+2. Run the pipeline: **IncrementalCopyPipeline** again using the **Invoke-AzureRmDataFactoryV2Pipeline** cmdlet. Replace place-holders with your own resource group and data factory name.
+
+	```powershell
+	$RunId = Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup "<your resource group>" -dataFactoryName "<your data factory name>"
+	```
+3. Check the status of pipeline by running **Get-AzureRmDataFactoryV2ActivityRun** cmdlet until you see all the activities running successfully. Replace place-holders with your own appropriate time for parameter RunStartedAfter and RunStartedBefore.  In this tutorial, we use -RunStartedAfter "2017/09/14" -RunStartedBefore "2017/09/15"
+
+	```powershell
+	Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $RunId -RunStartedAfter "<start time>" -RunStartedBefore "<end time>"
+	```	
+4.  In the Azure blob storage, you should see another file has been created in Azure blob storage. In this tutorial, the new file name is `Incremental-2fc90ab8-d42c-4583-aa64-755dba9925d7.txt`.  Open that file, you see 2 rows records in it:
+5.  Check the latest value from `watermarktable`, you see the watermark value has been updated again
+
+	```sql
+	Select * from watermarktable
+	```
+	sample output: 
+	
+	TableName | WatermarkValue
+	--------- | ---------------
+	data_source_table | 2017-09-07 09:01:00.000
 
 ## Clean up deployment
 
