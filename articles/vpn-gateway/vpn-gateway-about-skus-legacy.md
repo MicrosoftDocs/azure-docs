@@ -42,6 +42,7 @@ You can resize a gateway SKU within the same SKU family. For example, if you hav
 >When you resize a gateway, you will have 20-30 minutes of downtime for that gateway while it is being resized.
 >
 >
+
 To resize a gateway SKU for the classic deployment model, use the following command:
 
 ```powershell
