@@ -9,7 +9,7 @@
     maintainContext: true
 - name: Get started
   items:
-  - name: Start using Storm
+  - name: Create a Storm cluster
     href: apache-storm-tutorial-get-started-linux.md
   - name: Capacity planning
     href: ../hdinsight-capacity-planning.md

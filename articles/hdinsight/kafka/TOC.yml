@@ -9,7 +9,7 @@
     maintainContext: true
 - name: Get started
   items:
-  - name: Start using Kafka
+  - name: Create a Kafka cluster
     href: apache-kafka-get-started.md
   - name: Capacity planning
     href: ../hdinsight-capacity-planning.md
