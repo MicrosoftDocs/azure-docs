@@ -24,7 +24,7 @@ This sample PowerShell script creates a pipeline in Azure Data Factory that copi
 ## Prerequisites
 
 - **SQL Server**. You use an on-premises SQL Server database as a **source** data store in this sample.
-- **Azure Storage account**. You use Azure blob storage as a **destination/sink** data store in this sample. if you don't have an Azure storage account, see the [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) article for steps to create one.
+- **Azure Storage account**. You use Azure blob storage as a **destination/sink** data store in this sample. if you don't have an Azure storage account, see the [Create a storage account](../../storage/common/storage-create-storage-account.md#create-a-storage-account) article for steps to create one.
 - **Self-hosted integration runtime**. Download MSI file from the [download center](https://www.microsoft.com/download/details.aspx?id=39717) and run it to install a self-hosted integration runtime on your machine.  
 
 ### Prepare an on-premises SQL Server for the tutorial
