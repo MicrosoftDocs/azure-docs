@@ -181,7 +181,7 @@ HDInsight Tools for VSCode also enable you to submit interactive PySpark queries
     ![HDInsight for Visual Studio Code Python install](./media/hdinsight-for-vscode/hdinsight-vscode-install-python.png)
 
 6. Set up python environment in your system if you don't install it. 
-   - For windows, download and install [Python](https://www.python.org/downloads/).
+   - For windows, download and install [Python](https://www.python.org/downloads/). Then make sure `Python` and `pip` in your system PATH.
    - The instruction for MacOS and Linux, see [Set Up PySpark Interactive Environment for Visual Studio Code](set-up-pyspark-interactive-environment.md).
 7. Select a cluster to submit your PySpark query. Soon after, the query result is shown in the right new tab:
 
