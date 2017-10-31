@@ -152,7 +152,7 @@ description: Learn how to build and manage powerful applications using Microsoft
 															PHP</a>
 													</li>
 													<li>
-														<a class="barLink" href="/nodejs/azure/?view=azure-node-2.0.0">
+														<a class="barLink" href="/nodejs/azure/">
 															<img src="media/index/logo_nodejs.svg" alt="">
 															Node.js</a>
 													</li>
@@ -3843,7 +3843,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     <a href="/nodejs/azure/node-sdk-azure-install">Get the Azure libraries for Node.js</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="/nodejs/azure/?view=azure-node-2.0.0">Get started</a>
+                                                    <a href="/nodejs/azure/">Get started</a>
                                                 </p>
                                                 <p>
                                                     <a href="/nodejs/api/overview/azure">API reference</a>
