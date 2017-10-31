@@ -1,6 +1,6 @@
 ---
-title: Using the Time Series Insights explorer | Microsoft Docs
-description: This article describes how to use the Time Series Insights explorer
+title: Using the Azure Time Series Insights explorer | Microsoft Docs
+description: This article describes how to use the Azure Time Series Insights explorer
 keywords: 
 services: time-series-insights
 documentationcenter: 
@@ -17,6 +17,8 @@ ms.workload: big-data
 ms.date: 10/18/2017
 ms.author: kfile
 ---
+
+# Azure Time Series Insights explorer
 
 Azure Time Series Insights is a fully managed analytics, storage, and visualization service that makes it simple to explore and analyze billions of IoT events simultaneously. It gives you a global view of your data, letting you quickly validate your IoT solution and avoid costly downtime to mission-critical devices by helping you discover hidden trends, spot anomalies, and conduct root-cause analyses in near real time.
 
@@ -53,7 +55,7 @@ Terms Editor Panel:  The term space is where you query your environment.  It’s
 
 ![Terms Editor panel](media/time-series-insights-explorer/explorer2.png)
 
-- Predicate:  The predicate enables you to quickly filter your events using the set of operands listed below.  Note - If you conduct a search by selecting/clicking, the predicate will automatically update based on that search.  Supported operand types include:
+- Predicate:  The predicate enables you to quickly filter your events using the set of operands listed below. If you conduct a search by selecting/clicking, the predicate will automatically update based on that search.  Supported operand types include:
 
 
 |Operation  |Supported types  |Notes  |
@@ -89,7 +91,7 @@ The Chart lets you visually explore your data. Chart tools include:
  
 ![Chart tool](media/time-series-insights-explorer/explorer5.png) 
 
-The heatmap can be used to quickly spot unique or anomalous data series in a given query. Note – only one search term can be visualized as a heatmap.    
+The heatmap can be used to quickly spot unique or anomalous data series in a given query. Only one search term can be visualized as a heatmap.    
 
 ![Heatmap](media/time-series-insights-explorer/explorer6.png)
 
@@ -105,4 +107,6 @@ Click the **STATS** tab after exploring events to expose patterns and column sta
  
 ![STATS](media/time-series-insights-explorer/explorer8.png) 
 
+## Next steps
 
+*  [Diagnose and solve problems in your Time Series Insights environment](time-series-insights-diagnose-and-solve-problems.md)
