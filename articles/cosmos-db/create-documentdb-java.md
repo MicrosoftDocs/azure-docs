@@ -14,7 +14,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 10/16/2017
+ms.date: 10/30/2017
 ms.author: mimig
 
 ---
@@ -195,6 +195,8 @@ Now go back to the Azure portal to get your connection string information and co
                 new ConnectionPolicy(),
                 ConsistencyLevel.Session);
     ```
+
+5. Save the Program.java file.
 
 ## Run the app
 

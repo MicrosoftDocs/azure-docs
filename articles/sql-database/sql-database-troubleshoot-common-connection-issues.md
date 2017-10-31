@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: ac463d1c-aec8-443d-b66e-fa5eadcccfa8
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.workload: data-management
+ms.workload: "On Demand"
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
