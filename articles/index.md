@@ -152,7 +152,7 @@ description: Learn how to build and manage powerful applications using Microsoft
 															PHP</a>
 													</li>
 													<li>
-														<a class="barLink" href="/nodejs/azure/?view=azure-node-2.0.0">
+														<a class="barLink" href="/nodejs/azure/">
 															<img src="media/index/logo_nodejs.svg" alt="">
 															Node.js</a>
 													</li>
@@ -779,12 +779,6 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             <a href="/azure/cognitive-services/face/">
                                                 <img src="media/index/API_Face.svg" alt="" />
                                                 <p>Face API</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/video/home">
-                                                <img src="media/index/API_Video.svg" alt="" />
-                                                <p>Video API</p>
                                             </a>
                                         </li>
                                         <li>
@@ -2601,9 +2595,6 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                                 <a class="barLink" href="/azure/cognitive-services/face/"><img src="media/index/API_Face.svg" alt="" />Face API</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/video/home"><img src="media/index/API_Video.svg" alt="" /><span>Video API&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
-                                                            </li>
-                                                            <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/video-indexer/video-indexer-overview"><img src="media/index/API_VideoIndexer.svg" alt="" /><span>Video Indexer&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
                                                             </li>
                                                         </ul>
@@ -2715,7 +2706,8 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-web-search/"><img src="media/index/API_Bing_Web_Search.svg" alt="" />Bing Web Search</a>
                                                             </li>
-                                                            <li>                                                 <a class="barLink" href="/azure/cognitive-services/Bing-Autosuggest"><img src="media/index/API_Bing_AutoSuggest.svg" alt="" />Bing Autosuggest</a>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/Bing-Autosuggest"><img src="media/index/API_Bing_AutoSuggest.svg" alt="" />Bing Autosuggest</a>
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-custom-search"><img src="media/index/API_Bing_Custom_Search.svg" alt="" /><span>Bing Custom Search</a>
@@ -3851,7 +3843,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     <a href="/nodejs/azure/node-sdk-azure-install">Get the Azure libraries for Node.js</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="/nodejs/azure/?view=azure-node-2.0.0">Get started</a>
+                                                    <a href="/nodejs/azure/">Get started</a>
                                                 </p>
                                                 <p>
                                                     <a href="/nodejs/api/overview/azure">API reference</a>
