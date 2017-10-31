@@ -165,7 +165,7 @@ For more information about NSG, see [Network Security Groups](../virtual-network
 >
 >
 
-Before you can start using the ExpressRoute monitoring feature of NPM, you must request to have your Workspace whitelisted. [Click here](http://aka.ms/npmcohort) and fill out the form to add your Workspace for whitelisting. The whitelisting process may take a business day or more. We send you an email once the whitelisting is complete.
+Before you can start using the ExpressRoute monitoring feature of NPM, you must request to have your Workspace whitelisted. [Click here to fill out the form](http://aka.ms/npmcohort) to add your Workspace for whitelisting. The whitelisting process may take a business day or more. We send you an email once the whitelisting is complete.
 
 >[!WARNING]
 >Do not proceed further until your Workspace has been whitelisted and you receive a confirmation email.
@@ -179,13 +179,13 @@ After you complete the previous sections and verify that you have been whitelist
 1. Navigate to the Network Performance Monitor overview tile by going to the **All Resources** page, and clicking on the whitelisted NPM Workspace.
 
   ![](.\media\how-to-npm\npm.png)
-2. Click the **Network Performance Monitor** overview tile to bring up the dashboard. The dashboard contains an ExpressRoute blade, which shows that ExpressRoute is in an 'unconfigured state'. Click **Feature Setup** to open the Network Performance Monitor configuration page.
+2. Click the **Network Performance Monitor** overview tile to bring up the dashboard. The dashboard contains an ExpressRoute page, which shows that ExpressRoute is in an 'unconfigured state'. Click **Feature Setup** to open the Network Performance Monitor configuration page.
 
   ![](.\media\how-to-npm\npm2.png)
 3. On the configuration page, navigate to the 'ExpressRoute Peerings' tab, located on the left side panel. Click **Discover Now**.
 
   ![](.\media\how-to-npm\13.png)
-4. When discovery completes, you see rules for unique Circuit name and VNet name. Initially, these rules are disabled. You need to enable them, and select the monitoring agents and threshold values.
+4. When discovery completes, you see rules for unique Circuit name and VNet name. Initially, these rules are disabled. You need to enable the rules, then select the monitoring agents and threshold values.
 
   ![](.\media\how-to-npm\14.png)
 5. After enabling the rules and selecting the values and agents you want to monitor, there is a wait of approximately 30-60 minutes for the values to begin populating and the **ExpressRoute Monitoring** tiles to become available. Once you see the monitoring tiles, your ExpressRoute circuits and connection resources are being monitored by NPM.
