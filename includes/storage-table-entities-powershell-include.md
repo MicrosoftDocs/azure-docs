@@ -1,5 +1,5 @@
-<!--created by Robin Shahan to go in the articles for Table Storage w/powershell.
-    There is one for basic Table Storage and one for Cosmos DB Tables -->
+<!--created by Robin Shahan to go in the articles for table storage w/powershell.
+    There is one for Azure Table Storage and one for Azure Cosmos DB Table API -->
 
 ## Managing table entities
 
@@ -10,7 +10,7 @@ An entity can have up to 255 properties, including 3 system properties: **Partit
 * **PartitionKey**: Determines the partition that the entity is stored in.
 * **RowKey**: Uniquely identifies the entity within the partition.
 
-You may define up to 252 custom properties for an entity. For more information, see [Understanding the Table Service Data Model](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model).
+You may define up to 252 custom properties for an entity. If you are using Azure Table Storage, see [Understanding the Table Service Data Model](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model) for more information.
 
 ### Add table entities
 
