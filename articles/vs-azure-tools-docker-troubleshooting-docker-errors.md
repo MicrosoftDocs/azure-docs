@@ -29,7 +29,7 @@ To resolve this issue:
 1. Right-click **Docker for Windows** in the notification area, and then select **Settings**.
 1. Select **Shared Drives** and share the system drive along with the drive where the project resides.
 
-**NOTE**: If files appear shared, you may still need to click the "Reset credentials..." link at the bottom of the dialog in order to re-enable volume sharing.
+[!NOTE]: If files appear shared, you may still need to click the "Reset credentials..." link at the bottom of the dialog in order to re-enable volume sharing.
 
 ![shared drives](./media/vs-azure-tools-docker-troubleshooting-docker-errors/shareddrives.png)
 
@@ -46,6 +46,6 @@ Try executing the script downloadable from [Cleanup Container Host Networking](h
 which will refresh the network-related components on your host machine.
 
 
-## Microsoft/DockerTools GitHub Repo
+## Microsoft/DockerTools GitHub repo
 
 For any other issues you encounter, see  [Microsoft/DockerTools](https://github.com/microsoft/dockertools/issues) issues.
