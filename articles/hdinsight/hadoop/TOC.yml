@@ -1,6 +1,6 @@
 - name: Azure HDInsight Documentation
   href: /azure/hdinsight
-- name: Apache Hadoop on HDInsight
+- name: Hadoop on HDInsight
   items:
   - name: Overview
     href: apache-hadoop-introduction.md
