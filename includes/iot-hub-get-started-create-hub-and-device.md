@@ -1,7 +1,6 @@
 ## Create an IoT hub
 
 [!INCLUDE [iot-hub-create-hub](iot-hub-create-hub.md)]
-
 1. After your IoT hub is created, click it on the dashboard. Make a note of the **Hostname**, and then click **Shared access policies**.
 
    ![Get the hostname of your IoT hub](../articles/iot-hub/media/iot-hub-create-hub-and-device/4_get-azure-iot-hub-hostname-portal.png)
