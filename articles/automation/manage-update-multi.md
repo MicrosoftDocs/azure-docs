@@ -56,7 +56,7 @@ Windows agents must either be configured to communicate with a Windows Server Up
 * SUSE Linux Enterprise Server 11 (x86/x64) and 12 (x64)  
 * Ubuntu 12.04 LTS and newer x86/x64   
 
- > [!NOTE]  
+> [!NOTE]  
 > To avoid updates being applied outside of a maintenance window on Ubuntu, reconfigure  Unattended-Upgrade package to disable automatic updates. For information on how to configure this, see [Automatic Updates topic in the Ubuntu Server Guide](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
 
 Linux agents must have access to an update repository.
