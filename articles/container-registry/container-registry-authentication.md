@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/27/2017
+ms.date: 11/05/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
 ---
@@ -30,31 +30,32 @@ Azure Container Registry does not support anonymous login. For public images, yo
 
 ## Individual login with Azure AD
 
-Authenticate to your registry with the [az acr login](/cli/azure/acr?view=azure-cli-latest#az_acr_login) command in the [Azure CLI](/cli/azure/install-azure-cli):
+When working with your registry directly, such as pulling images to and pushing images from your development workstation, authenticate by using the [az acr login](/cli/azure/acr?view=azure-cli-latest#az_acr_login) command in the [Azure CLI](/cli/azure/install-azure-cli):
 
 ```azurecli
 az acr login --name <acrName>
 ```
 
-When you log in with `az acr login`, the CLI creates an Azure AD [service principal](#service-principal) for you automatically, and uses it to seamlessly authenticate your session. Once you've logged in this way, your credentials are cached, and subsequent `docker` commands do not require a username or password.
+When you log in with `az acr login`, the CLI uses the token created when you executed `az login` to seamlessly authenticate your session with your registry. Once you've logged in this way, your credentials are cached, and subsequent `docker` commands do not require a username or password.
 
 ## Service principal
 
-You can assign a [service principal](../active-directory/develop/active-directory-application-objects.md) to your registry and use it for basic Docker authentication. Using a service principal is recommended for most authentication scenarios. This includes headless authentication from applications and container orchestrators, as well as users performing an [individual login](#individual-login-with-azure-ad) in the Azure CLI.
+You can assign a [service principal](../active-directory/develop/active-directory-application-objects.md) to your registry, and your application or service can use it for headless authentication. Service principals allow [role-based access](../active-directory/role-based-access-control-configure.md) to a registry, and you can assign multiple service principals to a registry. Multiple service principals allow you to define different access for different applications.
 
-Service principals allow [role-based access](../active-directory/role-based-access-control-configure.md) to a registry. Available roles are:
-  * **Reader**: pull only access
+The availalable roles are:
+
+  * **Reader**: pull
   * **Contributor**: pull and push
   * **Owner**: pull, push, and assign roles to other users
 
-You can assign multiple service principals to a registry, which allows you to define access for different users or applications. Service principals enable headless connectivity to a registry in developer or DevOps scenarios like the following:
+Service principals enable headless connectivity to a registry in both push and pull scenarios like the following:
 
-  * Container deployments from a registry to orchestration systems including Kubernetes, DC/OS, and Docker Swarm. You can also pull container registries to related Azure services such as [AKS](../aks/index.yml), [App Service](../app-service/index.yml), [Batch](../batch/index.md), [Service Fabric](/azure/service-fabric/), and others.
+  * *Reader*: Container deployments from a registry to orchestration systems including Kubernetes, DC/OS, and Docker Swarm. You can also pull from container registries to related Azure services such as [AKS](../aks/index.yml), [App Service](../app-service/index.yml), [Batch](../batch/index.md), [Service Fabric](/azure/service-fabric/), and others.
 
-  * Continuous integration and deployment solutions (such as Visual Studio Team Services or Jenkins) that build container images and push them to a registry.
+  * *Contributor*: Continuous integration and deployment solutions like Visual Studio Team Services (VSTS) or Jenkins that build container images and push them to a registry.
 
 > [!TIP]
-> You can regenerate the password of a service principal by running the `az ad sp reset-credentials` command.
+> You can regenerate the password of a service principal by running the [az ad sp reset-credentials](/cli/azure/ad/sp?view=azure-cli-latest#az_ad_sp_reset_credentials) command.
 >
 
 You can also login directly with a service principal. Provide the app ID and password of the service principal to the `docker login` command:
@@ -90,8 +91,8 @@ You can enable the admin user in the Azure portal by navigating your registry, s
 >
 
 ## Next steps
-* [Push your first image using the Docker CLI](container-registry-get-started-docker-cli.md).
-* For more information about authentication in Azure Container Registry, see the [Azure Container Registry user accounts](https://blogs.msdn.microsoft.com/stevelasker/2016/11/17/azure-container-registry-user-accounts/) blog post.
+
+* [Push your first image using the Azure CLI](container-registry-get-started-azure-cli)
 
 <!-- IMAGES -->
 [auth-portal-01]: ./media/container-registry-authentication/auth-portal-01.png
