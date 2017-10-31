@@ -99,6 +99,6 @@ Watch this short [video tutorial][intro-video] on these steps.
 [label-suggested-utterances]: label-suggested-utterances.md
 [intro-video]:https://aka.ms/LUIS-Intro-Video
 [bot-framework]:https://docs.microsoft.com/en-us/bot-framework/
-[speech]:../Speech
+[speech]:../Speech/index.md
 [flow]:https://docs.microsoft.com/connectors/luis/
 [entity-concept]:luis-concept-entity-types.md
