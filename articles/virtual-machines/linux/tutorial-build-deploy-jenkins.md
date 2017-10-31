@@ -103,12 +103,12 @@ First, you must configure two Jenkins plug-ins: **NodeJS** and **VS Team Service
 4. To create another action, select **Add post-build action**.
 5. Select **Trigger release in TFS/Team Services**. Enter the URI for your Team Services account, such as **https://{your-account-name}.visualstudio.com**.
 6. Enter the **Team Project** name.
-7. Choose a name for the release definition. (You create this release definition later in Team Services).
+7. Choose a name for the release definition. (You create this release definition later in Team Services.)
 8. Choose credentials to connect to your Team Services or Team Foundation Server environment:
    - Leave **Username** blank if you are using Team Services. 
    - Enter a username and password if you are using an on-premises version of Team Foundation Server.    
-   ![Configuring Jenkins post-build Actions](media/tutorial-build-deploy-jenkins/trigger-release-from-jenkins.png)
-5. Save the jenkins project.
+   ![Configuring Jenkins post-build actions](media/tutorial-build-deploy-jenkins/trigger-release-from-jenkins.png)
+5. Save the Jenkins project.
 
 
 ## Create a Jenkins service endpoint
