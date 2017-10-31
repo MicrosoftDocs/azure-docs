@@ -92,20 +92,24 @@ First, you must configure two Jenkins plug-ins: **NodeJS** and **VS Team Service
 
 ## Configure Jenkins for Team Services integration
 
-1. Create a personal access token (PAT) in your Team Services account if you don't already have one. Jenkins requires this information to access your Team Services account. Be sure to store the token information for upcoming steps in this section.
+> [!NOTE]
+> Ensure that the personal access token (PAT) you use for the following steps contains the *Release* (read, write, execute and manage) permission in Team Services.
+ 
+1.  Create a PAT in your Team Services account if you don't already have one. Jenkins requires this information to access your Team Services account. Be sure to store the token information for upcoming steps in this section.
   
-   To learn how to generate a token, read [How do I create a personal access token for Team Services and Team Foundation Server](https://www.visualstudio.com/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate).
-2. On the **Post-build Actions** tab, select **Add post-build action**. Select **Archive the artifacts**.
+    To learn how to generate a token, read [How do I create a personal access token for VSTS and TFS?](https://www.visualstudio.com/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate).
+2. In the **Post-build Actions** tab, select **Add post-build action**. Select **Archive the artifacts**.
 3. For **Files to archive**, enter `**/*` to include all files.
 4. To create another action, select **Add post-build action**.
 5. Select **Trigger release in TFS/Team Services**. Enter the URI for your Team Services account, such as **https://{your-account-name}.visualstudio.com**.
 6. Enter the **Team Project** name.
-7. Choose a name for **Release definition**. (You create this release definition later in Team Services.)
-8. Choose credentials to connect to your Team Services or Team Foundation Server environment. Leave **Username** blank if you are using Team Services.
-   
-   You need your username and the PAT that you created earlier for Team Services. Enter a **Username and Password** if you are using an on-premises version of Team Foundation Server. 
-   ![Configuring Jenkins post-build actions](media/tutorial-build-deploy-jenkins/trigger-release-from-jenkins.png)
-5. Save the Jenkins project.
+7. Choose a name for the release definition. (You create this release definition later in Team Services).
+8. Choose credentials to connect to your Team Services or Team Foundation Server environment:
+   - Leave **Username** blank if you are using Team Services. 
+   - Enter a username and password if you are using an on-premises version of Team Foundation Server.    
+   ![Configuring Jenkins post-build Actions](media/tutorial-build-deploy-jenkins/trigger-release-from-jenkins.png)
+5. Save the jenkins project.
+
 
 ## Create a Jenkins service endpoint
 
@@ -124,7 +128,8 @@ A service endpoint allows Team Services to connect to Jenkins.
 You need a [deployment group](https://www.visualstudio.com/docs/build/concepts/definitions/release/deployment-groups/) to register the Team Services agent so the release definition can be deployed to your virtual machine. Deployment groups make it easy to define logical groups of target machines for deployment, and to install the required agent on each machine.
 
    > [!NOTE]
-   > In this procedure, follow the steps to install the prerequisites and *don't run the script with sudo privileges.*
+<<<<<<< HEAD
+   > In the following procedure, be sure to install the prerequisites and *don't run the script with sudo privileges.*
 
 1. Open the **Releases** tab of the **Build &amp; Release** hub, open **Deployment groups**, and select **+ New**.
 2. Enter a name for the deployment group, and an optional description. Then select **Create**.
@@ -138,7 +143,7 @@ You need a [deployment group](https://www.visualstudio.com/docs/build/concepts/d
 
 ## Create a Team Services release definition
 
-A release definition specifies the process that Team Services uses to deploy the app. In this example, we execute a shell script.
+A release definition specifies the process that Team Services uses to deploy the app. In this example, you execute a shell script.
 
 To create the release definition in Team Services:
 
