@@ -14,7 +14,13 @@ ms.author: cahann
 
 # Learn about Language Understanding Intelligent Service (LUIS)
 
-Language Understanding Intelligent Service (LUIS) allows your application to understand what a person wants in their own words. LUIS uses machine learning to allow developers to build applications that can receive user input in natural language and extract meaning from it. A client application that converses with users, such as a chat bot, can pass user input to a LUIS app and receive relevant, detailed information back.
+Language Understanding Intelligent Service (LUIS) allows your application to understand what a person wants in their own words. LUIS uses machine learning to allow developers to build applications that can receive user input in natural language and extract meaning from it. A client application that converses with the user can pass user input to a LUIS app and receive relevant, detailed information back.
+
+Several Microsoft technologies work with LUIS:
+
+* [Bot Framework][bot-framework] allows a chat bot to talk with a user via text input.
+* [Bing Speech API][speech] converts spoken language requests into text. Once converted to text, LUIS processes the requests.
+* [Microsoft Flow][flow] provides a LUIS connector.
 
 ## What is a LUIS app?
 
@@ -26,7 +32,7 @@ A model starts with a list of general user intentions such as "Book Flight" or "
 
 After the model is designed, trained, and published, it is ready to receive and process utterances. The LUIS app receives the utterance as an HTTP request and responds with extracted user intentions. Your client application sends the utterance and receives LUIS's evaluation. Your app can then take appropriate action.
 
-![image showing speech via Cortana and text via chat bot]()
+![LUIS recognizes user intent](./media/luis-overview/luis-overview-process.png)
 
 ## Key LUIS concepts
 
@@ -46,11 +52,8 @@ LUIS has two sets of APIs: the authoring APIs and the endpoint APIs.
 
 * **Authoring APIs and LUIS.ai** The authoring APIs give you and your collaborators control of your LUIS model definition. This control includes management of: models, versions, collaborators, external APIs, Azure subscription keys, testing, and training. [LUIS.ai][luis.ai] is the authoring website that sits on top of the authoring APIS, making the API calls for you.
 
-    ![image of people collaborating around computer]()
+* **Endpoint APIs** The endpoint APIs allow users to pass a short, less than 500 character utterance phrase to LUIS. When you publish your LUIS app, the endpoint URL is created. 
 
-* **Endpoint APIs** The endpoint APIs allow users to pass a short, 500-character utterance phrase to LUIS. When you publish your LUIS app, the endpoint URL is created. 
-
-![LUIS recognizes user intent](./media/luis-overview/luis-overview-process.png)
 
 > [!NOTE]
 > * The Authoring APIs and LUIS.ai use the programmatic key found in your [LUIS.ai][luis.ai] account page.
@@ -70,25 +73,17 @@ For example, a "BookFlight" intent could trigger an API call to an external serv
 
 * **Prebuilt Entities** LUIS has many prebuilt domains with [prebuilt entities][pre-built-entities]. You can use the entity without having to use the entire domain. The prebuilt entities save you time.
 
-    ![image showing several domains in LUIS.ai]()
-
 * **Custom Entities** LUIS gives you several ways to identify your own custom entities including simple entities, composite entities, list entities, and hierarchical entities.
 
-    ![image showing several entity type examples - 1 of each type]()
-
 * **Regular Expressions and Phrase Features** LUIS provides [features](luis-concept-feature.md) such as regular expression patterns and phrase lists, which also help identify entities. 
-
-    ![image show regular express and phrase features]
 
 ## Improve performance using active learning
 Once your application is [published][publish-app] and real user utterances are entered, LUIS uses active learning to improve identification. In the active learning process, LUIS identifies the utterances that it is relatively unsure of. You can label them according to intent and entities, retrain, and republish.
 
-![image of suggested utterances]()
-
 This iterative process has tremendous advantages. LUIS knows what it is unsure of, and your help leads to the maximum improvement in system performance. LUIS learns quicker, and takes the minimum amount of your time and effort. LUIS is an active machine learning at its best. 
 
 ## Next steps
-Create a [new LUIS app](LUIS-get-started-create-app.md) in 5 minutes.
+Create a [new LUIS app](LUIS-get-started-create-app.md).
 
 Watch this short [video tutorial][intro-video] on these steps.
 
@@ -103,3 +98,6 @@ Watch this short [video tutorial][intro-video] on these steps.
 [pre-built-domains]: luis-how-to-use-prebuilt-domains.md
 [label-suggested-utterances]: label-suggested-utterances.md
 [intro-video]:https://aka.ms/LUIS-Intro-Video
+[bot-framework]:https://docs.microsoft.com/en-us/bot-framework/
+[speech]:../Speech
+[flow]:https://docs.microsoft.com/connectors/luis/
