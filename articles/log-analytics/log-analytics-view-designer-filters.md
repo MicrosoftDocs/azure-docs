@@ -1,10 +1,10 @@
 ---
-title: Filters in Log Analytics views | Microsoft Docs
+title: Filters in Azure Log Analytics views | Microsoft Docs
 description: A filter in a Log Analytics view allows users to filter the data in the view by the value of a particular property without modifying the view itself.  This article describes how to use a filter and add one to a custom view.
 services: log-analytics
 documentationcenter: ''
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: ''
 
 ms.assetid: ce41dc30-e568-43c1-97fa-81e5997c946a
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2017
+ms.date: 10/31/2017
 ms.author: bwren
 
 ---
@@ -43,7 +43,7 @@ The following table describes the settings for a filter.
 | Query for Values | Query to run to populate filter dropdown for the user.  This must use either [summarize](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) or [distinct](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/distinct-operator) to provide unique values for a particular field, and it must match the **Field Name**.  You can use [sort](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/sort-operator) to sort the values that are displayed to the user. |
 | Tag | Name for the field that's used in queries supporting the filter and is also displayed to the user. |
 
-#### Examples
+### Examples
 
 The following table includes a few examples of common filters.  
 
@@ -71,3 +71,5 @@ If you added another filter called Severity, you could use the following query t
 
     Event | where ${Computers} | where ${Severity} | summarize count() by EventLevelName
 
+## Next steps
+* Learn more about the [Visualization Parts](log-analytics-view-designer-parts.md) you can add to your custom view.
