@@ -1,6 +1,6 @@
 ---
-title: Azure Files frequently asked questions (FAQs) | Microsoft Docs
-description: Get answers to frequently asked questions about Azure Files.
+title: Frequently asked questions for Azure Files | Microsoft Docs
+description: Find answers to frequently asked questions about Azure Files.
 services: storage
 documentationcenter: ''
 author: RenaShahMSFT
@@ -93,7 +93,7 @@ This article answers common questions about Azure Files features and functionali
     For example, the first conflict of CompanyReport.docx would become CompanyReport-CentralServer.docx if CentralServer is where the older write occurred. The second conflict would be named CompanyReport-CentralServer-1.docx.
 
 * <a id="afs-storage-redundancy"></a>**Is geo-redundant storage supported for Azure File Sync?**  
-    Yes, locally redundant storage (LRS) and geo-redundant storage (GRS) both are supported by Azure File Sync. If a geo-redundant storage failover between paired regions occurs, we recommend that you treat the new region as a backup of data only. Azure File Sync does not automatically begin syncing with the new primary region. 
+    Yes, Azure Files supports both locally redundant storage (LRS) and geo-redundant storage (GRS). If a GRS failover between paired regions occurs, we recommend that you treat the new region as a backup of data only. Azure File Sync does not automatically begin syncing with the new primary region. 
 
 * <a id="sizeondisk-versus-size"></a>**Why doesn't the *Size on disk* property for a file match the *Size* property after using Azure File Sync?**  
     Windows File Explorer exposes two properties to represent the size of a file: **Size** and **Size on disk**. These properties differ subtly in meaning. **Size** represents the complete size of the file. **Size on disk** represents the size of the file stream that's stored on the disk. The values for these properties can differ for a variety of reasons, such as compression, use of Data Deduplication, or cloud tiering with Azure File Sync. If a file is tiered to an Azure File share, the size on the disk is zero, because the file stream is stored in your Azure File share, and not on the disk. It's also possible for a file to be partially tiered (or partially recalled). In a partially tiered file, part of the file is on disk. This might occur when files are partially read by applications like multimedia players or zip utilities. 
@@ -111,7 +111,7 @@ This article answers common questions about Azure Files features and functionali
         | L | Reparse point | Indicates that the file has a reparse point. A reparse point is a special pointer for use by a file system filter. Azure File Sync uses reparse points to define to the Azure File Sync file system filter (StorageSync.sys) the cloud location where the file is stored. This supports seamless access. Users won't need to know that Azure File Sync is being used or how to get access to the file in your Azure File share. When a file is fully recalled, Azure File Sync removes the reparse point from the file. |
         | O | Offline | Indicates that some or all of the file's content is not stored on disk. When a file is fully recalled, Azure File Sync removes this attribute. |
 
-        ![A file's Properties dialog, with the Details tab selected](media/storage-files-faq/azure-file-sync-file-attributes.png)
+        ![The Properties dialog box for a file, with the Details tab selected](media/storage-files-faq/azure-file-sync-file-attributes.png)
         
         You can see the attributes for all the files in a folder by adding the **Attributes** field to the table display of File Explorer. To do this, right-click on an existing column (for example, **Size**), select **More**, and then select **Attributes** from the drop-down list.
         
@@ -155,7 +155,7 @@ This article answers common questions about Azure Files features and functionali
     * \*.tmp
     * 635D02A9D91C401B97884B82B3BCDAEA.\*
 
-    The following folders also are excluded by default:
+    The following folders are also excluded by default:
 
     * \System Volume Information
     * \$RECYCLE.BIN
@@ -178,7 +178,7 @@ This article answers common questions about Azure Files features and functionali
     Encryption at rest is in the process of being enabled by default in all regions. For these regions, you don't need to take any actions to enable encryption. For other regions, see [Server-side encryption](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 * <a id="access-via-browser"></a>**How can I provide access to a specific file by using a web browser?**  
-    You can use shared access signatures to generate tokens that have specific permissions, and which are valid for a specified time interval. For example, you can generate a token that gives read-only access to a specific file, for a set period of time. Anyone who possesses the URL can access the file directly from any web browser while the token is valid. Shared access signature keys can easily be generated from a UI like Storage Explorer.
+    You can use shared access signatures to generate tokens that have specific permissions, and which are valid for a specified time interval. For example, you can generate a token that gives read-only access to a specific file, for a set period of time. Anyone who possesses the URL can access the file directly from any web browser while the token is valid. You can easily generate a shared access signature key from a UI like Storage Explorer.
 
 * <a id="file-level-permissions"></a>**Is it possible to specify read-only or write-only permissions on folders within the share?**  
     If you mount the file share by using SMB, you don't have folder-level control over permissions. However, if you create a shared access signature by using the REST API or client libraries, you can specify read-only or write-only permissions on folders within the share.
@@ -191,7 +191,7 @@ This article answers common questions about Azure Files features and functionali
 
 ## On-premises access
 * <a id="expressroute-not-required"></a>**Do I have to use Azure ExpressRoute to connect to Azure Files or to use Azure File Sync on-premises?**  
-    No. ExpressRoute is not required to access an Azure File share. If you are mounting an Azure File share directly on-premises, all that's required is to have port 445 (TCP outbound) open for internet access (this is the port that SMB uses to communicate). If you're using Azure File Sync, all that's required is port 443 (TCP outbound) for HTTPS access (SMB is not required). However, you *can* use ExpressRoute with either of these access options.
+    No. ExpressRoute is not required to access an Azure File share. If you are mounting an Azure File share directly on-premises, all that's required is to have port 445 (TCP outbound) open for internet access (this is the port that SMB uses to communicate). If you're using Azure File Sync, all that's required is port 443 (TCP outbound) for HTTPS access (no SMB required). However, you *can* use ExpressRoute with either of these access options.
 
 * <a id="mount-locally"></a>**How can I mount an Azure File share on my local machine?**  
     You can mount the file share by using the SMB protocol if port 445 (TCP outbound) is open and your client supports the SMB 3.0 protocol (for example, if you're using Windows 10 or Windows Server 2016). If port 445 is blocked by your organization's policy or by your ISP, you can use Azure File Sync to access your Azure File share.
