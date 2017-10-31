@@ -40,7 +40,7 @@ In short, you cannot enable a managed domain for an Azure AD tenant 'contoso.com
 
 ![Mismatched tenant configuration](./media/getting-started/mismatched-tenant-config.png)
 
-Therefore, in scenarios where the managed domain and the virtual network it is enabled in belong to two different Azure AD tenants you see this error.
+Therefore, when the managed domain and the virtual network it is enabled in belong to two different Azure AD tenants you see this error.
 
 The following rules apply in the Resource Manager environment:
 - An Azure AD directory may have multiple Azure subscriptions.
@@ -52,7 +52,7 @@ The following rules apply in the Resource Manager environment:
 ## Resolution
 You have two options to resolve the mismatched directory error. You may:
 
-- Click the **Delete** button to delete the existing managed domain. Re-create using the [Azure portal](https://portal.azure.com), so that the managed domain and virtual network it is available in belong to the Azure AD directory. You must join afresh to the newly created managed domain, all machines previously joined to the deleted domain.
+- Click the **Delete** button to delete the existing managed domain. Re-create using the [Azure portal](https://portal.azure.com), so that the managed domain and virtual network it is available in belong to the Azure AD directory. Join all machines previously joined to the deleted domain to the newly created managed domain.
 
 - Move the Azure subscription containing the virtual network to the Azure AD directory, to which your managed domain belongs. Follow the steps in the [transfer ownership of an Azure subscription to another account](../billing/billing-subscription-transfer.md) article.
 
