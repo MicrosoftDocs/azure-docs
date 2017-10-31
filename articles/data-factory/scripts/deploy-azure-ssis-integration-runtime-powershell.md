@@ -30,7 +30,12 @@ This sample PowerShell script creates an Azure-SSIS integration runtime that can
 After you run the sample script, you can use the following command to remove the resource group and all resources associated with it:
 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
+Remove-AzureRmResourceGroup -ResourceGroupName $resourceGroupName
+```
+To remove the data factory from the resource group, run the following command: 
+
+```powershell
+Remove-AzureRmDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceGroupName
 ```
 
 ## Script explanation

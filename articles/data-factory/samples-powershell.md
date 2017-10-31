@@ -26,7 +26,7 @@ The following table includes links to sample Azure PowerShell scripts for Azure 
 |---|---|
 |**Copy data**||
 |[Copy blobs from a folder to another folder in an Azure Blob Storage](scripts/copy-azure-blob-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| This PowerShell script copies blobs from a folder in Azure Blob Storage to another folder in the same Blob Storage. |
-|[Copy blobs from on-premises SQL Server to Azure Blob Storage](scripts/hybrid-copy-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| This PowerShell script copies blobs from a folder in Azure Blob Storage to another folder in the same Blob Storage. |
+|[Copy data from on-premises SQL Server to Azure Blob Storage](scripts/hybrid-copy-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| This PowerShell script copies data from an on-premises SQL Server database to an Azure blob storage. |
 |**Transform data**||
 |[Transform data using a Spark cluster](scripts/transform-data-spark-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| This PowerShell script transforms data by running a program on a Spark cluster. |
 |**Lift and shift SSIS packages to Azure**||
