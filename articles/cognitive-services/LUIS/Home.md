@@ -88,15 +88,16 @@ Once your application is [published][publish-app] and real user utterances are e
 This iterative process has tremendous advantages. LUIS knows what it is unsure of, and your help leads to the maximum improvement in system performance. LUIS learns quicker, and takes the minimum amount of your time and effort. LUIS is an active machine learning at its best. 
 
 ## Next steps
-See [create a new LUIS app](LUIS-get-started-create-app.md), for a quick walkthrough creating a LUIS app.
+Create a [new LUIS app](LUIS-get-started-create-app.md) in 5 minutes.
 
-You can also watch a short [video tutorial][intro-video] on these steps.
+Watch this short [video tutorial][intro-video] on these steps.
 
 <!-- Reference-style links -->
 [create-app]:luis-get-started-create-app.md
 [luis.ai]:https://www.luis.ai/
 [azure-portal]:https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account
 [publish-app]:PublishApp.md#test-your-published-endpoint-in-a-browser
+[luis-concept-entity-types]:luis-concept-entity-types.md
 [add-example-utterances]: add-example-utterances.md
 [pre-built-entities]: pre-builtentities.md
 [pre-built-domains]: luis-how-to-use-prebuilt-domains.md
