@@ -1,6 +1,6 @@
 ---
-title: Perform operations on Azure Cosmos DB Table storage with PowerShell | Microsoft Docs
-description: How to perform operations on Azure Cosmos Table storage with PowerShell
+title: Perform Azure Cosmos DB Table API operations with PowerShell | Microsoft Docs
+description: How to perform Azure Cosmos DB Table API operations with PowerShell
 services: storage
 documentationcenter: storage
 author: robinsh
@@ -19,12 +19,12 @@ ms.author: robinsh
 # Perform Azure Cosmos DB Table API operations with Azure PowerShell 
 
 >[!NOTE]
-> Azure Cosmos DB Table API is a premium offering for storage tables. In most cases, the commands in this article work against both standard Azure Storage tables and Cosmos DB premium tables, but this article is specific to Cosmos DB premium tables. If you are using standard Azure Storage tables rather than Cosmos DB premium tables, see [Azure Table Storage with PowerShell](table-storage-how-to-use-powershell.md).
+> Azure Cosmos DB Table API is a premium offering for storage tables. In most cases, the commands in this article work against both standard Azure Storage tables and Azure Cosmos DB premium tables, but this article is specific to Azure Cosmos DB premium tables. If you are using standard Azure Storage tables rather than Azure Cosmos DB premium tables, see [Azure Table Storage with PowerShell](table-storage-how-to-use-powershell.md).
 >
 
-The Cosmos DB Table API enables you to store and query huge sets of structured, non-relational data. The main components of the service are tables, entities, and properties. A table is a collection of entities. An entity is a set of properties. Each entity can have up to 252 properties, which are all name-value pairs. This article assumes that you are already familiar with the Azure Table Storage Service concepts. For detailed information, see [Understanding the Table Service Data Model](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model) and [Get started with Azure Table storage using .NET](table-storage-how-to-use-dotnet.md).
+The Azure Cosmos DB Table API enables you to store and query huge sets of structured, non-relational data. The main components of the service are tables, entities, and properties. A table is a collection of entities. An entity is a set of properties. Each entity can have up to 252 properties, which are all name-value pairs. This article assumes that you are already familiar with the Azure Table Storage Service concepts. For detailed information, see [Understanding the Table Service Data Model](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model) and [Get started with Azure Table storage using .NET](table-storage-how-to-use-dotnet.md).
 
-This how-to article covers common table storage operations. You learn how to: 
+This how-to article covers common Table API operations. You learn how to: 
 
 > [!div class="checklist"]
 > * Create a table
@@ -39,7 +39,7 @@ The examples require Azure PowerShell module version 4.4.0 or later. In a PowerS
 
 Cosmos DB Table API is in preview, so you have to install the assemblies locally in order to use these PowerShell cmdlets. For instructions on how to do that, see [Azure RM Storage Tables PowerShell module for Cosmos DB Tables](https://blogs.technet.microsoft.com/paulomarques/2017/05/23/azure-rm-storage-tables-powershell-module-now-includes-support-for-cosmos-db-tables/).
 
-To perform these exercises, you need a Cosmos DB database account. If you don't already have one, create a new Cosmos DB account using the [Azure portal](https://portal.azure.com). For help creating a new database account, see [Azure Cosmos DB: Create a database account](create-table-dotnet.md#create-a-database-account).
+To perform these exercises, you need a Azure Cosmos DB database account. If you don't already have one, create a new Azure Cosmos DB account using the [Azure portal](https://portal.azure.com). For help creating a new database account, see [Azure Cosmos DB: Create a database account](create-table-dotnet.md#create-a-database-account).
 
 Get the database account name and resource group from the portal; you need these values to put in your script to access the tables. 
 
@@ -75,17 +75,17 @@ $storageTable = Get-AzureStorageTableTable `
   -cosmosDbAccount $cosmosDBAccountName 
 ```
 
-You can't list the tables in the Cosmos DB Account using PowerShell, but you can sign in to the portal and see the table. Now let's look at how to manage the entities in the table.
+You can't list the tables in the Azure Cosmos DB account using PowerShell, but you can sign in to the portal and see the table. Now let's look at how to manage the entities in the table.
 
 [!INCLUDE [storage-table-entities-powershell-include](../../includes/storage-table-entities-powershell-include.md)]
 
 ## Delete a table 
 
-PowerShell doesn't support deleting tables from Cosmos DB. To delete a table, go to the [Azure portal](https://azure.portal.com), locate the Azure Cosmos DB Account you're using, then delete the table. 
+PowerShell doesn't support deleting tables from Azure Cosmos DB. To delete a table, go to the [Azure portal](https://azure.portal.com), locate the Azure Cosmos DB account you're using, then delete the table. 
 
 ## Clean up resources
 
-If you created a new resource group and created a new Cosmos DB Account in that group, you can remove all of the assets you have created in this exercise by removing the resource group. This command deletes all resources contained within the group as well as the resource group itself.
+If you created a new resource group and created a new Azure Cosmos DB account in that group, you can remove all of the assets you have created in this exercise by removing the resource group. This command deletes all resources contained within the group as well as the resource group itself.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name $resourceGroup
@@ -93,7 +93,7 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 
 ## Next steps
 
-In this how-to article, you learned about common Table storage operations with PowerShell, including how to: 
+In this how-to article, you learned about common Table API operations with PowerShell, including how to: 
 
 > [!div class="checklist"]
 > * Create a table

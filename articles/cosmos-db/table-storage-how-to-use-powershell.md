@@ -1,6 +1,6 @@
----
-title: Perform operations on Azure Table storage with PowerShell | Microsoft Docs
-description: Tutorial - Perform operations on Azure Table storage with PowerShell
+ m---
+title: Perform operations on Azure Table Storage with PowerShell | Microsoft Docs
+description: Tutorial - Perform operations on Azure Table Storage with PowerShell
 services: storage
 documentationcenter: storage
 author: robinsh
@@ -17,15 +17,15 @@ ms.date: 10/27/2017
 ms.author: robinsh
 ---
 
-# Perform Azure Table storage operations with Azure PowerShell 
-
+# Perform Azure Table Storage operations with Azure PowerShell 
+s
 >[!NOTE]
-> The Azure Cosmos DB Table API is an offering for premium storage tables. Azure Table Storage is the original offering for standard storage tables. In most cases, the commands in this article work against both standard and premium tables, but this article is specific to standard Azure Storage tables. If you are using Cosmos DB premium tables rather than standard Azure Storage tables, please see [Cosmos DB Storage Tables with PowerShell](table-powershell.md).
+> The Azure Cosmos DB Table API is an offering for premium storage tables. Azure Table Storage is the original offering for standard storage tables. In most cases, the commands in this article work against both standard and premium tables, but this article is specific to standard Azure Storage tables. If you are using Azure Cosmos DB premium tables rather than standard Azure Storage tables, please see [Azure Cosmos DB Table API operations with PowerShell](table-powershell.md).
 >
 
 Azure Table Storage is a NoSQL datastore, which you can use to store and query huge sets of structured, non-relational data. The main components of the service are tables, entities, and properties. A table is a collection of entities. An entity is a set of properties. Each entity can have up to 252 properties, which are all name-value pairs. This article assumes that you are already familiar with the Azure Table Storage Service concepts. For detailed information, see [Understanding the Table Service Data Model](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model) and [Get started with Azure Table storage using .NET](table-storage-how-to-use-dotnet.md).
 
-This how-to article covers common Table storage operations. You learn how to: 
+This how-to article covers common Azure Table Storage operations. You learn how to: 
 
 > [!div class="checklist"]
 > * Create a table
@@ -130,7 +130,7 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 
 ## Next steps
 
-In this how-to article, you learned about common Table storage operations with PowerShell, including how to: 
+In this how-to article, you learned about common Azure Table Storage operations with PowerShell, including how to: 
 
 > [!div class="checklist"]
 > * Create a table
