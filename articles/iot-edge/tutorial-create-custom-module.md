@@ -133,7 +133,7 @@ The following steps show you how to create an IoT Edge module using Visual Studi
     }
     ```
 
-7. In the **InitEdgeModule** method, replace the code in the **try** block with the following code. This code creates and configures a **DeviceClient** object, which allows the module to  connect to the local Azure IoT Edge runtime to send and receive messages. This is similar to the way code in a device uses a **DeviceClient** to connect to a remote IoT Hub, except that the endpoint and credential information used in the connection string are specific to the Edge hub. The connection string parameter used in the **InitEdgeModule** method is supplied to the module by Azure IoT Edge in an environment variable - **EdgeHubConnectionString**. After creating the **DeviceClient**, the code registers a callback for desired properties updates on the module twin and registers the **FilterHandler** method as the default handler for messages from the Edge Hub.
+7. In the **InitEdgeModule** method, replace the code in the **try** block with the following code. This code creates and configures a **DeviceClient** object, which allows the module to  connect to the local Azure IoT Edge runtime to send and receive messages. This is similar to the way code in a device uses a **DeviceClient** to connect to a remote IoT Hub, except that the endpoint and credential information used in the connection string are specific to the Edge hub. The connection string parameter used in the **InitEdgeModule** method is supplied to the module by Azure IoT Edge in an environment variable - **EdgeHubConnectionString**. After creating the **DeviceClient**, the code registers a callback for desired properties updates on the module twin and registers the **FilterHandler** method as the handler for messages from the Edge Hub via the "input1" endpoint.
 
     ```csharp
     // Open a connection to the Edge runtime using MQTT transport and 
@@ -152,10 +152,10 @@ The following steps show you how to create an IoT Edge module using Visual Studi
     await IoTHubModuleClient.SetDesiredPropertyUpdateCallbackAsync (onDesiredPropertiesUpdate, null);
 
     // Register callback to be called when a message is received by the module
-    await IoTHubModuleClient.SetEventDefaultHandlerAsync(FilterMessages, IoTHubModuleClient);
+    await IoTHubModuleClient.SetInputMessageHandlerAsync("input1", FilterMessages, IoTHubModuleClient);
 
     // Register callback to be called when a message is received by the module
-    // await IoTHubModuleClient.SetEventDefaultHandlerAsync(PipeMessage, IoTHubModuleClient);
+    // await IoTHubModuleClient.SetInputMessageHandlerAsync("input1", PipeMessage, IoTHubModuleClient);
 
     ```
 
@@ -218,11 +218,11 @@ The following steps show you how to create an IoT Edge module using Visual Studi
                 }
 
                 filteredMessage.Properties.Add("MessageType", "Alert");
-                await deviceClient.SendEventAsync("alertOutput", filteredMessage);
+                await deviceClient.SendEventAsync("output1", filteredMessage);
             }
 
             // We need to indicate that we have completed the message treatment
-            await deviceClient.CompleteAsync(message);
+            return MessageResponse.Completed;
         }
         catch (AggregateException ex)
         {
@@ -233,7 +233,7 @@ The following steps show you how to create an IoT Edge module using Visual Studi
             }
             // We need to indicate that we have not completed the message treatment
             DeviceClient deviceClient = (DeviceClient)userContext;
-            await deviceClient.AbandonAsync(message);
+            return MessageResponse.Abandoned;
         }
         catch (Exception ex)
         {
@@ -241,7 +241,7 @@ The following steps show you how to create an IoT Edge module using Visual Studi
             Console.WriteLine("Error in sample: {0}", ex.Message);
             // We need to indicate that we have not completed the message treatment
             DeviceClient deviceClient = (DeviceClient)userContext;
-            await deviceClient.AbandonAsync(message);
+            return MessageResponse.Abandoned;
         }
     }
     ```
@@ -288,13 +288,13 @@ The following steps show you how to create an IoT Edge module using Visual Studi
        }
     }
     ``` 
-3. Select **Routes**, and copy the following JSON. Modules publish all messages to the Edge runtime. Declarative rules in the runtime define where those messages flow. In this tutorial we need two routes. The first transports messages from the temperature sensor to the filter module, and the second from the filter module to  IoT Hub. `upstream` is a special destination which tells Edge Hub to send messages to IoT Hub. 
+3. Select **Routes**, and copy the following JSON. Modules publish all messages to the Edge runtime. Declarative rules in the runtime define where those messages flow. In this tutorial we need two routes. The first route transports messages from the temperature sensor to the filter module via the "input1" endpoint, which is the endpoint that we configured with the  **FilterMessages** handler. The second route transports messages from the filter module to IoT Hub. In this route, `upstream` is a special destination that tells Edge Hub to send messages to IoT Hub. 
 
     ```json
     {
        "routes":{
-          "allMessagesToIoTHub":"FROM /* INTO $upstream",
-          "sensorToFilter":"FROM /messages/modules/tempSensor/* INTO BrokeredEndpoint(\"/modules/filtermodule/inputs/input1\")"
+          "sensorToFilter":"FROM /messages/modules/tempSensor/* INTO BrokeredEndpoint(\"messages/modules/filtermodule/inputs/input1\")”,
+          "filterToIoTHub":"FROM /messages/modules/filtermodule/outputs/* INTO $upstream"
        }
     }
     ```
