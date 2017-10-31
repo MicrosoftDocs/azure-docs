@@ -14292,6 +14292,56 @@
              "source_path": "articles/active-directory/active-directory-conditional-access-azuread-connected-apps.md",
              "redirect_url": "/azure/active-directory/active-directory-conditional-access-azure-portal-get-started",
              "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/active-directory/active-directory-assign-admin-roles.md",
+             "redirect_url": "/azure/active-directory/active-directory-assign-admin-roles-azure-portal",
+             "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/active-directory/active-directory-create-users-external.md",
+             "redirect_url": "/azure/active-directory/active-directory-b2b-admin-add-users",
+             "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/active-directory/active-directory-accessmanagement-groups-with-advanced-rules.md",
+             "redirect_url": "/azure/active-directory/active-directory-groups-dynamic-membership-azure-portal",
+             "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/active-directory/active-directory-accessmanagement-manage-groups.md",
+             "redirect_url": "/azure/active-directory/active-directory-groups-create-azure-portal",
+             "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/active-directory/active-directory-sso-integrate-saas-apps.md",
+             "redirect_url": "/azure/active-directory/active-directory-enterprise-apps-manage-sso",
+             "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/active-directory/active-directory-add-manage-domain-names.md",
+             "redirect_url": "/azure/active-directory/active-directory-domains-manage-azure-portal",
+             "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/active-directory/active-directory-add-domain-concepts.md",
+             "redirect_url": "/azure/active-directory/active-directory-domains-manage-azure-portal",
+             "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/active-directory/active-directory-create-users-reset-password.md",
+             "redirect_url": "/azure/active-directory/active-directory-users-reset-password-azure-portal",
+             "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/active-directory/active-directory-application-proxy-conditional-access.md",
+             "redirect_url": "/azure/active-directory/application-proxy-enable-remote-access-sharepoint",
+             "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/active-directory/active-directory-application-proxy-connectors.md",
+             "redirect_url": "/azure/active-directory/active-directory-application-proxy-connectors-azure-portal",
+             "redirect_document_id": false
         }
     ]
 }
