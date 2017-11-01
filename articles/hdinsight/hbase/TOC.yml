@@ -4,10 +4,16 @@
   items:
   - name: Overview
     href: apache-hbase-overview.md
-- name: Start using HBase
+  - name: Component versioning
+    href: ../hdinsight-component-versioning.md
+    maintainContext: true
+- name: Get started
   items:
   - name: Start with HBase & NoSQL
     href: apache-hbase-tutorial-get-started-linux.md
+  - name: Capacity planning
+    href: ../hdinsight-capacity-planning.md
+    maintainContext: true
 - name: How to
   items:
   - name: Create cluster in virtual network
