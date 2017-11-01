@@ -44,7 +44,7 @@ The following user guides give instructions for setting up a customized language
 
 [Hub API User Guide](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)
 
-## IMprove translated content with the Collaborative Translations Framework
+## Improve translated content with the Collaborative Translations Framework
 
 The Collaborative Translations Framework (CTF) is an extension of the core Microsoft Translator Text API that enables postpublishing improvement of translated text. There are no additional costs associated with the use of the CTF.
 
