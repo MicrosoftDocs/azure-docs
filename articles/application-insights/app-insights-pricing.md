@@ -3,7 +3,7 @@ title: Manage pricing and data volume for Azure Application Insights | Microsoft
 description: Manage telemetry volumes and monitor costs in Application Insights.
 services: application-insights
 documentationcenter: ''
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 
 ms.assetid: ebd0d843-4780-4ff3-bc68-932aa44185f6
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
-ms.author: bwren
+ms.author: mbullwin
 
 ---
 # Manage pricing and data volume in Application Insights

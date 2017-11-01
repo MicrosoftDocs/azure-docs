@@ -12,7 +12,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 10/10/2017
-ms.author: bwren
+ms.author: mbullwin
 ---
 
 # Usage analysis with Application Insights
