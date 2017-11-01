@@ -45,6 +45,12 @@
     items:
     - name: .NET
       href: create-table-dotnet.md
+  - name: Cassandra
+    items:
+    - name: .NET
+      href: create-cassandra-dotnet.md
+    - name: Java
+      href: create-cassandra-java.md
 - name: Tutorials
   items:
   - name: 1 - Create
@@ -124,6 +130,8 @@
     - name: Table
       href: table-introduction.md
     - name: Graph
+      href: graph-introduction.md
+    - name: Cassandra
       href: graph-introduction.md
   - name: Security
     href: database-security.md
