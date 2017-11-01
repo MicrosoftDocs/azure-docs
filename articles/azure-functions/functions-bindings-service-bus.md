@@ -1,5 +1,5 @@
 ---
-title: Azure Functions Service Bus triggers and bindings | Microsoft Docs
+title: Azure Functions Service Bus triggers and bindings
 description: Understand how to use Azure Service Bus triggers and bindings in Azure Functions.
 services: functions
 documentationcenter: na
@@ -147,21 +147,20 @@ For [precompiled C#](functions-dotnet-class-library.md) functions, use the follo
 
 * [ServiceBusTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusTriggerAttribute.cs), defined in NuGet package [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus)
 
-  The attribute's constructor takes the name of the queue or the topic and subscription. You can also specify the connection's access rights. If you don't specify access rights, the default is `Manage`. How to choose the access rights setting is explained in the [Trigger - settings](#trigger---settings) section. Here's a queue example:
+  The attribute's constructor takes the name of the queue or the topic and subscription. You can also specify the connection's access rights. If you don't specify access rights, the default is `Manage`. How to choose the access rights setting is explained in the [Trigger - settings](#trigger---settings) section. Here's an example that shows the attribute used with a string parameter:
 
   ```csharp
   [FunctionName("ServiceBusQueueTriggerCSharp")]                    
   public static void Run(
-      [ServiceBusTrigger("myqueue", AccessRights.Manage)] 
-      string myQueueItem, TraceWriter log)
+      [ServiceBusTrigger("myqueue")] string myQueueItem, TraceWriter log)
   ```
 
-  You can set the `Connection` property to specify the storage account to use, as shown in the following example:
+  You can set the `Connection` property to specify the Service Bus account to use, as shown in the following example:
 
   ```csharp
   [FunctionName("ServiceBusQueueTriggerCSharp")]                    
   public static void Run(
-      [ServiceBusTrigger("myqueue", AccessRights.Manage, Connection = "ServiceBusConnection")] 
+      [ServiceBusTrigger("myqueue", Connection = "ServiceBusConnection")] 
       string myQueueItem, TraceWriter log)
   ```
 
@@ -205,7 +204,7 @@ The following settings are configured in the *function.json* file and the .NET a
 |`queueName`|Name of the queue to monitor.  Set only if monitoring a queue, not for a topic.
 |`topicName`|Name of the topic to monitor. Set only if monitoring a topic, not for a queue.|
 |`subscriptionName`|Name of the subscription to monitor. Set only if monitoring a topic, not for a queue.|
-|`connection`|The name of an app setting that contains the Service Bus connection string to use for this trigger binding. [Create an app setting](functions-how-to-use-azure-function-app-settings.md) that contains the connection string to the Service Bus namespace. Obtain the connection string by following the steps shown at [Obtain the management credentials](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials). The connection string must be for a Service Bus namespace, not limited to a specific queue or topic. If you leave `connection` empty, the trigger assumes that a default Service Bus connection string is specified in an app setting named `AzureWebJobsServiceBus`.|
+|`connection`|The name of an app setting that contains the Service Bus connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name. For example, if you set `connection` to "MyServiceBus", the Functions runtime looks for an app setting that is named "AzureWebJobsMyServiceBus." If you leave `connection` empty, the Functions runtime uses the default Service Bus connection string in the app setting that is named `AzureWebJobsServiceBus`.<br><br>To obtain a connection string, follow the steps shown at [Obtain the management credentials](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials). The connection string must be for a Service Bus namespace, not limited to a specific queue or topic. |
 |`accessRights`|Access rights for the connection string. Available values are `manage` and `listen`. The default is `manage`, which indicates that the `connection` has the **Manage** permission. If you use a connection string that does not have the **Manage** permission, set `accessRights` to `listen`. Otherwise, the Functions runtime might fail trying to do operations that require manage rights.|
 
 ## Trigger - usage
@@ -404,12 +403,12 @@ module.exports = function (context, myTimer) {
 
 For [precompiled C#](functions-dotnet-class-library.md) functions, use the [ServiceBusAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAttribute.cs), which is defined in NuGet package [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
 
-  The attribute's constructor takes the name of the queue or the topic and subscription. You can also specify the connection's access rights. If you don't specify access rights, the default is `Manage`. How to choose the access rights setting is explained in the [Output - settings](#output---settings) section. Here's a queue example:
+  The attribute's constructor takes the name of the queue or the topic and subscription. You can also specify the connection's access rights. How to choose the access rights setting is explained in the [Output - settings](#output---settings) section. Here's an example that shows the attribute applied to the return value of the function:
 
   ```csharp
   [FunctionName("ServiceBusOutput")]
   [return: ServiceBus("myqueue")]
-  public static string ServiceBusOutput([HttpTrigger] dynamic input, TraceWriter log)
+  public static string Run([HttpTrigger] dynamic input, TraceWriter log)
   ```
 
   You can set the `Connection` property to specify the Service Bus account to use, as shown in the following example:
@@ -417,10 +416,10 @@ For [precompiled C#](functions-dotnet-class-library.md) functions, use the [Serv
   ```csharp
   [FunctionName("ServiceBusOutput")]
   [return: ServiceBus("myqueue", Connection = "ServiceBusConnection")]
-  public static string ServiceBusOutput([HttpTrigger] dynamic input, TraceWriter log)
+  public static string Run([HttpTrigger] dynamic input, TraceWriter log)
   ```
 
-For information about other ways to specify the Service Bus account to use, see [Trigger - .NET attributes](#trigger---net-attributes).
+You can use the `ServiceBusAccount` attribute to specify the Service Bus account to use at class, method, or parameter level.  For more information, see [Trigger - .NET attributes](#trigger---net-attributes).
 
 ## Output - settings
 
@@ -439,7 +438,7 @@ The following settings are configured in the *function.json* file and the .NET a
 |`queueName`|Name of the queue.  Set only if sending queue messages, not for a topic.
 |`topicName`|Name of the topic to monitor. Set only if sending topic messages, not for a queue.|
 |`subscriptionName`|Name of the subscription to monitor. Set only if sending topic messages, not for a queue.|
-|`connection`|The name of an app setting that contains the Service Bus connection string to use for this trigger binding. [Create an app setting](functions-how-to-use-azure-function-app-settings.md) that contains the connection string to the Service Bus namespace. The connection string must be for a Service Bus namespace, not limited to a specific queue or topic. Obtain the connection string by following the steps shown at [Obtain the management credentials](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials). If you leave `connection` empty, the trigger assumes that a default Service Bus connection string is specified in an app setting named `AzureWebJobsServiceBus`.|
+|`connection`|The name of an app setting that contains the Service Bus connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name. For example, if you set `connection` to "MyServiceBus", the Functions runtime looks for an app setting that is named "AzureWebJobsMyServiceBus." If you leave `connection` empty, the Functions runtime uses the default Service Bus connection string in the app setting that is named `AzureWebJobsServiceBus`.<br><br>To obtain a connection string, follow the steps shown at [Obtain the management credentials](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials). The connection string must be for a Service Bus namespace, not limited to a specific queue or topic. |
 |`accessRights`|Access rights for the connection string. Available values are `manage` and `listen`. The default is `manage`, which indicates that the `connection` has the **Manage** permission. If you use a connection string that does not have the **Manage** permission, set `accessRights` to `listen`. Otherwise, the Functions runtime might fail trying to do operations that require manage rights.|
 
 ## Output - usage
