@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/05/2017
+ms.date: 10/30/2017
 ms.author: nisoneji
 
 ---
-# Plan capacity for protecting virtual machines and physical servers in Azure Site Recovery
+# Plan capacity for protecting Hyper-V VMs with Site Recovery
 
-The Azure Site Recovery Capacity Planner tool helps you to figure out your capacity requirements when replicating Hyper-V VMs, VMware VMs, and Windows/Linux physical servers, with Azure Site Recovery.
+The Azure Site Recovery Capacity Planner tool helps you to figure out your capacity requirements when replicating Hyper-V VMs with Azure Site Recovery.
 
 Use the Site Recovery Capacity Planner to analyze your source environment and workloads, estimate bandwidth needs and server resources you'll need for the source location, and the resources (virtual machines and storage etc), that you need in the target location.
 
@@ -32,11 +32,8 @@ You can run the tool in a couple of modes:
 
 
 1. Gather information about your environment, including VMs, disks per VM, storage per disk.
-2. Identify your daily change (churn) rate for replicated data. To do this:
-
-   * If you're replicating Hyper-V VMs, then download the [Hyper-V capacity planning tool](https://www.microsoft.com/download/details.aspx?id=39057) to get the change rate. [Learn more](site-recovery-capacity-planning-for-hyper-v-replication.md) about this tool. We recommend you run this tool over a week to capture averages.
-   * If you're replicating VMware virtual machines, use the [Azure Site Recovery Deployment Planner](./site-recovery-deployment-planner.md) to figure out the churn rate.
-   * If you're replicating physical servers, you need to estimate manually.
+2. Identify your daily change (churn) rate for replicated data. To do this, download the [Hyper-V capacity planning tool](https://www.microsoft.com/download/details.aspx?id=39057) to get the change rate. [Learn more](site-recovery-capacity-planning-for-hyper-v-replication.md) about this tool. We recommend you run this tool over a week to capture averages.
+   
 
 ## Run the Quick Planner
 1. Download and open the [Azure Site Recovery Capacity Planner](http://aka.ms/asr-capacity-planner-excel) tool. You need to run macros, so select to enable editing and enable content when prompted.
@@ -47,8 +44,8 @@ You can run the tool in a couple of modes:
 
    * In **Select your scenario**, choose **Hyper-V to Azure** or **VMware/Physical to Azure**.
    * In **Average daily data change rate (%)**, put in the information you gather using the [Hyper-V capacity planning tool](site-recovery-capacity-planning-for-hyper-v-replication.md) or the [Azure Site Recovery Deployment Planner](./site-recovery-deployment-planner.md).  
-   * **Compression** only applies to compression offered when replicating VMware VMs or physical servers to Azure. We estimate 30% or more, but you can modify the setting as required. For replicating Hyper-V VMs to Azure compression, you can use a third-party appliance such as Riverbed.
-   * In **Retention Inputs**, specify how long replicas should be retained. If you're replicating VMware or physical servers, input the value in days. If you're replicating Hyper-V, specify the time in hours.
+   * The **Compression**  setting isn't used when replicating Hyper-V VMs to Azure. For compression, use a third-party appliance such as Riverbed.
+   * In **Retention Inputs**, specify how long replicas should be retained, in hours.
    * In **Number of hours in which initial replication for the batch of virtual machines should complete** and **Number of virtual machines per initial replication batch**, you input settings that are used to compute initial replication requirements.  When Site Recovery is deployed, the entire initial data set should be uploaded.
 
    ![Inputs](./media/site-recovery-capacity-planner/inputs.png)
@@ -123,3 +120,7 @@ After all the details are in place, click **Submit data to the planner tool** to
 2. If you want to make changes, you need to modify the **Workload Qualification** worksheet, and click **Submit data to the planner tool** again.  
 
    ![Capacity Planner](./media/site-recovery-capacity-planner/capacity-planner.png)
+
+## Next steps
+
+[Learn how to run](site-recovery-capacity-planning-for-hyper-v-replication.md) the Capacity Planner Tool.

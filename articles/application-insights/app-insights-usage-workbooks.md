@@ -12,7 +12,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 06/12/2017
-ms.author: bwren
+ms.author: mbullwin
 ---
 
 # Investigate and share usage data with interactive workbooks in Application Insights
