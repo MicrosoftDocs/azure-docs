@@ -45,7 +45,7 @@ Configure each component of your application using the appropriate method for it
 
 ### 1. Install the latest pre-release package
 
-Update or install the Appication Insights packages in the project for each server component. If you're using Visual Studio:
+Update or install the Application Insights packages in the project for each server component. If you're using Visual Studio:
 
 1. Right-click a project and select **Manage NuGet Packages**. 
 2. Select **Include prerelease**.
