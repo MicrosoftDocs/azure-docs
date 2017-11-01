@@ -244,64 +244,44 @@ The Azure Log Analytics Data Collector connector takes the output from the previ
 
    ![image of adding log analytics connection in logic apps](media/log-analytics-logic-apps-activity-log/logic-apps-log-analytics-add-connection.png)
 
-4. After you create the connection, edit the settings for the action.  
-5. Set the **body** property to be `"@body('Parse_JSON')?['ContentData']?['records']"`
-6. Click on the **...** menu of **Send Data** and select **Peek code**. It should look like the following.
-```json
-{
-    "inputs": {
-        "host": {
-            "connection": {
-                "name": "@parameters('$connections')['azureloganalyticsdatacollector']['connectionId']"
-            }
-        },
-        "method": "post",
-        "path": "/api/logs",
-        "body": "@body('Parse_JSON')?['ContentData']?['records']",
-        "headers": {
-            "Log-Type": "AzureActivity",
-            "time-generated-field": "time"
-        },
-        "authentication": "@parameters('$authentication')"
-    }
-}
-```
-6.  then click **Done**. After your change, the peek code section looks like this:
-7. You now see the **JSON Request body** is set to *records*
+4. After you create the connection, edit the settings for the action. 
 
-   ![image of log analytics send data configuration](media/log-analytics-logic-apps-activity-log/logic-apps-send-data-to-log-analytics-configuration.png)
+    ![Configure send data action](media/log-analytics-logic-apps-activity-log/logic-apps-send-data-to-log-analytics-configuration.png)
 
-1. Specify the **Custom Log Name** as *AzureActivity*. If you prefer, you can specify a different name. Ensure there are no spaces in the name.
-2. Click **Show advanced options** and specify *time* for the **Time-generated field**. Setting this property ensures the **Time Generated** field in Log Analytics matches the event time shown in the Azure portal.
+
+   |Setting        | Value           | Description  |
+   |---------------|---------------------------|--------------|
+   |JSON Request body  | `@body('Parse_JSON')?['ContentData']?['records']` | Retrieves the records from the body of the Parse JSON action. |
+   | Custom Log Name | AzureActivity | Name of the custom log table to create in Log Analytics to hold the imported data. |
+   | Time-generated-field | time | 
+
 
 >[!WARNING]
 > Don't select the JSON field for *time* - just type the word time. If you select the JSON field the designer puts the **Send Data** action into a *For Each* loop, which is not what you want.
 
 10. Click **Save** to save the changes you've made to your Logic App.
 
-## Test and troubleshoot the Logic App
-In the Logic App Designer, click **Run** to test the Logic App. 
+## Step 4 - Test and troubleshoot the Logic App
+You can test the Logic App in the designer to verify that it's working without error.
 
-Each step in the Logic App shows a status icon, with a white check mark in a green circle indicating success.
+In the Logic App Designer, click **Run** to test the Logic App. Each step in the Logic App shows a status icon, with a white check mark in a green circle indicating success.
 
    ![image of log analytics send data configuration](media/log-analytics-logic-apps-activity-log/test-logic-app.png)
 
-To see detailed information on each step, click on the step name to expand it. 
-Click on **Show raw inputs** and **Show raw outputs** to see more information on the data received and sent at each step.
+To see detailed information on each step, click on the step name to expand it. Click on **Show raw inputs** and **Show raw outputs** to see more information on the data received and sent at each step.
 
-## View Azure Activity Log in Log Analytics
+## Step 5 - View Azure Activity Log in Log Analytics
+The final step is to check the Log Analytics workspace to make sure that data is being collected as expected.
 
-To view the Azure Activity Log events that are now being sent to your Log Analytics workspace, open the Log Search portal.
-
-1. In the Azure portal, click **More services** found on the lower left-hand corner. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.
-2. In the Log Analytics subscriptions pane, select your workspace and then select the **Log Search** tile.
+1. In the Azure portal, select **Log Analytics**.
+2. Select your workspace and then the **Log Search** tile.
 3. In the search query bar, type `AzureActivity_CL` and click the search button. If you didn't name your custom log *AzureActivity*, type the name you chose and append `_CL`.
 
 >[!NOTE]
 > The first time a new custom log is sent to Log Analytics it may take up to an hour for the custom log to be searchable.
 
 >[!NOTE]
-> The activity logs come through as a custom log and do not show in the [Activity Log solution](./log-analytics-activity.md).
+> The activity logs are written to a custom table and do not show in the [Activity Log solution](./log-analytics-activity.md).
 
 ## Next steps
 
