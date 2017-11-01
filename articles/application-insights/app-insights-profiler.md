@@ -17,7 +17,7 @@ ms.author: bwren
 ---
 # Profile live Azure web apps with Application Insights
 
-*This feature of Application Insights is generally available for Azure App Service and is in preview for Azure Compute.*
+*This feature of Application Insights is generally available for Azure App Service and is in preview for Azure compute resources.*
 
 Find out how much time is spent in each method in your live web application by using [Application Insights Profiler](app-insights-overview.md). The Application Insights profiling tool shows detailed profiles of live requests that were served by your app, and highlights the *hot path* that uses the most time. The profiler automatically selects examples that have different response times, and then uses various techniques to minimize overhead.
 
@@ -37,13 +37,13 @@ Alternatively, you can select **Configure** to view status and enable or disable
 
 ![Under Performance, select Configure][performance-blade]
 
-Web apps that are configured with Application Insights are listed under **Configure**. Follow instructions to install the profiler agent, if needed. If no web app have been configured with Application Insights, select **Add Linked Apps**.
+Web apps that are configured with Application Insights are listed under **Configure**. Follow instructions to install the profiler agent, if needed. If no web apps have been configured with Application Insights, select **Add Linked Apps**.
 
 To control the profiler on all your linked web apps, in the **Configure** pane, select **Enable Profiler** or **Disable Profiler**.
 
 ![Configure pane options][linked app services]
 
-Unlike web apps that are hosted through App Service plans, applications that are hosted in **Azure Compute** resources (for example, Azure Virtual Machines, virtual machine scale sets, Azure Service Fabric, or Azure Cloud Services) are not directly managed by Azure. In this case, there's no web app to link to. Instead of linking to an app, select the **Enable Profiler** button.
+Unlike web apps that are hosted through App Service plans, applications that are hosted in Azure compute resources (for example, Azure Virtual Machines, virtual machine scale sets, Azure Service Fabric, or Azure Cloud Services) are not directly managed by Azure. In this case, there's no web app to link to. Instead of linking to an app, select the **Enable Profiler** button.
 
 ## Disable the profiler
 To stop or restart the profiler for an individual App Service instance, under **Web Jobs**, go to the App Service resource. To delete the profiler, go to **Extensions**.
@@ -54,11 +54,11 @@ We recommend that you have the profiler enabled on all your web apps to discover
 
 If you use WebDeploy to deploy changes to your web application, ensure that you exclude the App_Data folder from being deleted during deployment. Otherwise, the profiler extension's files are deleted the next time you deploy the web application to Azure.
 
-### Using profiler with Azure VMs and Compute resources (preview)
+### Using profiler with Azure VMs and Azure compute resources (preview)
 
-When you [enable Application Insights for Azure App Service at run time](app-insights-azure-web-apps.md#run-time-instrumentation-with-application-insights), Application Insights Profiler is automatically available. If you have already enabled Application Insights for the resource, you might need to update to the latest version by using the Configure wizard.
+When you [enable Application Insights for Azure App Service at runtime](app-insights-azure-web-apps.md#run-time-instrumentation-with-application-insights), Application Insights Profiler is automatically available. If you have already enabled Application Insights for the resource, you might need to update to the latest version by using the Configure wizard.
 
-Get information about a [preview version of the profiler for Azure Compute resources](https://go.microsoft.com/fwlink/?linkid=848155).
+Get information about a [preview version of the profiler for Azure compute resources](https://go.microsoft.com/fwlink/?linkid=848155).
 
 
 ## Limitations
@@ -114,7 +114,7 @@ The call stack that's shown in the timeline view is the result of the sampling a
 **clr!JIT\_New** and **clr!JIT\_Newarr1** are helper functions in the .NET Framework that allocate memory from a managed heap. **clr!JIT\_New** is invoked when an object is allocated. **clr!JIT\_Newarr1** is invoked when an object array is allocated. These two functions typically are very fast, and take relatively small amounts of time. If you see **clr!JIT\_New** or **clr!JIT\_Newarr1** take a substantial amount of time in your timeline, it's an indication that the code might be allocating many objects and consuming significant amounts of memory.
 
 ### <a id="theprestub"></a>Loading code (clr!ThePreStub)
-**clr!ThePreStub** is a helper function in the .NET Framework that prepares the code to execute for the first time. This typically includes, but is not limited to, just-in-time (JIT)) compilation. For each C# method, **clr!ThePreStub** should be invoked at most once during the lifetime of a process.
+**clr!ThePreStub** is a helper function in the .NET Framework that prepares the code to execute for the first time. This typically includes, but is not limited to, just-in-time (JIT) compilation. For each C# method, **clr!ThePreStub** should be invoked at most once during the lifetime of a process.
 
 If **clr!ThePreStub** takes a substantial amount of time for a request, this indicates that the request is the first one that executes that method. The time for the .NET Framework runtime to load that method is significant. You might consider using a warmup process that executes that portion of the code before your users access it, or consider running Native Image Generator (ngen.exe) on your assemblies.
 
@@ -214,7 +214,7 @@ These parameters delete the folder that's used by Application Insights Profiler 
 
 ## Manual installation
 
-When you configure the profiler, updates are made to the web app's settings. You can apply the updates manually if your environment requires, for example, if your application runs in App Service Environment for PowerApps:
+When you configure the profiler, updates are made to the web app's settings. You can apply the updates manually if your environment requires it. For example, if your application runs in App Service Environment for PowerApps.
 
 1. In the web app control pane, open **Settings**.
 2. Set **.Net Framework version** to **v4.6**.
@@ -223,7 +223,7 @@ When you configure the profiler, updates are made to the web app's settings. You
 5. Open **Advanced Tools**.
 6. Select **Go** to open the Kudu website.
 7. On the Kudu website, select **Site extensions**.
-8. Install __Application Insights__ from the Gallery.
+8. Install __Application Insights__ from the Azure Web Apps Gallery.
 9. Restart the web app.
 
 ## <a id="aspnetcore"></a>ASP.NET Core support
