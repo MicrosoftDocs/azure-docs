@@ -14,6 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2017
 ms.author: magoedte
+ms.custom: mvc
 ---
 
 # Delete an Azure Log Analytics workspace with the Azure portal
@@ -27,6 +28,5 @@ If you are an administrator and there are multiple users associated with the wor
 1. Sign into the [Azure portal](http://portal.azure.com). 
 2. In the Azure portal, click **More services** found on the lower left-hand corner. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.
 3. In the Log Analytics subscriptions pane, select a workspace and then click **Delete**  from the top of the middle pane.<br><br> ![Delete option from Workspace properties pane](media/log-analytics-manage-del-workspace/log-analytics-delete-workspace.png)<br>  
-4. When the confirmation message window appears asking you to confirm deletion of the workspace, click **Yes**.<br<>br> ![Confirm deletion of workspace](media/log-analytics-manage-del-workspace/log-analytics-delete-workspace-confirm.png)
+4. When the confirmation message window appears asking you to confirm deletion of the workspace, click **Yes**.<br><br> ![Confirm deletion of workspace](media/log-analytics-manage-del-workspace/log-analytics-delete-workspace-confirm.png)
 
-## Next steps
