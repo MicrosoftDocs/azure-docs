@@ -38,24 +38,15 @@ Create an Azure resource group with [New-AzureRmResourceGroup](/powershell/modul
 
 ```azurepowershell-interactive
 New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
-
-## Create a storage account
- 
-The sample uploads large files to a blob container in an Azure Storage account. A storage account provides a unique namespace to store and access your Azure storage data objects. Create a storage account in the resource group you created by using the [az storage account create](/cli/azure/storage/account#create) command.
-
-In the following command, substitute your own globally unique name for the Blob storage account where you see the `<blob_storage_account>` placeholder.
-
-```azurecli-interactive
-az storage account create --name gw123gw432 \
---location eastus --resource-group myResourceGroup7 \
---sku Standard_LRS --kind blobstorage --access-tier hot
 ```
 
 ## Create a storage account
+ 
+The sample uploads large files to a blob container in an Azure Storage account. A storage account provides a unique namespace to store and access your Azure storage data objects. Create a storage account in the resource group you created by using the [New-AzureRmStorageAccount](/powershell/module/AzureRM.Storage/New-AzureRmStorageAccount) command.
 
-Create a standard general-purpose storage account with LRS replication using [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount), then retrieve the storage account context that defines the storage account to be used. When acting on a storage account, you reference the context instead of repeatedly providing the credentials. This example creates a storage account called *mystorageaccount* with locally redundant storage and blob encryption enabled.
+In the following command, substitute your own globally unique name for the Blob storage account where you see the `<blob_storage_account>` placeholder.
 
-```powershell
+```powershell-interactive
 $storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
   -Name "mystorageaccount" `
   -Location $location `

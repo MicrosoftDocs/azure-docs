@@ -44,7 +44,7 @@ mstsc /v:<publicIpAddress>
 
 ## Configure the connection string
 
-Login to the virtual machine you created in the previous tutorial. Navigate to `C:\Git\StoragePerfandScalabilityExample` and open the `Program.cs` file in notepad.
+Login to the virtual machine you created in the previous tutorial. Navigate to `C:\Git\StoragePerfandScalabilityExample` and open the `Program.cs` file in a text editor.
 
 In the Azure portal, navigate to your storage account. Select **Access keys** under **Settings** in your storage account in the Azure portal. Copy the **connection string** from the primary or secondary key and paste it in the **App.config** file. Select **Save**, to save the file when complete.
 
@@ -54,7 +54,7 @@ Replace the connectionString variable with the connection string.
 string connectionString = "UseDevelopmentStorage=true;";
 ```
 
-When finished open a `Command Prompt`, navigate to `c:\git\StoragePerfandScalabilityExample` and type `dotnet build` to re-build the application.
+When finished open a **Command Prompt**, navigate to `c:\git\StoragePerfandScalabilityExample` and type `dotnet build` to re-build the application.
 
 ## Run the application
 
@@ -66,7 +66,7 @@ Type `dotnet run` to run the application. .NET decompresses and expands the proj
 dotnet run
 ```
 
-The application creates 5 random named containers and begins uploading the files in the staging directory to the storage account. The application sets the minimum threads to 100 and the `DefaultConnectionLimit` to 100 to ensure that a large amount of concurrent connections are allowed when running the application.
+The application creates 5 random named containers and begins uploading the files in the staging directory to the storage account. The application sets the minimum threads to 100 and the [DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit(v=vs.110).aspx) to 100 to ensure that a large amount of concurrent connections are allowed when running the application.
 
 In addition to setting the threading and connection limit settings, the [BlobRequestOptions](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions?view=azure-dotnet) for the [UploadFromStreamAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromstreamasync?view=azure-dotnet) method are configured to configure parallelism and disabling MD5 hash validation.
 
@@ -124,7 +124,7 @@ private static async Task UploadFilesAsync(string[] args, CloudBlobContainer[] c
 
 ### Validate the connections
 
-Open a `Command Prompt` and type `netstat -a | find /c "blob:https"`
+While the files are being uploaded, you can verify the number of concurrent connections to your storage account. Open a `Command Prompt` and type `netstat -a | find /c "blob:https"`.  This shows the number of connections that are currently open using `netstat`.
 
 ```
 C:\>netstat -a | find /c "blob:https"
