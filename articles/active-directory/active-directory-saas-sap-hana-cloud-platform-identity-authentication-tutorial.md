@@ -128,8 +128,6 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![SAP Cloud Platform Identity Authentication Domain and URLs single sign-on information](./media/active-directory-saas-sapcloudauth-tutorial/tutorial_sapcpia_url.png)
 
-    
-
 		> [!NOTE] 
 		> This value isn't real. Update this value with the actual Identifier. Contact the [SAP Cloud Platform Identity Authentication Client support team](https://cloudplatform.sap.com/capabilities/security/trustcenter.html) to get this value. If you don't understand this value, read the SAP Cloud Platform Identity Authentication documentation about [Tenant SAML 2.0 configuration](https://help.hana.ondemand.com/cloud_identity/frameset.htm?e81a19b0067f4646982d7200a8dab3ca.html).
 
