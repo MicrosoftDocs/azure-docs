@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/01/2017
+ms.date: 11/01/2017
 ms.author: markvi
 ms.reviewer: nigu
 
@@ -27,12 +27,18 @@ ms.reviewer: nigu
 ---
 
 ## Do I need to be a global admin to use Identity Protection in the Azure portal?
-**A:** **No**. You can either be a Security Reader, a Security Admin or a Global Admin to use Identity Protection.
+**A:** No. You can either be a Security Reader, a Security Admin or a Global Admin to use Identity Protection.
 
 ---
 
 ## How do I get Identity Protection?
+
 **A:** See [Getting started with Azure Active Directory Premium](active-directory-get-started-premium.md) for an answer to this question.
 
 ---
 
+## How can I sort users in "Users flagged for risk"?
+
+**A:** Please download the at-risk users risk report by clicking on the **Download** on the top of the **Users flagged for risk** view. You can then sort them based on available fields, including **Last Updated (UTC)**. We are also working on the functionality to enable sorting in the Identity Protection UI.
+
+---
