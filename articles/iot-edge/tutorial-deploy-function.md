@@ -43,7 +43,7 @@ The Azure Function that you create in this tutorial filters the temparture data 
 
     > [!IMPORTANT] The IoT Edge extension is not yet available in Marketplace. Perform the following steps to install it:
     > 1. Install the [Azure IoT Toolkit extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) from the extensions panel in VS Code.
-    > 2. Downlad the **Azure IoT Edge extension** VSIX here: [https://aka.ms/edge-extension](https://aka.ms/edge-extension
+    > 2. Downlad the **Azure IoT Edge extension** VSIX here: [https://aka.ms/edge-extension](https://aka.ms/edge-extension)
     > 3. Install the extension VSIX by using the **View | Command Palette... | Extensions: Install from VSIX...** menu command, navigating to the downloaded VSIX on your computer and clicking **Open**. (You can also install the extension by clicking **...** in the upper-right corner of the extension panel and selecting **Install from VSIX...**.)
 * [Docker](https://docs.docker.com/engine/installation/). The Community Edition (CE) for your platform is sufficient for this tutorial. 
 * [.NET Core 2.0 SDK](https://www.microsoft.com/net/core#windowscmd). 
@@ -67,7 +67,7 @@ For the bug bash perform the following steps to configure VS Code.
 2. Install the **AzureIoTEdgeFunction** template in dotnet
 
     ```cmd/sh
-    dotnet new -i Azure.IoT.Edge.Function
+    dotnet new -i Microsoft.Azure.IoT.Edge.Function
     ```
 
 ## Create a Docker container registry
@@ -171,7 +171,7 @@ The following steps show you how to create a IoT Edge function using Visual Stud
     > ```csh/sh
     > docker help login
     > ```
-3. Push the image to your Docker repository. Use the **View | Command Palette ... | Edge: Push IoT Edge module Docker image** menu command and enter the image URL in the pop-up text box at the top of the VS Code window. This should be the same image URL you used in step 1.a.; for example, `<docker registry address>/filtermodule:latest`.
+3. Push the image to your Docker repository. Use the **View | Command Palette ... | Edge: Push IoT Edge module Docker image** menu command and enter the image URL in the pop-up text box at the top of the VS Code window. This should be the same image URL you used in step 1.a.; for example, `<docker registry address>/filterfunction:latest`.
 
 ## Run the solution
 
@@ -186,7 +186,7 @@ The following steps show you how to create a IoT Edge function using Visual Stud
           "status":"running",
           "restartPolicy":"always",
           "settings":{
-             "image":"{your registry}/filtermodule:latest",
+             "image":"{your registry}/filterfunction:latest",
              "createOptions":""
           }
        }
