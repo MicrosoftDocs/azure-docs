@@ -28,6 +28,16 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 This quickstart requires that you are running the latest Azure CLI version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
+The Batach AI resource provider also needs to be registered once for your subscription using the Azure CLI or Cloud Shell:
+
+```
+az provider register -n Microsoft.BatchAI
+az provider register -n Microsoft.Batch
+```
+
+Note: a provider registration can take up to 15 minutes.
+
+
 ## Create a resource group
 
 Batch AI clusters and jobs are Azure resources and must be placed in an Azure resource group.
