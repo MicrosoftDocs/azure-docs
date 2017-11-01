@@ -79,10 +79,10 @@ This article answers common questions about Azure Files features and functionali
 * <a id="afs-region-availability"></a>**What regions are supported for Azure File Sync (preview)?**  
     Currently, Azure File Sync is available in West US, West Europe, Australia East, and Southeast Asia. Support for more regions will be added as we work toward general availability. For more information, see [Region availability](storage-sync-files-planning.md#region-availability).
 
-* <a id="cross-domain-sync"></a>**Can I have domain-joined and non-domain-joined servers in the same Sync Group?**  
-    Yes. A Sync Group can contain server endpoints that have different Active Directory memberships, even if they are not domain-joined. Although this configuration technically works, we do not recommend this as a typical configuration because access control lists (ACLs) that are defined for files and folders on one server might not be able to be enforced by other servers in the Sync Group. For best results, we recommend syncing between servers that are in the same Active Directory forest, between servers that are in different Active Directory forests but which have established trust relationships, or between servers that are not in a domain. We recommend that you avoid using a mix of these configurations.
+* <a id="cross-domain-sync"></a>**Can I have domain-joined and non-domain-joined servers in the same sync group?**  
+    Yes. A sync group can contain server endpoints that have different Active Directory memberships, even if they are not domain-joined. Although this configuration technically works, we do not recommend this as a typical configuration because access control lists (ACLs) that are defined for files and folders on one server might not be able to be enforced by other servers in the sync group. For best results, we recommend syncing between servers that are in the same Active Directory forest, between servers that are in different Active Directory forests but which have established trust relationships, or between servers that are not in a domain. We recommend that you avoid using a mix of these configurations.
 
-* <a id="afs-change-detection"></a>**I created a file directly in my Azure File share by using SMB or in the portal. How long does it take for the file to sync to the servers in the Sync Group?**  
+* <a id="afs-change-detection"></a>**I created a file directly in my Azure File share by using SMB or in the portal. How long does it take for the file to sync to the servers in the sync group?**  
     [!INCLUDE [storage-sync-files-change-detection](../../../includes/storage-sync-files-change-detection.md)]
 
 * <a id="afs-conflict-resolution"></a>**If the same file is changed on two servers at approximately the same time, what happens?**  
@@ -175,7 +175,7 @@ This article answers common questions about Azure Files features and functionali
     Currently, Azure Files does not support Active Directory directly.
 
 * <a id="encryption-at-rest"></a>**How can I ensure that my Azure File share is encrypted at rest?**  
-    Encryption at rest is in the process of being enabled by default in all regions. For these regions, you don't need to take any actions to enable encryption. For other regions, see [Server-side encryption](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+    Azure Storage Service Encryption is in the process of being enabled by default in all regions. For these regions, you don't need to take any actions to enable encryption. For other regions, see [Server-side encryption](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 * <a id="access-via-browser"></a>**How can I provide access to a specific file by using a web browser?**  
     You can use shared access signatures to generate tokens that have specific permissions, and which are valid for a specified time interval. For example, you can generate a token that gives read-only access to a specific file, for a set period of time. Anyone who possesses the URL can access the file directly from any web browser while the token is valid. You can easily generate a shared access signature key from a UI like Storage Explorer.
