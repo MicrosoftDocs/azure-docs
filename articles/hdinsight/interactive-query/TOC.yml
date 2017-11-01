@@ -1,9 +1,17 @@
 - name: Azure HDInsight Documentation
   href: /azure/hdinsight
+- name: Interactive Query on HDInsight
+  items:
+  - name: Component versioning
+    href: ../hdinsight-component-versioning.md
+    maintainContext: true
 - name: Get Started
   items:
   - name: Start with Interactive Query
     href: ./apache-interactive-query-get-started.md
+  - name: Capacity planning
+    href: ../hdinsight-capacity-planning.md
+    maintainContext: true
 - name: How To
   items:
   - name: Use cluster storage

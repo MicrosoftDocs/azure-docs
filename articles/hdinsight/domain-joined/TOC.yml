@@ -1,17 +1,23 @@
 - name: Azure HDInsight Documentation
   href: /azure/hdinsight
-- name: Multi-user(Domain-joined) HDInsight
+- name: Multi-user clusters on HDInsight
   items:
   - name: Overview
     href: apache-domain-joined-introduction.md
   - name: Plan Domain-joined HDInsight
     href: apache-domain-joined-architecture.md
-- name: Start using Domain-joined
+  - name: Component versioning
+    href: ../hdinsight-component-versioning.md
+    maintainContext: true
+- name: Get started
   items:
   - name: Configure Domain-joined HDInsight
     href: apache-domain-joined-configure.md
   - name: Configure Hive policies
     href: apache-domain-joined-run-hive.md
+  - name: Capacity planning
+    href: ../hdinsight-capacity-planning.md
+    maintainContext: true
 - name: How to
   items:
   - name: Manage clusters
