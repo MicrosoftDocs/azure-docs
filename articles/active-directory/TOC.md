@@ -112,24 +112,23 @@
 #### [Sign-in samples](active-directory-reporting-api-sign-in-activity-samples.md)
 #### [Using certificates](active-directory-reporting-api-with-certificates.md)
 
-## [Manage passwords](active-directory-passwords-overview.md)
+## Manage passwords
+### [Passwords overview](active-directory-passwords-overview.md)
 ### User documents
 #### [Reset or change your password](active-directory-passwords-update-your-own-password.md)
 #### [Password best practices](active-directory-secure-passwords.md)
 #### [Register for self-service password reset](active-directory-passwords-reset-register.md)
-### [License SSPR](active-directory-passwords-licensing.md)
-### [Deploy SSPR](active-directory-passwords-best-practices.md)
+### [SSPR How it works](active-directory-passwords-how-it-works.md)
+### [SSPR Deployment guide](active-directory-passwords-best-practices.md)
+### [SSPR Policies ](active-directory-passwords-policy.md)
+### [SSPR Customization](active-directory-passwords-customize.md)
+### [SSPR Data requirements](active-directory-passwords-data.md)
+### [SSPR Reporting](active-directory-passwords-reporting.md)
 ### IT Admins: Reset passwords
 #### [Azure portal](active-directory-users-reset-password-azure-portal.md)
 #### [Azure classic portal](active-directory-create-users-reset-password.md)
-### [Understand SSPR policies ](active-directory-passwords-policy.md)
-### [Understand password reset](active-directory-passwords-how-it-works.md)
-### [Customize SSPR](active-directory-passwords-customize.md)
-### [Data used by SSPR](active-directory-passwords-data.md)
-### [Reporting on SSPR](active-directory-passwords-reporting.md)
-### [Azure AD Connect](./connect/active-directory-aadconnect.md)
+### [License SSPR](active-directory-passwords-licensing.md)
 ### [Password writeback](active-directory-passwords-writeback.md)
-### [Password hash synchronization](./connect/active-directory-aadconnectsync-implement-password-synchronization.md#how-password-synchronization-works)
 ### [Troubleshoot](active-directory-passwords-troubleshoot.md)
 ### [FAQ](active-directory-passwords-faq.md)
 

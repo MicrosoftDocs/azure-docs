@@ -20,7 +20,7 @@ ms.author: elkuzmen
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
-This tutorial shows you how to enable Managed Service Identity (MSI) for a Windows Virtual Machine, then use that identity to access Azure Key Vault. Serving as a bootstrap, Key Vault makes it possible for your client application to then use the secret to access resources not secured by Azure Active Directory (AD). Managed Service Identities are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication, without needing to insert credentials into your code. 
+This tutorial shows you how to enable Managed Service Identity (MSI) for a Linux Virtual Machine, then use that identity to access Azure Key Vault. Serving as a bootstrap, Key Vault makes it possible for your client application to then use the secret to access resources not secured by Azure Active Directory (AD). Managed Service Identities are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication, without needing to insert credentials into your code. 
 
 You learn how to:
 
