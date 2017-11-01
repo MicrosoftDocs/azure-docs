@@ -28,6 +28,9 @@
 ## [Hadoop sandbox](hdinsight-hadoop-emulator-get-started.md)
 ## [Data Lake Tools with Hortonworks Sandbox](hdinsight-hadoop-emulator-visual-studio.md)
 ## [Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md)
+## [Tools for Visual Studio Code](hdinsight-for-vscode.md)
+## [Tools for IntelliJ](hdinsight-apache-spark-intellij-tool-plugin.md)
+## [Tools for Eclipse](hdinsight-apache-spark-eclipse-tool-plugin.md)
 ## [HDInsight using Azure Storage](hdinsight-hadoop-use-blob-storage.md)
 ## [HDInsight using Azure Data Lake Store](hdinsight-hadoop-use-data-lake-store.md)
 
@@ -88,7 +91,6 @@
 ### [ScaleR and SparkR](hdinsight-hadoop-r-scaler-sparkr.md)
 ## Use HBase
 ### [Use Phoenix and SQLLine](hdinsight-hbase-phoenix-squirrel-linux.md)
-### [Analyze real-time tweets](hdinsight-hbase-analyze-twitter-sentiment.md)
 ### [Create clusters on a virtual network](hdinsight-hbase-provision-vnet.md)
 ### [Configure HBase replication](hdinsight-hbase-replication.md)
 ### [Develop an app with Java](hdinsight-hbase-build-java-maven-linux.md)
@@ -100,7 +102,7 @@
 #### [Develop Java-based topologies with Maven](hdinsight-storm-develop-java-topology.md)
 #### [Develop C# topologies with Hadoop tools](hdinsight-storm-develop-csharp-visual-studio-topology.md)
 #### [Process events with C# topologies](hdinsight-storm-develop-csharp-event-hub-topology.md)
-#### [Process events with Java topologies](hdinsight-storm-develop-java-event-hub-topology.md)
+#### [Process events with Java topologies](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/)
 #### [Analyze real-time sensor data](hdinsight-storm-sensor-data-analysis.md)
 #### [Correlate events over time](hdinsight-storm-correlation-topology.md)
 #### [Develop topologies using Python](hdinsight-storm-develop-python-topology.md)
@@ -133,6 +135,7 @@
 ### [Use Python with Hive and Pig](hdinsight-python.md)
 ### [Create non-interactive authentication .NET HDInsight applications](hdinsight-create-non-interactive-authentication-dotnet-applications.md)
 ### [Use HDInsight VSCode tool](hdinsight-for-vscode.md)
+### [Set up PySpark interactive environment](set-up-pyspark-interactive-environment.md)
 ## Analyze big data
 ### [Analyze using Power Query](hdinsight-connect-excel-power-query.md)
 ### [Connect Power BI to Hadoop](hdinsight-connect-hive-power-bi.md)

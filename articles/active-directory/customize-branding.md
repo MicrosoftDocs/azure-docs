@@ -13,10 +13,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 10/18/2017
 ms.author: curtand
 ms.reviewer: kexia
 custom: it-pro
+
 ---
 # Quickstart: Add company branding to your sign-in page in Azure AD
 To avoid confusion, many companies want to apply a consistent look and feel across all the websites and services they manage. Azure Active Directory (Azure AD) provides this capability by allowing you to customize the appearance of the sign-in page with your company logo and custom color schemes. The sign-in page is the page that appears when you sign in to Office 365 or other web-based applications that are using Azure AD as your identity provider. You interact with this page to enter your credentials.
@@ -82,11 +83,11 @@ Azure AD sign in gives the user the option to remain signed in when they close a
 1. Sign in to [the Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
 2. Select **More services**, enter **Users and groups** in the text box, and then select **Enter**.
 
-   ![Opening user management](./media/active-directory-branding-custom-signon-azure-portal/user-management.png)
+   ![Opening user management](./media/customize-branding/user-management.png)
 3. On the **Users and groups** blade, select **Company branding**.
 4. On the **Users and groups - Company branding** blade, select the **Edit** command.
 
-    ![Edit custom branding](./media/active-directory-branding-custom-signon-azure-portal/edit-branding.png)
+    ![Edit custom branding](./media/customize-branding/edit-branding.png)
 5. Modify the elements you want to customize. All elements are optional.
 6. Click **Save**.
 
@@ -97,11 +98,11 @@ It can take up to an hour for any changes you made to the sign-in page branding 
 1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with an account that's a global admin for the directory.
 2. Select **Users and groups** in the text box, and then select **Enter**.
 
-   ![Opening user management](./media/active-directory-branding-localize-azure-portal/user-management.png)
+   ![Opening user management](./media/customize-branding/user-management.png)
 3. On the **Users and groups** blade, select **Company branding**.
 4. On the **Users and groups - Company branding** blade, select the **Add language** command.
 
-    ![Add language-specific branding elements](./media/active-directory-branding-localize-azure-portal/add-language.png)
+    ![Add language-specific branding elements](./media/customize-branding/add-language.png)
 5. Modify the elements you want to customize. All elements are optional.
 6. Click **Save**.
 

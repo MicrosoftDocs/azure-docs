@@ -1,6 +1,8 @@
-# Overview
+# [Overview](search-what-is-azure-search.md)
 ## [What is Azure Search?](search-what-is-azure-search.md)
+
 # Get Started
+
 ## [Choose a SKU](search-sku-tier.md)
 ## [Create a service](search-create-service-portal.md)
 ## [Create an index](search-what-is-an-index.md)
@@ -15,18 +17,22 @@
 ### [Azure portal](search-explorer.md)
 ### [.NET](search-query-dotnet.md)
 ### [REST](search-query-rest-api.md)
+
 # Tutorials
+
 ## [.NET](search-howto-dotnet-sdk.md)
 ## [.NET synonyms preview](search-synonyms-tutorial-sdk.md)
 ## [Portal](search-get-started-portal.md)
+## [Search semi-structured data](search-semi-structured-data.md)
 ## [Node.js](search-get-started-nodejs.md)
 ## [Java](search-get-started-java.md)
+
 # How to
+
 ## Plan and design
 ### [Service limits](search-limits-quotas-capacity.md)
 ### [Service scalability](search-capacity-planning.md)
 ### [Design patterns for multitenancy](search-modeling-multitenant-saas-applications.md)
-
 ## Develop
 ### [API versions](search-api-versions.md)
 ### [Upgrade the SDK](search-dotnet-sdk-migration.md)
@@ -34,11 +40,10 @@
 ### [Model complex data types](search-howto-complex-data-types.md)
 ### [Handle concurrent updates](search-howto-concurrency.md)
 ### [Code samples](https://azure.microsoft.com/resources/samples/?service=search)
-
 ## Manage
 ### Administer Azure Search
 #### [Azure portal](search-manage.md)
-#### Azure [Azure PowerShell](search-manage-powershell.md)
+#### [Azure PowerShell](search-manage-powershell.md)
 ### [Monitor usage and statistics](search-monitor-usage.md)
 ### [Search traffic analytics](search-traffic-analytics.md)
 ### [Performance and optimization](search-performance-optimization.md)
@@ -57,12 +62,17 @@
 ### Query Construction
 #### [Simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
 #### [Lucene query syntax ](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
-#### [Lucene syntax query examples](search-query-lucene-examples.md)
-#### [Filter expression syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
+#### [Lucene query examples](search-query-lucene-examples.md)
 ### Analyzers in Azure Search
 #### [Overview](search-analyzers.md)
 #### [Language analyzers](https://docs.microsoft.com/rest/api/searchservice/language-support)
 #### [Custom analyzers](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)
+### Filters in Azure Search
+#### [Overview](search-filters.md)
+#### [Facet filters](search-filters-facets.md)
+#### [Language filters](search-filters-language.md)
+#### [Security trimming](search-security-trimming-for-azure-search.md)
+#### [Expression syntax reference](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
 ### [Paging results](search-pagination-page-layout.md)
 ### [Scoring](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
 ### [Suggestions](https://docs.microsoft.com/rest/api/searchservice/suggesters)
@@ -80,7 +90,6 @@
 
 # Resources
 
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=web-mobile)
 ## [FAQ - Frequently Asked Questions](search-faq-frequently-asked-questions.md)
 ## [Pricing](https://azure.microsoft.com/pricing/details/search/)
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
@@ -97,7 +106,7 @@
 ### [MSDN Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureSearch)
 ### [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-search)
 ### [blog: Model relational data](http://blogs.technet.com/b/onsearch/archive/2015/09/08/modeling-the-adventureworks-inventory-database-for-azure-search.aspx)
-### [[blog: Multilevel faceting](http://blogs.technet.com/b/onsearch/archive/2015/09/09/multi-level-taxonomy-facets-in-azure-search.aspx)
+### [blog: Multilevel faceting](http://blogs.technet.com/b/onsearch/archive/2015/09/09/multi-level-taxonomy-facets-in-azure-search.aspx)
 
 
 

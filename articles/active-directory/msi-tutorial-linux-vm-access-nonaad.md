@@ -3,7 +3,7 @@ title: Use a Linux VM MSI to access Azure Key Vault
 description: A tutorial that walks you through the process of using a Linux VM Managed Service Identity (MSI) to access Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
-author: elkuzmen
+author: bryanla
 manager: mbaldwin
 editor: bryanla
 
@@ -12,15 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/19/2017
+ms.date: 10/30/2017
 ms.author: elkuzmen
 ---
 
-# Use Managed Service Identity (MSI) with a Linux VM to access Azure Key Vault 
+# Use a Linux VM Managed Service Identity (MSI) to access Azure Key Vault 
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
-This tutorial shows you how to enable Managed Service Identity (MSI) for a Windows Virtual Machine, and then use that identity to access the Azure Key Vault. Managed Service Identities are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication without needing to insert credentials into your code. You learn how to:
+This tutorial shows you how to enable Managed Service Identity (MSI) for a Linux Virtual Machine, then use that identity to access Azure Key Vault. Serving as a bootstrap, Key Vault makes it possible for your client application to then use the secret to access resources not secured by Azure Active Directory (AD). Managed Service Identities are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication, without needing to insert credentials into your code. 
+
+You learn how to:
 
 > [!div class="checklist"]
 > * Enable MSI on a Linux Virtual Machine 
@@ -41,7 +43,7 @@ For this tutorial, we create a new Linux VM. You can also enable MSI on an exist
 
 1. Click the **New** button found on the upper left-hand corner of the Azure portal.
 2. Select **Compute**, and then select **Ubuntu Server 16.04 LTS**.
-3. Enter the virtual machine information. For **Authentication type**, select **SSH public key** or **Password**. The created credentials will allow you to login to the VM.
+3. Enter the virtual machine information. For **Authentication type**, select **SSH public key** or **Password**. The created credentials allow you to log in to the VM.
 
     ![Alt image text](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
@@ -55,19 +57,19 @@ A Virtual Machine MSI enables you to get access tokens from Azure AD without you
 
 1. Select the **Virtual Machine** that you want to enable MSI on.
 2. On the left navigation bar click **Configuration**.
-3. You will see **Managed Service Identity**. To register and enable the MSI, select **Yes**, if you wish to disable it, choose No.
+3. You see **Managed Service Identity**. To register and enable the MSI, select **Yes**, if you wish to disable it, choose No.
 4. Ensure you click **Save** to save the configuration.
 
     ![Alt image text](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
-5. If you wish to check which extensions are on this **Linux VM**, click **Extensions**. If MSI is enabled, the **ManagedIdentityExtensionforLinux** will appear on the list.
+5. If you wish to check which extensions are on this **Linux VM**, click **Extensions**. If MSI is enabled, the **ManagedIdentityExtensionforLinux** appears on the list.
 
     ![Alt image text](media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
 
 
 ## Grant your VM access to a Secret stored in a Key Vault  
 
-Using MSI your code can get access tokens to authenticate to resources that support Azure Active Directory authentication. However, not all Azure services support Azure AD authentication. To use MSI with services that don’t support it, you can store the credentials you need for those services in Azure Key Vault, and use MSI to authenticate to Key Vault to retrieve the credentials. 
+Using MSI your code can get access tokens to authenticate to resources that support Azure Active Directory authentication. However, not all Azure services support Azure AD authentication. To use MSI with those services, store the service credentials in Azure Key Vault, and use MSI to access Key Vault to retrieve the credentials. 
 
 First, we need to create a Key Vault and grant our VM’s identity access to the Key Vault.   
 
@@ -84,16 +86,16 @@ First, we need to create a Key Vault and grant our VM’s identity access to the
 
 Next, add a secret to the Key Vault, so that later you can retrieve the secret using code running in your VM: 
 
-1. Select **All Resources**, and find and select the Key Vault you just created. 
+1. Select **All Resources**, and find and select the Key Vault you created. 
 2. Select **Secrets**, and click **Add**. 
-3. From **Upload options** select **Manual**. 
+3. Select **Manual**, from **Upload options**. 
 4. Enter a name and value for the secret.  The value can be anything you want. 
 5. Leave the activation date and expiration date clear, and leave **Enabled** as **Yes**. 
 6. Click **Create** to create the secret. 
  
-## Get an access token using the VM identity and use it retrieve the secret from the Key Vault  
+## Get an access token using the VM's identity and use it to retrieve the secret from the Key Vault  
 
-To complete these steps, you will need an SSH client.  If you are using Windows, you can use the SSH client in the [Windows Subsystem for Linux](https://msdn.microsoft.com/commandline/wsl/about).   
+To complete these steps, you need an SSH client.  If you are using Windows, you can use the SSH client in the [Windows Subsystem for Linux](https://msdn.microsoft.com/commandline/wsl/about). If you need assistance configuring your SSH client's keys, see [How to Use SSH keys with Windows on Azure](../virtual-machines/linux/ssh-from-windows.md), or [How to create and use an SSH public and private key pair for Linux VMs in Azure](../virtual-machines/linux/mac-create-ssh-keys.md).
  
 1. In the portal, navigate to your Linux VM and in the **Overview**, click **Connect**. 
 2. **Connect** to the VM with the SSH client of your choice. 

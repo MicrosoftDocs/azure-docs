@@ -2,21 +2,21 @@
 
 These use and display requirements apply to your implementation of the content and associated information (for example, relationships, metadata and other signals) available through calls to the Bing Custom Search, Entity Search, Image Search, News Search, Video Search, Web Search, Spell Check, and Autosuggest APIs. Implementation details related to these requirements can be found in documentation for specific features and results.
 
-## 1. BING SPELL CHECK API and BING AUTOSUGGEST API.
+## 1. Bing Spell Check and Bing Autosuggest API.
 
 You must not:
 
-- copy, store, or cache any data you receive from the Bing Spell Check or Bing Autosuggest APIs; or 
+- copy, store, or cache any data you receive from the Bing Spell Check or Bing Autosuggest APIs
 - use data you receive from the Bing Spell Check or Bing Autosuggest APIs as part of any machine learning or similar algorithmic activity to train, evaluate, or improve new or existing services which you or third parties may offer.
 
-## 2. DEFINITIONS
+## 2. Definitions
 
 - "answer" refers to a category of results returned in a response. For example, a response from the Bing Web Search API may include answers in the categories of webpage results, image, video, and news;
 - "response" means any and all answers and associated data received in response to a single call to a Search API;
 - "result" refers to an item of information in an answer. For example, the set of data connected with a single news article is a result in a news answer.
 - “Search APIs” means, collectively, the Bing Custom Search, Entity Search, Image Search, News Search, Video Search, and Web Search APIs. 
 
-## 3. SEARCH APIs
+## 3. Search APIs
 
 The requirements in this Section 3 apply to the Search APIs.
 
@@ -35,9 +35,9 @@ The only exception to the internet search experience requirement is for URL disc
 
 - copy, store, or cache any data from responses (except retention to the extent permitted by the "Continuity of Service" section below); 
 - use data received from the Search APIs as part of any machine learning or similar algorithmic activity to train, evaluate, or improve new or existing services which you or third parties may offer.
-- modify content of results (other than to reformat them in a way that does not violate any other requirement); 
+- modify content of results (other than to reformat them in a way that does not violate any other requirement), unless required by law or agreed by Microsoft; 
 - omit attribution and URLs associated with result content;
-- re-order, including by omission, results displayed in an answer when an order or ranking is provided (for the Bing Custom Search API, this does not apply to re-ordering implemented through the customsearch.ai portal);
+- re-order, including by omission, results displayed in an answer when an order or ranking is provided (for the Bing Custom Search API, this does not apply to re-ordering implemented through the customsearch.ai portal), unless required by law or agreed by Microsoft;
 - display other content within any part of a response in a way that would lead an end user to believe that the other content is part of the response; 
 - display advertising that is not provided by Microsoft on any page that displays any part of a response; 
 - display any advertising with responses (i) from the Bing Image, News or Video Search APIs; or (ii) that are filtered or limited primarily (or solely) to image, news and/or video results.

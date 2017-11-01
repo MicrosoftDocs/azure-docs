@@ -3,7 +3,7 @@ title: Profiling live web apps on Azure with Application Insights | Microsoft Do
 description: Identify the hot path in your web server code with a low-footprint profiler.
 services: application-insights
 documentationcenter: ''
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 
 ms.service: application-insights
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
-ms.author: bwren
+ms.author: mbullwin
 
 ---
 # Profiling live Azure web apps with Application Insights
@@ -42,9 +42,9 @@ Web apps that are configured with Application Insights are listed on Configure b
 
 Use the *Enable Profiler* or *Disable Profiler* buttons in the Configure blade to control the Profiler on all your linked web apps.
 
-
-
 ![Configure blade][linked app services]
+
+Unlike web apps hosted through App Service Plans, applications hosted in *Azure Compute* resources (e.g.: Virtual Machine, Virtual Machine Scale Set, Service Fabric, Cloud Services) are not directly managed by Azure. In this case there's no web app to link to here and you just need to click to enable Profiler in the screen.
 
 ## Disable the profiler
 To stop or restart the profiler for an individual App Service instance, you'll find it **in the App Service resource**, in **Web Jobs**. To delete it, look under **Extensions**.

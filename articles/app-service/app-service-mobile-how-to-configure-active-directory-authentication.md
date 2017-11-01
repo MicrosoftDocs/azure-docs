@@ -29,9 +29,6 @@ This topic shows you how to configure Azure App Services to use Azure Active Dir
 4. Click **OK** to register the application in Azure Active Directory. This will create a new registration. If you want to choose an existing
    registration instead, click **Select an existing app** and then search for the name of a previously created registration within your tenant.
    Click the registration to select it and click **OK**. Then click **OK** on the Azure Active Directory settings blade.
-   
-   ![][0]
-   
    By default, App Service provides authentication but does not restrict authorized access to your site content and APIs. You must authorize users in your app code.
 5. (Optional) To restrict access to your site to only users authenticated by Azure Active Directory, set **Action to take when request
    is not authenticated** to **Log in with Azure Active Directory**. This requires that all requests be authenticated, and all unauthenticated
@@ -45,29 +42,20 @@ You can also choose to provide configuration settings manually. This is the pref
 
 ### <a name="register"> </a>Register your application with Azure Active Directory
 1. Log on to the [Azure portal], and navigate to your application. Copy your application **URL**. You will use this to configure your Azure Active Directory app.
-    ![][0]
 2. Navigate to **Active Directory**, then select the **App registrations**, then click **New application registration** at the top to start a new app registration. 
-    ![][1]
 3. In the Create application registration dialog, enter a **Name** for your application, select the  **Web App API** type, in the **Sign-on URL** box paste the application URL (from step 1). Then click to **Create**.
-    ![][2]
 4. In a few seconds, you should see the new Application Registration you just created appear.
 5. Once the application has been added, click on the Application Registration name, click on **Settings** at the top, then click on **Properties** 
 6. In the **App ID URI** box, paste in the Application URL (from step 1), also in the **Home Page URL** paste in the Application URL (from step 1) as well, then click **Save**
-    ![][3]
 7. Now click on the **Reply URLs**, edit the **Reply URL**, paste in the Application URL (from step 1), modify the protocol to make sure you have **https://** protocol (not http://), then appended to the end of the URL, */.auth/login/aad/callback* . (For example, `https://contoso.azurewebsites.net/.auth/login/aad/callback`.) Click **Save**.   
-    ![][4]
 8.  At this point, copy the **Application ID** for the app. Keep this for later use. You will need this to configure your web application.
 9. Close the Application Registration details blade. You should return to the Azure Active Directory App Registration summary, click on the **Endpoints** button at the top, then copy the **Federation Metadata Document** URL. 
-    ![][5]
 10. Open a new browser window and navigate to the URL by pasting and browsing to the XML page. At the top of document will be a **EntityDescriptor** element, there should be an **entityID** attribute of the form `https://sts.windows.net/` followed by a GUID specific to your tenant (called a "tenant ID"). Copy this value - it will serve as your **Issuer URL**. You will configure your application to use this later.
-    ![][6]
-10. 
+
 ### <a name="secrets"> </a>Add Azure Active Directory information to your application
 1. Back in the [Azure portal], navigate to your application. Click **Authentication/Authorization**. If the Authentication/Authorization feature is not enabled, turn the switch to **On**. Click on **Azure Active Directory**, under Authentication Providers, to configure your application. 
 (Optional) By default, App Service provides authentication but does not restrict authorized access to your site content and APIs. You must authorize users in your app code. Select the **Action to take when request is not authenticated**, set this to **Log in with Azure Active Directory**. This requires that all requests be authenticated, and all unauthenticated requests are redirected to Azure Active Directory for authentication.
-   ![][7]
 2.In the Active Directory Authentication configuration, click **Advanced** under **Management Mode**. Paste the Application ID into the Client ID box (from step 8) and paste in the entityId (from step 10) into the Issuer URL value. Then click **OK**.
-   ![][8]
 3. On the Active Directory Authentication configuration blade, click **Save**.
 
 You are now ready to use Azure Active Directory for authentication in your app.

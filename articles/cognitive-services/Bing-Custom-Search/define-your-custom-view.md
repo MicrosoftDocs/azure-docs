@@ -14,7 +14,7 @@ ms.author: v-brapel
 
 # Define a custom search instance
 A Custom Search instance lets you tailor the search experience to include content only from websites that your users care about. Instead of performing a web-wide search, Bing searches only the slice of the web that interests you.
-To create your custom view of the web, use the Bing Custom Search [portal](https://customsearch.ai). For information about signing in to the portal, see [Create your first Bing Custom Search instance](https://review.docs.microsoft.com/en-us/azure/cognitive-services/bing-custom-search/quick-start?branch=release-bing-v7-merge#create-a-custom-search-instance). The portal lets you create a search instance that specifies the domains, subsites, and webpages that you want Bing to search, and those that you don’t want it to search. In addition to specifying the URLs of the content that you know about, you can also ask the portal to suggest content that you may want to add to your view. 
+To create your custom view of the web, use the Bing Custom Search [portal](https://customsearch.ai). For information about signing in to the portal, see [Create your first Bing Custom Search instance](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-custom-search/quick-start). The portal lets you create a search instance that specifies the domains, subsites, and webpages that you want Bing to search, and those that you don’t want it to search. In addition to specifying the URLs of the content that you know about, you can also ask the portal to suggest content that you may want to add to your view. 
 The following are the ways that you can define a slice of the web: 
 
 1.	Domain. A domain slice includes all content found within. For example, www.microsoft.com. Omitting 'www' causes Bing to also search the domain’s subdomains. For example, if you specify microsoft.com, Bing also returns results from support.microsoft.com or technet.microsoft.com.
@@ -33,7 +33,7 @@ When you define your custom search instance, you specify the active and blocked 
  To access each list, click on the Active and Blocked tabs in your custom search instance. 
 
 ## Active and Blocked lists 
-To specify slice of the web that you want Bing to search, click the **Active** tab and list the domains, subsites, and webpages to search. You can add a slice directly to the list or add more than one slice by uploading a text file using the upload icon.
+To specify a slice of the web that you want Bing to search, click the **Active** tab and list the domains, subsites, and webpages to search. You can add a slice directly to the list or add more than one slice by uploading a text file using the upload icon.
 
 File Upload details: 
 
@@ -51,7 +51,7 @@ Similarly, you can add slices to the Blocked list (except you can’t use an upl
 
 ## Pinned list
 The portal also lets you pin a specific webpage to the top of the search result if the user enters a specific search term. The **Pinned** tab contains a list of query term and webpage pairs that specify the webpage that appears as the top result for a specific query. The user’s query term must exactly match the pinned query term.
-For information about pinning results, see Adjust Rank.
+For information about pinning results, see [Adjust Rank](#adjustrank).
 
 ## Site suggestions
 After adding slices to the Active list, the service generates site and subsite suggestions that you might want to add to your search. The **You might want to add** section contains the suggestions. The instance settings page includes this section only if suggestions are available. 
@@ -61,6 +61,10 @@ To add suggestions to your Active list, click the + icon.  Because the service
 ## Preview pane
 At any time, you can test out your search instance by using the preview pane. This pane mimics the results that the instance would return for a specific query. You can also review Bing results by switching to Bing using the My Instance drop-down button next to the search button. 
 
+> [!NOTE]
+> Searches will hit the en-US Bing market
+
+<a name="adjustrank"></a>
 ## Adjust rank
 The portal lets you adjust ranking to manipulate the results that Bing returns. In the Preview pane, enter a search term and run the query. The preview pane list the search result for the query. To the right of each result is the list of adjustments you can make. 
 

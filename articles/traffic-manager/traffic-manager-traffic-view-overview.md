@@ -28,8 +28,8 @@ Traffic Manager provides you with DNS level routing so that your end users are d
 
 By using Traffic View, you can:
 - understand where your user bases are located (up to a local DNS resolver level granularity).
-- the volume of traffic originating from these regions.
-- what is the representative latency experienced by these users.
+- view the volume of traffic (observed as DNS queries handled by Azure Traffic Manager) originating from these regions.
+-  get insights into what is the representative latency experienced by these users.
 - deep dive into the specific traffic patterns from each of these user bases to Azure regions where you have endpoints. 
 
 For example, you can use Traffic View to understand which regions have a large number of traffic but suffer from higher latencies. Next you can use this information to plan your footprint expansion to new Azure regions so that these users can have a lower latency experience.

@@ -26,7 +26,6 @@ ms.author: renash
 
 [!INCLUDE [storage-check-out-samples-dotnet](../../../includes/storage-check-out-samples-dotnet.md)]
 
-## About this tutorial
 This tutorial will demonstrate the basics of using .NET to develop applications or services that use Azure Files to store file data. In this tutorial, we create a simple console application and show how to perform basic actions with .NET and Azure Files:
 
 * Get the contents of a file
@@ -323,9 +322,9 @@ Console.WriteLine("Destination blob contents: {0}", destBlob.DownloadText());
 ```
 
 You can copy a blob to a file in the same way. If the source object is a blob, then create a SAS to authenticate access to that blob during the copy operation.
-## Share snapshots
 
-Beginning with version 8.5 of the Azure Storage Client Library, you can create a share snapshot. You can also list or browse share snapshots and delete share snapshots. Share snapshots are read-only so no write operations are allowed on share snapshots.
+## Share snapshots (preview)
+Beginning with version 8.5 of the Azure Storage Client Library, you can create a share snapshot (preview). You can also list or browse share snapshots and delete share snapshots. Share snapshots are read-only so no write operations are allowed on share snapshots.
 
 **Create share snapshots**
 
@@ -401,7 +400,7 @@ CloudFileShare mySnapshot = fClient.GetShareReference(baseShareName, snapshotTim
 ## Troubleshooting Azure Files using metrics
 Azure Storage Analytics now supports metrics for Azure Files. With metrics data, you can trace requests and diagnose issues.
 
-You can enable metrics for Azure Files from the [Azure Portal](https://portal.azure.com). You can also enable metrics programmatically by calling the Set File Service Properties operation via the REST API, or one of its analogues in the Storage Client Library.
+You can enable metrics for Azure Files from the [Azure Portal](https://portal.azure.com). You can also enable metrics programmatically by calling the Set File Service Properties operation via the REST API, or one of its analogs in the Storage Client Library.
 
 The following code example shows how to use the Storage Client Library for .NET to enable metrics for Azure Files.
 

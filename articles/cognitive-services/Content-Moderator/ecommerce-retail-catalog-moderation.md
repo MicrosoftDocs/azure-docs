@@ -1,6 +1,6 @@
 ---
-title: Moderate eCommerce catalogs with Azure Content Moderator | Microsoft Docs
-description: Use Content Moderator to moderate with eCommerce catalogs
+title: eCommerce catalog classification with machine learning based Azure Content Moderator | Microsoft Docs
+description: Automatically classify eCommerce catalogs with machine learning
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -12,13 +12,13 @@ ms.date: 09/25/2017
 ms.author: sajagtap
 ---
 
-# Moderate eCommerce catalogs with Content Moderator
+# eCommerce catalog classification with machine learning
 
-In this tutorial, we learn how to use the Content Moderator APIs and human review tools with Computer Vision and Custom Vision APIs. The solution combines machine assisted classification with human review capabilities to moderate eCommerce catalogs.
+In this tutorial, we learn how to implement machine-learning-based automated ecommerce catalog classification with Content Moderator, Computer Vision and Custom Vision services. The solution combines machine-assisted catalog classification with human moderation capabilities.
 
 ![Classified product images](images/tutorial-ecommerce-content-moderator.PNG)
 
-## 1. Business scenario
+## Business scenario
 
 Use machine-assisted technologies to classify and moderate product images in these categories:
 
@@ -29,7 +29,7 @@ Use machine-assisted technologies to classify and moderate product images in the
 5. Toys
 6. Pens
 
-## 2. Tutorial steps
+## Tutorial steps
 
 The tutorial guides you through these steps:
 
@@ -40,12 +40,12 @@ The tutorial guides you through these steps:
 5. Use the Custom Vision service to scan for possible presence of flags.
 6. Present the nuanced scan results for human review and final decision making.
 
-## 3. Create a team
+## Create a team
 
 Refer to the [Quickstart](quick-start.md) page to sign up for Content Moderator and create a team. Note the **Team ID** from the **Credentials** page.
 
 
-## 4. Define custom tags
+## Define custom tags
 
 Refer to the [Tags](https://docs.microsoft.com/en-us/azure/cognitive-services/content-moderator/review-tool-user-guide/tags) article to add custom tags. In addition to the built-in **adult** and **racy** tags, the new tags allow the review tool to display the descriptive names for the tags.
 
@@ -53,7 +53,7 @@ In our case, we define these custom tags (**celebrity**, **flag**, **us**, **toy
 
 ![Configure custom tags](images/tutorial-ecommerce-tags2.PNG)
 
-## 5. List your API keys and endpoints
+## List your API keys and endpoints
 
 1. The tutorial uses three APIs and the corresponding keys and API end points.
 2. Your API end points are different based on your subscription regions and the Content Moderator Review Team ID.
@@ -72,7 +72,7 @@ In our case, we define these custom tags (**celebrity**, **flag**, **us**, **toy
         public const string ComputerVisionUri = "https://westcentralus.api.cognitive.microsoft.com/vision/v1.0";
         public const string CustomVisionUri = "https://southcentralus.api.cognitive.microsoft.com/customvision/v1.0/Prediction/XXXXXXXXXXXXXXXXXXXX/url";
 
-## 6. Scan for adult and racy content
+## Scan for adult and racy content
 
 1. The function takes an image URL and an array of key-value pairs as parameters.
 2. It calls the Content Moderator's Image API to get the Adult and Racy scores.
@@ -115,7 +115,7 @@ In our case, we define these custom tags (**celebrity**, **flag**, **us**, **toy
             return response.IsSuccessStatusCode;
         }
 
-## 7. Scan for celebrities
+## Scan for celebrities
 
 1. Sign up for a [free trial](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision) of the [Computer Vision API](https://azure.microsoft.com/services/cognitive-services/computer-vision/).
 2. Click the **Get API Key** button.
@@ -152,7 +152,7 @@ In our case, we define these custom tags (**celebrity**, **flag**, **us**, **toy
             return Response.IsSuccessStatusCode;
         }
 
-## 8. Classify into flags, toys, and pens
+## Classify into flags, toys, and pens
 
 1. [Sign in](https://www.customvision.ai/account/signin) to the [Custom Vision API preview](https://www.customvision.ai/).
 2. Use the [Quickstart](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) to build your custom classifier to detect the potential presence of flags, toys, and pens.
@@ -173,11 +173,10 @@ In our case, we define these custom tags (**celebrity**, **flag**, **us**, **toy
                 // Parse the response body. Blocking!
                 SaveCustomVisionTags(response.Content.ReadAsStringAsync().Result, ref ReviewTags);
             }
-
             return response.IsSuccessStatusCode;
         }       
  
-## 9. Reviews for human-in-the-loop
+## Reviews for human-in-the-loop
 
 1. In the previous sections, you scanned the incoming images for adult and racy (Content Moderator), celebrities (Computer Vision) and Flags (Custom Vision).
 2. Based on our match thresholds for each scan, make the nuanced cases available for human review in the review tool.
@@ -200,7 +199,7 @@ In our case, we define these custom tags (**celebrity**, **flag**, **us**, **toy
             return response.IsSuccessStatusCode;
         }
 
-## 10. Submit batch of images
+## Submit batch of images
 
 1. This tutorial assumes a "C:Test" directory with a text file that has a list of image Urls.
 2. The following code checks for the existence of the file and reads all Urls into memory.
@@ -219,7 +218,7 @@ In our case, we define these custom tags (**celebrity**, **flag**, **us**, **toy
             // Read all image URLs in the file
             var Urls = File.ReadLines(Urlsfile);
 
-## 11. Initiate all scans
+## Initiate all scans
 
 1. This top-level function loops through all image URLs in the text file we mentioned earlier.
 2. It scans them with each API and if the match confidence score falls within our criteria, creates a review for human moderators.
@@ -241,6 +240,14 @@ In our case, we define these custom tags (**celebrity**, **flag**, **us**, **toy
                 // Create review in the Content Moderator review tool
                 CreateReview(Url, ReviewTags);
             }
+
+## License
+
+All Microsoft Cognitive Services SDKs and samples are licensed with the MIT License. For more details, see [LICENSE](https://microsoft.mit-license.org/).
+
+## Developer Code of Conduct
+
+Developers using Cognitive Services, including this client library & sample, are expected to follow the “Developer Code of Conduct for Microsoft Cognitive Services”, found at http://go.microsoft.com/fwlink/?LinkId=698895.
 
 ## Next steps
 
