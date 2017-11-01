@@ -417,4 +417,4 @@ In this tutorial, you successfully accomplished the following:
 To learn more about the structures of policy definitions, look at this article:
 
 > [!div class="nextstepaction"]
-> [Policy Definition Structure](../azure-resource-manager/resource-manager-policy.md#policy-definition-structure)
+> [Azure Policy definition structure](policy-definition.md)
