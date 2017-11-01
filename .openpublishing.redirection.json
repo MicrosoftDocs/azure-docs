@@ -5301,6 +5301,21 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/search/search-api-2015-02-28-preview.md",
+            "redirect_url": "articles/search/search-api-2016-09-01-preview.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/search/search-api-indexers-2015-02-28-preview.md",
+            "redirect_url": "https://docs.microsoft.com/en-us/rest/api/searchservice/indexer-operations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/search/search-api-scoring-profiles-2015-02-28-preview.md",
+            "redirect_url": "https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/service-bus-messaging/service-bus-amqp-apache.md",
             "redirect_url": "/azure/service-bus-messaging/service-bus-amqp-overview",
             "redirect_document_id": false
