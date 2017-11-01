@@ -19,7 +19,7 @@ ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with SAP Cloud Platform Identity Authentication
 
-In this tutorial, you learn how to integrate SAP Cloud Platform Identity Authentication with Azure Active Directory (Azure AD). SAP Cloud Platform Identity Authentication is used as a proxy IdP to access SAP applications using Azure AD as the main IdP.
+In this tutorial, you learn how to integrate SAP Cloud Platform Identity Authentication with Azure Active Directory (Azure AD). SAP Cloud Platform Identity Authentication is used as a proxy IdP to access SAP applications that use Azure AD as the main IdP.
 
 When you integrate SAP Cloud Platform Identity Authentication with Azure AD, you get the following benefits:
 
@@ -27,7 +27,7 @@ When you integrate SAP Cloud Platform Identity Authentication with Azure AD, you
 - You can enable your users to automatically sign in to SAP applications with their Azure AD accounts.
 - You can manage your accounts in one central location--the Azure portal.
 
-For more information about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+For more information about SaaS app integration with Azure AD, see the article [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## Prerequisites
 
