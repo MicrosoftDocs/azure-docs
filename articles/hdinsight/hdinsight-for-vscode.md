@@ -46,8 +46,6 @@ After you have installed the prerequisites, you can install the Azure HDInsight 
 
    ![HDInsight for Visual Studio Code Python install](./media/hdinsight-for-vscode/install-hdInsight-plugin.png)
 
-For Spark users, the Python extension is recommended for better language service experiences. The Python extension is not required for Hive users. 
-
 ## Open HDInsight workspace
 
 You need create a workspace in VSCode before you can connect to Azure.
