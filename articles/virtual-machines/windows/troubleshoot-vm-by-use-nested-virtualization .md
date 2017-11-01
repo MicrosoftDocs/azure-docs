@@ -24,13 +24,13 @@ This article shows how to create a nested environment in Microsoft Azure, so you
 
 To mount the problem VM, the Recovery VM must meet the following prerequisite:
 
--   The Recovery VM must be in the same Data Center as the problem VM.
+-   The Recovery VM must be in the same location as the problem VM.
 
 -   The Recovery VM must be in the same resource group as the problem VM.
 
 -   The Recovery VM must use the same type of Storage Account (Standard or Premium) as the problem VM.
 
-**Step 1 To Create a recovery VM and Install Hyper-V role**
+## Step 1 Create a recovery VM and install Hyper-V role
 
 1.  Create a new Recovery VM:
 
@@ -44,7 +44,7 @@ To mount the problem VM, the Recovery VM must meet the following prerequisite:
 
 2.  After the Recovery VM is created, remote desktop to the Recovery VM.
 
-3.  In Server Manager, select **Manage** &gt; **Add Roles and Features**.
+3.  In Server Manager, select **Manage** > **Add Roles and Features**.
 
 4.  In the **Installation Type** section, select **Role-based or feature-based installation**.
 
@@ -114,7 +114,7 @@ To mount the problem VM, the Recovery VM must meet the following prerequisite:
 
 19. At this point, you can work on your VM as the On-Premises VM. You could follow any troubleshooting steps you need.
 
-**Step 3 Recreate your Azure VM in Azure**
+## Step 3 Recreate your Azure VM in Azure
 
 1.  Once you get the VM back online shutdown the nested VM in the Hyper-V manager.
 
