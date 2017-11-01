@@ -3,7 +3,7 @@ title: Azure Application Insights support for multiple components, microservices
 description: Monitoring apps that consist of multiple components or roles for performance and usage.
 services: application-insights
 documentationcenter: ''
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 
 ms.service: application-insights
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2017
-ms.author: bwren
+ms.author: mbullwin
 
 ---
 # Monitor multi-component applications with Application Insights (preview)
