@@ -78,7 +78,7 @@ This sample creates a test file in your default directory (My Documents, for win
 
 Run the sample by pressing **Ctrl+F11** in Eclipse.
 
-If you wish to run the sample using Maven at the commandline, open a shell and navigate to the **blobAzureApp** inside of your cloned directory. Then enter `mvn compile exec:java`.
+If you wish to run the sample using Maven at the commandline, open a shell and navigate to **blobAzureApp** inside of your cloned directory. Then enter `mvn compile exec:java`.
 
 The following is an example of output if you were to run the application on Windows.
 
