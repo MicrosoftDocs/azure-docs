@@ -73,6 +73,8 @@
       href: import-data.md
     - name: MongoDB
       href: mongodb-migrate.md
+    - name: Cassandra
+      href: cassandra-import-data.md
   - name: 3 - Query
     items:
     - name: DocumentDB
@@ -83,6 +85,8 @@
       href: tutorial-query-table.md
     - name: Graph
       href: tutorial-query-graph.md
+    - name: Cassandra
+      href: tutorial-query-cassandra.md
   - name: 4 - Distribute globally
     items:
     - name: DocumentDB
@@ -93,6 +97,8 @@
       href: tutorial-global-distribution-table.md
     - name: Graph
       href: tutorial-global-distribution-graph.md
+    - name: Cassandra
+      href: tutorial-global-distribution-cassandra.md
   - name: 5 - Develop locally
     items:
     - name: Use the emulator
@@ -132,7 +138,7 @@
     - name: Graph
       href: graph-introduction.md
     - name: Cassandra
-      href: graph-introduction.md
+      href: cassandra-introduction.md
   - name: Security
     href: database-security.md
   - name: TCO

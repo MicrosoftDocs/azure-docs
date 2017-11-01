@@ -8,6 +8,7 @@ documentationcenter: ''
 
 ms.assetid: ef611081-0195-4ad8-9b54-b313588e5754
 ms.service: cosmos-db
+ms.custom: quick start connect, mvc
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,11 +18,11 @@ ms.author: mimig
 
 ---
 
-# Azure Cosmos DB: Create a document database using Java and the Azure portal
+# Azure Cosmos DB: Build a Cassandra API app with Java and the Azure portal
 
-Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. Using Azure Cosmos DB, you can quickly create and query managed document, table, graph, and Cassandra databases.
+Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, table, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quickstart creates a Cassandra database using the Azure portal tools for Azure Cosmos DB. This quickstart also shows you how to quickly create a Java console app using the CassandraDB Java API. The instructions in this quickstart can be followed on any operating system that is capable of running Java. By completing this quickstart you'll be familiar with creating and modifying Cassandra database resources in either the UI or programmatically, whichever is your preference.
+This quick start demonstrates how to create an Azure Cosmos DB account, key/value database, and table using the Azure portal. You'll then build and deploy a profile web app built on the [Cassandra API](cassandra-introduction.md) using Java by cloning a sample from GitHub.  
 
 ## Prerequisites
 
@@ -179,4 +180,4 @@ Now go back to the Azure portal to get your connection string information and co
 In this quickstart, you've learned how to create an Azure Cosmos DB account, Cassandra database, and collection using the Data Explorer, and run an app to do the same thing programmatically. You can now import additional data into your Azure Cosmos DB collection. 
 
 > [!div class="nextstepaction"]
-> [Import data into Azure Cosmos DB](import-data.md)
+> [Import Cassandra data into Azure Cosmos DB](cassandra-import-data.md)
