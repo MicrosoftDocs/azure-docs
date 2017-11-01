@@ -52,7 +52,7 @@ sections:
     style: unordered
     className: spaced noBullet
     items:
-     - html: <a href="hhttps://github.com/Azure/azure-devops-utils/tree/master/jenkins">Jenkinsfile stages and snippets</a>
+     - html: <a href="https://github.com/Azure/azure-devops-utils/tree/master/jenkins">Jenkinsfile stages and snippets</a>
 - title: Reference
   items:
   - type: list
