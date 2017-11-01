@@ -28,7 +28,7 @@ Self-service password reset (SSPR) offers a simple means for IT administrators t
 
 This guide assumes you already have a working trial or licensed Azure AD tenant. If you need help setting up Azure AD, see the article [Getting Started with Azure AD](https://azure.microsoft.com/trial/get-started-active-directory/).
 
-# Enable SSPR for your Azure AD tenant
+## Enable SSPR for your Azure AD tenant
 
 1. From your existing Azure AD tenant, select **"Password reset"**
 
