@@ -96,7 +96,10 @@ First, you must configure two Jenkins plugins for **NodeJS** and **VS Team Servi
 
 ## Configure Jenkins for VSTS integration
 
-1.  Create a personal access token (PAT) in your VSTS account if you don't already have one. Jenkins requires this information to access your VSTS account.  Ensure you **store** the token information for upcoming steps in this section.
+  > [!NOTE]
+  Ensure the personal access token (PAT) you use for the following steps contains the **Release (read, write, execute and manage) permission in VSTS**.
+ 
+1.  Create a PAT in your VSTS account if you don't already have one. Jenkins requires this information to access your VSTS account.  Ensure you **store** the token information for upcoming steps in this section.
   Read [How do I create a personal access token for VSTS and TFS](https://www.visualstudio.com/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate) to learn how to generate one.
 2. In the **Post-build Actions** tab, click **Add post-build action**. Choose **Archive the artifacts**.
 3. For **Files to archive**, enter `**/*` to include all files.
@@ -106,7 +109,7 @@ First, you must configure two Jenkins plugins for **NodeJS** and **VS Team Servi
 6. Enter the **Team Project** name.
 7. Choose a name for the **release definition** (you create this release definition later in VSTS).
 8. Choose credentials to connect to your VSTS or TFS environment.  Leave the **Username** blank if you are using VSTS.
-   You need your user name and the PAT you created earlier for VSTS.  Enter a **Username and Password** if you are using an on-premise version of TFS.    
+   Enter a **Username and Password** if you are using an on-premise version of TFS.    
     ![Configuring Jenkins Post-build Actions](media/tutorial-build-deploy-jenkins/trigger-release-from-jenkins.png)
 5. **Save** the jenkins project.
 
@@ -128,7 +131,7 @@ A service endpoint allows VSTS to connect to Jenkins.
 You need a [deployment group](https://www.visualstudio.com/docs/build/concepts/definitions/release/deployment-groups/) to register the VSTS agent so the release definition can deploy to your virtual machine.  Deployment groups make it easy to define logical groups of target machines for deployment, and install the required agent on each machine.
 
    > [!NOTE]
-   > In the steps below, follow the steps to install the prerequisites and **don't execute the script with sudo privileges.**
+   > In the following steps, ensure you install the prerequisites and **don't execute the script with sudo privileges.**
 
 1. Open the **Releases** tab of the **Build &amp; Release** hub, then
    open **Deployment groups**, and choose **+ New**.
@@ -144,7 +147,7 @@ You need a [deployment group](https://www.visualstudio.com/docs/build/concepts/d
 
 ## Create a VSTS release definition
 
-A release definition specifies the process VSTS executes to deploy the app.  In this example, we execute a shell script.
+A release definition specifies the process VSTS executes to deploy the app.  In this example, you execute a shell script.
 
 To create the release definition in VSTS:
 
