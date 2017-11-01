@@ -4532,7 +4532,7 @@
         },
         {
             "source_path": "articles/machine-learning/machine-learning-faq.md",
-            "redirect_url": "/azure/machine-learning/preview/faq",
+            "redirect_url": "/azure/machine-learning/studio/faq",
             "redirect_document_id": false
         },
         {
