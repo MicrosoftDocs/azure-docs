@@ -3,7 +3,7 @@ title: OMS Azure virtual machine extension for Linux | Microsoft Docs
 description: Deploy the OMS agent on Linux virtual machine using a virtual machine extension.
 services: virtual-machines-linux
 documentationcenter: ''
-author: neilpeterson
+author: danielsollondon
 manager: timlt
 editor: ''
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
-ms.author: nepeters
+ms.author: danis
 
 ---
 # OMS virtual machine extension for Linux
