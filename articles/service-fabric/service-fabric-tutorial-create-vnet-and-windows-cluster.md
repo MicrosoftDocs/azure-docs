@@ -81,11 +81,11 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -TemplateFile .
 
 <a id="createvaultandcert" name="createvaultandcert_anchor"></a>
 ## Deploy the Service Fabric cluster
-Once the network resources have finished deploying, the next step is to deploy a Service Fabric cluster to the VNET in the subnet and NSG designated for the Service Fabric cluster. Deploying a cluster to an existing VNET and subnet (deployed previously in this article) requires a Resource Manager template.  For more information, see [Create a cluster by using Azure Resource Manager](service-fabric-cluster-creation-via-arm.md). For this tutorial series, the template is pre-configured to use the names of the VNET, subnet, and NSG that you set up in a previous step.  Download the following Resource Manager template and parameters file:
+Once the network resources have finished deploying, the next step is to deploy a Service Fabric cluster to the VNET in the subnet and NSG designated for the Service Fabric cluster. Deploying a cluster to an existing VNET and subnet (deployed previously in this article) requires a Resource Manager template.  For this tutorial series, the template is pre-configured to use the names of the VNET, subnet, and NSG that you set up in a previous step.  Download the following Resource Manager template and parameters file:
 - [cluster.json][cluster-arm]
 - [cluster.parameters.json][cluster-parameters-arm]
 
-A certificate is used to secure node-to-node communication for your cluster and to manage user access to your Service Fabric cluster. API Management also uses this certificate to access the Service Fabric Naming Service for service discovery. 
+Service Fabric uses X.509 certificates to secure node-to-node communication for your cluster and to manage user access to your Service Fabric cluster. Azure Key Vault is used to manage certificates for Service Fabric clusters in Azure. When a cluster is deployed in Azure, the Azure resource provider responsible for creating Service Fabric clusters pulls certificates from Key Vault and installs them on the cluster VMs. Later in this tutorial series, API Management also uses this certificate to access the Service Fabric Naming Service for service discovery. 
 
 The following script uses the [New-AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) cmdlet to deploy a new cluster in Azure. The cmdlet also creates a key vault in Azure, creates a self-signed certificate and key vault, and downloads the certificate file locally.   
 
