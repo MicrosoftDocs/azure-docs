@@ -18,7 +18,7 @@ The Translator Hub and Collaborative Translations Framework are free extensions 
 
 ## Customize translations with the Microsoft Translator Hub
 
-With the Hub, you can build translation systems that understand the terminology used in your own business and industry. Your customized translation system will then easily integrate into your existing applications, workflows and websites, across multiple types of devices, through the regular Microsoft Translator Text API, by using the category parameter.
+With the Hub, you can build translation systems that understand the terminology used in your own business and industry. Your customized translation system will then easily integrate into your existing applications, workflows and websites, across multiple types of devices, through the regular Microsoft Translator Text API by using the category parameter.
 
 Customization with the Hub or the Hub API is both easy and adaptable. When using the Hub, users can start from a simple customization level starting with a few words (such as product names, etc.) in a dictionary, then use as little as one thousand parallel sentences to start customizing the actual translations. More details about the various levels of customization, based on available data, can be found on the [Microsoft Translator Blog](https://blogs.msdn.microsoft.com/translation/2016/01/27/new-microsoft-translator-customization-features-help-unleash-the-power-of-artificial-intelligence-for-everyone/).
 
@@ -46,6 +46,9 @@ The following user guides give instructions for setting up a customized language
 
 ## Improve translated content with the Collaborative Translations Framework
 
+> [!NOTE]
+> As of January 1, 2018 the AddTranslation() will do nothing and will silently fail. The API response will still be success (200), but nothing will be written. Microsoft will replace the functionality with an extended version of the Translator Hub API, which produces a custom system with your terminology, and you can invoke it using the Category ID of your custom Hub system. See [https://hub.microsofttranslator.com](https://hub.microsofttranslator.com).
+
 The Collaborative Translations Framework (CTF) is an extension of the core Microsoft Translator Text API that enables postpublishing improvement of translated text. There are no additional costs associated with the use of the CTF.
 
 Once machine translated text has been published on your site or in your application, you can use reader feedback to improve its quality, to the benefit of all readers.
@@ -64,10 +67,12 @@ Once the alternative translation has been submitted, the content administrators 
 Use your organization's internal teams and native language speakers to review translated content and provide alternate translations.
 
 **External community**
+
 Use your external community of partners, users, and readers to review the machine translations. You can grant permission to this open or closed community to suggest alternate translations and even vote on translations that better fit the context of the text.
 
 **Language service providers**
+
 Use language experts to provide postpublishing edits to your content, saving you time and reducing the costs of end-to-end translation. See the Microsoft Translator Partner page for a list of language service providers who are API, Hub, and CTF experts.
 
 ### How to integrate the CTF?
-To lean how to integrate the CTF into your application please refer to [The CTF Sample Code](collaborative-translation-framework-reporting-api.md)
+To lean how to integrate the CTF into your application please refer to [CTF Sample Code](collaborative-translation-framework-reporting-api.md)
