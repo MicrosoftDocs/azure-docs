@@ -68,11 +68,11 @@ For the bug bash perform the following steps to configure VS Code.
 2. Install the **AzureIoTEdgeModule** template in dotnet
 
     ```
-    dotnet new -i Azure.IoT.Edge.Module
+    dotnet new -i Microsoft.Azure.IoT.Edge.Module
     ```
 
 3. The preview version of the **Microsoft.Azure.Devices.Client** package used in this tutorial is not yet available in the public gallery. Choose one of the following commands to add a Nuget source that contains the correct version. This ensures that your IoT Edge module will build correctly. 
-  - For Nuget V3 
+  - For Nuget V3 and later
  
     ```cmd/sh
     nuget sources Add -Name "Edge Private Preview" -Source https://www.myget.org/F/aziot-device-sdk/api/v3/index.json
@@ -293,7 +293,7 @@ The following steps show you how to create an IoT Edge module using Visual Studi
     ```json
     {
        "routes":{
-          "sensorToFilter":"FROM /messages/modules/tempSensor/* INTO BrokeredEndpoint(\"messages/modules/filtermodule/inputs/input1\")”,
+          "sensorToFilter":"FROM /messages/modules/tempSensor/* INTO BrokeredEndpoint(\"messages/modules/filtermodule/inputs/input1\")",
           "filterToIoTHub":"FROM /messages/modules/filtermodule/outputs/* INTO $upstream"
        }
     }
