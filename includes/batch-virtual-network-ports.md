@@ -23,4 +23,4 @@
 
    Also, ensure that your Azure Storage endpoint can be resolved by any custom DNS servers that serve your VNet. Specifically, URLs of the form `<account>.table.core.windows.net`, `<account>.queue.core.windows.net`, and `<account>.blob.core.windows.net` should be resolvable. 
 
-   If you add a Resource Manager based NSG, you can make use of [service tags](./azure/virtual-network/security-overview.md#service-tags) to select the Storage IP addresses for the specific region for outbound connections. Note that the Storage IP addresses must be the same region as your Batch account and VNet.
+   If you add a Resource Manager based NSG, you can make use of [service tags](./azure/virtual-network/security-overview.md#service-tags) to select the Storage IP addresses for the specific region for outbound connections. Note that the Storage IP addresses must be the same region as your Batch account and VNet. Service tags are currently in preview in selected Azure regions.
