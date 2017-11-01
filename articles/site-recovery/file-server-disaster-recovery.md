@@ -47,7 +47,7 @@ In the above reference, multiple file servers referred to as members, actively p
 
 Below diagram, gives a pictorial representation aimed at easing out the decision of what strategy to use for your file server environment.
 
-![decisiontree](media/site-recovery-file-server/decisiontree.JPG) 
+![decision tree](media/site-recovery-file-server/decisiontree.png)
 
 
 ### Factors to consider while making disaster recovery decision
