@@ -6,8 +6,8 @@
     href: translator-info-overview.md
   - name: Supported languages
     href: languages.md
-  - name: Translator Hub
-    href: translator-hub-overview.md
+  - name: Customize and improve text translations
+    href: customization.md
 - name: Quickstarts
   items: 
   - name: Translate text (C#)
@@ -34,8 +34,6 @@
   items:
   - name: Sign-up for Translator Text API
     href: translator-text-how-to-signup.md
-  - name: Collaborative Translation Framework (CTF)
-    href: collaborative-translation-framework-reporting-api.md
 - name: Reference
   items: 
   - name: Translator Text API reference
