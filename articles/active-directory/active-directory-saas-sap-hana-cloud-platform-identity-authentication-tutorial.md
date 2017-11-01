@@ -37,7 +37,7 @@ To configure Azure AD integration with SAP Cloud Platform Identity Authenticatio
 - A single sign-on-enabled subscription for SAP Cloud Platform Identity Authentication.
 
 > [!NOTE]
-> We don't recommend using a production environment to test the steps in this tutorial .
+> We don't recommend using a production environment to test the steps in this tutorial.
 
 To test the steps in this tutorial, follow these recommendations:
 
@@ -63,12 +63,12 @@ With this setup, your SAP Cloud Platform Identity Authentication tenant is confi
 
 All SAP applications and services that you want to protect this way are subsequently configured in the SAP Cloud Platform Identity Authentication management console.
 
-This means that authorization for granting access to SAP applications and services needs to take place in SAP Cloud Platform Identity Authentication (as opposed to Azure Active Directory).
+Therefore, the authorization for granting access to SAP applications and services needs to take place in SAP Cloud Platform Identity Authentication (as opposed to Azure Active Directory).
 
 By configuring SAP Cloud Platform Identity Authentication as an application through the Azure Active Directory Marketplace, you don't need to configure individual claims, SAML assertions, or transformations that are necessary for producing a valid authentication token for SAP applications.
 
 >[!NOTE] 
->Currently only Web SSO has been tested by both parties. The flows that are necessary for App-to-API or API-to-API communication should work but have not been tested yet. They will be tested during subsequent activities.
+>Currently only Web SSO has been tested by both parties. The flows that are necessary for App-to-API or API-to-API communication should work but have not been tested yet. They are tested during subsequent activities.
 >
 
 ## Add SAP Cloud Platform Identity Authentication from the gallery
@@ -100,9 +100,9 @@ In this section, you configure and test Azure AD single sign-on with SAP Cloud P
 
 For single sign-on to work, Azure AD needs to know who the counterpart user in SAP Cloud Platform Identity Authentication is. In other words, you need to establish a link between an Azure AD user and the related user in SAP Cloud Platform Identity Authentication.
 
-In SAP Cloud Platform Identity Authentication, give the value **Username** the same value as **user name** in Azure AD. This establishes the link between the two users.
+In SAP Cloud Platform Identity Authentication, give the value **Username** the same value as **user name** in Azure AD. Now you have established the link between the two users.
 
-To configure and test Azure AD single sign-on with SAP Cloud Platform Identity Authentication, you need to complete the following building blocks:
+To configure and test Azure AD single sign-on with SAP Cloud Platform Identity Authentication, complete the following building blocks:
 
 1. **[Configure Azure AD single sign-on](#configure-azure-ad-single-sign-on)** to enable your users to use this feature.
 2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with Britta Simon.
@@ -130,8 +130,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     
 
-	> [!NOTE] 
-	> This value is not real. Update this value with the actual Identifier. Contact the [SAP Cloud Platform Identity Authentication Client support team](https://cloudplatform.sap.com/capabilities/security/trustcenter.html) to get this value. If you don't understand this value, read the SAP Cloud Platform Identity Authentication documentation about [Tenant SAML 2.0 configuration](https://help.hana.ondemand.com/cloud_identity/frameset.htm?e81a19b0067f4646982d7200a8dab3ca.html).
+		> [!NOTE] 
+		> This value isn't real. Update this value with the actual Identifier. Contact the [SAP Cloud Platform Identity Authentication Client support team](https://cloudplatform.sap.com/capabilities/security/trustcenter.html) to get this value. If you don't understand this value, read the SAP Cloud Platform Identity Authentication documentation about [Tenant SAML 2.0 configuration](https://help.hana.ondemand.com/cloud_identity/frameset.htm?e81a19b0067f4646982d7200a8dab3ca.html).
 
 4. If you want to configure the application in **SP** initiated mode, select **Show advanced URL settings**. 
 
@@ -139,14 +139,14 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	In the **Sign On URL** box, type a URL with the following pattern: `https://<entity-id>.accounts.ondemand.com/admin`.
 
-	> [!NOTE] 
-	> This value isn't real. Update this value with the actual sign-on URL. Contact the [SAP Cloud Platform Identity Authentication Client support team](https://cloudplatform.sap.com/capabilities/security/trustcenter.html) to get this value.
+		> [!NOTE] 
+		> This value isn't real. Update this value with the actual sign-on URL. Contact the [SAP Cloud Platform Identity Authentication Client support team](https://cloudplatform.sap.com/capabilities/security/trustcenter.html) to get this value.
 
 5. In the **SAML Signing Certificate** section, select **Metadata XML**. Then save the metadata file on your computer.
 
 	![The Certificate download link](./media/active-directory-saas-sapcloudauth-tutorial/tutorial_sapcpia_certificate.png)
 
-6. SAP Cloud Platform Identity Authentication application expects the SAML assertions in a specific format. You can manage the values of these attributes from the **User Attributes** section on the application integration page. The following screenshot shows an example of the format. 
+6. SAP Cloud Platform Identity Authentication application expects the SAML assertions in a specific format. Manage the values of these attributes from the **User Attributes** section on the application integration page. The following screenshot shows an example of the format. 
 
 	![Configure single sign-on](./media/active-directory-saas-sapcloudauth-tutorial/attribute.png)
 
@@ -168,15 +168,15 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure single sign-on Save button](./media/active-directory-saas-sapcloudauth-tutorial/tutorial_general_400.png)
 
-9. In the **SAP Cloud Platform Identity Authentication Configuration** section, select **Configure SAP Cloud Platform Identity Authentication** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+9. In the **SAP Cloud Platform Identity Authentication Configuration** section, select **Configure SAP Cloud Platform Identity Authentication** to open the **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![SAP Cloud Platform Identity Authentication Configuration](./media/active-directory-saas-sapcloudauth-tutorial/tutorial_sapcpia_configure.png) 
 
-10. To get SSO configured for your application, go to SAP Cloud Platform Identity Authentication Administration Console. The URL has the following pattern: `https://<tenant-id>.accounts.ondemand.com/admin`. Then, follow the documentation on SAP Cloud Platform Identity Authentication to [Configure Microsoft Azure AD as corporate Identity Provider at SAP Cloud Platform Identity Authentication](https://help.hana.ondemand.com/cloud_identity/frameset.htm?626b17331b4d4014b8790d3aea70b240.html). 
+10. To get SSO configured for your application, go to the SAP Cloud Platform Identity Authentication administration console. The URL has the following pattern: `https://<tenant-id>.accounts.ondemand.com/admin`. Then, read the documentation about SAP Cloud Platform Identity Authentication at [Integration with Microsoft Azure AD](https://help.hana.ondemand.com/cloud_identity/frameset.htm?626b17331b4d4014b8790d3aea70b240.html). 
 
 11. In the Azure portal, select the **Save** button.
 
-12. Continue with the following steps only if you want to add and enable SSO for another SAP application. Repeat the steps under the section **Adding SAP Cloud Platform Identity Authentication from the gallery** .
+12. Continue with the following steps only if you want to add and enable SSO for another SAP application. Repeat the steps under the section **Adding SAP Cloud Platform Identity Authentication from the gallery**.
 
 13. In the Azure portal, on the **SAP Cloud Platform Identity Authentication** application integration page, select **Linked Sign-on**.
 
@@ -185,10 +185,10 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 14. Save the configuration.
 
 >[!NOTE] 
->The new application leverages the single sign-on configuration of the previous SAP application. Make sure you use the same Corporate Identity Providers in the SAP Cloud Platform Identity Authentication Administration Console.
+>The new application leverages the single sign-on configuration of the previous SAP application. Make sure you use the same Corporate Identity Providers in the SAP Cloud Platform Identity Authentication administration console.
 
 > [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com) while you are setting up the app!  After adding this app from the **Active Directory** > **Enterprise Applications** section,  select  the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature at [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com) while you are setting up the app!  After adding this app from the **Active Directory** > **Enterprise Applications** section,  select  the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature at [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985).
 > 
 
 ### Create an Azure AD test user
@@ -229,9 +229,9 @@ You don't need to create a user in SAP Cloud Platform Identity Authentication. U
 
 SAP Cloud Platform Identity Authentication supports the Identity Federation option. This option allows the application to check if users that are authenticated by the corporate identity provider exist in the user store of SAP Cloud Platform Identity Authentication. 
 
-The Identity Federation option is disabled by default. If Identity Federation is enabled, only the users that are imported in SAP Cloud Platform Identity Authentication are able to access the application. 
+The Identity Federation option is disabled by default. If Identity Federation is enabled, only the users that are imported in SAP Cloud Platform Identity Authentication can access the application. 
 
-For more information about how to enable or disable Identity Federation with SAP Cloud Platform Identity Authentication, see Enable Identity Federation with SAP Cloud Platform Identity Authentication in [Configure Identity Federation with the User Store of SAP Cloud Platform Identity Authentication](https://help.hana.ondemand.com/cloud_identity/frameset.htm?c029bbbaefbf4350af15115396ba14e2.html).
+For more information about how to enable or disable Identity Federation with SAP Cloud Platform Identity Authentication, see "Enable Identity Federation with SAP Cloud Platform Identity Authentication" in [Configure Identity Federation with the User Store of SAP Cloud Platform Identity Authentication](https://help.hana.ondemand.com/cloud_identity/frameset.htm?c029bbbaefbf4350af15115396ba14e2.html).
 
 ### Assign the Azure AD test user
 
@@ -267,7 +267,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 In this section, you test your Azure AD single sign-on configuration by using the access panel.
 
-When you select the SAP Cloud Platform Identity Authentication tile in the access panel, you get automatically signed-in to your SAP Cloud Platform Identity Authentication application.
+When you select the SAP Cloud Platform Identity Authentication tile in the access panel, you get automatically signed into your SAP Cloud Platform Identity Authentication application.
 
 For more information about the access panel, see [Introduction to the access panel](active-directory-saas-access-panel-introduction.md). 
 
