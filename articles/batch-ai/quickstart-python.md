@@ -34,6 +34,13 @@ In this example, you use the MNIST database of handwritten images to train a con
 
 * Azure Active Directory service principal credentials - See [How to create a service principal with the CLI](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md)
 
+* Register the Batch AI resource providers using Azure Cloud Shell or the Azure CLI. A provider registration can take up to 15 minutes.
+
+  ```azurecli
+  az provider register -n Microsoft.BatchAI
+  az provider register -n Microsoft.Batch
+  ```
+
 
 ## Configure credentials
 Create these parameters in your Python script, substituting your own values:
@@ -54,7 +61,7 @@ admin_user_name = 'my_admin_user_name'
 admin_user_password = 'my_admin_user_password'
 ```
 
-As a best practice, all credentials should be stored in a separate configuration file, which is not shown in this example. Refer to the [recipes](https://github.com/azure/BatchAI/recipes) to implement a configuration file. 
+As a best practice, all credentials should be stored in a separate configuration file, which is not shown in this example. Refer to the [recipes](https://github.com/Azure/BatchAI/tree/master/recipes) to implement a configuration file. 
 
 ## Authenticate with Batch AI
 
