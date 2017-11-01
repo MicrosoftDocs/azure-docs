@@ -21,31 +21,7 @@ This sample PowerShell script copies data from multiple tables in an Azure SQL d
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
-## Prerequisites
-
-* **Azure Storage account**. The Azure Storage account is used as staging blob storage in the bulk copy operation. 
-* **Azure SQL Database**. This database contains the source data. 
-* **Azure SQL Data Warehouse**. This data warehouse holds the data copied over from the SQL Database. 
-
-### Prepare SQL Database and SQL Data Warehouse
-
-**Prepare the source Azure SQL Database**
-
-Create an Azure SQL Database with Adventure Works LT sample data following [Create an Azure SQL database](../../sql-database/sql-database-get-started-portal.md) article. This sample copies all the tables from this sample database to a SQL data warehouse.
-
-**Prepare the sink Azure SQL Data Warehouse**
-
-1. If you don't have an Azure SQL Data Warehouse, see the [Create a SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md#create-a-sql-data-warehouse) article for steps to create one.
-
-2. Create corresponding table schemas in SQL Data Warehouse. You can use [Migration Utility](https://www.microsoft.com/download/details.aspx?id=49100) to **migrate schema** from Azure SQL Database to Azure SQL Data Warehouse. You use Azure Data Factory to migrate/copy data in a later step.
-
-**Azure services to access SQL server**
-
-For both SQL Database and SQL Data Warehouse, allow Azure services to access SQL server. Ensure that **Allow access to Azure services** setting is turned **ON** for your Azure SQL server. This setting allows the Data Factory service to read data from your Azure SQL Database and write data to your Azure SQL Data Warehouse. To verify and turn on this setting, do the following steps:
-
-1. In the [Azure portal](https://portal.azure.com), click **More services** hub on the left, and click **SQL servers**.
-3. Select your server, and click **Firewall** under **SETTINGS**.
-4. In the **Firewall settings** page, click **ON** for **Allow access to Azure services**.
+See [tutorial: bulk copy](../tutorial-bulk-copy.md#prerequisites) for the prerequisites for running this sample.
 
 ## Sample script
 
