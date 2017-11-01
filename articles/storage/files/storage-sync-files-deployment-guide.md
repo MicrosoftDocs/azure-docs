@@ -25,8 +25,8 @@ We strongly recommend that you read [Planning for an Azure Files deployment](sto
 ## Prerequisites
 * An Azure Storage account and an Azure file share in the same region that you want to deploy Azure File Sync. For more information, see:
     - [Region availability](storage-sync-files-planning.md#region-availability) for Azure File Sync.
-    - [Create a storage account](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) for step-by-step directions on how to create a storage account.
-    - [Create a file share](storage-how-to-create-file-share.md) for step-by-step directions on how to create a file share.
+    - [Create a storage account](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) for a step-by-step description of how to create a storage account.
+    - [Create a file share](storage-how-to-create-file-share.md) for a step-by-step description of how to create a file share.
 * At least one supported Windows Server machine or Windows Server cluster to sync with Azure File Sync. For more information about supported versions of Windows Server, see [Interoperability with Windows Server](storage-sync-files-planning.md#azure-file-sync-interoperability).
 
 ## Deploy the Storage Sync Service 
@@ -42,7 +42,7 @@ On the pane that opens, enter the following information:
 When you are finished, select **Create** to deploy the Storage Sync Service.
 
 ## Prepare Windows servers to use with Azure File Sync
-For each server that you intend to use with Azure File Sync, including server nodes in a failover cluster, complete the following steps:
+For each server that you intend to use with Azure File Sync, including server nodes in a Failover Cluster, complete the following steps:
 
 1. Disable **Internet Explorer Enhanced Security Configuration**. This is required only for initial server registration. You can re-enable it after the server has been registered.
     1. Open Server Manager.
@@ -59,7 +59,7 @@ For each server that you intend to use with Azure File Sync, including server no
     $PSVersionTable.PSVersion
     ```
 
-    - If your PSVersion value is less than **5.1.\***, as will be the case with most installations of Windows Server 2012 R2, you can easily upgrade by downloading and installing [Windows Management Framework (WMF) 5.1](https://www.microsoft.com/download/details.aspx?id=54616). The appropriate package to download and install for Windows Server 2012 R2 is **Win8.1AndW2K12R2-KB\*\*\*\*\*\*\*-x64.msu**.
+    - If your PSVersion value is less than 5.1.\*, as will be the case with most installations of Windows Server 2012 R2, you can easily upgrade by downloading and installing [Windows Management Framework (WMF) 5.1](https://www.microsoft.com/download/details.aspx?id=54616). The appropriate package to download and install for Windows Server 2012 R2 is **Win8.1AndW2K12R2-KB\*\*\*\*\*\*\*-x64.msu**.
 
 3. [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). We recommend using the latest version of the Azure PowerShell modules.
 
@@ -67,7 +67,7 @@ For each server that you intend to use with Azure File Sync, including server no
 The Azure File Sync agent is a downloadable package that enables a Windows server to be synced with an Azure file share. You can download the agent from the [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=858257). When the download is finished, double-click the MSI package to start the Azure File Sync agent installation.
 
 > [!Important]  
-> If you intend to use Azure File Sync with a failover cluster, the Azure File Sync agent must be installed on every node in the cluster.
+> If you intend to use Azure File Sync with a Failover Cluster, the Azure File Sync agent must be installed on every node in the cluster.
 
 The Azure File Sync agent installation package should install relatively quickly, and without too many additional prompts. We recommend that you do the following:
 - Leave the default installation path (C:\Program Files\Azure\StorageSyncAgent), to simplify troubleshooting and server maintenance.

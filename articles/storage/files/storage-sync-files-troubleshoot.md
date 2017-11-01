@@ -175,9 +175,9 @@ If the issue is not resolved, run the AFSDiag tool:
     Debug-Afs c:\output # Note: Use the path created in step 1.
     ```
 
-3. For the Azure File Sync kernel mode trace level, press **1** (unless otherwise specified, to create more verbose traces), and then press Enter.
-4. For the Azure File Sync user mode trace level, press **1** (unless otherwise specified, to create more verbose traces), and then press Enter.
-5. Reproduce the issue. When you're finished, press **D**.
+3. For the Azure File Sync kernel mode trace level, enter **1** (unless otherwise specified, to create more verbose traces), and then press Enter.
+4. For the Azure File Sync user mode trace level, enter **1** (unless otherwise specified, to create more verbose traces), and then press Enter.
+5. Reproduce the issue. When you're finished, enter **D**.
 6. A .zip file that contains logs and trace files is saved to the output directory that you specified.
 
 ## See also
