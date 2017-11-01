@@ -115,7 +115,7 @@ The following script demonstrates how to:
 - use the access token to sign in to Azure AD under the corresponding MSI service principal
 - use the MSI service principal to make an Azure Resource Manager call, to obtain the ID of the service principal
 
-```powershell-interactive
+```azurepowershell-interactive
 # Get an access token from MSI
 $response = Invoke-WebRequest -Uri http://localhost:50342/oauth2/token `
                               -Method GET -Body @{resource="https://management.azure.com/"} -Headers @{Metadata="true"}
@@ -155,7 +155,7 @@ In the examples below, we show how to use a VM's MSI for token acquisition.
 > [!IMPORTANT]
 > The Azure AD Authentication Library (ADAL) is not integrated with MSI. To obtain an access token using MSI, make a request to the local MSI endpoint in a VM. For more information, see [MSI FAQs and known issues](msi-known-issues.md#frequently-asked-questions-faqs).
 
-```csharp
+```csharp-interactive
 // Build request to acquire MSI token
 HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://localhost:50342/oauth2/token?resource=https://management.azure.com/");
 request.Headers["Metadata"] = "true";
