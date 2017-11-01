@@ -22,6 +22,9 @@ ms.author: jejiang
 # Set Up PySpark Interactive Environment for Visual Studio Code
 
 The following steps show how to install python packages when run **HDInsight: PySpark Interactive**.
+
+
+## Set up PySpark Interactive Environment on MacOS and Linux
 You need use command **pip3** for the following steps, if it is **python 3.x**.
 1. Make sure the **Python** and **pip** installed.
  
@@ -33,18 +36,18 @@ You need use command **pip3** for the following steps, if it is **python 3.x**.
     ```
     +  Maybe the following error message come out on Linux and MacOS:
 
-    ![error1](./media/set-up-pyspark-interactive-environment/error1.png)
-    ```Resolve:
-    sudo pip uninstall asyncio
-    sudo pip install trollies
-    ```
+        ![error1](./media/set-up-pyspark-interactive-environment/error1.png)
+        ```Resolve:
+        sudo pip uninstall asyncio
+        sudo pip install trollies
+        ```
 
     + Install libkrb5-dev(For Linux only), maybe display the following error message:
 
-    ![error2](./media/set-up-pyspark-interactive-environment/error2.png)
-    ```Resolve:
-    sudo apt-get install libkrb5-dev 
-    ```
+        ![error2](./media/set-up-pyspark-interactive-environment/error2.png)
+        ```Resolve:
+        sudo apt-get install libkrb5-dev 
+        ```
 
 3. Install sparkmagic
    ```
