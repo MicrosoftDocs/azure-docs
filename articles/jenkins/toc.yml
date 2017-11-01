@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items: 
-  - name: About Jenkins on Azure]
+  - name: About Jenkins on Azure
     href: overview.md
 - name: Quickstarts
   expanded: true
@@ -22,7 +22,7 @@
     href: /azure/jenkins/execute-cli-jenkins-pipeline
   - name: Scale with Azure VM agents
     href: /azure/jenkins/jenkins-azure-vm-agents
-- name: How-to guides
+- name: How-to
   items:
     - name: Secure Jenkins on Azure
       href: https://jenkins.io/blog/2017/04/20/secure-jenkins-on-azure/
@@ -30,8 +30,12 @@
       href: deploy-jenkins-app-service-plugin.md
     - name: Publish to Azure Storage
       href: /azure/storage/storage-java-jenkins-continuous-integration-solution
-    - name: Deploy with Team Services
+    - name: Use Jenkins with VSTS
       href: https://www.visualstudio.com/docs/build/apps/jenkins/build-deploy-jenkins
+- name: Samples
+  items:
+    - name: Sample jobs and scripts
+      href: https://github.com/Azure/azure-devops-utils/tree/master/jenkins
 - name: Resources
   items:
   - name: Plugins
@@ -54,3 +58,5 @@
     href: https://azure.microsoft.com/roadmap/
   - name: Jenkins home
     href: https://jenkins.io/
+- type: paragraph
+  text: <h4>Jenkins® is a registered trademark of Software in the Public Interest, Inc. The [Jenkins® logo](https://wiki.jenkins.io/display/JENKINS/Logo) is licensed under [CC BY SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) from the [Jenkins project](https://jenkins.io).</h4>

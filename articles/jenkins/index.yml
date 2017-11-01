@@ -15,7 +15,7 @@ metadata:
     ms.author: routlaw
     ms.custom: Jenkins
 abstract:
-    description: Use the open-source Jenkins server to build your apps in the cloud and deploy them to Azure services. Learn how to install, configure, and scale Jenkins on Azure and set up continuous integration (CI) for your apps with our quickstarts, tutorials, and sample pipelines.
+    description: Use the open-source [Jenkins](https://jenkins.io) server to build your apps in the cloud and deploy them to Azure. Learn how to install, configure, and scale Jenkins on Azure and set up continuous integration (CI) for your apps with our quickstarts, tutorials, and sample pipelines.
     aside: 
         image: 
            alt: Jenkins logo
@@ -31,7 +31,7 @@ sections:
     style: icon48
     items: 
     - image: 
-        src: https://docs.microsoft.comazure/virtual-machines/linux/media/index/portal.svg
+        src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/portal.svg
       text: Azure Portal
       href: https://docs.microsoft.com/azure/jenkins/install-jenkins-solution-template
 - title: Step-by-Step Tutorials
@@ -52,8 +52,7 @@ sections:
     style: unordered
     className: spaced noBullet
     items:
-     - html: <a href="https://github.com/jenkinsci/windows-azure-storage-plugin">CLI 2.0</a>
-     - html: <a href="https://github.com/jenkinsci/azure-app-service-plugin">Jenkinsfile stages and snippets</a>
+     - html: <a href="hhttps://github.com/Azure/azure-devops-utils/tree/master/jenkins">Jenkinsfile stages and snippets</a>
 - title: Reference
   items:
   - type: list
