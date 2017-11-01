@@ -14,7 +14,7 @@ ms.date: 10/27/2017
 ## MySQL Drivers
 Azure Database for MySQL uses the world's most popular community edition of MySQL database. Therfore, it is compatible with a wide variety of popular program languages and drivers. Our goal is to support the most recent 3 versions MySQL drivers and we are working with authors from the open source community to constantly improve  functionality and usability of MySQL drivers. The table below documents a list of drivers that we have tested to be compatible with Azure Database for MySQL 5.6 and 5.7.
 
-| **Driver** | **Links** | **Supported Versions** | **Unsupporteed Versions** | **Notes** |
+| **Driver** | **Links** | **Compatible Versions** | **Uncompatible Versions** | **Notes** |
 | :-------- | :------------------------ | :----------- | :---------------------- | :--------------------------------------- |
 | PHP | http://php.net/downloads.php | 5.5 5.6 7.x | 5.3 | For PHP 7.0 connection with SSL MySQLi, add MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT in the connection string. <br>i.e.: ```mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306,NULL,MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT);```<br> PDO set: ```PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT``` option to false.|
 | .Net | [MySqlConnector on Github]: https://github.com/mysql-net/MySqlConnector/releases <br> [Installation package from Nuget]:<br> https://www.nuget.org/packages/MySqlConnector/ | 0.27 and after | 0.26.5 and before | |
