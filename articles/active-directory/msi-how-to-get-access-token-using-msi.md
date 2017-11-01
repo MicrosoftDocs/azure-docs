@@ -39,6 +39,52 @@ If you plan to use the PowerShell examples in this article, be sure to install [
 > - To prevent authorization errors (403/AuthorizationFailed) in the code/script examples, the VM's identity must be given "Reader" access at the VM scope to allow Azure Resource Manager operations on the VM. See [Assign a Managed Service Identity (MSI) access to a resource using the Azure portal](msi-howto-assign-access-portal.md) for details.
 > - Before proceeding to one of the following sections, use the VM "Connect" feature in the Azure portal, to remotely connect to your MSI-enabled VM.
 
+## Overview
+
+A VM Managed Service Identity makes two important features available to client applications running on the VM:
+
+1. A [service principal](develop/active-directory-dev-glossary.md#service-principal-object), which provides the application identity construct required by Azure Active Directory, enabling a client application to authenticate as the MSI during sign-in. Previously, running a client under its own identity meant:
+
+  - registering it as a confidential/web client application with Azure AD
+  - signing in using the application's client ID/secret credentials
+
+With MSI, your client no longer needs to register with Azure AD nor provide credentials. 
+
+2. An [app-only access token](develop/active-directory-dev-glossary.md#access-token), based on a secure/authenticated MSI service principal, enabling a client application to access resource APIs. 
+
+This article shows you various ways to use an MSI for sign-in, and acquire an  to access other resources, including:
+
+- Silent/unattended sign-in from PowerShell or Azure CLI
+- Token acquisition for various clients, including .NET, PowerShell, Bash/CURL, REST
+- Sign-in using an Azure SDK, including .NET, Java, Node.js, Python, Ruby
+
+## MSI APIs
+
+### OAuth REST endpoint
+
+### Graph API
+
+## Supported clients
+
+### HTTP/REST 
+
+### .NET C#
+
+### Azure CLI
+
+### Go
+
+### Java
+
+### PHP
+
+### PowerShell
+
+
+
+========================================== OLD ============================================================
+
+
 ## How to sign in from PowerShell or CLI using MSI
 
 Previously, running a script under its own identity meant:
