@@ -7,7 +7,7 @@ services: storage
 
 ms.service: storage
 ms.topic: quickstart
-ms.date: 10/31/2017
+ms.date: 11/01/2017
 ms.author: v-rogara
 ms.custom: mvc
 ---
@@ -20,8 +20,8 @@ In this quickstart, you learn how to use Java to upload, download, and list bloc
 
 To complete this quickstart:
 
-* Install an IDE that has Maven integration
-    * This tutorial uses [Eclipse](http://www.eclipse.org/downloads/) with the "Eclipse IDE for Java Developers" configuration.
+* Either install an IDE that has Maven integration or install and configure Maven to work from commandline
+    * This tutorial uses [Eclipse](http://www.eclipse.org/downloads/) with the "Eclipse IDE for Java Developers" configuration
     
 
 
@@ -77,6 +77,8 @@ In the application, you must provide the connection string for your storage acco
 This sample creates a test file in your default directory (My Documents, for windows users), uploads it to Blob storage, lists the blobs in the container, then downloads the file with a new name so you can compare the old and new files. 
 
 Run the sample by pressing **Ctrl+F11** in Eclipse.
+
+If you wish to run the sample using Maven at the commandline, open a shell and navigate to the **blobAzureApp** inside of your cloned directory. Then enter `mvn compile exec:java`.
 
 The following is an example of output if you were to run the application on Windows.
 
