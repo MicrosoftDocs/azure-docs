@@ -16,16 +16,20 @@ ms.author: christw
 
 Microsoft Translator Text API is part of the Microsoft [Cognitive Services API](https://docs.microsoft.com/en-us/azure/cognitive-services/) collection of machine learning and AI algorithms in the cloud, readily consumable in your development projects.
 
-## Customization
-The Microsoft Translator Text API can be used in conjunction with the Microsoft Translator Hub to provide pre- and post-publishing cusomization of your translated text.
+## About Microsoft Translator
+Microsoft Translator is a cloud based machine translation service. At the core of this service are the Translator Text API and [Translator Speech API](https://www.microsoft.com/en-us/translator/speech.aspx) which power various Microsoft products and services and are used by thousands of businesses worldwide in their applications and workflows enable their content to reach a worldwide audience.
 
-**Microsoft Translator Hub**
+Learn more about the [Microsoft Translator service](https://www.microsoft.com/en-us/translator/home.aspx)
 
-The Microsoft Translator Hub service and API lets you customize translations for words and sentences that are specific to a particular domain of knowledge. [Learn more](translator-hub-overview.md)
 
-**Collaborative Translations Framework (CTF)**
+## Language customization and translation improvement
+Two extensions of the core Microsoft Translator service, the Microsoft Translator Hub and the Collaborative Translations Framework, can be used in conjunction with the Translator Text API to help you customize and improve your translated text.
 
-The Microsoft Translator API also offers the unique ability to improve the accuracy of the delivered translations through the use of the Collaborative Translations Framework (CTF), allowing users to recommend alternative translations to those provided by Translator’s automatic translation engine. [Learn more](collaborative-translation-framework-reporting-api.md)
+**Microsoft Translator Hub**&mdash; With the Microsoft Translator Hub, you can build translation systems that understand the terminology used in your own business and industry. Your customized translation system will then easily integrate into your existing applications, workflows and websites, across multiple types of devices, through the regular Microsoft Translator Text API, by using the category parameter.
+
+**Collaborative Translations Framework (CTF)**&mdash; The Microsoft Translator API offers the unique ability to improve the accuracy of the delivered translations through the use of the Collaborative Translations Framework, allowing users to recommend alternative translations to those provided by Translator’s automatic translation engine. 
+
+Learn more about [language customization and translation improvement](customization.md)
 
 ## Microsoft Translator Deep Neural Network translation
 Since it began, Microsoft Translator API has used Statistical Machine Translation (SMT) technology to provide translations. The technology has reached a plateau in terms of performance improvement. Translation quality is no longer improving with SMT.
@@ -43,7 +47,7 @@ Learn more about [how DNN works](https://www.microsoft.com/en-us/translator/mt.a
 
 ## Next steps
 - [Sign up](/translator-text-how-to-signup.md) for an access key. A Free tier for 2 million characters per month is available, or [view pricing options for paid tiers](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/translator-text-api/)
-- Start coding&mdash; view Quickstarts, Tutorials, and Sample Apps to get started. Further documentation can be found in References. 
+- Start coding— view Quickstarts, Tutorials, and Sample Apps to get started. Further documentation can be found in References. 
 - Resources provides subscription [FAQ](https://www.microsoft.com/en-us/translator/faq.aspx) as well as links to our [technical](https://stackoverflow.com/questions/tagged/microsoft-translator) and [user](https://cognitive.uservoice.com/knowledgebase/topics/132647-translator) forums
 
 ## See also
