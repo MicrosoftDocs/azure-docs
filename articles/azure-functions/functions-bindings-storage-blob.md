@@ -175,7 +175,7 @@ For [precompiled C#](functions-dotnet-class-library.md) functions, use the follo
 The storage account to use is determined in the following order:
 
 * The `BlobTrigger` attribute's `Connection` property.
-* The `StorageAccount` attribute applied to the same parameter as `BlobTriggerAttribute`.
+* The `StorageAccount` attribute applied to the same parameter as the `BlobTrigger` attribute.
 * The `StorageAccount` attribute applied to the function.
 * The `StorageAccount` attribute applied to the class.
 * The default storage account for the function app ("AzureWebJobsStorage" app setting).
