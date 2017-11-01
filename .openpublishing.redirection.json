@@ -14292,6 +14292,21 @@
              "source_path": "articles/active-directory/active-directory-conditional-access-azuread-connected-apps.md",
              "redirect_url": "/azure/active-directory/active-directory-conditional-access-azure-portal-get-started",
              "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/billing/billing-troubleshoot-azure-sign-up-issues.md",
+          "redirect_url": "https://support.microsoft.com/help/4042959",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/billing/billing-cannot-login-subscription.md",
+          "redirect_url": "https://support.microsoft.com/help/4042961",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/billing/billing-credit-card-fails-during-azure-sign-up.md",
+          "redirect_url": "https://support.microsoft.com/help/4042960",
+          "redirect_document_id": false
         }
     ]
 }
