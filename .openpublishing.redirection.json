@@ -14307,6 +14307,11 @@
           "source_path": "articles/billing/billing-credit-card-fails-during-azure-sign-up.md",
           "redirect_url": "https://support.microsoft.com/help/4042960",
           "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-create-users-reset-password.md",
+            "redirect_url": "/azure/active-directory/active-directory-users-reset-password-azure-portal",
+            "redirect_document_id": true
         }
     ]
 }
