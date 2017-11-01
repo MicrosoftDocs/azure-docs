@@ -182,7 +182,7 @@ For [precompiled C#](functions-dotnet-class-library.md) functions, use the follo
 The Service Bus account to use is determined in the following order:
 
 * The `ServiceBusTrigger` attribute's `Connection` property.
-* The `ServiceBusAccount` attribute applied to the same parameter as `ServiceBusTriggerAttribute`.
+* The `ServiceBusAccount` attribute applied to the same parameter as the `ServiceBusTrigger` attribute.
 * The `ServiceBusAccount` attribute applied to the function.
 * The `ServiceBusAccount` attribute applied to the class.
 * The "AzureWebJobsServiceBus" app setting.
