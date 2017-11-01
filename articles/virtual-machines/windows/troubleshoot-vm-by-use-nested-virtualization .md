@@ -97,6 +97,7 @@ To mount the problem VM, the Recovery VM must meet the following prerequisite:
 10. If applicable select the Hyper-V Network Switch that was created. Else move to the next page.
 
 11. Select **Attach a Virtual Hard Disk Later**.
+
     ![the image about the Attach a Virtual Hard Disk Later option](./media/troubleshoot-vm-by-use-nested-virtualization/attach-disk-later.png)
 
 12. Select **Finish** when the VM is created.
@@ -104,10 +105,12 @@ To mount the problem VM, the Recovery VM must meet the following prerequisite:
 13. Right click on the VM that we just created and select **Settings**.
 
 14. Select **IDE Controller 0**, select **Hard Drive**, and then click **Add**.
-    ![the image about add new hard drive](./media/troubleshoot-vm-by-use-nested-virtualization/create-new-drive.png)    
+
+    ![the image about adds new hard drive](./media/troubleshoot-vm-by-use-nested-virtualization/create-new-drive.png)    
 
 15. In **Physical Hard Disk**, select the VHD of the problem VM we attached to the Azure VM. f you do not see any disks listed. Check if the VHD is set to Offline by using Disk management.
-    ![the image about mount the disk](./media/troubleshoot-vm-by-use-nested-virtualization/mount-disk.png)  
+
+    ![the image about mounts the disk](./media/troubleshoot-vm-by-use-nested-virtualization/mount-disk.png)  
 
 
 17. Select **Apply** and **OK**.
@@ -123,10 +126,12 @@ To mount the problem VM, the Recovery VM must meet the following prerequisite:
 2.  Go back to the [Azure portal](https://portal.azure.com) and select the Recovery VM > Disks,  copy the name of the disk. We will use the name in the next step. Detach the Fixed VHD from the recovery VM.
 
 3.  Go to **All resources**, search for the disk name, and then select the disk.
-     ![the image about search the disk](./media/troubleshoot-vm-by-use-nested-virtualization/search-disk.png)     
+
+     ![the image about searches the disk](./media/troubleshoot-vm-by-use-nested-virtualization/search-disk.png)     
 
 4. Click **Create vm**.
-     ![the image about create vm from the disk](./media/troubleshoot-vm-by-use-nested-virtualization/create-vm-from-vhd.png) 
+
+     ![the image about creates vm from the disk](./media/troubleshoot-vm-by-use-nested-virtualization/create-vm-from-vhd.png) 
 
 You can also use Azure PowerShell to create the VM from the disk. For more information, see [create the new VM from an existing disk](create-vm-specialized.md#create-the-new-vm). 
 
