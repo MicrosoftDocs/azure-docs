@@ -85,6 +85,8 @@
       href: luis-how-to-collaborate.md    
 - name: Reference
   items: 
+  - name: Prebuilt entity reference
+    href: luis-reference-prebuilt-entities.md
   - name: Authoring APIs
     href: https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f
   - name: Endpoint API
