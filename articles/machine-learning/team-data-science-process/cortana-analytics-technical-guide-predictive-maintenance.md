@@ -20,24 +20,23 @@ ms.author: fboylu
 # Technical guide to the Cortana Intelligence Solution Template for predictive maintenance in aerospace and other businesses
 
 ## **Important**
-This article has been deprecated. The information is still relevant to the problem at hand, i.e. Predictive Maintenance in Aerospace, but the latest article with the most up to date information can be found [here](https://github.com/Azure/cortana-intelligence-predictive-maintenance-aerospace). 
+This article has been deprecated. The discussion is still relevant to the problem at hand, that is, Predictive Maintenance in Aerospace, but refer to [this](https://github.com/Azure/cortana-intelligence-predictive-maintenance-aerospace) for current information.
 
 ## **Acknowledgements**
-This article is authored by data scientists Yan Zhang, Gauher Shaheen, Fidan Boylu Uz and software engineer Dan Grecoe at Microsoft.
+This article was authored by data scientists Yan Zhang, Gauher Shaheen, Fidan Boylu Uz, and software engineer Dan Grecoe at Microsoft.
 
 ## **Overview**
 Solution Templates are designed to accelerate the process of building an
-E2E demo on top of Cortana Intelligence Suite. A deployed template will
-provision your subscription with necessary Cortana Intelligence components
-and build the relationships between them. It also seeds the data pipeline with sample data generated from a data generator application which you will download and install on your local machine after you deploy the solution template. The data generated from the generator will hydrate the data pipeline and start generating machine learning predictions which can then be visualized on the Power BI dashboard. The deployment process will guide you through several steps to set up your solution credentials. Make sure you record these credentials such as solution name, username, and password you provide during the deployment.  
+E2E demo on top of Cortana Intelligence Suite. A deployed template provisions your subscription with necessary Cortana Intelligence components
+and build the relationships between them. It also seeds the data pipeline with sample data generated from a data generator application,  which you download and install on your local machine after you deploy the solution template. The data generated from the generator hydrates the data pipeline and start generating machine learning predictions, which can then be visualized on the Power BI dashboard. The deployment process guides you through several steps to set up your solution credentials. Make sure you record credentials such as solution name, username, and password you provide during the deployment.  
 
 The goal of this document is to explain the reference architecture and
 different components provisioned in your subscription as part of this
 solution template. The document also talks about how to replace the
 sample data with real data of your own to be able to see insights and
-predictions from your own data. Additionally, the document discusses the
-parts of the Solution Template that would need to be modified if you
-wanted to customize the solution with your own data. Instructions on how
+predictions from your own data. This document also discusses the
+parts of the Solution Template to modify if you
+want to customize the solution with your own data. Instructions on how
 to build the Power BI dashboard for this Solution Template are provided
 at the end.
 
@@ -46,30 +45,30 @@ at the end.
 > 
 > 
 
-## **Big picture**
+## **The "Big" picture**
 ![Predictive maintenance architecture](./media/cortana-analytics-technical-guide-predictive-maintenance/predictive-maintenance-architecture.png)
 
 When the solution is deployed, various Azure services within Cortana
-Analytics Suite are activated (*i.e.* Event Hub, Stream Analytics,
+Analytics Suite are activated (Event Hub, Stream Analytics,
 HDInsight, Data Factory, Machine Learning, *etc.*). The architecture
-diagram above shows, at a high level, how the Predictive Maintenance for
-Aerospace Solution Template is constructed from end-to-end. You will be able to investigate these services in the Azure portal by clicking on them on the solution template diagram created with the deployment of the solution with the exception of HDInsight as this service is provisioned on demand when the related pipeline activities are required to run and deleted afterwards.
+diagram shows, at a high level, how the Predictive Maintenance for
+Aerospace Solution Template is constructed from end to end. You are able to investigate these services in the Azure portal by clicking on them on the solution template diagram created with the deployment of the solution with the exception of HDInsight as this service is provisioned on demand when the related pipeline activities are required to run and deleted afterwards.
 You can download a [full-size version of the diagram](http://download.microsoft.com/download/1/9/B/19B815F0-D1B0-4F67-AED3-A40544225FD1/ca-topologies-maintenance-prediction.png).
 
 The following sections describe each piece.
 
 ## **Data source and ingestion**
 ### Synthetic data source
-For this template the data source used is generated from a desktop
-application that you will download and run locally after successful
-deployment. You will find the instructions to download and install this application in the properties bar when you select the first node called Predictive Maintenance Data Generator on the solution template diagram. This application feeds the [Azure Event Hub](#azure-event-hub) service
-with data points, or events, that will be used in the rest of the solution flow. This data
-source is comprised of or derived from publicly available data from the
+For this template, the data source used is generated from a desktop
+application that you download and run locally, after successful
+deployment. The instructions to download and install this application are in the properties bar when you select the first node called Predictive Maintenance Data Generator on the solution template diagram. This application feeds the [Azure Event Hub](#azure-event-hub) service
+with data points, or events, used in the rest of the solution flow. This data
+source is derived from publicly available data from the
 [NASA data
 repository](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/)
 using the [Turbofan Engine Degradation Simulation Data Set](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/#turbofan).
 
-The event generation application will populate the Azure Event Hub only
+The event generation application populate the Azure Event Hub only
 while it's executing on your computer.
 
 ### Azure event hub
@@ -110,7 +109,7 @@ the inputs received.
 Use [Azure SQL
 Database](https://azure.microsoft.com/services/sql-database/)
 to store (managed by Azure Data Factory) the predictions
-received by the Azure Machine Learning service that will be consumed in
+received by the Azure Machine Learning service are consumed in
 the [Power BI](https://powerbi.microsoft.com) dashboard.
 
 ## **Data consumption**
@@ -133,17 +132,17 @@ It's unlikely that any dataset you bring would match the dataset used by
 the [Turbofan Engine Degradation Simulation Data
 Set](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/#turbofan)
 used for this solution template. Understanding your data and the
-requirements will be crucial in how you modify this template to work
+requirements are crucial in how you modify this template to work
 with your own data. If this is your first exposure to the Azure Machine
 Learning service, you can get an introduction to it by using the example
 in [How to create your first
 experiment](../studio/create-experiment.md).
 
-The following sections will discuss the sections of the template that
-will require modifications when a new dataset is introduced.
+The following sections discuss the sections of the template that
+require modifications when a new dataset is introduced.
 
 ### Azure Event Hub
-The Azure Event Hub service is very generic, such that data can be
+The Azure Event Hub service is generic; data can be
 posted to the hub in either CSV or JSON format. No special processing
 occurs in the Azure Event Hub, but it's important that you understand
 the data that's fed into it.
@@ -153,19 +152,19 @@ easily send events or data to an Azure Event Hub using the Event Hub
 API's.
 
 ### Azure Stream Analytics
-The Azure Stream Analytics service is used to provide near real-time
+Use the Azure Stream Analytics service to provide near real-time
 analytics by reading from data streams and outputting data to any number
 of sources.
 
 For the Predictive Maintenance for Aerospace Solution Template, the
 Azure Stream Analytics query consists of four sub-queries, each
-consuming events from the Azure Event Hub service, and having outputs to
+query consuming events from the Azure Event Hub service, with outputs to
 four distinct locations. These outputs consist of three Power BI
 datasets and one Azure Storage location.
 
 The Azure Stream Analytics query can be found by:
 
-* Logging into the Azure portal
+* Connect to the Azure portal
 * Locating the Stream Analytics jobs ![Stream Analytics icon](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-stream-analytics.png) that were
   generated when the solution was deployed (*e.g.*,
   **maintenancesa02asapbi** and **maintenancesa02asablob** for the
@@ -200,7 +199,7 @@ service orchestrates the movement and processing of data. In the
 Predictive Maintenance for Aerospace Solution Template the data factory
 is made up of three
 [pipelines](../../data-factory/v1/data-factory-create-pipelines.md)
-that move and process the data using various technologies.  You can access your data factory by opening the the Data Factory node at the bottom of the solution template diagram created with the deployment of the solution. This will take you to the data factory on your Azure portal. If you see errors under your datasets, you can ignore those as they are due to data factory being deployed before the data generator was started. Those errors do not prevent your data factory from functioning.
+that move and process the data using various technologies.  You can access your data factory by opening the Data Factory node at the bottom of the solution template diagram created with the deployment of the solution. This takes you to the data factory on your Azure portal. If you see errors under your datasets, you can ignore those as they are due to data factory being deployed before the data generator was started. Those errors do not prevent your data factory from functioning.
 
 ![Data Factory dataset errors](./media/cortana-analytics-technical-guide-predictive-maintenance/data-factory-dataset-error.png)
 
@@ -211,10 +210,10 @@ Factory](https://azure.microsoft.com/documentation/services/data-factory/). Belo
 
 Two of the pipelines of this factory contain
 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx)
-scripts that are used to partition and aggregate the data. When noted,
-the scripts will be located in the [Azure
+scripts used to partition and aggregate the data. When noted,
+the scripts are located in the [Azure
 Storage](https://azure.microsoft.com/services/storage/) account
-created during setup. Their location will be:
+created during setup. Their location is:
 maintenancesascript\\\\script\\\\hive\\\\ (or https://[Your solution
 name].blob.core.windows.net/maintenancesascript).
 
@@ -293,7 +292,7 @@ The [Azure Machine
 Learning](https://azure.microsoft.com/services/machine-learning/)
 experiment used for this solution template provides the Remaining Useful
 Life (RUL) of an aircraft engine. The experiment is specific to the data
-set consumed and therefore will require modification or replacement
+set consumed and therefore require modification or replacement
 specific to the data that's brought in.
 
 For information about how the Azure Machine Learning experiment was
@@ -302,8 +301,8 @@ created, see [Predictive Maintenance: Step 1 of 3, data preparation and feature 
 ## **Monitor Progress**
  Once the Data Generator is launched, the pipeline begins to get hydrated and the different components of your solution start kicking into action following the commands issued by the Data Factory. There are two ways you can monitor the pipeline.
 
-1. One of the Stream Analytics job writes the raw incoming data to blob storage. If you click on Blob Storage component of your solution from the screen you successfully deployed the solution and then click Open in the right panel, it will take you to the [Azure portal](https://portal.azure.com/). Once there, click on Blobs. In the next panel, you will see a list of Containers. Click on **maintenancesadata**. In the next panel, you will see the **rawdata** folder. Inside the rawdata folder, you will see folders with names such as hour=17, hour=18 etc. If you see these folders, it indicates that the raw data is successfully being generated on your computer and stored in blob storage. You should see csv files that should have finite sizes in MB in those folders.
-2. The last step of the pipeline is to write data (e.g. predictions from machine learning) into SQL Database. You might have to wait a maximum of three hours for the data to appear in SQL Database. One way to monitor how much data is available in your SQL Database is through [azure portal](https://portal.azure.com/).On the left panel locate SQL DATABASES ![SQL icon](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-SQL-databases.png) and click it. Then locate your database **pmaintenancedb** and click on it. On the next page at the bottom, click on MANAGE
+1. One of the Stream Analytics jobs writes the raw incoming data to blob storage. If you click on Blob Storage component of your solution from the screen you successfully deployed the solution and then click Open in the right panel, it takes you to the [Azure portal](https://portal.azure.com/). Once there, click on Blobs. In the next panel, you see a list of Containers. Click on **maintenancesadata**. In the next panel, you see the **rawdata** folder. Inside the rawdata folder, you see folders with names such as hour=17, hour=18 etc. If you see these folders, it indicates that the raw data is successfully being generated on your computer and stored in blob storage. You should see csv files that should have finite sizes in MB in those folders.
+2. The last step of the pipeline is to write data (e.g. predictions from machine learning) into SQL Database. You might have to wait a maximum of three hours for the data to appear in SQL Database. One way to monitor how much data is available in your SQL Database is through [azure portal](https://portal.azure.com/). On the left panel locate SQL DATABASES ![SQL icon](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-SQL-databases.png) and click it. Then locate your database **pmaintenancedb** and click on it. On the next page at the bottom, click on MANAGE
    
     ![Manage icon](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-manage.png).
    
@@ -312,7 +311,7 @@ created, see [Predictive Maintenance: Step 1 of 3, data preparation and feature 
 ## **Power BI Dashboard**
 ### Overview
 This section describes how to set up Power BI dashboard to visualize
-your real time data from Azure Stream Analytics (hot path), as well as
+your real-time data from Azure Stream Analytics (hot path), as well as
 batch prediction results from Azure machine learning (cold path).
 
 ### Setup cold path dashboard
@@ -324,14 +323,14 @@ during the past 3 hours.
 
 Power BI connects to an Azure SQL database as its data source, where the
 prediction results are stored. Note: 1) Upon deploying your
-solution, a real prediction will show up in the database within 3 hours.
+solution, a real prediction will appear in the database within 3 hours.
 The pbix file that came with the Generator download contains some seed
 data so that you may create the Power BI dashboard right away. 2) In
 this step, the prerequisite is to download and install the free software
 [Power BI
 desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/).
 
-The following steps will guide you on how to connect the pbix file to
+The following steps guide you on how to connect the pbix file to
 the SQL Database that was spun up at the time of solution deployment
 containing data (*e.g.*. prediction results) for visualization.
 
@@ -347,7 +346,7 @@ containing data (*e.g.*. prediction results) for visualization.
    * Select the subscription you're using for deploying the solution, and
      then select **'YourSolutionName\_ResourceGroup'**.
    * In the new pop out panel, click the  ![SQL icon](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-sql.png) icon to access your
-     database. Your database name is next to the this icon (*e.g.*, **'pmaintenancedb'**), and  the **database server name** is listed under the Server name property and should look similar to **YourSoutionName.database.windows.net**.
+     database. Your database name is next to this icon (*e.g.*, **'pmaintenancedb'**), and  the **database server name** is listed under the Server name property and should look similar to **YourSoutionName.database.windows.net**.
    * Your database **username** and **password** are the same as
      the username and password previously recorded during deployment of the solution.
 2. Update the data source of the cold path report file with Power
@@ -377,8 +376,8 @@ containing data (*e.g.*. prediction results) for visualization.
      next to **'Source'** under
      **'APPLIED STEPS'** on the right **'Query Settings'** panel, and update
      the server and database names as in the above steps and click OK.
-   * Once you're guided back to the previous page, close the window. A message will pop out - click **Apply**. Lastly, click the **Save** button to save
-     the changes. Your Power BI file has now established connection to the server. If your visualizations are empty, make sure you clear the selections on the visualizations to visualize all the data by clicking the eraser icon on the upper right corner of the legends. Use the refresh button to reflect new data on the visualizations. Initially, you will only see the seed data on your visualizations as the data factory is scheduled to refresh every 3 hours. After 3 hours, you will see new predictions reflected in your visualizations when you refresh the data.
+   * Once you're guided back to the previous page, close the window. A message displays - click **Apply**. Lastly, click the **Save** button to save
+     the changes. Your Power BI file has now established connection to the server. If your visualizations are empty, make sure you clear the selections on the visualizations to visualize all the data by clicking the eraser icon on the upper right corner of the legends. Use the refresh button to reflect new data on the visualizations. Initially, you only see the seed data on your visualizations as the data factory is scheduled to refresh every 3 hours. After 3 hours, you will see new predictions reflected in your visualizations when you refresh the data.
 3. (Optional) Publish the cold path dashboard to [Power BI
    online](http://www.powerbi.com/). Note that this step needs a Power
    BI account (or Office 365 account).
@@ -410,7 +409,7 @@ containing data (*e.g.*. prediction results) for visualization.
      [Data refresh in Power BI](https://support.powerbi.com/knowledgebase/articles/474669-data-refresh-in-power-bi).
 
 ### Setup hot path dashboard
-The following steps will guide you how to visualize real time data
+The following steps guide you how to visualize real-time data
 output from Stream Analytics jobs that were generated at the time of
 solution deployment. A [Power BI online](http://www.powerbi.com/)
 account is required to perform the following steps. If you don't have an
@@ -418,15 +417,15 @@ account, you can [create one](https://powerbi.microsoft.com/pricing).
 
 1. Add Power BI output in Azure Stream Analytics (ASA).
    
-   * You will need to follow the instructions in
+   * You must follow the instructions in
      [Azure Stream Analytics & Power BI: A real-time analytics dashboard for real-time visibility of streaming data](../../stream-analytics/stream-analytics-power-bi-dashboard.md)
      to set up the output of your Azure Stream Analytics job as your Power BI dashboard.
-   * The ASA query has three outputs which are **aircraftmonitor**, **aircraftalert**, and **flightsbyhour**. You can view the query by clicking on query tab. Corresponding to each of these tables, you will need to add an output to ASA. When you add the first output (*e.g.* **aircraftmonitor**) make sure the **Output Alias**, **Dataset Name** and **Table Name** are the same (**aircraftmonitor**). Repeat the steps to add outputs for **aircraftalert**, and **flightsbyhour**. Once you have added all three output tables and started the ASA job, you should get a confirmation message (*e.g.*, "Starting Stream Analytics job maintenancesa02asapbi succeeded").
+   * The ASA query has three outputs which are **aircraftmonitor**, **aircraftalert**, and **flightsbyhour**. You can view the query by clicking on query tab. Corresponding to each of these tables, you need to add an output to ASA. When you add the first output (*e.g.* **aircraftmonitor**) make sure the **Output Alias**, **Dataset Name** and **Table Name** are the same (**aircraftmonitor**). Repeat the steps to add outputs for **aircraftalert**, and **flightsbyhour**. Once you have added all three output tables and started the ASA job, you should get a confirmation message (*e.g.*, "Starting Stream Analytics job maintenancesa02asapbi succeeded").
 2. Log in to [Power BI online](http://www.powerbi.com)
    
    * On the left panel Datasets section in My Workspace, the
      ***DATASET*** names **aircraftmonitor**, **aircraftalert**, and
-     **flightsbyhour** should appear.This is the streaming data you pushed from Azure Stream Analytics in the previous step.The dataset **flightsbyhour** may not show up at the same time as the other two datasets due to the nature of the SQL query behind it. However, it should show up after an hour.
+     **flightsbyhour** should appear. This is the streaming data you pushed from Azure Stream Analytics in the previous step. The dataset **flightsbyhour** may not show up at the same time as the other two datasets due to the nature of the SQL query behind it. However, it should show up after an hour.
    * Make sure the ***Visualizations*** pane is open and is shown on the
      right side of the screen.
 3. Once you have the data flowing into Power BI, you can start visualizing the streaming data. Below is an example dashboard with some hot path visualizations pinned to it. You can create other dashboard tiles based on appropriate datasets. Depending on how long you run your data generator, your numbers on the visualizations may be different.
@@ -444,7 +443,7 @@ account, you can [create one](https://powerbi.microsoft.com/pricing).
      under "Values". Click the small arrow next to **s11** and
      **s11\_alert**, change "Sum" to "Average".
    * Click **SAVE** on the top and name the report "aircraftmonitor". The
-     report named "aircraftmonitor" will be shown in the **Reports**
+     report named "aircraftmonitor" is shown in the **Reports**
      section in the **Navigator** pane on the left.
    * Click the **Pin Visual** icon on the top right corner of this
      line chart. A "Pin to Dashboard" window may show up for you to
@@ -456,7 +455,7 @@ account, you can [create one](https://powerbi.microsoft.com/pricing).
      over time".
 
 ## **How to delete your solution**
-Please ensure that you stop the data generator when not actively using the solution as running the data generator will incur higher costs. Please delete the solution if you are not using it. Deleting your solution will delete all the components provisioned in your subscription when you deployed the solution. To delete the solution click on your solution name in the left panel of the solution template and click on delete.
+Please ensure that you stop the data generator when not actively using the solution as running the data generator will incur higher costs. Please delete the solution if you are not using it. Deleting your solution deletes all the components provisioned in your subscription when you deployed the solution. To delete the solution click on your solution name in the left panel of the solution template and click on delete.
 
 ## **Cost estimation tools**
 The following two tools are available to help you better understand the
