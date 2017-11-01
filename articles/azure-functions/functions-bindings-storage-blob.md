@@ -195,7 +195,7 @@ The following settings are configured in the *function.json* file or the `BlobTr
 |Property |Description |
 |---------|---------|
 |**path** | The container to monitor.  May be a [blob name pattern](#trigger-blob-name-patterns). | 
-|**connection** | The name of an app setting that contains the connection string for the storage account. If not set, the default connection string for the function app is used. This setting is configured automatically when you create the trigger in the Azure portal.|
+|**connection** | The name of an app setting that contains the Storage connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name here. For example, if you set `connection` to "MyStorage", the Functions runtime looks for an app setting that is named "AzureWebJobsMyStorage." If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.<br><br>The connection string must be for a general-purpose storage account, not a [blob-only storage account](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
 
 ## Trigger - usage
 
@@ -462,7 +462,7 @@ public static void Run(
     [Blob("sample-images-md/{name}", FileAccess.Write, Connection = "StorageConnectionAppSetting")] Stream imageSmall)
 ```
 
-For information about other ways to specify the storage account to use, see [Trigger - .NET attributes](#trigger---net-attributes).
+You can use the `StorageAccount` attribute to specify the storage account at class, method, or parameter level. For more information, see [Trigger - .NET attributes](#trigger---net-attributes).
 
 ## Input & output - settings
 
@@ -479,7 +479,7 @@ The following settings are configured in the *function.json* file or the `Blob` 
 |Property |Description |
 |---------|---------|
 |**path** | The path to the blob. | 
-|**connection** | The name of an app setting that contains the connection string used to connect to the storage account. If not set, the default connection string for the function app is used. This setting is configured automatically when you create the trigger in the Azure portal.|
+|**connection** | The name of an app setting that contains the Storage connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name here. For example, if you set `connection` to "MyStorage", the Functions runtime looks for an app setting that is named "AzureWebJobsMyStorage." If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.<br><br>The connection string must be for a general-purpose storage account, not a [blob-only storage account](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
 
 ## Input & output - usage
 
