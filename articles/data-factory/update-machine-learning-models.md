@@ -85,7 +85,7 @@ For the above mentioned end-to-end workflow to work, you need to create two Azur
 For the second Azure Machine Learning linked service, the configuration is different when your Azure Machine Learning Web Service is a classic Web Service or a new Web Service. The differences are discussed separately in the following sections. 
 
 ## Web service is a classic web service
-If the predict web service is a **classic web service**, create the second **non-default and updatable endpoint** by using the [Azure portal](https://manage.windowsazure.com). See [Create Endpoints](../machine-learning/machine-learning-create-endpoint.md) article for steps. After you create the non-default updatable endpoint, do the following steps:
+If the predict web service is a **classic web service**, create the second **non-default and updatable endpoint** by using the Azure portal. See [Create Endpoints](../machine-learning/machine-learning-create-endpoint.md) article for steps. After you create the non-default updatable endpoint, do the following steps:
 
 * Click **BATCH EXECUTION** to get the URI value for the **mlEndpoint** JSON property.
 * Click **UPDATE RESOURCE** link to get the URI value for the **updateResourceEndpoint** JSON property. The API key is on the endpoint page itself (in the bottom-right corner).
