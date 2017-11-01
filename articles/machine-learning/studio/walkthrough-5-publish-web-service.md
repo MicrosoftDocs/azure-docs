@@ -188,26 +188,6 @@ The results of the test are displayed on the right-hand side of the page in the 
 
 ## Manage the web service
 
-### Manage a Classic web service in the Azure classic portal
-
-Once you've deployed your Classic web service, you can manage it from the [Azure classic portal](https://manage.windowsazure.com).
-
-1. Sign in to the [Azure classic portal](https://manage.windowsazure.com)
-2. In the Microsoft Azure services panel, click **MACHINE LEARNING**
-3. Click your workspace
-4. Click the **Web services** tab
-5. Click the web service we created
-6. Click the "default" endpoint
-
-From here, you can do things like monitor how the web service is doing and make performance tweaks by changing how many concurrent calls the service can handle.
-
-For more details, see:
-
-* [Creating Endpoints](create-endpoint.md)
-* [Scaling web service](scaling-webservice.md)
-
-### Manage a Classic or New web service in the Azure Machine Learning Web Services portal
-
 Once you've deployed your web service, whether Classic or New, you can manage it from the [Microsoft Azure Machine Learning Web Services](https://services.azureml.net/quickstart) portal.
 
 To monitor the performance of your web service:
