@@ -19,7 +19,7 @@ ms.author: ryanwi
 ---
 
 # Create your first Service Fabric cluster on Azure
-A [Service Fabric cluster](service-fabric-deploy-anywhere.md) is a network-connected set of virtual or physical machines into which your microservices are deployed and managed. This quickstart helps you to create a five-node cluster, running on either Windows or Linux, through [Azure PowerShell](https://msdn.microsoft.com/library/dn135248) or the [Azure portal](http://portal.azure.com) in just a few minutes. You can also use Azure CLI for this task.  
+An [Azure Service Fabric cluster](service-fabric-deploy-anywhere.md) is a network-connected set of virtual or physical machines into which your microservices are deployed and managed. This quickstart helps you to create a five-node cluster, running on either Windows or Linux, through [Azure PowerShell](https://msdn.microsoft.com/library/dn135248) or the [Azure portal](http://portal.azure.com) in just a few minutes. You can also use Azure CLI for this task.  
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -30,13 +30,13 @@ Sign in to the Azure portal at [http://portal.azure.com](http://portal.azure.com
 
 ### Create the cluster
 
-1. On the upper left-hand corner of the Azure portal, select **New**.
+1. On the upper-left corner of the Azure portal, select **New**.
 2. Search for **Service Fabric**, and select **Service Fabric Cluster** from the returned results. Then select **Create**.
 3. Fill out the Service Fabric **Basics** form. For **Operating system**, select the version of Windows or Linux you want the cluster nodes to run. The user name and password entered here is used to sign in to the virtual machine. For **Resource group**, create a new one. A resource group is a logical container into which Azure resources are created and collectively managed. When you are done, select **OK**.
 
     ![Screenshot of cluster setup output][cluster-setup-basics]
 
-4. Fill out the **Cluster configuration** form. For **Node type count**, enter "1".
+4. Fill out the **Cluster configuration** form. For **Node type count**, enter **1**.
 
 5. Select **Node type 1 (Primary)**, and fill out the **Node type configuration** form. Enter a node type name, and set the [Durability tier](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) to **Bronze**. Then select a VM size.
 
@@ -44,9 +44,9 @@ Sign in to the Azure portal at [http://portal.azure.com](http://portal.azure.com
 
     For any production deployment, [capacity planning](service-fabric-cluster-capacity.md) is an important step. For this quickstart, however, you aren't running applications, so select a *DS1_v2 Standard* VM size. Select **Silver** for the [reliability tier](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster), and specify an initial virtual machine scale set capacity of 5.  
 
-    Custom endpoints open up ports in Azure Load Balancer so that you can connect with applications running on the cluster.  Enter "80, 8172" to open up ports 80 and 8172.
+    Custom endpoints open up ports in Azure Load Balancer so that you can connect with applications running on the cluster.  Enter **80, 8172** to open up ports 80 and 8172.
 
-    Do not check the **Configure advanced settings** box, which is used for customizing TCP/HTTP management endpoints, application port ranges, [placement constraints](service-fabric-cluster-resource-manager-configure-services.md#placement-constraints), and [capacity properties](service-fabric-cluster-resource-manager-metrics.md).    
+    Do not select the **Configure advanced settings** box, which is used for customizing TCP/HTTP management endpoints, application port ranges, [placement constraints](service-fabric-cluster-resource-manager-configure-services.md#placement-constraints), and [capacity properties](service-fabric-cluster-resource-manager-metrics.md).    
 
     Select **OK**.
 
@@ -58,11 +58,11 @@ Sign in to the Azure portal at [http://portal.azure.com](http://portal.azure.com
 
 7. Fill out the **Security** form. For this quickstart, select **Unsecure**. Note that in general, you should create a secure cluster for production workloads. Anyone can anonymously connect to an unsecure cluster and perform management operations.  
 
-   Service Fabric uses certificates to provide authentication and encryption to secure various aspects of a cluster and its applications. For more information, see [Service Fabric cluster security scenarios](service-fabric-cluster-security.md). To enable user authentication by using Azure Active Directory, or to set up certificates for application security, see [create a cluster from a Resource Manager template](service-fabric-cluster-creation-via-arm.md).
+   Service Fabric uses certificates to provide authentication and encryption to secure various aspects of a cluster and its applications. For more information, see [Service Fabric cluster security scenarios](service-fabric-cluster-security.md). To enable user authentication by using Azure Active Directory, or to set up certificates for application security, see [Create a cluster from a Resource Manager template](service-fabric-cluster-creation-via-arm.md).
 
     Select **OK**.
 
-8. Review the summary. If you'd like to download a Resource Manager template built from the settings you entered, select **Download template and parameters**. Select **Create** to create the cluster.
+8. Review the summary. If you'd like to download an Azure Resource Manager template built from the settings you entered, select **Download template and parameters**. Select **Create** to create the cluster.
 
     You can see the creation progress in the notifications. (Select the "Bell" icon near the status bar at the upper right of your screen.) If you selected **Pin to Startboard** while creating the cluster, you see **Deploying Service Fabric Cluster** pinned to the **Start** board.
 
@@ -251,7 +251,7 @@ az sf cluster health
 
 ### Connect to the nodes directly 
 
-To connect to the nodes in a Linux cluster, you can use the secure shell (SSH) command. Specify a port number from 3389 onwards. For example, for the five node cluster created earlier, the commands would be as follows:
+To connect to the nodes in a Linux cluster, you can use the secure shell (SSH) command. Specify a port number from 3389 onward. For example, for the five node cluster created earlier, the commands would be as follows:
 ```bash
 ssh sfadminuser@aztestcluster.southcentralus.cloudapp.azure.com -p 3389
 ssh sfadminuser@aztestcluster.southcentralus.cloudapp.azure.com -p 3390
