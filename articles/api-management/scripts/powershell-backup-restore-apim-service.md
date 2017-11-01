@@ -15,7 +15,7 @@ ms.date: 10/30/2017
 ms.author: apimpm
 ms.custom: mvc
 ---
- 
+
 # Backup and restore service
 
 This sample script backups and restores an API Management service. 

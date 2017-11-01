@@ -12,15 +12,15 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2017
+ms.date: 10/13/2017
 ms.author: apimpm
 ---
 
 # Add capabilities to a backend service
- 
+
 This article shows an Azure API management policy sample that demonstrates how to add capabilities to a backend service. For example, accept a name of the place instead of latitude and longitude in a weather forecast API. To set or edit a policy code, follow the steps described in [Set or edit a policy](../set-edit-policies.md). 
 
-## Code
+## Policy
 
 Paste the code into the **inbound** block.
 

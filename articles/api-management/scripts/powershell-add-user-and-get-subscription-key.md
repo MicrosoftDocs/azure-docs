@@ -15,7 +15,7 @@ ms.date: 10/30/2017
 ms.author: apimpm
 ms.custom: mvc
 ---
- 
+
 # Add a user
 
 This sample script adds a user and gets subscription key.

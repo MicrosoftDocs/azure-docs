@@ -12,7 +12,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2017
+ms.date: 10/13/2017
 ms.author: apimpm
 ---
 
@@ -20,10 +20,9 @@ ms.author: apimpm
 
 This article shows an Azure API management policy sample that demonstrates how to use OAuth2 for authorization between the gateway and a backend. It shows how to obtain an access token from AAD and forward it to the backend. To set or edit a policy code, follow the steps described in [Set or edit a policy](../set-edit-policies.md).  
 
-## Code
+## Policy
 
 Paste the code into the **inbound** block.
-
 
 [!code-xml[Main](../../../api-management-policy-samples/Snippets/Get OAuth2 access token from AAD and forward it to the backend.xml)]
 

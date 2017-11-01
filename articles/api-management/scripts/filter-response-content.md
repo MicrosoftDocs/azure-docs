@@ -12,15 +12,15 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2017
+ms.date: 10/13/2017
 ms.author: apimpm
 ---
 
 # Filter response content
- 
+
 This article shows an Azure API management policy sample that demonstrates how to filter data elements from the response payload based on the product associated with the request. To set or edit a policy code, follow the steps described in [Set or edit a policy](../set-edit-policies.md). 
 
-## Code
+## Policy
 
 Paste the code into the **outbound** block.
 

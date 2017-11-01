@@ -12,15 +12,15 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2017
+ms.date: 10/13/2017
 ms.author: apimpm
 ---
- 
+
 # Send errors to Stackify for logging
 
 This article shows an Azure API management policy sample that demonstrates how to add an error logging policy to send errors to Stackify for logging. To set or edit a policy code, follow the steps described in [Set or edit a policy](../set-edit-policies.md). 
 
-## Code
+## Policy
 
 Paste the code into the **on-error** block.
 

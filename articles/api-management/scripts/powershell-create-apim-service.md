@@ -15,7 +15,7 @@ ms.date: 10/30/2017
 ms.author: apimpm
 ms.custom: mvc
 ---
- 
+
 # Create an API Management service
 
 This sample script creates an API Management (APIM) service.

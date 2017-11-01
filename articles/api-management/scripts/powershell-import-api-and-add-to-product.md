@@ -15,7 +15,7 @@ ms.date: 10/30/2017
 ms.author: apimpm
 ms.custom: mvc
 ---
- 
+
 # Import an API
 
 This sample script imports an API and adds it to an API Management product. 

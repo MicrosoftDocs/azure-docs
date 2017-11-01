@@ -22,12 +22,16 @@ The following table includes links to bash scripts built using the Azure PowerSh
 
 | | |
 |-|-|
-|**Add user**|[Add a user](./scripts/powershell-add-user-and-get-subscription-key.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Adds a user and gets subscription key.|
-|**Restore service**|[Restore service](./scripts/powershell-backup-restore-apim-service.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Backups and restores an APIM service.|
-|**Create service**|[Create an APIM service](./scripts/powershell-create-apim-service.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Creates an APIM service.|
-|**Import API**|[Import API](./scripts/powershell-import-api-and-add-to-product.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Imports an API and adds to an APIM product.|
-|**Scale**|[Scale an APIM service](./scripts/powershell-scale-and-addregion-apim-service.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Scales and adds region to the APIM service.|
-|**Secure backend**|[Secure backend](./scripts/powershell-secure-backend-with-mutual-certificate-authentication.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Secures backend with mutual certificate authentication.|
-|**Set up custom domain**|[Set up custom domain](./scripts/powershell-setup-custom-domain.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Sets up custom domain.|
-|**Set up policy**|[Set up rate limit policy](./scripts/powershell-setup-rate-limit-policy.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Sets up rate limit policy. |
+|**Provision and manage**||
+|[Create an APIM service](./scripts/powershell-create-apim-service.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Create a Developer SKU API Management Service.|
+|[Add a user](./scripts/powershell-add-user-and-get-subscription-key.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Create a user in API Management and gets a subscription key.|
+|[Set up custom domain](./scripts/powershell-setup-custom-domain.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Sets up custom domain on proxy and portal endpoint of the API Management service.|
+|[Scale an APIM service](./scripts/powershell-scale-and-addregion-apim-service.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Scales and adds region to the APIM service.|
+|[Restore service](./scripts/powershell-backup-restore-apim-service.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Backups and restores an APIM service.|
+|**Define API**||
+|[Import API](./scripts/powershell-import-api-and-add-to-product.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Imports an API and adds to an APIM product.|
+|**Secure**||
+|[Secure backend](./scripts/powershell-secure-backend-with-mutual-certificate-authentication.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Secures backend with mutual certificate authentication.|
+|**Protect**||
+|[Set up rate limit policy](./scripts/powershell-setup-rate-limit-policy.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Applies rate limit to policy at the product Level . |
 |||
