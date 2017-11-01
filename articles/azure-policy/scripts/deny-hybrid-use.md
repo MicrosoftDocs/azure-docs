@@ -25,7 +25,7 @@ Prohibits use of Azure Hybrid Use Benefit (AHUB). Use when you do not want to pe
 
 ## Sample template
 
-[!code-json[main](../../../policy-templates/samples/compute/deny-hybird-use-benefit/azurepolicy.json "Deny hybrid use benefit")]
+[!code-json[main](../../../azure-policy/samples/compute/deny-hybird-use-benefit/azurepolicy.json "Deny hybrid use benefit")]
 
 
 You can deploy this template using the [Azure portal](#deploy-with-the-portal), with [PowerShell](#deploy-with-powershell) or with the [Azure CLI](#deploy-with-azure-cli).
