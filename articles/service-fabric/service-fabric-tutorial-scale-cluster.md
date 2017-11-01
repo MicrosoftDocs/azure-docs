@@ -37,7 +37,7 @@ Before you begin this tutorial:
 - If you deploy a Windows cluster, set up a Windows development environment. Install [Visual Studio 2017](http://www.visualstudio.com) and the **Azure development**, **ASP.NET and web development**, and **.NET Core cross-platform development** workloads.  Then set up a [.NET development environment](service-fabric-get-started.md).
 - If you deploy a Linux cluster, set up a Java development environment on [Linux](service-fabric-get-started-linux.md) or [MacOS](service-fabric-get-started-mac.md).  Install the [Service Fabric CLI](service-fabric-cli.md). 
 
-## Sign in to Azure and select your subscription
+## Sign in to Azure
 Sign in to your Azure account select your subscription before you execute Azure commands.
 
 ```powershell

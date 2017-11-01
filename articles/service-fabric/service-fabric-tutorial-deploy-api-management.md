@@ -395,7 +395,7 @@ In this tutorial, you learned how to:
 
 Next, advance to the following tutorial to learn how to scale your cluster.
 > [!div class="nextstepaction"]
-> [Deploy API Managment](service-fabric-tutorial-scale-cluster.md)
+> [Scale the cluster](service-fabric-tutorial-scale-cluster.md)
 
 
 [azure-powershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
