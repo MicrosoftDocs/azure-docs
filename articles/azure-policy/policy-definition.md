@@ -204,7 +204,7 @@ The value can be either a string or a JSON format object.
 
 With **AuditIfNotExists**, **DeployIfNotExists**, and **DenyIfNotExists**, you can evaluate the existence of a child resource and apply a rule and a corresponding effect when that resource does not exist. For example, you can require that a network watcher is deployed for all virtual networks
 .
-For an example of auditing when a virtual machine extension is not deployed, see Audit VM Extensions. [link to the sample page with this json].
+For an example of auditing when a virtual machine extension is not deployed, see [Audit if extension does not exist](scripts/audit-ext-not-exist.md).
 
 
 ## Aliases
