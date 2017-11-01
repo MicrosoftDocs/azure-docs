@@ -280,6 +280,7 @@ Service Map is currently available in the following Azure regions:
 - East US
 - West Europe
 - West Central US
+- Southeast Asia
 
 
 ## Supported operating systems
