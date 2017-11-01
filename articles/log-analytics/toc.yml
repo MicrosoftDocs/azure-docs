@@ -128,6 +128,8 @@
         href: log-analytics-view-designer-tiles.md
       - name: Visualization part reference
         href: log-analytics-view-designer-parts.md
+      - name: Filters
+        href: log-analytics-view-designer-filters.md
     - name: Power BI
       href: log-analytics-powerbi.md
   - name: Create alerts
@@ -148,6 +150,12 @@
       href: log-analytics-alerts-webhooks.md
     - name: Alert Management solution
       href: log-analytics-solution-alert-management.md
+  - name: Manage
+    items:
+    - name: Manage workspace cost
+      href: log-analytics-manage-cost-storage.md
+    - name: Delete a workspace
+      href: log-analytics-manage-del-workspace.md
   - name: Use solutions
     items:
     - name: Solutions overview

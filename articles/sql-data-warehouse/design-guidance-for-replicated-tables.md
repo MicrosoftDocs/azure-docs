@@ -138,7 +138,7 @@ SQL Data Warehouse implements a replicated table by maintaining a master version
 
 Rebuilds are required after:
 - Data is loaded or modified
-- The data warehouse is scaled to a different DWU setting
+- The data warehouse is scaled to a different [service level](performance-tiers.md#service-levels)
 - Table definition is updated
 
 Rebuilds are not required after:

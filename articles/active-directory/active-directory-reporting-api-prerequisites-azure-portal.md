@@ -108,6 +108,11 @@ The objective of this step is to grant your application **Read directory data** 
 
     ![Register application](./media/active-directory-reporting-api-prerequisites-azure-portal/15.png)
 
+7. Click **Grant Permissions**, and then click **Yes**.
+
+    ![Register application](./media/active-directory-reporting-api-prerequisites-azure-portal/17.png)
+
+
 ## Gather configuration settings 
 This section shows you how to get the following settings from your directory:
 
