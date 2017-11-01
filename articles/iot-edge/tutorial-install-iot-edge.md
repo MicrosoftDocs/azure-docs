@@ -32,22 +32,26 @@ The simulated device that you create in this tutorial is a monitor on a wind tur
 This tutorial assumes that you're using a computer or virtual machine to simulate an Internet of Things device. The following services are required to successfully deploy an IoT Edge device:
 
 - Docker
-   - [Install on Windows][lnk-docker-windows]
-   - [Install on Linux][lnk-docker-ubuntu]
+   - [Install Docker on Windows][lnk-docker-windows]
+   - [Install Docker on Linux][lnk-docker-ubuntu]
 - .NET Core
-   - [Install on Windows][lnk-dotnet-windows]
-   - [Install on Linux][lnk-dotnet-ubuntu]
+   - [Install .NET on Windows][lnk-dotnet-windows]
+   - [Install .NET on Linux][lnk-dotnet-ubuntu]
 
-[!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
+## Create an IoT hub
+
+[!INCLUDE [iot-hub-create-hub](../../includes/iot-hub-create-hub.md)]
 
 ## Register an IoT Edge device
 
 Create a device identity for your simulated device so that it can communicate with your IoT hub. Since IoT Edge devices behave and can be managed differently than typical IoT devices, you declare this to be an IoT Edge device from the beginning. 
 
 1. In the Azure portal, navigate to your IoT hub.
-1. Select **Device Explorer**.
-1. Select **Add**.
-1. Give your simulated device a unique device ID, set Edge Device to **Yes**, and save your changes.
+1. Select **IoT Edge Explorer**.
+1. Select **Add Edge Device**.
+1. Give your simulated device a unique device ID.
+1. Set the value of **Azure IoT Edge Device** to **Yes**.
+1. Select **Save** to add your device.
 1. Select your new device from the list of devices. 
 1. Copy the value for **Connection string--primary key** and save it. You'll use this value to configure the IoT Edge runtime in the next section. 
 
@@ -67,10 +71,24 @@ Use the following steps to install and start the IoT Edge runtime:
 One of the key capabilities of Azure IoT Edge is being able to deploy modules to your IoT Edge devices from the cloud. An IoT Edge module is an executable package implemented as a container. In this tutorial, the module generates telemetry for your simulated device. 
 
 1. In the Azure portal, navigate to your IoT hub.
-1. Go to **Device Explorer** and select your IoT Edge device.
+1. Go to **IoT Edge Explorer** and select your IoT Edge device.
 1. Select **Deploy modules**.
 1. Select **Custom module**.
-1. Copy the telemetry module code into the text box.
+1. Copy the following code into the text box:
+
+   ``` json
+   "tempSensor": { 
+        "version": "1.0", 
+        "type": "docker", 
+        "status": "running", 
+        "restartPolicy": "always", 
+        "settings": { 
+        "image": "edgepreview.azurecr.io/azedge-simulated-temperature-sensor-x64:6407819", 
+        "createOptions": "" 
+        } 
+   } 
+   ```
+
 1. Select **Start**.
 1. Return to the device details page and refresh the data. You should see the new module running along the IoT Edge runtime. 
 
@@ -83,8 +101,8 @@ You can use the hub explorer to view telemetry from your new IoT Edge device and
 In this tutorial, you created a new IoT Edge device, and used the cloud interface to deploy code onto the device. Now, you have a device generating raw data about its environment. You can continue on to any of the other tutorials to learn how Azure IoT Edge can help you turn this data into business insights at the edge.
 
 > [!div class="nextstepaction"]
-> [Deploy Azure Function as a module](tutorial-deploy-function.md)
-> [Deploy Azure Stream Analytics as a module](tutorial-deploy-stream-analytics.md)
+> [Deploy Azure Function as a module](tutorial-deploy-function.md)<br>
+> [Deploy Azure Stream Analytics as a module](tutorial-deploy-stream-analytics.md)<br>
 > [Create a custom module](tutorial-create-custom-module.md)
 
 [lnk-docker-windows]: https://docs.docker.com/docker-for-windows/install/ 
