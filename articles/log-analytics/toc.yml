@@ -151,7 +151,7 @@
   - name: Manage
     items:
     - name: Manage workspace cost
-      href: log-analytics-manage-cost.md
+      href: log-analytics-manage-cost-storage.md
     - name: Delete a workspace
       href: log-analytics-manage-del-workspace.md
   - name: Use solutions

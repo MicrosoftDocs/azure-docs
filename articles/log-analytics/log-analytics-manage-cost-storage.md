@@ -48,4 +48,4 @@ While using the *Free* plan, if you find you consistently exceed the amounts all
 
 ## Next steps  
 
-To determine how much data is collected, which sources are sending it, and the different types of data sent to help manage consumption and cost, see [Analyze data usage in Log Analytics](log-analytics/log-analytics-usage.md)
+To determine how much data is collected, which sources are sending it, and the different types of data sent to help manage consumption and cost, see [Analyze data usage in Log Analytics](log-analytics-usage.md)
