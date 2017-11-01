@@ -34,7 +34,7 @@ In this example, you use the MNIST database of handwritten images to train a con
 
 * Azure Active Directory service principal credentials - See [How to create a service principal with the CLI](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md)
 
-* Register the Batch AI resource providers using Azure Cloud Shell or the Azure CLI. A provider registration can take up to 15 minutes.
+* Register the Batch AI resource providers once for your subscription using Azure Cloud Shell or the Azure CLI. A provider registration can take up to 15 minutes.
 
   ```azurecli
   az provider register -n Microsoft.BatchAI
