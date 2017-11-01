@@ -134,7 +134,7 @@ With a single `docker push`, you've updated both regional Web App deployments, a
 
 ## Next steps
 
-In this tutorial, you updated and pushed a new version of the web application container to your geo-replicated registry. Webhooks in Azure Container Registry notified App Services of the update, which triggered a local pull from the replicated registries.
+In this tutorial, you updated and pushed a new version of the web application container to your geo-replicated registry. Webhooks in Azure Container Registry notified Web Apps for Containers of the update, which triggered a local pull from the registry replicas.
 
 In this, the final tutorial in the series, you:
 
