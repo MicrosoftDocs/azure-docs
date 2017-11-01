@@ -20,7 +20,6 @@ Several Microsoft technologies work with LUIS:
 
 * [Bot Framework][bot-framework] allows a chat bot to talk with a user via text input.
 * [Bing Speech API][speech] converts spoken language requests into text. Once converted to text, LUIS processes the requests.
-* [Microsoft Flow][flow] provides a LUIS connector.
 
 ## What is a LUIS app?
 
