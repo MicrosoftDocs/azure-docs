@@ -28,6 +28,9 @@
 ## [Hadoop sandbox](hdinsight-hadoop-emulator-get-started.md)
 ## [Data Lake Tools with Hortonworks Sandbox](hdinsight-hadoop-emulator-visual-studio.md)
 ## [Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md)
+## [Tools for Visual Studio Code](hdinsight-for-vscode.md)
+## [Tools for IntelliJ](hdinsight-apache-spark-intellij-tool-plugin.md)
+## [Tools for Eclipse](hdinsight-apache-spark-eclipse-tool-plugin.md)
 ## [HDInsight using Azure Storage](hdinsight-hadoop-use-blob-storage.md)
 ## [HDInsight using Azure Data Lake Store](hdinsight-hadoop-use-data-lake-store.md)
 
@@ -132,6 +135,7 @@
 ### [Use Python with Hive and Pig](hdinsight-python.md)
 ### [Create non-interactive authentication .NET HDInsight applications](hdinsight-create-non-interactive-authentication-dotnet-applications.md)
 ### [Use HDInsight VSCode tool](hdinsight-for-vscode.md)
+### [Set up PySpark interactive environment](set-up-pyspark-interactive-environment.md)
 ## Analyze big data
 ### [Analyze using Power Query](hdinsight-connect-excel-power-query.md)
 ### [Connect Power BI to Hadoop](hdinsight-connect-hive-power-bi.md)
