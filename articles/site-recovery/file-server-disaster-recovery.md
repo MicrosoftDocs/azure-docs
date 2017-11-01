@@ -33,7 +33,7 @@ The following topology illustrates the File Server environment with DFSR impleme
 
 In the above reference, multiple file servers referred to as members, actively participate in replicating files across a  replication group. The contents in the replicated folder will be available to all the clients sending requests to either of the members, even in the event of one of the members going offline.
 
-## Disaster Recovery recommendation for file servers:
+## Disaster recovery recommendation for file servers:
 
 1.	Replicate a file server using Azure Site Recovery: The file servers can be replicated to Azure using Azure Site Recovery. When one or more of the file servers on-premises is inaccessible, the recovery VMs can be brought up in Azure, which can then serve requests from clients, on-premises, provided there’s Site-to-Site VPN connectivity and Active directory configured in Azure. This can be done in case of a DFSR configured environment or a simple file server environment with no DFSR. 
 
@@ -78,7 +78,7 @@ Refer: [Establish Site-to-Site VPN connection between on-premises site and Azure
 **Active Directory**:  DFSR depends on Active Directory.  This means that the Active Directory forest with local domain controllers is extended to the DR site in Azure. Even if you are not using DFSR if the intended users need to be granted/ verified for access like in most organization, these steps need to be performed.
 Refer: [Extend on-premises Active Directory to Azure](https://docs.microsoft.com/azure/site-recovery/site-recovery-active-directory).
 
-## Disaster Recovery recommendation for Azure IaaS virtual machines
+## Disaster recovery recommendation for Azure IaaS virtual machines
 
 If you are configuring anf managing disaster recovery of File Servers hosted on Azure IaaS Vms, you can choose between two options, based on whether you want to move to [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction).
 
