@@ -1,8 +1,8 @@
 ---
-title: Use the Azure CLI to create a policy assignment to identify non-compliant resources in your Azure environment | Microsoft Docs 
+title: Use the Azure CLI to create a policy assignment to identify non-compliant resources in your Azure environment | Microsoft Docs
 description: Use PowerShell to create an Azure Policy assignment to identify non-compliant resources.
-services: azure-policy 
-keywords: 
+services: azure-policy
+keywords:
 author: Jim-Parker
 ms.author: jimpark
 ms.date: 10/06/2017
@@ -22,10 +22,10 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
- 
+
 ## Opt in to Azure Policy
 
-Azure Policy is now available in Limited Preview, so you need to register to request access.
+Azure Policy is now available in Public Preview and you need to register to request access.
 
 1. Go to Azure Policy at https://aka.ms/getpolicy and select **Sign Up** in the left pane.
 
@@ -35,7 +35,7 @@ Azure Policy is now available in Limited Preview, so you need to register to req
 
    ![Opt-in to use Azure Policy](media/assign-policy-definition/preview-opt-in.png)
 
-   It may take a couple of days for us to accept your registration request, based on demand. Once your request gets accepted, you are notified via email that you can begin using the service.
+   Your request is automatically approved for Preview. Please allow up to 30 minutes to the system to process your registration.
 
 ## Create a policy assignment
 
@@ -61,12 +61,12 @@ Next, provide the following information and run the following command to assign 
 - **Policy** – This is the policy definition, based off which you’re using to create the assignment. In this case, it is the policy definition – *Require SQL Server version 12.0*
 - A **scope** - A scope determines what resources or grouping of resources the policy assignment gets enforced on. It could range from a subscription to resource groups.
 
-  Use the subscription (or resource group) you have previously registered when you opted into Azure Policy, in this example we are using this subscription ID - **bc75htn-a0fhsi-349b-56gh-4fghti-f84852** and the resource group name - **FabrikamOMS**. Be sure to change these to the ID of the subscription and the name of resource group you are working with. 
+  Use the subscription (or resource group) you have previously registered when you opted into Azure Policy, in this example we are using this subscription ID - **bc75htn-a0fhsi-349b-56gh-4fghti-f84852** and the resource group name - **FabrikamOMS**. Be sure to change these to the ID of the subscription and the name of resource group you are working with.
 
 This is what the command should look like:
 
 ```azurecli
-az policy assignment create --name Require SQL Server version 12.0 Assignment --policy Require SQL Server version 12.0 --scope /subscriptions/ 
+az policy assignment create --name Require SQL Server version 12.0 Assignment --policy Require SQL Server version 12.0 --scope /subscriptions/
 bc75htn-a0fhsi-349b-56gh-4fghti-f84852/resourceGroups/FabrikamOMS
 ```
 
@@ -99,4 +99,3 @@ To learn more about assigning policies, to ensure that resources you create in t
 
 > [!div class="nextstepaction"]
 > [Creating and managing policies](./create-manage-policy.md)
-

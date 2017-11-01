@@ -1,8 +1,8 @@
 ---
-title: Create a policy assignment to identify non-compliant resources in your Azure environment | Microsoft Docs 
+title: Create a policy assignment to identify non-compliant resources in your Azure environment | Microsoft Docs
 description: This article walks you through the steps to create a policy definition to identify non-compliant resources.
-services: azure-policy 
-keywords: 
+services: azure-policy
+keywords:
 author: Jim-Parker
 ms.author: jimpark
 ms.date: 10/06/2017
@@ -18,7 +18,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Opt in to Azure Policy
 
-Azure Policy is now available in Limited Preview, so you need to register to request access.
+Azure Policy is now available in Public Preview and you need to register to request access.
 
 1. Go to Azure Policy at https://aka.ms/getpolicy and select **Sign Up** in the left pane.
 
@@ -28,11 +28,11 @@ Azure Policy is now available in Limited Preview, so you need to register to req
 
    ![Opt-in to use Azure Policy](media/assign-policy-definition/preview-opt-in.png)
 
-   It may take a couple of days for us to accept your registration request, based on demand. Once your request gets accepted, you will be notified via email that you can begin using the service.
+   Your request is automatically approved for Preview. Please allow up to 30 minutes to the system to process your registration.
 
 ## Create a policy assignment
 
-In this quickstart, we create a policy assignment and assign the *Require SQL Server Version 12.0* definition. 
+In this quickstart, we create a policy assignment and assign the *Require SQL Server Version 12.0* definition.
 
 1. Select **Assignments** on the left pane of the Azure Policy page.
 2. Select **Assign Policy** from the top of the **Assignments** pane.
@@ -104,4 +104,3 @@ To learn more about assigning policies to ensure that **future** resources that 
 
 > [!div class="nextstepaction"]
 > [Creating and managing policies](./create-manage-policy.md)
-
