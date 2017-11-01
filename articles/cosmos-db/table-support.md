@@ -19,10 +19,10 @@ ms.author: arramac
 
 # Developing with Azure Cosmos DB Table API and Azure Table Storage
 
-The Azure Cosmos DB Table API enables you to take advantage of the latency, throughput, consisntency and availability guarantees provided by Azure Cosmos DB, and use the familiar create, delete, update, and query operations provided by Azure Table Storage. 
+The Azure Cosmos DB Table API enables you to take advantage of the latency, throughput, consistency and availability guarantees provided by Azure Cosmos DB, and use the familiar create, delete, update, and query operations provided by Azure Table Storage. 
 
 This section currently contains articles written about developing with Azure Table Storage. These articles are actively being updated to include information about Azure Cosmos DB as well. 
 
-For additional information how the two services work together, see [Introduction to Azure Cosmos DB: Table API](table-introduction.md) and [FAQ: Develop with the Table API](faq.md#develop-with-the-table-api-preview). 
+For more information how the two services work together, see [Introduction to Azure Cosmos DB: Table API](table-introduction.md) and [FAQ: Develop with the Table API](faq.md#develop-with-the-table-api-preview). 
 
 
