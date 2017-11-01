@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/31/2017
+ms.date: 11/01/2017
 ms.author: cherylmc
 
 ---
@@ -36,11 +36,11 @@ You can:
 
 * See the ExpressRoute system state from a previous point in time
 
-### How does it work?
+**How does it work?**
 
 Monitoring agents are installed on multiple servers, both on-premises and in Azure. The agents communicate with each other, but do not send data, they send TCP handshake packets. The communication between the agents allows Azure to map the network topology and path the traffic could take.
 
-### Workflow
+**Workflow**
 
 1. Create an NPM Workspace in the West Central US region. Currently this is the only region where this Preview is supported.
 2. Install and configure software agents: 
@@ -56,7 +56,7 @@ If you are already using Network Performance Monitor to monitor other objects or
 
 1. In the [Azure portal](https://portal.azure.com), search the list of services in the **Marketplace** for 'Network Performance Monitor'. In the return, click to open the **Network Performance Monitor** page.
 
-  ![](.\media\how-to-npm\3.png)<br><br>
+  ![portal](.\media\how-to-npm\3.png)<br><br>
 2. At the bottom of the main **Network Performance Monitor** page, click **Create** to open **Network Performance Monitor - Create new solution** page. Click **OMS Workspace - select a workspace** to open the Workspaces page. Click **+ Create New Workspace** to open the Workspace page.
 3. On the **OMS Workspace** page, select **Create New** and configure the following settings:
 
@@ -66,14 +66,14 @@ If you are already using Network Performance Monitor to monitor other objects or
   * Location - You must select West Central US for this Preview
   * Pricing tier - Select 'Free'
 
-  ![](.\media\how-to-npm\4.png)<br><br>
+  ![workspace](.\media\how-to-npm\4.png)<br><br>
 4. Click **OK** to save and deploy the settings template. Once the template validates, click **Create** to deploy the Workspace.
 5. After the Workspace has been deployed, navigate to the **NetworkMonitoring(name)** resource that you created. Validate the settings, then click **Solution requires additional configuration**.
 
-  ![](.\media\how-to-npm\5.png)
+  ![additional configuration](.\media\how-to-npm\5.png)
 6. On the **Welcome to Network Performance Monitor** page, select **Use TCP for synthetic transactions**, then click **Submit**. The TCP transactions are used only to make and break the connection. No data is sent over these TCP connections.
 
-  ![](.\media\how-to-npm\6.png)
+  ![TCP for synthetic transactions](.\media\how-to-npm\6.png)
 
 ## <a name="agents"></a>Step 2: Install and configure agents
 
@@ -88,7 +88,7 @@ If you are already using Network Performance Monitor to monitor other objects or
 2. Next, copy and paste the **Workspace ID** and **Primary Key** to Notepad.
 3. In the **Configure Agents** section, download the Powershell Script. The PowerShell script helps you open the relevant firewall port for the TCP transactions.
 
-  ![](.\media\how-to-npm\7.png)
+  ![PowerShell script](.\media\how-to-npm\7.png)
 
 ### <a name="installagent"></a>2.2: Install a monitoring agent on each monitoring server
 
@@ -100,13 +100,13 @@ If you are already using Network Performance Monitor to monitor other objects or
 
   * If you chose to connect to **Azure Log Analytics (OMS)**, paste the **Workspace ID** and **Workspace Key** (Primary Key) that you copied into Notepad in the previous section. Then, click **Next**.
 
-    ![](.\media\how-to-npm\8.png)
+    ![ID and Key](.\media\how-to-npm\8.png)
   * If you chose to connect to **Operations Manager**, on the **Management Group Configuration** page, type the **Management Group Name**, **Management Server**, and the **Management Server Port**. Then, click **Next**.
 
-    ![](.\media\how-to-npm\9.png)
+    ![Operations Manager](.\media\how-to-npm\9.png)
   * On the **Agent Action Account** page, choose either the **Local System** account, or  **Domain or Local Computer Account**. Then, click **Next**.
 
-    ![](.\media\how-to-npm\10.png)
+    ![Account](.\media\how-to-npm\10.png)
 6. On the **Ready to Install** page, review your choices, and then click **Install**.
 7. On the **Configuration completed successfully** page, click **Finish**.
 8. When complete, the Microsoft Monitoring Agent appears in the Control Panel. You can review your configuration there, and verify that the agent is connected to Operational Insights (OMS). When connected to OMS, the agent displays a message stating: **The Microsoft Monitoring Agent has successfully connected to the Microsoft Operations Management Suite service**.
@@ -122,7 +122,7 @@ To configure proxy settings for the Microsoft Monitoring Agent using the Control
 3. Click the **Proxy Settings** tab.
 4. Select **Use a proxy server** and type the URL and port number, if one is needed. If your proxy server requires authentication, type the username and password to access the proxy server.
 
-  ![](.\media\how-to-npm\11.png)
+  ![proxy](.\media\how-to-npm\11.png)
 
 ### <a name="verifyagent"></a>2.4: Verify agent connectivity
 
@@ -133,7 +133,7 @@ You can easily verify whether your agents are communicating.
 3. Click the **Azure Log Analytics (OMS)** tab.
 4. In the **Status** column, you should see that the agent connected successfully to the Operations Management Suite service.
 
-  ![](.\media\how-to-npm\12.png)
+  ![status](.\media\how-to-npm\12.png)
 
 ### <a name="firewall"></a>2.5: Open the firewall ports on the monitoring agent servers
 
@@ -178,19 +178,19 @@ After you complete the previous sections and verify that you have been whitelist
 
 1. Navigate to the Network Performance Monitor overview tile by going to the **All Resources** page, and clicking on the whitelisted NPM Workspace.
 
-  ![](.\media\how-to-npm\npm.png)
+  ![npm workspace](.\media\how-to-npm\npm.png)
 2. Click the **Network Performance Monitor** overview tile to bring up the dashboard. The dashboard contains an ExpressRoute page, which shows that ExpressRoute is in an 'unconfigured state'. Click **Feature Setup** to open the Network Performance Monitor configuration page.
 
-  ![](.\media\how-to-npm\npm2.png)
+  ![feature setup](.\media\how-to-npm\npm2.png)
 3. On the configuration page, navigate to the 'ExpressRoute Peerings' tab, located on the left side panel. Click **Discover Now**.
 
-  ![](.\media\how-to-npm\13.png)
+  ![discover](.\media\how-to-npm\13.png)
 4. When discovery completes, you see rules for unique Circuit name and VNet name. Initially, these rules are disabled. You need to enable the rules, then select the monitoring agents and threshold values.
 
-  ![](.\media\how-to-npm\14.png)
+  ![rules](.\media\how-to-npm\14.png)
 5. After enabling the rules and selecting the values and agents you want to monitor, there is a wait of approximately 30-60 minutes for the values to begin populating and the **ExpressRoute Monitoring** tiles to become available. Once you see the monitoring tiles, your ExpressRoute circuits and connection resources are being monitored by NPM.
 
-  ![](.\media\how-to-npm\15.png)
+  ![monitoring tiles](.\media\how-to-npm\15.png)
 
 ## <a name="explore"></a>Step 6: View monitoring tiles
 
@@ -210,21 +210,21 @@ To see a list of all monitored ExpressRoute circuits, click on the **ExpressRout
 
 The bandwidth, latency, and loss charts are interactive. You can zoom into any section of these charts, using mouse controls. You can also see the bandwidth, latency, and loss data for other intervals by clicking **Date/Time**, located below the Actions button on the upper left.
 
-![](.\media\how-to-npm\16.png)
+![trend](.\media\how-to-npm\16.png)
 
 ### <a name="peerings"></a>Peerings list
 
 Clicking on the **Private Peerings** tile on the dashboard brings up a list of all connections to virtual networks over private peering. Here, you can select a virtual network connection and view its health state, trend charts for packet loss, bandwidth utilization, and latency.
 
-  ![circuit_list](.\media\how-to-npm\peerings.png)
+  ![circuit list](.\media\how-to-npm\peerings.png)
 
 ### <a name="topology"></a>Circuit topology
 
 To view circuit topology, click on the **Topology** tile. This takes you to the topology view of the selected circuit or peering. The topology diagram provides the latency for each segment on the network and each layer 3 hop is represented by a node of the diagram. Clicking on a hop reveals more details about the hop.
 You can increase the level of visibility to include on-premises hops by moving the slider bar below **Filters**. Moving the slider bar to the left or right, increases/decreases the number of hops in the topology graph. The latency across each segment is visible, which allows for faster isolation of high latency segments on your network.
 
-![](.\media\how-to-npm\topology.png)
+![filters](.\media\how-to-npm\topology.png)
 
 #### Detailed Topology view of a particular ExpressRoute circuit - with VNet connections
 
-![](.\media\how-to-npm\17.png)
+![detailed topology](.\media\how-to-npm\17.png)
