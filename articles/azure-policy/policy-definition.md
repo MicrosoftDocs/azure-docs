@@ -5,7 +5,7 @@ services: azure-policy
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 10/25/2017
+ms.date: 10/31/2017
 ms.topic: article
 ms.service: azure-policy
 ms.custom:
