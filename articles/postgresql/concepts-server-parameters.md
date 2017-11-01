@@ -1,6 +1,6 @@
 ---
 title: Overview of server parameters in Azure Database for PostgreSQL | Microsoft Docs
-description: This article gives and overview on Server Parameters in Azure Database for PostgreSQL and how to access and configure them.
+description: This article gives an overview on Server parameters in Azure Database for PostgreSQL and how to access and configure them.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
