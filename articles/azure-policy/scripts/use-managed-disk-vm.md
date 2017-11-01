@@ -25,7 +25,7 @@ Requires that virtual machines use managed disks.
 
 ## Sample template
 
-[!code-json[main](../../../azure-policy/samples/compute/use-managed-disk/azurepolicy.json "Create VM using Managed Disk")]
+[!code-json[main](../../../azure-policy/samples/Compute/use-managed-disk-vm/azurepolicy.json "Create VM using Managed Disk")]
 
 
 You can deploy this template using the [Azure portal](#deploy-with-the-portal), with [PowerShell](#deploy-with-powershell) or with the [Azure CLI](#deploy-with-azure-cli).
