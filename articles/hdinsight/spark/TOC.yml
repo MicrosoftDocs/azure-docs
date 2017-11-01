@@ -73,6 +73,9 @@
         - name: Tools for VSCode
           href: ../hdinsight-for-vscode.md
           maintainContext: true
+        - name: PySpark for VSCode
+          href: ../set-up-pyspark-interactive-environment.md
+          maintainContext: true
     - name: Use notebooks with Spark
       items: 
         - name: Use a local Jupyter notebook
