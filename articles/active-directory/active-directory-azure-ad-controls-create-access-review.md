@@ -45,7 +45,7 @@ By default, Azure AD sends an email to reviewers shortly after the review starts
 If some of the reviewers are guests, guests are notified via email only if they've already accepted their invitation.
 
 
-You can track the progress as the reviewers complete their reviews in the Azure AD dashboard in the **Access Reviews** section. No access rights are changed in the directory until [the review completes](active-directory-azure-ad-controls-complete-access-review.md).
+You can track the progress as the reviewers complete their reviews in the Azure AD dashboard in the **Access Reviews** section. No access rights are changed in the directory until [the review is completed](active-directory-azure-ad-controls-complete-access-review.md).
 
 ## Next steps
 
