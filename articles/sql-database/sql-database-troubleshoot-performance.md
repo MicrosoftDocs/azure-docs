@@ -11,7 +11,7 @@ keywords: sql performance tuning, database performance tuning, sql performance t
 ms.assetid: eb7b3f66-3b33-4e1b-84fb-424a928a6672
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.workload: data-management
+ms.workload: "On Demand"
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting

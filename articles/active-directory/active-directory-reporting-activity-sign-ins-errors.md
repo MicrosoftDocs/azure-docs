@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/17/2017
+ms.date: 10/31/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
 
@@ -56,16 +56,17 @@ The following section provides you with a complete overview of all possible erro
 
 | Error| Description |
 | --- | --- |
-| 50001| The service principal named X was not found in the tenant named Y. This can happen if the application has not been installed by the administrator of the tenant. Or Resource principal was not found in the directory or is invalid|
+| 50001| The service principal named X was not found in the tenant named Y. This can happen if the application has not been installed by the administrator of the tenant. Or Resource principal was not found in the directory or is invalid.|
 | 50008| SAML assertion are missing or misconfigured in the token.|
 | 50011| The reply address is missing, misconfigured or does not match reply addresses configured for the application.|
+| 50012| User reported fraud during Multi-Factor authentication.|
 | 50053| Account is locked because user tried to sign in too many times with an incorrect user ID or password.|
 | 50054| Old password is used for authentication.|
 | 50055| Invalid password, entered expired password.|
 | 50057| User account is disabled.|
 | 50058| No information about user's identity is found among provided credentials or User was not found in tenant or A silent sign-in request was sent but no user is signed in or Service was unable to authenticate the user.|
-| 50074| Strong Authentication (second factor) is required|
-| 50079| User needs to enroll for second factor authentication|
+| 50074| User did not pass the MFA challenge.|
+| 50079| User needs to enroll for second factor authentication.|
 | 50126| Invalid username or password or Invalid on-premise username or password.|
 | 50131| Used in various conditional access errors. E.g Bad Windows device state, request blocked due to suspicious activity, access policy and security policy decisions.|
 | 50133| Session is invalid due to expiration or recent password change.|
@@ -73,13 +74,14 @@ The following section provides you with a complete overview of all possible erro
 | 65001| Application X doesn't have permission to access application Y or the permission has been revoked. Or The user or administrator has not consented to use the application with ID X. Send an interactive authorization request for this user and resource. Or The user or administrator has not consented to use the application with ID X. Send an authorization request to your tenant admin to act on behalf of the App : Y for Resource : Z.|
 | 65005| The application required resource access list does not contain applications discoverable by the resource or The client application has requested access to resource which was not specified in its required resource access list or Graph service returned bad request or resource not found.|
 | 70001| The application named X was not found in the tenant named Y. This can happen if the application has not been installed by the administrator of the tenant or consented to by any user in the tenant. You might have sent your authentication request to the wrong tenant.|
-| 80001| No Authentication Agent available.|
+| 80001| Authentication Agent unable to connect to Active Directory.|
 | 80002| Authentication Agent's password validation request timed out.|
 | 80003| Invalid response received by Authentication Agent.|
 | 80004| Incorrect User Principal Name (UPN) used in sign-in request.|
 | 80005| Authentication Agent: Error occurred.|
-| 80007| Authentication Agent unable to connect to Active Directory.|
+| 80007| Authentication Agent unable to validate user's password.|
 | 80010| Authentication Agent unable to decrypt password.|
+| 80011| Authentication Agent unable to retrieve decryption key.|
 | 81001| User's Kerberos ticket is too large.|
 | 81002| Unable to validate user's Kerberos ticket.|
 | 81003| Unable to validate user's Kerberos ticket.|
@@ -92,6 +94,7 @@ The following section provides you with a complete overview of all possible erro
 | 81013| Unable to find user object based on information in the user's Kerberos ticket.|
 | 90014| Used in various cases when an expected field is not present in the credential.|
 | 90093| Graph returned with forbidden error code for the request.|
+
 
 
 

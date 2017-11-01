@@ -3,7 +3,7 @@ title: Managing groups in Azure Active Directory | Microsoft Docs
 description: How to create and manage groups to manage Azure users using Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: LizCasey
 manager: femila
 editor: ''
 

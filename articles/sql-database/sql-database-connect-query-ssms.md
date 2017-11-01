@@ -12,7 +12,7 @@ editor: ''
 ms.assetid: 7cd2a114-c13c-4ace-9088-97bd9d68de12
 ms.service: sql-database
 ms.custom: mvc,DBs & servers
-ms.workload: data-management
+ms.workload: "Active"
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
@@ -161,6 +161,7 @@ Use the following code to delete the new product that you previously added using
 
 - To learn about creating and managing servers and databases with Transact-SQL, see [Learn about Azure SQL Database servers and databases](sql-database-servers-databases.md).
 - For information about SSMS, see [Use SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).
+- To connect and query using the Azure portal, see [Connect and query with the Azure portal SQL Query editor](sql-database-connect-query-portal.md).
 - To connect and query using Visual Studio Code, see [Connect and query with Visual Studio Code](sql-database-connect-query-vscode.md).
 - To connect and query using .NET, see [Connect and query with .NET](sql-database-connect-query-dotnet.md).
 - To connect and query using PHP, see [Connect and query with PHP](sql-database-connect-query-php.md).
