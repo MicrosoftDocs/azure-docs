@@ -193,7 +193,7 @@ The following steps show you how to create an IoT Edge module using Visual Studi
 1. Add the following method to the **Program** class. This method is called whenever the module is sent a message from the Edge Hub. It filters messages based on the temperature value in the body of the message, and the temperature threshold set via the module twin.
 
     ```csharp
-    static async Task FilterMessages(Message message, object userContext)
+    static async Task<MessageResponse> FilterMessages(Message message, object userContext)
     {
         int counterValue = Interlocked.Increment(ref counter);
 
