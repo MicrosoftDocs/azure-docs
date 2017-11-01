@@ -138,7 +138,7 @@ Another way to create the cluster is to use PowerShell. Here's how:
     -OS WindowsServer2016DatacenterwithContainers -VmSku $vmsku -KeyVaultName $vaultname
     ```
 
-    The command can take anywhere from 10 minutes to 30 minutes to complete. You should see output similar to the following. The output has information about the certificate, the key vault where it was uploaded to, and the local folder where the certificate is copied.     
+    The command can take anywhere from 10 minutes to 30 minutes to complete. The output has information about the certificate, the key vault where it was uploaded to, and the local folder where the certificate is copied.     
 
 3. Copy the entire output and save to a text file (you will refer to it later). Make a note of the following information from the output: 
 
