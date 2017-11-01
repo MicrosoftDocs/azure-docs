@@ -22,6 +22,7 @@ abstract:
            height: 133
            width: 110
            src: media/Jenkins.png
+        title: 
 sections:
 - title: 5-Minute Quickstarts
   items: 
