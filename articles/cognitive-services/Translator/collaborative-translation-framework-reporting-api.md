@@ -2,8 +2,8 @@
 title: Collaborative Translation Framework (CTF) Reporting API | Microsoft Docs
 description: Use Collaborative Translation Framework (CTF) Reporting API to return statistics and the actual content in the CTF store.
 services: cognitive-services
-author: chriswendt1
-manager: arulm
+author: jann-skotdal
+manager: chriswendt1
 
 ms.service: cognitive-services
 ms.technology: translator
