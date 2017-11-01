@@ -60,7 +60,7 @@ For example, the following JSON shows a policy that limits where resources are d
 
 ## Mode
 
-We recommend that you set `mode` to `all` to have a policy assignment evaluate all resource groups and types. You can see an example of a policy definition that enforces tags on a resource group at <link to sample on enforcing tags on a resource group>.
+We recommend that you set `mode` to `all` to have a policy assignment evaluate all resource groups and types. You can see an example of a policy definition that enforces tags on a resource group at [Allow custom VM image from a Resource Group](scripts/allow-custom-vm-image.md).
 
 When you set it to **all**, resource groups and all resource types are evaluated for the policy. The portal uses **all** for all policies. If you use PowerShell or Azure CLI, you need to specify the `mode` parameter and set it to **all**.
 
@@ -163,7 +163,7 @@ A condition evaluates whether a **field** meets certain criteria. The supported 
 
 When using the **like** condition, you can provide a wildcard (*) in the value.
 
-When using the **match** condition, provide `#` to represent a digit, `?` for a letter, and any other character to represent that actual character. For examples, see [LINK TO SAMPLES].
+When using the **match** condition, provide `#` to represent a digit, `?` for a letter, and any other character to represent that actual character. For examples, see [Approved VM images](scripts/allowed-custom-images.md).
 
 ### Fields
 Conditions are formed by using fields. A field represents properties in the resource request payload that is used to describe the state of the resource.  

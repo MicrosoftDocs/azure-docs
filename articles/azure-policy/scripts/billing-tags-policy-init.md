@@ -28,7 +28,7 @@ This policy set requires specified tag values for cost center and product name. 
 [!code-json[main](../../../policy-templates/samples/PolicyInitiatives/multiple-billing-tags/azurepolicyset.json "Billing Tags Policy Initiative")]
 
 
-You can deploy this template using the [Azure portal](#deploy-with-the-portal), with [PowerShell](#deploy-with-powershell) or with the [Azure CLI](#deploy-with-azure-cli).
+You can deploy this template using the [Azure portal](#deploy-with-the-portal) or with  [PowerShell](#deploy-with-powershell).
 
 ## Deploy with the portal
 
@@ -58,4 +58,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 ## Next steps
 
-Additional Azure Policy template samples can be found in the Azure Policy documentation
+- Additional Azure Policy template samples are at [Templates for Azure Policy](../json-samples.md).

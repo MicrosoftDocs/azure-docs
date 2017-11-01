@@ -45,15 +45,13 @@ The following table includes links to json templates for Azure Policy.
 | [Allowed Peering Location for Express Route](scripts/allowed-peering-er.md) | Requires that Express Routes use specified peering locations. You specify an array of allowed peering locations. |
 | [Allowed Express Route SKUs](scripts/allowed-er-skus.md) | Requires that Express Routes use an approved SKU. You specify an array of allowed SKUs. |
 | [Allowed Load Balancer SKUs](scripts/allowed-lb-skus.md) | Requires that load balancers use an approved SKU. You specify an array of allowed SKUs. |
-| Ensure network watcher is created | Automatically creates a network watcher instance for virtual networks if one does not exist. |
 | [No network peering to ER network](scripts/no-peering-er-net.md) | Prohibits a network peering from being associated to a network in a specified resource group. Use to prevent connection with central managed network infrastructure. You specify the name of the resource group to prevent association. |
 | [No User Defined Route Table](scripts/no-user-def-route-table.md)  |Prohibits virtual networks from being deployed with a user-defined route table. |
 | [Allowed Virtual Network Gateway SKUs](scripts/no-user-def-route-table.md) | Requires that virtual network gateways use an approved SKU and gateway type. You specify an array of approved SKUs and an array of approved gateway types. |
 | [Use approved subnet for VM network interfaces](scripts/use-approved-subnet-vm-nics.md) | Requires that network interfaces use an approved subnet. You specify the ID of the approved subnet. |
 | [Use approved vNet for VM network interfaces](scripts/use-approved-vnet-vm-nics.md) | Requires that network interfaces use an approved virtual network. You specify the ID of the approved virtual network. |
-|**PolicySet**||
+|**Tags**||
 | [Billing Tags Policy Initiative](scripts/billing-tags-policy-init.md) | Requires specified tag values for cost center and product name. Uses built-in policies to apply and enforce required tags. You specify the required values for the tags.  |
-|**ResourceGroup**||
 | [Enforce tag and its value on resource groups](scripts/enforce-tag-rg.md) | Requires a tag and value on a resource group. You specify the required tag name and value.  |
 |**SQL**||
 | [Audit SQL DB Level Audit Setting](scripts/audit-sql-db-audit-setting.md) | Audits SQL database audit settings if those settings do not match a specified setting. You specify a value that indicates whether audit settings should be enabled or disabled.  |

@@ -1,6 +1,6 @@
 ---
 title: json Sample - Allow custom VM image from a Resource Group  | Microsoft Docs
-description: This json sample policy audits when a virtual machine is created that does not use managed disks.
+description: This json sample policy requires that custom images come from an approved resource group.
 services: azure-policy
 documentationcenter:
 author: bandersmsft
@@ -19,7 +19,7 @@ ms.custom: mvc
 
 # Allow custom VM image from a Resource Group
 
-This json sample policy audits when a virtual machine is created that does not use managed disks.
+This json sample policy requires that custom images come from an approved resource group. You specify the name of the approved resource group.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

@@ -5,7 +5,7 @@ services: azure-policy
 keywords:
 author: Jim-Parker
 ms.author: jimpark
-ms.date: 10/25/2017
+ms.date: 11/01/2017
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
