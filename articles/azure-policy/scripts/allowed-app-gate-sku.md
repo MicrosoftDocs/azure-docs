@@ -25,7 +25,7 @@ This policy requires that application gateways use an approved SKU. You specify 
 
 ## Sample template
 
-[!code-json[main](../../../policy-templates/samples/Network/applicaiton-gateway-skus/azurepolicy.json "Allowed Application Gateway SKUs")]
+[!code-json[main](../../../policy-templates/samples/network/applicaiton-gateway-skus/azurepolicy.json "Allowed Application Gateway SKUs")]
 
 
 You can deploy this template using the [Azure portal](#deploy-with-the-portal), with [PowerShell](#deploy-with-powershell) or with the [Azure CLI](#deploy-with-azure-cli).
