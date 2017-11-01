@@ -127,13 +127,13 @@ If the method name contains **[COLD]**, such as **mscorlib.ni![COLD]System.Refle
 If loading code takes a substantial amount of time for a request, this indicates that the request is the first one to execute the unoptimized portion of the method. Consider using a warmup process that executes that portion of the code before your users access it.
 
 ### <a id="httpclientsend"></a>Send HTTP request
-Methods like **HttpClient.Send** indicate that the code is waiting for an HTTP request to complete.
+Methods like **HttpClient.Send** indicate that the code is waiting for an HTTP request to be completed.
 
 ### <a id="sqlcommand"></a>Database operation
-Methods like **SqlCommand.Execute** indicate that the code is waiting for a database operation to complete.
+Methods like **SqlCommand.Execute** indicate that the code is waiting for a database operation to finish.
 
 ### <a id="await"></a>Waiting (AWAIT\_TIME)
-**AWAIT\_TIME** indicates that the code is waiting for another task to complete. This typically happens with the C# **AWAIT** statement. When the code does a C# **AWAIT**, the thread unwinds and returns control to the thread pool, and there is no thread that is blocked waiting for the **AWAIT** to finish. However, logically, the thread that did the **AWAIT** is "blocked," and is waiting for the operation to complete. The **AWAIT\_TIME** statement indicates the blocked time waiting for the task to complete.
+**AWAIT\_TIME** indicates that the code is waiting for another task to finish. This typically happens with the C# **AWAIT** statement. When the code does a C# **AWAIT**, the thread unwinds and returns control to the thread pool, and there is no thread that is blocked waiting for the **AWAIT** to finish. However, logically, the thread that did the **AWAIT** is "blocked," and is waiting for the operation to finish. The **AWAIT\_TIME** statement indicates the blocked time waiting for the task to finish.
 
 ### <a id="block"></a>Blocked time
 **BLOCKED_TIME** indicates that the code is waiting for another resource to be available. For example, it might be waiting for a synchronization object, for a thread to be available, or for a request to finish.
@@ -181,7 +181,7 @@ When you enable Application Insights Profiler, the Azure Service Profiler agent 
 
 In some cases, the total time metric in the stack viewer is more than the duration of the request.
 
-This might occur when there are two or more threads associated with a request, and they are operating in parallel. In that case, the total thread time is more than the elapsed time. One thread might be waiting on the other to complete. The viewer tries to detect this and omits the uninteresting wait, but it errs on the side of showing too much rather than omitting what might be critical information.  
+This might occur when there are two or more threads associated with a request, and they are operating in parallel. In that case, the total thread time is more than the elapsed time. One thread might be waiting on the other to be completed. The viewer tries to detect this and omits the uninteresting wait, but it errs on the side of showing too much rather than omitting what might be critical information.  
 
 When you see parallel threads in your traces, determine which threads are waiting so you can determine the critical path for the request. In most cases, the thread that quickly goes into a wait state is simply waiting on the other threads. Concentrate on the other threads and ignore the time in the waiting threads.
 
