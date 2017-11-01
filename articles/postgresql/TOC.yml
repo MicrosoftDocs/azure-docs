@@ -51,7 +51,7 @@
       href: concepts-supported-versions.md
     - name: PostgreSQL extensions
       href: concepts-extensions.md
-    - name: Server paramters
+    - name: Server parameters
       href: concepts-server-parameters.md
     - name: Server logs
       href: concepts-server-logs.md
@@ -100,7 +100,7 @@
   - name: Configure server parameters
     items:
     - name: Azure portal
-      href: howto-configure-server-parameters-using-cli.md
+      href: howto-configure-server-parameters-using-portal.md
     - name: Azure CLI
       href: howto-configure-server-parameters-using-cli.md
   - name: Access server logs
