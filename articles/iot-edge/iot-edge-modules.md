@@ -49,6 +49,20 @@ Each module instance also has a corresponding module twin that you can use to co
 
 A module twin is a JSON document that stores module information and configuration properties. This concept parallels the [device identity][lnk-device-identity] and [device twin][lnk-device-twin] concepts from IoT Hub. The structure of a module twin is exactly the same as a device twin. The APIs used to interact with both types of twins are also the same. The only difference between the two is the identity used to instantiate the client SDK. 
 
+```
+// Create a DeviceClient object. This DeviceClient will act on behalf of a 
+// module since it is created with a module’s connection string instead 
+// of a device connection string. 
+DeviceClient client = new DeviceClient.CreateFromConnectionString(moduleConnectionString, settings); 
+await client.OpenAsync(); 
+ 
+// Get the model twin 
+Twin twin = await client.GetTwinAsync(); 
+```
+
+## Next steps
+ - [Understand the Azure IoT Edge runtime and its architecture][lnk-runtime]
+
 <!-- Images -->
 [1]: ./media/iot-edge-modules/image_instance.png
 [2]: ./media/iot-edge-modules/identity.png
@@ -56,3 +70,4 @@ A module twin is a JSON document that stores module information and configuratio
 <!-- Links -->
 [lnk-device-identity]: ../iot-hub/iot-hub-devguide-identity-registry.md
 [lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
+[lnk-runtime]: iot-edge-runtime.md
