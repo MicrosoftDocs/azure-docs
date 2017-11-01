@@ -30,7 +30,7 @@ Source control allows you to push code from Azure Automation to source control o
 There are two simple steps required to configure source control for your Automation account, and only one if you already have a GitHub account. They are:
 
 ## Step 1 – Create a GitHub repository
-If you already have a GitHub account and a repository that you want to link to Azure Automation, then sign into your existing account and start from step 2 below. Otherwise, navigate to [GitHub](https://github.com/), sign up for a new account and [create a new repository](https://help.github.com/articles/create-a-repo/).
+If you already have a GitHub account and a repository that you want to link to Azure Automation, then sign into your existing account and start from step 2 below. Otherwise, navigate to [GitHub](https://github.com/), sign up for a new account and [create a new repository](https://help.github.com/articles/create-a-repo/).  (Note that this repository must be "public" for Azure Automation to use it.)
 
 ## Step 2 – Set up source control in Azure Automation
 1. From the Automation Account page in the Azure portal, click **Set Up Source Control.** 
