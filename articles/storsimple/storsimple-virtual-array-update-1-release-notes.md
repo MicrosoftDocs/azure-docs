@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/30/2017
+ms.date: 11/01/2017
 ms.author: alkohli
 
 ---
@@ -25,17 +25,16 @@ The following release notes identify the critical open issues and the resolved i
 
 The release notes are continuously updated, and as critical issues requiring a workaround are discovered, they are added. Before you deploy your StorSimple Virtual Array, carefully review the information contained in the release notes.
 
-Update 1.0 corresponds to the software version **10.0.10293.0**.
+Update 1.0 corresponds to the software version **10.0.10296.0**.
 
 > [!IMPORTANT]
 > - Updates are disruptive and restart your device. If I/O are in progress, the device incurs downtime. For detailed instructions on how to apply the update, go to [Install Update 1.0](storsimple-virtual-array-install-update1.md).
 >
-> - Update 1 is only available to you via the Azure portal if your device is running Update 0.6. If you are running a version lower than Update 0.6, you must install Update 0.6 first and then apply Update 1. If you use the local web UI to install update 1 on your virtual array, you must ensure that you are running Update 0.6. If you are running a version prior to Update 0.6, there is no mechanism to block you from installing Update 1 but if you do so, you will encounter an error.
-
+> - Update 1 is only available to you via the Azure portal if your device is running Update 0.6.
 
 ## What's new in the Update 1.0
 
-Update 1.0 is a critical update and should be deployed immediately. This update contains the following fixes:
+Update 1.0 contains changes related to authentication of StorSimple Device Manager service and should be deployed at your earliest. This update contains the following fixes:
 
 **Use of Azure Active Directory (AAD) to authenticate with StorSimple Device Manager service** – From Update 1.0 onwards, Azure Active Directory is used to authenticate with the StorSimple Device Manager service. The old authentication mechanism will be deprecated by December 2017. All the users must include the new authentication URLs in their firewall rules. For more information, go to authentication URLs listed in the [Networking requirements for your StorSimple Virtual Array](storsimple-ova-system-requirements.md).
 
@@ -72,6 +71,8 @@ The following table provides a summary of known issues for the StorSimple Virtua
 | **15.** |File server |Symbolic links are not supported. | |
 | **16.** |File server |Files protected by Windows Encrypting File System (EFS) when copied over or stored on the StorSimple Virtual Array file server result in an unsupported configuration.  | |
 | **17.** |Updates |If you see Error code: 2359302 (hex 0x240006) when trying to install a hotfix through the local UI, then this implies that the hotfix is already installed on your device.   | |
+| **18.** |Updates |If you use the local web UI to install Update 1 on your virtual array, you must ensure that you are running Update 0.6. If you are running a version lower than Update 0.6, you must install Update 0.6 first and then apply Update 1. If you directly install Update 1.0 from a pre-Update 0.6 version, then the monitoring charts may not work.   | |
+
 
 ## Next step
 [Install Update 1.0](storsimple-virtual-array-install-update1.md) on your StorSimple Virtual Array.
