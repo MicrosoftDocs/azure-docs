@@ -165,7 +165,7 @@ For more information about NSG, see [Network Security Groups](../virtual-network
 >
 >
 
-Before you can start using the ExpressRoute monitoring feature of NPM, you must request to have your Workspace whitelisted. [Click here to fill out the form](http://aka.ms/npmcohort) to add your Workspace for whitelisting. The whitelisting process may take a business day or more. We send you an email once the whitelisting is complete.
+Before you can start using the ExpressRoute monitoring feature of NPM, you must request to have your Workspace whitelisted. [Click here to fill out the form](https://go.microsoft.com/fwlink/?linkid=862263) to add your Workspace for whitelisting. The whitelisting process may take a business day or more. We send you an email once the whitelisting is complete.
 
 >[!WARNING]
 >Do not proceed further until your Workspace has been whitelisted and you receive a confirmation email.
