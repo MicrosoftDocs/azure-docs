@@ -16,7 +16,7 @@ ms.author: v-demak
 
 This Quickstart helps you create your first Language Understanding Intelligent Service (LUIS) app in just a few minutes. When you're finished, you'll have a LUIS endpoint up and running in the cloud.
 
-You are going to create a travel app, that helps you book flights and check the weather at your destination. The how-to topics refer to this application and build on it.
+This article shows you how to create a LUIS app that uses the Home.Automation domain, which provides intents and entities for a home automation system for turning lights and appliances on and off.
 
 ## Before you begin
 To use Microsoft Cognitive Service APIs, you first need to create a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) in the Azure portal.
@@ -24,53 +24,83 @@ To use Microsoft Cognitive Service APIs, you first need to create a [Cognitive S
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Create a new app
-You can create and manage your applications on **My Apps** page. You can always access this page by clicking **My Apps** on the top navigation bar of the [LUIS web page](https://www.luis.ai).
+You can create and manage your applications on **My Apps** page. You can always access this page by clicking **My Apps** on the top navigation bar of LUIS web page. 
 
-1. On the **My Apps** page, click **New App**.
-2. In the dialog box, name your application "TravelAgent".
+1. On **My Apps** page, click **New App**.
+2. In the dialog box, name your application "Home Automation".
 
-    ![A new app form](./Images/NewApp-Form.JPG)
-3. Choose your application culture (for TravelAgent app, we’ll choose English), and then click **Create**. 
+    ![A new app form](./media/luis-quickstart-new-app/new-app-dialog.PNG)
+3. Choose your application culture (for this Home Automation app, we’ll choose English), and then click **Create**. 
 
     >[!NOTE]
     >The culture cannot be changed once the application is created. 
 
-LUIS creates the TravelAgent app and opens its main page which looks like the following screen. Use the navigation links in the left panel to move through your app pages to define data and work on your app. 
+LUIS creates the Home Automation app and opens its main page which looks like the following screen. Use the navigation links in the left panel to move through your app pages to define data and work on your app. 
 
-![TravelAgent app created and Opened](./Images/AppCreated_Opened.JPG)
+![Home Automation app created and Opened](./media/luis-quickstart-new-app/app-created-opened.PNG)
 
-## Add intents
-Your first task in the app is to add intents. Intents are the intentions or requested actions conveyed by the user's utterances. They are the main building block of your app. You now need to define the intents (for example, book a flight) that you want your application to detect. Go to the **Intents** page in the side menu to create your intents by clicking the **Add Intent** button.
+## Add the Home Automation prebuilt domain
 
-For more detail on how to add intents, see [Add intents](add-intents.md).
+Click on **Prebuilt domains** in the left-side navigation pane. Then click on **HomeAutomation**.
+![Home Automation domain called out in prebuilt domain menu](./media/luis-quickstart-new-app/prebuilt-domain-find.PNG).
 
-## Add utterances
-Now that you've defined intents, you can start seeding examples to every intent to teach the machine learning model the different patterns (for example, "book a flight to Seattle departing on June 8th".) Select an intent you just added and start adding and saving utterances to your intent.
+Click **Yes** when prompted to add the "HomeAutomation" domain to the app.
 
-## Add entities
-Now that you have your intents, you can proceed to add entities. Entities describe information relevant to the intent, and sometimes are essential for your app to perform its task. An example for this app would be the airline on which to book a flight. Add a simple entity named "Airline" to your TravelAgent app.
+![Home Automation domain prompt](./media/luis-quickstart-new-app/add-prebuilt-domain-dialog.PNG).
 
-For more information about entities, see [Add entities](add-entities.md).
+## Take a look at the intents and entities
 
-## Label entities in utterances
-Next, you need to label examples of the entities to teach LUIS what this entity can look like. Highlight relevant tokens as entities in the utterances you added.
+You can see the intents that have been added for you from the prebuilt domain. Click on **Intents** in the left-side navigation pane, and you can see that the HomeAutomation domain provides **HomeAutomation.TurnOff**, **HomeAutomation.TurnOn**, and **None**.
 
-## Add prebuilt entities
-It might be useful to add one of the pre-existing entities, which we call *prebuilt* entities. Those types of entities are ready to be used directly and don't need to be labeled. Go to the **Entities** page to add prebuilt entities relevant to your app. Add the `ordinal` and `datetime` prebuilt entities to your app.
+> [!NOTE]
+> **None** is an intent provided by all LUIS apps. You use it to handle utterances that don't correspond to functionality your app provides. 
+
+![Home Automation domain prompt](./media/luis-quickstart-new-app/intents.PNG).
+
+Click on the **HomeAutomation.TurnOff** intent. You can see that the intent contains utterances which are labeled with entities.
+
+![Home Automation domain prompt](./media/luis-quickstart-new-app/utterances.PNG).
+
+Click on the **Labels view** and select **tokens**. This shows the text tokens that make up each labeled entity, instead of the name of the entity type.
+
+![Home Automation domain prompt](./media/luis-quickstart-new-app/utterances-tokens.PNG).
+
+Click **Entities in use**. This shows the entities that this app identifies in the utterances.
+
+![Home Automation domain prompt](./media/luis-quickstart-new-app/entities-in-use.PNG).
 
 ## Train your app
-Select **Train & Test** in the left panel, and then click **Train Application** to train your app based on the intents, utterances, entities you defined in the previous steps.
+
+Click on **Train & Test** in the left-side navigation, then click **Train application**.
+
+![Home Automation test](./media/luis-quickstart-new-app/test-callout.PNG).
 
 ## Test your app
-Once you've trained your app, you can test it by typing a test utterance and pressing Enter. The results display the score associated with each intent. Check that the top scoring intent corresponds to the intent of each test utterance.
+Once you've trained your app, you can test it. Type a test utterance like "Turn on the lights" into the Interactive Testing pane, and press Enter. The results display the score associated with each intent. Check that the top scoring intent corresponds to the intent of each test utterance.
+
+![Home Automation test](./media/luis-quickstart-new-app/test-prebuilt-domain-home.PNG).
 
 ## Publish your app
-Select **Publish App** from the left-side menu and click **Publish**. 
+Select **Publish App** from the left-side menu and click the **Publish** button. 
+
+![Home Automation test](./media/luis-quickstart-new-app/publish-before.PNG).
+
+After you've successfully published, the **Publish App** page displays an Endpoint URL.
+
+![Home Automation test](./media/luis-quickstart-new-app/publish.PNG).
 
 ## Use your app
-Copy the endpoint URL from the Publish App page and paste it into a browser. Append a query like "Book a flight to Boston" at the end of the URL and submit the request. The JSON containing results should show in the browser window.
+Click on the endpoint URL in the Publish App page to open it in a web browser. Append a query like "turn off the living room lights" to the end of the URL and submit the request. The JSON containing results should show in the browser window.
+
+![JSON result detects the intent TurnOff](./media/luis-get-started-node-get-intent/turn-off-living-room.png)
 
 ## Next steps
 
-* Try to improve your app's performance by continuing to add and label utterances.
-* Try adding [Features](Add-Features.md) to enrich your model and improve performance in language understanding. Features help your app identify alternative interchangeable words/phrases, as well as commonly-used patterns specific to your domain.
+You can call the endpoint from code:
+* [Call a LUIS endpoint using C#](luis-get-started-cs-get-intent.md)
+* [Call a LUIS endpoint using Node.js](luis-get-started-node-get-intent.md)
+* [Call a LUIS endpoint using client-side JavaScript](luis-get-started-js-get-intent.md)
+* [Call a LUIS endpoint using Java](luis-get-started-java-get-intent.md)
+* [Call a LUIS endpoint using Python](luis-get-started-python-get-intent.md)
+
+
