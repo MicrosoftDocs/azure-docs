@@ -23,6 +23,6 @@ The Azure Cosmos DB Table API enables you to take advantage of the latency, thro
 
 This section currently contains articles written about developing with Azure Table Storage. These articles are actively being updated to include information about Azure Cosmos DB as well. 
 
-For additional information how the two services work together, see [Introduction to Azure Cosmos DB: Table API](table-introduction.md) and [FAQ: Develop with the Table API](faq#develop-with-the-table-api-preview). 
+For additional information how the two services work together, see [Introduction to Azure Cosmos DB: Table API](table-introduction.md) and [FAQ: Develop with the Table API](faq.md#develop-with-the-table-api-preview). 
 
 
