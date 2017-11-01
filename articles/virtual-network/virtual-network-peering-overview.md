@@ -60,13 +60,13 @@ When configuring virtual network peering, you can either open or close the netwo
 
 ## Service chaining
 
-You can configure user-defined routes that point to virtual machines in peered virtual networks as the "next hop" IP address to enable service chaining. Service chaining enables you to direct traffic from one virtual network to a virtual appliance in a peered virtual network through user-defined routes.
+You can configure user-defined routes that point to virtual machines in peered virtual networks as the *next hop* IP address, or to virtual network gateways, to enable service chaining. Service chaining enables you to direct traffic from one virtual network to a virtual appliance, or virtual network gateway, in a peered virtual network, through user-defined routes.
 
-You can also effectively build hub-and-spoke type environments, where the hub can host infrastructure components such as a network virtual appliance. All the spoke virtual networks can then peer with the hub virtual network. Traffic can flow through network virtual appliances that are running in the hub virtual network. In short, virtual network peering enables the next hop IP address on the user-defined route to be the IP address of a virtual machine in the peered virtual network. To learn more about user-defined routes, see [user-defined routes overview](virtual-networks-udr-overview.md). To learn how to create a hub and spoke network topology, see [hub and spoke network topology](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering)
+You can deploy hub-and-spoke networks, where the hub virtual network can host infrastructure components such as a network virtual appliance or virtual network gateway. All the spoke virtual networks can then peer with the hub virtual network. Traffic can flow through network virtual appliances or virtual network gateways that are running in the hub virtual network. Virtual network peering enables the next hop in a user-defined route to be the IP address of a virtual machine in the peered virtual network, or a VPN virtual network gateway. You cannot however, route between virtual networks with a user-defined route using an ExpressRoute virtual network gateway as the next hop type. To learn more about user-defined routes, see [User-defined routes overview](virtual-networks-udr-overview.md#user-defined). To learn how to create a hub and spoke network topology, see [hub and spoke network topology](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering).
 
 ## Gateways and on-premises connectivity
 
-Each virtual network, regardless of whether it is peered with another virtual network, can still have its own gateway and use it to connect to an on-premises network. You can also configure [virtual network-to-virtual network connections](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md) by using gateways, even though the virtual networks are peered.
+Each virtual network, regardless of whether it is peered with another virtual network, can still have its own gateway and use it to connect to an on-premises network. You can also configure [virtual network-to-virtual network connections](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json) by using gateways, even though the virtual networks are peered.
 
 When both options for virtual network interconnectivity are configured, the traffic between the virtual networks flows through the peering configuration (that is, through the Azure backbone).
 
@@ -74,7 +74,7 @@ When virtual networks are peered in the same region, you can also configure the 
 
 ![virtual network peering transit](./media/virtual-networks-peering-overview/figure04.png)
 
-Gateway transit is not supported in the peering relationship between virtual networks created through different deployment models or different regions. Both virtual networks in the peering relationship must have been created through Resource Manager and must be in the same region for gateway transit to work. Globally peered virtual networks do not currently support gateway transit.
+Gateway transit is not supported in the peering relationship between virtual networks created through different deployment models or different regions. Both virtual networks in the peering relationship must have been created through Resource Manager and must be in the same region for gateway transit to work. Globally-peered virtual networks do not currently support gateway transit.
 
 When the virtual networks that are sharing a single Azure ExpressRoute connection are peered, the traffic between them goes through the peering relationship (that is, through the Azure backbone network). You can still use local gateways in each virtual network to connect to the on-premises circuit. Alternatively, you can use a shared gateway and configure transit for on-premises connectivity.
 
@@ -95,20 +95,17 @@ For example, if you were peering virtual networks named myVirtualNetworkA and my
 
 ## Monitor
 
-When peering two virtual networks created through Resource Manager, a peering must be configured for each virtual network in the peering.
-You can monitor the status of your peering connection. The peering status is one of the following states:
+When peering two virtual networks created through Resource Manager, a peering must be configured for each virtual network in the peering. You can monitor the status of your peering connection. The peering status is one of the following states:
 
-* **Initiated**: When you create the peering to the second virtual network from the first virtual network, the peering status is Initiated.
-
-* **Connected**: When you create the peering from the second virtual network to the first virtual network, its peering status is Connected. If you view the peering status for the first virtual network, you see its status changed from Initiated to Connected. The peering is not successfully established until the peering status for both virtual network peerings is Connected.
-
-* **Disconnected**: If one of your peering links is deleted after a connection was established, your peering status is disconnected.
+* **Initiated**: The state shown when you create the peering from the first virtual network to the second virtual network.
+* **Connected**: The state show once you've created the peering from the second virtual network to the first virtual network. The peering state for the first virtual network changes from *Initiated* to *Connected*. A virtual network peering is not successfully established until the state for both virtual network peerings is *Connected*.
+* **Disconnected**: The state shown if a peering from one virtual network to another is deleted after a peering is established between two virtual networks.
 
 ## Troubleshoot
 
-To troubleshoot traffic flowing across your peering connection, you can [check your effective routes.](virtual-network-routes-troubleshoot-portal.md)
+To confirm a virtual network peering, you can [check effective routes](virtual-network-routes-troubleshoot-portal.md) for a network interface in any subnet in a virtual network. If a virtual network peering exists, all subnets within the virtual network have routes with next hop type *VNet peering*, for each address space in each peered virtual network.
 
-You can also troubleshoot your connectivity to a virtual machine in a peered virtual network using Network Watcher's [connectivity check](../network-watcher/network-watcher-connectivity-portal.md). Connectivity check lets see how is routed directly from your source VM's network interface to your destination VM's network interface.
+You can also troubleshoot connectivity to a virtual machine in a peered virtual network using Network Watcher's [connectivity check](../network-watcher/network-watcher-connectivity-portal.md). Connectivity check lets you see how traffic is routed from a source virtual machine's network interface to a destination virtual machine's network interface.
 
 ## Limits
 
