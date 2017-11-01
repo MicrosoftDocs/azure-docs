@@ -3,19 +3,19 @@ title: Authorize developer accounts using OAuth 2.0 in Azure API Management | Mi
 description: Learn how to authorize users using OAuth 2.0 in API Management.
 services: api-management
 documentationcenter: ''
-author: steved0x
-manager: erikre
+author: juliako
+manager: cfowler
 editor: ''
 
-ms.assetid: 78c48247-64f0-4708-b2d0-98b61a821283
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 10/30/2017
 ms.author: apimpm
 ---
+
 # How to authorize developer accounts using OAuth 2.0 in Azure API Management
 Many APIs support [OAuth 2.0](http://oauth.net/2/) to secure the API and ensure that only valid users have access, and they can only access resources to which they're entitled. In order to use Azure API Management's interactive Developer Console with such APIs, the service allows you to configure your service instance to work with your OAuth 2.0 enabled API.
 
@@ -159,7 +159,7 @@ For more information about using OAuth 2.0 and API Management, see the following
 [Get started with Azure API Management]: api-management-get-started.md
 [API Management policy reference]: api-management-policy-reference.md
 [Caching policies]: api-management-policy-reference.md#caching-policies
-[Create an API Management service instance]: api-management-get-started.md#create-service-instance
+[Create an API Management service instance]: get-started-create-service-instance.md
 
 [http://oauth.net/2/]: http://oauth.net/2/
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet

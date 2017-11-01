@@ -3,19 +3,19 @@ title: Secure back-end services using client certificate authentication - Azure 
 description: Learn how to secure back-end services using client certificate authentication in Azure API Management.
 services: api-management
 documentationcenter: ''
-author: steved0x
-manager: erikre
+author: juliako
+manager: cfowler
 editor: ''
 
-ms.assetid: 43453331-39b2-4672-80b8-0a87e4fde3c6
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 10/30/2017
 ms.author: apimpm
 ---
+
 # How to secure back-end services using client certificate authentication in Azure API Management
 API Management provides the capability to secure access to the back-end service of an API using client certificates. This guide shows how to manage certificates in the API publisher portal, and how to configure an API to use a certificate to access its back-end service.
 
@@ -143,7 +143,7 @@ For more information on other ways to secure your backend service, such as HTTP 
 [Get started with Azure API Management]: api-management-get-started.md
 [API Management policy reference]: api-management-policy-reference.md
 [Caching policies]: api-management-policy-reference.md#caching-policies
-[Create an API Management service instance]: api-management-get-started.md#create-service-instance
+[Create an API Management service instance]: get-started-create-service-instance.md
 
 [Azure API Management REST API Certificate entity]: http://msdn.microsoft.com/library/azure/dn783483.aspx
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet

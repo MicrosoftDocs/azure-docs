@@ -3,17 +3,16 @@ title: Configure notifications and email templates in Azure API Management | Mic
 description: Learn how to configure notifications and email templates in Azure API Management.
 services: api-management
 documentationcenter: ''
-author: steved0x
-manager: erikre
+author: juliako
+manager: cfowler
 editor: ''
 
-ms.assetid: ee25f26d-4752-433b-af9c-3817db38aed5
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 10/30/2017
 ms.author: apimpm
 ---
 # How to configure notifications and email templates in Azure API Management
@@ -114,4 +113,4 @@ To save the changes to the email template, click **Save**, or to cancel the chan
 [How to associate groups with developers]: api-management-howto-create-groups.md#associate-group-developer
 
 [Get started with Azure API Management]: api-management-get-started.md
-[Create an API Management service instance]: api-management-get-started.md#create-service-instance
+[Create an API Management service instance]: get-started-create-service-instance.md

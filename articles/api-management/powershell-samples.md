@@ -3,11 +3,10 @@ title: Azure API Management PowerShell samples | Microsoft Docs
 description: Learn about the PowerShell scripts available for use in Azure API Management.
 services: api-management
 documentationcenter: ''
-author: vladvino
-manager: erikre
+author: juliako
+manager: cfowler
 editor: ''
 
-ms.assetid: 1cc460cb-8e67-41aa-bc76-bbafc1892798
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -18,3 +17,21 @@ ms.author: apimpm
 ---
 
 # API Management PowerShell samples
+
+The following table includes links to bash scripts built using the Azure PowerShell.
+
+| | |
+|-|-|
+|**Provision and manage**||
+|[Create an APIM service](./scripts/powershell-create-apim-service.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Create a Developer SKU API Management Service.|
+|[Add a user](./scripts/powershell-add-user-and-get-subscription-key.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Create a user in API Management and gets a subscription key.|
+|[Set up custom domain](./scripts/powershell-setup-custom-domain.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Sets up custom domain on proxy and portal endpoint of the API Management service.|
+|[Scale an APIM service](./scripts/powershell-scale-and-addregion-apim-service.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Scales and adds region to the APIM service.|
+|[Restore service](./scripts/powershell-backup-restore-apim-service.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Backups and restores an APIM service.|
+|**Define API**||
+|[Import API](./scripts/powershell-import-api-and-add-to-product.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Imports an API and adds to an APIM product.|
+|**Secure**||
+|[Secure backend](./scripts/powershell-secure-backend-with-mutual-certificate-authentication.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Secures backend with mutual certificate authentication.|
+|**Protect**||
+|[Set up rate limit policy](./scripts/powershell-setup-rate-limit-policy.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Applies rate limit to policy at the product Level . |
+|||

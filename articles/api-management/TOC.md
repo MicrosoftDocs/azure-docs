@@ -6,13 +6,13 @@
 # Tutorials
 ## [1 - Import and publish your first API](import-and-publish.md)
 ## [2 - Create and publish a product](api-management-howto-add-products.md)
-## [3 - Create blank API and mock API responses](mock-api-responses.md)
-## [4 - Transform and protect a published API](api-management-howto-product-with-rules.md)
-## [5 - Monitor your API](api-management-howto-use-azure-monitor.md)
-## [6 - Trace calls](api-management-howto-api-inspector.md)
-## [7 - Use revisions](api-management-get-started-revise-api.md)
+## [3 - Mock API responses](mock-api-responses.md)
+## [4 - Transform and protect your API](transform-api.md)
+## [5 - Monitor published APIs](api-management-howto-use-azure-monitor.md)
+## [6 - Debug your APIs using request tracing](api-management-howto-api-inspector.md)
+## [7 - Use revisions to make non-breaking changes safely](api-management-get-started-revise-api.md)
 ## [8 - Publish multiple versions of your API](api-management-get-started-publish-versions.md)
-## [9 - Customize the Developer portal](api-management-customize-styles.md)
+## [9 - Customize the style of the Developer portal pages](api-management-customize-styles.md)
 # Samples
 ## [Policy samples](policy-samples.md)
 ## [PowerShell samples](powershell-samples.md)
@@ -40,6 +40,7 @@
 ## [Upgrade and scale](upgrade-and-scale.md)
 ## [Configure a custom domain](configure-custom-domain.md)
 ## [Add caching to improve performance](api-management-howto-cache.md)
+## [Set or edit policies](set-edit-policies.md)
 ## Secure your backend
 ### [Protect Web API backend with AAD](api-management-howto-protect-backend-with-aad.md)
 ### [Connect to a virtual network](api-management-using-with-vnet.md)
@@ -54,21 +55,6 @@
 ### [Delegated authentication](api-management-howto-setup-delegation.md)
 ### [E-mail notifications and templates](api-management-howto-configure-notifications.md)
 ### [Enable console OAuth support](api-management-howto-oauth2.md)
-## Manage in production
-### [Manage groups](api-management-howto-create-groups.md)
-### [Deploy to multiple Azure regions](api-management-howto-deploy-multi-region.md)
-### [Log events to Azure Event Hubs](api-management-howto-log-event-hubs.md)
-### [Set up DR using backup/restore](api-management-howto-disaster-recovery-backup-restore.md)
-### [Manage user accounts](api-management-howto-create-or-invite-developers.md)
-### [Configure using Git](api-management-configuration-repository-git.md)
-## Integrate with Service Fabric
-### [Overview](../service-fabric/service-fabric-api-management-overview.md)
-### [Quickstart](../service-fabric/service-fabric-api-management-quick-start.md)
-# Reference
-## [Azure PowerShell](/powershell/azure/overview)
-## [REST](/rest/api/apimanagement/)
-## [REST (original)](/rest/api/apimanagement/ApiManagementREST/api-management-REST)
-## [Policies](api-management-policies.md)
 ## Policy reference
 ### [Access restriction policies](api-management-access-restriction-policies.md)
 ### [Advanced policies](api-management-advanced-policies.md)
@@ -87,6 +73,21 @@
 ### [Template resources](api-management-template-resources.md)
 ## [Data model reference](api-management-template-data-model-reference.md)
 ## [Page controls](api-management-page-controls.md)
+## Manage in production
+### [Manage groups](api-management-howto-create-groups.md)
+### [Deploy to multiple Azure regions](api-management-howto-deploy-multi-region.md)
+### [Log events to Azure Event Hubs](api-management-howto-log-event-hubs.md)
+### [Set up DR using backup/restore](api-management-howto-disaster-recovery-backup-restore.md)
+### [Manage user accounts](api-management-howto-create-or-invite-developers.md)
+### [Configure using Git](api-management-configuration-repository-git.md)
+## Integrate with Service Fabric
+### [Overview](../service-fabric/service-fabric-api-management-overview.md)
+### [Quickstart](../service-fabric/service-fabric-api-management-quick-start.md)
+# Reference
+## [Azure PowerShell](/powershell/azure/overview)
+## [REST](/rest/api/apimanagement/)
+## [REST (original)](/rest/api/apimanagement/ApiManagementREST/api-management-REST)
+## [Policies](api-management-policies.md)
 # Resources
 ## [Frequently asked questions](api-management-faq.md)
 ## [API design guidance](https://docs.microsoft.com/azure/architecture/best-practices/api-design?toc=%2Fazure%2Fapi-management%2Ftoc.json)

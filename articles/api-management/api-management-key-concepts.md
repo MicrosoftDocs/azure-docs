@@ -129,9 +129,9 @@ The developer portal is where developers can learn about your APIs, view and cal
 You can customize the look and feel of your developer portal by adding custom content, customizing styles, and adding your branding.
 
 ## API Management and the API economy
-To learn more about API Management, watch the following presentation from the Microsoft Ignite 2015 conference.
+To learn more about API Management, watch the following presentation from the Microsoft Ignite 2017 conference.
 
-> [!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3708/player]
+> [!VIDEO https://channel9.msdn.com/Events/Ignite/Microsoft-Ignite-Orlando-2017/BRK2186/player]
 > 
 > 
 

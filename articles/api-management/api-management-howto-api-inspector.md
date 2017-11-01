@@ -1,20 +1,23 @@
 ---
-title: Inspect request processing steps in Azure API Management | Microsoft Docs
+title: Debug your APIs using request tracing in Azure API Management | Microsoft Docs
 description: Follow the steps of this tutorial to learn how to inspect request processing steps in Azure API Management.
 services: api-management
 documentationcenter: ''
-author: miaojiang
-manager: anneta
+author: juliako
+manager: cfowler
 editor: ''
 
 ms.service: api-management
-ms.workload: integration
-ms.topic: article
-ms.date: 10/10/2017
+ms.workload: mobile
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: tutorial
+ms.date: 10/17/2017
 ms.author: apimpm
+
 ---
 
-# Inspect request processing steps
+# Debug your APIs using request tracing
 
 This tutorial describes how to inspect request processing to help you with debugging and troubleshooting your API. 
 
@@ -28,8 +31,8 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 + [Create an Azure API Management instance](get-started-create-service-instance.md)
-+ [Import and publish an API](api-management-get-started.md)
-+ [Transform the API using policies](api-management-howto-product-with-rules.md)
++ [Import and publish an API](import-and-publish.md)
++ [Transform the API using policies](transform-api.md)
 
 ## Use API Inspector to trace a call
 
