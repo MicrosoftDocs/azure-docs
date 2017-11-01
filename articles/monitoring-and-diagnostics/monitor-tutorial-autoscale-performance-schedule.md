@@ -172,8 +172,8 @@ In this tutorial, you
 > [!div class="checklist"]
 > * Created a Web App and App Service Plan
 > * Configured autoscale rules for scale-in and scale out 
-> * Triggered a scale-in action and view the results
-> * Triggered a scale-out action and view the results
+> * Triggered a scale-in action and viewed the results
+> * Triggered a scale-out action and viewed the results
 > * Cleaned up your resources
 
 
