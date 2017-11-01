@@ -42,7 +42,7 @@ To index CSV blobs, create or update an indexer definition with the `delimitedTe
       "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "firstLineContainsHeaders" : true } }
     }
 
-For more details on the Create Indexer API, check out [Create Indexer](https://docs.microsoft.com/en-us/rest/api/searchservice/create-indexer).
+For more details on the Create Indexer API, check out [Create Indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
 `firstLineContainsHeaders` indicates that the first (non-blank) line of each blob contains headers.
 If blobs don't contain an initial header line, the headers should be specified in the indexer configuration: 
