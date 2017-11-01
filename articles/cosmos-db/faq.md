@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2017
+ms.date: 11/15/2017
 ms.author: mimig
 
 ---
@@ -397,6 +397,12 @@ Yes, we plan to add other mechanisms for query in the future.
 
 ### How can I use the new Graph API (Preview) offering? 
 To get started, complete the [Graph API](../cosmos-db/create-graph-dotnet.md) quick-start article.
+
+## Develop against the Graph API (Preview)
+
+### Add questions here
+
+TODO
 
 <a id="moving-to-cosmos-db"></a>
 ## Questions from DocumentDB customers
