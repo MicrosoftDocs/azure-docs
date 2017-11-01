@@ -34,7 +34,7 @@ For more information about SaaS app integration with Azure AD, see the article [
 To configure Azure AD integration with SAP Cloud Platform Identity Authentication, you need the following items:
 
 - An Azure AD subscription
-- An single sign-on-enabled subscription for SAP Cloud Platform Identity Authentication.
+- A single sign-on-enabled subscription for SAP Cloud Platform Identity Authentication.
 
 > [!NOTE]
 > We don't recommend using a production environment to test the steps in this tutorial .
@@ -63,7 +63,7 @@ With this setup, your SAP Cloud Platform Identity Authentication tenant is confi
 
 All SAP applications and services that you want to protect this way are subsequently configured in the SAP Cloud Platform Identity Authentication management console.
 
-This means that authorization for granting access to SAP applications and services needs to take place in SAP Cloud Platform Identity Authentication (as opposed to configuring in Azure Active Directory).
+This means that authorization for granting access to SAP applications and services needs to take place in SAP Cloud Platform Identity Authentication (as opposed to Azure Active Directory).
 
 By configuring SAP Cloud Platform Identity Authentication as an application through the Azure Active Directory Marketplace, you don't need to configure individual claims, SAML assertions, or transformations that are necessary for producing a valid authentication token for SAP applications.
 
@@ -84,13 +84,13 @@ To configure the integration of SAP Cloud Platform Identity Authentication in Az
 
 	![The Enterprise applications blade][2]
 	
-3. To add new the new application, select the **New application** button on the top of the dialog box.
+3. To add new the new application, select the **New application** button at the top of the dialog box.
 
 	![The New application button][3]
 
 4. In the search box, type **SAP Cloud Platform Identity Authentication**. 
 
-5. Select **SAP Cloud Platform Identity Authentication** from the result panel, and then select the **Add** button.
+5. Select **SAP Cloud Platform Identity Authentication** from the results panel, and then select the **Add** button.
 
 	![SAP Cloud Platform Identity Authentication in the results list](./media/active-directory-saas-sapcloudauth-tutorial/tutorial_sapcpia_addfromgallery.png)
 
@@ -142,7 +142,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE] 
 	> This value isn't real. Update this value with the actual sign-on URL. Contact the [SAP Cloud Platform Identity Authentication Client support team](https://cloudplatform.sap.com/capabilities/security/trustcenter.html) to get this value.
 
-5. On the **SAML Signing Certificate** section, select **Metadata XML**. Then save the metadata file on your computer.
+5. In the **SAML Signing Certificate** section, select **Metadata XML**. Then save the metadata file on your computer.
 
 	![The Certificate download link](./media/active-directory-saas-sapcloudauth-tutorial/tutorial_sapcpia_certificate.png)
 
@@ -150,7 +150,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure single sign-on](./media/active-directory-saas-sapcloudauth-tutorial/attribute.png)
 
-7. If your SAP application expects an attribute for example **firstName**, add the **firstName** attribute in the **User Attributes** section, in the **Single sign-on** dialog box, on the SAML token attributes dialog.
+7. If your SAP application expects an attribute for example **firstName**, add the **firstName** attribute in the **User Attributes** section, in the **Single sign-on** dialog box, in the SAML token attributes dialog box.
 
 	a. To open the **Add Attribute** dialog box, select **Add attribute**. 
 	
@@ -176,7 +176,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 11. In the Azure portal, select the **Save** button.
 
-12. Continue with the following steps only if you want to add and enable SSO for another SAP application. Repeat the steps under the section **Adding SAP Cloud Platform Identity Authentication from the gallery** to add another instance of SAP Cloud Platform Identity Authentication.
+12. Continue with the following steps only if you want to add and enable SSO for another SAP application. Repeat the steps under the section **Adding SAP Cloud Platform Identity Authentication from the gallery** .
 
 13. In the Azure portal, on the **SAP Cloud Platform Identity Authentication** application integration page, select **Linked Sign-on**.
 
@@ -185,7 +185,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 14. Save the configuration.
 
 >[!NOTE] 
->The new application leverages the single sign-on configuration for the previous SAP application. Make sure you use the same Corporate Identity Providers in the SAP Cloud Platform Identity Authentication Administration Console.
+>The new application leverages the single sign-on configuration of the previous SAP application. Make sure you use the same Corporate Identity Providers in the SAP Cloud Platform Identity Authentication Administration Console.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com) while you are setting up the app!  After adding this app from the **Active Directory** > **Enterprise Applications** section,  select  the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature at [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -253,15 +253,15 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 	![The "Users and groups" link][202]
 
-4. Select the **Add** button. Then select **Users and groups** on the **Add Assignment** dialog box.
+4. Select the **Add** button. Then select **Users and groups** in the **Add Assignment** dialog box.
 
 	![The Add Assignment pane][203]
 
-5. On the **Users and groups** dialog box, select **Britta Simon** in the users list.
+5. In the **Users and groups** dialog box, select **Britta Simon** in the users list.
 
-6. Click the **Select** button on the **Users and groups** dialog box.
+6. Click the **Select** button in the **Users and groups** dialog box.
 
-7. Select the **Assign** button on the **Add Assignment** dialog box.
+7. Select the **Assign** button in the **Add Assignment** dialog box.
 	
 ### Test single sign-on
 
@@ -273,7 +273,7 @@ For more information about the access panel, see [Introduction to the access 
 
 ## Additional resources
 
-* [List of tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [List of tutorials on how to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->
