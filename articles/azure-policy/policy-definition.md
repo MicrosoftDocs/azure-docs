@@ -58,6 +58,8 @@ For example, the following JSON shows a policy that limits where resources are d
 }
 ```
 
+All Azure Policy template samples are at [Templates for Azure Policy](json-samples.md).
+
 ## Mode
 
 We recommend that you set `mode` to `all` to have a policy assignment evaluate all resource groups and types. You can see an example of a policy definition that enforces tags on a resource group at [Allow custom VM image from a Resource Group](scripts/allow-custom-vm-image.md).
@@ -405,3 +407,5 @@ The following example illustrates how to create an initiative for handling two t
 ```
 
 ## Next steps
+
+- Review the Azure Policy template samples at [Templates for Azure Policy](json-samples.md).
