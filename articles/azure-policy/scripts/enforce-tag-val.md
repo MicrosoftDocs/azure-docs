@@ -1,6 +1,6 @@
 ---
-title: json Sample - Enforce tag and its value on resource groups | Microsoft Docs
-description: This json sample policy requires a tag and value on a resource group.
+title: json Sample - Enforce tag and its value | Microsoft Docs
+description: This json sample policy requires a specified tag name and value.
 services: azure-policy
 documentationcenter:
 author: bandersmsft
@@ -17,15 +17,15 @@ ms.author: banders
 ms.custom: mvc
 ---
 
-# Enforce tag and its value on resource groups
+# Enforce tag and its value
 
-This policy requires a tag and value on a resource group. You specify the required tag name and value.
+This policy requires a specified tag name and value. You specify the tag name and value to enforce.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Sample template
 
-[!code-json[main](../../../policy-templates/samples/ResourceGroup/enforce-resourceGroup-tags/azurepolicy.json "Enforce tag and its value on resource groups")]
+[!code-json[main](../../../policy-templates/samples/built-in-policy/enforce-tag-value/azurepolicy.json "Enforce tag and its value")]
 
 
 You can deploy this template using the [Azure portal](#deploy-with-the-portal), with [PowerShell](#deploy-with-powershell) or with the [Azure CLI](#deploy-with-azure-cli).
@@ -38,8 +38,9 @@ You can deploy this template using the [Azure portal](#deploy-with-the-portal), 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
+
 ````powershell
-$definition = New-AzureRmPolicyDefinition -Name "enforce-resourceGroup-tags" -DisplayName "Enforce tag and its value on resource groups" -description "Enforces a required tag and its value on resource groups." -Policy 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/ResourceGroup/enforce-resourceGroup-tags/azurepolicy.rules.json' -Parameter 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/ResourceGroup/enforce-resourceGroup-tags/azurepolicy.parameters.json' -Mode All
+$definition = New-AzureRmPolicyDefinition -Name "enforce-tag-value" -DisplayName "Enforce tag and its value" -description "Enforces a required tag and its value." -Policy 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/built-in-policy/enforce-tag-value/azurepolicy.rules.json' -Parameter 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/built-in-policy/enforce-tag-value/azurepolicy.parameters.json' -Mode All
 $definition
 $assignment = New-AzureRMPolicyAssignment -Name <assignmentname> -Scope <scope> -PolicyDefinition $definition
 $assignment
@@ -58,12 +59,11 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-
 ````cli
 
-az policy definition create --name 'enforce-resourceGroup-tags' --display-name 'Enforce tag and its value on resource groups' --description 'Enforces a required tag and its value on resource groups.' --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/ResourceGroup/enforce-resourceGroup-tags/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/ResourceGroup/enforce-resourceGroup-tags/azurepolicy.parameters.json' --mode All
+az policy definition create --name 'enforce-tag-value' --display-name 'Enforce tag and its value' --description 'Enforces a required tag and its value.' --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/built-in-policy/enforce-tag-value/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/built-in-policy/enforce-tag-value/azurepolicy.parameters.json' --mode All
 
-az policy assignment create --name <assignmentname> --scope <scope> --policy "enforce-resourceGroup-tags"
+az policy assignment create --name <assignmentname> --scope <scope> --policy "enforce-tag-value"
 
 ````
 
