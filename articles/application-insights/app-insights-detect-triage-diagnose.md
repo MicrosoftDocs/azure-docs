@@ -11,6 +11,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
+ms.custom: mvc
 ms.topic: overview
 ms.date: 06/26/2017
 ms.author: mbullwin
