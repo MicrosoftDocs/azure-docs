@@ -17,6 +17,8 @@
     href: functions-create-your-first-function-visual-studio.md
   - name: Create function - Java/Maven
     href: functions-create-first-java-maven.md
+  - name: Create function - Linux
+    href: functions-create-first-azure-function-azure-cli-linux.md
   - name: Triggers
     items:
     - name: Blob storage
