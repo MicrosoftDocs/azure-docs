@@ -43,7 +43,7 @@ The only noticeable differences are
 -	The improved translation quality, especially for languages such as Chinese, Japanese, and Arabic. View suported languages on [Microsoft.com](https://www.microsoft.com/en-us/translator/languages.aspx). 
 -	The incompatibility with the existing Hub and CTF customization features
 
-Learn more about [how DNN works](https://www.microsoft.com/en-us/translator/mt.aspx#nnt) .
+Learn more about [how DNN works](https://www.microsoft.com/en-us/translator/mt.aspx#nnt)
 
 ## Next steps
 - [Sign up](/translator-text-how-to-signup.md) for an access key. A Free tier for 2 million characters per month is available, or [view pricing options for paid tiers](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/translator-text-api/)
