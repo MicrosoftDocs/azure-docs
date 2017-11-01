@@ -24,11 +24,11 @@ Time Series Insights can store data for up to 400 days and Time Series Insights 
 
 ## Continue ingress and purge old data
 
-This is the default mode for Time Series Insights environments and exhibits the same behavior Time Series Insights environments did in public preview.  **Continue ingress** is for users that want to always see their most recent data in their Time Series Insights environment, and who are comfortable with data being purged once the environment’s limits (size, count or time whichever comes first) are reached.  Retention is set to 30 days by default.
+**Continue ingress** is the default mode for Time Series Insights environments and exhibits the same behavior Time Series Insights environments did in public preview. Use **Continue ingress** if you want to always see the most recent data in your Time Series Insights environment, and if you are comfortable with data being purged once the environment’s limits (size, count, or time, whichever comes first) are reached. Retention is set to 30 days by default.
 
 Time Series Insights purges the oldest ingested data first (FIFO approach).
 
-To illustrate **continue ingress** behavior, examine an environment that has provisioned a single unit of S1 and pushes 500 MB each day. If retention is set to 400 days, this environment will only see 60 days worth of data, as it hits its maximum capacity after 60 days (1 S1 unit contains 30 GB of total capacity.  500 MB x 60 = 30 GB).  One the 61st day, the environment displays fresh data, but will purge data older than 60 days to accommodate the new data streaming in.  If you want to retain data longer, you can increase the size of the environment by adding additional units or you can push less data.  
+To illustrate **continue ingress** behavior, examine an environment that has provisioned a single unit of S1 and pushes 500 MB each day. If retention is set to 400 days, this environment will only see 60 days worth of data, as it hits its maximum capacity after 60 days (1 S1 unit contains 30 GB of total capacity.  500 MB x 60 = 30 GB).  On the 61st day, the environment displays fresh data, but will purge data older than 60 days to accommodate the new data streaming in.  If you want to retain data longer, you can increase the size of the environment by adding additional units or you can push less data.  
 
 As an alternative example, examine an environment that is configured to retain data for 180 days with one S1 unit.  To store data for 180 days, that environment cannot exceed daily ingress of 0.166 GB (166 MB) per day.  If the environment’s daily ingress rate exceeds 0.166 GB per day, data will not be stored for 180 days.  For example, if the environment’s ingress rate averages 0.189 GB per day, it would realize just over 158 days of retention (30 GB/0.189 = 158.73 days of retention).  
 
@@ -39,6 +39,7 @@ The **pause ingress** mode is for users who need to ensure their data is not pur
 - The retention period is reached and data is purged, thus bringing the environment below its maximum capacity.
  
  To illustrate **pause ingress** behavior, examine an environment which has provisioned as three units of S1, pushes 2 GB each day, and where the retention period is configured to 60 days.  This environment  pauses ingress when the maximum capacity is reached,  and only shows the same data set until ingress resumes or **continue ingress** is enabled (which purges older data to make room for new data).  
+
 When ingress resumes:
 - Data flows in the order it was received by event source
 - The events are indexed based on their timestamp, unless you have exceeded retention policies on your event source.  For more information on event source retention configuration, see [Event Hubs frequently asked questions](https://docs.microsoft.com/rest/api/time-series-insights/time-series-insights-reference-query-syntax).
