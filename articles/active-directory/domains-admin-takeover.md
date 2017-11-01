@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/27/2017
+ms.date: 10/31/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
@@ -37,7 +37,7 @@ Some products that include SharePoint and OneDrive, such as Office 365, do not s
 
 2. Open the [Power BI site](https://powerbi.com) and select **Start Free**. Enter a user account that uses the domain name for the organization; for example, `admin@fourthcoffee.xyz`. After you enter in the verification code, check your email for the confirmation code.
 
-3. In the confirmation email from Power BI, select **Confirm**.
+3. In the confirmation email from Power BI, select **Yes, that's me**.
 
 4. Sign in to the [Office 365 Admin center](https://portal.office.com/adminportal/Home) with the Power BI user account. You receive a message that instructs you to **Become the Admin** of the domain name that was already verified in the unmanaged tenant. select **Yes, I want to be the admin**.
   
@@ -49,16 +49,14 @@ Some products that include SharePoint and OneDrive, such as Office 365, do not s
 
 When the DNS TXT records are verified at your domain name registrar, you can manage the Azure AD tenant.
 
-![Architectural perspective of what happens during internal takeover](./media/domains-admin-takeover/architecture.png)
-
-Once you have completed the above steps and are now the global administrator of the Fourth Coffee tenant in Office 365. To integrate the domain name with your other Azure services, you can remove it from Office 365 and add it to a different managed tenant in Azure.
+When you complete the preceding steps, you are now the global administrator of the Fourth Coffee tenant in Office 365. To integrate the domain name with your other Azure services, you can remove it from Office 365 and add it to a different managed tenant in Azure.
 
 ### Adding the domain name to a managed tenant in Azure AD 
 
 1. Open the [Office 365 Admin center](https://portal.office.com/adminportal/Home).
-2. Select **Users** tab, and create a new user account with a name like *user@fourthcoffeexyz.onmicrosoft.com* that does not reference the custom domain name. 
+2. Select **Users** tab, and create a new user account with a name like *user@fourthcoffeexyz.onmicrosoft.com* that does not use the custom domain name. 
 3. Ensure that the new user account has global admin privileges for the Azure AD tenant.
-4. Open ***Domains** tab in the Office 365 Admin center, select the domain name and select **Remove**. 
+4. Open **Domains** tab in the Office 365 Admin center, select the domain name and select **Remove**. 
   
   ![remove the domain name from Office 365](./media/domains-admin-takeover/remove-domain-from-o365.png)
   
@@ -66,7 +64,7 @@ Once you have completed the above steps and are now the global administrator of 
   
 6. Sign in to the [Azure AD admin center](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with an account that is the global admin for the Azure AD tenant.
   
-7. Select **Domain names**”, then add the domain name. You'll have to enter the DNS TXT records to verify ownership of the domain name. 
+7. Select **Domain names**, then add the domain name. You'll have to enter the DNS TXT records to verify ownership of the domain name. 
   
   ![domain added to Azure AD](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
   
@@ -75,10 +73,9 @@ Once you have completed the above steps and are now the global administrator of 
 
 ## External admin takeover
 
-If you already manage a tenant with Azure services or Office 365, you are can't add a custom domain name if it is already verified in an unmanaged Azure AD tenant.
-However, you can use Azure AD to take it over with an external admin takeover, the general procedure for which is in [Add a custom domain to Azure AD](add-custom-domain.md)
+If you already manage a tenant with Azure services or Office 365, you are can't add a custom domain name if it is already verified in another Azure AD tenant. However, from your managed tenant in Azure AD you can take it over and unmanaged tenant with an external admin takeover. The general procedure follows the article [Add a custom domain to Azure AD](add-custom-domain.md)
 
-When you verify ownership of the domain name, Azure AD removes the domain name from the unmanaged tenant and moves it to your existing tenant. External admin takeover of an unmanaged directory follows the same DNS TXT validation process as internal admin takeover. The difference is that the following are also moved over with the domain name:
+When you verify ownership of the domain name, Azure AD removes the domain name from the unmanaged tenant and moves it to your existing tenant. External admin takeover of an unmanaged directory requires the same DNS TXT validation process as internal admin takeover. The difference is that the following are also moved over with the domain name:
 
 - Users
 - Subscriptions
@@ -87,7 +84,7 @@ When you verify ownership of the domain name, Azure AD removes the domain name f
 The **Force** option for domain name external admin takeover is supported for only two services, Power BI and Azure RMS.
 
 ### Support for external admin takeover
-External admin takeover is supported for the following subscriptions:
+External admin takeover is supported by the following online services:
 
 - Power BI
 - Azure Rights Management Service (RMS)
@@ -104,8 +101,7 @@ The supported service plans include:
 - Microsoft Stream
 - Dynamics 365 free trial
 
-Exernal admin takeover is not supported for any service that has service plans that include SharePoint, OneDrive, or Skype For Business, for example through an Office free subscription or the Office Basic SKU.
-
+Exernal admin takeover is not supported for any service that has service plans that include SharePoint, OneDrive, or Skype For Business; for example, through an Office free subscription or the Office Basic SKU.
 
 ### Microsoft PowerShell
 
