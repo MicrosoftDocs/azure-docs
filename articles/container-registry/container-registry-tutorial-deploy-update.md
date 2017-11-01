@@ -88,6 +88,20 @@ Now, push the updated *acr-helloworld* container image to your geo-replicated re
 docker push <acrName>.azurecr.io/acr-helloworld:v1
 ```
 
+Output should appear similar to the following:
+
+```bash
+The push refers to a repository [uniqueregistryname.azurecr.io/acr-helloworld]
+c003ed6fc8b8: Pushed
+02b11afef3fd: Layer already exists
+cf17b6f921be: Layer already exists
+c93ae914d31e: Layer already exists
+2eea44510cee: Layer already exists
+670f809bd6d5: Layer already exists
+a75caa09eb1f: Layer already exists
+v1: digest: sha256:e44c0956a21c91e1f5f7bc83f23f1de710c798246df1e0e508c0c88025449646 size: 1792
+```
+
 ## View the webhook logs
 
 While the image is being replicated, you can see the Azure Container Registry webhooks being triggered.
