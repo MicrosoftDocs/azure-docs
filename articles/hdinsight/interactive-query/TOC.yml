@@ -1,10 +1,10 @@
 - name: Azure HDInsight Documentation
   href: /azure/hdinsight
-- name: Get Started
+- name: Get started
   items:
   - name: Start with Interactive Query
     href: ./apache-interactive-query-get-started.md
-- name: How To
+- name: How to
   items:
   - name: Use cluster storage
     items:

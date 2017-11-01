@@ -7,7 +7,7 @@
   - name: Hadoop components on HDInsight
     href: ../hdinsight-component-versioning.md
     maintainContext: true
-- name: Get Started
+- name: Get started
   items:
     - name: Create a Spark cluster
       href: apache-spark-jupyter-spark-sql.md
@@ -19,7 +19,7 @@
       href: apache-spark-resource-manager.md
     - name: Debug Spark jobs
       href: apache-spark-job-debugging.md
-- name: How To
+- name: How to
   items:
     - name: Use cluster storage
       items:

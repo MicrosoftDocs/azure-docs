@@ -7,7 +7,7 @@
   - name: Hadoop components on HDInsight
     href: ../hdinsight-component-versioning.md
     maintainContext: true
-- name: Get Started
+- name: Get started
   items:
   - name: Start with Hadoop
     href: apache-hadoop-linux-tutorial-get-started.md
@@ -16,7 +16,7 @@
   - name: Cluster capacity planning
     href: ../hdinsight-capacity-planning.md
     maintainContext: true
-- name: How To
+- name: How to
   items:
   - name: Use cluster storage
     items:

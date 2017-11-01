@@ -14,7 +14,7 @@
   - name: Capacity planning
     href: ../hdinsight-capacity-planning.md
     maintainContext: true
-- name: How To
+- name: How to
   items:
   - name: Develop Storm topologies
     items:
