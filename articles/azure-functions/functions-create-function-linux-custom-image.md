@@ -15,7 +15,17 @@ manager: cfowler
 
 # Create a function on Linux using a custom image
 
-This tutorial walks through how to use Azure Functions to create your first function on Linux. You use the Azure CLI to create a function app running on a built-in image. This app is the [serverless](https://azure.microsoft.com/overview/serverless-computing/) infrastructure that hosts your function. The function code itself is deployed to the image from a GitHub sample repository.    
+When you This tutorial walks through how to use Azure Functions to create your first function on Linux. You use the Azure CLI to create a function app running on a built-in image. This app is the [serverless](https://azure.microsoft.com/overview/serverless-computing/) infrastructure that hosts your function. The function code itself is deployed to the image from a GitHub sample repository.  
+
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * Create a Cognitive Services account.
+> * Create a function that categorizes tweet sentiment.
+> * Create a logic app that connects to Twitter.
+> * Add sentiment detection to the logic app. 
+> * Connect the logic app to the function.
+> * Send an email based on the response from the function. 
 
 You can follow the steps below using a Mac, Windows, or Linux computer. 
 
