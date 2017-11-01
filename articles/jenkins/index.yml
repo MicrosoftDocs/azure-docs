@@ -15,7 +15,7 @@ metadata:
     ms.author: routlaw
     ms.custom: Jenkins
 abstract:
-    description: Use the open-source [Jenkins](https://jenkins.io) server to build your apps in the cloud and deploy them to Azure. Learn how to install, configure, and scale Jenkins on Azure and set up continuous integration (CI) for your apps with our quickstarts, tutorials, and sample pipelines.
+    description: Use the open-source Jenkins server to build your apps in the cloud and deploy them to Azure. Learn how to install, configure, and scale Jenkins on Azure and set up continuous integration (CI) for your apps with our quickstarts, tutorials, and sample pipelines.
     aside: 
         image: 
            alt: Jenkins logo
@@ -61,3 +61,5 @@ sections:
     items:
     - title: Plugins
       html: <p><a href="https://plugins.jenkins.io/azure-vm-agents">Azure VM Agents</a><p><a href="https://plugins.jenkins.io/azure-app-service">Azure App Service</a></p><p><a href="https://plugins.jenkins.io/windows-azure-storage">Azure Storage</a></p><p><a href="https://plugins.jenkins.io/azure-container-agents">Azure Container Agents</a><p><a href="https://plugins.jenkins.io/azure-function">Azure Function plugin</a><p><a href="https://plugins.jenkins.io/azure-acs">Azure Container Service plugin</a>
+- type: paragraph
+  text: <h4>Jenkins® is a registered trademark of Software in the Public Interest, Inc. The [Jenkins® logo](https://wiki.jenkins.io/display/JENKINS/Logo) is licensed under [CC BY SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) from the [Jenkins project](https://jenkins.io).</h4>
