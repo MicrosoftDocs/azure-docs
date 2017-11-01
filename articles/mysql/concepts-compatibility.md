@@ -12,7 +12,7 @@ ms.date: 10/27/2017
 ---
 
 ## MySQL Drivers
-Azure Database for MySQL uses the world's most popular community edition of MySQL database. Therfore, it is compatible with a wide variety of popular program languages and drivers. Our goal is to support the most recent 3 versions MySQL drivers and we are working with authors from the open source community to constantly improve  functionality and usability of MySQL drivers. The table below documents a list of drivers that we have tested to be compatible with Azure Database for MySQL 5.6 and 5.7.
+Azure Database for MySQL uses the world's most popular community edition of MySQL database. Therefore, it is compatible with a wide variety of popular programming languages and drivers. The goal is to support the three most recent versions MySQL drivers, and efforts with authors from the open source community to constantly improve the functionality and usability of MySQL drivers continue. A list of drivers that have been tested and found to be compatible with Azure Database for MySQL 5.6 and 5.7 is provided in the following table:
 
 | **Driver** | **Links** | **Compatible Versions** | **Uncompatible Versions** | **Notes** |
 | :-------- | :------------------------ | :----------- | :---------------------- | :--------------------------------------- |
@@ -24,7 +24,7 @@ Azure Database for MySQL uses the world's most popular community edition of MySQ
 | Java | https://downloads.mariadb.org/connector-java/ | 2.1 2.0 1.6 | 1.5.5 and before | |
 
 ## Management Tools
-Our compatibility advantage extends to database management tools as well. Your existing tools should continue to work with Azure Database for MySQL, as long as the database manipulation operates within the confines of user permissions. The following table shows 3 common database management tools that we have tested and compatible with Azure Database for MySQL 5.6 and 5.7.
+The compatibility advantage extends to database management tools as well. Your existing tools should continue to work with Azure Database for MySQL, as long as the database manipulation operates within the confines of user permissions. Three common database management tools that have been tested and found to be compatible with Azure Database for MySQL 5.6 and 5.7 are listed in the following table:
 
 |                                     | **MySQL Workbench 6.x and up** | **Navicat 12** | **PHPMyAdmin 4.x and up** |
 | :---------------------------------- | :----------------------------- | :------------- | :-------------------------|
