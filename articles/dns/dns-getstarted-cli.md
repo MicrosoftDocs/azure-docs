@@ -3,7 +3,7 @@ title: Get started with Azure DNS using Azure CLI 2.0 | Microsoft Docs
 description: Learn how to create a DNS zone and record in Azure DNS. This is a step-by-step guide to create and manage your first DNS zone and record using the Azure CLI 2.0.
 services: dns
 documentationcenter: na
-author: jtuliani
+author: KumuD
 manager: timlt
 editor: ''
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2017
-ms.author: jonatul
+ms.author: kumud
 ---
 
 # Get started with Azure DNS using Azure CLI 2.0
