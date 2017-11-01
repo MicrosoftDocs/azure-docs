@@ -18,7 +18,7 @@ ms.author: genli
 ---
 # How to troubleshoot a problem Azure VM by using nested virtualization in Azure
 
-This article shows how to create a nested environment in Microsoft Azure, so you can mount the VHD of the problem VM on the Hyper-V Host (Recovery VM) for troubleshooting purpose.
+This article shows how to create a nested virtualization environment in Microsoft Azure, so you can mount the VHD of the problem VM on the Hyper-V Host (Recovery VM) for troubleshooting purpose.
 
 ## Prerequisite
 
@@ -36,7 +36,7 @@ To mount the problem VM, the Recovery VM must meet the following prerequisite:
 
     -  OS: Windows Server 2016 Datacenter
 
-    -  Size: Any V3 series with at least two cores
+    -  Size: Any V3 series with at least two cores that support nested virtualization.
 
     -  Same Location, Storage Account, and Resource Group as the problem VM.
 
@@ -50,7 +50,7 @@ To mount the problem VM, the Recovery VM must meet the following prerequisite:
 
 5.  In the **select destination server** section, make sure that the Recovery VM is selected.
 
-6.  Select the **Hyper-V role**.
+6.  Select the **Hyper-V role** > **Add Features**.
 
 7.  Select **Next** on the **Features** section.
 
@@ -68,9 +68,9 @@ To mount the problem VM, the Recovery VM must meet the following prerequisite:
 
 ## Step 2 Create the problem VM on the recovery VM’s Hyper-V server
 
-1.  Delete the problem VM. Make sure that you keep all attached disks
+1.  Delete the problem VM. Make sure that you keep all attached disks.
 
-2.  Attach the OS disk of your problem machine as a data disk of the Recovery VM (Azure Host VM).
+2.  Attach the OS disk of your problem machine as a data disk of the Recovery VM.
 
     1.  Once the problem VM is deleted, go to the Recovery VM.
 
@@ -82,11 +82,11 @@ To mount the problem VM, the Recovery VM must meet the following prerequisite:
 
 3.  Once the disk has successfully attached, remote desktop to the Recovery VM.
 
-4.  Open Disk Management (diskmgmt.msc), make sure that the VHD of the problem VM is set to **Offline**
+4.  Open Disk Management (diskmgmt.msc), make sure that the VHD of the problem VM is set to **Offline**.
 
-5.  In Server Manager, select the **Hyper-V role**. Right click on the server and select the **Hyper-V Manger**.
+5.  Open Hyper-V Manager: In **Server Manager**, select the **Hyper-V role**. Right-click the server and select the **Hyper-V Manager**.
 
-6.  In the Hyper-V manager, right-click the Recovery VM and select **New** > **Virtual Machine** > **Next**.
+6.  In the Hyper-V Manager, right-click the Recovery VM and select **New** > **Virtual Machine** > **Next**.
 
 7.  Type a name the Virtual Machine and select **Next**
 
@@ -97,18 +97,20 @@ To mount the problem VM, the Recovery VM must meet the following prerequisite:
 10. If applicable select the Hyper-V Network Switch that was created. Else move to the next page.
 
 11. Select **Attach a Virtual Hard Disk Later**.
+    ![the image about the Attach a Virtual Hard Disk Later option](./media/troubleshoot-vm-by-use-nested-virtualization/attach-disk-later.png)
 
 12. Select **Finish** when the VM is created.
 
 13. Right click on the VM that we just created and select **Settings**.
 
 14. Select **IDE Controller 0**, select **Hard Drive**, and then click **Add**.
+    ![the image about add new hard drive](./media/troubleshoot-vm-by-use-nested-virtualization/create-new-drive.png)    
 
-15. In **Physical Hard Disk**, select the VHD of the problem VM we attached to the Azure VM.
+15. In **Physical Hard Disk**, select the VHD of the problem VM we attached to the Azure VM. f you do not see any disks listed. Check if the VHD is set to Offline by using Disk management.
+    ![the image about mount the disk](./media/troubleshoot-vm-by-use-nested-virtualization/mount-disk.png)  
 
-16. If you do not see any disks listed. Double check if the VHD is set to Online by using Disk management.
 
-17. Select **Apply** and **OK.**
+17. Select **Apply** and **OK**.
 
 18. Double-click on the VM and Start it
 
@@ -118,12 +120,15 @@ To mount the problem VM, the Recovery VM must meet the following prerequisite:
 
 1.  Once you get the VM back online shutdown the nested VM in the Hyper-V manager.
 
-2.  Go back to the [Azure portal](https://portal.azure.com) and select the Recovery VM and then Disks.
+2.  Go back to the [Azure portal](https://portal.azure.com) and select the Recovery VM > Disks,  copy the name of the disk. We will use the name in the next step. Detach the Fixed VHD from the recovery VM.
 
-3.  Detach the Fixed VHD from the recovery VM.
+3.  Go to **All resources**, search for the disk name, and then select the disk.
+     ![the image about search the disk](./media/troubleshoot-vm-by-use-nested-virtualization/search-disk.png)     
 
-4.  [Create a VM from the
-    VHD](create-vm-specialized.md#create-the-new-vm).
+4. Click **Create vm**.
+     ![the image about create vm from the disk](./media/troubleshoot-vm-by-use-nested-virtualization/create-vm-from-vhd.png) 
+
+You can also use Azure PowerShell to create the VM from the disk. For more information, see [create the new VM from an existing disk](create-vm-specialized.md#create-the-new-vm). 
 
 ## New steps
 
