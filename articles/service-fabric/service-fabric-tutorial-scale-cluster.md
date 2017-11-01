@@ -46,11 +46,6 @@ Get-AzureRmSubscription
 Set-AzureRmContext -SubscriptionId <guid>
 ```
 
-```azurecli
-az login
-az account set --subscription <guid>
-```
-
 ## Connect to the cluster
 
 To successfully complete this part of the tutorial, you need to connect to both the Service Fabric cluster and the virtual machine scale set (that hosts the cluster). The virtual machine scale set is the Azure resource that hosts Service Fabric on Azure.
@@ -183,7 +178,7 @@ $scaleset.Sku.Capacity -= 1
 Update-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm -VirtualMachineScaleSet $scaleset
 ```
 
-## Next steps
+## Conclusion
 
 In this tutorial, you learned how to:
 
