@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/19/2017
+ms.date: 11/01/2017
 ms.author: TomSh
 
 ---
@@ -68,7 +68,7 @@ One problem when you administer a network is securing data that is being sent be
 
 In the authentication process, a TLS/SSL client sends a message to a TLS/SSL server, and the server responds with the information that the server needs to authenticate itself. The client and server perform an additional exchange of session keys, and the authentication dialog ends. When authentication is completed, SSL-secured communication can begin between the server and the client using the symmetric encryption keys that are established during the authentication process.
 
-All connections to Azure SQL Database require encryption (SSL/TLS) at all times while data is "in transit" to and from the database. SQL Azure uses TLS/SSL to authenticate servers and clients and then use it to encrypt messages between the authenticated parties. In your application's connection string, you must specify parameters to encrypt the connection and not to trust the server certificate (this is done for you if you copy your connection string out of the Azure Classic Portal), otherwise the connection will not verify the identity of the server and will be susceptible to "man-in-the-middle" attacks. For the ADO.NET driver, for instance, these connection string parameters are Encrypt=True and TrustServerCertificate=False.
+All connections to Azure SQL Database require encryption (SSL/TLS) at all times while data is "in transit" to and from the database. SQL Azure uses TLS/SSL to authenticate servers and clients and then use it to encrypt messages between the authenticated parties. In your application's connection string, you must specify parameters to encrypt the connection and not to trust the server certificate (this is done for you if you copy your connection string out of the Azure Portal), otherwise the connection will not verify the identity of the server and will be susceptible to "man-in-the-middle" attacks. For the ADO.NET driver, for instance, these connection string parameters are Encrypt=True and TrustServerCertificate=False.
 
 ### Encryption at rest
 You can take several precautions to help secure the database such as designing a secure system, encrypting confidential assets, and building a firewall around the database servers. However, in a scenario where the physical media (such as drives or backup tapes) are stolen, a malicious party can just restore or attach the database and browse the data.
