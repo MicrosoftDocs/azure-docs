@@ -67,6 +67,8 @@
       href: tutorial-develop-table-dotnet.md
     - name: Graph
       href: tutorial-develop-graph-dotnet.md
+    - name: Cassandra
+      href: tutorial-develop-cassandra-java.md
   - name: 2 - Import
     items:
     - name: DocumentDB
