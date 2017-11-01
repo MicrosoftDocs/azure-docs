@@ -14,7 +14,11 @@ ms.author: cahann
 
 # Prebuilt entities
 
-LUIS includes a set of prebuilt entities. When a prebuilt entity is included in your application, its predictions are included in your published application and can be used in the LUIS web UI to label utterances. The behavior of prebuilt entities **cannot** be modified. Unless otherwise noted, prebuilt entities are available in all LUIS application locales (cultures). The following table shows the prebuilt entities that are supported for each culture.
+LUIS includes a set of prebuilt entities for recognizing common types of information. 
+
+For more details on the prebuilt entities see the [prebuilt entity reference](./luis-reference-prebuilt-entities.md).
+
+When a prebuilt entity is included in your application, its predictions are included in your published application and can be used in the LUIS web UI to label utterances. The behavior of prebuilt entities **cannot** be modified. Unless otherwise noted, prebuilt entities are available in all LUIS application locales (cultures). The following table shows the prebuilt entities that are supported for each culture.
 
 > [!NOTE]
 > **builtin.datetime** is deprecated. It is replaced by [**built-in.datetimeV2**](#builtindatetimeV2), which provides recognition of date and time ranges, as well as improved recognition of ambiguous dates and times.

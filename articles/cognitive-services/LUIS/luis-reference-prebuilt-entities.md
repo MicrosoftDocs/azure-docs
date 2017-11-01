@@ -2,14 +2,14 @@
 title: LUIS Prebuilt entities reference | Microsoft Docs
 description: This article contains lists of the pre-built entities that are included in Language Understanding Intelligent Services (LUIS).
 services: cognitive-services
-author: cahann
-manager: hsalama
+author: DeniseMak
+manager: rstand
 
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: cahann
+ms.author: v-demak
 ---
 
 # Prebuilt entities reference
