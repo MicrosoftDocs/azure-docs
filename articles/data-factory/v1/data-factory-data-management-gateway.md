@@ -13,7 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
+<<<<<<< HEAD
 ms.date: 10/15/2017
+=======
+ms.date: 11/01/2017
+>>>>>>> b3dfec1ea33ab5f0839b29ca1eaced4aae72d88e
 ms.author: abnarain
 
 robots: noindex
