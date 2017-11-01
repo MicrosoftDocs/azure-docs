@@ -1,3 +1,4 @@
+﻿---
 title: Azure Protect personal data at rest with encryption | Microsoft Docs
 description: This article is part of a series helping you use Azure to protect personal data
 services: security
@@ -12,10 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 10/31/2017
 ms.author: barclayn
 ms.custom: 
-
 ---
 # Azure encryption technologies: Protect personal data at rest with encryption
 
