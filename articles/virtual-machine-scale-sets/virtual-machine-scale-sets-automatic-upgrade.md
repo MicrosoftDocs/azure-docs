@@ -49,7 +49,7 @@ To use the automated OS upgrade feature, register the preview provider with [Reg
 Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName AutoOSUpgradePreview
 ```
 
-It takes approximately 10 minutes for registration state to report as *Registered*. You can check the current registration status with [Get-AzureRmProviderFeature](powershell/module/AzureRM.Resources/Get-AzureRmProviderFeature). Once registered, ensure that the *Microsoft.Compute* provider is registered with [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider) as follows:
+It takes approximately 10 minutes for registration state to report as *Registered*. You can check the current registration status with [Get-AzureRmProviderFeature](/powershell/module/AzureRM.Resources/Get-AzureRmProviderFeature). Once registered, ensure that the *Microsoft.Compute* provider is registered with [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider) as follows:
 
 ```powershell
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
@@ -61,7 +61,7 @@ We recommend that your applications use health probes. To register the provider 
 Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVmssHealthProbe
 ```
 
-Again, it takes approximately 10 minutes for registration state to report as *Registered*. You can check the current registration status with [Get-AzureRmProviderFeature](powershell/module/AzureRM.Resources/Get-AzureRmProviderFeature). Once registered ensure that the *Microsoft.Network* provider is registered with [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider) as follows:
+Again, it takes approximately 10 minutes for registration state to report as *Registered*. You can check the current registration status with [Get-AzureRmProviderFeature](/powershell/module/AzureRM.Resources/Get-AzureRmProviderFeature). Once registered ensure that the *Microsoft.Network* provider is registered with [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider) as follows:
 
 ```powershell
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
