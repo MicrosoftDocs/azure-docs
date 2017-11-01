@@ -35,7 +35,7 @@
     href: container-registry-skus.md
   - name: Geo-replication (preview)
     href: container-registry-geo-replication.md
-  - name: Container registry best practices
+  - name: Registry best practices
     href: container-registry-best-practices.md
 - name: How-to guides
   items:
