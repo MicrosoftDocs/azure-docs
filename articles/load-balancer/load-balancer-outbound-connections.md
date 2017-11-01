@@ -39,7 +39,7 @@ In this scenario, the VM is not part of an Azure Load Balancer pool and does not
 
 SNAT ports are a finite resource that can be exhausted. It is important to understand how they are consumed. One SNAT port is consumed per flow to a single destination IP address. For multiple flows to the same destination IP address, each flow consumes a single SNAT port. This ensures that the flows are unique when originated from the same public IP address to the same destination IP address. Multiple flows, each to a different destination IP address share a single SNAT port. The destination IP address makes the flows unique.
 
-You can use [Log Analytics for Load Balancer](load-balancer-monitor-log.md) and [Alert event logs to monitor for SNAT port exhaustion messages](load-balancer-monitor-log.md#alert-event-log). When SNAT port resources are exhausted, outbound flows fail until SNAT ports are released by existing flows. Load Balancer uses a 4-minute idle timeout for reclaiming SNAT ports.  Please review [VM with an Instance Level Public IP address (with or without Load Balancer)](#vm-with-an-instance-level-public-ip-address-with-or-without-load-balancer)the following section as well as [Managing SNAT exhaustion](#snatexhaust).
+You can use [Log Analytics for Load Balancer](load-balancer-monitor-log.md) and [Alert event logs to monitor for SNAT port exhaustion messages](load-balancer-monitor-log.md#alert-event-log) to monitor health of outbound connections. When SNAT port resources are exhausted, outbound flows fail until SNAT ports are released by existing flows. Load Balancer uses a 4-minute idle timeout for reclaiming SNAT ports.  Please review [VM with an Instance Level Public IP address (with or without Load Balancer)](#vm-with-an-instance-level-public-ip-address-with-or-without-load-balancer) the following section as well as [Managing SNAT exhaustion](#snatexhaust).
 
 ## Load-balanced VM with no Instance Level Public IP address
 
@@ -49,7 +49,7 @@ When the load-balanced VM creates an outbound flow, Azure translates the private
 
 SNAT ports are a finite resource that can be exhausted. It is important to understand how they are consumed. One SNAT port is consumed per flow to a single destination IP address. For multiple flows to the same destination IP address, each flow consumes a single SNAT port. This ensures that the flows are unique when originated from the same public IP address to the same destination IP address. Multiple flows, each to a different destination IP address share a single SNAT port. The destination IP address makes the flows unique.
 
-You can use [Log Analytics for Load Balancer](load-balancer-monitor-log.md) and [Alert event logs to monitor for SNAT port exhaustion messages](load-balancer-monitor-log.md#alert-event-log). When SNAT port resources are exhausted, outbound flows fail until SNAT ports are released by existing flows. Load Balancer uses a 4-minute idle timeout for reclaiming SNAT ports.  Please review the following section as well as [Managing SNAT exhaustion](#snatexhaust).
+You can use [Log Analytics for Load Balancer](load-balancer-monitor-log.md) and [Alert event logs to monitor for SNAT port exhaustion messages](load-balancer-monitor-log.md#alert-event-log) to monitor health of outbound connections. When SNAT port resources are exhausted, outbound flows fail until SNAT ports are released by existing flows. Load Balancer uses a 4-minute idle timeout for reclaiming SNAT ports.  Please review the following section as well as [Managing SNAT exhaustion](#snatexhaust).
 
 ## VM with an Instance Level Public IP address (with or without Load Balancer)
 
@@ -80,7 +80,7 @@ This changes your scenario to [Instance-Level Public IP to a VM](#vm-with-an-ins
 You can reduce demand for ephemeral ports used for SNAT by using connection pooling in your application.  Additional flows to the same destination will consume additional ports.  If you reuse the same flow for multiple requests, your multiple requests will consume a single port.
 
 ### Modify application to use less aggressive retry logic
-You can reduce demand for ephemeral ports by using a less aggressive retry logic.  When ephemeral ports used for SNAT are exhausted, aggressive or brute force retries without decay and backoff logic cause exhaustion to persist.  Ephemeral ports have a 4 minute idle timeout (not adjustable) and if the retries are too aggressive, the exhaustion has no opportunity to clear up on its own.
+You can reduce demand for ephemeral ports by using a less aggressive retry logic.  When ephemeral ports used for SNAT are exhausted, aggressive or brute force retries without decay and backoff logic cause exhaustion to persist.  Ephemeral ports have a 4-minute idle timeout (not adjustable) and if the retries are too aggressive, the exhaustion has no opportunity to clear up on its own.
 
 ## Limitations
 
@@ -88,6 +88,6 @@ If [multiple (public) IP addresses are associated with a load balancer](load-bal
 
 Azure uses an algorithm to determine the number of SNAT ports available based on the size of the pool.  This is not configurable at this time.
 
-Outbound connections have a 4 minute idle timeout.  This is not adjustable.
+Outbound connections have a 4-minute idle timeout.  This is not adjustable.
 
 It is important to rememember that the number of SNAT ports available does not translate directly to number of connections. Please see above for specifics on when and how SNAT ports are allocated and how to manage this exhaustible resource.
