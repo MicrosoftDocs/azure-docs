@@ -5,14 +5,14 @@
   - name: Component versioning
     href: ../hdinsight-component-versioning.md
     maintainContext: true
-- name: Get Started
+- name: Get started
   items:
   - name: Start with Interactive Query
     href: ./apache-interactive-query-get-started.md
   - name: Capacity planning
     href: ../hdinsight-capacity-planning.md
     maintainContext: true
-- name: How To
+- name: How to
   items:
   - name: Use cluster storage
     items:

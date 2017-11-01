@@ -18,7 +18,7 @@
     href: apache-kafka-scalability.md
   - name: High availability of data
     href: apache-kafka-high-availability.md
-- name: How To
+- name: How to
   items:
   - name: Use Kafka in a virtual network
     href: apache-kafka-connect-vpn-gateway.md
