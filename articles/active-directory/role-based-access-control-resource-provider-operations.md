@@ -166,23 +166,6 @@ This document lists the operations available for each Microsoft Azure Resource M
 |/service/reports/byApi/read|Get report aggregated by APIs|
 |/service/reports/byProduct/read|Get report aggregated by products.|
 
-## Microsoft.AppService
-
-| Operation | Description |
-|---|---|
-|/appidentities/Read|Returns the resource (web site) registered with the Gateway.|
-|/appidentities/Write|Creates a new App Identity.|
-|/appidentities/Delete|Deletes an existing App Identity.|
-|/gateways/Read|Returns the Gateway instance.|
-|/gateways/Write|Creates a new Gateway or updates existing one.|
-|/gateways/Delete|Deletes an existing Gateway instance.|
-|/gateways/listLoginUris/Action|Populates token store and returns OAuth login URIs.|
-|/gateways/listKeys/Action|Returns Gateway secrets.|
-|/gateways/tokens/Write|Creates a new Zumo Token with the given name.|
-|/gateways/registrations/Read|Returns the resource (web site) registered with the Gateway.|
-|/gateways/registrations/Write|Registers a resource (web site) with the Gateway.|
-|/gateways/registrations/Delete|Unregisters a resource (web site) from the Gateway.|
-
 ## Microsoft.Authorization
 
 | Operation | Description |
