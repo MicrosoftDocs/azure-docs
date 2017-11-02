@@ -28,7 +28,7 @@ The release notes are continuously updated, and as critical issues requiring a w
 Update 1.0 corresponds to the software version **10.0.10296.0**.
 
 > [!IMPORTANT]
-> - Updates are disruptive and restart your device. If I/O are in progress, the device incurs downtime. For detailed instructions on how to apply the update, go to [Install Update 1.0](storsimple-virtual-array-install-update1.md).
+> - Updates are disruptive and restart your device. If I/O are in progress, the device incurs downtime. For detailed instructions on how to apply the update, go to [Install Update 1.0](storsimple-virtual-array-install-update-1.md).
 >
 > - Update 1 is only available to you via the Azure portal if your device is running Update 0.6.
 
