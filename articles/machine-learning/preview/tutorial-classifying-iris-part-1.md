@@ -18,9 +18,9 @@ Azure Machine Learning services (preview) is an integrated, end-to-end data scie
 
 This tutorial is part one of a three-part series. In this tutorial, we walk through the basics of Azure Machine Learning services (preview). You learn how to:
 > [!div class="checklist"]
-> * Create a project in Azure Machine Learning Workbench
-> * Create a data preparation package
-> * Generate Python/PySpark code to invoke a data preparation package
+> * Create a project in Azure Machine Learning Workbench.
+> * Create a data preparation package.
+> * Generate Python/PySpark code to invoke a data preparation package.
 
 This tutorial uses the timeless [Iris flower data set](https://en.wikipedia.org/wiki/Iris_flower_data_set). The screenshots are Windows-specific, but the Mac OS experience is almost identical.
 
@@ -31,7 +31,7 @@ This tutorial uses the timeless [Iris flower data set](https://en.wikipedia.org/
 You can follow the instructions in the [Install and create Quickstart](quickstart-installation.md) article to install the Azure Machine Learning Workbench application. This installation also includes the Azure cross-platform command-line tool, or Azure CLI.
 
 ## Create a new project in Azure Machine Learning Workbench
-1. Launch the Azure Machine Learning Workbench app, and log in if needed. In the **PROJECTS** pane, click the plus sign (**+**) to create a **New Project**.
+1. Open the Azure Machine Learning Workbench app, and log in if needed. In the **PROJECTS** pane, select the plus sign (**+**) to create a **New Project**.
 
    ![New workspace](media/tutorial-classifying-iris/new_ws.png)
 
@@ -42,11 +42,11 @@ You can follow the instructions in the [Install and create Quickstart](quickstar
    - Fill in the **Project name** box with a name for the project. For example, use the value **myIris**.
    - Select the **Project directory** in which the project is created. For example, use the value `C:\Temp\`. 
    - Enter the **Project description**, which is optional. 
-   - The **Git Repository** field is also optional and can be left blank. You can provide an existing empty Git repo (a repo with no master branch) on VSTS. If you use a Git repo that already exists, you can enable the roaming and sharing scenarios later. For more information, see [Use Git repo](using-git-ml-project.md). 
+   - The **Git Repository** field is also optional and can be left blank. You can provide an existing empty Git repo (a repo with no master branch) on Visual Studio Team Services. If you use a Git repo that already exists, you can enable the roaming and sharing scenarios later. For more information, see [Use Git repo](using-git-ml-project.md). 
    - Select a **Workspace**, for example, this tutorial uses **IrisGarden**. 
    - Select the **Classifying Iris** template from the project template list. 
 
-3. Click the **Create** button. The project is now created and opened for you.
+3. Select the **Create** button. The project is now created and opened for you.
 
 ## Create a data preparation package
 1. Open the **iris.csv** file from the **File View**. The file is a table with 5 columns and 150 rows. It has four numerical feature columns and a string target column. It does not have column headers.
@@ -56,11 +56,11 @@ You can follow the instructions in the [Install and create Quickstart](quickstar
    >[!NOTE]
    > Do not include data files in your project folder, particularly when the file size is large. We include **iris.csv** in this template for demonstration purposes because it's tiny. For more information, see [How to read and write large data files](how-to-read-write-files.md).
 
-2. In the **Data View**, click the plus sign (**+**) to add a new data source. The **Add Data Source** page launches. 
+2. In the **Data View**, select the plus sign (**+**) to add a new data source. The **Add Data Source** page opens. 
 
    ![Data view](media/tutorial-classifying-iris/data_view.png)
 
-3. Leave the default values, and then click the **Next** button.  
+3. Leave the default values, and then select the **Next** button.  
  
    ![Select iris](media/tutorial-classifying-iris/select_iris_csv.png)
 
@@ -73,21 +73,21 @@ You can follow the instructions in the [Install and create Quickstart](quickstar
 
    ![Iris data view](media/tutorial-classifying-iris/iris_data_view.png)
 
-5. Click the **Metrics** button. Observe the histograms. A complete set of statistics have been calculated for each column. You can also click the **Data** button to see the data again. 
+5. Select the **Metrics** button. Observe the histograms. A complete set of statistics have been calculated for each column. You can also select the **Data** button to see the data again. 
 
    ![Iris data view](media/tutorial-classifying-iris/iris_metrics_view.png)
 
-6. Click the **Prepare** button. The **Prepare** dialog box opens. 
+6. Select the **Prepare** button. The **Prepare** dialog box opens. 
 
    The sample project comes with a **iris.dprep** file, so by default it asks you to create a new data flow in the **iris.dprep** data preparation package that already exists. 
 
-   Select **+ New Data Preparation Package** from the drop-down menu, enter a new value for the package name, use **iris-1**, and then click **OK**.
+   Select **+ New Data Preparation Package** from the drop-down menu, enter a new value for the package name, use **iris-1**, and then select **OK**.
 
    ![Iris data view](media/tutorial-classifying-iris/new_dprep.png)
 
    A new data preparation package named **iris-1.dprep** is created and opened in data preparation editor.
 
-7. Now let's do some basic data preparation. Rename the column names. Click each column header to make the header text editable. 
+7. Now let's do some basic data preparation. Rename the column names. Select each column header to make the header text editable. 
 
    Enter **Sepal Length**, **Sepal Width**, **Petal Length**, **Petal Width**, and **Species** for the five columns respectively.
 
@@ -99,7 +99,7 @@ You can follow the instructions in the [Install and create Quickstart](quickstar
 
    This action opens the **Inspectors** pane, and displays a histogram with four bars. The target column has three distinct values: **Iris_virginica**, **Iris_versicolor**, **Iris-setosa**, and a **(null)** value.
 
-9. To filter out nulls, select the bar from the graph that represents the null value. There is one row with a **(null)** value. To get rid of this row, click the minus sign (**-**).
+9. To filter out nulls, select the bar from the graph that represents the null value. There is one row with a **(null)** value. To remove this row, select the minus sign (**-**).
 
    ![Value count histogram](media/tutorial-classifying-iris/filter_out.png)
 
@@ -107,15 +107,15 @@ You can follow the instructions in the [Install and create Quickstart](quickstar
 
    ![Steps](media/tutorial-classifying-iris/steps.png)
 
-11. Close the data preparation editor. Click **Close** (x) on the **iris-1** tab with the graph icon. Your work is automatically saved into the **iris-1.dprep** file shown under the **Data Preparations** heading.
+11. Close the data preparation editor. Select **Close** (x) on the **iris-1** tab with the graph icon. Your work is automatically saved into the **iris-1.dprep** file shown under the **Data Preparations** heading.
 
 ## Generate Python/PySpark code to invoke a data preparation package
 
-1. Right-click the **iris-1.dprep** file to bring up context menu, and then select **Generate Data Access Code File**. 
+1. Right-click the **iris-1.dprep** file to bring up the context menu, and then select **Generate Data Access Code File**. 
 
    ![Generate code](media/tutorial-classifying-iris/generate_code.png)
 
-2. A new file named **iris-1.py** opens with following lines of code:
+2. A new file named **iris-1.py** opens with the following lines of code:
 
    ```Python
    # This code snippet loads the referenced package and returns a DataFrame.
