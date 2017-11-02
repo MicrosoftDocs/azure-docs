@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 11/02/2017
 ms.author: bwren
 
 ---
@@ -36,13 +36,6 @@ No, there are some changes in the webhook and runbook actions that might require
 
 ### Question: I'm getting errors when trying to use computer groups.  Has their syntax changed?
 Yes, the syntax for using computer groups changes when your workspace is upgraded.  See [Computer groups in Log Analytics log searches](log-analytics-computer-groups.md) for details.
-
-### Known issue: Groups imported from Active Directory
-You cannot currently create a query that uses a computer group imported from Active Directory.  As a workaround until this issue is corrected, create a new computer group using the imported Active Directory group and then use that new group in your query.
-
-An example query to create a new computer group that includes an imported Active Directory group is as follows:
-
-	ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "AD Group Name" and TimeGenerated >= ago(24h) | distinct Computer
 
 
 ## Dashboards
@@ -73,9 +66,6 @@ Minify is a feature that gives a summarized view of your search results.  After 
 	| where TimeGenerated > ago(10h)
 	| evaluate autocluster_v2()
 
-
-### Known issue: Complex queries in a chart could result in a syntax error
-When you select a value in a chart, it returns a detailed list of records matching the selected value. Charts with complex queries could result in a syntax error if they weren't created using the new query language.
 
 
 ## Log Search API
@@ -147,8 +137,8 @@ Yes.  You must use an API version of 2017-03-15-preview and include a **features
 ### Question: Will my solutions continue to work?
 All solutions will continue to work in an upgraded workspace, although their performance will improve if they are converted to the new query language.  There are known issues with some existing solutions that are described in this section.
 
-### Known issue: Application Insights connector
-Perspectives in [Application Insights Connector solution](log-analytics-app-insights-connector.md) are currently not supported in an upgraded workspace.  A fix to this issue is currently under analysis.
+### Known issue: Perspectives in Application Insights connector
+Perspectives in [Application Insights Connector solution](log-analytics-app-insights-connector.md) are no longer supported in the Application Insights connector solution.  You can use View Designer to create custom views with Application Insights data.
 
 ### Known issue: Backup solution
 The Backup Solution may not collect data if was installed before upgrading a workspace. Uninstall the solution and then install the latest version.  The new version of the solution does not support classic Backup vaults, so you must also upgrade to Recovery Services vaults to continue to use the solution.
@@ -173,9 +163,6 @@ Prior to general availability, you could revert your workspace after upgrading. 
 
 ### Question: How do I create a new view with View Designer?
 Prior to upgrade, you could create a new view with View Designer from a tile on the main dashboard.  When your workspace is upgraded, this tile is removed.  You can create a new view with View Designer in the OMS portal by clicking on the green + button in the left menu.
-
-### Known issue: See all option for line charts in views doesn't result in a line chart
-When you click on the *See all* option at the bottom of a line chart part in a view, you are presented with a table.  Prior to upgrade, you would be presented with a line chart.  This issue is being analyzed for a potential modification.
 
 
 ## Next steps
