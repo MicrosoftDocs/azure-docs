@@ -12,7 +12,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 11/01/2017
 ms.author: shlo
 
 robots: noindex
