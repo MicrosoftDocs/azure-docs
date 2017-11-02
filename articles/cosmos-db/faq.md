@@ -398,7 +398,7 @@ Yes, we plan to add other mechanisms for query in the future.
 ### How can I use the new Graph API (Preview) offering? 
 To get started, complete the [Graph API](../cosmos-db/create-graph-dotnet.md) quick-start article.
 
-## Develop against the Graph API (Preview)
+## Develop against the Cassandra API (Preview)
 
 ### Add questions here
 
