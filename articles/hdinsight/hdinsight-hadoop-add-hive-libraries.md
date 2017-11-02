@@ -95,4 +95,4 @@ Once cluster creation finishes, you are able to use the jars added through this 
 
 ## Next steps
 
-For more information on working with Hive, see [Use Hive with HDInsight](hdinsight-use-hive.md)
+For more information on working with Hive, see [Use Hive with HDInsight](hadoop/hdinsight-use-hive.md)

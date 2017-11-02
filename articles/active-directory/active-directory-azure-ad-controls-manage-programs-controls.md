@@ -1,6 +1,6 @@
 ---
 title: Manage programs and controls for Azure AD access reviews| Microsoft Docs
-description: You can create additional programs for each governance, risk management and compliance initiative in your organization to collect and organize Azure Active Directory access reviews as controls.
+description: You can create additional programs for each governance, risk management, and compliance initiative in your organization to collect and organize Azure Active Directory access reviews as controls.
 services: active-directory
 documentationcenter: ''
 author: markwahl-msft
@@ -17,18 +17,18 @@ ms.author: billmath
 
 # Manage programs and their controls 
 
-Azure AD includes access reviews of group members and application access, which are examples of controls ensuring oversight for who has access. These controls enable organizations to efficiently address their governance, risk management and compliance requirements.  
+Azure Active Directory (Azure AD) includes access reviews of group members and application access. These examples of controls ensure oversight for who has access to your organization's group memberships and applications. Organizations can use these controls to efficiently address their governance, risk management, and compliance requirements.
 
-## How to manage programs and their controls
-You can simplify tracking and collecting access reviews for different purposes by organizing them into programs.  Each access review can be linked to a program, so that when preparing reports for an auditor, only those access reviews in scope for a particular initiative are visible.
+## Create and manage programs and their controls
+You can simplify how to track and collect access reviews for different purposes by organizing them into programs. Each access review can be linked to a program. Then when you prepare reports for an auditor, only the access reviews in scope for a particular initiative are visible.
 
-To see a list of programs, go to the [access reviews page](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) and change to the **Programs** tab.
+To see a list of programs, go to the [access reviews page](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) and select **Programs**.
 
-There is one program, "Default Program", always present.  If you are in a global administrator role, you may create additional programs.  For example, you may choose to have one program for each compliance initiative or business goal.
+**Default Program** is always present. If you're in a global administrator role, you can create additional programs. For example, you can choose to have one program for each compliance initiative or business goal.
 
-If you no longer need a program, and it does not have any controls linked to it, you can delete it.
+If you no longer need a program and it doesn't have any controls linked to it, you can delete it.
 
 ## Next steps
 
-- [Create an access review for members of a group or access to an application](active-directory-azure-ad-controls-create-access-review.md)
+[Create an access review for members of a group or access to an application](active-directory-azure-ad-controls-create-access-review.md)
 
