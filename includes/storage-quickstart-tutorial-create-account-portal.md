@@ -12,7 +12,6 @@ First, create a new general-purpose storage account to use for this quickstart.
     - **Account kind** is set to **General purpose**.
     - **Performance** is set to **Standard**.
     - **Replication** is set to **Locally Redundant storage (LRS)**.
-    - **Secure transfer required** is set to **Disabled**.
 5. Select your subscription. 
 6. For **Resource group**, create a new one and give it a unique name. 
 7. Select the **Location** to use for your storage account.
