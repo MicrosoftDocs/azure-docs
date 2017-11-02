@@ -29,7 +29,7 @@
 - name: Samples
   items: 
   - name: Samples on GitHub
-    href: https://github.com/MicrosoftTranslator 
+    href: https://aka.ms/TranslatorGitHub
 - name: How-Tos
   items:
   - name: Sign-up for Translator Text API
