@@ -109,7 +109,7 @@ No. You can't update the computer name property. The new VM inherits it from the
 * [List of templates using Managed Disks](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
 * https://github.com/chagarw/MDPP
 
-## Migration to Managed Disks 
+## Migrate to Managed Disks 
 
 **What changes are required in a pre-existing Azure Backup service configuration prior/after migration to Managed Disks?**
 
