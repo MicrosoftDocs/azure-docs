@@ -122,7 +122,7 @@ az container create \
     --environment-variables NumWords=5 MinLength=8
 ```
 
-By specifying `NumWords=5` and `MinLength=8` for the container's environment variables, the container logs should display different output.
+By specifying `NumWords=5` and `MinLength=8` for the container's environment variables, the container logs should display different output. Once the container status shows as *Terminated* (use `az container show` to check its status), display its logs to see the new output:
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer2
@@ -144,7 +144,7 @@ Specify a command line when you create a container instance to override the comm
 
 For instance, you can have the example container analyze text other than *Hamlet* by specifying a different command line. The Python script executed by the container, *wordcount.py*, accepts a URL as an argument, and will process that page's content instead of the default.
 
-For example, to analyze *Romeo and Juliet*:
+For example, to determine the top three five-letter words in *Romeo and Juliet*:
 
 ```azurecli-interactive
 az container create \
@@ -152,10 +152,11 @@ az container create \
     --name mycontainer3 \
     --image microsoft/aci-wordcount:latest \
     --restart-policy OnFailure \
+    --environment-variables NumWords=3 MinLength=5 \
     --command-line "python wordcount.py http://shakespeare.mit.edu/romeo_juliet/full.html"
 ```
 
-Again, view the output by showing the container's logs:
+Again, once the container is *Terminated*, view the output by showing the container's logs:
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer3
@@ -164,16 +165,7 @@ az container logs --resource-group myResourceGroup --name mycontainer3
 Output:
 
 ```bash
-[('the', 611),
- ('I', 577),
- ('and', 486),
- ('to', 438),
- ('a', 402),
- ('of', 364),
- ('my', 315),
- ('is', 307),
- ('in', 290),
- ('you', 271)]
+[('ROMEO', 177), ('JULIET', 134), ('CAPULET', 119)]
 ```
 
 ## Next steps
