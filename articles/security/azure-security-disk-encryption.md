@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Disk Encryption for Windows and Linux IaaS VMs | Microsoft Docs
 description: This article provides an overview of Microsoft Azure Disk Encryption for Windows and Linux IaaS VMs.
 services: security
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2017
+ms.date: 11/01/2017
 ms.author: kakhan
 
 ---
@@ -248,8 +248,8 @@ Use the following PowerShell cmdlet to create an Azure AD application:
 > [!NOTE]
 > $azureAdApplication.ApplicationId is the Azure AD ClientID and $aadClientSecret is the client secret that you should use later to enable Azure Disk Encryption. Safeguard the Azure AD client secret appropriately.
 
-##### Setting up the Azure AD client ID and secret from the Azure classic portal
-You can also set up your Azure AD client ID and secret by using the [Azure classic portal]( https://manage.windowsazure.com). To perform this task, do the following:
+##### Setting up the Azure AD client ID and secret from the Azure portal
+You can also set up your Azure AD client ID and secret by using the Azure Portal. To perform this task, do the following:
 
 1. Click the **Active Directory** tab.
 
@@ -271,8 +271,6 @@ You can also set up your Azure AD client ID and secret by using the [Azure class
 
  ![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig7.png)
 
- > [!NOTE]
- > The preceding flow is not supported on the Azure classic portal.
 
 ##### Use an existing application
 To execute the following commands, obtain and use the [Azure AD PowerShell module](https://technet.microsoft.com/library/jj151815.aspx).
@@ -635,12 +633,12 @@ You can enable disk encryption on your encrypted VHD by installing and using the
  ```
 
 ### Get the encryption status of an encrypted IaaS VM
-You can get the encryption status by using Azure Resource Manager, [PowerShell cmdlets](/powershell/azure/overview), or CLI commands. The following sections explain how to use the Azure classic portal and CLI commands to get the encryption status.
+You can get the encryption status by using Azure Resource Manager, [PowerShell cmdlets](/powershell/azure/overview), or CLI commands. The following sections explain how to use the Azure Portal and CLI commands to get the encryption status.
 
 #### Get the encryption status of an encrypted Windows VM by using Azure Resource Manager
 You can get the encryption status of the IaaS VM from Azure Resource Manager by doing the following:
 
-1. Sign in to the [Azure classic portal](https://portal.azure.com/), and then click **Virtual machines** in the left pane to see a summary view of the virtual machines in your subscription. You can filter the virtual machines view by selecting the subscription name in the **Subscription** drop-down list.
+1. Sign in to the [Azure Portal](https://portal.azure.com/), and then click **Virtual machines** in the left pane to see a summary view of the virtual machines in your subscription. You can filter the virtual machines view by selecting the subscription name in the **Subscription** drop-down list.
 
 2. At the top of the **Virtual machines** page, click **Columns**.
 

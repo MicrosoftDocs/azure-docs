@@ -4,7 +4,7 @@ description: Learn how to create an Office Data Connection file to connect to an
 services: analysis-services
 documentationcenter: ''
 author: minewiskan
-manager: erikre
+manager: kfile
 editor: ''
 tags: ''
 
@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 08/23/2017
+ms.date: 11/01/2017
 ms.author: owend
 
 ---
