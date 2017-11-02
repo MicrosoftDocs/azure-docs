@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 11/01/2017
 ms.author: TomSh
 
 ---
@@ -111,7 +111,7 @@ Not only do users not have to manage multiple sets of usernames and passwords, a
 
 Security monitoring and alerts and machine learning-based reports that identify inconsistent access patterns can help you protect your business. You can use Azure Active Directory's access and usage reports to gain visibility into the integrity and security of your organization’s directory. With this information, a directory admin can better determine where possible security risks may lie so that they can adequately plan to mitigate those risks.
 
-In the Azure classic portal or through [Azure Active directory portal](http://aad.portal.azure.com/), [reports](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-guide) are categorized in the following ways:
+In the Azure portal or through [Azure Active directory portal](http://aad.portal.azure.com/), [reports](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-guide) are categorized in the following ways:
 
 - Anomaly reports – contain sign in events that we found to be anomalous. Our goal is to make you aware of such activity and enable you to be able to decide about whether an event is suspicious.
 
@@ -159,7 +159,7 @@ Azure AD Privileged Identity Management lets you:
 
 ## Secured resource access in Azure
 
-Access control in Azure starts from a billing perspective. The owner of an Azure account, accessed by visiting the [Azure Accounts Center](https://account.windowsazure.com/subscriptions), is the Account Administrator (AA). Subscriptions are a container for billing, but they also act as a security boundary: each subscription has a Service Administrator (SA) who can add, remove, and modify Azure resources in that subscription by using the [Azure classic portal](https://manage.windowsazure.com/). The default SA of a new subscription is the AA, but the AA can change the SA in the Azure Accounts Center.
+Access control in Azure starts from a billing perspective. The owner of an Azure account, accessed by visiting the [Azure Accounts Center](https://account.windowsazure.com/subscriptions), is the Account Administrator (AA). Subscriptions are a container for billing, but they also act as a security boundary: each subscription has a Service Administrator (SA) who can add, remove, and modify Azure resources in that subscription by using the Azure portal. The default SA of a new subscription is the AA, but the AA can change the SA in the Azure Accounts Center.
 
 ![Secured resource access in Azure](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig3.png)
 
