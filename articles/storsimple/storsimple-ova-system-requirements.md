@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/10/2017
+ms.date: 10/16/2017
 ms.author: alkohli
 ---
 # StorSimple Virtual Array system requirements
@@ -46,7 +46,7 @@ The software requirements include the information on the supported web browsers,
 | Minimum memory (RAM) |8 GB <br> For a file server, 8 GB for less than 2 million files and 16 GB for 2 - 4 million files|
 | Disk space<sup>1</sup> |OS disk - 80 GB <br></br>Data disk - 500 GB to 8 TB |
 | Minimum number of network interface(s) |1 |
-| Minimum Internet bandwidth<sup>2</sup> |5 Mbps |
+| Internet bandwidth<sup>2</sup> |Minimum bandwidth required: 5 Mbps <br> Recommended bandwidth: 100 Mbps <br> The speed of data transfer scales with the Internet bandwidth. For example, 100 GB of data takes 2 days to transfer at 5 Mbps which could lead to backup failures because daily backups would not complete in a day. With a bandwidth of 100 Mbps, 100 GB of data can be transferred in 2.5 hours.   |
 
 <sup>1</sup> - Thin provisioned
 
@@ -126,4 +126,3 @@ We recommend that you set your firewall rules for outbound traffic, based on Sto
 
 ## Next step
 * [Prepare the portal to deploy your StorSimple Virtual Array](storsimple-virtual-array-deploy1-portal-prep.md)
-
