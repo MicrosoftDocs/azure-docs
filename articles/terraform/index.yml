@@ -20,7 +20,9 @@ abstract:
       alt: Terraform logo.
       height: 110
       src: media/Terraform_VerticalLogo_FullColor.svg
-      width: 250  
+      width: 250
+      href: https://terraform.io  
+    title: <a href="https://www.terraform.io/docs/providers/azurerm/index.html">Terraform on Azure Documentation</a>
 sections:
 - title: Quickstarts
   items:
