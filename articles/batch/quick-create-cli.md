@@ -148,7 +148,7 @@ az batch job create --id myjob-windows --pool-id mypool-windows
 ```
 
 
-## Create sample tasks
+## Create tasks
 
 Now use the [az batch task create](/cli/azure/batch/task#az_batch_task_create) command to create some tasks to run in the job. In this example, the task is a bash command line that runs the `printenv` command to show environment variables on a Linux compute node. When you use Batch, this command line is where you specify your app or script.
 

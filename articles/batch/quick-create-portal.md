@@ -82,7 +82,7 @@ A Batch job specifies a pool to run tasks on and optionally a priority and sched
 
 After the job is crated, the **Tasks** page opens.
 
-## Create sample tasks
+## Create a task
 
 Now create a sample task to run in the job. Typically you create multiple tasks that Batch queues and distributes to run on the compute nodes. This example is a single task to run the `set` command on one of the compute nodes. This `cmd` command dispays the Windows environment variables. When you use Batch, the command line is where you specify your app or script. 
 
