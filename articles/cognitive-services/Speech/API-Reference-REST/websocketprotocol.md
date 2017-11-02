@@ -11,9 +11,9 @@ ms.topic: article
 ms.date: 09/15/2017
 ms.author: zhouwang
 ---
-# Microsoft Speech Service WebSocket protocol
+# Speech Service WebSocket protocol
 
- Microsoft Speech Service is a cloud-based platform that features the most advanced algorithms available for converting spoken audio to text. The Speech Service protocol defines the [connection setup](#connection-establishment) between client applications and the service, the speech recognition messages exchanged between counterparts ([client-originated Messages](#client-originated-messages), and [service-originated messages](#service-originated-messages)). In addition, [telemetry messages](#telemetry-schema) and [error handling](#error-handling) are described.
+  Speech Service is a cloud-based platform that features the most advanced algorithms available for converting spoken audio to text. The Speech Service protocol defines the [connection setup](#connection-establishment) between client applications and the service, the speech recognition messages exchanged between counterparts ([client-originated Messages](#client-originated-messages), and [service-originated messages](#service-originated-messages)). In addition, [telemetry messages](#telemetry-schema) and [error handling](#error-handling) are described.
 
 ## Connection establishment
 
@@ -58,7 +58,7 @@ In addition to the standard WebSocket handshake headers, speech requests require
 
 The *Authorization* header must contain a JSON Web Token (JWT) access token.
 
-For information about subscribing and obtaining API keys that are used to retrieve valid JWT access tokens, see [Cognitive Services subscription](https://azure.microsoft.com/try/cognitive-services/).
+For information about how to subscribe and obtain API keys that are used to retrieve valid JWT access tokens, see the [Cognitive Services subscription](https://azure.microsoft.com/try/cognitive-services/) page.
 
 The API key is passed to the token service. For example:
 
@@ -125,7 +125,7 @@ Text WebSocket messages must specify a message path in the header *Path*. The va
 
 Binary WebSocket messages carry a binary payload. In the Speech Service protocol, audio is transmitted to and received from the service by using binary WebSocket messages. All other messages are text WebSocket messages. 
 
-Like text WebSocket messages, binary WebSocket messages consist of a header and a body section. The first 2 bytes of the binary WebSocket message specify, in [big-endian](https://en.wikipedia.org/wiki/Endianness) order, the 16-bit integer size of the header section. The minimum header section size is 0 bytes. The maximum size is 8192 bytes. The text in the headers of binary WebSocket messages *must* use [US-ASCII](https://tools.ietf.org/html/rfc20) encoding.
+Like text WebSocket messages, binary WebSocket messages consist of a header and a body section. The first 2 bytes of the binary WebSocket message specify, in [big-endian](https://en.wikipedia.org/wiki/Endianness) order, the 16-bit integer size of the header section. The minimum header section size is 0 bytes. The maximum size is 8,192 bytes. The text in the headers of binary WebSocket messages *must* use [US-ASCII](https://tools.ietf.org/html/rfc20) encoding.
 
 Headers in a binary WebSocket message are encoded in the same format as in text WebSocket messages. The *name:value* format is separated by a single-carriage-return newline pair. Binary WebSocket messages must specify a message path in the header *Path*. The value of this header must be one of the speech protocol message types defined later in this document.
 
@@ -145,7 +145,7 @@ The following headers are required for all client-originated messages.
 |----|----|
 | Path | The message path as specified in this document |
 | X-RequestId | UUID in "no-dash" format |
-| X-Timestamp | Client UTC clock timestamp in ISO 8601 format |
+| X-Timestamp | Client UTC clock time stamp in ISO 8601 format |
 
 #### X-RequestId header
 
@@ -155,7 +155,7 @@ Client-originated requests are uniquely identified by the *X-RequestId* message 
 
 Each message sent to Speech Service by a client application *must* include an *X-Timestamp* header. The value for this header is the time when the client sends the message. Requests without an *X-Timestamp* header or with a header value that uses the wrong format cause the service to terminate the WebSocket connection.
 
-The *X-Timestamp* header value must be of the form 'yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'fffffffZ' where 'fffffff' is a fraction of a second. For example, '12.5' means '12 + 5/10 seconds' and '12.526' means '12 plus 526/1000 seconds'. This format complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and, unlike the standard HTTP *Date* header, it can provide millisecond resolution. Client applications might round timestamps to the nearest millisecond. Client applications need to ensure that the device clock accurately tracks time by using a [Network Time Protocol (NTP) server](https://en.wikipedia.org/wiki/Network_Time_Protocol).
+The *X-Timestamp* header value must be of the form 'yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'fffffffZ' where 'fffffff' is a fraction of a second. For example, '12.5' means '12 + 5/10 seconds' and '12.526' means '12 plus 526/1000 seconds'. This format complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and, unlike the standard HTTP *Date* header, it can provide millisecond resolution. Client applications might round time stamps to the nearest millisecond. Client applications need to ensure that the device clock accurately tracks time by using a [Network Time Protocol (NTP) server](https://en.wikipedia.org/wiki/Network_Time_Protocol).
 
 ### Message `speech.config`
 
@@ -173,7 +173,7 @@ Clients *must* send a `speech.config` message immediately after they establish t
 | Header name | Value |
 |----|----|
 | Path | `speech.config` |
-| X-Timestamp | Client UTC clock timestamp in ISO 8601 format |
+| X-Timestamp | Client UTC clock time stamp in ISO 8601 format |
 | Content-Type | application/json; charset=utf-8 |
 
 As with all client-originated messages in the Speech Service protocol, the `speech.config` message *must* include an *X-Timestamp* header that records the client UTC clock time when the message was sent to the service. The `speech.config` message *does not* require an *X-RequestId* header because this message isn't associated with a particular speech request.
@@ -228,7 +228,7 @@ Speech-enabled client applications send audio to Speech Service by converting th
 
 Clients use the `audio` message to send an audio chunk to the service. Clients read audio from the microphone in chunks and send these chunks to Speech Service for transcription. The first `audio` message must contain a well-formed header that properly specifies that the audio conforms to one of the encoding formats supported by the service. Additional `audio` messages contain only the binary audio stream data read from the microphone.
 
-Clients might optionally send an `audio` message with a zero-length body. This message tells the service that the client knows that the user has stopped speaking, that the utterance is finished, and that the microphone is turned off.
+Clients might optionally send an `audio` message with a zero-length body. This message tells the service that the client knows that the user stopped speaking, that the utterance is finished, and that the microphone is turned off.
 
 Speech Service uses the first `audio` message that contains a unique request identifier to signal the start of a new request/response cycle or *turn*. After the service receives an `audio` message with a new request identifier, it discards any queued or unsent messages that are associated with any previous turn.
 
@@ -245,7 +245,7 @@ The following headers are required for all `audio` messages.
 | ------------- | ---------------- |
 | Path | `audio` |
 | X-RequestId | UUID in "no-dash" format |
-| X-Timestamp | Client UTC clock timestamp in ISO 8601 format |
+| X-Timestamp | Client UTC clock time stamp in ISO 8601 format |
 | Content-Type | The audio content type. The type must be either *audio/x-wav* (PCM) or *audio/silk* (SILK). |
 
 #### Supported audio encodings
@@ -300,7 +300,7 @@ Clients must acknowledge the end of a turn by sending a `telemetry` message soon
 | ------------- | ---------------- |
 | WebSocket message encoding | Text |
 | Path | `telemetry` |
-| X-Timestamp | Client UTC clock timestamp in ISO 8601 format |
+| X-Timestamp | Client UTC clock time stamp in ISO 8601 format |
 | Content-Type | `application/json` |
 | Body | A JSON structure that contains client information about the turn |
 
@@ -470,13 +470,13 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 
 ## Telemetry schema
 
-The body of the *telemetry* message is a JSON structure that contains client information about a turn or an attempted connection. The structure is made up of client timestamps that record when client events occur. Each timestamp must be in ISO 8601 format as described in the section titled "X-Timestamp header." *Telemetry* messages that do not specify all the required fields in the JSON structure or that do not use the correct timestamp format might cause the service to terminate the connection to the client. Clients *must* supply valid values for all required fields. Clients *should* supply values for optional fields whenever appropriate. The values shown in samples in this section are for illustration only.
+The body of the *telemetry* message is a JSON structure that contains client information about a turn or an attempted connection. The structure is made up of client time stamps that record when client events occur. Each time stamp must be in ISO 8601 format as described in the section titled "X-Timestamp header." *Telemetry* messages that do not specify all the required fields in the JSON structure or that do not use the correct time stamp format might cause the service to terminate the connection to the client. Clients *must* supply valid values for all required fields. Clients *should* supply values for optional fields whenever appropriate. The values shown in samples in this section are for illustration only.
 
-Telemetry schema is divided into the following parts: received message timestamps and metrics. The format and usage of each part is specified in the following sections.
+Telemetry schema is divided into the following parts: received message time stamps and metrics. The format and usage of each part is specified in the following sections.
 
-### Received message timestamps
+### Received message time stamps
 
-Clients must include time-of-receipt values for all messages that they receive after successfully connecting to the service. These values must record the time when the client *received* each message from the network. The value should not record any other time. For example, the client should not record the time when it *acted* on the message. The received message timestamps are specified in an array of *name:value* pairs. The name of the pair specifies the *Path* value of the message. The value of the pair specifies the client time when the message was received. Or, if more than one message of the specified name was received, the value of the pair is an array of timestamps that indicates when those messages were received.
+Clients must include time-of-receipt values for all messages that they receive after successfully connecting to the service. These values must record the time when the client *received* each message from the network. The value should not record any other time. For example, the client should not record the time when it *acted* on the message. The received message time stamps are specified in an array of *name:value* pairs. The name of the pair specifies the *Path* value of the message. The value of the pair specifies the client time when the message was received. Or, if more than one message of the specified name was received, the value of the pair is an array of time stamps that indicates when those messages were received.
 
 ```JSON
   "ReceivedMessages": [
@@ -487,7 +487,7 @@ Clients must include time-of-receipt values for all messages that they receive a
   ]
 ```
 
-Clients *must* acknowledge the receipt of all messages sent by the service by including timestamps for those messages in the JSON body. If a client fails to acknowledge the receipt of a message, the service might terminate the connection.
+Clients *must* acknowledge the receipt of all messages sent by the service by including time stamps for those messages in the JSON body. If a client fails to acknowledge the receipt of a message, the service might terminate the connection.
 
 ### Metrics
 
@@ -495,7 +495,7 @@ Clients must include information about events that occurred during the lifetime 
 
 ### Metric `Connection`
 
-The `Connection` metric specifies details about connection attempts by the client. The metric must include timestamps of when the WebSocket connection was started and finished. The `Connection` metric is required *only for the first turn of a connection*. Subsequent turns are not required to include this information. If a client makes multiple connection attempts before a connection is established, information about *all* the connection attempts should be included. For more information, see [Connection failure telemetry](#connection-failure-telemetry).
+The `Connection` metric specifies details about connection attempts by the client. The metric must include time stamps of when the WebSocket connection was started and finished. The `Connection` metric is required *only for the first turn of a connection*. Subsequent turns are not required to include this information. If a client makes multiple connection attempts before a connection is established, information about *all* the connection attempts should be included. For more information, see [Connection failure telemetry](#connection-failure-telemetry).
 
 | Field | Description | Usage |
 | ----- | ----------- | ----- |
@@ -525,9 +525,9 @@ The error description should be at most 50 characters and ideally should be one 
 
 The `Microphone` metric is required for all speech turns. This metric measures the time on the client during which audio input is being actively used for a speech request.
 
-Use the following examples as guidelines for recording *Start* time values for the `Microphone` metric in your client application.
+Use the following examples as guidelines for recording *Start* time values for the `Microphone` metric in your client application:
 
-* A client application requires that a user presses a physical button to start the microphone. After the button press, the client application reads the input from the microphone and sends it to Speech Service. The *Start* value for the `Microphone` metric records the time after the button push when the microphone is initialized and ready to provide input. The *End* value for the `Microphone` metric records the time when the client application stopped streaming audio to the service after it received the `speech.endDetected` message from the service.
+* A client application requires that a user must press a physical button to start the microphone. After the button press, the client application reads the input from the microphone and sends it to Speech Service. The *Start* value for the `Microphone` metric records the time after the button push when the microphone is initialized and ready to provide input. The *End* value for the `Microphone` metric records the time when the client application stopped streaming audio to the service after it received the `speech.endDetected` message from the service.
 
 * A client application uses a keyword spotter that is "always" listening. Only after the keyword spotter detects a spoken trigger phrase does the client application collect the input from the microphone and send it to Speech Service. The *Start* value for the `Microphone` metric records the time when the keyword spotter notified the client to start using input from the microphone. The *End* value for the `Microphone` metric records the time when the client application stopped streaming audio to the service after it received the `speech.endDetected` message from the service.
 
@@ -549,7 +549,7 @@ The `ListeningTrigger` metric measures the time when the user executes the actio
 
 Use the following examples as guidelines for recording *Start* and *End* time values for the `ListeningTrigger` metric in your client application.
 
-* A client application requires that a user presses a physical button to start the microphone. The *Start* value for this metric records the time of the button push. The *End* value records the time when the button push finishes.
+* A client application requires that a user must press a physical button to start the microphone. The *Start* value for this metric records the time of the button push. The *End* value records the time when the button push finishes.
 
 * A client application uses a keyword spotter that is "always" listening. After the keyword spotter detects a spoken trigger phrase, the client application reads the input from the microphone and sends it to Speech Service. The *Start* value for this metric records the time when the keyword spotter received audio that was then detected as the trigger phrase. The *End* value records the time when the last word of the trigger phrase was spoken by the user.
 
@@ -662,9 +662,9 @@ After a turn is finished, if a client sends a message that reuses the request id
 
 ## Connection failure telemetry
 
-To ensure the best possible user experience, clients must inform Speech Service of the timestamps for important checkpoints within a connection by using the *telemetry* message. It's equally important that clients inform the service of connections that were attempted but failed.
+To ensure the best possible user experience, clients must inform Speech Service of the time stamps for important checkpoints within a connection by using the *telemetry* message. It's equally important that clients inform the service of connections that were attempted but failed.
 
-For each connection attempt that failed, clients create a *telemetry* message with a unique *X-RequestId* header value. Because the client was unable to establish a connection, the *ReceivedMessages* field in the JSON body can be omitted. Only the `Connection` entry in the *Metrics* field is included. This entry includes the start and end timestamps as well as the error condition that was encountered.
+For each connection attempt that failed, clients create a *telemetry* message with a unique *X-RequestId* header value. Because the client was unable to establish a connection, the *ReceivedMessages* field in the JSON body can be omitted. Only the `Connection` entry in the *Metrics* field is included. This entry includes the start and end time stamps as well as the error condition that was encountered.
 
 ### Connection retries in telemetry
 
