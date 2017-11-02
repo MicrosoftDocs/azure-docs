@@ -73,7 +73,7 @@ You must log in to your ACR instance before pushing images to it. Use the [az ac
 az acr login --name <acrName>
 ```
 
-The command returns a 'Login Succeeded’ message once completed.
+The command returns a `Login Succeeded` message once completed.
 
 ## Tag container image
 
@@ -92,13 +92,21 @@ REPOSITORY                   TAG                 IMAGE ID            CREATED    
 aci-tutorial-app             latest              5c745774dfa9        39 seconds ago       68.1 MB
 ```
 
-To get the loginServer name, run the following command:
+To get the loginServer name, run the following command. Replace `<acrName>` with the name of your container registry.
 
 ```azurecli
 az acr show --name <acrName> --query loginServer --output table
 ```
 
-Tag the *aci-tutorial-app* image with the loginServer of the container registry. Also, add `:v1` to the end of the image name. This tag indicates the image version number.
+Example output:
+
+```
+Result
+------------------------
+mycontainerregistry082.azurecr.io
+```
+
+Tag the *aci-tutorial-app* image with the loginServer of your container registry. Also, add `:v1` to the end of the image name. This tag indicates the image version number. Replace `<acrLoginServer>` with the result of the `az acr show` command you just executed.
 
 ```bash
 docker tag aci-tutorial-app <acrLoginServer>/aci-tutorial-app:v1
@@ -120,9 +128,7 @@ mycontainerregistry082.azurecr.io/aci-tutorial-app        v1                  a9
 
 ## Push image to Azure Container Registry
 
-Push the *aci-tutorial-app* image to the registry.
-
-Using the following example, replace the container registry loginServer name with the loginServer from your environment.
+Push the *aci-tutorial-app* image to the registry with the `docker push` command. Replace `<acrLoginServer>` with the full login server name you obtain in the earlier step.
 
 ```bash
 docker push <acrLoginServer>/aci-tutorial-app:v1
