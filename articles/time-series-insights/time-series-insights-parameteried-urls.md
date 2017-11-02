@@ -1,5 +1,5 @@
 ---
-title: Parameterize Time Series Insights URLs to share a custom view | Microsoft Docs
+title: Parameterize Azure Time Series Insights URLs to share a custom view | Microsoft Docs
 description: This article describes how to parameterize URLs in Azure Time Series Insights
 keywords: 
 services: time-series-insights
@@ -51,12 +51,12 @@ Accepted values correspond to the Time Series Insights explorer **quick time** m
 
 - 1800000 (Last 30 mins)
 - 3600000 (Last 60 mins)
-- 10800000(Last 3 Hours)
-- 21600000(Last 6 Hours)
-- 43200000(Last 12 Hours)
-- 86400000(Last 24 Hours)
+- 10800000 (Last 3 Hours)
+- 21600000 (Last 6 Hours)
+- 43200000 (Last 12 Hours)
+- 86400000 (Last 24 Hours)
 - 604800000 (Last 7 Days)
-- 2592000000(Last 30 Hours)
+- 2592000000 (Last 30 Hours)
 
 ### Optional parameters
 
