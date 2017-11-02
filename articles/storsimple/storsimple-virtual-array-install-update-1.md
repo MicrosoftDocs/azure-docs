@@ -116,7 +116,8 @@ This procedure takes around 4 minutes to complete. Perform the following steps t
 
 6. Repeat steps 2-4 to install the Windows security fix using file `windows8.1-kb4012213-x64`. The virtual array restarts after the install and you need to sign into the local web UI.
 
-> [!NOTE] If you directly applied Update 1 to a device running a version prior to Update 0.6, You will be missing some updates. Please contact Microsoft Support for next steps.
+> [!NOTE] 
+> If you directly applied Update 1 to a device running a version prior to Update 0.6, You will be missing some updates. Please contact Microsoft Support for next steps.
 
 ## Next steps
 
