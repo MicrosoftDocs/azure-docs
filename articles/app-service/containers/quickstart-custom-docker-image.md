@@ -1,10 +1,10 @@
 ---
 title: Run a custom Docker Hub image in Azure Web App for Containers | Microsoft Docs
-description: How to use a custom Docker image for Web App for Containers.
+description: How to use a custom Docker image for Azure Web App for Containers.
 keywords: azure app service, web app, linux, docker, container
 services: app-service
 documentationcenter: ''
-author: naziml
+author: cephalin
 manager: cfowler
 editor: ''
 
@@ -14,8 +14,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/05/2017
-ms.author: wesmc
+ms.date: 11/02/2017
+ms.author: cephalin;wesmc
 ms.custom: mvc
 ---
 
