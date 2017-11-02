@@ -87,7 +87,7 @@ Clients *must* support the standard redirection mechanisms specified by the [HTT
 
 ### Speech endpoints
 
-Clients *must* use an appropriate endpoint of Speech Service. The endpoint is based on recognition mode and language. Some examples are shown in the following table.
+Clients *must* use an appropriate endpoint of Speech Service. The endpoint is based on recognition mode and language. The table shows some examples.
 
 | Mode | Path | Service URI |
 | -----|-----|-----|
