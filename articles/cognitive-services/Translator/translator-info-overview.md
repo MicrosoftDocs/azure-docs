@@ -46,9 +46,12 @@ The only noticeable differences are
 Learn more about [how DNN works](https://www.microsoft.com/en-us/translator/mt.aspx#nnt)
 
 ## Next steps
-- [Sign up](/translator-text-how-to-signup.md) for an access key. A Free tier for 2 million characters per month is available, or [view pricing options for paid tiers](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/translator-text-api/)
-- Start coding— view Quickstarts, Tutorials, and Sample Apps to get started. Further documentation can be found in References. 
-- Resources provides subscription [FAQ](https://www.microsoft.com/en-us/translator/faq.aspx) as well as links to our [technical](https://stackoverflow.com/questions/tagged/microsoft-translator) and [user](https://cognitive.uservoice.com/knowledgebase/topics/132647-translator) forums
+
+> [!div class="nextstepaction"]
+> [Sign up](translator-text-how-to-signup.md)
+
+> [!div class="nextstepaction"]
+> [Start coding](quickstarts/csharp.md)
 
 ## See also
 - [Cognitive Services Documentation page](https://docs.microsoft.com/en-us/azure/#pivot=products&panel=cognitive)
