@@ -47,10 +47,12 @@
       href: create-table-dotnet.md
   - name: Cassandra
     items:
-    - name: .NET
-      href: create-cassandra-dotnet.md
+    - name: Node.js
+      href: create-cassandra-nodejs.md
     - name: Java
       href: create-cassandra-java.md
+    - name: .NET
+      href: create-cassandra-dotnet.md
 - name: Tutorials
   items:
   - name: 1 - Create
