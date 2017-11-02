@@ -1,9 +1,9 @@
 ---
-title: Get Started with Microsoft speech recognition API in Objective C on iOS | Microsoft Docs
+title: Get Started with Microsoft Speech Recognition API in Objective C on iOS | Microsoft Docs
 description: Use Microsoft speech recognition API to develop iOS applications applications that convert spoken audio to text.
 services: cognitive-services
 author: zhouwangzw
-manager: wolfma61
+manager: wolfma
 
 ms.service: cognitive-services
 ms.technology: speech
@@ -29,12 +29,18 @@ The Microsoft Speech client library and examples for iOS is available on [Speech
 
 ### Subscribe to Speech API and get a free trial subscription key
 
+Microsoft Speech API is part of Microsoft Cognitive Services on Azure(previously Project Oxford). You can get free trial subscription keys from the [Cognitive Services Subscription](https://azure.microsoft.com/try/cognitive-services/) page. After you select the Speech API, click Get API Key to get the key. It returns a primary and secondary key. Both keys are tied to the same quota, so you may use either key.
+
+If you want to use *Recognition with intent*, you also need to sign up to the [Language Understanding Intelligent Service (LUIS)](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
+
 > [!IMPORTANT]
-> You must have a subscription key before using speech client libraries.
-
-Microsoft Speech API is part of Microsoft Cognitive Services on Azure(previously Project Oxford). You can get free trial subscription keys from the [Cognitive Services Subscription](https://azure.microsoft.com/en-us/try/cognitive-services/) page. After you select the Speech API, click Get API Key to get the key. It returns a primary and secondary key. Both keys are tied to the same quota, so you may use either key.
-
-If you want to use *Recognition with intent*, you also need to sign up [Language Understanding Intelligent Service (LUIS)](https://azure.microsoft.com/en-us/services/cognitive-services/language-understanding-intelligent-service/).
+> **Get a subscription key**
+>
+> You must have a [subscription key](https://azure.microsoft.com/try/cognitive-services/) before using speech client libraries.
+>
+> **Use your subscription key**
+>
+> With the provided iOS sample application, you need to update the file Samples/SpeechRecognitionServerExample/settings.plist with your subscription key. See more information below: [Build and run samples](#build-and-run-samples).
 
 ## Use speech client library
 
@@ -107,7 +113,7 @@ The client library provides pre-implemented recognition client classes for typic
 
 * `MicrophoneRecognitionClient`: speech recognition with audio coming from the microphone. Make sure the microphone is turned on and data from the microphone is sent to the speech recognition service. A built-in "Silence Detector" is applied to the microphone data before it is sent to the recognition service.
 
-* `DataRecognitionClientWithIntent` and `MicrophoneRecognitionClientWithIntent`: these clients return, in addition to recognition text, structured information about the intent of the speaker, which could be used drive further actions by your applications. To use Intent, you need to first train a model using [LUIS](https://azure.microsoft.com/en-us/services/cognitive-services/language-understanding-intelligent-service/).
+* `DataRecognitionClientWithIntent` and `MicrophoneRecognitionClientWithIntent`: these clients return, in addition to recognition text, structured information about the intent of the speaker, which could be used drive further actions by your applications. To use Intent, you need to first train a model using [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
 
 ### Recognition language
 

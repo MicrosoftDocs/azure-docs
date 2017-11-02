@@ -1,6 +1,9 @@
 # [Overview](active-directory-b2c-overview.md)
 
 # Get started
+## [Test drive an Azure AD B2C web app](active-directory-b2c-quickstarts-web-app.md)
+## [Test drive an Azure AD B2C desktop app](active-directory-b2c-quickstarts-desktop-app.md)
+## [Test drive an Azure AD B2C single-page app](active-directory-b2c-quickstarts-spa.md)
 ## [Create an Azure AD B2C Directory](active-directory-b2c-get-started.md)
 ## [Register your application](active-directory-b2c-app-registration.md)
 ## [Built-In policies](active-directory-b2c-reference-policies.md)
@@ -80,16 +83,15 @@
 #### [Customize the UI dynamically](active-directory-b2c-ui-customization-custom-dynamic.md)
 #### [Customize tokens](active-directory-b2c-reference-manage-sso-and-token-configuration.md)
 #### [Password complexity](active-directory-b2c-reference-password-complexity-custom.md)
-
 #### [Password change](active-directory-b2c-reference-password-change-custom.md)
-
 #### [Enable keep me signed in](active-directory-b2c-reference-kmsi-custom.md)
-
 ### Troubleshooting
 #### [Collect logs using Application Insights](active-directory-b2c-troubleshoot-custom.md)
 ## Reference
 ### [Release notes](active-directory-b2c-developer-notes-custom.md)
+### [SSO session providers](active-directory-b2c-reference-sso-custom.md)
 ### [Trust Framework definition](active-directory-b2c-reference-trustframeworks-defined-ief-custom.md) 
+
 # Reference
 ## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory-b2c)
 ## Glossary

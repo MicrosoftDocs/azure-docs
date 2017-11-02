@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2016
-ms.author: bwren
+ms.author: mbullwin
 
 ---
 # Developer analytics: languages, platforms, and integrations

@@ -28,6 +28,15 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 This quickstart requires that you are running the latest Azure CLI version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
+The Batch AI resource providers also need to be registered once for your subscription using the Azure Cloud Shell or Azure CLI. A provider registration can take up to 15 minutes.
+
+```azurecli
+az provider register -n Microsoft.BatchAI
+az provider register -n Microsoft.Batch
+```
+
+
+
 ## Create a resource group
 
 Batch AI clusters and jobs are Azure resources and must be placed in an Azure resource group.
@@ -110,7 +119,7 @@ For illustration purposes, this quickstart uses an Azure file share to host the 
 
 
 ## Create GPU cluster
-Use the [az bachai cluster create](/cli/azure/batchai/cluster#az_batchai_cluster_create) command to create a Batch AI cluster consisting of a single GPU VM node. In this example, the VM runs the default Ubuntu LTS image. Specify `image UbuntuDSVM` instead to run the Microsoft Deep Learning Virtual Machine, which supports additional training frameworks. The NC6 size has one NVIDIA K80 GPU. Mount the file share at a folder named *azurefileshare*. The full path of this folder on the GPU compute node is $AZ_BATCHAI_MOUNT_ROOT/azurefileshare. 
+Use the [az batchai cluster create](/cli/azure/batchai/cluster#az_batchai_cluster_create) command to create a Batch AI cluster consisting of a single GPU VM node. In this example, the VM runs the default Ubuntu LTS image. Specify `image UbuntuDSVM` instead to run the Microsoft Deep Learning Virtual Machine, which supports additional training frameworks. The NC6 size has one NVIDIA K80 GPU. Mount the file share at a folder named *azurefileshare*. The full path of this folder on the GPU compute node is $AZ_BATCHAI_MOUNT_ROOT/azurefileshare. 
 
 
 ```azurecli

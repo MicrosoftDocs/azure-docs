@@ -13,7 +13,7 @@ ms.custom: monitor & tune
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: data-management
+ms.workload: "On Demand"
 ms.date: 02/09/2017
 ms.author: carlrab
 
@@ -27,7 +27,7 @@ In you don't have any applicable recommendations, and you still have performance
 2. Tune your application and apply some best practices that can improve performance. 
 3. Tune the database by changing indexes and queries to more efficiently work with data.
 
-These are manual methods because you need to decide what [service tiers](sql-database-service-tiers.md) you would choose or you would need to rewrite application or database code and deply the changes.
+These are manual methods because you need to decide what [service tiers](sql-database-service-tiers.md) you would choose or you would need to rewrite application or database code and deploy the changes.
 
 ## Increasing performance tier of your database
 

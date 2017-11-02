@@ -29,7 +29,7 @@ So the first thing you need to do is complete the registration process.  But bef
 * **Mobile app with a notification or verification code** - If using the mobile app, choose between receiving a notification that you respond to or a verification code.
 
 > [!NOTE]
-> Your IT department may disable one or more of these options.  If so, those options will not be available during the registration process.  
+> Your company support may disable one or more of these options.  If so, those options will not be available during the registration process.  
 
 Now that you have decided on your verification method, it's time to register. Use the [Setup Experience](multi-factor-authentication-end-user-first-time.md) link to get started with a walk-through on the enrollment process.
 
@@ -42,4 +42,4 @@ Select one of these topics to get started.
 | [Sign-in experience](multi-factor-authentication-end-user-signin.md) |Shows what you can expect from signing in using the various methods such as phone or app. |
 | [Changing your settings](multi-factor-authentication-end-user-manage-settings.md) |Shows you how you can change your settings such as phone number or preferred enrollment method. |
 | [Help with app passwords](multi-factor-authentication-end-user-app-passwords.md) |Find information on creating and using app passwords. |
-| [Use the mobile app](microsoft-authenticator-app-how-to.md) |The Microsoft Authenticator app is available for [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), and [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
+| [Use the mobile app](microsoft-authenticator-app-how-to.md) |The Microsoft Authenticator app is available for [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), and [iOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
