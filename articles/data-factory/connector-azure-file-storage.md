@@ -17,14 +17,14 @@ ms.author: jingwang
 
 ---
 
-# Copy data from or to Azure Files by using Azure Data Factory
+# Copy data from or to Azure File Storage by using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 2 - Preview](connector-azure-files.md)
+> * [Version 2 - Preview](connector-azure-file-storage.md)
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from and to Azure File Storage (Azure Files). It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 > [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview.
+> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Copy Activity in V1](v1/data-factory-data-movement-activities.md).
 
 ## Supported scenarios
 
