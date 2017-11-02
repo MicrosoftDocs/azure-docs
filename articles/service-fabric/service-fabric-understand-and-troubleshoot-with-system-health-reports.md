@@ -53,6 +53,16 @@ The report specifies the global-lease timeout as the time-to-live (TTL). The rep
 * **Property**: Starts with **Neighborhood** and includes node information.
 * **Next steps**: Investigate why the neighborhood is lost, for example, check the communication between cluster nodes.
 
+### Rebuild
+**System.FM** and **System.FMM** reports an error when it detects that rebuild is stalled or stuck. Rebuild could be stuck in one of two phases:
+
+* Waiting for broadcast. FM/FMM waits for broadcast message reply from the other nodes. Investigating the network connection between the nodes in the cluster might provide more information.
+* Waiting for nodes. FM/FMM already received a broadcast reply from the other nodes and is now waiting for a reply from specific nodes. The nodes will be listed in the health report description. Investigating the listed nodes for problems as well as the network connection between the FM/FMM node and the listed nodes might provide more information.
+
+* **SourceID**: System.FM or System.FMM
+* **Property**: Rebuild
+* **Next steps**: Investigate the network connection between the nodes as well as the state of any specific nodes listed on the description of the health report.
+
 ## Node system health reports
 **System.FM**, which represents the Failover Manager service, is the authority that manages information about cluster nodes. Each node should have one report from System.FM showing its state. The node entities are removed when the node state is removed. For more information, see [RemoveNodeStateAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.clustermanagementclient.removenodestateasync).
 
