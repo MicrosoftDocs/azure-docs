@@ -133,7 +133,7 @@ For information on changing the SSH user account password, see the __Change pass
 
 If you are using a __domain-joined HDInsight cluster__, you must use the `kinit` command after connecting with SSH. This command prompts you for a domain user and password, and authenticates your session with the Azure Active Directory domain associated with the cluster.
 
-For more information, see [Configure domain-joined HDInsight](hdinsight-domain-joined-configure.md).
+For more information, see [Configure domain-joined HDInsight](./domain-joined/apache-domain-joined-configure.md).
 
 ## Connect to nodes
 
