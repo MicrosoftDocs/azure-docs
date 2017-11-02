@@ -2,14 +2,14 @@
 title: Microsoft Translator Hub Documentation | Microsoft Docs
 description: Use Microsoft Translator Hub to build your own machine translation system using your preferred terminology and style.
 services: cognitive-services
-author: chriswendt1
-manager: arulm
+author: jann-skotdal
+manager: chriswendt1
 
 ms.service: cognitive-services
 ms.technology: translator
 ms.topic: article
 ms.date: 10/26/2016
-ms.author: christw
+ms.author: v-jansko
 ---
 
 # Customization translations with the Microsoft Translator Hub and Hub API
