@@ -49,7 +49,7 @@ To minimize latency, keep the hub database close to the greatest concentration o
 
 ### Cloud-to-cloud scenario
 
--   When all the databases in a sync group are in one data center, the hub should be located in the same data center. This reduces latency and the cost of data transfer between data centers.
+-   When all the databases in a sync group are in one data center, the hub should be located in the same data center. This configuration reduces latency and the cost of data transfer between data centers.
 
 -   When the databases in a sync group are in multiple data centers, the hub should be located in the same data center as most of the databases and database traffic.
 
@@ -59,9 +59,9 @@ Apply the preceding guidelines to more complex sync group configurations.
 
 ## <a name="database-considerations-and-constraints"></a> Database considerations and constraints
 
-### SQL Database instance iize
+### SQL Database instance size
 
-When you create a new SQL Database instance, set the maximum size so that it is always larger than the database you deploy. If you do not set the maximum size larger than the deployed database, synchronization fails. While there is no automatic growth - you can do an ALTER DATABASE to increase the size of the database after it has been created. You must stay within the SQL Database instance size limits.
+When you create a new SQL Database instance, set the maximum size so that it is always larger than the database you deploy. If you do not set the maximum size larger than the deployed database, synchronization fails. While there is no automatic growth - you can do an ALTER DATABASE to increase the size of the database after it has been created. Make sure you stay within the SQL Database instance size limits.
 
 > [!IMPORTANT]
 > SQL Data Sync stores additional metadata with each database. Be sure to account for this metadata when you calculate space needed. The amount of added overhead is governed by the width of the tables (for example, narrow tables require more overhead) and the amount of traffic.
@@ -114,7 +114,7 @@ This section discusses the initial synchronization of a sync group and what you 
 
 ### How initial synchronization works
 
-When you create a sync group, start with data in only one database. If you have data in multiple databases, SQL Data Sync (Preview) treats each row as a conflict that needs resolution. This conflict resolution causes the initial synchronization to go very slowly, taking several days to several months, depending on the database size.
+When you create a sync group, start with data in only one database. If you have data in multiple databases, SQL Data Sync (Preview) treats each row as a conflict that needs resolution. This conflict resolution causes the initial synchronization to go slowly, taking several days to several months, depending on the database size.
 
 Additionally, if the databases are in different data centers, the costs of initial synchronization are higher than necessary, since each row must travel between the different data centers.
 
@@ -162,7 +162,7 @@ Under certain circumstances, unregistering a database with a client agent can ca
 
 ### Scenario
 
-1. Sync group A was created with a SQL Database instance and an on-premises SQL Server database which is associated with local agent 1.
+1. Sync group A was created with a SQL Database instance and an on-premises SQL Server database, which is associated with local agent 1.
 
 2. The same on-premises database is registered with local agent 2 (this agent is not associated with any sync group).
 
