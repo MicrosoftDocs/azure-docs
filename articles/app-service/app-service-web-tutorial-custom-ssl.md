@@ -154,14 +154,14 @@ In **PFX Certificate File**, select your PFX file. In **Certificate password**, 
 
 Click **Upload**.
 
-![Upload certificate](./media/app-service-web-tutorial-custom-ssl/upload-certificate1.png)
+![Upload certificate](./media/app-service-web-tutorial-custom-ssl/upload-certificate-private.png)
 
 
 #### Public Certificate 
 
 Enter the name of the Certificate and Select the Store where you want to place the public certificate. 
 
-![Upload public certificate](./media/app-service-web-tutorial-custom-ssl/upload-certificate2.png)
+![Upload public certificate](./media/app-service-web-tutorial-custom-ssl/upload-certificate-public.png)
 
 
 When App Service finishes uploading your certificate, it appears in the **SSL certificates** page.
