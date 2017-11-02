@@ -96,8 +96,8 @@ Deletes an existing Service Fabric application. An application must be created b
 | --verbose               | Increase logging verbosity. Use --debug for full debug logs.|
 
 ## sfctl application deployed
-Gets the information about an application deployed on a Service Fabric node.|
-|     
+Gets the information about an application deployed on a Service Fabric node.
+     
 ### Arguments
 
 |Argument|Description|
@@ -314,9 +314,7 @@ Validates the supplied application upgrade parameters and starts upgrading the a
 
 |Argument|Description|
 | --- | --- |
-| --app-id             [Required]| The identity of the application. This is typically the full            name of the application without the 'fabric:' URI scheme. Starting from version 6.0, hierarchical names are delimited with the '~' character. For
-        example, if the application name is 'fabric://myapp/app1', the application identity would be
-        'myapp~app1' in 6.0+ and 'myapp/app1' in previous versions.|
+| --app-id             [Required]| The identity of the application. This is typically the full            name of the application without the 'fabric:' URI scheme. Starting from version 6.0, hierarchical names are delimited with the '~' character. For example, if the application name is 'fabric://myapp/app1', the application identity would be 'myapp~app1' in 6.0+ and 'myapp/app1' in previous versions.|
 | --app-version        [Required]| Target application version.|
 | --parameters         [Required]| A JSON encoded list of application parameter overrides to be            applied when upgrading the application.|
 | --default-service-health-policy| JSON encoded specification of the health policy used by default            to evaluate the health of a service type.|
