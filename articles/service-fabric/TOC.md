@@ -333,9 +333,9 @@
 
 ## Monitor and diagnose
 ### OMS
-#### [Analyze events with Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
-#### [Analyze events with OMS](service-fabric-diagnostics-event-analysis-oms.md)
-### [Troubleshoot your local cluster](service-fabric-troubleshoot-local-cluster-setup.md)
+#### [Set up OMS Log Analytics](service-fabric-diagnostics-oms-setup.md)
+#### [Add the OMS Agent](service-fabric-diagnostics-event-oms-agent.md)
+#### [Monitor containers](service-fabric-diagnostics-oms-containers.md)
 
 # Reference
 ## [Azure PowerShell](/powershell/module/azurerm.servicefabric/)
