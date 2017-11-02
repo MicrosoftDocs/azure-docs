@@ -40,9 +40,11 @@ Update 1.0 corresponds to the software version **10.0.10296.0**.
 
 If the authentication URL is not included in the firewall rules, the users will see a critical alert that their StorSimple device could not authenticate with the service. If the users see this alert, they need to include the new authentication URL. For more information, go to [StorSimple networking alerts](storsimple-virtual-array-manage-alerts.md).
 
- - **Performance improvement** - Several bug fixes were done to improve the speeds of cloud read, tier-ins and tier-outs.
+ - **Performance improvement** - Several bug fixes were done to improve the speeds of cloud read, tier-ins and tier-outs. As a result, both the backup and restore performance has imprvoed for iSCSI and file server devices.
 
  - **Garbage collection improvement** - Several bug fixes were done to improve the performance of garbage collection cycle when the device and storage account are in two distant regions.
+
+ - **Logging improvement** - Improvements to logging related to garbage collection and I/O were done.
 
 
 ## Issues fixed in the Update 1.0

@@ -70,15 +70,15 @@ If your virtual array is running Update 0.6, perform the following steps to down
 
 4. Click **Download**.
 
-5. You should see two files to download. Download the files to a folder. The folder can also be copied to a network share that is reachable from the device.
+5. Download the two files to a folder. You can also copy the folder to a network share that is reachable from the device.
 
-6. Open the folder where the file is located.
+6. Open the folder where the files are located.
 
-    ![Files in the package](./media/storsimple-virtual-array-install-update-1/update06folder.png)
+    ![Files in the package](./media/storsimple-virtual-array-install-update-1/update01folder.png)
 
     You see two files:
     -  A Microsoft Update Standalone Package file `WindowsTH-KB3011067-x64`. This file is used to update the device software.
-    - A file that contains cumulative updates for August `windows8.1-kb4034681-x64`. For more information on what is included in this rollup, go to [August monthly rollup](https://support.microsoft.com/en-us/help/4034681/windows-8-1-windows-server-2012-r2-update-kb40346810).
+    - A file that contains cumulative updates for August `windows8.1-kb4034681-x64`. For more information on what is included in this rollup, go to [August monthly security rollup](https://support.microsoft.com/en-us/help/4034681/windows-8-1-windows-server-2012-r2-update-kb40346810).
 
 ### Install the update or the hotfix
 
@@ -117,7 +117,7 @@ This procedure takes around 4 minutes to complete. Perform the following steps t
 6. Repeat steps 2-4 to install the Windows security fix using file `windows8.1-kb4012213-x64`. The virtual array restarts after the install and you need to sign into the local web UI.
 
 > [!NOTE] 
-> If you directly applied Update 1 to a device running a version prior to Update 0.6, You will be missing some updates. Please contact Microsoft Support for next steps.
+> If you directly applied Update 1 to a device running a version prior to Update 0.6, you are missing some updates. Please contact Microsoft Support for next steps.
 
 ## Next steps
 
