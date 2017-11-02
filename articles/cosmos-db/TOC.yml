@@ -246,7 +246,7 @@
       items:
       - name: Table API operations with PowerShell
         href: table-powershell.md
-      - name: Azure Table Storage
+      - name: Azure Table storage
         items:
         - name: Table storage overview
           href: table-storage-overview.md

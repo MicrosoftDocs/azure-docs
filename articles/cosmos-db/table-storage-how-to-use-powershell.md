@@ -1,6 +1,6 @@
 ---
-title: Perform Azure Table Storage operations with PowerShell | Microsoft Docs
-description: Perform Azure Table Storage operations with PowerShell
+title: Perform Azure Table storage operations with PowerShell | Microsoft Docs
+description: Perform Azure Table storage operations with PowerShell
 services: storage
 documentationcenter: storage
 author: robinsh
@@ -17,15 +17,15 @@ ms.date: 11/02/2017
 ms.author: robinsh
 ---
 
-# Perform Azure Table Storage operations with Azure PowerShell 
+# Perform Azure Table storage operations with Azure PowerShell 
 
 >[!NOTE]
->Azure Cosmos DB Table API provides premium features for table storage such as turnkey global distribution, low latency reads and writes, automatic secondary indexing, and dedicated throughput. In most cases, the PowerShell commands in this article work for both Azure Cosmos DB Table API and Azure Table Storage, but this article is specific to Azure Table Storage. If you are using Azure Cosmos DB Table API, see [Azure Cosmos DB Table API operations with Azure PowerShell](table-powershell.md).
+>Azure Cosmos DB Table API provides premium features for table storage such as turnkey global distribution, low latency reads and writes, automatic secondary indexing, and dedicated throughput. In most cases, the PowerShell commands in this article work for both Azure Cosmos DB Table API and Azure Table storage, but this article is specific to Azure Table storage. If you are using Azure Cosmos DB Table API, see [Azure Cosmos DB Table API operations with Azure PowerShell](table-powershell.md).
 >
 
-Azure Table Storage is a NoSQL datastore which you can use to store and query huge sets of structured, non-relational data. The main components of the service are tables, entities, and properties. A table is a collection of entities. An entity is a set of properties. Each entity can have up to 252 properties, which are all name-value pairs. This article assumes that you are already familiar with the Azure Table Storage Service concepts. For detailed information, see [Understanding the Table Service Data Model](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model) and [Get started with Azure Table storage using .NET](table-storage-how-to-use-dotnet.md).
+Azure Table storage is a NoSQL datastore which you can use to store and query huge sets of structured, non-relational data. The main components of the service are tables, entities, and properties. A table is a collection of entities. An entity is a set of properties. Each entity can have up to 252 properties, which are all name-value pairs. This article assumes that you are already familiar with the Azure Table Storage Service concepts. For detailed information, see [Understanding the Table Service Data Model](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model) and [Get started with Azure Table storage using .NET](table-storage-how-to-use-dotnet.md).
 
-This how-to article covers common Azure Table Storage operations. You learn how to: 
+This how-to article covers common Azure Table storage operations. You learn how to: 
 
 > [!div class="checklist"]
 > * Create a table
@@ -136,7 +136,7 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 
 ## Next steps
 
-In this how-to article, you learned about common Azure Table Storage operations with PowerShell, including how to: 
+In this how-to article, you learned about common Azure Table storage operations with PowerShell, including how to: 
 
 > [!div class="checklist"]
 > * Create a table
