@@ -66,7 +66,7 @@ The Azure Database for MySQL service creates a firewall at the server level. It 
 
 3.	Under the **Firewall rules** heading, select the blank text box in the **Rule Name** column to begin creating the firewall rule. 
 
-   ![Connection security - Firewall rules](\media\quickstart-create-mysql-server-database-using-azure-portal\5_firewall-settings.png)
+   ![Connection security - Firewall rules](./media/quickstart-create-mysql-server-database-using-azure-portal/5_firewall-settings.png)
 
    For this Quickstart, let's allow all IP addresses into the server by filling in boxes in each column with the following values:
 
