@@ -35,11 +35,11 @@ This how-to article covers common Azure Table Storage operations. You learn how 
 > * Delete table entities
 > * Delete a table
 
-This how-to article has you create a storage account in a new resource group so you can easily remove it at the end. If you'd rather use an existing storage account, you can do that instead.
+This how-to article shows you how to create a new storage account in a new resource group so you can easily remove it when you're done. If you'd rather use an existing storage account, you can do that instead.
 
 The examples require Azure PowerShell module version 4.4.0 or later. In a PowerShell window, run `Get-Module -ListAvailable AzureRM` to find the version. If nothing is displayed, or you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). 
 
-In addition, install module **AzureRmStorageTable** that has the commands for managing the entities. This module is separate from the AzureRm module which is installed when installing Azure Powershell. To install this module, run PowerShell as an administrator and use the **Install-Module** command.
+After Azure PowerShell is installed or updated, you must install module **AzureRmStorageTable**, which has the commands for managing the entities. To install this module, run PowerShell as an administrator and use the **Install-Module** command.
 
 ```powershell
 Install-Module AzureRmStorageTable
@@ -128,7 +128,7 @@ Get-AzureStorageTable –Context $Ctx | select Name
 
 ## Clean up resources
 
-If you created a new resource group and a new table in that group, you can remove all of the assets you have created in this exercise by removing the resource group. This command deletes all resources contained within the group as well as the resource group itself.
+If you created a new resource group and storage account at the beginning of this how-to,  you can remove all of the assets you have created in this exercise by removing the resource group. This command deletes all resources contained within the group as well as the resource group itself.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name $resourceGroup

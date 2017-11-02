@@ -19,7 +19,7 @@ ms.author: robinsh
 # Perform Azure Cosmos DB Table API operations with Azure PowerShell 
 
 >[!NOTE]
->Azure Cosmos DB Table API provides premium features for table storage such as turnkey global distribution, low latency reads and writes, automatic secondary indexing, and dedicated throughput. In most cases, the PowerShell commands in this article work for both Azure Cosmos DB Table API and Azure Table Storage, but this article is specific to Azure Cosmos DB Table API. If you are using Azure Table Storage, see [Azure Table Storage operations with Azure PowerShell](table-storage-how-to-use-powershell.md).
+>Azure Cosmos DB Table API provides premium features for table storage such as turnkey global distribution, low latency reads and writes, automatic secondary indexing, and dedicated throughput. In most cases, the PowerShell commands in this article work for both Azure Cosmos DB Table API and Azure Table Storage, but this article is specific to Azure Cosmos DB Table API. If you are using Azure Table Storage, see [Perform Azure Table Storage operations with Azure PowerShell](table-storage-how-to-use-powershell.md).
 >
 
 Azure Cosmos DB Table API enables you to store and query huge sets of structured, non-relational data. The main components of the service are tables, entities, and properties. A table is a collection of entities. An entity is a set of properties. Each entity can have up to 252 properties, which are all name-value pairs. This article assumes that you are already familiar with the Azure Cosmos DB Table API concepts. For detailed information, see [Introduction to Azure Cosmos DB Table API](table-introduction.md) and [Build a .NET application using the Table API](create-table-dotnet.md).
@@ -33,17 +33,17 @@ This how-to article covers common Table API operations. You learn how to:
 > * Query a table
 > * Delete table entities
 
-## Pre-requisites
+## Prerequisites
 
 The examples require Azure PowerShell module version 4.4.0 or later. In a PowerShell window, run `Get-Module -ListAvailable AzureRM` to find the version. If nothing is displayed, or you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). 
 
-In addition, install module **AzureRmStorageTable** that has the commands for managing the entities. This module is separate from the AzureRm module which is installed when installing Azure Powershell. To install this module, run PowerShell as an administrator and use the **Install-Module** command.
+After Azure PowerShell is installed or updated, you must install module **AzureRmStorageTable**, which has the commands for managing the entities. To install this module, run PowerShell as an administrator and use the **Install-Module** command.
 
 ```powershell
 Install-Module AzureRmStorageTable
 ```
 
-While Cosmos DB Table API is in preview, you also have to install the assemblies locally in order to use these PowerShell cmdlets. For instructions on how to do that, see [Azure RM Storage Tables PowerShell module for Cosmos DB Tables](https://blogs.technet.microsoft.com/paulomarques/2017/05/23/azure-rm-storage-tables-powershell-module-now-includes-support-for-cosmos-db-tables/).
+While Azure Cosmos DB Table API is in preview, you also have to install its assemblies locally in order to use these PowerShell cmdlets. For instructions on how to do that, see [Azure RM Storage Tables PowerShell module for Cosmos DB Tables](https://blogs.technet.microsoft.com/paulomarques/2017/05/23/azure-rm-storage-tables-powershell-module-now-includes-support-for-cosmos-db-tables/).
 
 To try out the following exercises, you need an Azure Cosmos DB database account. If you don't already have one, create a new Azure Cosmos DB account using the [Azure portal](https://portal.azure.com). For help creating a new database account, see [Azure Cosmos DB: Create a database account](create-table-dotnet.md#create-a-database-account).
 
@@ -59,8 +59,7 @@ Login-AzureRmAccount
 
 ## Create a table or reference a table
 
-You use the same command to get a reference to a table and to create a table. 
-To create a table or to get a reference to a table, use **Get-AzureStorageTableTable**. If you call this cmdlet with the name of a table that doesn't exist, it creates a new table with that name and returns a reference to the new table. If the table does exist, it returns a reference to that table.
+To create a table or to get a reference to a table, use **Get-AzureStorageTableTable**. If you call this cmdlet with the name of a table that doesn't exist, it creates a new table with that name and returns a reference to the new table. If the table does exist, it returns a reference to the existing table.
 
 ```powershell
 # set the name of the resource group in which your Cosmos DB Account resides.
@@ -87,7 +86,7 @@ You can't list the tables in the Azure Cosmos DB account using PowerShell, but y
 
 ## Delete a table 
 
-PowerShell doesn't support deleting tables from Azure Cosmos DB. To delete a table, go to the [Azure portal](https://azure.portal.com), locate the Azure Cosmos DB account you're using, then delete the table. 
+PowerShell doesn't support deleting tables from Azure Cosmos DB. To delete a table, go to the [Azure portal](https://azure.portal.com), locate the Azure Cosmos DB account you're using, then find and delete the table. 
 
 ## Clean up resources
 

@@ -10,7 +10,7 @@ An entity can have up to 255 properties, including 3 system properties: **Partit
 * **PartitionKey**: Determines the partition that the entity is stored in.
 * **RowKey**: Uniquely identifies the entity within the partition.
 
-You may define up to 252 custom properties for an entity. If you are using Azure Table Storage, see [Understanding the Table Service Data Model](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model) for more information.
+You may define up to 252 custom properties for an entity. 
 
 ### Add table entities
 
@@ -175,9 +175,9 @@ $userToDelete | Remove-AzureStorageTableRow -table $storageTable
 Get-AzureStorageTableRowAll -table $storageTable | ft
 ```
 
-#### Delete all rows in the table 
+#### Delete all entities in the table 
 
-To delete all rows in the table, you retrieve all rows and pipe the results into the remove cmdlet. 
+To delete all entities in the table, you retrieve them pipe the results into the remove cmdlet. 
 
 ```powershell
 # Get all rows and pipe it into the remove cmdlet.
