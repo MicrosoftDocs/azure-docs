@@ -19,6 +19,7 @@ ms.custom: mvc
 
 # Run a sample job with Azure Batch in the portal
 
+This quickstart shows how to use the Azure portal to create a Batch account, a *pool* of compute nodes (virtual machines), and a sample *job* that runs a  *task* on the pool. This example is very basic but introduces you to the key concepts of the Batch service.
 
 ## Log in to Azure 
 
