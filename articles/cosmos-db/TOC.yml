@@ -254,7 +254,7 @@
           href: table-storage-design-guide.md
         - name: Table storage REST APIs
           href: /rest/api/storageservices/Table-Service-Concepts
-        - name: How To
+        - name: How to
           items:
             - name: .NET
               href: table-storage-how-to-use-dotnet.md
