@@ -225,15 +225,14 @@ An administrator can uninstall the Dependency Agent for Windows through Control 
 An administrator can also run %Programfiles%\Microsoft Dependency Agent\Uninstall.exe to uninstall the Dependency Agent.
 
 ### Uninstall the Dependency Agent on Linux
-To completely uninstall the Dependency Agent from Linux, you must remove the agent itself and the connector, which is installed automatically with the agent. You can uninstall both by using the following single command:
 To completely uninstall the Dependency Agent from Linux, you must remove the agent itself and the connector, which is installed automatically with the agent. You can uninstall both by using the following single command.
-RHEL, CentOs, or Oracle:
+<br>RHEL, CentOs, or Oracle:
 ```
 sudo rpm -e dependency-agent dependency-agent-connector
 ```
 Ubuntu:
 ```
-dpkg --purge dependency-agent dependency-agent-connector
+sudo dpkg --purge dependency-agent dependency-agent-connector
 ```
 ## Troubleshooting
 If you have any problems installing or running Service Map, this section can help you. If you still can't resolve your problem, please contact Microsoft Support.
