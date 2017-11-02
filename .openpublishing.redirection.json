@@ -14776,7 +14776,7 @@
         },
         {
             "source_path": "articles/hdinsight/hdinsight-storm-correlation-topology.md",
-            "redirect_url": "/azure/hdinsight/storm/apache-storm-correlation-topology",
+            "redirect_url": "https://azure.microsoft.com/resources/samples/hdinsight-storm-dotnet-event-correlation/",
             "redirect_document_id": true
         },
         {
