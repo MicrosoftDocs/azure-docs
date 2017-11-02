@@ -18,9 +18,9 @@ ms.custom: mvc
 
 # Add a user
 
-This sample script adds a user and gets subscription key.
+This sample script creates a user in API Management and gets a subscription key.
 
-If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](/powershell/azure/overview), and then run `Login-AzureRmAccount` to create a connection with Azure. Also, you need to have access to your domain registrar's DNS configuration page.
+You can use the **Azure Cloud Shell** to run the script from [Azure portal](https://portal.azure.com/), as described in [Create a new Azure API Management service instance](../powershell-create-service-instance.md). Alternatively, you can install the Azure PowerShell using the instructions found in the [Azure PowerShell guide](/powershell/azure/overview), and then run `Login-AzureRmAccount` to create a connection with Azure.
 
 ## Sample script
 
@@ -28,6 +28,6 @@ If needed, install the Azure PowerShell using the instruction found in the [Azur
 
 ## Next steps
 
-For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/overview).
+For more information on the Azure PowerShell module, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azure/overview).
 
 Additional Azure Powershell samples for Azure API Management can be found in the [PowerShell samples](../powershell-samples.md).

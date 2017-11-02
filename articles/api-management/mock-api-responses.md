@@ -32,6 +32,8 @@ In this tutorial, you learn how to:
 > * Enable response mocking
 > * Test the mocked API
 
+You can view a video that talks about APIM mock up at the end of the article.
+
 ## Prerequisites
 
 + [Create an Azure API Management instance](get-started-create-service-instance.md)
@@ -89,6 +91,11 @@ The steps in this section show how to create a blank API with no backend. It als
 3. Select **Send** to make a test call.
 4. The **HTTP response** displays the JSON provided as a sample in the first section of the tutorial.
 
+## View video
+
+> [!VIDEO https://www.youtube.com/watch?v=i9PjUAvw7DQ//player]
+> 
+> 
 
 ## Next steps
 
