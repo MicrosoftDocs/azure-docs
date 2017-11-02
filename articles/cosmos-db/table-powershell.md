@@ -37,7 +37,7 @@ This how-to article covers common Table API operations. You learn how to:
 
 The examples require Azure PowerShell module version 4.4.0 or later. In a PowerShell window, run `Get-Module -ListAvailable AzureRM` to find the version. If nothing is displayed, or you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). 
 
-In addition, you will need to install the module that has the commands for managing the entities, which is **AzureRmStorageTable**. This is separate from the AzureRm module which is installed when installing Azure Powershell. To install this module, run PowerShell as an administrator and use the **Install-Module** command.
+In addition, install module **AzureRmStorageTable** that has the commands for managing the entities. This module is separate from the AzureRm module which is installed when installing Azure Powershell. To install this module, run PowerShell as an administrator and use the **Install-Module** command.
 
 ```powershell
 Install-Module AzureRmStorageTable
@@ -45,7 +45,7 @@ Install-Module AzureRmStorageTable
 
 While Cosmos DB Table API is in preview, you also have to install the assemblies locally in order to use these PowerShell cmdlets. For instructions on how to do that, see [Azure RM Storage Tables PowerShell module for Cosmos DB Tables](https://blogs.technet.microsoft.com/paulomarques/2017/05/23/azure-rm-storage-tables-powershell-module-now-includes-support-for-cosmos-db-tables/).
 
-To try out the following exercises, you need a Azure Cosmos DB database account. If you don't already have one, create a new Azure Cosmos DB account using the [Azure portal](https://portal.azure.com). For help creating a new database account, see [Azure Cosmos DB: Create a database account](create-table-dotnet.md#create-a-database-account).
+To try out the following exercises, you need an Azure Cosmos DB database account. If you don't already have one, create a new Azure Cosmos DB account using the [Azure portal](https://portal.azure.com). For help creating a new database account, see [Azure Cosmos DB: Create a database account](create-table-dotnet.md#create-a-database-account).
 
 Get the database account name and resource group from the portal; you need these values to put in your script to access the tables. 
 
@@ -60,7 +60,7 @@ Login-AzureRmAccount
 ## Create a table or reference a table
 
 You use the same command to get a reference to a table and to create a table. 
-To create a table or to get a reference to a table, use **Get-AzureStorageTableTable**. If you call this cmdlet with the name of a table that doesn't exist, it creates a new table with that name and return a reference to the new table. If the table does exist, it returns a reference to that table.
+To create a table or to get a reference to a table, use **Get-AzureStorageTableTable**. If you call this cmdlet with the name of a table that doesn't exist, it creates a new table with that name and returns a reference to the new table. If the table does exist, it returns a reference to that table.
 
 ```powershell
 # set the name of the resource group in which your Cosmos DB Account resides.
@@ -91,7 +91,7 @@ PowerShell doesn't support deleting tables from Azure Cosmos DB. To delete a tab
 
 ## Clean up resources
 
-If you created a new resource group and created a new Azure Cosmos DB account in that group,you can remove all of the assets you have created in this exercise by removing the resource group. This command deletes all resources contained within the group as well as the resource group itself.
+If you created a new resource group and created a new Azure Cosmos DB account in that group, you can remove all of the assets you have created in this exercise by removing the resource group. This command deletes all resources contained within the group as well as the resource group itself.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name $resourceGroup
