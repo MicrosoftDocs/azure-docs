@@ -40,7 +40,7 @@ Cloud Shell comes pre-installed with popular command-line tools and language sup
 View the full tooling list for [Bash experience](features.md#tools) and [PowerShell experience.](features-powershell.md#tools)
 
 ### Automatic authentication
-Cloud Shell securely authenticates automatically on each session for instant access to your resources through the Azure CLI 2.0.
+Cloud Shell securely authenticates automatically on each session for instant access to your resources through the PowerShell Cmdlets and the Azure CLI 2.0.
 
 ### Connect your Azure File storage
 Cloud Shell machines are temporary and as a result require an Azure file share to be mounted as `clouddrive` to persist your $Home directory.
