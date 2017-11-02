@@ -144,7 +144,7 @@
   - name: Manage VMs
     items:
     - name: Pre-pay for VMs - Reserved VM Instances
-      href: buy-compute-reservations.md
+      href: prepay-reserved-vm-instances.md
     - name: Common PowerShell tasks
       href: ps-common-ref.md
     - name: Move a VM

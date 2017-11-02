@@ -146,7 +146,7 @@
   - name: Manage VMs
     items:
     - name: Pre-pay for VMs - Reserved VM Instances
-      href: buy-compute-reservations.md
+      href: prepay-reserved-vm-instances.md
     - name: Common CLI tasks
       href: cli-manage.md
     - name: Move a VM
