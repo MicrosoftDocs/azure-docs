@@ -42,7 +42,7 @@ When you log in with `az acr login`, the CLI uses the token created when you exe
 
 You can assign a [service principal](../active-directory/develop/active-directory-application-objects.md) to your registry, and your application or service can use it for headless authentication. Service principals allow [role-based access](../active-directory/role-based-access-control-configure.md) to a registry, and you can assign multiple service principals to a registry. Multiple service principals allow you to define different access for different applications.
 
-The availalable roles are:
+The available roles are:
 
   * **Reader**: pull
   * **Contributor**: pull and push
@@ -58,7 +58,7 @@ Service principals enable headless connectivity to a registry in both push and p
 > You can regenerate the password of a service principal by running the [az ad sp reset-credentials](/cli/azure/ad/sp?view=azure-cli-latest#az_ad_sp_reset_credentials) command.
 >
 
-You can also login directly with a service principal. Provide the app ID and password of the service principal to the `docker login` command:
+You can also log in directly with a service principal. Provide the app ID and password of the service principal to the `docker login` command:
 
 ```
 docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
@@ -66,7 +66,7 @@ docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my
 
 Once logged in, Docker caches the credentials, so you don't need to remember the app ID.
 
-Depending on the version of Docker you have installed, you might see a security warning recommending the use of the `--password-stdin` parameter. While its use is outside the scope of this article, we recommend following this best practice. See the [docker login](https://docs.docker.com/engine/reference/commandline/login/) command reference for more information.
+Depending on the version of Docker you have installed, you might see a security warning recommending the use of the `--password-stdin` parameter. While its use is outside the scope of this article, we recommend following this best practice. For more information, see the [docker login](https://docs.docker.com/engine/reference/commandline/login/) command reference.
 
 ## Admin account
 
