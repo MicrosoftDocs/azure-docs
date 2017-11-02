@@ -20,7 +20,7 @@ ms.author: nitinver
 
 Learn about the top issues and their resolutions when working with Apache HBase payloads in Apache Ambari.
 
-## How do I run hbck command reports with multiple unassigned regions
+## How do I run hbck command reports with multiple unassigned regions?
 
 A common error message that you might see when you run the `hbase hbck` command is "multiple regions being unassigned or holes in the chain of regions."
 
