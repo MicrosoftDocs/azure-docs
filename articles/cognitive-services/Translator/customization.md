@@ -49,5 +49,8 @@ As a simple example, assume a text translated into English comes out as "I are v
 Once the alternative translation has been submitted, the content administrators can decide whether to approve it and replace the original text with the human-improved text. If your translation automation also uses the Microsoft Translator Hub, you can very easily import the corrected translations into the Hub and use them in custom engine training.
 
 ## Next Steps
-- Set up a customized language system using the Microsoft Translator Hub. View the user guides for the [Hub User](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20User%20Guide.pdf) and [Hub API](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)
-- Lean how to integrate the CTF into your application by viewing [CTF Sample Code on GitHub](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/collaborative-translation-framework-reporting-api.md)
+> [!div class="nextstepaction"]
+> [Set up a customized language system using the Microsoft Translator Hub](https://hub.microsofttranslator.com)
+
+> [!div class="nextstepaction"]
+> [Lean how to integrate the CTF into your application](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/collaborative-translation-framework-reporting-api.md)
