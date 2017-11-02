@@ -244,6 +244,10 @@
         href: gremlin-support.md
     - name: Table API
       items:
+      - name: Table API operations with PowerShell
+        href: table-powershell.md
+    - name: Azure Table Storage
+      items:
       - name: Table storage overview
         href: table-storage-overview.md
       - name: Table storage design guide

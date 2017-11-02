@@ -213,9 +213,12 @@ Now that you understand how to manage your storage account with PowerShell, you 
 * [How to manage blobs with PowerShell](../blobs/storage-how-to-use-blobs-powershell.md)
 * [How to manage files with PowerShell](../files/storage-how-to-use-files-powershell.md)
 * [How to manage queues with PowerShell](../queues/storage-powershell-how-to-use-queues.md)
-* [How to manage Azure Storage standard tables with PowerShell](../../cosmos-db/table-storage-how-to-use-powershell.md)
+* [Perform Azure Table Stroage operations with PowerShell](../../cosmos-db/table-storage-how-to-use-powershell.md)
 
-To check out the new premium Table Storage API in Azure Cosmos DB, see [How to manage Cosmos DB premium tables with PowerShell](../../cosmos-db/table-powershell.md).
+Azure Cosmos DB Table API provides premium features for table storage such as turnkey global distribution, low latency reads and writes, automatic secondary indexing, and dedicated throughput. 
+
+* For more information, see [Azure Cosmos DB Table API](../../cosmos-db/table-introduction.md). 
+* To learn how to use PowerShell to perform Azure Cosmos DB Table API operations, see [Perform Azure Cosmos DB Table API operations with PowerShell](../../cosmos-db/table-powershell.md).
 
 ## Azure's independently-deployed clouds
 

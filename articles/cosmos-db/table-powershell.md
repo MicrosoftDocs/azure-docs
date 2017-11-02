@@ -19,10 +19,10 @@ ms.author: robinsh
 # Perform Azure Cosmos DB Table API operations with Azure PowerShell 
 
 >[!NOTE]
-> Azure Cosmos DB Table API is a premium offering for storage tables. In most cases, the commands in this article work against both standard Azure Storage tables and Azure Cosmos DB premium tables, but this article is specific to Azure Cosmos DB premium tables. If you are using standard Azure Storage tables rather than Azure Cosmos DB premium tables, see [Azure Table Storage with PowerShell](table-storage-how-to-use-powershell.md).
+>Azure Cosmos DB Table API provides premium features for table storage such as turnkey global distribution, low latency reads and writes, automatic secondary indexing, and dedicated throughput. In most cases, the PowerShell commands in this article work for both Azure Cosmos DB Table API and Azure Table Storage, but this article is specific to Azure Cosmos DB Table API. If you are using Azure Table Storage, see [Azure Table Storage with PowerShell](table-storage-how-to-use-powershell.md).
 >
 
-The Azure Cosmos DB Table API enables you to store and query huge sets of structured, non-relational data. The main components of the service are tables, entities, and properties. A table is a collection of entities. An entity is a set of properties. Each entity can have up to 252 properties, which are all name-value pairs. This article assumes that you are already familiar with the Azure Cosmos DB Table API concepts. For detailed information, see [Introduction to Azure Cosmos DB: Table API](table-introduction.md) and [Build a .NET application using the Table API](create-table-dotnet.md).
+The Azure Cosmos DB Table API enables you to store and query huge sets of structured, non-relational data. The main components of the service are tables, entities, and properties. A table is a collection of entities. An entity is a set of properties. Each entity can have up to 252 properties, which are all name-value pairs. This article assumes that you are already familiar with the Azure Cosmos DB Table API concepts. For detailed information, see [Introduction to Azure Cosmos DB Table API](table-introduction.md) and [Build a .NET application using the Table API](create-table-dotnet.md).
 
 This how-to article covers common Table API operations. You learn how to: 
 
@@ -33,9 +33,11 @@ This how-to article covers common Table API operations. You learn how to:
 > * Query a table
 > * Delete table entities
 
-The examples require Azure PowerShell module version 4.4.0 or later. In a PowerShell window, run `Get-Module -ListAvailable AzureRM` to find the version. If nothing is listed, or you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). 
+The examples require Azure PowerShell module version 4.4.0 or later. In a PowerShell window, run `Get-Module -ListAvailable AzureRM` to find the version. If nothing is displayed, or you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). 
 
 ## Preparation
+
+**TEMPORARY NOTE: MIMI: If this is coming out after Cosmos DB Table API is GA'd, I will need to fix this before this article goes live. Do I install somesthing from Cosmos DB? Any idea? --Robin**
 
 Cosmos DB Table API is in preview, so you have to install the assemblies locally in order to use these PowerShell cmdlets. For instructions on how to do that, see [Azure RM Storage Tables PowerShell module for Cosmos DB Tables](https://blogs.technet.microsoft.com/paulomarques/2017/05/23/azure-rm-storage-tables-powershell-module-now-includes-support-for-cosmos-db-tables/).
 
@@ -85,7 +87,7 @@ PowerShell doesn't support deleting tables from Azure Cosmos DB. To delete a tab
 
 ## Clean up resources
 
-If you created a new resource group and created a new Azure Cosmos DB account in that group, you can remove all of the assets you have created in this exercise by removing the resource group. This command deletes all resources contained within the group as well as the resource group itself.
+If you created a new resource group and created a new Azure Cosmos DB account in that group,you can remove all of the assets you have created in this exercise by removing the resource group. This command deletes all resources contained within the group as well as the resource group itself.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name $resourceGroup
