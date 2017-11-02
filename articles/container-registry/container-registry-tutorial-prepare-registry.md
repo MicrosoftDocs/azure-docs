@@ -244,10 +244,10 @@ In this tutorial, you created a private, geo-replicated container registry, buil
 > * Built a Docker container image from application source
 > * Pushed the container image to your registry
 
-Advance to the next tutorial to learn about deploying your container to multiple Azure App Service instances, using geo-replication to serve the images locally.
+Advance to the next tutorial to learn about deploying your container to multiple Web Apps for Containers instances, using geo-replication to serve the images locally.
 
 > [!div class="nextstepaction"]
-> [Deploy containers to Azure App Services](container-registry-tutorial-deploy-app.md)
+> [Deploy web app from Azure Container Registry](container-registry-tutorial-deploy-app.md)
 
 <!-- IMAGES -->
 [tut-portal-01]: ./media/container-registry-tutorial-prepare-registry/tut-portal-01.png
