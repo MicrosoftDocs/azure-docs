@@ -1,6 +1,6 @@
 ---
 title: Overview of Microsoft Translator API in Cognitive Services | Microsoft Docs
-description: Integrate Microsoft Translator APIs into your applications, websites, tools, and other solutions to provide multi-language user experiences.
+description: Integrate the Microsoft Translator Text API into your applications, websites, tools, and other solutions to provide multi-language user experiences.
 services: cognitive-services
 author: chriswendt1
 manager: arulm
