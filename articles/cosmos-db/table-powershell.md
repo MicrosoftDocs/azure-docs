@@ -37,8 +37,6 @@ The examples require Azure PowerShell module version 4.4.0 or later. In a PowerS
 
 ## Preparation
 
-**TEMPORARY NOTE: MIMI: If this is coming out after Cosmos DB Table API is GA'd, I will need to fix this before this article goes live. --Robin**
-
 Cosmos DB Table API is in preview, so you have to install the assemblies locally in order to use these PowerShell cmdlets. For instructions on how to do that, see [Azure RM Storage Tables PowerShell module for Cosmos DB Tables](https://blogs.technet.microsoft.com/paulomarques/2017/05/23/azure-rm-storage-tables-powershell-module-now-includes-support-for-cosmos-db-tables/).
 
 To perform these exercises, you need a Azure Cosmos DB database account. If you don't already have one, create a new Azure Cosmos DB account using the [Azure portal](https://portal.azure.com). For help creating a new database account, see [Azure Cosmos DB: Create a database account](create-table-dotnet.md#create-a-database-account).
