@@ -104,9 +104,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 3. On the **IMPAC Risk Manager Domain and URLs** section, perform the following steps if you wish to configure the application in IDP initiated mode:
 
-	![IMPAC Risk Manager Domain and URLs single sign-on information](./media/active-directory-saas-impacriskmanager-tutorial/tutorial_impacriskmanager_url.png)
+	![IMPAC Risk Manager Domain and URLs single sign-on information](./media/active-directory-saas-impacriskmanager-tutorial/tutorial_impacriskmanager_url_new.png)
 
-    a. In the **Identifier** textbox, type a URL using the following pattern: `ImpacDEV`
+    a. In the **Identifier** textbox, type a value provided by IMPAC
 
 	b. In the **Reply URL** textbox, type a URL using the following pattern:
 	| Environment | URL Pattern |
@@ -119,7 +119,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 4. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-	![IMPAC Risk Manager Domain and URLs single sign-on information](./media/active-directory-saas-impacriskmanager-tutorial/tutorial_impacriskmanager_url1.png)
+	![IMPAC Risk Manager Domain and URLs single sign-on information](./media/active-directory-saas-impacriskmanager-tutorial/tutorial_impacriskmanager_url1_new.png)
 
     In the **Sign-on URL** textbox, type a URL using the following pattern:
 	| Environment | URL Pattern |
@@ -131,8 +131,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| For Test |`https://test.riskmanager.co.nz/SSOv2/<ClientSuffix>`|
 	 
 	 
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [IMPAC Risk Manager Client support team](rmsupport@Impac.co.nz) to get these values. 
+> [!NOTE] 
+> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [IMPAC Risk Manager Client support team](mailto:rmsupport@Impac.co.nz) to get these values. 
 
 5. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
@@ -142,7 +142,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-impacriskmanager-tutorial/tutorial_general_400.png)
 	
-7. To configure single sign-on on **IMPAC Risk Manager** side, you need to send the downloaded **Certificate(Base64)** to [IMPAC Risk Manager support team](rmsupport@Impac.co.nz). They set this setting to have the SAML SSO connection set properly on both sides.
+7. On the **IMPAC Risk Manager Configuration** section, click **Configure IMPAC Risk Manager** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID,** and **SAML Single Sign-On Service URL** from the **Quick Reference section.**
+
+	![Configure Single Sign-On](./media/active-directory-saas-impacriskmanager-tutorial/tutorial_impacriskmanager_configure.png)
+
+8. To configure single sign-on on **IMPAC Risk Manager** side, you need to send the downloaded **Certificate(Base64)**, **Sign-Out URL, SAML Entity ID,** and **SAML Single Sign-On Service URL** to [IMPAC Risk Manager support team](mailto:rmsupport@Impac.co.nz). They set this setting to have the SAML SSO connection set properly on both sides.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -181,7 +185,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Create a IMPAC Risk Manager test user
 
-In this section, you create a user called Britta Simon in IMPAC Risk Manager. Work with [IMPAC Risk Manager support team](rmsupport@Impac.co.nz) to add the users in the IMPAC Risk Manager platform. Users must be created and activated before you use single sign-on. 
+In this section, you create a user called Britta Simon in IMPAC Risk Manager. Work with [IMPAC Risk Manager support team](mailto:rmsupport@Impac.co.nz) to add the users in the IMPAC Risk Manager platform. Users must be created and activated before you use single sign-on. 
 
 ### Assign the Azure AD test user
 
