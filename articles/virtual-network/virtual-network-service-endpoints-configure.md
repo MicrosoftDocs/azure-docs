@@ -123,7 +123,7 @@ Set-up pre-requisites:
 
 - Install the latest version of the PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) module. If you're new to Azure PowerShell, see [Azure PowerShell overview](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - To start a PowerShell session, go to **Start**, enter **powershell**, and then click **PowerShell**.
-- In PowerShell, log in to Azure by entering the `login-azurermaccount` command. The account must have the necessary [permissions](#provisioning) to create a virtual network and service endpoint.
+- In PowerShell, log in to Azure by entering the `Connect-AzureRmAccount` command. The account must have the necessary [permissions](#provisioning) to create a virtual network and service endpoint.
 
 ### Get available service endpoints for Azure region
 

@@ -132,7 +132,7 @@ The following PowerShell runbook, *Export-RunAsCertificateToHybridWorker*, expor
     # Test that authentication to Azure Resource Manager is working
     $RunAsConnection = Get-AutomationConnection -Name "AzureRunAsConnection" 
     
-    Add-AzureRmAccount `
+    Connect-AzureRmAccount `
       -ServicePrincipal `
       -TenantId $RunAsConnection.TenantId `
       -ApplicationId $RunAsConnection.ApplicationId `

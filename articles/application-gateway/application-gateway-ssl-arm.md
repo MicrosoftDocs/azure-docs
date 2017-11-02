@@ -67,7 +67,7 @@ Make sure that you switch PowerShell mode to use the Azure Resource Manager cmdl
    1. Enter the following command:
 
    ```powershell
-   Login-AzureRmAccount
+   Connect-AzureRmAccount
    ```
 
    2. To check the subscriptions for the account, enter the following commands:

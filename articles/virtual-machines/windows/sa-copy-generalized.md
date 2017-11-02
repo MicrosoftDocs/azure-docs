@@ -59,7 +59,7 @@ You can also generalize a Linux VM using `sudo waagent -deprovision+user` and th
 1. Open Azure PowerShell and sign in to your Azure account.
    
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
    
     A pop-up window opens for you to enter your Azure account credentials.

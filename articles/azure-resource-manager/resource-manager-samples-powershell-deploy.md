@@ -63,7 +63,7 @@ $ErrorActionPreference = "Stop"
 
 # Login to Azure and select subscription
 Write-Output "Logging in"
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Write-Output "Selecting subscription '$SubscriptionId'"
 Select-AzureRmSubscription -SubscriptionID $SubscriptionId
 

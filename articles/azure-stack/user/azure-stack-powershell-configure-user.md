@@ -62,7 +62,7 @@ Based on the type of deployment (Azure AD or AD FS), run one of the following sc
     -EnvironmentName "AzureStackUser"
 
   # Sign in to your environment
-  Login-AzureRmAccount `
+  Connect-AzureRmAccount `
     -EnvironmentName "AzureStackUser" `
     -TenantId $TenantID 
    ```
@@ -97,7 +97,7 @@ Based on the type of deployment (Azure AD or AD FS), run one of the following sc
     -EnvironmentName "AzureStackUser"
 
   # Sign in to your environment
-  Login-AzureRmAccount `
+  Connect-AzureRmAccount `
     -EnvironmentName "AzureStackUser" `
     -TenantId $TenantID 
   ```

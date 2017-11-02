@@ -197,7 +197,7 @@ In the following example, we use a new technique and create a [complex variable]
 1. In PowerShell, sign in to your Azure subscription:
 
 	```
-	login-azurermaccount
+	Connect-AzureRmAccount
 	$sub = Get-AzureRmSubscription -Name <SubscriptionName>
 	$sub | Select-AzureRmSubscription
 	```

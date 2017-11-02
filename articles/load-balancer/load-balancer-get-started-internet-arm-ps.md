@@ -56,7 +56,7 @@ Make sure you have the latest production version of the Azure Resource Manager m
 1. Sign in to Azure.
 
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 
     Enter your credentials when prompted.

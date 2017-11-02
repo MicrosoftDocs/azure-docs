@@ -215,7 +215,7 @@ The CSPSConfigTool.exe is used to manage the user accounts used for **Automatic 
 1. [Install](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) Azure PowerShell module
 2. Login into to your Azure account using the command
     
-    `Login-AzureRmAccount`
+    `Connect-AzureRmAccount`
 3. Select the subscription under which the vault is present
 
      `Get-AzureRmSubscription –SubscriptionName <your subscription name> | Select-AzureRmSubscription`

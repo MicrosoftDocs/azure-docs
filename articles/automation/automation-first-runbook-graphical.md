@@ -99,18 +99,18 @@ We've tested and published our runbook, but so far it doesn't do anything useful
 5. Click **Create** to create the variable.  
 
 ## Step 6 - Add authentication to manage Azure resources
-Now that we have a variable to hold our subscription ID, we can configure our runbook to authenticate with the Run As credentials that are referred to in the [prerequisites](#prerequisites).  We do that by adding the Azure Run As connection **Asset** and **Add-AzureRMAccount** cmdlet to the canvas.  
+Now that we have a variable to hold our subscription ID, we can configure our runbook to authenticate with the Run As credentials that are referred to in the [prerequisites](#prerequisites).  We do that by adding the Azure Run As connection **Asset** and **Connect-AzureRmAccount** cmdlet to the canvas.  
 
 1. Open the graphical editor by clicking **Edit** on the MyFirstRunbook blade.<br> ![Edit runbook](media/automation-first-runbook-graphical/runbook-controls-edit-revised20165.png)
 2. We don't need the **Write Hello World to output** anymore, so right-click it and select **Delete**.
 3. In the Library control, expand **Connections** and add **AzureRunAsConnection** to the canvas by selecting **Add to canvas**.
 4. On the canvas, select **AzureRunAsConnection** and in the Configuration control pane, type **Get Run As Connection** in the **Label** textbox.  This is the connection
-5. In the Library control, type **Add-AzureRmAccount** in the search textbox.
-6. Add **Add-AzureRmAccount** to the canvas.<br> ![Add-AzureRMAccount](media/automation-first-runbook-graphical/search-powershell-cmdlet-addazurermaccount.png)
-7. Hover over **Get Run As Connection** until a circle appears on the bottom of the shape. Click the circle and drag the arrow to **Add-AzureRmAccount**.  The arrow that you created is a *link*.  The runbook starts with **Get Run As Connection** and then run **Add-AzureRmAccount**.<br> ![Create link between activities](media/automation-first-runbook-graphical/runbook-link-auth-activities.png)
-8. On the canvas, select **Add-AzureRmAccount** and in the Configuration control pane type **Login to Azure** in the **Label** textbox.
+5. In the Library control, type **Connect-AzureRmAccount** in the search textbox.
+6. Add **Connect-AzureRmAccount** to the canvas.<br> ![Connect-AzureRmAccount](media/automation-first-runbook-graphical/search-powershell-cmdlet-addazurermaccount.png)
+7. Hover over **Get Run As Connection** until a circle appears on the bottom of the shape. Click the circle and drag the arrow to **Connect-AzureRmAccount**.  The arrow that you created is a *link*.  The runbook starts with **Get Run As Connection** and then run **Connect-AzureRmAccount**.<br> ![Create link between activities](media/automation-first-runbook-graphical/runbook-link-auth-activities.png)
+8. On the canvas, select **Connect-AzureRmAccount** and in the Configuration control pane type **Login to Azure** in the **Label** textbox.
 9. Click **Parameters** and the Activity Parameter Configuration blade appears.
-10. **Add-AzureRmAccount** has multiple parameter sets, so we need to select one before we can provide parameter values.  Click **Parameter Set** and then select the **ServicePrincipalCertificatewithSubscriptionId** parameter set.
+10. **Connect-AzureRmAccount** has multiple parameter sets, so we need to select one before we can provide parameter values.  Click **Parameter Set** and then select the **ServicePrincipalCertificatewithSubscriptionId** parameter set.
 11. Once you select the parameter set, the parameters are displayed in the Activity Parameter Configuration blade.  Click **APPLICATIONID**.<br> ![Add Azure RM account parameters](media/automation-first-runbook-graphical/add-azurermaccount-params.png)
 12. In the Parameter Value blade, select **Activity output** for the **Data source** and select **Get Run As Connection** from the list, in the **Field path** textbox type **ApplicationId**, and then click **OK**.  We are specifying the name of the property for the Field path because the activity outputs an object with multiple properties.
 13. Click **CERTIFICATETHUMBPRINT**, and in the Parameter Value blade, select **Activity output** for the **Data source**.  Select **Get Run As Connection** from the list, in the **Field path** textbox type **CertificateThumbprint**, and then click **OK**.

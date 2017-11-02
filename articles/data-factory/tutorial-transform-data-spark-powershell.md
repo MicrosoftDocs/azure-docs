@@ -200,7 +200,7 @@ You have authored linked service and pipeline definitions in JSON files. Now, le
     Run the following command, and enter the user name and password that you use to sign in to the Azure portal:
         
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```        
     Run the following command to view all the subscriptions for this account:
 

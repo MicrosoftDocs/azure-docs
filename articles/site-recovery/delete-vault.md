@@ -67,7 +67,7 @@ To delete the vault, follow the recommended steps for your scenario.
 
 To delete the Site Recovery vault even if there are protected items, use these commands:
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
     Select-AzureRmSubscription -SubscriptionName "XXXXX"
 

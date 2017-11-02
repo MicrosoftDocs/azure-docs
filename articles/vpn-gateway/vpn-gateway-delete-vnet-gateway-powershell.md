@@ -43,7 +43,7 @@ Download and install the latest version of the Azure Resource Manager PowerShell
 Open your PowerShell console and connect to your account. Use the following example to help you connect:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 Check the subscriptions for the account.

@@ -94,7 +94,7 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
 ## PowerShell
 
 1. Install the latest version of the PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) module. If you're new to Azure PowerShell, see [Azure PowerShell overview](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
-2. In a PowerShell session, log in to Azure with your [Azure account](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account) using the `login-azurermaccount` command.
+2. In a PowerShell session, log in to Azure with your [Azure account](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account) using the `Connect-AzureRmAccount` command.
 
 3. Review the following script and its comments. In your browser, copy the script and paste it into your PowerShell session:
 
@@ -183,7 +183,7 @@ Optional steps after you deploy the template:
 ### <a name="template-powershell"></a>PowerShell
 
 1. Install the latest version of the PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) module. If you're new to Azure PowerShell, see [Azure PowerShell overview](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
-2. In a PowerShell session, to sign in with your [Azure account](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account), enter `login-azurermaccount`.
+2. In a PowerShell session, to sign in with your [Azure account](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account), enter `Connect-AzureRmAccount`.
 3. To create a resource group for the virtual network, enter the following command:
 
     ```powershell

@@ -77,7 +77,7 @@ A data factory can have one or more pipelines. A pipeline can have one or more a
 	Run the following command, and enter the user name and password that you use to sign in to the Azure portal:
 
 	```PowerShell
-	Login-AzureRmAccount
+	Connect-AzureRmAccount
 	```   
    
 	Run the following command to view all the subscriptions for this account:

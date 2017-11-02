@@ -43,10 +43,10 @@ Import-Module AzureRM.AnalysisServices
 
 ## Sign in to Azure
 
-Sign in to your Azure subscription by using the [Add-AzureRmAccount](/powershell/module/azurerm.profile/add-azurermaccount) command. Follow the on-screen directions.
+Sign in to your Azure subscription by using the [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) command. Follow the on-screen directions.
 
 ```powershell
-Add-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 ## Create a resource group

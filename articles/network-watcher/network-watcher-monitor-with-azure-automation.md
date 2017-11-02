@@ -106,7 +106,7 @@ $cred = Get-AutomationPSCredential -Name $o365AutomationCredential
 $servicePrincipalConnection=Get-AutomationConnection -Name $runAsConnectionName
 
 "Logging in to Azure..."
-Add-AzureRmAccount `
+Connect-AzureRmAccount `
     -ServicePrincipal `
     -TenantId $servicePrincipalConnection.TenantId `
     -ApplicationId $servicePrincipalConnection.ApplicationId `

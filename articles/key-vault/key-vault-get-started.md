@@ -47,9 +47,9 @@ To get detailed help for any cmdlet that you see in this tutorial, use the **Get
 
     Get-Help <cmdlet-name> -Detailed
 
-For example, to get help for the **Login-AzureRmAccount** cmdlet, type:
+For example, to get help for the **Connect-AzureRmAccount** cmdlet, type:
 
-    Get-Help Login-AzureRmAccount -Detailed
+    Get-Help Connect-AzureRmAccount -Detailed
 
 You can also read the following tutorials to get familiar with Azure Resource Manager in Azure PowerShell:
 
@@ -59,9 +59,9 @@ You can also read the following tutorials to get familiar with Azure Resource Ma
 ## <a id="connect"></a>Connect to your subscriptions
 Start an Azure PowerShell session and sign in to your Azure account with the following command:  
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
-Note that if you are using a specific instance of Azure, for example, Azure Government, use the -Environment parameter with this command. For example: `Login-AzureRmAccount –Environment (Get-AzureRmEnvironment –Name AzureUSGovernment)`
+Note that if you are using a specific instance of Azure, for example, Azure Government, use the -Environment parameter with this command. For example: `Connect-AzureRmAccount –Environment (Get-AzureRmEnvironment –Name AzureUSGovernment)`
 
 In the pop-up browser window, enter your Azure account user name and password. Azure PowerShell gets all the subscriptions that are associated with this account and by default, uses the first one.
 

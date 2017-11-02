@@ -42,7 +42,7 @@ To get started:
 2. At the PowerShell prompt, run these commands to sign in to the Azure Resource Manager and select your subscription.
 
     ```PowerShell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     Get-AzureRmSubscription
     Select-AzureRmSubscription -SubscriptionName "MySubscription"
     ```

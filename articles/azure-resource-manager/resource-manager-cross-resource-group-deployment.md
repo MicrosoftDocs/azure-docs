@@ -90,7 +90,7 @@ To deploy the example template, you can use the portal, Azure PowerShell, or Azu
 For PowerShell:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 
 New-AzureRmResourceGroup -Name mainResourceGroup -Location "South Central US"
 New-AzureRmResourceGroup -Name crossResourceGroupDeployment -Location "Central US"

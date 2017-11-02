@@ -56,7 +56,7 @@ The instructions at the link mentioned above require PowerShell. Before you star
 
 ```
 # Log in to your Azure account
-Login-AzureRmAccount
+Connect-AzureRmAccount
 
 # List all the subscriptions associated to your account
 Get-AzureRmSubscription

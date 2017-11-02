@@ -47,7 +47,7 @@ To get started, you need:
 2. Run this cmdlet to login to Azure Resource Manager.
 
     ```Powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 3. Select the subscription you want to use for your current session.
 

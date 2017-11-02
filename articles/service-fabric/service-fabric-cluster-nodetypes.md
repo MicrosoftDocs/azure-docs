@@ -89,7 +89,7 @@ Changing the RDP port range values after the cluster has been deployed is more c
 1. Sign in to your Azure account. If the following PowerShell command fails, verify that you installed PowerShell correctly.
 
     ```
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 
 2. To get details about your load balancer, and to see the values for the description for `inboundNatPools`, run the following code:
@@ -115,7 +115,7 @@ To change the password for all nodes of a specific node type, complete the follo
 2. To log in and select your subscription for the session, run the following commands. Change the `SUBSCRIPTIONID` parameter to your subscription ID. 
 
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     Get-AzureRmSubscription -SubscriptionId 'SUBSCRIPTIONID' | Select-AzureRmSubscription
     ```
 

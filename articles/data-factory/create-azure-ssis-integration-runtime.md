@@ -99,7 +99,7 @@ Catch [System.Data.SqlClient.SqlException]
 Add the following code the script to log in and select your Azure subscription: 
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName $SubscriptionName
 ```
 

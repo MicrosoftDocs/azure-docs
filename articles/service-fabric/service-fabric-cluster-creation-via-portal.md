@@ -47,7 +47,7 @@ This guide uses [Azure PowerShell][azure-powershell]. When starting a new PowerS
 Log in to your azure account:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 Select your subscription:

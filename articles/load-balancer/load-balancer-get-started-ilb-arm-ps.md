@@ -61,7 +61,7 @@ Make sure you have the latest production version of the Azure PowerShell module.
 Start the PowerShell module for Azure Resource Manager.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 ### Step 2: View your subscriptions

@@ -85,7 +85,7 @@ This section helps you create, get, update, and delete the Microsoft peering con
   Sign in to your account.
 
   ```powershell
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
   ```
 
   Select the subscription you want to create ExpressRoute circuit.
@@ -212,7 +212,7 @@ This section helps you create, get, update, and delete the Azure private peering
   Sign in to your account.
 
   ```powershell
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
   ```
 
   Select the subscription you want to create ExpressRoute circuit.
@@ -349,7 +349,7 @@ This section helps you create, get, update, and delete the Azure public peering 
   Sign in to your account.
 
   ```powershell
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
   ```
 
   Select the subscription you want to create ExpressRoute circuit.

@@ -96,7 +96,7 @@ You can retrieve the `subscriptionId`, `labResourceGroup`, and `labName` values 
     $userDisplayName = "<Enter user's display name here>"
 
     # Log into your Azure account
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
     # Select the Azure subscription that contains the lab. 
     # This step is optional if you have only one subscription.

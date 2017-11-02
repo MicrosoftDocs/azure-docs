@@ -207,7 +207,7 @@ For this example the built-in role **Reader** which allows users access to view 
 The first action of exporting the **Reader** role needs to be completed in PowerShell ran with elevated permissions as administrator.
 
 ```
-Login-AzureRMAccount
+Connect-AzureRMAccount
 
 Get-AzureRMRoleDefinition -Name "Reader"
 

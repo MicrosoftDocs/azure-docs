@@ -191,7 +191,7 @@ We started with a file that was 319 GB, and broke it down into files of smaller 
 
 ````
 # Login to our account
-Login-AzureRmAccount
+Connect-AzureRmAccount
 
 # List your subscriptions
 Get-AzureRmSubscription

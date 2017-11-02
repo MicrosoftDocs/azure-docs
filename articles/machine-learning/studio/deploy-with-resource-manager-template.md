@@ -93,7 +93,7 @@ Install-Module Azure -Scope CurrentUser
 
 ```
 # Authenticate (enter your credentials in the pop-up window)
-Add-AzureRmAccount
+Connect-AzureRmAccount
 ```
 This step needs to be repeated for each session. Once authenticated, your subscription information should be displayed.
 

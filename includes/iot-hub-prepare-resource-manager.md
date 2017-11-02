@@ -8,7 +8,7 @@ The following steps show how to set up password authentication for an AD applica
 1. Log in to your Azure subscription using the following command:
 
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 
 1. If you have multiple Azure subscriptions, signing in to Azure grants you access to all the Azure subscriptions associated with your credentials. Use the following command to list the Azure subscriptions available for you to use:

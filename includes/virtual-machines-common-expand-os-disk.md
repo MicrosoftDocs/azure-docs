@@ -15,7 +15,7 @@ In this article we’ll accomplish the task of resizing the OS drive using resou
 1. Sign-in to your Microsoft Azure account in resource management mode and select your subscription as follows:
    
    ```Powershell
-   Login-AzureRmAccount
+   Connect-AzureRmAccount
    Select-AzureRmSubscription –SubscriptionName 'my-subscription-name'
    ```
 2. Set your resource group name and VM name as follows:
@@ -57,7 +57,7 @@ And that’s it! Now RDP into the VM, open Computer Management (or Disk Manageme
 In this article, we used Azure Resource Manager modules of Powershell to expand the OS drive of an IaaS virtual machine. Reproduced below is the complete script for your reference:
 
 ```Powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName 'my-subscription-name'
 $rgName = 'my-resource-group-name'
 $vmName = 'my-vm-name'

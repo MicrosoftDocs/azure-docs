@@ -44,7 +44,7 @@ You can use the [Azure portal](#portal), the Azure [command-line interface](#cli
 To peer virtual networks across regions, register for the preview, complete the steps that follow for both subscriptions that contain the virtual networks you want to peer. The only tool you can use to register for the preview is PowerShell.
 
 1. Install the latest version of the PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) module. If you're new to Azure PowerShell, see [Azure PowerShell overview](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
-2. Start a PowerShell session and log in to Azure using the `Login-AzureRmAccount` command.
+2. Start a PowerShell session and log in to Azure using the `Connect-AzureRmAccount` command.
 3. Register your subscription for the preview by entering the following commands:
 
     ```powershell
@@ -197,7 +197,7 @@ Instead of installing the CLI and its dependencies, you can use the Azure Cloud 
 
 1. Install the latest version of the PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) module. If you're new to Azure PowerShell, see [Azure PowerShell overview](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. To start a PowerShell session, go to **Start**, enter **powershell**, and then click **PowerShell**.
-3. In PowerShell, log in to Azure by entering the `login-azurermaccount` command. The account you log in with must have the necessary permissions to create a virtual network peering. See the [Permissions](#permissions) section of this article for details.
+3. In PowerShell, log in to Azure by entering the `Connect-AzureRmAccount` command. The account you log in with must have the necessary permissions to create a virtual network peering. See the [Permissions](#permissions) section of this article for details.
 4. Create a resource group and two virtual networks. To execute the script, copy the following script, paste it into PowerShell, and then press `Enter` after the last line appears on the screen:
 
     ```powershell

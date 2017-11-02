@@ -258,7 +258,7 @@ You are ready to deploy this template. You use either PowerShell or Azure CLI to
 * For PowerShell, use the following commands from the folder containing the template:
 
    ```powershell
-   Login-AzureRmAccount
+   Connect-AzureRmAccount
    
    New-AzureRmResourceGroup -Name examplegroup -Location "South Central US"
    New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile azuredeploy.json

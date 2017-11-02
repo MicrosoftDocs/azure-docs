@@ -181,7 +181,7 @@ This PowerShell script includes support for the following configurations:
 			 return
 		 }
 
-		 Login-AzureRmAccount -Environment $EnvironmentName 
+		 Connect-AzureRmAccount -Environment $EnvironmentName 
 		 $Subscription = Select-AzureRmSubscription -SubscriptionId $SubscriptionId
 
 		 # Create a Run As account by using a service principal

@@ -126,7 +126,7 @@ Once the Service Principal is created, you must [assign it to a role](azure-stac
 Once you've assigned a role, you can sign in to Azure Stack using the service principal with the following command:
 
 ```powershell
-Add-AzureRmAccount -EnvironmentName "<AzureStackEnvironmentName>" `
+Connect-AzureRmAccount -EnvironmentName "<AzureStackEnvironmentName>" `
  -ServicePrincipal `
  -CertificateThumbprint $servicePrincipal.Thumbprint `
  -ApplicationId $servicePrincipal.ApplicationId ` 

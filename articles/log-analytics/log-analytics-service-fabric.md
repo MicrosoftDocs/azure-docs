@@ -80,7 +80,7 @@ try
 }
 catch [System.Management.Automation.PSInvalidOperationException]
 {
-    Add-AzureRmAccount
+    Connect-AzureRmAccount
 }
 
 $validTables = "WADServiceFabric*EventTable", "WADETWEventTable"
@@ -606,7 +606,7 @@ try
 }
 catch [System.Management.Automation.PSInvalidOperationException]
 {
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 }
 
 $allResources = Get-AzureRmResource

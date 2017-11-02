@@ -47,10 +47,10 @@ This article was updated for version 3.3.0. If you have an earlier version, your
 ## Log in to your Azure account
 Before working on your solution, you must log in to your account.
 
-To log in to your Azure account, use the **Login-AzureRmAccount** cmdlet.
+To log in to your Azure account, use the **Connect-AzureRmAccount** cmdlet.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 The cmdlet prompts you for the login credentials for your Azure account. After logging in, it downloads your account settings so they are available to Azure PowerShell.

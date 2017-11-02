@@ -377,7 +377,7 @@ The examples in this section demonstrate how to use script actions with Azure Re
         }
 2. Start Azure PowerShell and Log in to your Azure account. After providing your credentials, the command returns information about your account.
 
-        Add-AzureRmAccount
+        Connect-AzureRmAccount
 
         Id                             Type       ...
         --                             ----

@@ -42,7 +42,7 @@ In the following example, we start with the built-in role **Reader** that allows
 
 2. Log in to Azure.
 
-    `Login-AzureRMAccount`
+    `Connect-AzureRmAccount`
 
 3. Export the Reader role as a JSON template on your computer.
 
@@ -110,7 +110,7 @@ For more information, go to [Create a custom RBAC role using PowerShell](../acti
 ### Sample output for custom role creation via the PowerShell
 
 ```
-PS C:\WINDOWS\system32> Login-AzureRMAccount
+PS C:\WINDOWS\system32> Connect-AzureRmAccount
 
 Environment           : AzureCloud
 Account               : john.doe@contoso.com

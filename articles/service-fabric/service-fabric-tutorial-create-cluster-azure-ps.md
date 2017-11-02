@@ -40,7 +40,7 @@ For more information on how to create Service Fabric clusters, see [Create a Ser
 Open a PowerShell console, log in to Azure, and select the subscription you want to deploy the cluster in:
 
    ```PowerShell
-   Login-AzureRmAccount
+   Connect-AzureRmAccount
    Select-AzureRmSubscription -SubscriptionId <subscription-id>
    ```
 

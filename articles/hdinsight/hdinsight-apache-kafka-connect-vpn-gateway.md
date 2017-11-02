@@ -90,7 +90,7 @@ Use the steps in this section to create the following configuration:
 2. Open a PowerShell prompt and use the following code to log in to your Azure subscription:
 
     ```powershell
-    Add-AzureRmAccount
+    Connect-AzureRmAccount
     # If you have multiple subscriptions, uncomment to set the subscription
     #Select-AzureRmSubscription -SubscriptionName "name of your subscription"
     ```

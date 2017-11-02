@@ -94,7 +94,7 @@ Azure Automation has an editor in the portal where you can edit and test your ru
 		# Code copied from the runbook AzureAutomationTutorial.
 		$connectionName = "AzureRunAsConnection"
 		$servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
-		Add-AzureRmAccount `
+		Connect-AzureRmAccount `
 		    -ServicePrincipal `
 		    -TenantId $servicePrincipalConnection.TenantId `
 		    -ApplicationId $servicePrincipalConnection.ApplicationId `

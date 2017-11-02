@@ -74,7 +74,7 @@ You can quickly create a key vault by running the following script. For a detail
     $vaultName = 'AeKeyVault'
 
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     $subscriptionId = (Get-AzureRmSubscription -SubscriptionName $subscriptionName).Id
     Set-AzureRmContext -SubscriptionId $subscriptionId
 
