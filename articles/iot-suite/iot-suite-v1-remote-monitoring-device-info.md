@@ -93,7 +93,7 @@ The device list in the solution portal displays the following device properties 
 
 In the **Device Details** pane in the solution portal, you can edit desired properties and tags (reported properties are read only).
 
-![Device deatils pane][img-device-edit]
+![Device details pane][img-device-edit]
 
 You can use the solution portal to remove a device from your solution. When you remove a device, the solution removes the device entry from identity registry and then deletes the device twin. The solution also removes information related to the device from the Cosmos DB database. Before you can remove a device, you must disable it.
 
@@ -101,7 +101,7 @@ You can use the solution portal to remove a device from your solution. When you 
 
 ## Device information message processing
 
-Device information messages sent by a device are distinct from telemetry messages. Device information messages include the commands a device can respond to, and any command history. IoT Hub itself has no knowledge of the metadata contained in a device information message and processes the message in the same way it processes any device-to-cloud message. In the remote monitoring solution, an [Azure Stream Analytics][lnk-stream-analytics] (ASA) job reads the messages from IoT Hub. The **DeviceInfo** stream analytics job filters for messages that contain **"ObjectType": "DeviceInfo"** and forwards them to the **EventProcessorHost** host instance that runs in a web job. Logic in the **EventProcessorHost** instance uses the device id to find the Cosmos DB record for the specific device and update the record.
+Device information messages sent by a device are distinct from telemetry messages. Device information messages include the commands a device can respond to, and any command history. IoT Hub itself has no knowledge of the metadata contained in a device information message and processes the message in the same way it processes any device-to-cloud message. In the remote monitoring solution, an [Azure Stream Analytics][lnk-stream-analytics] (ASA) job reads the messages from IoT Hub. The **DeviceInfo** stream analytics job filters for messages that contain **"ObjectType": "DeviceInfo"** and forwards them to the **EventProcessorHost** host instance that runs in a web job. Logic in the **EventProcessorHost** instance uses the device ID to find the Cosmos DB record for the specific device and update the record.
 
 > [!NOTE]
 > A device information message is a standard device-to-cloud message. The solution distinguishes between device information messages and telemetry messages by using ASA queries.
