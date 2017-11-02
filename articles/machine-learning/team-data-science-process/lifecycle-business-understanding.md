@@ -29,7 +29,7 @@ This article outlines the goals, tasks, and deliverables associated with the bus
 
 Here is a visual representation of the TDSP lifecycle: 
 
-![TDSP-Lifecycle2](./media/lifecycle/tdsp-lifecycle2.png) 
+![TDSP lifecycle](./media/lifecycle/tdsp-lifecycle2.png) 
 
 
 ## Goals
@@ -43,7 +43,7 @@ There are two main tasks addressed in this stage:
    * **Identify data sources**: Find the relevant data that helps you answer the questions that define the objectives of the project.
 
 ### Define objectives
-1. A central objective of this step is to identify the key business variables that the analysis needs to predict. We refer to these variables as the *model targets* and we use the metrics associated with them to determine the success of the project. Two examples of such targets are sales forecasts or the probability of an order being fraudulent.
+1. A central objective of this step is to identify the key business variables that the analysis needs to predict. We refer to these variables as the *model targets*, and we use the metrics associated with them to determine the success of the project. Two examples of such targets are sales forecasts or the probability of an order being fraudulent.
 
 2. Define the project goals by asking and refining "sharp" questions that are relevant, specific, and unambiguous. Data science is a process that uses names and numbers to answer such questions. For more information on asking sharp questions, see the [How to do data science](https://blogs.technet.microsoft.com/machinelearning/2016/03/28/how-to-do-data-science/) blog. You typically use data science or machine learning to answer five types of questions:
  
@@ -71,7 +71,7 @@ Identify data sources that contain known examples of answers to your sharp quest
 * Data that's relevant to the question. Do you have measures of the target and features that are related to the target?
 * Data that's an accurate measure of your model target and the features of interest.
 
-It's possible, for example, that you might find that the existing systems need to collect and log additional kinds of data to address the problem and achieve the project goals. In this situation, you might want to look for external data sources or update your systems to collect new data.
+For example, you might find that the existing systems need to collect and log additional kinds of data to address the problem and achieve the project goals. In this situation, you might want to look for external data sources or update your systems to collect new data.
 
 ## Artifacts
 Here are the deliverables in this stage:
