@@ -163,9 +163,9 @@ In this tutorial, you learned how to:
 > * Connect to the cluster using PowerShell
 > * Remove a cluster
 
-Next, advance to the following tutorial to learn how to deploy API Management with Service Fabric.
+Next, advance to the following tutorial to learn how to scale your cluster.
 > [!div class="nextstepaction"]
-> [Deploy API Managment](service-fabric-tutorial-deploy-api-management.md)
+> [Scale a Cluster](service-fabric-tutorial-scale-cluster.md)
 
 
 [network-arm]:https://github.com/Azure-Samples/service-fabric-api-management/blob/master/network.json
