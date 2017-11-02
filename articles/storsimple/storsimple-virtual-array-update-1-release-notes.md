@@ -34,7 +34,7 @@ Update 1.0 corresponds to the software version **10.0.10296.0**.
 
 ## What's new in the Update 1.0
 
-**Update 1.0 contains changes related to authentication of StorSimple Device Manager service and should be deployed at your earliest.** This update contains the following enhancement and bug fixes:
+**Update 1.0 contains changes related to authentication of StorSimple Device Manager service and should be deployed at your earliest.** This update contains the following enhancements and bug fixes:
 
  - **Use of Azure Active Directory (AAD) to authenticate with StorSimple Device Manager service** – From Update 1.0 onwards, Azure Active Directory is used to authenticate with the StorSimple Device Manager service. The old authentication mechanism will be deprecated by December 2017. All the users must include the new authentication URLs in their firewall rules. For more information, go to authentication URLs listed in the [Networking requirements for your StorSimple Virtual Array](storsimple-ova-system-requirements.md).
 
