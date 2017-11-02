@@ -187,3 +187,5 @@ The following table lists the permissions you can use to control access to your 
 
 [img-add-shared-access-policy]: ./media/how-to-control-access/how-to-add-shared-access-policy.PNG
 [lnk-sdks]: ../iot-hub/iot-hub-devguide-sdks.md
+[lnk-management-portal]: https://portal.azure.com
+[lnk-azure-resource-manager]: ../azure-resource-manager/resource-group-overview.md
