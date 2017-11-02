@@ -36,7 +36,7 @@ Log Analytics is a service in [Operations Management Suite (OMS)](../operations-
     * Kafka
     * Interactive Hive
 
-    For instructions on how to create an HDInsight cluster, see [Get started with Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
+    For instructions on how to create an HDInsight cluster, see [Get started with Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
 
 * **A Log Analytics workspace**. You can think of this workspace as a unique Log Analytics environment with its own data repository, data sources, and solutions. You must have one such workspace already created that you can associate with Azure HDInsight clusters. For instructions, see [Create a Log Analytics workspace](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace).
