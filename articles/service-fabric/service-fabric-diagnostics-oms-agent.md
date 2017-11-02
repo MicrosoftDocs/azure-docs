@@ -20,22 +20,22 @@ ms.author: dekapur
 
 # Add the OMS Agent to a cluster
 
-This article will go over adding the OMS Agent as a virtual machine scale set extension to your cluster, and connect it to your OMS Log Analytics workspace. This will help you collect diagnostics data about any running containers, as well as make it significantly easy to collect and monitor performance counters from your nodes. By adding it as an extension, Azure Resource Manager ensures that it gets installed on every node, even when scaling the cluster.
+This article covers adding the OMS Agent as a virtual machine scale set extension to your cluster, and connect it to your OMS Log Analytics workspace. This enables collecting diagnostics data about containers, applications, and performance monitoring. By adding it as an extension, Azure Resource Manager ensures that it gets installed on every node, even when scaling the cluster.
 
 > [!NOTE]
 > This article assumes that you have an OMS Log Analytics workspace already set up. If you do not, head over to [Set up OMS Log Analytics](service-fabric-diagnostics-oms-setup.md)
 
- A sample Resource Manager template that deploys the OMS workspace with the Service Fabric solution (as above) and adds the agent to your nodes can be found for clusters running [Windows](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Windows) or [Linux](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Linux).
+Sample Resource Manager templates that deploy an OMS Log Analytics workspace and add an agent to each of your nodes is available for [Windows](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Windows) or [Linux](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Linux).
 
 ## Add the agent extension via Azure CLI
 
-The best way to add the OMS Agent to your cluster is via the virtual machine scale set APIs available with the Azure CLI. If you do not have Azure CLI set up yet, head over to Azure Portal and open up a [Cloud Shell](../cloud-shell/overview.md) instance, or [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
+The best way to add the OMS Agent to your cluster is via the virtual machine scale set APIs available with the Azure CLI. If you do not have Azure CLI set up yet, head over to Azure portal and open up a [Cloud Shell](../cloud-shell/overview.md) instance, or [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 1. Once your Cloud Shell is requested, make sure you are working in the same subscription as your resource. Check this with `az account show` and make sure the "name" value matches that of your cluster's subscription.
 
 2. In the Portal, navigate to the resource group where your OMS workspace is located. Click into the Log Analytics resource type, on the right nav, scroll down and click on **Properties**.
 
-    ![oms properties page](media/service-fabric-diagnostics-oms-agent/oms-properties.png)
+    ![OMS properties page](media/service-fabric-diagnostics-oms-agent/oms-properties.png)
 
 3. Run the command to install the OMS agent onto your cluster, using the `vmss extension set` API in your Cloud Shell:
 
@@ -53,7 +53,7 @@ The best way to add the OMS Agent to your cluster is via the virtual machine sca
 
     Here's an example of the OMS Agent being added to a Windows cluster.
 
-    ![oms agent cli command](media/service-fabric-diagnostics-oms-agent/cli-command.png)
+    ![OMS agent cli command](media/service-fabric-diagnostics-oms-agent/cli-command.png)
  
     This should take less than 15 min to successfully add the agent to your nodes. You can verify that the agents have been added by using the `az vmss extension list` API:
 

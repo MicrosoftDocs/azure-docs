@@ -23,13 +23,13 @@ ms.author: dekapur
 You can set up an OMS workspace through Azure Resource Manager or from Azure Marketplace. Use the former when you want to maintain a template of your deployment for future use. Deploying via Marketplace is easier if you already have a cluster deployed with Diagnostics enabled.
 
 > [!NOTE]
-> You need to have Diagnostics enabled for your cluster to view cluster / platform level events. This deploys the Azure Diagnostics agent which is autoconfigured to pick up the most relevant events and put them in a Storage table for OMS to access.
+> You need to have Diagnostics enabled for your cluster to view cluster / platform level events to be able to set up OMS to successfully monitor your cluster.
 
 ## Deploying OMS using a Resource Management template
 
 When deploying a cluster using a Resource Manager template, the template should create a new OMS workspace, add the Service Fabric Solution to it, and configure it to read data from the appropriate storage tables.
 
-[Here](https://azure.microsoft.com/resources/templates/service-fabric-oms/) is a sample template that you can use and modify as per requirement. In the case that you want more optionality, there are a few more templates that give you different options depending on where in the process you might be of setting up an OMS workspace - they can be found at [Service Fabric and OMS templates](https://azure.microsoft.com/resources/templates/?term=service+fabric+OMS).
+[Here](https://azure.microsoft.com/resources/templates/service-fabric-oms/) is a sample template that you can use and modify as per requirements. More templates that give you different options for setting up an OMS workspace can be found at [Service Fabric and OMS templates](https://azure.microsoft.com/resources/templates/?term=service+fabric+OMS).
 
 The main changes made are the following:
 
