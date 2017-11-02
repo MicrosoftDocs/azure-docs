@@ -29,7 +29,7 @@ This article outlines the goals, tasks, and deliverables associated with the cus
 
 Here is a visual representation of the TDSP lifecycle: 
 
-![TDSP-Lifecycle2](./media/lifecycle/tdsp-lifecycle2.png) 
+![TDSP lifecycle](./media/lifecycle/tdsp-lifecycle2.png) 
 
 
 ## Goal
