@@ -23,7 +23,7 @@ This article describes how to help protect a file server by using Azure Site Rec
 ## File server architecture
 An open, distributed file-sharing system provides an environment where geographically distributed users can collaborate on files without compromising integrity requirements. 
 
-A typical on-premises file server ecosystem that supports a high number of concurrent users and a large number of content items uses Distributed File System Replication (DFSR) for replication scheduling and bandwidth throttling. DFSR uses a compression algorithm known as Remote Differential Compression (RDC), which can be used to efficiently update files over a limited-bandwidth network. It detects insertions, removals, and rearrangements of data in files, enabling DFSR to replicate only the changed file blocks when files are updated. 
+A typical on-premises file server ecosystem that supports a high number of concurrent users and content items uses Distributed File System Replication (DFSR) for replication scheduling and bandwidth throttling. DFSR uses the Remote Differential Compression (RDC) compression algorithm, which can be used to efficiently update files over a limited-bandwidth network. RDC detects insertions, removals, and rearrangements of data in files. It enables DFSR to replicate only the changed file blocks when files are updated. 
 
 In some file server environments, daily backups are taken at non-peak times for disaster recovery. These environments don't use DFSR.
 
@@ -55,7 +55,7 @@ The following diagram can help you decide what strategy to use for your file ser
 |Environment  |Recommendation  |Points to consider |
 |---------|---------|---------|
 |File server environment with or without DFSR|   [Use Azure Site Recovery for replication](#replicate-an-on-premises-file-server-by-using-azure-site-recovery)   |    Site Recovery does not support shared disk clusters or NAS. If your environment uses one of these configurations, use any of the other approaches as appropriate. <br> Azure Site Recovery doesn’t support SMB 3.0. The replicated VM will incorporate changes made to files only when the changes are updated in the original location of the file. 
-|File server environment with DFSR     |  [Extend DFSR to an Azure IaaS virtual machine](#extend-dfsr-to-an-azure-iaas-virtual-machine)  |  	DFSR works well in extremely bandwidth-crunched environments. This approach, however, requires you to have an Azure VM up and running all the time. Your planning needs to account for the cost of the VM.         |
+|File server environment with DFSR     |  [Extend DFSR to an Azure IaaS virtual machine](#extend-dfsr-to-an-azure-iaas-virtual-machine)  |  	DFSR works well in bandwidth-crunched environments. This approach, however, requires you to have an Azure VM up and running all the time. Your planning needs to account for the cost of the VM.         |
 |Azure IaaS VM     |     [Use Azure File Sync ](#use-azure-file-sync-to-replicate-your-on-premises-files)   |     In a disaster recovery scenario, if you are using Azure File Sync during failover, you must take manual actions to ensure that the file shares are accessible in a transparent way to the client machine. Azure File Sync requires port 445 to be open from the client machine.     |
 
 
@@ -79,7 +79,7 @@ For more information, see [Extend on-premises Active Directory to Azure](https:/
 
 ## Disaster recovery recommendations for Azure IaaS virtual machines
 
-If you are configuring and managing disaster recovery of file servers hosted on Azure IaaS VMs, you can choose between two options: Azure File Sync and Azure Site recovery. The decision depends on whether you want to move to [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction).
+If you are configuring and managing disaster recovery of file servers hosted on Azure IaaS VMs, you can choose between two options: Azure File Sync and Azure Site Recovery. The decision depends on whether you want to move to [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction).
 
 ### Use Azure File Sync to replicate files hosted on IaaS virtual machines
 
