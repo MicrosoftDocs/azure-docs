@@ -52,7 +52,7 @@ The error details will help you identify a possible cause and recommendation for
 
 ![Dialog box that shows error details for a specific job](media/site-recovery-monitoring-and-troubleshooting/image5.png)
 
-In the previous example, another operation that is in progress seems to be causing the protection configuration to fail. Resolve the issue based on the recommendation, and then click **RESART** to initiate the operation again.
+In the previous example, another operation that is in progress seems to be causing the protection configuration to fail. Resolve the issue based on the recommendation, and then click **RESTART** to initiate the operation again.
 
 ![The RESTART button in the JOBS tab](media/site-recovery-monitoring-and-troubleshooting/image6.png)
 
