@@ -9,7 +9,7 @@
 ### [Operate the preconfigured solution](iot-suite-remote-monitoring-explore.md)
 
 ## Remote monitoring (previous version)
-### [What are the preconfigured solutions?](iot-suite-v1-v1-what-are-preconfigured-solutions.md)
+### [What are the preconfigured solutions?](iot-suite-v1-what-are-preconfigured-solutions.md)
 ### [FAQ](iot-suite-v1-faq.md)
 
 ### Get Started
