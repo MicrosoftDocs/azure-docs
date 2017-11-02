@@ -530,4 +530,5 @@ The command reveals output similar to the following JSON string, showing that th
 
 ## Next steps
 
-[Azure App Service on Linux FAQ](app-service-linux-faq.md)
+> [!div class="nextstepaction"]
+> [Build a Docker Python and PostgreSQL web app in Azure](tutorial-docker-python-postgresql-app.md)

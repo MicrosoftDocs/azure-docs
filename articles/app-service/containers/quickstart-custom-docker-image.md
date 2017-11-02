@@ -75,4 +75,4 @@ http://<app_name>.azurewebsites.net
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Build a Docker Python and PostgreSQL web app in Azure](tutorial-docker-python-postgresql-app.md)
+> [Use a custom Docker image](tutorial-custom-docker-image.md)
