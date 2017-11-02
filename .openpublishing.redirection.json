@@ -4507,12 +4507,22 @@
         },
         {
             "source_path": "articles/machine-learning/machine-learning-data-science-setup-sql-server-virtual-machine.md",
-            "redirect_url": "/azure/machine-learning/data-science-virtual-machine/setup-sql-server-virtual-machine",
+            "redirect_url": "/azure/machine-learning/data-science-virtual-machine/overview",
+            "redirect_document_id": false
+        },
+	{
+            "source_path": "articles/machine-learning/data-science-virtual-machine/setup-sql-server-virtual-machine.md",
+            "redirect_url": "/azure/machine-learning/data-science-virtual-machine/overview",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/machine-learning/machine-learning-data-science-setup-virtual-machine.md",
-            "redirect_url": "/azure/machine-learning/data-science-virtual-machine/setup-virtual-machine",
+            "redirect_url": "/azure/machine-learning/data-science-virtual-machine/overview",
+            "redirect_document_id": false
+        },
+	{
+            "source_path": "articles/machine-learning/data-science-virtual-machine/setup-virtual-machine.md",
+            "redirect_url": "/azure/machine-learning/data-science-virtual-machine/overview",
             "redirect_document_id": false
         },
         {
@@ -5222,7 +5232,12 @@
         },
         {
             "source_path": "articles/machine-learning/machine-learning-data-science-virtual-machines.md",
-            "redirect_url": "/azure/machine-learning/team-data-science-process/virtual-machines",
+            "redirect_url": "/azure/machine-learning/data-science-virtual-machine/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/team-data-science-process/virtual-machines.md",
+            "redirect_url": "/azure/machine-learning/data-science-virtual-machine/overview",
             "redirect_document_id": false
         },
         {
