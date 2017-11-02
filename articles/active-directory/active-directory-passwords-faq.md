@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/06/2017
+ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
 
@@ -260,15 +260,14 @@ This FAQ is split into the following sections:
 
 ## Next steps
 
-The following links provide additional information regarding password reset using Azure AD
-
-* [**Quick Start**](active-directory-passwords-getting-started.md) - Get up and running with Azure AD self service password management 
-* [**Licensing**](active-directory-passwords-licensing.md) - Configure your Azure AD Licensing
-* [**Data**](active-directory-passwords-data.md) - Understand the data that is required and how it is used for password management
-* [**Rollout**](active-directory-passwords-best-practices.md) - Plan and deploy SSPR to your users using the guidance found here
-* [**Customize**](active-directory-passwords-customize.md) - Customize the look and feel of the SSPR experience for your company.
-* [**Reporting**](active-directory-passwords-reporting.md) - Discover if, when, and where your users are accessing SSPR functionality
-* [**Policy**](active-directory-passwords-policy.md) - Understand and set Azure AD password policies
-* [**Password Writeback**](active-directory-passwords-writeback.md) - How does password writeback work with your on-premises directory
-* [**Technical Deep Dive**](active-directory-passwords-how-it-works.md) - Go behind the curtain to understand how it works
-* [**Troubleshoot**](active-directory-passwords-troubleshoot.md) - Learn how to resolve common issues that we see with SSPR
+* [How do I complete a successful rollout of SSPR?](active-directory-passwords-best-practices.md)
+* [Reset or change your password](active-directory-passwords-update-your-own-password.md).
+* [Register for self-service password reset](active-directory-passwords-reset-register.md).
+* [Do you have a Licensing question?](active-directory-passwords-licensing.md)
+* [What data is used by SSPR and what data should you populate for your users?](active-directory-passwords-data.md)
+* [What authentication methods are available to users?](active-directory-passwords-how-it-works.md#authentication-methods)
+* [What are the policy options with SSPR?](active-directory-passwords-policy.md)
+* [What is password writeback and why do I care about it?](active-directory-passwords-writeback.md)
+* [How do I report on activity in SSPR?](active-directory-passwords-reporting.md)
+* [What are all of the options in SSPR and what do they mean?](active-directory-passwords-how-it-works.md)
+* [I think something is broken. How do I troubleshoot SSPR?](active-directory-passwords-troubleshoot.md)

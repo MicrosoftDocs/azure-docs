@@ -177,7 +177,7 @@ This scenario has two pipelines:
 }
 ```
 
-**Source dataset:**
+**Source dataset**
 ```json
 {
     "name": "SourceBlobDataset",
@@ -198,7 +198,7 @@ This scenario has two pipelines:
 }
 ```
 
-**Sink dataset:**
+**Sink dataset**
 ```json
 {
     "name": "sinkBlobDataset",
