@@ -87,16 +87,16 @@
     - name: Set up a Data Science VM
       items:
       - name: Create a Windows Data Science VM
-        href: provision-vm.md
+        href: ../data-science-virtual-machine/provision-vm.md
         maintainContext: true
       - name: Create an Ubuntu Data Science VM
-        href: dsvm-ubuntu-intro.md
+        href: ../data-science-virtual-machine/dsvm-ubuntu-intro.md
         maintainContext: true
       - name: Create a CentOS Data Science VM
-        href: linux-dsvm-intro.md
+        href: ../data-science-virtual-machine/linux-dsvm-intro.md
         maintainContext: true
       - name: Create a Deep Learning VM
-        href: provision-deep-learning-dsvm.md
+        href: ../data-science-virtual-machine/provision-deep-learning-dsvm.md
         maintainContext: true
   - name: Analyze business needs
     items:
