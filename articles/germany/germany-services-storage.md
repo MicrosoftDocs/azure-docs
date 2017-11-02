@@ -42,7 +42,7 @@ Storage Service Encryption safeguards data at rest within Azure storage accounts
 | [Queue storage](../storage/common/storage-introduction.md#queue-storage) |GA | GA |
 | [Hot/cool blob storage](../storage/blobs/storage-blob-storage-tiers.md) |GA |GA |
 | [Storage Service Encryption](../storage/common/storage-service-encryption.md) |GA |GA |
-| [Premium Storage](../storage/common/storage-premium-storage.md) |GA |GA |
+| [Premium Storage](../virtual-machines/windows/premium-storage.md) |GA |GA |
 | Import/Export |NA |NA |
 | StorSimple |NA |NA |
 
