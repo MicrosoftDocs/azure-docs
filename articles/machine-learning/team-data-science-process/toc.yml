@@ -84,8 +84,6 @@
     - name: Azure Machine Learning workspace
       href: ../studio/create-workspace.md
       maintainContext: true
-    - name: Set up virtual machines
-      href: virtual-machines.md
   - name: Analyze business needs
     items:
     - name: Identify your scenario
