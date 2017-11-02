@@ -25,7 +25,7 @@ Azure IoT Edge moves the power of the cloud to your Internet of Things (IoT) dev
 > * Deploy a module
 > * View generated data
 
-The simulated device that you create in this tutorial is a monitor on a wind turbine that generates temperature, humidity, and pressure data. You're interested in this data, because your turbines perform at different levels of efficiency depending on the weather conditions. The other Azure IoT Edge tutorials build upon the work you do here by deploying modules that analyze the data for business insights. 
+The simulated device that you create in this tutorial is a monitor on a wind turbine that generates temperature, humidity, and pressure data. You're interested in this data because your turbines perform at different levels of efficiency depending on the weather conditions. The other Azure IoT Edge tutorials build upon the work you do here by deploying modules that analyze the data for business insights. 
 
 ## Prerequisites
 
@@ -34,9 +34,9 @@ This tutorial assumes that you're using a computer or virtual machine to simulat
 - Docker
    - [Install Docker on Windows][lnk-docker-windows]
    - [Install Docker on Linux][lnk-docker-ubuntu]
-- .NET Core
-   - [Install .NET on Windows][lnk-dotnet-windows]
-   - [Install .NET on Linux][lnk-dotnet-ubuntu]
+- Python 2.7
+   - [Install Python 2.7 on Windows][lnk-python-windows]
+   - Most Linux distributions, including Ubuntu, already have Python 2.7 installed. Use the following command to make sure that pip is installed: `sudo apt-get install python-pip`.
 
 ## Create an IoT hub
 
@@ -48,9 +48,9 @@ Create a device identity for your simulated device so that it can communicate wi
 
 1. In the Azure portal, navigate to your IoT hub.
 1. Select **IoT Edge Explorer**.
-1. Select **Add Edge Device**.
+1. Select **Add Edge device**.
 1. Give your simulated device a unique device ID.
-1. Set the value of **Azure IoT Edge Device** to **Yes**.
+1. Confirm that the value of **Azure IoT Edge device** is set to **Yes**.
 1. Select **Save** to add your device.
 1. Select your new device from the list of devices. 
 1. Copy the value for **Connection string--primary key** and save it. You'll use this value to configure the IoT Edge runtime in the next section. 
@@ -59,38 +59,52 @@ Create a device identity for your simulated device so that it can communicate wi
 
 The IoT Edge runtime is deployed on all IoT Edge devices. It comprises two modules. First, the IoT Edge agent facilitates deployment and monitoring of modules on the IoT Edge device. Second, the IoT Edge hub manages communications between modules on the IoT Edge device, and between the device and IoT Hub. 
 
+>[!TIP]
+>This section gives the Python 2.7 commands for Windows. If you're running this tutorial on Linux, add `sudo` in front of each command. 
+
 Use the following steps to install and start the IoT Edge runtime:
 
 1. On the machine where you'll run the IoT Edge device, download the IoT Edge control script.
+
+   ```
+   pip install -U azure-iot-edge-runtime-ctl
+   ```
+
 1. Configure the runtime with your IoT Edge device connection string from the previous section.
+
+   ```
+   iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
+   ```
+
 1. Start the runtime.
+
+   ```
+   iotedgectl start
+   ```
+
 1. Check Docker to see that both the IoT Edge agent and the IoT Edge hub are running as modules.
+
+   ```
+   docker ps
+   ```
 
 ## Deploy a module
 
-One of the key capabilities of Azure IoT Edge is being able to deploy modules to your IoT Edge devices from the cloud. An IoT Edge module is an executable package implemented as a container. In this tutorial, the module generates telemetry for your simulated device. 
+One of the key capabilities of Azure IoT Edge is being able to deploy modules to your IoT Edge devices from the cloud. An IoT Edge module is an executable package implemented as a container. In this section, you deploy a module that generates telemetry for your simulated device. 
 
 1. In the Azure portal, navigate to your IoT hub.
 1. Go to **IoT Edge Explorer** and select your IoT Edge device.
 1. Select **Deploy modules**.
-1. Select **Custom module**.
-1. Copy the following code into the text box:
+1. Select **Add custom IoT Edge module**.
+1. In the **Name** field, enter `tempSensor`. 
+1. In the **Image** field, enter `edgepreview.azurecr.io/azureiotedge/simulated-temperature-sensor:latest`. 
+1. Leave the other settings unchanged, and select **Save**.
+1. Back in the **Add modules** step, select **Next**.
+1. In the **Specify routes** step, select **Next**.
+1. In the **Review deployment** step, select **Submit**.
+1. Return to the device details page and select **Refresh**. You should see the new tempSensor module running along the IoT Edge runtime. 
 
-   ``` json
-   "tempSensor": { 
-        "version": "1.0", 
-        "type": "docker", 
-        "status": "running", 
-        "restartPolicy": "always", 
-        "settings": { 
-        "image": "edgepreview.azurecr.io/azedge-simulated-temperature-sensor-x64:6407819", 
-        "createOptions": "" 
-        } 
-   } 
-   ```
-
-1. Select **Start**.
-1. Return to the device details page and refresh the data. You should see the new module running along the IoT Edge runtime. 
+   ![View tempSensor in list of deployed modules][1]
 
 ## View generated data
 
@@ -98,14 +112,22 @@ You can use the hub explorer to view telemetry from your new IoT Edge device and
 
 ## Next steps
 
-In this tutorial, you created a new IoT Edge device, and used the cloud interface to deploy code onto the device. Now, you have a device generating raw data about its environment. You can continue on to any of the other tutorials to learn how Azure IoT Edge can help you turn this data into business insights at the edge.
+In this tutorial, you created a new IoT Edge device and used the Azure IoT Edge cloud interface to deploy code onto the device. Now, you have a simulated device generating raw data about its environment. 
+
+This tutorial is the prerequisite for all of the other IoT Edge tutorials. You can continue on to any of the other tutorials to learn how Azure IoT Edge can help you turn this data into business insights at the edge.
 
 > [!div class="nextstepaction"]
 > [Deploy Azure Function as a module](tutorial-deploy-function.md)<br>
 > [Deploy Azure Stream Analytics as a module](tutorial-deploy-stream-analytics.md)<br>
-> [Create a custom module](tutorial-create-custom-module.md)
+> [Deploy your own code as a module](tutorial-create-custom-module.md)
 
+
+<!-- Images -->
+[1]: ./media/tutorial-install-iot-edge/view-module.png
+
+<!-- Links -->
 [lnk-docker-windows]: https://docs.docker.com/docker-for-windows/install/ 
 [lnk-docker-ubuntu]: https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/ 
 [lnk-dotnet-windows]: https://docs.microsoft.com/dotnet/core/windows-prerequisites?tabs=netcore2x
 [lnk-dotnet-ubuntu]: https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x
+[lnk-python-windows]: https://www.python.org/downloads/
