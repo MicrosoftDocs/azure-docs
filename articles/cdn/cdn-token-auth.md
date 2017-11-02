@@ -67,34 +67,36 @@ The following flowchart describes how Azure CDN validates client request when to
 
 		![CDN token auth setup key](./media/cdn-token-auth/cdn-token-auth-setupkey.png)
 	
-	2. Set up encryption parameters with encryption tool (allow or deny requests based on expiration time, country, referrer, protocol, client IP. You can use any combination.)
+	2. Set up encryption parameters with the encrypt tool. With the encrypt tool, you can allow or deny requests based on expiration time, country, referrer, protocol, and client IP (in any combination).
 
 		![CDN encrypt tool](./media/cdn-token-auth/cdn-token-auth-encrypttool.png)
 
-		- ec-expire: assigns an expiration time of a token after a specified time period. Requests submitted after the expiration time are denied. This parameter uses Unix timestamp (based on seconds since standard epoch of 1/1/1970 00:00:00 GMT. You can use online tools to provide conversion between standard time and Unix time.) For example, if you want to set up the token to expire at 12/31/2016 12:00:00 GMT, use the Unix timestamp value, 1483185600, as follows.
-	
-		![CDN ec_expire example](./media/cdn-token-auth/cdn-token-auth-expire2.png)
-	
-	    - ec-url-allow: allows you to tailor tokens to a particular asset or path. It restricts access to requests whose URL start with a specific relative path. You can input multiple paths separating each path with a comma. URLs are case-sensitive. Depending on the requirement, you can set up different value to provide different level of access. Below are a couple of scenarios:
-		
-			If you have a URL: http://www.mydomain.com/pictures/city/strasbourg.png. See input value "" and its access level accordingly
+       The encrypt tool has The following parameters:
 
-			1. Input value "/": all requests will be allowed
-			2. Input value "/pictures": all the following requests will be allow
+		- ec_expire: Assigns an expiration time of a token after a specified time period. Requests submitted after the expiration time are denied. This parameter uses Unix timestamp (based on seconds since standard epoch of 1/1/1970 00:00:00 GMT. You can use online tools to provide conversion between standard time and Unix time.) For example, if you want to set up the token to expire at `12/31/2016 12:00:00 GMT`, use the Unix timestamp value, `1483185600`, as follows.
+	
+		  ![CDN ec_expire example](./media/cdn-token-auth/cdn-token-auth-expire2.png)
+	
+	    - ec_url_allow: Allows you to tailor tokens to a particular asset or path. It restricts access to requests whose URL start with a specific relative path. You can input multiple paths separating each path with a comma. URLs are case-sensitive. Depending on the requirement, you can set up different value to provide different level of access. For example:
+		
+		  If you have a URL: http://www.mydomain.com/pictures/city/strasbourg.png. See input value "" and its access level accordingly
+
+			1. Input value "/": all requests are allowed
+			2. Input value "/pictures": all the following requests are allowed
 			
 				- http://www.mydomain.com/pictures.png
 				- http://www.mydomain.com/pictures/city/strasbourg.png
 				- http://www.mydomain.com/picturesnew/city/strasbourgh.png
-			3. Input value "/pictures/": only requests for /pictures/ will be allowed
+			3. Input value "/pictures/": only requests for /pictures/ are allowed
 			4. Input value "/pictures/city/strasbourg.png": only allows request for this asset
 	
-		![CDN ec_url_allow example](./media/cdn-token-auth/cdn-token-auth-url-allow4.png)
+		   ![CDN ec_url_allow example](./media/cdn-token-auth/cdn-token-auth-url-allow4.png)
 	
-		- ec-country-allow: only allows requests that originate from one or more specified countries. Requests that originate from all other countries will be denied. Use country code to set up the parameters and separating each country code with a comma. For example, If you want to allow access from United States and France, input US, FR in the column as below.  
+	    - ec_country_allow: Allows only requests that originate from one or more specified countries. Requests that originate from all other countries are denied. Use country code to set up the parameters and separating each country code with a comma. For example, If you want to allow access from United States and France, input US, FR in the column as follows.  
 		
-		![CDN ec_country_allow example](./media/cdn-token-auth/cdn-token-auth-country-allow.png)
+		  ![CDN ec_country_allow example](./media/cdn-token-auth/cdn-token-auth-country-allow.png)
 
-		- ec-country-deny: denies requests that originated from one or more specified countries. Requests that originate from all other countries will be allowed. Use country code to set up the parameters and separating each country code with a comma. For example, If you want to deny access from United States and France, input US, FR in the column.
+		- ec_country_deny: Denies requests that originate from one or more specified countries. Requests that originate from all other countries are allowed. Use country code to set up the parameters and separating each country code with a comma. For example, If you want to deny access from United States and France, input US, FR in the column.
 	
 		- ec_ref_allow: Allows requests from the specified referrer only. A referrer identifies the URL of the web page that is linked to the resource being requested. Do not include the protocol in the referrer parameter value. The following types of input are allowed for the parameter value:
 		   - A hostname or a hostname and a path.
@@ -106,38 +108,38 @@ The following flowchart describes how Azure CDN validates client request when to
 		
 		  ![CDN ec_ref_allow example](./media/cdn-token-auth/cdn-token-auth-referrer-allow2.png)
 	
-		- ec-ref-deny: denies requests from specified referrer. Refer to details and example in "ec-ref-allow" parameter.
+		- ec_ref_deny: Denies requests from the specified referrer. Refer to details and example in "ec_ref_allow" parameter.
 		 
-		- ec-proto-allow: only allows requests from specified protocol. For example, http or https.
+		- ec_proto_allow: Allows requests from the specified protocol only. For example, http or https.
 		
-		![CDN ec_proto_allow example](./media/cdn-token-auth/cdn-token-auth-url-allow4.png)
+		  ![CDN ec_proto_allow example](./media/cdn-token-auth/cdn-token-auth-url-allow4.png)
 			
-		- ec-proto-deny: denies requests from specified protocol. For example, http or https.
+		- ec_proto_deny: Denies requests from the specified protocol. For example, HTTP or HTTPS.
 	
-		- ec-clientip: restricts access to specified requester's IP address. Both IPV4 and IPV6 are supported. You can specify single request IP address or IP subnet.
+		- ec_clientip: Restricts access to the specified requester's IP address. Both IPV4 and IPV6 are supported. You can specify single request IP address or IP subnet.
 			
-		![CDN ec_clientip example](./media/cdn-token-auth/cdn-token-auth-clientip.png)
+		  ![CDN ec_clientip example](./media/cdn-token-auth/cdn-token-auth-clientip.png)
 		
 	3. You can test your token with the description tool.
 
-	4. You can also customize the type of response that will be returned to user when request is denied. By default we use 403.
+	4. You can also customize the type of response that is returned when a request is denied. By default, response code 403 is used.
 
-3. Now click **Rules Engine** tab under **HTTP Large**. You will use this tab to define paths to apply the feature, enable the token authentication feature, and enable additional token authentication-related capabilities.
+3. Click **Rules Engine** under **HTTP Large**. You use the rules engine to define paths to apply the feature, enable the token authentication feature, and enable additional token authentication-related capabilities.
 
-	- Use "IF" column to define asset or path that you want to apply token authentication. 
-	- Click to add "Token Auth" from the feature dropdown to enable token authentication.
+	- Use the "IF" column to define the asset or path that you want to apply token authentication. 
+	- To enable token authentication, select **Token Auth** from the **Features** dropdown.
 		
 	![CDN rules engine token authentication enable example](./media/cdn-token-auth/cdn-rules-engine-enable2.png)
 
-4. In the **Rules Engine** tab, there are a few additional capabilities you can enable.
+4. In the rules engine, there are a few additional capabilities you can enable:
 	
-	- Token auth denial code: determines the type of response that will be returned to user when a request is denied. Rules set up here will override the denial code setting in the token auth tab.
-	- Token auth ignore: determines whether URL used to validate token will be case sensitive.
-	- Token auth parameter: rename the token auth query string parameter showing in the requested URL. 
+	- Token auth denial code: Determines the type of response that is returned to a user when a request is denied. Rules set up here override the denial code setting in the token auth tab.
+	- Token auth ignore: Determines whether the URL used to validate the token is case-sensitive.
+	- Token auth parameter: Renames the token auth query string parameter that appears in the requested URL. 
 		
 	![CDN rules engine token authentication settings example](./media/cdn-token-auth/cdn-rules-engine2.png)
 
-5. You can customize your token which is an application that generates token for Token-based authentication features. Source code can be accessed here in [GitHub](https://github.com/VerizonDigital/ectoken).
+5. You can customize your token, which is an application that generates token for token-based authentication features. Source code can be accessed in [GitHub](https://github.com/VerizonDigital/ectoken).
 Available languages include:
 	
 	- C
@@ -150,4 +152,4 @@ Available languages include:
 
 ## Azure CDN features and provider pricing
 
-See the [CDN Overview](cdn-overview.md) topic.
+For information, see [CDN Overview](cdn-overview.md).
