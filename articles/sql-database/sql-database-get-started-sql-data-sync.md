@@ -1,6 +1,6 @@
 ---
 title: Getting started with Azure SQL Data Sync (Preview) | Microsoft Docs
-description: This tutorial helps you get started with Azure SQL Data Sync (Preview).
+description: This tutorial helps you get started with Azure SQL Data Sync (Preview)
 services: sql-database
 documentationcenter: ''
 author: douglaslms
@@ -82,7 +82,7 @@ In the **Hub Database** section, enter the existing credentials for the SQL Data
 
 ![Hub database has been added to sync group](media/sql-database-get-started-sql-data-sync/datasync-preview-hubadded.png)
 
-## Add an Azure SQL Database
+### Add an Azure SQL Database
 
 In the **Member Database** section, optionally add an Azure SQL Database to the sync group by selecting **Add an Azure Database**. The **Configure Azure Database** page opens.
 
@@ -106,7 +106,7 @@ On the **Configure Azure Database** page, do the following things:
 
     ![New SQL Database sync member has been added](media/sql-database-get-started-sql-data-sync/datasync-preview-memberadded.png)
 
-## Add an on-premises SQL Server database
+### Add an on-premises SQL Server database
 
 In the **Member Database** section, optionally add an on-premises SQL Server to the sync group by selecting **Add an On-Premises Database**. The **Configure On-Premises** page opens.
 

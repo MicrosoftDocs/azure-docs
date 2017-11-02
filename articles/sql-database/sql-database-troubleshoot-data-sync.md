@@ -1,6 +1,8 @@
 ---
 title: "Troubleshoot Azure SQL Data Sync | Microsoft Docs"
-ms.date: "10/31/2017"
+description: "Learn to troubleshoot common issues with Azure SQL Data Sync"
+services: sql-database
+ms.date: "11/2/2017"
 ms.topic: "article"
 ms.service: "sql-database"
 author: "douglaslMS"
@@ -29,9 +31,9 @@ This error is an issue with the SQL Data Sync (Preview).
 
 The most likely cause of this issue is:
 
-• You are running Windows 8 Developer Preview, or
+-   You are running Windows 8 Developer Preview, or
 
-• You have .NET 4.5 installed.
+-   You have .NET 4.5 installed.
 
 ### Solution or workaround
 
@@ -51,9 +53,9 @@ This issue occurs because SQL Data Sync (Preview) client agent does not store cr
 
 There are two solutions to try:
 
-• First, use services.msc to reenter your credentials for the client agent.
+-   First, use services.msc to reenter your credentials for the client agent.
 
-• Second, uninstall this client agent and install a new one. Download and install the latest client agent from [Download Center](http://go.microsoft.com/fwlink/?linkid=221479).
+-   Second, uninstall this client agent and install a new one. Download and install the latest client agent from [Download Center](http://go.microsoft.com/fwlink/?linkid=221479).
 
 ## My database isn't listed in the agent dropdown
 
@@ -77,9 +79,9 @@ The solution depends upon the cause.
 
 You must have both the client agent and the sync group in the same data center. You can set up this configuration by doing one of the following things:
 
-• Create a new agent in the same data center as the sync group. Then register the database with that agent. See [How To: Install a SQL Data Sync (Preview) Client Agent](#install-a-sql-data-sync-client-agent) for more information.
+-   Create a new agent in the same data center as the sync group. Then register the database with that agent. See [How To: Install a SQL Data Sync (Preview) Client Agent](#install-a-sql-data-sync-client-agent) for more information.
 
-• Delete the current sync group. Then recreate it in the same data center as the agent.
+-   Delete the current sync group. Then recreate it in the same data center as the agent.
 
 #### The client agent's list of databases is not current
 
@@ -104,29 +106,29 @@ Update the agent's password to your current server password.
 
 1. Locate the SQL Data Sync (Preview) client agent Preview service.
 
-    1. Click **Start**.
+    a. Click **Start**.
 
     b. Type "services.msc" in the search box.
 
     c. In the search results, click "Services."
 
-    2. In the **Services** window, scroll to the entry for **SQL Data Sync (Preview) Agent Preview**.
+    d. In the **Services** window, scroll to the entry for **SQL Data Sync (Preview) Agent Preview**.
 
-3. Right-click the entry and select **Stop**.
+2. Right-click the entry and select **Stop**.
 
-4. Right-click the entry and then click **Properties**.
+3. Right-click the entry and then click **Properties**.
 
-5. In the **SQL Data Sync (Preview) Agent Preview Properties** window, click the **Log in** tab.
+4. In the **SQL Data Sync (Preview) Agent Preview Properties** window, click the **Log in** tab.
 
-6. Enter your password in the Password textbox.
+5. Enter your password in the Password textbox.
 
-7. Confirm your password in the Confirm Password textbox.
+6. Confirm your password in the Confirm Password textbox.
 
-8. Click **Apply** and then click **OK**.
+7. Click **Apply** and then click **OK**.
 
-9. In the **Services** window, right-click the **SQL Data Sync (Preview) Agent Preview** service, then click **Start**.
+8. In the **Services** window, right-click the **SQL Data Sync (Preview) Agent Preview** service, then click **Start**.
 
-10. Close the **Services** window.
+9. Close the **Services** window.
 
 ## I get a "disk out of space" message
 
@@ -151,19 +153,15 @@ You fail in your attempt to delete a sync group.
 
 Any of the following things can result in a failure to delete a sync group.
 
-• **The client agent is offline.**
+-   **The client agent is offline.** Be sure that the client agent is online then try again.
 
-    Be sure that the client agent is online then try again.
-
-• **The client agent is uninstalled or missing.**
-
-    If the client agent is uninstalled or otherwise missing:
+-   **The client agent is uninstalled or missing.** If the client agent is uninstalled or otherwise missing:
 
     a. Remove agent XML file from the SQL Data Sync (Preview) installation folder if the file exists.
 
     b. Install the agent on same/another on-premises computer, submit the agent key from the portal generated for the agent that's showing offline.
 
-• **The SQL Data Sync (Preview) service is stopped.**
+-   **The SQL Data Sync (Preview) service is stopped.**
 
     a. In the **Start** menu, search for Services.
 
@@ -173,13 +171,9 @@ Any of the following things can result in a failure to delete a sync group.
 
     d. If the service status is **Stopped**, right-click the service name and select **Start** from the dropdown menu.
 
-• **A database is offline.**
+-   **A database is offline.** Check your SQL Databases and SQL Server databases to be sure they are all online.
 
-    Check your SQL Databases and SQL Server databases to be sure they are all online.
-
-• **The sync group is provisioning or synchronizing.**
-
-    Wait until the provisioning or synchronizing process finishes. Then retry deleting the sync group.
+-   **The sync group is provisioning or synchronizing.** Wait until the provisioning or synchronizing process finishes. Then retry deleting the sync group.
 
 ## Sync fails in the portal UI for on-premises databases associated with the client agent
 
@@ -235,23 +229,23 @@ After you create or recreate a key for an agent, you try to submit that key thro
 
 Before proceeding, make sure a failure of one of the following conditions is not the cause of your issue.
 
-• The SQL Data Sync (Preview) Windows service is running.
+-   The SQL Data Sync (Preview) Windows service is running.
 
-• The service account for SQL Data Sync (Preview) Preview Windows service has network access.
+-   The service account for SQL Data Sync (Preview) Preview Windows service has network access.
 
-• The client agent is able to contact the Locator Service. Check that the following registry key has the value "https://locator.sync.azure.com/LocatorServiceApi.svc"
+-   The client agent is able to contact the Locator Service. Check that the following registry key has the value "https://locator.sync.azure.com/LocatorServiceApi.svc"
 
-    • On an x86 computer: `HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\SQL Azure Data Sync\\LOCATORSVCURI`
+    -   On an x86 computer: `HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\SQL Azure Data Sync\\LOCATORSVCURI`
 
-    • On an x64 computer: `HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Wow6432Node\\Microsoft\\SQL Azure Data Sync\\LOCATORSVCURI`
+    -   On an x64 computer: `HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Wow6432Node\\Microsoft\\SQL Azure Data Sync\\LOCATORSVCURI`
 
 ### Cause
 
 The agent key uniquely identifies each local agent. The key must meet two conditions for it to work:
 
-• The client agent key on the SQL Data Sync (Preview) server and the local computer must be identical.
+-   The client agent key on the SQL Data Sync (Preview) server and the local computer must be identical.
 
-• The client agent key can be used only once.
+-   The client agent key can be used only once.
 
 ### Solution or workaround
 
@@ -261,7 +255,7 @@ If your agent is not working, it is because one or both of these conditions are 
 
 2. Apply the new key to the agent.
 
-To Apply the new key to the agent, do the following things:
+To apply the new key to the agent, do the following things:
 
 1. Use File Explorer to navigate to your agent installation directory. The default installation directory is `c:\\program files (x86)\\microsoft sql data sync`.
 
@@ -283,9 +277,9 @@ To Apply the new key to the agent, do the following things:
 
 This error occurs in two situations:
 
-• The User name and/or the password are incorrect.
+-   The user name and/or the password are incorrect.
 
-• The specified user account does not have sufficient privileges to log on as a service.
+-   The specified user account does not have sufficient privileges to log on as a service.
 
 ### Solution or workaround
 
@@ -329,11 +323,11 @@ There are many possible causes for the failure. To determine the specific cause 
 
 To find the specific cause for the failure you experienced, you need to generate and look at the Windows Installer logs. You can turn on logging from the command line. For example, assume that the downloaded AgentServiceSetup.msi file is LocalAgentHost.msi. Generate and examine log files using the following command lines:
 
-• For installs: `msiexec.exe /i SQLDataSyncAgent-Preview-ENU.msi /l\*v LocalAgentSetup.InstallLog`
+-   For installs: `msiexec.exe /i SQLDataSyncAgent-Preview-ENU.msi /l\*v LocalAgentSetup.InstallLog`
 
-• For uninstalls: `msiexec.exe /x SQLDataSyncAgent-se-ENU.msi /l\*v LocalAgentSetup.InstallLog`
+-   For uninstalls: `msiexec.exe /x SQLDataSyncAgent-se-ENU.msi /l\*v LocalAgentSetup.InstallLog`
 
-You can also enable logging for all installations performed by Windows Installer. Microsoft Knowledge Base article (<http://support.microsoft.com/kb/223300>) provides a one-click solution to turn on logging for Windows Installer. It also provides the location of these logs.
+You can also enable logging for all installations performed by Windows Installer. The Microsoft Knowledge Base article [How to enable Windows Installer logging](https://support.microsoft.com/help/223300/how-to-enable-windows-installer-logging) provides a one-click solution to turn on logging for Windows Installer. It also provides the location of these logs.
 
 ## A database has an "Out-of-Date" status
 
@@ -455,19 +449,15 @@ A sync group in SQL Data Sync (Preview) has been in the processing state for a l
 
 Any of the following conditions can result in a sync group being stuck in the processing state.
 
-• **The client agent is offline.**
+-   **The client agent is offline.** Be sure that the client agent is online then try again.
 
-    Be sure that the client agent is online then try again.
-
-• **The client agent is uninstalled or missing.**
-
-    If the client agent is uninstalled or otherwise missing:
+-   **The client agent is uninstalled or missing.** If the client agent is uninstalled or otherwise missing:
 
     1. Remove agent XML file from the SQL Data Sync (Preview) installation folder if the file exists.
 
     2. Install the agent on same/another on-premises computer. Then submit the agent key from the portal generated for the agent that's showing as offline.
 
-• **The SQL Data Sync (Preview) service is stopped.**
+-   **The SQL Data Sync (Preview) service is stopped.**
 
     1. In the **Start** menu, search for Services.
 

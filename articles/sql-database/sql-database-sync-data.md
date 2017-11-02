@@ -1,6 +1,6 @@
 ---
-title: Sync data (Preview) | Microsoft Docs
-description: This overview introduces Azure SQL Data Sync (Preview).
+title: Azure SQL Data Sync (Preview) | Microsoft Docs
+description: This overview introduces Azure SQL Data Sync (Preview)
 services: sql-database
 documentationcenter: ''
 author: douglaslms

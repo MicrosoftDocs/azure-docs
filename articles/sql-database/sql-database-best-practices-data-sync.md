@@ -1,6 +1,8 @@
 ---
 title: "Azure SQL Data Sync Best Practices | Microsoft Docs"
-ms.date: "10/31/2017"
+description: "Learn best practices for configuring and running Azure SQL Data Sync"
+services: sql-database
+ms.date: "11/2/2017"
 ms.topic: "article"
 ms.service: "sql-database"
 author: "douglaslMS"
@@ -15,37 +17,37 @@ This article describes best practices for SQL Data Sync (Preview).
 
 ### Client Agent
 
-• Install the client agent using the least privilege account with network service access.
+-   Install the client agent using the least privilege account with network service access.
 
-• It is best if the client agent is installed on a computer separate from the on-premises SQL Server computer.
+-   It is best if the client agent is installed on a computer separate from the on-premises SQL Server computer.
 
-• Do not register an on-premises database with more than one agent.
+-   Do not register an on-premises database with more than one agent.
 
-• Even if syncing different tables for different sync groups.
+-   Even if syncing different tables for different sync groups.
 
-• Registering an on-premises database with multiple client agents poses challenges when deleting one of the sync groups.
+-   Registering an on-premises database with multiple client agents poses challenges when deleting one of the sync groups.
 
 ### Database accounts with least required privilege
 
-• **For Sync Setup**. Create/Alter Table, Alter Database, Create Procedure, Select/ Alter Schema, Create User-Defined Type.
+-   **For Sync Setup**. Create/Alter Table, Alter Database, Create Procedure, Select/ Alter Schema, Create User-Defined Type.
 
-• **For Ongoing Sync**. Select/ Insert/ Update/ Delete on tables selected for syncing and on sync metadata and tracking tables, Execute permission on stored procedures created by the service, Execute permission on user-defined table types.
+-   **For Ongoing Sync**. Select/ Insert/ Update/ Delete on tables selected for syncing and on sync metadata and tracking tables, Execute permission on stored procedures created by the service, Execute permission on user-defined table types.
 
-• **For de-provisioning**. Alter on tables part of sync, Select/ Delete on Sync Metadata tables, Control on sync tracking Sync Tracking tables, stored procedures, and user-defined types.
+-   **For de-provisioning**. Alter on tables part of sync, Select/ Delete on Sync Metadata tables, Control on sync tracking Sync Tracking tables, stored procedures, and user-defined types.
 
-How can you use this information when there is only a single credential for a database in the Sync Group?
+**How can you use this information when there is only a single credential for a database in the Sync Group?**
 
-• Change the credentials for different phases (for example, credential1 for setup and credential2 for ongoing).
+-   Change the credentials for different phases (for example, credential1 for setup and credential2 for ongoing).
 
-• Change the permission of the credentials (that is, change the permission after sync is set up).
+-   Change the permission of the credentials (that is, change the permission after sync is set up).
 
 ## <a name="locate-hub"></a> Where to locate the Hub Database
 
-### Enterprise to cloud scenario
+### Enterprise-to-cloud scenario
 
 To minimize latency, keep the hub database close to the greatest concentration of the sync group's database traffic.
 
-### Cloud to cloud ccenario
+### Cloud-to-cloud scenario
 
 -   When all the databases in a sync group are in one data center, the hub should be located in the same data center. This reduces latency and the cost of data transfer between data centers.
 
@@ -62,8 +64,7 @@ Apply the preceding guidelines to more complex sync group configurations.
 When you create a new SQL Database instance, set the maximum size so that it is always larger than the database you deploy. If you do not set the maximum size larger than the deployed database, synchronization fails. While there is no automatic growth - you can do an ALTER DATABASE to increase the size of the database after it has been created. You must stay within the SQL Database instance size limits.
 
 > [!IMPORTANT]
-> SQL Data Sync stores additional metadata with each database. Be sure to account for this metadata when you calculate space needed.
-The amount of added overhead is governed by the width of the tables (for example, narrow tables require more overhead) and the amount of traffic.
+> SQL Data Sync stores additional metadata with each database. Be sure to account for this metadata when you calculate space needed. The amount of added overhead is governed by the width of the tables (for example, narrow tables require more overhead) and the amount of traffic.
 
 ## <a name="table-considerations-and-constraints"></a> Table considerations and constraints
 
@@ -87,25 +88,25 @@ This section discusses the limitations of SQL Data Sync (Preview)'s provisioning
 
 The following are limitations of SQL Data Sync (Preview) auto provisioning.
 
-• Only the columns selected are created in the destination table.
+-   Only the columns selected are created in the destination table.
 Thus, if some columns are not part of the sync group those columns are not provisioned in the destination tables.
 
-• Indexes are created only for the selected columns.
+-   Indexes are created only for the selected columns.
 If the source table index has columns that are not part of the sync group those indexes are not provisioned in the destination tables.
 
-• Indexes on XML type columns are not provisioned.
+-   Indexes on XML type columns are not provisioned.
 
-• CHECK constraints are not provisioned.
+-   CHECK constraints are not provisioned.
 
-• Existing triggers on the source tables are not provisioned.
+-   Existing triggers on the source tables are not provisioned.
 
-• Views and Stored Procedures are not created on the destination database.
+-   Views and Stored Procedures are not created on the destination database.
 
 ### Recommendations
 
-• Use the auto-provisioning capability only for trying the service.
+-   Use the auto-provisioning capability only for trying the service.
 
-• For production, you should provision the database schema.
+-   For production, you should provision the database schema.
 
 ## <a name="avoid-a-slow-and-costly-initial-synchronization"></a> Avoid a slow and costly initial synchronization
 
@@ -139,21 +140,21 @@ A sync group's status is set to out-of-date when any change within the sync grou
 
 Reasons a sync group may fail to apply a change include:
 
-• Schema incompatibility between tables.
+-   Schema incompatibility between tables.
 
-• Data incompatibility between tables.
+-   Data incompatibility between tables.
 
-• Inserting a row with a null value in a column that does not allow null values.
+-   Inserting a row with a null value in a column that does not allow null values.
 
-• Updating a row with a value that violates a foreign key constraint.
+-   Updating a row with a value that violates a foreign key constraint.
 
 You can prevent out-of-date sync groups by:
 
-• Update the schema to allow the values contained in the failed rows.
+-   Update the schema to allow the values contained in the failed rows.
 
-• Update the foreign key values to include the values contained in the failed rows.
+-   Update the foreign key values to include the values contained in the failed rows.
 
-• Update the data values in the failed row to be compatible with the schema or foreign keys in the target database.
+-   Update the data values in the failed row to be compatible with the schema or foreign keys in the target database.
 
 ## <a name="avoid-deprovisioning-issues"></a> Avoid deprovisioning issues
 
@@ -172,9 +173,9 @@ Under certain circumstances, unregistering a database with a client agent can ca
 
 ### Solution
 
-• Avoid the situation entirely by never registering a database with more than one agent.
+Avoid the situation entirely by never registering a database with more than one agent.
 
-• To recover from this situation:
+To recover from this situation:
 
     1. Remove the database from each sync group it belongs to.
 
@@ -188,19 +189,19 @@ Under certain circumstances, unregistering a database with a client agent can ca
 
 Changes can fail to propagate due to many reasons. Some causes would be:
 
-• Schema/Datatype incompatibility.
+-   Schema/Datatype incompatibility.
 
-• Trying to insert null in non-nullable columns.
+-   Trying to insert null in non-nullable columns.
 
-• Violating foreign key constraints.
+-   Violating foreign key constraints.
 
 ### What happens when changes fail to propagate?
 
-• Sync Group shows it is in a warning state.
+-   Sync Group shows it is in a warning state.
 
-• Details are in the Portal UI Log viewer.
+-   Details are in the Portal UI Log viewer.
 
-• If the issue is not resolved for 45 days, the database becomes out of date.
+-   If the issue is not resolved for 45 days, the database becomes out of date.
 
 > [!NOTE]
 > These changes never propagate. The only way to recover is to recreate the sync group.
