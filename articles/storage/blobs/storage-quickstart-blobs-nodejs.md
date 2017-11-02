@@ -52,7 +52,7 @@ After your storage account is created, it is pinned to the dashboard. Click on i
 
 ## Download the sample application
 
-The sample application used in this quickstart is a basic console application. 
+The [sample application](https://github.com/Azure-Samples/storage-blobs-node-quickstart.git)  used in this quickstart is a basic console application. 
 
 Use [git](https://git-scm.com/) to download a copy of the application to your development environment.
 
@@ -64,12 +64,12 @@ This command clones the repository to your local git folder. To open the applica
 
 ## Configure your storage connection string
 
-In the application, you must provide the connection string for your storage account. Open the `index.js` file, find the `connectionString` variable. Replace `AzureStorageConnectionString` with the entire value of the connection string with the one you saved from the Azure portal. Your storageConnectionString should look similar to the following:
+In the application, you must provide the connection string for your storage account. Open the `index.js` file, find the `connectionString` variable. Replace its value with the entire value of the connection string with the one you saved from the Azure portal. Your storageConnectionString should look similar to the following:
 
 ```node
 // Create a blob client for interacting with the blob service from connection string
 // How to create a storage connection string - http://msdn.microsoft.com/library/azure/ee758697.aspx
-var connectionString = '<connectionStringHere>';
+var connectionString = '<Your connection string here>';
 var blobService = storage.createBlobService(connectionString);
 ```
 
@@ -122,11 +122,11 @@ After you've verified the files, hit any key to finish the demo and delete the t
 
 The first thing to do is create the reference to the `BlobService` used to access and manage Blob storage. These objects build on each other -- each is used by the next one in the list.
 
-* Create an instance of the **[BlobService](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService__ctor)** object, which points to the Blob service in your storage account. 
+* Create an instance of the **[BlobService](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService__ctor)** object, which points to the Blob service in your storage account.
 
-In this section, you create a new container, and then set permissions on the container so the blobs are public and can be accessed with just a URL. The container is called **quickstartblobs**.
+* Create a new container, and then set permissions on the container so the blobs are public and can be accessed with just a URL. The container is called **quickstartblobs**.
 
-This example uses CreateIfNotExists because we want to create a new container each time the sample is run. In a production environment where you use the same container throughout an application, it's better practice to only call CreateIfNotExists once. Alternatively, you can create the container ahead of time so you don't need to create it in the code.
+This example uses [createContainerCreateIfNotExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createContainerIfNotExists) because we want to create a new container each time the sample is run. In a production environment where you use the same container throughout an application, it's better practice to only call CreateIfNotExists once. Alternatively, you can create the container ahead of time so you don't need to create it in the code.
 
 ```node
 // Create a container for organizing blobs within the storage account.
@@ -137,9 +137,9 @@ blobService.createContainerIfNotExists(blockBlobContainerName, { 'publicAccessLe
 
 ## Upload blobs to the container
 
-Blob storage supports block blobs, append blobs, and page blobs. Block blobs are the most commonly used, and that's what is used in this quickstart.
+Blob storage supports block blobs, append blobs, and page blobs. Block blobs are the most commonly used. They are ideal for storing text and binary data, which is the reason they are used in this quickstart.
 
-To upload a file to a blob, you use the[createBlockBlobFromLocalFile](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_createBlockBlobFromLocalFile) method. This operation creates the blob if it doesn't already exist, or overwrites it if it does already exist.
+To upload a file to a blob, you use the [createBlockBlobFromLocalFile](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_createBlockBlobFromLocalFile) method. This operation creates the blob if it doesn't already exist, or overwrites it if it does already exist.
 
 The sample code creates a local file to be used for the upload and download, storing the file to be uploaded as **localPath** and the name of the blob in **localFileToUpload**. The following example uploads the file to your container called **quickstartblobs**.
 
@@ -156,11 +156,9 @@ console.log('   Uploaded Blob URL:', blobService.getUrl(CONTAINER_NAME, BLOCK_BL
 
 There are several upload methods that you can use with Blob storage. For example, if you have a memory stream, you can use the [createBlockBlobFromStream](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_createBlockBlobFromStream) method rather than [createBlockBlobFromLocalFile](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_createBlockBlobFromLocalFile).
 
-Block blobs can be any type of text or binary file. Page blobs are primarily used for the VHD files used to back IaaS VMs. Append blobs are used for logging, such as when you want to write to a file and then keep adding more information. Most objects stored in Blob storage are block blobs.
-
 ## List the blobs in a container
 
-Get a list of files in the container using [listBlobsSegmented](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_listBlobsSegmented). The following code retrieves the list of blobs, then loops through them, showing the URIs of the blobs found. You can copy the URI from the command window and paste it into a browser to view the file.
+Next, the application gets a list of files in the container using [listBlobsSegmented](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_listBlobsSegmented). The following code retrieves the list of blobs, then loops through them, showing the URIs of the blobs found. You can copy the URI from the command window and paste it into a browser to view the file.
 
 If you have 5,000 or fewer blobs in the container, all of the blob names are retrieved in one call to [listBlobsSegmented](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_listBlobsSegmented). If you have more than 5,000 blobs in the container, the service retrieves the list in sets of 5,000 until all of the blob names have been retrieved. So the first time this API is called, it returns the first 5,000 blob names and a continuation token. The second time, you provide the token, and the service retrieves the next set of blob names, and so on, until the continuation token is null, which indicates that all of the blob names have been retrieved.
 
@@ -190,7 +188,7 @@ console.log('   Downloaded File:', DOWNLOADED_FILE_PATH, '\n');
 
 ## Clean up resources
 
-If you no longer need the blobs uploaded in this quickstart, you can delete the entire container using [deleteBlobIfExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_deleteBlobIfExists) and [deleteContainerIfExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_deleteContainerIfExists). Also delete the files created if they are no longer needed. This is taken care of in the application when you press enter to exist the application.
+If you no longer need the blobs uploaded in this quickstart, you can delete the entire container using [deleteBlobIfExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_deleteBlobIfExists) and [deleteContainerIfExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_deleteContainerIfExists). Also delete the files created if they are no longer needed. This is taken care of in the application when you press enter to exit the application.
 
 ```node
 console.log('6. Deleting block Blob\n');
