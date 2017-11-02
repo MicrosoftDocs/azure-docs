@@ -1,6 +1,6 @@
 ---
 title: Supported languages in the Microsoft Translator API | Microsoft Docs
-description: Use the languages API method to return a list of supported languages for each of the three Microsoft Translator API language groups.
+description: View languages supported by the Microsoft Translator Text API.
 services: cognitive-services
 author: jann-skotdal
 manager: arulm
