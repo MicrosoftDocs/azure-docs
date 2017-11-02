@@ -24,7 +24,7 @@ ms.custom: H1Hack27Feb2017
 
 There are several ways to authenticate with an Azure container registry, each of which is applicable to one or more registry usage scenarios.
 
-You can log in to a registry directly, which we'll call [individual login](#individual-login-with-azure-ad), and your applications and container orchestrators can perform unattended, or "headless," authentication by using an Azure Active Directory (Azure AD) [service principal](#service-principal).
+You can log in to a registry directly via [individual login](#individual-login-with-azure-ad), and your applications and container orchestrators can perform unattended, or "headless," authentication by using an Azure Active Directory (Azure AD) [service principal](#service-principal).
 
 Azure Container Registry does not support unauthenticated Docker operations or anonymous access. For public images, you can use [Docker Hub](https://docs.docker.com/docker-hub/).
 
