@@ -106,7 +106,7 @@ After you've successfully published, the **Publish App** page displays an Endpoi
 ![Home Automation test](./media/luis-quickstart-new-app/publish.PNG).
 
 ## Use your app
-Click on the endpoint URL in the Publish App page to open it in a web browser. Append a query like "turn off the living room lights" to the end of the URL and submit the request. The JSON containing results should show in the browser window.
+You can test your published endpoint in a browser using the generated URL. Copy the URL, then replace the `{YOUR-KEY-HERE}` with one of the keys listed in the **Key String** column for the resource you want to use. To open this URL in your browser, set the URL parameter "&q" to your test query. For example, append `&q=turn off the living room light` to your URL, and then press Enter. The browser displays the JSON response of your HTTP endpoint.  
 
 ![JSON result detects the intent TurnOff](./media/luis-get-started-node-get-intent/turn-off-living-room.png)
 
