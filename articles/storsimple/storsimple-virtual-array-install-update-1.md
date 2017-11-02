@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/01/2017
+ms.date: 11/02/2017
 ms.author: alkohli
 ---
 # Install Update 1.0 on your StorSimple Virtual Array
@@ -35,7 +35,11 @@ Before you apply an update, we recommend that you take the volumes or shares off
 
 ## Use the Azure portal
 
-If running Update 0.2 and later, we recommend that you install updates through the Azure portal. The portal procedure requires the user to scan, download, and then install the updates. This procedure takes around 7 minutes to complete. Perform the following steps to install the update or hotfix.
+If running Update 0.2 and later, we recommend that you install updates through the Azure portal. The portal procedure requires the user to scan, download, and then install the updates. Depending upon the software version your virtual array is running, applying update via the Azure portal is different.
+
+ - If your virtual array is running Update 0.6, the Azure portal directly installs Update 1 (10.0.10296.0) on your device. This procedure takes around 7 minutes to complete.
+ - If your virtual array is running a version prior to Update 0.6, update is done in two stage. The Azure portal first installs Update 0.6 (10.0.10293.0) on your device. The virtual array reboots and the portal then installs Update 1 (10.0.10296.0) on your device. This procedure takes around 15 minutes to complete.
+
 
 [!INCLUDE [storsimple-virtual-array-install-update-via-portal](../../includes/storsimple-virtual-array-install-update-via-portal-04.md)]
 
@@ -66,9 +70,10 @@ If your virtual array is running Update 0.6, perform the following steps to down
 
 4. Click **Download**.
 
-5. You should see one file to download. Download the file to a folder. The folder can also be copied to a network share that is reachable from the device.
+5. You should see two files to download. Download the files to a folder. The folder can also be copied to a network share that is reachable from the device.
 
 6. Open the folder where the file is located.
+
     ![Files in the package](./media/storsimple-virtual-array-install-update-1/update06folder.png)
 
     You see two files:
@@ -80,13 +85,13 @@ If your virtual array is running Update 0.6, perform the following steps to down
 Prior to the update or hotfix installation, make sure that:
 
  - You have the update or the hotfix downloaded either locally on your host or accessible via a network share.
- - Your virtual array is running Update 0.6.
+ - Your virtual array is running Update 0.6 (10.0.10293.0). If you are running a version prior to Update 0.6, [Use the Azure portal to install Update 1](#use-the-azure-portal).
 
-This procedure takes less than 2 minutes to complete. Perform the following steps to install the update or hotfix.
+This procedure takes around 4 minutes to complete. Perform the following steps to install the update or hotfix.
 
 #### To install the update or the hotfix
 
-1. In the local web UI, go to **Maintenance** > **Software Update**. Make a note of the software version that you are running. **Only proceed with this update if you are running 10.0.10293.0**. If you are running an earlier version, use the Azure portal to install Update 1.
+1. In the local web UI, go to **Maintenance** > **Software Update**. Make a note of the software version that you are running. **Only proceed with this update if you are running 10.0.10293.0. If you are running an earlier version, use the Azure portal to install Update 1**.
    
     ![update device](./media/storsimple-virtual-array-install-update-1/update1m.png)
 
@@ -110,6 +115,8 @@ This procedure takes less than 2 minutes to complete. Perform the following step
     ![update device](./media/storsimple-virtual-array-install-update-1/update6m.png)
 
 6. Repeat steps 2-4 to install the Windows security fix using file `windows8.1-kb4012213-x64`. The virtual array restarts after the install and you need to sign into the local web UI.
+
+> [!NOTE] If you directly applied Update 1 to a device running a version prior to Update 0.6, You will be missing some updates. Please contact Microsoft Support for next steps.
 
 ## Next steps
 
