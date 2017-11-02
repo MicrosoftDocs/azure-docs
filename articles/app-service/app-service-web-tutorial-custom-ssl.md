@@ -147,17 +147,26 @@ If you used IIS or _Certreq.exe_ to generate your certificate request, install t
 
 To upload your SSL certificate, click **SSL certificates** in the left navigation of your web app.
 
-Click **Upload Certificate**.
+Click **Upload Certificate**. You can upload a Public Certificate (.cer file) or Private Certificate (.pfx  file) . 
 
+#### Private Certificate 
 In **PFX Certificate File**, select your PFX file. In **Certificate password**, type the password that you created when you exported the PFX file.
 
 Click **Upload**.
 
-![Upload certificate](./media/app-service-web-tutorial-custom-ssl/upload-certificate.png)
+![Upload certificate](./media/app-service-web-tutorial-custom-ssl/upload-certificate1.png)
+
+
+#### Public Certificate 
+
+Enter the name of the Certificate and Select the Store where you want to place the public certificate. 
+
+![Upload public certificate](./media/app-service-web-tutorial-custom-ssl/upload-certificate2.png)
+
 
 When App Service finishes uploading your certificate, it appears in the **SSL certificates** page.
 
-![Certificate uploaded](./media/app-service-web-tutorial-custom-ssl/certificate-uploaded.png)
+![Certificate uploaded](./media/app-service-web-tutorial-custom-ssl/certificate-uploaded1.png)
 
 ### Bind your SSL certificate
 
