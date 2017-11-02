@@ -104,7 +104,7 @@ The supported service plans include:
 Exernal admin takeover is not supported for any service that has service plans that include SharePoint, OneDrive, or Skype For Business; for example, through an Office free subscription or the Office Basic SKU.
 
 ### Azure AD PowerShell cmdlets for the ForceTakeover option
-You'll also see these cmdlets used in the example in [Microsoft PowerShell](#powershell-example).
+You can see these cmdlets used in [PowerShell example](#powershell-example).
 
 
 cmdlet | Usage 
@@ -117,7 +117,7 @@ cmdlet | Usage
 `confirm-msoldomain –Domainname <domainname> –ForceTakeover Force` | <li>If your domain name is still not verified, you can proceed with the **-ForceTakeover** option. It verifies that the TXT record was created and kicks off the takeover process.<li>The **-ForceTakeover** option should be added to the cmdlet only when forcing an external admin takeover, such as when the unmanaged tenant has Office 365 services blocking the takeover.
 `get-msoldomain` | The domain list now shows the the domain name as **Verified**.
 
-## PowerShell example
+### PowerShell example
 
 1. Connect to Azure AD using the credentials that were used to respond to the self-service offering:
   ````
