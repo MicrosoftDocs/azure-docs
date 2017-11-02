@@ -19,10 +19,10 @@ ms.author: robinsh
 # Perform Azure Cosmos DB Table API operations with Azure PowerShell 
 
 >[!NOTE]
->Azure Cosmos DB Table API provides premium features for table storage such as turnkey global distribution, low latency reads and writes, automatic secondary indexing, and dedicated throughput. In most cases, the PowerShell commands in this article work for both Azure Cosmos DB Table API and Azure Table Storage, but this article is specific to Azure Cosmos DB Table API. If you are using Azure Table Storage, see [Azure Table Storage with PowerShell](table-storage-how-to-use-powershell.md).
+>Azure Cosmos DB Table API provides premium features for table storage such as turnkey global distribution, low latency reads and writes, automatic secondary indexing, and dedicated throughput. In most cases, the PowerShell commands in this article work for both Azure Cosmos DB Table API and Azure Table Storage, but this article is specific to Azure Cosmos DB Table API. If you are using Azure Table Storage, see [Azure Table Storage operations with Azure PowerShell](table-storage-how-to-use-powershell.md).
 >
 
-The Azure Cosmos DB Table API enables you to store and query huge sets of structured, non-relational data. The main components of the service are tables, entities, and properties. A table is a collection of entities. An entity is a set of properties. Each entity can have up to 252 properties, which are all name-value pairs. This article assumes that you are already familiar with the Azure Cosmos DB Table API concepts. For detailed information, see [Introduction to Azure Cosmos DB Table API](table-introduction.md) and [Build a .NET application using the Table API](create-table-dotnet.md).
+Azure Cosmos DB Table API enables you to store and query huge sets of structured, non-relational data. The main components of the service are tables, entities, and properties. A table is a collection of entities. An entity is a set of properties. Each entity can have up to 252 properties, which are all name-value pairs. This article assumes that you are already familiar with the Azure Cosmos DB Table API concepts. For detailed information, see [Introduction to Azure Cosmos DB Table API](table-introduction.md) and [Build a .NET application using the Table API](create-table-dotnet.md).
 
 This how-to article covers common Table API operations. You learn how to: 
 
@@ -37,7 +37,7 @@ The examples require Azure PowerShell module version 4.4.0 or later. In a PowerS
 
 ## Preparation
 
-**TEMPORARY NOTE: MIMI: If this is coming out after Cosmos DB Table API is GA'd, I will need to fix this before this article goes live. Do I install somesthing from Cosmos DB? Any idea? --Robin**
+**TEMPORARY NOTE: MIMI: If this is coming out after Cosmos DB Table API is GA'd, I will need to fix this before this article goes live. --Robin**
 
 Cosmos DB Table API is in preview, so you have to install the assemblies locally in order to use these PowerShell cmdlets. For instructions on how to do that, see [Azure RM Storage Tables PowerShell module for Cosmos DB Tables](https://blogs.technet.microsoft.com/paulomarques/2017/05/23/azure-rm-storage-tables-powershell-module-now-includes-support-for-cosmos-db-tables/).
 
