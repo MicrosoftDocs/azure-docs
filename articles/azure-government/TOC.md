@@ -20,6 +20,7 @@
 ## [Functions](documentation-government-functions.md)
 ## [Cognitive Services](documentation-government-cognitiveservices.md)
 ## [Virtual Machines](documentation-government-quickstarts-vm.md) 
+## [GPUs](documentation-government-gpu.md)
 
 # How To
 ## Plan
