@@ -187,8 +187,8 @@ Pig and MapReduce workloads are similar on Linux-based clusters. However, Linux-
 Linux-based HDInsight does not provide remote desktop functionality. Instead, you can use SSH to remotely connect to the cluster head nodes. For more information, see the following documents:
 
 * [Use Hive with SSH](hdinsight-hadoop-use-hive-ssh.md)
-* [Use Pig with SSH](hdinsight-hadoop-use-pig-ssh.md)
-* [Use MapReduce with SSH](hdinsight-hadoop-use-mapreduce-ssh.md)
+* [Use Pig with SSH](hadoop/apache-hadoop-use-pig-ssh.md)
+* [Use MapReduce with SSH](hadoop/apache-hadoop-use-mapreduce-ssh.md)
 
 ### Hive
 
@@ -199,11 +199,11 @@ The following chart provides guidance on migrating your Hive workloads.
 
 | On Windows-based, I use... | On Linux-based... |
 | --- | --- |
-| **Hive Editor** |[Hive View in Ambari](hdinsight-hadoop-use-hive-ambari-view.md) |
+| **Hive Editor** |[Hive View in Ambari](hadoop/apache-hadoop-use-hive-ambari-view.md) |
 | `set hive.execution.engine=tez;` to enable Tez |Tez is the default execution engine for Linux-based clusters, so the set statement is no longer needed. |
 | C# user-defined functions | For information on validating C# components with Linux-based HDInsight, see [Migrate .NET solutions to Linux-based HDInsight](hdinsight-hadoop-migrate-dotnet-to-linux.md) |
 | CMD files or scripts on the server invoked as part of a Hive job |use Bash scripts |
-| `hive` command from remote desktop |Use [Beeline](hdinsight-hadoop-use-hive-beeline.md) or [Hive from an SSH session](hdinsight-hadoop-use-hive-ssh.md) |
+| `hive` command from remote desktop |Use [Beeline](hadoop/apache-hadoop-use-hive-beeline.md) or [Hive from an SSH session](hdinsight-hadoop-use-hive-ssh.md) |
 
 ### Pig
 
@@ -232,7 +232,7 @@ If you have a workflow that uses a C# application, validate these applications i
 
 | On Windows-based, I use... | On Linux-based... |
 | --- | --- |
-| Storm Dashboard |The Storm Dashboard is not available. See [Deploy and Manage Storm topologies on Linux-based HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md) for ways to submit topologies |
+| Storm Dashboard |The Storm Dashboard is not available. See [Deploy and Manage Storm topologies on Linux-based HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md) for ways to submit topologies |
 | Storm UI |The Storm UI is available at https://CLUSTERNAME.azurehdinsight.net/stormui |
 | Visual Studio to create, deploy, and manage C# or hybrid topologies |Visual Studio can be used to create, deploy, and manage C# (SCP.NET) or hybrid topologies on Linux-based Storm on HDInsight. It can only be used with clusters created after 10/28/2016. |
 
