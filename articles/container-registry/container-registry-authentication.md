@@ -26,7 +26,7 @@ There are several ways to authenticate with an Azure container registry, each of
 
 You can log in to a registry directly, which we'll call [individual login](#individual-login-with-azure-ad), and your applications and container orchestrators can perform unattended, or "headless," authentication by using an Azure Active Directory (Azure AD) [service principal](#service-principal).
 
-Azure Container Registry does not support anonymous login. For public images, you can use [Docker Hub](https://docs.docker.com/docker-hub/).
+Azure Container Registry does not support unauthenticated Docker operations or anonymous access. For public images, you can use [Docker Hub](https://docs.docker.com/docker-hub/).
 
 ## Individual login with Azure AD
 
@@ -36,7 +36,7 @@ When working with your registry directly, such as pulling images to and pushing 
 az acr login --name <acrName>
 ```
 
-When you log in with `az acr login`, the CLI uses the token created when you executed `az login` to seamlessly authenticate your session with your registry. Once you've logged in this way, your credentials are cached, and subsequent `docker` commands do not require a username or password.
+When you log in with `az acr login`, the CLI uses the token created when you executed `az login` to seamlessly authenticate your session with your registry. Once you've logged in this way, your credentials are cached, and subsequent `docker` commands do not require a username or password. If your token expires, you can refresh it by using the `az acr login` command again to reauthenticate.
 
 ## Service principal
 
