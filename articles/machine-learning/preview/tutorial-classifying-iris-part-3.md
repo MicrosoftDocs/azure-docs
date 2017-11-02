@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
-ms.date: 09/27/2017
+ms.date: 11/2/2017
 ---
 
 # Classifying Iris part 3: Deploy a model
@@ -181,7 +181,7 @@ You can use _local mode_ for development and testing. The Docker engine must be 
    ```
 
 6. Set the environment.
-After the setup is complete, set the environment variables required to operationalize using the following command. Use the same environment name that you have used previously in step 4. Use the same resource group name that was outputted in the command window when the setup process was completed.
+After the setup is complete, set the environment variables required to operationalize using the following command. Use the same environment name that you have used previously in step 3. Use the same resource group name that was outputted in the command window when the setup process was completed.
    ```azurecli
    az ml env set -n <deployment environment name> -g <existing resource group name>
    ```

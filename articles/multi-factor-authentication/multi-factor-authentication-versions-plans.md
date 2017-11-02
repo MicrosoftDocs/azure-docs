@@ -4,7 +4,7 @@ description: Information about the Multi-factor Authentication client and the di
 keywords: 
 services: multi-factor-authentication
 documentationcenter: ''
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 editor: yossib
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
-ms.author: kgremban
+ms.author: joflore
 ---
 # How to get Azure Multi-Factor Authentication
 
