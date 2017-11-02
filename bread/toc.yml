@@ -67,13 +67,13 @@
   - name: Functions
     tocHref: /azure/azure-functions/
     topicHref: /azure/azure-functions/
-  - name: Sovereign clouds – US Government
+  - name: Azure Government
     tocHref: /azure/azure-government/
     topicHref: /azure/azure-government/
-  - name: Sovereign clouds – Germany
+  - name: Azure Germany
     tocHref: /azure/germany/
     topicHref: /azure/germany/
-  - name: Sovereign clouds – China 21Vianet
+  - name: Azure China 21Vianet
     tocHref: /azure/china/
     topicHref: /azure/china/
   - name: Azure portal
