@@ -64,7 +64,7 @@ If you want your users to register for password reset, you can force them to reg
 
 Administrators can require users to re-register after a period of time by setting the **Number of days before users are asked to reconfirm their authentication information** between 0-730 days.
 
-After you enable this option, users signing will see a message that informs them their administrator has required them to verify their authentication information.
+After you enable this option, users signing in will see a message that informs them their administrator has required them to verify their authentication information.
 
 ## Populate authentication data
 

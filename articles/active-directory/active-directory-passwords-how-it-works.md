@@ -187,7 +187,7 @@ Example: There are four administrators in an environment. Administrator "A" rese
 
 ## On-premises integration
 
-If you have installed, configured, and enabled Azure AD Connect, you will have the following additional options for on-premises integrations.
+If you have installed, configured, and enabled Azure AD Connect, you will have the following additional options for on-premises integrations. If these options are greyed-out then writeback has not been properly configured see [Configuring password writeback](active-directory-passwords-writeback.md#configuring-password-writeback) for more information.
 
 ### Write back passwords to your on-premises directory
 
