@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2017
+ms.date: 11/01/2017
 ms.author: twooley
 
 ---
@@ -71,7 +71,7 @@ Also, the following fixes were made:
 - Users are given the option to create a virtual machine with geo-redundant storage. This configuration causes virtual machine creation to fail. 
 - You can configure a virtual machine availability set only with a fault domain of one, and an update domain of one.
 - There is no marketplace experience to create virtual machine scale sets. You can create a scale set by using a template.
-- Scaling settings for virtual machine scale sets are not available in the portal. As a workaround, you can use [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set).
+- Scaling settings for virtual machine scale sets are not available in the portal. As a workaround, you can use [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Because of PowerShell version differences, you must use the `-Name` parameter instead of `-VMScaleSetName`.
 
 #### Networking
 - You can't create a load balancer with a public IP address by using the portal. As a workaround, you can use PowerShell to create the load balancer.
