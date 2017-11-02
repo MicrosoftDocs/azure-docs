@@ -8,7 +8,7 @@ manager: jhubbard
 editor: ''
 tags: ''
 
-ms.assetid: 
+ms.assetid: 6732d883-835c-481f-98e1-287893530948
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: tutorial
@@ -21,7 +21,7 @@ ms.custom: mvc
 
 # Azure CosmosDB: Develop with the Cassandra API in Java
 
-Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
+Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
 This tutorial demonstrates how to create an Azure Cosmos DB account using the Azure portal, and then create a document database and collection with a [partition key](documentdb-partition-data.md#partition-keys) using the [Cassandra API](cassandra-introduction.md). By defining a partition key when you create a collection, your application is prepared to scale effortlessly as your data grows. 
 
