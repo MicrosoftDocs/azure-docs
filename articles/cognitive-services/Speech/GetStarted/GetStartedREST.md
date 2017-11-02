@@ -1,6 +1,6 @@
 ---
-title: Get started with the Microsoft speech recognition API by using REST | Microsoft Docs
-description: Use REST to access the speech recognition API in Microsoft Cognitive Services to convert spoken audio to text.
+title: Get started with the Microsoft Speech Recognition API by using REST | Microsoft Docs
+description: Use REST to access the Speech Recognition API in Microsoft Cognitive Services to convert spoken audio to text.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma

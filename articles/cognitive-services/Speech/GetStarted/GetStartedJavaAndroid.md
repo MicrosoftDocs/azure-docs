@@ -1,5 +1,5 @@
 ---
-title: Get started with the Microsoft speech recognition API in Java on Android | Microsoft Docs
+title: Get started with the Microsoft Speech Recognition API in Java on Android | Microsoft Docs
 description: Use the Microsoft Speech API to develop Android applications that convert spoken audio to text.
 services: cognitive-services
 author: zhouwangzw
@@ -13,7 +13,7 @@ ms.author: zhouwang
 ---
 # Get started with speech recognition in Java on Android
 
-With the Microsoft speech recognition API, you can develop iOS applications that use cloud-based Speech Service to convert spoken audio to text. The API supports real-time streaming, so your application can simultaneously and asynchronously receive partial recognition results at the same time it's sending audio to the service.
+With the Speech Recognition API, you can develop iOS applications that use cloud-based Speech Service to convert spoken audio to text. The API supports real-time streaming, so your application can simultaneously and asynchronously receive partial recognition results at the same time it's sending audio to the service.
 
 This article uses a sample application to demonstrate how to use the Speech client library for Android to develop speech-to-text applications in Java for Android devices.
 
