@@ -71,7 +71,7 @@ The following flowchart describes how Azure CDN validates client request when to
 
 		![CDN encrypt tool](./media/cdn-token-auth/cdn-token-auth-encrypttool.png)
 
-		- ec-expire: assigns an expiration time of a token after a specified time period. Requests submitted after the expiration time are denied. This parameter uses Unix timestamp (based on seconds since standard epoch of 1/1/1970 00:00:00 GMT. You can use online tools to provide conversion between standard time and Unix time.) For example, if you want to set up the token to expire at 12/31/2016 12:00:00 GMT, use the Unix timestamp value, 1483185600, as follows.
+		- ec-expire: assigns an expiration time of a token after a specified time period. Requests submitted after the expiration time are denied. This parameter uses Unix timestamp (based on seconds since standard epoch of 1/1/1970 00:00:00 GMT. You can use online tools to provide conversion between standard time and Unix time.) For example, if you want to set up the token to expire at `12/31/2016 12:00:00 GMT`, use the Unix timestamp value, `1483185600`, as follows.
 	
 		![CDN ec_expire example](./media/cdn-token-auth/cdn-token-auth-expire2.png)
 	
