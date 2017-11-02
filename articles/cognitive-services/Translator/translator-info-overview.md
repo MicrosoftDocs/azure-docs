@@ -12,7 +12,8 @@ ms.date: 11/21/2016
 ms.author: christw
 ---
 
-**Microsoft Translator Text API** can be seamlessly integrated into your applications, websites, tools, or other solutions to provide multi-language user experiences in 60+ languages. Leveraging industry standards, it can be used on any hardware platform and with any operating system to perform text to text language translation.
+# Microsoft Translator Text API
+Microsoft Translator Text API can be seamlessly integrated into your applications, websites, tools, or other solutions to provide multi-language user experiences in 60+ languages. Leveraging industry standards, it can be used on any hardware platform and with any operating system to perform text to text language translation.
 
 Microsoft Translator Text API is part of the Microsoft [Cognitive Services API](https://docs.microsoft.com/en-us/azure/cognitive-services/) collection of machine learning and AI algorithms in the cloud, readily consumable in your development projects.
 
