@@ -163,10 +163,16 @@ Enter the name of the Certificate and Select the Store where you want to place t
 
 ![Upload public certificate](./media/app-service-web-tutorial-custom-ssl/upload-certificate-public1.png)
 
+> [!NOTE]
+> - If your web app is hosted on an App Service Environments, LocalMachine-Personal certificate store is only supported. 
+> - When using Deployment slots with your application  , keep in mind that the certificates are not sticky and will also get swapped  when you perform a slot swap operation.  Either user your application code to check for multiple public certificates or make sure the correct certificate is upload for slot as well before you swap a slot with production app.
+>
 
 When App Service finishes uploading your certificate, it appears in the **SSL certificates** page.
 
 ![Certificate uploaded](./media/app-service-web-tutorial-custom-ssl/certificate-uploaded-list.png)
+
+
 
 ### Bind your SSL certificate
 
