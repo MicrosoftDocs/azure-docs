@@ -1,4 +1,4 @@
-﻿---
+---
 title: Customize HDInsight clusters using script actions - Azure | Microsoft Docs
 description: Add custom components to Linux-based HDInsight clusters using Script Actions. Script Actions are Bash scripts  that can be used to customize the cluster configuration or add additional services and utilities like Hue, Solr, or R.
 services: hdinsight
@@ -37,7 +37,7 @@ If you are using a domain-joined HDInsight cluster, there are two Ambari permiss
 * **AMBARI.RUN\_CUSTOM\_COMMAND**: The Ambari Administrator role has this permission by default.
 * **CLUSTER.RUN\_CUSTOM\_COMMAND**: Both the HDInsight Cluster Administrator and Ambari Administrator have this permission by default.
 
-For more information on working with permissions with domain-joined HDInsight, see [Manage domain-joined HDInsight clusters](hdinsight-domain-joined-manage.md).
+For more information on working with permissions with domain-joined HDInsight, see [Manage domain-joined HDInsight clusters](./domain-joined/apache-domain-joined-manage.md).
 
 ## Access control
 

@@ -134,6 +134,8 @@
     items:
     - name: Archive
       href: monitoring-archive-diagnostic-logs.md
+    - name: Send to Log Analytics
+      href: monitor-stream-diagnostic-logs-log-analytics.md
     - name: Stream to Event Hubs
       href: monitoring-stream-diagnostic-logs-to-event-hubs.md
     - name: Enable diagnostic settings using Resource Manager templates
