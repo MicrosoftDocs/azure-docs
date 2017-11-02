@@ -7,7 +7,7 @@ services: storage
 
 ms.service: storage
 ms.topic: quickstart
-ms.date: 10/10/2017
+ms.date: 11/01/2017
 ms.author: v-rogara
 ms.custom: mvc
 ---
@@ -20,8 +20,11 @@ In this quickstart, you learn how to use Java to upload, download, and list bloc
 
 To complete this quickstart:
 
-* Install [Eclipse](http://www.eclipse.org/downloads/) with the "Eclipse IDE for Java Developers" configuration.
+* Install an IDE that has Maven integration
 
+* Alternatively, install and configure Maven to work from the command line
+
+This tutorial uses [Eclipse](http://www.eclipse.org/downloads/) with the "Eclipse IDE for Java Developers" configuration.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -55,11 +58,9 @@ Use [git](https://git-scm.com/) to download a copy of the application to your de
 git clone https://github.com/Azure-Samples/storage-blobs-java-quickstart.git
 ```
 
-This command clones the repository to your local git folder. To open the project, launch Eclipse. Select **File** then **import...**. Select **General** then select **Existing projects into workspace**.
+This command clones the repository to your local git folder. To open the project, launch Eclipse and close the welcome screen. Select **File** then **Open Projects from File System...**. Make sure **Detect and configure project natures** is checked. Select **Directory** then navigate to where you stored the cloned repository, inside it select the **javaBlobsQuickstart** folder. Make sure the **javaBlobsQuickstarts** project appears as an Eclipse project, then select **Finish**.
 
-Select the root directory and browse to the “javaQuickstarts” folder inside the cloned repo. Select this as the root directory. Make sure the javaBlobQuickstart project appears under **Projects:** and then click finish.
-
-Once the project finishes importing, close the welcome screen, then open **AzureApp.java** (located in **com.fabrikam.testAzureApp** inside of **src/main/java**) and replace the `accountname` and `accountkey` inside of the `storageConnectionString` string. Then run the application.
+Once the project finishes importing, open **AzureApp.java** (located in **blobQuickstart.blobAzureApp** inside of **src/main/java**), and replace the `accountname` and `accountkey` inside of the `storageConnectionString` string. Then run the application.
      
 
 ## Configure your storage connection string
@@ -67,7 +68,7 @@ Once the project finishes importing, close the welcome screen, then open **Azure
 In the application, you must provide the connection string for your storage account. Open the **AzureApp.Java** file. Find the `storageConnectionString` variable. Replace the `AccountName` and `AccountKey` values in the connection string with the values you saved from the Azure portal. Your `storageConnectionString` should look similar to the following:
 
 ```java
-    public static final String storageConnectionString ="DefaultEndpointsProtocol=http;" +
+    public static final String storageConnectionString ="DefaultEndpointsProtocol=https;" +
      "AccountName=<Namehere>;" +
     "AccountKey=<Keyhere>";
 ```
@@ -77,6 +78,8 @@ In the application, you must provide the connection string for your storage acco
 This sample creates a test file in your default directory (My Documents, for windows users), uploads it to Blob storage, lists the blobs in the container, then downloads the file with a new name so you can compare the old and new files. 
 
 Run the sample by pressing **Ctrl+F11** in Eclipse.
+
+If you wish to run the sample using Maven at the commandline, open a shell and navigate to **blobAzureApp** inside of your cloned directory. Then enter `mvn compile exec:java`.
 
 The following is an example of output if you were to run the application on Windows.
 
