@@ -24,9 +24,9 @@ A VM Managed Service Identity makes two important features available to client a
 1. A [service principal](develop/active-directory-dev-glossary.md#service-principal-object), which provides an identity construct for applications, required by Azure Active Directory. This enables a client application to authenticate as the MSI during sign-in. Previously, running a client under its own identity meant:
 
   - registering it as a confidential/web client application with Azure AD
-  - signing in using the application's client ID/secret credentials
+  - signing in using the application's client ID/secret credentials  
 
-With MSI, your client application no longer needs to register with Azure AD nor provide credentials. 
+    With MSI, your client application no longer needs to register with Azure AD nor provide credentials. 
 
 2. An [app-only access token](develop/active-directory-dev-glossary.md#access-token), based on a the VM's MSI service principal, enabling a client application to access resource APIs. 
 
@@ -36,15 +36,14 @@ This article shows you various ways to use an MSI for sign-in, and acquire an ac
 
 [!INCLUDE [msi-qs-configure-prereqs](../../includes/msi-qs-configure-prereqs.md)]
 
-If you plan to use the PowerShell examples in this article, be sure to install [Azure PowerShell version 4.3.1](https://www.powershellgallery.com/packages/AzureRM) or greater. If you plan to use the Azure CLI examples in this article, you have three options:
+If you plan to use the Azure PowerShell or Azure CLI examples in this article, you have three options:
 - Use [Azure Cloud Shell](../cloud-shell/overview.md) from the Azure portal.
-- Use the embedded Azure Cloud Shell via the "Try It" button, located in the top right corner of Azure CLI code blocks.
-- [Install the latest version of CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.13 or later) if you prefer to use CLI in a local command prompt. 
+- Use the embedded Azure Cloud Shell via the "Try It" button, located in the top right corner of code blocks.
+- Install the latest version of [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM) or [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) if you prefer to use  a local command prompt. 
 
 > [!IMPORTANT]
-> - All sample code/script in this article assumes the client is running on an MSI-enabled Virtual Machine. For details on enabling MSI on a VM, see [Configure a VM Managed Service Identity (MSI) using the Azure portal](msi-qs-configure-portal-windows-vm.md), or one of the variant articles (using PowerShell, CLI, a template, or an Azure SDK). 
-> - To prevent authorization errors (403/AuthorizationFailed) in the code/script examples, the VM's identity must be given "Reader" access at the VM scope to allow Azure Resource Manager operations on the VM. See [Assign a Managed Service Identity (MSI) access to a resource using the Azure portal](msi-howto-assign-access-portal.md) for details.
-> - Before proceeding to one of the following sections, use the VM "Connect" feature in the Azure portal, to remotely connect to your MSI-enabled VM.
+> - All sample code/script in this article assumes the client is running on an MSI-enabled Virtual Machine. Use the VM "Connect" feature in the Azure portal, to remotely connect to your VM. For details on enabling MSI on a VM, see [Configure a VM Managed Service Identity (MSI) using the Azure portal](msi-qs-configure-portal-windows-vm.md), or one of the variant articles (using PowerShell, CLI, a template, or an Azure SDK). 
+> - To prevent authorization errors (403/AuthorizationFailed) in the sign-in examples, the VM's identity must be given "Reader" access at the VM scope to allow Azure Resource Manager operations on the VM. See [Assign a Managed Service Identity (MSI) access to a resource using the Azure portal](msi-howto-assign-access-portal.md) for details.
 
 ## MSI APIs
 
