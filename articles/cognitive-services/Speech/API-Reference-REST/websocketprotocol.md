@@ -13,7 +13,7 @@ ms.author: zhouwang
 ---
 # Speech Service WebSocket protocol
 
-  Speech Service is a cloud-based platform that features the most advanced algorithms available for converting spoken audio to text. The Speech Service protocol defines the [connection setup](#connection-establishment) between client applications and the service, the speech recognition messages exchanged between counterparts ([client-originated Messages](#client-originated-messages), and [service-originated messages](#service-originated-messages)). In addition, [telemetry messages](#telemetry-schema) and [error handling](#error-handling) are described.
+  Speech Service is a cloud-based platform that features the most advanced algorithms available for converting spoken audio to text. The Speech Service protocol defines the [connection setup](#connection-establishment) between client applications and the service and the speech recognition messages exchanged between counterparts ([client-originated Messages](#client-originated-messages) and [service-originated messages](#service-originated-messages)). In addition, [telemetry messages](#telemetry-schema) and [error handling](#error-handling) are described.
 
 ## Connection establishment
 
@@ -50,7 +50,7 @@ All speech requests require the [TLS](https://en.wikipedia.org/wiki/Transport_La
 
 ### Connection identifier
 
-Speech Service requires that all clients include a unique ID to identify the connection. Clients *must* include the *X-ConnectionId* header when they start a WebSocket handshake. The *X-ConnectionId* header must be a [universally unique identifier](https://en.wikipedia.org/wiki/Universally_unique_identifier) (UUID) value. WebSocket upgrade requests that do not include the *X-ConnectionId*, that do not specify a value for the *X-ConnectionId* header, or that do not include a valid UUID value are rejected by the service with an HTTP `400 Bad Request` response.
+Speech Service requires that all clients include a unique ID to identify the connection. Clients *must* include the *X-ConnectionId* header when they start a WebSocket handshake. The *X-ConnectionId* header must be a [universally unique identifier](https://en.wikipedia.org/wiki/Universally_unique_identifier) (UUID) value. WebSocket upgrade requests that do not include the *X-ConnectionId*, do not specify a value for the *X-ConnectionId* header, or do not include a valid UUID value are rejected by the service with an HTTP `400 Bad Request` response.
 
 ### Authorization
 
@@ -228,7 +228,7 @@ Speech-enabled client applications send audio to Speech Service by converting th
 
 Clients use the `audio` message to send an audio chunk to the service. Clients read audio from the microphone in chunks and send these chunks to Speech Service for transcription. The first `audio` message must contain a well-formed header that properly specifies that the audio conforms to one of the encoding formats supported by the service. Additional `audio` messages contain only the binary audio stream data read from the microphone.
 
-Clients might optionally send an `audio` message with a zero-length body. This message tells the service that the client knows that the user stopped speaking, that the utterance is finished, and that the microphone is turned off.
+Clients might optionally send an `audio` message with a zero-length body. This message tells the service that the client knows that the user stopped speaking, the utterance is finished, and the microphone is turned off.
 
 Speech Service uses the first `audio` message that contains a unique request identifier to signal the start of a new request/response cycle or *turn*. After the service receives an `audio` message with a new request identifier, it discards any queued or unsent messages that are associated with any previous turn.
 
@@ -312,7 +312,7 @@ If the network connection fails for any reason during a turn and the client does
 
 ## Service-originated messages
 
-This section describes the messages that originate in Speech Service and are sent to the client. Speech Service maintains a registry of client capabilities and generates the messages required by each client, so not all clients receive all messages described here. For brevity, messages are referenced by the value of the *Path* header. For example, we refer to a WebSocket text message with the *Path* value `speech.hypothesis` as a speech.hypothesis message.
+This section describes the messages that originate in Speech Service and are sent to the client. Speech Service maintains a registry of client capabilities and generates the messages required by each client, so not all clients receive all the messages that are described here. For brevity, messages are referenced by the value of the *Path* header. For example, we refer to a WebSocket text message with the *Path* value `speech.hypothesis` as a speech.hypothesis message.
 
 ### Message `speech.startDetected`
 
@@ -407,7 +407,7 @@ The `speech.endDetected` message specifies that the client application should st
 | ------------- | ---------------- |
 | WebSocket message encoding | Text |
 | Path | `speech.endDetected` |
-| Body | The JSON structure that contains the offset when the end of speech was detected. The offset is represented in 100-nanosecond units offset from the start of audio used for recognition. |
+| Body | The JSON structure that contains the offset when the end of speech was detected. The offset is represented in 100-nanosecond units offset from the start of audio that's used for recognition. |
 | Content-Type | application/json; charset=utf-8 |
 
 #### Sample message
@@ -505,7 +505,7 @@ The `Connection` metric specifies details about connection attempts by the clien
 | End | The time when the client received notification that the connection was established successfully or, in error cases, rejected, refused, or failed | Required |
 | Error | A description of the error that occurred, if any. If the connection was successful, clients should omit this field. The maximum length of this field is 50 characters. | Required for error cases, omitted otherwise |
 
-The error description should be at most 50 characters and ideally should be one of the values listed in the following table. If the error condition doesn't match one of these values, clients can use a succinct description of the error condition by using [CamelCasing](https://en.wikipedia.org/wiki/Camel_case) without whitespace. The ability to send a *telemetry* message requires a connection to the service, so only transient or temporary error conditions can be reported in the *telemetry* message. Error conditions that *permanently* block a client from establishing a connection to the service prevent the client from sending any message to the service, including *telemetry* messages.
+The error description should be at most 50 characters and ideally should be one of the values listed in the following table. If the error condition doesn't match one of these values, clients can use a succinct description of the error condition by using [CamelCasing](https://en.wikipedia.org/wiki/Camel_case) without white space. The ability to send a *telemetry* message requires a connection to the service, so only transient or temporary error conditions can be reported in the *telemetry* message. Error conditions that *permanently* block a client from establishing a connection to the service prevent the client from sending any message to the service, including *telemetry* messages.
 
 | Error | Usage |
 | ----- | ----- |
