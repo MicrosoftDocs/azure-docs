@@ -80,10 +80,10 @@ After several minutes, the command completes and returns json formatted informat
 
 To manage a Kubernetes cluster, use [kubectl](https://kubernetes.io/docs/user-guide/kubectl/), the Kubernetes command-line client.
 
-If you're using Azure CloudShell, kubectl is already installed. If you want to install it locally, run the following command.
+If you're using Azure Cloud Shell, kubectl is already installed. If you want to install it locally, run the following command.
 
 
-```azurecli-interactive
+```azurecli
 az aks install-cli
 ```
 

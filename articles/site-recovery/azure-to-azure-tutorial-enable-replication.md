@@ -2,7 +2,7 @@
 title: Set up disaster recovery for Azure VMs to a secondary Azure region with Azure Site Recovery (Preview)
 description: Learn how to set up disaster recovery for Azure VMs to a different Azure region, using the Azure Site Recovery service.
 services: site-recovery
-author: rajani-janaki-ram
+author: rayne-wiselman
 manager: carmonm
 
 ms.service: site-recovery
@@ -10,8 +10,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/19/2017
-ms.author: rajanaki
+ms.date: 11/01/2017
+ms.author: raynew
 ms.custom: mvc
 ---
 # Set up disaster recovery for Azure VMs to a secondary Azure region (Preview)
