@@ -5,7 +5,7 @@ services: container-instances
 documentationcenter: ''
 author: neilpeterson
 manager: timlt
-editor: ''
+editor: mmacy
 tags: acs, azure-container-service
 keywords: Docker, Containers, Micro-services, Kubernetes, DC/OS, Azure
 
@@ -15,7 +15,7 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2017
+ms.date: 11/07/2017
 ms.author: seanmck
 ms.custom: mvc
 ---
@@ -51,13 +51,19 @@ Create a resource group with the [az group create](/cli/azure/group#create) comm
 az group create --name myResourceGroup --location eastus
 ```
 
-Create an Azure Container registry with the [az acr create](/cli/azure/acr#create) command. The name of a Container Registry **must be unique**. In the following example, we use the name *mycontainerregistry082*.
+Create an Azure container registry with the [az acr create](/cli/azure/acr#create) command. The container registry name **must be unique** within Azure, and must contain 5-50 alphanumeric characters. Replace `<acrName>` with a unique name for your registry:
+
+```azurecli
+az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
+```
+
+For example, to create an Azure container registry named *mycontainerregistry082*:
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name mycontainerregistry082 --sku Basic --admin-enabled true
 ```
 
-Throughout the rest of this tutorial, we use `<acrname>` as a placeholder for the container registry name that you chose.
+Throughout the rest of this tutorial, we use `<acrName>` as a placeholder for the container registry name that you chose.
 
 ## Container registry login
 

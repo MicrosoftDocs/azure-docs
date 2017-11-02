@@ -5,7 +5,7 @@ services: container-instances
 documentationcenter: ''
 author: seanmck
 manager: timlt
-editor: ''
+editor: mmacy
 tags:
 keywords:
 
@@ -15,7 +15,7 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2017
+ms.date: 11/07/2017
 ms.author: seanmck
 ms.custom: mvc
 ---
