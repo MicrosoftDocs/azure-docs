@@ -90,4 +90,4 @@ Azure uses an algorithm to determine the number of SNAT ports available based on
 
 Outbound connections have a 4-minute idle timeout.  This is not adjustable.
 
-It is important to rememember that the number of SNAT ports available does not translate directly to number of connections. Please see above for specifics on when and how SNAT ports are allocated and how to manage this exhaustible resource.
+It is important to remember that the number of SNAT ports available does not translate directly to number of connections. Please see above for specifics on when and how SNAT ports are allocated and how to manage this exhaustible resource.
