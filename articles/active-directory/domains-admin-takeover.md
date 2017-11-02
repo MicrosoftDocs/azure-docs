@@ -69,7 +69,7 @@ When you complete the preceding steps, you are now the global administrator of t
   ![domain added to Azure AD](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
   
 > [!NOTE]
-> Any users of PowerBi BI or Rights Management who have licenses assigned in the Office 365 tenant must save their dashboards if the domain name is removed. They must sign in with a user name like *user@fourthcoffeexyz.onmicrosoft.com* rather than *user@fourthcoffee.xyz*.
+> Any users of Power BI or Azure Rights Management service who have licenses assigned in the Office 365 tenant must save their dashboards if the domain name is removed. They must sign in with a user name like *user@fourthcoffeexyz.onmicrosoft.com* rather than *user@fourthcoffee.xyz*.
 
 ## External admin takeover
 
@@ -81,7 +81,7 @@ When you verify ownership of the domain name, Azure AD removes the domain name f
 - Subscriptions
 - License assignments
  
-The **Force** option for domain name external admin takeover is supported for only two services, Power BI and Azure RMS.
+The [**ForceTakeover** option](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) for domain name external admin takeover is supported for only two services, Power BI and Azure RMS.
 
 ### Support for external admin takeover
 External admin takeover is supported by the following online services:
@@ -104,8 +104,8 @@ The supported service plans include:
 Exernal admin takeover is not supported for any service that has service plans that include SharePoint, OneDrive, or Skype For Business; for example, through an Office free subscription or the Office Basic SKU.
 
 ### Azure AD PowerShell cmdlets for the -ForceTakeover option
+You'll also see these cmdlets used in the example in [Microsoft PowerShell](#microsoft-powershell).
 
-Domain name verification
 
 cmdlet | Usage 
 ------- | -------
@@ -114,10 +114,7 @@ cmdlet | Usage
 `new-msoldomain –name <domainname>` | Adds the domain name to tenant as Unverified (no DNS verification has been performed yet).
 `get-msoldomain` | The domain name is now included in the list of domain names associated with your managed tenant, but is listed as **Unverified**.
 `get-msoldomainverificationdns –Domainname <domainname> –Mode DnsTxtRecord` | Provides the infoormation to put into new DNS TXT record for the domain (MS=xxxxx). Verification might not happen immediately because it takes some time for the TXT record to propagate, so wait a few minutes before considering the **-ForceTakeover** option. 
-`confirm-msoldomain –Domainname <domainname> –ForceTakeover Force` | If your domain name is still not verified, you can proceed with the **-ForceTakeover** option. It verifies that the TXT record was created and kicks off the takeover process.<br>
-<br>
-> [!NOTE]
-> The **-ForceTakeover** option should be added to the cmdlet only when forcing an external admin takeover, such as when the unmanaged tenant has Office 365 services blocking the takeover.
+`confirm-msoldomain –Domainname <domainname> –ForceTakeover Force` | <li>If your domain name is still not verified, you can proceed with the **-ForceTakeover** option. It verifies that the TXT record was created and kicks off the takeover process.<li>The **-ForceTakeover** option should be added to the cmdlet only when forcing an external admin takeover, such as when the unmanaged tenant has Office 365 services blocking the takeover.
 `get-msoldomain` | The domain list now shows the the domain name as **Verified**.
 
 ## Microsoft PowerShell
