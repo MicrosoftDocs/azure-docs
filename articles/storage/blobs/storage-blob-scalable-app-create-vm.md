@@ -30,7 +30,7 @@ In part one of the series, you learn how to:
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## Create resource group
 
@@ -107,17 +107,17 @@ New-AzureRmVM -ResourceGroupName myResourceGroup -Location EastUS -VM $vmConfig
 
 ## Deploy configuration
 
-For this tutorial there are pre-requisites that must be installed on the virtual machine.  The custom script extension is used to run a simple PowerShell script that does the following:
+For this tutorial, there are pre-requisites that must be installed on the virtual machine. The custom script extension is used to run a PowerShell script that does the following tasks:
 
 > [!div class="checklist"]
 > * Install .NET core 2.0
 > * Install chocolatey
 > * Install GIT
 > * Clone the sample repo
-> * Restore Nuget packages
+> * Restore NuGet packages
 > * Creates 32 1GB files with random data
 
-Run the following cmdlet to finalize configuration of the virtual machine. This step will take 5-10 minutes to complete.
+Run the following cmdlet to finalize configuration of the virtual machine. This step takes 5-10 minutes to complete.
 
 ```azurepowershell-interactive
 # Start a CustomScript extension to use a simple PowerShell script to instal .NET core, dependancies, and pre-create the files to upload.
