@@ -19,11 +19,10 @@ This article describes how to troubleshoot current issues that are known to the 
 
 You get the following error messages when you attempt to use the client agent.
 
-```
-Sync failed with exception There was an error while trying to deserialize parameter www.microsoft.com/.../05:GetBatchInfoResult. See InnerException for more details.
+"Sync failed with exception There was an error while trying to deserialize parameter www.microsoft.com/.../05:GetBatchInfoResult. See InnerException for more details.
 
-Inner exception message: Type 'Microsoft.Synchronization.ChangeBatch' is an invalid collection type since it does not have a default constructor.
-```
+"Inner exception message: Type 'Microsoft.Synchronization.ChangeBatch' is an invalid collection type since it does not have a default constructor."
+
 
 ### Cause
 
@@ -153,9 +152,21 @@ You fail in your attempt to delete a sync group.
 
 Any of the following things can result in a failure to delete a sync group.
 
--   **The client agent is offline.** Be sure that the client agent is online then try again.
+-   The client agent is offline.
 
--   **The client agent is uninstalled or missing.** If the client agent is uninstalled or otherwise missing:
+-   The client agent is uninstalled or missing. 
+
+-   A database is offline. 
+
+-   The sync group is provisioning or synchronizing. 
+
+### Solutions
+
+To resolve the failure to delete a sync group, check the following things:
+
+-   Be sure that the client agent is online then try again.
+
+-   If the client agent is uninstalled or otherwise missing:
 
     a. Remove agent XML file from the SQL Data Sync (Preview) installation folder if the file exists.
 
@@ -171,9 +182,9 @@ Any of the following things can result in a failure to delete a sync group.
 
     d. If the service status is **Stopped**, right-click the service name and select **Start** from the dropdown menu.
 
--   **A database is offline.** Check your SQL Databases and SQL Server databases to be sure they are all online.
+-   Check your SQL Databases and SQL Server databases to be sure they are all online.
 
--   **The sync group is provisioning or synchronizing.** Wait until the provisioning or synchronizing process finishes. Then retry deleting the sync group.
+-   Wait until the provisioning or synchronizing process finishes. Then retry deleting the sync group.
 
 ## Sync fails in the portal UI for on-premises databases associated with the client agent
 

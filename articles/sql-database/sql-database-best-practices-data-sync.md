@@ -177,11 +177,11 @@ Avoid the situation entirely by never registering a database with more than one 
 
 To recover from this situation:
 
-    1. Remove the database from each sync group it belongs to.
+1. Remove the database from each sync group it belongs to.
 
-    2. Add the database back into each sync group you just removed it from.
+2. Add the database back into each sync group you just removed it from.
 
-    3. Deploy each affected sync group (which provisions the database).
+3. Deploy each affected sync group (which provisions the database).
 
 ## <a name="handling-changes-that-fail-to-propagate"></a> Handling changes that fail to propagate
 
