@@ -14,7 +14,7 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/14/2017
+ms.date: 10/13/2017
 ms.author: nepeters
 ms.custom: mvc
 ---
@@ -82,16 +82,14 @@ ssh <publicIpAddress>
 
 ## Install NGINX
 
-Use the following bash script to update package sources and install the latest NGINX package. 
+Use the following commands to update package sources and install the latest NGINX package. 
 
 ```bash 
-#!/bin/bash
-
 # update package source
-apt-get -y update
+sudo apt-get -y update
 
 # install NGINX
-apt-get -y install nginx
+sudo apt-get -y install nginx
 ```
 
 ## View the NGINX welcome page

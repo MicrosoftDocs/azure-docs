@@ -3,7 +3,7 @@ title: Using .NET class libraries with Azure Functions | Microsoft Docs
 description: Learn how to author .NET class libraries for use with Azure Functions
 services: functions
 documentationcenter: na
-author: lindydonna
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -16,7 +16,7 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/10/2017
-ms.author: donnam
+ms.author: glenga
 
 ---
 # Using .NET class libraries with Azure Functions
@@ -141,7 +141,7 @@ To bind to a Cosmos DB document, use the attribute `[DocumentDB]` in the NuGet p
 [FunctionName("QueueToDocDB")]        
 public static void Run(
     [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] string myQueueItem, 
-    [DocumentDB("ToDoList", "Items", ConnectionStringSetting = "myCosmosDB")] out dynamic document)
+    [DocumentDB("ToDoList", "Items", Id = "id", ConnectionStringSetting = "myCosmosDB")] out dynamic document)
 {
     document = new { Text = myQueueItem, id = Guid.NewGuid() };
 }

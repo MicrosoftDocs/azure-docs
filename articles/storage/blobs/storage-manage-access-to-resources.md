@@ -34,7 +34,7 @@ You can configure a container with the following permissions:
 You can use the following to set container permissions:
 
 * [Azure portal](https://portal.azure.com)
-* [Azure PowerShell](../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#how-to-manage-azure-blobs)
+* [Azure PowerShell](../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [Azure CLI 2.0](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-and-manage-blobs)
 * Programmatically, by using one of the storage client libraries or the REST API
 

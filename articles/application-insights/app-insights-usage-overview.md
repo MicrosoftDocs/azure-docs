@@ -1,6 +1,6 @@
 ﻿---
-title: Usage analysis for web applications with Azure Application Insights | Microsoft docs
-description: Understand your users and what they do with your web app.
+title: Usage analysis with Azure Application Insights | Microsoft docs
+description: Understand your users and what they do with your app.
 services: application-insights
 documentationcenter: ''
 author: botatoes
@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 05/03/2017
-ms.author: bwren
+ms.date: 10/10/2017
+ms.author: mbullwin
 ---
 
-# Usage analysis for web applications with Application Insights
+# Usage analysis with Application Insights
 
-Which features of your web app are most popular? Do your users achieve their goals with your app? Do they drop out at particular points, and do they return later?  [Azure Application Insights](app-insights-overview.md) helps you gain powerful insights into how people use your web app. Every time you update your app, you can assess how well it works for users. With this knowledge, you can make data driven decisions about your next development cycles.
+Which features of your web or mobile app are most popular? Do your users achieve their goals with your app? Do they drop out at particular points, and do they return later?  [Azure Application Insights](app-insights-overview.md) helps you gain powerful insights into how people use your app. Every time you update your app, you can assess how well it works for users. With this knowledge, you can make data driven decisions about your next development cycles.
 
 ## Send telemetry from your app
 
@@ -31,8 +31,9 @@ The best experience is obtained by installing Application Insights both in your 
 
     ![Copy the script into the head of your master web page.](./media/app-insights-usage-overview/02-monitor-web-page.png)
 
+3. **Mobile app code:** Use the Mobile Center SDK to collect events from your app, then send copies of these events to Application Insights for analysis by [following this guide](app-insights-mobile-center-quickstart.md).
 
-3. **Get telemetry:** Run your project in debug mode for a few minutes, and then look for results in the Overview blade in Application Insights.
+4. **Get telemetry:** Run your project in debug mode for a few minutes, and then look for results in the Overview blade in Application Insights.
 
     Publish your app to monitor your app's performance and find out what your users are doing with your app.
 
@@ -50,7 +51,7 @@ The Users and Sessions reports filter your data by pages or custom events, and s
 
 Insights on the right point out interesting patterns in the set of data.  
 
-* The **Users** report counts the numbers of unique users that access your pages within your chosen time periods. (Users are counted by using cookies. If someone accesses your site with different browsers or client machines, or clears their cookies, then they will be counted more than once.)
+* The **Users** report counts the numbers of unique users that access your pages within your chosen time periods. For web apps, users are counted by using cookies. If someone accesses your site with different browsers or client machines, or clears their cookies, then they will be counted more than once.
 * The **Sessions** report counts the number of user sessions that access your site. A session is a period of activity by a user, terminated by a period of inactivity of more than half an hour.
 
 [More about the Users, Sessions, and Events tools](app-insights-usage-segmentation.md)  
@@ -91,20 +92,20 @@ The retention controls on top allow you to define specific events and time range
 
 ## Custom business events
 
-To get a clear understanding of what users do with your web app, it's useful to insert lines of code to log custom events. These events can track anything from detailed user actions such as clicking specific buttons, to more significant business events such as making a purchase or winning a game. 
+To get a clear understanding of what users do with your app, it's useful to insert lines of code to log custom events. These events can track anything from detailed user actions such as clicking specific buttons, to more significant business events such as making a purchase or winning a game. 
 
 Although in some cases, page views can represent useful events, it isn't true in general. A user can open a product page without buying the product. 
 
 With specific business events, you can chart your users' progress through your site. You can find out their preferences for different options, and where they drop out or have difficulties. With this knowledge, you can make informed decisions about the priorities in your development backlog.
 
-Events can be logged in the web page:
+Events can be logged from the client side of the app:
 
 ```JavaScript
 
     appInsights.trackEvent("ExpandDetailTab", {DetailTab: tabName});
 ```
 
-Or in the server side of the web app:
+Or from the server side:
 
 ```C#
     var tc = new Microsoft.ApplicationInsights.TelemetryClient();

@@ -10,7 +10,7 @@ editor: ''
 ms.assetid:
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/13/2017
@@ -383,7 +383,7 @@ ResourceGroupName="tutorialgroup"
 az group delete --name $ResourceGroupName
 ```
 
-## Next steps
+## Conclusion
 In this tutorial, you learned how to:
 
 > [!div class="checklist"]
@@ -392,7 +392,6 @@ In this tutorial, you learned how to:
 > * Create an API operation
 > * Configure a backend policy
 > * Add the API to a product
-
 
 [azure-powershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 

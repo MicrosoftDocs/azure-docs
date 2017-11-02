@@ -126,7 +126,7 @@ Content-Type: application/json
 
 Because the state is managed by the Durable Functions runtime, you don't have to implement your own status tracking mechanism.
 
-Even though the Durable Functions extension has built-in webhooks for managing long-running orchestrations, you can implement this pattern yourself using your own function triggers (such as HTTP, queue, or Event Hub) and the `orchestrationClient` binding.
+Even though the Durable Functions extension has built-in webhooks for managing long-running orchestrations, you can implement this pattern yourself using your own function triggers (such as HTTP, queue, or Event Hub) and the `orchestrationClient` binding. For example, you could use a queue message to trigger termination.  Or you could use an HTTP trigger protected by an Azure Active Directory authentication policy instead of the built-in webhooks that use a generated key for authentication. 
 
 ```cs
 // HTTP-triggered function to start a new orchestrator function instance.
@@ -157,7 +157,7 @@ The following diagram illustrates a function that runs in an infinite loop while
 
 ![Stateful singleton diagram](media/durable-functions-overview/stateful-singleton.png)
 
-While Durable Functions is not an implementation of the actor model, orchestrator functions do have many of the same runtime characteristics. For example, they are long-running (possibly endless), stateful, reliable, single-threaded, location-transparent, and globally addressable. This makes orchestrator functions useful for "actor"-like scenarios without the need for a separate framework.
+While Durable Functions is not an implementation of the actor model, orchestrator functions do have many of the same runtime characteristics. For example, they are long-running (possibly endless), stateful, reliable, single-threaded, location-transparent, and globally addressable. This makes orchestrator functions useful for "actor"-like scenarios.
 
 Ordinary functions are stateless and therefore not suited to implement a stateful singleton pattern. However, the Durable Functions extension makes the stateful singleton pattern relatively trivial to implement. The following code is a simple orchestrator function that implements a counter.
 

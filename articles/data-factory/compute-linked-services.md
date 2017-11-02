@@ -98,18 +98,24 @@ The following JSON defines a Linux-based on-demand HDInsight linked service. The
 | Property                     | Description                              | Required |
 | ---------------------------- | ---------------------------------------- | -------- |
 | type                         | The type property should be set to **HDInsightOnDemand**. | Yes      |
-| clusterType                  | The type of the HDInsight cluster to be created. Allowed values are "hadoop" and "spark". If not specified, default value is hadoop. | No       |
 | clusterSize                  | Number of worker/data nodes in the cluster. The HDInsight cluster is created with 2 head nodes along with the number of worker nodes you specify for this property. The nodes are of size Standard_D3 that has 4 cores, so a 4 worker node cluster takes 24 cores (4\*4 = 16 cores for worker nodes, plus 2\*4 = 8 cores for head nodes). See [Set up clusters in HDInsight with Hadoop, Spark, Kafka, and more](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) for details. | Yes      |
-| timetolive                   | The allowed idle time for the on-demand HDInsight cluster. Specifies how long the on-demand HDInsight cluster stays alive after completion of an activity run if there are no other active jobs in the cluster. The minimal allowed value is 5 minutes (00:05:00).<br/><br/>For example, if an activity run takes 6 minutes and timetolive is set to 5 minutes, the cluster stays alive for 5 minutes after the 6 minutes of processing the activity run. If another activity run is executed with the 6-minutes window, it is processed by the same cluster.<br/><br/>Creating an on-demand HDInsight cluster is an expensive operation (could take a while), so use this setting as needed to improve performance of a data factory by reusing an on-demand HDInsight cluster.<br/><br/>If you set timetolive value to 0, the cluster is deleted as soon as the activity run completes. Whereas, if you set a high value, the cluster may stay idle for you to log on for some troubleshooting purpose but it could result in high costs. Therefore, it is important that you set the appropriate value based on your needs.<br/><br/>If the timetolive property value is appropriately set, multiple pipelines can share the instance of the on-demand HDInsight cluster. | Yes      |
-| version                      | Version of the HDInsight cluster. If not specified, it's using the current HDInsight defined default version. | No       |
 | linkedServiceName            | Azure Storage linked service to be used by the on-demand cluster for storing and processing data. The HDInsight cluster is created in the same region as this Azure Storage account. Azure HDInsight has limitation on the total number of cores you can use in each Azure region it supports. Make sure you have enough core quotas in that Azure region to meet the required clusterSize. For details, refer to [Set up clusters in HDInsight with Hadoop, Spark, Kafka, and more](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md)<p>Currently, you cannot create an on-demand HDInsight cluster that uses an Azure Data Lake Store as the storage. If you want to store the result data from HDInsight processing in an Azure Data Lake Store, use a Copy Activity to copy the data from the Azure Blob Storage to the Azure Data Lake Store. </p> | Yes      |
-| hostSubscriptionId           | The Azure subscription ID used to create HDInsight cluster. If not specified, it uses the Subscription ID of your Azure login context. | No       |
 | clusterResourceGroup         | The HDInsight cluster is created in this resource group. | Yes      |
+| timetolive                   | The allowed idle time for the on-demand HDInsight cluster. Specifies how long the on-demand HDInsight cluster stays alive after completion of an activity run if there are no other active jobs in the cluster. The minimal allowed value is 5 minutes (00:05:00).<br/><br/>For example, if an activity run takes 6 minutes and timetolive is set to 5 minutes, the cluster stays alive for 5 minutes after the 6 minutes of processing the activity run. If another activity run is executed with the 6-minutes window, it is processed by the same cluster.<br/><br/>Creating an on-demand HDInsight cluster is an expensive operation (could take a while), so use this setting as needed to improve performance of a data factory by reusing an on-demand HDInsight cluster.<br/><br/>If you set timetolive value to 0, the cluster is deleted as soon as the activity run completes. Whereas, if you set a high value, the cluster may stay idle for you to log on for some troubleshooting purpose but it could result in high costs. Therefore, it is important that you set the appropriate value based on your needs.<br/><br/>If the timetolive property value is appropriately set, multiple pipelines can share the instance of the on-demand HDInsight cluster. | Yes      |
+| clusterType                  | The type of the HDInsight cluster to be created. Allowed values are "hadoop" and "spark". If not specified, default value is hadoop. | No       |
+| version                      | Version of the HDInsight cluster. If not specified, it's using the current HDInsight defined default version. | No       |
+| hostSubscriptionId           | The Azure subscription ID used to create HDInsight cluster. If not specified, it uses the Subscription ID of your Azure login context. | No       |
+| clusterNamePrefix           | The prefix of HDI cluster name, a timestamp will be automatically appended at the end of the cluster name| No       |
 | sparkVersion                 | The version of spark if the cluster type is "Spark" | No       |
 | additionalLinkedServiceNames | Specifies additional storage accounts for the HDInsight linked service so that the Data Factory service can register them on your behalf. These storage accounts must be in the same region as the HDInsight cluster, which is created in the same region as the storage account specified by linkedServiceName. | No       |
 | osType                       | Type of operating system. Allowed values are: Linux and Windows (for HDInsight 3.3 only). Default is Linux. | No       |
 | hcatalogLinkedServiceName    | The name of Azure SQL linked service that point to the HCatalog database. The on-demand HDInsight cluster is created by using the Azure SQL database as the metastore. | No       |
 | connectVia                   | The Integration Runtime to be used to dispatch the activities to this HDInsight linked service. For on-demand HDInsight linked service, it only supports Azure Integration Runtime. If not specified, it uses the default Azure Integration Runtime. | No       |
+| clusterUserName                   | The username to access the cluster. | No       |
+| clusterPassword                   | The password in type of secure string to access the cluster. | No       |
+| clusterSshUserName         | The username to SSH remotely connect to cluster’s node (for Linux). | No       |
+| clusterSshPassword         | The password in type of secure string to SSH remotely connect cluster’s node (for Linux). | No       |
+
 
 > [!IMPORTANT]
 > HDInsight supports multiple Hadoop cluster versions that can be deployed. Each version choice creates a specific version of the Hortonworks Data Platform (HDP) distribution and a set of components that are contained within that distribution. The list of supported HDInsight versions keeps being updated to provide latest Hadoop ecosystem components and fixes. Make sure you always refer to latest information of [Supported HDInsight version and OS Type](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) to ensure you are using supported version of HDInsight. 
@@ -119,16 +125,10 @@ The following JSON defines a Linux-based on-demand HDInsight linked service. The
 #### additionalLinkedServiceNames JSON example
 
 ```json
-"additionalLinkedServiceNames": [
-    "otherLinkedServiceName1": {
-        "referenceName": "AzureStorageLinkedService",
-        "type": "LinkedServiceReference"
-    },
-    "otherLinkedServiceName2": {
-        "referenceName": "AzureStorageLinkedService",
-        "type": "LinkedServiceReference"
-    }
-]
+"additionalLinkedServiceNames": [{
+    "referenceName": "MyStorageLinkedService2",
+    "type": "LinkedServiceReference"          
+}]
 ```
 
 ### Service principal authentication
@@ -166,58 +166,53 @@ You can also specify the following properties for the granular configuration of 
 
 ```json
 {
-  "name": " HDInsightOnDemandLinkedService",
-  "properties": {
-    "type": "HDInsightOnDemand",
-    "typeProperties": {
-        "clusterSize": 16,
-        "timeToLive": "01:30:00",
-        "hostSubscriptionId": "<subscription ID>",
-        "servicePrincipalId": "<service principal ID>",
-        "servicePrincipalKey": {
-          "value": "<service principal key>",
-          "type": "SecureString"
-        },
-        "tenant": "<tenent id>",
-        "clusterResourceGroup": "<resource group name>",
-        "version": "3.6",
-        "osType": "Linux",
-        "linkedServiceName": {
-            "referenceName": "AzureStorageLinkedService",
-            "type": "LinkedServiceReference"
+    "name": " HDInsightOnDemandLinkedService",
+    "properties": {
+      "type": "HDInsightOnDemand",
+      "typeProperties": {
+          "clusterSize": 16,
+          "timeToLive": "01:30:00",
+          "hostSubscriptionId": "<subscription ID>",
+          "servicePrincipalId": "<service principal ID>",
+          "servicePrincipalKey": {
+            "value": "<service principal key>",
+            "type": "SecureString"
           },
-          "coreConfiguration": {
-              "templeton.mapper.memory.mb": "5000"
-          },
-          "hiveConfiguration": {
-              "templeton.mapper.memory.mb": "5000"
-          },
-          "mapReduceConfiguration": {
-              "mapreduce.reduce.java.opts": "-Xmx4000m",
-              "mapreduce.map.java.opts": "-Xmx4000m",
-              "mapreduce.map.memory.mb": "5000",
-              "mapreduce.reduce.memory.mb": "5000",
-              "mapreduce.job.reduce.slowstart.completedmaps": "0.8"
-          },
-          "yarnConfiguration": {
-              "yarn.app.mapreduce.am.resource.mb": "5000",
-              "mapreduce.map.memory.mb": "5000"
-          },
-          "additionalLinkedServiceNames": [
-              "otherLinkedServiceName1": {
-                  "referenceName": "datafeeds1",
-                  "type": "LinkedServiceReference"
-              },
-              "otherLinkedServiceName2": {
-                  "referenceName": "datafeeds2",
-                  "type": "LinkedServiceReference"
-              }
-          ]}
-  },
-    "connectVia": {
-    "referenceName": "<name of Integration Runtime>",
-    "type": "IntegrationRuntimeReference"
-  }
+          "tenant": "<tenent id>",
+          "clusterResourceGroup": "<resource group name>",
+          "version": "3.6",
+          "osType": "Linux",
+          "linkedServiceName": {
+              "referenceName": "AzureStorageLinkedService",
+              "type": "LinkedServiceReference"
+            },
+            "coreConfiguration": {
+                "templeton.mapper.memory.mb": "5000"
+            },
+            "hiveConfiguration": {
+                "templeton.mapper.memory.mb": "5000"
+            },
+            "mapReduceConfiguration": {
+                "mapreduce.reduce.java.opts": "-Xmx4000m",
+                "mapreduce.map.java.opts": "-Xmx4000m",
+                "mapreduce.map.memory.mb": "5000",
+                "mapreduce.reduce.memory.mb": "5000",
+                "mapreduce.job.reduce.slowstart.completedmaps": "0.8"
+            },
+            "yarnConfiguration": {
+                "yarn.app.mapreduce.am.resource.mb": "5000",
+                "mapreduce.map.memory.mb": "5000"
+            },
+            "additionalLinkedServiceNames": [{
+                "referenceName": "MyStorageLinkedService2",
+                "type": "LinkedServiceReference"          
+            }]
+        }
+    },
+      "connectVia": {
+      "referenceName": "<name of Integration Runtime>",
+      "type": "IntegrationRuntimeReference"
+    }
 }
 ```
 

@@ -17,10 +17,10 @@ ms.author: jingwang
 
 # Store credential in Azure Key Vault
 
-You can store credentials for data stores in an [Azure Key Vault](../key-vault/key-vault-whatis.md). Azure Data Factory retrieves the credentials when executing an activity that uses the data store.
+You can store credentials for data stores in an [Azure Key Vault](../key-vault/key-vault-whatis.md). Azure Data Factory retrieves the credentials when executing an activity that uses the data store. Currently, only [Dynamics connector](connector-dynamics-crm-office-365.md) support this feature.
 
 > [!NOTE]
-> Currently, only [Dynamics connector](connector-dynamics-crm-office-365.md) support this feature.
+> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [documenttion for Data Factory version1](v1/data-factory-introduction.md).
 
 ## Steps
 
