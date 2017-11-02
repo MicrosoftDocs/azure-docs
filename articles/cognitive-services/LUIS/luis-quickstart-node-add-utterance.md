@@ -14,7 +14,7 @@ ms.author: v-demak
 
 # Add an utterance to a LUIS app using Node.js 
 
-This quickstart shows you how to programmatically add utterances to your Language Understanding Intelligent Service (LUIS) app in just a few minutes. When you're finished, you'll be able to use Node.js code to add an utterance to a LUIS app.
+This quickstart shows you how programmatically add an utterances to your Language Understanding Intelligent Service (LUIS) app in just a few minutes. When you're finished, you'll be able to use Node.js code to add an utterance to a LUIS app.
 
 ## Before you begin
 
@@ -24,6 +24,7 @@ This quickstart shows you how to programmatically add utterances to your Languag
 ## Get the ID and version of your LUIS app
 
 You can find your app ID and version number by logging into [https://www.luis.ai](https://www.luis.ai) and go to App Settings. 
+
 
 ## Add an utterance by calling the Authoring API with Node.js
 
