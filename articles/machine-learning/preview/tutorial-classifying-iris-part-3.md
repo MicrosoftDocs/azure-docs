@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
-ms.date: 09/27/2017
+ms.date: 11/2/2017
 ---
 
 # Classify Iris part 3: Deploy a model
@@ -81,6 +81,7 @@ To deploy the web service along with the model file, you also need a scoring scr
 
    ![Scoring file](media/tutorial-classifying-iris/model_data_collection.png)
 
+
 4. In order to get the schema file, run the script. Select the **local** environment and the **iris_score.py** script in the command bar, and then click the **Run** button. 
 
 5. This script creates a JSON file in the `outputs` folder, which captures the input data schema required by the model.
@@ -114,6 +115,9 @@ To deploy the web service along with the model file, you also need a scoring scr
    ```
 
 Now you're ready to prepare your environment to operationalize the model.
+
+>[!NOTE]
+>Deploying models requires you to have owner access to an Azure subscription.
 
 ## Prepare to operationalize locally
 Use _local mode_ deployment to run in Docker containers on your local computer.
@@ -176,7 +180,9 @@ You can use _local mode_ for development and testing. The Docker engine must be 
    ```
 
 6. Set the environment.
+
 After the setup finishes, use the following command to set the environment variables required to operationalize the environment. Use the same environment name that you used previously in step 4. Use the same resource group name that was output in the command window when the setup process finished.
+
    ```azurecli
    az ml env set -n <deployment environment name> -g <existing resource group name>
    ```
@@ -189,11 +195,14 @@ After the setup finishes, use the following command to set the environment varia
 
 Now you're ready to create the real-time web service.
 
+>[!NOTE]
+>You can re-use your Model Managment account and environment for subsequent web service deployments. You don't need to create them for each web service. An account or an environment can have multiple web services associated with it.
+
 ## Create a real-time web service in one command
 1. To create a real-time web service, use the following command:
 
    ```azurecli
-   az ml service create realtime -f iris_score.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true 
+   az ml service create realtime -f iris-score.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true 
    ```
    This command generates a web service ID you can use later.
 
@@ -235,7 +244,7 @@ First, register the model, then generate the manifest, build the Docker image, a
    To create a manifest, use the following command and provide the model ID output from the previous step:
 
    ```azurecli
-   az ml manifest create --manifest-name <new manifest name> -f iris_score.py -r python -i <model ID> -s service_schema.json
+   az ml manifest create --manifest-name <new manifest name> -f iris-score.py -r python -i <model ID> -s service_schema.json
    ```
    This command generates a manifest ID.
 
