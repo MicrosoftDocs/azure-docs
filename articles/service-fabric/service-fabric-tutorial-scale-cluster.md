@@ -50,7 +50,7 @@ Set-AzureRmContext -SubscriptionId <guid>
 
 To successfully complete this part of the tutorial, you need to connect to both the Service Fabric cluster and the virtual machine scale set (that hosts the cluster). The virtual machine scale set is the Azure resource that hosts Service Fabric on Azure.
 
-When you connect to a cluster, you can query it for information. You can use the cluster to learn about what nodes the cluster is aware of. Connecting to the cluster in the following code uses the same certificate that was created in the [first step](service-fabric-tutorial-create-vnet-and-windows-cluster.md) of this series. Make sure you set the `$endpoint` and `$thumbprint` variables to your values.
+When you connect to a cluster, you can query it for information. You can use the cluster to learn about what nodes the cluster is aware of. Connecting to the cluster in the following code uses the same certificate that was created in the first part of this series. Make sure you set the `$endpoint` and `$thumbprint` variables to your values.
 
 ```powershell
 $endpoint = "<mycluster>.southcentralus.cloudapp.azure.com:19000"
@@ -178,7 +178,7 @@ $scaleset.Sku.Capacity -= 1
 Update-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm -VirtualMachineScaleSet $scaleset
 ```
 
-## Conclusion
+## Next steps
 
 In this tutorial, you learned how to:
 
@@ -186,5 +186,10 @@ In this tutorial, you learned how to:
 > * Read the cluster node count
 > * Add cluster nodes (scale out)
 > * Remove cluster nodes (scale in)
+
+
+Next, advance to the following tutorial to learn how to deploy an application and use API management.
+> [!div class="nextstepaction"]
+> [Deploy an application](service-fabric-tutorial-deploy-api-management.md)
 
 [durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster
