@@ -14,7 +14,7 @@
 ## [8 - Publish multiple versions of your API](api-management-get-started-publish-versions.md)
 ## [9 - Customize the style of the Developer portal pages](api-management-customize-styles.md)
 # Samples
-## [Policy samples](policy-samples.md)
+## [Policy](policy-samples.md)
 ## [PowerShell samples](powershell-samples.md)
 # Concepts
 ## [Terminology](api-management-terminology.md)
