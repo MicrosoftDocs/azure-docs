@@ -14,7 +14,7 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.tgt_pltfrm: 
 ms.workload: 
-ms.date: 10/27/2017
+ms.date: 11/01/2017
 ms.author: danlep
 ms.custom: mvc
 ---
@@ -41,7 +41,7 @@ az group create --name myResourceGroup --location eastus
 
 ## Create a Batch account
 
-Create a Batch account with the [az batch account create](/cli/azure/batch/account#az_batch_account_create) command. 
+Create a Batch account with the [az batch account create](/cli/azure/batch/account#az_batch_account_create) command. You create compute resources (pools of compute nodes) and Batch jobs in an account.
 
 The following example creates a Batch account named *myBatchAccount* in *myResourceGroup*.  
 
@@ -302,7 +302,7 @@ az group delete --name myResourceGroup
 
 ## Next steps
 
-In this quick start, you’ve .... To learn more about Azure Batch, continue to the tutorial for Batch.
+In this quick start, you created a Batch account, a Batch pool, and a Batch job. The job ran a sample task and created output on a compute node. To learn more about Azure Batch, continue to the XXX tutorial.
 
 
 > [!div class="nextstepaction"]
