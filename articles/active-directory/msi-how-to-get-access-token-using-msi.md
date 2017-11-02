@@ -21,16 +21,16 @@ ms.author: bryanla
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 A VM Managed Service Identity makes two important features available to client applications running on the VM:
 
-1. An MSI [**service principal**](develop/active-directory-dev-glossary.md#service-principal-object). A service principal is the identity construct required by Azure Active Directory (AD) for applications, in order to authenticate and access secured resources. A client application running under its own service principal identity needs to:
+1. An MSI [**service principal**](develop/active-directory-dev-glossary.md#service-principal-object). Traditionally, before a client application can access secured resources under the identity of its service principal, it must
 
   - be registered as a confidential/web client application with Azure AD
-  - sign in using the its client ID/secret credentials  
+  - sign in using its client ID+secret credentials  
 
-    With MSI, your client application no longer needs to do either, as it can use the MSI service principal for sign-in. 
+    With MSI, your client application no longer needs to do either, as it can sign in under the MSI service principal. 
 
-2. An [**app-only access token**](develop/active-directory-dev-glossary.md#access-token), based on the VM's MSI service principal, which enables a client application to access resource APIs that are secured by Azure AD. There is also no need for the client to present its own credentials or authenticate to obtain the access token. The token is issued for the MSI service principal, and is suitable for use as a bearer token in [service-to-service calls requiring client credentials](active-directory-protocols-oauth-service-to-service.md).
+2. An [**app-only access token**](develop/active-directory-dev-glossary.md#access-token), based on the VM's MSI service principal. There is also no need for the client to present its own credentials or authenticate to obtain the access token. The token is issued for the MSI service principal, and is suitable for use as a bearer token in [service-to-service calls requiring client credentials](active-directory-protocols-oauth-service-to-service.md).
 
-This article shows you various ways to use an MSI for sign-in, and acquire an access token to access other resources.
+This article shows you various ways to sign-in under an MSI service principal, and acquire an access token to access other resources.
 
 ## Prerequisites
 
@@ -49,15 +49,48 @@ If you plan to use the Azure PowerShell or Azure CLI examples in this article, y
 
 Scripting hosts such as Azure PowerShell and Azure CLI can use an MSI service principal for sign-in, and make subsequent resource access through their own token acquisition logic. This prevents the script user from need to handle token acquisition.
 
-However, if you're writing your own client application, you will need to write your own token acquisition logic.
+However, if you're writing your own client application, you need to write your own token acquisition logic.
 
-Table??
+| Sample | Demonstrates sign-in | Demonstrates token acquisition |
+| ------ | -------------------- | ----------------------------- |
+| [HTTP/REST](#httprest) | N | Y |
 
 ### HTTP/REST 
 
-At the most primitive layer, a client application can use HTTP REST calls to acquire the MSI access token.
+A client application can use HTTP REST calls to acquire the MSI access token. This is similar to the Azure AD programming model, except the client uses a localhost endpoint on the virtual machine (vs and Azure AD endpoint).
 
 ### .NET C#
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Net;
+using System.Web.Script.Serialization; 
+
+// Build request to acquire MSI token
+HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://localhost:50342/oauth2/token?resource=https://management.azure.com/");
+request.Headers["Metadata"] = "true";
+request.Method = "GET";
+
+try
+{
+    // Call /token endpoint
+    HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+
+    // Pipe response Stream to a StreamReader, and extract access token
+    StreamReader streamResponse = new StreamReader(response.GetResponseStream()); 
+    string stringResponse = streamResponse.ReadToEnd();
+    JavaScriptSerializer j = new JavaScriptSerializer();
+    Dictionary<string, string> list = (Dictionary<string, string>) j.Deserialize(stringResponse, typeof(Dictionary<string, string>));
+    string accessToken = list["access_token"];
+}
+catch (Exception e)
+{
+    string errorText = String.Format("{0} \n\n{1}", e.Message, e.InnerException != null ? e.InnerException.Message : "Acquire token failed");
+}
+
+```
 
 ### Azure CLI
 
@@ -185,6 +218,12 @@ In the examples below, we show how to use a VM's MSI for token acquisition.
 > The Azure AD Authentication Library (ADAL) is not integrated with MSI. To obtain an access token using MSI, make a request to the local MSI endpoint in a VM. For more information, see [MSI FAQs and known issues](msi-known-issues.md#frequently-asked-questions-faqs).
 
 ```csharp
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Net;
+using System.Web.Script.Serialization; 
+
 // Build request to acquire MSI token
 HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://localhost:50342/oauth2/token?resource=https://management.azure.com/");
 request.Headers["Metadata"] = "true";
@@ -241,7 +280,7 @@ Metadata: true
 | ------- | ----------- |
 | `GET` | The HTTP verb, indicating you want to retrieve data from the endpoint. In this case, an OAuth access token. | 
 | `http://localhost:50342/oauth2/token` | The MSI endpoint, where 50342 is the default port and is configurable. |
-| `resource` | A query string parameter, indicating the App ID URI of the target resource. It also appears in the `aud` (audience) claim of the issued token. In this example, we are requesting a token to access Azure Resource Manager, which has an App ID URI of https://management.azure.com/. |
+| `resource` | A query string parameter, indicating the App ID URI of the target resource. It also appears in the `aud` (audience) claim of the issued token. This example requests a token to access Azure Resource Manager, which has an App ID URI of https://management.azure.com/. |
 | `Metadata` | An HTTP request header field, required by MSI as a mitigation against Server Side Request Forgery (SSRF) attack. This value must be set to "true", in all lower case.
 
 Sample response:
