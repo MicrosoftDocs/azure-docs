@@ -393,6 +393,10 @@ In this tutorial, you learned how to:
 > * Configure a backend policy
 > * Add the API to a product
 
+Next, advance to the following tutorial to learn how to scale your cluster.
+> [!div class="nextstepaction"]
+> [Scale the cluster](service-fabric-tutorial-scale-cluster.md)
+
 
 [azure-powershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 
