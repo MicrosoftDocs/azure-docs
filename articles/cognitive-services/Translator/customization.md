@@ -18,12 +18,16 @@ The Translator Hub and Collaborative Translations Framework are free extensions 
 
 ## Customize translations with the Microsoft Translator Hub
 
-With the Hub, you can build translation systems customized to understand the terminology used in your own business and industry. Your customized translation system will then easily integrate into your existing applications, workflows and websites, across multiple types of devices.
+With the Hub, you can build translation systems customized to understand the terminology used in your own business and industry. The Hub will combine your domain specific data with Microsoft's vast language knowledge to generate a custom and unique translation system. 
 
-The Hub will combine your domain specific data with Microsoft's vast language knowledge to generate translation systems combining the best of both our large scale training data and your industry specific one. 
+Your customized translation system will then easily integrate into your existing applications, workflows and websites, across multiple types of devices.
 
 ### How does it work?
-With the Hub, you can start from a simple customization level starting with a few words (such as product names, etc.) in a dictionary, or use as little as one thousand parallel sentences to start customizing the actual translations. Use your previously translated documents (leaflets, webpages, documentation, etc.) to build a translation system that reflects your domain-specific terminology and style, better than a generic translation system. Hub supports TMX, XLIFF, TXT, HTML, DOCX, XLSX and PDF document formats. The customized system is then available by through a regular call to the Microsoft Translator Text API using the category parameter.
+The Hub allows for varying levels of customization. You can start by adding just a few words in a dictionary, such as product names, etc. which would then be translated exactly the way you want. 
+
+As your needs grow, you can use parallel sentences to build a translation system that reflects your domain-specific terminology and style better than a generic translation system. Use your previously translated documents (leaflets, webpages, documentation, etc.) in TMX, XLIFF, TXT, HTML, DOCX, XLSX and PDF document formats. 
+
+The customized system is then available by through a regular call to the Microsoft Translator Text API using the category parameter.
 
 More details about the various levels of customization, based on available data, can be found on the [Microsoft Translator Blog](https://blogs.msdn.microsoft.com/translation/2016/01/27/new-microsoft-translator-customization-features-help-unleash-the-power-of-artificial-intelligence-for-everyone/).
 
@@ -40,7 +44,7 @@ Once machine translated text has been published on your site or in your applicat
 ### How does it work?
 The CTF API enables a mechanism by which a reader can provide alternative translations to those already published. A reader can also vote on previously offered alternatives. This is a very powerful tool because, even if the reader is not an expert in the original language, the quality of the machine translation is, most of the time, good enough that the understanding of the translated text is enough to elicit relevant feedback.
 
-As a simple exampl, assume a text translated into English comes out as "I are very happy today." A fluent English speaker will easily be able to propose an appropriate solution with "I am very happy today."
+As a simple example, assume a text translated into English comes out as "I are very happy today." A fluent English speaker will easily be able to propose an appropriate solution with "I am very happy today."
 
 Once the alternative translation has been submitted, the content administrators can decide whether to approve it and replace the original text with the human-improved text. If your translation automation also uses the Microsoft Translator Hub, you can very easily import the corrected translations into the Hub and use them in custom engine training.
 
