@@ -28,6 +28,6 @@ You can use the **Azure Cloud Shell** to run the script from [Azure portal](http
 
 ## Next steps
 
-For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/overview).
+For more information on the Azure PowerShell module, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azure/overview).
 
 Additional Azure Powershell samples for Azure API Management can be found in the [PowerShell samples](../powershell-samples.md).
