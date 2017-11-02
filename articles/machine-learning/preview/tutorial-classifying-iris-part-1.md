@@ -133,9 +133,9 @@ You can follow the instructions in the [Install and create Quickstart](quickstar
 ## Next steps
 In this first part of the three-part tutorial series, you have used Azure Machine Learning Workbench to:
 > [!div class="checklist"]
-> * Create a new project 
-> * Create a data preparation package
-> * Generate Python/PySpark code to invoke a data preparation package
+> * Create a new project. 
+> * Create a data preparation package.
+> * Generate Python/PySpark code to invoke a data preparation package.
 
 You are ready to move on to the next part in the series, where you learn how to build an Azure Machine Learning model:
 > [!div class="nextstepaction"]
