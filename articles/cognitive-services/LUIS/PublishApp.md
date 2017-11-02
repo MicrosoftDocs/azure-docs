@@ -49,7 +49,7 @@ You can either publish your app directly to the **Production Slot** where end us
     ![Endpoint URL displayed in Publish page](./media/luis-how-to-publish-app/luis-publish-url.png)
 
     > [!TIP]
-    > The endpoint URL corresponds to the Azure region associated with the endpoint key. Each row in the **Resources and Keys** table lists Azure resource associated with your account and the endpoint keys associated with that resource, For more information, see [Regions and keys](./Manage-Keys.md#regions-and-keys).
+    > The endpoint URL corresponds to the Azure region associated with the endpoint key. To see endpoints and keys associated with other regions, use the radio buttons to switch regions. Each row in the **Resources and Keys** table lists Azure resource associated with your account and the endpoint keys associated with that resource, For more information, see [Regions and keys](./Manage-Keys.md#regions-and-keys).
 
 
 ## Test your published endpoint in a browser
