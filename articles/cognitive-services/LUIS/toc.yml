@@ -21,16 +21,6 @@
       href: luis-get-started-java-get-intent.md
     - name: Call a LUIS app using Python
       href: luis-get-started-python-get-intent.md
-  - name: Author your LUIS app programmatically
-    items: 
-    - name: Add an utterance programmatically using Node.js
-      href: luis-quickstart-node-add-utterance.md
-    - name: Add an utterance programmatically using C#
-      href: luis-quickstart-node-add-utterance.md
-    - name: Add an utterance programmatically using Java
-      href: luis-quickstart-node-add-utterance.md  
-    - name: Add an utterance programmatically using Python
-      href: luis-quickstart-node-add-utterance.md 
 - name: Tutorials
   items: 
   - name: Integrate LUIS with a bot using Node.js
@@ -92,7 +82,15 @@
     - name: Manage versions
       href: luis-how-to-manage-versions.md
     - name: Collaborate on a LUIS app
-      href: luis-how-to-collaborate.md    
+      href: luis-how-to-collaborate.md
+  - name: Author your LUIS app programmatically
+    items: 
+    - name: Add an utterance programmatically
+      href: luis-get-started-node-get-intent.md
+    - name: Get LUIS app info
+      href: luis-get-started-node-get-intent.md
+    - name: Train on suggested utterances
+      href: luis-get-started-node-get-intent.md      
 - name: Reference
   items: 
   - name: Authoring APIs
