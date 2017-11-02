@@ -13,10 +13,10 @@ After the deployment source has been set, the Azure CLI shows information simila
 {
   "branch": "master",
   "deploymentRollbackEnabled": false,
-  "id": "/subscriptions/bbbef702-e769-477b-9f16-bc4d3aa97387/resourceGroups/myResourceGroup/...",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/...",
   "isManualIntegration": true,
   "isMercurial": false,
-  "location": "West Europe",
+  "kind": null,
   "name": "quickstart",
   "repoUrl": "https://github.com/Azure-Samples/functions-quickstart",
   "resourceGroup": "myResourceGroup",

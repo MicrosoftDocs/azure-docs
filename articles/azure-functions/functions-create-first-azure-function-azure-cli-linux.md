@@ -59,6 +59,7 @@ After the function app has been created, the Azure CLI shows information similar
   "availabilityState": "Normal",
   "clientAffinityEnabled": true,
   "clientCertEnabled": false,
+  "cloningInfo": null,
   "containerSize": 1536,
   "dailyMemoryTimeQuota": 0,
   "defaultHostName": "quickstart.azurewebsites.net",
