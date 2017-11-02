@@ -9,7 +9,7 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.custom: mvc
 ms.topic: hero-article
-ms.date: 10/16/2017
+ms.date: 11/01/2017
 ---
 
 # Create an Azure Database for MySQL server by using the Azure portal
@@ -66,19 +66,21 @@ The Azure Database for MySQL service creates a firewall at the server level. It 
 
 3.	Under the **Firewall rules** heading, select the blank text box in the **Rule Name** column to begin creating the firewall rule. 
 
-    For this Quickstart, let's allow all IP addresses into the server by filling in boxes in each column with the following values:
+   ![Connection security - Firewall rules](./media/quickstart-create-mysql-server-database-using-azure-portal/5_firewall-settings.png)
 
-    Rule name | Start IP | End IP 
-    ---|---|---
-    AllowAllIps |  0.0.0.0 | 255.255.255.255
-    
-    Allowing all IP addresses is not secure. This example is provided for simplicity, but in a real-world scenario, you need to know the precise IP address ranges to add for your applications and users. 
+   For this Quickstart, let's allow all IP addresses into the server by filling in boxes in each column with the following values:
+
+   Rule name | Start IP | End IP 
+   ---|---|---
+   AllowAllIps |  0.0.0.0 | 255.255.255.255
+   
+   Allowing all IP addresses is not secure. This example is provided for simplicity, but in a real-world scenario, you need to know the precise IP address ranges to add for your applications and users. 
 
 4. On the upper toolbar of the **Connection security** page, select **Save**. Wait until the notification appears stating that the update has finished successfully before you continue. 
 
-    > [!NOTE]
-    > Connections to Azure Database for MySQL communicate over port 3306. If you try to connect from within a corporate network, outbound traffic over port 3306 might not be allowed. If this is the case, you can't connect to your server unless your IT department opens port 3306.
-    > 
+   > [!NOTE]
+   > Connections to Azure Database for MySQL communicate over port 3306. If you try to connect from within a corporate network, outbound traffic over port 3306 might not be allowed. If this is the case, you can't connect to your server unless your IT department opens port 3306.
+   > 
 
 ## Get the connection information
 To connect to your database server, you need the full server name and admin sign-in credentials. You might have noted those values earlier in the Quickstart article. If you didn't, you can easily find the server name and sign-in information from the server **Overview** page or the **Properties** page in the Azure portal.

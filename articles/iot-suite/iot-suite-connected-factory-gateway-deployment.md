@@ -1,5 +1,5 @@
 ﻿---
-title: Deploy your Azure IoT Suite connected factory gateway | Microsoft Docs
+title: Deploy your connected factory gateway - Azure | Microsoft Docs
 description: How to deploy a gateway on either Windows or Linux to enable connectivity to the connected factory preconfigured solution.
 services: ''
 suite: iot-suite
