@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/13/2017
+ms.date: 11/02/2017
 ms.author: nitinme
 
 ---
@@ -65,8 +65,7 @@ The code sample available [on GitHub](https://github.com/Azure-Samples/data-lake
 6. Open **Program.cs**, delete the existing code, and then include the following statements to add references to namespaces.
 
         using System;
-        using System.IO;
-    		using System.Threading;
+        using System.IO;using System.Threading;
         using System.Linq;
         using System.Text;
         using System.Collections.Generic;
@@ -75,7 +74,7 @@ The code sample available [on GitHub](https://github.com/Azure-Samples/data-lake
         using Microsoft.Rest;
         using Microsoft.Rest.Azure.Authentication;
         using Microsoft.Azure.DataLake.Store;
-    		using Microsoft.IdentityModel.Clients.ActiveDirectory;
+    	using Microsoft.IdentityModel.Clients.ActiveDirectory;
 
 7. Declare the variables as shown below, and provide the values for the placeholders. Also, make sure the local path and file name you provide here exist on the computer.
 
