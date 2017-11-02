@@ -20,10 +20,11 @@ In this quickstart, you learn how to use Java to upload, download, and list bloc
 
 To complete this quickstart:
 
-* Either install an IDE that has Maven integration or install and configure Maven to work from commandline
-    * This tutorial uses [Eclipse](http://www.eclipse.org/downloads/) with the "Eclipse IDE for Java Developers" configuration
-    
+* Install an IDE that has Maven integration
 
+* Alternatively, install and configure Maven to work from the command line
+
+This tutorial uses [Eclipse](http://www.eclipse.org/downloads/) with the "Eclipse IDE for Java Developers" configuration.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
