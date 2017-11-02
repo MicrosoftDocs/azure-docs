@@ -34,7 +34,7 @@ Azure Policy is now available in Public Preview and you need to register to requ
 
 ## Create a policy assignment
 
-In this quickstart, we create a policy assignment and assign the *0Audit Virtual Machines without Managed Disks* policy definition.
+In this quickstart, we create a policy assignment and assign the *Audit Virtual Machines without Managed Disks* policy definition.
 
 1. Select **Assignments** on the left pane of the Azure Policy page.
 2. Select **Assign Policy** from the top of the **Assignments** pane.
