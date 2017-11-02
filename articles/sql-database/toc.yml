@@ -309,11 +309,7 @@
       href: sql-database-troubleshoot-common-connection-issues.md
     - name: Azure Automation
       href: sql-database-manage-automation.md
-    - name: Best practices for SQL Data Sync
-      href: sql-database-best-practices-data-sync.md
-    - name: Troubleshoot SQL Data Sync
-      href: sql-database-troubleshoot-data-sync.md
-- name: Scale out
+  - name: Scale out
     items:
     - name: Create sharded app
       href: sql-database-elastic-scale-get-started.md
