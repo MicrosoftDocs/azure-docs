@@ -71,13 +71,11 @@ The following flowchart describes how Azure CDN validates client request when to
 
 		![CDN encrypt tool](./media/cdn-token-auth/cdn-token-auth-encrypttool.png)
 
-       The encrypt tool has the following parameters:
-
-	   - ec_expire: Assigns an expiration time of a token after a specified time period. Requests submitted after the expiration time are denied. This parameter uses Unix timestamp (based on seconds since standard epoch of `1/1/1970 00:00:00 GMT`. You can use online tools to provide conversion between standard time and Unix time.) For example, if you want to set up the token to expire at `12/31/2016 12:00:00 GMT`, use the Unix timestamp value, `1483185600`, as follows.
+       - ec-expire: assigns an expiration time of a token after a specified time period. Requests submitted after the expiration time are denied. This parameter uses Unix timestamp (based on seconds since standard epoch of 1/1/1970 00:00:00 GMT. You can use online tools to provide conversion between standard time and Unix time.) For example, if you want to set up the token to expire at `12/31/2016 12:00:00 GMT`, use the Unix timestamp value, `1483185600`, as follows. 
 	
 		 ![CDN ec_expire example](./media/cdn-token-auth/cdn-token-auth-expire2.png)
 	
-	    - ec_url_allow: Allows you to tailor tokens to a particular asset or path. It restricts access to requests whose URL start with a specific relative path. You can input multiple paths separating each path with a comma. URLs are case-sensitive. Depending on the requirement, you can set up different value to provide different level of access. For example:
+	    - ec-url-allow: allows you to tailor tokens to a particular asset or path. It restricts access to requests whose URL start with a specific relative path. You can input multiple paths separating each path with a comma. URLs are case-sensitive. Depending on the requirement, you can set up different value to provide different level of access. Below are a couple of scenarios: 
 		
 		  If you have a URL: http://www.mydomain.com/pictures/city/strasbourg.png. See input value "" and its access level accordingly
 
@@ -92,7 +90,7 @@ The following flowchart describes how Azure CDN validates client request when to
 	
 		   ![CDN ec_url_allow example](./media/cdn-token-auth/cdn-token-auth-url-allow4.png)
 	
-	    - ec_country_allow: Allows only requests that originate from one or more specified countries. Requests that originate from all other countries are denied. Use country code to set up the parameters and separating each country code with a comma. For example, If you want to allow access from United States and France, input US, FR in the column as follows.  
+	    - ec-country-allow: only allows requests that originate from one or more specified countries. Requests that originate from all other countries will be denied. Use country code to set up the parameters and separating each country code with a comma. For example, If you want to allow access from United States and France, input US, FR in the column as below.  
 		
 		  ![CDN ec_country_allow example](./media/cdn-token-auth/cdn-token-auth-country-allow.png)
 
