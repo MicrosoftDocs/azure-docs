@@ -1,0 +1,417 @@
+[33mcommit f6b0d97e96770ccc1748d8954730318e3683ae76[m[33m ([m[1;36mHEAD -> [m[1;32msync-updates-batch1[m[33m, [m[1;31morigin/sync-updates-batch1[m[33m)[m
+Author: Douglas Laudenschlager <douglasl@microsoft.com>
+Date:   Thu Nov 2 10:45:06 2017 -0700
+
+    Revert "Made changes requested or suggested by PR reviewer."
+    
+    This reverts commit 6b8ed9593971d305d39e1b7037da1a92486a4c9f.
+
+[1mdiff --git a/articles/sql-database/sql-database-best-practices-data-sync.md b/articles/sql-database/sql-database-best-practices-data-sync.md[m
+[1mindex be913144fc6..7285bd8b103 100644[m
+[1m--- a/articles/sql-database/sql-database-best-practices-data-sync.md[m
+[1m+++ b/articles/sql-database/sql-database-best-practices-data-sync.md[m
+[36m@@ -1,8 +1,6 @@[m
+ ---[m
+ title: "Azure SQL Data Sync Best Practices | Microsoft Docs"[m
+[31m-description: "Learn about best practices for configuring and running Azure SQL Data Sync"[m
+[31m-services: sql-database[m
+[31m-ms.date: "11/2/2017"[m
+[32m+[m[32mms.date: "10/31/2017"[m
+ ms.topic: "article"[m
+ ms.service: "sql-database"[m
+ author: "douglaslMS"[m
+[36m@@ -17,37 +15,37 @@[m [mThis article describes best practices for SQL Data Sync (Preview).[m
+ [m
+ ### Client Agent[m
+ [m
+[31m--   Install the client agent using the least privilege account with network service access.[m
+[32m+[m[32m• Install the client agent using the least privilege account with network service access.[m
+ [m
+[31m--   It is best if the client agent is installed on a computer separate from the on-premises SQL Server computer.[m
+[32m+[m[32m• It is best if the client agent is installed on a computer separate from the on-premises SQL Server computer.[m
+ [m
+[31m--   Do not register an on-premises database with more than one agent.[m
+[32m+[m[32m• Do not register an on-premises database with more than one agent.[m
+ [m
+[31m--   Even if syncing different tables for different sync groups.[m
+[32m+[m[32m• Even if syncing different tables for different sync groups.[m
+ [m
+[31m--   Registering an on-premises database with multiple client agents poses challenges when deleting one of the sync groups.[m
+[32m+[m[32m• Registering an on-premises database with multiple client agents poses challenges when deleting one of the sync groups.[m
+ [m
+ ### Database accounts with least required privilege[m
+ [m
+[31m--   **For Sync Setup**. Create/Alter Table, Alter Database, Create Procedure, Select/ Alter Schema, Create User-Defined Type.[m
+[32m+[m[32m• **For Sync Setup**. Create/Alter Table, Alter Database, Create Procedure, Select/ Alter Schema, Create User-Defined Type.[m
+ [m
+[31m--   **For Ongoing Sync**. Select/ Insert/ Update/ Delete on tables selected for syncing and on sync metadata and tracking tables, Execute permission on stored procedures created by the service, Execute permission on user-defined table types.[m
+[32m+[m[32m• **For Ongoing Sync**. Select/ Insert/ Update/ Delete on tables selected for syncing and on sync metadata and tracking tables, Execute permission on stored procedures created by the service, Execute permission on user-defined table types.[m
+ [m
+[31m--   **For de-provisioning**. Alter on tables part of sync, Select/ Delete on Sync Metadata tables, Control on sync tracking Sync Tracking tables, stored procedures, and user-defined types.[m
+[32m+[m[32m• **For de-provisioning**. Alter on tables part of sync, Select/ Delete on Sync Metadata tables, Control on sync tracking Sync Tracking tables, stored procedures, and user-defined types.[m
+ [m
+[31m-**How can you use this information when there is only a single credential for a database in the Sync Group?**[m
+[32m+[m[32mHow can you use this information when there is only a single credential for a database in the Sync Group?[m
+ [m
+[31m--   Change the credentials for different phases (for example, credential1 for setup and credential2 for ongoing).[m
+[32m+[m[32m• Change the credentials for different phases (for example, credential1 for setup and credential2 for ongoing).[m
+ [m
+[31m--   Change the permission of the credentials (that is, change the permission after sync is set up).[m
+[32m+[m[32m• Change the permission of the credentials (that is, change the permission after sync is set up).[m
+ [m
+ ## <a name="locate-hub"></a> Where to locate the Hub Database[m
+ [m
+[31m-### Enterprise-to-cloud scenario[m
+[32m+[m[32m### Enterprise to cloud scenario[m
+ [m
+ To minimize latency, keep the hub database close to the greatest concentration of the sync group's database traffic.[m
+ [m
+[31m-### Cloud-to-cloud scenario[m
+[32m+[m[32m### Cloud to cloud ccenario[m
+ [m
+ -   When all the databases in a sync group are in one data center, the hub should be located in the same data center. This reduces latency and the cost of data transfer between data centers.[m
+ [m
+[36m@@ -89,25 +87,25 @@[m [mThis section discusses the limitations of SQL Data Sync (Preview)'s provisioning[m
+ [m
+ The following are limitations of SQL Data Sync (Preview) auto provisioning.[m
+ [m
+[31m--   Only the columns selected are created in the destination table.[m
+[32m+[m[32m• Only the columns selected are created in the destination table.[m
+ Thus, if some columns are not part of the sync group those columns are not provisioned in the destination tables.[m
+ [m
+[31m--   Indexes are created only for the selected columns.[m
+[32m+[m[32m• Indexes are created only for the selected columns.[m
+ If the source table index has columns that are not part of the sync group those indexes are not provisioned in the destination tables.[m
+ [m
+[31m--   Indexes on XML type columns are not provisioned.[m
+[32m+[m[32m• Indexes on XML type columns are not provisioned.[m
+ [m
+[31m--   CHECK constraints are not provisioned.[m
+[32m+[m[32m• CHECK constraints are not provisioned.[m
+ [m
+[31m--   Existing triggers on the source tables are not provisioned.[m
+[32m+[m[32m• Existing triggers on the source tables are not provisioned.[m
+ [m
+[31m--   Views and Stored Procedures are not created on the destination database.[m
+[32m+[m[32m• Views and Stored Procedures are not created on the destination database.[m
+ [m
+ ### Recommendations[m
+ [m
+[31m--   Use the auto-provisioning capability only for trying the service.[m
+[32m+[m[32m• Use the auto-provisioning capability only for trying the service.[m
+ [m
+[31m--   For production, you should provision the database schema.[m
+[32m+[m[32m• For production, you should provision the database schema.[m
+ [m
+ ## <a name="avoid-a-slow-and-costly-initial-synchronization"></a> Avoid a slow and costly initial synchronization[m
+ [m
+[36m@@ -141,21 +139,21 @@[m [mA sync group's status is set to out-of-date when any change within the sync grou[m
+ [m
+ Reasons a sync group may fail to apply a change include:[m
+ [m
+[31m--   Schema incompatibility between tables.[m
+[32m+[m[32m• Schema incompatibility between tables.[m
+ [m
+[31m--   Data incompatibility between tables.[m
+[32m+[m[32m• Data incompatibility between tables.[m
+ [m
+[31m--   Inserting a row with a null value in a column that does not allow null values.[m
+[32m+[m[32m• Inserting a row with a null value in a column that does not allow null values.[m
+ [m
+[31m--   Updating a row with a value that violates a foreign key constraint.[m
+[32m+[m[32m• Updating a row with a value that violates a foreign key constraint.[m
+ [m
+ You can prevent out-of-date sync groups by:[m
+ [m
+[31m--   Update the schema to allow the values contained in the failed rows.[m
+[32m+[m[32m• Update the schema to allow the values contained in the failed rows.[m
+ [m
+[31m--   Update the foreign key values to include the values contained in the failed rows.[m
+[32m+[m[32m• Update the foreign key values to include the values contained in the failed rows.[m
+ [m
+[31m--   Update the data values in the failed row to be compatible with the schema or foreign keys in the target database.[m
+[32m+[m[32m• Update the data values in the failed row to be compatible with the schema or foreign keys in the target database.[m
+ [m
+ ## <a name="avoid-deprovisioning-issues"></a> Avoid deprovisioning issues[m
+ [m
+[36m@@ -174,9 +172,9 @@[m [mUnder certain circumstances, unregistering a database with a client agent can ca[m
+ [m
+ ### Solution[m
+ [m
+[31m-Avoid the situation entirely by never registering a database with more than one agent.[m
+[32m+[m[32m• Avoid the situation entirely by never registering a database with more than one agent.[m
+ [m
+[31m-To recover from this situation:[m
+[32m+[m[32m• To recover from this situation:[m
+ [m
+     1. Remove the database from each sync group it belongs to.[m
+ [m
+[36m@@ -190,19 +188,19 @@[m [mTo recover from this situation:[m
+ [m
+ Changes can fail to propagate due to many reasons. Some causes would be:[m
+ [m
+[31m--   Schema/Datatype incompatibility.[m
+[32m+[m[32m• Schema/Datatype incompatibility.[m
+ [m
+[31m--   Trying to insert null in non-nullable columns.[m
+[32m+[m[32m• Trying to insert null in non-nullable columns.[m
+ [m
+[31m--   Violating foreign key constraints.[m
+[32m+[m[32m• Violating foreign key constraints.[m
+ [m
+ ### What happens when changes fail to propagate?[m
+ [m
+[31m--   Sync Group shows it is in a warning state.[m
+[32m+[m[32m• Sync Group shows it is in a warning state.[m
+ [m
+[31m--   Details are in the Portal UI Log viewer.[m
+[32m+[m[32m• Details are in the Portal UI Log viewer.[m
+ [m
+[31m--   If the issue is not resolved for 45 days, the database becomes out of date.[m
+[32m+[m[32m• If the issue is not resolved for 45 days, the database becomes out of date.[m
+ [m
+ > [!NOTE][m
+ > These changes never propagate. The only way to recover is to recreate the sync group.[m
+[1mdiff --git a/articles/sql-database/sql-database-sync-data.md b/articles/sql-database/sql-database-sync-data.md[m
+[1mindex e3c8be289c7..f25c29bbdb2 100644[m
+[1m--- a/articles/sql-database/sql-database-sync-data.md[m
+[1m+++ b/articles/sql-database/sql-database-sync-data.md[m
+[36m@@ -1,5 +1,5 @@[m
+ ---[m
+[31m-title: Azure SQL Data Sync (Preview) | Microsoft Docs[m
+[32m+[m[32mtitle: Sync data (Preview) | Microsoft Docs[m
+ description: This overview introduces Azure SQL Data Sync (Preview).[m
+ services: sql-database[m
+ documentationcenter: ''[m
+[1mdiff --git a/articles/sql-database/sql-database-troubleshoot-data-sync.md b/articles/sql-database/sql-database-troubleshoot-data-sync.md[m
+[1mindex 0f09491f3a1..3e0c14d60f7 100644[m
+[1m--- a/articles/sql-database/sql-database-troubleshoot-data-sync.md[m
+[1m+++ b/articles/sql-database/sql-database-troubleshoot-data-sync.md[m
+[36m@@ -1,8 +1,6 @@[m
+ ---[m
+ title: "Troubleshoot Azure SQL Data Sync | Microsoft Docs"[m
+[31m-description: "Learn how to troubleshoot issues with Azure SQL Data Sync"[m
+[31m-services: sql-database[m
+[31m-ms.date: "11/2/2017"[m
+[32m+[m[32mms.date: "10/31/2017"[m
+ ms.topic: "article"[m
+ ms.service: "sql-database"[m
+ author: "douglaslMS"[m
+[36m@@ -31,9 +29,9 @@[m [mThis error is an issue with the SQL Data Sync (Preview).[m
+ [m
+ The most likely cause of this issue is:[m
+ [m
+[31m--   You have .NET 4.5 installed.[m
+[32m+[m[32m• You are running Windows 8 Developer Preview, or[m
+ [m
+[31m--   You are running Windows 8 Developer Preview, or[m
+[32m+[m[32m• You have .NET 4.5 installed.[m
+ [m
+ ### Solution or workaround[m
+ [m
+[36m@@ -53,9 +51,9 @@[m [mThis issue occurs because SQL Data Sync (Preview) client agent does not store cr[m
+ [m
+ There are two solutions to try:[m
+ [m
+[31m--   First, use services.msc to reenter your credentials for the client agent.[m
+[32m+[m[32m• First, use services.msc to reenter your credentials for the client agent.[m
+ [m
+[31m--   Second, uninstall this client agent and install a new one. Download and install the latest client agent from [Download Center](http://go.microsoft.com/fwlink/?linkid=221479).[m
+[32m+[m[32m• Second, uninstall this client agent and install a new one. Download and install the latest client agent from [Download Center](http://go.microsoft.com/fwlink/?linkid=221479).[m
+ [m
+ ## My database isn't listed in the agent dropdown[m
+ [m
+[36m@@ -79,14 +77,13 @@[m [mThe solution depends upon the cause.[m
+ [m
+ You must have both the client agent and the sync group in the same data center. You can set up this configuration by doing one of the following things:[m
+ [m
+[31m--   Create a new agent in the same data center as the sync group. Then register the database with that agent. See [How To: Install a SQL Data Sync (Preview) Client Agent](#install-a-sql-data-sync-client-agent) for more information.[m
+[32m+[m[32m• Create a new agent in the same data center as the sync group. Then register the database with that agent. See [How To: Install a SQL Data Sync (Preview) Client Agent](#install-a-sql-data-sync-client-agent) for more information.[m
+ [m
+[31m--   Delete the current sync group. Then recreate it in the same data center as the agent.[m
+[32m+[m[32m• Delete the current sync group. Then recreate it in the same data center as the agent.[m
+ [m
+ #### The client agent's list of databases is not current[m
+ [m
+ Stop and then restart the client agent service.[m
+[31m-[m
+ The local agent downloads the list of associated databases only on the first submission of the agent key, not on subsequent agent key submissions. Thus, databases registered during an agent move do not show up on the original agent instance.[m
+ [m
+ ## Client agent doesn't start (Error 1069)[m
+[36m@@ -107,29 +104,29 @@[m [mUpdate the agent's password to your current server password.[m
+ [m
+ 1. Locate the SQL Data Sync (Preview) client agent Preview service.[m
+ [m
+[31m-    a. Click **Start**.[m
+[32m+[m[32m    1. Click **Start**.[m
+ [m
+     b. Type "services.msc" in the search box.[m
+ [m
+     c. In the search results, click "Services."[m
+ [m
+[31m-    d. In the **Services** window, scroll to the entry for **SQL Data Sync (Preview) Agent Preview**.[m
+[32m+[m[32m    2. In the **Services** window, scroll to the entry for **SQL Data Sync (Preview) Agent Preview**.[m
+ [m
+[31m-2. Right-click the entry and select **Stop**.[m
+[32m+[m[32m3. Right-click the entry and select **Stop**.[m
+ [m
+[31m-3. Right-click the entry and then click **Properties**.[m
+[32m+[m[32m4. Right-click the entry and then click **Properties**.[m
+ [m
+[31m-4. In the **SQL Data Sync (Preview) Agent Preview Properties** window, click the **Log in** tab.[m
+[32m+[m[32m5. In the **SQL Data Sync (Preview) Agent Preview Properties** window, click the **Log in** tab.[m
+ [m
+[31m-5. Enter your password in the Password textbox.[m
+[32m+[m[32m6. Enter your password in the Password textbox.[m
+ [m
+[31m-6. Confirm your password in the Confirm Password textbox.[m
+[32m+[m[32m7. Confirm your password in the Confirm Password textbox.[m
+ [m
+[31m-7. Click **Apply** and then click **OK**.[m
+[32m+[m[32m8. Click **Apply** and then click **OK**.[m
+ [m
+[31m-8. In the **Services** window, right-click the **SQL Data Sync (Preview) Agent Preview** service, then click **Start**.[m
+[32m+[m[32m9. In the **Services** window, right-click the **SQL Data Sync (Preview) Agent Preview** service, then click **Start**.[m
+ [m
+[31m-9. Close the **Services** window.[m
+[32m+[m[32m10. Close the **Services** window.[m
+ [m
+ ## I get a "disk out of space" message[m
+ [m
+[36m@@ -154,29 +151,35 @@[m [mYou fail in your attempt to delete a sync group.[m
+ [m
+ Any of the following things can result in a failure to delete a sync group.[m
+ [m
+[31m--   **The client agent is offline.** Be sure that the client agent is online then try again.[m
+[32m+[m[32m• **The client agent is offline.**[m
+[32m+[m
+[32m+[m[32m    Be sure that the client agent is online then try again.[m
+ [m
+[31m--   **The client agent is uninstalled or missing.**[m
+[32m+[m[32m• **The client agent is uninstalled or missing.**[m
+ [m
+     If the client agent is uninstalled or otherwise missing:[m
+ [m
+[31m-    1.  Remove agent XML file from the SQL Data Sync (Preview) installation folder if the file exists.[m
+[32m+[m[32m    a. Remove agent XML file from the SQL Data Sync (Preview) installation folder if the file exists.[m
+[32m+[m
+[32m+[m[32m    b. Install the agent on same/another on-premises computer, submit the agent key from the portal generated for the agent that's showing offline.[m
+[32m+[m
+[32m+[m[32m• **The SQL Data Sync (Preview) service is stopped.**[m
+ [m
+[31m-    2.  Install the agent on same/another on-premises computer, submit the agent key from the portal generated for the agent that's showing offline.[m
+[32m+[m[32m    a. In the **Start** menu, search for Services.[m
+ [m
+[31m--   **The SQL Data Sync (Preview) service is stopped.**[m
+[32m+[m[32m    b. Click Services in the search results.[m
+ [m
+[31m-    1.  In the **Start** menu, search for Services.[m
+[32m+[m[32m    c. Find the **SQL Data Sync (Preview) Preview** service.[m
+ [m
+[31m-    2.  Click Services in the search results.[m
+[32m+[m[32m    d. If the service status is **Stopped**, right-click the service name and select **Start** from the dropdown menu.[m
+ [m
+[31m-    3.  Find the **SQL Data Sync (Preview) Preview** service.[m
+[32m+[m[32m• **A database is offline.**[m
+ [m
+[31m-    4.  If the service status is **Stopped**, right-click the service name and select **Start** from the dropdown menu.[m
+[32m+[m[32m    Check your SQL Databases and SQL Server databases to be sure they are all online.[m
+ [m
+[31m--   **A database is offline.** Check your SQL Databases and SQL Server databases to be sure they are all online.[m
+[32m+[m[32m• **The sync group is provisioning or synchronizing.**[m
+ [m
+[31m--   **The sync group is provisioning or synchronizing.** Wait until the provisioning or synchronizing process finishes. Then retry deleting the sync group.[m
+[32m+[m[32m    Wait until the provisioning or synchronizing process finishes. Then retry deleting the sync group.[m
+ [m
+ ## Sync fails in the portal UI for on-premises databases associated with the client agent[m
+ [m
+[36m@@ -232,23 +235,23 @@[m [mAfter you create or recreate a key for an agent, you try to submit that key thro[m
+ [m
+ Before proceeding, make sure a failure of one of the following conditions is not the cause of your issue.[m
+ [m
+[31m--   The SQL Data Sync (Preview) Windows service is running.[m
+[32m+[m[32m• The SQL Data Sync (Preview) Windows service is running.[m
+ [m
+[31m--   The service account for SQL Data Sync (Preview) Preview Windows service has network access.[m
+[32m+[m[32m• The service account for SQL Data Sync (Preview) Preview Windows service has network access.[m
+ [m
+[31m--   The client agent is able to contact the Locator Service. Check that the following registry key has the value "https://locator.sync.azure.com/LocatorServiceApi.svc"[m
+[32m+[m[32m• The client agent is able to contact the Locator Service. Check that the following registry key has the value "https://locator.sync.azure.com/LocatorServiceApi.svc"[m
+ [m
+[31m-    -   On an x86 computer: `HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\SQL Azure Data Sync\\LOCATORSVCURI`[m
+[32m+[m[32m    • On an x86 computer: `HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\SQL Azure Data Sync\\LOCATORSVCURI`[m
+ [m
+[31m-    -   On an x64 computer: `HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Wow6432Node\\Microsoft\\SQL Azure Data Sync\\LOCATORSVCURI`[m
+[32m+[m[32m    • On an x64 computer: `HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Wow6432Node\\Microsoft\\SQL Azure Data Sync\\LOCATORSVCURI`[m
+ [m
+ ### Cause[m
+ [m
+ The agent key uniquely identifies each local agent. The key must meet two conditions for it to work:[m
+ [m
+[31m--   The client agent key on the SQL Data Sync (Preview) server and the local computer must be identical.[m
+[32m+[m[32m• The client agent key on the SQL Data Sync (Preview) server and the local computer must be identical.[m
+ [m
+[31m--   The client agent key can be used only once.[m
+[32m+[m[32m• The client agent key can be used only once.[m
+ [m
+ ### Solution or workaround[m
+ [m
+[36m@@ -258,7 +261,7 @@[m [mIf your agent is not working, it is because one or both of these conditions are[m
+ [m
+ 2. Apply the new key to the agent.[m
+ [m
+[31m-To apply the new key to the agent, do the following things:[m
+[32m+[m[32mTo Apply the new key to the agent, do the following things:[m
+ [m
+ 1. Use File Explorer to navigate to your agent installation directory. The default installation directory is `c:\\program files (x86)\\microsoft sql data sync`.[m
+ [m
+[36m@@ -280,9 +283,9 @@[m [mTo apply the new key to the agent, do the following things:[m
+ [m
+ This error occurs in two situations:[m
+ [m
+[31m--   The user name and/or the password are incorrect.[m
+[32m+[m[32m• The User name and/or the password are incorrect.[m
+ [m
+[31m--   The specified user account does not have sufficient privileges to log on as a service.[m
+[32m+[m[32m• The specified user account does not have sufficient privileges to log on as a service.[m
+ [m
+ ### Solution or workaround[m
+ [m
+[36m@@ -326,11 +329,11 @@[m [mThere are many possible causes for the failure. To determine the specific cause[m
+ [m
+ To find the specific cause for the failure you experienced, you need to generate and look at the Windows Installer logs. You can turn on logging from the command line. For example, assume that the downloaded AgentServiceSetup.msi file is LocalAgentHost.msi. Generate and examine log files using the following command lines:[m
+ [m
+[31m--   For installs: `msiexec.exe /i SQLDataSyncAgent-Preview-ENU.msi /l\*v LocalAgentSetup.InstallLog`[m
+[32m+[m[32m• For installs: `msiexec.exe /i SQLDataSyncAgent-Preview-ENU.msi /l\*v LocalAgentSetup.InstallLog`[m
+ [m
+[31m--   For uninstalls: `msiexec.exe /x SQLDataSyncAgent-se-ENU.msi /l\*v LocalAgentSetup.InstallLog`[m
+[32m+[m[32m• For uninstalls: `msiexec.exe /x SQLDataSyncAgent-se-ENU.msi /l\*v LocalAgentSetup.InstallLog`[m
+ [m
+[31m-You can also enable logging for all installations performed by Windows Installer. [Microsoft Knowledge Base article 223300](https://support.microsoft.com/help/223300/how-to-enable-windows-installer-logging) provides a one-click solution to turn on logging for Windows Installer. It also provides the location of these logs.[m
+[32m+[m[32mYou can also enable logging for all installations performed by Windows Installer. Microsoft Knowledge Base article (<http://support.microsoft.com/kb/223300>) provides a one-click solution to turn on logging for Windows Installer. It also provides the location of these logs.[m
+ [m
+ ## A database has an "Out-of-Date" status[m
+ [m
+[36m@@ -452,11 +455,11 @@[m [mA sync group in SQL Data Sync (Preview) has been in the processing state for a l[m
+ [m
+ Any of the following conditions can result in a sync group being stuck in the processing state.[m
+ [m
+[31m--   **The client agent is offline.**[m
+[32m+[m[32m• **The client agent is offline.**[m
+ [m
+     Be sure that the client agent is online then try again.[m
+ [m
+[31m--   **The client agent is uninstalled or missing.**[m
+[32m+[m[32m• **The client agent is uninstalled or missing.**[m
+ [m
+     If the client agent is uninstalled or otherwise missing:[m
+ [m
+[36m@@ -464,7 +467,7 @@[m [mAny of the following conditions can result in a sync group being stuck in the pr[m
+ [m
+     2. Install the agent on same/another on-premises computer. Then submit the agent key from the portal generated for the agent that's showing as offline.[m
+ [m
+[31m--   **The SQL Data Sync (Preview) service is stopped.**[m
+[32m+[m[32m• **The SQL Data Sync (Preview) service is stopped.**[m
+ [m
+     1. In the **Start** menu, search for Services.[m
+ [m
