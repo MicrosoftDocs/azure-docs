@@ -41,7 +41,6 @@ Network Policy and Access Services gives organizations the ability to:
 * Establish and enforce Network Access Protection (NAP) client health policies that determine whether devices are granted unrestricted or restricted access to network resources.
 
 * Provide a way to enforce authentication and authorization for access to 802.1x-capable wireless access points and Ethernet switches.   
-
 For more information, see [Network Policy Server](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top). 
 
 To enhance security and provide a high level of compliance, organizations can integrate NPS with Azure Multi-Factor Authentication to ensure that users use two-step verification to connect to the virtual port on the VPN server. For users to be granted access, they must provide their username and password combination and other information that they control. This information must be trusted and not easily duplicated. It can include a cell phone number, a landline number, or an application on a mobile device.
@@ -134,8 +133,8 @@ If you have installed the NPS role on a member server, you need to configure it 
 
 This section assumes that you have installed the Network Policy and Access Services role but have not configured it for use in your infrastructure.
 
->[!NOTE]
->If you already have a working VPN server that uses a centralized RADIUS server for authentication, you can skip this section.
+> [!NOTE]
+> If you already have a working VPN server that uses a centralized RADIUS server for authentication, you can skip this section.
 >
 
 ### Register Server in Active Directory
@@ -162,26 +161,26 @@ You can use a standard (wizard-based) or advanced configuration option to config
 
 3. In the **Select Dial-up or Virtual Private Network Connections Type** window, select **Virtual Private Network Connections**, and then select **Next**.
 
-    ![Virtual Private Network](./media/nps-extension-vpn/image4.png)
+    ![Virtual private network](./media/nps-extension-vpn/image4.png)
 
 4. In the **Specify Dial-Up or VPN Server** window, select **Add**.
 
 5. In the **New RADIUS client** window, provide a friendly name, enter the resolvable name or IP address of the VPN server, and then enter a shared secret password.  
     Make the shared secret password long and complex. Record it, because you'll need it in the next section.
 
-    ![New RADIUS Client](./media/nps-extension-vpn/image5.png)
+    ![New RADIUS client](./media/nps-extension-vpn/image5.png)
 
 6. Select **OK**, and then select **Next**.
 
 7. In the **Configure Authentication Methods** window, accept the default selection (**Microsoft Encrypted Authentication version 2 [MS-CHAPv2])** or choose another option, and select **Next**.
 
-    >[!NOTE]
-    >If you configure Extensible Authentication Protocol (EAP), you must use either Microsoft Challenge-Handshake Authentication Protocol (CHAPv2) or Protected Extensible Authentication Protocol (PEAP). No other EAP is supported.
+    > [!NOTE]
+    > If you configure Extensible Authentication Protocol (EAP), you must use either Microsoft Challenge-Handshake Authentication Protocol (CHAPv2) or Protected Extensible Authentication Protocol (PEAP). No other EAP is supported.
  
 8. In the **Specify User Groups** window, select **Add**, and then select an appropriate group.  
     If no group exists, leave the selection blank to grant access to all users.
 
-    ![Specify User Groups](./media/nps-extension-vpn/image7.png)
+    ![The Specify User Groups window](./media/nps-extension-vpn/image7.png)
 
 9. Select **Next**.
 
@@ -189,15 +188,15 @@ You can use a standard (wizard-based) or advanced configuration option to config
 
 11. In the **Specify Encryption Settings** window, accept the default settings, and then select **Next**.
 
-    ![Specify Encryption Settings](./media/nps-extension-vpn/image8.png)
+    ![The Specify Encryption Settings window](./media/nps-extension-vpn/image8.png)
 
 12. In the **Specify a Realm Name** window, leave the realm name blank, accept the default setting, and then select **Next**.
 
-    ![Specify a Realm Name](./media/nps-extension-vpn/image9.png)
+    ![The Specify a Realm Name window](./media/nps-extension-vpn/image9.png)
 
 13. In the **Completing New Dial-up or Virtual Private Network Connections and RADIUS clients** window, select **Finish**.
 
-    ![The "Completing Connections and RADIUS clients" window](./media/nps-extension-vpn/image10.png)
+    ![The "Completing New Dial-up or Virtual Private Network Connections and RADIUS clients" window](./media/nps-extension-vpn/image10.png)
 
 ### Verify the RADIUS configuration
 This section details the configuration you created by using the wizard.
@@ -207,25 +206,25 @@ This section details the configuration you created by using the wizard.
 2. In the details pane, right-click the RADIUS client that you created, and then select **Properties**.  
     The properties of your RADIUS client (the VPN server) should be like those shown here:
 
-    ![VPN Properties](./media/nps-extension-vpn/image11.png)
+    ![VPN properties](./media/nps-extension-vpn/image11.png)
 
 3. Select **Cancel**.
 
 4. On the Network Policy Server, in the NPS (local) console, expand **Policies**, and then select **Connection Request Policies**.  
     The VPN Connections policy is displayed as shown in the following image:
 
-    ![Connection Requests](./media/nps-extension-vpn/image12.png)
+    ![Connection requests](./media/nps-extension-vpn/image12.png)
 
 5. Under **Policies**, select **Network Policies**.  
     You should see a Virtual Private Network (VPN) Connections policy that resembles the policy shown in the following image:
 
-    ![Network Properties](./media/nps-extension-vpn/image13.png)
+    ![Network Policies](./media/nps-extension-vpn/image13.png)
 
 ## Configure your VPN server to use RADIUS authentication
 In this section, you configure your VPN server to use RADIUS authentication. The instructions assume that you have a working configuration of a VPN server but have not configured it to use RADIUS authentication. After you configure the VPN server, confirm that your configuration is working as expected.
 
->[!NOTE]
->If you already have a working VPN server configuration that uses RADIUS authentication, you can skip this section.
+> [!NOTE]
+> If you already have a working VPN server configuration that uses RADIUS authentication, you can skip this section.
 >
 
 ### Configure authentication provider
@@ -235,7 +234,7 @@ In this section, you configure your VPN server to use RADIUS authentication. The
 
 3. In the **Routing and Remote Access** window, right-click **\<server name> (local)**, and then select **Properties**.
 
-    ![Routing and Remote Access](./media/nps-extension-vpn/image14.png)
+    ![The Routing and Remote Access window](./media/nps-extension-vpn/image14.png)
  
 4. In the **\<server name> (local) Properties** window, select the **Security** tab. 
 
@@ -261,8 +260,8 @@ In this section, you configure your VPN server to use RADIUS authentication. The
 ### Test VPN connectivity
 In this section, you confirm that the VPN client is authenticated and authorized by the RADIUS server when you attempt to connect to the VPN virtual port. The instructions assume that you are using Windows 10 as a VPN client. 
 
->[!NOTE]
->If you already configured a VPN client to connect to the VPN server and have saved the settings, you can skip the steps related to configuring and saving a VPN connection object.
+> [!NOTE]
+> If you already configured a VPN client to connect to the VPN server and have saved the settings, you can skip the steps related to configuring and saving a VPN connection object.
 >
 
 1. On your VPN client computer, select the **Start** button, and then select the **Settings** button.
@@ -275,15 +274,15 @@ In this section, you confirm that the VPN client is authenticated and authorized
 
 5. In the **Add a VPN connection** window, in the **VPN provider** box, select **Windows (built-in)**, complete the remaining fields, as appropriate, and then select **Save**. 
 
-    ![Add a VPN Connection window](./media/nps-extension-vpn/image17.png)
+    ![The "Add a VPN connection" window](./media/nps-extension-vpn/image17.png)
  
 6. Go to **Control Panel**, and then select **Network and Sharing Center**.
 
 7. Select **Change adapter settings**.
 
-    ![Change Adapter Settings](./media/nps-extension-vpn/image18.png)
+    ![Change adapter settings](./media/nps-extension-vpn/image18.png)
 
-8. Right-click the VPN network connection, and then select Properties. 
+8. Right-click the VPN network connection, and then select **Properties**. 
 
     ![VPN Network Properties](./media/nps-extension-vpn/image19.png)
 
@@ -353,7 +352,7 @@ For information about how to enable users for MFA, see [Get started with Azure M
 ### Configure accounts for two-step verification
 After an account has been enabled for MFA, users are unable to sign in to resources that are governed by the MFA policy until they have successfully configured a trusted device to use for the second authentication factor.
 
-In this section, you configure a trusted device for use with two-step verification. There are several device options, including the following:
+In this section, you configure a trusted device for use with two-step verification. You have several device options, including the following:
 
 * **Mobile app**: You install the Microsoft Authenticator app on a Windows Phone, Android, or iOS device. Depending on your organization’s policies, you are required to use the app in one of two modes: 
     * Receive notifications for verifications (a notification is pushed to your device).
@@ -375,13 +374,13 @@ To set up a device to use the mobile app to receive push notification for verifi
 3. In the **Additional security verification** window, select a contact type (**Authentication phone**, **Office phone**, or **Mobile app**), select a country or region, and then select a method. Do not select **Contact me** yet.  
     The method varies by contact type. For example, if you choose **Mobile app**, you can select whether to receive notifications for verification or to use a verification code. 
 
-    !["Additional security verification" window](./media/nps-extension-vpn/image30.png)
+    ![The "Additional security verification" window](./media/nps-extension-vpn/image30.png)
 
     The steps that follow assume that you've chosen **Mobile app** as the contact type.
 
 4. Select **Mobile app**, select **Receive notifications for verification**, and then select **Set up**. 
 
-    !["Additional security verification" window](./media/nps-extension-vpn/image31.png)
+    ![The "Additional security verification" window](./media/nps-extension-vpn/image31.png)
  
 5. If you haven’t done so already, install the Microsoft Authenticator mobile app on your device. 
 
@@ -444,7 +443,7 @@ The NPS extension must be installed on a server that has the Network Policy and 
  
 5. In the **NPS Extension For Azure MFA Setup** window, select **Close**.  
 
-    ![Setup Successful confirmation window](./media/nps-extension-vpn/image37.png) 
+    ![The "Setup Successful" confirmation window](./media/nps-extension-vpn/image37.png) 
  
 ### Configure certificates for use with the NPS extension by using a PowerShell script
 To ensure secure communications and assurance, configure certificates for use by the NPS extension. The NPS components include a Windows PowerShell script that configures a self-signed certificate for use with NPS. 
@@ -474,7 +473,7 @@ To use the script, provide the extension with your Azure Active Directory admini
 
 4. Enter your Azure AD administrator credentials and password, and then select **Sign in**. 
  
-    ![PowerShell sign-in window](./media/nps-extension-vpn/image39.png)
+    ![The PowerShell sign-in window](./media/nps-extension-vpn/image39.png)
  
 5. At the command prompt, paste the tenant ID that you copied earlier, and then select Enter. 
 
@@ -485,7 +484,7 @@ To use the script, provide the extension with your Azure Active Directory admini
     ![Self-signed certificate](./media/nps-extension-vpn/image41.png)
 
 6. Reboot the server.
- 
+
 ### Verify the configuration
 To verify the configuration, you must establish a new VPN connection with the VPN server. After you've successfully entered your credentials for primary authentication, the VPN connection waits for the secondary authentication to succeed before the connection is established, as shown below. 
 
