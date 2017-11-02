@@ -96,9 +96,15 @@ This chart describes how Azure CDN validates client request when token authentic
 
 		- ec-country-deny: denies requests that originated from one or more specified countries. Requests that originate from all other countries will be allowed. Use country code to set up the parameters and separating each country code with a comma. For example, If you want to deny access from United States and France, input US, FR in the column.
 	
-		- ec-ref-allow: only allows requests from specified referrer. A referrer identifies the URL of the web page that linked to the resource being requested. The referrer parameter value shouldn't include the protocol. You can input a hostname and/or a particular path on that hostname. You can also add multiple referrers within a single parameter separating each one with a comma. If you have specified a referrer value, but the referrer information is not sent in the request due to some browser configuration, these requests will be denied by default. You can assign "Missing" or a blank value in the parameter to allow these requests with missing referrer information. You can also use "*.consoto.com" to allow all subdomains of consoto.com.  For example, if you want to allow access for requests from www.consoto.com, all subdomains under consoto2.com and erquests with blank or missing reffers, input value below:
+		- ec_ref_allow: Allows requests from the specified referrer only. A referrer identifies the URL of the web page that is linked to the resource being requested. Do not include the protocol in the referrer parameter value. The following types of input are allowed for the parameter value:
+		   - A hostname or a hostname and a path.
+		   - Multiple referrers. To add multiple referrers, separate each referrer with a comma. If you specify a referrer value, but the referrer information is not sent in the request due to the browser configuration, those requests are denied by default. 
+		   - Requests with missing referrer information. To allow these types of requests, enter the text "missing" or enter a blank value. 
+		   - Subdomains. To allow subdomains, enter an asterisk (*). For example, to allow all subdomains of `consoto.com` enter `*.consoto.com`. 
+		   
+          The following example shows the input to allow access for requests from `www.consoto.com`, all subdomains under `consoto2.com`, and requests with blank or missing referrers.
 		
-		![CDN profile blade manage button](./media/cdn-token-auth/cdn-token-auth-referrer-allow2.png)
+		  ![CDN ec_ref_allow example](./media/cdn-token-auth/cdn-token-auth-referrer-allow2.png)
 	
 		- ec-ref-deny: denies requests from specified referrer. Refer to details and example in "ec-ref-allow" parameter.
 		 
