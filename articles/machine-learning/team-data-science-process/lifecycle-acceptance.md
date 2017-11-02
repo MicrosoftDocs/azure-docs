@@ -44,7 +44,7 @@ There are two main tasks addressed in this stage:
 The customer should validate that the system meets their business needs and that it answers the questions with acceptable accuracy to deploy the system to production for use by their client's application. All the documentation is finalized and reviewed. The project is handed-off to the entity responsible for operations. This entity might be, for example, an IT or customer data-science team or an agent of the customer that's responsible for running the system in production. 
 
 ## Artifacts
-The main artifact produced in this final stage is the **Exit report of the project for the customer**. This technical report contains all the details of the project that are useful to learn about how to operate the system. TDSP provides an [Exit report](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Exit%20Report.md) template. You can use the template as is or you can customize it for specific client needs. 
+The main artifact produced in this final stage is the **Exit report of the project for the customer**. This technical report contains all the details of the project that are useful for learning about how to operate the system. TDSP provides an [Exit report](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Exit%20Report.md) template. You can use the template as is, or you can customize it for specific client needs. 
 
 
 ## Next steps
