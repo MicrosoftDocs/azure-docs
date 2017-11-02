@@ -147,32 +147,17 @@ If you used IIS or _Certreq.exe_ to generate your certificate request, install t
 
 To upload your SSL certificate, click **SSL certificates** in the left navigation of your web app.
 
-Click **Upload Certificate**. You can upload a Public Certificate (.cer file) or Private Certificate (.pfx  file) . 
+Click **Upload Certificate**. 
 
-#### Private Certificate 
 In **PFX Certificate File**, select your PFX file. In **Certificate password**, type the password that you created when you exported the PFX file.
 
 Click **Upload**.
 
 ![Upload certificate](./media/app-service-web-tutorial-custom-ssl/upload-certificate-private1.png)
 
-
-#### Public Certificate 
-
-Enter the name of the Certificate and Select the Store where you want to place the public certificate. 
-
-![Upload public certificate](./media/app-service-web-tutorial-custom-ssl/upload-certificate-public1.png)
-
-> [!NOTE]
-> - If your web app is hosted on an App Service Environments, LocalMachine-Personal certificate store is only supported. 
-> - When using Deployment slots with your application  , keep in mind that the certificates are not sticky and will also get swapped  when you perform a slot swap operation.  Either user your application code to check for multiple public certificates or make sure the correct certificate is upload for slot as well before you swap a slot with production app.
->
-
 When App Service finishes uploading your certificate, it appears in the **SSL certificates** page.
 
-![Certificate uploaded](./media/app-service-web-tutorial-custom-ssl/certificate-uploaded-list.png)
-
-
+![Certificate uploaded](./media/app-service-web-tutorial-custom-ssl/certificate-uploaded.png)
 
 ### Bind your SSL certificate
 
@@ -323,6 +308,8 @@ New-AzureRmWebAppSSLBinding `
     -CertificatePassword <PFX_password> `
     -SslState SniEnabled
 ```
+## Public Certificates (Optional)
+You can upload [Public Certificates](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/) to your web app . You can use Public Certifictes with Web Apps on App Service Environment (ASE) or non-ASE web apps. If you require to store the certificate in LocalMachine certificate Store , you need use a web app on App Service Enviroment. For more details , See [How to configure Public Certificate to your Web App](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer).
 
 ## Next steps
 
