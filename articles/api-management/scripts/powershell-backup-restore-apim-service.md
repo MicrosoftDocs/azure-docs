@@ -18,13 +18,13 @@ ms.custom: mvc
 
 # Backup and restore service
 
-This sample script backups and restores an API Management service. 
+This sample script backups and restores the API Management service instance. 
 
-If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](/powershell/azure/overview), and then run `Login-AzureRmAccount` to create a connection with Azure. Also, you need to have access to your domain registrar's DNS configuration page.
+You can use the **Azure Cloud Shell** to run the script from [Azure portal](https://portal.azure.com/), as described in [Create a new Azure API Management service instance](powershell-create-service-instance.md). Alternatively, you can install the Azure PowerShell using the instructions found in the [Azure PowerShell guide](/powershell/azure/overview), and then run `Login-AzureRmAccount` to create a connection with Azure.
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/api-management/backup-restore-apim-service/backup_restore_apim_service.ps1?highlight=1 "Backup and restore a service instance")]
+[!code-powershell[main](../../../powershell_scripts/api-management/backup-restore-apim-service/backup_restore_apim_service.ps1?highlight=1 "Backup and restore the APIM service instance")]
 
 ## Next steps
 

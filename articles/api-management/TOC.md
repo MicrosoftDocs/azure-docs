@@ -15,7 +15,7 @@
 ## [9 - Customize the style of the Developer portal pages](api-management-customize-styles.md)
 # Samples
 ## [Policy](policy-samples.md)
-## [PowerShell samples](powershell-samples.md)
+## [Azure PowerShell](powershell-samples.md)
 # Concepts
 ## [Terminology](api-management-terminology.md)
 ## [What is an API?](api-management-howto-create-apis.md)

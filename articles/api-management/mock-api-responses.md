@@ -93,7 +93,7 @@ The steps in this section show how to create a blank API with no backend. It als
 
 ## View video
 
-> [!VIDEO https://www.youtube.com/watch?v=i9PjUAvw7DQ/player]
+> [!VIDEO https://www.youtube.com/watch?v=i9PjUAvw7DQ//player]
 > 
 > 
 
