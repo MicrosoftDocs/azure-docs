@@ -32,7 +32,7 @@ In this topic, you learn how to use the Visual Studio 2017 tools for Azure Funct
 
 To complete this tutorial, install:
 
-* [Visual Studio 2017 version 15.4](https://www.visualstudio.com/vs/preview/) or a later version, including the **Azure development** workload.
+* [Visual Studio 2017 version 15.4](https://www.visualstudio.com/vs/) or a later version, including the **Azure development** workload.
 
     ![Install Visual Studio 2017 with the Azure development workload](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
     
