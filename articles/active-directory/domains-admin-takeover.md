@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/01/2017
+ms.date: 11/02/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
@@ -103,8 +103,8 @@ The supported service plans include:
 
 Exernal admin takeover is not supported for any service that has service plans that include SharePoint, OneDrive, or Skype For Business; for example, through an Office free subscription or the Office Basic SKU.
 
-### Azure AD PowerShell cmdlets for the -ForceTakeover option
-You'll also see these cmdlets used in the example in [Microsoft PowerShell](#microsoft-powershell).
+### Azure AD PowerShell cmdlets for the ForceTakeover option
+You'll also see these cmdlets used in the example in [Microsoft PowerShell](#powershell-example).
 
 
 cmdlet | Usage 
@@ -117,20 +117,7 @@ cmdlet | Usage
 `confirm-msoldomain –Domainname <domainname> –ForceTakeover Force` | <li>If your domain name is still not verified, you can proceed with the **-ForceTakeover** option. It verifies that the TXT record was created and kicks off the takeover process.<li>The **-ForceTakeover** option should be added to the cmdlet only when forcing an external admin takeover, such as when the unmanaged tenant has Office 365 services blocking the takeover.
 `get-msoldomain` | The domain list now shows the the domain name as **Verified**.
 
-## Microsoft PowerShell
-
-The following steps are required to perform a validation using Microsoft PowerShell.
-
-| Step | Cmdlet to use |
-| --- | --- |
-| Create a credential object |Get-Credential |
-| Connect to Azure AD |Connect-MsolService |
-| Get a list of domains |Get-MsolDomain |
-| Create a challenge |Get-MsolDomainVerificationDns |
-| Create DNS record |Do this on your DNS server |
-| Verify the challenge |Confirm-MsolEmailVerifiedDomain |
-
-For example:
+## PowerShell example
 
 1. Connect to Azure AD using the credentials that were used to respond to the self-service offering:
   ````
