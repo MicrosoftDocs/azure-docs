@@ -86,6 +86,24 @@ Users can choose to supply more authentication methods if they are enabled by th
 
 If a user does not have the minimum required methods registered, they see an error page that directs them to request an administrator to reset their password.
 
+#### Changing authentication methods
+
+If you start with a policy that has only one authentication method required for reset or unlock registered and you change that to two what happens?
+
+| Number of methods registered | Number of methods required | Result |
+| :---: | :---: | :---: |
+| 1 | 1 | **Able** to reset or unlock |
+| 1 | 2 | **Unable** to reset or unlock |
+| 2 or more | 2 | **Able** to reset or unlock |
+
+If you change the types of authentication methods that a user can use you may inadvertently stop users from being able to use SSPR if they do not have the minimum amount of data available.
+
+Example: Policy configured with 2 authentication methods required using office phone and security questions. 
+Administrator changes the policy to no longer use security questions but allow the use of mobile phone and alternate email. 
+
+> [!WARNING] 
+> If the administrator did not populate the mobile phone or alternate email in this scenario users will need to populate this information before they can reset or unlock using SSPR. This is why we recommend enabling more authentication methods than you require and encourage users to populate as many as they can.
+
 ### How secure are my security questions
 
 If you use security questions, we recommend them in use with another method as they can be less secure than other methods since some people may know the answers to another user's questions.
