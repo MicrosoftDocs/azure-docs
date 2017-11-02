@@ -12,6 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: overview
+ms.custom: mvc
 ms.date: 05/14/2017
 ms.author: mbullwin
 ---

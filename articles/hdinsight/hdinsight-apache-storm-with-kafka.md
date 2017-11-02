@@ -337,6 +337,6 @@ Since the steps in this document create both clusters in the same Azure resource
 
 ## Next steps
 
-For more example topologies that can be used with Storm on HDInsight, see [Example Storm topologies and components](hdinsight-storm-example-topology.md).
+For more example topologies that can be used with Storm on HDInsight, see [Example Storm topologies and components](storm/apache-storm-example-topology.md).
 
-For information on deploying and monitoring topologies on Linux-based HDInsight, see [Deploy and manage Apache Storm topologies on Linux-based HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
+For information on deploying and monitoring topologies on Linux-based HDInsight, see [Deploy and manage Apache Storm topologies on Linux-based HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md)
