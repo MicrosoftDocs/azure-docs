@@ -39,6 +39,12 @@ This how-to article has you create a storage account in a new resource group so 
 
 The examples require Azure PowerShell module version 4.4.0 or later. In a PowerShell window, run `Get-Module -ListAvailable AzureRM` to find the version. If nothing is displayed, or you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). 
 
+In addition, you will need to install the module that has the commands for managing the entities, which is **AzureRmStorageTable**. This is separate from the AzureRm module which is installed when installing Azure Powershell. To install this module, run PowerShell as an administrator and use the **Install-Module** command.
+
+```powershell
+Install-Module AzureRmStorageTable
+```
+
 ## Sign in to Azure
 
 Log in to your Azure subscription with the `Login-AzureRmAccount` command and follow the on-screen directions.
