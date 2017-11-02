@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/01/2017
+ms.date: 11/02/2017
 ms.author: alkohli
 
 ---
@@ -34,11 +34,16 @@ Update 1.0 corresponds to the software version **10.0.10296.0**.
 
 ## What's new in the Update 1.0
 
-Update 1.0 contains changes related to authentication of StorSimple Device Manager service and should be deployed at your earliest. This update contains the following fixes:
+**Update 1.0 contains changes related to authentication of StorSimple Device Manager service and should be deployed at your earliest.** This update contains the following enhancement and bug fixes:
 
-**Use of Azure Active Directory (AAD) to authenticate with StorSimple Device Manager service** – From Update 1.0 onwards, Azure Active Directory is used to authenticate with the StorSimple Device Manager service. The old authentication mechanism will be deprecated by December 2017. All the users must include the new authentication URLs in their firewall rules. For more information, go to authentication URLs listed in the [Networking requirements for your StorSimple Virtual Array](storsimple-ova-system-requirements.md).
+ - **Use of Azure Active Directory (AAD) to authenticate with StorSimple Device Manager service** – From Update 1.0 onwards, Azure Active Directory is used to authenticate with the StorSimple Device Manager service. The old authentication mechanism will be deprecated by December 2017. All the users must include the new authentication URLs in their firewall rules. For more information, go to authentication URLs listed in the [Networking requirements for your StorSimple Virtual Array](storsimple-ova-system-requirements.md).
 
-If the authentication URL is not included in the firewall rules, the users will see a critical alert that their StorSimple device could not authenticate with the service. If the users see this alert, they need to include the new authentication URL. For more information, go to [StorSimple networking alerts](storsimple-8000-manage-alerts.md).
+If the authentication URL is not included in the firewall rules, the users will see a critical alert that their StorSimple device could not authenticate with the service. If the users see this alert, they need to include the new authentication URL. For more information, go to [StorSimple networking alerts](storsimple-virtual-array-manage-alerts.md).
+
+ - **Performance improvement** - Several bug fixes were done to improve the speeds of cloud read, tier-ins and tier-outs.
+
+ - **Garbage collection improvement** - Several bug fixes were done to improve the performance of garbage collection cycle when the device and storage account are in two distant regions.
+
 
 ## Issues fixed in the Update 1.0
 
@@ -46,7 +51,10 @@ The following table provides a summary of issues fixed in this release.
 
 | No. | Feature | Issue |
 | --- | --- | --- |
-| 1 |Security| This release contains critical Windows Security updates. We suggest that you install this update immediately.|
+| 1 |AAD-based authentication| This release contains changes that allows AAD to authenticate with the StorSimple Device Manager.|
+| 2 |Garbage collection| This issue was reported at a customer site where the device and storage accounts are in different regions and the  customer reported intermittent network errors thereby impacting the billing. In this release, this issue was fixed. |
+| 3 |Performance| This release contains changes that result in restore/cloud reads/tier in/tier out performance improvement.|
+| 4 |Update| There was an issue with update in the earlier release that resulted in backup failures at a customer site. This issue is fixed in this release.|
 
 ## Known issues in the Update 1.0
 
@@ -71,11 +79,11 @@ The following table provides a summary of known issues for the StorSimple Virtua
 | **15.** |File server |Symbolic links are not supported. | |
 | **16.** |File server |Files protected by Windows Encrypting File System (EFS) when copied over or stored on the StorSimple Virtual Array file server result in an unsupported configuration.  | |
 | **17.** |Updates |If you see Error code: 2359302 (hex 0x240006) when trying to install a hotfix through the local UI, then this implies that the hotfix is already installed on your device.   | |
-| **18.** |Updates |If you use the local web UI to install Update 1 on your virtual array, you must ensure that you are running Update 0.6. If you are running a version lower than Update 0.6, you must install Update 0.6 first and then apply Update 1. If you directly install Update 1.0 from a pre-Update 0.6 version, then the monitoring charts may not work.   | |
+| **18.** |Updates |If you use the local web UI to install Update 1 on your virtual array, you must ensure that you are running Update 0.6. If you are running a version lower than Update 0.6, you must install Update 0.6 first and then apply Update 1. If you directly install Update 1.0 from a pre-Update 0.6 version, then you will miss some updates and the monitoring charts will not work.   | |
 
 
 ## Next step
-[Install Update 1.0](storsimple-virtual-array-install-update1.md) on your StorSimple Virtual Array.
+[Install Update 1.0](storsimple-virtual-array-install-update-1.md) on your StorSimple Virtual Array.
 
 ## References
 Looking for an older release note? Go to:
