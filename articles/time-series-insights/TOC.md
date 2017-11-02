@@ -23,6 +23,7 @@
 ### [Authentication and authorization](time-series-insights-authentication-and-authorization.md)
 ### [Query data using C#](time-series-insights-query-data-csharp.md)
 ### [Manage reference data using C#](time-series-insights-manage-reference-data-csharp.md)
+### [Parameterize Time Series Insights URLs to share a custom view](time-series-insights-parameteried-urls.md)
 
 # Reference
 ## [Query API](/rest/api/time-series-insights/time-series-insights-reference-queryapi)
