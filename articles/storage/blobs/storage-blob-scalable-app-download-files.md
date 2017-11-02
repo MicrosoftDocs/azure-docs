@@ -25,12 +25,19 @@ In part two of the series, you learn how to:
 
 > [!div class="checklist"]
 > * Run the application
+> * Validate the number of connections
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+## Prerequisites
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+To complete this tutorial, you must have completed the previous Storage tutorial: [Upload large amounts of random data in parallel to Azure storage][previous-tutorial].
 
-##
+## Remote into your virtual machine
+
+Use the following command, on your local machine, to create a remote desktop session with the virtual machine. Replace the IP address with the publicIPAddress of your virtual machine. When prompted, enter the credentials used when creating the virtual machine.
+
+```
+mstsc /v:<publicIpAddress>
+```
 
 
 ### Download files
@@ -72,3 +79,6 @@ private static async Task DownloadFilesAsync(string[] args)
     Console.WriteLine("Download has been completed in {0} seconds.", time.Elapsed.TotalSeconds.ToString());
 }
 ```
+
+
+[previous-tutorial]: storage-blob-scalable-app-upload-files.md
