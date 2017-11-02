@@ -166,7 +166,7 @@ Enter the name of the Certificate and Select the Store where you want to place t
 
 When App Service finishes uploading your certificate, it appears in the **SSL certificates** page.
 
-![Certificate uploaded](./media/app-service-web-tutorial-custom-ssl/certificate-uploaded1.png)
+![Certificate uploaded](./media/app-service-web-tutorial-custom-ssl/certificate-uploaded-list.png)
 
 ### Bind your SSL certificate
 
