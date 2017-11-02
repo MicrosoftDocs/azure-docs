@@ -66,6 +66,44 @@ The Azure portal includes the **HA Ports** option via a checkbox for this config
 
 Figure 2 - HA Ports configuration via Portal
 
+### Configure HA Ports LB Rule via Resource Manager Template
+
+The 2017-08-01 API version for Microsoft.Network/loadBalancers introduces this capability in the Load Balancer resource.
+
+The JSON snippet below illustrates the changes in Load Balancer configuration for HA Ports via REST API.
+
+```json
+    {
+        "apiVersion": "2017-08-01",
+        "type": "Microsoft.Network/loadBalancers",
+        ...
+        "sku":
+        {
+            "name": "Standard"
+        },
+        ...
+        "properties": {
+            "frontendIpConfigurations": [...],
+            "backendAddressPools": [...],
+            "probes": [...],
+            "loadBalancingRules": [
+             {
+                "properties": {
+                    ...
+                    "protocol": "All",
+                    "frontendPort": 0,
+                    "backendPort": 0
+                }
+             }
+            ],
+       ...
+       }
+    }
+```
+
+
+
+
 ### Configure HA ports load balancer rule with PowerShell
 
 Use the following command to create the HA Ports Load Balancer rule while creating the Internal Load Balancer with PowerShell:
