@@ -28,7 +28,9 @@
 ### 1- Create a cluster on Azure
 #### [1a- Create a Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 #### [1b- Create a Linux cluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
-### [2- Deploy API Management with Service Fabric](service-fabric-tutorial-deploy-api-management.md)
+### [2- Scale the cluster](service-fabric-tutorial-scale-cluster.md)
+### [3- Deploy API Management with Service Fabric](service-fabric-tutorial-deploy-api-management.md)
+
 
 # Samples
 ## [Code samples](https://azure.microsoft.com/resources/samples/?service=service-fabric)
@@ -358,6 +360,7 @@
 ## [Java API](/java/api/overview/azure/servicefabric)
 ## [.NET](/dotnet/api/overview/azure/service-fabric?view=azure-dotnet)
 ## [REST](/rest/api/servicefabric)
+## [Service model XML schema](service-fabric-service-model-schema.md)
 
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)

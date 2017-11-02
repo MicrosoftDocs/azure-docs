@@ -19,14 +19,14 @@ Azure Machine Learning services (preview) is an integrated, end-to-end data scie
 This tutorial is part two of a three-part series. In this part of the tutorial, you use Azure Machine Learning services (preview) to:
 
 > [!div class="checklist"]
-> * Use Azure Machine Learning Workbench
-> * Open scripts and review code
-> * Execute scripts in a local environment
-> * Review the run history
-> * Execute scripts in a local Docker environment
-> * Execute scripts in a local Azure CLI window
-> * Execute scripts in a remote Docker environment
-> * Execute scripts in a cloud Azure HDInsight environment
+> * Use Azure Machine Learning Workbench.
+> * Open scripts and review code.
+> * Execute scripts in a local environment.
+> * Review the run history.
+> * Execute scripts in a local Docker environment.
+> * Execute scripts in a local Azure CLI window.
+> * Execute scripts in a remote Docker environment.
+> * Execute scripts in a cloud Azure HDInsight environment.
 
 This tutorial uses the timeless [Iris flower data set](https://en.wikipedia.org/wiki/Iris_flower_data_set). The screenshots are Windows-specific, but the Mac OS experience is almost identical.
 
@@ -38,9 +38,9 @@ Optionally, you can experiment with running scripts against a local Docker conta
 To experiment with dispatching scripts to run in a Docker container in a remote Azure VM or an Azure HDInsight Spark cluster, you can follow the [instructions to create an Ubuntu-based Azure Data Science Virtual Machine or HDInsight cluster](how-to-create-dsvm-hdi.md).
 
 ## Review iris_sklearn.py and the configuration files
-1. Launch the Azure Machine Learning Workbench application, and open the **myIris** project you created in the previous part of the tutorial series.
+1. Open the Azure Machine Learning Workbench application, and open the **myIris** project you created in the previous part of the tutorial series.
 
-2. Once the project is open, click the **Files** button (the folder icon) on the far-left pane to open the file list in your project folder.
+2. Once the project is open, select the **Files** button (the folder icon) on the far-left pane to open the file list in your project folder.
 
 3. Select the **iris_sklearn.py** file. The Python code opens in a new text editor tab inside the workbench.
 
@@ -73,7 +73,7 @@ To experiment with dispatching scripts to run in a Docker container in a remote 
 
 Let's prepare to run the **iris_sklearn.py** script for the first time. This script requires the **scikit-learn** and **matplotlib** packages. The **scikit-learn** package is already installed by Azure Machine Learning Workbench. We still need to install **matplotlib**. 
 
-1. In Azure Machine Learning Workbench, click the **File** menu and select **Open Command Prompt** to launch the command prompt. We refer to this command-line interface window as *Azure Machine Learning Workbench CLI window*, or *CLI window* for short.
+1. In Azure Machine Learning Workbench, select the **File** menu and select **Open Command Prompt** to open the command prompt. We refer to this command-line interface window as *Azure Machine Learning Workbench CLI window*, or *CLI window* for short.
 
 2. In the CLI window, type in the following command to install the **matplotlib** Python package. It should finish in less than a minute.
 
@@ -86,21 +86,21 @@ Let's prepare to run the **iris_sklearn.py** script for the first time. This scr
 
 3. Return to the workbench app window. 
 
-4. In the toolbar at the top of the **iris_sklearn.py** tab, click to open the drop-down menu next to the **Save** icon, and select **Run Configuration**.  Select **local** as the execution environment, and then enter `iris_sklearn.py` as the script to run.
+4. In the toolbar at the top of the **iris_sklearn.py** tab, select to open the drop-down menu next to the **Save** icon, and select **Run Configuration**.  Select **local** as the execution environment, and then enter `iris_sklearn.py` as the script to run.
 
 5. Next, move to the right side of the toolbar and enter `0.01` in the **Arguments** box. 
 
    ![Run control](media/tutorial-classifying-iris/run_control.png)
 
-6. Click the **Run** button. A job is immediately scheduled. The job is listed in the **Jobs** pane on the right side of the workbench window. 
+6. Select the **Run** button. A job is immediately scheduled. The job is listed in the **Jobs** pane on the right side of the workbench window. 
 
 7. After a few moments, the status of the job transitions from **Submitting**, to **Running**, and then to **Completed**.
 
    ![Run sklearn](media/tutorial-classifying-iris/run_sklearn.png)
 
-8. Click **Completed** in the job status text in the **Jobs** pane. A pop-up window opens and displays the standard output (stdout) text of the running script. To close the stdout text, click the **Close** (x) button on the upper right of the pop-up window.
+8. Select **Completed** in the job status text in the **Jobs** pane. A pop-up window opens and displays the standard output (stdout) text of the running script. To close the stdout text, select the **Close** (x) button on the upper right of the pop-up window.
 
-9. In the same job status in the **Jobs** pane, click the blue text **iris_sklearn.py [n]** (_n_ is the run number) just above the **Completed** status and the start time. The **Run Properties** window opens and shows the following information for that particular run:
+9. In the same job status in the **Jobs** pane, select the blue text **iris_sklearn.py [n]** (_n_ is the run number) just above the **Completed** status and the start time. The **Run Properties** window opens and shows the following information for that particular run:
    - **Run Properties** information
    - **Outputs** files
    - **Visualizations**, if any
@@ -144,12 +144,12 @@ Let's prepare to run the **iris_sklearn.py** script for the first time. This scr
 
 11. Repeat additional runs. 
 
-    Enter a series of different numerical values in the **Arguments** box ranging from `0.001` to `10`. Click **Run** to execute the code a few more times. The argument value you change each time is fed to the logistic regression algorithm in the code, and that results in different findings each time.
+    Enter a series of different numerical values in the **Arguments** box ranging from `0.001` to `10`. Select **Run** to execute the code a few more times. The argument value you change each time is fed to the logistic regression algorithm in the code, and that results in different findings each time.
 
 ## Review the run history in detail
 In Azure Machine Learning Workbench, every script execution is captured as a run history record. If you open the **Runs** view, you can view the run history of a particular script.
 
-1. To open the list of **Runs**, click the **Runs** button (clock icon) on the left toolbar. Then click **iris_sklearn.py** to show the **Run Dashboard** of `iris_sklearn.py`.
+1. To open the list of **Runs**, select the **Runs** button (clock icon) on the left toolbar. Then select **iris_sklearn.py** to show the **Run Dashboard** of `iris_sklearn.py`.
 
    ![Run view](media/tutorial-classifying-iris/run_view.png)
 
@@ -158,11 +158,11 @@ Review the statistics captured across the multiple runs. Graphs render in the to
 
    ![Run dashboard](media/tutorial-classifying-iris/run_dashboard.png)
 
-3. Filter the table, and then click in the graphs to view the status, duration, accuracy, and regularization rate of each run. 
+3. Filter the table, and then select in the graphs to view the status, duration, accuracy, and regularization rate of each run. 
 
-4. Select two or three runs in the **Runs** table, and click the **Compare** button to open a detailed comparison pane. Review the side-by-side comparison. Click the **Run List** back button on the upper left of the comparison pane to return to the **Run Dashboard**.
+4. Select two or three runs in the **Runs** table, and select the **Compare** button to open a detailed comparison pane. Review the side-by-side comparison. Select the **Run List** back button on the upper left of the comparison pane to return to the **Run Dashboard**.
 
-5. Click an individual run to see the run detail view. Notice the statistics for the selected run are listed in the **Run Properties** section. The files written into the output folder are listed in the **Outputs** section, and you can download the files from there.
+5. Select an individual run to see the run detail view. Notice the statistics for the selected run are listed in the **Run Properties** section. The files written into the output folder are listed in the **Outputs** section, and you can download the files from there.
 
    ![Run details](media/tutorial-classifying-iris/run_details.png)
 
@@ -181,15 +181,15 @@ With Machine Learning, you can easily configure additional execution environment
 
    Each environment has two files, such as `docker-python.compute` and `docker-python.runconfig`. Open each file to see that certain options are configurable in the text editor.  
 
-   To clean up, click **Close** (x) on the tabs for any open text editors.
+   To clean up, select **Close** (x) on the tabs for any open text editors.
 
 3. Run the **iris_sklearn.py** script by using the **docker-python** environment: 
 
-   - On the left toolbar, click the **Clock** icon to open the **Runs** pane. Click **All Runs**. 
+   - On the left toolbar, select the **Clock** icon to open the **Runs** pane. Select **All Runs**. 
    - On the top of the **All Runs** tab, select **docker-python** as the targeted environment instead of the default **local**. 
    - Next, move to the right side and select **iris_sklearn.py** as the script to run. 
    - Leave the **Arguments** box blank because the script specifies a default value. 
-   - Click the **Run** button.
+   - Select the **Run** button.
 
 4. Observe that a new job starts. It appears in the **Jobs** pane on the right side of the workbench window.
 
@@ -220,10 +220,10 @@ With Machine Learning, you can easily configure additional execution environment
 
 ## Execute scripts in the Azure Machine Learning CLI window
 
-1. In Azure Machine Learning Workbench, launch the command-line window, click the **File** menu, and then click **Open Command Prompt**. Your command prompt starts in the project folder with the prompt `C:\Temp\myIris\>`.
+1. In Azure Machine Learning Workbench, open the command-line window, select the **File** menu, and then select **Open Command Prompt**. Your command prompt starts in the project folder with the prompt `C:\Temp\myIris\>`.
 
    >[!Important]
-   >You must use the command-line window (launched from the workbench) to accomplish the steps that follow.
+   >You must use the command-line window (opened from the workbench) to accomplish the steps that follow.
 
 2. Use the command prompt to log in to Azure. 
 
@@ -264,7 +264,7 @@ With Machine Learning, you can easily configure additional execution environment
    REM executes iris_pyspark.py in the local Docker container Spark environment
    az ml experiment submit -c docker-spark .\iris_pyspark.py 0.1
    ```
-6. In the workbench, click the **Folder** icon on the left pane to list the project files, and open the Python script named **run.py**. 
+6. In the workbench, select the **Folder** icon on the left pane to list the project files, and open the Python script named **run.py**. 
 
    This script is useful to loop over various regularization rates. Run the experiment multiple times with those rates. This script starts an `iris_sklearn.py` job with a regularization rate of `10.0` (a ridiculously large number). The script then cuts the rate to half in the following run, and so on, until the rate is no smaller than `0.005`. 
 
@@ -278,7 +278,7 @@ With Machine Learning, you can easily configure additional execution environment
        reg = reg / 2
    ```
 
-   To launch the **run.py** script from the command line, run the following commands:
+   To open the **run.py** script from the command line, run the following commands:
 
    ```cmd
    REM submits iris_sklearn.py multiple times with different regularization rates
@@ -371,14 +371,14 @@ You can also run this script in an actual Spark cluster.
 ## Next steps
 In this second part of the three-part tutorial series, you have learned how to use Azure Machine Learning services to:
 > [!div class="checklist"]
-> * Use Azure Machine Learning Workbench
-> * Open scripts and review code
-> * Execute scripts in a local environment
-> * Review the run history
-> * Execute scripts in a local Docker environment
-> * Execute scripts in a local Azure CLI window
-> * Execute scripts in a remote Docker environment
-> * Execute scripts in a cloud HDInsight environment
+> * Use Azure Machine Learning Workbench.
+> * Open scripts and review code.
+> * Execute scripts in a local environment.
+> * Review the run history.
+> * Execute scripts in a local Docker environment.
+> * Execute scripts in a local Azure CLI window.
+> * Execute scripts in a remote Docker environment.
+> * Execute scripts in a cloud HDInsight environment.
 
 You are ready to move on to the third part in the series. Now that we have created the logistic regression model, let's deploy it as a real-time web service.
 

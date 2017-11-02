@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
-ms.author: bwren
+ms.author: mbullwin
 
 ---
 # Sampling in Application Insights

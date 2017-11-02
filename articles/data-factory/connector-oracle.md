@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 11/01/2017
 ms.author: jingwang
 
 ---
@@ -30,7 +30,7 @@ This article outlines how to use the Copy Activity in Azure Data Factory to copy
 
 You can copy data from Oracle database to any supported sink data store, or copy data from any supported source data store to Oracle database. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
-Specifically, this Oracle connector supports the following versions of Oracle database:
+Specifically, this Oracle connector supports the following versions of Oracle database, and it supports Basic or OID authentications.
 
     - Oracle 12c R1 (12.1)
     - Oracle 11g R1, R2 (11.1, 11.2)
