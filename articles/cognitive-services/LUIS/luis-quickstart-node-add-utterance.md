@@ -14,16 +14,20 @@ ms.author: v-demak
 
 # Add utterances to a LUIS app using Node.js 
 
-This quickstart shows you how to programmatically add utterances to your Language Understanding Intelligent Service (LUIS) app in just a few minutes. When you're finished, you'll be able to use Node.js code to add an utterance to a LUIS app.
+This quickstart shows you how to programmatically add utterances to your Language Understanding Intelligent Service (LUIS) app and train LUIS. 
 
-## Before you begin
+Using the command line is a quick way to enter many utterances and train LUIS. You can automate this task into a larger pipeline.
 
-* This quickstart assumes you have already created a LUIS app. You can see [Create a LUIS app](./luis-get-started-create-app.md) for instructions on how to create a LUIS app, or import a sample LUIS app using the instructions [here](https://github.com/Microsoft/LUIS-Samples/tree/master/examples/add-utterances/nodejs). 
+Refer to the [Authoring API definitions][authoring-apis] for technical documentation for the APIs.
+
+## Prerequisites
+
+* This quickstart assumes you have a LUIS app. You can see [Create a LUIS app](./luis-get-started-create-app.md) for instructions on how to create a LUIS app, or import a [sample LUIS app](https://github.com/Microsoft/LUIS-Samples/tree/master/examples/add-utterances/nodejs). 
 * You need to use a programmatic key. You can find this key under Account Settings in [https://www.luis.ai](https://www.luis.ai).
 
 The prerequisites to run the sample code are:
-* Download the [sample code](https://github.com/Microsoft/LUIS-Samples/tree/master/examples/add-utterances/nodejs). 
 * Latest Node.js with NPM. Download it from [here](https://nodejs.org/en/download/).
+* Install the NPM dependencies for this quickstart: **request-promise**, **fs-extra**.  
 * A [created](https://docs.microsoft.com/en-us/azure/cognitive-services/LUIS/create-app) LUIS Application. 
 * **[Recommended]** Visual Studio Code for IntelliSense and debugging, download it from [here](https://code.visualstudio.com/) for free.
 
@@ -48,7 +52,7 @@ In order to use this application, you need to change the values in the `add-utte
 Open `add-utterances.js`, and change these values in the file. 
 
 
-   [!code-nodejs[Console app to add utterances via authoring code for Node.js](~/samples-luis/documentation-samples/endpoint-api-samples/node/add-utterance.js#constants)]
+   [!code-nodejs[Console app to add utterances via authoring code for Node.js](~/samples-luis/documentation-samples/authoring-api-samples/node/add-utterance.js#constants)]
 
 
 
@@ -164,3 +168,5 @@ If you log into www.luis.ai and look at the intents page of your app, you should
 
 * After adding an utterance, you may want to [train](https://docs.microsoft.com/en-us/azure/cognitive-services/LUIS/train-test) your LUIS app.
 * See the [LUIS Endpoint API reference](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78) to learn more about the parameters for calling your LUIS endpoint.
+ 
+[authoring-apis]:https://aka.ms/luis-authoring-api
