@@ -27,7 +27,7 @@ This article provides an example deployment of high availability (HA) ports on a
 
 Figure 1 illustrates the following configuration of the deployment example described in this article:
 - The NVAs are deployed in the backend pool of an Internal Load Balancer behind the HA ports configuration. 
-- The UDR applied on the DMZ Subnet routes all traffic to the <?> by making the next hop as the Internal Load Balancer Virtual IP. 
+- The UDR applied on the DMZ Subnet routes all traffic to the Network Virtual Appliances by making the next hop as the Internal Load Balancer Virtual IP. 
 - Internal Load Balancer distributes the traffic to one of the active NVAs according to the LB algorithm.
 - NVA processes the traffic and forwards it to the original destination in the backend subnet.
 - The return path can also take the same route if a corresponding UDR is configured in the backend subnet. 
