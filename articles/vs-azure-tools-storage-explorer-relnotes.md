@@ -1,4 +1,4 @@
----
+2---
 title: Microsoft Azure Storage Explorer (Preview) release notes | Microsoft Docs
 description: Release notes for Microsoft Azure Storage Explorer (Preview)
 services: storage
@@ -19,7 +19,7 @@ ms.author: cawa
 ---
 # Microsoft Azure Storage Explorer (Preview) release notes
 
-This article contains the release notes for Azure Storage Explorer 0.9.0 (Preview) release, as well as release notes for previous versions.
+This article contains the release notes for Azure Storage Explorer 0.9.2 (Preview) release, as well as release notes for previous versions.
 
 [Microsoft Azure Storage Explorer (Preview)](./vs-azure-tools-storage-manage-with-storage-explorer.md) is a standalone app that enables you to easily work with Azure Storage data on Windows, macOS, and Linux.
 
@@ -27,9 +27,9 @@ This article contains the release notes for Azure Storage Explorer 0.9.0 (Previe
 11/01/2017
 
 ### Download Azure Storage Explorer 0.9.2 (Preview)
-- [Azure Storage Explorer 0.9.1 (Preview) for Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Azure Storage Explorer 0.9.1 (Preview) for Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Azure Storage Explorer 0.9.1 (Preview) for Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+- [Azure Storage Explorer 0.9.2 (Preview) for Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Azure Storage Explorer 0.9.2 (Preview) for Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Azure Storage Explorer 0.9.2 (Preview) for Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### Hotfixes
 * Unexpected data changes were possible when editing Edm.DateTime values for table entities depending on the local time zone. The editor now uses a plain text box, giving precise, consistent control over Edm.DateTime values.
@@ -95,9 +95,9 @@ This article contains the release notes for Azure Storage Explorer 0.9.0 (Previe
 ## Version 0.9.1 / 0.9.0 (Preview)
 10/20/2017
 ### Download Azure Storage Explorer 0.9.1 (Preview)
-* [Download Azure Storage Explorer 0.8.16 (Preview) for Windows](https://go.microsoft.com/fwlink/?LinkId=809306)
-* [Download Azure Storage Explorer 0.8.16 (Preview) for Mac](https://go.microsoft.com/fwlink/?LinkId=809307)
-* [Download Azure Storage Explorer 0.8.16 (Preview) for Linux](https://go.microsoft.com/fwlink/?LinkId=809308)
+* [Download Azure Storage Explorer 0.9.1 (Preview) for Windows](https://go.microsoft.com/fwlink/?LinkId=809306)
+* [Download Azure Storage Explorer 0.9.1 (Preview) for Mac](https://go.microsoft.com/fwlink/?LinkId=809307)
+* [Download Azure Storage Explorer 0.9.1 (Preview) for Linux](https://go.microsoft.com/fwlink/?LinkId=809308)
 
 ### New
 * Preview support for Azure Cosmos DB:
@@ -155,6 +155,7 @@ This article contains the release notes for Azure Storage Explorer 0.9.0 (Previe
 
 ## Previous releases
 
+* [Version 0.8.16](#version-0816)
 * [Version 0.8.14](#version-0814)
 * [Version 0.8.13](#version-0813)
 * [Version 0.8.12 / 0.8.11 / 0.8.10](#version-0812--0811--0810)
@@ -172,7 +173,7 @@ This article contains the release notes for Azure Storage Explorer 0.9.0 (Previe
 * [Version 0.7.20160105.0](#version-07201601050)
 * [Version 0.7.20151116.0](#version-07201511160)
 
-## Version 0.8.16 (Preview)
+## Version 0.8.16
 8/21/2017
 
 ### New
