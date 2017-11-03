@@ -192,8 +192,7 @@ else
 }
 ```
 
-In the **sfctl** code below, I used the following command to get the **node-name** and **node-instance-id** values used to work with the last-created node:  
-`sfctl node list --query "sort_by(items[*], &instanceId)[-1].[instanceId,name]"`
+In the **sfctl** code below, the following command is used to get the **node-name** and **node-instance-id** values of the last-created node: `sfctl node list --query "sort_by(items[*], &instanceId)[-1].[instanceId,name]"`
 
 ```azurecli
 # Inform the node that it is going to be removed
