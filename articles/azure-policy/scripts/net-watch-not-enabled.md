@@ -1,5 +1,5 @@
 ---
-title: json Sample - Audit if Network Watcher is not enabled for region | Microsoft Docs
+title: Azure Policy json sample - Audit if Network Watcher is not enabled for region | Microsoft Docs
 description: This json sample policy audits if network watcher is not enabled for a specified region
 services: azure-policy
 documentationcenter:
@@ -19,7 +19,7 @@ ms.custom: mvc
 
 # Audit if Network Watcher is not enabled for region
 
-This policy audits if network watcher is not enabled for a specified region. You specify the name of the region to check whether network watcher is enabled.
+This policy audits if Network Watcher is not enabled for a specified region. You specify the name of the region to check whether Network Watcher is enabled.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

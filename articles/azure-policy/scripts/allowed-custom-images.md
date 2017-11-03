@@ -1,5 +1,5 @@
 ---
-title: json Sample - approved VM images  | Microsoft Docs
+title: Azure Policy json sample - Approved VM images  | Microsoft Docs
 description: This json sample policy requires that only approved custom images are deployed in your environment.
 services: azure-policy
 documentationcenter:

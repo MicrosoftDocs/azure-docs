@@ -1,5 +1,5 @@
 ---
-title: json Sample - Apply tag and its default value | Microsoft Docs
+title: Azure Policy json sample - Apply tag and its default value | Microsoft Docs
 description: This json sample policy appends a specified tag name and value, if that tag is not provided.
 services: azure-policy
 documentationcenter:

@@ -1,5 +1,5 @@
 ---
-title: json Sample - Audit DB level threat detection setting | Microsoft Docs
+title: Azure Policy json sample - Audit DB level threat detection setting | Microsoft Docs
 description: This json sample policy audits SQL database security alert policies if those policies are not set to the specified state.
 services: azure-policy
 documentationcenter:

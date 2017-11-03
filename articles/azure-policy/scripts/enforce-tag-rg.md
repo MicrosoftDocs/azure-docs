@@ -1,5 +1,5 @@
 ---
-title: json Sample - Enforce tag and its value on resource groups | Microsoft Docs
+title: Azure Policy json sample - Enforce tag and its value on resource groups | Microsoft Docs
 description: This json sample policy requires a tag and value on a resource group.
 services: azure-policy
 documentationcenter:

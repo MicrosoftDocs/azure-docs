@@ -1,5 +1,5 @@
 ---
-title: json Sample - Allowed resource types | Microsoft Docs
+title: Azure Policy json sample - Allowed resource types | Microsoft Docs
 description: This json sample policy ensures only approved resource types are deployed.
 services: azure-policy
 documentationcenter:

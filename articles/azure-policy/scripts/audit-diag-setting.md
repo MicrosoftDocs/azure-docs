@@ -1,5 +1,5 @@
 ---
-title: json Sample - Audit diagnostic setting | Microsoft Docs
+title: Azure Policy json sample - Audit diagnostic setting | Microsoft Docs
 description: This json sample policy audits if diagnostic settings not enabled for specified resource types.
 services: azure-policy
 documentationcenter:
@@ -19,7 +19,7 @@ ms.custom: mvc
 
 # Audit diagnostic setting
 
-Audits if diagnostic settings not enabled for specified resource types. You specify an array of resource types to check whether diagnostic settings are enabled.
+Audits if diagnostic settings are not enabled for specified resource types. You specify an array of resource types to check whether diagnostic settings are enabled.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

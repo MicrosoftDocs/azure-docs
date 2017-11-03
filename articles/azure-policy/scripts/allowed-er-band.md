@@ -1,5 +1,5 @@
 ---
-title: json Sample - Allowed Express Route bandwidth | Microsoft Docs
+title: Azure Policy json sample - Allowed Express Route bandwidth | Microsoft Docs
 description: This json sample policy requires that express routes use a specified set of bandwidths.
 services: azure-policy
 documentationcenter:

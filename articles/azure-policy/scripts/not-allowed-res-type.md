@@ -1,5 +1,5 @@
 ---
-title: json Sample - Not allowed resource types | Microsoft Docs
+title: Azure Policy json sample - Not allowed resource types | Microsoft Docs
 description: This json sample policy prohibits the deployment of specified resource types.
 services: azure-policy
 documentationcenter:

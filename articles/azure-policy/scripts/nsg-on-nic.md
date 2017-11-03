@@ -1,5 +1,5 @@
 ---
-title: json Sample - NSG X on every NIC | Microsoft Docs
+title: Azure Policy json sample - NSG x on every NIC | Microsoft Docs
 description: This json sample policy requires that a specific network security group is used with every virtual network interface.
 services: azure-policy
 documentationcenter:
@@ -17,7 +17,7 @@ ms.author: banders
 ms.custom: mvc
 ---
 
-# NSG X on every NIC
+# NSG x on every NIC
 
 This policy requires that a specific network security group is used with every virtual network interface. You specify the ID of the network security group to use.
 

@@ -1,5 +1,5 @@
 ---
-title: json Sample - Audit SQL DB Level Audit Setting | Microsoft Docs
+title: Azure Policy json sample - Audit SQL DB level audit Setting | Microsoft Docs
 description: This json sample policy audits SQL database audit settings if those settings do not match a specified setting.
 services: azure-policy
 documentationcenter:
@@ -17,7 +17,7 @@ ms.author: banders
 ms.custom: mvc
 ---
 
-# Audit SQL DB Level Audit Setting
+# Audit SQL DB level audit setting
 
 This policy audits SQL database audit settings if those settings do not match a specified setting. You specify a value that indicates whether audit settings should be enabled or disabled.
 

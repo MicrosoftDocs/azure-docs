@@ -65,7 +65,7 @@ The following table includes links to json templates for Azure Policy.
 | [Ensure https traffic only for storage account](scripts/ensure-https-stor-acct.md) | Requires storage accounts to use HTTPS traffic.  |
 | [Deny cool access tiering for storage accounts](scripts/deny-cool-access-tiering.md) | Prohibits the use of cool access tiering for blob storage accounts.  |
 | [Ensure storage file encryption](scripts/ensure-store-file-enc.md) | Requires that file encryption is enabled for storage accounts.  |
-|**built-in-policy**||
+|**Built-in policy**||
 | [Allowed locations](scripts/allowed-locs.md) | Requires that all resources are deployed to the approved locations. You specify an array of approved locations.  |
 | [Allowed resource types](scripts/allowed-res-types.md) | Ensures only approved resource types are deployed. You specify an array of resource types that are permitted.  |
 | [Allowed storage account SKUs](scripts/allowed-stor-acct-skus.md) | Requires that storage accounts use an approved SKU. You specify an array of approved SKUs. |

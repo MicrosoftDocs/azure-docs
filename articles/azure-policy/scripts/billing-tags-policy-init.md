@@ -1,5 +1,5 @@
 ---
-title: json Sample - Billing Tags Policy Initiative | Microsoft Docs
+title: Azure Policy json sample - Billing tags policy initiative | Microsoft Docs
 description: This json sample policy set requires specified tag values for cost center and product name.
 services: azure-policy
 documentationcenter:
@@ -17,7 +17,7 @@ ms.author: banders
 ms.custom: mvc
 ---
 
-# Billing Tags Policy Initiative
+# Billing tags policy initiative
 
 This policy set requires specified tag values for cost center and product name. Uses built-in policies to apply and enforce required tags. You specify the required values for the tags.
 

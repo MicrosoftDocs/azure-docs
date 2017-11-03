@@ -1,5 +1,5 @@
 ---
-title: json Sample - Deny cool access tiering for storage accounts | Microsoft Docs
+title: Azure Policy json sample - Deny cool access tiering for storage accounts | Microsoft Docs
 description: This json sample policy prohibits the use of cool access tiering for blob storage accounts.
 services: azure-policy
 documentationcenter:

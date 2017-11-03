@@ -1,5 +1,5 @@
 ---
-title: json Sample - Ensure https traffic only for storage account | Microsoft Docs
+title: Azure Policy json sample - Ensure https traffic only for storage account | Microsoft Docs
 description: This json sample policy requires storage accounts to use HTTPS traffic.
 services: azure-policy
 documentationcenter:

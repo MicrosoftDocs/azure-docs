@@ -15,7 +15,7 @@ ms.custom: mvc
 
 The first step in understanding compliance in Azure is knowing where you stand with your own current resources. This quickstart steps you through the process of creating a policy assignment to identify virtual machines that are not using managed disks.
 
-At the end of this process, you will have successfully identified what virtual machines are not using managed disks, and therefore *non-compliant*.
+At the end of this process, you will have successfully identified what virtual machines are not using managed disks, and are therefore *non-compliant*.
 
 
 PowerShell is used to create and manage Azure resources from the command line or in scripts. This guide details using PowerShell to create a policy assignment to identify non-compliant resources in your Azure environment.
@@ -38,7 +38,7 @@ Azure Policy is now available in Public Preview and you need to register to requ
 
    ![Opt in to use Azure Policy](media/assign-policy-definition/preview-opt-in.png)
 
-   Your request is automatically approved for Preview. Please allow up to 30 minutes to the system to process your registration.
+   Your request is automatically approved for Preview. Please allow up to 30 minutes for the system to process your registration.
 
 ## Create a policy assignment
 

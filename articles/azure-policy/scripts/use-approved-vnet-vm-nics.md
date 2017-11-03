@@ -1,5 +1,5 @@
 ---
-title: json Sample - Use approved vNet for VM network interfaces | Microsoft Docs
+title: Azure Policy json sample - Use approved vNet for VM network interfaces | Microsoft Docs
 description: This json sample policy requires that network interfaces use an approved virtual network.
 services: azure-policy
 documentationcenter:

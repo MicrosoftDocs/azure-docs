@@ -1,5 +1,5 @@
 ---
-title: json Sample - Only allow a certain VM platform image  | Microsoft Docs
+title: Azure Policy json sample - Only allow a certain VM platform image  | Microsoft Docs
 description: This json sample policy requires that virtual machines use a specific version of UbuntuServer.
 services: azure-policy
 documentationcenter:

@@ -30,7 +30,7 @@ Azure Policy is now available in Public Preview and you need to register to requ
 
    ![Opt-in to use Azure Policy](media/assign-policy-definition/preview-opt-in.png)
 
-   Your request is automatically approved for Preview. Please allow up to 30 minutes to the system to process your registration.
+   Your request is automatically approved for Preview. Please allow up to 30 minutes for the system to process your registration.
 
 ## Create a policy assignment
 

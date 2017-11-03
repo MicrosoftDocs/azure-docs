@@ -1,5 +1,5 @@
 ---
-title: json Sample - Allowed Application Gateway SKUs | Microsoft Docs
+title: Azure Policy json sample - Allowed application gateway SKUs | Microsoft Docs
 description: This json sample policy requires that application gateways use an approved SKU.
 services: azure-policy
 documentationcenter:
@@ -17,7 +17,7 @@ ms.author: banders
 ms.custom: mvc
 ---
 
-# Allowed Application Gateway SKUs
+# Allowed application gateway SKUs
 
 This policy requires that application gateways use an approved SKU. You specify an array of approved SKUs.
 

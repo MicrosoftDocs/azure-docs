@@ -1,5 +1,5 @@
 ---
-title: json Sample - Not allowed VM Extensions  | Microsoft Docs
+title: Azure Policy json sample - Not allowed VM extensions  | Microsoft Docs
 description: This json sample policy prohibits the use of specified extensions.
 services: azure-policy
 documentationcenter:
@@ -17,7 +17,7 @@ ms.author: banders
 ms.custom: mvc
 ---
 
-# Not allowed VM Extensions
+# Not allowed VM extensions
 
 Prohibits the use of specified extensions. You specify an array containing the prohibited extension types.
 

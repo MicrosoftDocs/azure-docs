@@ -122,7 +122,7 @@ Now that we've assigned the policy definition, we're going to create a new polic
 
 ## Create a policy definition with REST API
 
-You can create a policy with the REST API for Policy Definitions. The REST API enables you to create and delete policy definitions, and get information about existing definitions.+
+You can create a policy with the REST API for Policy Definitions. The REST API enables you to create and delete policy definitions, and get information about existing definitions.
 To create a policy definition, use the following example:
 
 ```

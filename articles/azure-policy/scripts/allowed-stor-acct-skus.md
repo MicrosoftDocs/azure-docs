@@ -1,5 +1,5 @@
 ---
-title: json Sample - Allowed storage account SKUs | Microsoft Docs
+title: Azure Policy json sample - Allowed storage account SKUs | Microsoft Docs
 description: This json sample policy requires that storage accounts use an approved SKU.
 services: azure-policy
 documentationcenter:

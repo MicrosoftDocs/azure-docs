@@ -1,5 +1,5 @@
 ---
-title: json Sample - Allowed Virtual Network Gateway SKUs | Microsoft Docs
+title: Azure Policy json sample - Allowed virtual network gateway SKUs | Microsoft Docs
 description: This json sample policy requires that virtual network gateways use an approved SKU and gateway type.
 services: azure-policy
 documentationcenter:
@@ -17,7 +17,7 @@ ms.author: banders
 ms.custom: mvc
 ---
 
-# Allowed Virtual Network Gateway SKUs
+# Allowed virtual network gateway SKUs
 
 This policy requires that virtual network gateways use an approved SKU and gateway type. You specify an array of approved SKUs and an array of approved gateway types.
 

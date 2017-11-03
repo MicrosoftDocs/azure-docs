@@ -1,5 +1,5 @@
 ---
-title: json Sample - No network peering to ER network | Microsoft Docs
+title: Azure Policy json sample - No network peering to ER network | Microsoft Docs
 description: This json sample policy prohibits a network peering from being associated to a network in a specified resource group.
 services: azure-policy
 documentationcenter:

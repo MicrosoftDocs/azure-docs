@@ -1,5 +1,5 @@
 ---
-title: json Sample - Allowed Load Balancer SKUs | Microsoft Docs
+title: Azure Policy json sample - Allowed load balancer SKUs | Microsoft Docs
 description: This json sample policy requires that load balancers use an approved SKU.
 services: azure-policy
 documentationcenter:
@@ -17,7 +17,7 @@ ms.author: banders
 ms.custom: mvc
 ---
 
-# Allowed Load Balancer SKUs
+# Allowed load balancer SKUs
 
 This policy requires that load balancers use an approved SKU. You specify an array of allowed SKUs.
 

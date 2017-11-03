@@ -1,5 +1,5 @@
 ---
-title: json Sample - Allowed locations | Microsoft Docs
+title: Azure Policy json sample - Allowed locations | Microsoft Docs
 description: This json sample policy requires that all resources are deployed to the approved locations.
 services: azure-policy
 documentationcenter:

@@ -1,5 +1,5 @@
 ---
-title: json Sample - Ensure storage file encryption | Microsoft Docs
+title: Azure Policy json sample - Ensure storage file encryption | Microsoft Docs
 description: This json sample policy requires that file encryption is enabled for storage accounts.
 services: azure-policy
 documentationcenter:

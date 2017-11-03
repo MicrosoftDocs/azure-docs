@@ -1,5 +1,5 @@
 ---
-title: json Sample - Allowed SQL DB SKUs | Microsoft Docs
+title: Azure Policy json sample - Allowed SQL DB SKUs | Microsoft Docs
 description: This json sample policy requires SQL databases to use an approved SKU.
 services: azure-policy
 documentationcenter:

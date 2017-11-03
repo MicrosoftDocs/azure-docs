@@ -1,5 +1,5 @@
 ---
-title: json Sample - Allowed SKUs for Storage Accounts and Virtual Machines | Microsoft Docs
+title: Azure Policy json sample - Allowed SKUs for storage accounts and virtual machines | Microsoft Docs
 description: This json sample policy requires that storage accounts and virtual machines use approved SKUs.
 services: azure-policy
 documentationcenter:
@@ -17,7 +17,7 @@ ms.author: banders
 ms.custom: mvc
 ---
 
-# Allowed SKUs for Storage Accounts and Virtual Machines
+# Allowed SKUs for storage accounts and virtual machines
 
 This policy requires that storage accounts and virtual machines use approved SKUs. Uses built-in policies to ensure approved SKUs. You specify an array of approved virtual machines SKUs, and an array of approved storage account SKUs.
 

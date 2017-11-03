@@ -1,5 +1,5 @@
 ---
-title: json Sample - Allow custom VM image from a Resource Group  | Microsoft Docs
+title: Azure Policy json sample - Allow custom VM image from a resource group  | Microsoft Docs
 description: This json sample policy requires that custom images come from an approved resource group.
 services: azure-policy
 documentationcenter:
@@ -17,7 +17,7 @@ ms.author: banders
 ms.custom: mvc
 ---
 
-# Allow custom VM image from a Resource Group
+# Allow custom VM image from a resource group
 
 This json sample policy requires that custom images come from an approved resource group. You specify the name of the approved resource group.
 

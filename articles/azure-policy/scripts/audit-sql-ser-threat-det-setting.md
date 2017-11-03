@@ -1,5 +1,5 @@
 ---
-title: json Sample - Audit Server level threat detection setting | Microsoft Docs
+title: Azure Policy json sample - Audit server level threat detection setting | Microsoft Docs
 description: This json sample policy audits SQL database security alert policies if those policies are not set to the specified state.
 services: azure-policy
 documentationcenter:
@@ -17,7 +17,7 @@ ms.author: banders
 ms.custom: mvc
 ---
 
-# Audit Server level threat detection setting
+# Audit server level threat detection setting
 
 This policy audits SQL database security alert policies if those policies are not set to the specified state. You specify a value that indicates whether threat detection is enabled or disabled.
 

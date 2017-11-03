@@ -1,5 +1,5 @@
 ---
-title: json Sample - Allowed Express Route SKUs | Microsoft Docs
+title: Azure Policy json sample - Allowed Express Route SKUs | Microsoft Docs
 description: This json sample policy requires that Express Routes use an approved SKU.
 services: azure-policy
 documentationcenter:

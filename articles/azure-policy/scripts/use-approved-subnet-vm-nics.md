@@ -1,5 +1,5 @@
 ---
-title: json Sample - Use approved subnet for VM network interfaces | Microsoft Docs
+title: Azure Policy json sample - Use approved subnet for VM network interfaces | Microsoft Docs
 description: This json sample policy requires that network interfaces use an approved subnet.
 services: azure-policy
 documentationcenter:

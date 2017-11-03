@@ -114,7 +114,8 @@ While creating and managing policy definitions and assignments, here are a few p
 
    Keep in mind that once you have created an initiative assignment from an initiative definition, any new policy definitions added to the initiative definition automatically roll under the initiative assignment(s) under that initiative definition. However, if there’s a new parameter introduced to the new policy definition, you need to update the initiative definition and assignments by editing the initiative definition or assignment.
 
-## Next steps:
+## Next steps
+
 Now that you have an overview of Azure Policy and some of the key concepts we’re introducing, here are the suggested next steps:
 
 - [Assign a policy definition](./assign-policy-definition.md)

@@ -1,5 +1,5 @@
 ---
-title: json Sample - Require SQL Server version 12.0 | Microsoft Docs
+title: Azure Policy json sample - Require SQL Server version 12.0 | Microsoft Docs
 description: This json sample policy requires SQL servers to use version 12.0.
 services: azure-policy
 documentationcenter:

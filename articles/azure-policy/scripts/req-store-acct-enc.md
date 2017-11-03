@@ -1,5 +1,5 @@
 ---
-title: json Sample - Require storage account encryption | Microsoft Docs
+title: Azure Policy json sample - Require storage account encryption | Microsoft Docs
 description: This json sample policy requires the storage account to use blob encryption.
 services: azure-policy
 documentationcenter:

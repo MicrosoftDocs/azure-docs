@@ -1,5 +1,5 @@
 ---
-title: json Sample - Enforce tag and its value | Microsoft Docs
+title: Azure Policy json sample - Enforce tag and its value | Microsoft Docs
 description: This json sample policy requires a specified tag name and value.
 services: azure-policy
 documentationcenter:

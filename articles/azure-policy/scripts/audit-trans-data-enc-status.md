@@ -1,5 +1,5 @@
 ---
-title: json Sample - Audit transparent data encryption status | Microsoft Docs
+title: Azure Policy json sample - Audit transparent data encryption status | Microsoft Docs
 description: This json sample policy audits SQL database transparent data encryption if it is not enabled.
 services: azure-policy
 documentationcenter:

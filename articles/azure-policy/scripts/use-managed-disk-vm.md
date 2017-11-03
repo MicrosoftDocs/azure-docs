@@ -1,5 +1,5 @@
 ---
-title: json Sample - Create VM using Managed Disk | Microsoft Docs
+title: Azure Policy json sample - Create VM using managed disk | Microsoft Docs
 description: This json sample policy requires that virtual machines use managed disks.
 services: azure-policy
 documentationcenter:
@@ -17,7 +17,7 @@ ms.author: banders
 ms.custom: mvc
 ---
 
-# Create VM using Managed Disk
+# Create VM using managed disk
 
 Requires that virtual machines use managed disks.
 

@@ -188,7 +188,7 @@ Policy supports the following types of effect:
 * **Append**: adds the defined set of fields to the request
 * **AuditIfNotExists**: enables auditing if a resource does not exist
 * **DeployIfNotExists**: deploys a resource if it does not already exist. Currently, this effect is only supported through built-in policies.
-* **	DenyIfNotExists**: denies the creation of an exist if it does not exist
+* **DenyIfNotExists**: denies the creation of an exist if it does not exist
 
 For **append**, you must provide the following details:
 

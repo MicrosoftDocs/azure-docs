@@ -1,5 +1,5 @@
 ---
-title: json Sample - Allowed Peering Location for Express Route | Microsoft Docs
+title: Azure Policy json sample - Allowed peering location for Express Route | Microsoft Docs
 description: This policy requires that Express Routes use specified peering locations.
 services: azure-policy
 documentationcenter:
@@ -17,7 +17,7 @@ ms.author: banders
 ms.custom: mvc
 ---
 
-# Allowed Peering Location for Express Route
+# Allowed peering location for Express Route
 
 This policy requires that Express Routes use specified peering locations. You specify an array of allowed peering locations.
 

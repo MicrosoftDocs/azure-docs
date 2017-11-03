@@ -1,5 +1,5 @@
 ---
-title: json Sample - Deny hybrid use benefit | Microsoft Docs
+title: Azure Policy json sample - Deny hybrid use benefit | Microsoft Docs
 description: This json sample policy prohibits use of Azure Hybrid Use Benefit (AHUB).
 services: azure-policy
 documentationcenter:
@@ -19,7 +19,7 @@ ms.custom: mvc
 
 # Deny hybrid use benefit
 
-Prohibits use of Azure Hybrid Use Benefit (AHUB). Use when you do not want to permit use of on-premise licenses.
+Prohibits use of Azure Hybrid Use Benefit (AHUB). Use when you do not want to permit use of on-premises licenses.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

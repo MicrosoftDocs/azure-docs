@@ -1,5 +1,5 @@
 ---
-title: json Sample - Audit if extension does not exist  | Microsoft Docs
+title: Azure Policy json sample - Audit if extension does not exist  | Microsoft Docs
 description: This json sample policy audits if an extension is not deployed with a virtual machine.
 services: azure-policy
 documentationcenter:
