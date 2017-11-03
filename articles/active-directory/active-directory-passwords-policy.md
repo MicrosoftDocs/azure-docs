@@ -125,6 +125,9 @@ To get started, you need to [download and install the Azure AD PowerShell module
    * To set the password of one user to never expire, run the following cmdlet by using the user principal name (UPN) or the user ID of the user: `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $true`
    * To set the passwords of all the users in an organization to never expire, run the following cmdlet: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $true`
 
+   > [!WARNING]
+   > If you set `-PasswordNeverExpires $true` the password will still age based on the `pwdLastSet` attribute. This means that if you set passwords to never expire and then 90+ days go by based on `pwdLastSet` and you change `-PasswordNeverExpires $false` all passwords that have a `pwdLastSet` older than 90 days will need to change at next logon. This change could impact a large number of users. 
+
 ## Next steps
 
 The following links provide additional information regarding password reset using Azure AD

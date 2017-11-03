@@ -92,17 +92,16 @@ If you start with a policy that has only one authentication method required for 
 
 | Number of methods registered | Number of methods required | Result |
 | :---: | :---: | :---: |
-| 1 | 1 | **Able** to reset or unlock |
+| 1 or more | 1 | **Able** to reset or unlock |
 | 1 | 2 | **Unable** to reset or unlock |
 | 2 or more | 2 | **Able** to reset or unlock |
 
 If you change the types of authentication methods that a user can use you may inadvertently stop users from being able to use SSPR if they do not have the minimum amount of data available.
 
-Example: Policy configured with 2 authentication methods required using office phone and security questions. 
-Administrator changes the policy to no longer use security questions but allow the use of mobile phone and alternate email. 
-
-> [!WARNING] 
-> If the administrator did not populate the mobile phone or alternate email in this scenario users will need to populate this information before they can reset or unlock using SSPR. This is why we recommend enabling more authentication methods than you require and encourage users to populate as many as they can.
+Example: 
+1. Original policy configured with 2 authentication methods required using only office phone and security questions. 
+2. Administrator changes the policy to no longer use security questions but allow the use of mobile phone and alternate email.
+3. Users without mobile phone and alternate email fields populated can't reset their passwords.
 
 ### How secure are my security questions
 
@@ -184,6 +183,7 @@ When this is disabled users can still manually register their contact informatio
 > [!NOTE]
 > Users can dismiss the password reset registration portal by clicking cancel or closing the window but are prompted each time they login until they complete registration.
 >
+> This will not break the user's connection if they are alreay signed in.
 
 ### Number of days before users are asked to reconfirm their authentication information
 

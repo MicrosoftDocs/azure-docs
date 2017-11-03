@@ -89,6 +89,8 @@ The steps below assume you have already configured Azure AD Connect in your envi
 7. On the Ready to configure screen, click **Configure** and wait for the process to complete.
 8. When you see Configuration complete, click **Exit**
 
+For common troubleshooting tasks related to password writeback see the section [Troubleshoot password writeback](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) in our troubleshooting article.
+
 ## Active Directory permissions
 
 The account specified in the Azure AD Connect utility must have Reset Password, Change Password, Write Permissions on lockoutTime, and Write Permissions on pwdLastSet, extended rights on either the root object of **each domain** in that forest **OR** on the user OUs you wish to be in scope for SSPR.
