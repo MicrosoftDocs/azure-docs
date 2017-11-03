@@ -40,7 +40,7 @@ If you don’t already have Visual Studio 2017 installed, you can download and u
 
 ## Add sample data
 
-You can now add data to your new table using Data Explorer (Preview).
+You can now add data to your new table using Data Explorer.
 
 1. In Data Explorer, expand **sample-table**, click **Entities**, and then click **Add Entity**.
 
