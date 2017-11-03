@@ -10,17 +10,17 @@
     href: customization.md
 - name: Quickstarts
   items: 
-  - name: Translate text (C#)
+  - name: C#
     href: quickstarts/csharp.md
-  - name: Translate text (Java)
+  - name: Java
     href: quickstarts/java.md
-  - name: Translate text (Node.js)
+  - name: Node.js
     href: quickstarts/nodejs.md
-  - name: Translate text (PHP)
+  - name: PHP
     href: quickstarts/php.md
-  - name: Translate text (Python)
+  - name: Python
     href: quickstarts/python.md
-  - name: Translate text (Ruby)
+  - name: Ruby
     href: quickstarts/ruby.md
 - name: Tutorials
   items: 
