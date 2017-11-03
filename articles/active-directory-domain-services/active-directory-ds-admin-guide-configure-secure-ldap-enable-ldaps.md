@@ -4,7 +4,7 @@ description: Configure Secure LDAP (LDAPS) for an Azure AD Domain Services manag
 services: active-directory-ds
 documentationcenter: ''
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mahesh-unnikrishnan
 editor: curtand
 
 ms.assetid: c6da94b6-4328-4230-801a-4b646055d4d7
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 11/03/2017
 ms.author: maheshu
 
 ---
@@ -114,6 +114,11 @@ If you have trouble connecting to the managed domain using secure LDAP, perform 
 * Verify that the LDAP client (for example, ldp.exe) connects to the secure LDAP endpoint using a DNS name, not the IP address.
 * Verify the DNS name the LDAP client connects to resolves to the public IP address for secure LDAP on the managed domain.
 * Verify the secure LDAP certificate for your managed domain has the DNS name in the Subject or the Subject Alternative Names attribute.
+
+If you still have trouble connecting to the managed domain using secure LDAP, [contact us](active-directory-ds-contact-us.md) for help. Include the following information to help us diagnose the issue better:
+* A screenshot of ldp.exe making the connection and failing.
+* Your Azure AD tenant ID, and the DNS domain name of your managed domain.
+* Exact user name that you are trying to bind as.
 
 
 ## Related content
