@@ -85,4 +85,4 @@ If you want to use an experimental language, you can continue using v1, but be a
 > [Learn more about F# support in Azure Functions](functions-reference-fsharp.md)
 
 > [!div class="nextstepaction"]
-> [Learn more about JavaScript support in Azure Functions](functions-reference-javascript.md)
+> [Learn more about JavaScript support in Azure Functions](functions-reference-node.md)
