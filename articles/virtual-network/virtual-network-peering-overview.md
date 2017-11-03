@@ -32,7 +32,7 @@ The benefits of using virtual network peering include:
 
 ## <a name="requirements-constraints"></a>Requirements and constraints
 
-* Peering virtual networks in the same region is generally available. Peering virtual networks in different regions is currently in preview in US West Central, Canada Central, and US West 2. You can [register your subscription](virtual-network-create-peering.md) for the preview.
+* Peering virtual networks in the same region is generally available. Peering virtual networks in different regions is currently in preview in US West Central, Canada Central, and US West 2. Before peering virtual networks in different regions, you must first  [register your subscription](virtual-network-create-peering.md#register) for the preview. Attempting to create a peering between virtual networks in different regions will fail if you haven't completed registration for the preview.
     > [!WARNING]
     > Virtual network peerings created cross-region may not have the same level of availability and reliability as peerings in a general availability release. Virtual network peerings may have constrained capabilities and may not be available in all Azure regions. For the most up-to-date notifications on availability and status of this feature, check the [Azure Virtual Network updates](https://azure.microsoft.com/updates/?product=virtual-network) page.
 
