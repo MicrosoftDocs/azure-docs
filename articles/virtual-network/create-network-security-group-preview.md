@@ -50,8 +50,8 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
     az feature show --name AllowApplicationSecurityGroups --namespace Microsoft.Network
     ```
 
-    [!WARNING]
-    Registration can take up to an hour to complete. Do not continue with the remaining steps until *Registered* appears for **state** in the output returned from the previous command. If you continue before you're registered, remaining steps fail.
+    > [!WARNING]
+    > Registration can take up to an hour to complete. Do not continue with the remaining steps until *Registered* appears for **state** in the output returned from the previous command. If you continue before you're registered, remaining steps fail.
 
 6. Run the following bash script to create a resource group:
 
@@ -236,8 +236,8 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
     Get-AzureRmProviderFeature -FeatureName AllowApplicationSecurityGroups -ProviderNamespace Microsoft.Network
     ```
 
-    [!WARNING]
-    Registration can take up to an hour to complete. Do not continue with the remaining steps until *Registered* appears for **RegistrationState** in the output returned from the previous command. If you continue before you're registered, remaining steps fail.
+    > [!WARNING]
+    > Registration can take up to an hour to complete. Do not continue with the remaining steps until *Registered* appears for **RegistrationState** in the output returned from the previous command. If you continue before you're registered, remaining steps fail.
         
 6. Create a resource group:
 
