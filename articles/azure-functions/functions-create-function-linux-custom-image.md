@@ -38,7 +38,7 @@ To complete this tutorial, you need:
 * [Docker](https://docs.docker.com/get-started/#setup)
 * A [Docker Hub account](https://docs.docker.com/docker-id/)
 
-[!INCLUDE [Free trial note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [Free trial note](../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
