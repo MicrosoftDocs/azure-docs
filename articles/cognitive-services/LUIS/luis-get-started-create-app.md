@@ -46,11 +46,11 @@ You can explore your application using the links in the left panel.
 ## Add the Home Automation prebuilt domain
 
 Click on **Prebuilt domains** in the left-side navigation pane. Then click on **HomeAutomation**.
-![Home Automation domain called out in prebuilt domain menu](./media/luis-quickstart-new-app/prebuilt-domain-find.PNG).
+![Home Automation domain called out in prebuilt domain menu](./media/luis-quickstart-new-app/prebuilt-domain-find.PNG)
 
 Click **Yes** when prompted to add the "HomeAutomation" domain to the app.
 
-![Home Automation domain prompt](./media/luis-quickstart-new-app/add-prebuilt-domain-dialog.PNG).
+![Home Automation domain prompt](./media/luis-quickstart-new-app/add-prebuilt-domain-dialog.PNG)
 
 ## Take a look at the intents and entities
 
@@ -59,11 +59,11 @@ Click on **Intents** in the left-side navigation pane, and you can see that the 
 > [!NOTE]
 > **None** is an intent provided by all LUIS apps. You use it to handle utterances that don't correspond to functionality your app provides. 
 
-![Home Automation domain prompt](./media/luis-quickstart-new-app/intents.PNG).
+![Home Automation domain prompt](./media/luis-quickstart-new-app/intents.PNG)
 
 Click on the **HomeAutomation.TurnOff** intent. You can see that the intent contains a list of utterances which are labeled with entities.
 
-![Home Automation domain prompt](./media/luis-quickstart-new-app/utterances.PNG).
+![Home Automation domain prompt](./media/luis-quickstart-new-app/utterances.PNG)
 
 Click on the **Labels view** and select **tokens**. This shows the text tokens that make up each labeled entity, instead of the name of the entity type.
 
@@ -71,17 +71,17 @@ If you compare the same utterance in the tokens view and the entities view, you 
 
 The first utterance is "turn off staircase." The word "off" has been labeled as the type of HomeAutomation.Operation. The word "staircase" has been labeled as the type of "HomeAutomation.Device."
 
-![Home Automation domain prompt](./media/luis-quickstart-new-app/utterances-tokens.PNG).
+![Home Automation domain prompt](./media/luis-quickstart-new-app/utterances-tokens.PNG)
 
 Click **Entities in use**. This shows the entities this app identifies in the utterances.
 
-![Home Automation domain prompt](./media/luis-quickstart-new-app/entities-in-use.PNG).
+![Home Automation domain prompt](./media/luis-quickstart-new-app/entities-in-use.PNG)
 
 ## Train your app
 
 Click on **Train & Test** in the left-side navigation, then click **Train application**.
 
-![Home Automation test](./media/luis-quickstart-new-app/test-callout.PNG).
+![Home Automation test](./media/luis-quickstart-new-app/test-callout.PNG)
 
 ## Test your app
 Once you've trained your app, you can test it. Type a test utterance like "Turn off the lights" into the Interactive Testing pane, and press Enter. 
@@ -94,16 +94,16 @@ The results display the score associated with each intent. Check that the top sc
 
 In this example, "Turn off the lights" is correctly identified as the top scoring intent of "HomeAutomation.TurnOff."
 
-![Home Automation test](./media/luis-quickstart-new-app/test-prebuilt-domain-home.PNG).
+![Home Automation test](./media/luis-quickstart-new-app/test-prebuilt-domain-home.PNG)
 
 ## Publish your app
 Select **Publish App** from the left-side menu and click the **Publish** button. 
 
-![Home Automation test](./media/luis-quickstart-new-app/publish-before.PNG).
+![Home Automation test](./media/luis-quickstart-new-app/publish-before.PNG)
 
-After you've successfully published, the **Publish App** page displays an Endpoint URL.
+After you've successfully published, you can use the Endpoint URL that the **Publish App** page displays.
 
-![Home Automation test](./media/luis-quickstart-new-app/publish.PNG).
+![Home Automation test](./media/luis-quickstart-new-app/publish.PNG)
 
 ## Use your app
 You can test your published endpoint in a browser using the generated URL. Copy the URL, then replace the `{YOUR-KEY-HERE}` with one of the keys listed in the **Key String** column for the resource you want to use. To open this URL in your browser, set the URL parameter "&q" to your test query. For example, append `&q=turn off the living room light` to your URL, and then press Enter. The browser displays the JSON response of your HTTP endpoint.  
@@ -115,20 +115,7 @@ You can test your published endpoint in a browser using the generated URL. Copy 
 You can call the endpoint from code:
 
 > [!div class="nextstepaction"]
-> [Call a LUIS endpoint using C#](luis-get-started-cs-get-intent.md)
-
-> [!div class="nextstepaction"]
-> [Call a LUIS endpoint using Node.js](luis-get-started-node-get-intent.md)
-
-> [!div class="nextstepaction"]
-> [Call a LUIS endpoint using client-side JavaScript](luis-get-started-js-get-intent.md)
-
-> [!div class="nextstepaction"]
-> [Call a LUIS endpoint using Java](luis-get-started-java-get-intent.md)
-
-> [!div class="nextstepaction"]
-> [Call a LUIS endpoint using Python](luis-get-started-python-get-intent.md)
-
+> [Call a LUIS endpoint using code](luis-get-started-node-get-intent.md)
 
 
 [luis.ai]:https://www.luis.ai
