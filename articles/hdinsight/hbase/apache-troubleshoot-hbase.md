@@ -420,4 +420,4 @@ Because of the abrupt shutdown, the port associated with the process might not b
    ```
 
 ## See Also
-[Troubleshoot by Using Azure HDInsight](hdinsight-troubleshoot-guide.md)
+[Troubleshoot by Using Azure HDInsight](../../hdinsight/hdinsight-troubleshoot-guide.md)
