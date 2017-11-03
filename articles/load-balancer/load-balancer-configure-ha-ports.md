@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/26/2017
+ms.date: 11/02/2017
 ms.author: kumud
 ---
 
@@ -68,9 +68,7 @@ Figure 2 - HA Ports configuration via Portal
 
 ### Configure HA Ports LB Rule via Resource Manager Template
 
-The 2017-08-01 API version for Microsoft.Network/loadBalancers introduces this capability in the Load Balancer resource.
-
-The JSON snippet below illustrates the changes in Load Balancer configuration for HA Ports via REST API.
+You can configure HA ports using the 2017-08-01 API version for Microsoft.Network/loadBalancers in the Load Balancer resource. The following JSON snippet illustrates the changes in the Load Balancer configuration for HA Ports via REST API.
 
 ```json
     {
@@ -100,9 +98,6 @@ The JSON snippet below illustrates the changes in Load Balancer configuration fo
        }
     }
 ```
-
-
-
 
 ### Configure HA ports load balancer rule with PowerShell
 
