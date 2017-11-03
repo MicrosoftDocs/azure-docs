@@ -22,15 +22,14 @@ It gives you the flexibility of choosing the shell experience that best suits th
 Linux users can opt for a Bash experience, while Windows users can opt for PowerShell.
 
 Launch via Azure portal from the Cloud Shell icon:
+
 ![Portal launch](media/overview/portal-launch-icon.png)
 
 Leverage Bash or PowerShell from the shell selector dropdown:
+
 ![Bash in Cloud Shell](media/overview/overview-bash-pic.png)
 
 ![PowerShell in Cloud Shell](media/overview/overview-ps-pic.png)
-
-Launch Cloud Shell from portal.azure.com via the Cloud Shell icon in the top navigation.
-![Portal launch](media/overview/overview-portal-cs-icon.png)
 
 ## Features
 ### Browser-based shell experience
