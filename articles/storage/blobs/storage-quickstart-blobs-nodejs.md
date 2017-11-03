@@ -106,7 +106,7 @@ The first thing to do is create the reference to the `BlobService` used to acces
 
 * Create an instance of the **[BlobService](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService__ctor)** object, which points to the Blob service in your storage account.
 
-* Create a new container, and then set permissions on the container so the blobs are public and can be accessed with just a URL. The container is called **quickstartblobs**.
+* Create a new container, and then set permissions on the container so the blobs are public and can be accessed with just a URL. The container starts with **quickstartcontainer-**.
 
 This example uses [createContainerCreateIfNotExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createContainerIfNotExists) because we want to create a new container each time the sample is run. In a production environment where you use the same container throughout an application, it's better practice to only call CreateIfNotExists once. Alternatively, you can create the container ahead of time so you don't need to create it in the code.
 
@@ -123,7 +123,7 @@ Blob storage supports block blobs, append blobs, and page blobs. Block blobs are
 
 To upload a file to a blob, you use the [createBlockBlobFromLocalFile](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_createBlockBlobFromLocalFile) method. This operation creates the blob if it doesn't already exist, or overwrites it if it does already exist.
 
-The sample code creates a local file to be used for the upload and download, storing the file to be uploaded as **localPath** and the name of the blob in **localFileToUpload**. The following example uploads the file to your container called **quickstartblobs**.
+The sample code creates a local file to be used for the upload and download, storing the file to be uploaded as **localPath** and the name of the blob in **localFileToUpload**. The following example uploads the file to your container that start with **quickstartcontainer-**.
 
 ```node
 console.log('2. Creating a file in ~/Documents folder to test the upload and download\n');
