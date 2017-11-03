@@ -28,13 +28,13 @@ For more information about the benefits of each service, see the following artic
 
 ## Developing with the Azure Cosmos DB Table API
 
-At this time the Azure Cosmos DB Table API has one .NET SDK available, the [Windows Azure Storage Premium Table](https://aka.ms/premiumtablenuget) (preview). This library has the same classes and method signatures as the public [Windows Azure Storage SDK](https://www.nuget.org/packages/WindowsAzure.Storage), but also has the ability to connect to Azure Cosmos DB accounts using the [Table API](table-introduction.md) (preview). For a quickstart and tutorial using the Azure Cosmos DB Table API, see the following:
+At this time, the Azure Cosmos DB Table API has one .NET SDK available, the [Windows Azure Storage Premium Table](https://aka.ms/premiumtablenuget) (preview). This library has the same classes and method signatures as the public [Windows Azure Storage SDK](https://www.nuget.org/packages/WindowsAzure.Storage), but also has the ability to connect to Azure Cosmos DB accounts using the [Table API](table-introduction.md) (preview). For a quickstart and tutorial using the Azure Cosmos DB Table API, see the following articles:
 - Quickstart: [Azure Cosmos DB: Build a .NET application using the Table API](create-table-dotnet.md)
 - Tutorial: [Azure Cosmos DB: Develop with the Table API in .NET](tutorial-develop-table-dotnet.md)
 
 ## Developing with the Azure Table storage
 
-Azure Table storage has many SDKs available and tutorials available, all of which are now availabe in the [Azure Table Storage](table-storage-overview.md) section. These articles will be updated as interoperability between the Azure Table storage SDKs and Azure Cosmos DB Table APIs becomes available.  
+Azure Table storage has many SDKs available and tutorials available, all of which are now available in the [Azure Table Storage](table-storage-overview.md) section. These articles are being updated as interoperability between the Azure Table storage SDKs and Azure Cosmos DB Table APIs becomes available.  
 
 
 
