@@ -50,9 +50,9 @@ In the following command, substitute a unique function app name where you see th
 
 ```azurecli-interactive
 az functionapp create --name <app_name> --storage-account  <storage_name>  --resource-group myResourceGroup \
---plan myAppServicePlan --deployment-source-url https://github.com/Azure-Samples/functions-quickstart
+--plan myAppServicePlan --deployment-source-url https://github.com/Azure-Samples/functions-quickstart-linux
 ```
-After the function app has been created, the Azure CLI shows information similar to the following example:
+After the function app has been created and deployed, the Azure CLI shows information similar to the following example:
 
 ```json
 {
@@ -73,9 +73,10 @@ After the function app has been created, the Azure CLI shows information similar
 }
 ```
 
-Because `myAppServicePlan` is a Linux plan, the built-in image is used to create the function app. Now that you have a function app, you can deploy the actual function code from the GitHub sample repository.
+Because `myAppServicePlan` is a Linux plan, the built-in image is used to create the function app. 
 
-[!INCLUDE [functions-deploy-your-function-code](../../includes/functions-deploy-your-function-code.md)]
+>[!NOTE]  
+>The sample repository currently includes two scripting files, [deploy.sh](https://github.com/Azure-Samples/functions-quickstart-linux/blob/master/deploy.sh) and [.deployment](https://github.com/Azure-Samples/functions-quickstart-linux/blob/master/.deployment). In the current preview release, scripts are required to deploy the function app on a the Linux image.  
 
 [!INCLUDE [functions-test-function-code](../../includes/functions-test-function-code.md)]
 
