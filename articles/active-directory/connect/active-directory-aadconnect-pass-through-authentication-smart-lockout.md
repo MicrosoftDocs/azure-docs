@@ -36,8 +36,8 @@ Pass-through Authentication forwards password validation requests to your on-pre
 
 To ensure that your users’ on-premises Azure AD accounts are well protected, you need to ensure that:
 
-1.	Azure AD’s lockout threshold is _less_ than the Active Directory account lockout threshold. Set the values so that Azure AD’s account lockout threshold is at least two or three times longer than the Azure AD’s lockout threshold.
-2.	Azure AD’s lockout duration, that is represented in seconds, is _longer_ than Azure AD’s reset account lockout counter after, that is represented in minutes.
+   * Azure AD’s lockout threshold is _less_ than the Active Directory account lockout threshold. Set the values so that Azure AD’s account lockout threshold is at least two or three times longer than the Azure AD’s lockout threshold.
+   * Azure AD’s lockout duration, that is represented in seconds, is _longer_ than Azure AD’s reset account lockout counter after, that is represented in minutes.
 
 >[!IMPORTANT]
 >Currently an administrator can't unlock the users' cloud accounts if they have been locked out by the Smart Lockout capability. They must wait for the lockout duration to expire.
