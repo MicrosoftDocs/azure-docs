@@ -117,12 +117,12 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	![Configure Single Sign-On](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_attribute.png)
 	
-5. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the image above and perform the following steps: Note that attribute values are example only, please map the appropriate values for username and admin. There is another optional attribute "accessdomain" which is used to restrict the admin access to specific virtual systems on the firewall.
+5. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the image above and perform the following steps: Note that attribute values are example only, please map the appropriate values for username and adminrole. There is another optional attribute "accessdomain" which is used to restrict the admin access to specific virtual systems on the firewall.
         
 	| Attribute Name | Attribute Value |
 	| --- | --- |    
 	| username | user.userprincipalname |
-	| admin | customadmin |
+	| adminrole | customadmin |
 
 	a. Click **Add attribute** to open the **Add Attribute** dialog.
 
@@ -151,7 +151,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 8. Open the Palo Alto site as an administrator in another browser window.
 
-9. Click on **Devices**.
+9. Click on **Device**.
 
 	![Configure Palo Alto Single Sign-on](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_admin1.png)
 
