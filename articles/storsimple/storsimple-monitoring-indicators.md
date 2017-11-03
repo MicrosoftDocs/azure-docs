@@ -13,11 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 06/05/2017
+ms.date: 11/03/2017
 ms.author: alkohli
 
 ---
 # Use StorSimple monitoring indicators to manage your device
+> [!NOTE]
+> The classic portal for StorSimple is deprecated. Your StorSimple Device Managers will automatically move to the new Azure portal as per the deprecation schedule. You will receive an email and a portal notification for this move. This document will also be retired soon. To view the version of this article for the new Azure portal, go to [Use the monitoring indicator LEDs to monitor StorSimple device](storsimple-8000-monitoring-indicators.md).For any questions regarding the move, see [FAQ: Move to Azure portal](storsimple-8000-move-azure-portal-faq.md).
+
 ## Overview
 Your StorSimple device includes light-emitting diodes (LEDs) and alarms that you can use to monitor the modules and overall status of the StorSimple device. The monitoring indicators can be found on the hardware components of the device's primary enclosure and the EBOD enclosure. The monitoring indicators can be either LEDs or audible alarms.
 
