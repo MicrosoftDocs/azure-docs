@@ -23,6 +23,10 @@
       href: luis-get-started-java-get-intent.md
     - name: Call a LUIS app using Python
       href: luis-get-started-python-get-intent.md
+  - name: Call LUIS authoring API
+    items:
+    - name: Add Utterance and train using Node.js
+      href: luis-quickstart-node-add-utterance.md
 - name: Tutorials
   items: 
   - name: Integrate LUIS with a bot using Node.js
