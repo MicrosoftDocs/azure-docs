@@ -65,27 +65,27 @@ You can follow the instructions in the [Install and create Quickstart](quickstar
    ![Select iris](media/tutorial-classifying-iris/select_iris_csv.png)
 
    >[!IMPORTANT]
-   >Make sure you select the **iris.csv** file from within the current project directory for this exercise, otherwise later steps might fail. 
+   >Make sure you select the **iris.csv** file from within the current project directory for this exercise. Otherwise, later steps might fail. 
 
 4. A new file named **iris-1.dsource** is created. The file is named uniquely with a dash-1, because the sample project already comes with an unnumbered **iris.dsource** file.  
 
-   The file opens, and the data is shown. A series of column headers, from **Column1** to **Column5**, are automatically added to this data set. Scroll to the bottom and notice that the last row of the data set is empty. The row is empty because there is an extra line break in the CSV file.
+   The file opens, and the data is shown. A series of column headers, from **Column1** to **Column5**, is automatically added to this data set. Scroll to the bottom and notice that the last row of the data set is empty. The row is empty because there is an extra line break in the CSV file.
 
    ![Iris data view](media/tutorial-classifying-iris/iris_data_view.png)
 
-5. Select the **Metrics** button. Observe the histograms. A complete set of statistics have been calculated for each column. You can also select the **Data** button to see the data again. 
+5. Select the **Metrics** button. Observe the histograms. A complete set of statistics has been calculated for each column. You can also select the **Data** button to see the data again. 
 
    ![Iris data view](media/tutorial-classifying-iris/iris_metrics_view.png)
 
 6. Select the **Prepare** button. The **Prepare** dialog box opens. 
 
-   The sample project comes with a **iris.dprep** file, so by default it asks you to create a new data flow in the **iris.dprep** data preparation package that already exists. 
+   The sample project comes with an **iris.dprep** file. By default, it asks you to create a new data flow in the **iris.dprep** data preparation package that already exists. 
 
    Select **+ New Data Preparation Package** from the drop-down menu, enter a new value for the package name, use **iris-1**, and then select **OK**.
 
    ![Iris data view](media/tutorial-classifying-iris/new_dprep.png)
 
-   A new data preparation package named **iris-1.dprep** is created and opened in data preparation editor.
+   A new data preparation package named **iris-1.dprep** is created and opened in the data preparation editor.
 
 7. Now let's do some basic data preparation. Rename the column names. Select each column header to make the header text editable. 
 
