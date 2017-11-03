@@ -26,8 +26,12 @@ ms.author: mimig
 * Single-digit millisecond latencies at the 99th percentile.
 * Guaranteed high availability.
 
-Cassandra applications can migrate to Azure Cosmos DB by using the Cassandra API with no code changes and take advantage of premium capabilities.
+Cassandra applications can migrate to Azure Cosmos DB by using the Cassandra API with no code changes, you simply update your connection string, and go! The Cassandra API enables you to interact with data stored in Azure Cosmos DB using the Cassandra Query Language (CQL) and Cassandra client drivers you’re already familiar with.
+  
+## Sign up now 
+
+If you already have an Azure subscription, you can sign up for the Cassandra API (Preview) in the [Azure portal](https://aka.ms/cosmosdb-cassandra-signup). If you’re new to Azure, signing up for a [free trial](https://azure.microsoft.com/en-us/free) where you’ll get 12 months of free access to Azure Cosmos DB.
 
 ## Next steps
 
-Create an Azure Cosmos DB account in the [Azure portal](https://portal.azure.com). Then get started with our [Quick Start for Cassandra API using .NET](create-cassandra-dotnet.md) or [Quick Start for Cassandra API using Java](create-cassandra-java.md).
+After you sign up for a Cassandra API account, get started with our [Quick Start for Cassandra API using .NET](create-cassandra-dotnet.md) or [Quick Start for Cassandra API using Java](create-cassandra-java.md).
