@@ -124,12 +124,20 @@ You can follow the [Install and create Quickstart](quickstart-installation.md) t
 2. A new file named **iris-1.py** opens with following  lines of code:
 
    ```python
-   # This code snippet will load the referenced package and return a DataFrame.
-   # If the code is run in a PySpark environment, the code will return a
-   # Spark DataFrame. If not, the code will return a Pandas DataFrame.
+   # Use the Azure Machine Learning data preparation package
+   from azureml.dataprep import package
 
-   from azureml.dataprep.package import run
-   df = run('iris.dprep', dataflow_idx=0)
+   # Use the Azure Machine Learning data collector to log various metrics
+   from azureml.logging import get_azureml_logger
+   logger = get_azureml_logger()
+
+   # This call will load the referenced package and return a DataFrame.
+   # If run in a PySpark environment, this call returns a
+   # Spark DataFrame. If not, it will return a Pandas DataFrame.
+   df = package.run('iris-1.dprep', dataflow_idx=0)
+
+   # Remove this line and add code that uses the DataFrame
+   df.head(10)
    ```
 
    This code snippet invokes the logic you created as a data preparation package. Depending on the context in which this code is run, `df` represents different kinds of data frames. A [pandas DataFrame](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html) is used when executed in Python runtime, or a [Spark DataFrame](https://spark.apache.org/docs/latest/sql-programming-guide.html) is used when executed in a Spark context. 
