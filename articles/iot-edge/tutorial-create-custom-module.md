@@ -91,7 +91,7 @@ For this tutorial, you will need a Docker registry to publish your IoT Edge modu
 
 2. To create a private Docker repository, follow the instructions in [Creating a new repository on Docker Hub](https://docs.docker.com/docker-hub/repos/#creating-a-new-repository-on-docker-hub) on the Docker site.
 
-## Configure the IoT Edge Visual Studio Code extension with your IoT hub connection string 
+## Configure the Azure IoT Tookit extension with your IoT hub connection string 
 1. Open Visual Studio Code.
 2. Use the **View | Explorer** menu command to open the VS Code explorer. 
 3. In the explorer, click **IOT HUB DEVICES** and then click **...**. Click **Set IoT Hub Connection String** and enter the connection string for the IoT hub that your IoT Edge device connects to in the pop-up window.  
@@ -154,9 +154,6 @@ The following steps show you how to create an IoT Edge module using Visual Studi
     // Register callback to be called when a message is received by the module
     await IoTHubModuleClient.SetInputMessageHandlerAsync("input1", FilterMessages, IoTHubModuleClient);
 
-    // Register callback to be called when a message is received by the module
-    // await IoTHubModuleClient.SetInputMessageHandlerAsync("input1", PipeMessage, IoTHubModuleClient);
-
     ```
 
 1. Add the following method to the **Program** class to update the **temperatureThreshold** field based on the desired properties sent by the back-end service via the module twin. All modules have their own module twin. A module twin lets a back-end service configure the code running inside a module, just like a device twin lets a back-end service configure code running on a device.
@@ -190,7 +187,7 @@ The following steps show you how to create an IoT Edge module using Visual Studi
     }
     ```
 
-1. Add the following method to the **Program** class. This method is called whenever the module is sent a message from the Edge Hub. It filters messages based on the temperature value in the body of the message, and the temperature threshold set via the module twin.
+1. Replace the **PipeMessage** method with the following method. This method is called whenever the module is sent a message from the Edge Hub. It filters messages based on the temperature value in the body of the message, and the temperature threshold set via the module twin.
 
     ```csharp
     static async Task<MessageResponse> FilterMessages(Message message, object userContext)
@@ -246,7 +243,7 @@ The following steps show you how to create an IoT Edge module using Visual Studi
     }
     ```
 
-11. Build the project. Use the **View | Explorer** menu command to open the VS Code explorer. In the explorer, right-click the **FilterModule.csproj** file and click **Build IoT Edge module**.
+11. Build the project. Use the **View | Explorer** menu command to open the VS Code explorer. In the explorer, right-click the **SampleModule.csproj** file and click **Build IoT Edge module**.
 
 ## Create a Docker image and publish it to your registry
 
@@ -270,37 +267,40 @@ The following steps show you how to create an IoT Edge module using Visual Studi
 ## Run the solution
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your IoT hub.
-2. Go to **Device Explorer** and select your IoT Edge device.
-3. Select **Deploy Modules**. 
-4. Select **Custom module**, and copy the following JSON:
+2. Go to **IoT Edge Explorer** and select your IoT Edge device.
+3. Select **Deploy modules**. 
+4. Select **Add custom IoT Edge module**.
+5. In the **Name** field enter `filtermodule`.
+6. In the **Image** field enter your image address; for example `{your registry}/filtermodule:latest`.
+7. In the **OS** field, select **linux**.
+8. In the **Architecture** field, select **x64**.
+9. Check the **Edit module twin** box.
+10. Replace the JSON in the text box with the following JSON: 
 
     ```json
     {
-       "filtermodule":{
-          "version":"1.0",
-          "type":"docker",
-          "status":"running",
-          "restartPolicy":"always",
-          "settings":{
-             "image":"{your registry}/filtermodule:latest",
-             "createOptions":""
-          }
+       "properties.desired":{
+          "TemperatureThreshold":25
        }
     }
-    ``` 
-3. Select **Routes**, and copy the following JSON. Modules publish all messages to the Edge runtime. Declarative rules in the runtime define where those messages flow. In this tutorial we need two routes. The first route transports messages from the temperature sensor to the filter module via the "input1" endpoint, which is the endpoint that we configured with the  **FilterMessages** handler. The second route transports messages from the filter module to IoT Hub. In this route, `upstream` is a special destination that tells Edge Hub to send messages to IoT Hub. 
+    ```
+ 
+11. Click **Save**.
+12. Back in the **Add Modules** step, click **Next**.
+13. In the **Specify Routes** step, copy the JSON below into the text box. Modules publish all messages to the Edge runtime. Declarative rules in the runtime define where those messages flow. In this tutorial we need two routes. The first route transports messages from the temperature sensor to the filter module via the "input1" endpoint, which is the endpoint that we configured with the  **FilterMessages** handler. The second route transports messages from the filter module to IoT Hub. In this route, `upstream` is a special destination that tells Edge Hub to send messages to IoT Hub. 
 
     ```json
     {
        "routes":{
           "sensorToFilter":"FROM /messages/modules/tempSensor/* INTO BrokeredEndpoint(\"messages/modules/filtermodule/inputs/input1\")",
-          "filterToIoTHub":"FROM /messages/modules/filtermodule/outputs/* INTO $upstream"
+          "filterToIoTHub":"FROM /messages/modules/filtermodule/outputs/output1 INTO $upstream"
        }
     }
     ```
 
-4. Click **start**. 
-5. In the device detail blade, click **refresh** to see things working. 
+4. Click **Next**.
+5. In the **Review Template** step, click **Submit**. 
+6. Return to the device details page and click **Refresh**. You should see the new **filtermodule** running along with the **tempSensor** module and the **IoT Edge runtime**. 
 
 ## View generated data
 
