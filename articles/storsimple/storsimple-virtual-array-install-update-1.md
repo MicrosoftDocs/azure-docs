@@ -27,11 +27,9 @@ You apply the software updates or hotfixes to keep your StorSimple Virtual Array
 > [!IMPORTANT]
 > - Update 1.0 corresponds to **10.0.10296.0** software version on your device. For information on what is new in this update, go to [Release notes for Update 1.0](storsimple-virtual-array-update-1-release-notes.md).
 >
-> - If you are running Update 0.2 or later, we recommend that you install the updates via the Azure portal. If you are running Update 0.1 or GA software versions, you must use the hotfix method via the local web UI to install Update 1.0.
->
 > - Keep in mind that installing an update or hotfix restarts your device. Given that the StorSimple Virtual Array is a single node device, any I/O in progress is disrupted and your device experiences downtime.
 >
-> - Update 1 is available in the Azure portal only if the virtual array is running Update 0.6. For virtual arrays running pre-Update 0.6 versions, you must install Update 0.6 first and then install Update 1. If you used the local web UI to install Update 1 on a virtual array running a version prior to Update 0.6, you will be missing the monitoring agent update and also security updates. Your monitoring charts will not work. Should this occur, [Contact Microsoft Support](storsimple-virtual-array-log-support-ticket.md) for next steps.
+> - Update 1 is available in the Azure portal only if the virtual array is running Update 0.6. For virtual arrays running pre-Update 0.6 versions, you must install Update 0.6 first and then install Update 1.
 
 ## Use the Azure portal
 
@@ -53,6 +51,8 @@ There are two steps when using the local web UI:
 
 * Download the update or the hotfix
 * Install the update or the hotfix
+
+**Proceed with this update only if you are running Update 0.6 (10.0.10293.0). If you are running an earlier version, [Install Update 0.6](storsimple-virtual-array-install-update-06.md) on your device first and then apply Update 1.**
 
 ### Download the update or the hotfix
 
@@ -87,7 +87,7 @@ If your virtual array is running Update 0.6, perform the following steps to down
 Prior to the update or hotfix installation, make sure that:
 
  - You have the update or the hotfix downloaded either locally on your host or accessible via a network share.
- - Your virtual array is running Update 0.6 (10.0.10293.0). If you are running a version prior to Update 0.6, [Use the Azure portal to install Update 1](#use-the-azure-portal).
+ - Your virtual array is running Update 0.6 (10.0.10293.0). If you are running a version prior to Update 0.6, [Install Update 0.6](storsimple-virtual-array-install-update-06.md) first and then install Update 1.
 
 This procedure takes around 4 minutes to complete. Perform the following steps to install the update or hotfix.
 
@@ -118,7 +118,7 @@ This procedure takes around 4 minutes to complete. Perform the following steps t
 
 6. Repeat steps 2-4 to install the Windows security fix using file `windows8.1-kb4012213-x64`. The virtual array restarts after the install and you need to sign into the local web UI.
 
-> [!NOTE] 
+> [!NOTE]
 > If you directly applied Update 1 to a device running a version prior to Update 0.6, you are missing some updates. Please contact Microsoft Support for next steps.
 
 ## Next steps
