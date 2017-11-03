@@ -33,7 +33,7 @@ This article covers the steps required to set up container monitoring for your c
 
 3. Create the solution inside the same workspace that has already been created for the cluster. This change automatically triggers the agent to start gathering docker data on the containers. In about 15 minutes or so, you should see the solution light up with incoming logs and stats.
 
-## 4. Next steps
+## Next steps
 * Read more about container orchestration on Service Fabric - [Service Fabric and containers](service-fabric-containers-overview.md)
 * Get familiarized with the [log search and querying](../log-analytics/log-analytics-log-searches.md) features offered as part of Log Analytics
 * Configure OMS to set up [automated alerting](../log-analytics/log-analytics-alerts.md) rules to aid in detecting and diagnostics
