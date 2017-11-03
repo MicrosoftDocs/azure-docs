@@ -32,8 +32,11 @@ Network Policy and Access Services gives organizations the ability to:
 * Assign a central location for the management and control of network requests to specify:
 
     * Who can connect 
+    
     * What times of day connections are allowed 
+    
     * The duration of connections
+    
     * The level of security that clients must use to connect
 
     Rather than specify policies on each VPN or Remote Desktop Gateway server, do so after they're in a central location. The RADIUS protocol is used to provide centralized Authentication, Authorization, and Accounting (AAA). 
