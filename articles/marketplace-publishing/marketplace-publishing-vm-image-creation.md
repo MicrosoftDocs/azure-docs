@@ -291,7 +291,7 @@ During the publishing process, you specify the uniform resource identifiers (URI
 
 The shared access signature URI created should adhere to the following requirements:
 
-Note: Only UnManaged disks are supported.
+Note:The following instructions are applicable only for unmanaged disks which are the only kind supported.
 
 * When generating shared access signature URIs for your VHDs, List and Read­ permissions are sufficient. Do not provide Write or Delete access.
 * The duration for access should be a minimum of three (3) weeks from when the shared access signature URI is created.
