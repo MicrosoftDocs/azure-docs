@@ -63,7 +63,7 @@
       href: Label-Suggested-Utterances.md
     - name: Publish your app
       href: PublishApp.md
-  - name: Prebuilt models
+  - name: Use prebuilt models
     items: 
     - name: Use prebuilt entities
       href: Pre-builtEntities.md
