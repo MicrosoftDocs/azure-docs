@@ -174,7 +174,9 @@ Within your virtual machine scale set Resource Manager templates, an additional 
 You can also [Create and deploy a virtual machine scale set](#https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-create) and set the LicenseType property
 
 ## Next steps
-Read more about [Azure Hybrid Benefit for Windows Server licensing](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
+Read more about [How to save money with the Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
+
+Learn more about [Azure Hybrid Benefit for Windows Server licensing detailed guidance](http://go.microsoft.com/fwlink/?LinkId=859786)
 
 Learn more about [using Resource Manager templates](../../azure-resource-manager/resource-group-overview.md).
 
