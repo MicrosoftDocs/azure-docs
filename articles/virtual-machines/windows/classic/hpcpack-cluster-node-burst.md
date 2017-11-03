@@ -54,7 +54,7 @@ Pack](https://technet.microsoft.com/library/gg481749.aspx).
 Use the Azure portal or equivalent tools to configure the following resources that are needed to deploy your Azure nodes:
 
 * A new Azure cloud service (classic)
-* A new Azure storage account
+* A new Azure storage account (classic)
 
 > [!NOTE]
 > Don't reuse an existing cloud service in your subscription. 
