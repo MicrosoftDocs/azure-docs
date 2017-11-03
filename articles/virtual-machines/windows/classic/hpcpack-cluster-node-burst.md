@@ -77,7 +77,11 @@ Certificate** that HPC Pack installs and configures automatically on the
 head node. This certificate is useful for testing purposes and
 proof-of-concept deployments. To use this certificate, upload the
 file C:\Program Files\Microsoft HPC Pack 2012\Bin\hpccert.cer from the head node VM to the
-subscription. To upload the certificate in the [Azure classic portal](https://manage.windowsazure.com), click **Settings** > **Management Certificates**.
+subscription. To upload the certificate in the [Azure portal](https://portal.azure.com):
+
+1. Click **Subscriptions** > *your_subscription_name*.
+
+2. Click **Management certificates** > **Upload**.
 
 For additional options to configure the management certificate, see
 [Scenarios to Configure the Azure Management Certificate for Azure Burst
