@@ -4,7 +4,7 @@ description: 'What is Azure Multi-factor Authentication, why use MFA, more infor
 keywords: introduction to MFA, mfa overview, what is mfa
 services: multi-factor-authentication
 documentationcenter: ''
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 editor: yossib
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/03/2017
-ms.author: kgremban
+ms.author: joflore
 
 ---
 # What is Azure Multi-Factor Authentication?
