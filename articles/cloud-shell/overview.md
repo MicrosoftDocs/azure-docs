@@ -21,6 +21,10 @@ Azure Cloud Shell is an interactive, browser-accessible shell for managing Azure
 It gives you the flexibility of choosing the shell experience that best suits the way you work.
 Linux users can opt for a Bash experience, while Windows users can opt for PowerShell.
 
+Launch via Azure portal from the Cloud Shell icon:
+![Portal launch](media/overview/portal-launch-icon.png)
+
+Leverage Bash or PowerShell from the shell selector dropdown:
 ![Bash in Cloud Shell](media/overview/overview-bash-pic.png)
 
 ![PowerShell in Cloud Shell](media/overview/overview-ps-pic.png)
