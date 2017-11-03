@@ -51,10 +51,9 @@ Pack](https://technet.microsoft.com/library/gg481749.aspx).
 * **Cores quota** - You might need to increase the quota of cores, especially if you choose to deploy several Azure nodes with multicore sizes. To increase a quota, [open an online customer support request](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) at no charge.
 
 ## Step 1: Create a cloud service and a storage account for the Azure nodes
-Use the Azure classic portal or equivalent tools to configure the following resources that are needed to deploy
-your Azure nodes:
+Use the Azure portal or equivalent tools to configure the following resources that are needed to deploy your Azure nodes:
 
-* A new Azure cloud service
+* A new Azure cloud service (classic)
 * A new Azure storage account
 
 > [!NOTE]
