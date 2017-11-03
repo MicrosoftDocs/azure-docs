@@ -11,8 +11,7 @@ ms.service: virtual-machines
 ms.tgt_pltfrm: windows
 ---
 
-<!-- conceptual info about disk limits -- applies to unmanaged and managed -->
-## Scalability targets for virtual machine disks
+# Performance targets for virtual machine disks
 [!INCLUDE [azure-storage-limits-vm-disks](../../../includes/azure-storage-limits-vm-disks.md)]
 
 See [Windows VM sizes](../../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) for additional details.
