@@ -121,7 +121,7 @@ This microservices architecture is a proven pattern for cloud solutions that:
 When you deploy the new version of remote monitoring, you must select one of the following deployment options:
 
 * **Basic:** Reduced cost version for a demonstration or to test a deployment. All the microservices deploy to a single Azure virtual machine.
-* **Enterprise:** Expanded infrastructure deployment for developing a production deployment. The Azure Container Service deploys the microservices to multiple Azure virtual machines. Kubernetes orchestrates the Docker containers that host the individual microservices.
+* **Standard:** Expanded infrastructure deployment for developing a production deployment. The Azure Container Service deploys the microservices to multiple Azure virtual machines. Kubernetes orchestrates the Docker containers that host the individual microservices.
 
 ### Language choices: Java and .NET
 

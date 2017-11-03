@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/01/2017
+ms.date: 11/01/2017
 ms.author: vturecek
 
 ---
@@ -207,12 +207,6 @@ Our stateful service is now ready to receive traffic from other services over RP
     ![The stateful counter value displayed in the browser][browser-aspnet-counter-value]
    
     Refresh the browser periodically to see the counter value update.
-
-## Kestrel and WebListener
-
-The default ASP.NET Core web server, known as Kestrel, is [not currently supported for handling direct internet traffic](https://docs.microsoft.com/aspnet/core/fundamentals/servers/kestrel). As a result, the ASP.NET Core stateless service template for Service Fabric uses [WebListener](https://docs.microsoft.com/aspnet/core/fundamentals/servers/weblistener) by default. 
-
-To learn more about Kestrel and WebListener in Service Fabric services, please refer to [ASP.NET Core in Service Fabric Reliable Services](service-fabric-reliable-services-communication-aspnetcore.md).
 
 ## Connecting to a Reliable Actor service
 This tutorial focused on adding a web front end that communicated with a stateful service. However, you can follow a very similar model to talk to actors. When you create a Reliable Actor project, Visual Studio automatically generates an interface project for you. You can use that interface to generate an actor proxy in the web project to communicate with the actor. The communication channel is provided automatically. So you do not need to do anything that is equivalent to establishing a `ServiceRemotingListener` like you did for the stateful service in this tutorial.
