@@ -121,15 +121,15 @@ The service fabric cluster needs to know that this node is going to be removed. 
 
 1. Disable the node so that it no longer is a replicate for data.  
 PowerShell: `Disable-ServiceFabricNode`  
-sfCli: `sfctl node disable`
+sfcli: `sfctl node disable`
 
 2. Stop the node so that the service fabric runtime shuts down cleanly, and your app gets a terminate request.  
 PowerShell: `Start-ServiceFabricNodeTransition -Stop`  
-sfCli: `sfctl node transition --node-transition-type Stop`
+sfcli: `sfctl node transition --node-transition-type Stop`
 
 2. Remove the node from the cluster.  
 PowerShell: `Remove-ServiceFabricNodeState`  
-sfCli: `sfctl node remove-state`
+sfcli: `sfctl node remove-state`
 
 Once these three steps have been applied to the node, it can be removed from the scale set. If you're using any durability tier besides [bronze][durability], these steps are done for you when the scale set instance is removed.
 
