@@ -2,7 +2,7 @@
 title: Azure Table Storage support in Azure Cosmos DB | Microsoft Docs
 description: Learn how Azure Cosmos DB Table API and Azure Storage Tables work together.
 services: cosmos-db
-author: mimig
+author: mimig1
 manager: jhubbard
 documentationcenter: ''
 
@@ -12,17 +12,28 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
-ms.author: arramac
+ms.date: 11/03/2017
+ms.author: mimig
 
 ---
 
-# Developing with Azure Cosmos DB Table API and Azure Table Storage
+# Developing with Azure Cosmos DB Table API and Azure Table storage
 
-The Azure Cosmos DB Table API enables you to take advantage of the latency, throughput, consistency and availability guarantees provided by Azure Cosmos DB, and use the familiar create, delete, update, and query operations provided by Azure Table Storage. 
+The Azure Cosmos DB Table API and Azure Table storage share the same data model and expose very similar create, delete, update, and query operations through both their SDKs. 
 
-This section currently contains articles written about developing with Azure Table Storage. These articles are actively being updated to include information about Azure Cosmos DB as well. 
+For more information about the benefits of each service and the interoperability between the two, see the following articles:
+- [Introduction to Azure Cosmos DB: Table API](table-introduction.md)
+- [FAQ: Develop with the Table API](faq.md#develop-with-the-table-api-preview)
+- [Azure Table storage overview](table-storage-overview.md)
 
-For more information how the two services work together, see [Introduction to Azure Cosmos DB: Table API](table-introduction.md) and [FAQ: Develop with the Table API](faq.md#develop-with-the-table-api-preview). 
+At this time the Azure Cosmos DB Table API has one .NET SDK available, the [Windows Azure Storage Premium Table](https://aka.ms/premiumtablenuget) (preview). This library has the same classes and method signatures as the public [Windows Azure Storage SDK](https://www.nuget.org/packages/WindowsAzure.Storage), but also has the ability to connect to Azure Cosmos DB accounts using the [Table API](table-introduction.md) (preview). For a quickstart and tutorial using the Azure Cosmos DB Table API, see the following:
+- Quickstart: [Azure Cosmos DB: Build a .NET application using the Table API](create-table-dotnet.md)
+- Tutorial: [Azure Cosmos DB: Develop with the Table API in .NET](tutorial-develop-table-dotnet.md)
+
+Azure Table storage has many SDKs available and tutorials available, all of which are now availabe in this section. These articles are actively being updated to include information about Azure Cosmos DB Table API as well, as these SDKs provide interoperability between the two Azure services. 
+
+
+
+
 
 
