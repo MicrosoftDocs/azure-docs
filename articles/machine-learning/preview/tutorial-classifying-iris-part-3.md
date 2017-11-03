@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
-ms.date: 09/27/2017
+ms.date: 11/2/2017
 ---
 
 # Classifying Iris part 3: Deploy a model
@@ -83,7 +83,7 @@ To deploy the web service, along with the model file, you also need a scoring sc
 
 4. In order to get the schema file, run the script. Choose the **local** environment and the **iris-score.py** script in the command bar, then click the **Run** button. 
 
-5. This script creates a JSON file in the **outputs** folder, which captures the input data schema required by the model.
+5. This script creates a JSON file in the **Outputs** section, which captures the input data schema required by the model.
 
 6. Notice the Jobs pane on the right of the Machine Learning Workbench window. Wait for the latest **iris-score.py** job to display the green **Completed** status. Then click the hyperlink **iris-score.py [1]** for the latest job run to see the run details from the **iris-score.py** run. 
 
@@ -181,7 +181,7 @@ You can use _local mode_ for development and testing. The Docker engine must be 
    ```
 
 6. Set the environment.
-After the setup is complete, set the environment variables required to operationalize using the following command. Use the same environment name that you have used previously in step 4. Use the same resource group name that was outputted in the command window when the setup process was completed.
+After the setup is complete, set the environment variables required to operationalize using the following command. Use the same environment name that you have used previously in step 3. Use the same resource group name that was outputted in the command window when the setup process was completed.
    ```azurecli
    az ml env set -n <deployment environment name> -g <existing resource group name>
    ```
