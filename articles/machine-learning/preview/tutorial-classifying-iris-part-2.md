@@ -210,11 +210,11 @@ With Machine Learning, you can easily configure additional execution environment
 
 5. Now, let's try Spark. The Docker base image contains a preinstalled and configured Spark instance. Because of this instance, you can execute a PySpark script in it. This is an easy way to develop and test your Spark program, without having to spend the time to install and configure Spark yourself. 
 
-   Open the `iris_pyspark.py` file. This script loads the `iris.csv` data file, and uses the logistic regression algorithm from the Spark Machine Learning library to classify the Iris data set. Now change the run environment to **docker-spark** and the script to **iris_pyspark.py**, and then run it again. This process takes a little longer because a Spark session has to be created and started inside of the Docker container. You can also see the stdout is different than the stdout of `iris_pyspark.py`.
+   Open the `iris_spark.py` file. This script loads the `iris.csv` data file, and uses the logistic regression algorithm from the Spark Machine Learning library to classify the Iris data set. Now change the run environment to **docker-spark** and the script to **iris_spark.py**, and then run it again. This process takes a little longer because a Spark session has to be created and started inside of the Docker container. You can also see the stdout is different than the stdout of `iris_spark.py`.
 
 6. Do a few more runs and play with different arguments. 
 
-7. Open the `iris_pyspark.py` file to see the logistic regression model built by using the Spark Machine Learning library. 
+7. Open the `iris_spark.py` file to see the logistic regression model built by using the Spark Machine Learning library. 
 
 8. Interact with the **Jobs** pane, run a history list view, and run a details view of your runs across different execution environments.
 
@@ -222,7 +222,7 @@ With Machine Learning, you can easily configure additional execution environment
 
 1. In Azure Machine Learning Workbench, open the command-line window, select the **File** menu, and then select **Open Command Prompt**. Your command prompt starts in the project folder with the prompt `C:\Temp\myIris\>`.
 
-   >[!Important]
+   >[!IMPORTANT]
    >You must use the command-line window (opened from the workbench) to accomplish the steps that follow.
 
 2. Use the command prompt to log in to Azure. 
@@ -261,8 +261,8 @@ With Machine Learning, you can easily configure additional execution environment
    REM executes iris_sklearn.py in the local Docker container Python environment
    az ml experiment submit -c docker-python .\iris_sklearn.py 0.01
    
-   REM executes iris_pyspark.py in the local Docker container Spark environment
-   az ml experiment submit -c docker-spark .\iris_pyspark.py 0.1
+   REM executes iris_spark.py in the local Docker container Spark environment
+   az ml experiment submit -c docker-spark .\iris_spark.py 0.1
    ```
 6. In the workbench, select the **Folder** icon on the left pane to list the project files, and open the Python script named **run.py**. 
 
@@ -335,8 +335,8 @@ To execute your script in a Docker container on a remote Linux machine, you need
 
 5. Type the following command to run it in the Spark instance in the remote Docker container:
    ```azureli
-   REM executes iris_pyspark.py in a Spark instance on a remote Docker container
-   az ml experiment submit -c myvm-spark .\iris_pyspark.py
+   REM executes iris_spark.py in a Spark instance on a remote Docker container
+   az ml experiment submit -c myvm-spark .\iris_spark.py
    ```
 
 ## Execute script in an HDInsight cluster
@@ -360,8 +360,8 @@ You can also run this script in an actual Spark cluster.
 2. Run the following command and the script runs in the HDInsight cluster:
 
    ```azurecli
-   REM executes iris_pyspark on the HDInsight cluster
-   az ml experiment submit -c myhdi .\iris_pyspark.py
+   REM executes iris_spark on the HDInsight cluster
+   az ml experiment submit -c myhdi .\iris_spark.py
    ```
 
    >[!NOTE]
