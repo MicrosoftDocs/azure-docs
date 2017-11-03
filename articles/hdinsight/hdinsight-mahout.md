@@ -15,7 +15,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 11/03/2017
 ms.author: larryfr
 
 ---
@@ -53,11 +53,11 @@ The following example is a simplified walk-through of how the recommendation pro
 
 ### Understanding the data
 
-[GroupLens Research][movielens] provides rating data for movies in a format that is compatible with Mahout. This data is available on the default storage for your cluster at `/HdiSamples//HdiSamples/MahoutMovieData`.
+[GroupLens Research][movielens] provides rating data for movies in a format that is compatible with Mahout. This data is available on the default storage for your cluster at `/HdiSamples/HdiSamples/MahoutMovieData`.
 
 There are two files, `moviedb.txt` (information about the movies) and `user-ratings.txt`. The `user-ratings.txt` file is used during analysis. The `moviedb.txt` file is used to provide user-friendly text when displaying the results of the analysis.
 
-The data contained in user-ratings.txt has a structure of `userID`, `movieID`, `userRating`, and `timestamp`, which tells us how highly each user rated a movie. Here is an example of the data:
+The data contained in user-ratings.txt has a structure of `userID`, `movieID`, `userRating`, and `timestamp`, which tells how highly each user rated a movie. Here is an example of the data:
 
     196    242    3    881250949
     186    302    3    891717742
