@@ -175,7 +175,7 @@ To have your scheduler trigger kick off a pipeline run, include a pipeline refer
         "interval": <<int>>,             // optional, how often to fire (default to 1)
         "startTime": <<datetime>>,
         "endTime": <<datetime>>,
-        "timeZone": <<default UTC>>
+        "timeZone": "UTC"
         "schedule": {                    // optional (advanced scheduling specifics)
           "hours": [<<0-24>>],
           "weekDays": ": [<<Monday-Sunday>>],
@@ -245,11 +245,47 @@ The following table provides a high-level overview of the major elements related
 JSON property | 	Description
 ------------- | -------------
 startTime | startTime is a Date-Time. For simple schedules, startTime is the first occurrence. For complex schedules, the trigger starts no sooner than startTime.
+endTime | Specifies the end date-time for the trigger. The trigger does not execute after this time. It is not valid to have an endTime in the past.
+timeZone | Currently, only UTC is supported. 
 recurrence | The recurrence object specifies recurrence rules for the trigger. The recurrence object supports the elements: frequency, interval, endTime, count, and schedule. If recurrence is defined, frequency is required; the other elements of recurrence are optional.
 frequency | Represents the unit of frequency at which the trigger recurs. Supported values are: `minute`, `hour`, `day`, `week`, or `month`.
 interval | The interval is a positive integer. It denotes the interval for the frequency that determines how often the trigger runs. For example, if interval is 3 and frequency is "week", the trigger recurs every 3 weeks.
-endTime | Specifies the end date-time for the trigger. The trigger does not execute after this time. It is not valid to have an endTime in the past.
 schedule | A trigger with a specified frequency alters its recurrence based on a recurrence schedule. A schedule contains modifications based on minutes, hours, weekdays, month days, and week number.
+
+
+### Schedule trigger example
+
+```json
+{
+	"properties": {
+		"name": "MyTrigger",
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Hour",
+				"interval": 1,
+				"startTime": "2017-11-01T09:00:00-08:00",
+				"endTime": "2017-11-02T22:00:00-08:00"
+			}
+		},
+		"pipelines": [{
+				"pipelineReference": {
+					"type": "PipelineReference",
+					"referenceName": "SQLServerToBlobPipeline"
+				},
+				"parameters": {}
+			},
+			{
+				"pipelineReference": {
+					"type": "PipelineReference",
+					"referenceName": "SQLServerToAzureSQLPipeline"
+				},
+				"parameters": {}
+			}
+		]
+	}
+}
+```
 
 ### Overview: scheduler trigger schema defaults, limits, and examples
 
