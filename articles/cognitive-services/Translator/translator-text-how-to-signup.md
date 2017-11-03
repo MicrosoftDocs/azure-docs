@@ -42,7 +42,7 @@ ms.author: v-jansko
 # Customization
 **Translator Hub**
 
-Use the Translator Hub pre-publishing tool to customize your translations and create a translation system tuned to your own terminology and style. [Learn more](translator-hub-overview.md)
+Use the Translator Hub pre-publishing tool to customize your translations and create a translation system tuned to your own terminology and style. [Learn more](customization.md)
  
 # Additional resources
 - [Get Started with Azure (5-minute video)](https://azure.microsoft.com/en-us/get-started/?b=16.24)
