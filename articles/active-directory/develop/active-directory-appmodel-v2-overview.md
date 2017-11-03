@@ -50,8 +50,4 @@ These links will be useful for exploring the platform in depth:
 > If you only need to sign in work and school accounts from Azure Active Directory, you should start with our [Azure AD developer's guide](active-directory-developers-guide.md).  The v2.0 endpoint is intended for use by developers who explicitly need to sign in Microsoft personal accounts.
 
 
-## Help & Support
-See below for help and support options:
-
-> [!div class="nextstepaction"]
-> [Help and Support for Developers](active-directory-develop-help-support.md)
+[!INCLUDE  [Help and Support Options](../../../includes/active-directory-develop-help-support-include.md)]
