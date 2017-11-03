@@ -22,9 +22,9 @@ You can develop applications that convert spoken audio to text by using the Spee
 The Speech API is part of Cognitive Services (previously Project Oxford). You can get free trial subscription keys from the [Cognitive Services subscription](https://azure.microsoft.com/try/cognitive-services/) page. After you select the Speech API, select **Get API Key** to get the key. It returns a primary and secondary key. Both keys are tied to the same quota, so you can use either key.
 
 > [!IMPORTANT]
-> * Get a subscription key. Before you can use Speech client libraries, you must have a [subscription key](https://azure.microsoft.com/try/cognitive-services/).
+>* Get a subscription key. Before you can use Speech client libraries, you must have a [subscription key](https://azure.microsoft.com/try/cognitive-services/).
 >
-> * Use your subscription key. With the provided JavaScript sample application, update the file samples/browser/Sample.html with your subscription key. For more information, see [Get started](#get-started).
+>* Use your subscription key. With the provided JavaScript sample application, update the file samples/browser/Sample.html with your subscription key. For more information, see [Get started](#get-started).
 
 ## Get started
 

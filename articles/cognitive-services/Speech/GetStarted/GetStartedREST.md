@@ -22,9 +22,9 @@ With cloud-based Speech Service, you can develop applications by using the REST 
 The Speech API is part of Cognitive Services (previously Project Oxford). You can get free trial subscription keys from the [Cognitive Services subscription](https://azure.microsoft.com/try/cognitive-services/) page. After you select the Speech API, select **Get API Key** to get the key. It returns a primary and secondary key. Both keys are tied to the same quota, so you can use either key.
 
 > [!IMPORTANT]
-> * Get a subscription key. Before you can access the REST API, you must have a [subscription key](https://azure.microsoft.com/try/cognitive-services/).
+>* Get a subscription key. Before you can access the REST API, you must have a [subscription key](https://azure.microsoft.com/try/cognitive-services/).
 >
-> * Use your subscription key. In the following REST samples, replace `YOUR_SUBSCRIPTION_KEY` with your own subscription key.
+>* Use your subscription key. In the following REST samples, replace `YOUR_SUBSCRIPTION_KEY` with your own subscription key.
 
 ### Prerecorded audio file
 

@@ -34,9 +34,9 @@ The Speech API is part of Cognitive Services (previously Project Oxford). You ca
 If you want to use *recognition with intent*, you also need to sign up for the [Language Understanding Intelligent Service (LUIS)](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
 
 > [!IMPORTANT]
-> * Get a subscription key. Before you can use Speech client libraries, you must have a [subscription key](https://azure.microsoft.com/try/cognitive-services/).
+>* Get a subscription key. Before you can use Speech client libraries, you must have a [subscription key](https://azure.microsoft.com/try/cognitive-services/).
 >
-> * Use your subscription key. With the provided Android sample application, update the file samples/SpeechRecoExample/res/values/strings.xml with your subscription keys. For more information, see [Build and run samples](#build-and-run-samples).
+>* Use your subscription key. With the provided Android sample application, update the file samples/SpeechRecoExample/res/values/strings.xml with your subscription keys. For more information, see [Build and run samples](#build-and-run-samples).
 
 ## Use the Speech client library
 
