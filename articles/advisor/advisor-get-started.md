@@ -25,14 +25,12 @@ Learn how to access Advisor through the Azure portal, get recommendations, imple
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. In the left pane, click **More services**.
-
-3. In the service menu pane, under **Monitoring and Management**, click **Advisor**.  
+2. In the left pane, click **Advisor**.  If you do not see Advisor in the left pane, click **More services**.  In the service menu pane, under **Monitoring and Management**, click **Advisor**.
  The Advisor dashboard is displayed.
 
    ![Access Azure Advisor using the Azure portal](./media/advisor-get-started/advisor-portal-menu.png) 
 
-4. The Advisor dashboard will display a summary of your recommendations for all selected subscriptions.  You can choose which subscriptions for which you want recommendations can be displayed using the subscription filter dropdown.  
+4. The Advisor dashboard will display a summary of your recommendations for all selected subscriptions.  You can choose the subscriptions that you want recommendations to be disaplyed for using the subscription filter dropdown.
 
 5. To get recommendations for a specific category, click one of the tabs: **High Availability**, **Security**, **Performance**, or **Cost**.
  
@@ -51,7 +49,7 @@ You can select a recommendation in Advisor to view additional details – such a
 
 3. Click a recommendation that you want to review in detail.
 
-4. Review the information about the recommendation and the resources that the recommendation applies too.
+4. Review the information about the recommendation and the resources that the recommendation applies to.
 
 5. Click on the **Recommended Action** to implement the recommendation.
 
@@ -88,7 +86,7 @@ You may have resource groups or subscriptions for you which do not want to recei
 
 2. Click **Configure** in the action bar.
 
-3. Uncheck any subscriptions or resource groups you do not want to receive Advisor recommendation for.
+3. Uncheck any subscriptions or resource groups you do not want to receive Advisor recommendations for.
 
     ![Advisor configure resources example](./media/advisor-get-started/advisor-configure-resources.png)
 
@@ -119,13 +117,13 @@ If you would like to be more aggressive at identifying low usage virtual machine
 
 ## Download your Advisor recommendations
 
-Advisor enables you to download a summary of your recommendations.  You can download your recommendations as a PDF file or a CSV file.  Downloading your recommendations enables you to easy share with your colleagues or perform your own analysis on top of the recommendation data.
+Advisor enables you to download a summary of your recommendations.  You can download your recommendations as a PDF file or a CSV file.  Downloading your recommendations enables you to easily share with your colleagues or perform your own analysis on top of the recommendation data.
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and then open [Advisor](https://aka.ms/azureadvisordashboard).
 
 2. Click **Download as CSV** or **Download as PDF** on the action bar.
 
-The download option will respect as filtes you have applied to the Advisor dashboard.  If you select the download option while viewing a specific recommendation category or recommendation, the downloaded summary will only include information for that category or recommendation. 
+The download option will respect any filtes you have applied to the Advisor dashboard.  If you select the download option while viewing a specific recommendation category or recommendation, the downloaded summary will only include information for that category or recommendation. 
 
 ## Next steps
 

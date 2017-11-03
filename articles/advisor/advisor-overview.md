@@ -19,7 +19,7 @@ ms.author: kumud
 
 # Introduction to Azure Advisor
 
-Learn about Azure Advisor and its key capabilities, and get answers to frequently asked questions.
+Learn about the key capabilities of Azure Advisor and get answers to frequently asked questions.
 
 ## What is Advisor?
 Advisor is a personalized cloud consultant that helps you follow best practices to optimize your Azure deployments. It analyzes your resource configuration and usage telemetry and then recommends solutions that can help you improve the cost effectiveness, performance, high availability, and security of your Azure resources.
@@ -31,15 +31,12 @@ With Advisor, you can:
 
 You can access Advisor through the [Azure portal](https://aka.ms/azureadvisordashboard). Sign in to the [portal](https://portal.azure.com), locate **Advisor** in the navigation menu, or search for it in the **More services** menu.
 
-The Advisor dashboard displays personalized recommendations for all your subscriptions.  You can apply filters to display recommendations for a specific subscriptions and resource types.  The recommendations are divided into four categories: 
+The Advisor dashboard displays personalized recommendations for all your subscriptions.  You can apply filters to display recommendations for specific subscriptions and resource types.  The recommendations are divided into four categories: 
 
 * **High Availability**: To ensure and improve the continuity of your business-critical applications. For more information, see [Advisor High Availability recommendations](advisor-high-availability-recommendations.md).
-
 * **Security**: To detect threats and vulnerabilities that might lead to security breaches. For more information, see [Advisor Security recommendations](advisor-security-recommendations.md).
-
 * **Performance**: To improve the speed of your applications. For more information, see [Advisor Performance recommendations](advisor-performance-recommendations.md).
-
-* **Cost**: To optimize and reduce your overall Azure spend. For more information, see [Advisor Cost recommendations](advisor-cost-recommendations.md).
+* **Cost**: To optimize and reduce your overall Azure spending. For more information, see [Advisor Cost recommendations](advisor-cost-recommendations.md).
 
   ![Advisor recommendation types](./media/advisor-overview/advisor-dashboard.png)
 
@@ -52,7 +49,7 @@ You can click a category to display the list of recommendations within that cate
 
 Select the recommended action for a recommendation to implement the recommendation.  This will open up a simple interface enabling you to implement the recommendation, or documentation to assist you with implementation.  Once you implement a recommendation, it can take up to a day for Advisor to recognize that.
 
-If you don’t intend to take immediate action on a recommendation, you can snooze it for a specified time period or dismiss it.  If you don’t want to receive recommendations for a specific subscription or resource group, you can configure Advisor to only generate recommendations for specified subscriptions and resource groups.
+If you do not intend to take immediate action on a recommendation, you can snooze it for a specified time period or dismiss it.  If you do not want to receive recommendations for a specific subscription or resource group, you can configure Advisor to only generate recommendations for specified subscriptions and resource groups.
 
 ## Frequently asked questions
 
