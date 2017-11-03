@@ -361,6 +361,21 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles//azure-resource-manager/resource-manager-policy-portal.md",
+            "redirect_url": "/azure/azure-policy/assign-policy-definition",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles//azure-resource-manager/resource-manager-policy-network.md",
+            "redirect_url": "/azure/azure-policy/json-samples",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles//azure-resource-manager/resource-manager-policy-storage.md",
+            "redirect_url": "/azure/azure-policy/json-samples",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/resource-group-authenticate-service-principal-cli.md",
             "redirect_url": "/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli",
             "redirect_document_id": false
