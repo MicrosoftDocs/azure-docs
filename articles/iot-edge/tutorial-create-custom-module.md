@@ -242,9 +242,9 @@ The following steps show you how to create an IoT Edge module using Visual Studi
 ## Create a Docker image and publish it to your registry
 
 1. Build the docker image.
-  1. In VS Code explorer, click on the **Docker** folder to open it, then right-click the **Dockerfile** and click **Build IoT Edge module Docker image**. 
-  2. In the **Select Folder** box, either browse to or enter `./bin/Debug/netcoreapp2.0/publish`. Click **Select Folder as EXE_DIR**.
-  3. In the pop-up text box at the top of the VS Code window, enter the image URL; for example, `<docker registry address>/filtermodule:latest`.
+   1. In VS Code explorer, click on the **Docker** folder to open it, then right-click the **Dockerfile** and click **Build IoT Edge module Docker image**. 
+   2. In the **Select Folder** box, either browse to or enter `./bin/Debug/netcoreapp2.0/publish`. Click **Select Folder as EXE_DIR**.
+   3. In the pop-up text box at the top of the VS Code window, enter the image URL; for example, `<docker registry address>/filtermodule:latest`.
  
 4. Sign in to Docker. In integrated terminal, enter the following command and enter your credentials when prompted:
 
@@ -259,11 +259,14 @@ The following steps show you how to create an IoT Edge module using Visual Studi
 3. Push the image to your Docker repository. Use the **View | Command Palette ... | Edge: Push IoT Edge module Docker image** menu command and enter the image URL in the pop-up text box at the top of the VS Code window. Use the same image URL you used in step 1.a.; for example, `<docker registry address>/filtermodule:latest`.
 
 ## Add registry credentials to Edge runtime on your Edge device
-Add the credentials for your registry to the Edge runtime on your Edge device. This gives the runtime access to pull the container. Run the following command on your Edge device:
+Add the credentials for your registry to the Edge runtime on the machine where you are running your Edge device. This gives the runtime access to pull the container. Run the following command on the machine where you are running your Edge device:
 
 ```cmd/sh
-sudo iotedgectl login --address --username --password 
+iotedgectl login --address --username --password 
 ```
+
+> [!NOTE]
+> This command above gives the Python 2.7 command for Windows. If you're running your Edge device on Linux, add `sudo` in front of the command.
 
 ## Run the solution
 
@@ -271,13 +274,13 @@ sudo iotedgectl login --address --username --password
 2. Go to **IoT Edge Explorer** and select your IoT Edge device.
 3. Select **Deploy modules**. 
 4. Select **Add custom IoT Edge module**.
-5. In the **Name** field enter `tempSensor`.
-6. In the **Image** field enter `edgepreview.azurecr.io/azureiotedge/simulated-temperature-sensor:latest`.
+5. In the **Name** field, enter `tempSensor`.
+6. In the **Image** field, enter `edgepreview.azurecr.io/azureiotedge/simulated-temperature-sensor:latest`.
 7. In the **OS** field, select **linux**.
 8. Leave the other settings unchanged and select **Save**.
 9. From the **Add Modules** step, select **Add custom IoT Edge module** again.
-10. In the **Name** field enter `filtermodule`.
-11. In the **Image** field enter your image address; for example `{your registry}/filtermodule:latest`.
+10. In the **Name** field, enter `filtermodule`.
+11. In the **Image** field, enter your image address; for example `{your registry}/filtermodule:latest`.
 12. In the **OS** field, select **linux**.
 13. In the **Architecture** field, select **x64**.
 14. Check the **Edit module twin** box.
