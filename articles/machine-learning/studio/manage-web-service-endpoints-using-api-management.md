@@ -53,22 +53,6 @@ It may take up to thirty minutes for a new service to be created.
 
 ![create-service](./media/manage-web-service-endpoints-using-api-management/create-service.png)
 
-### *(to be deleted - using the classic portal)*
-
-Below are the steps for using API Management to manage your AzureML web service. First create a service instance. Log in to the [Classic Portal](https://manage.windowsazure.com/) and click **New** > **App Services** > **API Management** > **Create**.
-
-![create-instance](./media/manage-web-service-endpoints-using-api-management/create-instance.png)
-
-Specify a unique **URL**. This guide uses **demoazureml** – you will need to choose something different. Choose the desired **Subscription** and **Region** for your service instance. After making your selections, click the next button.
-
-![create-service-1](./media/manage-web-service-endpoints-using-api-management/create-service-1.png)
-
-Specify a value for the **Organization Name**. This guide uses **demoazureml** – you will need to choose something different. Enter your email address in the **administrator e-mail** field. This email address is used for notifications from the API Management system.
-
-![create-service-2](./media/manage-web-service-endpoints-using-api-management/create-service-2.png)
-
-Click the check box to create your service instance. *It takes up to thirty minutes for a new service to be created*.
-
 
 ## Create the API
 Once the service instance is created, the next step is to create the API. An API consists of a set of operations that can be invoked from a client application. API operations are proxied to existing web services. This guide creates APIs that proxy to the existing AzureML RRS and BES web services.
@@ -88,23 +72,6 @@ To create the API:
 6. For **Products**, select **Starter**
 7. Click **Save**
 
-### *(to be deleted - using the classic portal)*
-
-APIs are created and configured from the API publisher portal, which is accessed through the Azure Classic Portal. To reach the publisher portal, select your service instance.
-
-![select-service-instance](./media/manage-web-service-endpoints-using-api-management/select-service-instance.png)
-
-Click **Manage** in the Azure Classic Portal for your API Management service.
-
-![manage-service](./media/manage-web-service-endpoints-using-api-management/manage-service.png)
-
-Click **APIs** from the **API Management** menu on the left, and then click **Add API**.
-
-![api-management-menu](./media/manage-web-service-endpoints-using-api-management/api-management-menu.png)
-
-Type **AzureML Demo API** as the **Web API name**. Type **https://ussouthcentral.services.azureml.net** as the **Web service URL**. Type **azureml-demo** as the **Web API URL suffix**. Check **HTTPS** as the **Web API URL** scheme. Select **Starter** as **Products**. When finished, click **Save** to create the API.
-
-![add-new-api](./media/manage-web-service-endpoints-using-api-management/add-new-api.png)
 
 ## Add the operations
 
@@ -171,29 +138,31 @@ First create an operation for the AzureML RRS service:
 
 ## Call an operation from the Developer Portal
 
-Operations can be called directly from the Developer portal, which provides a convenient way to view and test the operations of an API. In this guide step you will call the **RRS Execute** method that waps added to the **AzureML Demo API**. Click **Developer portal** from the menu at the top right of the Classic Portal.
+Operations can be called directly from the Developer portal, which provides a convenient way to view and test the operations of an API. In this step you will call the **RRS Execute** method that was added to the **AzureML Demo API**. 
 
-![developer-portal](./media/manage-web-service-endpoints-using-api-management/developer-portal.png)
+1. Click **Developer portal**.
 
-Click **APIs** from the top menu, and then click **AzureML Demo API** to see the operations available.
+   ![developer-portal](./media/manage-web-service-endpoints-using-api-management/developer-portal.png)
 
-![demoazureml-api](./media/manage-web-service-endpoints-using-api-management/demoazureml-api.png)
+2. Click **APIs** from the top menu, and then click **AzureML Demo API** to see the operations available.
 
-Select **RRS Execute** for the operation. Click **Try It**.
+   ![demoazureml-api](./media/manage-web-service-endpoints-using-api-management/demoazureml-api.png)
 
-![try-it](./media/manage-web-service-endpoints-using-api-management/try-it.png)
+3. Select **RRS Execute** for the operation. Click **Try It**.
 
-For Request parameters, type your **workspace** and  **service**, type "2.0 for the **apiversion**, and  "true" for the **details**. You can find your **workspace** and **service** in the AzureML web service dashboard (see **Test the web service** in Appendix A).
+   ![try-it](./media/manage-web-service-endpoints-using-api-management/try-it.png)
 
-For Request headers, click **Add header** and type "Content-Type" and "application/json". Click **Add header** again and type "Authorization" and "Bearer *\<your service API-KEY\>*". You can find your API-KEY in the AzureML web service dashboard (see **Test the web service** in Appendix A).
+4. For **Request parameters**, type your **workspace** and  **service**, type "2.0 for the **apiversion**, and  "true" for the **details**. You can find your **workspace** and **service** in the AzureML web service dashboard (see **Test the web service** in Appendix A).
 
-For the request body, type `{"Inputs": {"input1": {"ColumnNames": ["Col2"], "Values": [["This is a good day"]]}}, "GlobalParameters": {}}`.
+   For **Request headers**, click **Add header** and type "Content-Type" and "application/json". Click **Add header** again and type "Authorization" and "Bearer *\<your service API-KEY\>*". You can find your API-KEY in the AzureML web service dashboard (see **Test the web service** in Appendix A).
 
-![azureml-demo-api](./media/manage-web-service-endpoints-using-api-management/azureml-demo-api.png)
+   For **Request body**, type `{"Inputs": {"input1": {"ColumnNames": ["Col2"], "Values": [["This is a good day"]]}}, "GlobalParameters": {}}`.
 
-Click **Send**.
+   ![azureml-demo-api](./media/manage-web-service-endpoints-using-api-management/azureml-demo-api.png)
 
-![send](./media/manage-web-service-endpoints-using-api-management/send.png)
+5. Click **Send**.
+
+   ![send](./media/manage-web-service-endpoints-using-api-management/send.png)
 
 After an operation is invoked, the developer portal displays the **Requested URL** from the back-end service, the **Response status**, the **Response headers**, and any **Response content**.
 
