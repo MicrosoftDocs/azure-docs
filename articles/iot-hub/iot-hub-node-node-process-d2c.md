@@ -23,13 +23,13 @@ ms.author: v-masebo
 
 Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of devices and a solution back end. Other tutorials ([Get started with IoT Hub] and [Send cloud-to-device messages with IoT Hub][lnk-c2d]) show you how to use the basic device-to-cloud and cloud-to-device messaging functionality of IoT Hub.
 
-This tutorial builds on the code shown in the [Get started with IoT Hub] tutorial, and shows you how to use message routing to process device-to-cloud messages in a scalable way. The tutorial illustrates how to process messages that require immediate action from the solution back end. For example, a device might send an alarm message that triggers inserting a ticket into a CRM system. By contrast, data-point messages simply feed into an analytics engine. For example, temperature telemetry from a device that is to be stored for later analysis is a data-point message.
+This tutorial builds on the code shown in the [Get started with IoT Hub] tutorial, and shows you how to use message routing to process device-to-cloud messages in a scalable way. The tutorial illustrates how to process messages that require immediate action from the solution back end or messages that need to be permanently stored. For example, a device might send an alarm message that triggers inserting a ticket into a CRM system. By contrast, data-point messages such as temperature telemetry, simply feed into an analytics engine to be stored for later analysis.
 
 At the end of this tutorial, you run three Node.js console apps:
 
-* **SimulatedDevice**, a modified version of the app created in the [Get started with IoT Hub] tutorial, sends data-point device-to-cloud messages every second, and interactive device-to-cloud messages per random interval. This app uses the MQTT protocol to communicate with IoT Hub.
-* **ReadDeviceToCloudMessages** displays the telemetry sent by your device app.
-* **ReadCriticalQueue** de-queues the critical messages from the Service Bus queue attached to the IoT hub.
+* **SimulatedDevice.js**, a modified version of the app created in the [Get started with IoT Hub] tutorial, sends data-point device-to-cloud messages every second, and interactive device-to-cloud messages per random interval. This app uses the MQTT protocol to communicate with IoT Hub.
+* **ReadDeviceToCloudMessages.js** displays the telemetry sent by your device app.
+* **ReadCriticalQueue.js** de-queues the critical messages from the Service Bus queue attached to the IoT hub.
 
 > [!NOTE]
 > IoT Hub has SDK support for many device platforms and languages, including C, Java, and JavaScript. For instructions on how to replace the device in this tutorial with a physical device, and how to connect devices to an IoT Hub, see the [Azure IoT Developer Center].
@@ -109,13 +109,19 @@ In this section, you create both a Service Bus queue and a Storage account, conn
 
 3. In the **Endpoints** blade, click **Add** at the top to add your queue to your IoT hub. Name the endpoint **CriticalQueue** and use the drop-downs to select **Service Bus queue**, the Service Bus namespace in which your queue resides, and the name of your queue. When you are done, click **OK** at the bottom.  
 
-1. Click **Add** again, name the endpoint **GeneralQueue** and create a **Storage account** and a **Storage container**.  Make note of the names.  When you are done, click **OK** at the bottom.
+ > [!NOTE]
+   > Depending on your IoT Hub's pricing tier you might be limited to only one **Endpoint**.  If so, skip step 4 and return after completing the tutorial and then replace the **CriticalQueue** with the **StorageQueue** as your single endpoint.
+
+1. Click **Add** again, name the endpoint **StorageQueue** and create a **Storage account** and a **Storage container**.  Make note of the names.  When you are done, click **OK** at the bottom.
 
     ![Adding an endpoint][31]
 
 4. Now click **Routes** in your IoT Hub. Click **Add** at the top of the blade to create a routing rule that routes messages to the queue you just added. Select **Device Messages** as the source of data. Enter `level="critical"` as the condition, and choose **CriticalQueue** as a custom endpoint as the routing rule endpoint. Click **Save** at the bottom.  
 
-1. Click **Add** again, select **Device Messages** as the source of data, enter `level="storage"` as the condition, and choose **GeneralQueue** as the endpoint.  When you are done, click **Save** at the bottom.
+ > [!NOTE]
+   > Depending on your IoT Hub's pricing tier you might be limited to only one **Endpoint**.  If so, skip step 6 and return after completing the tutorial and then replace the **CriticalQueue** route with the **StorageQueue** route.
+
+1. Click **Add** again, select **Device Messages** as the source of data, enter `level="storage"` as the condition, and choose **StorageQueue** as the endpoint.  When you are done, click **Save** at the bottom.
 
     ![Adding a route][32]
 
@@ -201,6 +207,9 @@ Now you are ready to run the three applications.
    ![Run simulated-device][simulateddevice]
 
 1. In the Azure Portal, go to your storage account, under **Blob Service**, click **Browse blobs...**.  Select your container, navigate to and click the JSON file, and click **Download** to view the data.
+
+ > [!NOTE]
+   > If you are limited to only one **Endpoint**, only complete this step after re-running the tutorial after replacing the **CriticalQueue** with the **StorageQueue** as your single endpoint.
 
 ## Next steps
 
