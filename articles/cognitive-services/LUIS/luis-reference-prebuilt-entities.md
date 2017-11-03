@@ -257,7 +257,7 @@ The following example shows the resolution of the **builtin.currency** entity.
 
 ## builtin.datetimeV2
 
-The **builtin.datetimeV2** prebuilt entity automatically recognizes dates, times, and ranges of dates and times. This entity also resolves dates, times and date ranges to values in a standardized format for client programs to consume. If an utterance contains a date or time that isn't fully specified, both past and future values are included in the resolution. 
+The **builtin.datetimeV2** prebuilt entity automatically recognizes dates, times, and ranges of dates and times. This entity also resolves dates, times, and date ranges to values in a standardized format for client programs to consume. If an utterance contains a date or time that isn't fully specified, both past and future values are included in the resolution. 
 
 > [!NOTE]
 > **builtin.datetimeV2** is available only in the ```en-us``` and ```zh-cn``` locales.
@@ -287,7 +287,7 @@ The following is an example of a JSON response containing a builtin.datetimeV2 e
    </pre></td>
    <td> 
    <table>
-   <tr><td>entity</td><td><b>string</b>. Text extracted from the utterance, that represents a date, time, date range or time range.</td></tr>
+   <tr><td>entity</td><td><b>string</b>. Text extracted from the utterance, that represents a date, time, date range, or time range.</td></tr>
    <tr><td>type</td><td><b>string</b>. One of the following <a href=#subtypes-of-datetimev2>subtypes of datetimeV2</a>: 
    <ul><li>builtin.datetimeV2.datetime
    <li>builtin.datetimeV2.date
