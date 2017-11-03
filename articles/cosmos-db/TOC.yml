@@ -244,9 +244,9 @@
         href: gremlin-support.md
     - name: Table API
       items:
-      - name: Table support
+      - name: Table development
         href: table-support.md
-      - name: Azure Table Storage
+      - name: Azure Table storage
         items:     
         - name: Table storage overview
           href: table-storage-overview.md

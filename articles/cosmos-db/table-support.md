@@ -34,7 +34,7 @@ At this time, the Azure Cosmos DB Table API has one .NET SDK available, the [Win
 
 ## Developing with the Azure Table storage
 
-Azure Table storage has many SDKs available and tutorials available, all of which are now available in the [Azure Table Storage](table-storage-overview.md) section. These articles are being updated as interoperability between the Azure Table storage SDKs and Azure Cosmos DB Table APIs becomes available.  
+Azure Table storage has many SDKs available and tutorials available, all of which are now available in the [Azure Table storage](table-storage-overview.md) section. These articles are being updated as interoperability between the Azure Table storage SDKs and Azure Cosmos DB Table APIs becomes available.  
 
 
 
