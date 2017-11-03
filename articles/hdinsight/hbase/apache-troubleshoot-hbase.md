@@ -419,5 +419,5 @@ Because of the abrupt shutdown, the port associated with the process might not b
    sudo su - hbase -c "/usr/hdp/current/hbase-regionserver/bin/hbase-daemon.sh start regionserver"   
    ```
 
-## See Also
+### See Also
 [Troubleshoot by Using Azure HDInsight](../../hdinsight/hdinsight-troubleshoot-guide.md)
