@@ -37,14 +37,14 @@ Update 1.0 corresponds to the software version **10.0.10296.0**.
 **Update 1.0 contains changes related to authentication of StorSimple Device Manager service and should be deployed at your earliest.** This update contains the following enhancements and bug fixes:
 
  - **Use of Azure Active Directory (AAD) to authenticate with StorSimple Device Manager service** – From Update 1.0 onwards, Azure Active Directory is used to authenticate with the StorSimple Device Manager service. The old authentication mechanism will be deprecated by December 2017. All the users must include the new authentication URLs in their firewall rules. For more information, go to authentication URLs listed in the [Networking requirements for your StorSimple Virtual Array](storsimple-ova-system-requirements.md).
+ 
+    If the authentication URL is not included in the firewall rules, the users will see a critical alert that their StorSimple device could not authenticate with the service. If the users see this alert, they need to include the new authentication URL. For more information, go to [StorSimple networking alerts](storsimple-virtual-array-manage-alerts.md).
 
-If the authentication URL is not included in the firewall rules, the users will see a critical alert that their StorSimple device could not authenticate with the service. If the users see this alert, they need to include the new authentication URL. For more information, go to [StorSimple networking alerts](storsimple-virtual-array-manage-alerts.md).
+ - **Performance improvement** - Several bug fixes were done to improve the speeds of cloud reads, tier-ins and tier-outs. As a result, both the backup and restore performance has improved for iSCSI and file server devices.
 
- - **Performance improvement** - Several bug fixes were done to improve the speeds of cloud read, tier-ins and tier-outs. As a result, both the backup and restore performance has imprvoed for iSCSI and file server devices.
+ - **Garbage collection improvement** - This release has bug fixes that improve the performance of garbage collection cycle when the device and storage account are in two distant regions.
 
- - **Garbage collection improvement** - Several bug fixes were done to improve the performance of garbage collection cycle when the device and storage account are in two distant regions.
-
- - **Logging improvement** - Improvements to logging related to garbage collection and I/O were done.
+ - **Logging improvement** - This release contains improvements to logging related to garbage collection and I/O path.
 
 
 ## Issues fixed in the Update 1.0

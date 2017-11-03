@@ -20,9 +20,9 @@ ms.author: alkohli
 
 ## Overview
 
-This article describes the steps required to install Update 1.0 on your StorSimple Virtual Array via the local web UI and via the Azure portal. You apply the software updates or hotfixes to keep your StorSimple Virtual Array up-to-date.
+This article describes the steps required to install Update 1.0 on your StorSimple Virtual Array via the local web UI and via the Azure portal.
 
-Before you apply an update, we recommend that you take the volumes or shares offline on the host first and then the device. This minimizes any possibility of data corruption. After the volumes or shares are offline, you should also take a manual backup of the device.
+You apply the software updates or hotfixes to keep your StorSimple Virtual Array up-to-date. Before you apply an update, we recommend that you take the volumes or shares offline on the host first and then the device. This minimizes any possibility of data corruption. After the volumes or shares are offline, you should also take a manual backup of the device.
 
 > [!IMPORTANT]
 > - Update 1.0 corresponds to **10.0.10296.0** software version on your device. For information on what is new in this update, go to [Release notes for Update 1.0](storsimple-virtual-array-update-1-release-notes.md).
@@ -31,7 +31,7 @@ Before you apply an update, we recommend that you take the volumes or shares off
 >
 > - Keep in mind that installing an update or hotfix restarts your device. Given that the StorSimple Virtual Array is a single node device, any I/O in progress is disrupted and your device experiences downtime.
 >
-> - Update 1 is available in the Azure portal only if the virtual array is running Update 0.6. For virtual arrays running pre-Update 0.6 versions, you must install Update 0.6 first and then install Update 1. If you used the local web UI to install Update 1 on a virtual array running a version prior to Update 0.6, you will be missing the monitoring agent update and also security updates. Your monitoring charts will not work.
+> - Update 1 is available in the Azure portal only if the virtual array is running Update 0.6. For virtual arrays running pre-Update 0.6 versions, you must install Update 0.6 first and then install Update 1. If you used the local web UI to install Update 1 on a virtual array running a version prior to Update 0.6, you will be missing the monitoring agent update and also security updates. Your monitoring charts will not work. Should this occur, [Contact Microsoft Support](storsimple-virtual-array-log-support-ticket.md) for next steps.
 
 ## Use the Azure portal
 
@@ -44,6 +44,8 @@ If running Update 0.2 and later, we recommend that you install updates through t
 [!INCLUDE [storsimple-virtual-array-install-update-via-portal](../../includes/storsimple-virtual-array-install-update-via-portal-1.md)]
 
 After the installation is complete, go to your StorSimple Device Manager service. Select **Devices** and then select and click the device you just updated. Go to **Settings > Manage > Device Updates**. The displayed software version should be **10.0.10296.0**.
+
+![Software version after update](./media/storsimple-virtual-array-install-update-1/azupdate17m1.png)
 
 ## Use the local web UI
 
