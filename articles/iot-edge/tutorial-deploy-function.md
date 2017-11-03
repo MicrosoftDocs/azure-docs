@@ -163,9 +163,16 @@ The following steps show you how to create a IoT Edge function using Visual Stud
 ## Create a Docker image and publish it to your registry
 
 1. Build the docker image.
+    > [!IMPORTANT]
+    > **For Bug Bash**, to create the Docker image, you will need to access the private registry hosting the function base image. In integrated terminal, run the following command before proceeding with the steps below: 
+    > 
+    > ```csh/sh
+    > docker login --username "EdgePreview" --password "L0K1xGpPa88BAWu847=LWAarMsuN+obs" edgepreview.azurecr.io 
+    > ```
+  
   1. In VS Code explorer, click on the **Docker** folder to open it, then right-click the **Dockerfile** and click **Build IoT Edge module Docker image**. 
   2. In the **Select Folder** box, click **Select Folder as EXE_DIR**. (Do not enter a value.)
-    a. In the pop-up text box at the top of the VS Code window, enter the image URL; for example, `<docker registry address>/filterfunction:latest`.
+  3. In the pop-up text box at the top of the VS Code window, enter the image URL; for example, `<docker registry address>/filterfunction:latest`.
  
 4. Sign in to Docker. In integrated terminal, enter the following command and enter your credentials when prompted:
 
