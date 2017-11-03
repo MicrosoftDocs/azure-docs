@@ -66,7 +66,7 @@ Follow these steps to create an Azure Database for PostgreSQL server:
 
 ## Configure a server-level firewall rule
 
-The Azure Database for PostgreSQL service creates a firewall at the server-level. By default, this firewall prevents all external applications and tools from connecting to the server and any databases on the server unless a firewall rule is created to open the firewall for a specific IP address range. 
+The Azure Database for PostgreSQL service uses a firewall at the server-level. By default, this firewall prevents all external applications and tools from connecting to the server and any databases on the server unless a firewall rule is created to open the firewall for a specific IP address range. 
 
 1.	After the deployment completes, click **All Resources** from the left-hand menu and type in the name **mypgserver-20170401** to search for your newly created server. Click the server name listed in the search result. The **Overview** page for your server opens and provides options for further configuration.
  
@@ -93,6 +93,7 @@ When you created the Azure Database for PostgreSQL server, the default **postgre
   ![Azure Database for PostgreSQL - Search for server ](./media/tutorial-design-database-using-azure-portal/4-locate.png)
 
 3. Click the server name **mypgserver-20170401**.
+
 4. Select the server's **Overview** page. Make a note of the **Server name** and **Server admin login name**.
 
  ![Azure Database for PostgreSQL - Server Admin Login](./media/tutorial-design-database-using-azure-portal/6-server-name.png)
@@ -120,7 +121,7 @@ Let's now use the [psql](https://www.postgresql.org/docs/9.6/static/app-psql.htm
    psql --host=mypgserver-20170401.postgres.database.azure.com --port=5432 --username=mylogin@mypgserver-20170401 --dbname=postgres
    ```
 
-## Create a New Database
+## Create a new database
 Once you're connected to the server, create a blank database at the prompt.
 ```bash
 CREATE DATABASE mypgsqldb;
@@ -186,7 +187,7 @@ Imagine you have accidentally deleted this table. This situation is something yo
   - **Pricing tier**: You cannot change this value when restoring a server. It is same as the source server. 
 3.	Click **OK** [restore the server to a point-in-time](./howto-restore-server-portal.md) before the table was deleted. Restoring a server to a different point in time creates a duplicate new server as the original server as of the point in time you specify, provided that it is within the retention period for your [service tier](./concepts-service-tiers.md).
 
-## Next Steps
+## Next steps
 In this tutorial, you learned how to use the Azure portal and other utilities to:
 > [!div class="checklist"]
 > * Create an Azure Database for PostgreSQL server
