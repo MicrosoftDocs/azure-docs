@@ -29,7 +29,11 @@ You have created an Event Hub and are writing events to it. For more information
 
 ## Choose an Import option
 
-You find the Import Option setting on the Add Event Source blade. 
+1. Open a Time Series Environment.
+2. Click Event Sources.
+3. Click Add.
+
+You will find the Import Option setting on the Add Event Source blade. 
 
 ![Import Option setting](media/add-event-source/HowToAddEventHubEventImportOption.png)
 

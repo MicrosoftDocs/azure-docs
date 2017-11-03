@@ -13,7 +13,7 @@
 ## [Connect an IoT Hub event source](time-series-insights-how-to-add-an-event-source-iothub.md)
 ## [Scale your environment](time-series-insights-how-to-scale-your-environment.md)
 ## [Diagnose and solve problems](time-series-insights-diagnose-and-solve-problems.md)
-## Develop Custom Apps
+## Develop custom apps
 ### [Authentication and authorization](time-series-insights-authentication-and-authorization.md)
 ### [Query data using C#](time-series-insights-query-data-csharp.md)
 ### [Manage reference data using C#](time-series-insights-manage-reference-data-csharp.md)
