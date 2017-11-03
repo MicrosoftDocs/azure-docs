@@ -208,10 +208,11 @@ sfctl node remove-state --node-name _nt1vm_5
 
 > [!TIP]
 > Use the following **sfctl** queries to check the status of each step
-> * Check deactivation status  
+>
+> **Check deactivation status**  
 > `sfctl node list --query "sort_by(items[*], &instanceId)[-1].nodeDeactivationInfo"`
 >
-> * Check stop status  
+> **Check stop status**  
 > `sfctl node list --query "sort_by(items[*], &instanceId)[-1].isStopped"`
 >
 
