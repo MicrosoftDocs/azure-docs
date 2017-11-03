@@ -14978,5 +14978,11 @@
           "redirect_url": "https://support.microsoft.com/help/4042960",
           "redirect_document_id": false
         }
+
+	 {
+          "source_path": "articles/security-center/security-center-powerbi.md",
+          "redirect_url": "https://docs.microsoft.com/en-us/azure/security-center",
+          "redirect_document_id": false
+        }
     ]
 }
