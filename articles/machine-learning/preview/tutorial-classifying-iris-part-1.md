@@ -129,7 +129,7 @@ You can follow the [Install and create Quickstart](quickstart-installation.md) t
    # Spark DataFrame. If not, the code will return a Pandas DataFrame.
 
    from azureml.dataprep.package import run
-   df = run('iris.dprep', dataflow_idx=0)
+   df = run('iris-1.dprep', dataflow_idx=0)
    ```
 
    This code snippet invokes the logic you created as a data preparation package. Depending on the context in which this code is run, `df` represents different kinds of data frames. A [pandas DataFrame](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html) is used when executed in Python runtime, or a [Spark DataFrame](https://spark.apache.org/docs/latest/sql-programming-guide.html) is used when executed in a Spark context. 
