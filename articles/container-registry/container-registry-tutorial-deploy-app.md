@@ -33,7 +33,7 @@ If you haven't yet created a geo-replicated registry and pushed the image of the
 
 In the next part of the series, you update the application, then push a new container image to the registry. Finally, you browse to each running Web App instance to see the change automatically reflected in both, showing Azure Container Registry geo-replication and webhooks in action.
 
-## Automatic deployment to Web App for Containers
+## Automatic deployment to Web Apps for Containers
 
 Azure Container Registry provides support for deploying containerized applications directly to [Web Apps for Containers](../app-service/containers/index.yml). In this tutorial, you use the Azure portal to deploy the container image created in previous tutorial to two web app plans located in different Azure regions.
 
@@ -45,11 +45,11 @@ In this step, you create a Web App for Containers instance in the *West US* regi
 
 Sign in to the [Azure portal](https://portal.azure.com) and navigate to the registry you created in the previous tutorial.
 
-Select **Repositories** > **acr-helloworld**, then right-click on the **v1** tag under **Tags** and select **Deploy to app service**.
+Select **Repositories** > **acr-helloworld**, then right-click on the **v1** tag under **Tags** and select **Deploy to web app**.
 
 ![Deploy to app service in the Azure portal][deploy-app-portal-01]
 
-Under **Web app on Linux (preview)** that's displayed, specify the following values for each setting:
+Under **Web App for Containers** that's displayed, specify the following values for each setting:
 
 | Setting | Value |
 |---|---|
@@ -68,7 +68,7 @@ When deployment is complete, you can view the running application by navigating 
 
 In the portal, select **App Services**, then the web app you provisioned in the previous step. In this example, the web app is named *uniqueregistryname-westus*.
 
-Select the hyperlinked URL of the web app in the top-right of the **App Service overview** to view the running application in your browser.
+Select the hyperlinked URL of the web app in the top-right of the **App Service** overview to view the running application in your browser.
 
 ![Web app on Linux configuration in the Azure portal][deploy-app-portal-04]
 
@@ -78,7 +78,7 @@ Once the Docker image is deployed from your geo-replicated container registry, t
 
 ## Deploy second Web App for Containers instance
 
-Use the procedure outlined in the previous section to deploy a second web app to the *East US* region. Under **Web app on Linux (preview)**, specify the following values:
+Use the procedure outlined in the previous section to deploy a second web app to the *East US* region. Under **Web App for Containers**, specify the following values:
 
 | Setting | Value |
 |---|---|

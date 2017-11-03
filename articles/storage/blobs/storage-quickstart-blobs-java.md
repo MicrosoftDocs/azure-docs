@@ -7,7 +7,7 @@ services: storage
 
 ms.service: storage
 ms.topic: quickstart
-ms.date: 10/10/2017
+ms.date: 11/01/2017
 ms.author: v-rogara
 ms.custom: mvc
 ---
@@ -20,30 +20,15 @@ In this quickstart, you learn how to use Java to upload, download, and list bloc
 
 To complete this quickstart:
 
-* Install [Eclipse](http://www.eclipse.org/downloads/) with the "Eclipse IDE for Java Developers" configuration.
+* Install an IDE that has Maven integration
 
+* Alternatively, install and configure Maven to work from the command line
+
+This tutorial uses [Eclipse](http://www.eclipse.org/downloads/) with the "Eclipse IDE for Java Developers" configuration.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Create a storage account using the Azure portal
-
-First, create a new general-purpose storage account to use for this quickstart. 
-
-1. Go to the [Azure portal](https://portal.azure.com) and log in using your Azure account. 
-2. On the Hub menu, select **New** > **Storage** > **Storage account - blob, file, table, queue**. 
-3. Enter a name for your storage account. The name must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. It must also be unique.
-4. Set `Deployment model` to **Resource manager**.
-5. Set `Account kind` to **General purpose**.
-6. Set `Performance` to **Standard**. 
-7. Set `Replication` to **Locally Redundant storage (LRS)**.
-8. Set `Storage service encryption` to **Disabled**.
-9. Set `Secure transfer required` to **Disabled**.
-10. Select your subscription. 
-11. For `resource group`, create a new one and give it a unique name. 
-12. Select the `Location` to use for your storage account.
-13. Check **Pin to dashboard** and click **Create** to create your storage account. 
-
-After your storage account is created, it is pinned to the dashboard. Click on it to open it. Under SETTINGS, click **Access keys**. Select a key and copy it to the clipboard, then paste it into a text editor for later use. Copy the name of your storage account as well and paste it into a text editor for later use.
+[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
 
 ## Download the sample application
 
@@ -55,11 +40,9 @@ Use [git](https://git-scm.com/) to download a copy of the application to your de
 git clone https://github.com/Azure-Samples/storage-blobs-java-quickstart.git
 ```
 
-This command clones the repository to your local git folder. To open the project, launch Eclipse. Select **File** then **import...**. Select **General** then select **Existing projects into workspace**.
+This command clones the repository to your local git folder. To open the project, launch Eclipse and close the welcome screen. Select **File** then **Open Projects from File System...**. Make sure **Detect and configure project natures** is checked. Select **Directory** then navigate to where you stored the cloned repository, inside it select the **javaBlobsQuickstart** folder. Make sure the **javaBlobsQuickstarts** project appears as an Eclipse project, then select **Finish**.
 
-Select the root directory and browse to the “javaQuickstarts” folder inside the cloned repo. Select this as the root directory. Make sure the javaBlobQuickstart project appears under **Projects:** and then click finish.
-
-Once the project finishes importing, close the welcome screen, then open **AzureApp.java** (located in **com.fabrikam.testAzureApp** inside of **src/main/java**) and replace the `accountname` and `accountkey` inside of the `storageConnectionString` string. Then run the application.
+Once the project finishes importing, open **AzureApp.java** (located in **blobQuickstart.blobAzureApp** inside of **src/main/java**), and replace the `accountname` and `accountkey` inside of the `storageConnectionString` string. Then run the application.
      
 
 ## Configure your storage connection string
@@ -67,7 +50,7 @@ Once the project finishes importing, close the welcome screen, then open **Azure
 In the application, you must provide the connection string for your storage account. Open the **AzureApp.Java** file. Find the `storageConnectionString` variable. Replace the `AccountName` and `AccountKey` values in the connection string with the values you saved from the Azure portal. Your `storageConnectionString` should look similar to the following:
 
 ```java
-    public static final String storageConnectionString ="DefaultEndpointsProtocol=http;" +
+    public static final String storageConnectionString ="DefaultEndpointsProtocol=https;" +
      "AccountName=<Namehere>;" +
     "AccountKey=<Keyhere>";
 ```
@@ -77,6 +60,8 @@ In the application, you must provide the connection string for your storage acco
 This sample creates a test file in your default directory (My Documents, for windows users), uploads it to Blob storage, lists the blobs in the container, then downloads the file with a new name so you can compare the old and new files. 
 
 Run the sample by pressing **Ctrl+F11** in Eclipse.
+
+If you wish to run the sample using Maven at the commandline, open a shell and navigate to **blobAzureApp** inside of your cloned directory. Then enter `mvn compile exec:java`.
 
 The following is an example of output if you were to run the application on Windows.
 
@@ -105,6 +90,9 @@ The first thing to do is create the references to the objects used to access and
 * Create an instance of the **CloudBlobContainer** object, which represents the [container](/java/api/com.microsoft.azure.storage.blob._cloud_blob_container) you are accessing. Containers are used to organize your blobs like you use folders on your computer to organize your files.
 
 Once you have the **CloudBlobContainer**, you can create an instance of the **CloudBlockBlob** object that points to the specific [blob](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob) in which you are interested, and perform an upload, download, copy, etc. operation.
+
+> [!IMPORTANT]
+> Container names must be lowercase. See [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) for more information about container and blob names.
 
 In this section, you create an instance of the objects, create a new container, and then set permissions on the container so the blobs are public and can be accessed with just a URL. The container is called **quickstartblobs**. 
 
