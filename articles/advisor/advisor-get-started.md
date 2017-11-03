@@ -19,7 +19,7 @@ ms.author: makohli
 
 # Get started with Azure Advisor
 
-Learn how to access Advisor through the Azure portal, get recommendations, implement recommendations, search for recommendations, and refresh recommendations.
+Learn how to access Advisor through the Azure portal, get recommendations, and implement recommendations.
 
 ## Get Advisor recommendations
 
@@ -77,10 +77,10 @@ You can filter recommendations to drill down to what is most important to you.  
 
 ## Exclude subscriptions or resource groups from Advisor
 
-You may have resource groups or subscriptions for you which do not want to receive Advisor recommendations – such as ‘test’ resources.  You can configure Advisor to only generate recommendations for specific subscriptions and resource groups.
+You may have resource groups or subscriptions for which you do not want to receive Advisor recommendations – such as ‘test’ resources.  You can configure Advisor to only generate recommendations for specific subscriptions and resource groups.
 
 > [!NOTE]
-> To include or exclude a subscription or resource group from Advisor, you must be a subscription Owner.  If you do not have the required permissions for a subscription or resource group, the option to include or exclude it will be disabled in the user interface.
+> To include or exclude a subscription or resource group from Advisor, you must be a subscription Owner.  If you do not have the required permissions for a subscription or resource group, the option to include or exclude it is disabled in the user interface.
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and then open [Advisor](https://aka.ms/azureadvisordashboard).
 
@@ -123,7 +123,7 @@ Advisor enables you to download a summary of your recommendations.  You can down
 
 2. Click **Download as CSV** or **Download as PDF** on the action bar.
 
-The download option will respect any filtes you have applied to the Advisor dashboard.  If you select the download option while viewing a specific recommendation category or recommendation, the downloaded summary will only include information for that category or recommendation. 
+The download option respects any filters you have applied to the Advisor dashboard.  If you select the download option while viewing a specific recommendation category or recommendation, the downloaded summary only includes information for that category or recommendation. 
 
 ## Next steps
 

@@ -47,7 +47,7 @@ You can click a category to display the list of recommendations within that cate
 
 ![Advisor recommendation category](./media/advisor-overview/advisor-ha-category-example.png) 
 
-Select the recommended action for a recommendation to implement the recommendation.  This will open up a simple interface enabling you to implement the recommendation, or documentation to assist you with implementation.  Once you implement a recommendation, it can take up to a day for Advisor to recognize that.
+Select the recommended action for a recommendation to implement the recommendation.  A simple interface will open that enables you to implement the recommendation or refer you to documentation that assists you with implementation.  Once you implement a recommendation, it can take up to a day for Advisor to recognize that.
 
 If you do not intend to take immediate action on a recommendation, you can snooze it for a specified time period or dismiss it.  If you do not want to receive recommendations for a specific subscription or resource group, you can configure Advisor to only generate recommendations for specified subscriptions and resource groups.
 
@@ -56,7 +56,7 @@ If you do not intend to take immediate action on a recommendation, you can snooz
 ### How do I access Advisor?
 You can access Advisor through the [Azure portal](https://aka.ms/azureadvisordashboard). Sign in to the [portal](https://portal.azure.com), locate **Advisor** in the navigation menu, or search for it in the **More services** menu.
 
-You can also view Advisor recommendations through the virtual machine resource blade. Choose a virtual machine, and then scroll to Advisor recommendations in the menu. 
+You can also view Advisor recommendations through the virtual machine resource interface. Choose a virtual machine, and then scroll to Advisor recommendations in the menu. 
 
 ### What permissions do I need to access Advisor?
 
