@@ -90,9 +90,8 @@ To create a SpeechClient, you need to first create a Preferences object. The Pre
 The SpeechInput object consists of two fields:
 
 * **Audio**: A stream implementation of your choice from which the SDK pulls audio. It can be any [stream](https://msdn.microsoft.com/library/system.io.stream(v=vs.110).aspx) that supports reading.
-
-> [!NOTE]
-> The SDK detects the end of the stream when the stream returns **0** in read.
+   > [!NOTE]
+   > The SDK detects the end of the stream when the stream returns **0** in read.
 
 * **RequestMetadata**: Metadata about the speech request. For more information, see the [reference](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-ServiceLibrary/master/docs/index.html).
 
