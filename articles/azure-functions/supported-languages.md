@@ -66,15 +66,15 @@ The following languages are in preview in v2:
 * **JavaScript**
 * [Java](https://azure.microsoft.com/blog/announcing-the-preview-of-java-support-for-azure-functions/).
 
-We have plans to add F# to this list.
+F# will be added to this list later.
 
 ### Experimental languages
  
-There is no experimental language support in v2. We will support a language in v2 only if its architecture allows it to scale and to support advanced triggers.
+No experimental languages are supported in v2. Support is added only for languages that can scale and support advanced triggers.
 
-We do have plans to support Python in the future. Python in v2 will have the same architecture as JavaScript, which is completely different from v1.
+There are plans to add Python. In v2, Python will have the same architecture as JavaScript.
 
-We don't yet have plans for supporting the other experimental languages in v2. If you want to use the experimental language support that v1 has, feel free to continue using v1, but be aware of the warning mentioned [earlier](#levels-of-support).
+If you want to use an experimental language, you can continue using v1, but be aware of the warning mentioned [earlier](#levels-of-support).
 
 ## Next steps
 
