@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/25/2017
+ms.date: 11/03/2017
 ms.author: markvi
 ms.reviewer: calebb
 
@@ -99,7 +99,7 @@ You can create custom controls in Conditional Access that redirect your users to
 
 ## Custom controls
 
-Custom controls in conditional access redirect your users to a compatible service to satisfy further requirements outside of Azure Active Directory. To satisfy this control, a user’s browser is redirected to the external service, performs any required authentication or validation activities, and is then redirected back to Azure Active Directory. Azure Active Directory verifies the response and, if the user was successfully authenticated or validated, the user continues in the conditional access flow.
+Custom controls are a capability of the Azure Active Directory Premium P2 edition. When using custom controls, your users are redirected to a compatible service to satisfy further requirements outside of Azure Active Directory. To satisfy this control, a user’s browser is redirected to the external service, performs any required authentication or validation activities, and is then redirected back to Azure Active Directory. Azure Active Directory verifies the response and, if the user was successfully authenticated or validated, the user continues in the conditional access flow.
 
 These controls allow the use of certain external or custom services as conditional access controls, and generally extend the capabilities of Conditional Access.
 
