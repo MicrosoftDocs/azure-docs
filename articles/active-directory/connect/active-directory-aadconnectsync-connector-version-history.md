@@ -23,6 +23,7 @@ The Connectors for Forefront Identity Manager (FIM) and Microsoft Identity Manag
 > [!NOTE]
 > This topic is on FIM and MIM only. These Connectors are not supported for install on Azure AD Connect. Released Connectors are preinstalled on AADConnect when upgrading to specified Build.
 
+
 This topic list all versions of the Connectors that have been released.
 
 Related links:
@@ -203,6 +204,22 @@ Before March 2016, the Connectors were released as support topics.
 * [KB2932635](https://support.microsoft.com/kb/2932635) - 5.3.1003, 2014 February  
 * [KB2899874](https://support.microsoft.com/kb/2899874) - 5.3.0721, 2013 October
 * [KB2875551](https://support.microsoft.com/kb/2875551) - 5.3.0534, 2013 August
+
+## Troubleshooting 
+
+> [!NOTE]
+> When updating Microsoft Identity Manager or AADConnect with use of any of ECMA2 connectors. 
+
+You must refresh the connector definition upon upgrade to match or you will receive the following error in the application event log start to report warning ID 6947: "Assembly version in AAD Connector configuration ("X.X.XXX.X") is earlier than the actual version ("X.X.XXX.X") of "C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll".
+
+To refresh the definition:
+* Open the Properties for the Connector instance
+* Click the Connection / Connect to tab
+  * Enter the password for the Connector account
+* Click each of the property tabs, in turn
+  * If this Connector type has a Partitions tab, with a Refresh button, click the Refresh button while on that tab
+* After all property tabs have been accessed, click the OK button to save the changes.
+
 
 ## Next steps
 Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.
