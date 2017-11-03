@@ -63,7 +63,7 @@ This guide assumes you already have a working trial or licensed Azure AD tenant.
 **At this point, you have configured SSPR for your Azure AD tenant**. Your users can now use the instructions found in the articles [Register for self-service password reset](active-directory-passwords-reset-register.md) and [Reset or change your password](active-directory-passwords-update-your-own-password.md) to update their password without administrator intervention. You can stop here if you are cloud-only or continue on to configure synchronization of passwords to an on-premises AD domain.
 
 > [!IMPORTANT]
-> Test SSPR with a user and not an administrator as Microsoft enforces strong authentication requirements for Azure administrator type accounts. For more information regarding the administrator password policy, see our [password policy article](active-directory-passwords-policy.md#administrator-password-policy-differences).
+> Test SSPR with a user and not an administrator as Microsoft enforces strong authentication requirements for Azure administrator type accounts this does not include the use of security questions even if enabled in your policy. For more information regarding the administrator password policy, see our [password policy article](active-directory-passwords-policy.md#administrator-password-policy-differences).
 
 ## Configure synchronization to existing identity source
 

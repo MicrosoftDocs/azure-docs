@@ -91,7 +91,7 @@ The following table describes the available password policy settings that can be
 
 ## Set password expiration policies in Azure Active Directory
 
-A global administrator for a Microsoft cloud service can use the Microsoft Azure Active Directory Module for Windows PowerShell to set up user passwords not to expire. You can also use Windows PowerShell cmdlets to remove the never-expires configuration, or to see which user passwords are set up not to expire. This guidance applies to other providers such as Microsoft Intune and Office 365, which also rely on Microsoft Azure Active Directory for identity and directory services.
+A global administrator for a Microsoft cloud service can use the Microsoft Azure Active Directory Module for Windows PowerShell to set up user passwords not to expire. You can also use Windows PowerShell cmdlets to remove the never-expires configuration, or to see which user passwords are set up not to expire. This guidance applies to other providers such as Microsoft Intune and Office 365, which also rely on Microsoft Azure Active Directory for identity and directory services. This is the only part of the policy that can be changed.
 
 > [!NOTE]
 > Only passwords for user accounts that are not synchronized through directory synchronization can be configured to not expire. For more information about directory synchronization see[Connect AD with Azure AD](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect).

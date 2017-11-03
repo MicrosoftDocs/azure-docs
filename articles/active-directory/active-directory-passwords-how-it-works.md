@@ -230,6 +230,9 @@ Password reset and change are fully supported with all B2B configurations. The f
 
 To test this scenario, go to http://passwordreset.microsoftonline.com with one of these partner users. As long as they have an alternate email or authentication email defined, password reset works as expected.
 
+> [!NOTE]
+> Microsoft accounts that have been granted guest access to your Azure AD tenant such as those from Hotmail.com, Outlook.com, or other personal email addresses are not able to use Azure AD SSPR and will need to reset their password using the information found in the article [When you can't sign in to your Microsoft account](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).
+
 ## Next steps
 
 The following links provide additional information regarding password reset using Azure AD
