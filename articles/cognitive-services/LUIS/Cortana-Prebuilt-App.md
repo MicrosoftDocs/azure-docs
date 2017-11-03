@@ -2,13 +2,13 @@
 title: Use Cortana pre-built app from LUIS | Microsoft Docs
 description: Use Cortana personal assistant, a pre-built application from Language Understanding Intelligent Services (LUIS).
 services: cognitive-services
-author: cahann
+author: DeniseMak
 manager: hsalama
 
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 03/31/2017
+ms.date: 11/02/2017
 ms.author: cahann
 ---
 
@@ -27,7 +27,18 @@ In addition to allowing you to build your own applications, LUIS also provides i
 The pre-built personal assistant app is available in these cultures (locales): English, French, Italian, Spanish, and Chinese.
 
 ## Use the Cortana Prebuilt App
+You can access the Cortana prebuilt app using the following endpoints.
+| Language | Endpoint|
+|--------| ------------------|
+| "English"| "https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/c413b2ef-382c-45bd-8ff0-f76d60e2a821"|
+|    "Chinese"| "https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/c27c4af7-d44a-436f-a081-841bb834fa29"|
+|    "French"| "https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/0355ead1-2d08-4955-ab95-e263766e8392"|
+|    "Spanish"| "https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/cb2675e5-fbea-4f8b-8951-f071e9fc7b38"|
+|    "Italian"| "https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/30a0fddc-36f4-4488-b022-03de084c1633"|
 
+For example, you can append your subscription key arguments and query string to the endpoint.
+https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/c413b2ef-382c-45bd-8ff0-f76d60e2a821?subscription-key=67073e45132a459db515ca04cea325c2&timezoneOffset=0&verbose=true&q=set an alarm
+<!-- 
 1. On **My Apps** page, click **Cortana prebuilt apps** and select your language, English for example. The following dialog box appears:
 
     ![Use Cortana prebuilt app](./Images/use-cortana.JPG)
@@ -36,7 +47,11 @@ The pre-built personal assistant app is available in these cultures (locales): E
 4. Click the generated endpoint URL to access the endpoint and get the result of the query. The following screenshot shows the result returned in JSON format for the example utterance: "set up an appointment at 2:00 pm tomorrow for 90 minutes called discuss budget"
 
     ![Cortana Query Result](./Images/Cortana-JSON-Result.JPG)
+-->
+## Next steps
+See the [Cortana prebuilt app reference](luis-cortana-prebuilt.md) to learn more.
 
+<!-- 
 ## Cortana prebuilt intents
 The pre-built personal assistant application can identify the following intents:
 
@@ -237,3 +252,5 @@ Here are some examples of entities the prebuilt personal assistant application c
 |builtin.weather.temperature_unit | what is the temperature today in `kelvin`	<br/> show me the temps in `celsius` |	
 |builtin.weather.time_range | does it look like it will snow `tonight`?	<br/> is it windy right `now`?	|
 |builtin.weather.weather_condition | show `precipitation` <br/>	how thick is the `snow` at lake tahoe now?	|
+
+-->
