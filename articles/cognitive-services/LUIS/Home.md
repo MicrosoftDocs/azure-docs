@@ -74,7 +74,7 @@ For example, a "BookFlight" intent could trigger an API call to an external serv
 * **Regular Expressions and Phrase Features** LUIS provides [features](luis-concept-feature.md) such as regular expression patterns and phrase lists, which also help identify entities. 
 
 ## Improve performance using active learning
-Once your application is [published][publish-app] and real user utterances are entered, LUIS uses active learning to improve identification. In the active learning process, LUIS identifies the utterances that it is relatively unsure of. You can label them according to intent and entities, retrain, and republish.
+Once your application is [published][publish-app] and real user utterances are entered, LUIS uses [active learning][label-suggested-utterances] to improve identification. In the active learning process, LUIS identifies the utterances that it is relatively unsure of. You can label them according to intent and entities, retrain, and republish.
 
 This iterative process has tremendous advantages. LUIS knows what it is unsure of, and your help leads to the maximum improvement in system performance. LUIS learns quicker, and takes the minimum amount of your time and effort. LUIS is an active machine learning at its best. 
 
