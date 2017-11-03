@@ -54,10 +54,12 @@ The report specifies the global-lease timeout as the time-to-live (TTL). The rep
 * **Next steps**: Investigate why the neighborhood is lost, for example, check the communication between cluster nodes.
 
 ### Rebuild
-**System.FM** and **System.FMM** reports an error when it detects that rebuild is stalled or stuck. Rebuild could be stuck in one of two phases:
 
-* Waiting for broadcast. FM/FMM waits for broadcast message reply from the other nodes. Investigating the network connection between the nodes in the cluster might provide more information.
-* Waiting for nodes. FM/FMM already received a broadcast reply from the other nodes and is now waiting for a reply from specific nodes. The nodes will be listed in the health report description. Investigating the listed nodes for problems as well as the network connection between the FM/FMM node and the listed nodes might provide more information.
+The **Failover Manager** service (**FM**) manages information about the cluster nodes. When FM loses its data and goes into data loss it can't guarantee that it has the most updated information about the cluster nodes. In this case, the system goes through a **Rebuild**, and **System.FM** gathers data from all nodes in the cluster in order to rebuild its state. Sometimes, due to networking or node issues, rebuild could get stuck or stalled. The same could happen with the **Failover Manager Master** service (**FMM**). The FMM is a stateless system service that keeps track of where all of the FM's are in the cluster. FMM's primary is always the node with ID closest to 0. If that node gets dropped, it also triggers a **Rebuild**.
+When one of the previous conditions happen, **System.FM** or **System.FMM** flag it through an Error report. Rebuild could be stuck in one of two phases:
+
+* Waiting for broadcast. FM/FMM waits for broadcast message reply from the other nodes. Next steps: investigate whether there is a network connection issue between nodes.
+* Waiting for nodes. FM/FMM already received a broadcast reply from the other nodes and is now waiting for a reply from specific nodes. The health report lists the nodes its waiting for in this case. Next steps: investigate the network connection between the FM/FMM and the listed nodes; investigate each listed node for other possible issues.
 
 * **SourceID**: System.FM or System.FMM
 * **Property**: Rebuild
