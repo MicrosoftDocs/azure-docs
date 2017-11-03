@@ -81,7 +81,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
         ```
 
     * To create Data Factory instances, you must be a Contributor or Administrator of the Azure subscription.
-    * Currently, Data Factory allows you to create data factory only in the East US and East US 2 region. The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
+    * Currently, Data Factory V2 allows you to create data factories only in the East US, East US2, and West Europe regions. The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
 
 ## Create a self-hosted IR
 
