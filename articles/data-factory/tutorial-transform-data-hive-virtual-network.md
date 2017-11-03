@@ -84,7 +84,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
     $pipelineName = "MyHivePipeline" # Name of the pipeline
     $selfHostedIntegrationRuntimeName = "MySelfHostedIR09142017" # make it a unique name. 
     ```
-2. Launch **PowerShell**. Keep Azure PowerShell open until the end of this quickstart. If you close and reopen, you need to run the commands again.
+2. Launch **PowerShell**. Keep Azure PowerShell open until the end of this quickstart. If you close and reopen, you need to run the commands again. Currently, Data Factory V2 allows you to create data factories only in the East US, East US2, and West Europe regions. The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
 
     Run the following command, and enter the user name and password that you use to sign in to the Azure portal:
         
