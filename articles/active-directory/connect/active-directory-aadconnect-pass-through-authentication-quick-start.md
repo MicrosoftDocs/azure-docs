@@ -20,7 +20,7 @@ ms.author: billmath
 
 ## Deploy Azure AD Pass-through Authentication
 
-With Azure Active Directory (Azure AD) Pass-through Authentication your users can sign in to both on-premises and cloud-based applications by using the same passwords. It signs users in by validating their passwords directly against your on-premises Active Directory.
+With Azure Active Directory (Azure AD) Pass-through Authentication, your users can sign in to both on-premises and cloud-based applications by using the same passwords. It signs users in by validating their passwords directly against your on-premises Active Directory.
 
 >[!IMPORTANT]
 >If you use this feature through preview, you should ensure that you upgrade the preview versions of the Authentication Agents by using the instructions provided in [Azure Active Directory Pass-through Authentication: Upgrade preview Authentication Agents](./active-directory-aadconnect-pass-through-authentication-upgrade-preview-authentication-agents.md).
