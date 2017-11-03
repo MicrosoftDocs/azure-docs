@@ -1,4 +1,4 @@
-2---
+---
 title: Microsoft Azure Storage Explorer (Preview) release notes | Microsoft Docs
 description: Release notes for Microsoft Azure Storage Explorer (Preview)
 services: storage
