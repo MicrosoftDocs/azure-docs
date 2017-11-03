@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 11/03/2017
 ms.author: markvi
 ms.reviewer: nigu
 
@@ -39,6 +39,6 @@ ms.reviewer: nigu
 
 ## How can I sort users in "Users flagged for risk"?
 
-**A:** Please download the at-risk users risk report by clicking on the **Download** on the top of the **Users flagged for risk** view. You can then sort them based on available fields, including **Last Updated (UTC)**. We are also working on the functionality to enable sorting in the Identity Protection UI.
+**A:** Download the users flagged for risk report by clicking on the **Download** on the top of the **Users flagged for risk** page. You can then sort the downloaded data based on available fields, including Last Updated (UTC).
 
 ---
