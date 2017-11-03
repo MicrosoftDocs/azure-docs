@@ -113,11 +113,21 @@ You can test your published endpoint in a browser using the generated URL. Copy 
 ## Next steps
 
 You can call the endpoint from code:
-* [Call a LUIS endpoint using C#](luis-get-started-cs-get-intent.md)
-* [Call a LUIS endpoint using Node.js](luis-get-started-node-get-intent.md)
-* [Call a LUIS endpoint using client-side JavaScript](luis-get-started-js-get-intent.md)
-* [Call a LUIS endpoint using Java](luis-get-started-java-get-intent.md)
-* [Call a LUIS endpoint using Python](luis-get-started-python-get-intent.md)
+
+> [!div class="nextstepaction"]
+> [Call a LUIS endpoint using C#](luis-get-started-cs-get-intent.md)
+
+> [!div class="nextstepaction"]
+> [Call a LUIS endpoint using Node.js](luis-get-started-node-get-intent.md)
+
+> [!div class="nextstepaction"]
+> [Call a LUIS endpoint using client-side JavaScript](luis-get-started-js-get-intent.md)
+
+> [!div class="nextstepaction"]
+> [Call a LUIS endpoint using Java](luis-get-started-java-get-intent.md)
+
+> [!div class="nextstepaction"]
+> [Call a LUIS endpoint using Python](luis-get-started-python-get-intent.md)
 
 
 
