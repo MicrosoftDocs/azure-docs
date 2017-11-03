@@ -60,4 +60,4 @@ If a backend API does not require a scope (not recommended), you can use the `cl
 
 <!--end-collapse-->
 
-[!INCLUDE  [Help and Support Options](../../../includes/active-directory-develop-help-support-include.md)]
+[!INCLUDE  [Help and Support Options](../../../../includes/active-directory-develop-help-support-include.md)]
