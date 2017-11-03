@@ -30,7 +30,7 @@ Learn how to access Advisor through the Azure portal, get recommendations, and i
 
    ![Access Azure Advisor using the Azure portal](./media/advisor-get-started/advisor-portal-menu.png) 
 
-4. The Advisor dashboard will display a summary of your recommendations for all selected subscriptions.  You can choose the subscriptions that you want recommendations to be disaplyed for using the subscription filter dropdown.
+4. The Advisor dashboard will display a summary of your recommendations for all selected subscriptions.  You can choose the subscriptions that you want recommendations to be displayed for using the subscription filter dropdown.
 
 5. To get recommendations for a specific category, click one of the tabs: **High Availability**, **Security**, **Performance**, or **Cost**.
  
