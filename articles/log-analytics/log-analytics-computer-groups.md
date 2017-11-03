@@ -126,7 +126,6 @@ The following query would return UpdateSummary records for only computers in Dom
   UpdateSummary | where Computer in (ADComputers)
   ```
 
-If you want to use an imported computer group as a function then create a new computer group based on a log search that returns the computers in the imported group.
 
 
   
