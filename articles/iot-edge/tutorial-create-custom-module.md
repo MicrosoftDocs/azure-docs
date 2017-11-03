@@ -301,9 +301,9 @@ iotedgectl login --address --username --password
     ```json
     {
        "routes":{
-          "sensorToFilter":"FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"messages/modules/filtermodule/inputs/input1\")",
+          "sensorToFilter":"FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filtermodule/inputs/input1\")",
           "filterToIoTHub":"FROM /messages/modules/filtermodule/outputs/output1 INTO $upstream"
-        }
+       }
     }
     ```
 
