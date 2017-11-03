@@ -40,14 +40,14 @@ To experiment with dispatching scripts to run in a Docker container in a remote 
 ## Review iris_sklearn.py and the configuration files
 1. Open the Azure Machine Learning Workbench application, and open the **myIris** project you created in the previous part of the tutorial series.
 
-2. Once the project is open, select the **Files** button (the folder icon) on the far-left pane to open the file list in your project folder.
+2. After the project is open, select the **Files** button (the folder icon) on the far-left pane to open the file list in your project folder.
 
 3. Select the **iris_sklearn.py** file. The Python code opens in a new text editor tab inside the workbench.
 
    ![Open a file](media/tutorial-classifying-iris/open_iris_sklearn.png)
 
    >[!NOTE]
-   >The code you see might not be exactly the same as the preceding code, as this sample project is updated frequently.
+   >The code you see might not be exactly the same as the preceding code, because this sample project is updated frequently.
 
 4. Review the Python script code to become familiar with the coding style. The script performs the following tasks:
 
@@ -109,7 +109,7 @@ Let's prepare to run the **iris_sklearn.py** script for the first time. This scr
    When the run is finished, the pop-up window shows the following results:
 
    >[!NOTE]
-   >As we introduced some randomization into the training set earlier, your exact results might vary from the results shown here.
+   >Because we introduced some randomization into the training set earlier, your exact results might vary from the results shown here.
 
    ```text
    Python version: 3.5.2 |Continuum Analytics, Inc.| (default, Jul  5 2016, 11:41:13) [MSC v.1900 64 bit (AMD64)]
@@ -210,7 +210,7 @@ With Machine Learning, you can easily configure additional execution environment
 
 5. Now, let's try Spark. The Docker base image contains a preinstalled and configured Spark instance. Because of this instance, you can execute a PySpark script in it. This is an easy way to develop and test your Spark program, without having to spend the time to install and configure Spark yourself. 
 
-   Open the `iris_spark.py` file. This script loads the `iris.csv` data file, and uses the logistic regression algorithm from the Spark Machine Learning library to classify the Iris data set. Now change the run environment to **docker-spark** and the script to **iris_spark.py**, and then run it again. This process takes a little longer because a Spark session has to be created and started inside of the Docker container. You can also see the stdout is different than the stdout of `iris_spark.py`.
+   Open the `iris_spark.py` file. This script loads the `iris.csv` data file, and uses the logistic regression algorithm from the Spark Machine Learning library to classify the Iris data set. Now change the run environment to **docker-spark** and the script to **iris_spark.py**, and then run it again. This process takes a little longer because a Spark session has to be created and started inside the Docker container. You can also see the stdout is different than the stdout of `iris_spark.py`.
 
 6. Do a few more runs and play with different arguments. 
 
@@ -243,7 +243,7 @@ With Machine Learning, you can easily configure additional execution environment
    az account show
    ```
 
-3. Once authentication finishes and the current Azure subscription context is set, enter the following commands in the CLI window to install **matplotlib**, and then submit the Python script as an experiment to run.
+3. After authentication finishes and the current Azure subscription context is set, enter the following commands in the CLI window to install **matplotlib**, and then submit the Python script as an experiment to run.
 
    ```azurecli
    REM you don't need to run this command if you have installed matplotlib locally from the previous steps
@@ -253,7 +253,7 @@ With Machine Learning, you can easily configure additional execution environment
    az ml experiment submit -c local .\iris_sklearn.py
    ```
 
-4. Review the output. You have the same output and results as you had when you used the workbench to run the script. 
+4. Review the output. You have the same output and results that you had when you used the workbench to run the script. 
 
 5. Run the same script again by using the Docker execution environment if you have Docker installed on your machine.
 
@@ -293,7 +293,7 @@ To execute your script in a Docker container on a remote Linux machine, you need
 >[!NOTE] 
 >The CentOS-based DSVM is *not* supported.
 
-1. Once the VM is created, you can attach the VM as an execution environment if you generate a pair of `.runconfig` and `.compute` files. Use the following command to generate the files. Let's name the new environment `myvm`.
+1. After the VM is created, you can attach the VM as an execution environment if you generate a pair of `.runconfig` and `.compute` files. Use the following command to generate the files. Let's name the new environment `myvm`.
  
    ```azurecli
    REM creates an myvm compute target
@@ -318,7 +318,7 @@ To execute your script in a Docker container on a remote Linux machine, you need
    "Framework": "Python"
    ```
    >[!NOTE]
-   >If you leave the framework setting as PySpark that should also work, but it's less inefficient if you don't actually need a Spark session to run your Python script.
+   >If you leave the framework setting as PySpark, that should also work. But it's less inefficient if you don't actually need a Spark session to run your Python script.
 
 3. Issue the same command as you did before in the CLI window, except this time target _myvm_:
    ```azurecli
@@ -342,7 +342,7 @@ To execute your script in a Docker container on a remote Linux machine, you need
 ## Execute script in an HDInsight cluster
 You can also run this script in an actual Spark cluster. 
 
-1. If you have access to Spark for Azure HDInsight cluster, generate an HDInsight run configuration command as shown here. Provide the HDInsight cluster name and your HDInsight user name and password as the parameters. Use the following command:
+1. If you have access to Spark for Azure HDInsight cluster, generate an HDInsight run configuration command as shown here. Provide the HDInsight cluster name and your HDInsight username and password as the parameters. Use the following command:
 
    ```azurecli
    REM creates a compute target that points to a HDInsight cluster
@@ -357,7 +357,7 @@ You can also run this script in an actual Spark cluster.
    >[!NOTE]
    >The `username` is the cluster SSH username. The default value is `sshuser` if you don't change it during HDInsight setup. The value is not `admin`, which is the other user created during setup to enable access to the cluster's admin website. 
 
-2. Run the following command and the script runs in the HDInsight cluster:
+2. Run the following command, and the script runs in the HDInsight cluster:
 
    ```azurecli
    REM executes iris_spark on the HDInsight cluster
