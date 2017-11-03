@@ -6,7 +6,7 @@ documentationcenter: na
 author: YuriDio
 manager: mbaldwin
 editor: ''
-ROBOTS:NOINDEX
+ROBOTS: NOINDEX
 redirect_url: https://docs.microsoft.com/azure/security-center/
 
 ms.assetid: 0ded6bc7-52e8-43b4-8940-0bee137526e3
