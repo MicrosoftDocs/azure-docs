@@ -24,7 +24,7 @@
     href: quickstarts/ruby.md
 - name: Tutorials
   items: 
-  - name: Microsoft Translator App
+  - name: Translator App
     href: tutorial-wpf-translation-csharp.md
 - name: Samples
   items: 
