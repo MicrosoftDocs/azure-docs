@@ -26,7 +26,8 @@ In addition to allowing you to build your own applications, LUIS also provides i
 
 The pre-built personal assistant app is available in these cultures (locales): English, French, Italian, Spanish, and Chinese.
 
-## Use the Cortana Prebuilt App
+## Get the endpoint for the Cortana prebuilt app
+
 You can access the Cortana prebuilt app using the following endpoints. 
 | Language | Endpoint|
 |--------| ------------------|
@@ -36,13 +37,14 @@ You can access the Cortana prebuilt app using the following endpoints.
 |    Spanish| https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/cb2675e5-fbea-4f8b-8951-f071e9fc7b38|
 |    Italian| https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/30a0fddc-36f4-4488-b022-03de084c1633|
 
+
 > [!NOTE]
 > The endpoint URLs are also available from the [apps - Get personal assistant applications](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c32) API.
 
 ## Try out the personal assistant app
 To call the endpoint, you can append your subscription key argument and query string to the endpoint. 
 
-For example, if the utterance you want to interpret is "create an appointment for team meeting", then you can append that utterance to the URL, as follows:
+For example, if the utterance you want to interpret is "create an appointment for team meeting", then you can append that utterance to the endpoint URL. 
 
 ```
 https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/c413b2ef-382c-45bd-8ff0-f76d60e2a821?subscription-key={YOUR-SUBSCRIPTION-KEY}&q=create an appointment for team meeting
