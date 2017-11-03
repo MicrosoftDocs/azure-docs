@@ -228,11 +228,13 @@ The **Machine Performance** pane displays standard performance metrics for the s
 ![Machine Performance pane](media/oms-service-map/machine-performance.png)
 
 To see performance data, you may need to [enable the appropriate Log Analytics performance counters](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-performance-counters).  The counters you will want to enable:
+
 Windows:
 - Processor(*)\% Processor Time
 - Memory\% Committed Bytes In Use
 - Network Adapter(*)\Bytes Sent/sec
 - Network Adapter(*)\Bytes Received/sec
+
 Linux:
 - Processor(*)\% Processor Time
 - Memory(*)\% Used Memory
