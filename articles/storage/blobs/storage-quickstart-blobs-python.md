@@ -136,7 +136,7 @@ print("\nList blobs in the container")
         print("\t Blob name: " + blob.name)
 ```
 
-## Download the Blobs
+## Download the blobs
 
 Download blobs to your local disk using the **get\_blob\_to\_path** method. 
 The following code downloads the blob uploaded in a previous section. "_DOWNLOADED" is added as a suffix to the blob name so you can see both files on local disk. 
