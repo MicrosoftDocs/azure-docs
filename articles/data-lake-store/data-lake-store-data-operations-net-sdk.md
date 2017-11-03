@@ -57,9 +57,8 @@ The code sample available [on GitHub](https://github.com/Azure-Samples/data-lake
    2. In the **NuGet Package Manager** tab, make sure that **Package source** is set to **nuget.org** and that **Include prerelease** check box is selected.
    3. Search for and install the following NuGet packages:
 
-      * `Microsoft.Azure.DataLake.Store` - This tutorial uses v0.1.2-beta.
+      * `Microsoft.Azure.DataLake.Store` - This tutorial uses v1.0.0.
       * `Microsoft.Rest.ClientRuntime.Azure.Authentication` - This tutorial uses v2.3.1.
-
     4. Close the **NuGet Package Manager**.
 
 6. Open **Program.cs**, delete the existing code, and then include the following statements to add references to namespaces.
