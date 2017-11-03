@@ -1,6 +1,6 @@
 ---
-title: Copy data from/to a file system by using Azure Data Factory | Microsoft Docs
-description: Learn how to copy data from file system to supported sink data stores (or) from supported source data stores to file system by using Azure Data Factory.
+title: Copy data from/to Azure File Storage by using Azure Data Factory | Microsoft Docs
+description: Learn how to copy data from Azure File Storage to supported sink data stores (or) from supported source data stores to Azure File Storage by using Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -16,69 +16,50 @@ ms.date: 11/02/2017
 ms.author: jingwang
 
 ---
+# Copy data from or to Azure File Storage by using Azure Data Factory
 
-# Copy data to or from a file system by using Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](v1/data-factory-onprem-file-system-connector.md)
-> * [Version 2 - Preview](connector-file-system.md)
-
-This article outlines how to use the Copy Activity in Azure Data Factory to copy data from and to file system. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
+This article outlines how to use the Copy Activity in Azure Data Factory to copy data from and to Azure File Storage (Azure Files). It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 > [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [File System connector in V1](v1/data-factory-onprem-file-system-connector.md).
+> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Copy Activity in V1](v1/data-factory-data-movement-activities.md).
 
 ## Supported scenarios
 
-You can copy data from file system to any supported sink data store, or copy data from any supported source data store to file system. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
+You can copy data from Azure File Storage to any supported sink data store, or copy data from any supported source data store to Azure File Storage. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
-Specifically, this file system connector supports:
-
-- Copying files from/to local machine or network file share. To use a Linux file share, install [Samba](https://www.samba.org/) on your Linux server.
-- Copying files using **Windows** authentication.
-- Copying files as-is or parsing/generating files with the [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
-
-## Prerequisites
-
-To copy data from/to a file system that is not publicly accessible, you need to set up a Self-hosted Integration Runtime. See [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md) article for details.
+Specifically, this Azure File Storage connector supports copying files as-is or parsing/generating files with the [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
 
 ## Getting started
 
 You can create a pipeline with copy activity using .NET SDK, Python SDK, Azure PowerShell, REST API, or Azure Resource Manager template. See [Copy activity tutorial](quickstart-create-data-factory-dot-net.md) for step-by-step instructions to create a pipeline with a copy activity.
 
-The following sections provide details about properties that are used to define Data Factory entities specific to file system.
+The following sections provide details about properties that are used to define Data Factory entities specific to Azure File Storage.
 
 ## Linked service properties
 
-The following properties are supported for file system linked service:
+The following properties are supported for Azure File Storage linked service:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **FileServer**. | Yes |
-| host | Specifies the root path of the folder that you want to copy. Use the escape character "\" for special characters in the string. See [Sample linked service and dataset definitions](#sample-linked-service-and-dataset-definitions) for examples. | Yes |
-| userid | Specify the ID of the user who has access to the server. | Yes |
-| password | Specify the password for the user (userid). Mark this field as SecureString. | Yes |
+| host | Specifies the Azure File Storage endpoint as `"host": "\\\\<storage name>.file.core.windows.net\\<file service name>"`. | Yes |
+| userid | Specify the user to access the Azure File Storage as `"userid": "AZURE\\<storage name>"`. | Yes |
+| password | Specify the storage access key. Mark this field as SecureString.<br/> | Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Self-hosted Integration Runtime or Azure Integration Runtime (if your data store is publicly accessible). If not specified, it uses the default Azure Integration Runtime. |No |
-
-### Sample linked service and dataset definitions
-
-| Scenario | "host" in linked service definition | "folderPath" in dataset definition |
-|:--- |:--- |:--- |
-| Local folder on Integration Runtime machine: <br/><br/>Examples: D:\\\* or D:\folder\subfolder\\* |D:\\\\ |.\\\\ or folder\\\\subfolder |
-| Remote shared folder: <br/><br/>Examples: \\\\myserver\\share\\\* or \\\\myserver\\share\\folder\\subfolder\\* |\\\\\\\\myserver\\\\share |.\\\\ or folder\\\\subfolder |
 
 **Example:**
 
 ```json
 {
-    "name": "FileLinkedService",
+    "name": "AzureFileStorageLinkedService",
     "properties": {
         "type": "FileServer",
         "typeProperties": {
-            "host": "<host>",
-            "userid": "<domain>\\<user>",
+            "host": "\\\\<storage name>.file.core.windows.net\\<file service name>",
+            "userid": "AZURE\\<storage name>",
             "password": {
                 "type": "SecureString",
-                "value": "<password>"
+                "value": "<storage access key>"
             }
         },
         "connectVia": {
@@ -89,31 +70,33 @@ The following properties are supported for file system linked service:
 }
 ```
 
+> [!TIP]
+> When using Self-hosted Integration Runtime outside of Azure to copy data from/to Azure File Storage, remember to open outbound TCP port 445 in your local network.
+
 ## Dataset properties
 
-For a full list of sections and properties available for defining datasets, see the datasets article. This section provides a list of properties supported by file system dataset.
+For a full list of sections and properties available for defining datasets, see the datasets article. This section provides a list of properties supported by Azure File Storage dataset.
 
-To copy data from/to file system, set the type property of the dataset to **FileShare**. The following properties are supported:
+To copy data from/to Azure File Storage, set the type property of the dataset to **FileShare**. The following properties are supported:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the dataset must be set to: **FileShare** |Yes |
-| folderPath | Path to the folder. See [Sample linked service and dataset definitions](#sample-linked-service-and-dataset-definitions) for examples. |Yes |
+| folderPath | Path to the folder. |Yes |
 | fileName | Specify the name of the file in the **folderPath** if you want to copy to/from a specific file. If you do not specify any value for this property, the dataset points to all files in the folder as source, and automatically generates file name.<br/><br/>**fileName auto generation for sink:** when fileName is not specified for an output dataset and **preserveHierarchy** is not specified in activity sink, copy activity generates the file name with the following pattern: <br/>- `Data_[activity run id]_[GUID].[format].[compression if configured]`. For example: `Data_0a405f8a-93ff-4c6f-b3be-f69616f1df7a_0d143eda-d5b8-44df-82ec-95c50895ff80.txt.gz` <br/>- or `[Table name].[format].[compression if configured]` for relational source when query is not specified. For example: MySourceTable.orc. |No |
 | fileFilter | Specify a filter to be used to select a subset of files in the folderPath rather than all files. Applies only when fileName is not specified. <br/><br/>Allowed wildcards are: `*` (multiple characters) and `?` (single character).<br/>- Example 1: `"fileFilter": "*.log"`<br/>- Example 2: `"fileFilter": 2017-09-??.txt"` |No |
 | format | If you want to **copy files as-is** between file-based stores (binary copy), skip the format section in both input and output dataset definitions.<br/><br/>If you want to parse or generate files with a specific format, the following file format types are supported: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Set the **type** property under format to one of these values. For more information, see [Text Format](supported-file-formats-and-compression-codecs.md#text-format), [Json Format](supported-file-formats-and-compression-codecs.md#json-format), [Avro Format](supported-file-formats-and-compression-codecs.md#avro-format), [Orc Format](supported-file-formats-and-compression-codecs.md#orc-format), and [Parquet Format](supported-file-formats-and-compression-codecs.md#parquet-format) sections. |No (only for binary copy scenario) |
 | compression | Specify the type and level of compression for the data. For more information, see [Supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Supported types are: **GZip**, **Deflate**, **BZip2**, and **ZipDeflate**.<br/>Supported levels are: **Optimal** and **Fastest**. |No |
 
-
 **Example:**
 
 ```json
 {
-    "name": "FileSystemDataset",
+    "name": "AzureFileStorageDataset",
     "properties": {
         "type": "FileShare",
         "linkedServiceName":{
-            "referenceName": "<file system linked service name>",
+            "referenceName": "<Azure File Storage linked service name>",
             "type": "LinkedServiceReference"
         },
         "typeProperties": {
@@ -135,11 +118,11 @@ To copy data from/to file system, set the type property of the dataset to **File
 
 ## Copy activity properties
 
-For a full list of sections and properties available for defining activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties supported by file system source and sink.
+For a full list of sections and properties available for defining activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties supported by Azure File Storage source and sink.
 
-### File system as source
+### Azure File Storage as source
 
-To copy data from file system, set the source type in the copy activity to **FileSystemSource**. The following properties are supported in the copy activity **source** section:
+To copy data from Azure File Storage, set the source type in the copy activity to **FileSystemSource**. The following properties are supported in the copy activity **source** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -151,11 +134,11 @@ To copy data from file system, set the source type in the copy activity to **Fil
 ```json
 "activities":[
     {
-        "name": "CopyFromFileSystem",
+        "name": "CopyFromAzureFileStorage",
         "type": "Copy",
         "inputs": [
             {
-                "referenceName": "<file system input dataset name>",
+                "referenceName": "<Azure File Storage input dataset name>",
                 "type": "DatasetReference"
             }
         ],
@@ -178,9 +161,9 @@ To copy data from file system, set the source type in the copy activity to **Fil
 ]
 ```
 
-### File system as sink
+### Azure File Storage as sink
 
-To copy data to file system, set the sink type in the copy activity to **FileSystemSink**. The following properties are supported in the **sink** section:
+To copy data to Azure File Storage, set the sink type in the copy activity to **FileSystemSink**. The following properties are supported in the **sink** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -192,7 +175,7 @@ To copy data to file system, set the sink type in the copy activity to **FileSys
 ```json
 "activities":[
     {
-        "name": "CopyToFileSystem",
+        "name": "CopyToAzureFileStorage",
         "type": "Copy",
         "inputs": [
             {
@@ -202,7 +185,7 @@ To copy data to file system, set the sink type in the copy activity to **FileSys
         ],
         "outputs": [
             {
-                "referenceName": "<file system output dataset name>",
+                "referenceName": "<Azure File Storage output dataset name>",
                 "type": "DatasetReference"
             }
         ],
