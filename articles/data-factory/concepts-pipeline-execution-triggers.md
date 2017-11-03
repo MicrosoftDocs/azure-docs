@@ -290,7 +290,7 @@ Finally, when a trigger has a schedule, if hours and/or minutes aren’t set in 
 ### Deep Dive: schedule
 On one hand, a schedule can limit the number of trigger executions. For example, if a trigger with a "month" frequency has a schedule that runs on only on day 31, the trigger runs in only those months that have a 31st day.
 
-Where as, a schedule can also expand the number of trigger executions. For example, if a trigger with a "month" frequency has a schedule that runs on month days 1 and 2, the trigger runs on the 1st and 2nd days of the month instead of once a month.
+Whereas, a schedule can also expand the number of trigger executions. For example, if a trigger with a "month" frequency has a schedule that runs on month days 1 and 2, the trigger runs on the 1st and 2nd days of the month instead of once a month.
 
 If multiple schedule elements are specified, the order of evaluation is from the largest to smallest – week number, month day, weekday, hour, and minute.
 
