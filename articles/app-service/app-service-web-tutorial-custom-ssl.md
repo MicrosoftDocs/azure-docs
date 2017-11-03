@@ -309,9 +309,9 @@ New-AzureRmWebAppSSLBinding `
     -SslState SniEnabled
 ```
 ## Public Certificates (Optional)
-You can upload [Public Certificates](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/) to your web app. You can use Public Certifictes with Web Apps on App Service or App Service Environment (ASE). If you require to store the certificate in LocalMachine certificate Store , you need use a web app on App Service Enviroment. For more details , See [How to configure Public Certificate to your Web App](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer).
+You can upload [Public Certificates](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/) to your web app. You can use Public Certificates with Web Apps on App Service or App Service Environment (ASE). If you need to store the certificate in the LocalMachine certificate store, you need to use a web app on App Service Enviroment. For more details, see [How to configure Public Certificates to your Web App](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer).
 
-![Upload Public certificate](./media/app-service-web-tutorial-custom-ssl/upload-certificate-public1.png)
+![Upload Public Certificate](./media/app-service-web-tutorial-custom-ssl/upload-certificate-public1.png)
 
 ## Next steps
 
