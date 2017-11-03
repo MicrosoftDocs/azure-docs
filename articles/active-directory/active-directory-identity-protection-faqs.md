@@ -19,6 +19,8 @@ ms.reviewer: nigu
 ---
 # Azure Active Directory Identity Protection FAQ
 
+This article includes answers to frequently asked questions about Azure Active Directory (Azure AD) Identity Protection. For more information, see [Azure Active Directory Identity Protection](active-directory-identityprotection.md). 
+
 
 ## Why do some risk events have “Closed (system)” status?
 
