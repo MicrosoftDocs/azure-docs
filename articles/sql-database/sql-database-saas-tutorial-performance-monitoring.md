@@ -11,13 +11,12 @@ editor: ''
 ms.assetid:
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: data-management
+ms.workload: "Inactive"
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2017
+ms.date: 10/31/2017
 ms.author: sstein
-
 ---
 # Monitor and manage performance of Azure SQL databases and pools in a multi-tenant SaaS app
 

@@ -38,8 +38,6 @@
     href: integrate-with-application-gateway.md
   - name: Create ASE from a template
     href: create-from-template.md
-  - name: Integrate with Application Gateway
-    href: integrate-with-application-gateway.md
 - name: Reference
   items:
   - name: Management addresses

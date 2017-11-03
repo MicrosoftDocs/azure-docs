@@ -215,7 +215,7 @@ Traffic View creates its output by processing the data from the seven days prece
 
 ### How does Traffic View handle external endpoints?
 
-When you use external endpoints hosted outside Azure regions in a Traffic Manager profile you can choose to have it mapped to an Azure region which is a proxy for its latency characteristics (this is in fact needed if you use performance routing method). If its has this Azure region mapping, that Azure region’s latency metrics will be used when creating the Traffic View output. If no Azure region is specified, the latency information will be empty in the data for those external endpoints.
+When you use external endpoints hosted outside Azure regions in a Traffic Manager profile you can choose to have it mapped to an Azure region which is a proxy for its latency characteristics (this is in fact needed if you use performance routing method). If it has this Azure region mapping, that Azure region’s latency metrics will be used when creating the Traffic View output. If no Azure region is specified, the latency information will be empty in the data for those external endpoints.
 
 ### Do I need to enable Traffic View for each profile in my subscription?
 During the preview period, Traffic View is enabled at a subscription level and is available for all Traffic Manager profiles under that subscription.
