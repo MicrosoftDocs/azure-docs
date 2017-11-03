@@ -417,7 +417,14 @@ NODE_ENV=production node server.js
 ```
 
 > [!NOTE]
-> Remember that your _config/env/production.js_ has been reverted, and the `MONGODB_URI` environment variable is only set in your Azure web app and not on your local machine. If you look at the config file, you find that the production configuration defaults to use a local MongoDB database. This makes sure that you don't touch production data when you test your code changes locally.
+> If your local terminal window is Windows PowerShell, run the following commands instead:
+>
+> ```bash
+> gulp prod
+> $env:NODE_ENV = "production" 
+> node server.js
+> ```
+>
 
 Navigate to `http://localhost:8443` in a browser and make sure that you're signed in.
 
