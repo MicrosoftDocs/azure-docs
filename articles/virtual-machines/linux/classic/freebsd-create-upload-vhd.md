@@ -123,6 +123,9 @@ azure login
 
 
 ## Step 3: Upload the .vhd file
+
+You need a storage account to upload your VHD file to. You can either pick an existing storage account or [create a new one](../../../storage/common/storage-create-storage-account.md).
+
 When you upload the .vhd file, you can place it anywhere within your Blob storage. Following are some terms you will use when you upload the file:
 
 * **BlobStorageURL** is the URL for the storage account that you created in Step 2.
