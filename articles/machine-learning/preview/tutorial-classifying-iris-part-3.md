@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
-ms.date: 09/27/2017
+ms.date: 11/2/2017
 ---
 
 # Classify Iris part 3: Deploy a model
@@ -19,12 +19,12 @@ Azure Machine Learning services (preview) is an integrated, end-to-end data scie
 This tutorial is part three of a three-part series. In this part of the tutorial, you use Azure Machine Learning services (preview) to:
 
 > [!div class="checklist"]
-> * Locate the model file
-> * Generate a scoring script and schema file
-> * Prepare the environment
-> * Create a real-time web service
-> * Run the real-time web service
-> * Examine the output blob data 
+> * Locate the model file.
+> * Generate a scoring script and schema file.
+> * Prepare the environment.
+> * Create a real-time web service.
+> * Run the real-time web service.
+> * Examine the output blob data. 
 
  This tutorial uses the timeless [Iris flower data set](https://en.wikipedia.org/wiki/iris_flower_data_set). The screenshots are Windows-specific, but the Mac OS experience is almost identical.
 
@@ -40,9 +40,9 @@ Complete the first two parts of this tutorial series:
 ## Download the model pickle file
 In the previous part of the tutorial, the **iris_sklearn.py** script was run in Machine Learning Workbench locally. That action serialized the logistic regression model by using the popular Python object-serialization package [pickle](https://docs.python.org/2/library/pickle.html). 
 
-1. Launch the Machine Learning Workbench application, and open the **myIris** project you created in the previous part of the tutorial series.
+1. Open the Machine Learning Workbench application, and open the **myIris** project you created in the previous part of the tutorial series.
 
-2. Once the project is open, click the **Files** button (folder icon) on the left pane to open the file list in your project folder.
+2. Once the project is open, select the **Files** button (folder icon) on the left pane to open the file list in your project folder.
 
 3. Select the **iris_sklearn.py** file. The Python code opens in a new text editor tab inside the workbench.
 
@@ -61,10 +61,10 @@ In the previous part of the tutorial, the **iris_sklearn.py** script was run in 
    
    When you ran the **iris_sklearn.py** script, the model file was written to the **outputs** folder with the name **model.pkl**. This folder lives in the execution environment you choose to run the script, and not in your local project folder. 
    
-   - To locate the file, click the **Runs** button (clock icon) on the left pane to open the list of **All Runs**.  
+   - To locate the file, select the **Runs** button (clock icon) on the left pane to open the list of **All Runs**.  
    - The **All Runs** tab opens. In the table of runs, select one of the recent runs where the target was **local** and the script name was **iris_sklearn.py**. 
    - The **Run Properties** pane opens. In the upper right section of the pane, notice the **Outputs** section. 
-   - To download the pickle file, select the checkbox next to the **model.pkl** file, and then click the **Download** button. Save it to the root of your project folder. The file is needed in the upcoming steps.
+   - To download the pickle file, select the checkbox next to the **model.pkl** file, and then select the **Download** button. Save it to the root of your project folder. The file is needed in the upcoming steps.
 
    ![Download pickle file](media/tutorial-classifying-iris/download_model.png)
 
@@ -73,23 +73,23 @@ In the previous part of the tutorial, the **iris_sklearn.py** script was run in 
 ## Get the scoring script and schema files
 To deploy the web service along with the model file, you also need a scoring script, and optionally, a schema for the web-service input data. The scoring script loads the **model.pkl** file from the current folder and uses it to produce a newly predicted Iris class.  
 
-1. Launch the Azure Machine Learning Workbench application, and open the **myIris** project you created in the previous part of the tutorial series.
+1. Open the Azure Machine Learning Workbench application, and open the **myIris** project you created in the previous part of the tutorial series.
 
-2. Once the project is open, click the **Files** button (folder icon) on the left pane to open the file list in your project folder.
+2. Once the project is open, select the **Files** button (folder icon) on the left pane to open the file list in your project folder.
 
 3. Select the **iris_score.py** file. The Python script opens. This file is used as the scoring file.
 
    ![Scoring file](media/tutorial-classifying-iris/model_data_collection.png)
 
-4. In order to get the schema file, run the script. Select the **local** environment and the **iris_score.py** script in the command bar, and then click the **Run** button. 
+4. In order to get the schema file, run the script. Choose the **local** environment and the **iris-score.py** script in the command bar, then select the **Run** button. 
 
-5. This script creates a JSON file in the `outputs` folder, which captures the input data schema required by the model.
+5. This script creates a JSON file in the **Outputs** section, which captures the input data schema required by the model.
 
-6. Note the **Jobs** pane on the right side of the **Project Dashboard** pane. Wait for the latest **iris\_score.py** job to display the green **Completed** status. Then click the hyperlink **iris\_score.py [1]** for the latest job run to see the run details from the **iris_score.py** run. 
+6. Notice the Jobs pane on the right of the Machine Learning Workbench window. Wait for the latest **iris-score.py** job to display the green **Completed** status. Then select the hyperlink **iris-score.py [1]** for the latest job run to see the run details from the **iris-score.py** run. 
 
-7. On the **Run Properties** pane, in the **Outputs** section, select the newly created **service_schema.json** file.  Select the checkbox next to the filename, and then click **Download**. Save the file into your project root folder.
+7. On the **Run Properties** pane, in the **Outputs** section, select the newly created **service_schema.json** file.  Select the checkbox next to the filename, and then select **Download**. Save the file into your project root folder.
 
-8. Return to the previous tab where you opened the **iris_score.py** script. By using data collection, you can capture model inputs and predictions from the web service. The following steps are of particular interest for data collection.
+8. Return to the previous tab where you have opened script **iris-score.py**. 
 
 9. Review the code at the top of the file imports class **ModelDataCollector** that contains the model data collection functionality:
 
@@ -115,6 +115,9 @@ To deploy the web service along with the model file, you also need a scoring scr
 
 Now you're ready to prepare your environment to operationalize the model.
 
+>[!NOTE]
+>Deploying models requires you to have owner access to an Azure subscription.
+
 ## Prepare to operationalize locally
 Use _local mode_ deployment to run in Docker containers on your local computer.
 
@@ -124,7 +127,7 @@ You can use _local mode_ for development and testing. The Docker engine must be 
 >If you don't have the Docker engine locally, you can still proceed by creating a cluster in Azure for deployment. Just be sure to delete the cluster after the tutorial so you don't incur ongoing charges.
 
 1. Open the command-line interface (CLI).
-   In the Azure Machine Learning Workbench application, in the **File** menu, click **Open Command Prompt**.
+   In the Azure Machine Learning Workbench application, in the **File** menu, select **Open Command Prompt**.
 
    The command-line prompt opens in your current project folder location **c:\temp\myIris>**.
 
@@ -176,7 +179,7 @@ You can use _local mode_ for development and testing. The Docker engine must be 
    ```
 
 6. Set the environment.
-After the setup finishes, use the following command to set the environment variables required to operationalize the environment. Use the same environment name that you used previously in step 4. Use the same resource group name that was output in the command window when the setup process finished.
+After the setup is complete, set the environment variables required to operationalize using the following command. Use the same environment name that you have used previously in step 3. Use the same resource group name that was outputted in the command window when the setup process was completed.
    ```azurecli
    az ml env set -n <deployment environment name> -g <existing resource group name>
    ```
@@ -189,11 +192,14 @@ After the setup finishes, use the following command to set the environment varia
 
 Now you're ready to create the real-time web service.
 
+>[!NOTE]
+>You can re-use your Model Management account and environment for subsequent web service deployments. You don't need to create them for each web service. An account or an environment can have multiple web services associated with it.
+
 ## Create a real-time web service in one command
 1. To create a real-time web service, use the following command:
 
    ```azurecli
-   az ml service create realtime -f iris_score.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true 
+   az ml service create realtime -f iris-score.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true 
    ```
    This command generates a web service ID you can use later.
 
@@ -235,7 +241,7 @@ First, register the model, then generate the manifest, build the Docker image, a
    To create a manifest, use the following command and provide the model ID output from the previous step:
 
    ```azurecli
-   az ml manifest create --manifest-name <new manifest name> -f iris_score.py -r python -i <model ID> -s service_schema.json
+   az ml manifest create --manifest-name <new manifest name> -f iris-score.py -r python -i <model ID> -s service_schema.json
    ```
    This command generates a manifest ID.
 
@@ -286,7 +292,7 @@ To test the **irisapp** web service that's running, use a JSON-encoded record co
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. Locate your storage accounts. To do so, click **More Services**.
+2. Locate your storage accounts. To do so, select **More Services**.
 
 3. In the search box, enter **Storage accounts**, and then select **Enter**.
 
@@ -294,8 +300,8 @@ To test the **irisapp** web service that's running, use a JSON-encoded record co
 
    > [!TIP]
    > To determine which storage account is in use:
-   > 1. Open Azure Machine Learning Workbench 
-   > 2. Select the project you're working on
+   > 1. Open Azure Machine Learning Workbench.
+   > 2. Select the project you're working on.
    > 3. Open a command-line prompt from the **File** menu.
    > 4. At the command-line prompt, enter `az ml env show -v` and check the *storage_account* value. This is the name of your storage account.
 
@@ -325,12 +331,12 @@ To test the **irisapp** web service that's running, use a JSON-encoded record co
 ## Next steps
 In this third part of the three-part tutorial series, you have learned how to use Azure Machine Learning services to:
 > [!div class="checklist"]
-> * Locate the model file
-> * Generate a scoring script and schema file
-> * Prepare the environment
-> * Create a real-time web service
-> * Run the real-time web service
-> * Examine the output blob data 
+> * Locate the model file.
+> * Generate a scoring script and schema file.
+> * Prepare the environment.
+> * Create a real-time web service.
+> * Run the real-time web service.
+> * Examine the output blob data. 
 
 You have successfully run a training script in various compute environments, created a model, serialized the model, and operationalized the model through a Docker-based web service. 
 

@@ -187,6 +187,7 @@ To have your scheduler trigger kick off a pipeline run, include a pipeline refer
                     "occurrence": <<1-5>>
                }
            ] 
+        }
       }
     },
    "pipelines": [
@@ -200,12 +201,42 @@ To have your scheduler trigger kick off a pipeline run, include a pipeline refer
                         "type": "Expression",
                         "value": "<parameter 1 Value>"
                     },
-                    "<parameter 2 Name> : "<parameter 2 Value>"
+                    "<parameter 2 Name>" : "<parameter 2 Value>"
                 }
            }
       ]
   }
 }
+```
+
+**Note**: “parameters” is a mandatory property inside “pipelines. If your pipeline takes no parameters, send an empty json for parameters, as the property must exist
+
+This is valid:
+
+```json
+      "pipelines": [
+          {
+              "pipelineReference": {
+                 "type": "PipelineReference",
+                  "referenceName": "##PipelineName##"
+              },
+              "parameters": {
+              }
+          }
+      ]
+```
+
+```json
+But this is **not** valid:
+
+        "pipelines": [
+            {
+                "pipelineReference": {
+                   "type": "PipelineReference",
+                    "referenceName": "##PipelineName##"
+                }
+            }
+        ]
 ```
 
 ### Overview: scheduler trigger schema
