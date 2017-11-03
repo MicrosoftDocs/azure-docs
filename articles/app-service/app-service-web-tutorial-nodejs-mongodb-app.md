@@ -205,18 +205,13 @@ gulp prod
 Run the following command to use the connection string you configured in _config/env/local-production.js_.
 
 ```bash
+# Bash
 NODE_ENV=production node server.js
-```
 
-> [!NOTE]
-> If your local terminal window is Windows PowerShell, run the following commands instead:
->
-> ```bash
-> gulp prod
-> $env:NODE_ENV = "production" 
-> node server.js
-> ```
->
+# Windows PowerShell
+$env:NODE_ENV = "production" 
+node server.js
+```
 
 `NODE_ENV=production` sets the environment variable that tells Node.js to run in the production environment.  `node server.js` starts the Node.js server with `server.js` in your repository root. This is how your Node.js application is loaded in Azure. 
 
@@ -422,19 +417,16 @@ Save all your changes.
 In the local terminal window, test your changes in production mode again.
 
 ```bash
+# Bash
 gulp prod
 NODE_ENV=production node server.js
+
+# Windows PowerShell
+gulp prod
+$env:NODE_ENV = "production" 
+node server.js
 ```
 
-> [!NOTE]
-> If your local terminal window is Windows PowerShell, run the following commands instead:
->
-> ```bash
-> gulp prod
-> $env:NODE_ENV = "production" 
-> node server.js
-> ```
->
 Navigate to `http://localhost:8443` in a browser and make sure that you're signed in.
 
 Select **Admin > Manage Articles**, then add an article by selecting the **+** button.
