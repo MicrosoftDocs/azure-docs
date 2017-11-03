@@ -131,8 +131,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| For Test |`https://test.riskmanager.co.nz/SSOv2/<ClientSuffix>`|
 	 
 	 
-> [!NOTE] 
-> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [IMPAC Risk Manager Client support team](mailto:rmsupport@Impac.co.nz) to get these values. 
+	> [!NOTE] 
+	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [IMPAC Risk Manager Client support team](mailto:rmsupport@Impac.co.nz) to get these values. 
 
 5. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
