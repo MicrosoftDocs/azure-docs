@@ -110,7 +110,7 @@ In this section, you create both a Service Bus queue and a Storage account, conn
 3. In the **Endpoints** blade, click **Add** at the top to add your queue to your IoT hub. Name the endpoint **CriticalQueue** and use the drop-downs to select **Service Bus queue**, the Service Bus namespace in which your queue resides, and the name of your queue. When you are done, click **OK** at the bottom.  
 
  > [!NOTE]
-   > Depending on your IoT Hub's pricing tier you might be limited to only one **Endpoint**.  If so, skip step 4 and return after completing the tutorial and then replace the **CriticalQueue** with the **StorageQueue** as your single endpoint.
+   > Depending on your IoT Hub's pricing tier you might be limited to only one **Endpoint**.  If so, skip step 5 and return after completing the tutorial and then replace the **CriticalQueue** with the **StorageQueue** as your single endpoint.
 
 1. Click **Add** again, name the endpoint **StorageQueue** and create a **Storage account** and a **Storage container**.  Make note of the names.  When you are done, click **OK** at the bottom.
 
@@ -119,7 +119,7 @@ In this section, you create both a Service Bus queue and a Storage account, conn
 4. Now click **Routes** in your IoT Hub. Click **Add** at the top of the blade to create a routing rule that routes messages to the queue you just added. Select **Device Messages** as the source of data. Enter `level="critical"` as the condition, and choose **CriticalQueue** as a custom endpoint as the routing rule endpoint. Click **Save** at the bottom.  
 
  > [!NOTE]
-   > Depending on your IoT Hub's pricing tier you might be limited to only one **Endpoint**.  If so, skip step 6 and return after completing the tutorial and then replace the **CriticalQueue** route with the **StorageQueue** route.
+   > Depending on your IoT Hub's pricing tier you might be limited to only one **Endpoint**.  If so, skip step 7 and return after completing the tutorial and then replace the **CriticalQueue** route with the **StorageQueue** route.
 
 1. Click **Add** again, select **Device Messages** as the source of data, enter `level="storage"` as the condition, and choose **StorageQueue** as the endpoint.  When you are done, click **Save** at the bottom.
 
