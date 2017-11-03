@@ -14502,7 +14502,7 @@
         {
             "source_path": "articles/hdinsight/hdinsight-domain-joined-configure.md",
             "redirect_url": "/azure/hdinsight/domain-joined/apache-domain-joined-configure",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/hdinsight/hdinsight-domain-joined-introduction.md",
