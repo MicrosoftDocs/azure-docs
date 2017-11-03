@@ -136,11 +136,10 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	d. Click **Ok**
 
-> [!NOTE]
-> You can refer following articles for more details on the attributes.
-> 1. Administrative Role Profile for Admin UI (adminrole): https://www.paloaltonetworks.com/documentation/80/pan-os/pan-os/firewall-administration/manage-firewall-administrators/configure-an-admin-role-profile
-> 2. Device Access domain for Admin UI (accessdomain): https://www.paloaltonetworks.com/documentation/80/pan-os/web-interface-help/device/device-access-domain
-
+	> [!NOTE]
+	> You can refer following articles for more details on the attributes.
+	> 1. Administrative Role Profile for Admin UI (adminrole): https://www.paloaltonetworks.com/documentation/80/pan-os/pan-os/firewall-administration/manage-firewall-administrators/configure-an-admin-role-profile
+	> 2. Device Access domain for Admin UI (accessdomain): https://www.paloaltonetworks.com/documentation/80/pan-os/web-interface-help/device/device-access-domain
 
 6. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
@@ -150,19 +149,17 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_general_400.png)
 
-8. To configure single sign-on on **Palo Alto Networks - Admin UI** side, you need to send the downloaded **Metadata XML** and to [Palo Alto Networks - Admin UI support team](https://support.paloaltonetworks.com/support). They set this setting to have the SAML SSO connection set properly on both sides.
+8. Open the Palo Alto site as an administrator in another browser window.
 
-9. Open the Palo Alto site as an administrator in another browser window.
-
-10. Click on **Devices**.
+9. Click on **Devices**.
 
 	![Configure Palo Alto Single Sign-on](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_admin1.png)
 
-11. Select **SAML Identity Provider** from the left navigation bar and click "Import" to import the metadata file.
+10. Select **SAML Identity Provider** from the left navigation bar and click "Import" to import the metadata file.
 
 	![Configure Palo Alto Single Sign-on](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_admin2.png)
 
-12. Perform following actions on the Import window
+11. Perform following actions on the Import window
 
 	![Configure Palo Alto Single Sign-on](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_admin3.png)
 
