@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
 
@@ -23,10 +23,12 @@ ms.custom: it-pro
 
 Post deployment many organizations want to know how or if SSPR is really being used. Azure AD provides reporting features that help you to answer questions using canned reports and if you are appropriately licensed, allow you to create custom queries.
 
+![Reporting][Reporting]
+
 The following questions can be answered by reports that exist in the [Azure portal] (https://portal.azure.com/).
 
 > [!NOTE]
-> You must be [a global administrator](active-directory-assign-admin-roles.md#assign-or-remove-administrator-roles) and must opt-in for this data to be gathered on behalf of your organization, by visiting the reporting tab or audit logs at least once. Until doing so, data will not be collected for your organization
+> You must be [a global administrator](active-directory-assign-admin-roles.md) and must opt-in for this data to be gathered on behalf of your organization, by visiting the reporting tab or audit logs at least once. Until doing so, data will not be collected for your organization
 
 * How many people have registered for password reset?
 * Who has registered for password reset?
@@ -36,6 +38,10 @@ The following questions can be answered by reports that exist in the [Azure port
 * What are common issues users or admins face when attempting to use password reset?
 * What admins are resetting their own passwords frequently?
 * Is there any suspicious activity going on with password reset?
+
+## Power BI content pack
+
+If you are a Power BI user there is a content pack for Azure AD that includes easy to use reporting for SSPR. Find more info on how to use and deploy the content pack in the article [How to use the Azure Active Directory Power BI Content Pack](active-directory-reporting-power-bi-content-pack-how-to.md). You can then create your own dashboards and share them with others in your organization.
 
 ## How to view password management reports in the Azure portal
 
@@ -91,77 +97,6 @@ The following table describes the different values allowed for each column:
 | Column | Allowed values and their meanings |
 | --- | --- |
 | Data Registered |**Alternate Email** – user used alternate email or authentication email to authenticate<p><p>**Office Phone**– user used office phone to authenticate<p>**Mobile Phone** - user used mobile phone or authentication phone to authenticate<p>**Security Questions** – user used security questions to authenticate<p>**Any combination of the above (for example, Alternate Email + Mobile Phone)** – occurs when a 2 gate policy is specified and shows which two methods the user used to authentication their password reset request. |
-
-## View password reset activity in the classic portal
-
-This report shows all password reset attempts that have occurred in your organization.
-
-* **Max time range**: 30 days
-* **Max number of rows**: 75,000
-* **Downloadable**: Yes, via CSV file
-
-### Description of report columns in Azure classic portal
-
-The following list explains each of the report columns in detail:
-
-1. **User** – the user who attempted a password reset operation (based on the User ID field provided when the user comes to reset a password).
-2. **Role** – the role of the user in the directory.
-3. **Date and Time** – the date and time of the attempt.
-4. **Methods Used** – what authentication methods the user used for this reset operation.
-5. **Result** – the result of the password reset operation.
-6. **Details** – the details of why the password reset resulted in the value it did.  Also includes any mitigation steps you might take to resolve an unexpected error.
-
-### Description of report values in Azure classic portal
-
-The following table describes the different values allowed for each column:
-
-| Column | Allowed values and their meanings |
-| --- | --- |
-| Methods Used |**Alternate Email** – user used alternate email or authentication email to authenticate<p>**Office Phone** – user used office phone to authenticate<p>**Mobile Phone** – user used mobile phone or authentication phone to authenticate<p>**Security Questions** – user used security questions to authenticate<p>**Any combination of the above (for example, Alternate Email + Mobile Phone)** – occurs when a 2 gate policy is specified and shows which two methods the user used to authentication their password reset request. |
-| Result |**Abandoned** – user started password reset but then stopped halfway through without completing<p>**Blocked** – user’s account was prevented to use password reset due to attempting to use the password reset page or a single password reset gate too many times in a 24-hour period<p>**Canceled** – user started password reset but then clicked the cancel button to cancel the session part way through <p>**Contacted Admin** – user had a problem during his session that he could not resolve, so the user clicked the “Contact your administrator” link instead of finishing the password reset flow<p>**Failed** – user was not able to reset a password, likely because the user was not configured to use the feature (for example, no license, missing authentication info, password-managed on-prem but writeback is off).<p>**Succeeded** – password reset was successful. |
-| Details |See table below |
-
-### Allowed values for details column
-
-Below is the list of result types you may expect when using the password reset activity report:
-
-| Details | Result Type |
-| --- | --- |
-| User abandoned after completing the email verification option |Abandoned |
-| User abandoned after completing the mobile SMS verification option |Abandoned |
-| User abandoned after completing the mobile voice call verification option |Abandoned |
-| User abandoned after completing the office voice call verification option |Abandoned |
-| User abandoned after completing the security questions option |Abandoned |
-| User abandoned after entering their user ID |Abandoned |
-| User abandoned after starting the email verification option |Abandoned |
-| User abandoned after starting the mobile SMS verification option |Abandoned |
-| User abandoned after starting the mobile voice call verification option |Abandoned |
-| User abandoned after starting the office voice call verification option |Abandoned |
-| User abandoned after starting the security questions option |Abandoned |
-| User abandoned before selecting a new password |Abandoned |
-| User abandoned while selecting a new password |Abandoned |
-| User entered too many invalid SMS verification codes and is blocked for 24 hours |Blocked |
-| User tried mobile phone voice verification too many times and is blocked for 24 hours |Blocked |
-| User tried office phone voice verification too many times and is blocked for 24 hours |Blocked |
-| User tried to answer security questions too many times and is blocked for 24 hours |Blocked |
-| User tried to verify a phone number too many times and is blocked for 24 hours |Blocked |
-| User canceled before passing the required authentication methods |Canceled |
-| User canceled before submitting a new password |Canceled |
-| User contacted an admin after trying the email verification option |Contacted admin |
-| User contacted an admin after trying the mobile SMS verification option |Contacted admin |
-| User contacted an admin after trying the mobile voice call verification option |Contacted admin |
-| User contacted an admin after trying the office voice call verification option |Contacted admin |
-| User contacted an admin after trying the security question verification option |Contacted admin |
-| Password reset is not enabled for this user. Enable password reset under the configure tab to resolve this |Failed |
-| User does not have a license. You can add a license to the user to resolve this |Failed |
-| User tried to reset from a device without cookies enabled |Failed |
-| User's account has insufficient authentication methods defined. Add authentication info to resolve this |Failed |
-| User's password is managed on-premises. You can enable Password Writeback to resolve this |Failed |
-| We could not reach your on-premises password reset service. Check your sync machine's event log |Failed |
-| We encountered a problem while resetting the user's on-premises password. Check your sync machine's event log |Failed |
-| This user is not a member of the password reset users group. Add this user to that group to resolve this. |Failed |
-| Password reset has been disabled entirely for this tenant. See [here](http://aka.ms/ssprtroubleshoot) to resolve this. |Failed |
-| User successfully reset password |Succeeded |
 
 ## Self-service Password Management activity types
 
@@ -260,15 +195,16 @@ The following list explains this activity in detail:
 
 ## Next steps
 
-The following links provide additional information regarding password reset using Azure AD
+* [How do I complete a successful rollout of SSPR?](active-directory-passwords-best-practices.md)
+* [Reset or change your password](active-directory-passwords-update-your-own-password.md).
+* [Register for self-service password reset](active-directory-passwords-reset-register.md).
+* [Do you have a Licensing question?](active-directory-passwords-licensing.md)
+* [What data is used by SSPR and what data should you populate for your users?](active-directory-passwords-data.md)
+* [What authentication methods are available to users?](active-directory-passwords-how-it-works.md#authentication-methods)
+* [What are the policy options with SSPR?](active-directory-passwords-policy.md)
+* [What is password writeback and why do I care about it?](active-directory-passwords-writeback.md)
+* [What are all of the options in SSPR and what do they mean?](active-directory-passwords-how-it-works.md)
+* [I think something is broken. How do I troubleshoot SSPR?](active-directory-passwords-troubleshoot.md)
+* [I have a question that was not covered somewhere else](active-directory-passwords-faq.md)
 
-* [Shortcut to user management audit logs](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/Audit) - Go directly to your tenant's user management audit logs
-* [**Quick Start**](active-directory-passwords-getting-started.md) - Get up and running with Azure AD self service password management 
-* [**Licensing**](active-directory-passwords-licensing.md) - Configure your Azure AD Licensing
-* [**Data**](active-directory-passwords-data.md) - Understand the data that is required and how it is used for password management
-* [**Rollout**](active-directory-passwords-best-practices.md) - Plan and deploy SSPR to your users using the guidance found here
-* [**Customize**](active-directory-passwords-customize.md) - Customize the look and feel of the SSPR experience for your company.
-* [**Technical Deep Dive**](active-directory-passwords-how-it-works.md) - Go behind the curtain to understand how it works
-* [**Frequently Asked Questions**](active-directory-passwords-faq.md) - How? Why? What? Where? Who? When? - Answers to questions you always wanted to ask
-* [**Troubleshoot**](active-directory-passwords-troubleshoot.md) - Learn how to resolve common issues that we see with SSPR
-* [**Policy**](active-directory-passwords-policy.md) - Understand and set Azure AD password policies
+[Reporting]: ./media/active-directory-passwords-reporting/sspr-reporting.png "Example of SSPR activity audit logs in Azure AD"

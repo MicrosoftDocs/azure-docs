@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/25/2017
-ms.author: bwren
+ms.author: mbullwin
 
 ---
 # Monitor availability and responsiveness of any web site
