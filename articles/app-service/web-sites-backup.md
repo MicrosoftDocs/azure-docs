@@ -156,6 +156,15 @@ The database backup for the app is stored in the root of the.zip file. For a SQL
 > 
 > 
 
+## Automate with scripts
+
+You can automate backup management with scripts, using the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/overview).
+
+For samples, see:
+
+- [Azure CLI samples](app-service-cli-samples.md)
+- [Azure PowerShell samples](app-service-powershell-samples.md)
+
 <a name="nextsteps"></a>
 
 ## Next Steps

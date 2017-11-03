@@ -82,6 +82,15 @@ Scroll down to find the desired restore operation and click to select it.
 
 The details blade displays the available information related to the restore operation.
 
+## Automate with scripts
+
+You can automate backup management with scripts, using the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/overview).
+
+For samples, see:
+
+- [Azure CLI samples](app-service-cli-samples.md)
+- [Azure PowerShell samples](app-service-powershell-samples.md)
+
 <!-- ## Next Steps
 You can backup and restore App Service apps using REST API. -->
 
