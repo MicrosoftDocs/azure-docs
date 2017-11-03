@@ -10,7 +10,7 @@ ms.service: postgresql
 ms.custom: mvc, devcenter
 ms.devlang: csharp
 ms.topic: quickstart
-ms.date: 06/23/2017
+ms.date: 11/03/2017
 ---
 
 # Azure Database for PostgreSQL: Use .NET (C#) to connect and query data
