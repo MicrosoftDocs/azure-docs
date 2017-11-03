@@ -1,6 +1,6 @@
 ﻿---
-title: Self-service signup in Azure Active Directory | Microsoft Docs
-description: Hhow to set up self-service signup in an Azure Active Directory (Azure AD) tenant
+title: Self-service or viral signup in Azure Active Directory | Microsoft Docs
+description: Use self-service signup in an Azure Active Directory (Azure AD) tenant
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/29/2017
+ms.date: 11/03/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
@@ -40,7 +40,7 @@ Admins have two self-service controls today. They can control whether:
 * Users can license themselves for applications and services.
 
 ### How can I control these capabilities?
-An admin can configure these capabilities using these Azure AD cmdlet Set-MsolCompanySettings parameters:
+An admin can configure these capabilities using the following Azure AD cmdlet Set-MsolCompanySettings parameters:
 
 * **AllowEmailVerifiedUsers** controls whether a user can create or join an unmanaged directory. If you set that parameter to $false, no email-verified users can join the directory.
 * **AllowAdHocSubscriptions** controls the ability for users to perform self-service signup. If you set that parameter to $false, no users can perform self-service signup.

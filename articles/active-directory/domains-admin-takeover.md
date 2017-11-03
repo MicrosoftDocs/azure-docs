@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/02/2017
+ms.date: 11/03/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 
 ---
 # Take over an unmanaged directory as administrator in Azure Active Directory
-This article describes two ways to take over a DNS domain name in an unmanaged directory in Azure Active Directory (Azure AD). When a self-service user signs up for a cloud service that uses Azure AD, they are added to an unmanaged Azure AD directory based on the email domain. They become guest user of the directory with access to the service that they signed up for, tagged with creationmethod=EmailVerified.
+This article describes two ways to take over a DNS domain name in an unmanaged directory in Azure Active Directory (Azure AD). When a self-service user signs up for a cloud service that uses Azure AD, they are added to an unmanaged Azure AD directory based on their email domain. For more about self-service or "viral" signup for a service, see [What is self-service signup for Azure Active Directory?]()
 
 ## Decide how you want to take over an unmanaged directory
 During the process of admin takeover, you can prove ownership as described in [Add a custom domain name to Azure AD](add-custom-domain.md). The next sections explain the admin experience in more detail, but here's a summary:
