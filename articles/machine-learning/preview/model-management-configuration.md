@@ -116,7 +116,7 @@ Use Cluster deployment for high-scale production scenarios. It sets up an ACS cl
 To deploy your web service to a production environment, first set up the environment using the following command:
 
 ```azurecli
-az ml env setup -c --cluster-name [your environment name] --location [Azure region e.g. eastus2] [-g [resource group]]
+az ml env setup -c --name [your environment name] --location [Azure region e.g. eastus2] [-g [resource group]]
 ```
 
 The cluster environment setup command creates the following resources in your subscription:
@@ -137,6 +137,9 @@ az ml env set -n [environment name] -g [resource group]
 >[!NOTE] 
 > After the environment is created, for subsequent deployments, you only need to use the set command above to reuse it.
 >
+
+>[!NOTE] 
+>To create an HTTPS endpoint, specify an SSL cert when creating a cluster by using the --cert-name and --cert-pem options in az ml env setup. This sets up the cluster to serve requests on https, secured using the provided certificate. After setup is complete, create a CNAME DNS record that points to the cluster’s FQDN.
 
 ### Create an Account
 An account is required for deploying models. You need to do this once per account, and can reuse the same account in multiple deployments.

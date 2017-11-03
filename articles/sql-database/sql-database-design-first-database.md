@@ -1,6 +1,6 @@
 ---
 title: Design your first Azure SQL database | Microsoft Docs
-description: Learn to design your first Azure SQL database.
+description: Learn to design your first Azure SQL database in the Azure portal and with SQL Server Management Studio.
 services: sql-database
 documentationcenter: ''
 author: CarlRabeler
@@ -14,7 +14,7 @@ ms.custom: mvc,develop databases
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.workload: ''
+ms.workload: "Active"
 ms.date: 08/25/2017
 ms.author: carlrab
 

@@ -3,8 +3,8 @@ title: Azure Quick Start - Back up a VM with Azure CLI | Microsoft Docs
 description: Learn how to back up your virtual machines with the Azure CLI
 services: backup, virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
-manager: jeconnoc
+author: markgalioto
+manager: carmonm
 editor:
 tags: azure-resource-manager, virtual-machine-backup
 
@@ -14,7 +14,7 @@ ms.devlang: azurecli
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: storage-backup-recovery
-ms.date: 09/28/2017
+ms.date: 10/02/2017
 ms.author: iainfou
 ms.custom: mvc
 ---
@@ -26,15 +26,7 @@ This quick start enables backup on an existing Azure VM. If you need to create a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-To install and use the CLI locally, you must run Azure CLI version 2.0.18 or later. To find the CLI version, run ༖༗. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). 
-
-
-## Register the Azure Backup resource provider
-The first time you use Azure Backup, you must register the Azure Recovery Service provider in your subscription with [az provider register](/cli/azure/provider?view=azure-cli-latest#az_provider_register).
-
-```azurecli-interactive
-az provider register --namespace Microsoft.RecoveryServices
-```
+To install and use the CLI locally, you must run Azure CLI version 2.0.18 or later. To find the CLI version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). 
 
 
 ## Create a recovery services vault
@@ -56,7 +48,7 @@ By default, the Recovery Services vault is set for Geo-Redundant storage. Geo-Re
 
 
 ## Enable backup for an Azure VM
-Create a protection policy to define: when a backup job runs, and how long the recovery points are stored. The default protection policy runs a backup job each day and retains recovery points for 30 days. You can use these default policy values to quickly protect your VM. To enable backup protection for a VM, use [az backup protection enable—for-vm](https://docs.microsoft.com/cli/azure/backup/protection#az_backup_protection_enable_for_vm). Specify the resource group and VM to protect, then the policy to use:
+Create a protection policy to define: when a backup job runs, and how long the recovery points are stored. The default protection policy runs a backup job each day and retains recovery points for 30 days. You can use these default policy values to quickly protect your VM. To enable backup protection for a VM, use [az backup protection enable-for-vm](https://docs.microsoft.com/cli/azure/backup/protection#az_backup_protection_enable_for_vm). Specify the resource group and VM to protect, then the policy to use:
 
 ```azurecli-interactive 
 az backup protection enable-for-vm \
@@ -86,8 +78,6 @@ az backup protection backup-now \
     --item-name myVM \
     --retain-until 18-10-2017
 ```
-
-As this first backup job creates a full recovery point, the process can take up to 20 minutes.
 
 
 ## Monitor the backup job

@@ -13,12 +13,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 10/08/2017
 ms.author: wgries
 ---
 
 # How to deploy Azure File Sync (preview)
-With Azure File Sync (preview), shares can be replicated on-premises or in Azure and accessed through SMB or NFS shares on Windows Server. Azure File Sync is useful for scenarios in which data needs to be accessed and modified far away from an Azure datacenter, such as in a branch office scenario. Data may be replicated between multiple Windows Server endpoints, such as between multiple branch offices.
+Azure File Sync (preview) allows you to centralize your organization's file shares in Azure Files without giving up the flexibility, performance, and compatibility of an on-premises file server. It does this by transforming your Windows Servers into a quick cache of your Azure File share. You can use any protocol available on Windows Server to access your data locally (including SMB, NFS, and FTPS) and you can have as many caches as you need across the world.
 
 We strongly recommend reading [Planning for an Azure Files deployment](storage-files-planning.md) and [Planning for an Azure File Sync deployment](storage-sync-files-planning.md) before following the steps in this guide.
 
@@ -114,6 +114,9 @@ The resulting "Add server endpoint" pane requires the following information to c
 - **Volume Free Space**: the amount of free space to reserve on the volume on which the Server Endpoint resides. For example, if the Volume Free Space is set to 50% on a volume with a single Server Endpoint, roughly half the amount of data will be tiered to Azure Files. Note that regardless of whether cloud tiering is enabled, your Azure File share always has a complete copy of the data in the Sync Group.
 
 Click "Create" to add the Server Endpoint. Your files will now be kept in sync across your Azure File share and your Windows Server. 
+
+> [!Important]  
+> You can make changes to any Cloud or Server Endpoint in the Sync Group and have your files synchronized to the other endpoints in the Sync Group. If you make a change to the Cloud Endpoint (Azure File share) directly, please note that changes first need to be discovered by an Azure File Sync change detection job, which is only initatiated for a Cloud Endpoint once every 24 hours. See the [Azure Files FAQ](storage-files-faq.md#afs-change-detection) for more information.
 
 ## Next steps
 - [Add/Remove an Azure File Sync Server Endpoint](storage-sync-files-server-endpoint.md)

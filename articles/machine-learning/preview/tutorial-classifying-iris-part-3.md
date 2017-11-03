@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
-ms.date: 09/27/2017
+ms.date: 11/2/2017
 ---
 
 # Classifying Iris part 3: Deploy a model
@@ -30,8 +30,12 @@ This tutorial is part three of a three part series. In this part of the tutorial
 
 ## Prerequisites
 Complete the first two parts of this tutorial series:
-- Firstly, follow [Prepare data tutorial](tutorial-classifying-iris-part-1.md) to create Azure Machine Learning resources and install the Azure Machine Learning Workbench application.
-- Secondly, follow [Build a model tutorial](tutorial-classifying-iris-part-2.md) to create a logistic regression model in Azure Machine Learning.
+
+1. Follow [Prepare data tutorial](tutorial-classifying-iris-part-1.md) to create Azure Machine Learning resources and install the Azure Machine Learning Workbench application.
+
+2. Follow [Build a model tutorial](tutorial-classifying-iris-part-2.md) to create a logistic regression model in Azure Machine Learning.
+
+3. You need Docker engine installed and running locally. Alternatively, you can deploy to an Azure Container Service cluster in Azure.
 
 ## Download the model pickle file
 In the previous part of the tutorial, the **iris_sklearn.py** script was run in Azure Machine Learning Workbench locally. That action serialized the logistic regression model using the popular Python object serialization package **[pickle](https://docs.python.org/2/library/pickle.html)**. 
@@ -77,15 +81,15 @@ To deploy the web service, along with the model file, you also need a scoring sc
 
    ![Scoring File](media/tutorial-classifying-iris/model_data_collection.png)
 
-4. In order to get the schema file, run the script. Choose the **local** environment and the **iris_score.py** script in the command bar, then click the **Run** button. 
+4. In order to get the schema file, run the script. Choose the **local** environment and the **iris-score.py** script in the command bar, then click the **Run** button. 
 
-5. This script creates a JSON file in the **outputs** folder, which captures the input data schema required by the model.
+5. This script creates a JSON file in the **Outputs** section, which captures the input data schema required by the model.
 
-6. Notice the Jobs pane on the right of the Machine Learning Workbench window. Wait for the latest **iris\_score.py** job to display the green **Completed** status. Then click the hyperlink **iris\_score.py [1]** for the latest job run to see the run details from the **iris_score.py** run. 
+6. Notice the Jobs pane on the right of the Machine Learning Workbench window. Wait for the latest **iris-score.py** job to display the green **Completed** status. Then click the hyperlink **iris-score.py [1]** for the latest job run to see the run details from the **iris-score.py** run. 
 
 7. On the Run Properties page, in the **Outputs** section, select the newly created   **service_schema.json** file. **Check** the file, and click **Download**. Save the file into your project root folder.
 
-8. Return to the previous tab where you have opened script **iris_score.py**. 
+8. Return to the previous tab where you have opened script **iris-score.py**. 
 
    Note the usage of data collection that allows you to capture model inputs and predictions from the web service. The following points are of particular interest for data collection:
 
@@ -112,6 +116,9 @@ To deploy the web service, along with the model file, you also need a scoring sc
    ```
 
 Now you are ready to prepare your environment to operationalize the model.
+
+>[!NOTE]
+>Deploying models requires you to have owner access to an Azure subscription.
 
 ## Prepare to operationalize locally
 Use _local mode_ deployment to run in Docker containers on your local computer.
@@ -174,7 +181,7 @@ You can use _local mode_ for development and testing. The Docker engine must be 
    ```
 
 6. Set the environment.
-After the setup is complete, set the environment variables required to operationalize using the following command. Use the same environment name that you have used previously in step 4. Use the same resource group name that was outputted in the command window when the setup process was completed.
+After the setup is complete, set the environment variables required to operationalize using the following command. Use the same environment name that you have used previously in step 3. Use the same resource group name that was outputted in the command window when the setup process was completed.
    ```azurecli
    az ml env set -n <deployment environment name> -g <existing resource group name>
    ```
@@ -187,11 +194,14 @@ After the setup is complete, set the environment variables required to operation
 
 Now you are ready to create the real-time web service.
 
+>[!NOTE]
+>You can re-use your Model Managment account and environment for subsequent web service deployments. You don't need to create them for each web service. An account or an environment can have multiple web services associated with it.
+
 ## Create a real-time web service in one command
 1. Use the following command to create a real-time web service:
 
    ```azurecli
-   az ml service create realtime -f iris_score.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true 
+   az ml service create realtime -f iris-score.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true 
    ```
    This generates a web service ID you can use later.
 
@@ -231,7 +241,7 @@ As an alternate to **az ml service create realtime** command shown above, you ca
    In order to create a manifest, use this command and provide the model ID output from the previous step:
 
    ```azurecli
-   az ml manifest create --manifest-name <new manifest name> -f iris_score.py -r python -i <model ID> -s service_schema.json
+   az ml manifest create --manifest-name <new manifest name> -f iris-score.py -r python -i <model ID> -s service_schema.json
    ```
    This command generates a manifest ID.
 
@@ -268,7 +278,7 @@ Test the running **irisapp** web service by feeding it with a JSON encoded recor
 2. To test the service, execute the returned service run command.
 
    ```azurecli
-   az ml service run realtime -i irisapp -d "{\"input_df\": [{\"petal width\": 0.25, \"sepal length\": 3.0, \"sepal width\": 3.6, \"petal length\": 1.3}]}
+   az ml service run realtime -i irisapp -d "{\"input_df\": [{\"petal width\": 0.25, \"sepal length\": 3.0, \"sepal width\": 3.6, \"petal length\": 1.3}]}"
    ```
    The output is **"2",** which is the predicted class. (Your result might be different.) 
 

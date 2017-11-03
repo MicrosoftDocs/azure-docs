@@ -5,8 +5,8 @@
 
 # Get started
 ## [Create your first logic app](logic-apps-create-a-logic-app.md)
-## [Templates for logic apps](logic-apps-use-logic-app-templates.md)
-## [Create logic apps from templates](logic-apps-arm-provision.md)
+## [Create logic apps from templates](logic-apps-create-logic-apps-from-templates.md)
+## [Create logic apps from Resource Manager templates](logic-apps-create-deploy-azure-resource-manager-templates.md)
 ## [Move MABS apps to logic apps](logic-apps-move-from-mabs.md)
 
 # How To
@@ -25,7 +25,8 @@
 #### [Secure connectors with Azure AD](custom-connector-azure-active-directory-authentication.md)
 #### [Describe APIs with Postman](custom-connector-api-postman-collection.md)
 #### [Extend OpenAPI for custom connectors](custom-connector-openapi-extensions.md)
-#### [Register your connector](logic-apps-custom-connector-register.md)
+#### [Create and register OpenAPI connector](logic-apps-custom-connector-register.md)
+#### [Create and register SOAP connector](logic-apps-soap-connector-create-register.md)
 #### [Certify your connector](custom-connector-submit-certification.md)
 #### [FAQ for custom connectors](custom-connector-faq.md)
 ### Develop custom APIs

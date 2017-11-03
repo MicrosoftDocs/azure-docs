@@ -14,7 +14,7 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/21/2017
+ms.date: 10/12/2017
 ms.author: larryfr
 ---
 # Use Apache Kafka (preview) with Storm on HDInsight
@@ -75,7 +75,7 @@ While you can create an Azure virtual network, Kafka, and Storm clusters manuall
   > [!WARNING]
   > To guarantee availability of Kafka on HDInsight, your cluster must contain at least three worker nodes. This template creates a Kafka cluster that contains three worker nodes.
 
-2. Use the following guidance to populate the entries on the **Custom deployment** blade:
+2. Use the following guidance to populate the entries on the **Custom deployment** section:
    
     ![HDInsight custom deployment](./media/hdinsight-apache-storm-with-kafka/parameters.png)
 
@@ -97,9 +97,9 @@ While you can create an Azure virtual network, Kafka, and Storm clusters manuall
 
 4. Finally, check **Pin to dashboard** and then select **Purchase**. It takes about 20 minutes to create the clusters.
 
-Once the resources have been created, the blade for the resource group is displayed.
+Once the resources have been created, the section for the resource group is displayed.
 
-![Resource group blade for the vnet and clusters](./media/hdinsight-apache-storm-with-kafka/groupblade.png)
+![Resource group section for the vnet and clusters](./media/hdinsight-apache-storm-with-kafka/groupblade.png)
 
 > [!IMPORTANT]
 > Notice that the names of the HDInsight clusters are **storm-BASENAME** and **kafka-BASENAME**, where BASENAME is the name you provided to the template. You use these names in later steps when connecting to the clusters.
@@ -290,7 +290,7 @@ For more information on Flux topologies, see [https://storm.apache.org/releases/
   storm jar KafkaTopology-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --remote -R /reader.yaml --filter dev.properties
   ```
 
-2. Once the topology starts, open the Storm UI. This web UI is located at https://storm-BASENAME.azurehdinsight.net/stormui. Replace __BASENAME__ with the base name used when the cluster was created. 
+2. Once the topology starts, open the Storm UI. This web UI is located at `https://storm-BASENAME.azurehdinsight.net/stormui`. Replace __BASENAME__ with the base name used when the cluster was created. 
 
     When prompted, use the admin login name (default, `admin`) and password used when the cluster was created. You see a web page similar to the following image:
 
@@ -337,6 +337,6 @@ Since the steps in this document create both clusters in the same Azure resource
 
 ## Next steps
 
-For more example topologies that can be used with Storm on HDInsight, see [Example Storm topologies and components](hdinsight-storm-example-topology.md).
+For more example topologies that can be used with Storm on HDInsight, see [Example Storm topologies and components](storm/apache-storm-example-topology.md).
 
-For information on deploying and monitoring topologies on Linux-based HDInsight, see [Deploy and manage Apache Storm topologies on Linux-based HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
+For information on deploying and monitoring topologies on Linux-based HDInsight, see [Deploy and manage Apache Storm topologies on Linux-based HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md)

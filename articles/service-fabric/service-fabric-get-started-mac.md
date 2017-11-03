@@ -103,17 +103,13 @@ To build Service Fabric services using Java, ensure you have JDK 1.8 installed a
   sudo apt-get install gradle
 ```
 
-## Set up the Service Fabric CLI
+## Set up the Service Fabric CLI (sfctl) on your Mac
 
-The [Service Fabric CLI](service-fabric-cli.md) has commands for interacting with Service Fabric entities,
-including clusters and applications. It is based on python, so be sure to have python and pip installed before you
-proceed with the following command:
+Follow the instructions at [Service Fabric CLI](service-fabric-cli.md#cli-mac) to install the Service Fabric CLI (`sfctl`) on your Mac.
+The CLI commands for interacting with Service Fabric entities, including clusters, applications and services.
 
-```bash
-pip install sfctl
-```
+## Create application on you Mac using Yeoman
 
-## Create application on Mac using Yeoman
 Service Fabric provides scaffolding tools which will help you create a Service Fabric application from terminal using Yeoman template generator. Please follow the steps below to ensure you have the Service Fabric yeoman template generator working on your machine.
 
 1. You need to have Node.js and NPM installed on you mac. If not you can install Node.js and NPM using Homebrew using the following. To check the versions of Node.js and NPM installed on your Mac, you can use the ``-v`` option.

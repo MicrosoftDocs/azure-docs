@@ -161,15 +161,14 @@ $x509 = New-Object System.Security.Cryptography.X509Certificates.X509Certificate
 $x509.Import("C:\data\KVWebApp.cer")
 $credValue = [System.Convert]::ToBase64String($x509.GetRawCertData())
 
-# If you used different dates for makecert then adjust these values
-$now = [System.DateTime]::Now
-$yearfromnow = $now.AddYears(1)
 
-$adapp = New-AzureRmADApplication -DisplayName "KVWebApp" -HomePage "http://kvwebapp" -IdentifierUris "http://kvwebapp" -CertValue $credValue -StartDate $now -EndDate $yearfromnow
+$adapp = New-AzureRmADApplication -DisplayName "KVWebApp" -HomePage "http://kvwebapp" -IdentifierUris "http://kvwebapp" -CertValue $credValue -StartDate $x509.NotBefore -EndDate $x509.NotAfter
+
 
 $sp = New-AzureRmADServicePrincipal -ApplicationId $adapp.ApplicationId
 
-Set-AzureRmKeyVaultAccessPolicy -VaultName 'contosokv' -ServicePrincipalName $sp.ServicePrincipalName -PermissionsToSecrets all -ResourceGroupName 'contosorg'
+
+Set-AzureRmKeyVaultAccessPolicy -VaultName 'contosokv' -ServicePrincipalName "http://kvwebapp" -PermissionsToSecrets all -ResourceGroupName 'contosorg'
 
 # get the thumbprint to use in your app settings
 $x509.Thumbprint

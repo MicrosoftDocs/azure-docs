@@ -9,7 +9,7 @@ author: ddove
 ms.assetid: 204fd902-0397-4185-985a-dea3ed7c7d9f
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
+ms.workload: "Inactive"
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article

@@ -12,14 +12,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/25/2017
+ms.date: 10/05/2017
 ms.author: skwan
 ---
 
 # Manage access to Azure resources with Azure Active Directory
 
-Identity and access management for cloud resources is a critical function for any organization that is using the cloud.  Azure Active Directory (Azure AD) is the identity and access system for Microsoft Azure.  
+Identity and access management for cloud resources is a critical function for any organization that is using the cloud. Azure Active Directory (Azure AD) is the identity and access system for Microsoft Azure.  
 
+Before exploring the supporting feature areas of Azure AD, check out the following video: "Locking down access to the Azure Cloud using SSO, Roles Based Access Control, and Conditional." In it, you learn about:
+
+- Best practices for configuring single sign-on to the Azure portal, with on-premises Active Directory.
+- Using Azure RBAC for fine-grained access control to resources in subscriptions.
+- Enforcing strong authentication rules using Azure AD Conditional Access.
+- The concept of Managed Service Identity, where Azure resources can automatically authenticate to Azure services, and developers don’t need to handle API keys or secrets.
+
+> [!VIDEO https://www.youtube.com/embed/FKBoWWKRnvI]
+
+## Feature areas
 Azure AD provides the following capabilities for managing access to Azure resources:
 
 |||

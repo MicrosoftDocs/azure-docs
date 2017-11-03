@@ -122,23 +122,6 @@ Some Azure resources support the scaling out or in of multiple instances to hand
  ![Metrics and Autoscale in Azure Monitor](./media/monitoring-overview-metrics/MetricsOverview5.png)
 
 ## Learn about supported services and metrics
-Azure Monitor is a new metrics infrastructure. It supports the following Azure services in the Azure portal and the new version of the Azure Monitor API:
-
-* VMs (Azure Resource Manager-based)
-* Virtual machine scale sets
-* Batch
-* Event Hubs namespace
-* Service Bus namespace (premium SKU only)
-* SQL Database (version 12)
-* Elastic SQL Pool
-* Websites
-* Web server farms
-* Logic Apps
-* IoT hubs
-* Redis Cache
-* Networking: Application gateways
-* Search
-
 You can view a detailed list of all the supported services and their metrics at [Azure Monitor metrics--supported metrics per resource type](monitoring-supported-metrics.md).
 
 ## Next steps

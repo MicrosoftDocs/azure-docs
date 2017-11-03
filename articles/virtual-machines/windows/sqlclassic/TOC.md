@@ -1,5 +1,5 @@
 # Overview
-## [What is SQL Server on Azure VMs?](../sql/virtual-machines-windows-sql-server-iaas-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json) 
+## [Windows SQL Server VMs](../sql/virtual-machines-windows-sql-server-iaas-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json) 
 ## [Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)
 ## [FAQ](../sql/virtual-machines-windows-sql-server-iaas-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 
