@@ -16,43 +16,29 @@ ms.author: v-demak
 
 This quickstart shows you how to programmatically add utterances to your Language Understanding Intelligent Service (LUIS) app and train LUIS. 
 
-Using the command line is a quick way to enter many utterances and train LUIS. You can automate this task into a larger pipeline.
+Using the command line is a quick way to enter many utterances and train LUIS. You can also automate this task into a larger pipeline.
 
 Refer to the [Authoring API definitions][authoring-apis] for technical documentation for the APIs.
 
 ## Prerequisites
 
-* This quickstart assumes you have a LUIS app. You can see [Create a LUIS app](./luis-get-started-create-app.md) for instructions on how to create a LUIS app, or import a [sample LUIS app](https://github.com/Microsoft/LUIS-Samples/tree/master/examples/add-utterances/nodejs). 
-* You need to use a programmatic key. You can find this key under Account Settings in [https://www.luis.ai](https://www.luis.ai).
+* Latest **Node.js** with NPM. Download it from [here](https://nodejs.org/en/download/).
+* NPM dependencies for this quickstart: **request-promise**, **fs-extra**.  
+* **[Recommended]** [Visual Studio Code](https://code.visualstudio.com/) for IntelliSense and debugging.
+* Your LUIS **programmatic key**. You can find this key under Account Settings in [https://www.luis.ai](https://www.luis.ai).
+* Your LUIS [**application ID**](./luis-get-started-create-app.md). The application ID is shown in the application dashboard.
+* The **version ID** within the application that receives the utterances. The default ID is "0.1"
+* Create a new file named `add-utterances.js` project in VSCode.
 
-The prerequisites to run the sample code are:
-* Latest Node.js with NPM. Download it from [here](https://nodejs.org/en/download/).
-* Install the NPM dependencies for this quickstart: **request-promise**, **fs-extra**.  
-* A [created](https://docs.microsoft.com/en-us/azure/cognitive-services/LUIS/create-app) LUIS Application. 
-* **[Recommended]** Visual Studio Code for IntelliSense and debugging, download it from [here](https://code.visualstudio.com/) for free.
+## Add NPM Dependencies
+Add the NPM dependencies to the file.
 
+   [!code-nodejs[Add NPM dependencies](~/samples-luis/documentation-samples/authoring-api-samples/node/add-utterance.js?name=dependencies)]
 
-## Get the ID and version of your LUIS app
+## Add Constants 
+Add the LUIS constants to the file. Copy the code below and change to your programmatic key, application ID, and version ID.
 
-You can find your app ID and version number by logging into [https://www.luis.ai](https://www.luis.ai) and go to App Settings. 
-
-## Add an utterance by calling the Authoring API with Node.js
-
-### Install the Node.js dependencies from NPM in the terminal/command line.
-
-````
-> npm install
-````
-
-### Change Configuration Settings
-In order to use this application, you need to change the values in the `add-utterances.js` file to your own subscription key, app ID, and version ID. 
-   * The subscription key is the Programmatic key, available in luis.ai under Account Settings. 
-   * To see your App ID and Version ID (which defaults to 0.1), click on your app's entry under **My Apps** in www.luis.ai and click **Settings**.
-
-Open `add-utterances.js`, and change these values in the file. 
-
-
-   [!code-nodejs[Console app to add utterances via authoring code for Node.js](~/samples-luis/documentation-samples/authoring-api-samples/node/add-utterance.js#constants)]
+   [!code-nodejs[Add NPM dependencies](~/samples-luis/documentation-samples/authoring-api-samples/node/add-utterance.js?name=constants)]
 
 
 
