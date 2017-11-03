@@ -34,27 +34,35 @@ In order to access any of the Cognitive Services APIs, you must first provision 
 * Install and Configure [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0)
 * Connect [PowerShell with Azure Government](documentation-government-get-started-connect-with-ps.md)
 
-In the Powershell command below, replace "rg-name", "name-of-your-api", and "location-of-resourcegroup" with your relevant account information. 
+1. Make sure that you have the **Cognitive Services resource provider registered on your account**. You can do this by **running the following Powershell command:**
+   ```PowerShell
+   Get-AzureRmResourceProvider
+   ```
+   If you do **not see `Microsoft.CognitiveServices`**, you have to register the resource provider by **running the following command**:
+   ```PowerShell
+   Register-AzureRmResourceProvider -ProviderNamespace Microsoft.CognitiveServices
+   ```
+2. In the Powershell command below, replace "rg-name", "name-of-your-api", and "location-of-resourcegroup" with your relevant account information. 
 
-Replace the "type of API" tag with any of the three following APIs you want to access:
-    * ComputerVision
-    * Face
-    * TextTranslation
+   Replace the "type of API" tag with any of the three following APIs you want to access:
+       * ComputerVision
+       * Face
+       * TextTranslation
 
-```PowerShell
-New-AzureRmCognitiveServicesAccount -ResourceGroupName 'rg-name' -name 'name-of-your-api' -Type <type of API> -SkuName S0 -Location 'location-of-resourcegroup'
-```
-Example: 
+   ```PowerShell
+   New-AzureRmCognitiveServicesAccount -ResourceGroupName 'rg-name' -name 'name-of-your-api' -Type <type of API> -SkuName S0 -Location 'location-of-resourcegroup'
+   ```
+   Example: 
 
-```PowerShell
-New-AzureRmCognitiveServicesAccount -ResourceGroupName 'resourcegrouptest' -name 'myFaceAPI' -Type Face -SkuName S0 -Location 'usgovvirginia'
-```
+   ```PowerShell
+   New-AzureRmCognitiveServicesAccount -ResourceGroupName 'resourcegrouptest' -name 'myFaceAPI' -Type Face -SkuName S0 -Location 'usgovvirginia'
+   ```
 
 After you run the command, you should see something like this: 
 
 ![cog1](./media/documentation-government-cognitiveservices-img1.png)
 
-Copy and save the "Endpoint" attribute somewhere as you will need it when making calls to the API. 
+3. Copy and save the "Endpoint" attribute somewhere as you will need it when making calls to the API. 
 
 ### Retrieve Account Key
 

@@ -48,6 +48,6 @@ sections:
     className: cardsD
     items:
     - title: Command-Line
-      html: <p><a href="/cli/azure/container">Azure CLI</a></p><p><a href="/powershell/module/azurerm.containerinstance#container_instances">PowerShell</a></p>
+      html: <p><a href="/cli/azure/container">Azure CLI</a></p><p><a href="/powershell/module/azurerm.containerinstance/get-azurermcontainergroup">PowerShell</a></p>
     - title: REST
       html: <p><a href="/rest/api/container-instances">REST API Reference</a></p>
