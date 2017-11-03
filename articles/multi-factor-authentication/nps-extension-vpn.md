@@ -4,7 +4,7 @@ description: This article discusses integrating your VPN infrastructure with Azu
 services: active-directory
 keywords: Azure MFA, integrate VPN, Azure Active Directory, Network Policy Server extension
 documentationcenter: ''
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 
 ms.assetid: 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
-ms.author: kgremban
+ms.author: joflore
 ms.reviewer: jsnow
 ms.custom: it-pro
 
@@ -24,7 +24,7 @@ ms.custom: it-pro
 
 ## Overview
 
-The Network Policy Service (NPS) extension for Azure allows organizations to safeguard Remote Authentication Dial-In User Service (RADIUS) client authentication using cloud-based [Azure Multi-Factor Authentication (MFA)](multi-factor-authentication-get-started-server-rdg.md), which provides two-step verification.
+The Network Policy Server (NPS) extension for Azure allows organizations to safeguard Remote Authentication Dial-In User Service (RADIUS) client authentication using cloud-based [Azure Multi-Factor Authentication (MFA)](multi-factor-authentication-get-started-server-rdg.md), which provides two-step verification.
 
 This article provides instructions for integrating the NPS infrastructure with Azure MFA using the NPS extension for Azure to enable secure two-step verification for users attempting to connect to your network using a VPN. 
 
@@ -86,11 +86,11 @@ The NPS role service provides the RADIUS server and client functionality. This a
 
 For information on installing the NPS role service Windows Server 2012 or higher, see [Install a NAP Health Policy Server](https://technet.microsoft.com/library/dd296890.aspx). Network Access Policy (NAP) is deprecated in Windows Server 2016. For a description of best practices for NPS, including the recommendation to install NPS on a domain controller, see [Best Practices for NPS](https://technet.microsoft.com/library/cc771746).
 
-### Licenses
+### Azure MFA License
 
 Required is a license for Azure MFA, which is available through an Azure AD Premium, Enterprise Mobility plus Security (EMS), or an MFA subscription. For more information, see [How to get Azure Multi-Factor Authentication](multi-factor-authentication-versions-plans.md). For testing purposes, you can use a trial subscription.
 
-### Software
+### Windows Server software
 
 The NPS extension requires Windows Server 2008 R2 SP1 or above with the NPS role service installed. All the steps in this guide were performed using Windows Server 2016.
 
@@ -109,7 +109,7 @@ To use the NPS extension, on-premises users must be synced with Azure Active Dir
 For information on Azure AD connect, see [Integrate your on-premises directories with Azure Active Directory](../active-directory/connect/active-directory-aadconnect.md). 
 
 ### Azure Active Directory GUID ID 
-To install the NPS, you need to know the GUID of the Azure Active Directory. Instructions for finding the GUID of the Azure Active Directory are provided in the next section.
+To install the NPS extension, you need to know the GUID of the Azure Active Directory. Instructions for finding the GUID of the Azure Active Directory are provided in the next section.
 
 ## Configure RADIUS for VPN connections
 
@@ -367,11 +367,11 @@ The NPS extension needs to be installed on a server that has the Network Policy 
 1. Download the NPS extension from [https://aka.ms/npsmfa](https://aka.ms/npsmfa). 
 2. Copy the setup executable file (NpsExtnForAzureMfaInstaller.exe) to the NPS server.
 3. On the NPS server, double-click **NpsExtnForAzureMfaInstaller.exe**. If prompted, click **Run**.
-4. In the NPS Extension for Azure MFA dialog box, review the software license terms, check **I agree to the license terms and conditions**, and click **Install**.
+4. In the NPS Extension For Azure MFA Setup dialog box, review the software license terms, check **I agree to the license terms and conditions**, and click **Install**.
 
  ![NPS Extension](./media/nps-extension-vpn/image36.png)
  
-5. In the NPS Extension for Azure MFA dialog box, click **Close**.  
+5. In the NPS Extension For Azure MFA Setup dialog box, click **Close**.  
 
  ![Setup Successful](./media/nps-extension-vpn/image37.png) 
  
@@ -386,7 +386,7 @@ The script performs the following actions:
 * Grants access to the certificate’s private key to the Network User
 * Restarts Network Policy Server service
 
-If you want to use your own certificates, you need to associate the public of your certificate to the service principle on Azure AD, and so on.
+If you want to use your own certificates, you need to associate the public key of your certificate to the service principal on Azure AD, and so on.
 To use the script, provide the extension with your Azure Active Directory administrative credentials and the Azure Active Directory tenant ID you copied earlier. Run the script on each NPS server where you install the NPS extension.
 
 1. Open an administrative Windows PowerShell prompt.
@@ -411,11 +411,11 @@ To use the script, provide the extension with your Azure Active Directory admini
 7. Reboot the server.
  
 ### Verify configuration
-To verify the configuration, you need to establish a new VPN connection with VPN server. Upon successfully entering your credentials for primary authentication, the VPN connection waits for the secondary authentication to succeed before the connection is established, as shown below. 
+To verify the configuration, you need to establish a new VPN connection with the VPN server. Upon successfully entering your credentials for primary authentication, the VPN connection waits for the secondary authentication to succeed before the connection is established, as shown below. 
 
  ![Verify Configuration](./media/nps-extension-vpn/image42.png)
 
-If you successfully authenticate with the secondary verification method you previously configured in Azure MFA, you are connected to the resource. However, if the secondary authentication is not successful, you are denied access to resource. 
+If you successfully authenticate with the secondary verification method you previously configured in Azure MFA, you are connected to the resource. However, if the secondary authentication is not successful, you are denied access to the resource. 
 
 In the example below, the Authenticator app on a Windows phone is used to provide the secondary authentication.
 
