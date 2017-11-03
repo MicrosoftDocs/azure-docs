@@ -266,7 +266,7 @@ iotedgectl login --address --username --password
 ```
 
 > [!NOTE]
-> This command above gives the Python 2.7 command for Windows. If you're running your Edge device on Linux, add `sudo` in front of the command.
+> The preceding command gives the Python 2.7 command for Windows. If you're running your Edge device on Linux, add `sudo` in front of the command.
 
 ## Run the solution
 
@@ -275,7 +275,7 @@ iotedgectl login --address --username --password
 3. Select **Deploy modules**. 
 4. Select **Add custom IoT Edge module**.
 5. In the **Name** field, enter `tempSensor`.
-6. In the **Image** field, enter `edgepreview.azurecr.io/azureiotedge/simulated-temperature-sensor:latest`.
+6. In the **Image** field, enter `edgepreview.azurecr.io/azureiotedge/simulated-temperature-sensor:1.0-preview`.
 7. In the **OS** field, select **linux**.
 8. Leave the other settings unchanged and select **Save**.
 9. From the **Add Modules** step, select **Add custom IoT Edge module** again.
