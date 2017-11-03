@@ -8,12 +8,11 @@ author: v-jaswel
 ms.service: cognitive-services
 ms.technology: translator-text
 ms.topic: article
-ms.date: 09/14/2017
+ms.date: 10/30/2017
 ms.author: v-jaswel
 
 ---
 # Quickstart for Microsoft Translator Text API with C# 
-<a name="HOLTop"></a>
 
 This article shows you how to use the [Translate](http://docs.microsofttranslator.com/text-translate.html#!/default/get_Translate) method to translate text from one language to another. For information on how to use the other Translator Text APIs, see [this Github repository](https://github.com/MicrosoftTranslator/Translator-Text-API-Quickstarts/tree/master/CSharp).
 
@@ -22,8 +21,6 @@ This article shows you how to use the [Translate](http://docs.microsofttranslato
 You will need [Visual Studio 2017](https://www.visualstudio.com/downloads/) to run this code on Windows. (The free Community Edition will work.)
 
 You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Microsoft Translator Text API**. You will need a paid subscription key from your [Azure dashboard](https://portal.azure.com/#create/Microsoft.CognitiveServices).
-
-<a name="Translate"></a>
 
 ## Translate text
 
@@ -97,5 +94,5 @@ A successful response is returned in XML, as shown in the following example:
 
 ## See also 
 
-[Translator Text overview](../translator-info-overview.md)</br>
+[Translator Text overview](../translator-info-overview.md)
 [API Reference](http://docs.microsofttranslator.com/text-translate.html)
