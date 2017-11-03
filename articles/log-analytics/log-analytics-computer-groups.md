@@ -121,9 +121,10 @@ Imported computer groups and their included computers are stored in the **Comput
 
 The following query would return UpdateSummary records for only computers in Domain Computers.
 
-  `let ADComputers = ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer;`
-  `UpdateSummary | where Computer in (ADComputers)`
-
+  ```
+  let ADComputers = ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer;
+  UpdateSummary | where Computer in (ADComputers)
+  ```
 
 If you want to use an imported computer group as a function then create a new computer group based on a log search that returns the computers in the imported group.
 
