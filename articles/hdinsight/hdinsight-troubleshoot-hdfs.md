@@ -231,4 +231,4 @@ The HDInsight cluster has been scaled down to a very few nodes. The number of no
     ```
 
 ### See Also
-[Troubleshoot by Using Azure HDInsight](../../hdinsight/hdinsight-troubleshoot-guide.md)
+[Troubleshoot by Using Azure HDInsight](hdinsight-troubleshoot-guide.md)

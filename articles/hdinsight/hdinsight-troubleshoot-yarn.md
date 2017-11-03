@@ -142,7 +142,7 @@ These changes are visible immediately on the YARN Scheduler UI.
 
 
 ### See Also
-[Troubleshoot by Using Azure HDInsight](../../hdinsight/hdinsight-troubleshoot-guide.md)
+[Troubleshoot by Using Azure HDInsight](hdinsight/hdinsight-troubleshoot-guide.md)
 
 
 

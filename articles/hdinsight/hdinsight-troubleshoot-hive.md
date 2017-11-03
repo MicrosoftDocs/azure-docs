@@ -176,7 +176,7 @@ There are two ways to collect the Tez DAG data:
 
 
 ### See Also
-[Troubleshoot by Using Azure HDInsight](../../hdinsight/hdinsight-troubleshoot-guide.md)
+[Troubleshoot by Using Azure HDInsight](hdinsight-troubleshoot-guide.md)
 
 
 
