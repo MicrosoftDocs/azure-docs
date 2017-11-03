@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/03/2017
+ms.date: 11/02/2017
 ms.author: larryfr
 
 ---
@@ -68,7 +68,7 @@ Storm runs topologies instead of the MapReduce jobs that you might be familiar w
 
 ## Ease of creation
 
-You can provision a new Storm cluster on HDInsight in minutes. For more information on creating a Storm cluster, see [Get started with Storm on HDInsight](apache-storm-tutorial-get-started-linux.md).
+You can create a new Storm cluster on HDInsight in minutes. For more information on creating a Storm cluster, see [Get started with Storm on HDInsight](apache-storm-tutorial-get-started-linux.md).
 
 ## Ease of use
 
@@ -90,9 +90,9 @@ You can provision a new Storm cluster on HDInsight in minutes. For more informat
 
 * __Azure Data Lake Store__: For an example of using Data Lake Store with a Storm cluster, see [Use Azure Data Lake Store with Apache Storm on HDInsight](apache-storm-write-data-lake-store.md).
 
-* __Event Hubs__: For an example of using Event Hubs with a Storm cluster, see the following documents:
+* __Event Hubs__: For an example of using Event Hubs with a Storm cluster, see the following examples:
 
-    * [Develop a Java-based topology for Storm on HDInsight](apache-storm-develop-java-topology.md)
+    * [Process events from Azure Event Hubs with Storm on HDInsight (Java)](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/)
 
     * [Process events from Azure Event Hubs with Storm on HDInsight (C#)](apache-storm-develop-csharp-event-hub-topology.md)
 
@@ -117,7 +117,7 @@ HDInsight clusters can be dynamically scaled by adding or removing worker nodes.
 
 ## Support
 
-Storm on HDInsight comes with full enterprise-level continuous support. Storm on HDInsight also has an SLA of 99.9 percent. That means we guarantee that a Storm cluster has external connectivity at least 99.9 percent of the time.
+Storm on HDInsight comes with full enterprise-level continuous support. Storm on HDInsight also has an SLA of 99.9 percent. That means Microsoft guarantees that a Storm cluster has external connectivity at least 99.9 percent of the time.
 
 For more information, see [Azure support](https://azure.microsoft.com/support/options/).
 
@@ -155,7 +155,7 @@ For more information, see [Guarantees on data processing](https://storm.apache.o
 
 ### IBasicBolt
 
-The pattern of reading an input tuple, emitting zero or more tuples, and then acking the input tuple immediately at the end of the execute method is common. Storm provides the [IBasicBolt](https://storm.apache.org/releases/1.0.3/javadocs/org/apache/storm/topology/IBasicBolt.html) interface to automate this pattern.
+The pattern of reading an input tuple, emitting zero or more tuples, and then acking the input tuple immediately at the end of the execute method is common. Storm provides the [IBasicBolt](https://storm.apache.org/releases/1.1.0/javadocs/org/apache/storm/topology/IBasicBolt.html) interface to automate this pattern.
 
 ### Joins
 
