@@ -81,15 +81,28 @@ To deploy the web service along with the model file, you also need a scoring scr
 
    ![Scoring file](media/tutorial-classifying-iris/model_data_collection.png)
 
+<<<<<<< HEAD
 4. In order to get the schema file, run the script. Choose the **local** environment and the **iris-score.py** script in the command bar, then select the **Run** button. 
 
 5. This script creates a JSON file in the **Outputs** section, which captures the input data schema required by the model.
 
 6. Notice the Jobs pane on the right of the Machine Learning Workbench window. Wait for the latest **iris-score.py** job to display the green **Completed** status. Then select the hyperlink **iris-score.py [1]** for the latest job run to see the run details from the **iris-score.py** run. 
+=======
+
+4. In order to get the schema file, run the script. Select the **local** environment and the **iris_score.py** script in the command bar, and then click the **Run** button. 
+
+5. This script creates a JSON file in the `outputs` folder, which captures the input data schema required by the model.
+
+6. Note the **Jobs** pane on the right side of the **Project Dashboard** pane. Wait for the latest **iris\_score.py** job to display the green **Completed** status. Then click the hyperlink **iris\_score.py [1]** for the latest job run to see the run details from the **iris_score.py** run. 
+>>>>>>> 1e5943ad1d19514141f136853c67d013fd016f41
 
 7. On the **Run Properties** pane, in the **Outputs** section, select the newly created **service_schema.json** file.  Select the checkbox next to the filename, and then select **Download**. Save the file into your project root folder.
 
+<<<<<<< HEAD
 8. Return to the previous tab where you have opened script **iris-score.py**. 
+=======
+8. Return to the previous tab where you opened the **iris_score.py** script. By using data collection, you can capture model inputs and predictions from the web service. The following steps are of particular interest for data collection.
+>>>>>>> 1e5943ad1d19514141f136853c67d013fd016f41
 
 9. Review the code at the top of the file imports class **ModelDataCollector** that contains the model data collection functionality:
 
@@ -179,7 +192,13 @@ You can use _local mode_ for development and testing. The Docker engine must be 
    ```
 
 6. Set the environment.
+<<<<<<< HEAD
 After the setup is complete, set the environment variables required to operationalize using the following command. Use the same environment name that you have used previously in step 3. Use the same resource group name that was outputted in the command window when the setup process was completed.
+=======
+
+After the setup finishes, use the following command to set the environment variables required to operationalize the environment. Use the same environment name that you used previously in step 4. Use the same resource group name that was output in the command window when the setup process finished.
+
+>>>>>>> 1e5943ad1d19514141f136853c67d013fd016f41
    ```azurecli
    az ml env set -n <deployment environment name> -g <existing resource group name>
    ```
