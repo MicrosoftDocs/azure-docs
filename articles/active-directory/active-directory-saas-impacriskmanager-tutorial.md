@@ -129,10 +129,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| For Development  |`https://dev.riskmanager.co.nz/SSOv2/<ClientSuffix>`|
 	| For QA |`https://QA.riskmanager.co.nz/SSOv2/<ClientSuffix>`|
 	| For Test |`https://test.riskmanager.co.nz/SSOv2/<ClientSuffix>`|
-	 
-	 
+
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [IMPAC Risk Manager Client support team](mailto:rmsupport@Impac.co.nz) to get these values. 
+	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [IMPAC Risk Manager Client support team](mailto:rmsupport@Impac.co.nz) to get these values.
 
 5. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
@@ -142,7 +141,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-impacriskmanager-tutorial/tutorial_general_400.png)
 	
-7. On the **IMPAC Risk Manager Configuration** section, click **Configure IMPAC Risk Manager** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID,** and **SAML Single Sign-On Service URL** from the **Quick Reference section.**
+7. On the **IMPAC Risk Manager Configuration** section, click **Configure IMPAC Risk Manager** to open **Configure sign-on** window. Copy the **SAML Single Sign-On Service URL, SAML Entity ID** and **Sign-Out URL** from the **Quick Reference section.**
 
 	![Configure Single Sign-On](./media/active-directory-saas-impacriskmanager-tutorial/tutorial_impacriskmanager_configure.png)
 
