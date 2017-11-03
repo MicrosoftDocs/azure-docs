@@ -54,7 +54,7 @@ To experiment with dispatching scripts to run in a Docker container in a remote 
    - Loads the data preparation package **iris.dprep** to create a [pandas DataFrame](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html). 
 
         >[!NOTE]
-        >We use the `iris.dprep` data preparation package that comes with the sample project, which should be the same as the `iris-1.dprep` file you built in part 1 of this tutorial.
+        >Use the `iris.dprep` data preparation package that comes with the sample project, which should be the same as the `iris-1.dprep` file you built in part 1 of this tutorial.
 
    - Adds random features to make the problem more difficult to solve. Randomness is necessary because Iris is a small data set that's easily classified with nearly 100% accuracy.
 
@@ -64,18 +64,18 @@ To experiment with dispatching scripts to run in a Docker container in a remote 
 
    - Uses the deserialized model to make a prediction on a new record. 
 
-   - Plots two graphs--a confusion matrix, and a multi-class receiver operating characteristic (ROC) curve--by using the [matplotlib](https://matplotlib.org/) library, and then saves them in the `outputs` folder.
+   - Plots two graphs, a confusion matrix and a multi-class receiver operating characteristic (ROC) curve, by using the [matplotlib](https://matplotlib.org/) library, and then saves them in the `outputs` folder.
 
    - The `run_logger` object is used throughout to record the regularization rate and to model accuracy into the logs. The logs are automatically plotted in the run history.
 
 
 ## Execute iris_sklearn.py script in a local environment
 
-Let's prepare to run the **iris_sklearn.py** script for the first time. This script requires the **scikit-learn** and **matplotlib** packages. The **scikit-learn** package is already installed by Azure Machine Learning Workbench. We still need to install **matplotlib**. 
+Let's prepare to run the **iris_sklearn.py** script for the first time. This script requires the **scikit-learn** and **matplotlib** packages. The **scikit-learn** package is already installed by Azure Machine Learning Workbench. You still need to install **matplotlib**. 
 
-1. In Azure Machine Learning Workbench, select the **File** menu and select **Open Command Prompt** to open the command prompt. We refer to this command-line interface window as *Azure Machine Learning Workbench CLI window*, or *CLI window* for short.
+1. In Azure Machine Learning Workbench, select the **File** menu,  and then select **Open Command Prompt** to open the command prompt. The command-line interface window is referred to as the *Azure Machine Learning Workbench CLI window*, or *CLI window* for short.
 
-2. In the CLI window, type in the following command to install the **matplotlib** Python package. It should finish in less than a minute.
+2. In the CLI window, enter the following command to install the **matplotlib** Python package. It should finish in less than a minute.
 
    ```azurecli
    pip install matplotlib
@@ -86,9 +86,9 @@ Let's prepare to run the **iris_sklearn.py** script for the first time. This scr
 
 3. Return to the workbench app window. 
 
-4. In the toolbar at the top of the **iris_sklearn.py** tab, select to open the drop-down menu next to the **Save** icon, and select **Run Configuration**.  Select **local** as the execution environment, and then enter `iris_sklearn.py` as the script to run.
+4. In the toolbar at the top of the **iris_sklearn.py** tab, select to open the drop-down menu that is next to the **Save** icon, and then select **Run Configuration**. Select **local** as the execution environment, and then enter `iris_sklearn.py` as the script to run.
 
-5. Next, move to the right side of the toolbar and enter `0.01` in the **Arguments** box. 
+5. Next, move to the right side of the toolbar and enter `0.01` in the **Arguments** field. 
 
    ![Run control](media/tutorial-classifying-iris/run_control.png)
 
@@ -98,7 +98,7 @@ Let's prepare to run the **iris_sklearn.py** script for the first time. This scr
 
    ![Run sklearn](media/tutorial-classifying-iris/run_sklearn.png)
 
-8. Select **Completed** in the job status text in the **Jobs** pane. A pop-up window opens and displays the standard output (stdout) text of the running script. To close the stdout text, select the **Close** (x) button on the upper right of the pop-up window.
+8. Select **Completed** in the job status text in the **Jobs** pane. A pop-up window opens and displays the standard output (stdout) text of the running script. To close the stdout text, select the **Close** (**x**) button on the upper right of the pop-up window.
 
 9. In the same job status in the **Jobs** pane, select the blue text **iris_sklearn.py [n]** (_n_ is the run number) just above the **Completed** status and the start time. The **Run Properties** window opens and shows the following information for that particular run:
    - **Run Properties** information
@@ -109,7 +109,7 @@ Let's prepare to run the **iris_sklearn.py** script for the first time. This scr
    When the run is finished, the pop-up window shows the following results:
 
    >[!NOTE]
-   >As we introduced some randomization into the training set earlier, your exact results might vary.
+   >As we introduced some randomization into the training set earlier, your exact results might vary from the results shown here.
 
    ```text
    Python version: 3.5.2 |Continuum Analytics, Inc.| (default, Jul  5 2016, 11:41:13) [MSC v.1900 64 bit (AMD64)]
@@ -144,7 +144,7 @@ Let's prepare to run the **iris_sklearn.py** script for the first time. This scr
 
 11. Repeat additional runs. 
 
-    Enter a series of different numerical values in the **Arguments** box ranging from `0.001` to `10`. Select **Run** to execute the code a few more times. The argument value you change each time is fed to the logistic regression algorithm in the code, and that results in different findings each time.
+    Enter a series of different numerical values in the **Arguments** field ranging from `0.001` to `10`. Select **Run** to execute the code a few more times. The argument value you change each time is fed to the logistic regression algorithm in the code, and that results in different findings each time.
 
 ## Review the run history in detail
 In Azure Machine Learning Workbench, every script execution is captured as a run history record. If you open the **Runs** view, you can view the run history of a particular script.
@@ -158,11 +158,11 @@ Review the statistics captured across the multiple runs. Graphs render in the to
 
    ![Run dashboard](media/tutorial-classifying-iris/run_dashboard.png)
 
-3. Filter the table, and then select in the graphs to view the status, duration, accuracy, and regularization rate of each run. 
+3. Filter the table, and then select any of the graphs to view the status, duration, accuracy, and regularization rate of each run. 
 
-4. Select two or three runs in the **Runs** table, and select the **Compare** button to open a detailed comparison pane. Review the side-by-side comparison. Select the **Run List** back button on the upper left of the comparison pane to return to the **Run Dashboard**.
+4. Select two or three runs in the **Runs** table, and select the **Compare** button to open a detailed comparison pane. Review the side-by-side comparison. Select the **Run List** back button on the upper left of the **Comparison** pane to return to the **Run Dashboard**.
 
-5. Select an individual run to see the run detail view. Notice the statistics for the selected run are listed in the **Run Properties** section. The files written into the output folder are listed in the **Outputs** section, and you can download the files from there.
+5. Select an individual run to see the run detail view. Notice that the statistics for the selected run are listed in the **Run Properties** section. The files written into the output folder are listed in the **Outputs** section, and you can download the files from there.
 
    ![Run details](media/tutorial-classifying-iris/run_details.png)
 
@@ -181,14 +181,14 @@ With Machine Learning, you can easily configure additional execution environment
 
    Each environment has two files, such as `docker-python.compute` and `docker-python.runconfig`. Open each file to see that certain options are configurable in the text editor.  
 
-   To clean up, select **Close** (x) on the tabs for any open text editors.
+   To clean up, select **Close** (**x**) on the tabs for any open text editors.
 
 3. Run the **iris_sklearn.py** script by using the **docker-python** environment: 
 
    - On the left toolbar, select the **Clock** icon to open the **Runs** pane. Select **All Runs**. 
    - On the top of the **All Runs** tab, select **docker-python** as the targeted environment instead of the default **local**. 
    - Next, move to the right side and select **iris_sklearn.py** as the script to run. 
-   - Leave the **Arguments** box blank because the script specifies a default value. 
+   - Leave the **Arguments** field blank because the script specifies a default value. 
    - Select the **Run** button.
 
 4. Observe that a new job starts. It appears in the **Jobs** pane on the right side of the workbench window.
@@ -227,7 +227,7 @@ With Machine Learning, you can easily configure additional execution environment
 
 2. Use the command prompt to log in to Azure. 
 
-   The workbench app and CLI use independent credential caches when authenticating against Azure resources. You only need to do this once until the cached token expires. The **az account list** command returns the list of subscriptions available to your login. If there is more than one, use the ID value from the desired subscription. Set that subscription as the default account to use with the **az set account -s** command, and provide the subscription ID value. Then confirm the setting by using the account **show** command.
+   The workbench app and CLI use independent credential caches when authenticating against Azure resources. You only need to do this once until the cached token expires. The **az account list** command returns the list of subscriptions available to your login. If there is more than one, use the ID value from the desired subscription. Set that subscription as the default account to use with the **az set account -s** command, and then provide the subscription ID value. Then confirm the setting by using the account **show** command.
 
    ```azurecli
    REM login by using the aka.ms/devicelogin site
@@ -243,7 +243,7 @@ With Machine Learning, you can easily configure additional execution environment
    az account show
    ```
 
-3. Once authentication finishes and the current Azure subscription context is set, type the following commands in the CLI window to install **matplotlib**, and then submit the Python script as an experiment to run.
+3. Once authentication finishes and the current Azure subscription context is set, enter the following commands in the CLI window to install **matplotlib**, and then submit the Python script as an experiment to run.
 
    ```azurecli
    REM you don't need to run this command if you have installed matplotlib locally from the previous steps
@@ -288,7 +288,7 @@ With Machine Learning, you can easily configure additional execution environment
    When `run.py` finishes, you see a graph in your run history list view in the workbench.
 
 ## Execute in a Docker container on a remote machine
-To execute your script in a Docker container on a remote Linux machine, you need to have SSH access (username and password) to that remote machine. In addition, that remote machine must have a Docker engine installed and running. The easiest way to obtain such a Linux machine is to create a [Ubuntu-based Data Science Virtual Machine (DSVM)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu) on Azure. 
+To execute your script in a Docker container on a remote Linux machine, you need to have SSH access (username and password) to that remote machine. In addition, that remote machine must have a Docker engine installed and running. The easiest way to obtain such a Linux machine is to create an [Ubuntu-based Data Science Virtual Machine (DSVM)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu) on Azure. 
 
 >[!NOTE] 
 >The CentOS-based DSVM is *not* supported.
@@ -380,7 +380,7 @@ In this second part of the three-part tutorial series, you have learned how to u
 > * Execute scripts in a remote Docker environment.
 > * Execute scripts in a cloud HDInsight environment.
 
-You are ready to move on to the third part in the series. Now that we have created the logistic regression model, let's deploy it as a real-time web service.
+You are ready to move on to the third part in the series. Now that you have created the logistic regression model, let's deploy it as a real-time web service.
 
 > [!div class="nextstepaction"]
 > [Deploy a model](tutorial-classifying-iris-part-3.md)
