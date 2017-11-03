@@ -334,7 +334,7 @@
 ## Monitor and diagnose
 ### OMS
 #### [Set up OMS Log Analytics](service-fabric-diagnostics-oms-setup.md)
-#### [Add the OMS Agent](service-fabric-diagnostics-event-oms-agent.md)
+#### [Add the OMS Agent](service-fabric-diagnostics-oms-agent.md)
 #### [Monitor containers](service-fabric-diagnostics-oms-containers.md)
 
 # Reference

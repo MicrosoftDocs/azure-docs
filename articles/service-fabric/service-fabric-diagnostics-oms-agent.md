@@ -20,7 +20,7 @@ ms.author: dekapur
 
 # Add the OMS Agent to a cluster
 
-This article covers adding the OMS Agent as a virtual machine scale set extension to your cluster, and connect it to your OMS Log Analytics workspace. This enables collecting diagnostics data about containers, applications, and performance monitoring. By adding it as an extension, Azure Resource Manager ensures that it gets installed on every node, even when scaling the cluster.
+This article covers the steps to add the OMS Agent as a virtual machine scale set extension to your cluster, and connect it to your existing OMS Log Analytics workspace. This enables collecting diagnostics data about containers, applications, and performance monitoring. By adding it as an extension, Azure Resource Manager ensures that it gets installed on every node, even when scaling the cluster.
 
 > [!NOTE]
 > This article assumes that you have an OMS Log Analytics workspace already set up. If you do not, head over to [Set up OMS Log Analytics](service-fabric-diagnostics-oms-setup.md)

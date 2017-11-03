@@ -33,7 +33,7 @@ When deploying a cluster using a Resource Manager template, the template should 
 
 The main changes made are the following:
 
-1. Add `omsWorkspaceName` and `omsRegion` to your parameters. This means adding the following snipped to your *template.json* file, modifying the default values as you see fit, and then adding the values you would like to use in your *parameters.json*:
+1. Add `omsWorkspaceName` and `omsRegion` to your parameters. This means adding the following snippet to the parameters defined in your *template.json* file. Feel free to modify the default values as you see fit. You should also add the two new parameters in your *parameters.json* to define their values for the resource deployment:
     
     ```json
     "omsWorkspacename": {
