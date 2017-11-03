@@ -113,7 +113,7 @@ The client library provides pre-implemented recognition client classes for typic
 
 When you use `SpeechRecognitionServiceFactory` to create the client, you must select a language. For the complete list of languages supported by Speech Service, see [Supported languages](../API-Reference-REST/supportedlanguages.md).
 
-### `SpeechRecognitionMode`
+### SpeechRecognitionMode
 
 You also need to specify `SpeechRecognitionMode` when you create the client with `SpeechRecognitionServiceFactory`:
 
