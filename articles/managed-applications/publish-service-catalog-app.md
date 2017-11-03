@@ -9,7 +9,7 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/26/2017
+ms.date: 11/02/2017
 ms.author: tomfitz
 ---
 # Publish a managed application for internal consumption
