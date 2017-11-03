@@ -15,7 +15,7 @@ ms.author: v-jaswel
 # Quickstart for Microsoft Translator Text API with C# 
 <a name="HOLTop"></a>
 
-This article shows you how to use the [Translate](http://docs.microsofttranslator.com/text-translate.html#!/default/get_Translate) method of the [Microsoft Translator API](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/translator-info-overview) with C# to translate text from one language to another. For information on how to use the other Translator Text APIs, as documented [here](http://docs.microsofttranslator.com/text-translate.html#/), see [this Github repository](https://github.com/MicrosoftTranslator/Translator-Text-API-Quickstarts/tree/master/CSharp).
+This article shows you how to use the [Translate](http://docs.microsofttranslator.com/text-translate.html#!/default/get_Translate) method to translate text from one language to another. For information on how to use the other Translator Text APIs, see [this Github repository](https://github.com/MicrosoftTranslator/Translator-Text-API-Quickstarts/tree/master/CSharp).
 
 ## Prerequisites
 
