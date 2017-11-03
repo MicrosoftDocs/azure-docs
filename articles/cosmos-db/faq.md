@@ -28,7 +28,7 @@ Azure Cosmos DB is the right solution for web, mobile, gaming, and IoT applicati
 For more database questions, answers, and instructions for deploying and using this service, see the [Azure Cosmos DB documentation page](https://azure.microsoft.com/documentation/services/cosmos-db/).
 
 ### What happened to DocumentDB?
-The DocumentDB API is one of the supported APIs and data models for Azure Cosmos DB. In addition, Azure Cosmos DB supports you with Graph API (Preview), Table API (Preview) and MongoDB API. For more information, see [Questions from DocumentDB customers](#moving-to-cosmos-db).
+The DocumentDB API is one of the supported APIs and data models for Azure Cosmos DB. In addition, Azure Cosmos DB supports you with Graph API (Preview), Table API and MongoDB API. For more information, see [Questions from DocumentDB customers](#moving-to-cosmos-db).
 
 ### How do I get to my DocumentDB account in the Azure portal?
 In the Azure portal, click the Azure Cosmos DB icon in the left pane. If you had a DocumentDB account before, you now have an Azure Cosmos DB account, with no change to your billing.
@@ -88,7 +88,7 @@ The following conditions apply to Try Azure Cosmos DB subscriptions:
 
 ## Set up Azure Cosmos DB
 ### How do I sign up for Azure Cosmos DB?
-Azure Cosmos DB is available in the Azure portal. First, sign up for an Azure subscription. After you've signed up, you can add a DocumentDB API, Graph API (Preview), Table API (Preview), or MongoDB API account to your Azure subscription.
+Azure Cosmos DB is available in the Azure portal. First, sign up for an Azure subscription. After you've signed up, you can add a DocumentDB API, Graph API (Preview), Table API, or MongoDB API account to your Azure subscription.
 
 ### What is a master key?
 A master key is a security token to access all resources for an account. Individuals with the key have read and write access to all resources in the database account. Use caution when you distribute master keys. The primary master key and secondary master key are available on the **Keys** blade of the [Azure portal][azure-portal]. For more information about keys, see [View, copy, and regenerate access keys](manage-account.md#keys).
@@ -175,16 +175,17 @@ In addition to the common MongoDB error codes, the MongoDB API has its own speci
 | TooManyRequests     | 16500 | The total number of request units consumed has exceeded the provisioned request-unit rate for the collection and has been throttled. | Consider scaling the throughput of the collection from the Azure portal or retrying again. |
 | ExceededMemoryLimit | 16501 | As a multi-tenant service, the operation has exceeded the client's memory allotment. | Reduce the scope of the operation through more restrictive query criteria or contact support from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br>Example: *&nbsp;&nbsp;&nbsp;&nbsp;db.getCollection('users').aggregate([<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$match: {name: "Andy"}}, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$sort: {age: -1}}<br>&nbsp;&nbsp;&nbsp;&nbsp;])*) |
 
-## Develop with the Table API (Preview)
+## Develop with the Table API
 
 ### Terms 
-The Azure Cosmos DB: Table API (Preview) refers to the premium offering by Azure Cosmos DB for table support announced at Build 2017. 
+The Azure Cosmos DB: Table API refers to the premium offering by Azure Cosmos DB for table support announced at Build 2017. 
 
 The standard table SDK is the existing Azure Storage table SDK. 
 
-### How can I use the new Table API (Preview) offering? 
+### How can I use the new Table API offering? 
 The Azure Cosmos DB Table API is available in the [Azure portal][azure-portal]. First you must sign up for an Azure subscription. After you've signed up, you can add an Azure Cosmos DB Table API account to your Azure subscription, and then add tables to your account. 
 
+Support is provided for .NET using 
 During the preview period, when [SDKs](../cosmos-db/table-sdk-dotnet.md) are available for .NET, you can get started by completing the [Table API](../cosmos-db/create-table-dotnet.md) quick-start article.
 
 ### Do I need a new SDK to use the Table API (Preview)? 

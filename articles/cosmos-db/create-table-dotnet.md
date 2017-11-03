@@ -1,6 +1,6 @@
 ---
 title: Build an Azure Cosmos DB .NET application using the Table API | Microsoft Docs
-description: Get started with Azure Cosmos DB's Tables API using .NET
+description: Get started with Azure Cosmos DB's Table API using .NET
 services: cosmos-db
 documentationcenter: ''
 author: arramac
@@ -14,7 +14,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 06/22/2017
+ms.date: 11/2/2017
 ms.author: arramac
 
 ---
@@ -22,7 +22,7 @@ ms.author: arramac
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quick start demonstrates how to create an Azure Cosmos DB account, and create a table within that account using the Azure portal. You'll then write code to insert, update, and delete entities, and run some queries using the new [Windows Azure Storage Premium Table](https://aka.ms/premiumtablenuget) (preview) package from NuGet. This library has the same classes and method signatures as the public [Windows Azure Storage SDK](https://www.nuget.org/packages/WindowsAzure.Storage), but also has the ability to connect to Azure Cosmos DB accounts using the [Table API](table-introduction.md) (preview). 
+This quick start demonstrates how to create an Azure Cosmos DB account, and create a table within that account using the Azure portal. You'll then write code to insert, update, and delete entities, and run some queries using the [Azure Cosmos DB Table API](https://aka.ms/premiumtablenuget) package from NuGet. This library has the same classes and method signatures as the public [Windows Azure Storage SDK](https://www.nuget.org/packages/WindowsAzure.Storage), but also has the ability to connect to Azure Cosmos DB accounts using the [Table API](table-introduction.md). 
 
 ## Prerequisites
 
@@ -40,7 +40,7 @@ If you don’t already have Visual Studio 2017 installed, you can download and u
 
 ## Add sample data
 
-You can now add data to your new table using Data Explorer (Preview).
+You can now add data to your new table using Data Explorer.
 
 1. In Data Explorer, expand **sample-table**, click **Entities**, and then click **Add Entity**.
 

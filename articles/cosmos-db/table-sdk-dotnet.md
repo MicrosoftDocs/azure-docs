@@ -1,6 +1,6 @@
 ---
 title: Azure CosmosDB Table API .NET SDK & Resources | Microsoft Docs
-description: Learn all about the Azure CosmosDB Table API including release dates, retirement dates, and changes made between each version.
+description: Learn all about the Azure Cosmos DB Table API including release dates, retirement dates, and changes made between each version.
 services: cosmos-db
 documentationcenter: .net
 author: rnagpal
@@ -18,7 +18,11 @@ ms.author: mimig
 
 ---
 # Azure Cosmos DB Table .NET API: Download and release notes
-
+> [!div class="op_single_selector"]
+> * [.NET](table-sdk-dotnet.md)
+> * [Java](table-sdk-java.md)
+> * [Node.js](table-sdk-nodejs.md)
+> * [Python](table-sdk-python.md)
 
 |   |   |
 |---|---|
@@ -30,7 +34,6 @@ ms.author: mimig
 
 ## Release notes
 
-* Initial preview release.
 
 ## Release & Retirement dates
 Microsoft will provide notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version.
@@ -39,6 +42,8 @@ New features and functionality and optimizations are only added to the current S
 
 Any request to Azure Cosmos DB using a retired SDK will be rejected by the service.
 
+## FAQ
+[!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## See also
 To learn more about the Azure Cosmos DB Table API, see [Introduction to Azure Cosmos DB: Table API](table-introduction.md). 
