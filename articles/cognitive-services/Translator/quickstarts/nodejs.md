@@ -99,5 +99,5 @@ A successful response is returned in XML, as shown in the following example:
 
 ## See also 
 
-[Translator Text overview](../text-overview.md)</br>
+[Translator Text overview](../translator-info-overview.md)</br>
 [API Reference](http://docs.microsofttranslator.com/text-translate.html)
