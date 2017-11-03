@@ -15,7 +15,7 @@ ms.author: v-jaswel
 # Quickstart for Microsoft Translator Text API with Ruby 
 <a name="HOLTop"></a>
 
-This article shows you how to use the [Translate](http://docs.microsofttranslator.com/text-translate.html#!/default/get_Translate) method of the [Microsoft Translator API](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/translator-info-overview) with Ruby to translate text from one language to another. For information on how to use the other Translator Text APIs, as documented [here](http://docs.microsofttranslator.com/text-translate.html#/), see [this Github repository](https://github.com/MicrosoftTranslator/Translator-Text-API-Quickstarts/tree/master/Ruby).
+This article shows you how to use the [Translate](http://docs.microsofttranslator.com/text-translate.html#!/default/get_Translate) method to translate text from one language to another. For information on how to use the other Translator Text APIs, see [this Github repository](https://github.com/MicrosoftTranslator/Translator-Text-API-Quickstarts/tree/master/Ruby).
 
 ## Prerequisites
 
@@ -80,5 +80,5 @@ A successful response is returned in XML, as shown in the following example:
 
 ## See also 
 
-[Translator Text overview](../text-overview.md)
+[Translator Text overview](../text-overview.md)</br>
 [API Reference](http://docs.microsofttranslator.com/text-translate.html)
