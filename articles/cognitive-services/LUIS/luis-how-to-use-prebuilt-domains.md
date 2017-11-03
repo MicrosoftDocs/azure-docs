@@ -32,21 +32,21 @@ Within a domain, look for individual intents and entities that you want to use.
 ## Designing LUIS apps from prebuilt domains
 When using prebuilt domains in your LUIS app, you can customize an entire prebuilt domain, or just start with a few of its intents and entities.
 
-### Customizing an entire prebuilt domain
+## Customizing an entire prebuilt domain
 Prebuilt domains are designed to be general. They contain many intents and entities, that you can choose from to customize an app to your needs. If you start from customizing an entire prebuilt domain, delete the intents and entities that your app doesn't need to use. You can also add some intents or entities to the set that the prebuilt domain already provides. For example, if you are using the **Events** prebuilt domain for a sports event app, you can to add entities for sports teams. When you start [providing utterances](Add-example-utterances.md) to LUIS, include terms that are specific to your app. LUIS learns to recognize them and tailors the prebuilt domain's intents and entities to your app's needs. 
 
 > [!TIP]
 > The intents and entities in a prebuilt domain work best together. It's better to combine intents and entities from the same domain when possible.
 > * A best practice is to use related intents from the same domain. For example, if you are customizing the `MakeReservation` intent in the **Places** domain, then select the `Cancel` intent from the **Places** domain instead of the Cancel intent in the **Events** or **Utilities** domains.
 
-### Changing the behavior of a prebuilt domain intent
+## Changing the behavior of a prebuilt domain intent
 You might find that a prebuilt domain contains an intent that is similar to an intent you want to have in your LUIS app but you want it to behave differently. For example, the **Places** prebuilt domain provides an `MakeReservation` intent for making a restaurant reservation, but you want your app to use that intent to make hotel reservations. In that case, you can modify the behavior of that intent by providing utterances to LUIS about making hotel reservations and labeling them using the `MakeReservation` intent, so then LUIS can be retrained to recognize the `MakeReservation` intent in a request to book a hotel.
 
 > [!TIP]
 > Check out the Utilities domain for prebuilt intents that you can customize for use in any domain. 
 > For example, you can add `Utilities.Repeat` to your app and train it recognize whatever actions user might want to repeat in your application.
 
-### List of prebuilt domains
+## List of prebuilt domains
 LUIS offers 20 prebuilt domains. 
 
 | Prebuilt domain | Description |
