@@ -25,7 +25,7 @@ You can set up an OMS workspace through Azure Resource Manager or from Azure Mar
 > [!NOTE]
 > You need to have Diagnostics enabled for your cluster to view cluster / platform level events to be able to set up OMS to successfully monitor your cluster.
 
-## Deploying OMS using a Resource Management template
+## Deploying OMS using a Resource Manager template
 
 When deploying a cluster using a Resource Manager template, the template should create a new OMS workspace, add the Service Fabric Solution to it, and configure it to read data from the appropriate storage tables.
 
@@ -139,7 +139,7 @@ The main changes made are the following:
 
     Azure Resource Manager will be able to detect that this is an update to an existing resource. It will only process the changes between the template driving the existing deployment and the new template provided.
 
-## Deploying OMS using through Azure Marketplace
+## Deploying OMS using Azure Marketplace
 
 If you prefer to add an OMS workspace after you have deployed a cluster, head over to Azure Marketplace (in the Portal) and look for *"Service Fabric Analytics"*.
 
@@ -158,8 +158,6 @@ If you prefer to add an OMS workspace after you have deployed a cluster, head ov
 6. The workspace still needs to be connected to the diagnostics data coming from your cluster. Navigate to the resource group you created the Service Fabric Analytics solution in. You should see a *ServiceFabric(\<nameOfOMSWorkspace\>)*. Click on the solution to navigate to its overview page, from where you can change solution settings, workspace settings, and navigate to the OMS portal.
 
 7. On the left navigation menu, click on **Storage accounts logs**, under *Workspace Data Sources*.
-
-    ![Service Fabric Analytics solution in Portal](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics-portal.png)
 
 8. On the *Storage account logs* page, click **Add** at the top to add your cluster's logs to the workspace.
 

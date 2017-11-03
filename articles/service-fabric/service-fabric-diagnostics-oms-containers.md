@@ -1,6 +1,6 @@
 ---
-title: Monitor Contianers on Azure Service Fabric with OMS Log Analytics | Microsoft Docs
-description: Use OMS Log Analytics for monitoring Containers running on Azure Service Fabric clusters.
+title: Monitor containers on Azure Service Fabric with OMS Log Analytics | Microsoft Docs
+description: Use OMS Log Analytics for monitoring containers running on Azure Service Fabric clusters.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -21,6 +21,8 @@ ms.author: dekapur
 # Monitor containers with OMS Log Analytics
  
 This article covers the steps required to set up container monitoring for your cluster. For more information on this, see [Monitoring Containers in Service Fabric](service-fabric-diagnostics-event-analysis-oms.md#monitoring-containers). To see a step-by-step tutorial on this, you can also follow [Monitor Windows containers on Service Fabric using OMS](service-fabric-tutorial-monitoring-wincontainers.md).
+
+## Set up the container monitoring solution
 
 > [!NOTE]
 > You need to OMS Log Analytics set up for your cluster as well as have the OMS Agent deployed on your nodes. If you don't, follow the steps in [Set-up OMS Log Analytics](service-fabric-diagnostics-oms-setup.md) and [Add the OMS Agent to a cluster](service-fabric-diagnostics-oms-agent.md) first.
