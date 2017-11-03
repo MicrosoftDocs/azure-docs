@@ -45,8 +45,8 @@ To enable secure LDAP, perform the following configuration steps:
     ![Enable secure LDAP](./media/active-directory-domain-services-admin-guide/secure-ldap-blade-configure.png)
 5. By default, secure LDAP access to your managed domain over the internet is disabled. Toggle **Allow secure LDAP access over the internet** to **Enable**, if desired. 
 
-    > [!TIP]
-    > If you enable secure LDAP access over the internet, we recommend setting up an NSG to lock down access to required source IP address ranges. See the instructions to [lock down LDAPS access to your managed domain over the internet](#task-5---lock-down-ldaps-access-to-your-managed-domain-over-the-internet).
+    > [!WARNING]
+    > When you enable secure LDAP access over the internet, your domain is susceptible to password brute force attacks over the internet. Therefore, we recommend setting up an NSG to lock down access to required source IP address ranges. See the instructions to [lock down LDAPS access to your managed domain over the internet](#task-5---lock-down-ldaps-access-to-your-managed-domain-over-the-internet).
     >
 
 6. Click the folder icon following **.PFX file with secure LDAP certificate**. Specify the path to the PFX file with the certificate for secure LDAP access to the managed domain.
@@ -88,9 +88,9 @@ That's it - you are now ready to connect to the managed domain using secure LDAP
 >
 
 
-## Task 5 - lock-down LDAPS access to your managed domain over the internet
+## Task 5 - lock down secure LDAP access to your managed domain over the internet
 > [!NOTE]
-> **Optional task** - If you have not enabled LDAPS access to the managed domain over the internet, skip this configuration task.
+> If you have not enabled LDAPS access to the managed domain over the internet, skip this configuration task.
 >
 >
 
