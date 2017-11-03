@@ -147,7 +147,7 @@ Each time you call the Speech API, you need to pass the authorization token in t
 The following example shows how to use an authorization token when you call the Speech REST API. 
 
 > [!NOTE]
-> Replace `YOUR_AUDIO_FILE` with the path to your prerecorded audio file. Replace `YOUR_ACCESS_TOKEN` with the authorization token you got in the previous step [Get an authorization token](#get-an-authorization-token)
+> Replace `YOUR_AUDIO_FILE` with the path to your prerecorded audio file. Replace `YOUR_ACCESS_TOKEN` with the authorization token you got in the previous step [Get an authorization token](#get-an-authorization-token).
 
 # [PowerShell](#tab/Powershell)
 
