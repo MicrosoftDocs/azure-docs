@@ -163,7 +163,7 @@ Scheduler trigger runs pipelines on a wall-clock schedule. This trigger supports
 ### Scheduler trigger JSON definition
 When you create a scheduler trigger, you can specify scheduling and recurrence using JSON as shown in the example in this section. 
 
-To have your scheduler trigger kick off a pipeline run, include a pipeline reference of the particular pipeline in the trigger definition. Pipelines and triggers have a "n-m" relationship. Multiple triggers can kick off a single pipeline. The same trigger can kick off multiple pipelines.
+To have your scheduler trigger kick off a pipeline run, include a pipeline reference of the particular pipeline in the trigger definition. Pipelines and triggers have an "n-m" relationship. Multiple triggers can kick off a single pipeline. The same trigger can kick off multiple pipelines.
 
 ```json
 {
@@ -175,7 +175,7 @@ To have your scheduler trigger kick off a pipeline run, include a pipeline refer
         "interval": <<int>>,             // optional, how often to fire (default to 1)
         "startTime": <<datetime>>,
         "endTime": <<datetime>>,
-        "timeZone": <<default UTC>>
+        "timeZone": "UTC"
         "schedule": {                    // optional (advanced scheduling specifics)
           "hours": [<<0-24>>],
           "weekDays": ": [<<Monday-Sunday>>],
@@ -209,35 +209,9 @@ To have your scheduler trigger kick off a pipeline run, include a pipeline refer
 }
 ```
 
-**Note**: “parameters” is a mandatory property inside “pipelines. If your pipeline takes no parameters, send an empty json for parameters, as the property must exist
+> [!IMPORTANT]
+>  The **parameters** property is a mandatory property inside **pipelines**. Even if your pipeline does not take any parameters, include an empty json for parameters, as the property must exist.
 
-This is valid:
-
-```json
-      "pipelines": [
-          {
-              "pipelineReference": {
-                 "type": "PipelineReference",
-                  "referenceName": "##PipelineName##"
-              },
-              "parameters": {
-              }
-          }
-      ]
-```
-
-```json
-But this is **not** valid:
-
-        "pipelines": [
-            {
-                "pipelineReference": {
-                   "type": "PipelineReference",
-                    "referenceName": "##PipelineName##"
-                }
-            }
-        ]
-```
 
 ### Overview: scheduler trigger schema
 The following table provides a high-level overview of the major elements related to recurrence and scheduling in a trigger:
@@ -245,11 +219,47 @@ The following table provides a high-level overview of the major elements related
 JSON property | 	Description
 ------------- | -------------
 startTime | startTime is a Date-Time. For simple schedules, startTime is the first occurrence. For complex schedules, the trigger starts no sooner than startTime.
+endTime | Specifies the end date-time for the trigger. The trigger does not execute after this time. It is not valid to have an endTime in the past.
+timeZone | Currently, only UTC is supported. 
 recurrence | The recurrence object specifies recurrence rules for the trigger. The recurrence object supports the elements: frequency, interval, endTime, count, and schedule. If recurrence is defined, frequency is required; the other elements of recurrence are optional.
 frequency | Represents the unit of frequency at which the trigger recurs. Supported values are: `minute`, `hour`, `day`, `week`, or `month`.
 interval | The interval is a positive integer. It denotes the interval for the frequency that determines how often the trigger runs. For example, if interval is 3 and frequency is "week", the trigger recurs every 3 weeks.
-endTime | Specifies the end date-time for the trigger. The trigger does not execute after this time. It is not valid to have an endTime in the past.
 schedule | A trigger with a specified frequency alters its recurrence based on a recurrence schedule. A schedule contains modifications based on minutes, hours, weekdays, month days, and week number.
+
+
+### Schedule trigger example
+
+```json
+{
+	"properties": {
+		"name": "MyTrigger",
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Hour",
+				"interval": 1,
+				"startTime": "2017-11-01T09:00:00-08:00",
+				"endTime": "2017-11-02T22:00:00-08:00"
+			}
+		},
+		"pipelines": [{
+				"pipelineReference": {
+					"type": "PipelineReference",
+					"referenceName": "SQLServerToBlobPipeline"
+				},
+				"parameters": {}
+			},
+			{
+				"pipelineReference": {
+					"type": "PipelineReference",
+					"referenceName": "SQLServerToAzureSQLPipeline"
+				},
+				"parameters": {}
+			}
+		]
+	}
+}
+```
 
 ### Overview: scheduler trigger schema defaults, limits, and examples
 
@@ -280,7 +290,7 @@ Finally, when a trigger has a schedule, if hours and/or minutes aren’t set in 
 ### Deep Dive: schedule
 On one hand, a schedule can limit the number of trigger executions. For example, if a trigger with a "month" frequency has a schedule that runs on only on day 31, the trigger runs in only those months that have a 31st day.
 
-On the other hand, a schedule can also expand the number of trigger executions. For example, if a trigger with a "month" frequency has a schedule that runs on month days 1 and 2, the trigger runs on the 1st and 2nd days of the month instead of once a month.
+Whereas, a schedule can also expand the number of trigger executions. For example, if a trigger with a "month" frequency has a schedule that runs on month days 1 and 2, the trigger runs on the 1st and 2nd days of the month instead of once a month.
 
 If multiple schedule elements are specified, the order of evaluation is from the largest to smallest – week number, month day, weekday, hour, and minute.
 
@@ -291,9 +301,9 @@ JSON name | Description | Valid Values
 --------- | ----------- | ------------
 minutes | Minutes of the hour at which the trigger runs. | <ul><li>Integer</li><li>Array of integers</li></ul>
 hours | Hours of the day at which the trigger runs. | <ul><li>Integer</li><li>Array of integers</li></ul>
-weekDays | Days of the week the trigger runs. Can only be specified with a weekly frequency. | <ul><li>Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, or Sunday</li><li>Array of any of the above values (max array size 7)</li></p>Not case-sensitive</p>
+weekDays | Days of the week the trigger runs. Can only be specified with a weekly frequency. | <ul><li>Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, or Sunday</li><li>Array of any of the values (max array size 7)</li></p>Not case-sensitive</p>
 monthlyOccurrences | Determines which days of the month the trigger runs. Can only be specified with a monthly frequency. | Array of monthlyOccurence objects: `{ "day": day,  "occurrence": occurence }`. <p> The day is the day of the week the trigger runs, for example, `{Sunday}` is every Sunday of the month. Required.<p>Occurrence is occurrence of the day during the month, for example, `{Sunday, -1}` is the last Sunday of the month. Optional.
-monthDays | Day of the month the trigger runs. Can only be specified with a monthly frequency. | <ul><li>Any value <= -1 and >= -31</li><li>Any value >= 1 and <= 31</li><li>An array of above values</li>
+monthDays | Day of the month the trigger runs. Can only be specified with a monthly frequency. | <ul><li>Any value <= -1 and >= -31</li><li>Any value >= 1 and <= 31</li><li>An array of values</li>
 
 
 ## Examples: recurrence schedules

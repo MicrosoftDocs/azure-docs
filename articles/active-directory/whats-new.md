@@ -13,12 +13,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2017
+ms.date: 11/03/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
 
 ---
 # What's new in Azure Active Directory?
+
+
+---
+
+Stay up-to-date with what's new in Azure Active Directory by subscribing to this [feed](https://docs.microsoft.com/api/search/rss?search=%22what%27s%20new%20in%20azure%20active%20directory%3%22&locale=en-us) in your favorite RSS feed reader.
+
+---
+
 
 We are improving Azure Active Directory on an ongoing basis. To enable you to stay up to date with the most recent developments, this topic provides you with information about:
 

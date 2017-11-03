@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/26/2017
+ms.date: 11/02/2017
 ms.author: kumud
 ---
 
 # How to configure high availability ports for Internal Load Balancer
 
-This article provides an example deployment of high availability (HA) ports on an Internal Load Balancer. For Network Virtual Appliances specific configurations, refer to the corresponding provider websites.
+This article provides an example deployment of high availability (HA) ports on an Internal Load Balancer. For Network Virtual Appliances (NVAs) specific configurations, refer to the corresponding provider websites.
 
 >[!NOTE]
 > High Availability Ports feature is currently in Preview. During preview, the feature may not have the same level of availability and reliability as features that are in general availability release. For more information, see [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Figure 1 illustrates the following configuration of the deployment example described in this article:
 - The NVAs are deployed in the backend pool of an Internal Load Balancer behind the HA ports configuration. 
-- The UDR applied on the DMZ Subnet routes all traffic to the <?> by making the next hop as the Internal Load Balancer Virtual IP. 
+- The UDR applied on the DMZ Subnet routes all traffic to the NVAs by making the next hop as the Internal Load Balancer Virtual IP. 
 - Internal Load Balancer distributes the traffic to one of the active NVAs according to the LB algorithm.
 - NVA processes the traffic and forwards it to the original destination in the backend subnet.
 - The return path can also take the same route if a corresponding UDR is configured in the backend subnet. 
@@ -59,6 +59,39 @@ The Azure portal includes the **HA Ports** option via a checkbox for this config
 ![ha ports configuration via Azure portal](./media/load-balancer-configure-ha-ports/haports-portal.png)
 
 Figure 2 - HA Ports configuration via Portal
+
+### Configure HA Ports LB Rule via Resource Manager Template
+
+You can configure HA ports using the 2017-08-01 API version for Microsoft.Network/loadBalancers in the Load Balancer resource. The following JSON snippet illustrates the changes in the Load Balancer configuration for HA Ports via REST API.
+
+```json
+    {
+        "apiVersion": "2017-08-01",
+        "type": "Microsoft.Network/loadBalancers",
+        ...
+        "sku":
+        {
+            "name": "Standard"
+        },
+        ...
+        "properties": {
+            "frontendIpConfigurations": [...],
+            "backendAddressPools": [...],
+            "probes": [...],
+            "loadBalancingRules": [
+             {
+                "properties": {
+                    ...
+                    "protocol": "All",
+                    "frontendPort": 0,
+                    "backendPort": 0
+                }
+             }
+            ],
+       ...
+       }
+    }
+```
 
 ### Configure HA ports load balancer rule with PowerShell
 

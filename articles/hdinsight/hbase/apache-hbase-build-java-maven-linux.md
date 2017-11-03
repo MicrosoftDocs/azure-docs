@@ -14,7 +14,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/07/2017
+ms.date: 11/03/2017
 ms.author: larryfr
 
 ---
@@ -411,7 +411,9 @@ The following steps use `scp` to copy the JAR to the primary head node of your H
 
 5. To delete the table, use the following command:
 
-    
+    ```bash
+    yarn jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.DeleteTable
+    ```
 
 ## Upload the JAR and run jobs (PowerShell)
 
