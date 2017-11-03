@@ -309,6 +309,7 @@ To peer virtual networks across regions, you must first register for the preview
 
     ```azurecli-interactive
     az feature show --name AllowGlobalVnetPeering --namespace Microsoft.Network
+    ```
 
     Do not complete the steps in the Portal, Azure CLI, PowerShell, or Resource Manager template sections of this article until the **RegistrationState** output you receive after entering the previous command is **Registered** for both subscriptions.
 
