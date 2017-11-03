@@ -1,5 +1,5 @@
 ---
-title: `Azure Table storage: Build a web app Node.js | Microsoft Docs`
+title: 'Azure Table storage: Build a web app Node.js | Microsoft Docs'
 description: A tutorial that builds on the Web App with Express tutorial by adding Azure Storage services and the Azure module.
 services: cosmos-db
 documentationcenter: nodejs
