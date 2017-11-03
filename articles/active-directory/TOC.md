@@ -279,7 +279,7 @@
 ## [Manage access to Azure](toc.yml)
 
 ## Delegate access to resources
-### [Administrator roles](active-directory-assign-admin-roles.md)
+### [Administrator roles](active-directory-assign-admin-roles-azure-portal.md)
 #### [Assign admin roles](active-directory-users-assign-role-azure-portal.md)
 ### [Administrative units](active-directory-administrative-units-management.md)
 ### [Configure token lifetimes](active-directory-configurable-token-lifetimes.md)
