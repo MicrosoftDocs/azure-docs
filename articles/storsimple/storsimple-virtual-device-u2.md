@@ -63,7 +63,7 @@ The following table shows some key differences between the StorSimple virtual de
 | **Service data encryption key** |Regenerate on the physical device and then update the virtual device with the new key. |Cannot regenerate from the virtual device. |
 
 ## Prerequisites for the virtual device
-The following sections explain the configuration prerequisites for your StorSimple virtual device. Prior to deploying a virtual device, review the [security considerations for using a virtual device](storsimple-8000-security.md#storsimple-virtual-device-security).
+The following sections explain the configuration prerequisites for your StorSimple virtual device. Prior to deploying a virtual device, review the [security considerations for using a virtual device](storsimple-8000-security.md#storsimple-cloud-appliance-security).
 
 #### Azure requirements
 Before you provision the virtual device, you need to make the following preparations in your Azure environment:
