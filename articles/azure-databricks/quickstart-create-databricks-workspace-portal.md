@@ -62,7 +62,7 @@ In this article, you learn how to create an Azure Databricks workspace and then 
 
 4. Once the cluster is running, you can attach notebooks to the cluster and run Spark jobs.
 
-## Run a Spark SQL job on the cluster
+## Run a Spark job on the cluster
 
 
 
