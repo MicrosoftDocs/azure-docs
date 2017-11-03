@@ -38,19 +38,13 @@ Figure 1 - Network Virtual Appliances deployed behind an internal Load Balancer 
 
 ## Preview sign-up
 
-To participate in the Preview of the HA ports feature in Load Balancer Standard SKU, register your subscription to gain access using either PowerShell or Azure CLI 2.0.
+To participate in the Preview of the HA ports feature in Load Balancer Standard, register your subscription to gain access using either Azure CLI 2.0 or PowerShell.  Please register your subscription for
 
-- Sign up using PowerShell
+1. [Load Balancer Standard preview](https://aka.ms/lbpreview#preview-sign-up) and 
+2. [HA Ports preview](https://aka.ms/haports#preview-sign-up).
 
-   ```powershell
-   Register-AzureRmProviderFeature -FeatureName AllowILBAllPortsRule -ProviderNamespace Microsoft.Network
-    ```
-
-- Sign up using Azure CLI 2.0
-
-    ```cli
-  az feature register --name AllowILBAllPortsRule --namespace Microsoft.Network  
-    ```
+>[!NOTE]
+>To use this feature, you must also sign-up for Load Balancer [Standard Preview](https://aka.ms/lbpreview#preview-sign-up) in addition to HA Ports. Registration of the HA Ports or Load Balancer Standard previews may take up to an hour.
 
 ## Configuring HA Ports
 
