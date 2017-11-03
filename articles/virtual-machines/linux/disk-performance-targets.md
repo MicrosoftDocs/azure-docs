@@ -1,6 +1,6 @@
 ---
-title: Intent and product brand in a unique string of 43-59 chars including spaces and | Microsoft Docs 
-description: 115-145 characters including spaces. Edit the intro para describing article intent to fit here. This abstract displays in the search result.
+title: Performance targets and capacity limits for Linux virtual machine disks | Microsoft Docs 
+description: 
 services: virtual-machines 
 author: tamram
 manager: jeconnoc
@@ -8,6 +8,7 @@ ms.author: tamram
 ms.date: 11/02/2017
 ms.topic: article
 ms.service: virtual-machines
+ms.tgt_pltfrm: linux
 ---
 
 <!-- conceptual info about disk limits -- applies to unmanaged and managed -->
