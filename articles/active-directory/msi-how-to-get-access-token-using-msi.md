@@ -21,14 +21,14 @@ ms.author: bryanla
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 A VM Managed Service Identity makes two important features available to client applications running on the VM:
 
-1. An MSI [**service principal**](develop/active-directory-dev-glossary.md#service-principal-object), created upon enabling MSI on the VM. Traditionally, before a client application can access secured resources under the identity of its service principal, it must  
+1. An MSI [**service principal**](develop/active-directory-dev-glossary.md#service-principal-object), which is created upon enabling MSI on the VM. Traditionally, in order for a client application to be able to access secured resources, it must:  
 
-   - be registered as a confidential/web client application with Azure AD  
-   - sign in using its client ID+secret credentials  
+   - be registered with Azure AD as a confidential/web client application - consented for use by a tenant's user(s)/admin
+   - sign in under its service principal, using the client ID+secret credentials  
 
   With MSI, your client application no longer needs to do either, as it can sign in under the MSI service principal. 
 
-2. An [**app-only access token**](develop/active-directory-dev-glossary.md#access-token), based on the VM's MSI service principal. There is also no need for the client to present its own credentials or authenticate to obtain the access token. The token is issued for the MSI service principal, and is suitable for use as a bearer token in [service-to-service calls requiring client credentials](active-directory-protocols-oauth-service-to-service.md).
+2. An [**app-only access token**](develop/active-directory-dev-glossary.md#access-token), which is based on the VM's MSI service principal. As such, there is also no need for the client to authenticate under its own credentials, to obtain an access token. The token is issued for the MSI service principal, and is suitable for use as a bearer token in [service-to-service calls requiring client credentials](active-directory-protocols-oauth-service-to-service.md).
 
 This article shows you various ways a client application can sign-in under an MSI service principal, and acquire an access token, in order to access other resources.
 
@@ -45,7 +45,7 @@ If you plan to use the Azure PowerShell or Azure CLI examples in this article, y
 > - All sample code/script in this article assumes the client is running on an MSI-enabled Virtual Machine. Use the VM "Connect" feature in the Azure portal, to remotely connect to your VM. For details on enabling MSI on a VM, see [Configure a VM Managed Service Identity (MSI) using the Azure portal](msi-qs-configure-portal-windows-vm.md), or one of the variant articles (using PowerShell, CLI, a template, or an Azure SDK). 
 > - To prevent authorization errors (403/AuthorizationFailed) in the sign-in examples, the VM's identity must be given "Reader" access at the VM scope to allow Azure Resource Manager operations on the VM. See [Assign a Managed Service Identity (MSI) access to a resource using the Azure portal](msi-howto-assign-access-portal.md) for details.
 
-## Supported clients
+## Code examples
 
 Scripting hosts such as Azure PowerShell and Azure CLI can use an MSI service principal for sign-in, instead of signing in with a user account. When using an MSI service principal, the host also takes care of acquiring an access token in the background, for making subsequent calls to access resources. This frees the script user from the need to handle token acquisition.
 
@@ -58,14 +58,56 @@ The examples below show of variety of ways to do one or both functions:
 | [HTTP/REST](#httprest) | N | Y | N |
 | [.NET C#](#net-c) | N | Y | N |
 | [Azure CLI](#azure-cli) | Y | N | Y |
+| [Azure PowerShell](#azure-powershell) | N | Y | Y |
+| [Bash/CURL](#bashcurl) | N | Y | N |
 | [Go](#go) | N | Y | N |
 | [Java](#java) | N | Y | N |
 | [PHP](#php) | N | Y | N |
-| [Azure PowerShell](#azure-powershell) | N | Y | Y |
+
 
 ### HTTP/REST 
 
 A client application can use HTTP REST calls to acquire the MSI access token. This is similar to the Azure AD programming model, except the client uses a localhost endpoint on the virtual machine (vs and Azure AD endpoint).
+
+Sample request:
+
+```
+GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com%2F HTTP/1.1
+Metadata: true
+```
+
+| Element | Description |
+| ------- | ----------- |
+| `GET` | The HTTP verb, indicating you want to retrieve data from the endpoint. In this case, an OAuth access token. | 
+| `http://localhost:50342/oauth2/token` | The MSI endpoint, where 50342 is the default port and is configurable. |
+| `resource` | A query string parameter, indicating the App ID URI of the target resource. It also appears in the `aud` (audience) claim of the issued token. This example requests a token to access Azure Resource Manager, which has an App ID URI of https://management.azure.com/. |
+| `Metadata` | An HTTP request header field, required by MSI as a mitigation against Server Side Request Forgery (SSRF) attack. This value must be set to "true", in all lower case.
+
+Sample response:
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/json
+{
+  "access_token": "eyJ0eXAi...",
+  "refresh_token": "",
+  "expires_in": "3599",
+  "expires_on": "1506484173",
+  "not_before": "1506480273",
+  "resource": "https://management.azure.com/",
+  "token_type": "Bearer"
+}
+```
+
+| Element | Description |
+| ------- | ----------- |
+| `access_token` | The requested access token. When calling a REST API, the token is embedded in the `Authorization` request header field as a "bearer" token, allowing the API to authenticate the caller. | 
+| `refresh_token` | Not used by MSI. |
+| `expires_in` | The number of seconds the access token continues to be valid, before expiring, from time of issuance. Time of issuance can be found in the token's `iat` claim. |
+| `expires_on` | The timespan when the access token expires. The date is represented as the number of seconds from "1970-01-01T0:0:0Z UTC"  (corresponds to the token's `exp` claim). |
+| `not_before` | The timespan when the access token takes effect, and can be accepted. The date is represented as the number of seconds from "1970-01-01T0:0:0Z UTC" (corresponds to the token's `nbf` claim). |
+| `resource` | The resource the access token was requested for, which matches the `resource` query string parameter of the request. |
+| `token_type` | The type of token, which is a "Bearer" access token, which means the resource can give access to the bearer of this token. |
 
 ### .NET C#
 
@@ -113,13 +155,7 @@ spID=$(az resource list -n <VM-NAME> --query [*].identity.principalId --out tsv)
 echo The MSI service principal ID is $spID
 ```
 
-### Go
-
-### Java
-
-### PHP
-
-### PowerShell
+### Azure PowerShell
 
 The following script demonstrates how to:
 
@@ -142,6 +178,76 @@ Login-AzureRmAccount -AccessToken $access_token -AccountId “CLIENT”
 $spID = (Get-AzureRMVM -ResourceGroupName <RESOURCE-GROUP> -Name <VM-NAME>).identity.principalid
 echo "The MSI service principal ID is $spID"
 ```
+
+
+### Bash/CURL
+
+```bash
+response=$(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true -s)
+access_token=$(echo $response | python -c 'import sys, json; print (json.load(sys.stdin)["access_token"])')
+echo The MSI access token is $access_token
+```
+
+### Go
+
+package main
+
+import (
+  "fmt"
+  "io/ioutil"
+  "net/http"
+  "encoding/json"
+)
+
+type responseJson struct {
+  Access_token string
+  Refresh_token string
+  Expires_in string
+  Expires_on string
+  Not_before string
+  Resource string
+  Token_type string
+}
+
+func main() {
+
+    // Create HTTP request client and call MSI /token endpoint
+    //msi_endpoint := "http://localhost:8888/oauth2/token?resource=https://management.azure.com/" 
+    msi_endpoint := "http://localhost:50342/oauth2/token?resource=https://management.azure.com/"
+    client := &http.Client{}
+    req, err := http.NewRequest("GET", msi_endpoint, nil)
+    req.Header.Add("Metadata", "true")
+    resp, err := client.Do(req)
+
+    // Pull out response body
+    responseBytes,err := ioutil.ReadAll(resp.Body)
+    resp.Body.Close()
+    if err != nil {
+      fmt.Println("Error:", err)
+    }
+
+    // Unmarshall response body into struct
+    var r responseJson
+    errUnmarshal :=json.Unmarshal(responseBytes, &r)
+    if errUnmarshal != nil {
+      fmt.Println("Error:", errUnmarshal)
+    }
+
+    // Print HTTP response, unmarshalled response body, and marshalled response body elements to console
+    fmt.Println("Response status:", resp.Status)
+    fmt.Println("access_token: ", r.Access_token)
+    fmt.Println("refresh_token: ", r.Refresh_token)
+    fmt.Println("expires_in: ", r.Expires_in)
+    fmt.Println("expires_on: ", r.Expires_on)
+    fmt.Println("not_before: ", r.Not_before)
+    fmt.Println("resource: ", r.Resource)
+    fmt.Println("token_type: ", r.Token_type)
+}
+
+### Java
+
+### PHP
+
 
 
 
