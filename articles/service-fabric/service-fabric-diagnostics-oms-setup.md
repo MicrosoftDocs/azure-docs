@@ -59,7 +59,7 @@ The main changes made are the following:
 
     The `omsRegion` values have to conform to a specific set of the values. You should pick the one that is closest to the deployment of your cluster.
 
-2. If you will be sending any application logs to OMS, confirm that the `applicationDiagnosticsStorageAccountType` and `applicationDiagnosticsStorageAccountName` are included either as parameters template. If they are not, add them to the variables section and edit their values as needed.
+2. If you will be sending any application logs to OMS, confirm that the `applicationDiagnosticsStorageAccountType` and `applicationDiagnosticsStorageAccountName` are included as parameters in your template. If they are not, add them to the variables section like so and edit their values as needed. You can also include them as parameters, if you would like, following the format used above.
 
     ```json
     "applicationDiagnosticsStorageAccountType": "Standard_LRS",
