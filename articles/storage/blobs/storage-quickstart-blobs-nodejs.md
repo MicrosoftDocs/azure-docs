@@ -46,7 +46,7 @@ This command clones the repository to your local git folder. To open the applica
 
 ## Configure your storage connection string
 
-In the application, you must provide the connection string for your storage account. Open the `index.js` file, find the `connectionString` variable. Replace its value with the entire value of the connection string with the one you saved from the Azure portal. Your storageConnectionString should look similar to the following:
+In the application, you must provide the connection string for your storage account. Open the `index.js` file, find the `connectionString` variable. Replace its value with the entire value of the connection string with the one you saved from the Azure portal. Your storage connection string should look similar to the following:
 
 ```node
 // Create a blob client for interacting with the blob service from connection string
