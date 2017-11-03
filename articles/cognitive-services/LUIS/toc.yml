@@ -4,6 +4,8 @@
   items: 
   - name: Learn about Language Understanding Intelligent Service
     href: Home.md
+  - name: Supported languages
+    href: luis-supported-languages.md
 - name: Quickstarts
   expanded: true
   items: 
@@ -21,10 +23,6 @@
       href: luis-get-started-java-get-intent.md
     - name: Call a LUIS app using Python
       href: luis-get-started-python-get-intent.md
-  - name: Author your LUIS app programmatically
-    items: 
-    - name: Add an utterance programmatically using Node.js
-      href: luis-quickstart-node-add-utterance.md
 - name: Tutorials
   items: 
   - name: Integrate LUIS with a bot using Node.js
@@ -43,8 +41,6 @@
     href: luis-concept-utterance.md
   - name: Features
     href: luis-concept-feature.md
-  - name: Support for multiple languages
-    href: luis-concept-language-support.md
 - name: How-to guides
   items: 
   - name: Plan your app

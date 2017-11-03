@@ -1,6 +1,6 @@
 ---
-title: Transform data using Spark in Azure Data Factory | Microsoft Docs
-description: This tutorial provides step-by-step instructions for transforming data by using Spark Activity in Azure Data Factory.
+title: 'Transform data using Spark in Azure Data Factory | Microsoft Docs'
+description: 'This tutorial provides step-by-step instructions for transforming data by using Spark Activity in Azure Data Factory.'
 services: data-factory
 documentationcenter: ''
 author: shengcmsft
@@ -12,13 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/10/2017
+ms.date: 10/06/2017
 ms.author: shengc
-
 ---
-
 # Transform data in the cloud by using Spark activity in Azure Data Factory
-Azure Data Factory is a cloud-based data integration service that allows you to create data-driven workflows in the cloud for orchestrating and automating data movement and data transformation. Using Azure Data Factory, you can create and schedule data-driven workflows (called pipelines) that can ingest data from disparate data stores, process/transform the data by using compute services such as Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics, and Azure Machine Learning, and publish output data to data stores such as Azure SQL Data Warehouse for business intelligence (BI) applications to consume. 
+
+[!INCLUDE [data-factory-what-is-include-md](../../includes/data-factory-what-is-include.md)]
+
+#### This tutorial
 
 > [!NOTE]
 > This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [documentation for Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
@@ -194,7 +195,7 @@ You have authored linked service and pipeline definitions in JSON files. Now, le
     $dataFactoryName = "MyDataFactory09102017" # Globally unique name of the data factory
     $pipelineName = "MySparkOnDemandPipeline" # Name of the pipeline
     ```
-2. Launch **PowerShell**. Keep Azure PowerShell open until the end of this quickstart. If you close and reopen, you need to run the commands again.
+2. Launch **PowerShell**. Keep Azure PowerShell open until the end of this quickstart. If you close and reopen, you need to run the commands again. Currently, Data Factory V2 allows you to create data factories only in the East US, East US2, and West Europe regions. The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
 
     Run the following command, and enter the user name and password that you use to sign in to the Azure portal:
         
