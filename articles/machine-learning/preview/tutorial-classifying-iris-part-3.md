@@ -77,7 +77,7 @@ To deploy the web service along with the model file, you also need a scoring scr
 
 2. Once the project is open, select the **Files** button (folder icon) on the left pane to open the file list in your project folder.
 
-3. Select the **iris_score.py** file. The Python script opens. This file is used as the scoring file.
+3. Select the **iris-score.py** file. The Python script opens. This file is used as the scoring file.
 
    ![Scoring file](media/tutorial-classifying-iris/model_data_collection.png)
 
@@ -204,11 +204,11 @@ Now you're ready to create the real-time web service.
    This command generates a web service ID you can use later.
 
    The following switches are used with the **az ml service create realtime** command:
-   * `-n`: The app name, must be all lowercase
-   * `-f`: The scoring script file name
-   * `--model-file`: The model file, in this case it's the pickled model.pkl file
-   * `-r`: The type of model, in this case it's a Python model
-   * `--collect-model-data true`: This enables data collection
+   * `-n`: The app name, must be all lowercase.
+   * `-f`: The scoring script file name.
+   * `--model-file`: The model file, in this case it's the pickled model.pkl file.
+   * `-r`: The type of model, in this case it's a Python model.
+   * `--collect-model-data true`: This enables data collection.
 
    >[!IMPORTANT]
    >The service name, which is also the new Docker image name, must be all lowercase, otherwise you get an error. 
