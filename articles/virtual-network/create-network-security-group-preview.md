@@ -41,6 +41,7 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
     
     ```azurecli-interactive
     az feature register --name AllowApplicationSecurityGroups --namespace Microsoft.Network
+    az provider register --namespace Microsoft.Network
     ``` 
 
 5. Confirm that you are registered for the preview by entering the following command:
