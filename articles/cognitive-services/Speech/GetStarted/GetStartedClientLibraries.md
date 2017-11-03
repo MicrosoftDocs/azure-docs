@@ -13,7 +13,7 @@ ms.author: zhouwang
 ---
 # Get started with Speech Service client libraries
 
-Besides making direct HTTP requests via a REST API, Speech Service also provides developers with Speech client libraries in different languages. The Speech client libraries:
+Besides making direct HTTP requests via a REST API, Speech Service provides developers with Speech client libraries in different languages. The Speech client libraries:
 
 - Support more advanced capabilities in speech recognition, such as intermediate results in real time, long audio stream (up to 10 minutes), and continuous recognition.
 - Provide a simple and idiomatic API in the language of your preference.
