@@ -27,7 +27,7 @@ ms.author: arramac
 * Guaranteed high availability.
 * [Automatic secondary indexing](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
 
-Applications written for Azure Table storage can migrate to Azure Cosmos DB by using the Table API with no code changes and take advantage of premium capabilities. The Table API has client SDKs available for .NET and Python.
+Applications written for Azure Table storage can migrate to Azure Cosmos DB by using the Table API with no code changes and take advantage of premium capabilities. The Table API has one client SDK available for .NET.
 
 We recommend that you watch the following video, where Aravind Ramachandran explains how to get started with the Azure Cosmos DB Table API:
 
@@ -61,5 +61,5 @@ Here are a few pointers to get you started:
 * [Query table data by using the Table API](tutorial-query-table.md)
 * [Learn how to set up Azure Cosmos DB global distribution by using the Table API](tutorial-global-distribution-table.md)
 * [Azure Cosmos DB Table .NET API](table-sdk-dotnet.md)
-* [Azure Cosmos DB Table SDK for Python](table-sdk-python.md)
+
 

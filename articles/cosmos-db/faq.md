@@ -180,8 +180,6 @@ In addition to the common MongoDB error codes, the MongoDB API has its own speci
 ### Terms 
 The Azure Cosmos DB Table API (Preview) refers to the premium offering by Azure Cosmos DB for a table data model announced at Build 2017. 
 
-The Azure Cosmos DB Table API uses the APIs as Azure Table storage; however an additional Nuget package is required to use the Azure Cosmos DB Table API, as described below.
-
 ### How can I use the new Table API (Preview) offering? 
 The Azure Cosmos DB Table API is available in the [Azure portal][azure-portal]. First you must sign up for an Azure subscription. After you've signed up, you can add an Azure Cosmos DB Table API account to your Azure subscription, and then add tables to your account. 
 
