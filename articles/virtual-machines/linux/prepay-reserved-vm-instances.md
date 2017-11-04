@@ -7,10 +7,10 @@ author: vikramdesai01
 manager: vikramdesai01
 editor: ''
 
-ms.service: virtual-machines-windows
+ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/30/2017
 ms.author: vikdesai
