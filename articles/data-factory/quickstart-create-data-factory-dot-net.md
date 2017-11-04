@@ -76,7 +76,7 @@ Using Visual Studio 2013/2015/2017, create a C# .NET console application.
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     ```
 
-2. Add the following code to the **Main** method that sets the variables. Replace the place-holders with your own values.
+2. Add the following code to the **Main** method that sets the variables. Replace the place-holders with your own values. Currently, Data Factory V2 allows you to create data factories only in the East US, East US2, and West Europe regions. The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
 
     ```csharp
     // Set variables
@@ -85,8 +85,6 @@ Using Visual Studio 2013/2015/2017, create a C# .NET console application.
     string authenticationKey = "<your authentication key for the application>";
     string subscriptionId = "<your subscription ID where the data factory resides>";
     string resourceGroup = "<your resource group where the data factory resides>";
-    // Currently, Data Factory V2 allows you to create data factories only in the East US and East US2 regions. 
-    // Note that the data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions
     string region = "East US 2";
     string dataFactoryName = "<specify the name of data factory to create. It must be globally unique.>";
     string storageAccount = "<your storage account name to copy data>";
