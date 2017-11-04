@@ -6,6 +6,7 @@
 ## [Create .NET application](service-fabric-quickstart-dotnet.md)
 ## [Deploy a Linux container application](service-fabric-quickstart-containers-linux.md)
 ## [Deploy a Windows container application](service-fabric-quickstart-containers.md)
+## [Deploy a Java application](service-fabric-quickstart-java.md)
 
 # Tutorials
 ## Deploy a .NET app
