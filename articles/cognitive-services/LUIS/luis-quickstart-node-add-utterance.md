@@ -37,6 +37,8 @@ Add the NPM dependencies to the file.
 
    [!code-nodejs[Console app code that calls a LUIS endpoint for Node.js](~/samples-luis/documentation-samples/endpoint-api-samples/node/call-endpoint.js?range=1-5 "TestTitle")]
 
+   [!code-nodejs[Console app code that calls a LUIS endpoint for Node.js](~/samples-luis/documentation-samples/endpoint-api-samples/node/call-endpoint.js?name=constants "TestTitle")]
+
 ## Add constants 
 Add the LUIS constants to the file. Copy the code below and change to your programmatic key, application ID, and version ID.
 
