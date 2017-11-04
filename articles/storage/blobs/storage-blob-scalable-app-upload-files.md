@@ -61,7 +61,7 @@ When finished, open a **Command Prompt**, navigate to `c:\git\StoragePerfandScal
 
 Open a `Command Prompt` and navigate to `c:\git\StoragePerfandScalabilityExample`.
 
-Type `dotnet run upload` to run the application. The `upload` argument limits the application to only uploading the files. A command is running to initially populate your local package cache, to improve restore speed and enable offline access. This command will take up to a minute to complete and will only happen once.
+Type `dotnet run` to run the application. A command runs initially to populate your local package cache, to improve restore speed and enable offline access. This command will take up to a minute to complete and will only happen once.
 
 ```
 dotnet run upload

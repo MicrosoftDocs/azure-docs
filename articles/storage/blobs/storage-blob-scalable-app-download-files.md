@@ -39,11 +39,20 @@ Use the following command, on your local machine, to create a remote desktop ses
 mstsc /v:<publicIpAddress>
 ```
 
+## Update the application
+
+Open `c:\git\StoragePerfandScalabilityExample\Program.cs` in a text editor.  Uncomment the following lines of code to enable 
+
+```
+DownloadFilesAsync(args).Wait();
+```
+
+When finished
 ## Run the application
 
 Open a `Command Prompt` and navigate to `c:\git\StoragePerfandScalabilityExample`.
 
-Type `dotnet run download` to run the application. The `download` argument limits the application to only downloading the files.
+Type `dotnet run` to run the application. The `download` argument limits the application to only downloading the files.
 
 ```
 dotnet run download
@@ -106,5 +115,19 @@ private static async Task DownloadFilesAsync(string[] args)
 }
 ```
 
+### Validate the connections
+
+While the files are being downloaded, you can verify the number of concurrent connections to your storage account. Open a `Command Prompt` and type `netstat -a | find /c "blob:https"`.  This shows the number of connections that are currently opened using `netstat`. The following example shows a similar output to what you see when running the tutorial yourself. As you can see from the example over 280 connections were open when downloading the random files from the storage account.
+
+```
+C:\>netstat -a | find /c "blob:https"
+289
+
+C:\>
+```
+
+> [!div class="checklist"]
+> * Run the application
+> * Validate the number of connections
 
 [previous-tutorial]: storage-blob-scalable-app-upload-files.md
