@@ -95,7 +95,7 @@ For both SQL Database and SQL Data Warehouse, allow Azure services to access SQL
     ```powershell
     Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"
     ```
-2. Run the **Set-AzureRmDataFactoryV2** cmdlet to create a data factory. Replace place-holders with your own values before executing the command.
+2. Run the **Set-AzureRmDataFactoryV2** cmdlet to create a data factory. Replace place-holders with your own values before executing the command. 
 
     ```powershell
 	$resourceGroupName = "<your resource group to create the factory>"
@@ -112,7 +112,7 @@ For both SQL Database and SQL Data Warehouse, allow Azure services to access SQL
         ```
 
     * To create Data Factory instances, you must be a Contributor or Administrator of the Azure subscription.
-    * Currently, Data Factory allows you to create data factory only in the East US region. The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
+    * Currently, Data Factory V2 allows you to create data factories only in the East US, East US2, and West Europe regions. The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
 
 ## Create linked services
 
