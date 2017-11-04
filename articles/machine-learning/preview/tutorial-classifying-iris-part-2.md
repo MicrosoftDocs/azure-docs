@@ -212,7 +212,7 @@ Azure ML allows you to easily configure additional execution environments such a
 
 2. Use the command-prompt (CLI) to log in to Azure. 
 
-   The workbench app and CLI use independent credential caches when authenticating against Azure resources. You only need to do this once, until the cached token expires. The **az account list** command returns the list of subscriptions available to your login. If there is more than one, use the ID value from the desired subscription, and set that as the default account to use with the **az set account -s** command, providing the subscription ID value. Then confirm the setting using the account show command.
+   The workbench app and CLI use independent credential caches when authenticating against Azure resources. You only need to do this once, until the cached token expires. The **az account list** command returns the list of subscriptions available to your login. If there is more than one, use the ID value from the desired subscription, and set that as the default account to use with the **az account set -s** command, providing the subscription ID value. Then confirm the setting using the account show command.
 
    ```azurecli
    REM login using aka.ms/devicelogin site.
@@ -222,7 +222,7 @@ Azure ML allows you to easily configure additional execution environments such a
    az account list -o table
    
    REM set the current Azure subscription to the one you want to use.
-   az set account -s <subscriptionId>
+   az account set -s <subscriptionId>
    
    REM verify your current subscription is set correctly
    az account show
