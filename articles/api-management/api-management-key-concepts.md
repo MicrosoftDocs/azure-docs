@@ -147,7 +147,7 @@ To learn more about API Management, watch the following presentation from the Mi
 [How to create and publish a product]: api-management-howto-add-products.md
 [How to create and use groups]: api-management-howto-create-groups.md
 [How to associate groups with developers]: api-management-howto-create-groups.md#associate-group-developer
-[How create and configure advanced product settings]: api-management-howto-product-with-rules.md
+[How create and configure advanced product settings]: transform-api.md
 [How to create or invite developers]: api-management-howto-create-or-invite-developers.md
 [Policy reference]: api-management-policy-reference.md
 [API Management policies]: api-management-howto-policies.md

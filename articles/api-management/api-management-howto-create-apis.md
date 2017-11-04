@@ -29,7 +29,7 @@ Backend APIs can be imported into an APIM API or created and managed manually. O
 > **API Management** currently supports both 1.2 and 2.0 version of OpenAPI (Swagger) document for import. Make sure that, even though [OpenAPI 2.0 specification](http://swagger.io/specification) declares that `host`, `basePath`, and `schemes` properties are optional, your OpenAPI 2.0 document **MUST** contain those properties; otherwise it won't get imported. 
 > 
 
-For more information, see [Import and publish your first API](api-management-get-started.md);
+For more information, see [Import and publish your first API](import-and-publish.md);
 
 ## Add blank API
 

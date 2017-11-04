@@ -27,7 +27,7 @@ When an API Management service is created initially, it contains only one [unit]
 
 ## <a name="add-region"> </a>Deploy an API Management service instance to a new region
 > [!NOTE]
-> If you have not yet created an API Management service instance, see [Create an API Management service instance][Create an API Management service instance] in the [Get started with Azure API Management][Get started with Azure API Management] tutorial.
+> If you have not yet created an API Management service instance, see [Create an API Management service instance][Create an API Management service instance].
 > 
 > 
 
@@ -66,7 +66,7 @@ Confirm the deletion and click **Save** to apply the changes.
 [api-management-remove-region]: ./media/api-management-howto-deploy-multi-region/api-management-remove-region.png
 
 [Create an API Management service instance]: get-started-create-service-instance.md
-[Get started with Azure API Management]: api-management-get-started.md
+[Get started with Azure API Management]: get-started-create-service-instance.md
 
 [Deploy an API Management service instance to a new region]: #add-region
 [Delete an API Management service instance from a region]: #remove-region

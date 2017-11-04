@@ -223,7 +223,7 @@ Your user is now logged into the developer portal for your API Management servic
 [Monitoring and analytics]: api-management-monitoring.md
 [Add APIs to a product]: api-management-howto-add-products.md#add-apis
 [Publish a product]: api-management-howto-add-products.md#publish-product
-[Get started with Azure API Management]: api-management-get-started.md
+[Get started with Azure API Management]: get-started-create-service-instance.md
 [API Management policy reference]: api-management-policy-reference.md
 [Caching policies]: api-management-policy-reference.md#caching-policies
 [Create an API Management service instance]: get-started-create-service-instance.md

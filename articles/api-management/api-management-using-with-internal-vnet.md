@@ -120,7 +120,6 @@ To learn more, see the following articles:
 [api-management-internal-vnet-dashboard]: ./media/api-management-using-with-internal-vnet/api-management-internal-vnet-dashboard.png
 [api-management-custom-domain-name]: ./media/api-management-using-with-internal-vnet/api-management-custom-domain-name.png
 
-
-[Create API Management service]: api-management-get-started.md#create-service-instance
+[Create API Management service]: get-started-create-service-instance.md
 [Common network configuration problems]: api-management-using-with-vnet.md#network-configuration-issues
 

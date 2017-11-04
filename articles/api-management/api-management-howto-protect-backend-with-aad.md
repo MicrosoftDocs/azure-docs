@@ -558,4 +558,4 @@ For another demonstration of configuring and using this policy, see [Cloud Cover
 [api-management-new-aad-application-menu]: ./media/api-management-howto-protect-backend-with-aad/api-management-new-aad-application-menu.png
 
 [Create an API Management service instance]: get-started-create-service-instance.md
-[Manage your first API]: api-management-get-started.md
+[Manage your first API]: import-and-publish.md

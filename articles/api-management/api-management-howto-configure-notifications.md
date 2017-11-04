@@ -24,7 +24,7 @@ To configure notifications, click **Publisher portal** in the Azure Portal for y
 ![Publisher portal][api-management-management-console]
 
 > [!NOTE] 
-> If you have not yet created an API Management service instance, see [Create an API Management service instance][Create an API Management service instance] in the [Get started with Azure API Management][Get started with Azure API Management] tutorial.
+> If you have not yet created an API Management service instance, see [Create an API Management service instance][Create an API Management service instance].
 
 Click **Notifications** from the **API Management** menu on the left to view the available notifications.
 
@@ -112,5 +112,5 @@ To save the changes to the email template, click **Save**, or to cancel the chan
 [How to create and use groups]: api-management-howto-create-groups.md
 [How to associate groups with developers]: api-management-howto-create-groups.md#associate-group-developer
 
-[Get started with Azure API Management]: api-management-get-started.md
+[Get started with Azure API Management]: get-started-create-service-instance.md
 [Create an API Management service instance]: get-started-create-service-instance.md
