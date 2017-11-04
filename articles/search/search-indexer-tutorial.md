@@ -169,7 +169,7 @@ The following exercise assumes no existing server or database, and includes inst
     }
     ```
 
-## Review index and indexer definitions
+## Understand index and indexer definitions
 
 Your code is now ready to build and run. Before you do that, take a minute to study the index and indexer definitions for this sample. The relevant code is in two files:
 
@@ -249,20 +249,17 @@ All indexers, including the one you just created programmatically, are listed in
 
 1. Open the service page of your Azure Search service.
 2. Scroll down to find the tiles for **Indexers** and **Data Sources**.
-3. Click a tile to open a list of each resource. You can select individual indexers or data sources to view configuration settings.
+3. Click a tile to open a list of each resource. You can select individual indexers or data sources to view or modify configuration settings.
 
   ![Indexer and data source tiles](./media/search-indexer-tutorial/tiles-portal.png)
 
-The hotels dataset includes a Row
-For practice, add the following rows to your existing database using Query Editor, and then rebuild the program to run the indexer. Use **Search explorer** as verification your index is updated.
+## Use Azure Cosmos DB 
 
-### Use Azure Table Storage
+TBD
 
-TBD - If you are choosing to use Azure Table Storage run `powershell data\hotels-table-storage.ps1 -StorageAccountName <Your storage account name> -StorageAccountKey <Your storage account key>.
+## Use Azure Table Storage API
 
-### Use Azure Cosmos DB 
-
-TBD -- If you are choosing to use Azure Cosmos DB, upload `data\hotels.json` to a Cosmos DB collection of your choice. Follow the instructions at https://docs.microsoft.com/azure/cosmos-db/import-data#JSON.
+TBD
 
 ## Clean up resources
 
