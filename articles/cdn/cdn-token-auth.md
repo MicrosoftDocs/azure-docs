@@ -138,7 +138,7 @@ The following flowchart describes how Azure CDN validates client request when to
 		
 	![CDN rules engine token authentication settings example](./media/cdn-token-auth/cdn-rules-engine2.png)
 
-5. You can customize your token, which is an application that generates token for token-based authentication features. Source code can be accessed in [GitHub](https://github.com/VerizonDigital/ectoken).
+5. You can customize your token by accessing source code in [GitHub](https://github.com/VerizonDigital/ectoken).
 Available languages include:
 	
 - C
