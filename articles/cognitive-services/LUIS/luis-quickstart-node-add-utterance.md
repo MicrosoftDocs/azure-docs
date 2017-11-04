@@ -18,19 +18,19 @@ This quickstart shows you how to programmatically add utterances to your Languag
 
 Using the command line is a quick way to enter many utterances and train LUIS. You can also automate this task into a larger pipeline.
 
-Refer to the [Authoring API definitions][authoring-apis] for technical documentation for the APIs.
+Refer to the [Authoring API definitions][authoring-apis] for technical documentation for the [add utterance](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c08), [train](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c450), [training status](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c46) APIs.
 
 ## Prerequisites
 
-* Latest **Node.js** with NPM. Download it from [here](https://nodejs.org/en/download/).
-* NPM dependencies for this quickstart: **request-promise**, **fs-extra**.  
+* Latest [**Node.js**](https://nodejs.org/en/download/) with NPM.
+* NPM dependencies for this quickstart: [**request**](https://www.npmjs.com/package/request), [**request-promise**](https://www.npmjs.com/package/request-promise), [**fs-extra**](https://www.npmjs.com/package/fs-extra).  
 * **[Recommended]** [Visual Studio Code](https://code.visualstudio.com/) for IntelliSense and debugging.
 * Your LUIS **programmatic key**. You can find this key under Account Settings in [https://www.luis.ai](https://www.luis.ai).
 * Your LUIS [**application ID**](./luis-get-started-create-app.md). The application ID is shown in the application dashboard.
 * The **version ID** within the application that receives the utterances. The default ID is "0.1"
 * Create a new file named `add-utterances.js` project in VSCode.
 
-## Write Code
+## Write the Node.js code
 
 ### Add NPM dependencies
 Add the NPM dependencies to the file.
@@ -87,7 +87,7 @@ Add the code that chooses which action to take (add utterance or train) based on
    [!code-nodejs[Train the application](~/samples-luis/documentation-samples/authoring-api-samples/node/add-utterances.js?range=153-183 "Train the application")]
 
 ## Specify utterances to add
-Create the file `utterances.json`, and edit it to specify the entities you want to add to the LUIS app. The `text` field contains the text of the utterance. The `intentName` field must correspond to the name of an intent in the LUIS app. The `entityLabels` field is required. If you don't want to label any entities, provide an empty list as shown in the following example:
+Create and edit the file `utterances.json` to specify the entities you want to add to the LUIS app. The `text` field contains the text of the utterance. The `intentName` field must correspond to the name of an intent in the LUIS app. The `entityLabels` field is required. If you don't want to label any entities, provide an empty list as shown in the following example:
 
 ```json
 [
@@ -187,21 +187,11 @@ The following shows the result of a successful request to train with new utteran
     }
 }
 ```
-
-#### Getting training status
-After the request to train is queued, it can take a moment for training to complete. To see if training is complete, call the sample with the `-status` argument. This command creates a `training-status-results.json` file containing a response that indicates the training status of each intent and entity in the app. The format of this response is documented [here](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c46).
-
-If you're logged in to [https://www.luis.ai](https://www.luis.ai), you can also view the time your app was most recently trained. 
-
-
-## Verify that the utterance has been added to your intent
-
-If you log into www.luis.ai and look at the intents page of your app, you should be able to see the utterance there. You can also call the [API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0a) for returning a list of utterances in your LUIS app.
-<!-- Add image -->
-
 ## Next steps
 
-* After adding an utterance, you may want to [train](https://docs.microsoft.com/en-us/azure/cognitive-services/LUIS/train-test) your LUIS app.
-* See the [LUIS Endpoint API reference](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78) to learn more about the parameters for calling your LUIS endpoint.
  
+> [!div class="nextstepaction"] 
+> [Integrate LUIS with a bot](luis-nodejs-tutorial-build-bot-framework-sample.md)
+
+
 [authoring-apis]:https://aka.ms/luis-authoring-api
