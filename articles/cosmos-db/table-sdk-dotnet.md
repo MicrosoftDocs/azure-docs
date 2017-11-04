@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 11/15/2017
 ms.author: mimig
 
 ---
@@ -34,6 +34,14 @@ ms.author: mimig
 
 ## Release notes
 
+### <a name="1.0.0"/>1.0.0
+* General Availability Release
+
+### <a name="0.1.0-preview"/>0.1.0-preview
+* Update
+
+### <a name="0.0.1-preview"/>0.0.1-preview
+* Initial preview release
 
 ## Release & Retirement dates
 Microsoft will provide notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version.
@@ -41,7 +49,13 @@ Microsoft will provide notification at least **12 months** in advance of retirin
 New features and functionality and optimizations are only added to the current SDK, as such it is recommended that you always upgrade to the latest SDK version as early as possible. 
 
 Any request to Azure Cosmos DB using a retired SDK will be rejected by the service.
+<br/>
 
+| Version | Release Date | Retirement Date |
+| --- | --- | --- |
+| [1.0.0](#1.0.0) |November 15, 2017|--- |
+| [0.1.0-preview](#0.1.0-preview) |May 10, 2017 |--- |
+| [0.0.1-preview](#0.0.1-preview) |May 09, 2017 |--- |
 ## FAQ
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 

@@ -14,7 +14,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 11/2/2017
+ms.date: 11/15/2017
 ms.author: arramac
 
 ---

@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 11/15/2017
 ms.author: mimig1
 ms.custom: 
 
@@ -37,7 +37,12 @@ ms.custom:
 
 ## Release notes
 ### <a name="0.37.1"/>0.37.1
+* Pre-release SDK
 
+<br/>
+| Version | Release Date | Retirement Date |
+| --- | --- | --- |
+| [0.37.1](#0.37.1) |October 05, 2017 |--- |
 
 ## Release and retirement dates
 Microsoft will provide notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version.
