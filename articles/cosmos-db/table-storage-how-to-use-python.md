@@ -29,7 +29,7 @@ While working through the scenarios in this tutorial, you may want to refer to t
 
 ## Create an Azure Cosmos DB account
 
-[!INCLUDE [cosmos-db-create-dbaccount-table.md](../../includes/cosmos-db-create-dbaccount.md)]
+[!INCLUDE [cosmos-db-create-dbaccount-table.md](../../includes/cosmos-db-create-dbaccount-table.md)]
 
 ## Install the Azure Storage SDK for Python
 
