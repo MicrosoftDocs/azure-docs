@@ -9,7 +9,7 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: quickstart
-ms.date: 06/13/2017
+ms.date: 11/03/2017
 ---
 # Create an Azure Database for PostgreSQL using the Azure CLI
 Azure Database for PostgreSQL is a managed service that enables you to run, manage, and scale highly available PostgreSQL databases in the cloud. The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This quickstart shows you how to create an Azure Database for PostgreSQL server in an [Azure resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) using the Azure CLI.
@@ -18,14 +18,14 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 If you are running the CLI locally, you need to log in to your account using the [az login](/cli/azure/authenticate-azure-cli?view=interactive-log-in) command.
 ```azurecli-interactive
 az login
 ```
 
-If you have multiple subscriptions, choose the appropriate subscription in which the resource will be billed. Select a specific subscription ID under your account using [az account set](/cli/azure/account#set) command.
+If you have multiple subscriptions, choose the appropriate subscription in which the resource should be billed. Select a specific subscription ID under your account using [az account set](/cli/azure/account#set) command.
 ```azurecli-interactive
 az account set --subscription 00000000-0000-0000-0000-000000000000
 ```
