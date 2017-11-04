@@ -33,12 +33,12 @@ Refer to the [Authoring API definitions][authoring-apis] for technical documenta
 ## Add NPM dependencies
 Add the NPM dependencies to the file.
 
-   [!code-nodejs[Add NPM dependencies](~/samples-luis/documentation-samples/authoring-api-samples/node/add-utterance.js?highlight=16-19)]
+   [!code-nodejs[Add NPM dependencies](~/samples-luis/documentation-samples/authoring-api-samples/node/add-utterance.js)]
 
 ## Add constants 
 Add the LUIS constants to the file. Copy the code below and change to your programmatic key, application ID, and version ID.
 
-   [!code-nodejs[Add NPM dependencies](~/samples-luis/documentation-samples/authoring-api-samples/node/add-utterance.js?highlight=21-29)]
+   [!code-nodejs[Add NPM dependencies](~/samples-luis/documentation-samples/authoring-api-samples/node/add-utterance.js)]
 
 ## Add upload file
 Add the name and location of the upload file containing your utterances. 
@@ -46,33 +46,33 @@ Add the name and location of the upload file containing your utterances.
 ## Add command line variables
 Add the variables that will hold the command line values.
 
-   [!code-nodejs[Add NPM dependencies](~/samples-luis/documentation-samples/authoring-api-samples/node/add-utterance.js?highlight=35-37)]
+   [!code-nodejs[Add NPM dependencies](~/samples-luis/documentation-samples/authoring-api-samples/node/add-utterance.js)]
 
 ## Add configuration information for adding utterance
 Add the configuration JSON object used by the `addUtterance` function.
 
-   [!code-nodejs[Add NPM dependencies](~/samples-luis/documentation-samples/authoring-api-samples/node/add-utterance.js?highlight=51-59)]
+   [!code-nodejs[Add NPM dependencies](~/samples-luis/documentation-samples/authoring-api-samples/node/add-utterance.js)]
 
 
 ## Add an utterance
 Add the function `addUtterance` which manages the API request and response used by `SendUtteranceToApp`.
 
-   [!code-nodejs[Add NPM dependencies](~/samples-luis/documentation-samples/authoring-api-samples/node/add-utterance.js?highlight=61-92)]
+   [!code-nodejs[Add NPM dependencies](~/samples-luis/documentation-samples/authoring-api-samples/node/add-utterance.js)]
 
 ## Add configuration information for training LUIS
 Add the configuration JSON object used by the `train` function.
 
-   [!code-nodejs[Add NPM dependencies](~/samples-luis/documentation-samples/authoring-api-samples/node/add-utterance.js?highlight=93-101)]
+   [!code-nodejs[Add NPM dependencies](~/samples-luis/documentation-samples/authoring-api-samples/node/add-utterance.js)]
 
 ## Train the application
 Add the function `train` which starts the training process. 
 
-   [!code-nodejs[Add NPM dependencies](~/samples-luis/documentation-samples/authoring-api-samples/node/add-utterance.js?highlight=102-133)]
+   [!code-nodejs[Add NPM dependencies](~/samples-luis/documentation-samples/authoring-api-samples/node/add-utterance.js)]
 
 ## Send the HTTP Request
 Add the function `sendUtteranceToApi` which sends and receives HTTP calls. 
 
-   [!code-nodejs[Add NPM dependencies](~/samples-luis/documentation-samples/authoring-api-samples/node/add-utterance.js?highlight=135-152)]
+   [!code-nodejs[Add NPM dependencies](~/samples-luis/documentation-samples/authoring-api-samples/node/add-utterance.js)]
 
 
 ````JavaScript
