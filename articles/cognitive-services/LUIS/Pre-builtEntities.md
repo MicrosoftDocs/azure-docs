@@ -8,7 +8,7 @@ manager: hsalama
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 07/11/2017
+ms.date: 11/04/2017
 ms.author: cahann
 ---
 
@@ -88,9 +88,9 @@ The following example shows what the JSON response from LUIS might look like if 
       "resolution": {
         "values": [
           {
-            "timex": "2017-11-02",
+            "timex": "2017-11-01",
             "type": "date",
-            "value": "2017-11-02"
+            "value": "2017-11-01"
           }
         ]
       }
