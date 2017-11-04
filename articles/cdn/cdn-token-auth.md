@@ -79,15 +79,15 @@ The following flowchart describes how Azure CDN validates client request when to
 	
 	   - ec_url_allow: Allows you to tailor tokens to a particular asset or path. It restricts access to requests whose URL start with a specific relative path. URLs are case-sensitive. Input multiple paths by separating each path with a comma. Depending on your requirements, you can set up different values to provide different level of access. 
 		
-	      For example, for the URL `http://www.mydomain.com/pictures/city/strasbourg.png`, set the input value and its access level as follows:
+	     For example, for the URL `http://www.mydomain.com/pictures/city/strasbourg.png`, these requests are allowed for the following input values:
 
-		   - Input value `"/"`: All requests are allowed
-		   - Input value `"/pictures`. The following requests are allowed:
-		      - `http://www.mydomain.com/pictures.png`
-			  - `http://www.mydomain.com/pictures/city/strasbourg.png`
-			  - `http://www.mydomain.com/picturesnew/city/strasbourgh.png`
-			- Input value `/pictures/`: Only requests for `/pictures/` are allowed. For example, `http://www.mydomain.com/pictures/city/strasbourg.png`.
-			- Input value `/pictures/city/strasbourg.png`: Only requests for this specific asset are allowed.
+		 - Input value `"/"`: All requests are allowed.
+		 - Input value `"/pictures`, the following requests are allowed:
+		    - `http://www.mydomain.com/pictures.png`
+			- `http://www.mydomain.com/pictures/city/strasbourg.png`
+			- `http://www.mydomain.com/picturesnew/city/strasbourgh.png`
+		 - Input value `/pictures/`: Only requests containing the `/pictures/` path are allowed. For example, `http://www.mydomain.com/pictures/city/strasbourg.png`.
+		 - Input value `/pictures/city/strasbourg.png`: Only requests for this specific path and asset are allowed.
 	
 	   - ec_country_allow: Only allows requests that originate from one or more specified countries. Requests that originate from all other countries are denied. Use country codes and separate each one with a comma. For example, if you want to allow access from only the United States and France, input US, FR in the box as follows.  
 		
@@ -99,7 +99,7 @@ The following flowchart describes how Azure CDN validates client request when to
 		   - A hostname or a hostname and a path.
 		   - Multiple referrers. To add multiple referrers, separate each referrer with a comma. If you specify a referrer value, but the referrer information is not sent in the request due to the browser configuration, those requests are denied by default. 
 		   - Requests with missing referrer information. To allow these types of requests, enter the text "missing" or enter a blank value. 
-		   - Subdomains. To allow subdomains, enter an asterisk (\*). For example, to allow all subdomains of `consoto.com`, enter `\*.consoto.com`. 
+		   - Subdomains. To allow subdomains, enter an asterisk (\*). For example, to allow all subdomains of `consoto.com`, enter `*.consoto.com`. 
 		   
           The following example shows the input to allow access for requests from `www.consoto.com`, all subdomains under `consoto2.com`, and requests with blank or missing referrers.
 		
@@ -123,8 +123,8 @@ The following flowchart describes how Azure CDN validates client request when to
 
 3. Under **HTTP Large**, click **Rules Engine**. You use the rules engine to define paths to apply the feature, enable the token authentication feature, and enable additional token authentication-related capabilities. For more information, see [Rules engine reference](cdn-rules-engine-reference.md).
 
-	1. Use the **IF** column to define the asset or path for which you want to apply token authentication. 
-	2. To enable token authentication, select **[Token Auth](cdn-rules-engine-reference-features.md#token-auth)** from the **Features** drop-down list, then select **Enabled**. 
+	1. Select an existing rule or create a new rule to define the asset or path for which you want to apply token authentication. 
+	2. To enable token authentication on a rule, select **[Token Auth](cdn-rules-engine-reference-features.md#token-auth)** from the **Features** drop-down list, then select **Enabled**. Click **Update** if you are updating a rule or **Add** if you are creating a rule.
 		
 	![CDN rules engine token authentication enable example](./media/cdn-token-auth/cdn-rules-engine-enable2.png)
 
