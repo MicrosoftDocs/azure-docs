@@ -95,6 +95,6 @@ Behind the scenes, changing the performance level of a server creates a copy of 
 
 The duration of the entire scale process depends on both the size and pricing tier of the server before and after the change. For example, a server that is changing Compute Units within the Standard pricing tier, should complete within few minutes. The new properties for the server are not applied until the changes are complete.
 
-## Next Steps
+## Next steps
 - For more on Compute Units, see [Explaining Compute Units](concepts-compute-unit-and-storage.md)
 - Learn how to [Monitor and scale an Azure Database for MySQL server using Azure CLI](scripts/sample-scale-server.md)
