@@ -66,8 +66,8 @@ Now that you've verified that the expected data exists, you can use Power BI to 
 ### Create a report in Power BI Desktop
 The first steps in working with Spark are to connect to the cluster in Power BI Desktop, load data from the cluster, and create a basic visualization based on that data.
 
-    > [!NOTE]
-    > The connector demonstrated in this article is currently in preview, but we encourage you to use it and provide any feedback you have through the [Power BI Community](https://community.powerbi.com/) site or [Power BI Ideas](https://ideas.powerbi.com/forums/265200-power-bi-ideas).
+> [!NOTE]
+> The connector demonstrated in this article is currently in preview, but we encourage you to use it and provide any feedback you have through the [Power BI Community](https://community.powerbi.com/) site or [Power BI Ideas](https://ideas.powerbi.com/forums/265200-power-bi-ideas).
 
 1. In Power BI Desktop, on the **Home** tab, click **Get Data**, then **More**.
 
@@ -113,7 +113,7 @@ The first steps in working with Spark are to connect to the cluster in Power BI 
 ### Publish the report to the Power BI Service (optional)
 You now have a fully functional report in Power BI Desktop, and you can stop there, but many people want to take advantage of the Power BI service, which makes it easy to share reports and dashboards across your organization. 
 
-In this section, you publish the dataset and report that is contained in the Power BI Desktop file you created. You then pin the visualization from the report to a dashboard. Dashboards are typically used to focus on a subset of data in a report; you only have one visualization, but it's still useful to go through the steps.
+In this section, you publish the dataset and report that is contained in the Power BI Desktop file you created. You then pin the visualization from the report to a dashboard. Dashboards are typically used to focus on a subset of data in a report; you only have one visualization in your report, but it's still useful to go through the steps.
 
 1. In Power BI Desktop, on the **Home** tab, click **Publish**.
 
