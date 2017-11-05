@@ -23,7 +23,7 @@ The supported data sources for this release are as follows.
 ### Directory vs. file
 Choose a single file and read it into data preparation. The file type is parsed to determine the default parameters for the file connection shown on the next screen.
 
- Choose a directory or a set of files within a directory (the file picker is multiselect). With either approach, the files are read in as a single data flow and are appended to each other, with headers stripped out if needed.
+Choose a directory or a set of files within a directory (the file picker is multiselect). With either approach, the files are read in as a single data flow and are appended to each other, with headers stripped out if needed.
 
 The supported file types are:
 - Delimited (.csv, .tsv, .txt, etc.)
@@ -68,10 +68,12 @@ Read a JSON file from storage. The file is "flattened" on read.
 ### Parquet
 Read a Parquet data set, either a single file or a folder.
 
-Parquet as a format can take various forms in storage. For smaller data sets, a single .parquet file is sometimes used. Various Python libraries support reading or writing to single .parquet files. For the moment, Azure Machine Learning data preparation relies on the PyArrow Python library for reading Parquet during local interactive use. It supports single .parquet files (as long as they were written as such, and not as part of a larger data set), as well as Parquet data sets. A Parquet data set is a collection of more than one .parquet file, each of which represents a smaller partition of a larger data set. Data sets are usually contained in a folder and are the default parquet output format for platforms such as Spark and Hive.
+Parquet as a format can take various forms in storage. For smaller data sets, a single .parquet file is sometimes used. Various Python libraries support reading or writing to single .parquet files. For the moment, Azure Machine Learning data preparation relies on the PyArrow Python library for reading Parquet during local interactive use. It supports single .parquet files (as long as they were written as such, and not as part of a larger data set), as well as Parquet data sets.
+
+A Parquet data set is a collection of more than one .parquet file, each of which represents a smaller partition of a larger data set. Data sets are usually contained in a folder and are the default parquet output format for platforms such as Spark and Hive.
 
 >[!NOTE]
->When reading Parquet data that's in a folder with multiple .parquet files, it's safest to select the directory for reading, and the "Parquet data set" option. This makes PyArrow read the whole folder instead of the individual files. This ensures support for reading more complicated ways of storing Parquet on disk, such as folder partitioning.
+>When you're reading Parquet data that's in a folder with multiple .parquet files, it's safest to select the directory for reading, and the **Parquet data set** option. This makes PyArrow read the whole folder instead of the individual files. This ensures support for reading more complicated ways of storing Parquet on disk, such as folder partitioning.
 
 Scale-out execution relies on Spark's Parquet reading capabilities and supports single files as well as folders, similar to local interactive use.
 
@@ -83,6 +85,6 @@ Scale-out execution relies on Spark's Parquet reading capabilities and supports 
 ### Local
 A local hard drive or a mapped network storage location.
 
-### Azure BLOB
-Azure Storage (BLOB), which requires an Azure subscription.
+### Azure Blob Storage
+Azure Blob Storage, which requires an Azure subscription.
 
