@@ -3,7 +3,7 @@ title: Replicate VMware VMs or physical servers to another site (classic Azure p
 description: Use this article to replicate VMware VMs or Windows/Linux physical servers to a secondary site with Azure Site Recovery.
 services: site-recovery
 documentationcenter: ''
-author: nsoneji
+author: rayne-wiselman
 manager: jwhit
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2017
-ms.author: nisoneji
+ms.date: 11/05/2017
+ms.author: raynew
 
 ---
 # Replicate on-premises VMware virtual machines or physical servers to a secondary site in the classic Azure portal

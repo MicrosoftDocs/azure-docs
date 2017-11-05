@@ -3,7 +3,7 @@ title: Prerequisites for replication to Azure by using Azure Site Recovery | Mic
 description: Learn about the prerequisites for replicating VMs and physical machines to Azure by using the Azure Site Recovery service.
 services: site-recovery
 documentationcenter: ''
-author: rajani-janaki-ram
+author: rayne-wiselman
 manager: jwhit
 editor: tysonn
 
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/19/2017
+ms.date: 11/05/2017
 ms.author: raynew
 ---
 
