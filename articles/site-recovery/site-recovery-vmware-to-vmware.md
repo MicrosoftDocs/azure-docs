@@ -107,12 +107,12 @@ Fixes that are added from Site Recovery Scout update4 to update5 are specific to
 
 > [!NOTE]
 > 
-> * Above P2V cluster fixes are applicable to only those physical MSCS cluster that are  freshly protected with Site Recovery Scout update5. To avail the cluster fixes on the already protected P2V MSCS cluster with older updates, you need to follow the upgrade steps that are mentioned in the section 12, Upgrade protected P2V MSCS cluster to Scout Update 5 of the [release notes](https://aka.ms/asr-scout-release-notes).
+> * Above P2V cluster fixes are applicable to only those physical MSCS clusters that are  freshly protected with Site Recovery Scout update5. To avail the cluster fixes on the already protected P2V MSCS cluster with older updates, you need to follow the upgrade steps that are mentioned in the section 12, Upgrade protected P2V MSCS clusters to Scout Update 5 of the [release notes](https://aka.ms/asr-scout-release-notes).
 > 
 > * Re-protect of physical MSCS cluster can reuse existing target disks only if
 at the time of re-protection, the same set of disks are active on each of the cluster nodes as they were when initially protected. If not, then there are manual steps as mentioned in section 12 of the [release notes](https://aka.ms/asr-scout-release-notes) to  move the target side disks to the correct datastore path to re-use them during re-protection. If you reprotect the MSCS cluster in P2V mode without following upgrade steps then it will create new disk on the target ESXi server. You need to manually delete the old disks from  the datastore.
 > 
-> * Whenever source SLES11 or SLES11 with any service pack server is rebooted gracefully, then one should manually mark the **root** disk replication pairs for re-sync as it will not be notified in CX UI. If you dont' mark the root disk for resync, you may see data integrity (DI) issues.
+> * Whenever source SLES11 or SLES11 with any service pack server is rebooted gracefully, then one should manually mark the **root** disk replication pairs for re-sync as it will not be notified in CX UI. If you don't mark the root disk for resync, you may see data integrity (DI) issues.
 > 
 
 ### Azure Site Recovery Scout 8.0.1 Update 4
@@ -122,7 +122,7 @@ Scout Update 4 is a cumulative update. It has all the fixes of update1 till upda
 
 * Support has been added for vCenter/vSphere 6.0, 6.1 and 6.2
 * Support has been added for following Linux operating systems
-  * Red Hat Enterprise Linux (RHEL)7.0, 7.1 and 7.2
+  * Red Hat Enterprise Linux (RHEL) 7.0, 7.1 and 7.2
   * CentOS 7.0, 7.1 and 7.2
   * Red Hat Enterprise Linux (RHEL) 6.8
   * CentOS 6.8
@@ -143,7 +143,7 @@ Scout Update 4 is a cumulative update. It has all the fixes of update1 till upda
 * VMware vCLI 6.0 download link is added to Windows Master Target base installer.
 * Added more checks and logs for network configurations changes during failover and DR drills.
 * Sometime retention information is not reported to the CX.  
-* For physical cluster, volume Re-size operation through vContinuum wizard is failing when source volume shrink happened.
+* For physical cluster, volume Re-size operation through vContinuum wizard fails when the source volume shrink occurs.
 * Cluster protection failed with error "Failed to find the disk signature" when cluster disk is PRDM disk.
 * cxps transport server crash because of out-of-range exception.
 * Server name and IP columns are now resizable in push install page of vContinuum wizard.
@@ -163,7 +163,7 @@ Scout Update 4 is a cumulative update. It has all the fixes of update1 till upda
 Update 3 includes the following bug fixes and enhancements:
 
 * The configuration server and RX fail to register to the Site Recovery vault when they're behind the proxy.
-* The number of hours that the recovery point objective (RPO) is not met is not getting updated in the health report.
+* The number of hours that the recovery point objective (RPO) hasn't been met isn't updated in the health report.
 * The configuration server is not syncing with RX when the ESX hardware details or network details contain any UTF-8 characters.
 * Windows Server 2008 R2 domain controllers fail to boot after recovery.
 * Offline sync is not working as expected.
