@@ -32,10 +32,10 @@ The simulated device that you create in this tutorial is a monitor on a wind tur
 This tutorial assumes that you're using a computer or virtual machine to simulate an Internet of Things device. The following services are required to successfully deploy an IoT Edge device:
 
 - Docker
-   - [Install Docker on Windows][lnk-docker-windows]
-   - [Install Docker on Linux][lnk-docker-ubuntu]
+   - [Install Docker on Windows][lnk-docker-windows] and make sure it's running.
+   - [Install Docker on Linux][lnk-docker-ubuntu] and make sure it's running. 
 - Python 2.7
-   - [Install Python 2.7 on Windows][lnk-python-windows]
+   - [Install Python 2.7 on Windows][lnk-python-windows].
    - Most Linux distributions, including Ubuntu, already have Python 2.7 installed. Use the following command to make sure that pip is installed: `sudo apt-get install python-pip`.
 
 ## Create an IoT hub
@@ -55,7 +55,7 @@ Create a device identity for your simulated device so that it can communicate wi
 1. Select your new device from the list of devices. 
 1. Copy the value for **Connection string--primary key** and save it. You'll use this value to configure the IoT Edge runtime in the next section. 
 
-## Start the IoT Edge runtime
+## Install and start the IoT Edge runtime
 
 The IoT Edge runtime is deployed on all IoT Edge devices. It comprises two modules. First, the IoT Edge agent facilitates deployment and monitoring of modules on the IoT Edge device. Second, the IoT Edge hub manages communications between modules on the IoT Edge device, and between the device and IoT Hub. 
 
@@ -106,7 +106,7 @@ Use the following steps to install and start the IoT Edge runtime:
    iotedgectl start
    ```
 
-1. Check Docker to see that both the IoT Edge agent and the IoT Edge hub are running as modules.
+1. Check Docker to see that the IoT Edge agent is running as a module.
 
    ```
    docker ps
@@ -121,18 +121,20 @@ One of the key capabilities of Azure IoT Edge is being able to deploy modules to
 1. Select **Deploy modules**.
 1. Select **Add custom IoT Edge module**.
 1. In the **Name** field, enter `tempSensor`. 
-1. In the **Image** field, enter `edgepreview.azurecr.io/azureiotedge/simulated-temperature-sensor:latest`. 
+1. In the **Image** field, enter `edgepreview.azurecr.io/azureiotedge/simulated-temperature-sensor:1.0-preview`. 
 1. Leave the other settings unchanged, and select **Save**.
 1. Back in the **Add modules** step, select **Next**.
 1. In the **Specify routes** step, select **Next**.
-1. In the **Review deployment** step, select **Submit**.
+1. In the **Review template** step, select **Submit**.
 1. Return to the device details page and select **Refresh**. You should see the new tempSensor module running along the IoT Edge runtime. 
 
    ![View tempSensor in list of deployed modules][1]
 
 ## View generated data
 
-You can use the hub explorer to view telemetry from your new IoT Edge device and monitor its status. 
+You can monitor your new IoT Edge device's status by clicking on it in IoT Edge Explorer page of your IoT hub. 
+
+You can view the telemetry the device is sending by using the [IoT Hub explorer tool][lnk-iothub-explorer].
 
 ## Next steps
 
@@ -155,3 +157,4 @@ This tutorial is the prerequisite for all of the other IoT Edge tutorials. You c
 [lnk-dotnet-windows]: https://docs.microsoft.com/dotnet/core/windows-prerequisites?tabs=netcore2x
 [lnk-dotnet-ubuntu]: https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x
 [lnk-python-windows]: https://www.python.org/downloads/
+[lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
