@@ -25,11 +25,11 @@ This article explains the levels of support offered for languages that you can u
 There are three levels of support:
 
 * **Generally available (GA)** - Fully supported and approved for production use.
-* **Preview** - Not yet supported but will reach GA status in the future.
+* **Preview** - Not yet supported but is expected to reach GA status in the future.
 * **Experimental** - Not supported and might be abandoned in the future; no guarantee of eventual preview or GA status.
 
->[!NOTE] 
-> Don't use experimental languages for anything that you rely on, as there is no official support for them.  You can request help by [creating GitHub issues](https://github.com/Azure/azure-webjobs-sdk-script/issues), but support cases should not be opened for problems with experimental languages. 
+  >[!NOTE] 
+  > Don't use experimental languages for anything that you rely on, as there is no official support for them.  You can request help by [creating GitHub issues](https://github.com/Azure/azure-webjobs-sdk-script/issues), but support cases should not be opened for problems with experimental languages. 
 
 ## Functions v1 runtime
 
@@ -70,11 +70,11 @@ F# will be added to this list later.
 
 ### Experimental languages
  
-No experimental languages are supported in v2. Support is added only for languages that can scale and support advanced triggers.
+No experimental languages are supported in v2. Support will be added only for languages that can scale and support advanced triggers.
 
 There are plans to add Python. In v2, Python will have the same architecture as JavaScript.
 
-If you want to use an experimental language, you can continue using v1, but be aware of the warning mentioned [earlier](#levels-of-support).
+If you want to use one of the experimental languages, you can continue using the v1 runtime, but be aware of the warning mentioned [earlier](#levels-of-support).
 
 ## Next steps
 
