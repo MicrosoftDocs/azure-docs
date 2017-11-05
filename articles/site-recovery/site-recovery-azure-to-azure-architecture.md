@@ -3,8 +3,8 @@ title: How does Azure virtual machine replication between Azure regions work in 
 description: This article provides an overview of components and architecture used when replicating Azure VMs between Azure regions by using the Azure Site Recovery service.
 services: site-recovery
 documentationcenter: ''
-author: sujayt
-manager: rochakm
+author: rayne-wiselman
+manager: carmonm
 editor: ''
 
 ms.assetid:
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 08/31/2017
-ms.author: sujayt
+ms.date: 11/05/2017
+ms.author: raynew
 
 ---
 

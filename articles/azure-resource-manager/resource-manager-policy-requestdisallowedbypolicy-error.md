@@ -61,4 +61,4 @@ To resolve this problem, work with your IT department to review the resource pol
 For more information, see the following articles:
 
 - [Resource policy overview](resource-manager-policy.md)
-- [View policy assignments through portal](resource-manager-policy-portal.md#view-policy-assignments)
+- [View policy assignments through portal](resource-manager-policy-portal.md)
