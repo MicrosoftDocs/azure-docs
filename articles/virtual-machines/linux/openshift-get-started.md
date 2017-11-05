@@ -39,28 +39,28 @@ Of the four versions covered in this article, two are available for customers to
 
 ## OpenShift Origin
 
-Origin is an [open source](https://www.openshift.org/) upstream project of OpenShift that's community supported. Origin can be installed on CentOS or Red Hat Enterprise Linux (RHEL).
+Origin is an [open-source](https://www.openshift.org/) upstream project of OpenShift that's community supported. Origin can be installed on CentOS or Red Hat Enterprise Linux (RHEL).
 
 ## OpenShift Container Platform
 
-Container Platform is an enterprise-ready ([commercial version](https://www.openshift.com)) from and supported by Red Hat. With this version, customers purchase the necessary entitlements for OpenShift Container Platform and are responsible for installation and management of the entire infrastructure.
+Container Platform is an enterprise-ready [commercial version](https://www.openshift.com) from and supported by Red Hat. With this version, customers purchase the necessary entitlements for OpenShift Container Platform and are responsible for installation and management of the entire infrastructure.
 
-Since customers "own" the entire platform, they can install it in their on-premises datacenter or in a public cloud (Azure, AWS, Google, etc.).
+Since customers "own" the entire platform, they can install it in their on-premises datacenter, or in a public cloud (Azure, AWS, Google, etc.).
 
 ## OpenShift Online
 
-Online is a Red Hat-managed **multi-tenant** OpenShift (using Container Platform). Red Hat manages all of the underlying infrastructure (VMs, OpenShift cluster, networking, storage, etc.). 
+Online is a Red Hat-managed **multi-tenant** OpenShift that uses Container Platform. Red Hat manages all of the underlying infrastructure (VMs, OpenShift cluster, networking, storage, etc.). 
 
 With this version, the customer deploys containers but has no control over which hosts the containers run. Since Online is multi-tenant, containers may be located on the same VM hosts as containers from other customers. Cost is per container.
 
 ## OpenShift Dedicated
 
-Dedicated is a Red Hat-managed **single-tenant** OpenShift (using Container Platform). Red Hat manages all of the underlying infrastructure (VMs, OpenShift cluster, networking, storage, etc.). The cluster is specific to one customer and runs in a public cloud (AWS, Google, Azure - coming in early 2018). A starting cluster includes four application nodes for $48,000 per year (paid up front).
+Dedicated is a Red Hat-managed **single-tenant** OpenShift that uses Container Platform. Red Hat manages all of the underlying infrastructure (VMs, OpenShift cluster, networking, storage, etc.). The cluster is specific to one customer and runs in a public cloud (AWS, Google, Azure coming in early 2018). A starting cluster includes four application nodes for $48,000 per year (paid up front).
 
 ## Next steps
 
 - [Configure common prerequisites for OpenShift in Azure](./openshift-prerequisites.md)
-- [Deploy OpenShift Origin](./openshift-origin.md)
-- [Deploy OpenShift Container Platform](./openshift-container-platform.md)
+- [Deploy OpenShift Origin in Azure](./openshift-origin.md)
+- [Deploy OpenShift Container Platform in Azure](./openshift-container-platform.md)
 - [Post-deployment tasks](./openshift-post-deployment.md)
 - [Troubleshoot OpenShift deployment](./openshift-troubleshooting.md)
