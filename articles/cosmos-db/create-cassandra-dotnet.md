@@ -34,23 +34,25 @@ If you don't already have Visual Studio 2017 installed, you can download and use
 <a id="create-account"></a>
 ## Create a database account
 
-[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
+[!INCLUDE [cosmos-db-create-dbaccount-cassandra](../../includes/cosmos-db-create-dbaccount-cassandra.md)]
 
 <a id="create-collection"></a>
 ## Add a collection
 
-[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
+[!INCLUDE [cosmos-db-create-cassandra](../../includes/cosmos-db-create-cassandra.md)]
 
 <a id="add-sample-data"></a>
 ## Add sample data
 
-You can now add data to your new collection using Data Explorer.
+You can now add data to your new table using Data Explorer.
 
-1. In Data Explorer, the new database appears in the Collections pane. Expand the **Tasks** database, expand the **Items** collection, click **Documents**, and then click **New Documents**. 
+1. In Data Explorer, the new table appears in the Cassandra Tables pane. Expand the **Profiles** database, expand the **Users** table, click **Rows**, and then click **Add new clause**. 
 
-   ![Create new documents in Data Explorer in the Azure portal](./media/create-documentdb-dotnet/azure-cosmosdb-data-explorer-new-document.png)
+    TODO - Update below with new steps
+
+   ![Create new clauses in Data Explorer in the Azure portal](./media/create-cassandra-dotnet/azure-cosmosdb-data-explorer-new-document.png)
   
-2. Now add a document to the collection with the following structure.
+2. Now add a clause to the table with the following structure.
 
      ```json
      {
@@ -64,7 +66,7 @@ You can now add data to your new collection using Data Explorer.
 
 3. Once you've added the json to the **Documents** tab, click **Save**.
 
-    ![Copy in json data and click Save in Data Explorer in the Azure portal](./media/create-documentdb-dotnet/azure-cosmosdb-data-explorer-save-document.png)
+    ![Copy in json data and click Save in Data Explorer in the Azure portal](./media/create-cassandra-dotnet/azure-cosmosdb-data-explorer-save-document.png)
 
 4.  Create and save one more document where you insert a unique value for the `id` property, and change the other properties as you see fit. Your new documents can have any structure you want as Azure Cosmos DB doesn't impose any schema on your data.
 
@@ -140,7 +142,7 @@ Now go back to the Azure portal to get your connection string information and co
 
 5. Click **Create New** in the browser and create a few new tasks in your to-do app.
 
-   ![Todo app with sample data](./media/create-documentdb-dotnet/azure-comosdb-todo-app-list.png)
+   ![Todo app with sample data](./media/create-cassandra-dotnet/azure-comosdb-todo-app-list.png)
 
 You can now go back to Data Explorer and see query, modify, and work with this new data. 
 
