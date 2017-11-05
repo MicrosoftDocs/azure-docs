@@ -22,16 +22,16 @@ This article describes quotas and limitations associated with Microsoft Azure Me
 
 [!INCLUDE [azure-mediaservices-limits](../../includes/azure-mediaservices-limits.md)]
 
-## Opening a Support Ticket to request changes to the default quotas
+## Open a Support Ticket to request changes to the default quotas
 To request changes to the default quotas provided, you can open a support ticket. Please include detailed information in the request on the desired quota changes, use-case scenarios, and regions required.
 
 ### How to open a support ticket
-To open a support ticket do the following:
+To open a support ticket, do the following:
 
 1. Click [Get Support](https://manage.windowsazure.com/?getsupport=true). If you are not logged in, you will be prompted to enter your credentials.
 2. Select your subscription.
-3. Under support type, select "Technical".
-4. Click on "Create Ticket".
+3. Under support type, select "Technical."
+4. Click on "Create Ticket."
 5. Select "Azure Media Services" in the product list presented on the next page.
 6. Select a "Problem type" that is appropriate for your issue.
 7. Click Continue.
