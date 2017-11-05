@@ -18,7 +18,7 @@ ms.author: apimpm
 
 ---
 # What is an API Management operation
- Each API Manement (APIM) API represents a set of operations available to developers. Each APIM API contains a reference to the backend service that implements the API, and its operations map to the operations implemented by the backend service. Before an API in APIM can be used, operations must be added. If you import an existing API, all its operations are added (as shown in [Import and publish your first API](import-and-publish.md). You later can make updates to the operations, as shown in [Protect your API with rate limits](transform-apis.md).
+ Each API Manement (APIM) API represents a set of operations available to developers. Each APIM API contains a reference to the backend service that implements the API, and its operations map to the operations implemented by the backend service. Before an API in APIM can be used, operations must be added. If you import an existing API, all its operations are added (as shown in [Import and publish your first API](import-and-publish.md). You later can make updates to the operations, as shown in [Protect your API with rate limits](transform-api.md).
 
 You can also add operations manually, as shown in [Test an APIM instance with mocked API responses](mock-api-responses.md).
 
