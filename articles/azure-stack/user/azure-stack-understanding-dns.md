@@ -31,7 +31,7 @@ It’s something that’s always been there in Azure, but it's available in Wind
 
 ## What does iDNS do?
 With iDNS in Azure Stack, you get the following capabilities, without
-having to specify custom DNS server entries.
+having to specify custom DNS server entries:
 
 * Shared DNS name resolution services for tenant workloads.
 * Authoritative DNS service for name resolution and DNS registration within the tenant virtual network.
@@ -61,7 +61,7 @@ prefix and the suffix together compose a Fully Qualified Domain Name
 (FQDN) that can be resolved from anywhere on the public Internet.
 
 Azure Stack only supports iDNS for internal name
-registration, so it cannot do the following.
+registration, so it cannot do the following:
 
 * Create a DNS record under an existing hosted DNS zone (for example,
   local.azurestack.external).
