@@ -94,7 +94,7 @@ This transform removes leading and trailing "whitespace" characters (including s
 This transform sets the number of decimal places for a numeric column.
 
 ## Rename Column
-This transform changes the name of the selected column. It can also be invoked inline in the column header by clicking the name of the column.
+This transform changes the name of the selected column. You can also invoke it inline in the column header by clicking the name of the column.
 
 ## Remove Column
 This transform removes the selected columns, and it works on a single column or many. 
@@ -175,24 +175,24 @@ This transform writes out the data in Parquet form from the current point in the
 The following transforms use script (Python) to perform functionality that's missing in the core product. 
 
 >[!NOTE]
->Before using any of these transforms, read [Using Python extensibility](data-prep-python-extensibility-overview.md).
+>Before you use any of these transforms, read [Using Python extensibility](data-prep-python-extensibility-overview.md).
 
-### Add Column (Script)
+### Add Column (script)
 This transform adds a column to the data using a Python expression.
 For more information, see [Sample Python code for deriving new columns](data-prep-appendix10-sample-custom-column-transforms-python.md).
 
-### Advanced Filter (Script)
+### Advanced Filter (script)
 Use this transform to write a Python row level filter.
 For more information, see [Example filter expressions](data-prep-appendix6-sample-filter-expressions-python.md).
 
-### Transform Dataflow (Script)
+### Transform Dataflow (script)
 This transform applies Python to the entire data set.
 For more information, see [Example transform data flow transformations](data-prep-appendix7-sample-transform-data-flow-python.md).
 
 This transform also can apply Python to an entire data partition.
 For more information, see [Example transform data flow transformations](data-prep-appendix7-sample-transform-data-flow-python.md).
 
-### Write Dataflow (Script)
+### Write Dataflow (script)
 This transform uses Python to write out an entire data set.
 For more information, see [Sample Python for deriving new columns](data-prep-appendix9-sample-destination-connections-python.md).
 
