@@ -32,12 +32,10 @@ In this topic, you learn how to use the Visual Studio 2017 tools for Azure Funct
 
 To complete this tutorial, install:
 
-* [Visual Studio 2017 version 15.3](https://www.visualstudio.com/vs/preview/) or a later version, including the **Azure development** workload.
+* [Visual Studio 2017 version 15.4](https://www.visualstudio.com/vs/) or a later version, including the **Azure development** workload.
 
     ![Install Visual Studio 2017 with the Azure development workload](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
     
-[!INCLUDE [Create a project using the Azure Functions](../../includes/functions-vstools-install-note.md)] 
-
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 
 ## Create an Azure Functions project in Visual Studio
@@ -48,9 +46,9 @@ Now that you have created the project, you can create your first function.
 
 ## Create the function
 
-1. In **Solution Explorer**, right-click on your project node and select **Add** > **New Item**. Select **Azure Function** and click **Add**.
+1. In **Solution Explorer**, right-click on your project node and select **Add** > **New Item**. Select **Azure Function**, enter `HttpTriggerCSharp.cs` for **Name**, and click **Add**.
 
-2. Select **HttpTrigger**, type a **Function Name**, select **Anonymous** for **Access Rights**, and click **Create**. The function created is accessed by an HTTP request from any client. 
+2. Select **HttpTrigger**, select **Anonymous** for **Access rights**, and click **OK**. The function created is accessed by an HTTP request from any client. 
 
     ![Create a new Azure Function](./media/functions-create-your-first-function-visual-studio/functions-vstools-add-new-function-2.png)
 

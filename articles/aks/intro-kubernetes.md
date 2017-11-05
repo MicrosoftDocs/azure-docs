@@ -46,13 +46,13 @@ Kubernetes automates deployment, scaling, and management of containerized applic
 
 ## Videos
 
-Kubernetes Support in Azure Container Services (Azure Friday, January 2017):
+Azure Container Service (AKS) - Azure Friday, October 2017:
 
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Kubernetes-Support-in-Azure-Container-Services/player]
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Container-Orchestration-Simplified-with-Managed-Kubernetes-in-Azure-Container-Service-AKS/player]
 >
 >
 
-Tools for Developing and Deploying Applications on Kubernetes (Azure OpenDev, June 2017):
+Tools for Developing and Deploying Applications on Kubernetes - Azure OpenDev, June 2017:
 
 > [!VIDEO https://channel9.msdn.com/Events/AzureOpenDev/June2017/Tools-for-Developing-and-Deploying-Applications-on-Kubernetes/player]
 >
