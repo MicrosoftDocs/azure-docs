@@ -20,10 +20,11 @@ ms.author: haroldw
 
 # Deploy OpenShift Container Platform in Azure
 
-There are multiple ways to deploy OpenShift Container Platform in Azure. You can manually deploy the necessary Azure infrastructure components and then follow the OpenShift Container Platform [documentation](https://docs.openshift.com/container-platform/3.6/welcome/index.html).
-You can also use an existing [Resource Manager template](https://github.com/Microsoft/openshift-container-platform/) that simplifies the deployment of the OpenShift Container Platform cluster.
+You can use one of several methods to deploy OpenShift Container Platform in Azure:
 
-Another option is to use the [Azure Marketplace offer](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.openshift-container-platform?tab=Overview).
+- You can manually deploy the necessary Azure infrastructure components and then follow the OpenShift Container Platform [documentation](https://docs.openshift.com/container-platform/3.6/welcome/index.html).
+- You can also use an existing [Resource Manager template](https://github.com/Microsoft/openshift-container-platform/) that simplifies the deployment of the OpenShift Container Platform cluster.
+- Another option is to use the [Azure Marketplace offer](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.openshift-container-platform?tab=Overview).
 
 For all options, a Red Hat subscription is required. During the deployment, the Red Hat Enterprise Linux instance is registered to the Red Hat subscription and attached to the Pool ID that contains the entitlements for OpenShift Container Platform.
 Ensure that you have a valid Red Hat Subscription Manager (RHSM) username, password, and Pool ID. You can verify this information by signing in to https://access.redhat.com.
@@ -32,12 +33,12 @@ Ensure that you have a valid Red Hat Subscription Manager (RHSM) username, passw
 
 To deploy using the Resource Manager template, you use a parameters file to supply the input parameters. To customize any of the deployment items that are not covered using input parameters, fork the GitHub repo and change the appropriate items.
 
-Some common customization options include (but are not limited to):
+Some common customization options include, but are not limited to:
 
-- Virtual network CIDR [variable in azuredeploy.json]
-- Bastion VM size [variable in azuredeploy.json]
-- Naming conventions [variables in azuredeploy.json]
-- OpenShift cluster specifics, modified via hosts file [deployOpenShift.sh]
+- Virtual network CIDR (variable in azuredeploy.json)
+- Bastion VM size (variable in azuredeploy.json)
+- Naming conventions (variables in azuredeploy.json)
+- OpenShift cluster specifics, modified via hosts file (deployOpenShift.sh)
 
 ### Configure the parameters file
 
@@ -129,12 +130,12 @@ The following example creates a parameters file named **azuredeploy.parameters.j
 }
 ```
 
-Replace the items enclosed in {} with your specific information.
+Replace the items enclosed in brackets with your specific information.
 
 ### Deploy using Azure CLI
 
 > [!NOTE] 
-> The following command requires Azure CLI 2.0.8 or later. You can verify the CLI version with the `az --version` command. To update the CLI version, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+> The following command requires Azure CLI 2.0.8 or later. You can verify the CLI version with the `az --version` command. To update the CLI version, see [Install Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latesti).
 
 The following example deploys the OpenShift cluster and all related resources into a resource group named myResourceGroup, with a deployment name of myOpenShiftCluster. The template is referenced directly from the GitHub repo, and a local parameters file named **azuredeploy.parameters.json** file is used.
 
@@ -167,7 +168,7 @@ Configuration of Azure Cloud Provider is optional for medium and large cluster s
 
 ## Connect to the OpenShift cluster
 
-When the deployment finishes, connect to the OpenShift console with the browser using the `OpenShift Console Uri`. Alternatively, you can connect to the OpenShift master using the following command:
+When the deployment finishes, connect to the OpenShift console with your browser using the `OpenShift Console Uri`. Alternatively, you can connect to the OpenShift master using the following command:
 
 ```bash
 $ ssh clusteradmin@myopenshiftmaster.cloudapp.azure.com -p 2200
