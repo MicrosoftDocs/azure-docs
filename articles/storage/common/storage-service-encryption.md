@@ -138,6 +138,14 @@ A: Yes. Any disks created that use the new storage account will be encrypted, as
 
 A: Yes.
 
+**Q: How can I check if my data is encrypted?**
+
+A: You can query the blob properties to check IsServerEncrypted. This will return true if the entire blob is encrypted and false if partially encrypted.
+
+**Q: Is SSE supported for Tables and Queues?**
+
+A: We are currently rolling out SSE support for Tables and Queues. It is estimated to be available in all regions by the end of 2017. SSE support for Blobs and Files is available in all Azure regions and all Azure clouds.
+
 **Q: How much more does Azure Storage cost if SSE is enabled?**
 
 A: There is no additional cost.
@@ -148,7 +156,7 @@ A: The keys are managed by Microsoft.
 
 **Q: Can I use my own encryption keys?**
 
-A: We are working on providing capabilities for customers to bring their own encryption keys.
+A: We are working on providing capabilities for customers to bring their own encryption keys. Please contact ssediscussions@microsoft.com for more details.
 
 **Q: Can I revoke access to the encryption keys?**
 
