@@ -104,6 +104,14 @@ We do not give an example to create an SOA record set, since SOAs are created an
 azure network dns record-set add-record MyResourceGroup contoso.com test-aaaa AAAA --ipv6-address 2607:f8b0:4009:1803::1005
 ```
 
+### Create a CAA record
+
+The following example shows how to create a CAA record. 
+
+```azurecli
+azure network dns record-set add-record MyResourceGroup contoso.com ca1 CAA --caflags 0 --catag issue --cavalue "ca1.contoso.com"
+```
+
 ### Create a CNAME record
 
 > [!NOTE]
