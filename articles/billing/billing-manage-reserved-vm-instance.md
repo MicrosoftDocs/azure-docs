@@ -1,6 +1,6 @@
 ---
 title: Manage Azure Reserved Virtual Machine Instances | Microsoft Docs
-description: Learn how you can change subscription scope and manage access for a Azure Reserved VM Instance. 
+description: Learn how you can change subscription scope and manage access for Azure Reserved VM Instances. 
 services: ''
 documentationcenter: ''
 author: vikramdesai01
@@ -17,9 +17,9 @@ ms.author: vikdesai
 ---
 # Manage Reserved Virtual Machine Instances
 
-After you buy an Azure Reserved VM Instance, you may want to apply the reservation to a different subscription than the one specified during purchase. Alternatively, if your matching virtual machines are running in multiple subscriptions, you may want to change the reservation scope to shared. To maximize the reservation discount, make sure that number of instances you bought matches the attributes and number of virtual machines that you have running. To learn more about Reserved Virtual Machine Instances, see [Save money by pre-paying for Azure virtual machines](https://go.microsoft.com/fwlink/?linkid=862121).
+After you buy an Azure Reserved VM Instance, you may want to apply the reservation to a different subscription than the one specified during purchase. Alternatively, if your matching virtual machines are running in multiple subscriptions, you may want to change the reservation scope to shared. To maximize the reservation discount, make sure that the number of instances you bought matches the attributes and number of virtual machines that you have running. To learn more about Reserved Virtual Machine Instances, see [Save money by pre-paying for Azure virtual machines](https://go.microsoft.com/fwlink/?linkid=862121).
 
-## Change scope for a reservation
+## Change the scope for a reservation
  Your reservation discount applies to virtual machines that match your reservation and run within the reservation scope. The scope of a reservation can be single subscription or all subscriptions in your billing context. If you set the scope to single subscription, the reservation is matched to running virtual machines in the selected subscription. If you set the scope to shared, Azure matches the reservation to virtual machines that run in all the subscriptions within the billing context. The billing context is dependent on the subscription used to buy the reservation. To learn more, see [Pre-pay for VMs with Reserved VM Instances](https://go.microsoft.com/fwlink/?linkid=861721).
 
 To update the scope of a reservation: 
@@ -34,7 +34,7 @@ To update the scope of a reservation:
 
  You can split a reservation into two reservations though PowerShell, CLI, or through the API.
 
-### Split a reservation by using PowerShell.
+### Split a reservation by using PowerShell
 1. Get the reservation order ID by running the following command:
 
     ```powershell
@@ -61,7 +61,7 @@ To update the scope of a reservation:
 ## Add or change users who can manage a reservation
 You can delegate management of a reservation by adding people to roles on the reservation. By default, the person that bought the reservation and the account administrator have the Owner role on the reservation. 
 
-You can manage access to reservations independently from the subscriptions that get the reservation discount. When you give someone permissions to manage a reservation, that doesn't give them rights to manage the subscription. And if you give someone permissions to manage a subscription within the reservation's scope, that doesn't give them rights to manage the reservation
+You can manage access to reservations independently from the subscriptions that get the reservation discount. When you give someone permissions to manage a reservation, that doesn't give them rights to manage the subscription. And if you give someone permissions to manage a subscription within the reservation's scope, that doesn't give them rights to manage the reservation.
  
 To delegate access management for a reservation: 
 1.	Log in to the [Azure portal](https://portal.azure.com).
@@ -72,6 +72,6 @@ To delegate access management for a reservation:
 6. Type the email address of the user you want to add as Owner. 
 7. Select the user, and then select **Save**.
 
-## Need help? Contact support.
+## Need help? Contact support
 
 If you still have further questions, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
