@@ -143,6 +143,7 @@
 ##### [Reliable Services events](service-fabric-reliable-services-diagnostics.md)
 ##### [Reliable Actors events](service-fabric-reliable-actors-diagnostics.md)
 ##### [Performance metrics](service-fabric-diagnostics-event-generation-perf.md)
+##### [Monitoring Service Remoting](service-fabric-reliable-serviceremoting-diagnostics.md)
 #### [Generate application level events](service-fabric-diagnostics-event-generation-app.md)
 ### Inspect application and cluster health
 #### [Monitor Service Fabric health](service-fabric-health-introduction.md)
