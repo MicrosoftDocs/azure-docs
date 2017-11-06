@@ -28,7 +28,7 @@ In this tutorial you will:
 > [!NOTE]
 > If you [use Terraform environment variables](/azure/virtual-machines/linux/terraform-install-configure#set-environment-variables), or run this tutorial in the [Azure Cloud Shell](terraform-cloud-shell.md), skip this step.
 
-1. Create an [Azure service principal](/azure/virtual-machines/linux/terraform-install-configure.md/#set-up-terraform-access-to-azure) making a note of the values for the subscription ID, tenant ID, client ID, and client secret.
+1. Create an [Azure service principal](/azure/virtual-machines/linux/terraform-install-configure#set-up-terraform-access-to-azure) making a note of the values for the subscription ID, tenant ID, client ID, and client secret.
 
 2. Create a new file named `azureProviderAndCreds.tf` in an empty directory.
 
