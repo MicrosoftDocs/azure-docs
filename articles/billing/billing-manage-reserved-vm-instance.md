@@ -23,10 +23,10 @@ After you buy an Azure Reserved VM Instance, you may want to apply the reservati
  Your reservation discount applies to virtual machines that match your reservation and run within the reservation scope. The scope of a reservation can be single subscription or all subscription in your billing context. If you set the scope to single subscription, the reservation is matched to running virtual machines in the selected subscription. Setting scope to shared, matches the reservation to running virtual machines in all subscriptions within the billing context. The billing context is dependent on the subscription used to buy the reservation. To learn more, see [Pre-pay for VMs with Reserved VM Instances](https://go.microsoft.com/fwlink/?linkid=861721).
 
 To update the scope of a reservation: 
-1. Log in to the [Azure portal](https://portal.azure.com)
-2. Select **More Services** > **Reservations**
+1. Log in to the [Azure portal](https://portal.azure.com).
+2. Select **More Services** > **Reservations**.
 3. Select the reservation.
-4. Select **Settings** > **Configuration**
+4. Select **Settings** > **Configuration**.
 5. Change the scope. If you change from shared to single scope, you can only select subscriptions where you are the owner. Only subscriptions within the same billing context as the reservation, can be selected. The scope only applies to eligible subscription offers types. The scope only applies to Pay-As-You-Go offer MS-AZR-0003P subscriptions and Enterprise offer MS-AZR-0017P subscriptions. For enterprise agreements, dev/test subscriptions are not eligible to get the reservation discount.
 
 ## Split a single reservation into two reservations
