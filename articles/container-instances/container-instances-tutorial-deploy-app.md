@@ -95,6 +95,14 @@ listening on port 80
 ::ffff:10.240.0.4 - - [21/Jul/2017:06:00:02 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://13.88.176.27/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
 ```
 
+## Clean up resources
+
+If you no longer need any of the resources you created in this tutorial series, you can execute the [az group delete](/cli/azure/group#delete) command  to remove the resource group and all resources it contains. This command deletes the container registry you created, as well as the running container, and all related resources.
+
+```azurecli-interactive
+az group delete --name myResourceGroup
+```
+
 ## Next steps
 
 In this tutorial, you completed the process of deploying your containers to Azure Container Instances. The following steps were completed:
