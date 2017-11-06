@@ -21,8 +21,8 @@
 # How to
 ## Plan and design
 ### [Understand Azure AD architecture](active-directory-architecture.md)
-### [Deploy a hybrid identity solution](active-directory-hybrid-identity-design-considerations-overview.md)
 ### [Claims mapping in Azure Active Directory](active-directory-claims-mapping.md)
+### [Deploy a hybrid identity solution](active-directory-hybrid-identity-design-considerations-overview.md)
 #### Determine requirements
 ##### [Identity](active-directory-hybrid-identity-design-considerations-business-needs.md)
 ##### [Directory sync](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
