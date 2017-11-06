@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 11/06/2017
 ms.author: tomfitz
 ---
 
@@ -85,6 +85,7 @@ In other cases, you link them together to form an event and data pipeline. You u
 
 ## Next steps
 
+* For more information about the Azure messaging services, see the blog post [Events, Data Points, and Messages - Choosing the right Azure messaging service for your data](https://azure.microsoft.com/blog/events-data-points-and-messages-choosing-the-right-azure-messaging-service-for-your-data/).
 * For an introduction to Event Grid, see [About Event Grid](overview.md).
 * To get started with Event Grid, see [Create and route custom events with Azure Event Grid](custom-event-quickstart.md).
 * To get started with Event Hubs, see [Create an Event Hubs namespace and an event hub using the Azure portal](../event-hubs/event-hubs-create.md).
