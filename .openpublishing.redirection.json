@@ -7242,6 +7242,31 @@
             "redirect_document_id": false
         },
 		{
+            "source_path": "articles/site-recovery/site-recovery-azure-to-azure-prereq.md",
+            "redirect_url": "site-recovery-support-matrix-azure-to-azure",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/site-recovery-network-design.md",
+            "redirect_url": "concepts-on-premises-to-azure-networking",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/site-recovery-prereq.md",
+            "redirect_url": "site-recovery-support-matrix-to-azure",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/site-recovery-migrate-aws-to-azure.md",
+            "redirect_url": "tutorial-migrate-aws-to-azure",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/site-recovery-azure-to-azure-architecture.md",
+            "redirect_url": "concepts-azure-to-azure-architecture",
+            "redirect_document_id": false
+        },
+		{
             "source_path": "articles/site-recovery/site-recovery-architecture-hyper-v-to-azure.md",
             "redirect_url": "concepts-hyper-v-to-azure-architecture",
             "redirect_document_id": false
