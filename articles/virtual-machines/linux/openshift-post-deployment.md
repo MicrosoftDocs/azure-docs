@@ -73,8 +73,8 @@ In the **Azure portal**:
 1.  Select **Azure Active Directory** --> **App Registration**.
 2.  Search for your app registration (for example, OCPAzureAD).
 3.  In the results, click the app registration.
-4.  In the Settings blade, select **Required permissions**.
-5.  In the Required Permissions blade, select **Add**.
+4.  Under **Settings**, select **Required permissions**.
+5.  Under **Required Permissions**, select **Add**.
 
   ![App Registration](media/openshift-post-deployment/app-registration.png)
 
@@ -82,7 +82,7 @@ In the **Azure portal**:
 
   ![App Registration Select API](media/openshift-post-deployment/app-registration-select-api.png)
 
-7.  On Step 2: Select Permissions, select **Sign in and read user profile** under **Delegated Permissions** and then click **Select**.
+7.  On Step 2: Select Permissions, select **Sign in and read user profile** under **Delegated Permissions**, and then click **Select**.
 
   ![App Registration Access](media/openshift-post-deployment/app-registration-access.png)
 
@@ -92,7 +92,7 @@ In the **Azure portal**:
 
 To configure OpenShift to use Azure AD as an authentication provider, the **/etc/origin/master/master-config.yaml** file must be edited on all master nodes.
 
-The tenant Id can be found by using the following CLI command:
+The tenant ID can be found by using the following CLI command:
 
 ```azurecli
 az account show
@@ -142,7 +142,7 @@ Insert the following lines immediately after the preceding lines:
         token: https://login.microsoftonline.com/<tenant Id>/oauth2/token
 ```
 
-The tenant Id can be found by using the following CLI command: ```az account show```
+The tenant ID can be found by using the following CLI command: ```az account show```
 
 Restart the OpenShift master services on all master nodes:
 
