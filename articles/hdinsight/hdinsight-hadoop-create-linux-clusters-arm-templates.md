@@ -57,7 +57,7 @@ Resource Manager enables you to export a Resource Manager template from existing
 
 ## Deploy using the portal
 
-You can deploy a Resource Manager template using the Azure portal. For more information, see [Deploy resources from custom template](../azure-resource-manager/resource-group-template-deploy-portal#deploy-resources-from-custom-template.md).
+You can deploy a Resource Manager template using the Azure portal. For more information, see [Deploy resources from custom template](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
 
 ## Deploy using PowerShell
 
