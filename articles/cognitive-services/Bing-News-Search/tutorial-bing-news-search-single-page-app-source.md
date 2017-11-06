@@ -452,7 +452,7 @@ function newBingNewsSearch(form) {
 // --></script>
 
 </head>
-<body onload="document.forms.bing.query.focus(); getSubscriptionKey();">
+<body onload="document.forms.bing.query.focus();">
 
 <form name="bing" onsubmit="return newBingNewsSearch(this)">
 
