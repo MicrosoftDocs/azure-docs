@@ -121,6 +121,8 @@
     items:
     - name: Overview
       href: sql-database-business-continuity.md
+    - name: High availability
+      href: sql-database-high-availability.md  
     - name: Database recovery
       href: sql-database-recovery-using-backups.md
     - name: Configure security
