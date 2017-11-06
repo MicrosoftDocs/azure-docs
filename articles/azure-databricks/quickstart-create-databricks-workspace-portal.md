@@ -25,7 +25,7 @@ In this article, you learn how to create an Azure Databricks workspace and then 
 
 * **An Azure subscription**. Before you begin this tutorial, you must have an Azure subscription. See [Create your free Azure account today](https://azure.microsoft.com/free).
 * **A Sample CSV file**. You can download the sample file from << HERE >>
-* **An Azure Storage account**. 
+* **An Azure Blob Storage account**. For instructions, see [Create an Azure storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account). For more information, see [Introduction to Azure Blob storage](../storage/blobs/storage-blobs-introduction.md)
 * **A modern web browser**. The Azure  portal uses HTML5 and Javascript, and may not function correctly in older web browsers.
 
 
@@ -78,7 +78,7 @@ In this section, we create a notebook and then run a Spark SQL job on the cluste
 
     Click **Create**.
 
-3. Enter the following snippet in the notebook cell. This snippet configures the notebook to read data from an Azure blob storage.
+3. In the following snippet, replace the placeholder values with your Azure storage account name and the storage account access key. Run SHIFT + ENTER to run the code cell. This snippet configures the notebook to read data from an Azure blob storage.
 
        spark.conf.set("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net", "{YOUR STORAGE ACCOUNT ACCESS KEY}")
     
@@ -86,7 +86,7 @@ In this section, we create a notebook and then run a Spark SQL job on the cluste
 
         spark.conf.set("fs.azure.account.key.mystorageaccount.blob.core.windows.net", "{YOUR STORAGE ACCOUNT ACCESS KEY}")
 
-    Press **SHIFT + ENTER** to run the code cell.
+    For instructions on how to retrieve the storage account key, see [Manage your storage access keys](../storage/common/storage-create-storage-account.md#manage-your-storage-account)
 
     > [!NOTE]
     > You can also use Azure Data Lake Store with a Spark cluster on Azure Databricks. For instructions, see [Use Data Lake Store with Azure Databricks](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html#azure-data-lake-store).
@@ -100,7 +100,7 @@ In this section, we create a notebook and then run a Spark SQL job on the cluste
 
     The `%sql` language magic command enables you to run a SQL code from the notebook, even if the notebook is of another type. For more information, see [Mixing languages in a notebook](https://docs.azuredatabricks.net/user-guide/notebooks/index.html#mixing-languages-in-a-notebook).
 
-5. Let's look at a snapshot fo the sample CSV data so that we can better understand the query that we run.
+5. Let's look at a snapshot of the sample CSV data so that we can better understand the query that we run.
 
     ![Sample CSV data](./media/quickstart-create-databricks-workspace-portal/databricks-sample-csv-data.png "Sample CSV data")
 
@@ -119,8 +119,9 @@ In this section, we create a notebook and then run a Spark SQL job on the cluste
 
     ![Databricks query output area graph](./media/quickstart-create-databricks-workspace-portal/databricks-sql-query-output-area-chart.png "Databricks query output area graph")
 
-    The screenshot shows an area chart with **buildingID** as the key and **temp_diff** as the value.
-    
+    The screenshot shows an area chart with **buildingID** as the key and **temp_diff** as the value.  
 
 
-## Next step 
+## Next step
+
+In this article, you created a Spark cluster in Azure Databricks and ran a Spark job using data in Azure storage. 

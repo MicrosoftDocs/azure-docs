@@ -19,7 +19,7 @@ sections:
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: 'Learn how to create an Azure Databricks workspace, Spark cluster, and then run jobs using'
+    text: 'Learn how to create an Azure Databricks workspace, Spark cluster, and then run jobs using:'
   - type: list
     style: icon48
     items: 
