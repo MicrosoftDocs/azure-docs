@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 11/06/2017
 ms.author: juluk
 ---
 
@@ -41,6 +41,9 @@ Users can only launch one type of shell at a time, either **Bash** or **PowerShe
 
 ### Usage limits
 Cloud Shell is intended for interactive use cases. As a result, any long-running non-interactive sessions are ended without warning.
+
+### Creating files in the Azure drive
+Users should not have the ability to create files in the Azure drive.  When users attempt to create a new file, the file is created and written out to C:\Users. 
 
 ## Bash limitations
 
