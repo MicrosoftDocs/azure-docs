@@ -170,7 +170,7 @@ When you delete a deployment, any devices take on their next highest priority de
 [1]: ./media/how-to-deploy-monitor/view-deployments.png
 
 <!-- Links -->
-[lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins
+[lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
 [lnk-portal]: https://portal.azure.com
 [lnk-docker-create]: https://docs.docker.com/engine/reference/commandline/create/
-[anchor-monitor] #monitor-a-deployment
+[anchor-monitor]: #monitor-a-deployment
