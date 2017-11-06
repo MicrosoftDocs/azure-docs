@@ -85,6 +85,6 @@ Scale-out execution relies on Spark's Parquet reading capabilities and supports 
 ### Local
 A local hard drive or a mapped network storage location.
 
-### Azure Blob Storage
-Azure Blob Storage, which requires an Azure subscription.
+### Azure Blob storage
+Azure Blob storage, which requires an Azure subscription.
 
