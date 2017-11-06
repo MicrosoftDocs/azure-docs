@@ -109,7 +109,7 @@ Now let's switch to working with code. Let's clone a DocumentDB API app from Git
 2. Run the following command to clone the sample repository. This command creates a copy of the sample app on your computer.
 
     ```bash
-    git clone https://github.com/Azure-Samples/azure-cosmos-db-documentdb-java-getting-started.git
+    git clone git clone https://github.com/kansrini/azure-cosmosdb-cassandra-java-getting-started.git
     ```
 
 ## Review the code
@@ -122,29 +122,27 @@ TODO insert code
 
 Now go back to the Azure portal to get your connection string information and copy it into the app. This enables your app to communicate with your hosted database.
 
-1. In the [Azure portal](http://portal.azure.com/), click **Keys**. 
+1. In the [Azure portal](http://portal.azure.com/), click **Connection String**. 
 
-    Use the copy buttons on the right side of the screen to copy the top value, the URI.
+    Use the copy buttons on the right side of the screen to copy the USERNAME value.
 
-    ![View and copy an access key in the Azure portal, Keys page](./media/create-cassandra-java/keys.png)
+    ![View and copy a username from the Azure portal, Connection String page](./media/create-cassandra-java/keys.png)
 
-2. Open the `Program.java` file from C:\git-samples\azure-cosmos-db-documentdb-java-getting-started\src\GetStarted folder. 
+2. Open the `config.properties` file from C:\git-samples\azure-cosmosdb-cassandra-java-getting-started\java-examples\src\main\resources folder. 
 
-3. Paste the URI value from the portal over `https://FILLME.documents.azure.com` on line 45.
+3. Paste the USERNAME value from the portal over `localhost` on line 3.
 
-4. Go back to portal and copy the PRIMARY KEY value as shown in the screenshot. Paste the PRIMARY KEY value from the portal over `FILLME` on line 46.
+    Line 3 of config.properties should now look similar to 
 
-    The getStartedDemo method should now look similar to this: 
-    
-    ```java
-    private void getStartedDemo() throws DocumentClientException, IOException {
-        this.client = new DocumentClient("https://youraccountname.documents.azure.com:443/",
-                "your-primary-key...RJhQrqQ5QQ==", 
-                new ConnectionPolicy(),
-                ConsistencyLevel.Session);
-    ```
+    `cassabdra_username=cosmos-db-quickstart`
 
-5. Save the Program.java file.
+4. Go back to portal and copy the PASSWORD value as shown in the screenshot. Paste the PASSWORD value from the portal over the current password on line 4.
+
+    Line 4 of config.properties should now look similar to 
+
+    `cassandra_password=2Ggkr662ifxz2Mg...==`
+
+5. Save the config.properties file.
 
 ## Run the app
 
