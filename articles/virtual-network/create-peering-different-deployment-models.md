@@ -36,7 +36,7 @@ This tutorial peers virtual networks in the same region. The ability to peer vir
 
 You can use the [Azure portal](#portal), the Azure [command-line interface](#cli) (CLI), Azure [PowerShell](#powershell), or an [Azure Resource Manager template](#template) to create a virtual network peering. Click any of the previous tool links to go directly to the steps for creating a virtual network peering using your tool of choice.
 
-## Create peering - Portal
+## Create peering - Azure portal
 
 1. Log in to the [Azure portal](https://portal.azure.com). The account you log in with must have the necessary permissions to create a virtual network peering. See the [Permissions](#permissions) section of this article for details.
 2. Click **+ New**, click **Networking**, then click **Virtual network**.
