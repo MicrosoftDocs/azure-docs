@@ -3,8 +3,8 @@ title: Image Classification using CNTK inside Azure Machine Learning Workbench |
 description: Train, evaluate, and deploy a custom image classification model using Azure ML Workbench.
 services: machine-learning
 documentationcenter: ''
-author: pabuehle
-ms.author: PatrickBue
+author: PatrickBue
+ms.author: pabuehle
 ms.reviewer: mawah, marhamil, mldocs
 ms.service: machine-learning
 ms.topic: article
