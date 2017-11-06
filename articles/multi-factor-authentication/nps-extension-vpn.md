@@ -96,7 +96,7 @@ This section details the prerequisites that must be completed before you can int
 This article assumes that you have a working VPN infrastructure that uses Microsoft Windows Server 2016 and that your VPN server is currently not configured to forward connection requests to a RADIUS server. In the article, you configure the VPN infrastructure to use a central RADIUS server.
 
 If you do not have a working VPN infrastructure in place, you can quickly create one by following the guidance in numerous VPN setup tutorials that you can find on the Microsoft and third-party sites. 
-
+            
 ### The Network Policy and Access Services role
 
 Network Policy and Access Services provides the RADIUS server and client functionality. This article assumes that you have installed the Network Policy and Access Services role on a member server or domain controller in your environment. In this guide, you configure RADIUS for a VPN configuration. Install the Network Policy and Access Services role on a server *other than* your VPN server.
@@ -105,7 +105,7 @@ For information about installing the Network Policy and Access Services role ser
 
 ### Azure MFA License
 
-A license is required for Azure Multi-Factor Authentication, and it is available through an Azure AD Premium, Enterprise Mobility + Security, or a Multi-Factor Authentication subscription. For more information, see [How to get Azure Multi-Factor Authentication](multi-factor-authentication-versions-plans.md). For testing purposes, you can use a trial subscription.
+A license is required for Azure Multi-Factor Authentication, and it is available through an Azure AD Premium, Enterprise Mobility + Security, or a Multi-Factor Authentication subscription. Consumption-based licenses for Azure MFA such as per user or per authentication licenses are not compatible with the NPS extension. For more information, see [How to get Azure Multi-Factor Authentication](multi-factor-authentication-versions-plans.md). For testing purposes, you can use a trial subscription.
 
 ### Windows Server software
 
