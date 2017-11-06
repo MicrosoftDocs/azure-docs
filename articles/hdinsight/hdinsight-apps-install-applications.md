@@ -25,7 +25,7 @@ Learn how to install a third-party Hadoop application on Azure HDInsight. For in
 
 An HDInsight application is an application that users can install on an HDInsight cluster. These applications can be developed by Microsoft, independent software vendors (ISV) or by yourself.  
 
-Currently there are four published applications:
+The follosing list shows the published applications:
 
 * **AtScale Intelligence Platform** turns your HDInsight cluster into a scale-out OLAP server. The application allows you to query billions of rows of data interactively using the BI tools from Microsoft Excel, PowerBI, Tableau Software to QlikView.
 * **Cask CDAP for HDInsight** provides the first unified integration platform for big data that cuts down the time to production for data applications and data lakes by 80%. This application only supports Standard HBase 3.4 clusters.
