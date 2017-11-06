@@ -160,7 +160,7 @@
 #### [Analyze events with Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
 #### [Analyze events with OMS](service-fabric-diagnostics-event-analysis-oms.md)
 ### [Troubleshoot your local cluster](service-fabric-troubleshoot-local-cluster-setup.md)
-### [Monitor Windows Containers](service-fabric-containers-windowsserver.md)
+### [Monitor Windows Containers](service-fabric-diagnostics-containers-windowsserver.md)
 
 # How-to guides
 ## Set up your development environment
