@@ -5,7 +5,7 @@ services: virtual-machines
 author: tamram
 manager: jeconnoc
 ms.author: tamram
-ms.date: 11/02/2017
+ms.date: 11/06/2017
 ms.topic: article
 ms.service: virtual-machines
 ms.tgt_pltfrm: windows
