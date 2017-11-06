@@ -18,21 +18,21 @@ This tutorial demonstrates creating a small compute cluster using the [Hashicorp
 In this tutorial you will:
 
 > [!div class="checklist"]
-> * Configure Azure authentication
+> * Set up Azure authentication
 > * Create the Terraform template
 > * Visualize the changes with plan
 > * Apply the configuration to create the cluster
 
-## 1. Configure Azure authentication
+## 1. Set up Azure authentication
 
 > [!NOTE]
 > If you [use Terraform environment variables](/azure/virtual-machines/linux/terraform-install-configure#set-environment-variables), or run this tutorial in the [Azure Cloud Shell](terraform-cloud-shell.md), skip this step.
 
-1. Create an [Azure service principal](/azure/virtual-machines/linux/terraform-install-configure#set-up-terraform-access-to-azure) making a note of the values for the subscription ID, tenant ID, client ID, and client secret.
+1. [Set up an Azure AD service principal](/azure/virtual-machines/linux/terraform-install-configure#set-up-terraform-access-to-azure) to enable Terraform to provision resources into Azure. While creating the principal, Make note of the values for the subscription ID, tenant ID, displayName, and password.
 
 2. Create a new file named `azureProviderAndCreds.tf` in an empty directory.
 
-3. Copy following code into the newly created `azureProviderAndCreds.tf` file. Make sure to replace the placeholders below with the values for the subscription ID, tenant ID, client ID, and client secret:
+3. Copy following code into the newly created `azureProviderAndCreds.tf` file. Make sure to replace the placeholders as follows: For `subscription_id`, use the Azure subscription ID you specified when running `az account set`. For `tenant_id`, use the `tenant` value returned from `az ad sp create-for-rbac`. For `client_id`, use the `displayName` value returned from `az ad sp create-for-rbac`. For `client_secret`, use the `password` value returned from `az ad sp create-for-rbac`.
 
 ```tf
 variable subscription_id {}
@@ -41,10 +41,10 @@ variable client_id {}
 variable client_secret {}
 
 provider "azurerm" {
-    subscription_id = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-    tenant_id = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-    client_id = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-    client_secret = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    subscription_id = "<azure-subscription-id>"
+    tenant_id = "<tenant>"
+    client_id = "<displayName>"
+    client_secret = "<password>"
 }
 ```
 
