@@ -373,7 +373,7 @@ By using the throughput specification, you can elastically change it to benefit 
 
 ### Azure Storage SDK has been very inexpensive for me, because I pay only to store the data, and I rarely query. The new Azure Cosmos DB offering seems to be charging me even though I have not performed a single transaction or stored anything. Can you please explain?
 
-Azure Cosmos DB is designed to be a globally distributed, SLA-based system with guarantees for availability, latency, and throughput. When you reserve throughput in Azure Cosmos DB, it is guaranteed, unlike the throughput of other systems. Azure Cosmos DB provides additional capabilities that customers have requested, such as secondary indexes and global distribution. During the preview period, we provide a throughput-optimized model and, eventually, we plan to provide a storage-optimized model to meet our customers' needs. 
+Azure Cosmos DB is designed to be a globally distributed, SLA-based system with guarantees for availability, latency, and throughput. When you reserve throughput in Azure Cosmos DB, it is guaranteed, unlike the throughput of other systems. Azure Cosmos DB provides additional capabilities that customers have requested, such as secondary indexes and global distribution.  
 
 ### I never get a “quota full" notification (indicating that a partition is full) when I ingest data into Table storage. With the Table API (Preview), I do get this message. Is this offering limiting me and forcing me to change my existing application?
 
