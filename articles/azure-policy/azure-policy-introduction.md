@@ -5,7 +5,7 @@ services: azure-policy
 keywords:
 author: Jim-Parker
 ms.author: jimpark; nini
-ms.date: 10/25/2017
+ms.date: 11/06/2017
 ms.topic: overview
 ms.service: azure-policy
 manager: jochan
@@ -51,7 +51,7 @@ To learn more about the structures of policy definitions, look at this article -
 
 ## Policy assignment
 
-A policy assignment is a policy definition that has been assigned to take place within a specific scope. This scope could range from a management group to a resource group. Policy assignments are inherited by all child resources. So, if a policy is applied to a resource group, it is applied to all the resources in that resource group. The term *scope* refers to all the resource groups, subscriptions, or management groups that the policy definition is assigned to.
+A policy assignment is a policy definition that has been assigned to take place within a specific scope. This scope could range from a management group to a resource group. The term *scope* refers to all the resource groups, subscriptions, or management groups that the policy definition is assigned to. Policy assignments are inherited by all child resources. So, if a policy is applied to a resource group, it is applied to all the resources in that resource group. However, you can exclude a subscope from the policy assignment. For example, at the subscription scope, you can assign a policy that prevents the creation of networking resources. However, you exclude one resource group within the subscription that is intended for networking infrastructure. You grant access to this networking resource group to users that you trust with creating networking resources.
 
 For more information on setting policy definitions and assignments, see [Create a policy assignment to identify non-compliant resources in your Azure environment](assign-policy-definition.md).
 
