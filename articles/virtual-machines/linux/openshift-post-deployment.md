@@ -20,11 +20,11 @@ ms.author: haroldw
 
 # Post-deployment tasks
 
-After an OpenShift cluster is deployed, there are additional items that can be configured. This article will cover the following:
+After you deploy an OpenShift cluster, you can configure additional items. This article covers the following:
 
-- How to configure Single Sign-On using Azure Active Directory.
-- How to configure OMS to monitor OpenShift.
-- How to configure metrics and logging.
+- How to configure Single Sign-On using Azure Active Directory
+- How to configure OMS to monitor OpenShift
+- How to configure metrics and logging
 
 ## Configure Single Sign-On using Azure Active Directory
 
@@ -35,10 +35,10 @@ To use Azure Active Directory (AAD) for authentication, first you need to create
 These steps use the Azure CLI to create the app registration, and the GUI (portal) to set the permissions. To create the app registration, you need the following five pieces of information:
 
 - Display name: App registration name (for example, OCPAzureAD)
-- Home page: OpenShift console URL (for example:  https://masterdns343khhde.westus.cloudapp.azure.com:8443/console)
-- Identifier URI: OpenShift console URL (for example:  https://masterdns343khhde.westus.cloudapp.azure.com:8443/console)
-- Reply URL: Master public URL and the app registration name (for example: https://masterdns343khhde.westus.cloudapp.azure.com:8443/oauth2callback/OCPAzureAD)
-- Password: Secure password (Use a strong password)
+- Home page: OpenShift console URL (for example, https://masterdns343khhde.westus.cloudapp.azure.com:8443/console)
+- Identifier URI: OpenShift console URL (for example, https://masterdns343khhde.westus.cloudapp.azure.com:8443/console)
+- Reply URL: Master public URL and the app registration name (for example, https://masterdns343khhde.westus.cloudapp.azure.com:8443/oauth2callback/OCPAzureAD)
+- Password: Secure password (use a strong password)
 
 The following example creates an app registration using the preceding information:
 
@@ -243,7 +243,7 @@ spec:
 
 In order to create the secret yaml file, you need two pieces of information: OMS Workspace ID and OMS Workspace Shared Key. 
 
-Sample ocp-secret.yml file 
+A sample ocp-secret.yml file follows: 
 
 ```yaml
 apiVersion: v1
@@ -255,7 +255,7 @@ data:
   KEY: key_data
 ```
 
-Replace wsid_data with the Base64 encoded OMS Workspace ID. Then replace key_data with the Base64 encoded OMS Workspace Shared Key.
+Replace wsid_data with the Base64 encoded OMS Workspace ID. Then replace key_data with the Base64-encoded OMS Workspace Shared Key.
 
 ```bash
 wsid_data='11111111-abcd-1111-abcd-111111111111'
@@ -280,7 +280,7 @@ oc create -f ocp-omsagent.yml
 
 ## Configure metrics and logging
 
-The OpenShift Container Platform (OCP) Resource Manager template provides input parameters for enabling metrics and logging. The OpenShift Container Platform Marketplace offer and OpenShift Origin Resource Manager template do not.
+The OpenShift Container Platform (OCP) Resource Manager template provides input parameters for enabling metrics and logging. The OpenShift Container Platform Marketplace offer and the OpenShift Origin Resource Manager template do not.
 
 If the OCP Resource Manager template was used and metrics and logging weren't enabled at installation time, or if the OCP Marketplace offer was used, these can be easily enabled after the fact. If you're using the OpenShift Origin Resource Manager template, some pre-work is required.
 
@@ -288,33 +288,33 @@ If the OCP Resource Manager template was used and metrics and logging weren't en
 
 1. SSH to the first master node using port 2200.
 
-Example:
+   Example:
 
-```bash
-ssh -p 2200 clusteradmin@masterdnsixpdkehd3h.eastus.cloudapp.azure.com 
-```
+   ```bash
+   ssh -p 2200 clusteradmin@masterdnsixpdkehd3h.eastus.cloudapp.azure.com 
+   ```
 
 2. Edit the **/etc/ansible/hosts file** and add the following lines after the Identity Provider Section (# Enable HTPasswdPasswordIdentityProvider):
 
-```yaml
-# Setup metrics
-openshift_hosted_metrics_deploy=false
-openshift_metrics_cassandra_storage_type=dynamic
-openshift_metrics_start_cluster=true
-openshift_metrics_hawkular_nodeselector={"type":"infra"}
-openshift_metrics_cassandra_nodeselector={"type":"infra"}
-openshift_metrics_heapster_nodeselector={"type":"infra"}
-openshift_hosted_metrics_public_url=https://metrics.$ROUTING/hawkular/metrics
+   ```yaml
+   # Setup metrics
+   openshift_hosted_metrics_deploy=false
+   openshift_metrics_cassandra_storage_type=dynamic
+   openshift_metrics_start_cluster=true
+   openshift_metrics_hawkular_nodeselector={"type":"infra"}
+   openshift_metrics_cassandra_nodeselector={"type":"infra"}
+   openshift_metrics_heapster_nodeselector={"type":"infra"}
+   openshift_hosted_metrics_public_url=https://metrics.$ROUTING/hawkular/metrics
 
-# Setup logging
-openshift_hosted_logging_deploy=false
-openshift_hosted_logging_storage_kind=dynamic
-openshift_logging_fluentd_nodeselector={"logging":"true"}
-openshift_logging_es_nodeselector={"type":"infra"}
-openshift_logging_kibana_nodeselector={"type":"infra"}
-openshift_logging_curator_nodeselector={"type":"infra"}
-openshift_master_logging_public_url=https://kibana.$ROUTING
-```
+   # Setup logging
+   openshift_hosted_logging_deploy=false
+   openshift_hosted_logging_storage_kind=dynamic
+   openshift_logging_fluentd_nodeselector={"logging":"true"}
+   openshift_logging_es_nodeselector={"type":"infra"}
+   openshift_logging_kibana_nodeselector={"type":"infra"}
+   openshift_logging_curator_nodeselector={"type":"infra"}
+   openshift_master_logging_public_url=https://kibana.$ROUTING
+   ```
 
 3. Replace $ROUTING with the string used for the **openshift_master_default_subdomain** option in the same **/etc/ansible/hosts** file.
 
