@@ -64,6 +64,6 @@ In this article, you learn how to create an Azure Databricks workspace and then 
 
 ## Run a Spark SQL job on the cluster
 
-
+In this section, we create a notebook and then run a Spark SQL job on the cluster.
 
 ## Next step 
