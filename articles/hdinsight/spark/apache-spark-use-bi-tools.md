@@ -75,14 +75,14 @@ The first steps in working with Spark are to connect to the cluster in Power BI 
 
     ![Get data into Power BI from Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-import-data-power-bi.png "Get data into Power BI from Apache Spark BI")
 
-3. Enter your cluster URL (in the form (`mysparkcluster.azurehdinsight.net`), and select **DirectQuery**. Click **OK**.
+3. Enter your cluster URL (in the form `mysparkcluster.azurehdinsight.net`), select **DirectQuery**, then click **OK**.
 
     ![Connect to Apache Spark BI](./media/apache-spark-use-bi-tools/connect-to-apache-spark-bi.png "Connect to Apache Spark BI")
 
     > [!NOTE]
     > You can use either connectivity mode with Spark. If you use DirectQuery, changes are reflected in reports without refreshing the entire dataset. If you import data, you must refresh the data set to see changes. For more information on how and when to use DirectQuery, see [Using DirectQuery in Power BI](https://powerbi.microsoft.com/documentation/powerbi-desktop-directquery-about/). 
 
-4. Enter a user name and password, then click **Connect**.
+4. Enter the HDInsight login account information for **User name** and **Password** (the default account is `admin`), then click **Connect**.
 
     ![Spark cluster user name and password](./media/apache-spark-use-bi-tools/user-password.png "Spark cluster user name and password")
 
@@ -100,7 +100,7 @@ The first steps in working with Spark are to connect to the cluster in Power BI 
 
         ![Create Spark data visualizations using Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-add-value-columns.png "Create Spark data visualizations using Apache Spark BI")
 
-    2. By default the visualization shows the sum for **ActualTemp** and **TargetTemp**. For both the fields, from the drop-down, select **Average** to get an average of actual and target temperatures for both buildings.
+    2. By default the visualization shows the sum for **ActualTemp** and **TargetTemp**. For both of the fields, from the drop-down, select **Average** to get an average of actual and target temperatures for each building.
 
         ![Create Spark data visualizations using Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-average-of-values.png "Create Spark data visualizations using Apache Spark BI")
 
@@ -113,7 +113,7 @@ The first steps in working with Spark are to connect to the cluster in Power BI 
 ### Publish the report to the Power BI Service (optional)
 You now have a fully functional report in Power BI Desktop, and you can stop there, but many people want to take advantage of the Power BI service, which makes it easy to share reports and dashboards across your organization. 
 
-In this section, you publish the dataset and report that is contained in the Power BI Desktop file you created. You then pin the visualization from the report to a dashboard. Dashboards are typically used to focus on a subset of data in a report; you only have one visualization in your report, but it's still useful to go through the steps.
+In this section, you publish the dataset and report that is contained in the Power BI Desktop file you created. You then pin the visualization from the report to a dashboard. Dashboards are typically used to focus on a subset of data in a report; you have only one visualization in your report, but it's still useful to go through the steps.
 
 1. In Power BI Desktop, on the **Home** tab, click **Publish**.
 
@@ -123,7 +123,7 @@ In this section, you publish the dataset and report that is contained in the Pow
 
     ![Select workspace to publish dataset and report to](./media/apache-spark-use-bi-tools/apache-spark-bi-select-workspace.png "Select workspace to publish dataset and report to") 
 
-3. Power BI Desktop should return with a success message. Click **Open 'spark.pbix' in Power BI**.
+3. After Power BI Desktop returns with a success message, click **Open 'spark.pbix' in Power BI**.
 
     ![Publish success, click to enter credentials](./media/apache-spark-use-bi-tools/apache-spark-bi-publish-success.png "Publish success, click to enter credentials") 
 
@@ -135,7 +135,7 @@ In this section, you publish the dataset and report that is contained in the Pow
 
     ![Edit credentials in Power BI service](./media/apache-spark-use-bi-tools/apache-spark-bi-edit-credentials.png "Edit credentials in Power BI service")
 
-6. Enter a user name and password (typically the one you used in Power BI Desktop), then click **Sign in**.
+6. Enter the HDInsight login account information (typically the default `admin` account you used in Power BI Desktop), then click **Sign in**.
 
     ![Sign in to Spark cluster](./media/apache-spark-use-bi-tools/apache-spark-bi-sign-in.png "Sign in to Spark cluster")
 
@@ -143,7 +143,7 @@ In this section, you publish the dataset and report that is contained in the Pow
 
     ![Report listed under reports in left pane](./media/apache-spark-use-bi-tools/apache-spark-bi-service-left-pane.png "Report listed under reports in left pane")
 
-    You should also see **spark** listed under **DATASETS**.
+    You should also see **spark** listed under **DATASETS** in the left pane.
 
 8. The visual you created in Power BI Desktop is now available in the service. To pin this visual to a dashboard, hover over the visual and click the pin icon.
 
