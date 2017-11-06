@@ -5047,7 +5047,12 @@
         },
         {
             "source_path": "articles/machine-learning/machine-learning-data-science-customize-hadoop-cluster.md",
-            "redirect_url": "/azure/machine-learning/team-data-science-process/customize-hadoop-cluster",
+            "redirect_url": "/azure/hdinsight/spark/apache-spark-jupyter-spark-sql",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/team-data-science-process/customize-hadoop-cluster.md",
+            "redirect_url": "/azure/hdinsight/spark/apache-spark-jupyter-spark-sql",
             "redirect_document_id": false
         },
         {
