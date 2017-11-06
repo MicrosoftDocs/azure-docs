@@ -1,6 +1,6 @@
 ---
 title: Securing Azure CDN assets with token authentication| Microsoft Docs
-description: Using token authentication to secure access to your Azure CDN assets.
+description: Learn how to use token authentication to secure access to your Azure CDN assets.
 services: cdn
 documentationcenter: .net
 author: zhangmanling
@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
-ms.date: 11/11/2016
+ms.date: 11/03/2017
 ms.author: mezha
 
 ---
@@ -25,7 +25,7 @@ ms.author: mezha
 
 ## Overview
 
-Token authentication is a mechanism that allows you to prevent the Azure Content Delivery Network (CDN) from serving assets to unauthorized clients. Token authentication is typically done to prevent "hotlinking" of content, in which a different website, often a message board, uses your assets without permission. Hotlinking can have an impact on your content delivery costs. By enabling this feature on CDN, requests are authenticated by CDN edge POPs before the CDN delivers the content. 
+Token authentication is a mechanism that allows you to prevent the Azure Content Delivery Network (CDN) from serving assets to unauthorized clients. Token authentication is typically done to prevent "hotlinking" of content, in which a different website, often a message board, uses your assets without permission. Hotlinking can have an impact on your content delivery costs. By enabling token authentication on CDN, requests are authenticated by CDN edge POPs before the CDN delivers the content. 
 
 ## How it works
 
@@ -45,7 +45,7 @@ After you generate an encrypted token, you append it as a query string to the en
 
 ## Reference architecture
 
-The following workflow diagram describes how the CDN uses token authentication to work with your web application.
+The following workflow diagram describes how the CDN uses token authentication to work with your web app.
 
 ![CDN token authentication workflow](./media/cdn-token-auth/cdn-token-auth-workflow2.png)
 
@@ -61,91 +61,92 @@ The following flowchart describes how Azure CDN validates client request when to
 
 	![CDN profile Manage button](./media/cdn-rules-engine/cdn-manage-btn.png)
 
-2. Hover over **HTTP Large**, and then click **Token Auth** in the flyout. You set up the encryption key and encryption parameters in this tab.
+2. Hover over **HTTP Large**, and then click **Token Auth** in the flyout. You can then set up the encryption key and encryption parameters as follows:
 
-	1. Enter a unique encryption key for **Primary Key** and enter another for **Backup Key**.
+	1. Enter a unique encryption key in the **Primary Key** box and optionally enter a backup key in the **Backup Key** box.
 
 		![CDN token auth setup key](./media/cdn-token-auth/cdn-token-auth-setupkey.png)
 	
-	2. Set up encryption parameters with the encrypt tool. With the encrypt tool, you can allow or deny requests based on expiration time, country, referrer, protocol, and client IP (in any combination).
+	2. Set up encryption parameters with the encrypt tool. With the encrypt tool, you can allow or deny requests based on expiration time, country, referrer, protocol, and client IP (in any combination). 
 
 		![CDN encrypt tool](./media/cdn-token-auth/cdn-token-auth-encrypttool.png)
 
-       - ec_expire: Assigns an expiration time to a token, after which the token expires. Requests submitted after the expiration time are denied. This parameter uses a Unix timestamp, which is based on the number of seconds since the standard epoch of `1/1/1970 00:00:00 GMT`. (You can use online tools to convert between standard time and Unix time.) For example, if you want to set up the token to expire at `12/31/2016 12:00:00 GMT`, use the Unix timestamp value, `1483185600`, as follows. 
+       Enter values for one or more of the following encryption parameters in the **Encrypt Tool** area:  
+
+       - **ec_expire**: Assigns an expiration time to a token, after which the token expires. Requests submitted after the expiration time are denied. This parameter uses a Unix timestamp, which is based on the number of seconds since the standard epoch of `1/1/1970 00:00:00 GMT`. (You can use online tools to convert between standard time and Unix time.) For example, if you want the token to expire at `12/31/2016 12:00:00 GMT`, use the Unix timestamp value, `1483185600`, as follows. 
 	
 		 ![CDN ec_expire example](./media/cdn-token-auth/cdn-token-auth-expire2.png)
 	
-	   - ec_url_allow: Allows you to tailor tokens to a particular asset or path. It restricts access to requests whose URL start with a specific relative path. URLs are case-sensitive. Input multiple paths by separating each path with a comma. Depending on your requirements, you can set up different values to provide different level of access. 
+	   - **ec_url_allow**: Allows you to tailor tokens to a particular asset or path. It restricts access to requests whose URL start with a specific relative path. URLs are case-sensitive. Input multiple paths by separating each path with a comma. Depending on your requirements, you can set up different values to provide different level of access. 
 		
-	      For example, for the URL `http://www.mydomain.com/pictures/city/strasbourg.png`, set the input value and its access level as follows:
+	     For example, for the URL `http://www.mydomain.com/pictures/city/strasbourg.png`, these requests are allowed for the following input values:
 
-		   - Input value `"/"`: All requests are allowed
-		   - Input value `"/pictures`. The following requests are allowed:
-		      - `http://www.mydomain.com/pictures.png`
-			  - `http://www.mydomain.com/pictures/city/strasbourg.png`
-			  - `http://www.mydomain.com/picturesnew/city/strasbourgh.png`
-			- Input value `/pictures/`: Only requests for `/pictures/` are allowed. For example, `http://www.mydomain.com/pictures/city/strasbourg.png`.
-			- Input value `/pictures/city/strasbourg.png`: Only requests for this specific asset are allowed.
+		 - Input value `/`: All requests are allowed.
+		 - Input value `/pictures`, the following requests are allowed:
+		    - `http://www.mydomain.com/pictures.png`
+			- `http://www.mydomain.com/pictures/city/strasbourg.png`
+			- `http://www.mydomain.com/picturesnew/city/strasbourgh.png`
+		 - Input value `/pictures/`: Only requests containing the `/pictures/` path are allowed. For example, `http://www.mydomain.com/pictures/city/strasbourg.png`.
+		 - Input value `/pictures/city/strasbourg.png`: Only requests for this specific path and asset are allowed.
 	
-          ![CDN ec_url_allow example](./media/cdn-token-auth/cdn-token-auth-url-allow4.png)
-	
-	   - ec_country_allow: Only allows requests that originate from one or more specified countries. Requests that originate from all other countries are denied. Use country codes and separate each one with a comma. For example, if you want to allow access from only the United States and France, input US, FR in the field as follows.  
+	   - **ec_country_allow**: Only allows requests that originate from one or more specified countries. Requests that originate from all other countries are denied. Use country codes and separate each one with a comma. For example, if you want to allow access from only the United States and France, input US, FR in the box as follows.  
 		
 		   ![CDN ec_country_allow example](./media/cdn-token-auth/cdn-token-auth-country-allow.png)
 
-	   - ec_country_deny: Denies requests that originate from one or more specified countries. Requests that originate from all other countries are allowed. Use country codes and separate each one with a comma. For example, If you want to deny access from the United States and France, input US, FR in the field.
+	   - **ec_country_deny**: Denies requests that originate from one or more specified countries. Requests that originate from all other countries are allowed. Use country codes and separate each one with a comma. For example, If you want to deny access from the United States and France, input US, FR in the box.
 	
-	   - ec_ref_allow: Only allows requests from the specified referrer. A referrer identifies the URL of the web page that is linked to the resource being requested. Do not include the protocol in the referrer parameter value. The following types of input are allowed for the parameter value:
+	   - **ec_ref_allow**: Only allows requests from the specified referrer. A referrer identifies the URL of the web page that is linked to the resource being requested. Do not include the protocol in the referrer parameter value. The following types of input are allowed for the parameter value:
 		   - A hostname or a hostname and a path.
 		   - Multiple referrers. To add multiple referrers, separate each referrer with a comma. If you specify a referrer value, but the referrer information is not sent in the request due to the browser configuration, those requests are denied by default. 
 		   - Requests with missing referrer information. To allow these types of requests, enter the text "missing" or enter a blank value. 
-		   - Subdomains. To allow subdomains, enter an asterisk (*). For example, to allow all subdomains of `consoto.com` enter `*.consoto.com`. 
+		   - Subdomains. To allow subdomains, enter an asterisk (\*). For example, to allow all subdomains of `consoto.com`, enter `*.consoto.com`. 
 		   
           The following example shows the input to allow access for requests from `www.consoto.com`, all subdomains under `consoto2.com`, and requests with blank or missing referrers.
 		
 		  ![CDN ec_ref_allow example](./media/cdn-token-auth/cdn-token-auth-referrer-allow2.png)
 	
-	   - ec_ref_deny: Denies requests from the specified referrer. The implementation is the same as the ec_ref_allow parameter.
+	   - **ec_ref_deny**: Denies requests from the specified referrer. The implementation is the same as the ec_ref_allow parameter.
 		 
-	   - ec_proto_allow: Only allows requests from the specified protocol. For example, HTTP or HTTPS.
-		
-		 ![CDN ec_proto_allow example](./media/cdn-token-auth/cdn-token-auth-url-allow4.png)
+	   - **ec_proto_allow**: Only allows requests from the specified protocol. For example, HTTP or HTTPS.
 			
-	   - ec_proto_deny: Denies requests from the specified protocol. For example, HTTP or HTTPS.
+	   - **ec_proto_deny**: Denies requests from the specified protocol. For example, HTTP or HTTPS.
 	
-	   - ec_clientip: Restricts access to the specified requester's IP address. Both IPV4 and IPV6 are supported. You can specify either a single request IP address or an IP subnet.
+	   - **ec_clientip**: Restricts access to the specified requester's IP address. Both IPV4 and IPV6 are supported. You can specify either a single request IP address or an IP subnet.
 			
 		 ![CDN ec_clientip example](./media/cdn-token-auth/cdn-token-auth-clientip.png)
+
+    3. After you have finished entering encryption parameter values, select the type of key to encrypt (if you have created both a primary and a backup key) from the **Key To Encrypt** list, an encryption version from the **Encryption Version** list, then click **Encrypt**.
 		
-	3. Optionally, test your token with the description tool.
+	4. Optionally, test your token with the decrypt tool. Paste the token value in the **Token to Decrypt** box. Select the type of encryption key to decrypt from the **Key To Decrypt** drop-down list, then click **Decrypt**.
 
-	4. Optionally, customize the type of response that is returned when a request is denied. By default, response code 403 is used.
+	5. Optionally, customize the type of response code that is returned when a request is denied. Select the code from the **Response Code** drop-down list and click **Save**. The **403** response code (Forbidden) is selected by default. For certain response codes, you can also enter the URL of your error page in the **Header Value** box. 
 
-3. Under **HTTP Large**, click **Rules Engine**. You use the rules engine to define paths to apply the feature, enable the token authentication feature, and enable additional token authentication-related capabilities.
+    6. After you have generated an encrypted token, you append it as a query string to the end of the file in your URL path. For example, `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
 
-	1. Use the **IF** column to define the asset or path for which you want to apply token authentication. 
-	2. To enable token authentication, select **Token Auth** from the **Features** dropdown.
+3. Under **HTTP Large**, click **Rules Engine**. You use the rules engine to define paths to apply the feature, enable the token authentication feature, and enable additional token authentication-related capabilities. For more information, see [Rules engine reference](cdn-rules-engine-reference.md).
+
+	1. Select an existing rule or create a new rule to define the asset or path for which you want to apply token authentication. 
+	2. To enable token authentication on a rule, select **[Token Auth](cdn-rules-engine-reference-features.md#token-auth)** from the **Features** drop-down list, then select **Enabled**. Click **Update** if you are updating a rule or **Add** if you are creating a rule.
 		
 	![CDN rules engine token authentication enable example](./media/cdn-token-auth/cdn-rules-engine-enable2.png)
 
-4. In the rules engine, there are a few additional capabilities you can enable:
+4. In the rules engine, you can also enable additional token authentication-related features. To enable any of the following features, select it from the **Features** drop-down list, then select **Enabled**.
 	
-	- **Token Auth Denial Code**: Determines the type of response that is returned to a user when a request is denied. Rules set here override the denial code setting in the **Token Auth** tab.
-	- **Token Auth Ignore URL Case**: Determines whether the URL used to validate the token is case-sensitive.
-	- **Token Auth Parameter**: Renames the token auth query string parameter that appears in the requested URL. 
+	- **[Token Auth Denial Code](cdn-rules-engine-reference-features.md#token-auth-denial-code)**: Determines the type of response that is returned to a user when a request is denied. Rules set here override the response code set in the **Custom Denial Handling** section on the token-based authentication page.
+	- **[Token Auth Ignore URL Case](cdn-rules-engine-reference-features.md#token-auth-ignore-url-case)**: Determines whether the URL used to validate the token is case-sensitive.
+	- **[Token Auth Parameter](cdn-rules-engine-reference-features.md#token-auth-parameter)**: Renames the token auth query string parameter that appears in the requested URL. 
 		
 	![CDN rules engine token authentication settings example](./media/cdn-token-auth/cdn-rules-engine2.png)
 
-5. You can customize your token, which is an application that generates token for token-based authentication features. Source code can be accessed in [GitHub](https://github.com/VerizonDigital/ectoken).
+5. You can customize your token by accessing source code in [GitHub](https://github.com/VerizonDigital/ectoken).
 Available languages include:
 	
-	- C
-	- C#
-	- PHP
-	- Perl
-	- Java
-	- Python	
-
+- C
+- C#
+- PHP
+- Perl
+- Java
+- Python	
 
 ## Azure CDN features and provider pricing
 

@@ -3,7 +3,7 @@ title: Design your network infrastructure for disaster recovery with Azure Site 
 description: This article discusses network design considerations for Azure Site Recovery
 services: site-recovery
 documentationcenter: ''
-author: prateek9us
+author: rayne-wiselman
 manager: jwhit
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/19/2017
-ms.author: pratshar
+ms.author: raynew
 
 ---
 # Designing your network for disaster recovery
