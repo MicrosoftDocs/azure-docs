@@ -20,6 +20,9 @@ ms.author: shlo
 # Azure Data Factory - naming rules
 The following table provides naming rules for Data Factory artifacts.
 
+> [!NOTE]
+> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is is generally available (GA), see [naming rules in Data Factory version1](v1/data-factory-naming-rules.md).
+
 | Name | Name Uniqueness | Validation Checks |
 |:--- |:--- |:--- |
 | Data Factory |Unique across Microsoft Azure. Names are case-insensitive, that is, `MyDF` and `mydf` refer to the same data factory. |<ul><li>Each data factory is tied to exactly one Azure subscription.</li><li>Object names must start with a letter or a number, and can contain only letters, numbers, and the dash (-) character.</li><li>Every dash (-) character must be immediately preceded and followed by a letter or a number. Consecutive dashes are not permitted in container names.</li><li>Name can be 3-63 characters long.</li></ul> |

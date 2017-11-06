@@ -14,7 +14,7 @@ ms.custom: migrate
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.workload: sqldb-migrate
+ms.workload: "Active"
 ms.date: 02/08/2017
 ms.author: carlrab
 

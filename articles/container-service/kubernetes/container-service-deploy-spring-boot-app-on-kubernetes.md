@@ -21,6 +21,8 @@ ms.custom: mvc
 
 # Deploy a Spring Boot Application on a Kubernetes Cluster in the Azure Container Service
 
+[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+
 The **[Spring Framework]** is a popular open-source framework that helps Java developers create web, mobile, and API applications. This tutorial uses a sample app created using [Spring Boot], a convention-driven approach for using Spring to get started quickly.
 
 **[Kubernetes]** and **[Docker]** are open-source solutions that help developers automate the deployment, scaling, and management of their applications  running in containers.

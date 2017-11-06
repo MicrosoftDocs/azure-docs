@@ -3,7 +3,7 @@ title: Develop and run Azure functions locally | Microsoft Docs
 description: Learn how to code and test Azure functions on your local computer before you run them on Azure Functions.
 services: functions
 documentationcenter: na
-author: lindydonna
+author: ggailey777
 manager: cfowler
 editor: ''
 

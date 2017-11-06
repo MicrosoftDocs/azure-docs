@@ -1,9 +1,9 @@
 ---
-title: Using REST API for Speech Recognition | Microsoft Docs
-description: Using REST to access speech recognition API in Microsoft Cognitive Services to convert spoken audio to text.
+title: Get started with the Microsoft Speech Recognition API by using REST | Microsoft Docs
+description: Use REST to access the Speech Recognition API in Microsoft Cognitive Services to convert spoken audio to text.
 services: cognitive-services
 author: zhouwangzw
-manager: wolfma61
+manager: wolfma
 
 ms.service: cognitive-services
 ms.technology: speech
@@ -11,70 +11,67 @@ ms.topic: article
 ms.date: 15/09/2017
 ms.author: zhouwang
 ---
-# Get started with speech recognition using REST API
+# Get started with speech recognition by using the REST API
 
-With the cloud-based Microsoft Speech Service, you can develop applications using REST API to convert spoken audio to text.
-
-To use speech recognition REST API, the steps are as follows:
-
-1. Get a subscription key for using Speech API.
-2. Set the proper request header and send the request to the appropriate REST end points.
-3. Parse the response to get your transcribed text.
+With cloud-based Speech Service, you can develop applications by using the REST API to convert spoken audio to text.
 
 ## Prerequisites
 
-### Subscribe to Speech API and get a free trial subscription key
+### Subscribe to the Speech API, and get a free trial subscription key
+
+The Speech API is part of Cognitive Services (previously Project Oxford). You can get free trial subscription keys from the [Cognitive Services subscription](https://azure.microsoft.com/try/cognitive-services/) page. After you select the Speech API, select **Get API Key** to get the key. It returns a primary and secondary key. Both keys are tied to the same quota, so you can use either key.
 
 > [!IMPORTANT]
-> You must have a subscription key before accessing Speech REST API.
+>* Get a subscription key. Before you can access the REST API, you must have a [subscription key](https://azure.microsoft.com/try/cognitive-services/).
+>
+>* Use your subscription key. In the following REST samples, replace `YOUR_SUBSCRIPTION_KEY` with your own subscription key.
 
-Microsoft Speech API is part of Microsoft Cognitive Services on Azure(previously Project Oxford). You can get free trial subscription keys from the [Cognitive Services Subscription](https://azure.microsoft.com/en-us/try/cognitive-services/) page. After you select the Speech API, click Get API Key to get the key. It returns a primary and secondary key. Both keys are tied to the same quota, so you may use either key.
+### Prerecorded audio file
 
-### Precorded audio file
-
-In this example, we use a recorded audio file to illustrate the usage of the REST API. Record a short audio file of you saying something short (for example: *"What is the weather like today?"* or *"Find funny movies to watch."*). The Microsoft speech recognition API also supports external microphone input.
+In this example, we use a recorded audio file to illustrate how to use the REST API. Record an audio file of yourself saying a short phrase. For example, say "What is the weather like today?" or "Find funny movies to watch." The speech recognition API also supports external microphone input.
 
 > [!NOTE]
-> The example requires that audio is recorded as wav file with **PCM single channel (mono), 16 KHz**.
+> The example requires that audio is recorded as a WAV file with **PCM single channel (mono), 16 KHz**.
 
-## Build recognition request and send it to the speech service
+## Build a recognition request, and send it to the speech recognition service
 
-The next step for speech recognition is to send a POST request to the Microsoft Speech HTTP end points with proper request header and body.
+The next step for speech recognition is to send a POST request to the Speech HTTP endpoints with the proper request header and body.
 
-### HTTP endpoints
+### Service URI
 
-The URI of the HTTP endpoints for REST API is defined based on [recognition mode](../concepts.md#recognition-modes) and [recognition language](../concepts.md#recognition-languages):
+The speech recognition service URI is defined based on [recognition modes](../concepts.md#recognition-modes) and [recognition languages](../concepts.md#recognition-languages):
 
 ```HTTP
 https://speech.platform.bing.com/speech/recognition/<RECOGNITION_MODE>/cognitiveservices/v1?language=<LANGUAGE_TAG>&format=<OUTPUT_FORMAT>
 ```
 
-`<RECOGNITION_MODE>` specifies the recognition mode, and must be of the following values: `interactive`, `conversation`, or `dictation`. It is a required resource path in the URI. For more information, see [recognition modes](../concepts.md#recognition-modes).
+`<RECOGNITION_MODE>` specifies the recognition mode and must be one of the following values: `interactive`, `conversation`, or `dictation`. It's a required resource path in the URI. For more information, see [Recognition modes](../concepts.md#recognition-modes).
 
-`<LANGUAGE_TAG>` is a required parameter in the query string. It defines the target language for audio conversion. For example, `en-US` for English (United States). For more information, see [recognition languages](../concepts.md#recognition-languages).
+`<LANGUAGE_TAG>` is a required parameter in the query string. It defines the target language for audio conversion: for example, `en-US` for English (United States). For more information, see [Recognition languages](../concepts.md#recognition-languages).
 
-`<OUTPUT_FOMAT>` is an optional parameter in the query string. Its allowed values are `simple` and `detailed`. By default the service returns results in `simple` format. See [output format](../concepts.md#output-format) for details.
+`<OUTPUT_FORMAT>` is an optional parameter in the query string. Its allowed values are `simple` and `detailed`. By default, the service returns results in `simple` format. For more information, see [Output format](../concepts.md#output-format).
 
-Some examples of service URI are as follows.
-| Recognition mode  | Language | Output format | REST end point |
+Some examples of service URIs are listed in the following table.
+
+| Recognition mode  | Language | Output format | Service URI |
 |---|---|---|---|
-| `interactive` | pt-BR | default | https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
-| `conversation` | en-US | detailed |https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed |
-| `dictation` | fr-FR | simple | https://speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR&format=simple |
+| `interactive` | pt-BR | Default | https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
+| `conversation` | en-US | Detailed |https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed |
+| `dictation` | fr-FR | Simple | https://speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR&format=simple |
 
 > [!NOTE]
-> The HTTP service endpoints are only needed when your application uses REST APIs to call the speech service. If you use one of the [client libraries](GetStartedClientLibraries.md), you usually do not need to know which endpoint is being used. The client libraries might use different service URIs, which are only applicable for the specific client library. For more information, see the client library of your choice.
+> The service URI is needed only when your application uses REST APIs to call the speech recognition service. If you use one of the [client libraries](GetStartedClientLibraries.md), you usually don't need to know which URI is used. The client libraries might use different service URIs, which are applicable only for a specific client library. For more information, see the client library of your choice.
 
 ### Request headers
 
-The follow fields must be set in the request header.
+The following fields must be set in the request header:
 
-- `Ocp-Apim-Subscription-Key`: Each time that you call the service, you must pass your subscription key in the `Ocp-Apim-Subscription-Key` header. The Microsoft Speech Service also supports passing authorization token instead of subscription key. See the [Authentication](../How-to/how-to-authentication.md) page for details.
-- `Content-type`: The Content-type field describes the format and codec of the audio stream. Currently only wav file and PCM Mono 16000 encoding is supported, and the Content-type value for this format is `audio/wav; codec=audio/pcm; samplerate=16000`.
+- `Ocp-Apim-Subscription-Key`: Each time that you call the service, you must pass your subscription key in the `Ocp-Apim-Subscription-Key` header. Speech Service also supports passing authorization tokens instead of subscription keys. For more information, see [Authentication](../How-to/how-to-authentication.md).
+- `Content-type`: The `Content-type` field describes the format and codec of the audio stream. Currently, only WAV file and PCM Mono 16000 encoding is supported. The Content-type value for this format is `audio/wav; codec=audio/pcm; samplerate=16000`.
 
-The field `Transfer-Encoding` is optional. Setting this field to `chunked` allows you to chop the audio into small chunks. For more information, see the page [Chunked Transfer](../How-to/how-to-chunked-transfer.md).
+The `Transfer-Encoding` field is optional. If you set this field to `chunked`, you can chop the audio into small chunks. For more information, see [Chunked transfer](../How-to/how-to-chunked-transfer.md).
 
-The follow is a sample request header.
+The following is a sample request header:
 
 ```HTTP
 POST https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=en-US&format=detailed HTTP/1.1
@@ -86,21 +83,21 @@ Transfer-Encoding: chunked
 Expect: 100-continue
 ```
 
-### Send request to the service
+### Send a request to the service
 
-The following example shows how to send a speech recognition request to Microsoft speech REST end points. It uses `interactive` recognition mode.
+The following example shows how to send a speech recognition request to Speech REST endpoints. It uses the `interactive` recognition mode.
 
 > [!NOTE]
-> Replace `YOUR_AUDIO_FILE` with the path to your prerecorded audio file, and `YOUR_SUBSCRIPTION_KEY` with your own subscription key.
+> Replace `YOUR_AUDIO_FILE` with the path to your prerecorded audio file. Replace `YOUR_SUBSCRIPTION_KEY` with your own subscription key.
 
-# [Powershell](#tab/Powershell)
+# [PowerShell](#tab/Powershell)
 
 ```Powershell
 
 $SpeechServiceURI =
 'https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=en-us&format=detailed'
 
-# $OAuthToken is the authrization token returned by the token service.
+# $OAuthToken is the authorization token returned by the token service.
 $RecoRequestHeader = @{
   'Ocp-Apim-Subscription-Key' = 'YOUR_SUBSCRIPTION_KEY';
   'Transfer-Encoding' = 'chunked'
@@ -119,7 +116,7 @@ $RecoResponse
 
 # [curl](#tab/curl)
 
-The example uses curl on Linux with bash. If it is not available on your platform, you may need to install curl. The example should also work on Cygwin on Windows, Git Bash, zsh, and other shells.
+The example uses curl on Linux with bash. If it's not available on your platform, you might need to install curl. The example also works on Cygwin on Windows, Git Bash, zsh, and other shells.
 
 ```
 curl -v -X POST "https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=en-us&format=detailed" -H "Transfer-Encoding: chunked" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY" -H "Content-type: audio/wav; codec=audio/pcm; samplerate=16000" --data-binary @YOUR_AUDIO_FILE
@@ -165,16 +162,16 @@ using (fs = new FileStream(YOUR_AUDIO_FILE, FileMode.Open, FileAccess.Read))
 
 ---
 
-## Process speech recognition response
+## Process the speech recognition response
 
-After processing the request, Microsoft Speech Service returns the results in a response as JSON format.
+After processing the request, Speech Service returns the results in a response as JSON format.
 
 > [!NOTE]
-> If the code above returns error, see [Troubleshooting](../troubleshooting.md) to locate the possible cause.
+> If the previous code returns an error, see [Troubleshooting](../troubleshooting.md) to locate the possible cause.
 
 The following code snippet shows an example of how you can read the response from the stream.
 
-# [Powershell](#tab/Powershell)
+# [PowerShell](#tab/Powershell)
 
 ```Powershell
 # show the response in JSON format
@@ -183,7 +180,7 @@ ConvertTo-Json $RecoResponse
 
 # [curl](#tab/curl)
 
-curl directly returns the response message in string. If you want to show it in JSON format, you can use additional tools, for example, jq.
+In this example, curl directly returns the response message in a string. If you want to show it in JSON format, you can use additional tools, for example, jq.
 
 ```
 curl -X POST "https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=en-us&format=detailed" -H "Transfer-Encoding: chunked" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY" -H "Content-type: audio/wav; codec=audio/pcm; samplerate=16000" --data-binary @YOUR_AUDIO_FILE | jq
@@ -212,7 +209,7 @@ using (WebResponse response = request.GetResponse())
 
 ---
 
-The following is a sample JSON response:
+The following sample is a JSON response:
 
 ```json
 OK
@@ -232,20 +229,19 @@ OK
 
 ## Limitations
 
-The Speech REST API has some limitations:
+The REST API has some limitations:
 
-- It only supports audio stream up to 15 seconds.
-- REST API does not support intermediate results during recognition. Users receive only the final recognition result.
+- It supports audio stream only up to 15 seconds.
+- It doesn't support intermediate results during recognition. Users receive only the final recognition result.
 
-To remove these limitations, you can use Microsoft speech [client libraries](GetStartedClientLibraries.md) or directly work with [Speech WebSocket Protocol](../API-Reference-REST/websocketprotocol.md).
+To remove these limitations, use Speech [client libraries](GetStartedClientLibraries.md). Or you can work directly with the [Speech WebSocket protocol](../API-Reference-REST/websocketprotocol.md).
 
 ## What's next
 
-- Check out [sample applications](../samples.md) to see how to use REST API in C#, Java and etc.
-- In case of errors, see [Troubleshooting](../troubleshooting.md) to locate and fix errors.
-- To use more advanced features, get started to use Microsoft Speech [Client Libraries](GetStartedClientLibraries.md).
-- For questions, feedback, or suggestions about Microsoft Cognitive Services, feel free to reach out to us directly at [Cognitive Services UserVoice Forum](https://cognitive.uservoice.com/).
+- To see how to use the REST API in C#, Java, etc., see these [sample applications](../samples.md).
+- To locate and fix errors, see [Troubleshooting](../troubleshooting.md).
+- To use more advanced features, see how to get started by using Speech [client libraries](GetStartedClientLibraries.md).
 
 ### License
 
-All Microsoft Cognitive Services SDKs and samples are licensed with the MIT License. For more information, see [LICENSE](https://github.com/Microsoft/Cognitive-Speech-STT-JavaScript/blob/master/LICENSE.md).
+All Cognitive Services SDKs and samples are licensed with the MIT License. For more information, see [License](https://github.com/Microsoft/Cognitive-Speech-STT-JavaScript/blob/master/LICENSE.md).

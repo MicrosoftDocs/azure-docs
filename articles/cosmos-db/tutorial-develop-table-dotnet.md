@@ -48,7 +48,7 @@ If you currently use Azure Table storage, you gain the following benefits with t
 - Support for [independent scaling of storage and throughput](partition-data.md), across any number of regions
 - Support for [dedicated throughput per table](request-units.md) that can be scaled from hundreds to millions of requests per second
 - Support for [five tunable consistency levels](consistency-levels.md) to trade off availability, latency, and consistency based on your application needs
-- 99.99% availability within a single region, and ability to add more regions for higher availability, and [industry-leading comprehensive SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db/) on general availability
+- 99.99% availability within a single region, and ability to add more regions for higher availability, and [industry-leading comprehensive SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) on general availability
 - Work with the existing Azure storage .NET SDK, and no code changes to your application
 
 During the preview, Azure Cosmos DB supports the Table API using the .NET SDK. You can download the [Azure Storage Preview SDK](https://aka.ms/premiumtablenuget) from NuGet, that has the same classes and method signatures as the [Azure Storage SDK](https://www.nuget.org/packages/WindowsAzure.Storage), but also can connect to Azure Cosmos DB accounts using the Table API.

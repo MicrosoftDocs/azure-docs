@@ -69,25 +69,56 @@ Snapshot collection is available for:
 
 2. Include the [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet package in your app.
 
-3. Modify the `ConfigureServices` method in your application's `Startup` class to add the Snapshot Collector's telemetry processor.
+3. Modify your application's `Startup` class to add and configure the Snapshot Collector's telemetry processor.
 
    ```C#
    using Microsoft.ApplicationInsights.SnapshotCollector;
+   using Microsoft.Extensions.Options;
    ...
    class Startup
    {
        private class SnapshotCollectorTelemetryProcessorFactory : ITelemetryProcessorFactory
        {
-           public ITelemetryProcessor Create(ITelemetryProcessor next) =>
-               new SnapshotCollectorTelemetryProcessor(next);
+           private readonly IServiceProvider _serviceProvider;
+
+           public SnapshotCollectorTelemetryProcessorFactory(IServiceProvider serviceProvider) =>
+               _serviceProvider = serviceProvider;
+
+           public ITelemetryProcessor Create(ITelemetryProcessor next)
+           {
+               var snapshotConfigurationOptions = _serviceProvider.GetService<IOptions<SnapshotCollectorConfiguration>>();
+               return new SnapshotCollectorTelemetryProcessor(next, configuration: snapshotConfigurationOptions.Value);
+           }
        }
 
-       // This method is called by the runtime. Use it to add services to the container.
+       public Startup(IConfiguration configuration) => Configuration = configuration;
+
+       public IConfiguration Configuration { get; }
+
+       // This method gets called by the runtime. Use this method to add services to the container.
        public void ConfigureServices(IServiceCollection services)
        {
-            services.AddSingleton<ITelemetryProcessorFactory>(new SnapshotCollectorTelemetryProcessorFactory());
-           // TODO: Add any other services your application needs here.
+           // Configure SnapshotCollector from application settings
+           services.Configure<SnapshotCollectorConfiguration>(Configuration.GetSection(nameof(SnapshotCollectorConfiguration)));
+
+           // Add SnapshotCollector telemetry processor.
+           services.AddSingleton<ITelemetryProcessorFactory>(sp => new SnapshotCollectorTelemetryProcessorFactory(sp));
+
+           // TODO: Add other services your application needs here.
        }
+   }
+   ```
+
+4. Configure the Snapshot Collector by adding a SnapshotCollectorConfiguration section to appsettings.json. For example:
+
+   ```json
+   {
+     "ApplicationInsights": {
+       "InstrumentationKey": "<your instrumentation key>"
+     },
+     "SnapshotCollectorConfiguration": {
+       "IsEnabledInDeveloperMode": true
+     }
    }
    ```
 

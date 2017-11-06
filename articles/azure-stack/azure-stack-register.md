@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 10/27/2017
 ms.author: erikje
 
 ---
@@ -53,7 +53,7 @@ If you don’t have an Azure subscription that meets these requirements, you can
 Example: 
 ```Powershell
 Login-AzureRmAccount -EnvironmentName "AzureCloud"
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack -Force
+Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
 ```
 
 
@@ -69,8 +69,8 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack -Force
 4. From the RegisterWithAzure.psm1 script, run the Add-AzsRegistration module. Replace the following placeholders: 
     - *YourCloudAdminCredential* is a PowerShell object that contains the local domain credentials for the domain\cloudadmin (for the development kit, this is azurestack\cloudadmin).
     - *YourAzureSubscriptionID* is the ID of the Azure subscription that you want to use to register Azure Stack.
-    - *YourAzureDirectoryTenantName* is the name of the Azure tenant directory in which you want to create your registration resource.
-    - *YourPrivilegedEndpoint* is the name of the Just-Enough-Access Computer, also known as the Emergency Console VM.
+    - *YourAzureDirectoryTenantName* is the name of the Azure tenant directory associated with your Azure subscription. The registration resource will be created in this directory tenant. 
+    - *YourPrivilegedEndpoint* is the name of the [privileged end point](azure-stack-privileged-endpoint.md).
 
     ```powershell
     Add-AzsRegistration -CloudAdminCredential $YourCloudAdminCredential -AzureDirectoryTenantName $YourAzureDirectoryTenantName  -AzureSubscriptionId $YourAzureSubscriptionId -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Development 

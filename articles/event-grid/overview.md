@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: article
-ms.date: 09/11/2017
+ms.date: 10/20/2017
 ms.author: babanisa
 ---
 
@@ -22,8 +22,6 @@ For the preview release, Event Grid supports **westus2** and **westcentralus** l
 This article provides an overview of Azure Event Grid. If you want to get started with Event Grid, see [Create and route custom events with Azure Event Grid](custom-event-quickstart.md).
 
 ![Event Grid functional model](./media/overview/event-grid-functional-model.png)
-
-Currently, Blob Storage is not publicly available as a publisher. You must register for the preview release to react to storage blob events. For more information, see [Route Blob storage events to a custom web endpoint (preview)](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)
 
 ## Concepts
 
@@ -61,6 +59,7 @@ Currently, the following Azure services have built-in publisher support for even
 * Resource Groups (management operations)
 * Azure Subscriptions (management operations)
 * Event Hubs
+* Storage Blob
 * Custom Topics
 
 Other Azure services will be added this year.
@@ -115,6 +114,8 @@ Event Grid costs $0.60 per million operations ($0.30 during preview) and the fir
 
 ## Next steps
 
+* [Route Storage Blob events](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)  
+  Respond to storage blob events by using Event Grid.
 * [Create and subscribe to custom events](custom-event-quickstart.md)  
   Jump right in and start sending your own custom events to any endpoint using the Azure Event Grid quickstart.
 * [Using Logic Apps as an Event Handler](monitor-virtual-machine-changes-event-grid-logic-app.md)  
