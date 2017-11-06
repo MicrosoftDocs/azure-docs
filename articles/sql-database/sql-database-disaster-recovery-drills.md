@@ -28,10 +28,10 @@ Performing a disaster recovery drill consists of:
 * Recovering
 * Validate application integrity post recovery
 
-Depending on how you [designed your application for business continuity](sql-database-business-continuity.md), the workflow to execute the drill can vary. Below we describe the best practices conducting a disaster recovery drill in the context of Azure SQL Database.
+Depending on how you [designed your application for business continuity](sql-database-business-continuity.md), the workflow to execute the drill can vary. This article describes the best practices for conducting a disaster recovery drill in the context of Azure SQL Database.
 
 ## Geo-restore
-To prevent the potential data loss when conducting a disaster recovery drill, we recommend performing the drill using a test environment by creating a copy of the production environment and using it to verify the application’s failover workflow.
+To prevent the potential data loss when conducting a disaster recovery drill, perform the drill using a test environment by creating a copy of the production environment and using it to verify the application’s failover workflow.
 
 #### Outage simulation
 To simulate the outage, you can delete or rename the source database. This causes application connectivity failures.
@@ -41,7 +41,7 @@ To simulate the outage, you can delete or rename the source database. This cause
 * Change the application configuration to connect to the recovered database and follow the [Configure a database after recovery](sql-database-disaster-recovery.md) guide to complete the recovery.
 
 #### Validation
-* Complete the drill by verifying the application integrity post recovery (including connection strings, logins, basic functionality testing or other validations part of standard application signoffs procedures).
+* Complete the drill by verifying the application integrity post recovery (including connection strings, logins, basic functionality testing, or other validations part of standard application signoffs procedures).
 
 ## Failover groups
 For a database that is protected using failover groups, the drill exercise involves planned failover to the secondary server. The planned failover ensures that the primary and the secondary databases in the failover group remain in sync when the roles are switched. Unlike the unplanned failover, this operation does not result in data loss, so the drill can be performed in the production environment.
@@ -50,12 +50,12 @@ For a database that is protected using failover groups, the drill exercise invol
 To simulate the outage, you can disable the web application or virtual machine connected to the database. This results in the connectivity failures for the web clients.
 
 #### Recovery
-* Make sure the application configuration in the DR region points to the former secondary which becomes the fully accessible new primary.
+* Make sure the application configuration in the DR region points to the former secondary, which becomes the fully accessible new primary.
 * Initiate [planned failover](scripts/sql-database-setup-geodr-and-failover-database-powershell.md) of the failover group from the secondary server.
 * Follow the [Configure a database after recovery](sql-database-disaster-recovery.md) guide to complete the recovery.
 
 #### Validation
-Complete the drill by verifying the application integrity post recovery (including connectvity, basic functionality testing, or other validations required for the drill signoffs).
+Complete the drill by verifying the application integrity post recovery (including connectivity, basic functionality testing, or other validations required for the drill signoffs).
 
 ## Next steps
 * To learn about business continuity scenarios, see [Continuity scenarios](sql-database-business-continuity.md).

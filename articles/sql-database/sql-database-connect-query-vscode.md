@@ -186,5 +186,5 @@ Use the following code to delete the new product that you previously added using
 ## Next steps
 
 - To connect and query using SQL Server Management Studio, see [Connect and query with SSMS](sql-database-connect-query-ssms.md).
-- To connect and query using the Azure portal, see [Connect and query with the Azure Portal SQL query editor](sql-database-connect-query-portal.md).
+- To connect and query using the Azure portal, see [Connect and query with the Azure portal SQL query editor](sql-database-connect-query-portal.md).
 - For an MSDN magazine article on using Visual Studio Code, see [Create a database IDE with MSSQL extension blog post](https://msdn.microsoft.com/magazine/mt809115).
