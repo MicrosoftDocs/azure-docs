@@ -104,6 +104,14 @@ When you are done with the container, you can remove it using the [az container 
 az container delete --name mycontainer --resource-group myResourceGroup
 ```
 
+To verify that the container has been deleted, execute the [az container list](/cli/azure/container#az_container_list) command:
+
+```azurecli-interactive
+az container list --resource-group myResourceGroup -o table
+```
+
+The **mycontainer** container should not appear in the command's output. If you have no other containers in the resource group, no output is displayed.
+
 ## Next steps
 
 All of the code for the container used in this quickstart is available [on GitHub][app-github-repo], along with its Dockerfile. If you'd like to try building it yourself and deploying it to Azure Container Instances using the Azure Container Registry, continue to the Azure Container Instances tutorial.

@@ -72,6 +72,12 @@ Use the `docker build` command to create the container image, tagging it as *aci
 docker build ./aci-helloworld -t aci-tutorial-app
 ```
 
+Output (truncated):
+
+```bash
+
+```
+
 Use the `docker images` to see the built image:
 
 ```bash
