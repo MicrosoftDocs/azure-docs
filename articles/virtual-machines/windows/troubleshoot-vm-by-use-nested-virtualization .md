@@ -40,7 +40,7 @@ To mount the problem VM, the Recovery VM must meet the following prerequisite:
 
     -  Same location, Storage Account, and Resource Group as the problem VM.
 
-    -  Select the same storage type as the problem VM (Standard or Premium)
+    -  Select the same storage type as the problem VM (Standard or Premium).
 
 2.  After the Recovery VM is created, remote desktop to the Recovery VM.
 
@@ -131,7 +131,7 @@ To mount the problem VM, the Recovery VM must meet the following prerequisite:
 
      ![the image about creates vm from the disk](./media/troubleshoot-vm-by-use-nested-virtualization/create-vm-from-vhd.png) 
 
-You can also use Azure PowerShell to create the VM from the disk. For more information, see [create the new VM from an existing disk](create-vm-specialized.md#create-the-new-vm). 
+You can also use Azure PowerShell to create the VM from the disk. For more information, see [Create the new VM from an existing disk by using PowerShell](create-vm-specialized.md#create-the-new-vm). 
 
 ## New steps
 
