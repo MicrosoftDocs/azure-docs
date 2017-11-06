@@ -80,7 +80,7 @@ If your virtual array is running Update 0.6, perform the following steps to down
 
     You see two files:
     -  A Microsoft Update Standalone Package file `WindowsTH-KB3011067-x64`. This file is used to update the device software.
-    - A file that contains cumulative updates for August `windows8.1-kb4034681-x64`. For more information on what is included in this rollup, go to [August monthly security rollup](https://support.microsoft.com/en-us/help/4034681/windows-8-1-windows-server-2012-r2-update-kb40346810).
+    - A file that contains cumulative updates for August `windows8.1-kb4034681-x64`. For more information on what is included in this rollup, go to [August monthly security rollup](https://support.microsoft.com/help/4034681/windows-8-1-windows-server-2012-r2-update-kb40346810).
 
 ### Install the update or the hotfix
 

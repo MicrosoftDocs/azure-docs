@@ -22,7 +22,7 @@
 
     ![update device](../includes/media/storsimple-virtual-array-install-update-via-portal-1/azupdate6m.png)
 
-5. In the **New updates** blade, review the information that after the updates are downloaded, you need to confirm the installation. Click **OK**.
+5. In the **New updates** blade, review the release notes. Also note that after the updates are downloaded, you need to confirm the installation. Click **OK**.
 
     ![update device](../includes/media/storsimple-virtual-array-install-update-via-portal-1/azupdate7m.png)
 

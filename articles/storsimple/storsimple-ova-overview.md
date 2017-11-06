@@ -78,7 +78,7 @@ The StorSimple Virtual Array is best suited for infrequently accessed data. Whil
 
 ![Cloud archiving](./media/storsimple-ova-overview/cloud-archiving.png)
 
-* When multiple concurrent users access the virtual array, they all share the connection to Azure leading to a lower performance. There is no guaranteed performance per user and the device processes individual requests as they arrive.
+When multiple concurrent users access the virtual array, they all share the connection to Azure leading to a lower performance. There is no guaranteed performance per user and the device processes individual requests as they arrive.
 
 StorSimple Virtual Array is not suitable for workloads that require high availability. The virtual array is a single node device that experiences downtime when software updates are installed. Administrators should plan for a maintenance window of 30 minutes 3-4 times per year.
 
@@ -109,10 +109,10 @@ The virtual array supports the following data protection and disaster recovery s
 
 The virtual array includes the following components:
 
-* [Virtual array](#virtual-array) – a hybrid cloud storage device based on a virtual machine provisioned in your virtualized environment or hypervisor.
-* [StorSimple Device Manager service](#storsimple-device-manager-service) – an extension of the Azure portal that lets you manage one or more StorSimple devices from a single web interface that you can access from different geographical locations. You can use the StorSimple Device Manager service to create and manage services, view and manage devices and alerts, and manage volumes, shares, and existing snapshots.
-* [Local web user interface](#local-web-user-interface) – a web-based UI that is used to configure the device so that it can connect to the local network, and then register the device with the StorSimple Device Manager service. 
-* [Command-line interface](#command-line-interface) – a Windows PowerShell interface that you can use to start a support session on the virtual array.
+* [Virtual array](#virtual-array) – A hybrid cloud storage device based on a virtual machine provisioned in your virtualized environment or hypervisor.
+* [StorSimple Device Manager service](#storsimple-device-manager-service) – An extension of the Azure portal that lets you manage one or more StorSimple devices from a single web interface that you can access from different geographical locations. You can use the StorSimple Device Manager service to create and manage services, view and manage devices and alerts, and manage volumes, shares, and existing snapshots.
+* [Local web user interface](#local-web-user-interface) – A web-based UI that is used to configure the device so that it can connect to the local network, and then register the device with the StorSimple Device Manager service. 
+* [Command-line interface](#command-line-interface) – A Windows PowerShell interface that you can use to start a support session on the virtual array.
   The following sections describe each of these components in greater detail and explain how the solution arranges data, allocates storage, and facilitates storage management and data protection.
 
 ### Virtual array
@@ -170,7 +170,7 @@ In addition to the virtual array and other components, the StorSimple solution u
 ### Automatic storage tiering
 The virtual array uses a new tiering mechanism to manage stored data across the virtual array and the cloud. There are only two tiers: the local virtual array and Azure cloud storage. The StorSimple Virtual Array automatically arranges data into the tiers based on a heat map, which tracks current usage, age, and relationships to other data. Data that is most active (hottest) is stored locally, while less active and inactive data is automatically migrated to the cloud. (All backups are stored in the cloud.) StorSimple adjusts and rearranges data and storage assignments as usage patterns change. For example, some information might become less active over time. As it becomes progressively less active, it is tiered out to the cloud. If that same data becomes active again, it is tiered in to the storage array.
 
-Data for a particular tiered share or volume is guaranteed its own local tier space. (approximately 10% of the total provisioned space for that share or volume). While this reduces the available storage on the virtual array for that share or volume, it ensures that tiering for one share or volume will not be affected by the tiering needs of other shares or volumes. Thus a very busy workload on one share or volume cannot force all other workloads to the cloud.
+Data for a particular tiered share or volume is guaranteed its own local tier space (approximately 10% of the total provisioned space for that share or volume). While this reduces the available storage on the virtual array for that share or volume, it ensures that tiering for one share or volume will not be affected by the tiering needs of other shares or volumes. Thus a very busy workload on one share or volume cannot force all other workloads to the cloud.
 
 Tiered volumes created for iSCSI have a maximum local reservation of 200 GB regardless of the size of the volume.
 

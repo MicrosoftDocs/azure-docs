@@ -32,7 +32,7 @@ Update 1.0 corresponds to the software version **10.0.10296.0**.
 >
 > - Update 1 is only available to you via the Azure portal if your device is running Update 0.6.
 
-## What's new in the Update 1.0
+## What's new in Update 1.0
 
 **Update 1.0 contains changes related to authentication of StorSimple Device Manager service and should be deployed at your earliest.** This update contains the following enhancements and bug fixes:
 
@@ -47,7 +47,7 @@ Update 1.0 corresponds to the software version **10.0.10296.0**.
  - **Logging improvement** - This release contains improvements to logging related to garbage collection and I/O path.
 
 
-## Issues fixed in the Update 1.0
+## Issues fixed in Update 1.0
 
 The following table provides a summary of issues fixed in this release.
 
@@ -58,7 +58,7 @@ The following table provides a summary of issues fixed in this release.
 | 3 |Performance| This release contains changes that result in restore/cloud reads/tier in/tier out performance improvement.|
 | 4 |Update| There was an issue with update in the earlier release that resulted in backup failures at a customer site. This issue is fixed in this release.|
 
-## Known issues in the Update 1.0
+## Known issues in Update 1.0
 
 The following table provides a summary of known issues for the StorSimple Virtual Array and includes the issues release-noted from the previous releases.
 
@@ -84,7 +84,7 @@ The following table provides a summary of known issues for the StorSimple Virtua
 | **18.** |Updates |If you use the local web UI to install Update 1 on your virtual array, you must ensure that you are running Update 0.6. If you are running a version lower than Update 0.6, you must install Update 0.6 first and then apply Update 1. If you directly install Update 1.0 from a pre-Update 0.6 version, then you will miss some updates and the monitoring charts will not work.   | |
 
 
-## Next step
+## Next steps
 [Install Update 1.0](storsimple-virtual-array-install-update-1.md) on your StorSimple Virtual Array.
 
 ## References
