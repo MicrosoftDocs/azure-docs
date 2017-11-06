@@ -31,6 +31,10 @@
     href: luis-csharp-tutorial-build-bot-framework-sample.md
   - name: Import utterances from a log
     href: luis-tutorial-node-import-utterances-csv.md
+- name: Samples
+  items:
+  - name: Code Samples
+    href: https://github.com/Microsoft/LUIS-Samples
 - name: Concepts
   items: 
   - name: Intents
@@ -113,7 +117,3 @@
     href: https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/LUIS 
-- name: Samples
-  items:
-  - name: Code Samples
-    href: https://github.com/Microsoft/LUIS-Samples
