@@ -250,6 +250,6 @@ In this tutorial, you learned how to:
 
 Next, advance to the following tutorial to learn how to deploy an application and use API management.
 > [!div class="nextstepaction"]
-> [Deploy an application](service-fabric-tutorial-deploy-api-management.md)
+> [Deploy API Management](service-fabric-tutorial-deploy-api-management.md)
 
 [durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster
