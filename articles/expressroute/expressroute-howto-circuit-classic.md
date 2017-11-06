@@ -54,11 +54,11 @@ Follow the instructions in [Getting started with Azure PowerShell cmdlets](/powe
 
 3. If you have more than one subscription, select the subscription that you want to use.
 
-    	Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+    	Select-AzureSubscription -SubscriptionId "Replace_with_your_subscription_id"
 
-4. Next, use the following cmdlet to add your Azure subscription to PowerShell for the classic deployment model.
+4. Confirm if the selected subscription id is set as default.
 
-		Add-AzureAccount
+		Get-AzureSubscription -default
 
 ## Create and provision an ExpressRoute circuit
 ### Step 1. Import the PowerShell modules for ExpressRoute

@@ -83,18 +83,23 @@ Let's make a quick review of what's happening in the app. Open the Program.cs fi
     table.CreateIfNotExists();
     ```
 
-* A new Table container is created. You will notice this code very similar to regular Azure Table storage SDK. 
+* A series of steps are executed on the table using the `TableOperation` class.
 
-    ```csharp
-    CustomerEntity item = new CustomerEntity()
-                {
-                    PartitionKey = Guid.NewGuid().ToString(),
-                    RowKey = Guid.NewGuid().ToString(),
-                    Email = $"{GetRandomString(6)}@contoso.com",
-                    PhoneNumber = "425-555-0102",
-                    Bio = GetRandomString(1000)
-                };
-    ```
+   ```csharp
+   TableOperation insertOperation = TableOperation.Insert(item);
+   table.Execute(insertOperation);
+   ```
+   
+   ```csharp
+   TableOperation retrieveOperation = TableOperation.Retrieve<T>(items[i].PartitionKey, items[i].RowKey);
+   table.Execute(retrieveOperation);
+   ```
+   
+   ```csharp
+   TableOperation deleteOperation = TableOperation.Delete(items[i]);
+   table.Execute(deleteOperation);
+   ```
+
 
 ## Update your connection string
 
@@ -115,7 +120,7 @@ Now we'll update the connection string information so your app can talk to Azure
 
 You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
 
-## Run the web app
+## Run the console app
 
 1. In Visual Studio, right-click on the **PremiumTableGetStarted** project in **Solution Explorer** and then click **Manage NuGet Packages**. 
 

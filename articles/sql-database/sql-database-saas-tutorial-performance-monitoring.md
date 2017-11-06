@@ -1,6 +1,6 @@
 ---
 title: Monitor performance of many Azure SQL databases in a multi-tenant SaaS app  | Microsoft Docs
-description: "Monitor and manage performance of databases and pools in the Azure SQL Database Wingtip SaaS app"
+description: "Monitor and manage performance of Azure SQL databases and pools in a multi-tenant SaaS app"
 keywords: sql database tutorial
 services: sql-database
 documentationcenter: ''
@@ -19,7 +19,7 @@ ms.date: 07/26/2017
 ms.author: sstein
 
 ---
-# Monitor performance of the Wingtip SaaS application
+# Monitor and manage performance of Azure SQL databases and pools in a multi-tenant SaaS app
 
 In this tutorial, several key performance management scenarios used in SaaS applications are explored. Using a load generator to simulate activity across all tenant databases, the built-in monitoring and alerting features of SQL Database and elastic pools are demonstrated.
 
@@ -44,7 +44,7 @@ To complete this tutorial, make sure the following prerequisites are completed:
 
 Managing database performance consists of compiling and analyzing performance data, and then reacting to this data by adjusting parameters to maintain an acceptable response time for your application. When hosting multiple tenants, Elastic database pools are a cost-effective way to provide and manage resources for a group of databases with unpredictable workloads. With certain workload patterns, as few as two S3 databases can benefit from being managed in a pool.
 
-![media](./media/sql-database-saas-tutorial-performance-monitoring/app-diagram.png)
+![application diagram](./media/sql-database-saas-tutorial-performance-monitoring/app-diagram.png)
 
 Pools, and the databases in pools, should be monitored to ensure they stay within acceptable ranges of performance. Tune the pool configuration to meet the needs of the aggregate workload of all databases, ensuring that the pool eDTUs are appropriate for the overall workload. Adjust the per-database min and per-database max eDTU values to appropriate values for your specific application requirements.
 
@@ -111,11 +111,11 @@ Observe the **Elastic pool monitoring** and **Elastic database monitoring** char
 
 The pool's resource utilization is the aggregate database utilization for all databases in the pool. The database chart shows the five hottest databases:
 
-![](./media/sql-database-saas-tutorial-performance-monitoring/pool1.png)
+![database chart](./media/sql-database-saas-tutorial-performance-monitoring/pool1.png)
 
 Because there are additional databases in the pool beyond the top five, the pool utilization shows activity that is not reflected in the top five databases chart. For additional details, click **Database Resource Utilization**:
 
-![](./media/sql-database-saas-tutorial-performance-monitoring/database-utilization.png)
+![database resource utilization](./media/sql-database-saas-tutorial-performance-monitoring/database-utilization.png)
 
 
 ## Set performance alerts on the pool

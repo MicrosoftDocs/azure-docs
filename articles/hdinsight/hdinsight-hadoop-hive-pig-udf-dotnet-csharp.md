@@ -15,18 +15,18 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 10/04/2017
 ms.author: larryfr
 
 ---
 # Use C# user-defined functions with Hive and Pig streaming on Hadoop in HDInsight
 
-Learn how to use C# user defined functions (UDF) with Apache Hive and Pig on HDInsight.
+Learn how to use C# user-defined functions (UDF) with Apache Hive and Pig on HDInsight.
 
 > [!IMPORTANT]
 > The steps in this document work with both Linux-based and Windows-based HDInsight clusters. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight component versioning](hdinsight-component-versioning.md).
 
-Both Hive and Pig can pass data to external applications for processing. This process is known as _streaming_. When using a .NET applciation, the data is passed to the application on STDIN, and the application returns the results on STDOUT. To read and write from STDIN and STDOUT, you can use `Console.ReadLine()` and `Console.WriteLine()` from a console application.
+Both Hive and Pig can pass data to external applications for processing. This process is known as _streaming_. When using a .NET application, the data is passed to the application on STDIN, and the application returns the results on STDOUT. To read and write from STDIN and STDOUT, you can use `Console.ReadLine()` and `Console.WriteLine()` from a console application.
 
 ## Prerequisites
 
@@ -34,7 +34,7 @@ Both Hive and Pig can pass data to external applications for processing. This pr
 
     * Use whatever IDE you want. We recommend [Visual Studio](https://www.visualstudio.com/vs) 2015, 2017, or [Visual Studio Code](https://code.visualstudio.com/). The steps in this document use Visual Studio 2017.
 
-* A way to upload .exe files to the cluster and run Pig and Hive jobs. We recommend the Data Lake Tools for Visual Studio, Azure PowerShell and Azure CLI. The steps in this document use the Data Lake Tools for Visual Studio to upload the files and run the example Hive query.
+* A way to upload .exe files to the cluster and run Pig and Hive jobs. We recommend the Data Lake Tools for Visual Studio, Azure PowerShell, and Azure CLI. The steps in this document use the Data Lake Tools for Visual Studio to upload the files and run the example Hive query.
 
     For information on other ways to run Hive queries and Pig jobs, see the following documents:
 
@@ -42,7 +42,7 @@ Both Hive and Pig can pass data to external applications for processing. This pr
 
     * [Use Apache Pig with HDInsight](hdinsight-use-pig.md)
 
-* A Hadoop on HDInsight cluster. For more information on creating a cluster, see [Create an HDInsight cluster](hdinsight-provision-clusters.md).
+* A Hadoop on HDInsight cluster. For more information on creating a cluster, see [Create an HDInsight cluster](hdinsight-hadoop-provision-linux-clusters.md).
 
 ## .NET on HDInsight
 
@@ -65,7 +65,7 @@ For more information on the version of the .NET framework and Mono included with
     > [!IMPORTANT]
     > Select __.NET Framework 4.5__ if you are using a Linux-based HDInsight cluster. For more information on Mono compatibility with .NET Framework versions, see [Mono compatibility](http://www.mono-project.com/docs/about-mono/compatibility/).
 
-2. Replace the contents of **Program.cs** with the following:
+2. Replace the contents of **Program.cs** with the following code:
 
     ```csharp
     using System;
@@ -153,7 +153,7 @@ For more information on the version of the .NET framework and Mono included with
     }
     ```
 
-    This application parses the lines sent from Pig, and reformat lines that begin with `java.lang.Exception`.
+    This code parses the lines sent from Pig and reformats lines that begin with `java.lang.Exception`.
 
 3. Save **Program.cs**, and then build the project.
 

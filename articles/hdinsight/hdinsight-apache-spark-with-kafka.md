@@ -15,7 +15,7 @@ ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/13/2017
+ms.date: 09/06/2017
 ms.author: larryfr
 ---
 # Apache Spark streaming (DStream) example with Kafka (preview) on HDInsight
@@ -48,7 +48,7 @@ While you can create an Azure virtual network, Kafka, and Spark clusters manuall
 
     This template creates an HDInsight 3.6 cluster for both Kafka and Spark.
 
-2. Use the following information to populate the entries on the **Custom deployment** blade:
+2. Use the following information to populate the entries on the **Custom deployment** section:
    
     ![HDInsight custom deployment](./media/hdinsight-apache-spark-with-kafka/parameters.png)
    
@@ -70,9 +70,9 @@ While you can create an Azure virtual network, Kafka, and Spark clusters manuall
 
 4. Finally, check **Pin to dashboard** and then select **Purchase**. It takes about 20 minutes to create the clusters.
 
-Once the resources have been created, you are redirected to a blade for the resource group that contains the clusters and web dashboard.
+Once the resources have been created, a summary page appears.
 
-![Resource group blade for the vnet and clusters](./media/hdinsight-apache-spark-with-kafka/groupblade.png)
+![Resource group summary for the vnet and clusters](./media/hdinsight-apache-spark-with-kafka/groupblade.png)
 
 > [!IMPORTANT]
 > Notice that the names of the HDInsight clusters are **spark-BASENAME** and **kafka-BASENAME**, where BASENAME is the name you provided to the template. You use these names in later steps when connecting to the clusters.
@@ -81,7 +81,7 @@ Once the resources have been created, you are redirected to a blade for the reso
 
 The code for the example described in this document is available at [https://github.com/Azure-Samples/hdinsight-spark-scala-kafka](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka).
 
-Follow the steps in the `README.md` file to complete this example.
+To complete this example, follow the steps in the `README.md`.
 
 ## Delete the cluster
 

@@ -1,0 +1,67 @@
+- name: Azure Container Registry
+  href: ./index.yml
+- name: Overview
+  items:
+  - name: About Container Registry
+    href: container-registry-intro.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Container Registry - CLI
+    href: container-registry-get-started-azure-cli.md
+  - name: Container Registry - Portal
+    href: container-registry-get-started-portal.md
+  - name: Container Registry - PowerShell
+    href: container-registry-get-started-powershell.md
+- name: Tutorials
+  items:
+  - name: Geo-replication
+    items:
+    - name: 1 - Prepare container registry
+      href: container-registry-tutorial-prepare-registry.md
+    - name: 2 - Deploy web application
+      href: container-registry-tutorial-deploy-app.md
+    - name: 3 - Update web application
+      href: container-registry-tutorial-deploy-update.md
+  - name: Azure Container Instances
+    href: ../container-instances/container-instances-tutorial-prepare-app.md
+  - name: Azure Container Service
+    href: ../container-service/kubernetes/container-service-tutorial-kubernetes-prepare-app.md
+  - name: Service Fabric
+    href: ../service-fabric/service-fabric-tutorial-create-container-images.md
+- name: Concepts
+  items:
+  - name: Container registry SKUs
+    href: container-registry-skus.md
+  - name: Geo-replication (preview)
+    href: container-registry-geo-replication.md
+- name: How-to guides
+  items:
+  - name: Push and pull an image
+    href: container-registry-get-started-docker-cli.md
+  - name: View repositories
+    href: container-registry-repositories.md
+  - name: Create a service principal
+    href: ../azure-resource-manager/resource-group-create-service-principal-portal.md?toc=%2fazure%2fcontainer-registry%2ftoc.json
+  - name: Authenticate with a registry
+    href: container-registry-authentication.md
+  - name: Use ACR webhooks
+    href: ./container-registry-webhook.md
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/acr
+  - name: REST
+    href: /rest/api/containerregistry
+  - name: PowerShell
+    href: /powershell/module/azurerm.containerregistry
+- name: Resources
+  items:
+  - name: Roadmap
+    href: https://aka.ms/acr/roadmap
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/container-registry/
+  - name: Region availability
+    href: https://azure.microsoft.com/regions/services/
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-container-registry

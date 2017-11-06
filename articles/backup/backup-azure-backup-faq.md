@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 7/21/2017
-ms.author: markgal;arunak;trinadhk;
+ms.author: markgal;arunak;trinadhk;sogup;
 
 ---
 # Questions about the Azure Backup service
@@ -43,7 +43,7 @@ No. The vault is created at a subscription level and cannot be reassigned to ano
 All existing Backup vaults in the [classic portal](https://manage.windowsazure.com) continue to be supported. However, you can no longer use the classic portal to deploy new Backup vaults. Microsoft recommends using Recovery Services vaults for all deployments because future enhancements apply to Recovery Services vaults, only. If you attempt to create a Backup vault in the classic portal, you will be redirected to the [Azure portal](https://portal.azure.com).
 
 ### Can I migrate a Backup vault to a Recovery Services vault? <br/>
-Unfortunately no, you can't migrate the contents of a Backup vault to a Recovery Services vault. We are working on adding this functionality, but it is not currently available.
+Yes, you can now upgrade your Backup vault to a Recovery Services vault. For details, refer the article [Upgrade a Backup vault to a Recovery Services vault](backup-azure-upgrade-backup-to-recovery-services.md).
 
 ### I backed up my classic VMs in a Backup vault. Can I migrate my VMs from classic mode to Resource Manager mode and protect them in a Recovery Services vault?
 Classic VM recovery points in a backup vault don't automatically migrate to a Recovery Services vault when you move the VM from classic to Resource Manager mode. Follow these steps to transfer your VM backups:

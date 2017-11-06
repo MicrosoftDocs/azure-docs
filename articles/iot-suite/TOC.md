@@ -37,7 +37,7 @@
 ## [Device information in the remote monitoring solution](iot-suite-remote-monitoring-device-info.md)
 ## [Deploy a gateway for connected factory](iot-suite-connected-factory-gateway-deployment.md)
 ## [Customize connected factory](iot-suite-connected-factory-customize.md)
-
+## [Use the OPC publisher for connected factory](iot-suite-connected-factory-publisher.md)
 # Reference
 ## [Security architecture](iot-security-architecture.md)
 ## [Security best practices](iot-security-best-practices.md)

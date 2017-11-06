@@ -184,7 +184,7 @@ Azure SQL Database Auditing tracks database events and writes them to an audit l
 5. Click **Save**.
 
 > [!IMPORTANT]
-> If you want to customize the audited events, you can do this via PowerShell or REST API - see the [Automation (PowerShell / REST API)](sql-database-auditing.md#subheading-7) section for more details.
+> If you want to customize the audited events, you can do this via PowerShell or REST API - see [SQL database auditing](sql-database-auditing.md) for more details.
 >
 
 ## Enable SQL Database threat detection
@@ -236,7 +236,7 @@ For example, Threat Detection detects certain anomalous database activities indi
 
 
 ## Next steps
-You can improve the protection of your database against malicious users or unauthorized access with just a few simple steps. In this tutorial you learn to: 
+In this tutorial, you learned to improve the protection of your database against malicious users or unauthorized access with just a few simple steps.  You learned how to: 
 
 > [!div class="checklist"]
 > * Set up firewall rules for your sever and or database
@@ -246,6 +246,8 @@ You can improve the protection of your database against malicious users or unaut
 > * Enable SQL Database auditing
 > * Enable SQL Database threat detection
 
+Advance to the next tutorial to learn how to implement a geo-distributed database.
+
 > [!div class="nextstepaction"]
->[Improve SQL Database performance](sql-database-performance-tutorial.md)
+>[Implement a geo-distributed database](sql-database-implement-geo-distributed-database.md)
 

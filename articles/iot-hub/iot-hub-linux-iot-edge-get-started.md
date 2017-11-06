@@ -13,7 +13,7 @@ ms.devlang: cpp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/07/2017
+ms.date: 09/19/2017
 ms.author: andbuc
 ms.custom: H1Hack27Feb2017
 
@@ -28,9 +28,9 @@ ms.custom: H1Hack27Feb2017
 
 The **build.sh** script generates its output in the **build** folder in your local copy of the **iot-edge** repository. This output includes the two IoT Edge modules used in this sample.
 
-The build script places **liblogger.so** in the **build/modules/logger/** folder and **libhello\_world.so** in the **build/modules/hello_world/** folder. Use these paths for the **module path** values as shown in the following example JSON settings file.
+The build script places **liblogger.so** in the **build/modules/logger/** folder and **libhello\_world.so** in the **build/modules/hello_world/** folder. Use these paths for the **module path** values as shown in the example JSON settings file.
 
-The hello\_world\_sample process takes the path to a JSON configuration file a command-line argument. The following example JSON file is provided in the SDK repository at **samples/hello\_world/src/hello\_world\_lin.json**. This configuration file works as is unless you modify the build script to place the IoT Edge modules or sample executables in non-default locations.
+The hello\_world\_sample process takes the path to a JSON configuration file as a command-line argument. The following example JSON file is provided in the SDK repository at **samples/hello\_world/src/hello\_world\_lin.json**. This configuration file works as is unless you modify the build script to place the IoT Edge modules or sample executables in non-default locations.
 
 > [!NOTE]
 > The module paths are relative to the current working directory from where the hello\_world\_sample executable is launched, not the directory where the executable is located. The sample JSON configuration file defaults to writing 'log.txt' in your current working directory.
@@ -75,7 +75,7 @@ The hello\_world\_sample process takes the path to a JSON configuration file a c
 1. Run the following command:
 
     ```sh
-    ./samples/hello_world/hello_world_sample ../samples/hello_world/src/hello_world_lin.json`
+    ./samples/hello_world/hello_world_sample ../samples/hello_world/src/hello_world_lin.json
     ```
 
 [!INCLUDE [iot-hub-iot-edge-getstarted-code](../../includes/iot-hub-iot-edge-getstarted-code.md)]

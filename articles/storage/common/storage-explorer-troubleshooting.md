@@ -12,22 +12,20 @@ ms.service: virtual-machines
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/18/2017
+ms.topic: troubleshooting
+ms.date: 09/08/2017
 ms.author: delhan
 ---
 
 # Azure Storage Explorer troubleshooting guide
 
-## Introduction
-
-Microsoft Azure Storage Explorer (Preview) is a stand-alone app that enables you to easily work with Azure Storage data on Windows, macOS and Linux. The app can connect toStorage accounts hosted on Azure, Sovereign Clouds, and Azure Stack.
+Microsoft Azure Storage Explorer (Preview) is a stand-alone app that enables you to easily work with Azure Storage data on Windows, macOS and Linux. The app can connect to Storage accounts hosted on Azure, Sovereign Clouds, and Azure Stack.
 
 This guide summarizes solutions for common issues seen in Storage Explorer.
 
 ## Sign in issues
 
-Before you continue, try restarting your application and see whether the problems can be fixed.
+Only Azure Active Directory (AAD) accounts are supported. If you use an ADFS account, it’s expected that signing in to Storage Explorer would not work. Before you continue, try restarting your application and see whether the problems can be fixed.
 
 ### Error: Self-Signed Certificate in Certificate Chain
 
@@ -64,7 +62,7 @@ If you cannot find any self-signed certificates using the above steps, contact u
 
 If you are unable to retrieve your subscriptions after you successfully sign in, follow these steps to troubleshoot this issue:
 
-- Verify that your account has access to the subscriptions by signing into the Azure Portal.
+- Verify that your account has access to the subscriptions by signing into the Azure portal.
 
 - Make sure that you have signed in using the correct environment (Azure, Azure China, Azure Germany, Azure US Government, or Custom Environment/Azure Stack).
 
@@ -147,7 +145,7 @@ If you have networking tools, such as Fiddler for Windows, you may be able to di
 
 - Check the port number used by your networking tool.
 
-- Enter the local host URL and the networking tool's port number as proxy settings in Storage Explorer. If this isdone correctly, your networking tool starts logging network requests made by Storage Explorer to management and service endpoints. For example, enter https://cawablobgrs.blob.core.windows.net/ for your blob endpoint in a browser, and you will receive a response resembles the following, which suggests the resource exists, although you cannot access it.
+- Enter the local host URL and the networking tool's port number as proxy settings in Storage Explorer. If this is done correctly, your networking tool starts logging network requests made by Storage Explorer to management and service endpoints. For example, enter https://cawablobgrs.blob.core.windows.net/ for your blob endpoint in a browser, and you will receive a response resembles the following, which suggests the resource exists, although you cannot access it.
 
 ![code sample](./media/storage-explorer-troubleshooting/4022502_en_2.png)
 

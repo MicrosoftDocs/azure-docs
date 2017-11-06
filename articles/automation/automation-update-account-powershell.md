@@ -1,9 +1,9 @@
-﻿---
+---
 title: Create Azure Automation Run As account with PowerShell | Microsoft Docs
 description: This article describes how to upgrade your Automation account with PowerShell to create the Run As accounts if you did not perform this step during initial creation from  the portal.  
 services: automation
 documentationcenter: ''
-author: mgoedtel
+author: eslesar
 manager: carmonm
 editor: ''
 

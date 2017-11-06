@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: web
 ms.date: 08/02/2017
 ms.author: routlaw
-ms.custom: Jenkins
+ms.custom: Jenkins, devcenter
 ---
 
 # Set up continuous integration and deployment to Azure App Service with Jenkins
 
-This tutorial sets up continuous integration and deployment (CI/CD) of a sample Java web app developed with the [Spring Boot](http://projects.spring.io/spring-boot/) framework to [Azure App Service Web App on Linux](/azure/app-service-web/app-service-linux-intro) using Jenkins.
+This tutorial sets up continuous integration and deployment (CI/CD) of a sample Java web app developed with the [Spring Boot](http://projects.spring.io/spring-boot/) framework to [Azure App Service Web App on Linux](/azure/app-service/containers/app-service-linux-intro) using Jenkins.
 
 You will perform the following tasks in this tutorial:
 
@@ -77,7 +77,7 @@ Set up Jenkins to receive [GitHub webhooks](https://developer.github.com/webhook
 
 ## Configure Azure App Service 
 
-1. Using the Azure CLI or [Cloud Shell](/azure/cloud-shell/overview), create a new [Web App on Linux](/azure/app-service-web/app-service-linux-intro). The web app name in this tutorial is `myJavaApp`, but you need to use a unique name for your own app.
+1. Using the Azure CLI or [Cloud Shell](/azure/cloud-shell/overview), create a new [Web App on Linux](/azure/app-service/containers/app-service-linux-intro). The web app name in this tutorial is `myJavaApp`, but you need to use a unique name for your own app.
    
     ```azurecli-interactive
     az group create --name myResourceGroupJenkins --location westus

@@ -18,7 +18,17 @@ This article contains answers to some frequently asked questions about LUIS.
 ## How do I interpret LUIS scores? 
 Your system should use the highest scoring intent regardless of its value. For example, a score below 0.5 does not necessarily mean LUIS has low confidence. Providing more training data can help increase the score of the most-likely intent.
 
-## I want to build a LUIS app with more than 80 intents. What should I do?
+## What is the maximum number of intents and entities that a LUIS app can support?
+A LUIS app can support up to **80** intents.
+
+Limits on entities depend on the entity type and are listed in the following table:
+| Type          | Limit | 
+| ------------- | ----- |
+| [Prebuilt entities](./Pre-builtEntities.md)   | No limit. | 
+| [List entities](./luis-concept-entity-types.md)     | 50 list entities. Each list can contain up to 20000 items | 
+| [Simple, Hierarchical, and Composite entities](./luis-concept-entity-types.md) | You can define up to 30 entities of these types. A hierarchical entity can consist of up to 10 child entities. A composite entity can consist of up to 20 child entities. |
+
+## I want to build a LUIS app with more than the maximum number of intents. What should I do?
 
 First, consider whether your system is using too many intents. Intents that are too similar can make it more difficult for LUIS to distinguish between them. Intents should be varied enough to capture the main tasks the user is asking for, but they don't need to capture every path your code takes. For example, BookFlight and BookHotel may be separate intents in a travel app, but BookInternationalFlight and BookDomesticFlight are too similar, and if your system needs to distinguish them, use entities or other logic rather than intents.
 
@@ -33,14 +43,23 @@ Consider the following tradeoffs when deciding which approach you use with multi
 * **Saving suggested utterances for training** Your LUIS apps get a performance boost when you label the user utterances it receives, especially the [suggested utterances](./Label-Suggested-Utterances.md) that LUIS is relatively unsure of. Any LUIS app that doesn't receive an utterance won't have the benefit of learning from it.
 * **Calling LUIS apps in parallel instead of in series** It is a common to design a system to reduce to the number of REST API calls that happen in series to improve responsiveness. If you send the utterance to multiple LUIS apps and pick the intent with the highest score, you can call them in parallel by sending all the requests asynchronously. If you call a top-level LUIS app to determine a category, and then use the result to send the utterance to another LUIS app, the LUIS calls happen in series.
 
+If reducing the number of intents or dividing your intents into multiple apps won't work for you, provide detailed information about your system and contact support. You can get support by clicking **Support** in www.luis.ai, or through Azure technical support if your Azure subscription inclues support services.
 
 ## I want to build an app in LUIS with more than 30 entities. What should I do?
 
 You might need to use hierarchical and composite entities. Hierarchical entities reflect the relationship between entities that share characteristics or are members of a category. The child entities are all members of their parent's category. For example, a hierarchical entity named PlaneTicketClass may have the child entities EconomyClass and FirstClass. The hierarchy spans only one level of depth. 
 
-Composite entities represent parts of a whole. For example, a composite entity named PlaneTicketOrder may have child entities Airline, Destination, DepartureCity, DepartureDate, and PlaneTicketClass. You build a composite entity from pre-existing simple entities, children of hierarchical entities or prebuilt entities. LUIS is limited to 10 parent entities with up to 10 children for each parent entity (composite or hierarchical). 
+Composite entities represent parts of a whole. For example, a composite entity named PlaneTicketOrder may have child entities Airline, Destination, DepartureCity, DepartureDate, and PlaneTicketClass. You build a composite entity from pre-existing simple entities, children of hierarchical entities or prebuilt entities. 
 
-LUIS also provides the list entity type that is not machine learned but allows users to specify a fixed set entities with a given set of values. 
+LUIS also provides the list entity type that is not machine-learned but allows your LUIS app to specify a fixed list of values. A list entity can have up to 20000 items.
+
+If you've considered hierarchical, composite, and list entities and still need more than the limit, provide detailed information about your system and contact support. You can get support by clicking **Support** in www.luis.ai, or through Azure technical support if your Azure subscription inclues support services.
+
+## What are the limits on the number and size of phrase lists?
+The maximum length of a [phrase list](./luis-concept-feature.md) is 5000 items. You may use a maximum of 10 phrase lists per LUIS app.
+
+## What is the limit on the length of an utterance?
+The maximum length of an utterance is 500 characters.
 
 ## What is the best way to start on building my app in LUIS?
 
@@ -85,6 +104,14 @@ By default, utterances from users are logged. To download a log of utterances th
 
 * If you delete an utterance from your LUIS app, it is removed from the LUIS web service and not available for export.
 * If you delete an account, all apps and their utterances are deleted. Data is retained on the servers for 60 days before permanent deletion.
+
+## What are the transactions limits on the Authoring API?
+You use a Programmatic key with the Authoring API for programmatically editing your LUIS app. Up to 100000 calls per month and 5 transactions per second are allowed for programmatic authoring.
+
+## What is the tenant ID in the Add a key to your app dialog?
+In Azure, a tenant represents the client or organization associated with a service. You can find your tenant ID in the Azure portal under Azure Active Directory > Manage > Properties, in the Directory ID field.
+
+![Tenant ID in Azure portal](./media/luis-manage-keys/luis-assign-key-tenant-id.png)
 
 ## Next steps
 

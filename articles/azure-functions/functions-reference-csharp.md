@@ -3,7 +3,7 @@ title: Azure Functions C# Script developer reference | Microsoft Docs
 description: Understand how to develop Azure Functions using C#.
 services: functions
 documentationcenter: na
-author: lindydonna
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -16,16 +16,11 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 06/07/2017
-ms.author: donnam
+ms.author: glenga
 
 ---
 # Azure Functions C# script developer reference
-> [!div class="op_single_selector"]
-> * [C# script](functions-reference-csharp.md)
-> * [F# script](functions-reference-fsharp.md)
-> * [Node.js](functions-reference-node.md)
->
->
+[!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
 
 The C# script experience for Azure Functions is based on the Azure WebJobs SDK. Data flows into your C# function via method arguments. Argument names are specified in `function.json`, and there are predefined names for accessing things like the function logger and cancellation tokens.
 
@@ -79,7 +74,7 @@ public static string Run(string input, TraceWriter log)
 
 To write multiple values to an output binding, use the [`ICollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) or [`IAsyncCollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) types. These types are write-only collections that are written to the output binding when the method completes.
 
-This example writes multiple queue messages using `ICollector`:
+This example writes multiple queue messages into the same queue using `ICollector`:
 
 ```csharp
 public static void Run(ICollector<string> myQueueItem, TraceWriter log)
@@ -92,7 +87,7 @@ public static void Run(ICollector<string> myQueueItem, TraceWriter log)
 ## Logging
 To log output to your streaming logs in C#, include an argument of type `TraceWriter`. We recommend that you name it `log`. Avoid using `Console.Write` in Azure Functions. 
 
-`TraceWriter` is defined in the [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/TraceWriter.cs). The log level for `TraceWriter` can be configured in [host\.json].
+`TraceWriter` is defined in the [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/TraceWriter.cs). The log level for `TraceWriter` can be configured in [host.json](functions-host-json.md).
 
 ```csharp
 public static void Run(string myBlob, TraceWriter log)
@@ -114,7 +109,7 @@ public async static Task ProcessQueueMessageAsync(
 }
 ```
 
-## Cancellation Token
+## Cancellation token
 Some operations require graceful shutdown. While it's always best to write code that can handle crashing,  in cases where you want to handle graceful shutdown requests, you define a [`CancellationToken`](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx) typed argument.  A `CancellationToken` is provided to signal that a host shutdown is triggered.
 
 ```csharp
@@ -149,7 +144,7 @@ The following namespaces are automatically imported and are therefore optional:
 * `Microsoft.Azure.WebJobs`
 * `Microsoft.Azure.WebJobs.Host`
 
-## Referencing External Assemblies
+## Referencing external assemblies
 For framework assemblies, add references by using the `#r "AssemblyName"` directive.
 
 ```csharp
@@ -194,7 +189,7 @@ For information on how to upload files to your function folder, see the followin
 
 ### Watched directories
 
-The directory that contains the function script file is automatically watched for changes to assemblies. To watch for assembly changes in other directories, add them to the `watchDirectories` list in [host\.json].
+The directory that contains the function script file is automatically watched for changes to assemblies. To watch for assembly changes in other directories, add them to the `watchDirectories` list in [host.json](functions-host-json.md).
 
 ## Using NuGet packages
 To use NuGet packages in a C# function, upload a *project.json* file to the function's folder in the function app's file system. Here is an example *project.json* file that adds a reference to Microsoft.ProjectOxford.Face version 1.1.0:
@@ -213,7 +208,7 @@ To use NuGet packages in a C# function, upload a *project.json* file to the func
 
 Only the .NET Framework 4.6 is supported, so make sure that your *project.json* file specifies `net46` as shown here.
 
-When you upload a *project.json* file, the runtime gets the packages and automatically adds references to the package assemblies. You don't need to add `#r "AssemblyName"` directives. To use the types defined in the NuGet packages, add the required `using` statements to your *run.csx* file 
+When you upload a *project.json* file, the runtime gets the packages and automatically adds references to the package assemblies. You don't need to add `#r "AssemblyName"` directives. To use the types defined in the NuGet packages, add the required `using` statements to your *run.csx* file. 
 
 In the Functions runtime, NuGet restore works by comparing `project.json` and `project.lock.json`. If the date and time stamps of the files **do not** match, a NuGet restore runs and NuGet downloads updated packages. However, if the date and time stamps of the files **do** match, NuGet does not perform a restore. Therefore, `project.lock.json` should not be deployed as it causes NuGet to skip package restore. To avoid deploying the lock file, add the `project.lock.json` to the `.gitignore` file.
 
@@ -376,7 +371,7 @@ using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
 }
 ```
 
-where `BindingTypeAttribute` is the .NET attribute that defines your binding and `T` is the input or output type that's
+`BindingTypeAttribute` is the .NET attribute that defines your binding and `T` is the input or output type that's
 supported by that binding type. `T` also cannot be an `out` parameter type (such as `out JObject`). For example, the
 Mobile Apps table output binding supports
 [six output types](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22),
@@ -402,8 +397,7 @@ public static async Task Run(string input, Binder binder)
 [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs)
 defines the [Storage blob](functions-bindings-storage-blob.md) input or output binding, and
 [TextWriter](https://msdn.microsoft.com/library/system.io.textwriter.aspx) is a supported output binding type.
-As is, the code gets the default app setting for the Storage account connection string (which is `AzureWebJobsStorage`). You can specify a
-custom app setting to use by adding the
+In the previous code sample, the code gets the app setting for the function app's main Storage account connection string (which is `AzureWebJobsStorage`). You can specify a custom app setting to use for the Storage account by adding the
 [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)
 and passing the attribute array into `BindAsync<T>()`. For example,
 
@@ -448,8 +442,4 @@ For more information, see the following resources:
 
 * [Best Practices for Azure Functions](functions-best-practices.md)
 * [Azure Functions developer reference](functions-reference.md)
-* [Azure Functions F# developer reference](functions-reference-fsharp.md)
-* [Azure Functions NodeJS developer reference](functions-reference-node.md)
 * [Azure Functions triggers and bindings](functions-triggers-bindings.md)
-
-[host\.json]: https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json

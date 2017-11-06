@@ -71,7 +71,6 @@ Now the *ApplicationManifest.xml* file (found under the **VisualObjects** projec
  <ServiceManifestRefServiceManifestName="VisualObjects.ActorService" ServiceManifestVersion="2.0" />
 ```
 
-
 Now, build the project by selecting just the **ActorService** project, and then right-clicking and selecting the **Build** option in Visual Studio. If you select **Rebuild all**, you should update the versions for all projects, since the code would have changed. Next, let's package the updated application by right-clicking on ***VisualObjectsApplication***, selecting the Service Fabric Menu, and choosing **Package**. This action creates an application package that can be deployed.  Your updated application is ready to be deployed.
 
 ## Step 3:  Decide on health policies and upgrade parameters
@@ -108,6 +107,12 @@ Register-ServiceFabricApplicationType -ApplicationPathInImageStore "VisualObject
 ```
 
 If the preceding command doesn't succeed, it is likely that you need a rebuild of all services. As mentioned in Step 2, you may have to update your WebService version as well.
+
+It's recommended that you remove the application package after the application is successfully registered.  Deleting application packages from the image store frees up system resources.  Keeping unused application packages consumes disk storage and leads to application performance issues.
+
+```powershell
+Remove-ServiceFabricApplicationPackage -ApplicationPackagePathInImageStore "VisualObjects\_V2" -ImageStoreConnectionString fabric:ImageStore
+```
 
 ## Step 5: Start the application upgrade
 Now, we're all set to start the application upgrade by using the [Start-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/start-servicefabricapplicationupgrade?view=azureservicefabricps) command:

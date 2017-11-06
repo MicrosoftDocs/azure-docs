@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 09/20/2017
 ms.author: owend
 ---
 # Lesson 7: Create Key Performance Indicators
@@ -44,7 +44,7 @@ This topic is part of a tabular modeling tutorial, which should be completed in 
 
     This measure serves as the Base measure for the KPI.  
   
-4.  Right-click **InternetCurrentQuarterSalesPerformance** > **Create KPI**.   
+4.  In the measure grid, right-click **InternetCurrentQuarterSalesPerformance** > **Create KPI**.   
   
 5.  In the Key Performance Indicator (KPI) dialog box, in **Target** select **Absolute Value**, and then type **1.1**.  
   

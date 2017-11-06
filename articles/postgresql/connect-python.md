@@ -7,7 +7,7 @@ ms.author: salonis
 manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
-ms.custom: mvc
+ms.custom: mvc, devcenter
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 08/15/2017
@@ -57,8 +57,8 @@ This topic contains a total of four code samples, each of which performs a speci
 
 - Using your favorite text editor, create a new file.
 - Copy and paste one of the code samples in the following sections into the text file. Replace the **host**, **dbname**, **user**, and **password** parameters with the values that you specified when you created the server and database.
-- Save the file with the .py extension (for example postgres.py) into your project folder. If you are running the Windows OS, be sure to select UTF-8 encoding when saving the file. 
-- Launch the Command Prompt or Bash shell and then change the directory to your project folder, for example `cd postgres`.
+- Save the file with the .py extension (for example postgres.py) into your project folder. If you are running on Windows, be sure to select UTF-8 encoding when saving the file. 
+- Launch the Command Prompt, Terminal, or Bash shell and then change the directory to your project folder, for example `cd postgres`.
 -  To run the code, type the Python command followed by the file name, for example `Python postgres.py`.
 
 > [!NOTE]

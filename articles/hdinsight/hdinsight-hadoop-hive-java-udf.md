@@ -14,7 +14,7 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/26/2017
+ms.date: 09/26/2017
 ms.author: larryfr
 
 ---
@@ -202,7 +202,7 @@ Learn how to create a Java-based user-defined function (UDF) that works with Hiv
 1. Use the following to start the Beeline client from the SSH session.
 
     ```bash
-    beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin
+    beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http'
     ```
 
     This command assumes that you used the default of **admin** for the login account for your cluster.

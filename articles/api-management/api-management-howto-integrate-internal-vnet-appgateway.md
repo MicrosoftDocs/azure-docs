@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2017
+ms.date: 09/19/2017
 ms.author: sasolank
 
 ---
@@ -29,8 +29,18 @@ Combining API Management provisioned in an internal VNET with the Application Ga
 * Use a single API Management resource and have a subset of APIs defined in API Management available for external consumers.
 * Provide a turn-key way to switch access to API Management from the public Internet on and off. 
 
+## Prerequisites
+
+To perform the steps described in this article, you must have:
+
++ An active Azure subscription.
+
+    [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
++ An APIM instance. For more information, see [Create an Azure API Management instance](get-started-create-service-instance.md).
+
 ##<a name="scenario"> </a> Scenario
-This article will cover how to use a single API Management service for both internal and external consumers and make it act as a single frontend for both on-prem and cloud APIs. You will also see how to expose only a subset of your APIs (in the example they are highlighted in green) for External Consumption using the PathBasedRouting functionality available in Application Gateway.
+This article covers how to use a single API Management service for both internal and external consumers and make it act as a single frontend for both on-prem and cloud APIs. You will also see how to expose only a subset of your APIs (in the example they are highlighted in green) for External Consumption using the PathBasedRouting functionality available in Application Gateway.
 
 In the first setup example all your APIs are managed only from within your Virtual Network. Internal consumers (highlighted in orange) can access all your internal and external APIs. Traffic never goes out to Internet a high performance is delivered via Express Route circuits.
 
@@ -38,7 +48,7 @@ In the first setup example all your APIs are managed only from within your Virtu
 
 ## <a name="before-you-begin"> </a> Before you begin
 
-1. Install the latest version of the Azure PowerShell cmdlets by using the Web Platform Installer. You can download and install the latest version from the **Windows PowerShell** section of the [Downloads page](https://azure.microsoft.com/downloads/).
+1. Install the latest version of the Azure PowerShell cmdlets by using the Web Platform Installer. You can download and install the latest version from the **Windows PowerShell** section of the [Downloads page](https://azure.microsoft.com/downloads/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 2. Create a Virtual Network and create separate subnets for API Management and Application Gateway. 
 3. If you intend to create a custom DNS server for the Virtual Network, do so before starting the deployment. Double check it works by ensuring a virtual machine created in a new subnet in the Virtual Network can resolve and access all Azure service endpoints.
 

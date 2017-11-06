@@ -14,7 +14,7 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/09/2017
+ms.date: 10/19/2017
 ms.author: larryfr
 
 ---
@@ -28,24 +28,6 @@ The Azure Resource Manager template used in this document demonstrates how to cr
 > The information in this document and example in this document require HDInsight version 3.6.
 >
 > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
-
-## Prerequisites
-
-* An Azure subscription.
-* [Node.js](http://nodejs.org/): Used to preview the web dashboard locally on your development environment.
-* [Java and the JDK 1.7](http://www.oracle.com/technetwork/java/javase/downloads/index.html): Used to develop the Storm topology.
-* [Maven](http://maven.apache.org/what-is-maven.html): Used to build and compile the project.
-* [Git](http://git-scm.com/): Used to download the project from GitHub.
-* An **SSH** client: Used to connect to the Linux-based HDInsight clusters. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
-
-
-> [!IMPORTANT]
-> You do not need an existing HDInsight cluster. The steps in this document create the following resources:
-> 
-> * An Azure Virtual Network
-> * A Storm on HDInsight cluster (Linux-based, two worker nodes)
-> * An HBase on HDInsight cluster (Linux-based, two worker nodes)
-> * An Azure Web App that hosts the web dashboard
 
 ## Architecture
 
@@ -74,7 +56,7 @@ This example consists of the following components:
 > [!IMPORTANT]
 > Two clusters are required, as there is no supported method to create one HDInsight cluster for both Storm and HBase.
 
-The topology reads data from Event Hub by using the [org.apache.storm.eventhubs.spout.EventHubSpout](http://storm.apache.org/releases/0.10.1/javadocs/org/apache/storm/eventhubs/spout/class-use/EventHubSpout.html) class, and writes data into HBase using the [org.apache.storm.hbase.bolt.HBaseBolt](https://storm.apache.org/releases/1.0.1/javadocs/org/apache/storm/hbase/bolt/HBaseBolt.html) class. Communication with the website is accomplished by using [socket.io-client.java](https://github.com/nkzawa/socket.io-client.java).
+The topology reads data from Event Hub by using the `org.apache.storm.eventhubs.spout.EventHubSpout` class, and writes data into HBase using the `org.apache.storm.hbase.bolt.HBaseBolt` class. Communication with the website is accomplished by using [socket.io-client.java](https://github.com/nkzawa/socket.io-client.java).
 
 The following diagram explains the layout of the topology:
 
@@ -101,32 +83,27 @@ The following diagram explains the layout of the topology:
 
 ## Prepare your environment
 
-Before you use this example, you must create an Azure Event Hub, which the Storm topology reads from.
+Before you use this example, you must prepare your development environment. You must also create an Azure Event Hub, which is used by this example.
 
-### Configure Event Hub
+You need the following items installed on your development environment:
 
-Event Hub is the data source for this example. Use the following steps to create an Event Hub.
+* [Node.js](http://nodejs.org/): Used to preview the web dashboard locally on your development environment.
+* [Java and the JDK 1.7](http://www.oracle.com/technetwork/java/javase/downloads/index.html): Used to develop the Storm topology.
+* [Maven](http://maven.apache.org/what-is-maven.html): Used to build and compile the project.
+* [Git](http://git-scm.com/): Used to download the project from GitHub.
+* An **SSH** client: Used to connect to the Linux-based HDInsight clusters. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-1. From the [Azure portal](https://portal.azure.com), select **+ New** -> **Internet of Things** -> **Event Hubs**.
-2. In the **Create Namespace** section, perform the following tasks:
-   
-   1. Enter a **Name** for the namespace.
-   2. Select a pricing tier. **Basic** is sufficient for this example.
-   3. Select the Azure **Subscription** to use.
-   4. Either select an existing resource group or create a new one.
-   5. Select the **Location** for the Event Hub.
-   6. Select **Pin to dashboard**, and then click **Create**.
+To create an event hub, use the steps in [Create an event hub](../event-hubs/event-hubs-create.md) document.
 
-3. When the creation process completes, the Event Hubs information for your namespace is displayed. From here, select **+ Add Event Hub**. In the **Create Event Hub** section, enter a name of **sensordata**, and then select **Create**. Leave the other fields at the default values.
-4. From the Event Hubs view for your namespace, select **Event Hubs**. Select the **sensordata** entry.
-5. From the sensordata Event Hub, select **Shared access policies**. Use the **+ Add** link to add the following policies:
+> [!IMPORTANT]
+> Save the event hub name, namespace, and the key for the RootManageSharedAccessKey. This information is used to configure the Storm topology.
 
-    | Policy name | Claims |
-    | ----- | ----- |
-    | devices | Send |
-    | storm | Listen |
-
-1. Select both policies and make a note of the **PRIMARY KEY** value. You need the value for both policies in future steps.
+You do not need an HDInsight cluster. The steps in this document provide an Azure Resource Manager template that creates the resources needed by this example. The template creates the following resources:
+ 
+* An Azure Virtual Network
+* A Storm on HDInsight cluster (Linux-based, two worker nodes)
+* An HBase on HDInsight cluster (Linux-based, two worker nodes)
+* An Azure Web App that hosts the web dashboard
 
 ## Download and configure the project
 
@@ -154,8 +131,7 @@ After the command completes, you have the following directory structure:
 To configure the project to read from Event Hub, open the `hdinsight-eventhub-example/TemperatureMonitor/dev.properties` file and add your Event Hub information to the following lines:
 
 ```bash
-eventhub.read.policy.name: your_read_policy_name
-eventhub.read.policy.key: your_key_here
+eventhub.policy.key: the_key_for_RootManageSharedAccessKey
 eventhub.namespace: your_namespace_here
 eventhub.name: your_event_hub_name
 eventhub.partitions: 2
@@ -165,9 +141,6 @@ eventhub.partitions: 2
 
 > [!IMPORTANT]
 > Using the topology locally requires a working Storm development environment. For more information, see [Setting up a Storm development environment](http://storm.apache.org/releases/1.1.0/Setting-up-development-environment.html) at Apache.org.
-
-> [!WARNING]
-> If you are using a Windows development environment, you may receive a `java.io.IOException` when running the topology locally. If so, move on to running the topology on HDInsight.
 
 Before testing, you must start the dashboard to view the output of the topology and generate data to store in Event Hub.
 
@@ -213,16 +186,16 @@ Before testing, you must start the dashboard to view the output of the topology 
    
     ```javascript
     // ServiceBus Namespace
-    var namespace = 'YourNamespace';
+    var namespace = 'Your-eventhub-namespace';
     // Event Hub Name
-    var hubname ='sensordata';
+    var hubname ='Your-eventhub-name';
     // Shared access Policy name and key (from Event Hub configuration)
-    var my_key_name = 'devices';
-    var my_key = 'YourKey';
+    var my_key_name = 'RootManageSharedAccessKey';
+    var my_key = 'Your-Key';
     ```
    
    > [!NOTE]
-   > This example assumes that you have used `sensordata` as the name of your Event Hub. And that `devices` as the name of the policy that has a `Send` claim.
+   > This example assumes that you are using `RootManageSharedAccessKey` to access your event hub.
 
 3. Use the following command to insert new entries in Event Hub:
    
@@ -375,7 +348,7 @@ To write to HBase from the Storm cluster, you must provide the HBase bolt with t
     > When prompted, enter the password for the HDInsight admin login.
 
     ```powershell
-    $clusterName = 'your_HDInsight_cluster_name`
+    $clusterName = 'your_HDInsight_cluster_name'
     $creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
     $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/HBASE/components/HBASE_MASTER" -Credential $creds
     $respObj = ConvertFrom-Json $resp.Content

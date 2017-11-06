@@ -21,7 +21,7 @@ ms.author: adegeo
 
 The load balancer deployed with your Azure Service Fabric cluster directs traffic to your app running on a node. If you change your app to use a different port, you must expose that port (or route a different port) in the Azure Load Balancer.
 
-When you deployed your service fabric cluster to Azure, a load balancer was automatically created for you. If you do not have a load balancer, see [Configure an Internet-facing load balancer](..\load-balancer\load-balancer-get-started-internet-portal.md).
+When you deployed your Service Fabric cluster to Azure, a load balancer was automatically created for you. If you do not have a load balancer, see [Configure an Internet-facing load balancer](..\load-balancer\load-balancer-get-started-internet-portal.md).
 
 ## Configure service fabric
 
@@ -29,9 +29,9 @@ Your Service Fabric application **ServiceManifest.xml** config file defines the 
 
 ## Create a load balancer rule
 
-A load balancer rule opens up an internet-facing port and forwards traffic to the internal node's port used by your application. If you do not have a load balancer, see [Configure an Internet-facing load balancer](..\load-balancer\load-balancer-get-started-internet-portal.md).
+A Load Balancer rule opens up an internet-facing port and forwards traffic to the internal node's port used by your application. If you do not have a load balancer, see [Configure an Internet-facing load balancer](..\load-balancer\load-balancer-get-started-internet-portal.md).
 
-To create a load balancer rule, you need to collect the following information:
+To create a Load Balancer rule, you need to collect the following information:
 
 - Load balancer name.
 - Resource group of the load balancer and service fabric cluster.
@@ -39,13 +39,14 @@ To create a load balancer rule, you need to collect the following information:
 - Internal port.
 
 ## Azure CLI
+It only takes a single command to create a load balancer rule with the **Azure CLI**. You just need to know both the name of the load balancer and resource group to create a new rule.
+
 >[!NOTE]
 >If you need to determine the name of the load balancer, use this command to quickly get a list of all load balancers and the associated resource groups.
 >
 >`az network lb list --query "[].{ResourceGroup: resourceGroup, Name: name}"`
 >
 
-It only takes a single command to create a load balancer rule with the **Azure CLI**. You just need to know both the name of the load balancer and resource group to create a new rule.
 
 ```azurecli
 az network lb rule create --backend-port 40000 --frontend-port 39999 --protocol Tcp --lb-name LB-svcfab3 -g svcfab_cli -n my-app-rule
@@ -55,11 +56,11 @@ The Azure CLI command has a few parameters that are described in the following t
 
 | Parameter | Description |
 | --------- | ----------- |
-| `--backend-port`  | The port the service fabric application is listening to. |
+| `--backend-port`  | The port the Service Fabric application is listening to. |
 | `--frontend-port` | The port the load balancer exposes for external connections. |
 | `-lb-name` | The name of the load balancer to change. |
-| `-g`       | The resource group that has both the load balancer and service fabric cluster. |
-| `-n`       | The chosen name of the rule. |
+| `-g`       | The resource group that has both the load balancer and Service Fabric cluster. |
+| `-n`       | The desired name of the rule. |
 
 
 >[!NOTE]
@@ -67,17 +68,17 @@ The Azure CLI command has a few parameters that are described in the following t
 
 ## PowerShell
 
->[!NOTE]
->If you need to determine the name of the load balancer, use this command to quickly get a list of all load balancers and associated resource groups.
->
->`Get-AzureRmLoadBalancer | Select Name, ResourceGroupName`
-
-PowerShell is a little more complicated than the Azure CLI. Conceptually, do the following steps to create a rule.
+PowerShell is a little more complicated than the Azure CLI. Follow these conceptual steps to create a rule:
 
 1. Get the load balancer from Azure.
 2. Create a rule.
 3. Add the rule to the load balancer.
 4. Update the load balancer.
+
+>[!NOTE]
+>If you need to determine the name of the load balancer, use this command to quickly get a list of all load balancers and associated resource groups.
+>
+>`Get-AzureRmLoadBalancer | Select Name, ResourceGroupName`
 
 ```powershell
 # Get the load balancer
@@ -101,3 +102,6 @@ Regarding the `New-AzureRmLoadBalancerRuleConfig` command, the `-FrontendPort` r
 >[!NOTE]
 >For more information on how to create a load balancer with PowerShell, see [Create a load balancer with PowerShell](..\load-balancer\load-balancer-get-started-internet-arm-ps.md).
 
+## Next steps
+
+Learn more about [networking in Service Fabric](service-fabric-patterns-networking.md).

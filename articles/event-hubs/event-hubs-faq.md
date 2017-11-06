@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2017
-ms.author: sethm;shvija
+ms.date: 10/05/2017
+ms.author: sethm
 
 ---
 
@@ -40,7 +40,7 @@ You explicitly select Event Hubs throughput units, either through the Azure port
 * Up to 2 MB per second of egress events (events consumed from an event hub).
 * Up to 84 GB of event storage (sufficient for the default 24-hour retention period).
 
-Event Hubs throughput units are billed hourly, based on the maximum number of units selected during the given hour.
+Event Hubs throughput units are billed hourly, based on the maximum number of units selected during the given hour. You can automatically [increase the number throughput units](event-hubs-auto-inflate.md) as your usage increases.
 
 ### How are Event Hubs throughput unit limits enforced?
 If the total ingress throughput or the total ingress event rate across all event hubs in a namespace exceeds the aggregate throughput unit allowances, senders are throttled and receive errors indicating that the ingress quota has been exceeded.
@@ -49,6 +49,8 @@ If the total egress throughput or the total event egress rate across all event h
 
 ### Is there a limit on the number of throughput units that can be selected?
 There is a default quota of 20 throughput units per namespace. You can request a larger quota of throughput units by filing a support ticket. Beyond the 20 throughput unit limit, bundles are available in 20 and 100 throughput units. Note that using more than 20 throughput units removes the ability to change the number of throughput units without filing a support ticket.
+
+Using the [Auto-inflate](event-hubs-auto-inflate.md) feature, you can automatically increase the number throughput units as your usage increases.
 
 ### Can I use a single AMQP connection to send and receive from multiple event hubs?
 Yes, as long as all the event hubs are in the same namespace.
@@ -88,7 +90,7 @@ Events consumed from an event hub, as well as management operations and control 
 Connection charges apply only when the AMQP protocol is used. There are no connection charges for sending events using HTTP, regardless of the number of sending systems or devices. If you plan to use AMQP (for example, to achieve more efficient event streaming or to enable bi-directional communication in IoT command and control scenarios), see the [Event Hubs pricing information](https://azure.microsoft.com/pricing/details/event-hubs/) page for details about how many connections are included in each service tier.
 
 ### How is Event Hubs Capture billed?
-Capture is enabled when any event hub in the namespace has the Capture option enabled. Event Hubs Capture is billed hourly per purchased Throughput Unit. As the Throughput Unit count is increased or decreased, Event Hubs Capture billing reflects these changes in whole hour increments. For more information about Event Hubs Capture billing, see [Event Hubs pricing information](https://azure.microsoft.com/pricing/details/event-hubs/).
+Capture is enabled when any event hub in the namespace has the Capture option enabled. Event Hubs Capture is billed hourly per purchased throughput unit. As the throughput unit count is increased or decreased, Event Hubs Capture billing reflects these changes in whole hour increments. For more information about Event Hubs Capture billing, see [Event Hubs pricing information](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 ### Will I be billed for the storage account I select for Event Hubs Capture?
 Capture uses a storage account you provide when enabled on an event hub. As this is your storage account, any changes for this configuration are billed to your Azure subscription.
@@ -116,3 +118,4 @@ You can learn more about Event Hubs by visiting the following links:
 
 * [Event Hubs overview](event-hubs-what-is-event-hubs.md)
 * [Create an Event Hub](event-hubs-create.md)
+* [Event Hubs Auto-inflate](event-hubs-auto-inflate.md)

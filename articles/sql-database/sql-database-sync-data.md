@@ -94,11 +94,13 @@ Since Data Sync is trigger-based, transactional consistency is not guaranteed. M
 
 ### Requirements
 
--   Each table must have a primary key.
+-   Each table must have a primary key. Don't change the value of the primary key in any row. If you have to do this, delete the row and recreate it with the new primary key value. 
 
 -   A table cannot have an identity column that is not the primary key.
 
 -   The names of objects (databases, tables, and columns) cannot contain the printable characters period (.), left square bracket ([), or right square bracket (]).
+
+-   Snapshot isolation must be enabled. For more info, see [Snapshot Isolation in SQL Server](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
 
 ### Limitations on service and database dimensions
 
@@ -135,6 +137,11 @@ This error message indicates one of the two following issues:
  
 ### How does Data Sync handle circular references? That is, when the same data is synced in multiple sync groups, and keeps changing as a result?
 Data Sync doesn’t handle circular references. Be sure to avoid them. 
+
+### How can I export and import a database with Data Sync?
+After you export a database as a .bacpac file and import it to create a new database, you have to do the following two things to use Data Sync in the new database:
+1.  Clean up the Data Sync objects and side tables on the **new database** by using [this script](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/clean_up_data_sync_objects.sql). This script deletes all of the required Data Sync objects from the database.
+2.  Recreate the sync group with the new database. If you no longer need the old sync group, delete it.
 
 ## Next steps
 

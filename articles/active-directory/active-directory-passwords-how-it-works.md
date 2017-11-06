@@ -74,7 +74,7 @@ By default, only the cloud attributes Office Phone and Mobile Phone are synchron
 
 Users can only reset their password if they have data present in the authentication methods that the administrator has enabled and requires.
 
-If users do not want their mobile phone number to be visible in the directory but would still like to use it for password reset, administrators should not populate it in the directory and the user should then populate their **Authentication Phone** attribute via the [password reset registration portal](http://aka.ms/ssprsetup). Administrators can see this information in the user's profile but it is not published elsewhere. If an Azure Administrator account registers their authentication phone number, it is populated into the mobile phone field and is visible.
+If users do not want their mobile phone number to be visible in the directory but would still like to use it for password reset, administrators should not populate it in the directory and the user should then populate their **Authentication Phone** attribute via the [password reset registration portal](http://aka.ms/ssprsetup). Administrators can see this information in the user's profile but it is not published elsewhere.
 
 ### Number of authentication methods required
 

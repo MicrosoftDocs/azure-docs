@@ -57,8 +57,11 @@ Windows Server 2008 R2 SP1 or above.
 ### Libraries
 
 These libraries are installed automatically with the extension.
+
 -	[Visual C++ Redistributable Packages for Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
 -	[Microsoft Azure Active Directory Module for Windows PowerShell version 1.1.166.0](https://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185)
+
+The Microsoft Azure Active Directory Module for Windows PowerShell is installed, if it is not already present, through a configuration script you run as part of the setup process. There is no need to install this module ahead of time if it is not already installed.
 
 ### Azure Active Directory
 
@@ -153,8 +156,8 @@ Unless you want to use your own certificates (instead of the self-signed certifi
 
    `.\AzureMfaNpsExtnConfigSetup.ps1`
 
-4. PowerShell prompts for your tenant ID. Use the Directory ID GUID that you copied from the Azure portal in the prerequisites section.
-5. Sign in to Azure AD as an administrator.
+4. Sign in to Azure AD as an administrator.
+5. PowerShell prompts for your tenant ID. Use the Directory ID GUID that you copied from the Azure portal in the prerequisites section.
 6. PowerShell shows a success message when the script is finished.  
 
 Repeat these steps on any additional NPS servers that you want to set up for load balancing.

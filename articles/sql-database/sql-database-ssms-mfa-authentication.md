@@ -1,6 +1,6 @@
 ---
 title: Multi-Factor authentication - Azure SQL | Microsoft Docs
-description: Use Multi-Factored Authentication with SSMS for SQL Database and SQL Data Warehouse.
+description: Azure SQL Database and Azure SQL Data Warehouse support connections from SQL Server Management Studio (SSMS) using Active Directory Universal Authentication.
 services: sql-database
 documentationcenter: ''
 author: BYHAM
@@ -15,10 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 07/19/2017
+ms.date: 09/29/2017
 ms.author: rickbyh
-
 ---
+
 # Universal Authentication with SQL Database and SQL Data Warehouse (SSMS support for MFA)
 Azure SQL Database and Azure SQL Data Warehouse support connections from SQL Server Management Studio (SSMS) using *Active Directory Universal Authentication*. 
 **Download the latest SSMS** - On the client computer, download the latest version of SSMS, from [Download SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx). For all the features in this topic, use at least July 2017, version 17.2.  The most recent connection dialog box, looks like this: 
@@ -41,13 +41,13 @@ Beginning with [SSMS version 17](https://docs.microsoft.com/sql/ssms/download-sq
 Azure AD users supported for Azure AD B2B scenarios as guest users (see [What is Azure B2B collaboration](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md)) can connect to SQL Database and SQL Data Warehouse only as part of members of a group created in current Azure AD and mapped manually using the Transact-SQL `CREATE USER` statement in a given database. For example, if `steve@gmail.com` is invited to Azure AD `contosotest` (with the Azure Ad domain `contosotest.onmicrosoft.com`), an Azure AD group, such as `usergroup` must be created in the Azure AD that contains the `steve@gmail.com` member. Then, this group must be created for a specific  database (i.e. MyDatabase) by Azure AD SQL admin or Azure AD DBO  by executing a Transact-SQL `CREATE USER [usergroup] FROM EXTERNAL PROVIDER` statement. After the database user is created, then the user `steve@gmail.com` can login to `MyDatabase` using the SSMS authentication option `Active Directory – Universal with MFA support`. The usergroup, by default, has only the connect permission and any further data access that will need to be granted in the normal way. Please note that user `steve@gmail.com` as a guest user must check the box and add the AD domain name `contosotest.onmicrosoft.com` in the SSMS **Connection Property** dialog box. The **AD domain name or tenant ID** option is only supported for the Universal with MFA connection options, otherwise it is greyed out.
 
 ## Universal Authentication limitations for SQL Database and SQL Data Warehouse
-* SSMS and SqlPackage.exe are the only tools currently enabled for MFA through Active Directory Universal Authentication.
-* SSMS version 17.2, supports multi-user concurrent access using Universal Authentication with MFA. Version 17.0 and 17.1, restricted a log in for an instance of SSMS using Universal Authentication to a single Azure Active Directory account. To log in as another Azure AD account, you must use another instance of SSMS. (This restriction is limited to Active Directory Universal Authentication; you can log in to different servers using Active Directory Password Authentication, Active Directory Integrated Authentication, or SQL Server Authentication).
-* SSMS supports Active Directory Universal Authentication for Object Explorer, Query Editor, and Query Store visualization.
-* SSMS version 17.2 provides DacFx Wizard support for Export/Extract/Deploy Data database. Once a specific user is authenticated through the initial authentication dialog using Universal Authentication, the DacFx Wizard functions the same way it does for all other authentication methods.
-* The SSMS Table Designer does not support Universal Authentication.
-* There are no additional software requirements for Active Directory Universal Authentication except that you must use a supported version of SSMS.  
-* The Active Directory Authentication Library (ADAL) version for Universal authentication was updated to its latest ADAL.dll 3.13.9 available released version. See [Active Directory Authentication Library 3.14.1](http://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/).
+- SSMS and SqlPackage.exe are the only tools currently enabled for MFA through Active Directory Universal Authentication.
+- SSMS version 17.2, supports multi-user concurrent access using Universal Authentication with MFA. Version 17.0 and 17.1, restricted a log in for an instance of SSMS using Universal Authentication to a single Azure Active Directory account. To log in as another Azure AD account, you must use another instance of SSMS. (This restriction is limited to Active Directory Universal Authentication; you can log in to different servers using Active Directory Password Authentication, Active Directory Integrated Authentication, or SQL Server Authentication).
+- SSMS supports Active Directory Universal Authentication for Object Explorer, Query Editor, and Query Store visualization.
+- SSMS version 17.2 provides DacFx Wizard support for Export/Extract/Deploy Data database. Once a specific user is authenticated through the initial authentication dialog using Universal Authentication, the DacFx Wizard functions the same way it does for all other authentication methods.
+- The SSMS Table Designer does not support Universal Authentication.
+- There are no additional software requirements for Active Directory Universal Authentication except that you must use a supported version of SSMS.  
+- The Active Directory Authentication Library (ADAL) version for Universal authentication was updated to its latest ADAL.dll 3.13.9 available released version. See [Active Directory Authentication Library 3.14.1](http://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/).  
 
 
 ## Next steps
@@ -61,3 +61,4 @@ Azure AD users supported for Azure AD B2B scenarios as guest users (see [What is
 - [Import a BACPAC file to a new Azure SQL Database](../sql-database/sql-database-import.md)  
 - [Export an Azure SQL database to a BACPAC file](../sql-database/sql-database-export.md)  
 - C# interface [IUniversalAuthProvider Interface](https://msdn.microsoft.com/library/microsoft.sqlserver.dac.iuniversalauthprovider.aspx)  
+- When using **Active Directory- Universal with MFA** authentication, ADAL tracing is available beginning with [SSMS 17.3](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms). Off by default, you can turn on ADAL tracing by using the **Tools**, **Options** menu, under **Azure Services**, **Azure Cloud**, **ADAL Output Window Trace Level**, followed by enabling **Output**  in the **View** menu. The traces are available in the output window when selecting **Azure Active Directory option**.  

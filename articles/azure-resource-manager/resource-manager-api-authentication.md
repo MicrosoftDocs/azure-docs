@@ -86,7 +86,7 @@ Azure AD also supports certificate credentials for applications: you create a se
 the public key to your Azure AD application registration. For authentication, your application sends a small payload to Azure AD
 signed using your private key, and Azure AD validates the signature using the public key that you registered.
 
-For information about creating an AD app with a certificate, see [Use Azure PowerShell to create a service principal to access resources](resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority) or [Use Azure CLI to create a service principal to access resources](resource-group-authenticate-service-principal-cli.md#create-service-principal-with-certificate).
+For information about creating an AD app with a certificate, see [Use Azure PowerShell to create a service principal to access resources](resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority) or [Use Azure CLI to create a service principal to access resources](resource-group-authenticate-service-principal-cli.md).
 
 ## Get tenant id from subscription id
 To request a token that can be used to call Resource Manager, your application needs to know the tenant ID of the Azure AD tenant that hosts the Azure subscription. Most likely, your users know their subscription ids, but they might not know their tenant ids for Azure Active Directory. To get the user's tenant id, ask the user for the subscription id. Provide that subscription id when sending a request about the subscription:

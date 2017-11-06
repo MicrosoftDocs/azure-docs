@@ -3,7 +3,7 @@ title: Azure Managed Application CredentialsCombo UI element | Microsoft Docs
 description: Describes the Microsoft.Compute.CredentialsCombo UI element for Azure Managed Applications
 services: azure-resource-manager
 documentationcenter: na
-author: tabrezm
+author: tfitzmac
 manager: timlt
 editor: tysonn
 
@@ -13,7 +13,7 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/12/2017
-ms.author: tabrezm;tomfitz
+ms.author: tomfitz
 
 ---
 # Microsoft.Compute.CredentialsCombo UI element

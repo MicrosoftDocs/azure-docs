@@ -135,6 +135,55 @@ wget --content-disposition https://aka.ms/dependencyagentlinux -O InstallDepende
 sh InstallDependencyAgent-Linux64.bin -s
 ```
 
+## Azure VM Extension
+You can easily deploy the Dependency Agent to your Azure VMs using an [Azure VM Extension](https://docs.microsoft.com/azure/virtual-machines/windows/classic/agents-and-extensions).  With the Azure VM Extension, you can deploy the Dependency Agent to your VMs via a PowerShell script or directly in the VM's Azure Resource Manager template.  There is an extension available for both Windows (DependencyAgentWindows) and Linux (DependencyAgentLinux).  If you deploy via the Azure VM Extension, your agents can be automatically updated to the latest versions.
+
+To deploy the Azure VM Extension via PowerShell, you can use the following example:
+```PowerShell
+#
+# Deploy the Dependency Agent to every VM in a Resource Group
+#
+
+$version = "9.1"
+$ExtPublisher = "Microsoft.Azure.Monitoring.DependencyAgent"
+$OsExtensionMap = @{ "Windows" = "DependencyAgentWindows"; "Linux" = "DependencyAgentLinux" }
+$rmgroup = "<Your Resource Group Here>"
+
+Get-AzureRmVM -ResourceGroupName $rmgroup |
+ForEach-Object {
+	""
+	$name = $_.Name
+	$os = $_.StorageProfile.OsDisk.OsType
+	$location = $_.Location
+	$vmRmGroup = $_.ResourceGroupName
+	"${name}: ${os} (${location})"
+	Date -Format o
+	$ext = $OsExtensionMap.($os.ToString())
+	$result = Set-AzureRmVMExtension -ResourceGroupName $vmRmGroup -VMName $name -Location $location `
+	-Publisher $ExtPublisher -ExtensionType $ext -Name "DependencyAgent" -TypeHandlerVersion $version
+	$result.IsSuccessStatusCode
+}
+```
+
+An even easier way to ensure the the Dependency Agent is on each of your VMs is to include the agent in your Azure Resource Manager template.  Note that the Dependency Agent still depends on the OMS Agent, so the [OMS Agent VM Extension](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-vm-extension) must be deployed first.  The following snippet of JSON can be added to the *resources* section of your template.
+```JSON
+"type": "Microsoft.Compute/virtualMachines/extensions",
+"name": "[concat(parameters('vmName'), '/DependencyAgent')]",
+"apiVersion": "2017-03-30",
+"location": "[resourceGroup().location]",
+"dependsOn": [
+"[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]"
+],
+"properties": {
+	"publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
+	"type": "DependencyAgentWindows",
+	"typeHandlerVersion": "9.1",
+	"autoUpgradeMinorVersion": true
+}
+
+```
+
+
 ## Desired State Configuration
 To deploy the Dependency Agent via Desired State Configuration, you can use the xPSDesiredStateConfiguration module and a bit of code like the following:
 ```

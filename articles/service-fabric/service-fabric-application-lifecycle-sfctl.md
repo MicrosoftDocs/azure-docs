@@ -26,14 +26,14 @@ To deploy a new application, complete these steps:
 
 1. Upload an application package to the Service Fabric image store.
 2. Provision an application type.
-3. Specify and create an application.
-4. Specify and create services.
+3. Delete the image store content.
+4. Specify and create an application.
+5. Specify and create services.
 
 To remove an existing application, complete these steps:
 
 1. Delete the application.
 2. Unprovision the associated application type.
-3. Delete the image store content.
 
 ## Deploy a new application
 
@@ -61,6 +61,18 @@ sfctl application provision --application-type-build-path app_package_dir
 ```
 
 The value for `application-type-build-path` is the name of the directory where you uploaded your application package.
+
+### Delete the application package
+
+It's recommended that you remove the application package after the application is successfully registered.  Deleting application packages from the image store frees up system resources.  Keeping unused application packages consumes disk storage and leads to application performance issues. 
+
+To delete the application package from the image store, use the following command:
+
+```azurecli
+sfctl store delete --content-path app_package_dir
+```
+
+`content-path` must be the name of the directory that you uploaded when you created the application.
 
 ### Create an application from an application type
 
@@ -128,19 +140,6 @@ sfctl application unprovision --application-type-name TestAppTye --application-t
 
 The type name and type version must match the name and version in the previously provisioned application manifest.
 
-### Delete the application package
-
-After you have unprovisioned the application type, you can delete the application package from the image store if you
-no longer need it. Deleting application packages helps reclaim disk space. 
-
-To delete the application package from the image store, use the following command:
-
-```azurecli
-sfctl store delete --content-path app_package_dir
-```
-
-`content-path` must be the name of the directory that you uploaded when you created the application.
-
 ## Upgrade application
 
 After creating your application, you can repeat the same set of steps to provision a second version of your
@@ -153,6 +152,7 @@ To perform an upgrade, first provision the next version of the application using
 ```azurecli
 sfctl application upload --path ~/app_package_dir_2
 sfctl application provision --application-type-build-path app_package_dir_2
+sfctl store delete --content-path app_package_dir_2
 ```
 
 It is recommended then to perform a monitored automatic upgrade, launch the upgrade by running the following command:

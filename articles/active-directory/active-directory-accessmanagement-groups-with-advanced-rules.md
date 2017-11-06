@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/19/2017
+ms.date: 10/02/2017
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: oldportal
@@ -28,7 +28,7 @@ When any attributes of a user or device change, the system evaluates all dynamic
 > [!NOTE]
 > - You can set up a rule for dynamic membership on security groups or Office 365 groups.
 >
-> - This feature requires an Azure AD Premium P1 license for each user member added to at least one dynamic group.
+> - This feature requires an Azure AD Premium P1 license for each user member added to at least one dynamic group. It is not mandatory to actually assign licenses to users for them to be members in dynamic groups, but you do need to have the minimum number of licenses in the tenant to cover all such users. For example: if you have a total of 1,000 unique users in all dynamic groups in your tenant, you need to have at least 1,000 licenses for Azure AD Premium P1, or above, to meet the license requirement.
 >
 > - You can create a dynamic group for devices or users, but you cannot create a rule that contains both user and device objects.
 
@@ -244,8 +244,8 @@ An example of a rule that uses a custom attribute is
 
 user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber  
 
-The custom attribute name can be found in the directory by querying a user's attribute using Graph Explorer and searching for the attribute name. 
-Currently we do not support multi-value attributes synchronized from on premises Active Directory. 
+The custom attribute name can be found in the directory by querying a user's attribute using Graph Explorer and searching for the attribute name.
+Currently we do not support multi-value attributes synchronized from on premises Active Directory.
 
 ## "Direct Reports" Rule
 You can create a group containing all direct reports of a manager. When the manager's direct reports change in the future, the group's membership will be adjusted automatically.
@@ -271,28 +271,41 @@ You can create a group containing all direct reports of a manager. When the mana
 ## Using attributes to create rules for device objects
 You can also create a rule that selects device objects for membership in a group. The following device attributes can be used:
 
-| Properties              | Allowed values                  | Usage                                                       |
-|-------------------------|---------------------------------|-------------------------------------------------------------|
-| accountEnabled          | true false                      | (device.accountEnabled -eq true)                            |
-| displayName             | any string value                | (device.displayName -eq "Rob Iphone”)                       |
-| deviceOSType            | any string value                | (device.deviceOSType -eq "IOS")                             |
-| deviceOSVersion         | any string value                | (device.OSVersion -eq "9.1")                                |
-| deviceCategory          | any string value                | (device.deviceCategory -eq "")                              |
-| deviceManufacturer      | any string value                | (device.deviceManufacturer -eq "Microsoft")                 |
-| deviceModel             | any string value                | (device.deviceModel -eq "IPhone 7+")                        |
-| deviceOwnership         | any string value                | (device.deviceOwnership -eq "")                             |
-| domainName              | any string value                | (device.domainName -eq "contoso.com")                       |
-| enrollmentProfileName   | any string value                | (device.enrollmentProfileName -eq "")                       |
-| isRooted                | true false                      | (device.deviceOSType -eq true)                              |
-| managementType          | any string value                | (device.managementType -eq "")                              |
-| organizationalUnit      | any string value                | (device.organizationalUnit -eq "")                          |
-| deviceId                | a valid deviceId                | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d") |
-| objectId                | a valid AAD objectId            | (device.objectId -eq "76ad43c9-32c5-45e8-a272-7b58b58f596d") |
+| Properties              | Allowed values                     | Usage                                                       |
+|-------------------------|------------------------------------|-------------------------------------------------------------|
+| accountEnabled          | true false                         | (device.accountEnabled -eq true)                            |
+| displayName             | any string value                   | (device.displayName -eq "Rob Iphone”)                       |
+| deviceOSType            | any string value                   | (device.deviceOSType -eq "Android")                         |
+| deviceOSVersion         | any string value                   | (device.OSVersion -eq "9.1")                                |
+| deviceCategory          | a valid device category name       | (device.deviceCategory -eq "BYOD")                          |
+| deviceManufacturer      | any string value                   | (device.deviceManufacturer -eq "Samsung")                   |
+| deviceModel             | any string value                   | (device.deviceModel -eq "iPad Air”)                         |
+| deviceOwnership         | Personal, Company                  | (device.deviceOwnership -eq "Company")                      |
+| domainName              | any string value                   | (device.domainName -eq "contoso.com")                       |
+| enrollmentProfileName   | Apple Device Enrollment Profile name    | (device.enrollmentProfileName -eq "DEP iPhones")       |
+| isRooted                | true false                         | (device.isRooted -eq true)                              |
+| managementType          | “MDM” for mobile devices, “PC” for computers managed through the Intune PC agent    | (device.managementType -eq "MDM")                  |
+| organizationalUnit      | any string value matching the name of the OU set by on-premises Active Directory | (device.organizationalUnit -eq "US PCs")      |
+| deviceId                | a valid Intune deviceId                | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d") |
+| objectId                | a valid Azure AD objectId            | (device.objectId -eq "76ad43c9-32c5-45e8-a272-7b58b58f596d") |
 
 > [!NOTE]
-> These device rules cannot be created using the "simple rule" dropdown in the Azure classic portal.
+> Device rules cannot be created using the "simple rule" dropdown in the Azure classic portal.
 >
 >
+
+## Changing dynamic membership to static, and vice versa
+It is possible to change how membership is managed in a group. This is useful when you want to keep the same group name and ID in the system, so any existing references to the group are still valid; creating a new group would require updating those references.
+
+> [!WARNING]
+> When changing an existing static group to a dynamic group, all existing members will be removed from the group, and then the membership rule will be processed to add new members. If the group is used to control access to apps or resources, the original members may lose access until the membership rule is fully processed.
+>
+> It is a recommended practice to test the new membership rule beforehand to make sure that the new membership in the group is as expected.
+
+1. In the [Azure classic portal](https://manage.windowsazure.com), open the group.
+2. Select the **Configure** tab to view the current state of dynamic membership.
+3. To make a group static, simply toggle the **Enable dynamic memberships** setting to **NO**. Click the **Save** button in the toolbar below to confirm. Existing members will be kept in the group and from now on the membership rule will not be processed.
+4. To make a group dynamic, toggle the setting to **YES**, specify the desired membership rule and click **Save**. Existing members will be removed and the new rule will start processing to add new members.
 
 ## Next steps
 These articles provide additional information on Azure Active Directory.

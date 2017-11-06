@@ -3,7 +3,7 @@ title: Configure a custom domain name for your Azure Blob storage endpoint | Mic
 description: Use the Azure portal to map your own canonical name (CNAME) to the Blob storage endpoint in an Azure Storage account.
 services: storage
 documentationcenter: ''
-author: mmacy
+author: tamram
 manager: timlt
 editor: tysonn
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
-ms.author: marsma
+ms.author: tamram
 
 ---
 # Configure a custom domain name for your Blob storage endpoint
@@ -115,7 +115,7 @@ When the custom domain has been removed successfully, you will see a portal noti
 
 ### Azure CLI 2.0
 
-Use the [az storage account update](https://docs.microsoft.com/cli/azure/storage/account#update) CLI command and specify an empty string (`""`) for the `--custom-domain` argument value to remove a custom domain registration.
+Use the [az storage account update](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_update) CLI command and specify an empty string (`""`) for the `--custom-domain` argument value to remove a custom domain registration.
 
 * Command format:
 

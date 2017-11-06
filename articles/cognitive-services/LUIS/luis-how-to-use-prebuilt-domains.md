@@ -21,11 +21,27 @@ LUIS offers 20 prebuilt domains. They include but are not limited to:
 
 | Prebuilt domain | Description |
 | ---------------- |-----------------------|
-| Camera | Taking pictures and recording videos.|
+| Calendar | The Calendar domain provides intent and entities for adding, deleting or editing an appointment, checking participants availability, and finding information about a calendar event.|
+| Camera | The Camera domain provides intents and entities for taking pictures, recording videos, and broadcasting video to an application.|
 | Communication | Sending messages and making phone calls.|
 | Entertainment  | Handling queries related to music, movies, and TV.|
+| Events | Booking tickets for concerts, festivals, sports games and comedy shows.|
+| Fitness | Handling requests related to tracking fitness activities.|
+| Gaming | Handling requests related to a game party in a multiplayer game.|
+| HomeAutomation | Controlling smart home devices like lights and appliances.|
+| MovieTickets | Booking tickets to movies at a movie theater.|
+| Music | Playing music on a music player.|
+| Note | The Note domain provides intents and entities related to creating, editing, and finding notes.|
+| OnDevice | The OnDevice domain provides intents and entities related to controlling the device.|
 | Places  | Handling queries related to places like businesses, institutions, restaurants, public spaces and addresses.|
+| Reminder | Handling requests related to creating, editing, and finding reminders.|
+| RestaurantReservation | Handling requests to manage restaurant reservations.|
+| Taxi | Handling bookings for a taxi.|
+| Translate | Translating text to a target language.|
+| TV | Controlling TVs.|
 | Utilities  | Handling requests that are common in many domains, like "help", "repeat", "start over".|
+| Weather | Getting weather reports and forecasts.|
+| Web | Navigating to a website.|
 
 Browse the **Prebuilt domains** tab to see other prebuilt domains you can use in your app. Click on the tile for a domain to add it to your app, or click on "learn more" in its tile to learn about its intents and entities.
 

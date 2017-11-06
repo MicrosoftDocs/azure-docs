@@ -16,7 +16,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 10/12/2017
 ms.author: larryfr
 
 ---
@@ -29,7 +29,41 @@ Learn how to use Apache Sqoop to import and export between a Hadoop cluster in A
 > [!IMPORTANT]
 > The steps in this document only work with HDInsight clusters that use Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-## Install FreeTDS
+> [!WARNING]
+> The steps in this document assume that you have already created an Azure SQL Database named `sqooptest`.
+>
+> This document provides T-SQL statements that are used to create and query a table in SQL Database. There are many clients that you can use these statements with SQL Database. We recommend the following clients:
+>
+> * [SQL Server Management Studio](../sql-database/sql-database-connect-query-ssms.md)
+> * [Visual Studio Code](../sql-database/sql-database-connect-query-vscode.md)
+> * The [sqlcmd](https://docs.microsoft.com/sql/tools/sqlcmd-utility) utility.
+
+## Create the table in SQL Database
+
+> [!IMPORTANT]
+> If you are using the HDInsight cluster and SQL Database created in [Create cluster and SQL database](hdinsight-use-sqoop.md), skip the steps in this section. The database and table were created as part of the steps in the [Create cluster and SQL database](hdinsight-use-sqoop.md) document.
+
+Use a SQL client to connect to the `sqooptest` database in your SQL Database. Then use the following T-SQL to create a table named `mobiledata`:
+
+```sql
+CREATE TABLE [dbo].[mobiledata](
+[clientid] [nvarchar](50),
+[querytime] [nvarchar](50),
+[market] [nvarchar](50),
+[deviceplatform] [nvarchar](50),
+[devicemake] [nvarchar](50),
+[devicemodel] [nvarchar](50),
+[state] [nvarchar](50),
+[country] [nvarchar](50),
+[querydwelltime] [float],
+[sessionid] [bigint],
+[sessionpagevieworder] [bigint])
+GO
+CREATE CLUSTERED INDEX mobiledata_clustered_index on mobiledata(clientid)
+GO
+```
+
+## Sqoop export
 
 1. Use SSH to connect to the HDInsight cluster. For example, the following command connects to the primary headnode of a cluster named `mycluster`:
 
@@ -39,104 +73,29 @@ Learn how to use Apache Sqoop to import and export between a Hadoop cluster in A
 
     For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-2. Use the following command to install FreeTDS:
-
-    ```bash
-    sudo apt --assume-yes install freetds-dev freetds-bin
-    ```
-
-    FreeTDS is used in several steps to connect to SQL Database.
-
-## Create the table in SQL Database
-
-> [!IMPORTANT]
-> If you are using the HDInsight cluster and SQL Database created in [Create cluster and SQL database](hdinsight-use-sqoop.md), skip the steps in this section. The database and table were created as part of the steps in the [Create cluster and SQL database](hdinsight-use-sqoop.md) document.
-
-1. From the SSH session, use the following command to connect to the SQL Database server.
-
-        TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D sqooptest
-
-    You receive output similar to the following text:
-
-        locale is "en_US.UTF-8"
-        locale charset is "UTF-8"
-        using default charset "UTF-8"
-        Default database being set to sqooptest
-        1>
-
-2. At the `1>` prompt, enter the following query:
-
-    ```sql
-    CREATE TABLE [dbo].[mobiledata](
-    [clientid] [nvarchar](50),
-    [querytime] [nvarchar](50),
-    [market] [nvarchar](50),
-    [deviceplatform] [nvarchar](50),
-    [devicemake] [nvarchar](50),
-    [devicemodel] [nvarchar](50),
-    [state] [nvarchar](50),
-    [country] [nvarchar](50),
-    [querydwelltime] [float],
-    [sessionid] [bigint],
-    [sessionpagevieworder] [bigint])
-    GO
-    CREATE CLUSTERED INDEX mobiledata_clustered_index on mobiledata(clientid)
-    GO
-    ```
-
-    When the `GO` statement is entered, the previous statements are evaluated. First, the **mobiledata** table is created, then a clustered index is added to it (required by SQL Database.)
-
-    Use the following query to verify that the table has been created:
-
-    ```sql
-    SELECT * FROM information_schema.tables
-    GO
-    ```
-
-    You see output similar to the following text:
-
-        TABLE_CATALOG   TABLE_SCHEMA    TABLE_NAME      TABLE_TYPE
-        sqooptest       dbo     mobiledata      BASE TABLE
-
-3. Enter `exit` at the `1>` prompt to exit the tsql utility.
-
-## Sqoop export
-
-1. From the SSH connection to the cluster, use the following command to verify that Sqoop can see your SQL Database:
+2. To verify that Sqoop can see your SQL Database, use the following command:
 
     ```bash
     sqoop list-databases --connect jdbc:sqlserver://<serverName>.database.windows.net:1433 --username <adminLogin> -P
     ```
     When prompted, enter the password for the SQL Database login.
 
-    This command returns a list of databases, including the **sqooptest** database that you created earlier.
+    This command returns a list of databases, including the **sqooptest** database used earlier.
 
-2. To export data from **hivesampletable** to the **mobiledata** table, use the following command:
-
-    ```bash
-    sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> -P --table 'mobiledata' --export-dir 'wasb:///hive/warehouse/hivesampletable' --fields-terminated-by '\t' -m 1
-    ```
-
-    This command instructs Sqoop to connect to the **sqooptest** database. Sqoop then exports data from **wasb:///hive/warehouse/hivesampletable** to the **mobiledata** table.
-
-    > [!IMPORTANT]
-    > Use `wasb:///` if the default storage for your cluster is an Azure Storage account. Use `adl:///` if it is an Azure Data Lake Store.
-
-3. After the command completes, use the following command to connect to the database using TSQL:
+3. To export data from the Hive **hivesampletable** table to the **mobiledata** table in SQL Database, use the following command:
 
     ```bash
-    TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P -p 1433 -D sqooptest
+    sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> -P -table 'mobiledata' --hcatalog-table hivesampletable
     ```
 
-    Once connected, use the following statements to verify that the data was exported to the **mobiledata** table:
+4. To verify that data was exported, use the following query from your SQL client to view the exported data:
 
     ```sql
     SET ROWCOUNT 50;
-    SELECT * FROM mobiledata
-    GO
+    SELECT * FROM mobiledata;"
     ```
 
-    You should see a listing of data in the table. Type `exit` to exit the tsql utility.
+    This command lists 50 rows that were imported into the table.
 
 ## Sqoop import
 
@@ -148,6 +107,9 @@ Learn how to use Apache Sqoop to import and export between a Hadoop cluster in A
 
     The fields in the data are separated by a tab character, and the lines are terminated by a new-line character.
 
+    > [!IMPORTANT]
+    > The `wasb:///` path works with clusters that use Azure Storage as the default cluster storage. For clusters that use Azure Data Lake Store, use `adl:///` instead.
+
 2. Once the import has completed, use the following command to list out the data in the new directory:
 
     ```bash
@@ -156,7 +118,7 @@ Learn how to use Apache Sqoop to import and export between a Hadoop cluster in A
 
 ## Using SQL Server
 
-You can also use Sqoop to import and export data from SQL Server, either in your data center or on a Virtual Machine hosted in Azure. The differences between using SQL Database and SQL Server are:
+You can also use Sqoop to import and export data from SQL Server. The differences between using SQL Database and SQL Server are:
 
 * Both HDInsight and SQL Server must be on the same Azure Virtual Network.
 
@@ -168,9 +130,7 @@ You can also use Sqoop to import and export data from SQL Server, either in your
 
 * You may have to configure SQL Server to accept remote connections. For more information, see the [How to troubleshoot connecting to the SQL Server database engine](http://social.technet.microsoft.com/wiki/contents/articles/2102.how-to-troubleshoot-connecting-to-the-sql-server-database-engine.aspx) document.
 
-* Create the **sqooptest** database in SQL Server using a utility such as **SQL Server Management Studio** or **tsql**. The steps for using the Azure CLI only work for Azure SQL Database.
-
-    Use the following Transact-SQL statements to create the **mobiledata** table:
+* Use the following Transact-SQL statements to create the **mobiledata** table:
 
     ```sql
     CREATE TABLE [dbo].[mobiledata](
@@ -190,12 +150,12 @@ You can also use Sqoop to import and export data from SQL Server, either in your
 * When connecting to the SQL Server from HDInsight, you may have to use the IP address of the SQL Server. For example:
 
     ```bash
-    sqoop import --connect 'jdbc:sqlserver://10.0.1.1:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
+    sqoop import --connect 'jdbc:sqlserver://10.0.1.1:1433;database=sqooptest' --username <adminLogin> -P <adminPassword> -table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
     ```
 
 ## Limitations
 
-* Bulk export - With Linux-based HDInsight, the Sqoop connector used to export data to Microsoft SQL Server or Azure SQL Database does not currently support bulk inserts.
+* Bulk export - With Linux-based HDInsight, the Sqoop connector used to export data to Microsoft SQL Server or Azure SQL Database does not support bulk inserts.
 
 * Batching - With Linux-based HDInsight, When using the `-batch` switch when performing inserts, Sqoop makes multiple inserts instead of batching the insert operations.
 

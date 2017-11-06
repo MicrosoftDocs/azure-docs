@@ -135,6 +135,9 @@ Here is an example ApplicationManifest that you need to set for HTTPS. The thumb
 </ApplicationManifest>
 ```
 
+For Linux clusters, the **MY** store defaults to the folder **/var/lib/sfcerts**.
+
+
 ## Overriding Endpoints in ServiceManifest.xml
 
 In the ApplicationManifest add a ResourceOverrides section which will be a sibling to ConfigOverrides section. In this section you can specify the override for the Endpoints section in the resources section specified in the Service manifest.

@@ -3,7 +3,7 @@ title: Azure Functions Blob Storage bindings | Microsoft Docs
 description: Understand how to use Azure Storage triggers and bindings in Azure Functions.
 services: functions
 documentationcenter: na
-author: lindydonna
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''

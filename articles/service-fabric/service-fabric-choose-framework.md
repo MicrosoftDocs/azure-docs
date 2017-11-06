@@ -56,7 +56,7 @@ Service Fabric integrates with [ASP.NET Core](service-fabric-reliable-services-c
 
 [Reliable Services overview](service-fabric-reliable-services-introduction.md)
 
-[Reliable Services overview](service-fabric-reliable-actors-introduction.md)
+[Reliable Actors overview](service-fabric-reliable-actors-introduction.md)
 
 [Service Fabric and ASP.NET Core ](service-fabric-reliable-services-communication-aspnetcore.md)
 

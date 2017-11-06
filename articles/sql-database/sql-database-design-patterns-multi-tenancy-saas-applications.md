@@ -1,6 +1,6 @@
 ---
 title: Design patterns for multi-tenant SaaS applications and Azure SQL Database | Microsoft Docs
-description: This article discusses the requirements and common data architecture patterns of multi-tenant database applications running in a cloud environment need to consider and the various tradeoffs associated with these patterns. It also explains how Azure SQL Database, with its elastic pools and elastic tools, help address these requirements in a no-compromise fashion.
+description: Learn about the requirements and common data architecture patterns of multi-tenant software as a service (SaaS) database applications that run in a cloud environment.
 keywords: ''
 services: sql-database
 documentationcenter: ''

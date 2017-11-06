@@ -17,7 +17,11 @@ ms.date: 08/07/2017
 ms.author: parakhj
 
 ---
-# Azure AD B2C: Use the Graph API
+# Azure AD B2C: Use the Azure AD Graph API
+
+[!NOTE]
+Currently, you must use the [Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-operations-overview?f=255&MSPPError=-2147217396) to manage users in an Azure AD B2C directory.
+
 Azure Active Directory (Azure AD) B2C tenants tend to be very large. This means that many common tenant management tasks need to be performed programmatically. A primary example is user management. You might need to migrate an existing user store to a B2C tenant. You may want to host user registration on your own page and create user accounts in your Azure AD B2C directory behind the scenes. These types of tasks require the ability to create, read, update, and delete user accounts. You can do these tasks by using the Azure AD Graph API.
 
 For B2C tenants, there are two primary modes of communicating with the Graph API.
@@ -56,12 +60,21 @@ Now you need to configure your application to get all the required permissions t
 
 You now have an application that has permission to create, read and update users from your B2C tenant.
 
+> [!NOTE]
+> Granting permissions make take a few minutes to fully process.
+> 
+> 
+
 ## Configure delete permissions for your application
 Currently, the *Read and write directory data* permission does **NOT** include the ability to do any deletions such as deleting users. If you want to give your application the ability to delete users, you'll need to do these extra steps that involve PowerShell, otherwise, you can skip to the next section.
 
-First, download and install the [Microsoft Online Services Sign-In Assistant](http://go.microsoft.com/fwlink/?LinkID=286152). Then download and install the [64-bit Azure Active Directory module for Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
+First, if you don't already have it installed, install the [Azure AD PowerShell v1 module (MSOnline)](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0):
 
-After you install the PowerShell module, open PowerShell and connect to your B2C tenant. After you run `Get-Credential`, you will be prompted for a user name and password, Enter the user name and password of your B2C tenant administrator account.
+```powershell
+Install-Module MSOnline
+```
+
+After you install the PowerShell module connect to your Azure AD B2C tenant.
 
 > [!IMPORTANT]
 > You need to use a B2C tenant administrator account that is **local** to the B2C tenant. These accounts look like this: myusername@myb2ctenant.onmicrosoft.com.

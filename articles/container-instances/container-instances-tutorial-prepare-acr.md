@@ -1,5 +1,5 @@
 ---
-title: Azure Container Instances tutorial - Prepare Azure Container Registry | Microsoft Docs
+title: Azure Container Instances tutorial - Prepare Azure Container Registry
 description: Azure Container Instances tutorial - Prepare Azure Container Registry
 services: container-instances
 documentationcenter: ''
@@ -9,20 +9,20 @@ editor: ''
 tags: acs, azure-container-service
 keywords: Docker, Containers, Micro-services, Kubernetes, DC/OS, Azure
 
-ms.assetid: 
+ms.assetid:
 ms.service: container-instances
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/24/2017
+ms.date: 10/26/2017
 ms.author: seanmck
 ms.custom: mvc
 ---
 
 # Deploy and use Azure Container Registry
 
-This is part two of a three-part tutorial. In the [previous step](./container-instances-tutorial-prepare-app.md), a container image was created for a simple web application written in [Node.js](http://nodejs.org). In this tutorial, this image is pushed to an Azure Container Registry. If you have not created the container image, return to [Tutorial 1 – Create container image](./container-instances-tutorial-prepare-app.md). 
+This is part two of a three-part tutorial. In the [previous step](container-instances-tutorial-prepare-app.md), a container image was created for a simple web application written in [Node.js](http://nodejs.org). In this tutorial, you push the image to an Azure Container Registry. If you have not created the container image, return to [Tutorial 1 – Create container image](container-instances-tutorial-prepare-app.md).
 
 The Azure Container Registry is an Azure-based, private registry, for Docker container images. This tutorial walks through deploying an Azure Container Registry instance, and pushing a container image to it. Steps completed include:
 
@@ -35,7 +35,11 @@ In subsequent tutorials, you deploy the container from your private registry to 
 
 ## Before you begin
 
-This tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+This tutorial requires that you are running the Azure CLI version 2.0.20 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
+
+To complete this tutorial, you need a Docker development environment. Docker provides packages that easily configure Docker on any [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), or [Linux](https://docs.docker.com/engine/installation/#supported-platforms) system.
+
+Azure Cloud Shell does not include the Docker components required to complete every step this tutorial. Therefore, we recommend a local installation of the Azure CLI and Docker development environment.
 
 ## Deploy Azure Container Registry
 
@@ -57,7 +61,7 @@ Throughout the rest of this tutorial, we use `<acrname>` as a placeholder for th
 
 ## Container registry login
 
-You must log in to your ACR instance before pushing images to it. Use the [az acr login](https://docs.microsoft.com/en-us/cli/azure/acr#login) command to complete the operation. You need to provide the unique name given to the container registry when it was created.
+You must log in to your ACR instance before pushing images to it. Use the [az acr login](/cli/azure/acr#az_acr_login) command to complete the operation. You must provide the unique name given to the container registry when it was created.
 
 ```azurecli
 az acr login --name <acrName>
@@ -82,7 +86,7 @@ REPOSITORY                   TAG                 IMAGE ID            CREATED    
 aci-tutorial-app             latest              5c745774dfa9        39 seconds ago       68.1 MB
 ```
 
-To get the loginServer name, run the following command.
+To get the loginServer name, run the following command:
 
 ```azurecli
 az acr show --name <acrName> --query loginServer --output table
@@ -120,7 +124,7 @@ docker push <acrLoginServer>/aci-tutorial-app:v1
 
 ## List images in Azure Container Registry
 
-To return a list of images that have been pushed to your Azure Container registry, user the [az acr repository list](/cli/azure/acr/repository#list) command. Update the command with the container registry name.
+To return a list of images that have been pushed to your Azure Container registry, use the [az acr repository list](/cli/azure/acr/repository#list) command. Update the command with the container registry name.
 
 ```azurecli
 az acr repository list --name <acrName> --output table
@@ -153,9 +157,9 @@ v1
 In this tutorial, an Azure Container Registry was prepared for use with Azure Container Instances, and the container image was pushed. The following steps were completed:
 
 > [!div class="checklist"]
-> * Deploying an Azure Container Registry instance
-> * Tagging container image for Azure Container Registry
-> * Uploading image to Azure Container Registry
+> * Deployed an Azure Container Registry instance
+> * Tagged a container image for Azure Container Registry
+> * Uploaded an image to Azure Container Registry
 
 Advance to the next tutorial to learn about deploying the container to Azure using Azure Container Instances.
 

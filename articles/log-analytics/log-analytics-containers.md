@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2017
+ms.date: 09/20/2017
 ms.author: magoedte;banders
 
 ---
@@ -284,12 +284,12 @@ If you want to use secrets to secure your OMS Workspace ID and Primary Key when 
      WSID:   37 bytes  
     ```
 
-#### Configure an OMS agent for Kubernetes
+#### Configure an OMS Linux agent for Kubernetes
 
-For Kubernetes, you use a script to generate the secrets yaml file for your Workspace ID and Primary Key. At the [OMS Docker Kubernetes GitHub](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes) page, there are files that you can use with or without your secret information.
+For Kubernetes, you use a script to generate the secrets yaml file for your Workspace ID and Primary Key to install the OMS Agent for Linux. At the [OMS Docker Kubernetes GitHub](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes) page, there are files that you can use with or without your secret information.
 
-- The Default OMS Agent DaemonSet does not have secret information (omsagent.yaml)
-- The OMS Agent DaemonSet yaml file uses secret information (omsagent-ds-secrets.yaml) with secret generation scripts to generate the secrets yaml (omsagentsecret.yaml) file.
+- The Default OMS Agent for Linux DaemonSet does not have secret information (omsagent.yaml)
+- The OMS Agent for Linux DaemonSet yaml file uses secret information (omsagent-ds-secrets.yaml) with secret generation scripts to generate the secrets yaml (omsagentsecret.yaml) file.
 
 You can choose to create omsagent DaemonSets with or without secrets.
 
@@ -366,7 +366,7 @@ You can choose to create omsagent DaemonSets with or without secrets.
     ```
 
 
-For Kubernetes, use a script to generate the secrets yaml file for Workspace ID and Primary Key. Use the following example information with the [omsagent yaml file](https://github.com/Microsoft/OMS-docker/blob/master/Kubernetes/omsagent.yaml) to secure your secret information.
+For Kubernetes, use a script to generate the secrets yaml file for Workspace ID and Primary Key for the OMS Agent for Linux. Use the following example information with the [omsagent yaml file](https://github.com/Microsoft/OMS-docker/blob/master/Kubernetes/omsagent.yaml) to secure your secret information.
 
 ```
 keiko@ubuntu16-13db:~# sudo kubectl describe secrets omsagent-secret
@@ -382,6 +382,98 @@ Data
 WSID:   36 bytes
 KEY:    88 bytes
 ```
+
+#### Configure an OMS agent for Windows Kubernetes
+For Windows Kubernetes, you use a script to generate the secrets yaml file for your Workspace ID and Primary Key to install the OMS Agent. At the [OMS Docker Kubernetes GitHub](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes/windows) page, there are files that you can use with your secret information.  You need to install the OMS Agent separately for the master and agent nodes.  
+
+1. To use OMS Agent DaemonSet using secret information on the Master node, sign in and create the secrets first.
+    1. Copy the script and secret template file and make sure they are on the same directory.
+        - Secret generating script - secret-gen.sh
+        - secret template - secret-template.yaml
+
+    2. Run the script, like the following example. The script asks for the OMS Workspace ID and Primary Key and after you enter them, the script creates a secret yaml file so you can run it.   
+
+        ```
+        #> sudo bash ./secret-gen.sh
+        ```
+    3. Create your omsagent daemon-set by running ``` kubectl create -f omsagentsecret.yaml ```
+    4. To check, run the following:
+    
+        ``` 
+        root@ubuntu16-13db:~# kubectl get secrets
+        ```
+
+        Output should resemble:
+
+        ```
+        NAME                  TYPE                                  DATA      AGE
+        default-token-gvl91   kubernetes.io/service-account-token   3         50d
+        omsagent-secret       Opaque                                2         1d
+        root@ubuntu16-13db:~# kubectl describe secrets omsagent-secret
+        Name:           omsagent-secret
+        Namespace:      default
+        Labels:         <none>
+        Annotations:    <none>
+    
+        Type:   Opaque
+    
+        Data
+        ====
+        WSID:   36 bytes
+        KEY:    88 bytes 
+        ```
+
+    5. Create your omsagent daemon-set by running ```kubectl create -f ws-omsagent-de-secrets.yaml```
+
+2. Verify that the OMS Agent DaemonSet is running, similar to the following:
+
+    ```
+    root@ubuntu16-13db:~# kubectl get deployment omsagent
+    NAME       DESIRED   CURRENT   NODE-SELECTOR   AGE
+    omsagent   1         1         <none>          1h
+    ```
+
+3. To install the agent on the Worker Node, which are running Windows, follow the steps in the section [install and configure Windows container hosts](#install-and-configure-windows-container-hosts).	
+
+#### Use Helm to deploy OMS Agent on Linux Kubernetes 
+To use helm to deploy OMS Agent on your Linux Kubernetes environment, perform the following steps.
+
+1. Create your omsagent daemon-set by running ```helm install --name omsagent --set omsagent.secret.wsid=<WSID>,omsagent.secret.key=<KEY> stable/msoms```
+2. The results will look similar to the following:
+
+    ```
+    NAME:   omsagent
+    LAST DEPLOYED: Tue Sep 19 20:37:46 2017
+    NAMESPACE: default
+    STATUS: DEPLOYED
+
+    RESOURCES:
+    ==> v1/Secret
+    NAME            TYPE    DATA  AGE
+    omsagent-msoms  Opaque  3     3s
+
+    ==> v1beta1/DaemonSet
+    NAME            DESIRED  CURRENT  READY  UP-TO-DATE  AVAILABLE  NODE-SELECTOR  AGE
+    omsagent-msoms  3        3        3      3           3          <none>         3s
+    ```
+3. You can check the status of the omsagent by running: ```helm status "omsagent"``` and the output will look similar to the following:
+
+    ```
+    keiko@k8s-master-3814F33-0:~$ helm status omsagent
+    LAST DEPLOYED: Tue Sep 19 20:37:46 2017
+    NAMESPACE: default
+    STATUS: DEPLOYED
+ 
+    RESOURCES:
+    ==> v1/Secret
+    NAME            TYPE    DATA  AGE
+    omsagent-msoms  Opaque  3     17m
+ 
+    ==> v1beta1/DaemonSet
+    NAME            DESIRED  CURRENT  READY  UP-TO-DATE  AVAILABLE  NODE-SELECTOR  AGE
+    omsagent-msoms  3        3        3      3           3          <none>         17m
+    ```
+For further information, please visit [Container Solution Helm Chart](https://aka.ms/omscontainerhelm).
 
 ### Install and configure Windows container hosts
 

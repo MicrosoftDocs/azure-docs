@@ -16,7 +16,6 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: adigan;giridham;jimpark;markgal;trinadhk
-
 ---
 # Preparing to back up workloads to Azure with DPM
 > [!div class="op_single_selector"]
@@ -39,7 +38,7 @@ This article provides an introduction to using Microsoft Azure Backup to protect
 >
 >
 
-System Center DPM backs up file and application data. Data backed up to DPM can be stored on tape, on disk, or backed up to Azure with Microsoft Azure Backup. DPM interacts with Azure Backup as follows:
+[System Center DPM](https://docs.microsoft.com/en-us/system-center/dpm/dpm-overview) backs up file and application data. More information about supported workloads can be found [here](https://docs.microsoft.com/en-us/system-center/dpm/dpm-protection-matrix).Data backed up to DPM can be stored on tape, on disk, or backed up to Azure with Microsoft Azure Backup. DPM interacts with Azure Backup as follows:
 
 * **DPM deployed as a physical server or on-premises virtual machine** — If DPM is deployed as a physical server or as an on-premises Hyper-V virtual machine you can back up data to a Recovery Services vault in addition to disk and tape backup.
 * **DPM deployed as an Azure virtual machine** — From System Center 2012 R2 with Update 3, DPM can be deployed as an Azure virtual machine. If DPM is deployed as an Azure virtual machine you can back up data to Azure disks attached to the DPM Azure virtual machine, or you can offload the data storage by backing it up to a Recovery Services vault.
@@ -57,6 +56,15 @@ Prepare Azure Backup to back up DPM data as follows:
 2. **Download vault credentials** — Download the credentials which you use to register the DPM server to Recovery Services vault.
 3. **Install the Azure Backup Agent** — From Azure Backup, install the agent on each DPM server.
 4. **Register the server** — Register the DPM server to Recovery Services vault.
+
+## Key Definitions
+Here are some key definitions for backup to Azure for DPM:
+
+1. **Vault Credential** — Vault Credentials are needed to authenticate the machine to send backup data to an identified vault in the Azure Backup service. It can be downloaded from the vault and is valid for 48hrs.
+2. **Passphrase** — Passphrase is used to encrypt the backups to cloud. Please save the file in a secure location as it is required during a recovery operation.
+3. **Security PIN** — If you have enabled the [Security Settings](https://docs.microsoft.com/en-us/azure/backup/backup-azure-security-feature) of the vault, Security PIN is needed for performing critical backup operations. This multi-factor authentication adds another layer of security. 
+4. **Recovery Folder** — It is the phrase that the backups from cloud are temporarily downloaded to during cloud recoveries. Its size should roughly be equal to the size of the backup items you wish to recover in parallel.
+
 
 ### 1. Create a recovery services vault
 To create a recovery services vault:

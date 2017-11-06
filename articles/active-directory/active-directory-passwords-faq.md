@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 10/06/2017
 ms.author: joflore
 ms.custom: it-pro
 
@@ -53,10 +53,6 @@ This FAQ is split into the following sections:
 * **Q:  Can my users register data in such a way that other users cannot see this data?**
 
   > **A:** Yes, when users register data using the Password Reset Registration Portal it is saved into private authentication fields that are only visible by Global Administrators and the user.
-    >
-    > [!NOTE]
-    > If an **Azure Administrator account** registers their authentication phone number it is also populated into the mobile phone field and is visible.
-    >
   >
   >
 * **Q:  Do my users have to be registered before they can use password reset?**
@@ -174,7 +170,7 @@ This FAQ is split into the following sections:
   >
 * **Q:  For how long are the email and SMS one-time passcode valid?**
 
-  > **A:** The session lifetime for password reset is 105 minutes. From the beginning of the password reset operation, the user has 105 minutes to reset their password. The email and SMS one-time passcode are invalid after this time period expires.
+  > **A:** The session lifetime for password reset is 15 minutes. From the beginning of the password reset operation, the user has 15 minutes to reset their password. The email and SMS one-time passcode are invalid after this time period expires.
   >
   >
 
@@ -238,7 +234,7 @@ This FAQ is split into the following sections:
   >
 * **Q:  If my on-premises account is disabled, how is my cloud account/access affected?**
 
-  > **A:** If your on-premises ID is disabled, your cloud ID/access will also be disabled at the next sync interval via AAD Connect byt default this is every 30 minutes.
+  > **A:** If your on-premises ID is disabled, your cloud ID/access will also be disabled at the next sync interval via AAD Connect by default this is every 30 minutes.
   >
   >
 * **Q:  If my on-premises account is constrained by an on-premises Active Directory password policy, does SSPR obey this policy when I change the password?**

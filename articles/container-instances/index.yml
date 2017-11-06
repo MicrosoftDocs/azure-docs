@@ -24,9 +24,13 @@ sections:
     style: icon48
     items:
     - image:
-        src: /azure/container-instances/media/container-instances.svg
-      text: Create container instance
+        src: /azure/virtual-machines/linux/media/index/cli.svg
+      text: Azure CLI
       href: /azure/container-instances/container-instances-quickstart
+    - image:
+        src: https://docs.microsoft.com/media/common/i_portal.svg
+      text: Azure Portal
+      href: /azure/container-instances/container-instances-quickstart-portal
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
@@ -43,5 +47,7 @@ sections:
     style: cards
     className: cardsD
     items:
-    - title: Azure CLI
-      html: <p><a href="/cli/azure/container">Azure CLI 2.0</a></p>
+    - title: Command-Line
+      html: <p><a href="/cli/azure/container">Azure CLI</a></p><p><a href="/powershell/module/azurerm.containerinstance#container_instances">PowerShell</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/container-instances">REST API Reference</a></p>

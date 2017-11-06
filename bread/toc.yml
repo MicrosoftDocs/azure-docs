@@ -34,15 +34,18 @@
     tocHref: /azure/app-service/
     topicHref: /azure/app-service/
     items:
+    - name: App Service on Linux
+      tocHref: /azure/app-service/containers/
+      topicHref: /azure/app-service/containers/
+    - name: App Service Environments
+      tocHref: /azure/app-service/environment/
+      topicHref: /azure/app-service/environment/
     - name: Web Apps
-      tocHref: /azure/app-service-web/
-      topicHref: /azure/app-service-web/
+      tocHref: /azure/app-service/
+      topicHref: /azure/app-service/
     - name: Mobile Apps
       tocHref: /azure/app-service-mobile/
       topicHref: /azure/app-service-mobile/
-    - name: API Apps
-      tocHref: /azure/app-service-api/
-      topicHref: /azure/app-service-api/
   - name: Advisor
     tocHref: /azure/advisor/
     topicHref: /azure/advisor/
@@ -58,6 +61,9 @@
   - name: Container Registry
     tocHref: /azure/container-registry/
     topicHref: /azure/container-registry/
+  - name: Cost Management
+    tocHref: /azure/cost-management/
+    topicHref: /azure/cost-management/
   - name: Functions
     tocHref: /azure/azure-functions/
     topicHref: /azure/azure-functions/
@@ -67,7 +73,7 @@
   - name: Germany
     tocHref: /azure/germany/
     topicHref: /azure/germany/
-  - name: Portal
+  - name: Azure portal
     tocHref: /azure/azure-portal/
     topicHref: /azure/azure-portal/
   - name: Resource Manager
@@ -76,6 +82,9 @@
   - name: Azure Stack
     tocHref: /azure/azure-stack/
     topicHref: /azure/azure-stack/
+  - name: Azure Stack User
+    tocHref: /azure/azure-stack/user/
+    topicHref: /azure/azure-stack/user/
   - name: Supportability
     tocHref: /azure/azure-supportability/
     topicHref: /azure/azure-supportability/
@@ -85,6 +94,9 @@
   - name: Batch
     tocHref: /azure/batch/
     topicHref: /azure/batch/
+  - name: Batch AI
+    tocHref: /azure/batch-ai/
+    topicHref: /azure/batch-ai/
   - name: Billing
     tocHref: /azure/billing/
     topicHref: /azure/billing/
@@ -103,13 +115,16 @@
   - name: Cognitive Services
     tocHref: /azure/cognitive-services/
     topicHref: /azure/cognitive-services/
-    items: 
+    items:
     - name: Bing Custom Search
       tocHref: /azure/cognitive-services/bing-custom-search/
       topicHref: /azure/cognitive-services/bing-custom-search/
     - name: Bing Web Search
       tocHref: /azure/cognitive-services/bing-web-search/
       topicHref: /azure/cognitive-services/bing-web-search/
+    - name: Speech
+      tocHref: /azure/cognitive-services/Speech/
+      topicHref: /azure/cognitive-services/Speech/
     - name: Computer Vision
       tocHref: /azure/cognitive-services/computer-vision/
       topicHref: /azure/cognitive-services/computer-vision/
@@ -125,6 +140,9 @@
     - name: Language Understanding Intelligent Service (LUIS)
       tocHref: /azure/cognitive-services/LUIS/
       topicHref: /azure/cognitive-services/LUIS/
+    - name: Text Analytics
+      tocHref: /azure/cognitive-services/text-analytics/
+      topicHref: /azure/cognitive-services/text-analytics/overview
     - name: Video Indexer
       tocHref: /azure/cognitive-services/video-indexer/video-indexer-overview
       topicHref: /azure/cognitive-services/video-indexer/video-indexer-overview
@@ -134,6 +152,9 @@
   - name: Container Instances
     tocHref: /azure/container-instances/
     topicHref: /azure/container-instances/
+  - name: AKS
+    tocHref: /azure/aks/
+    topicHref: /azure/aks/
   - name: Container Service
     tocHref: /azure/container-service/
     topicHref: /azure/container-service/
@@ -201,6 +222,19 @@
   - name: Machine Learning
     tocHref: /azure/machine-learning/
     topicHref: /azure/machine-learning/
+    items:
+      - name: Services (preview)
+        tocHref: /azure/machine-learning/preview
+        topicHref: /azure/machine-learning/preview/
+      - name: Studio
+        tocHref: /azure/machine-learning/studio
+        topicHref: /azure/machine-learning/studio/
+      - name: Team Data Science Process
+        tocHref: /azure/machine-learning/team-data-science-process
+        topicHref: /azure/machine-learning/team-data-science-process/overview
+      - name: Data Science Virtual Machine
+        tocHref: /azure/machine-learning/data-science-virtual-machine
+        topicHref: /azure/machine-learning/data-science-virtual-machine/virtual-machine-overview
   - name: Marketplace Consumer
     tocHref: /azure/marketplace-consumer/
     topicHref: /azure/marketplace-consumer/
@@ -247,6 +281,9 @@
   - name: Power BI Embedded
     tocHref: /azure/power-bi-embedded/
     topicHref: /azure/power-bi-embedded/
+  - name: Power BI Workspace Collections
+    tocHref: /azure/power-bi-workspace-collections/
+    topicHref: /azure/power-bi-workspace-collections/
   - name: Redis Cache
     tocHref: /azure/redis-cache/
     topicHref: /azure/redis-cache/

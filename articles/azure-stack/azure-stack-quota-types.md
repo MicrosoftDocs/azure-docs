@@ -18,15 +18,18 @@ ms.author: erikje
 
 ---
 # Quota types in Azure Stack
+
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+
 [Quotas](azure-stack-plan-offer-quota-overview.md#plans) define the limits of resources that a user subscription can provision or consume. For example, a quota might allow a user to create up to five VMs. Each resource can have its own types of quotas.
 
 ## Compute quota types
 | **Type** | **Default value** | **Description** |
 | --- | --- | --- |
-| Max number of virtual machines |50 | The maximum number of virtual machines that a subscription can create in this location. |
-| Max number of virtual machine cores |100 | The maximum number of cores that a subscription can create in this location (for example, an A3 VM has four cores). |
-| Max number of availability sets |10 | The maximum number of availability sets that can be created in this location. |
-| Max number of virtual machine scale sets |100 | The maximum number of virtual machine scale sets that can be created in this location. |
+| Max number of virtual machines | 20 | The maximum number of virtual machines that a subscription can create in this location. |
+| Max number of virtual machine cores | 50 | The maximum number of cores that a subscription can create in this location (for example, an A3 VM has four cores). |
+| Max number of availability sets | 10 | The maximum number of availability sets that can be created in this location. |
+| Max number of virtual machine scale sets | 20 | The maximum number of virtual machine scale sets that can be created in this location. |
 
 > [!NOTE]
 > Compute quotas are not enforced in this technical preview.

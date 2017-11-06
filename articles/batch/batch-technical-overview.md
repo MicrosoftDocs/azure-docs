@@ -43,7 +43,7 @@ Some examples of workloads that are commonly processed using this technique are:
 
 Batch can also perform parallel calculations with a reduce step at the end, and execute more complex HPC workloads such as [Message Passing Interface (MPI)](batch-mpi.md) applications.
 
-For a comparison between Batch and other HPC solution options in Azure, see [Batch and HPC solutions](batch-hpc-solutions.md).
+For a comparison between Batch and other HPC solution options in Azure, see [HPC, Batch, and Big Compute solutions](../virtual-machines/linux/high-performance-computing.md).
 
 [!INCLUDE [batch-pricing-include](../../includes/batch-pricing-include.md)]
 

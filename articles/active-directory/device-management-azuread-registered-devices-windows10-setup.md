@@ -1,6 +1,6 @@
 ---
-title: How to configure Azure Active Directory registered devices | Microsoft Docs
-description: Learn how to configure Azure Active Directory registered devices.
+title: Set up Azure Active Directory registered devices | Microsoft Docs
+description: Learn how to set up Azure Active Directory registered devices.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -18,7 +18,7 @@ ms.author: markvi
 ms.reviewer: jairoc
 
 ---
-# How to configure Azure Active Directory registered Windows 10 devices
+# Set up Azure Active Directory registered Windows 10 devices
 
 With device management in Azure Active Directory (Azure AD), you can ensure that your users are accessing your resources from devices that meet your standards for security and compliance. For more details, see [Introduction to device management in Azure Active Directory](device-management-introduction.md).
 

@@ -14,7 +14,7 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/14/2017
+ms.date: 10/13/2017
 ms.author: nepeters
 ms.custom: mvc
 ---
@@ -41,7 +41,7 @@ az group create --name myResourceGroup --location eastus
 
 ## Create virtual machine
 
-Create a VM with the [az vm create](/cli/azure/vm#create) command. 
+Create a VM with the [az vm create](/cli/azure/vm#az_vm_create) command. 
 
 The following example creates a VM named *myVM* and creates SSH keys if they do not already exist in a default key location. To use a specific set of keys, use the `--ssh-key-value` option.  
 
@@ -82,16 +82,14 @@ ssh <publicIpAddress>
 
 ## Install NGINX
 
-Use the following bash script to update package sources and install the latest NGINX package. 
+Use the following commands to update package sources and install the latest NGINX package. 
 
 ```bash 
-#!/bin/bash
-
 # update package source
-apt-get -y update
+sudo apt-get -y update
 
 # install NGINX
-apt-get -y install nginx
+sudo apt-get -y install nginx
 ```
 
 ## View the NGINX welcome page

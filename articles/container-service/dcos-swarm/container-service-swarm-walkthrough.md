@@ -63,6 +63,8 @@ The following example creates a cluster named *mySwarmCluster* with one Linux ma
 az acs create --name mySwarmCluster --orchestrator-type Swarm --resource-group myResourceGroup --generate-ssh-keys
 ```
 
+In some cases, such as with a limited trial, an Azure subscription has limited access to Azure resources. If the deployment fails due to limited available cores, reduce the default agent count by adding `--agent-count 1` to the [az acs create](/cli/azure/acs#create) command. 
+
 After several minutes, the command completes and returns json formatted information about the cluster.
 
 ## Connect to the cluster
@@ -71,7 +73,7 @@ Throughout this quick start, you need the IP address of both the Docker Swarm ma
 
 
 ```bash
-az network public-ip list --resource-group myResourceGroup --query '[*].{Name:name,IPAddress:ipAddress}' -o table
+az network public-ip list --resource-group myResourceGroup --query "[*].{Name:name,IPAddress:ipAddress}" -o table
 ```
 
 Output:

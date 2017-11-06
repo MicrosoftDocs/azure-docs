@@ -69,7 +69,7 @@ Below is a description of the parameters that are being used:
 * **/target** defines the directory in which the package should be created. This directory has to be different from the source directory.
 * **/appname** defines the application name of the existing application. It's important to understand that this translates to the service name in the manifest, and not to the Service Fabric application name.
 * **/exe** defines the executable that Service Fabric is supposed to launch, in this case `node.exe`.
-* **/ma** defines the argument that is being used to launch the executable. As Node.js is not installed, Service Fabric needs to launch the Node.js web server by executing `node.exe bin/www`.  `/ma:'bin/www'` tells the packaging tool to use `bin/ma` as the argument for node.exe.
+* **/ma** defines the argument that is being used to launch the executable. As Node.js is not installed, Service Fabric needs to launch the Node.js web server by executing `node.exe bin/www`.  `/ma:'bin/www'` tells the packaging tool to use `bin/www` as the argument for node.exe.
 * **/AppType** defines the Service Fabric application type name.
 
 If you browse to the directory that was specified in the /target parameter, you can see that the tool has created a fully functioning Service Fabric package as shown below:

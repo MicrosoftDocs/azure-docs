@@ -18,22 +18,29 @@ ms.author: bharatn
 
 ---
 # Reverse proxy in Azure Service Fabric
-The reverse proxy that's built into Azure Service Fabric addresses microservices in the Service Fabric cluster that exposes HTTP endpoints.
+Reverse proxy built into Azure Service Fabric helps microservices running in a Service Fabric cluster discover and communicate with other services that have http endpoints.
 
 ## Microservices communication model
-Microservices in Service Fabric typically run on a subset of virtual machines in the cluster and can move from one virtual machine to another for various reasons. So, the endpoints for microservices can change dynamically. The typical pattern to communicate to the microservice is the following resolve loop:
+Microservices in Service Fabric run on a subset of nodes in the cluster and can migrate between the nodes for various reasons. As a result, the endpoints for microservices can change dynamically. To discover and communicate with other services in the cluster, microservice must go through the following steps:
 
-1. Resolve the service location initially through the naming service.
+1. Resolve the service location through the naming service.
 2. Connect to the service.
-3. Determine the cause of connection failures, and resolve the service location again when necessary.
+3. Wrap the preceding steps in a loop that implements service resolution and retry policies to apply on connection failures
 
-This process generally involves wrapping client-side communication libraries in a retry loop that implements the service resolution and retry policies.
 For more information, see [Connect and communicate with services](service-fabric-connect-and-communicate-with-services.md).
 
 ### Communicating by using the reverse proxy
-The reverse proxy in Service Fabric runs on all the nodes in the cluster. It performs the entire service resolution process on a client's behalf and then forwards the client request. So, clients that run on the cluster can use any client-side HTTP communication libraries to talk to the target service by using the reverse proxy that runs locally on the same node.
+Reverse proxy is a service that runs on every node and handles endpoint resolution, automatic retry, and other connection failures on behalf of client services. Reverse proxy can be configured to apply various policies as it handles requests from client services. Using a reverse proxy allows the client service to use any client-side HTTP communication libraries and does not require special resolution and retry logic in the service. 
+
+Reverse proxy exposes one or more endpoints on local node for client services to use for sending requests to other services.
 
 ![Internal communication][1]
+
+> **Supported Platforms**
+>
+> Reverse proxy in Service Fabric currently supports the following platforms
+> * *Windows Cluster*: Windows 8 and later or Windows Server 2012 and later
+> * *Linux Cluster*: Reverse Proxy is not currently available for Linux clusters
 
 ## Reaching microservices from outside the cluster
 The default external communication model for microservices is an opt-in model where each service cannot be accessed directly from external clients. [Azure Load Balancer](../load-balancer/load-balancer-overview.md), which is a network boundary between microservices and external clients, performs network address translation and forwards external requests to internal IP:port endpoints. To make a microservice's endpoint directly accessible to external clients, you must first configure Load Balancer to forward traffic to each port that the service uses in the cluster. Furthermore, most microservices, especially stateful microservices, don't live on all nodes of the cluster. The microservices can move between nodes on failover. In such cases, Load Balancer cannot effectively determine the location of the target node of the replicas to which it should forward traffic.

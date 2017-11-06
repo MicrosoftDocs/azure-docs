@@ -31,7 +31,7 @@ This example imports the following data into an Azure storage account named `mys
 |H:\Video\ |A collection of videos|12 TB|
 |H:\Photo\ |A collection of photos|30 GB|
 |K:\Temp\FavoriteMovie.ISO|A Blu-Ray™ disk image|25 GB|
-|\\\bigshare\john\music\|A collection of music files on a network share|10 GB|
+|\\\bigshare\john\music\ |A collection of music files on a network share|10 GB|
 
 ## Storage account destinations
 

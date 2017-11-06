@@ -13,10 +13,9 @@ ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/09/2017
+ms.date: 09/06/2017
 ms.author: larryfr
 ---
-
 # Use Spark Structured Streaming with Kafka (preview) on HDInsight
 
 Learn how to use Spark Structured Streaming to read data from Apache Kafka on Azure HDInsight.
@@ -56,7 +55,7 @@ While you can create an Azure virtual network, Kafka, and Spark clusters manuall
     > [!IMPORTANT]
     > The structured streaming notebook used in this example requires Spark on HDInsight 3.6. If you use an earlier version of Spark on HDInsight, you receive errors when using the notebook.
 
-2. Use the following information to populate the entries on the **Custom deployment** blade:
+2. Use the following information to populate the entries on the **Custom deployment** section:
    
     ![HDInsight custom deployment](./media/hdinsight-apache-spark-with-kafka/parameters.png)
    
@@ -78,16 +77,16 @@ While you can create an Azure virtual network, Kafka, and Spark clusters manuall
 
 4. Finally, check **Pin to dashboard** and then select **Purchase**. It takes about 20 minutes to create the clusters.
 
-Once the resources have been created, you are redirected to the resource group blade.
+Once the resources have been created, a summary page is displayed.
 
-![Resource group blade for the vnet and clusters](./media/hdinsight-apache-spark-with-kafka/groupblade.png)
+![Resource group information for the vnet and clusters](./media/hdinsight-apache-spark-with-kafka/groupblade.png)
 
 > [!IMPORTANT]
 > Notice that the names of the HDInsight clusters are **spark-BASENAME** and **kafka-BASENAME**, where BASENAME is the name you provided to the template. You use these names in later steps when connecting to the clusters.
 
 ## Get the Kafka brokers
 
-The code in this example connects to the Kafka broker hosts in the Kafka cluster. To find the Kafka broker hosts, use the following PowerShell or Bash example:
+The code in this example connects to Kafka broker hosts in the Kafka cluster. To find the addresses of the two Kafka broker hosts, use the following PowerShell or Bash example:
 
 ```powershell
 $creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
@@ -95,22 +94,24 @@ $clusterName = Read-Host -Prompt "Enter the Kafka cluster name"
 $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER" `
     -Credential $creds
 $respObj = ConvertFrom-Json $resp.Content
-$brokerHosts = $respObj.host_components.HostRoles.host_name
+$brokerHosts = $respObj.host_components.HostRoles.host_name[0..1]
 ($brokerHosts -join ":9092,") + ":9092"
 ```
 
 ```bash
-curl -u admin:$PASSWORD -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER" | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")'
+curl -u admin -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER" | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2
 ```
 
+When prompted, enter the password for the cluster login (admin) account
+
 > [!NOTE]
-> This example expects `$PASSWORD` to contain the password for the cluster login, and `$CLUSTERNAME` to contain the name of the Kafka cluster.
+> This example expects `$CLUSTERNAME` to contain the name of the Kafka cluster.
 >
 > This example uses the [jq](https://stedolan.github.io/jq/) utility to parse data out of the JSON document.
 
 The output is similar to the following text:
 
-`wn0-kafka.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net:9092,wn1-kafka.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net:9092,wn2-kafka.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net:9092,wn3-kafka.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net:9092`
+`wn0-kafka.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net:9092,wn1-kafka.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net:9092`
 
 Save this information, as it is used in the following sections of this document.
 
@@ -136,7 +137,7 @@ Use the following steps to upload the notebooks from the project to your Spark o
 
 3. Find the __Stream-Tweets-To_Kafka.ipynb__ entry in the list of notebooks, and select __Upload__ button beside it.
 
-    ![Use the upload button beside the KafkaStreaming.ipynb entry to upload it to the notebook server](./media/hdinsight-apache-kafka-spark-structured-streaming/upload-notebook.png)
+    ![To upload the notebook, use the upload button for the KafkaStreaming.ipynb entry](./media/hdinsight-apache-kafka-spark-structured-streaming/upload-notebook.png)
 
 4. Repeat steps 1-3 to load the __Spark-Structured-Streaming-From-Kafka.ipynb__ notebook.
 
