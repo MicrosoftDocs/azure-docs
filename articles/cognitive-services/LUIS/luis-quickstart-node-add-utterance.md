@@ -46,7 +46,7 @@ Add the name and location of the upload file containing your utterances.
 
 Add the variables that will hold the command line values.
 
-   [!code-nodejs[Add upload file](~/samples-luis/documentation-samples/authoring-api-samples/node/add-utterances.js?range=31-49 "Add upload file")]
+   [!code-nodejs[Add upload file](~/samples-luis/documentation-samples/authoring-api-samples/node/add-utterances.js?range=34-46 "Add upload file")]
 
 
 Add the function `sendUtteranceToApi` which sends and receives HTTP calls. 
@@ -71,7 +71,7 @@ Add the function `train` which starts the training process.
 
 Add the code that chooses which action to take (add utterance or train) based on the command line variables.
 
-   [!code-nodejs[Train the application](~/samples-luis/documentation-samples/authoring-api-samples/node/add-utterances.js?range=153-183 "Train the application")]
+   [!code-nodejs[Train the application](~/samples-luis/documentation-samples/authoring-api-samples/node/add-utterances.js?range=153-184 "Train the application")]
 
 ## Specify utterances to add
 Create and edit the file `utterances.json` to specify the entities you want to add to the LUIS app. The intent and entities **must** already be in the LUIS app.
