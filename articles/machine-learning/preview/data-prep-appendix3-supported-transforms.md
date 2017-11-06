@@ -40,13 +40,13 @@ The "By Example" technology uses selected columns to attempt to determine the me
 
 You can select columns before invoking the transform. When the transform editor has been opened, check boxes at the top of each column indicate what columns are selected as inputs. You can add or remove columns from the selection by using the check boxes in the column headers.
 
-For a more detailed explanation of the **Derived Column By Example** transform, along with more samples, see
+For a more detailed explanation of the **Derived Column by Example** transform, along with more samples, see
 [Derive Column by Example reference](data-prep-derive-column-by-example.md).  
 
 ## Split Column by Example
 This transform takes an existing column and, by using the “By Example” engine, attempts to split that column into *n* other columns. You can run the auto-split on the subsequent generated columns.
 
-For a more detailed explanation of the **Split Column By Example** transform, along with more samples, see
+For a more detailed explanation of the **Split Column by Example** transform, along with more samples, see
 [Split Column by Example reference](data-prep-split-column-by-example.md).
 
 ## Expand JSON
