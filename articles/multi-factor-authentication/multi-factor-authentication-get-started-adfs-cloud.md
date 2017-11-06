@@ -3,7 +3,7 @@ title: Secure cloud resources with Azure MFA and AD FS | Microsoft Docs
 description: This is the Azure Multi-Factor authentication page that describes how to get started with Azure MFA and AD FS in the cloud.
 services: multi-factor-authentication
 documentationcenter: ''
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 editor: yossib
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/29/2017
-ms.author: kgremban
+ms.author: joflore
 ---
 
 # Securing cloud resources with Azure Multi-Factor Authentication and AD FS
