@@ -178,7 +178,7 @@ Copy the value of `primaryMasterKey`. You need this information in the next step
 <a name="devconfig"></a>
 ### Configure the connection string in your Node.js application
 
-In your local MEAN.js repository, in the _config/env/_ folder, create a file named _local-production.js_. _.gitignore_ is configured to keep this file out of the repository. 
+In your local MEAN.js repository, in the _config/env/_ folder, create a file named _local-production.js_. By default, _.gitignore_ is configured to keep this file out of the repository. 
 
 Copy the following code into it. Be sure to replace the two *\<cosmosdb_name>* placeholders with your Cosmos DB database name, and replace the *\<primary_master_key>* placeholder with the key you copied in the previous step.
 
@@ -205,7 +205,12 @@ gulp prod
 Run the following command to use the connection string you configured in _config/env/local-production.js_.
 
 ```bash
+# Bash
 NODE_ENV=production node server.js
+
+# Windows PowerShell
+$env:NODE_ENV = "production" 
+node server.js
 ```
 
 `NODE_ENV=production` sets the environment variable that tells Node.js to run in the production environment.  `node server.js` starts the Node.js server with `server.js` in your repository root. This is how your Node.js application is loaded in Azure. 
@@ -257,7 +262,7 @@ az webapp config appsettings set --name <app_name> --resource-group myResourceGr
 
 In Node.js code, you access this app setting with `process.env.MONGODB_URI`, just like you would access any environment variable. 
 
-In your local MEAN.js repository, open _config/env/production.js_ (not _config/env/local-production.js_), which has production-environment specific configuration. Note that the default MEAN.js app is already configured to use the `MONGODB_URI` environment variable that you created.
+In your local MEAN.js repository, open _config/env/production.js_ (not _config/env/local-production.js_), which has production-environment specific configuration. The default MEAN.js app is already configured to use the `MONGODB_URI` environment variable that you created.
 
 ```javascript
 db: {
@@ -412,12 +417,15 @@ Save all your changes.
 In the local terminal window, test your changes in production mode again.
 
 ```bash
+# Bash
 gulp prod
 NODE_ENV=production node server.js
-```
 
-> [!NOTE]
-> Remember that your _config/env/production.js_ has been reverted, and the `MONGODB_URI` environment variable is only set in your Azure web app and not on your local machine. If you look at the config file, you find that the production configuration defaults to use a local MongoDB database. This makes sure that you don't touch production data when you test your code changes locally.
+# Windows PowerShell
+gulp prod
+$env:NODE_ENV = "production" 
+node server.js
+```
 
 Navigate to `http://localhost:8443` in a browser and make sure that you're signed in.
 

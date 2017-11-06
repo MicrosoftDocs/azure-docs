@@ -3,7 +3,7 @@ title: Prerequisites for replication to Azure by using Azure Site Recovery | Mic
 description: This article summarizes prerequisites for replicating VMs and physical machines to Azure by using the Azure Site Recovery service.
 services: site-recovery
 documentationcenter: ''
-author: rajani-janaki-ram
+author: rayne-wiselman
 manager: jwhit
 editor: tysonn
 
@@ -13,15 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 08/01/2017
-ms.author: rajanaki
+ms.date: 11/05/2017
+ms.author: raynew
 ---
 
 #  Prerequisites for replicating Azure virtual machines to another region by using Azure Site Recovery
 
-> [!div class="op_single_selector"]
-> * [Replicate from Azure to Azure](site-recovery-azure-to-azure-prereq.md)
-> * [Replicate from on-premises to Azure](site-recovery-prereq.md)
+
 
 The Azure Site Recovery service contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating:
 * Replication of Azure virtual machines to another Azure region.
