@@ -1,34 +1,38 @@
 ---
-title: Use Terraform modules to create a load balanced Linux VM infrastructure  on Azure
-description: Learn how to use Terraform modules to create a Linux virtual machine cluster with a load balancer in Azure
+title: Create a VM cluster with Terraform and HCL
+description: Use Terraform and HashiCorp Configuration Language (HCL) to create a Linux virtual machine cluster with a load balancer in Azure
 keywords: terraform, devops, virtual machine, network, modules
-author: rloutlaw
-manager: justhe
+author: tomarcher
+manager: routlaw
 ms.service: virtual-machines-linux
 ms.custom: devops
 ms.topic: article
-ms.date: 10/19/2017
-ms.author: routlaw
+ms.date: 11/06/2017
+ms.author: tarcher
 ---
 
-# Create a VM cluster with Terraform using custom HCL
+# Create a VM cluster with Terraform and HCL
 
 This tutorial demonstrates creating a small compute cluster using the [Hashicorp Configuration Language](https://www.terraform.io/docs/configuration/syntax.html) (HCL). The configuration creates a load balancer, two Linux VMs in an [availability set](/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy), and all necessary networking resources.
 
 In this tutorial you will:
 
 > [!div class="checklist"]
-> * Set up authentication with Azure
+> * Configure Azure authentication
 > * Create the Terraform template
 > * Visualize the changes with plan
 > * Apply the configuration to create the cluster
 
-## Set up authentication with Azure
+## 1. Configure Azure authentication
 
-> [!TIP]
-> If you [use Terraform environment variables](/azure/virtual-machines/linux/terraform-install-configure#set-environment-variables) or run this tutorial in the [Azure Cloud Shell](/azure/cloud-shell/overview), skip this step.
+> [!NOTE]
+> If you [use Terraform environment variables](/azure/virtual-machines/linux/terraform-install-configure#set-environment-variables), or run this tutorial in the [Azure Cloud Shell](terraform-cloud-shell.md), skip this step.
 
- Review [Install Terraform and configure access to Azure](/azure/virtual-machines/linux/terraform-install-configure) to create an Azure service principal. Use this service principal to populate a new file `azureProviderAndCreds.tf` in an empty directory with the following code:
+1. Create an [Azure service principal](/azure/virtual-machines/linux/terraform-install-configure.md/#set-up-terraform-access-to-azure) making a note of the values for the subscription ID, tenant ID, client ID, and client secret.
+
+2. Create a new file named `azureProviderAndCreds.tf` in an empty directory.
+
+3. Copy following code into the newly created `azureProviderAndCreds.tf` file. Make sure to replace the placeholders below with the values for the subscription ID, tenant ID, client ID, and client secret:
 
 ```tf
 variable subscription_id {}
@@ -44,7 +48,7 @@ provider "azurerm" {
 }
 ```
 
-## Create the template
+## 2. Create the template
 
 Create a new Terraform template named `main.tf` with the following code: 
 
@@ -187,20 +191,20 @@ resource "azurerm_virtual_machine" "test" {
 }
 ```
 
-## Visualize the changes with plan
+## 3. Visualize the changes with plan
 
 Run `terraform plan` to preview the virtual machine infrastructure created by the template.
 
-![Terraform Plan](media/terraformPlanVmsWithModules.png)
+![Terraform Plan](media/terraform-create-vm-cluster-with-infrastructure/terraform-plan-vms-with-modules.png)
 
 
-## Create the virtual machines with apply
+## 4. Create the virtual machines with apply
 
 Run `terraform apply` to provision the VM cluster on Azure.
 
-![Terraform Apply](media/terraformApplyVmsWithModules.png)
+![Terraform Apply](media/terraform-create-vm-cluster-with-infrastructure/terraform-apply-vms-with-modules.png)
 
 ## Next steps
 
 - Browse the list of [Azure Terraform modules](https://registry.terraform.io/modules/Azure)
-- Create a [virtual machine scale set with Terraform]()
+- Create a [virtual machine scale set with Terraform](terraform-create-vm-scaleset-network-disks-hcl.md)
