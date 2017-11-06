@@ -3,7 +3,7 @@ title: "Azure Analysis Services tutorial lesson 8 Create perspectives | Microsof
 description: Describes how to create perspectives in the Azure Analysis Services tutorial project. 
 services: analysis-services
 documentationcenter: ''
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: ''
 tags: ''

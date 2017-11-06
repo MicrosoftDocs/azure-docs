@@ -144,17 +144,16 @@ There are several methods you can use to view blob auditing logs:
 <!--The description in this section refers to preceding screen captures.-->
 
 ### <a id="subheading-6">Auditing geo-replicated databases</a>
-When you use geo-replicated databases, it is possible to set up auditing on either the primary database, the secondary database, or both, depending on the audit type.
+When you use geo-replicated databases, it is possible to set up auditing on the secondary database either by enabling auditing on the **secondary server**, or by enabling auditing on the primary database (in which case, the secondary database will have an identical auditing policy to that of the primary database).
 
-Follow these instructions (remember that blob auditing can be turned on or off only from the primary database auditing settings):
+* Server-level (**recommended**): Turn on auditing on the both the **primary server** as well as the **secondary server** - the primary and secondary databases will each be audited independently based on their respective server-level policy.
 
-* **Primary database**. Turn on blob auditing, either on the server or on the database itself, as described in the [Set up auditing for your database](#subheading-2) section.
-* **Secondary database**. Turn on blob auditing on the primary database, as described in the [Set up auditing for your database](#subheading-2) section. 
+* Database-level: Database-level auditing for secondary databases can only be configured from Primary database auditing settings.
    * Blob auditing must be enabled on the *primary database itself*, not the server.
    * After blob auditing is enabled on the primary database, it will also become enabled on the secondary database.
 
      >[!IMPORTANT]
-     >By default, the storage settings for the secondary database will be identical to those of the primary database, causing cross-regional traffic. You can avoid this by enabling blob auditing on the secondary server and configuring local storage in the secondary server storage settings. This will override the storage location for the secondary database and result in each database saving its audit logs to local storage.  
+     >With database-level auditing, the storage settings for the secondary database will be identical to those of the primary database, causing cross-regional traffic. Unless database-level auditing is required, we recommended that you enable only server-level auditing on both primary and secondary servers, and leave the database-level auditing disabled for all databases.
 <br>
 
 ### <a id="subheading-6">Storage key regeneration</a>
@@ -180,7 +179,6 @@ You can also configure auditing in Azure SQL Database by using the following aut
    * [Remove-AzureRMSqlServerAuditing][104]
    * [Set-AzureRMSqlDatabaseAuditingPolicy][105]
    * [Set-AzureRMSqlServerAuditingPolicy][106]
-   * [Use-AzureRMSqlServerAuditingPolicy][107]
 
    For a script example, see [Configure auditing and threat detection using PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
 
@@ -214,10 +212,9 @@ You can also configure auditing in Azure SQL Database by using the following aut
 [9]: ./media/sql-database-auditing-get-started/9_auditing_get_started_ssms_1.png
 [10]: ./media/sql-database-auditing-get-started/10_auditing_get_started_ssms_2.png
 
-[101]: /powershell/module/azurerm.sql/get-azurermsqldatabaseauditingpolicy
-[102]: /powershell/module/azurerm.sql/Get-AzureRMSqlServerAuditingPolicy
+[101]: /powershell/module/azurerm.sql/get-azurermsqldatabaseauditing
+[102]: /powershell/module/azurerm.sql/Get-AzureRMSqlServerAuditing
 [103]: /powershell/module/azurerm.sql/Remove-AzureRMSqlDatabaseAuditing
 [104]: /powershell/module/azurerm.sql/Remove-AzureRMSqlServerAuditing
-[105]: /powershell/module/azurerm.sql/Set-AzureRMSqlDatabaseAuditingPolicy
-[106]: /powershell/module/azurerm.sql/Set-AzureRMSqlServerAuditingPolicy
-[107]: /powershell/module/azurerm.sql/Use-AzureRMSqlServerAuditingPolicy
+[105]: /powershell/module/azurerm.sql/Set-AzureRMSqlDatabaseAuditing
+[106]: /powershell/module/azurerm.sql/Set-AzureRMSqlServerAuditing

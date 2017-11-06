@@ -3,7 +3,7 @@ title: "Azure Analysis Services tutorial lesson 3: Mark as Date Table | Microsof
 description: Describes how to mark a date table in the Azure Analysis Services tutorial project. 
 services: analysis-services
 documentationcenter: ''
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: ''
 tags: ''

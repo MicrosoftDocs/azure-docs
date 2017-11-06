@@ -3,8 +3,8 @@ title: Browsing and managing storage resources with Server Explorer | Microsoft 
 description: Browsing and managing storage resources with Server Explorer
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: ''
 
 ms.assetid: 658dc064-4a4e-414b-ae5a-a977a34c930d
@@ -13,8 +13,8 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/18/2016
-ms.author: tarcher
+ms.date: 8/24/2017
+ms.author: kraigb
 
 ---
 # Browsing and Managing Storage Resources with Server Explorer
@@ -43,7 +43,8 @@ The Blobs node displays a list of containers for the selected storage account. B
 
 ### To create a blob container
 1. Open the shortcut menu for the **Blobs** node, and then choose **Create Blob Container**.
-2. Enter the name of the new container in the **Create Blob Container** dialog box and then choose **Ok**
+2. In the **Create Blob Container** dialog box, enter the name of the new container.  
+3. Press **ENTER** on your keyboard or you can click or tap outside of the name field to save the blob container.
    
    > [!NOTE]
    > The blob container name must begin with a number (0-9) or lowercase letter (a-z).
@@ -54,7 +55,7 @@ The Blobs node displays a list of containers for the selected storage account. B
 * Open the shortcut menu for the blob container you want to remove and then choose **Delete**.
 
 ### To display a list of the items contained in a blob container
-* Open the shortcut menu for a blob container name in the list and then choose **View Blob Container**.
+* Open the shortcut menu for a blob container name in the list and then choose **Open**.
   
     When you view the contents of a blob container, it appears in a tab known as the blob container view.
   
@@ -75,12 +76,12 @@ The Blobs node displays a list of containers for the selected storage account. B
   * Save a blob to the local computer
 
 ### To create a folder or subfolder in a blob container
-1. Choose the blob container in Server Explorer. In the container window, choose the **Upload Blob** button.
+1. Choose the blob container in Cloud Explorer. In the container window, choose the **Upload Blob** button.
    
     ![Uploading a file into a blob folder](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC766037.png)
 2. In the **Upload New File** dialog box, choose the **Browse** button to specify the file you want to upload, and then enter a folder name in the **Folder (optional)** box.
    
-    You can add subfolders in container folders by following the same procedure. If you don’t specify a folder name, the file will be uploaded to the top level of the blob container.The file appears in the specified folder in the container.
+    You can add subfolders in container folders by following the same procedure. If you don’t specify a folder name, the file will be uploaded to the top level of the blob container. The file appears in the specified folder in the container.
    
     ![Folder added to a blob container](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC766038.png)
 3. Double-click the folder or press ENTER to see the contents of the folder. When you’re in the container’s folder, you can navigate back to the root of the container by choosing the **Open Parent Directory** (up arrow) button.
@@ -106,18 +107,18 @@ For example, if you enter the prefix `hello` in the filter text box and then cho
 > 
 
 ### To download blob data
-* In **Server Explorer**, open the shortcut menu for one or more blobs and then choose **Open**, or choose the blob name and then choose the **Open** button, or double-click the blob name.
+* In **Cloud Explorer**, open the shortcut menu for one or more blobs and then choose **Open**, or choose the blob name and then choose the **Open** button, or double-click the blob name.
   
     The progress of a blob download appears in the **Azure Activity Log** window.
   
     The blob opens in the default editor for that file type. If the operating system recognizes the file type, the file opens in a locally installed application; otherwise, you're prompted to choose an application that’s appropriate for the file type of the blob. The local file that’s created when you download a blob is marked as read-only.
   
-    Blob data is cached locally and checked against the blob's last modified time in the Blob service. If the blob has been updated since it was last downloaded, it will be downloaded again; otherwise the blob will be loaded from the local disk. By default a blob is downloaded to a temporary directory. To download blobs to a specific directory, open the shortcut menu for the selected blob names and choose **Save As**. When you save a blob in this manner, the blob file is not opened, and the local file is created with read-write attributes.
+    Blob data is cached locally and checked against the blob's last modified time in the Blob service. If the blob has been updated since it was last downloaded, it will be downloaded again; otherwise, the blob will be loaded from the local disk. By default, a blob is downloaded to a temporary directory. To download blobs to a specific directory, open the shortcut menu for the selected blob names and choose **Save As**. When you save a blob in this manner, the blob file is not opened, and the local file is created with read-write attributes.
 
 ### To upload blobs
 * Choose the **Upload Blob** button when the container is open for viewing in the blob container view.
   
-    You can choose one or more files to upload, and you can upload files of any type. The **Azure Activity Log** shows the progress of the upload. For more information about how to work with blob data, see [How to use the Azure Blob Storage Service in .NET](http://go.microsoft.com/fwlink/p/?LinkId=267911).
+    You can choose one or more files to upload and you can upload files of any type. The **Azure Activity Log** shows the progress of the upload. For more information about how to work with blob data, see [How to use the Azure Blob Storage Service in .NET](http://go.microsoft.com/fwlink/p/?LinkId=267911).
 
 ### To view logs transferred to blobs
 * If you are using Azure Diagnostics to log data from your Azure application and you have transferred logs to your storage account, you’ll see containers that were created by Azure for these logs. Viewing these logs in Server Explorer is an easy way to identify problems with your application, especially if it’s been deployed to Azure. For more information about Azure Diagnostics, see [Collect Logging Data by Using Azure Diagnostics](https://msdn.microsoft.com/library/azure/gg433048.aspx).
@@ -139,7 +140,7 @@ In Server Explorer, you can view the queues in a storage account, create and del
 
 * Refresh the view of the queue
 * Add a message to the queue
-* Dequeue the topmost message.
+* Dequeue the topmost message
 * Clear the entire queue
 
 The following image shows a queue that contains two messages.
@@ -157,11 +158,11 @@ For more information about storage services queues, see [How to: Use the Queue S
 The Azure Table storage service stores large amounts of structured data. The service is a NoSQL datastore which accepts authenticated calls from inside and outside the Azure cloud. Azure tables are ideal for storing structured, non-relational data.
 
 ### To create a table
-1. In Server Explorer, select the **Tables** node of the storage account, and then choose **Create Table**.
+1. In Cloud Explorer, select the **Tables** node of the storage account, and then choose **Create Table**.
 2. In the **Create Table** dialog box, enter a name for the table.
 
 ### To view table data
-1. In Server Explorer, open the **Azure** node, and then open the **Storage** node.
+1. In Cloud Explorer, open the **Azure** node, and then open the **Storage** node.
 2. Open the storage account node that you are interested in, and then open the **Tables** node to see a list of tables for the storage account.
 3. Open the shortcut menu for a table and then choose **View Table**.
    
@@ -182,7 +183,7 @@ The table is organized by entities (shown in rows) and properties (shown in colu
    * If you enter a DateTime value, you must follow a format that's appropriate to the region and language settings of your computer (for example, MM/DD/YYYY HH:MM:SS [AM|PM] for U.S. English).
 
 ### To add entities
-1. In the **Table Designer**, choose the **Add Entity** button, which is near the top-right corner of the table view.
+1. In the **Table Designer**, choose the **Add Entity** button.
    
     ![Add Entity](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC655336.png)
 2. In the **Add Entity** dialog box, enter the values of the **PartitionKey** and **RowKey** properties.
@@ -195,7 +196,7 @@ The table is organized by entities (shown in rows) and properties (shown in colu
 You can customize the set of entities that appear in a table if you use the query builder.
 
 1. To open the query builder, open a table for viewing.
-2. Choose the rightmost button on the table view’s toolbar.
+2. Choose the Query Builder button on the table view’s toolbar.
    
     The **Query Builder** dialog box appears. The following illustration shows a query that's being built in the query builder.
    

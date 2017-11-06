@@ -4,7 +4,7 @@ description: This article shows you how to use the Azure Media Services telemetr
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: e1a314fb-cc05-4a82-a41b-d1c9888aab09

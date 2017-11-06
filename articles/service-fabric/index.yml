@@ -5,7 +5,7 @@ metadata:
   title: Azure Service Fabric Documentation - Tutorials, API Reference | Microsoft Docs
   meta.description: Learn how to use Service Fabric middleware platform to package and deploy microservices for cloud-scale applications. Tutorials, API references, and code samples.
   services: service-fabric
-  author: carolz
+  author:   
   manager: carolz
   layout: LandingPage
   ms.assetid: 

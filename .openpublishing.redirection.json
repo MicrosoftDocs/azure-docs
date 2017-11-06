@@ -1535,6 +1535,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/resource-manager-troubleshoot-deployments-rest.md",
+            "redirect_url": "/azure/azure-resource-manager/resource-manager-deployment-operations",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/azure-resource-manager/resource-manager-update.md",
             "redirect_url": "/azure/architecture/building-blocks/extending-templates/update-resource",
             "redirect_document_id": false
@@ -10025,11 +10030,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/container-service/kubernetes/container-service-kubernetes-service-principal.md",
-            "redirect_url": "/azure/container-service/kubernetes/container-service-kubernetes-walkthrough",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/active-directory/active-directory-conditional-access-automatic-device-registration-setup.md",
             "redirect_url": "/azure/active-directory/device-management-hybrid-azuread-joined-devices-setup",
             "redirect_document_id": false
@@ -10098,6 +10098,71 @@
             "source_path": "articles/active-directory/active-directory-azureadjoin-windows10-devices-overview.md",
             "redirect_url": "/azure/active-directory/device-management-introduction",
             "redirect_document_id": false
-        }        
+        },
+        {
+            "source_path": "articles/azure-stack/azure-stack-setting-quotas.md",
+            "redirect_url": "/azure/azure-stack/azure-stack-plan-offer-quota-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-azureadjoin-setup.md",
+            "redirect_url": "/azure/active-directory/device-management-azure-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-web/app-service-linux-how-to-create-web-app.md",
+            "redirect_url": "/azure/app-service-web/app-service-linux-intro",
+            "redirect_document_id": false
+        },    
+        {
+            "source_path": "articles/active-directory/active-directory-passwords-get-insights.md",
+            "redirect_url": "/azure/active-directory/active-directory-passwords-reporting",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-conditional-access-supported-apps.md",
+            "redirect_url": "/azure/active-directory/active-directory-conditional-access-technical-reference",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/cognitive-services-text-analytics-api-migration.md",
+            "redirect_url": "/azure/cognitive-services/text-analytics/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/data-lake-store/data-lake-store-troubleshooting-guidance.md",
+            "redirect_url": "/azure/data-lake-store/data-lake-store-disaster-recovery-guidance",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-functions/functions-api-definition-getting-started.md",
+            "redirect_url": "/azure/azure-functions/functions-openapi-definition",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/active-directory/active-directory-azureadjoin-user-frx.md",
+            "redirect_url": "/azure/active-directory/device-management-azuread-joined-devices-frx",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-azureadjoin-personal-device.md",
+            "redirect_url": "/azure/active-directory/device-management-azuread-joined-devices-setup",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-azureadjoin-user-upgrade.md",
+            "redirect_url": "/azure/active-directory/device-management-azuread-registered-devices-windows10-setup",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/batch/batch-cli-samples.md",
+            "redirect_url": "/azure/batch/batch-cli-get-started",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-azureadjoin-devices-group-policy.md",
+            "redirect_url": "/azure/active-directory/device-management-hybrid-azuread-joined-devices-setup",
+            "redirect_document_id": false
+        }
     ]
 }

@@ -3,7 +3,7 @@ title: "Azure Analysis Services tutorial lesson 10: Create partitions | Microsof
 description: Describes how to create partitions in the Azure Analysis Services tutorial project. 
 services: analysis-services
 documentationcenter: ''
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: ''
 tags: ''

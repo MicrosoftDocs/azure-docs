@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/28/2017
+ms.date: 08/28/2017
 ms.author: markvi
 ms.reviewer: nigu
 
@@ -37,15 +37,15 @@ This feature is available in preview in Office 365 US Government Defense and Fed
 ## Office mobile applications support
 | Apps | Support |
 | --- | --- |
-| Word / Excel / PowerPoint |![Check][1] |
+| Azure Information Protection app |![Check][1] |
+| Microsoft Teams |![Check][1] |
 | OneNote |![Check][1] |
 | OneDrive |![Check][1] |
 | Outlook |![Check][1] |
-| Yammer |![Check][1] |
+| Power BI |![Check][1] |
 | Skype for Business |![Check][1] |
-| Azure Information Protection app |![Check][1] |
-| Microsoft Teams |![Check][1] |
-
+| Word / Excel / PowerPoint |![Check][1] |
+| Yammer |![Check][1] |
 
 
 ### Implementation requirements

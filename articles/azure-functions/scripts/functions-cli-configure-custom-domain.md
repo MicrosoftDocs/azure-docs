@@ -4,7 +4,7 @@ description: Azure CLI Script Sample - Map a custom domain to a function app in 
 services: functions
 documentationcenter: 
 author: ggailey777   
-manager: erikre
+manager: cfowler
 editor: 
 tags: azure-service-management
 
@@ -26,7 +26,7 @@ This sample script creates a function app with related resources, and then maps 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, you must use the Azure CLI version 2.0 or a later version. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 
 ## Sample script
@@ -37,7 +37,7 @@ If you choose to install and use the CLI locally, this topic requires that you a
 
 ## Script explanation
 
-This script uses the following commands. Each command in the table links to command specific documentation.
+This script uses the following commands: Each command in the table links to command specific documentation.
 
 | Command | Notes |
 |---|---|

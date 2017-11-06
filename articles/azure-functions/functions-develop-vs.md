@@ -4,7 +4,7 @@ description: Learn how to develop and test Azure Functions by using Azure Functi
 services: functions
 documentationcenter: .net
 author: ggailey777  
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.service: functions

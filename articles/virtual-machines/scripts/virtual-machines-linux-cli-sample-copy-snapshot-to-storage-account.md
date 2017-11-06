@@ -16,6 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
+ms.custom: mvc
 ---
 
 # Export/Copy managed snapshots as VHD to a storage account in different region with CLI

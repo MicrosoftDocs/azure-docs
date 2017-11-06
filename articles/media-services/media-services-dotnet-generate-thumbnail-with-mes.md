@@ -4,7 +4,7 @@ description: This topic shows how to use .NET to encode an asset and generate th
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: b8dab73a-1d91-4b6d-9741-a92ad39fc3f7

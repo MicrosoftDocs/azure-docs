@@ -57,14 +57,11 @@
 ### [Use DataFu with Pig](hdinsight-hadoop-use-pig-datafu-udf.md)
 ### [On-demand clusters](hdinsight-hadoop-create-linux-clusters-adf.md)
 ### [Submit Hadoop jobs](hdinsight-submit-hadoop-jobs-programmatically.md)
-## Use R Server
-### [Storage options](hdinsight-hadoop-r-server-storage.md)
-### [Install RStudio](hdinsight-hadoop-r-server-install-r-studio.md)
-### [Compute contexts](hdinsight-hadoop-r-server-compute-contexts.md)
-### [ScaleR and SparkR](hdinsight-hadoop-r-scaler-sparkr.md)
 ## Use Spark for in-memory processing
+### Get started - Spark developer
+#### [Create standalone app](hdinsight-apache-spark-create-standalone-application.md)
+#### [Remote jobs with Livy](hdinsight-apache-spark-livy-rest-interface.md) 
 ### [With Data Lake Store](hdinsight-apache-spark-use-with-data-lake-store.md)
-### [Create standalone app](hdinsight-apache-spark-create-standalone-application.md)
 ### [Create apps using Eclipse](hdinsight-apache-spark-eclipse-tool-plugin.md)
 ### [Create apps using IntelliJ](hdinsight-apache-spark-intellij-tool-plugin.md)
 ### [Process streaming events](hdinsight-apache-spark-eventhub-streaming.md)
@@ -78,9 +75,13 @@
 ### [Use external packages with Jupyter using cell magic](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 ### [Use external packages with Jupyter using script action](hdinsight-apache-spark-python-package-installation.md)
 ### [Use a local Jupyter notebook](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
-### [Remote jobs with Livy](hdinsight-apache-spark-livy-rest-interface.md)
 ### [Debug jobs remotely with IntelliJ through VPN](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 ### [Known issues](hdinsight-apache-spark-known-issues.md)
+## Use R Server
+### [Storage options](hdinsight-hadoop-r-server-storage.md)
+### [Install RStudio](hdinsight-hadoop-r-server-install-r-studio.md)
+### [Compute contexts](hdinsight-hadoop-r-server-compute-contexts.md)
+### [ScaleR and SparkR](hdinsight-hadoop-r-scaler-sparkr.md)
 ## Use HBase
 ### [Use Phoenix and SQLLine](hdinsight-hbase-phoenix-squirrel-linux.md)
 ### [Analyze real-time tweets](hdinsight-hbase-analyze-twitter-sentiment.md)

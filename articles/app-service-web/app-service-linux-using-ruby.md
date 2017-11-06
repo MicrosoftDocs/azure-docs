@@ -44,7 +44,6 @@ To learn more about creating a Ruby app, check the [get started guide](app-servi
 
 ## Next steps
 * [What is Web App on Linux?](app-service-linux-intro.md)
-* [Creating Web Apps in Web App on Linux](app-service-linux-how-to-create-web-app.md)
 * [Local Git Deployment to Azure App Service](app-service-deploy-local-git.md)
 * [Azure App Service Web App on Linux FAQ](app-service-linux-faq.md)
 * [Create a Ruby App with Azure Web App on Linux](app-service-linux-ruby-get-started.md)

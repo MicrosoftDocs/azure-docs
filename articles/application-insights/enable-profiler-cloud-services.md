@@ -28,7 +28,7 @@ To collect information for processing and display on the Azure portal, you must 
 
 ## Prerequisites for the walkthrough
 
-* A deployment Resource Manager template that installs the profiler agents on the VMs ([WindowsVirtualMachine.json](https://github.com/CFreemanwa/samples/blob/master/WindowsVirtualMachine.json)) or scale sets ([WindowsVirtualMachineScaleSet.json](https://github.com/CFreemanwa/samples/blob/master/WindowsVirtualMachineScaleSet.json)).
+* A deployment Resource Manager template that installs the profiler agents on the VMs ([WindowsVirtualMachine.json](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachine.json)) or scale sets ([WindowsVirtualMachineScaleSet.json](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachineScaleSet.json)).
 
 * An Application Insights instance enabled for profiling. For instructions, see [Enable the profile](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-profiler#enable-the-profiler).
 
@@ -47,7 +47,8 @@ On the **Application Insights** blade, enter the information for your resource, 
 ![Application Insights blade](./media/enable-profiler-compute/createai.png)
 
 ## Apply an Application Insights instrumentation key in the Azure Resource Manager template
-1. If you haven't downloaded the template yet, download it from [GitHub](https://github.com/CFreemanwa/samples/blob/master/WindowsVirtualMachine.json).
+
+1. If you haven't downloaded the template yet, download it from [GitHub](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachine.json).
 
 2. Find the Application Insights key.
    
@@ -188,7 +189,7 @@ Follow these steps so we can collect some sample data to be displayed in Applica
 ```
 
 ## Enable the profiler on virtual machine scale sets
-To see how to enable the profiler, download the [WindowsVirtualMachineScaleSet.json](https://github.com/CFreemanwa/samples/blob/master/WindowsVirtualMachineScaleSet.json) template. Apply the same changes in a VM template to the diagnostics extension resource for the virtual machine scale set.
+To see how to enable the profiler, download the [WindowsVirtualMachineScaleSet.json](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachineScaleSet.json) template. Apply the same changes in a VM template to the diagnostics extension resource for the virtual machine scale set.
 
 Make sure that each instance in the scale set has access to the internet. The Profiler Agent can then send the collected samples to Application Insights for display and analysis.
 
@@ -202,7 +203,7 @@ Make sure that each instance in the scale set has access to the internet. The Pr
 ### Provision the Service Fabric cluster to have the Azure Diagnostics extension that installs the Profiler Agent
 A Service Fabric cluster can be secure or non-secure. You can set one gateway cluster to be non-secure so it doesn't require a certificate for access. Clusters that host business logic and data should be secure. You can enable the profiler on both secure and non-secure Service Fabric clusters. This walkthrough uses a non-secure cluster as an example to explain what changes are required to enable the profiler. You can provision a secure cluster in the same way.
 
-1. Download [ServiceFabricCluster.json](https://github.com/CFreemanwa/samples/blob/master/ServiceFabricCluster.json). As you did for VMs and virtual machine scale sets, replace `Application_Insights_Key` with your Application Insights key:
+1. Download [ServiceFabricCluster.json](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/ServiceFabricCluster.json). As you did for VMs and virtual machine scale sets, replace `Application_Insights_Key` with your Application Insights key:
 
    ```
    "publisher": "AIP.Diagnostics.Test",

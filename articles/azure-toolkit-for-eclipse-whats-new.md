@@ -4,7 +4,7 @@ description: Learn about the latest features in the Azure Toolkit for Eclipse.
 services: ''
 documentationcenter: java
 author: rmcmurray
-manager: erikre
+manager: routlaw
 editor: ''
 
 ms.assetid: 16b066ea-aae7-4c30-9a12-fa0c3711b93e
@@ -13,18 +13,20 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 04/14/2017
+ms.date: 08/20/2017
 ms.author: robmcm;asirveda;martinsawicki
 
 ---
-# What's New in the Azure Toolkit for Eclipse
-## Azure Toolkit for Eclipse Releases
+# What's new in the Azure Toolkit for Eclipse
+
 This article contains information on the various releases and latest updates to the Azure Toolkit for Eclipse.
 
 > [!NOTE]
 > There is also an Azure Toolkit for the IntelliJ IDE. For more information, see [Azure Toolkit for IntelliJ].
 > 
 > 
+
+## Azure Toolkit for Eclipse Releases
 
 ### April 14, 2017
 The Azure Toolkit for Eclipse - April 2017 release includes the following enhancements:

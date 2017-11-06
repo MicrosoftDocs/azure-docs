@@ -75,14 +75,16 @@ This is an indication that there is some discrepancy between your labels and the
 3.	You might need to change the names of the intents and entities or leave them as they are.
 4.	Import the app afterwards to have an LUIS app in the target language
 
-## How can I delete data from LUIS? 
-
-* If you delete an utterance from your LUIS app, it is removed from the LUIS web service and not available for export.
-* If you delete an account, all apps and their utterances are deleted. Data is retained on the servers for 60 days before permanent deletion.
+## How do I download a log of user utterances?
+By default, utterances from users are logged. To download a log of utterances that users sent to your LUIS app, click the download icon in the entry for your app in **My Apps**. This log is in comma-separated value (CSV) format.
 
 ## How can I disable logging of utterances?
 * You can turn off the logging of user utterances by setting `log=false` in the URL when your client application queries LUIS. However, note that this will disable your LUIS app's ability to suggest utterances or improve performance based on user queries. If you set `log=false` due to data privacy concerns be aware that you won't be able to download a record of user utterances from LUIS or use those utterances to improve your app.
 
+## How can I delete data from LUIS? 
+
+* If you delete an utterance from your LUIS app, it is removed from the LUIS web service and not available for export.
+* If you delete an account, all apps and their utterances are deleted. Data is retained on the servers for 60 days before permanent deletion.
 
 ## Next steps
 

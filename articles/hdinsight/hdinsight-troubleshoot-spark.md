@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/7/2017
+ms.date: 8/31/2017
 ms.author: arijitt
 
 ---
@@ -209,12 +209,12 @@ The most likely cause of this exception is that not enough heap memory is alloca
     spark.yarn.driver.memoryOverhead (Example: 384m for 384MB) 
     ```
 
-    To get the total memory used by all executors, run the following command: 
+    To calcuate the total memory used by all executors: 
     
     ```apache
     spark.executor.instances * (spark.executor.memory + spark.yarn.executor.memoryOverhead) 
     ```
-    To get the total memory used by the driver, run the following command:
+   To calcuate the total memory used by the driver:
     
     ```apache
     spark.driver.memory + spark.yarn.driver.memoryOverhead

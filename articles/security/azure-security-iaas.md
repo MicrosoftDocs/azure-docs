@@ -13,13 +13,12 @@
   ms.topic: article
   ms.tgt_pltfrm: na
   ms.workload: na
-  ms.date: 03/29/2017
+  ms.date: 08/29/2017
   ms.author: barclayn
 
 
 
 ---
-
 # Security best practices for IaaS workloads in Azure
 
 As you started thinking about moving workloads to Azure infrastructure as a service (IaaS), you probably realized that some considerations are familiar. You might already have experience securing virtual environments. When you move to Azure IaaS, you can apply your expertise in securing virtual environments and use a new set of options to help secure your assets.
@@ -38,11 +37,11 @@ We'll discuss some of the options available in Azure that can help you meet your
 
 Organizations often fall prey to cyberattacks because administrators perform actions while using accounts with elevated rights. Usually this isn’t done maliciously but because existing configuration and processes allow it. Most of these users understand the risk of these actions from a conceptual standpoint but still choose to do them.
 
-Doing things like checking email and browsing the Internet seem innocent enough. But they might expose elevated accounts to compromise by malicious actors who can use browsing activities, specially crafted emails, or other techniques to gain access to your enterprise. We highly recommend the use of secure management workstations for conducting all Azure administration tasks, as a way of reducing exposure to accidental compromise.
+Doing things like checking email and browsing the Internet seem innocent enough. But they might expose elevated accounts to compromise by malicious actors. Browsing activities, specially crafted emails, or other techniques can be used to gain access to your enterprise. We highly recommend the use of secure management workstations (SAWs) for conducting all Azure administration tasks. SAWs are a way of reducing exposure to accidental compromise.
 
-Privileged Access Workstations (PAWs) provide a dedicated operating system for sensitive tasks--one that is protected from Internet attacks and threat vectors. Separating these sensitive tasks and accounts from the daily-use workstations and devices provides strong protection from phishing attacks, application and OS vulnerabilities, various impersonation attacks, and credential theft attacks such as keystroke logging, Pass-the-Hash, and Pass-the-Ticket.
+Privileged Access Workstations (PAWs) provide a dedicated operating system for sensitive tasks--one that is protected from Internet attacks and threat vectors. Separating these sensitive tasks and accounts from the daily-use workstations and devices provides strong protection. This separation limits the impact of phishing attacks, application and OS vulnerabilities, various impersonation attacks, and credential theft attacks. (keystroke logging, Pass-the-Hash, and Pass-the-Ticket)
 
-The PAW approach is an extension of the well-established and recommended practice to use an individually assigned administrative account that is separate from a standard user account. A PAW provides a trustworthy workstation for those sensitive accounts.
+The PAW approach is an extension of the well-established and recommended practice to use an individually assigned administrative account. The administrative account is separate from a standard user account. A PAW provides a trustworthy workstation for those sensitive accounts.
 
 For more information and implementation guidance, see [Privileged Access Workstations](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/privileged-access-workstations).
 
@@ -64,7 +63,7 @@ The following screenshot shows some of the options available for Azure Multi-Fac
 
 ## Limit and constrain administrative access
 
-Securing the accounts that can manage your Azure subscription is extremely important. The compromise of any of those accounts negates the value of all the other steps that you might take to ensure the confidentiality and integrity of your data. As recently illustrated by the [Edward Snowden](https://en.wikipedia.org/wiki/Edward_Snowden) leak of classified information, internal attacks pose a huge threat to the overall security of any organization.
+Securing the accounts that can manage your Azure subscription is extremely important. The compromise of any of those accounts negates the value of all the other steps that you might take to ensure the confidentiality and integrity of your data. As recently illustrated by the [Edward Snowden](https://en.wikipedia.org/wiki/Edward_Snowden) internal attacks pose a huge threat to the overall security of any organization.
 
 Evaluate individuals for administrative rights by following criteria similar to these:
 
@@ -224,10 +223,7 @@ The following screenshot shows an example of the information that Operations Man
 
 ![Operations Management Suite security baselines](./media/azure-security-iaas/oms-security-baseline.png)
 
-
-
 ## Next steps
-
 
 * [Azure Security Team Blog](https://blogs.msdn.microsoft.com/azuresecurity/)
 * [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx)

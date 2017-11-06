@@ -1,10 +1,10 @@
 ---
-title: Sign-in instructions for the Azure Toolkit for IntelliJ | Microsoft Docs
+title: Sign-in instructions for the Azure Toolkit for IntelliJ
 description: Learn how to sign in to Microsoft Azure by using the Azure Toolkit for IntelliJ.
 services: ''
 documentationcenter: java
 author: rmcmurray
-manager: erikre
+manager: routlaw
 editor: ''
 
 ms.assetid: 
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 04/14/2017
+ms.date: 08/20/2017
 ms.author: robmcm
 
 ---
@@ -22,46 +22,12 @@ ms.author: robmcm
 
 The Azure Toolkit for IntelliJ provides two methods for signing in to your Azure account:
 
-  * **Interactive**: You enter your Azure credentials each time you sign in to your Azure account.
   * **Automated**: You create a credentials file that you can use to automatically sign in to your Azure account.
+  * **Interactive**: You enter your Azure credentials each time you sign in to your Azure account.
 
 The following sections describe how to use each method.
 
 [!INCLUDE [azure-toolkit-for-intellij-prerequisites](../includes/azure-toolkit-for-intellij-prerequisites.md)]
-
-## Sign in to your Azure account interactively
-
-To sign in to Azure by manually entering your Azure credentials, do the following:
-
-1. Open your project with IntelliJ IDEA.
-
-2. Click **Tools**, point to **Azure**, and then click **Azure Sign In**.
-
-   ![The IntelliJ Azure Sign In command][I01]
-
-3. In the **Azure Sign In** window, select **Interactive**, and then click **Sign in**.
-
-   ![The Azure Sign In window with Interactive selected][I02]
-
-4. In the **Azure Log In** dialog box appears, enter your Azure credentials, and then click **Sign in**.
-
-   ![The Azure Login Dialog window][I03]
-
-5. In the **Select Subscriptions** dialog box, select the subscriptions that you want to use, and then click **OK**.
-
-   ![The Select Subscriptions dialog box][I04]
-
-## Sign out of your Azure account after you have signed in interactively
-
-After you have configured your account by using the preceding steps, you will be automatically signed out of your Azure account each time you restart IntelliJ IDEA. However, if you want to sign out of your Azure account *without* restarting IntelliJ IDEA, do the following.
-
-1. In IntelliJ IDEA, on the **Tools** menu, point to **Azure**, and then click **Azure Sign Out**.
-
-   ![The IntelliJ Azure Sign Out command][L01]
-
-2. In the **Azure Sign Out** confirmation window, click **Yes**.
-
-   ![The Azure Sign Out confirmation window][L02]
 
 ## Sign in to your Azure account automatically
 
@@ -135,21 +101,43 @@ If you sign out of your Azure account when you are using IntelliJ IDEA, you must
 
    ![The Select Subscriptions dialog box][A07]
 
+## Sign in to your Azure account interactively
+
+To sign in to Azure by manually entering your Azure credentials, do the following:
+
+1. Open your project with IntelliJ IDEA.
+
+2. Click **Tools**, point to **Azure**, and then click **Azure Sign In**.
+
+   ![The IntelliJ Azure Sign In command][I01]
+
+3. In the **Azure Sign In** window, select **Interactive**, and then click **Sign in**.
+
+   ![The Azure Sign In window with Interactive selected][I02]
+
+4. In the **Azure Log In** dialog box appears, enter your Azure credentials, and then click **Sign in**.
+
+   ![The Azure Login Dialog window][I03]
+
+5. In the **Select Subscriptions** dialog box, select the subscriptions that you want to use, and then click **OK**.
+
+   ![The Select Subscriptions dialog box][I04]
+
+## Sign out of your Azure account after you have signed in interactively
+
+After you have configured your account by using the preceding steps, you will be automatically signed out of your Azure account each time you restart IntelliJ IDEA. However, if you want to sign out of your Azure account *without* restarting IntelliJ IDEA, do the following.
+
+1. In IntelliJ IDEA, on the **Tools** menu, point to **Azure**, and then click **Azure Sign Out**.
+
+   ![The IntelliJ Azure Sign Out command][L01]
+
+2. In the **Azure Sign Out** confirmation window, click **Yes**.
+
+   ![The Azure Sign Out confirmation window][L02]
+
 ## Next steps
-For more information about the Azure Toolkits for Java IDEs, see the following links:
 
-* [Azure Toolkit for Eclipse]
-  * [What's new in the Azure Toolkit for Eclipse]
-  * [Installing the Azure Toolkit for Eclipse]
-  * [Sign-in instructions for the Azure Toolkit for Eclipse]
-  * [Create a Hello World web app for Azure in Eclipse]
-* [Azure Toolkit for IntelliJ]
-  * [What's new in the Azure Toolkit for IntelliJ]
-  * [Installing the Azure Toolkit for IntelliJ]
-  * *Sign-in instructions for the Azure Toolkit for IntelliJ* (this article)
-  * [Create a Hello World web app for Azure in IntelliJ]
-
-For more information about using Azure with Java, see the [Azure Java Developer Center] and the [Java Tools for Visual Studio Team Services].
+[!INCLUDE [azure-toolkit-additional-resources](../includes/azure-toolkit-additional-resources.md)]
 
 <!-- URL List -->
 

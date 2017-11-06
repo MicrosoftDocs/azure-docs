@@ -4,7 +4,7 @@ description: This tutorial walks you through the steps of scaling streaming endp
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 1008b3a3-2fa1-4146-85bd-2cf43cd1e00e

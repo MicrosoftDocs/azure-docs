@@ -10,13 +10,13 @@ tags: ''
 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: develop databases
+ms.custom: develop databases, mvc
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: ''
-ms.date: 07/31/2017
-ms.author: genemi;carlrab
+ms.date: 08/25/2017
+ms.author: genemi
 ---
 # Design an Azure SQL database and connect with C&#x23; and ADO.NET
 

@@ -11,7 +11,7 @@ tags: azure-service-management
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/02/2017
@@ -57,7 +57,7 @@ When creating a virtual machine, several options are available such as operating
 az vm create --resource-group myResourceGroupVM --name myVM --image UbuntuLTS --generate-ssh-keys
 ```
 
-Once the VM has been created, the Azure CLI outputs information about the VM. Take note of the `publicIpAddress`, this address can be used to access the virtual machine.. 
+It may take a few minutes to create the VM. Once the VM has been created, the Azure CLI outputs information about the VM. Take note of the `publicIpAddress`, this address can be used to access the virtual machine.. 
 
 ```azurecli-interactive 
 {
@@ -74,13 +74,13 @@ Once the VM has been created, the Azure CLI outputs information about the VM. Ta
 
 ## Connect to VM
 
-You can now connect to the VM using SSH. Replace the example IP address with the `publicIpAddress` noted in the previous step.
+You can now connect to the VM with SSH in the Azure Cloud Shell or from your local computer. Replace the example IP address with the `publicIpAddress` noted in the previous step.
 
 ```bash
 ssh 52.174.34.95
 ```
 
-Once finished with the VM, close the SSH session. 
+Once logged in to the VM, you can install and configure applications. When you are finished, you close the SSH session as normal:
 
 ```bash
 exit
@@ -203,7 +203,11 @@ az vm create \
 
 ### Resize a VM
 
-After a VM has been deployed, it can be resized to increase or decrease resource allocation.
+After a VM has been deployed, it can be resized to increase or decrease resource allocation. You can view the current of size of a VM with [az vm show](/cli/azure/vm#show):
+
+```azurecli-interactive
+az vm show --resource-group myResourceGroupVM --name myVM --query hardwareProfile.vmSize
+```
 
 Before resizing a VM, check if the desired size is available on the current Azure cluster. The [az vm list-vm-resize-options](/cli/azure/vm#list-vm-resize-options) command returns the list of sizes. 
 
@@ -295,7 +299,7 @@ az vm start --resource-group myResourceGroupVM --name myVM
 
 ### Delete resource group
 
-Deleting a resource group also deletes all resources contained within.
+Deleting a resource group also deletes all resources contained within, such as the VM, virtual network, and disk. The `--no-wait` parameter returns control to the prompt without waiting for the operation to complete. The `--yes` parameter confirms that you wish to delete the resources without an additional prompt to do so.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroupVM --no-wait --yes

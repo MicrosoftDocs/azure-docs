@@ -23,77 +23,60 @@ ms.author: naziml;wesmc
 [!INCLUDE [app-service-linux-preview](../../includes/app-service-linux-preview.md)]
 
 ## Overview
-Customers can use Web App on Linux to host web apps natively on Linux for supported application stacks. The following section lists the application stacks that are currently supported. 
+[Web App](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-overview) is a fully managed compute platform that is optimized for hosting websites and web applications. Customers can use Web App on Linux to host web apps natively on Linux for supported application stacks. The following sections lists the application stacks that are currently supported. 
 
-## Features
-Web App on Linux currently supports the following application stacks:
+### Languages
 
-* Node.js
-	* 4.4
-	* 4.5
-	* 6.2
-	* 6.6
-	* 6.9
-	* 6.10
-	* 6.11
-	* 8.0
-	* 8.1
-* PHP
-	* 5.6
-	* 7.0
-* .Net Core
-	* 1.0
-    * 1.1
-* Ruby
-	* 2.3
+|Node.js|PHP|.NET Core|Ruby|
+|:------------------:|:---:|:---------:|:----:|
+|4.4, 4.5|5.6|1.0-1.1|2.3|
+|6.2, 6.6, 6.9-6.11|7.0|||
+|8.0-8.1||||
 
-Customers can deploy their applications by using:
+### Deployments
 
 * FTP
 * Local Git
 * GitHub
 * Bitbucket
 
-For application scaling:
+### DevOps
 
-* Customers can scale web apps up and down by changing the tier of their App Service plan
-* Customers can scale out applications and run multiple app instances within the confines of their SKU
+* Staging environments
+* [Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-intro) and DockerHub CI/CD
 
-For Kudu, some of the basic functionality:
+### Console, Publishing, and Debugging
 
 * Environments
 * Deployments
 * Basic console
 * SSH
 
-For devops:
+### Scaling
 
-* Staging environments
-* ACR and DockerHub CI/CD
+* Customers can scale web apps up and down by changing the tier of their [App Service plan](https://docs.microsoft.com/en-us/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview?toc=%2fazure%2fapp-service-web%2ftoc.json)
 
 ## Limitations
-The Azure portal shows only features that currently work for Web App on Linux and hides the rest. As we enable more features, they will be visible on the portal.
+The Azure portal shows only features that currently work for Web App on Linux. As we enable more features, they will become visible on the portal.
 
 Some features, such as virtual network integration, Azure Active Directory/third-party authentication, or Kudu site extensions, are not available yet. Once these features are available, we will update our documentation and blog about the changes.
 
 This public preview is currently only available in the following regions:
 
-* West US
-* East US
-* West Europe
-* North Europe
-* South Central US
-* North Central US
-* Southeast Asia
-* East Asia
-* Australia East
-* Japan East
-* Brazil South
-* South India
+|Americas|Asia Pacific|Europe|
+|:----------------:|:--------------:|:------------:|
+|Brazil South|Australia East|North Europe|
+|East US|East Asia|West Europe|
+|North Central US|Japan East||
+|South Central US|South India||
+|West US|Southeast Asia||
 
-Web Apps on Linux is only supported in the Dedicated app service plans and does not have a Free or Shared tier. Also, App Service plans for regular and Linux web apps are mutually exclusive, so you cannot create a Linux web app in a non-Linux app service plan.
+Check the [Azure Status Dashboard](https://azure.microsoft.com/status) to see when additonal regions become available.
 
-Web Apps on Linux must be created in a resource group that does not contain non-Linux web apps in the same region.
+Web App on Linux is only supported with [Basic, Standard, and Premium](https://azure.microsoft.com/en-us/pricing/details/app-service/plans/) app service plans and does not have a [Free or Shared](https://azure.microsoft.com/en-us/pricing/details/app-service/plans/) tier. The following are also important restrictions for Web App on Linux:
+
+* You cannot create Web App on Linux in an App Service plan already hosting non-Linux Web Apps.
+* When creating Web App on Linux in a resource group containing non-Linux Web Apps, you must create an App Service plan in a different region than the existing App Service plan.
 
 ## Troubleshooting ##
 
@@ -109,7 +92,6 @@ You can access the SCM site from **Advanced Tools** in the **Development Tools**
 ## Next steps
 See the following links to get started with App Service on Linux. You can post questions and concerns on [our forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
-* [Creating Web Apps in Azure Web App on Linux](app-service-linux-how-to-create-web-app.md)
 * [How to use a custom Docker image for Azure Web App on Linux](app-service-linux-using-custom-docker-image.md)
 * [Using PM2 Configuration for Node.js in Azure Web App on Linux](app-service-linux-using-nodejs-pm2.md)
 * [Using .NET Core in Azure App Service Web App on Linux](app-service-linux-using-dotnetcore.md)

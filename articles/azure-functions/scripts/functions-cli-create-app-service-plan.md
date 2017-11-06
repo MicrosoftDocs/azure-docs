@@ -4,7 +4,7 @@ description: Azure CLI Script Sample - Create a Function App in an App Service p
 services: functions
 documentationcenter: functions
 author: syntaxc4
-manager: erikre
+manager: cfowler
 editor: 
 tags: azure-service-management
 

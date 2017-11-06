@@ -15,7 +15,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 08/25/2017
 ms.author: jgao
 
 ---
@@ -153,11 +153,14 @@ The impact of changing the number of data nodes for each type of cluster support
 
     You can seamlessly add or remove nodes to your HBase cluster while it is running. Regional Servers are automatically balanced within a few minutes of completing the scaling operation. However, you can also manually balance the regional servers by logging in to the headnode of cluster and running the following commands from a command prompt window:
 
-        >pushd %HBASE_HOME%\bin
-        >hbase shell
-        >balancer
+    ```bash
+    >pushd %HBASE_HOME%\bin
+    >hbase shell
+    >balancer
+    ```
 
-    For more information on using the HBase shell, see []
+    For more information on using the HBase shell, see [Get started with an Apache HBase example in HDInsight](hdinsight-hbase-tutorial-get-started-linux.md).
+
 * Storm
 
     You can seamlessly add or remove data nodes to your Storm cluster while it is running. But after a successful completion of the scaling operation, you will need to rebalance the topology.
@@ -175,10 +178,12 @@ The impact of changing the number of data nodes for each type of cluster support
 
     Here is an example how to use the CLI command to rebalance the Storm topology:
 
-        ## Reconfigure the topology "mytopology" to use 5 worker processes,
-        ## the spout "blue-spout" to use 3 executors, and
-        ## the bolt "yellow-bolt" to use 10 executors
-        $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
+    ```cli
+    ## Reconfigure the topology "mytopology" to use 5 worker processes,
+    ## the spout "blue-spout" to use 3 executors, and
+    ## the bolt "yellow-bolt" to use 10 executors
+    $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
+    ```
 
 **To scale clusters**
 
@@ -204,6 +209,9 @@ There are many ways you can program the process:
 
 For the pricing information, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/). To delete a cluster from the Portal, see [Delete clusters](#delete-clusters)
 
+## Move cluster
+
+You can move an HDInsight cluster to another Azure resource group or another subscription.  See [List and show clusters](#list-and-show-clusters).
 
 ## Upgrade clusters
 
@@ -231,16 +239,16 @@ Ambari then changes the password on all nodes in the cluster.
 ### Change the SSH user password
 1. Using a text editor, save the following text as a file named **changepassword.sh**.
 
-   > [!IMPORTANT]
-   > You must use an editor that uses LF as the line ending. If the editor uses CRLF, then the script does not work.
-   >
-   >
+    > [!IMPORTANT]
+    > You must use an editor that uses LF as the line ending. If the editor uses CRLF, then the script does not work.
 
-        #! /bin/bash
-        USER=$1
-        PASS=$2
+    ```bash
+    #! /bin/bash
+    USER=$1
+    PASS=$2
+    usermod --password $(echo $PASS | openssl passwd -1 -stdin) $USER
+    ```
 
-        usermod --password $(echo $PASS | openssl passwd -1 -stdin) $USER
 2. Upload the file to a storage location that can be accessed from HDInsight using an HTTP or HTTPS address. For example, a public file store such as OneDrive or Azure Blob storage. Save the URI (HTTP or HTTPS address) to the file, as this URI is needed in the next step.
 3. From the Azure portal, click **HDInsight Clusters**.
 4. Click your HDInsight cluster.
@@ -284,8 +292,15 @@ In the Azure Resource Manager mode, each HDInsight cluster is created with an Az
 
 See [List and show clusters](#list-and-show-clusters).
 
-## Find the default storage account
-Each HDInsight cluster has a default storage account. The default storage account and its keys for a cluster appears under **Storage Accounts**. See [List and show clusters](#list-and-show-clusters).
+## Find the storage accounts
+
+HDInsight clusters use either an Azure Storage account or an Azure Data Lake Store to store data. Each HDInsight cluster can have one default storage account and a number of linked storage accounts. To list the storage accounts, you first open the cluster from the portal, and then click **Storage accounts**:
+
+![HDInsight cluster storage accounts](./media/hdinsight-administer-use-portal-linux/hdinsight-storage-accounts.png)
+
+On the previous screenshot, there is a __Default__ column indicating whether the account is the default storage account.
+
+To list the Data Lake Store accounts, click **Data Lake Store access** in the previous screenshot.
 
 ## Run Hive queries
 You cannot run Hive job directly from the Azure portal, but you can use the Hive View on Ambari Web UI.
@@ -296,6 +311,7 @@ You cannot run Hive job directly from the Azure portal, but you can use the Hive
 2. Open Hive View as shown in the following screenshot:  
 
     ![HDInsight hive view](./media/hdinsight-administer-use-portal-linux/hdinsight-hive-view.png)
+
 3. Click **Query** from the top menu.
 4. Enter a Hive query in **Query Editor**, and then click **Execute**.
 
@@ -318,8 +334,6 @@ The **Usage** section of the HDInsight cluster blade displays information about 
 
 > [!IMPORTANT]
 > To monitor the services provided by the HDInsight cluster, you must use Ambari Web or the Ambari REST API. For more information on using Ambari, see [Manage HDInsight clusters using Ambari](hdinsight-hadoop-manage-ambari.md)
->
->
 
 ## Connect to a cluster
 
@@ -327,7 +341,7 @@ The **Usage** section of the HDInsight cluster blade displays information about 
 * [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 ## Next steps
-In this article, you have learned some basic administative functions. To learn more, see the following articles:
+In this article, you have learned some basic administrative functions. To learn more, see the following articles:
 
 * [Administer HDInsight Using Azure PowerShell](hdinsight-administer-use-powershell.md)
 * [Administer HDInsight Using Azure CLI](hdinsight-administer-use-command-line.md)

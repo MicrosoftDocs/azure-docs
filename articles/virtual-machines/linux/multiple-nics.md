@@ -113,6 +113,7 @@ az network nic create \
 
 To add a NIC to an existing VM, first deallocate the VM with [az vm deallocate](/cli/azure/vm#deallocate). The following example deallocates the VM named *myVM*:
 
+
 ```azurecli
 az vm deallocate --resource-group myResourceGroup --name myVM
 ```
@@ -174,6 +175,80 @@ You can also use a `copyIndex()` to then append a number to a resource name, whi
 ```
 
 You can read a complete example of [creating multiple NICs using Resource Manager templates](../../virtual-network/virtual-network-deploy-multinic-arm-template.md).
+
+## Configure guest OS for multiple NICs
+
+When creating multiple NICs for a Linux Guest-OS based VM
+it is required to create additional routing rules which allows to send and receive traffic
+belonging to a specific NIC only. Otherwise traffic belonging to eth1 can not be processed correct, 
+due to the defined default route.  
+
+
+### Solution
+
+First add two routing tables to the file /etc/iproute2/rt_tables
+
+```bash
+echo "200 eth0-rt" >> /etc/iproute2/rt_tables
+echo "201 eth1-rt" >> /etc/iproute2/rt_tables
+```
+
+To make the change persistent and applied during the network stack activation, it is required 
+to alter the */etc/sysconfig/network-scipts/ifcfg-eth0* and */etc/sysconfig/network-scipts/ifcfg-eth1* file.
+Alter the line *"NM_CONTROLLED=yes"* to *"NM_CONTROLLED=no"*.
+Without this step the additonal rules/routing we are going to add taking no effect.
+ 
+Next step is to extend the routing tables. In order to make the next steps more visible let's assume we have the following setup in place
+
+*Routing*
+
+```bash
+default via 10.0.1.1 dev eth0 proto static metric 100
+10.0.1.0/24 dev eth0 proto kernel scope link src 10.0.1.4 metric 100
+10.0.1.0/24 dev eth1 proto kernel scope link src 10.0.1.5 metric 101
+168.63.129.16 via 10.0.1.1 dev eth0 proto dhcp metric 100
+169.254.169.254 via 10.0.1.1 dev eth0 proto dhcp metric 100
+```
+    
+*Interfaces*
+
+```bash
+lo: inet 127.0.0.1/8 scope host lo
+eth0: inet 10.0.1.4/24 brd 10.0.1.255 scope global eth0    
+eth1: inet 10.0.1.5/24 brd 10.0.1.255 scope global eth1
+```
+    
+    
+With the above information it is possible to create the following additional files as root
+
+*   /etc/sysconfig/network-scripts/rule-eth0
+*   /etc/sysconfig/network-scripts/route-eth0
+*   /etc/sysconfig/network-scripts/rule-eth1
+*   /etc/sysconfig/network-scripts/route-eth1
+
+The content of each file is the following
+```bash
+cat /etc/sysconfig/network-scripts/rule-eth0
+from 10.0.1.4/32 table eth0-rt
+to 10.0.1.4/32 table eth0-rt
+
+cat /etc/sysconfig/network-scripts/route-eth0
+10.0.1.0/24 dev eth0 table eth0-rt
+default via 10.0.1.1 dev eth0 table eth0-rt
+
+cat /etc/sysconfig/network-scripts/rule-eth1
+from 10.0.1.5/32 table eth1-rt
+to 10.0.1.5/32 table eth1-rt
+
+cat /etc/sysconfig/network-scripts/route-eth1
+10.0.1.0/24 dev eth1 table eth1-rt
+default via 10.0.1.1 dev eth1 table eth1-rt
+```
+
+After the files got created and popultated it is necessary to restart the network service
+    `systemctl restart network`
+
+Connecting from the outside against either eth0 or eth1 is possible now
 
 ## Next steps
 Review [Linux VM sizes](sizes.md) when trying to creating a VM with multiple NICs. Pay attention to the maximum number of NICs each VM size supports. 

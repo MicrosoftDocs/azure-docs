@@ -210,6 +210,9 @@ Network traffic in an Azure Virtual Networks can be controlled using the followi
 
 * **Network security groups** (NSG) allow you to filter inbound and outbound traffic to the network. For more information, see the [Filter network traffic with network security groups](../virtual-network/virtual-networks-nsg.md) document.
 
+    > [!WARNING]
+    > HDInsight does not support restricting outbound traffic.
+
 * **User-defined routes** (UDR) define how traffic flows between resources in the network. For more information, see the [User-defined routes and IP forwarding](../virtual-network/virtual-networks-udr-overview.md) document.
 
 * **Network virtual appliances** replicate the functionality of devices such as firewalls and routers. For more information, see the [Network Appliances](https://azure.microsoft.com/solutions/network-appliances) document.
@@ -224,7 +227,7 @@ If you plan on using **network security groups** or **user-defined routes** to c
 
 1. Identify the Azure region that you plan to use for HDInsight.
 
-2. Identify the IP addresses required by HDInsight. The IP addresses that should be allowed are specific to the region that the HDInsight cluster and Virtual Network reside in. For a list of IP addresses by region, see the [IP Addresses required by HDInsight](#hdinsight-ip) section.
+2. Identify the IP addresses required by HDInsight. For more information, see the [IP Addresses required by HDInsight](#hdinsight-ip) section.
 
 3. Create or modify the network security groups or user-defined routes for the subnet that you plan to install HDInsight into.
 
@@ -243,11 +246,14 @@ Forced tunneling is a user-defined routing configuration where all traffic from 
 
 ## <a id="hdinsight-ip"></a> Required IP addresses
 
-The Azure health and management services must be able to communicate with HDInsight. If you use network security groups or user-defined routes, allow traffic from the IP addresses for these services to reach HDInsight.
+> [!IMPORTANT]
+> The Azure health and management services must be able to communicate with HDInsight. If you use network security groups or user-defined routes, allow traffic from the IP addresses for these services to reach HDInsight.
+>
+> If you do not use network security groups or user-defined routes to control traffic, you can ignore this section.
 
-There are two sets of IP addresses:
+If you use network security groups or user-defined routes, you must allow traffic from the Azure health and management services to reach HDInsight. Use the following steps to find the IP addresses that must be allowed:
 
-* A __global__ set of four IPs that must be allowed:
+1. You must always allow traffic from the following IP addresses:
 
     | IP address | Allowed port | Direction |
     | ---- | ----- | ----- |
@@ -256,10 +262,10 @@ There are two sets of IP addresses:
     | 168.61.48.131 | 443 | Inbound |
     | 138.91.141.162 | 443 | Inbound |
 
-* __Per region__ IP addresses that must be allowed:
+2. If your HDInsight cluster is in one of the following regions, then you must allow traffic from the IP addresses listed for the region:
 
     > [!IMPORTANT]
-    > If the Azure region you are using is not listed, then only use the four global IPs mentioned previously.
+    > If the Azure region you are using is not listed, then only use the four IP addresses from step 1.
 
     | Country | Region | Allowed IP addresses | Allowed port | Direction |
     | ---- | ---- | ---- | ---- | ----- |
@@ -290,11 +296,7 @@ There are two sets of IP addresses:
 
     For information on the IP addresses to use for Azure Government, see the [Azure Government Intelligence + Analytics](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics) document.
 
-> [!WARNING]
-> HDInsight doesn't support restricting outbound traffic, only inbound traffic.
-
-> [!IMPORTANT]
-> If you use a custom DNS server with your virtual network, you must also allow access from __168.63.129.16__. This address is Azure's recursive resolver. For more information, see the [Name resolution for VMs and Role instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) document.
+3. If you use a custom DNS server with your virtual network, you must also allow access from __168.63.129.16__. This address is Azure's recursive resolver. For more information, see the [Name resolution for VMs and Role instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) document.
 
 For more information, see the [Controlling network traffic](#networktraffic) section.
 

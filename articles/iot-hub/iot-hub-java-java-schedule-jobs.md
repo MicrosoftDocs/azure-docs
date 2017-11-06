@@ -42,7 +42,7 @@ At the end of this tutorial, you have a java console device app and a java conso
 
 **simulated-device** that connects to your IoT hub, implements the **lockDoor** direct method, and handles desired property changes.
 
-**schedule-jobs that use jobs to call the **lockDoor** direct method and update the device twin desired properties on multiple devices.
+**schedule-jobs** that use jobs to call the **lockDoor** direct method and update the device twin desired properties on multiple devices.
 
 > [!NOTE]
 > The article [Azure IoT SDKs](iot-hub-devguide-sdks.md) provides information about the Azure IoT SDKs that you can use to build both device and back-end apps.

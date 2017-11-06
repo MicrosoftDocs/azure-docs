@@ -112,7 +112,6 @@ You can access the SCM site from **Advanced Tools** in the **Development Tools**
 Follow the following links to get started with Web App on Linux.   
 
 * [Introduction to Azure Web App on Linux](./app-service-linux-intro.md)
-* [Creating Web Apps in Azure Web App on Linux](./app-service-linux-how-to-create-web-app.md)
 * [Using PM2 Configuration for Node.js in Azure Web App on Linux](./app-service-linux-using-nodejs-pm2.md)
 * [Azure App Service Web App on Linux FAQ](app-service-linux-faq.md)
 

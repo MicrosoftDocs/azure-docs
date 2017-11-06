@@ -109,7 +109,6 @@ These steps are are shown in the Azure App Service repository as an example [her
 ## Next steps
 See the following links for more information regarding Web App on Linux. You can post questions and concerns on [our forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
-* [Creating Apps in Azure Web App on Linux](app-service-linux-how-to-create-web-app.md)
 * [How to use a custom Docker image for Azure Web App on Linux](app-service-linux-using-custom-docker-image.md)
 * [Using PM2 Configuration for Node.js in Azure Web App on Linux](app-service-linux-using-nodejs-pm2.md)
 * [Using .NET Core in Azure Web App on Linux](app-service-linux-using-dotnetcore.md)

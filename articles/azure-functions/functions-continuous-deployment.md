@@ -4,7 +4,7 @@ description: Use continuous deployment facilities of Azure App Service to publis
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: erikre
+manager: cfowler
 editor: ''
 tags: ''
 

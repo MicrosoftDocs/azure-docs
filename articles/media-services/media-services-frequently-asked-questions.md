@@ -4,7 +4,7 @@ description: Frequently asked questions (FAQs)
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 5374f7f4-c189-43ef-8b7f-f2f4141e2748

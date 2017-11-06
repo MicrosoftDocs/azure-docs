@@ -13,16 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 08/28/2017
 ms.author: maheshu
 
 ---
 # Enable Azure Active Directory Domain Services using the Azure classic portal
-This article describes and walks through the configuration tasks that are required for you to enable Azure Active Directory Domain Services (Azure AD DS) for your Azure Active Directory (Azure AD) tenant.
-
-> [!NOTE]
-> [**Try the new (preview) Azure portal experience instead**](active-directory-ds-getting-started.md). 
+> [!IMPORTANT]
+> The Azure classic portal experience to enable Azure AD Domain Services shown in this article will be removed soon. For new deployments, [**use the new (preview) Azure portal experience instead**](active-directory-ds-getting-started.md).
 >
+
+This article helps you to enable Azure Active Directory Domain Services (Azure AD DS) for your Azure Active Directory (Azure AD) tenant using the Azure classic portal.
+
 
 ## Task 1: create the Azure AD DC administrators group
 The first task is to create an administrative group in your Azure AD tenant. This special administrative group is called *AAD DC Administrators*. Members of this group are granted administrative permissions on machines that are domain-joined to the Azure Active Directory Domain Services-managed domain. On domain-joined machines, this group is added to the administrators group. Additionally, members of this group can use Remote Desktop to connect remotely to domain-joined machines.  

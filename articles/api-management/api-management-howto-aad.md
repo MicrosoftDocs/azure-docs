@@ -16,12 +16,15 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
 ---
+
+> [!WARNING]
+> Azure Active Directory integration is available in the [Developer and Premium](https://azure.microsoft.com/en-us/pricing/details/api-management/) tiers only.
+
 # How to authorize developer accounts using Azure Active Directory in Azure API Management
 ## Overview
 This guide shows you how to enable access to the developer portal for users from Azure Active Directory. This guide also shows you how to manage groups of Azure Active Directory users by adding external groups that contain the users of an Azure Active Directory.
 
 > To complete the steps in this guide you must first have an Azure Active Directory in which to create an application.
-> 
 > 
 
 ## How to authorize developer accounts using Azure Active Directory

@@ -418,8 +418,6 @@ To verify the configuration, you need to establish a new VPN connection with VPN
 
 If you successfully authenticate with the secondary verification method you previously configured in Azure MFA, you are connected to the resource. However, if the secondary authentication is not successful, you are denied access to resource. 
 
-Upon successfully entering your credentials for primary authentication, the VPN. If you successfully authenticate with the secondary verification method you previously configured in Azure MFA, you are connected to the resource. However, if the secondary authentication is not successful, you are denied access to resource. 
-
 In the example below, the Authenticator app on a Windows phone is used to provide the secondary authentication.
 
  ![Verify Account](./media/nps-extension-vpn/image43.png)

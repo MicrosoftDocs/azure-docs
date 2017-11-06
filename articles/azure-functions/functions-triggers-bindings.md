@@ -4,7 +4,7 @@ description: Learn how to use triggers and bindings in Azure Functions to connec
 services: functions
 documentationcenter: na
 author: lindydonna
-manager: erikre
+manager: cfowler
 editor: ''
 tags: ''
 keywords: azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture

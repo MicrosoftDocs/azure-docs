@@ -128,9 +128,15 @@ The publishing endpoints for apps in an ILB ASE use the domain that the ILB ASE 
 
 ## Pricing ##
 
-With ASEv2, a new pricing SKU called **Isolated** is used only with ASEv2. All App Service plans that are hosted in ASEv2 are in the Isolated pricing SKU. In addition to the price for your App Service plans, there is a flat fee for ASE itself. This price doesn't change with the size of your ASE. 
+The pricing SKU called **Isolated** was created for use only with ASEv2. All App Service plans that are hosted in ASEv2 are in the Isolated pricing SKU. Isolated App Service plan rates can vary per region. 
 
-The other potential fees are for adjusting the front-end scale ratio or front-end size. You can adjust the scale ratio to add front ends more quickly. However, you pay for any additional cores that aren't automatically added to the system. Likewise, if you select a larger size for the front ends, you pay for any cores that aren't automatically allocated. For example, if you adjust the scale ratio to 10, a front end is added for every 10 instances in your App Service plans. The flat fee covers a scale rate of one front end for every 15 instances. With a scale ratio of 10, you pay a fee for the third front end that's added for the 10 App Service plan instances. You don't need to pay for it when you reach 15 instances because it was added automatically.
+In addition to the price for your App Service plans, there is a flat rate for ASE itself. The flat rate doesn't change with the size of your ASE and pays for the ASE infrastructure at a default scaling rate of 1 additional front-end for every 15 App Service plan instances.  
+
+If the default scale rate of 1 front end for every 15 App Service plan instances is not fast enough, you can adjust the ratio at which front-ends are added or the size of the front-ends.  When you adjust the ratio or size, you pay for the front-end cores that would not be added by default.  
+
+For example, if you adjust the scale ratio to 10, a front end is added for every 10 instances in your App Service plans. The flat fee covers a scale rate of one front end for every 15 instances. With a scale ratio of 10, you pay a fee for the third front end that's added for the 10 App Service plan instances. You don't need to pay for it when you reach 15 instances because it was added automatically.
+
+If you adjusted the size of the front-ends to 2 cores but do not adjust the ratio then you pay for the extra cores.  An ASE is created with 2 front-ends, so even below the automatic scaling threshold you would pay for 2 extra cores if you increased the size to 2 core front-ends.
 
 For more information, see [Azure App Service pricing][Pricing].
 

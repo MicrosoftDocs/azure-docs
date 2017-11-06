@@ -4,7 +4,7 @@ description: This specification describes the protocol and format for fragmented
 services: media-services
 documentationcenter: ''
 author: cenkdin
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 43fac263-a5ea-44af-8dd5-cc88e423b4de

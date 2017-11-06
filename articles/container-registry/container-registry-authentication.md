@@ -12,7 +12,7 @@ keywords: ''
 ms.assetid: 128a937a-766a-415b-b9fc-35a6c2f27417
 ms.service: container-registry
 ms.devlang: na
-ms.topic: how-to-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2017

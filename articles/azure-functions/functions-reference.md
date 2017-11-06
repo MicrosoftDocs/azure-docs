@@ -4,7 +4,7 @@ description: Learn the Azure Functions concepts and techniques that you need to 
 services: functions
 documentationcenter: na
 author: christopheranderson
-manager: erikre
+manager: cfowler
 editor: ''
 tags: ''
 keywords: developer guide, azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture
