@@ -75,13 +75,7 @@ Currently, the Azure AD Reports and Events API retrieves up to **75,000 individu
 
 If you need to retrieve or store data beyond this window, we suggest persisting it in an external database and using the API to query the deltas that result. Our recommendation is to begin retrieving this data when you start using SSPR in your organization, persist it externally, and then continue to track the deltas from this point forward.
 
-## How to download password reset registration events quickly with PowerShell
-
-In addition to using the Azure AD Reports and Events API directly, you may also use the below PowerShell script to recent registration events in your directory. This is useful in case you want to see who has registered recently, or would like to ensure that your password reset rollout is occurring as you expect.
-
-* [Azure AD SSPR Registration Activity PowerShell Script](https://gallery.technet.microsoft.com/scriptcenter/azure-ad-self-service-e31b8aee)
-
-### Description of report columns in Azure portal
+## Description of report columns in Azure portal
 
 The following list explains each of the report columns in detail:
 
@@ -90,7 +84,7 @@ The following list explains each of the report columns in detail:
 * **Date and Time** – the date and time of the attempt.
 * **Data Registered** – what authentication data the user provided during password reset registration.
 
-### Description of report values in Azure portal
+## Description of report values in Azure portal
 
 The following table describes the different values allowed for each column:
 

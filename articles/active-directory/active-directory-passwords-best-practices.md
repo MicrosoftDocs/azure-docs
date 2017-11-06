@@ -35,8 +35,8 @@ Most customers follow these steps to ensure a smooth rollout of SSPR functionali
 10. Over time, review users registering and using by viewing the [reporting provided by Azure AD](active-directory-passwords-reporting.md).
 11. When you are ready, enable password reset for all users, set the **Self Service Password Reset Enabled** toggle to **All**. 
 
-    > [!IMPORTANT]
-    > Test SSPR with a user and not an administrator as Microsoft enforces strong authentication requirements for Azure administrator type accounts this does not include the use of security questions even if enabled in your policy. For more information regarding the administrator password policy, see our [deep dive article](active-directory-passwords-how-it-works.md).
+   > [!IMPORTANT]
+   > Test SSPR with a user and not an administrator as Microsoft enforces strong authentication requirements for Azure administrator type accounts. For more information regarding the administrator password policy, see our [password policy article](active-directory-passwords-policy.md#administrator-password-policy-differences).
 
 ## Email-based rollout
 
