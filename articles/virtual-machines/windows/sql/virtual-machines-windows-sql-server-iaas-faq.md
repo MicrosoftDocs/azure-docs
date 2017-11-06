@@ -56,6 +56,9 @@ This topic provides answers to some of the most common questions about running [
       A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible.
 
    If you do decide to uninstall the default instance, also uninstall the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md) as well.
+   
+   >[!NOTE]
+   >An Azure virtual machine that was created from the template is billed as a SQL Server. This continues to be true if you uninstall SQL Server. If you do not want to be charged the prices for SQL Server virtual machines, deploy a new virtual machine without SQL Server and migrate the data and applications to the new virtual machine. Then you can remove the SQL Server virtual machine.
 
 1. **How do I upgrade to a new version/edition of the SQL Server in an Azure VM?**
 
