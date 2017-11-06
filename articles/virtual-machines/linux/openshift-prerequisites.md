@@ -24,19 +24,19 @@ This article describes common prerequisites for deploying OpenShift Origin or Op
 
 The installation of OpenShift is done via Ansible playbooks. Ansible uses Secure Shell (SSH) to connect to all cluster hosts to complete installation steps.
 
-When the SSH connection is initiated to the remote hosts, there is no way to enter a password. For this reason, the private key cannot have a password associated with it or deployment will fail.
+When the SSH connection is initiated to the remote hosts, there is no way to enter a password. For this reason, the private key cannot have a password associated with it or deployment fails.
 
-Because the virtual machines (VMs) are deployed via Resource Manager templates, the same public key is used for access to all VMs. We need to inject the corresponding private key into the VM that is executing all the playbooks as well. To do this securely, we use an Azure Key Vault to pass the private key into the VM.
+Because the virtual machines (VMs) are deployed via Resource Manager templates, the same public key is used for access to all VMs. You need to inject the corresponding private key into the VM that is executing all the playbooks as well. To do this securely, you use an Azure Key Vault to pass the private key into the VM.
 
-If there's a need for persistent storage for containers, then persistent volumes are required. These persistent volumes need to be backed by some form of persistent storage. OpenShift supports Azure virtual hard disks (VHDs) for this capability, but Azure must first be configured as the cloud provider. 
+If there's a need for persistent storage for containers, then persistent volumes are required. OpenShift supports Azure virtual hard disks (VHDs) for this capability, but Azure must first be configured as the cloud provider. 
 
-In this model, OpenShift will:
+In this model, OpenShift:
 
-- Create a VHD object in an Azure Storage account.
-- Mount the VHD to a VM and format the volume.
-- Mount the volume to the pod.
+- Creates a VHD object in an Azure Storage account.
+- Mounts the VHD to a VM and format the volume.
+- Mounts the volume to the pod.
 
-For this to work, OpenShift needs permissions to perform the previous tasks in Azure. This is achieved with a service principal. The service principal is a security account in Azure Active Directory that is granted permissions to resources.
+For this configuration to work, OpenShift needs permissions to perform the previous tasks in Azure. This is achieved with a service principal. The service principal is a security account in Azure Active Directory that is granted permissions to resources.
 
 The service principal needs to have access to the storage accounts and VMs that make up the cluster. If all OpenShift cluster resources are deployed to a single resource group, the service principal can be granted permissions to that resource group.
 
@@ -57,7 +57,7 @@ az login
 ## Create a resource group
 
 Create a resource group with the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
-You use a dedicated resource group to host the Key Vault. This group is separate from the resource group into which the OpenShift cluster resources will be deployed. 
+You use a dedicated resource group to host the Key Vault. This group is separate from the resource group into which the OpenShift cluster resources are deployed. 
 
 The following example creates a resource group named *keyvaultrg* in the *eastus* location:
 
