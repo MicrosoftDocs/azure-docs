@@ -14,12 +14,12 @@ ACU: 290-300
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max disk throughput: IOPS | Max NICs |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_H8 |8 |56 |1000 |16 |16 x 500 |2  |
-| Standard_H16 |16 |112 |2000 |32 |32 x 500 |4 |
-| Standard_H8m |8 |112 |1000 |16 |16 x 500 |2  |
-| Standard_H16m |16 |224 |2000 |32 |32 x 500 |4  |
-| Standard_H16r* |16 |112 |2000 |32 |32 x 500 |4  |
-| Standard_H16mr* |16 |224 |2000 |32 |32 x 500 |4 |
+| Standard_H8 |8 |56 |1000 |32 |32 x 500 |2  |
+| Standard_H16 |16 |112 |2000 |64 |64 x 500 |4 |
+| Standard_H8m |8 |112 |1000 |32 |32 x 500 |2  |
+| Standard_H16m |16 |224 |2000 |64 |64 x 500 |4  |
+| Standard_H16r* |16 |112 |2000 |64 |64 x 500 |4  |
+| Standard_H16mr* |16 |224 |2000 |64 |64 x 500 |4 |
 
 *For MPI applications, dedicated RDMA backend network is enabled by FDR InfiniBand network, which delivers ultra-low-latency and high bandwidth.
 
@@ -33,10 +33,10 @@ ACU: 225
 
 | Size | vCPU | Memory: GiB | Temp storage (HDD): GiB | Max data disks | Max data disk throughput: IOPS | Max NICs|
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_A8* |8 |56 |382 |16 |16x500 |2 |
-| Standard_A9* |16 |112 |382 |16 |16x500 |4 |
-| Standard_A10 |8 |56 |382 |16 |16x500 |2  |
-| Standard_A11 |16 |112 |382 |16 |16x500 |4 |
+| Standard_A8* |8 |56 |382 |32 |32x500 |2 |
+| Standard_A9* |16 |112 |382 |64 |64x500 |4 |
+| Standard_A10 |8 |56 |382 |32 |32x500 |2  |
+| Standard_A11 |16 |112 |382 |64 |64x500 |4 |
 
 *For MPI applications, dedicated RDMA backend network is enabled by FDR InfiniBand network, which delivers ultra-low-latency and high bandwidth.
 

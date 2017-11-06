@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/18/2017
+ms.date: 11/03/2017
 ms.author: ryanwi
 
 ---
@@ -167,7 +167,7 @@ The Service Fabric SDK and tools provide a service template to help you create a
 
 1. Start Visual Studio.  Select **File** > **New** > **Project**.
 2. Select **Service Fabric application**, name it "MyFirstContainer", and click **OK**.
-3. Select **Guest Container** from the list of **service templates**.
+3. Select **Container** from the list of **service templates**.
 4. In **Image Name** enter "myregistry.azurecr.io/samples/helloworldapp", the image you pushed to your container repository.
 5. Give your service a name, and click **OK**.
 
@@ -469,7 +469,7 @@ For images that should not be deleted, you can specify them under the `Container
 * Learn more about running [containers on Service Fabric](service-fabric-containers-overview.md).
 * Read the [Deploy a .NET application in a container](service-fabric-host-app-in-a-container.md) tutorial.
 * Learn about the Service Fabric [application life-cycle](service-fabric-application-lifecycle.md).
-* Checkout the [Service Fabric container code samples](https://github.com/Azure-Samples/service-fabric-dotnet-containers) on GitHub.
+* Checkout the [Service Fabric container code samples](https://github.com/Azure-Samples/service-fabric-containers) on GitHub.
 
 [1]: ./media/service-fabric-get-started-containers/MyFirstContainerError.png
 [2]: ./media/service-fabric-get-started-containers/MyFirstContainerReady.png
