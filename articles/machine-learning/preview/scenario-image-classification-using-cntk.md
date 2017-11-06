@@ -4,7 +4,7 @@ description: Train, evaluate, and deploy a custom image classification model usi
 services: machine-learning
 documentationcenter: ''
 author: pabuehle
-ms.author: pabuehle
+ms.author: PatrickBue
 ms.reviewer: mawah, marhamil, mldocs
 ms.service: machine-learning
 ms.topic: article
@@ -91,9 +91,9 @@ The script `0_downloadData.py` downloads all images to the *DATA_DIR/images/fash
 The following figure shows examples for the attributes dotted (left two columns), striped (middle two columns), and leopard (right two columns). Annotations were done according to the upper body clothing item.
 
 <p align="center">
-<img src="media/scenario-image-classification-using-cntk/examples_dotted.jpg"  alt="alt text" height="300">
-<img src="media/scenario-image-classification-using-cntk/examples_striped.jpg" alt="alt text" height="300">
-<img src="media/scenario-image-classification-using-cntk/examples_leopard.jpg" alt="alt text" height="300">
+<img src="media/scenario-image-classification-using-cntk/examples_dotted.jpg"  alt="alt text" height="200">
+<img src="media/scenario-image-classification-using-cntk/examples_striped.jpg" alt="alt text" height="200">
+<img src="media/scenario-image-classification-using-cntk/examples_leopard.jpg" alt="alt text" height="200">
 </p>
 
 
