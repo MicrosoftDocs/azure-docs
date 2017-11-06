@@ -36,10 +36,14 @@ vim main.tf
 ```
 2. Enter insert mode by typing `i`
 3. Copy/paste the following code into Cloud Shell
-```azurecli-interactive
-resource "azurerm_resource_group" "myRgName" {
+```
+resource "azurerm_resource_group" "myterraformgroup" {
     name = "myRgName"
     location = "West US"
+
+    tags {
+        environment = "Terraform Demo"
+    }
 }
 ```
 4. Save and quit vim by exiting insert mode and typing `:wq`
@@ -78,4 +82,4 @@ Run `az group delete -n myRgName` to delete the resource group you created.
 
 ## Next Steps
 [Learn about the Terraform Azure provider](https://www.terraform.io/docs/providers/azurerm/#)<br>
-[Try the Bash in Cloud Shell quickstart](quickstart.md)
+[Bash in Cloud Shell quickstart](quickstart.md)
