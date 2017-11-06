@@ -76,14 +76,16 @@ If you want to use one of the experimental languages, you can continue using the
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Learn more about C# support in Azure Functions](functions-reference-csharp.md)
+To learn more about how to use one of the GA or preview languages in Azure Functions, see the following resources:
 
 > [!div class="nextstepaction"]
-> [Learn more about F# support in Azure Functions](functions-reference-fsharp.md)
+> [C#](functions-reference-csharp.md)
 
 > [!div class="nextstepaction"]
-> [Learn more about JavaScript support in Azure Functions](functions-reference-node.md)
+> [F#](functions-reference-fsharp.md)
 
 > [!div class="nextstepaction"]
-> [Learn more about Java support in Azure Functions](functions-reference-java.md)
+> [JavaScript](functions-reference-node.md)
+
+> [!div class="nextstepaction"]
+> [Java](functions-reference-java.md)
