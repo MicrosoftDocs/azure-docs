@@ -3,7 +3,7 @@ title: Set up disaster recovery of VMware VMs or physical servers to a secondary
 description: This article explains how to replicate on-premises VMware VMs or Windows/Linux physical servers to a secondary site, with the Azure Site Recovery service.
 services: site-recovery
 documentationcenter: ''
-author: nsoneji
+author: rayne-wiselman
 manager: jwhit
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/05/2017
-ms.author: nisoneji
+ms.author: raynew
 
 ---
 # Set up disaster recovery of VMware virtual machines or physical servers to a secondary site
