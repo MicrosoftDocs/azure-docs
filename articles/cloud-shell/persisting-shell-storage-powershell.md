@@ -1,5 +1,5 @@
 ---
-title: Persist files in Azure Cloud Shell (Preview) | Microsoft Docs
+title: Persist files in PowerShell in Azure Cloud Shell (Preview) | Microsoft Docs
 description: Walkthrough of how Azure Cloud Shell persists files.
 services: azure
 documentationcenter: ''
@@ -18,8 +18,8 @@ ms.author: damaerte
 ---
 [!include [features-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 
-## How Cloud Shell works
-Cloud Shell persists files through the following method: 
+## How PowerShell in Azure Cloud Shell (Preview) works
+PowerShell in Cloud Shell persists files through the following method: 
 * Mounting your specified file share as `clouddrive` in your `$Home` directory for direct file-share interaction.
 
 ## List Cloud Drive file shares

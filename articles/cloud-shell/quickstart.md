@@ -1,5 +1,5 @@
 ---
-title: Bash in Azure Cloud Shell (Preview) Quickstart | Microsoft Docs
+title: Bash in Azure Cloud Shell Quickstart | Microsoft Docs
 description: Quickstart for Bash in Cloud Shell
 services: 
 documentationcenter: ''

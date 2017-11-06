@@ -1,5 +1,5 @@
 ---
-title: Azure Cloud Shell (Preview) troubleshooting | Microsoft Docs
+title: Azure Cloud Shell troubleshooting | Microsoft Docs
 description: Troubleshooting Azure Cloud Shell
 services: azure
 documentationcenter: ''
@@ -35,7 +35,7 @@ Known resolutions for issues in Azure Cloud Shell include:
  - **Details**: Cloud Shell requires the ability to establish a websocket connection to Cloud Shell infrastructure.
  - **Resolution**: Check you have configured your network settings to enable sending https requests and websocket requests to domains at *.console.azure.com.
 
-## PowerShell resolutions
+## PowerShell in Cloud Shell (Preview) resolutions
 
 ### No $Home directory persistence
 

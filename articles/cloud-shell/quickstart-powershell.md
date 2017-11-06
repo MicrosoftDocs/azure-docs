@@ -17,7 +17,7 @@ ms.date: 09/25/2017
 ms.author: damaerte
 ---
 
-# Quickstart for PowerShell in Azure Cloud Shell
+# Quickstart for PowerShell in Azure Cloud Shell (Preview)
 
 This document details how to use the PowerShell in Cloud Shell in the [Azure portal](https://aka.ms/PSCloudPreview).
 

@@ -1,5 +1,5 @@
 ---
-title: Persist files for Bash in Azure Cloud Shell (Preview) | Microsoft Docs
+title: Persist files for Bash in Azure Cloud Shell | Microsoft Docs
 description: Walkthrough of how Bash in Azure Cloud Shell persists files.
 services: azure
 documentationcenter: ''
@@ -19,8 +19,8 @@ ms.author: juluk
 
 [!include [features-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 
-## How Cloud Shell storage works 
-Cloud Shell persists files through both of the following methods: 
+## How Bash in Cloud Shell storage works 
+Bash in Cloud Shell persists files through both of the following methods: 
 * Creating a disk image of your `$Home` directory to persist all contents within the directory. The disk image is saved in your specified file share as `acc_<User>.img` at `fileshare.storage.windows.net/fileshare/.cloudconsole/acc_<User>.img`, and it automatically syncs changes. 
 * Mounting your specified file share as `clouddrive` in your `$Home` directory for direct file-share interaction. `/Home/<User>/clouddrive` is mapped to `fileshare.storage.windows.net/fileshare`.
  
