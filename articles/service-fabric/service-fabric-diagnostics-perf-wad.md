@@ -73,7 +73,7 @@ To collect performance counters via WAD, you need to modify the configuration ap
 5. Once the upgrade finishes rolling out (takes between 15-45 minutes), WAD should be collecting the performance counters and sending them to a table in the storage account declared in the `WadCfg`.
 
 ## Next steps
-1. See your performance counters in Application Insights by adding the Application Insights sink to your `WadCfg`. Read the *Add the AI Sink to the Resource Manager template* section in [Event analysis and visualization with Application Insights
+* See your performance counters in Application Insights by adding the Application Insights sink to your `WadCfg`. Read the *Add the AI Sink to the Resource Manager template* section in [Event analysis and visualization with Application Insights
 ](service-fabric-diagnostics-event-analysis-appinsights.md) to configure the Application Insights sink.
-2. Collect more performance counters for your cluster. See [Performance metrics](service-fabric-diagnostics-event-generation-perf.md) for a list of counters you should collect.
-3. [Use monitoring and diagnostics with a Windows VM and Azure Resource Manager templates](../virtual-machines/windows/extensions-diagnostics-template.md) to make further modifications to your `WadCfg`, including configuring additional storage accounts to send diagnostics data to.
+* Collect more performance counters for your cluster. See [Performance metrics](service-fabric-diagnostics-event-generation-perf.md) for a list of counters you should collect.
+* [Use monitoring and diagnostics with a Windows VM and Azure Resource Manager templates](../virtual-machines/windows/extensions-diagnostics-template.md) to make further modifications to your `WadCfg`, including configuring additional storage accounts to send diagnostics data to.
