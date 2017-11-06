@@ -52,7 +52,7 @@ There are two steps when using the local web UI:
 * Download the update or the hotfix
 * Install the update or the hotfix
 
-**Proceed with this update only if you are running Update 0.6 (10.0.10293.0). If you are running an earlier version, [Install Update 0.6](storsimple-virtual-array-install-update-06.md) on your device first and then apply Update 1.**
+> [!IMPORTANT] **Proceed with this update only if you are running Update 0.6 (10.0.10293.0). If you are running an earlier version, [Install Update 0.6](storsimple-virtual-array-install-update-06.md) on your device first and then apply Update 1.**
 
 ### Download the update or the hotfix
 
@@ -93,7 +93,7 @@ This procedure takes around 4 minutes to complete. Perform the following steps t
 
 #### To install the update or the hotfix
 
-1. In the local web UI, go to **Maintenance** > **Software Update**. Make a note of the software version that you are running. **Only proceed with this update if you are running 10.0.10293.0. If you are running an earlier version, use the Azure portal to install Update 1**.
+1. In the local web UI, go to **Maintenance** > **Software Update**. Make a note of the software version that you are running. **Proceed with this update only if you are running Update 0.6 (10.0.10293.0). If you are running an earlier version, [Install Update 0.6](storsimple-virtual-array-install-update-06.md) on your device first and then apply Update 1.**
    
     ![update device](./media/storsimple-virtual-array-install-update-1/update1m.png)
 
