@@ -22,19 +22,19 @@ ms.author: haroldw
 
 This article describes common prerequisites for deploying OpenShift Origin or OpenShift Container Platform in Azure.
 
-The installation of OpenShift is done via Ansible playbooks. Ansible uses Secure Shell (SSH) to connect to all the hosts that will be part of the cluster to complete installation steps.
+The installation of OpenShift is done via Ansible playbooks. Ansible uses Secure Shell (SSH) to connect to all cluster hosts to complete installation steps.
 
 When the SSH connection is initiated to the remote hosts, there is no way to enter a password. For this reason, the private key cannot have a password associated with it or deployment will fail.
 
 Because the virtual machines (VMs) are deployed via Resource Manager templates, the same public key is used for access to all VMs. We need to inject the corresponding private key into the VM that is executing all the playbooks as well. To do this securely, we use an Azure Key Vault to pass the private key into the VM.
 
-If there's a need for persistent storage for containers, then persistent volumes are needed. These persistent volumes need to be backed by some form of persistent storage. OpenShift supports Azure virtual hard disks (VHDs) for this capability, but Azure must first be configured as the cloud provider. 
+If there's a need for persistent storage for containers, then persistent volumes are required. These persistent volumes need to be backed by some form of persistent storage. OpenShift supports Azure virtual hard disks (VHDs) for this capability, but Azure must first be configured as the cloud provider. 
 
 In this model, OpenShift will:
 
 - Create a VHD object in an Azure Storage account.
 - Mount the VHD to a VM and format the volume.
-- Mount the volume to the Pod.
+- Mount the volume to the pod.
 
 For this to work, OpenShift needs permissions to perform the previous tasks in Azure. This is achieved with a service principal. The service principal is a security account in Azure Active Directory that is granted permissions to resources.
 
@@ -57,9 +57,9 @@ az login
 ## Create a resource group
 
 Create a resource group with the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
-You use a dedicated resource group to host the Key Vault, which is separate from the resource group into which the OpenShift cluster resources will be deployed. 
+You use a dedicated resource group to host the Key Vault. This group is separate from the resource group into which the OpenShift cluster resources will be deployed. 
 
-The following example creates a resource group named *keyvaultrg* in the *eastus* location.
+The following example creates a resource group named *keyvaultrg* in the *eastus* location:
 
 ```azurecli 
 az group create --name keyvaultrg --location eastus
@@ -68,7 +68,7 @@ az group create --name keyvaultrg --location eastus
 ## Create a Key Vault
 Create a Key Vault to store the SSH keys for the cluster with the [az keyvault create](/cli/azure/keyvault#create) command. The Key Vault name must be globally unique.
 
-The following example creates a Key Vault named *keyvault* in the *keyvaultrg* resource group.
+The following example creates a Key Vault named *keyvault* in the *keyvaultrg* resource group:
 
 ```azurecli 
 az keyvault create --resource-group keyvaultrg --name keyvault \
@@ -77,7 +77,7 @@ az keyvault create --resource-group keyvaultrg --name keyvault \
 ```
 
 ## Create an SSH key 
-An SSH key is needed to secure access to the OpenShift Origin cluster. Create an SSH key pair using the `ssh-keygen` command (on Linux or macOS).
+An SSH key is needed to secure access to the OpenShift Origin cluster. Create an SSH key pair using the `ssh-keygen` command (on Linux or macOS):
  
  ```bash
 ssh-keygen -f ~/.ssh/openshift_rsa -t rsa -N ''
@@ -123,7 +123,7 @@ Take note of the appId property returned from the command:
  > Don't create an insecure password. Follow the
  > [Azure AD password rules and restrictions](/azure/active-directory/active-directory-passwords-policy) guidance.
 
-For more information on service principals, see [Create an Azure service principal with Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli)
+For more information on service principals, see [Create an Azure service principal with Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)
 
 ## Next steps
 
