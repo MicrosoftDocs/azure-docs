@@ -313,7 +313,7 @@ featureFlags:
                                         <li>
                                             <a href="/azure/container-service/">
                                                 <img src="media/index/containerservice.svg" alt="" />
-                                                <p>Azure Container Service</p>
+                                                <p>Azure Container Service (AKS)</p>
                                             </a>
                                         </li>
                                         <li>
@@ -397,7 +397,7 @@ featureFlags:
                                         <li>
                                             <a href="/azure/container-service/">
                                                 <img src="media/index/ContainerService.svg" alt="" />
-                                                <p>Azure Container Service</p>
+                                                <p>Azure Container Service (AKS)</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1363,8 +1363,8 @@ featureFlags:
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Container Service</h3>
-                                                    <p>Scale and orchestrate containers using Kubernetes, DC/OS or Docker Swarm</p>
+                                                    <h3>Azure Container Service (AKS)</h3>
+                                                    <p>Run containerized application at scale using Kubernetes</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2032,8 +2032,8 @@ featureFlags:
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Container Service</h3>
-                                                    <p>Scale and orchestrate containers using Kubernetes, DC/OS or Docker Swarm</p>
+                                                    <h3>Azure Container Service (AKS)</h3>
+                                                    <p>Run containerized application at scale using Kubernetes</p>
                                                 </div>
                                             </div>
                                         </div>
