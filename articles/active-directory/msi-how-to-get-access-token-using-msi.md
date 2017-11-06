@@ -30,7 +30,7 @@ A VM Managed Service Identity makes two important features available to client a
 
 2. An [**app-only access token**](develop/active-directory-dev-glossary.md#access-token), which is based on the VM's MSI service principal. As such, there is also no need for the client to authenticate under its own credentials, to obtain an access token. The token is issued for the MSI service principal, and is suitable for use as a bearer token in [service-to-service calls requiring client credentials](active-directory-protocols-oauth-service-to-service.md).
 
-This article shows you various ways a client application can sign-in under an MSI service principal, and acquire an access token, in order to access other resources.
+This article shows you various ways a client application can sign-in under an MSI service principal, and acquire an access token, both of which can be used in accessing other resources.
 
 ## Prerequisites
 
@@ -161,6 +161,7 @@ The following script demonstrates how to:
 
 - acquire an MSI access token for an Azure VM
 - use the access token to sign in to Azure AD under the Application ID of the corresponding MSI service principal
+   >
    > [!NOTE]
    > If you need the Application ID of your MSI's service principal, use the following steps:
    > ```azurepowershell-interactive
@@ -168,7 +169,8 @@ The following script demonstrates how to:
    > Install-Module AzureAD
    > # Sign in using an account from the AAD tenant associated with your MSI VM’s Azure subscription
    > Connect-AzureAD 
-   > # Copy the appId property returned from the following, substituting the name of your VM for VM-NAME   Get-AzureADServicePrincipal -Filter "displayName eq '<VM-NAME>'" 
+   > # Copy the appId property returned from the following, substituting the name of your VM for VM-NAME
+   > Get-AzureADServicePrincipal -Filter "displayName eq '<VM-NAME>'" 
    > ```
 - use the MSI service principal to make an Azure Resource Manager call, to obtain the ID of the service principal
 
