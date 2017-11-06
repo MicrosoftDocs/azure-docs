@@ -28,27 +28,27 @@ ms.author: saysa
 You can build Service Fabric applications to run on Linux clusters using Mac OS X. This article covers how to set up your Mac for development.
 
 ## Prerequisites
-Service Fabric does not run natively on OS X. To run a local Service Fabric cluster, we provide a pre-configured docker container image. Before you get started, you need:
+Service Fabric does not run natively on OS X. To run a local Service Fabric cluster, we provide a pre-configured Docker container image. Before you get started, you need:
 
 * At least 4 GB RAM
 * Latest version of [Docker](https://www.docker.com/)
-* Access to Service Fabric Onebox docker container image [servicefabricoss/service-fabric-onebox:latest](https://hub.docker.com/r/servicefabricoss/service-fabric-onebox/)
+* Access to Service Fabric Onebox Docker container [image](https://hub.docker.com/r/servicefabricoss/service-fabric-onebox/)
 
 >[!TIP]
-> * You can follow the steps mentioned in the official docker [documentation](https://docs.docker.com/docker-for-mac/install/#what-to-know-before-you-install) to install docker on your Mac. 
-> * Once you are done installing kindly validate if it got installed properly following the steps mentioned [here](https://docs.docker.com/docker-for-mac/#check-versions-of-docker-engine-compose-and-machine)
+> * You can follow the steps mentioned in the official Docker [documentation](https://docs.docker.com/docker-for-mac/install/#what-to-know-before-you-install) to install Docker on your Mac. 
+> * Once you are done installing, validate if it got installed properly following the steps mentioned [here](https://docs.docker.com/docker-for-mac/#check-versions-of-docker-engine-compose-and-machine)
 
 
 ## Create a local container and setup Service Fabric
-To setup a local docker container and have a service fabric cluster running on it, perform the following steps - 
+To setup a local Docker container and have a service fabric cluster running on it, perform the following steps:
 
-1. Pull the image from docker hub repository -
+1. Pull the image from Docker hub repository:
 
     ```bash
     docker pull servicefabricoss/service-fabric-onebox
     ```
 
-2. Start a Service Fabric Onebox container instance with the image -
+2. Start a Service Fabric Onebox container instance with the image:
 
     ```bash
     docker run -itd -p 19080:19080 --name sfonebox servicefabricoss/service-fabric-onebox
@@ -56,7 +56,7 @@ To setup a local docker container and have a service fabric cluster running on i
     >[!TIP]
     >By specifying a name for your container instance, you can handle it in a more readable manner. 
 
-3. Login to the docker container in interactive ssh mode -
+3. Login to the Docker container in interactive ssh mode:
 
     ```bash
     docker exec -it sfonebox bash
@@ -88,12 +88,12 @@ Service Fabric provides scaffolding tools, which will help you create a Service 
     node -v
     npm -v
     ```
-2. Install [Yeoman](http://yeoman.io/) template generator on your machine from NPM
+2. Install [Yeoman](http://yeoman.io/) template generator on your machine from NPM.
 
     ```bash
     npm install -g yo
     ```
-3. Install the Yeoman generator you want to use, following the steps in the getting started [documentation](service-fabric-get-started-linux.md). To create Service Fabric Applications using Yeoman, follow the steps -
+3. Install the Yeoman generator you want to use, following the steps in the getting started [documentation](service-fabric-get-started-linux.md). To create Service Fabric Applications using Yeoman, follow the steps:
 
     ```bash
     npm install -g generator-azuresfjava       # for Service Fabric Java Applications
@@ -108,25 +108,26 @@ Service Fabric provides scaffolding tools, which will help you create a Service 
     brew install gradle
     ```
 
-## Set up .NET Core 2.0 development
-
-Install the [.NET Core 2.0 SDK for Mac](https://www.microsoft.com/net/core#macos) to start [creating C# Service Fabric applications](service-fabric-create-your-first-linux-application-with-csharp.md). Packages for .NET Core 2.0 Service Fabric applications are hosted on NuGet.org, currently in preview.
-
 ## Deploy application on your Mac from terminal
 
-Once you create and build your Service Fabric application, you can deploy your application using [Service Fabric CLI](service-fabric-cli.md#cli-mac), by following the steps - 
-1. Connect to Service Fabric cluster running inside the container instance on your Mac
+Once you create and build your Service Fabric application, you can deploy your application using [Service Fabric CLI](service-fabric-cli.md#cli-mac), by following the steps:
+
+1. Connect to Service Fabric cluster running inside the container instance on your Mac.
 
     ```bash
     sfctl cluster select --endpoint http://localhost:19080
     ```
 
-2. Go inside your project directory and run the install script
+2. Go inside your project directory and run the install script.
 
     ```bash
     cd MyProject
     bash install.sh
     ```
+
+## Set up .NET Core 2.0 development
+
+Install the [.NET Core 2.0 SDK for Mac](https://www.microsoft.com/net/core#macos) to start [creating C# Service Fabric applications](service-fabric-create-your-first-linux-application-with-csharp.md). Packages for .NET Core 2.0 Service Fabric applications are hosted on NuGet.org, currently in preview.
 
 ## Install the Service Fabric plugin for Eclipse Neon on your Mac
 
@@ -134,7 +135,7 @@ Service Fabric provides a plugin for the **Eclipse Neon for Java IDE** that can 
 
 All other steps mentioned in the [Service Fabric Eclipse documentation](service-fabric-get-started-eclipse.md) to build an application, add service to application, install/uninstall application etc. will be applicable here as well.
 
-Apart from the above steps, to have Service Fabric Eclipse plugin to work with the docker container on your Mac, you should instantiate the container with a path shared with your host, as follows -  
+Apart from the above steps, to have Service Fabric Eclipse plugin to work with the Docker container on your Mac, you should instantiate the container with a path shared with your host, as follows:
 ```bash
 docker run -itd -p 19080:19080 -v /Users/sayantan/work/workspaces/mySFWorkspace:/tmp/mySFWorkspace --name sfonebox servicefabricoss/service-fabric-onebox
 ```
