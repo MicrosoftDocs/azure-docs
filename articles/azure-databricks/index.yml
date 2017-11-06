@@ -14,12 +14,12 @@ metadata:
   ms.date: 11/15/2017
   ms.author: nitinme
 abstract:
-  description: Databricks is a leading provider of Apache Spark for data analytic needs. Azure Databricks brings Databricks to the Azure platform. Learn how to use Azure Databricks to create Apache Spark clusters.
+  description: Azure Databricks is a unified data analytics platform built on top of Apache Spark that unifies data science, data engineering, and business intelligence into a collaborative workspace and a highly performative runtime that enables anyone to easily build and deploy advanced analytics solutions. Learn how to use Azure Databricks using the quickstart and other links provided here.
 sections:
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: 'Learn how to create an Azure Databricks workspace using:'
+    text: 'Learn how to create an Azure Databricks workspace, Spark cluster, and then run jobs using'
   - type: list
     style: icon48
     items: 
