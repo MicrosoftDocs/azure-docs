@@ -42,9 +42,6 @@ Users can only launch one type of shell at a time, either **Bash** or **PowerShe
 ### Usage limits
 Cloud Shell is intended for interactive use cases. As a result, any long-running non-interactive sessions are ended without warning.
 
-### Creating files in the Azure drive
-Users should not have the ability to create files in the Azure drive.  When users attempt to create a new file, the file is created and written out to C:\Users. 
-
 ## Bash limitations
 
 ### User permissions
@@ -64,6 +61,9 @@ PowerShell in Azure Cloud Shell could take up to 60 seconds to initialize during
 
 ### No $Home directory persistence
 Data written to $Home by any application (such as: git, vim, and others) does not persist across PowerShell sessions.  For a workaround [see here](troubleshooting.md#powershell-resolutions).
+
+### Default file location when created from Azure drive:
+Using PowerShell cmdlets, users can not create files under the Azure drive. When users create new files using other tools, such as vim or nano, the files are saved to C:\Users folder by default. 
 
 ## Next steps
 [Troubleshooting Cloud Shell](troubleshooting.md) <br>
