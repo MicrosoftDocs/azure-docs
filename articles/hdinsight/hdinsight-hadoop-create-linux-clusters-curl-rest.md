@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/10/2017
+ms.date: 11/06/2017
 ms.author: larryfr
 
 ---
@@ -127,7 +127,7 @@ The following JSON document is a merger of the template and parameters files fro
 
                    },
                    "properties": {
-                       "clusterVersion": "3.5",
+                       "clusterVersion": "3.6",
                        "osType": "Linux",
                        "clusterDefinition": {
                            "kind": "[parameters('clusterType')]",
@@ -215,7 +215,7 @@ The following JSON document is a merger of the template and parameters files fro
 This example is used in the steps in this document. Replace the example *values* in the **Parameters** section with the values for your cluster.
 
 > [!IMPORTANT]
-> The template uses the default number of worker nodes (4) for an HDInsight cluster. If you plan on more than 32 worker nodes, then you must select a head node size with at least 8 cores and 14 GB ram.
+> The template uses the default number of worker nodes (4) for an HDInsight cluster. If you plan on more than 32 worker nodes, then you must select a head node size with at least 8 cores and 14-GB ram.
 >
 > For more information on node sizes and associated costs, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
 
