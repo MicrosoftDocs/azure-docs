@@ -43,7 +43,7 @@ If you plan to use the Azure PowerShell or Azure CLI examples in this article, y
 
 > [!IMPORTANT]
 > - All sample code/script in this article assumes the client is running on an MSI-enabled Virtual Machine. Use the VM "Connect" feature in the Azure portal, to remotely connect to your VM. For details on enabling MSI on a VM, see [Configure a VM Managed Service Identity (MSI) using the Azure portal](msi-qs-configure-portal-windows-vm.md), or one of the variant articles (using PowerShell, CLI, a template, or an Azure SDK). 
-> - To prevent authorization errors (403/AuthorizationFailed) in the sign-in examples, the VM's identity must be given "Reader" access at the VM scope to allow Azure Resource Manager operations on the VM. See [Assign a Managed Service Identity (MSI) access to a resource using the Azure portal](msi-howto-assign-access-portal.md) for details.
+> - To prevent errors in the sign-in examples, the VM's identity must be given "Reader" access to itself (at the VM scope or higher) to allow Azure Resource Manager operations on the VM. See [Assign a Managed Service Identity (MSI) access to a resource using the Azure portal](msi-howto-assign-access-portal.md) for details.
 
 ## Code examples
 
@@ -160,22 +160,33 @@ echo The MSI service principal ID is $spID
 The following script demonstrates how to:
 
 - acquire an MSI access token for an Azure VM
-- use the access token to sign in to Azure AD under the corresponding MSI service principal
+- use the access token to sign in to Azure AD under the Application ID of the corresponding MSI service principal
+   > [!NOTE]
+   > If you need the Application ID of your MSI's service principal, use the following steps:
+   > ```azurepowershell-interactive
+   > # Install the Azure AD PS cmdlets if necessary
+   > Install-Module AzureAD
+   > # Sign in using an account from the AAD tenant associated with your MSI VM’s Azure subscription
+   > Connect-AzureAD 
+   > # Copy the appId property returned from the following, substituting the name of your VM for VM-NAME   Get-AzureADServicePrincipal -Filter "displayName eq '<VM-NAME>'" 
+   > ```
 - use the MSI service principal to make an Azure Resource Manager call, to obtain the ID of the service principal
 
 ```azurepowershell-interactive
-# Get an access token from MSI
+# Get an access token for the MSI
 $response = Invoke-WebRequest -Uri http://localhost:50342/oauth2/token `
                               -Method GET -Body @{resource="https://management.azure.com/"} -Headers @{Metadata="true"}
 $content =$response.Content | ConvertFrom-Json
 $access_token = $content.access_token
+echo "The MSI access token is $access_token"
 
 # Use the access token to sign in under the MSI service principal
-Login-AzureRmAccount -AccessToken $access_token -AccountId “CLIENT”
+Login-AzureRmAccount -AccessToken $access_token -AccountId "<APP-ID>"
 
 # The MSI service principal is now signed in for this session.
 # Next, a call to Azure Resource Manager is made to get the service principal ID for the VM's MSI. 
-$spID = (Get-AzureRMVM -ResourceGroupName <RESOURCE-GROUP> -Name <VM-NAME>).identity.principalid
+$vmInfo = Get-AzureRMVM -ResourceGroupName <RESOURCE-GROUP> -Name <VM-NAME>
+$spID = $vmInfo.Identity.PrincipalId
 echo "The MSI service principal ID is $spID"
 ```
 
@@ -212,7 +223,6 @@ type responseJson struct {
 func main() {
 
     // Create HTTP request client and call MSI /token endpoint
-    //msi_endpoint := "http://localhost:8888/oauth2/token?resource=https://management.azure.com/" 
     msi_endpoint := "http://localhost:50342/oauth2/token?resource=https://management.azure.com/"
     client := &http.Client{}
     req, err := http.NewRequest("GET", msi_endpoint, nil)
@@ -299,11 +309,12 @@ $content =$response.Content | ConvertFrom-Json
 $access_token = $content.access_token
 
 # Use the access token to sign in under the MSI service principal
-Login-AzureRmAccount -AccessToken $access_token -AccountId “CLIENT”
+Login-AzureRmAccount -AccessToken $access_token -AccountId <APP-ID>
 
 # The MSI service principal is now signed in for this session.
-# Next, a call to Azure Resource Manager is made to get the service principal ID for the VM's MSI. 
-$spID = (Get-AzureRMVM -ResourceGroupName <RESOURCE-GROUP> -Name <VM-NAME>).identity.principalid
+# Next, a call to Azure Resource Manager is made to get VM info for the VM's MSI, including its service principal ID. 
+$vmInfo = Get-AzureRMVM -ResourceGroupName <RESOURCE-GROUP> -Name <VM-NAME>
+$spID = $vmInfo.Identity.PrincipalId
 echo "The MSI service principal ID is $spID"
 ```
    
