@@ -24,6 +24,8 @@ In this article, you learn how to create an Azure Databricks workspace and then 
 ## Prerequisites
 
 * **An Azure subscription**. Before you begin this tutorial, you must have an Azure subscription. See [Create your free Azure account today](https://azure.microsoft.com/free).
+* **A Sample CSV file**. You can download the sample file from << HERE >>
+* **An Azure Storage account**. 
 * **A modern web browser**. The Azure  portal uses HTML5 and Javascript, and may not function correctly in older web browsers.
 
 
@@ -65,5 +67,60 @@ In this article, you learn how to create an Azure Databricks workspace and then 
 ## Run a Spark SQL job on the cluster
 
 In this section, we create a notebook and then run a Spark SQL job on the cluster.
+
+1. In the left pane, click **Workspace**. From the **Workspace** drop-down, click **Create** and then click **Notebook**.
+
+    ![Create notebook in databricks](./media/quickstart-create-databricks-workspace-portal/databricks-create-notebook.png "Create notebook in databricks")
+
+2. In the **Create Notebook** dialog box, enter a name, select **Scala** as the language, and select the Spark cluster that you created earlier.
+
+    ![Create notebook in databricks](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-details.png "Create notebook in databricks")
+
+    Click **Create**.
+
+3. Enter the following snippet in the notebook cell. This snippet configures the notebook to read data from an Azure blob storage.
+
+       spark.conf.set("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net", "{YOUR STORAGE ACCOUNT ACCESS KEY}")
+    
+    For example:
+
+        spark.conf.set("fs.azure.account.key.mystorageaccount.blob.core.windows.net", "{YOUR STORAGE ACCOUNT ACCESS KEY}")
+
+    Press **SHIFT + ENTER** to run the code cell.
+
+    > [!NOTE]
+    > You can also use Azure Data Lake Store with a Spark cluster on Azure Databricks. For instructions, see [Use Data Lake Store with Azure Databricks](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html#azure-data-lake-store).
+
+4.  Run a SQL statement to create a temporary table using data from the sample CSV data file, HVAC.csv. You can download the sample file from << HERE >>.
+
+        %sql
+        CREATE TEMPORARY TABLE hvacTempTable USING csv OPTIONS (path "wasbs://{YOUR CONTAINER NAME}@{YOUR STORAGE ACCOUNT NAME}/Path/to/sample/file/HVAC.csv", header "true", mode "FAILFAST")
+
+    Press **SHIFT + ENTER** to run the code cell.
+
+    The `%sql` language magic command enables you to run a SQL code from the notebook, even if the notebook is of another type. For more information, see [Mixing languages in a notebook](https://docs.azuredatabricks.net/user-guide/notebooks/index.html#mixing-languages-in-a-notebook).
+
+5. Let's look at a snapshot fo the sample CSV data so that we can better understand the query that we run.
+
+    ![Sample CSV data](./media/quickstart-create-databricks-workspace-portal/databricks-sample-csv-data.png "Sample CSV data")
+
+    The sample data captures the temperature variations of a building. For each building, it lists the target temperature and the actual temperture, in addition to other details.
+
+6.  Run a SQL query on the table you created earlier. The query lists the difference between the target and actual temperature, for each building, on a given date.
+
+        %sql
+        SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvacTempTable WHERE date = "6/1/13"
+
+    Press **SHIFT + ENTER** to run the code cell. You will see a tabular output, similar the following screenshot.
+
+    ![Databricks query output tabular](./media/quickstart-create-databricks-workspace-portal/databricks-sql-query-output.png "Databricks query output tabular")
+
+7. You can also change the query output to display in other formats. You can pick the plotting format, and the columns to populate that plot, using the buttons at the bottom of the output cell.
+
+    ![Databricks query output area graph](./media/quickstart-create-databricks-workspace-portal/databricks-sql-query-output-area-chart.png "Databricks query output area graph")
+
+    The screenshot shows an area chart with **buildingID** as the key and **temp_diff** as the value.
+    
+
 
 ## Next step 
