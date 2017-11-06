@@ -31,7 +31,7 @@ Azure Active Directory Identity Protection is a feature of the Azure AD Premium 
 
 ## Getting started
 
-Microsoft secures cloud-based identities for more than a decade. With Azure Active Directory Identity Protection, in your environment, you can use the same protection systems Microsoft uses to secure identities.
+Microsoft has secured cloud-based identities for more than a decade. With Azure Active Directory Identity Protection, in your environment, you can use the same protection systems Microsoft uses to secure identities.
 
 The vast majority of security breaches take place when attackers gain access to an environment by stealing a user’s identity. Over the years, attackers have become increasingly effective in leveraging third party breaches and using sophisticated phishing attacks. As soon as an attacker gains access to even low privileged user accounts, it is relatively easy for them to gain access to important company resources through lateral movement.
 
@@ -64,7 +64,7 @@ Azure Active Directory Identity Protection is more than a monitoring and reporti
 
 **Risk-based conditional access policies:**
 
-* Policy to mitigate risky sign-ins by blocking sign-ins or requiring multi-factor authentication challenges.
+* Policy to mitigate risky sign-ins by blocking sign-ins or requiring multi-factor authentication challenges
 * Policy to block or secure risky user accounts
 * Policy to require users to register for multi-factor authentication
 
@@ -78,7 +78,7 @@ To load balance the management activities around your Identity Protection implem
 | :--                          | ---                                |  ---   |
 | Global administrator         | Full access to Identity Protection, Onboard Identity Protection| |
 | Security administrator       | Full access to Identity Protection | Onboard Identity Protection,  reset passwords for a user |
-| Security reader              | Ready-only access to Identity Protection | Onboard Identity Protection, remidiate users, configure policies,  reset passwords |
+| Security reader              | Read-only access to Identity Protection | Onboard Identity Protection, remidiate users, configure policies,  reset passwords |
 
 
 

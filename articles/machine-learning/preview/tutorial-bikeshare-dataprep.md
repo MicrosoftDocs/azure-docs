@@ -489,7 +489,7 @@ Select __OK__ to apply the filter.
 
 ### Remove columns
 
-In the trip data, each row represents a bike pickup event. For this tutorial, you only need the **starttime** and **start station** columns. Remove the other columns by multi-selecting these two columns, right-click the column header, and then select **Keep Column**. Other columns are removed.
+In the trip data, each row represents a bike pickup event. For this tutorial, you only need the **starttime** and **start station id** columns. Remove the other columns by multi-selecting these two columns, right-click the column header, and then select **Keep Column**. Other columns are removed.
 
 ![Image of the keep column option](media/tutorial-bikeshare-dataprep/tripdatakeepcolumn.png)
 

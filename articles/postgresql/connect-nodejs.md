@@ -10,7 +10,7 @@ ms.service: postgresql
 ms.custom: mvc, devcenter
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 06/23/2017
+ms.date: 11/03/2017
 ---
 
 # Azure Database for PostgreSQL: Use Node.js to connect and query data
@@ -41,7 +41,7 @@ npm list
 Get the connection information needed to connect to the Azure Database for PostgreSQL. You need the fully qualified server name and login credentials.
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
-2. From the left-hand menu in Azure portal, click **All resources** and search for the server you just created.
+2. From the left-hand menu in Azure portal, click **All resources** and search for the server you created.
 3. Click the server name.
 4. Select the server's **Overview** page. Make a note of the **Server name** and **Server admin login name**.
  ![Azure Database for PostgreSQL - Server Admin Login](./media/connect-nodejs/1-connection-string.png)
