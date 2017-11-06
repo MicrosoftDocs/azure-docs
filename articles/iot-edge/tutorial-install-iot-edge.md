@@ -75,7 +75,7 @@ Use the following steps to install and start the IoT Edge runtime:
 >
 > (windows):
 >
-> Download [scripts](https://azureiotedgepreview.blob.core.windows.net/shared/preview007-1/azure-iot-edge-ctl-1.0.0rc6.dev6995193.zip)
+> Download [scripts](https://azureiotedgepreview.blob.core.windows.net/shared/azure-iot-edge-ctl.zip)
 >
 > Extract all
 >
