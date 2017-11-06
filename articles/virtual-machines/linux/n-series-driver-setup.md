@@ -271,10 +271,6 @@ sudo reboot
 
 ### CentOS-based 7.3 or Red Hat Enterprise Linux 7.3
 
-> [!IMPORTANT]
-> Do not run `sudo yum update` to update the kernel version on CentOS 7.3 or Red Hat Enterprise Linux 7.3. Currently, driver installation and updates do not work if the kernel is updated.
->
-
 1. Install the latest Linux Integration Services for Hyper-V.
 
   > [!IMPORTANT]
