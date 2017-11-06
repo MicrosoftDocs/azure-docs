@@ -215,7 +215,7 @@ Traffic View creates its output by processing the data from the seven days prece
 
 ### How does Traffic View handle external endpoints?
 
-When you use external endpoints hosted outside Azure regions in a Traffic Manager profile you can choose to have it mapped to an Azure region which is a proxy for its latency characteristics (this is in fact needed if you use performance routing method). If its has this Azure region mapping, that Azure region’s latency metrics will be used when creating the Traffic View output. If no Azure region is specified, the latency information will be empty in the data for those external endpoints.
+When you use external endpoints hosted outside Azure regions in a Traffic Manager profile you can choose to have it mapped to an Azure region which is a proxy for its latency characteristics (this is in fact needed if you use performance routing method). If it has this Azure region mapping, that Azure region’s latency metrics will be used when creating the Traffic View output. If no Azure region is specified, the latency information will be empty in the data for those external endpoints.
 
 ### Do I need to enable Traffic View for each profile in my subscription?
 During the preview period, Traffic View is enabled at a subscription level and is available for all Traffic Manager profiles under that subscription.
@@ -250,6 +250,10 @@ Traffic Manager responds with the DNS name of the endpoint. To support an IPv6 e
 ### Can I use Traffic Manager with more than one Web App in the same region?
 
 Typically, Traffic Manager is used to direct traffic to applications deployed in different regions. However, it can also be used where an application has more than one deployment in the same region. The Traffic Manager Azure endpoints do not permit more than one Web App endpoint from the same Azure region to be added to the same Traffic Manager profile.
+
+### How do I move my Traffic Manager profile’s Azure endpoints to a different resource group?
+
+Azure endpoints that are associated with a Traffic Manager profile are tracked using their resource IDs. When an Azure resource that is being used as an endpoint (for example,  Public IP, Classic Cloud Service, WebApp, or another Traffic Manager profile used in a nested manner) is moved to a different resource group, its resource ID changes. In this scenario, currently, you must update the Traffic Manager profile by first deleting and then adding back the endpoints to the profile. 
 
 ##  Traffic Manager endpoint monitoring
 

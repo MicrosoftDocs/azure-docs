@@ -40,6 +40,7 @@ considerations to keep in mind when you deploy Azure Stack. To learn about high-
 |Managed disks|Premium and standard supported|Not yet supported
 |Blob name|1,024 characters (2,048 bytes)|880 characters (1,760 bytes)
 |Block blob max size|4.75 TB (100 MB X 50,000 blocks)|50,000 X 4 MB (approx. 195 GB)
+|Page blob snapshot copy|Backup Azure unmanaged VM disks attached to a running VM supported|Not yet supported
 |Page blob incremental snapshot copy|Premium and standard Azure page blobs supported|Not yet supported
 |Page blob max size|8 TB|1 TB
 |Page blob page size|512 bytes|4 KB

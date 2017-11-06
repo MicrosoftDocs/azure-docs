@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/7/2017
+ms.date: 11/2/2017
 ms.author: arijitt
 
 ---
@@ -23,7 +23,7 @@ ms.author: arijitt
 
 Learn about the top issues and their resolutions when working with Apache Hadoop YARN payloads in Apache Ambari.
 
-## How do I create a new YARN queue on a cluster
+## How do I create a new YARN queue on a cluster?
 
 
 ### Resolution steps 
@@ -68,7 +68,7 @@ These changes are visible immediately on the YARN Scheduler UI.
 - [YARN CapacityScheduler](https://hadoop.apache.org/docs/r2.7.2/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html)
 
 
-## How do I download YARN logs from a cluster
+## How do I download YARN logs from a cluster?
 
 
 ### Resolution steps 
@@ -139,6 +139,10 @@ These changes are visible immediately on the YARN Scheduler UI.
 
 - [Connect to HDInsight (Hadoop) by using SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)
 - [Apache Hadoop YARN concepts and applications](https://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/)
+
+
+### See Also
+[Troubleshoot by Using Azure HDInsight](hdinsight-troubleshoot-guide.md)
 
 
 

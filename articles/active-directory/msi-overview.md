@@ -12,7 +12,7 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 10/12/2017
+ms.date: 10/31/2017
 ms.author: skwan
 
 ---
@@ -47,11 +47,14 @@ Try a Managed Service Identity tutorial to learn end-to-end scenarios for access
 <br><br>
 | From MSI-enabled resource | Learn how to |
 | ------- | -------- |
-| Azure VM (Windows) | [Access Azure Resource Manager with a Windows VM Managed Service Identity](msi-tutorial-windows-vm-access-arm.md) |
+| Azure VM (Windows) | [Access Azure Data Lake Store with a Windows VM Managed Service Identity](msi-tutorial-windows-vm-access-datalake.md) |
+|                    | [Access Azure Resource Manager with a Windows VM Managed Service Identity](msi-tutorial-windows-vm-access-arm.md) |
+|                    | [Access Azure SQL with a Windows VM Managed Service Identity](msi-tutorial-windows-vm-access-sql.md) |
 |                    | [Access Azure Storage via access key with a Windows VM Managed Service Identity](msi-tutorial-windows-vm-access-storage.md) |
 |                    | [Access Azure Storage via SAS with a Windows VM Managed Service Identity](msi-tutorial-windows-vm-access-storage-sas.md) |
 |                    | [Access a non-Azure AD resource with a Windows VM Managed Service Identity and Azure Key Vault](msi-tutorial-windows-vm-access-nonaad.md) |
-| Azure VM (Linux)   | [Access Azure Resource Manager with a Linux VM Managed Service Identity](msi-tutorial-linux-vm-access-arm.md) |
+| Azure VM (Linux)   | [Access Azure Data Lake Store with a Linux VM Managed Service Identity](msi-tutorial-linux-vm-access-datalake.md) |
+|                    | [Access Azure Resource Manager with a Linux VM Managed Service Identity](msi-tutorial-linux-vm-access-arm.md) |
 |                    | [Access Azure Storage via access key with a Linux VM Managed Service Identity](msi-tutorial-linux-vm-access-storage.md) |
 |                    | [Access Azure Storage via SAS with a Linux VM Managed Service Identity](msi-tutorial-linux-vm-access-storage-sas.md) |
 |                    | [Access a non-Azure AD resource with a Linux VM Managed Service Identity and Azure Key Vault](msi-tutorial-linux-vm-access-nonaad.md) |

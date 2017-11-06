@@ -38,7 +38,7 @@ Additionally, you can publish output data to data stores such as Azure SQL Data 
 ![Top-level view of Data Factory](media/introduction/big-picture.png)
 
 > [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is in general availability (GA), see [Introduction to Data Factory version 1](v1/data-factory-introduction.md).
+> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Introduction to Data Factory version 1](v1/data-factory-introduction.md).
 
 ## How does it work?
 The pipelines (data-driven workflows) in Azure Data Factory typically perform the following four steps:

@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2017
+ms.date: 10/19/2017
 ms.author: dobett
 
 ---
@@ -28,8 +28,6 @@ This article describes:
 * How to scope credentials to limit access to specific resources.
 * IoT Hub support for X.509 certificates.
 * Custom device authentication mechanisms that use existing device identity registries or authentication schemes.
-
-### When to use
 
 You must have appropriate permissions to access any of the IoT Hub endpoints. For example, a device must include a token containing security credentials along with every message it sends to IoT Hub.
 
@@ -99,7 +97,7 @@ Password (Generate SAS token with the [device explorer][lnk-device-explorer] too
 
 ### Special considerations for SASL PLAIN
 
-When using SASL PLAIN with AMQP, a client connecting to an IoT hub can use a single token for each TCP connection. When the token expires, the TCP connection disconnects from the service and triggers a reconnect. This behavior, while not problematic for a back-end app, is damaging for a device app for the following reasons:
+When using SASL PLAIN with AMQP, a client connecting to an IoT hub can use a single token for each TCP connection. When the token expires, the TCP connection disconnects from the service and triggers a reconnection. This behavior, while not problematic for a back-end app, is damaging for a device app for the following reasons:
 
 * Gateways usually connect on behalf of many devices. When using SASL PLAIN, they have to create a distinct TCP connection for each device connecting to an IoT hub. This scenario considerably increases the consumption of power and networking resources, and increases the latency of each device connection.
 * Resource-constrained devices are adversely affected by the increased use of resources to reconnect after each token expiration.
@@ -191,6 +189,39 @@ def generate_sas_token(uri, key, policy_name, expiry=3600):
 
     return 'SharedAccessSignature ' + urlencode(rawtoken)
 ```
+
+The functionality in C# to generate a security token is:
+
+```C#
+using System;
+using System.Globalization;
+using System.Net;
+using System.Net.Http;
+using System.Security.Cryptography;
+using System.Text;
+
+public static string generateSasToken(string resourceUri, string key, string policyName, int expiryInSeconds = 3600)
+{
+    TimeSpan fromEpochStart = DateTime.UtcNow - new DateTime(1970, 1, 1);
+    string expiry = Convert.ToString((int)fromEpochStart.TotalSeconds + expiryInSeconds);
+
+    string stringToSign = WebUtility.UrlEncode(resourceUri).ToLower() + "\n" + expiry;
+
+    HMACSHA256 hmac = new HMACSHA256(Convert.FromBase64String(key));
+    string signature = Convert.ToBase64String(hmac.ComputeHash(Encoding.UTF8.GetBytes(stringToSign)));
+
+    string token = String.Format(CultureInfo.InvariantCulture, "SharedAccessSignature sr={0}&sig={1}&se={2}", WebUtility.UrlEncode(resourceUri).ToLower(), WebUtility.UrlEncode(signature), expiry);
+
+    if (!String.IsNullOrEmpty(policyName))
+    {
+        token += "&skn=" + policyName;
+    }
+
+    return token;
+}
+
+```
+
 
 > [!NOTE]
 > Since the time validity of the token is validated on IoT Hub machines, the drift on the clock of the machine that generates the token must be minimal.
@@ -383,7 +414,7 @@ For a device to connect to your hub, you must still add it to the IoT Hub identi
 
 ### Comparison with a custom gateway
 
-The token service pattern is the recommended way to implement a custom identity registry/authentication scheme with IoT Hub. This pattern is recommended because IoT Hub continues to handle most of the solution traffic. However, if the custom authentication scheme is so intertwined with the protocol, you may require a *custom gateway* to process all the traffic. An example of such a scenario is using[Transport Layer Security (TLS) and pre-shared keys (PSKs)][lnk-tls-psk]. For more information, see the [protocol gateway][lnk-protocols] topic.
+The token service pattern is the recommended way to implement a custom identity registry/authentication scheme with IoT Hub. This pattern is recommended because IoT Hub continues to handle most of the solution traffic. However, if the custom authentication scheme is so intertwined with the protocol, you may require a *custom gateway* to process all the traffic. An example of such a scenario is using[Transport Layer Security (TLS) and pre-shared keys (PSKs)][lnk-tls-psk]. For more information, see the [protocol gateway][lnk-protocols] article.
 
 ## Reference topics:
 
@@ -412,13 +443,13 @@ Other reference topics in the IoT Hub developer guide include:
 
 ## Next steps
 
-Now you have learned how to control access IoT Hub, you may be interested in the following IoT Hub developer guide topics:
+Now that you have learned how to control access IoT Hub, you may be interested in the following IoT Hub developer guide topics:
 
 * [Use device twins to synchronize state and configurations][lnk-devguide-device-twins]
 * [Invoke a direct method on a device][lnk-devguide-directmethods]
 * [Schedule jobs on multiple devices][lnk-devguide-jobs]
 
-If you would like to try out some of the concepts described in this article, you may be interested in the following IoT Hub tutorials:
+If you would like to try out some of the concepts described in this article, see the following IoT Hub tutorials:
 
 * [Get started with Azure IoT Hub][lnk-getstarted-tutorial]
 * [How to send cloud-to-device messages with IoT Hub][lnk-c2d-tutorial]
