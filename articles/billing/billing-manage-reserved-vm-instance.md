@@ -1,6 +1,6 @@
 ---
 title: Manage Azure Reserved Virtual Machine Instances | Microsoft Docs
-description: Learn how you can change subscription scope and manage access for a reservation. 
+description: Learn how you can change subscription scope and manage access for a Azure Reserved VM Instance. 
 services: ''
 documentationcenter: ''
 author: vikramdesai01
@@ -17,7 +17,7 @@ ms.author: vikdesai
 ---
 # Manage Reserved Virtual Machine Instances
 
-After you buy a reservation, you may want to apply the reservation to a different subscription than the one specified during purchase. Alternatively, if your matching virtual machines are running in multiple subscriptions, you may want to change the reservation scope to shared. To maximize the reservation discount, you need to ensure that number of running virtual machines matching the reservation attributes are at least equal to the quantity bought. To learn more about Reserved Virtual Machine Instances, see [Save money by pre-paying for Azure virtual machines](https://go.microsoft.com/fwlink/?linkid=862121)
+After you buy an Azure Reserved VM Instance, you may want to apply the reservation to a different subscription than the one specified during purchase. Alternatively, if your matching virtual machines are running in multiple subscriptions, you may want to change the reservation scope to shared. To maximize the reservation discount, make sure that number of instances you bought matches the attributes and number of virtual machines that you have running. To learn more about Reserved Virtual Machine Instances, see [Save money by pre-paying for Azure virtual machines](https://go.microsoft.com/fwlink/?linkid=862121).
 
 ## Change scope for a reservation
  Your reservation discount applies to virtual machines that match your reservation and run within the reservation scope. The scope of a reservation can be single subscription or all subscription in your billing context. If you set the scope to single subscription, the reservation is matched to running virtual machines in the selected subscription. Setting scope to shared, matches the reservation to running virtual machines in all subscriptions within the billing context. The billing context is dependent on the subscription used to buy the reservation. To learn more, see [Pre-pay for VMs with Reserved VM Instances](https://go.microsoft.com/fwlink/?linkid=861721).
@@ -27,10 +27,10 @@ To update the scope of a reservation:
 2. Select **More Services** > **Reservations**
 3. Select the reservation.
 4. Select **Settings** > **Configuration**
-5. Change the scope. If you change from shared to single scope, you can only select subscriptions where you are the owner. Only subscriptions within the same billing context as the reservation, can be selected. The scope only applies to eligible subscription offers types. For enterprise subscriptions, offer MS-AZR-0017P. For Pay-As-You-Go subscriptions, offer MS-AZR-0003P. For enterprise subscriptions, dev/test subscriptions are not eligible to get the reservation discount.
+5. Change the scope. If you change from shared to single scope, you can only select subscriptions where you are the owner. Only subscriptions within the same billing context as the reservation, can be selected. The scope only applies to eligible subscription offers types. The scope only applies to Pay-As-You-Go offer MS-AZR-0003P subscriptions and Enterprise offer MS-AZR-0017P subscriptions. For enterprise agreements, dev/test subscriptions are not eligible to get the reservation discount.
 
 ## Split a single reservation into two reservations
- After you buy more than one instance, you may want to assign instances within a reservation to different subscriptions. By default, all instances (quantity specified during the purchase) have one scope - either single subscription or shared. For example, you purchased 10 Standard D2 VMs and specified the scope to be subscriptionA. You may now want to change the scope for 7 Reserved VM instances to subscription A and the remaining 3 to subscription B. Splitting a reservation allows you to distribute instances for granular scope management. You can simplify the allocation to subscriptions by choosing shared scope. But for cost management or budgeting purposes, you can allocate quantities to specific subscriptions.
+ After you buy more than one instance, you may want to assign instances within a reservation to different subscriptions. By default, all instances (quantity specified during the purchase) have one scope - either single subscription or shared. For example, you purchased 10 Standard D2 VMs and specified the scope to be subscription A. You may now want to change the scope for 7 Reserved VM instances to subscription A and the remaining 3 to subscription B. Splitting a reservation allows you to distribute instances for granular scope management. You can simplify the allocation to subscriptions by choosing shared scope. But for cost management or budgeting purposes, you can allocate quantities to specific subscriptions.
 
  You can split a reservation into two reservations though PowerShell, CLI, or through the API.
 

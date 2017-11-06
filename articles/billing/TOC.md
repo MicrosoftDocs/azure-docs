@@ -35,6 +35,7 @@
 ### [Update payment information](billing-how-to-change-credit-card.md)
 ### [Link Office 365 tenant](billing-add-office-365-tenant-to-azure-subscription.md)
 ### [Pay for subscriptions by invoice](billing-how-to-pay-by-invoice.md)
+## [Manage Reserved VM Instances](billing-manage-reserved-vm-instance.md)
 ## Troubleshoot
 ### [Sign-up issues](https://support.microsoft.com/en-us/help/4042959)
 ### [Declined card](https://support.microsoft.com/en-us/help/4042960)
