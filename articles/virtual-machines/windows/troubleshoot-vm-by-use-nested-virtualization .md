@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 08/01/2017
+ms.date: 11/06/2017
 ms.author: genli
 ---
 # How to troubleshoot a problem Azure VM by using nested virtualization in Azure
