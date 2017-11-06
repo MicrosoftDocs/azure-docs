@@ -5,7 +5,7 @@ services: container-instances
 documentationcenter: ''
 author: seanmck
 manager: timlt
-editor: ''
+editor: mmacy
 tags:
 keywords: ''
 
@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2017
+ms.date: 11/07/2017
 ms.author: seanmck
 ms.custom: mvc
 ---
@@ -30,7 +30,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.12 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+You can use the Azure Cloud Shell or a local installation of the Azure CLI to complete this quickstart. If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.20 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## Create a resource group
 
@@ -111,7 +111,7 @@ All of the code for the container used in this quickstart is available [on GitHu
 > [!div class="nextstepaction"]
 > [Azure Container Instances tutorials](./container-instances-tutorial-prepare-app.md)
 
-To try out options for running containers in an orchestration system on Azure, see the [Service Fabric][service-fabric] or [Azure Container Service (AKS)][container-service] quickstarts.  
+To try out options for running containers in an orchestration system on Azure, see the [Service Fabric][service-fabric] or [Azure Container Service (AKS)][container-service] quickstarts.
 
 <!-- LINKS -->
 [app-github-repo]: https://github.com/Azure-Samples/aci-helloworld.git

@@ -59,7 +59,7 @@ To deploy your container image from the container registry with a resource reque
 az container create --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-password <acrPassword> --ip-address public -g myResourceGroup
 ```
 
-Within a few seconds, you should receive an initial response from Azure Resource Manager. To view the state of the deployment, use:
+Within a few seconds, you should receive an initial response from Azure Resource Manager. To view the state of the deployment, use [az container show](/cli/azure/container#az_container_show):
 
 ```azurecli
 az container show --name aci-tutorial-app --resource-group myResourceGroup --query state
@@ -69,15 +69,15 @@ We can continue running this command until the state changes from *pending* to *
 
 ## View the application and container logs
 
-Once the deployment succeeds, open your browser to the IP address shown in the output of the following command:
+Once the deployment succeeds, display the container's public IP address with the [az container show](/cli/azure/container#az_container_show) command:
 
 ```bash
 az container show --name aci-tutorial-app --resource-group myResourceGroup --query ipAddress.ip
 ```
 
-```json
-"13.88.176.27"
-```
+Example output: `"13.88.176.27"`
+
+To see the running application, navigate to the public IP address in your favorite browser.
 
 ![Hello world app in the browser][aci-app-browser]
 
