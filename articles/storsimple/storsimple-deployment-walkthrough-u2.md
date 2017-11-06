@@ -18,15 +18,15 @@ ms.author: alkohli
 
 ---
 # Deploy your on-premises StorSimple device (Update 2)
+
 > [!NOTE]
 > The classic portal for StorSimple is deprecated. Your StorSimple Device Managers will automatically move to the new Azure portal as per the deprecation schedule. You will receive an email and a portal notification for this move. This document will also be retired soon. To view the version of this article for the new Azure portal, go to [Deploy your on-premises StorSimple device (Update 2)](storsimple-8000-deployment-walkthrough-u2.md). For any questions regarding the move, see [FAQ: Move to Azure portal](storsimple-8000-move-azure-portal-faq.md).
+
 
 > [!div class="op_single_selector"]
 > * [Update 2 & later ](storsimple-deployment-walkthrough-u2.md)
 > * [Update 1](storsimple-deployment-walkthrough-u1.md)
 > * [GA Release](storsimple-deployment-walkthrough.md)
-> 
-> 
 
 ## Overview
 Welcome to Microsoft Azure StorSimple device deployment. These deployment tutorials apply to StorSimple 8000 Series Update 2. This series of tutorials includes a configuration checklist, configuration prerequisites, and detailed configuration steps for your StorSimple device.
