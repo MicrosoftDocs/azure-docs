@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: how-to-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/24/2017
-ms.author: dmden
+ms.date: 10/23/2017
+ms.author: kfile
 ---
 # Authentication and authorization for Azure Time Series Insights API
 

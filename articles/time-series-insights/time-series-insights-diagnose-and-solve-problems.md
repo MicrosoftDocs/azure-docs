@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: how-to-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/24/2017
-ms.author: venkatja
+ms.date: 10/20/2017
+ms.author: kfile
 ---
 # Diagnose and solve problems in your Time Series Insights environment
 
 ## I don't see my data
-Here are some reasons why you might not see your data in your environment in the [Azure Time Series Insights portal](https://insights.timeseries.azure.com).
+Here are some reasons why you might not see your data in your environment in the [Azure Time Series Insights Explorer](https://insights.timeseries.azure.com).
 
 ### Your event source doesn't have data in JSON format
-Azure Time Series Insights supports only JSON data today. For JSON samples, see [Supported JSON shapes](time-series-insights-send-events.md#supported-json-shapes).
+Azure Time Series Insights supports only JSON data. For JSON samples, see [Supported JSON shapes](time-series-insights-send-events.md#supported-json-shapes).
 
 ### When you registered your event source, you didn't provide the key that has the required permission
 * For an IoT hub, you need to provide the key that has **service connect** permission.
@@ -41,7 +41,7 @@ Azure Time Series Insights supports only JSON data today. For JSON samples, see 
 For an IoT hub or an event hub, during registration we require you to specify the consumer group that should be used for reading your data. This consumer group must not be shared. If it's shared, the underlying event hub automatically disconnects one of the readers randomly.
 
 ## I see my data, but there's a lag
-Here are reasons why you might see partial data in your environment in the [Time Series Insights portal](https://insights.timeseries.azure.com).
+Here are reasons why you might see partial data in your environment in the [Time Series Insights explorer](https://insights.timeseries.azure.com).
 
 ### Your environment is getting throttled
 The throttling limit is enforced based on the environment's SKU type and capacity. All event sources in the environment share this capacity. If the event source for your IoT hub or event hub is pushing data beyond the enforced limits, you see throttling and a lag.
@@ -68,7 +68,7 @@ This behavior is the default behavior and cannot be overridden. You can engage t
 
 #### Recommended steps
 To fix the lag, take the following steps:
-1. Increase the SKU capacity to the maximum allowed value (10 in this case). After the capacity is increased, the ingress process starts catching up much faster. You can visualize how quickly you're catching up through the availability chart in the [Time Series Insights portal](https://insights.timeseries.azure.com). You are charged for the increased capacity.
+1. Increase the SKU capacity to the maximum allowed value (10 in this case). After the capacity is increased, the ingress process starts catching up much faster. You can visualize how quickly you're catching up through the availability chart in the [Time Series Insights explorer](https://insights.timeseries.azure.com). You are charged for the increased capacity.
 2. After the lag is caught up, decrease the SKU capacity back to your normal ingress rate.
 
 ## My event source's *timestamp property name* setting doesn't work

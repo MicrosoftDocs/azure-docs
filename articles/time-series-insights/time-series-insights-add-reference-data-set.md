@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/29/2017
-ms.author: venkatja
+ms.date: 10/20/2017
+ms.author: kfile
 ---
 
-# Create a reference data set for your Time Series Insights environment using the Ibiza portal
+# Create a reference data set for your Time Series Insights environment using the Azure portal
 
 A Reference Data Set is a collection of items that are augmented with the events from your event source. Time Series Insights ingress engine joins an event from your event source with an item in your reference data set. This augmented event is then available for query. This join is based on the keys defined in your reference data set.
 

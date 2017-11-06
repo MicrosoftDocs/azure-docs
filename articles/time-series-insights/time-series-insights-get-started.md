@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/18/2017
-ms.author: omravi
+ms.date: 10/20/2017
+ms.author: kfile
 ---
 
 # Create a new Time Series Insights environment in the Azure portal
@@ -48,6 +48,6 @@ Follow these steps to create your environment:
 
 ## Next steps
 
-* [Define data access policies](time-series-insights-data-access.md) to access your environment in [Time Series Insights Portal](https://insights.timeseries.azure.com)
+* [Define data access policies](time-series-insights-data-access.md) to access your environment in [Time Series Insights explorer](https://insights.timeseries.azure.com)
 * [Create an event source](time-series-insights-add-event-source.md)
 * [Send events](time-series-insights-send-events.md) to the event source

@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/21/2017
+ms.date: 10/20/2017
 ms.author: venkatja
 ---
 # Send events to a Time Series Insights environment using event hub
@@ -24,14 +24,26 @@ This tutorial explains how to create and configure event hub and run a sample ap
 ## Configure an event hub
 1. To create an event hub, follow instructions from the Event Hub [documentation](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
 
-2. Make sure you create a consumer group that is used exclusively by your Time Series Insights event source.
+2. Search for "event hub" in the search bar. Click Event Hubs in the returned list.
+
+3. Select your event hub by clicking on its name.
+
+4. Under Entities in the middle configuration window, click Event Hubs again.
+
+5. Click the name of the event hub to configure.
+
+  ![Select event hub consumer group](media/send-events/consumer-group.png)
+
+6. Click Consumer groups under Entities.
+ 
+7. Make sure you create a consumer group that is used exclusively by your Time Series Insights event source.
 
   > [!IMPORTANT]
   > Make sure this consumer group is not used by any other service (such as Stream Analytics job or another Time Series Insights environment). If consumer group is used by other services, read operation is negatively affected for this environment and the other services. If you are using “$Default” as the consumer group, it could lead to potential reuse by other readers.
 
-  ![Select event hub consumer group](media/send-events/consumer-group.png)
+8. Now click Share access policies under Settings.
 
-3. On the event hub, create “MySendPolicy” that is used to send events in the csharp sample.
+9. On the event hub, create “MySendPolicy” that is used to send events in the csharp sample.
 
   ![Select Shared access policies and click Add button](media/send-events/shared-access-policy.png)  
 
@@ -232,4 +244,4 @@ A JSON object with a nested JSON array containing two JSON objects. This input d
 
 ## Next steps
 
-* View your environment in [Time Series Insights Portal](https://insights.timeseries.azure.com)
+* View your environment in [Time Series Insights explorer](https://insights.timeseries.azure.com)

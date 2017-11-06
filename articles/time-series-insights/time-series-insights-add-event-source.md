@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/21/2017
-ms.author: omravi
+ms.date: 10/20/2017
+ms.author: kfile
 ---
 
 # Create an event source for your Time Series Insights environment using the Azure portal
@@ -35,7 +35,7 @@ Time Series Insights Event Source is derived from an event broker, such as Azure
   ![Create the Time Series Insights event source - details](media/add-event-source/getstarted-create-event-source-2.png)
 
 5.	Specify the name of the event source. This name is associated with all events coming from this event source and is available at query time.
-6.	Select an event hub from the list of Event Hub resources in the current subscription. Otherwise choose import option "Provide Event Hub settings manually” to specify an event hub in another subscription. Events must be published in JSON format.
+6.	Select an event hub from the list of Event Hub resources in the current subscription. Otherwise choose import option "Provide Event Hub settings manually” to        specify an event hub in another subscription. Events must be published in JSON format.
 7.	Select policy that has read permission in the event hub.
 8.	Specify event hub consumer group.
 
@@ -49,4 +49,4 @@ After creation of the event source, Time Series Insights will automatically star
 ## Next steps
 
 * [Send events](time-series-insights-send-events.md) to the event source
-* View your environment in [Time Series Insights Portal](https://insights.timeseries.azure.com)
+* View your environment in [Time Series Insights Explorer](https://insights.timeseries.azure.com)
