@@ -352,8 +352,9 @@ Deploy NC24r VMs from one of the following images in the Azure Marketplace that 
 
 ## Troubleshooting
 
-* There is a known issue with CUDA drivers on Azure N-series VMs running the 4.4.0-75 Linux kernel on Ubuntu 16.04 LTS. If you are upgrading from an earlier kernel version, upgrade to at least kernel version 4.4.0-77. 
+* There is a known issue with CUDA drivers on Azure N-series VMs running the 4.4.0-75 Linux kernel on Ubuntu 16.04 LTS. If you are upgrading from an earlier kernel version, upgrade to at least kernel version 4.4.0-77.
 
+* You can set persistence mode using nvidia-smi so the output of the command is faster when you need to query cards. To do that, you can simply execute nvidia-smi -pm 1. Please, remember that if the VM is restarted that setting will go away, so you can always script it to be executed upon startup.
 
 
 ## Next steps
