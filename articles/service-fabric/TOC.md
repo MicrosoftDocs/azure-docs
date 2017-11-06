@@ -331,7 +331,6 @@
 #### [Add custom health reports](service-fabric-report-health.md)
 #### [Troubleshoot with system health reports](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 #### [View health reports](service-fabric-view-entities-aggregated-health.md)
-#### [Monitor Windows Server containers](service-fabric-diagnostics-containers-windowsserver.md)
 ### Aggregate events
 #### [Aggregate events with EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md)
 #### Aggregate events with Azure Diagnostics
