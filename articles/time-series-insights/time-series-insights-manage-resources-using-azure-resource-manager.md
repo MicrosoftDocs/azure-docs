@@ -14,7 +14,7 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: big-data
-ms.date: 10/18/2017
+ms.date: 11/06/2017
 ms.author: kfile
 ---
 
@@ -77,7 +77,7 @@ https://microsoft.sharepoint.com/teams/TSIcore/Shared%20Documents/Getting%20Star
 |**environmentDisplayName** |An optional friendly name to show in tooling or user interfaces instead of the environment name.  | Optional | Blank (the environment name will be used in this case)   |
 |**environmentSkuName**	| The name of the SKU. Must be one of the following values: S1, S2, P1. For more information, see [SKU ingress rates and capacities](#sku-ingress-rates-and-capacities).| Optional|	S1     
 |**environmentSkuCapacity**|The capacity of the SKU. This value can be changed to support scale out of environments after they have been created. See the SKU Ingress Rates and Capacities table for more details.|Optional|	1         |
-|**environmentDataRetentionTime**|	The minimum timespan the environment’s events will be available for query. The value must be specified in the ISO 8601 format, for example, "P30D" for a retention policy of 30 days.| Optional	|30      |
+|**environmentDataRetentionTime**|	The minimum timespan the environment’s events will be available for query. The value must be specified in the ISO 8601 format, for example, "P30D" for a retention policy of 30 days. You can adjust this value up to 400 days, for example, “P400D”.| Optional	|30      |
 |**eventSourceName**|Name of the event source child resource. The name cannot include: '<', '>', '%', '&', ':', '\\', '?', '/' and any control characters. All other characters are allowed.|Required   |         |      
 |**eventSourceDisplayName**|An optional friendly name to show in tooling or user interfaces instead of the event source name.|	Optional|	Blank (the event source name will be used in this case)     |  
 |**eventHubResourceId**	|The resource ID of the source Event Hub or IoT Hub in Azure Resoure Manager, for example, '/subscriptions/{subscriptionId}/resourceGroups /{resourceGroupName}/providers/Microsoft.Devices/IotHubs/{hubName}'.|	Required  |	   |           
@@ -95,7 +95,7 @@ You can pass parameters at the PowerShell command line, but it’s often cleaner
 
 `PS C:> New-AzureRmResourceGroupDeployment -ResourceGroupName TestTSITemplateDeployment1 -TemplateFile .\CreateEnvironmentTemplate.json -TemplateParameterFile .\CreateEnvironmentParameters.json`
 
-The body of the parameters file looks similar to:
+The body of the parameters file should look something like:
 
 ```
 {
@@ -156,7 +156,7 @@ Some of the properties shown in the template file are optional properties (for e
 
 Note the use of a keyVault reference to read the event hub’s shared access key. For the key vault to be referenced in template files, you must set the **enabledForTemplateDeployment** property on the vault to **true**. 
 
-You can do this in the Azure portal through the following setting on the KeyVault’s **Advanced access policies**:
+You can do this in the Azure portal through the following setting on the KeyVault’s **advanced access policies**:
 
 ![Advanced access policies](media/manage-resources-using-arm/arm2.png)
 
@@ -170,7 +170,7 @@ Examples shown use ARMClient to invoke the REST APIs. For more information about
 
 ### Enable Time Series Insights on your subscription
 
-The Time Series Insights team cannot enable Time Series Insights on your behalf. After your subscription has been whitelisted, you need to enable Time Series Insights by running the following ARMClient command:
+You must enable Time Series Insights by running the following ARMClient command:
 
 `armclient POST /subscriptions/{**subscriptionId**}/providers/Microsoft.TimeSeriesInsights/register?api-version=2015-01-01`
 
