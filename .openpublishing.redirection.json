@@ -7192,6 +7192,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/service-fabric/service-fabric-diagnostics-containers-windowsserver.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-diagnostics-oms-containers",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/service-fabric/service-fabric-cluster-creation-via-visual-studio.md",
             "redirect_url": "/azure/service-fabric/service-fabric-cluster-creation-via-arm",
             "redirect_document_id": false
