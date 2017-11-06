@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/28/2017
+ms.date: 11/16/2017
 ms.author: markgal
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications). 
 ---
@@ -39,6 +39,7 @@ The Azure services that support Availability Zones are:
 - Zonal Virtual Machine Scale Sets
 - Managed Disks
 - Load Balancer
+- SQL Database
 
 ## Supported virtual machine size families
 
