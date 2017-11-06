@@ -12,7 +12,7 @@ ms.custom:
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: 
+ms.workload: "Inactive"
 ms.date: 10/20/2017
 ms.author: carlrab
 ms.reviewer: carlrab
