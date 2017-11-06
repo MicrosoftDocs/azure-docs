@@ -14,8 +14,8 @@ ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.workload: data-management
 ms.date: 10/20/2017
+ms.workload: "On Demand"
 ms.author: sashan
 ms.reviewer: carlrab
 

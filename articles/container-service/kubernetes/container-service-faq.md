@@ -19,4 +19,7 @@ ms.date: 08/30/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017, mvc
 ---
+
+[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+
 [!INCLUDE [container-service-faq.md](../../../includes/container-service-faq.md)]

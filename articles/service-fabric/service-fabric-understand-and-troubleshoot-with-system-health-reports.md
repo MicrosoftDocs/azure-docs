@@ -99,6 +99,13 @@ The Service Fabric Load Balancer reports a warning when it detects a node capaci
 * **Property**: Starts with **Capacity**.
 * **Next steps**: Check the provided metrics and view the current capacity on the node.
 
+### Node capacity mismatch for resource governance metrics
+System.Hosting reports a warning if defined node capacities in the cluster manifest are larger than the real node capacities for resource governance metrics (memory and cpu cores). Health report will be shown up when first service package that uses [resource governance](service-fabric-resource-governance.md) registers on a specified node.
+
+* **SourceId**: System.Hosting
+* **Property**: ResourceGovernance
+* **Next steps**: This can be a problem as governing service packages will not be enforced as expected and [resource governance](service-fabric-resource-governance.md) will not work properly. Update the cluster manifest with correct node capacities for these metrics or do not specify them at all and let Service Fabric to automatically detect available resources.
+
 ## Application system health reports
 **System.CM**, which represents the Cluster Manager service, is the authority that manages information about an application.
 
@@ -812,6 +819,13 @@ System.Hosting reports an error if validation during the upgrade fails or if the
 * **SourceId**: System.Hosting
 * **Property**: Uses the prefix **FabricUpgradeValidation** and contains the upgrade version.
 * **Description**: Points to the error encountered.
+
+### Undefined node capacity for resource governance metrics
+System.Hosting reports a warning if node capacities are not defined in the cluster manifest and config for automatic detection is turned off. Service Fabric will raise health warning whenever service package that uses [resource governance](service-fabric-resource-governance.md) registers on a specified node.
+
+* **SourceId**: System.Hosting
+* **Property**: ResourceGovernance
+* **Next steps**: The preferred way to overcome this problem is to change the cluster manifest to enable automatic detection of available resources. Another way is updating the cluster manifest with correctly specified node capacities for these metrics.
 
 ## Next steps
 [View Service Fabric health reports](service-fabric-view-entities-aggregated-health.md)

@@ -131,6 +131,7 @@ Pass-through Authentication handles a user sign-in request as follows:
 9. The Authentication Agent locates the encrypted password value that is specific to its public key (using an identifier) and decrypts it using its private key.
 10. The Authentication Agent attempts to validate the username and the password against your on-premises Active Directory using the **[Win32 LogonUser API](https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx)** (with the **dwLogonType** parameter set to **LOGON32_LOGON_NETWORK**). 
     - This is the same API used by Active Directory Federation Services (AD FS) to sign in users in a Federated sign-in scenario.
+    - This relies on the standard resolution process in Windows Server to locate the Domain Contoller.
 11. The Authentication Agent receives the result from Active Directory (success, username or password incorrect, password expired, user is locked out, and so on).
 12. The Authentication Agent forwards the result back to Azure AD STS over an outbound mutually authenticated HTTPS channel over port 443. Mutual authentication uses the same certificate previously issued to the Authentication Agent during registration.
 13. Azure AD STS verifies that this result correlates with the specific sign-in request on your tenant.

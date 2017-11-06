@@ -13,8 +13,8 @@ ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.workload: data-management
 ms.date: 10/20/2016
+ms.workload: "Inactive"
 ms.author: sashan
 ms.reviewer: carlrab
 

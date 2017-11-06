@@ -275,10 +275,10 @@ You can automate management of custom domains with scripts, using the [Azure CLI
 The following command adds a configured custom DNS name to an App Service app. 
 
 ```bash 
-az appservice web config hostname add \
-    --webapp <app_name> \
+az webapp config hostname add \
+    --webapp-name <app_name> \
     --resource-group <resource_group_name> \ 
-    --name <fully_qualified_domain_name> 
+    --hostname <fully_qualified_domain_name> 
 ``` 
 
 For more information, see [Map a custom domain to a web app](scripts/app-service-cli-configure-custom-domain.md). 

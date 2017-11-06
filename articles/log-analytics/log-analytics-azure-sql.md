@@ -12,11 +12,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
-ms.author: banders
-
+ms.date: 10/26/2017
+ms.author: magoedte;banders
 ---
-
 
 # Monitor Azure SQL Database using Azure SQL Analytics (Preview) in Log Analytics
 
@@ -40,13 +38,13 @@ The following table describes the connected sources that are supported by this s
 | [Linux agents](log-analytics-linux-agents.md) | No | Direct Linux agents are not used by the solution. |
 | [SCOM management group](log-analytics-om-agents.md) | No | A direct connection from the SCOM agent to Log Analytics is not used by the solution. |
 | [Azure storage account](log-analytics-azure-storage.md) | No | Log Analytics does not read the data from a storage account. |
-| [Azure diagnostics](log-analytics-azure-storage.md) | Yes | Azure metric and log data are sent to Log Analytics directly by Azure. |
+| [Azure Diagnostics](log-analytics-azure-storage.md) | Yes | Azure metric and log data is sent to Log Analytics directly by Azure. |
 
 ## Prerequisites
 
 - An Azure Subscription. If you don't have one, you can create one for [free](https://azure.microsoft.com/free/).
-- A Log Analytics workspace. You can use an existing one, or you can [create a new one](log-analytics-get-started.md) before you start using this solution.
-- Enable Azure Diagnostics for your Azure SQL databases and elastic pools and [configure them to send their data to Log Analytics](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell/).
+- A Log Analytics workspace. You can use an existing one, or you can [create a new one](log-analytics-quick-create-workspace.md) before you start using this solution.
+- Enable Azure Diagnostics for your Azure SQL databases and elastic pools and [configure them to send their data to Log Analytics](../sql-database/sql-database-metrics-diag-logging.md).
 
 ## Configuration
 
@@ -58,9 +56,9 @@ Perform the following steps to add the Azure SQL Analytics solution to your work
 3. In the **Monitoring + Management** list click **See all**.
 4. In the **Recommended** list, click **More** , and then in the new list, find **Azure SQL Analytics (Preview)** and then select it.  
     ![Azure SQL Analytics solution](./media/log-analytics-azure-sql/azure-sql-solution-portal.png)
-5. In the **Azure SQL Analytics (Preview)** pane, click **Create**.  
+5. In the **Azure SQL Analytics (Preview)** blade, click **Create**.  
     ![Create](./media/log-analytics-azure-sql/portal-create.png)
-6. In the **Create new solution** pane, select the workspace that you want to add the solution to and then click **Create**.  
+6. In the **Create new solution** blade, select the workspace that you want to add the solution to and then click **Create**.  
     ![add to workspace](./media/log-analytics-azure-sql/add-to-workspace.png)
 
 
@@ -81,7 +79,7 @@ PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
 ## Using the solution
 
 >[!NOTE]
-> Upgrade your Log Analytics workspace to get the latest version of Azure SQL Analytics.
+> Please upgrade your Log Analytics to get the latest version of Azure SQL Analytics.
 >
 
 When you add the solution to your workspace, the Azure SQL Analytics tile is added to your workspace, and it appears in Overview. The tile shows the number of Azure SQL databases and Azure SQL elastic pools that the solution is connected to.
@@ -94,14 +92,13 @@ Click on the **Azure SQL Analytics** tile to open the Azure SQL Analytics dashbo
 
 ![Azure SQL Analytics Overview](./media/log-analytics-azure-sql/azure-sql-sol-overview.png)
 
-Selecting any of the tiles, opens a drill-down report into the specific perspective.
+Selecting any of the tiles, opens a drill-down report into the specific perspective. Once the perspective is selected, drill down report is opened.
 
 ![Azure SQL Analytics Timeouts](./media/log-analytics-azure-sql/azure-sql-sol-timeouts.png)
 
 Each perspective, provides summaries on subscription, server, elastic pool, and database level. In addition, each perspective shows perspective specific report on the right. Selecting subscription, server, pool, or database from the list continues the drill down.
 
 | Perspective | Description |
-| --- | --- |
 | Resource by type | Perspective that counts all the resources monitored. Drill-down provides the summary of DTU and GB metrics. |
 | Insights | Provides hierarchical drill-down into Intelligent Insights. Learn more about intelligent insights. |
 | Errors | Provides hierarchical drill-down into SQL errors that happened on the databases. |
@@ -113,7 +110,7 @@ Each perspective, provides summaries on subscription, server, elastic pool, and 
 
 ### Intelligent Insights report
 
-All Intelligent Insights collected can be visualized and accessed through the Insights perspective. [Click here to learn more about Intelligent Insights](../sql-database/sql-database-intelligent-insights.md)
+All Intelligent Insights collected can be visualized and accessed through the Insights perspective. 
 
 ![Azure SQL Analytics Insights](./media/log-analytics-azure-sql/azure-sql-sol-insights.png)
 
@@ -134,6 +131,9 @@ Through Query duration and query waits perspective, you can correlate the perfor
 ### Analyze data and create alerts
 
 You can easily create alerts with the data coming from Azure SQL Database resources. Here are a couple of useful [log search](log-analytics-log-searches.md) queries that you can use for alerting:
+
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+
 
 *High DTU on Azure SQL Database*
 
@@ -160,7 +160,7 @@ You can use these alert-based queries to alert on specific thresholds for both A
 6. On the **Add Alert Rule** page, configure the appropriate properties and the specific thresholds that you want and then click **Save**.  
 ![add alert rule](./media/log-analytics-azure-sql/create-alert02.png)
 
-## See also
+## Next steps
 
 - Use [Log Searches](log-analytics-log-searches.md) in Log Analytics to view detailed Azure SQL data.
 - [Create your own dashboards](log-analytics-dashboards.md) showing Azure SQL data.

@@ -13,7 +13,7 @@ ms.custom: monitor & tune
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: NA
+ms.workload: "Inactive"
 ms.date: 09/19/2016
 ms.author: veljko-msft 
 
