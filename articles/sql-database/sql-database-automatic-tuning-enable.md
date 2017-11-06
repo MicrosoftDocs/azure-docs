@@ -33,7 +33,7 @@ To enable automatic tuning on Azure SQL Database server, navigate to the server 
 Automatic tuning options on server are applied to all databases on the server. By default, all databases inherit the configuration from their parent server, but this can be overridden and specified for each database individually.
 
 ### REST API
-[Click here, to read more about how to enable automatic tuning on the server level via REST API](../../rest/api/sql/serverautomatictuning.md)
+[Click here, to read more about how to enable automatic tuning on the server level via REST API](https://docs.microsoft.com/rest/api/sql/serverautomatictuning)
 
 ## Enable automatic tuning on database
 
@@ -52,7 +52,7 @@ To enable automatic tuning on a single database, navigate to the database in the
 Once you have selected appropriate configuration, click **Apply**.
 
 ### Rest API
-[Click here to read more about how to enable automatic tuning on a single database via REST API](../../rest/api/sql/databaseautomatictuning.md)
+[Click here to read more about how to enable automatic tuning on a single database via REST API](https://docs.microsoft.com/rest/api/sql/databaseautomatictuning)
 
 ### T-SQL
 
