@@ -18,7 +18,7 @@ This quickstart shows you how to programmatically add utterances to your Languag
 
 Using the command line is a quick way to enter many utterances and train LUIS. You can also automate this task into a larger pipeline.
 
-Refer to the [Authoring API definitions][authoring-apis] for technical documentation for the [add utterance](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c08), [train](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c450), [training status](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c46) APIs.
+Refer to the [Authoring API definitions][authoring-apis] for technical documentation for the [add utterance](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c08), [train](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c450), and [training status](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c46) APIs.
 
 ## Prerequisites
 
@@ -46,7 +46,7 @@ Add the name and location of the upload file containing your utterances.
 
 Add the variables that will hold the command line values.
 
-   [!code-nodejs[Add upload file](~/samples-luis/documentation-samples/authoring-api-samples/node/add-utterances.js?range=35-51 "Add upload file")]
+   [!code-nodejs[Add upload file](~/samples-luis/documentation-samples/authoring-api-samples/node/add-utterances.js?range=35-49 "Add upload file")]
 
 
 Add the function `sendUtteranceToApi` which sends and receives HTTP calls. 
@@ -130,7 +130,7 @@ This sample creates a file with the `results.json` that contains the results fro
 ```
 
 ## Add an utterance and train from the command line
-Call add-utterance the `-train` argument to sends a request to begin training, and subsequently request training status. The status is generally Queued immediate after training begins. Status details are written to a file.
+Call add-utterance with the `-train` argument to send a request to train, and subsequently request training status. The status is generally queued immediately after training begins. Status details are written to a file.
 
 ````
 > node add-utterances.js -train
@@ -152,10 +152,10 @@ The following shows the result of a successful request to train:
 }
 ```
 
-After the request to train is queued, it can take a time for training to complete.
+After the request to train is queued, it can take a moment to complete training.
 
 ## Get training status from the command line
-To see if training is complete, call the sample with the `-status` argument to check the training status and write status details to a file.
+Call the sample with the `-status` argument to check the training status and write status details to a file.
 
 ````
 > node add-utterances.js -status
