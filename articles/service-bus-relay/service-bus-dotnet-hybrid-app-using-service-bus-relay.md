@@ -201,6 +201,8 @@ This project is a Visual Studio console application, and uses the [Azure Service
       </behaviors>
     </system.serviceModel>
     ```
+    The error caused by "transportClientEndpointBehavior" is just a warning and is not a blocking issue for this sample.
+    
 13. Still in App.config, in the `<appSettings>` element, replace the connection string value with the connection string you previously obtained from the portal.
 
     ```xml
