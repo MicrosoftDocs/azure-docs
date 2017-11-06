@@ -87,8 +87,12 @@ Routes define how modules communicate with each other within a deployment. Speci
 
 ### Step 4: Target devices
 
-1. Enter a positive integer for the deployment **Priority**. When multiple deployments are targeted to an Edge device, the deployment with the highest deployment number will apply. If more than one deployment targeted to the same device have the same priority, the deployment with the latest timestamp (i.e. was the latest to be deployed) will win. 
-1. Enter a **Target condition** to determine which devices will be targeted with this deployment. The condition is based on device twin tags and should match the expression format.  For example, `tags.environment=test`. 
+Use the tags property from your devices to target the specific devices that should receive this deployment. 
+
+Since multiple deployments may target the same device, you should give each deployment a priority number. If there's ever a conflict, the deployment with the highest priority wins. If two deployments have the same priority number, the one that was created most recently wins. 
+
+1. Enter a positive integer for the deployment **Priority**.
+1. Enter a **Target condition** to determine which devices will be targeted with this deployment. The condition is based on device twin tags and should match the expression format. For example, `tags.environment='test'`. 
 1. Select **Next** to move on to the final step.
 
 ### Step 5: Review template
@@ -97,46 +101,76 @@ Review your deployment information, then select **Submit**.
 
 ## Monitor a deployment
 
-1. Go to Azure Hub > IoT Edge 
-1. Scroll to the IoT Edge Deployments section 
-1. Inspect the deployment list.  Deployment status is shown under the Status and Completion / Total columns with the following info: 
-   * Healthy - Displayed as a green bar in the Status column and the first number shown in the Completion / Total column. Shows the Edge devices that have reported back to the service that the modules have been deployed successfully 
-   * Unhealthy - Displayed as a red bar in the Status column and the number in parentheses in the Completion / Total column. Shows the Edge devices have reported back to the service that one or modules have not been deployed successfully. To further investigate the error, you will need to connect remotely to that devices and view <XYZ log file> 
-   * Unknown - Displayed as a grey bar in the Status column. Shows the shows the Edge devices that did not report status to the service after modules were deployed. To further investigate, you will need to view <ABC service info> and <XYZ log file> 
-   * Actual - Displayed as the full bar (including all colors) in the Status column and the last number in the Completion / Total column. Shows the targeted Edge devices that match the Deployment targeting are not targeted by another deployment of higher priority 
-1. Select the desired deployment.  
-1. In the Configuration blade, select the following buttons 
-   * Target shows the Edge devices that match the Deployment targeting condition 
-   * Actual shows the targeted Edge devices that match the Deployment targeting are not targeted by another deployment of higher priority 
-   * Healthy shows the Edge devices that have reported back to the service that the modules have been deployed successfully 
-   * Unhealthy shows the Edge devices have reported back to the service that one or modules have not been deployed successfully. To further investigate the error, you will need to connect remotely to that devices and view <XYZ log file> 
-   * Unknown shows the Edge devices that did not report status to the service after modules were deployed. To further investigate, you will need to view <ABC service info> and <XYZ log file> 
+To view the details of a deployment and monitor the devices running it, use the following steps:
+
+1. Sign in to the [Azure portal][lnk-portal] and navigate to your IoT hub. 
+1. Select **IoT Edge Explorer**.
+1. Select **IoT Edge deployments**. 
+
+   ![View IoT Edge deployments][1]
+
+1. Inspect the deployment list. For each deployment, you can view the following details:
+   * **ID** - the name of the deployment.
+   * **Target condition** - the tag used to define targeted devices.
+   * **Priority** - the priority number assigned to the deployment.
+   * **IoT Edge agent status** - the number of devices that received the deployment, and their health statuses. 
+   * **Unhealthy modules** - the number of modules in the deployment reporting errors. 
+   * **Creation time** - the timestamp from when the deployment was created. This timestamp is used to break ties when two deployments have the same priority. 
+1. Select the deployment that you want to monitor.  
+1. Inspect the deployment details. You can use tabs to view specific details about the devices that received the deployment: 
+   * **Targeted** - the Edge devices that match the target condition. 
+   * **Applied** - the targeted Edge devices that are not targeted by another deployment of higher priority. These are the devices that actually receive the deployment. 
+   * **Reporting success** - the applied Edge devices that reported back to the service that the modules were deployed successfully. 
+   * **Reporting failure** - the applied Edge devices that reported back to the service that one or more modules were not deployed successfully. To further investigate the error, you will need to connect remotely to those devices and view the log files. 
+   * **Reporting unhealthy modules** - the applied Edge devices that reported back to the service that one or more modules were deployed successfully, but are now reporting errors. 
 
 ## Modify a deployment
 
-When you modify a deployment, the changes immediately replicate to all targeted devices. If you update the target condition, then the deployment is applied to any new devices. Any devices that no longer meet the target condition take on their next highest priority deployment. 
+When you modify a deployment, the changes immediately replicate to all targeted devices. 
 
-1. Go to Azure Hub > IoT Edge 
-1. Scroll to the IoT Edge Deployments section 
-1. Select the desired deployment.  
+If you update the target condition, the following updates occur:
+* If a device didn't meet the old target condition, but meets the new target condition and this deployment is the highest priority for that device, then this deployment is applied to the device. 
+* If a device currently running this deployment no longer meets the target condition, it uninstalls this deployment and takes on the next highest priority deployment. 
+* If a device currently running this deployment no longer meets the target condition and doesn't meet the target condition of any other deployments, then no change occurs on the device. The device continues running its current modules in their current state, but is not managed as part of this deployment anymore. Once it meets the target condition of any other deployment, it will uninstall this deployment and take on the new one. 
+
+To modify a deployment, use the following steps: 
+
+1. Sign in to the [Azure portal][lnk-portal] and navigate to your IoT hub. 
+1. Select **IoT Edge Explorer**.
+1. Select **IoT Edge deployments**. 
+
+   ![View IoT Edge deployments][1]
+
+1. Select the deployment that you want to modify. 
 1. Make updates to the following fields: 
    * Target Condition 
    * Labels 
    * Priority 
-1. Select Save 
-1. Observe the deployment status (see "Monitor a deployment") 
+1. Select **Save**.
+1. Follow the steps in [Monitor a deployment][anchor-monitor] to watch the changes roll out. 
 
 ## Delete a deployment
 
 When you delete a deployment, any devices take on their next highest priority deployment. If your devices don't meet the target condition of any other deployment, then the modules are not removed when the deployment is deleted. 
 
-1. Go to Azure Hub > IoT Edge 
-1. Scroll to the IoT Edge Deployments section 
-1. Select the desired deployment.  
-1. Select Delete 
+1. Sign in to the [Azure portal][lnk-portal] and navigate to your IoT hub. 
+1. Select **IoT Edge Explorer**.
+1. Select **IoT Edge deployments**. 
+
+   ![View IoT Edge deployments][1]
+
+1. Use the checkbox to select the deployment that you want to delete. 
+1. Select **Delete**.
 1. A prompt will inform you that this action will delete this deployment and revert to the previous state for all devices.  This means that a deployment with a lower priority will apply.  If no other deployment is targeted, no modules will be removed. If customers wish to do this, they need to create a deployment with zero modules and deploy it to the same devices. Select **Yes** if you wish to continue. 
+
+## Next steps
+
+
+<!-- Images -->
+[1]: ./media/how-to-deploy-monitor/view-deployments.png
 
 <!-- Links -->
 [lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins
 [lnk-portal]: https://portal.azure.com
 [lnk-docker-create]: https://docs.docker.com/engine/reference/commandline/create/
+[anchor-monitor] #monitor-a-deployment
