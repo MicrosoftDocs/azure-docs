@@ -36,7 +36,7 @@ Add the NPM dependencies to the file.
 
    [!code-nodejs[NPM Dependencies](~/samples-luis/documentation-samples/authoring-api-samples/node/add-utterances.js?range=16-19 "NPM Dependencies")]
 
-Add the LUIS constants to the file. Copy the code below and change to your programmatic key, application ID, and version ID.
+Add the LUIS constants to the file. Copy the following code and change to your programmatic key, application ID, and version ID.
 
    [!code-nodejs[LUIS key and IDs](~/samples-luis/documentation-samples/authoring-api-samples/node/add-utterances.js?range=22-29 "LUIS key and IDs")]
 
@@ -44,12 +44,12 @@ Add the name and location of the upload file containing your utterances.
 
    [!code-nodejs[Add upload file](~/samples-luis/documentation-samples/authoring-api-samples/node/add-utterances.js?range=31-33 "Add upload file")]
 
-Add the variables that will hold the command line values.
+Add the variables that hold the command-line values.
 
    [!code-nodejs[Add upload file](~/samples-luis/documentation-samples/authoring-api-samples/node/add-utterances.js?range=35-49 "Add upload file")]
 
 
-Add the function `sendUtteranceToApi` which sends and receives HTTP calls. 
+Add the function `sendUtteranceToApi` to send and receive HTTP calls. 
 
    [!code-nodejs[Send the HTTP request](~/samples-luis/documentation-samples/authoring-api-samples/node/add-utterances.js?range=135-151 "Send the HTTP request")]
 
@@ -57,7 +57,7 @@ Add the configuration JSON object used by the `addUtterance` function.
 
    [!code-nodejs[Add configuration information for adding utterance](~/samples-luis/documentation-samples/authoring-api-samples/node/add-utterances.js?range=52-59 "Add configuration information for adding utterance")]
 
-Add the function `addUtterance` which manages the API request and response used by `SendUtteranceToApp`.
+Add the function `addUtterance` manage the API request and response used by `SendUtteranceToApp`.
 
    [!code-nodejs[Add configuration information for adding utterance](~/samples-luis/documentation-samples/authoring-api-samples/node/add-utterances.js?range=62-92 "Add configuration information for adding utterance")]
 
@@ -65,11 +65,11 @@ Add the configuration JSON object used by the `train` function.
 
    [!code-nodejs[Add configuration information for training LUIS](~/samples-luis/documentation-samples/authoring-api-samples/node/add-utterances.js?range=94-101 "Add configuration information for training LUIS")]
 
-Add the function `train` which starts the training process. 
+Add the function `train` to start the training process. 
 
    [!code-nodejs[Train the application](~/samples-luis/documentation-samples/authoring-api-samples/node/add-utterances.js?range=103-133 "Train the application")]
 
-Add the code that chooses which action to take (add utterance or train) based on the command line variables.
+Add the code that chooses which action to take (add utterance or train) based on the command-line variables.
 
    [!code-nodejs[Train the application](~/samples-luis/documentation-samples/authoring-api-samples/node/add-utterances.js?range=153-184 "Train the application")]
 
@@ -99,9 +99,9 @@ The `text` field contains the text of the utterance. The `intentName` field must
 ]
 ```
 
-## Add an utterance from the command line
+## Add an utterance from the command-line
 
-Run the application from a command line with Node.js.
+Run the application from a command-line with Node.js.
 
 Calling add-utterance with no arguments adds an utterance to the app, without training it.
 ````
@@ -129,17 +129,17 @@ This sample creates a file with the `results.json` that contains the results fro
     ]
 ```
 
-## Add an utterance and train from the command line
-Call add-utterance with the `-train` argument to send a request to train, and subsequently request training status. The status is generally queued immediately after training begins. Status details are written to a file.
+## Add an utterance and train from the command-line
+Call add-utterance with the `-train` argument to send a request to train, and subsequently request training status. The status is queued immediately after training begins. Status details are written to a file.
 
 ````
 > node add-utterances.js -train
 ````
 
 > NOTE: 
-> Duplicate utterances aren't added again, but don't cause an error. The `response` will contain the ID of the original utterance.
+> Duplicate utterances aren't added again, but don't cause an error. The `response` contains the ID of the original utterance.
 
-When you call the sample with the `-train` argument, it creates a `training-results.json` file indicating if the request to train the LUIS app was successfully queued. 
+When you call the sample with the `-train` argument, it creates a `training-results.json` file indicating the request to train the LUIS app was successfully queued. 
 
 The following shows the result of a successful request to train:
 ```json
