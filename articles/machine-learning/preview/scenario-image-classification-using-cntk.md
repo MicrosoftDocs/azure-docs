@@ -3,7 +3,7 @@ title: Image Classification using CNTK inside Azure Machine Learning Workbench |
 description: Train, evaluate, and deploy a custom image classification model using Azure ML Workbench.
 services: machine-learning
 documentationcenter: ''
-author: pabuehle
+author: PatrickBue
 ms.author: pabuehle
 ms.reviewer: mawah, marhamil, mldocs
 ms.service: machine-learning
@@ -91,9 +91,9 @@ The script `0_downloadData.py` downloads all images to the *DATA_DIR/images/fash
 The following figure shows examples for the attributes dotted (left two columns), striped (middle two columns), and leopard (right two columns). Annotations were done according to the upper body clothing item.
 
 <p align="center">
-<img src="media/scenario-image-classification-using-cntk/examples_dotted.jpg"  alt="alt text" height="300">
-<img src="media/scenario-image-classification-using-cntk/examples_striped.jpg" alt="alt text" height="300">
-<img src="media/scenario-image-classification-using-cntk/examples_leopard.jpg" alt="alt text" height="300">
+<img src="media/scenario-image-classification-using-cntk/examples_dotted.jpg"  alt="alt text" height="200">
+<img src="media/scenario-image-classification-using-cntk/examples_striped.jpg" alt="alt text" height="200">
+<img src="media/scenario-image-classification-using-cntk/examples_leopard.jpg" alt="alt text" height="200">
 </p>
 
 
