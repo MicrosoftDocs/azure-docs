@@ -35,9 +35,13 @@ If you don’t have an account, you can create a free trial account in just a co
 
 Before you deploy the preconfigured solution to your Azure subscription, you must choose some configuration options:
 
-1. Log on to [azureiotsuite.com](https://www.azureiotsuite.com) using your Azure account credentials, and click **+** to create a solution.
+1. Log on to [azureiotsuite.com](https://www.azureiotsuite.com) using your Azure account credentials, and click **+** to create a new solution:
 
-1. Click **Select** on the **Remote monitoring** tile.
+    ![Create a new solution](media/iot-suite-remote-monitoring-deploy/createnewsolution.png)
+
+1. Click **Select** on the **Remote monitoring preview** tile.
+
+    ![Choose remote monitoring](media/iot-suite-remote-monitoring-deploy/remotemonitoring.png)
 
 1. On the **Create Remote Monitoring solution** page, enter a **Solution name** for your remote monitoring preconfigured solution.
 
@@ -49,7 +53,9 @@ Before you deploy the preconfigured solution to your Azure subscription, you mus
 
 1. Select the **Subscription** and **Region** you want to use to provision the solution.
 
-1. Click **Create Solution** to begin the provisioning process. This process typically takes several minutes to run.
+1. Click **Create Solution** to begin the provisioning process. This process typically takes several minutes to run:
+
+    ![Remote monitoring solution details](media/iot-suite-remote-monitoring-deploy/createform.png)
 
 For troubleshooting information, see [What to do when a deployment fails](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide#what-to-do-when-a-deployment-fails) in the GitHub repository.
 
@@ -57,12 +63,16 @@ For troubleshooting information, see [What to do when a deployment fails](https:
 
 When the provisioning process is complete, you can sign in to your remote monitoring preconfigured solution.
 
-1. On the **Provisioned solutions** page, choose your new remote monitoring solution.
+1. On the **Provisioned solutions** page, choose your new remote monitoring solution:
+
+    ![Choose new solution](media/iot-suite-remote-monitoring-deploy/choosenew.png)
 
 1. You can view information about your remote monitoring solution in the panel that appears. Choose **Solution dashboard** to connect to your remote monitoring solution.
 
     > [!NOTE]
     > You can delete your remote monitoring solution from this panel when you are finished with it.
+
+    ![Solution panel](media/iot-suite-remote-monitoring-deploy/solutionpanel.png)
 
 1. The remote monitoring solution dashboard displays in your browser.
 

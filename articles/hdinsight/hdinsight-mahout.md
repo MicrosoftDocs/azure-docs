@@ -29,8 +29,8 @@ Learn how to use the [Apache Mahout](http://mahout.apache.org) machine learning 
 
 * A Linux-based HDInsight cluster. For information about creating one, see [Get started using Linux-based Hadoop in HDInsight][getstarted].
 
-> [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+    > [!IMPORTANT]
+    > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * [Azure PowerShell](/powershell/azure/overview)
 
@@ -61,8 +61,8 @@ The data contained in user-ratings.txt has a structure of `userID`, `movieID`, `
 
     196    242    3    881250949
     186    302    3    891717742
-    22    377    1    878887116
-    244    51    2    880606923
+    22     377    1    878887116
+    244    51     2    880606923
     166    346    1    886397596
 
 ### Run the job
