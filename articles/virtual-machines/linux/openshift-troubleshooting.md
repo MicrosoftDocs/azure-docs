@@ -33,7 +33,7 @@ If your OpenShift cluster does not deploy successfully, try these troubleshootin
 - Exit code 11: Metrics failed to deploy
 - Exit code 12: Logging failed to deploy
 
-For exit codes 7-10, the OpenShift cluster did install, but the Azure Cloud Provider configuration failed. You can SSH to the master node (OpenShift Origin) or the bastion node (OpenShift Container Platform), and from there SSH to each of the nodes in the cluster to fix the issues.
+For exit codes 7-10, the OpenShift cluster did install, but the Azure Cloud Provider configuration failed. You can SSH to the master node (OpenShift Origin) or the bastion node (OpenShift Container Platform), and from there SSH to each cluster node to fix the issues.
 
 A common cause for the failures with exit codes 7-9 is that the service principal did not have proper permissions to the subscription or the resource group. If this is the issue, assign the correct permissions and manually rerun the script that failed and all subsequent scripts.
 
