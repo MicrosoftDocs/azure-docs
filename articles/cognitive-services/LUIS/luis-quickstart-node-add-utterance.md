@@ -46,7 +46,7 @@ Add the name and location of the upload file containing your utterances.
 
 Add the variables that will hold the command line values.
 
-   [!code-nodejs[Add upload file](~/samples-luis/documentation-samples/authoring-api-samples/node/add-utterances.js?range=34-46 "Add upload file")]
+   [!code-nodejs[Add upload file](~/samples-luis/documentation-samples/authoring-api-samples/node/add-utterances.js?range=35-47 "Add upload file")]
 
 
 Add the function `sendUtteranceToApi` which sends and receives HTTP calls. 
