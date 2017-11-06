@@ -80,6 +80,7 @@
     - name: Platforms and tools
       href: platforms-and-tools.md
     - name: R and Python on HDInsight clusters
+      items:
       - name: Introduction to Spark on HDInsight
         href: ../../hdinsight/spark/apache-spark-overview.md
         maintainContext: true
