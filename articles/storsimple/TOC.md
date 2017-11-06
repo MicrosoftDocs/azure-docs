@@ -47,10 +47,8 @@
 ## Release notes
 ### [Update 1 - current](storsimple-virtual-array-update-1-release-notes.md)
 ### [Update 0.6](storsimple-virtual-array-update-06-release-notes.md)
-
-
 ### Archive
-### [Update 0.5](storsimple-virtual-array-update-05-release-notes.md)
+#### [Update 0.5](storsimple-virtual-array-update-05-release-notes.md)
 #### [Update 0.4](storsimple-virtual-array-update-04-release-notes.md)
 #### [Update 0.3](storsimple-ova-update-03-release-notes.md)
 #### [Update 0.2 and 0.1](storsimple-ova-update-01-release-notes.md)
