@@ -20,10 +20,10 @@ ms.author: dekapur
 
 # Performance monitoring with Windows Azure Diagnostics extension
 
-This document covers steps required to set up collection of perfomance counters via the Windows Azure Diagnostics (WAD) extension for Windows clusters. For Linux clusters, set up the [OMS Agent](service-fabric-diagnostics-oms-agent.md) to collect performance counters for your nodes. 
+This document covers steps required to set up collection of performance counters via the Windows Azure Diagnostics (WAD) extension for Windows clusters. For Linux clusters, set up the [OMS Agent](service-fabric-diagnostics-oms-agent.md) to collect performance counters for your nodes. 
 
  > [!NOTE]
-> The WAD extension needs to be deployed on your cluster in order for these steps to work for you. If it is not set up, head over to [Event aggregation and collection using Windows Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md) and follow the steps in *Deploy the Diagnostics extesion*.
+> The WAD extension should be deployed on your cluster for these steps to work for you. If it is not set up, head over to [Event aggregation and collection using Windows Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md) and follow the steps in *Deploy the Diagnostics extension*.
 
 ## Collect performance counters via the WadCfg
 
@@ -40,9 +40,9 @@ To collect performance counters via WAD, you need to modify the configuration ap
     }
     ```
 
-    The `scheduledTransferPeriod` defines how often the values of the counters that are collected will be transferred to your Azure storage table (defined in the `WadCfg`) and to any configured sink. 
+    The `scheduledTransferPeriod` defines how frquently the values of the counters that are collected are transferred to your Azure storage table and to any configured sink. 
 
-3. Add the performance counters you would like to collect to the `PerformanceCounterConfiguration` that was declared in the previous step. Each counter you would like to collect is defined with with a `counterSpecifier`, `sampleRate`, `unit`, `annotation`, and any relevant `sinks`. Here is an example of a perf counter for the *Total Processor Time* (the amount of time the CPU was in use for processing operations):
+3. Add the performance counters you would like to collect to the `PerformanceCounterConfiguration` that was declared in the previous step. Each counter you would like to collect is defined with a `counterSpecifier`, `sampleRate`, `unit`, `annotation`, and any relevant `sinks`. Here is an example of a perf counter for the *Total Processor Time* (the amount of time the CPU was in use for processing operations):
 
     ```json
     "PerformanceCounters": {
@@ -62,9 +62,9 @@ To collect performance counters via WAD, you need to modify the configuration ap
 
     The sample rate for the counter can be modified as per your needs. The format for it is `PT<time><unit>`, so if you want the counter collected every second, then you should set the `"sampleRate": "PT15S"`.
 
-    Similarly, you can collect several other performance counters, by adding them to the list in the `PerformanceCounterConfiguration`. Though you can use `*` to specify groups of performance counters that are named similarly, sending any counters via a sink (to Application Insights or elsewhere) requires that they are individally declared). 
+    Similarly, you can collect several other performance counters, by adding them to the list in the `PerformanceCounterConfiguration`. Though you can use `*` to specify groups of performance counters that are named similarly, sending any counters via a sink (to Application Insights) requires that they are individually declared. 
 
-4. Once you had added the appropriate performance counters that need to be collected, you need to upgrade your cluster resource so that these changes are reflected in your running cluster. Save your modified `template.json` and head over to PowerShell to upgrade your cluster using `New-AzureRmResourceGroupDeployment`. The call requires the name of the resource group, the updated template file, and the parameters file, and will go through the resource group making changes to any of the resources that you updated.
+4. Once you had added the appropriate performance counters that need to be collected, you need to upgrade your cluster resource so that these changes are reflected in your running cluster. Save your modified `template.json` and open up PowerShell. You will upgrade your cluster using `New-AzureRmResourceGroupDeployment`. The call requires the name of the resource group, the updated template file, and the parameters file, and will go through the resource group making changes to any of the resources that you updated. Once you are signed into your account and are in the right subscription, use the following command to run the upgrade:
 
     ```sh
     New-AzureRmResourceGroupDeployment -ResourceGroupName <ResourceGroup> -TemplateFile <PathToTemplateFile> -TemplateParameterFile <PathToParametersFile> -Verbose
