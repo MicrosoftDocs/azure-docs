@@ -33,15 +33,15 @@ There are three levels of support:
 
 ## Functions v1 runtime
 
-The v1 runtime is GA. It is the only runtime that is approved for production applications.
+The [v1 runtime](functions-versions.md) is GA. It is the only runtime that is approved for production applications.
 
 ### Supported languages
 
 The following languages have GA status in v1:
 
-* **C#**
-* **JavaScript**
-* **F#**
+* [C#](functions-reference-csharp.md)
+* [JavaScript](functions-reference-node.md)
+* [F#](functions-reference-fsharp.md)
 
 ### Experimental languages
 
@@ -56,23 +56,21 @@ The following languages are experimental in v1:
 
 ## Functions v2 runtime (preview)
 
-The [v2 runtime](https://blogs.msdn.microsoft.com/appserviceteam/2017/09/25/develop-azure-functions-on-any-platform/) is currently in preview, so the languages it supports are in preview.
+The [v2 runtime](functions-versions.md) is currently in preview, so the languages it supports are in preview.
 
 ### Preview languages
 
 The following languages are in preview in v2:
 
-* **C#**
-* **JavaScript**
-* [Java](https://azure.microsoft.com/blog/announcing-the-preview-of-java-support-for-azure-functions/).
+* [C#](functions-reference-csharp.md)
+* [JavaScript](functions-reference-node.md)
+* [Java](functions-reference-java.md).
 
-F# will be added to this list later.
+Support for [F#](functions-reference-fsharp.md) will be added later.
 
 ### Experimental languages
  
-No experimental languages are supported in v2. Support will be added only for languages that can scale and support advanced triggers.
-
-There are plans to add Python. In v2, Python will have the same architecture as JavaScript.
+No experimental languages are supported in v2. We decided to add support only for languages that can scale well and support advanced triggers. We're working on a new architecture for Python that will enable it to meet these requirements.
 
 If you want to use one of the experimental languages, you can continue using the v1 runtime, but be aware of the warning mentioned [earlier](#levels-of-support).
 
@@ -86,3 +84,6 @@ If you want to use one of the experimental languages, you can continue using the
 
 > [!div class="nextstepaction"]
 > [Learn more about JavaScript support in Azure Functions](functions-reference-node.md)
+
+> [!div class="nextstepaction"]
+> [Learn more about Java support in Azure Functions](functions-reference-java.md)
