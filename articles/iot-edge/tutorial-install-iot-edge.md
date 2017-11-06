@@ -68,12 +68,9 @@ Use the following steps to install and start the IoT Edge runtime:
 > Remove before merging. During bug bash: Instead of step 1, run the following code:
 >
 > (linux):
-> `wget https://azureiotedgepreview.blob.core.windows.net/shared/preview007-1/azure-iot-edge-ctl-1.0.0rc6.dev6995193.tar.gz`
->
+> `wget https://azureiotedgepreview.blob.core.windows.net/shared/azure-iot-edge-ctl.tar.gz`
 > `tar xvzf azure-iot-edge-ctl-1.0.0rc6.dev6995193.tar.gz`
->
 > `cd azure-iot-edge-ctl-1.0.0rc6.dev6995193`
->
 > `sudo pip install -U .`
 >
 > (windows):
