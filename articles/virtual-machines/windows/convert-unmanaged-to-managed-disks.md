@@ -96,7 +96,7 @@ If the VMs that you want to convert to managed disks are in an availability set,
 ## Troubleshooting
 
 If there is an error during conversion, or if a VM is in a failed state because of issues in a previous conversion, run the `ConvertTo-AzureRmVMManagedDisk` cmdlet again. A simple retry usually unblocks the situation.
-Before conversion from unmanaged to manged disk be sure to check if all the VM extension in 'Provisioning succeeded' state else the conversion will get failed with error code 409. 
+Before converting, make sure all the VM extensions are in the 'Provisioning succeeded' state or the conversion will fail with the error code 409.
 
 
 ## Next steps
