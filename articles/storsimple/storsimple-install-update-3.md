@@ -28,7 +28,7 @@ ms.custom: H1Hack27Feb2017
 
 This tutorial explains how to install Update 3 on a StorSimple device running an earlier software version via the Azure classic portal and using the hotfix method. The hotfix method is used when a gateway is configured on a network interface other than DATA 0 of the StorSimple device and you are trying to update from a pre-Update 1 software version.
 
-Update 3 includes device software, LSI driver and firmware, Storport and Spaceport updates. If updating from Update 2 or an earlier version, you are also required to apply iSCSI, WMI, and in certain cases, disk firmware updates. The device software, WMI, iSCSI, LSI driver, Spaceport, and Storport fixes are non-disruptive updates and can be applied via the Azure classic portal. The disk firmware updates are disruptive updates and can only be applied via the Windows PowerShell interface of the device. 
+Update 3 includes device software, LSI driver and firmware, Storport and Spaceport updates. If updating from Update 2 or an earlier version, you are also required to apply iSCSI, WMI, and in certain cases, disk firmware updates. The device software, WMI, iSCSI, LSI driver, Spaceport, and Storport fixes are non-disruptive updates. These updates can be applied via the Azure classic portal. The disk firmware updates are disruptive updates and can only be applied via the Windows PowerShell interface of the device.
 
 > [!IMPORTANT]
 > * A set of manual and automatic pre-checks are done prior to the install to determine the device health in terms of hardware state and network connectivity. These pre-checks are performed only if you apply the updates from the Azure classic portal.
@@ -47,8 +47,8 @@ Perform the following steps to update your device to [Update 3](storsimple-updat
 [!INCLUDE [storsimple-install-update2-via-portal](../../includes/storsimple-install-update2-via-portal.md)]
 
 Verify that your device is running **StorSimple 8000 Series Update 3 (6.3.9600.17759)**. The **Last updated date** is modified. 
-   - If you are updating from a version prior to Update 2, you see that the Maintenance mode updates are available (this message might continue to be displayed for up to 24 hours after you install the updates).
-     Maintenance mode updates are disruptive updates that result in device downtime and can only be applied via the Windows PowerShell interface of your device. In some cases when you are running Update 1.2, your disk firmware might already be up-to-date and you don't need to install any maintenance mode updates.
+   - If you are updating from a version prior to Update 2, you see that the Maintenance mode updates are available. This message might continue to be displayed for up to 24 hours after you install the updates.
+     Maintenance mode updates are disruptive updates that result in device downtime. These updates can only be applied via the Windows PowerShell interface of your device. In some cases when you are running Update 1.2, your disk firmware might already be up-to-date and you don't need to install any maintenance mode updates.
    - If you are updating from Update 2 or later, your device should now be up-to-date. You can skip the next step.
 
 Download the maintenance mode updates by using the steps listed in [to download hotfixes](#to-download-hotfixes) to search for and download KB3121899, which installs disk firmware updates (the other updates should already be installed by now). Follow the steps listed in [install and verify maintenance mode hotfixes](#to-install-and-verify-maintenance-mode-hotfixes) to install the maintenance mode updates. 
