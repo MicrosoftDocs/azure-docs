@@ -8,17 +8,100 @@ manager: hsalama
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 07/11/2017
+ms.date: 11/04/2017
 ms.author: cahann
 ---
 
 # Prebuilt entities
 
-LUIS includes a set of prebuilt entities. When a prebuilt entity is included in your application, its predictions are included in your published application and can be used in the LUIS web UI to label utterances. The behavior of prebuilt entities **cannot** be modified. Unless otherwise noted, prebuilt entities are available in all LUIS application locales (cultures). The following table shows the prebuilt entities that are supported for each culture.
+LUIS includes a set of prebuilt entities for recognizing common types of information, like dates, times, numbers, measurements and currency. Prebuilt entity support varies by the culture of your LUIS app. For a full list of the prebuilt entities that LUIS supports, including support by culture, see the [prebuilt entity reference](./luis-reference-prebuilt-entities.md).
 
 > [!NOTE]
 > **builtin.datetime** is deprecated. It is replaced by [**built-in.datetimeV2**](#builtindatetimeV2), which provides recognition of date and time ranges, as well as improved recognition of ambiguous dates and times.
 
+## Add a prebuilt entity
+
+1. Open your app by clicking its name on **My Apps** page, and then click **Entities** in the left panel. 
+2. On the **Entities** page, click **Add prebuilt entity**.
+
+    ![Entities Page - Add first entity](./media/luis-use-prebuilt-entity/add-prebuilt-entity-button.png)
+3. In **Add prebuilt entities** dialog box, click the prebuilt entity you want to add (for example, "datetimeV2"). Then click **Save**.
+
+    ![Add prebuilt entity dialog box](./media/luis-use-prebuilt-entity/add-prebuilt-entity-dialog.png)
+
+## Use a prebuilt number entity
+When a prebuilt entity is included in your application, its predictions are included in your published application. 
+The behavior of prebuilt entities is pre-trained and **cannot** be modified. Follow these steps to see how a prebuilt entity works:
+
+1. Add a **number** entity to your app, then [Train](Train-test.md) and [publish](PublishApp.md) the app.
+2. Click on the endpoint URL in the **Publish App** page to open the LUIS endpoint in a web browser. 
+3. Append an utterance to the URL that contains an numerical expression. For example, you can type in `buy two plane ticktets`, and see that LUIS identifies `two` as a `builtin.number` entity, and identifies `2` as its value in the `resolution` field. The `resolution` field helps you resolve numbers and dates to a canonical form that's easier for your client application to use. 
+
+    ![utterance in browser containing a number entity](./media/luis-use-prebuilt-entity/browser-query.png)
+
+LUIS can intelligently recognize numbers that aren't in non standard form. Try out different numerical expressions in your utterances and see what LUIS returns.
+
+The following example shows a JSON response from LUIS, that includes the resolution of the value 24, for the utterance "two dozen".
+
+```json
+{
+  "query": "order two dozen tickets for group travel",
+  "topScoringIntent": {
+    "intent": "BookFlight",
+    "score": 0.905443209
+  },
+  "entities": [
+    {
+      "entity": "two dozen",
+      "type": "builtin.number",
+      "startIndex": 6,
+      "endIndex": 14,
+      "resolution": {
+        "value": "24"
+      }
+    }
+  ]
+}
+```
+## Use a prebuilt datetimeV2 entity
+The **datetimeV2** prebuilt entity recognizes dates, times, date ranges and time durations. Follow these steps to see how the `datetimeV2` prebuilt entity works:
+
+1. Add a **datetimeV2** entity to your app, then [Train](Train-test.md) and [publish](PublishApp.md) the app.
+2. Click on the endpoint URL in the **Publish App** page to open the LUIS endpoint in a web browser. 
+3. Append an utterance to the URL that contains a date range. For example, you can type in `book a flight tomorrow`, and see that LUIS identifies `tomorrow` as a `builtin.datetimeV2.date` entity, and identifies tomorrow's date as its value in the `resolution` field. 
+
+The following example shows what the JSON response from LUIS might look like if today's date were October 31st 2017.
+
+```json
+{
+  "query": "book a flight tomorrow",
+  "topScoringIntent": {
+    "intent": "BookFlight",
+    "score": 0.9063408
+  },
+  "entities": [
+    {
+      "entity": "tomorrow",
+      "type": "builtin.datetimeV2.date",
+      "startIndex": 14,
+      "endIndex": 21,
+      "resolution": {
+        "values": [
+          {
+            "timex": "2017-11-01",
+            "type": "date",
+            "value": "2017-11-01"
+          }
+        ]
+      }
+    }
+  ]
+}
+```
+
+## Next Steps
+Learn more about prebuilt entities in the [prebuilt entity reference](./luis-reference-prebuilt-entities.md).
+<!-- 
 Pre-built entity   |   ```En-us```   |   ```fr-FR```   |   ```it-IT```   |   ```es-ES```   |   ```zh-CN```   |   ```de-DE```   |   ```pt-BR```   |   ```ja-JP```   |   ```ko-kr```
 ------|------|------|------|------|------|------|------|------|------|
 DatetimeV2   |    ✔   |   -   |   -   |   -   |    ✔   |   -   |   -   |   -   |   -   |
@@ -76,55 +159,14 @@ There are many ways in which numeric values are used to quantify, express, and d
 | ```a grade of one point five```| ```"one point five"``` |  ```"1.5"``` |
 | ```buy two dozen eggs```    | ```"two dozen"``` | ```"24"``` |
 
+-->
 
-LUIS includes the recognized value of a **builtin.number** entity in the `resolution` field of the JSON response it returns.
-
-
-The following example shows a JSON response from LUIS, that includes the resolution of the value 24, for the utterance "two dozen".
-
-```
-{
-  "query": "order two dozen eggs",
-  "topScoringIntent": {
-    "intent": "OrderFood",
-    "score": 0.105443209
-  },
-  "intents": [
-    {
-      "intent": "None",
-      "score": 0.105443209
-    },
-    {
-      "intent": "OrderFood",
-      "score": 0.9468431361
-    },
-    {
-      "intent": "Help",
-      "score": 0.000399122015
-    },
-  ],
-  "entities": [
-    {
-      "entity": "two dozen",
-      "type": "builtin.number",
-      "startIndex": 6,
-      "endIndex": 14,
-      "resolution": {
-        "value": "24"
-      }
-    }
-  ]
-}
-```
-
-
+<!-- -
 
 ## Ordinal, percentage, and currency resolution
 
 The **builtin.ordinal**, **builtin.percentage**, and **builtin.currency** entities also provide resolution to a value.
-<!--
-![Image of Pre-built Entities in LUIS](media/number-prebuilt-entities.png)
--->
+
 
 ### Percentage resolution
 
@@ -208,6 +250,7 @@ The following example shows the resolution of the **builtin.ordinal** entity.
   ]
 }
 ```
+
 
 
 ### Currency resolution
@@ -313,7 +356,7 @@ The following is an example of a JSON response containing a builtin.datetimeV2 e
   </td></tr>
 </table>
 
-<!-- 
+
 ### Recognition of date values
 
 The **builtin.datetimeV2** entity's `resolution` field has a `values` array that contains the resolution extracted from the utterance. 
@@ -323,7 +366,7 @@ The **builtin.datetimeV2** entity's `resolution` field has a `values` array that
 | type   | A string indicating the type of entity, for example `builtin.datetimeV2.datetime` |
 | resolution   | Contains a `values` array that has one, two, or four values. <ul><li>The array has one element if the date or time in the utterance is unambiguous.</li><li>The array has two elements if the date or date range is ambiguous as to year, or a time or time range is ambiguous as to AM or PM. In the case of an ambiguous date, `values` contains the most recent past and most immediate future instances of the date. In the case of an ambiguous time, `values` contains both the AM and PM times.</li><li>The array has four elements if the utterance contains both a date or date range that is ambiguous as to year, and a time or time range that is ambiguous as to AM or PM. For example, 3:00 April 3rd.</li></ul><br/>Each element of `values` may contain the following fields: <br/><table><tr><td>timex</td><td>time, date, or date range expressed in TIMEX format that follows the [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601).</td></tr><tr><td>type</td><td>The subtype. For example, `datetime`.</td></tr><tr><td>value </td><td><b>Optional.</b> A datetime object in the Format yyyy:MM:dd  (date), HH:mm:ss (time) yyyy:MM:dd HH:mm:ss (datetime) <br/> This property is present if the entity is recognized as a date or time, but not a date range.</td></tr></table> |
 
--->
+
 
 The **builtin.datetimeV2** supports dates between the following ranges.
 
@@ -514,7 +557,7 @@ Pre-built entity   |   Example utterance   |   JSON
 ## builtin.datetime
 
 <!--The **builtin.datetime** prebuilt entity is aware of the current date and time. In the following examples, the current date is 2017-06-21. Also, the **builtin.datetime** entity provides a resolution field that produces a machine-readable dictionary. -->
-
+<!-- 
 The **builtin.datetime** prebuilt entity is deprecated and replaced by [builtin.datetimeV2](#builtindatetimev2). 
 
 To replace **builtin.datetime** with **builtin.datetimeV2** in your LUIS app, do the following:
@@ -558,14 +601,14 @@ Pre-built entity   |   Example utterance   |   JSON
 ```builtin.datetimeV2.set```    |   ```every tuesday```   |```{ "entity": "every tuesday", "type": "builtin.datetimeV2.set", "resolution": { "values": [{ "timex": "XXXX-WXX-2", "type": "set", "value": "not resolved"}]} }```|   
 ```builtin.datetime.set```    |   every week   |```{ "entity": "every week", "type": "builtin.datetime.set", "resolution": {"time": "XXXX-WXX"} }```|
 ```builtin.datetimeV2.set```    |   every week   |```{ "entity": "every week", "type": "builtin.datetimeV2.set", "resolution": {"time": "XXXX-WXX"} }```|
-
+-->
 <!-- TODO: Verify whether the following are by design 
 builtin.datetime.set    |   every morning   |```{ "type": "builtin.datetime.set", "entity": "every morning", "resolution": {"time": "XXXX-XX-XXTMO"}	}```|
 builtin.datetimeV2.timerange    |   every morning   |```{ "type": "builtin.datetimeV2.timerange", "entity": "morning", "resolution": { "values": [{"timex": "TMO", "type": "timerange", "start": "08:00:00", "end": "12:00:00"}]	} }```|
 
 builtin.datetime.date      |   week of september 30th   |```{ "entity": "week of september 30th", "type": "builtin.datetime.date", "resolution": {"comment": "weekof", "date": "XXXX-09-30"} }```|
 builtin.datetimeV2.date      |   week of september 30th   |```{ "entity": "september 30th", "type": "builtin.datetimeV2.date", "resolution": { "values": [{ "timex": "XXXX-09-30", "type": "date", "value": "2016-09-30" },{"timex": "XXXX-09-30","type": "date", "value": "2017-09-30" }]} }```|
--->
+
 
 ## builtin.geography
 
@@ -705,5 +748,5 @@ Pre-built entity   |   Pre-built entity (sub-types)   |   Example utterance
 ```builtin.encyclopedia.finance.stock_exchange  ```| ``` builtin.encyclopedia.finance.stock_exchange  ```| ``` tokyo stock exchange  ```|
 ```builtin.encyclopedia.film.festival  ```| ``` builtin.encyclopedia.film.festival  ```| ``` berlin international film festival  ```|
 
-
+-->
 
