@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/24/2017
+ms.date: 11/06/2017
 ms.author: vikdesai
 ---
 # Manage Reserved Virtual Machine Instances
@@ -20,7 +20,7 @@ ms.author: vikdesai
 After you buy an Azure Reserved VM Instance, you may want to apply the reservation to a different subscription than the one specified during purchase. Alternatively, if your matching virtual machines are running in multiple subscriptions, you may want to change the reservation scope to shared. To maximize the reservation discount, make sure that number of instances you bought matches the attributes and number of virtual machines that you have running. To learn more about Reserved Virtual Machine Instances, see [Save money by pre-paying for Azure virtual machines](https://go.microsoft.com/fwlink/?linkid=862121).
 
 ## Change scope for a reservation
- Your reservation discount applies to virtual machines that match your reservation and run within the reservation scope. The scope of a reservation can be single subscription or all subscription in your billing context. If you set the scope to single subscription, the reservation is matched to running virtual machines in the selected subscription. Setting scope to shared, matches the reservation to running virtual machines in all subscriptions within the billing context. The billing context is dependent on the subscription used to buy the reservation. To learn more, see [Pre-pay for VMs with Reserved VM Instances](https://go.microsoft.com/fwlink/?linkid=861721).
+ Your reservation discount applies to virtual machines that match your reservation and run within the reservation scope. The scope of a reservation can be single subscription or all subscriptions in your billing context. If you set the scope to single subscription, the reservation is matched to running virtual machines in the selected subscription. If you set the scope to shared, Azure matches the reservation to virtual machines that run in all the subscriptions within the billing context. The billing context is dependent on the subscription used to buy the reservation. To learn more, see [Pre-pay for VMs with Reserved VM Instances](https://go.microsoft.com/fwlink/?linkid=861721).
 
 To update the scope of a reservation: 
 1. Log in to the [Azure portal](https://portal.azure.com).
@@ -64,10 +64,10 @@ You can delegate management of a reservation by adding people to roles on the re
 You can manage access to reservations independently from the subscriptions that get the reservation discount. When you give someone permissions to manage a reservation, that doesn't give them rights to manage the subscription. And if you give someone permissions to manage a subscription within the reservation's scope, that doesn't give them rights to manage the reservation
  
 To delegate access management for a reservation: 
-1.	Log in to the [Azure portal](https://portal.azure.com)
+1.	Log in to the [Azure portal](https://portal.azure.com).
 2.	Select **More Services** > **Reservation** to list reservations that you have access to.
-3.	Select the reservation that you want to delegate access to other users
-4.	Select **Access Control (IAM)** in the menu
+3.	Select the reservation that you want to delegate access to other users.
+4.	Select **Access Control (IAM)** in the menu.
 5.	Select **Add** > **Role** > **Owner** (or a different role if you want to give limited access). 
 6. Type the email address of the user you want to add as Owner. 
 7. Select the user, and then select **Save**.
