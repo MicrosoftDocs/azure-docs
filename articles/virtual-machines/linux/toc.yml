@@ -145,6 +145,8 @@
         href: create-ssh-keys-detailed.md
   - name: Manage VMs
     items:
+    - name: Prepay for VMs - Reserved Instances
+      href: prepay-reserved-vm-instances.md
     - name: Common CLI tasks
       href: cli-manage.md
     - name: Move a VM

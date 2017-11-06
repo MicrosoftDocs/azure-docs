@@ -143,6 +143,8 @@
       href: key-vault-setup.md
   - name: Manage VMs
     items:
+    - name: Prepay for VMs - Reserved Instances
+      href: prepay-reserved-vm-instances.md
     - name: Common PowerShell tasks
       href: ps-common-ref.md
     - name: Move a VM
