@@ -18,7 +18,7 @@ ms.author: genli
 ---
 # How to troubleshoot a problem Azure VM by using nested virtualization in Azure
 
-This article shows how to create a nested virtualization environment in Microsoft Azure, so you can mount the VHD of the problem VM on the Hyper-V Host (Recovery VM) for troubleshooting purpose.
+This article shows how to create a nested virtualization environment in Microsoft Azure, so you can mount the VHD of the problem VM on the Hyper-V host (Recovery VM) for troubleshooting purpose.
 
 ## Prerequisite
 
@@ -34,11 +34,11 @@ To mount the problem VM, the Recovery VM must meet the following prerequisite:
 
 1.  Create a new Recovery VM:
 
-    -  OS: Windows Server 2016 Datacenter
+    -  Operating system: Windows Server 2016 Datacenter
 
-    -  Size: Any V3 series with at least two cores that support nested virtualization.
+    -  Size: Any V3 series with at least two cores that support nested virtualization. For more information, see [Introducing the new Dv3 and Ev3 VM sizes](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/).
 
-    -  Same Location, Storage Account, and Resource Group as the problem VM.
+    -  Same location, Storage Account, and Resource Group as the problem VM.
 
     -  Select the same storage type as the problem VM (Standard or Premium)
 
@@ -66,19 +66,19 @@ To mount the problem VM, the Recovery VM must meet the following prerequisite:
 
 13. Allow the server to install the Hyper-V role. This will take a few minutes and the server will reboot automatically.
 
-## Step 2 Create the problem VM on the recovery VM’s Hyper-V server
+## Step 2 Create the problem VM on the Recovery VM’s Hyper-V server
 
-1.  Delete the problem VM. Make sure that you keep all attached disks.
+1.  Record the name of the disk in the problem VM, and then delete the problem VM. Make sure that you keep all attached disks. 
 
-2.  Attach the OS disk of your problem machine as a data disk of the Recovery VM.
+2.  Attach the OS disk of your problem VM as a data disk of the Recovery VM.
 
-    1.  Once the problem VM is deleted, go to the Recovery VM.
+    1.  After the problem VM is deleted, go to the Recovery VM.
 
-    2.  Select **Disks** and then **Attach Existing**.
+    2.  Select **Disks** and then **Add data disk**.
 
-    3.  Browse to the location of the problem VM’s VHD.
+    3.  Select the problem VM’s VHD.
 
-    4.  Select the problem VMs VHD and click **OK**.
+    4.  Select the problem VMs VHD and select **OK**.
 
 3.  Once the disk has successfully attached, remote desktop to the Recovery VM.
 
@@ -102,13 +102,13 @@ To mount the problem VM, the Recovery VM must meet the following prerequisite:
 
 12. Select **Finish** when the VM is created.
 
-13. Right click on the VM that we just created and select **Settings**.
+13. Right-click the VM that we just created and select **Settings**.
 
 14. Select **IDE Controller 0**, select **Hard Drive**, and then click **Add**.
 
     ![the image about adds new hard drive](./media/troubleshoot-vm-by-use-nested-virtualization/create-new-drive.png)    
 
-15. In **Physical Hard Disk**, select the VHD of the problem VM we attached to the Azure VM. f you do not see any disks listed. Check if the VHD is set to Offline by using Disk management.
+15. In **Physical Hard Disk**, select the VHD of the problem VM that you attached to the Azure VM. If you do not see any disks listed. Check if the VHD is set to Offline by using Disk management.
 
     ![the image about mounts the disk](./media/troubleshoot-vm-by-use-nested-virtualization/mount-disk.png)  
 
@@ -121,9 +121,9 @@ To mount the problem VM, the Recovery VM must meet the following prerequisite:
 
 ## Step 3 Recreate your Azure VM in Azure
 
-1.  Once you get the VM back online shutdown the nested VM in the Hyper-V manager.
+1.  After you get the VM back online, shut down the nested VM in the Hyper-V manager.
 
-2.  Go back to the [Azure portal](https://portal.azure.com) and select the Recovery VM > Disks,  copy the name of the disk. We will use the name in the next step. Detach the Fixed VHD from the recovery VM.
+2.  Go back to the [Azure portal](https://portal.azure.com) and select the Recovery VM > Disks,  copy the name of the disk. You will use the name in the next step. Detach the Fixed VHD from the recovery VM.
 
 3.  Go to **All resources**, search for the disk name, and then select the disk.
 
