@@ -23,7 +23,7 @@ Azure Stack virtual machines can be created through the Azure Stack portal. This
 
 * **A Linux image in the Azure Stack marketplace**
 
-   The Azure Stack marketplace doesn't contain a Linux image by default. So, before you can create a Linux virtual machine, ensure that the Azure Stack operator has downloaded the **Ubuntu Server 16.04 LT** image by using the steps described in the [Download marketplace items from Azure to Azure Stack](../azure-stack-download-azure-marketplace-item.md) topic.
+   The Azure Stack marketplace doesn't contain a Linux image by default. So, before you can create a Linux virtual machine, ensure that the Azure Stack operator has downloaded the **Ubuntu Server 16.04 LTS** image by using the steps described in the [Download marketplace items from Azure to Azure Stack](../azure-stack-download-azure-marketplace-item.md) topic.
 
 * **Access to an SSH client**
 
