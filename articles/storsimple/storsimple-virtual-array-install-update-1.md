@@ -52,7 +52,8 @@ There are two steps when using the local web UI:
 * Download the update or the hotfix
 * Install the update or the hotfix
 
-> [!IMPORTANT] **Proceed with this update only if you are running Update 0.6 (10.0.10293.0). If you are running an earlier version, [Install Update 0.6](storsimple-virtual-array-install-update-06.md) on your device first and then apply Update 1.**
+> [!IMPORTANT] 
+> **Proceed with this update only if you are running Update 0.6 (10.0.10293.0). If you are running an earlier version, [Install Update 0.6](storsimple-virtual-array-install-update-06.md) on your device first and then apply Update 1.**
 
 ### Download the update or the hotfix
 
