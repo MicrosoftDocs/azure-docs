@@ -134,6 +134,19 @@ Push the *aci-tutorial-app* image to the registry with the `docker push` command
 docker push <acrLoginServer>/aci-tutorial-app:v1
 ```
 
+The `push` operation should take a few seconds to a few minutes depending on your Internet connection, and output is similar to the following:
+
+```bash
+The push refers to a repository [mycontainerregistry082.azurecr.io/aci-tutorial-app]
+3db9cac20d49: Pushed
+13f653351004: Pushed
+4cd158165f4d: Pushed
+d8fbd47558a8: Pushed
+44ab46125c35: Pushed
+5bef08742407: Pushed
+v1: digest: sha256:ed67fff971da47175856505585dcd92d1270c3b37543e8afd46014d328f05715 size: 1576
+```
+
 ## List images in Azure Container Registry
 
 To return a list of images that have been pushed to your Azure Container registry, use the [az acr repository list](/cli/azure/acr/repository#list) command. Update the command with the container registry name.
