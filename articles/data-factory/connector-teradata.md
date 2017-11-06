@@ -40,7 +40,7 @@ Specifically, this Teradata connector supports:
 To use this Teradata connector, you need to:
 
 - Set up a Self-hosted Integration Runtime. See [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md) article for details.
-- Install the [.NET Data Provider for Teradata](http://go.microsoft.com/fwlink/?LinkId=278886) version 14 or above on the Integration Runtime machine.
+- Install the [.NET Data Provider for Teradata](http://go.microsoft.com/fwlink/?LinkId=278886) with version between 14 and the latest on the Integration Runtime machine.
 
 ## Getting started
 You can create a pipeline with copy activity using .NET SDK, Python SDK, Azure PowerShell, REST API, or Azure Resource Manager template. See [Copy activity tutorial](quickstart-create-data-factory-dot-net.md) for step-by-step instructions to create a pipeline with a copy activity.
