@@ -85,7 +85,7 @@
         href: ../../hdinsight/spark/apache-spark-overview.md
         maintainContext: true
       - name: Create an Apache Spark cluster in Azure HDInsight
-        href: ../..hdinsight/spark/apache-spark-jupyter-spark-sql.md
+        href: ../../hdinsight/spark/apache-spark-jupyter-spark-sql.md
         maintainContext: true
       - name: PySpark kernals for Jupyter notebook
         href: ../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md
@@ -94,7 +94,7 @@
         href: ../../hdinsight/r-server/r-server-overview.md
         maintainContext: true
       - name: Get started using R Server on HDInsight
-        href: ../..hdinsight/r-server/r-server-get-started.md
+        href: ../../hdinsight/r-server/r-server-get-started.md
         maintainContext: true
     - name: Azure Machine Learning workspace
       href: ../studio/create-workspace.md
