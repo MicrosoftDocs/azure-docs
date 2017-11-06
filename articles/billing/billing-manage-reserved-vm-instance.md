@@ -1,7 +1,7 @@
 ---
 title: Manage Azure Reserved Virtual Machine Instances | Microsoft Docs
 description: Learn how you can change subscription scope and manage access for Azure Reserved VM Instances. 
-services: ''
+services: billing
 documentationcenter: ''
 author: vikramdesai01
 manager: vikramdesai01
