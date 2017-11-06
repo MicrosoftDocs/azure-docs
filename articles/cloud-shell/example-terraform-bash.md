@@ -54,6 +54,9 @@ Begin by running terraform init.
 ```azurecli-interactive
 terraform init
 ```
+
+![tf init](media/example-terraform-bash/terraform-init.png)
+
 The [terraform init command](https://www.terraform.io/docs/commands/init.html) is used to initialize a working directory containing Terraform configuration files. The `terraform init` command is the first command that should be run after writing a new Terraform configuration or cloning an existing one from version control. It is safe to run this command multiple times.
 
 ## Terraform plan
@@ -62,6 +65,7 @@ Preview the resources to be created by the Terraform template.
 ```azurecli-interactive
 terraform plan
 ```
+![tf plan](media/example-terraform-bash/terraform-plan.png)
 
 The [terraform plan command](https://www.terraform.io/docs/commands/plan.html) is used to create an execution plan. Terraform performs a refresh, unless explicitly disabled, and then determines what actions are necessary to achieve the desired state specified in the configuration files. The plan can be saved using -out, and then provided to terraform apply to ensure only the pre-planned actions are executed.
 
@@ -71,6 +75,8 @@ Provision the Azure resources with the apply command.
 ```azurecli-interactive
 terraform apply
 ```
+
+![tf apply](media/example-terraform-bash/terraform-apply.png)
 
 The [terraform apply command](https://www.terraform.io/docs/commands/apply.html) is used to apply the changes required to reach the desired state of the configuration.
 
