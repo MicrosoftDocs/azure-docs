@@ -32,7 +32,7 @@ Service Fabric does not run natively on OS X. To run a local Service Fabric clus
 
 * At least 4 GB RAM
 * Latest version of [Docker](https://www.docker.com/)
-* Access to Service Fabric Onebox Docker container [image](https://hub.docker.com/r/servicefabricoss/service-fabric-onebox/)
+* Access to Service Fabric One-box Docker container [image](https://hub.docker.com/r/servicefabricoss/service-fabric-onebox/)
 
 >[!TIP]
 > * You can follow the steps mentioned in the official Docker [documentation](https://docs.docker.com/docker-for-mac/install/#what-to-know-before-you-install) to install Docker on your Mac. 
@@ -48,7 +48,7 @@ To setup a local Docker container and have a service fabric cluster running on i
     docker pull servicefabricoss/service-fabric-onebox
     ```
 
-2. Start a Service Fabric Onebox container instance with the image:
+2. Start a Service Fabric One-box container instance with the image:
 
     ```bash
     docker run -itd -p 19080:19080 --name sfonebox servicefabricoss/service-fabric-onebox
@@ -75,13 +75,13 @@ To setup a local Docker container and have a service fabric cluster running on i
 ## Set up the Service Fabric CLI (sfctl) on your Mac
 
 Follow the instructions at [Service Fabric CLI](service-fabric-cli.md#cli-mac) to install the Service Fabric CLI (`sfctl`) on your Mac.
-The CLI commands for interacting with Service Fabric entities, including clusters, applications and services.
+The CLI commands for interacting with Service Fabric entities, including clusters, applications, and services.
 
-## Create application on you Mac using Yeoman
+## Create application on your Mac using Yeoman
 
-Service Fabric provides scaffolding tools, which will help you create a Service Fabric application from terminal using Yeoman template generator. Follow the steps below to ensure you have the Service Fabric yeoman template generator working on your machine.
+Service Fabric provides scaffolding tools, which helps you create a Service Fabric application from terminal using Yeoman template generator. Follow the steps below to ensure you have the Service Fabric yeoman template generator working on your machine.
 
-1. You need to have Node.js and NPM installed on you Mac. If not you can install Node.js and NPM using Homebrew using the following step. To check the versions of Node.js and NPM installed on your Mac, you can use the ``-v`` option.
+1. You need to have Node.js and NPM installed on your Mac. If not, you can install Node.js and NPM using Homebrew using the following step. To check the versions of Node.js and NPM installed on your Mac, you can use the ``-v`` option.
 
     ```bash
     brew install node
@@ -100,7 +100,7 @@ Service Fabric provides scaffolding tools, which will help you create a Service 
     npm install -g generator-azuresfguest      # for Service Fabric Guest executables
     npm install -g generator-azuresfcontainer  # for Service Fabric Container Applications
     ```
-4. To build a Service Fabric Java application on Mac, you would need - JDK 1.8 and Gradle installed on the host machine. If it is not there already you can install it using [HomeBrew](https://brew.sh/). 
+4. To build a Service Fabric Java application on Mac, you would need - JDK 1.8 and Gradle installed on the host machine. If it is not there already, you can install it using [HomeBrew](https://brew.sh/). 
 
     ```bash
     brew update
@@ -143,7 +143,7 @@ where ``/Users/sayantan/work/workspaces/mySFWorkspace`` is the fully qualified p
 
 > [!NOTE]
 >1. If your workspace name/path is different, update the same accordingly in the ``docker run`` command above.
->2. If you start the container with a differernt name other than ``sfonebox``, please update the same in the ``testclient.sh`` file in your Service Fabric actor Java application.
+>2. If you start the container with a different name other than ``sfonebox``, please update the same in the ``testclient.sh`` file in your Service Fabric actor Java application.
 
 ## Next steps
 <!-- Links -->
