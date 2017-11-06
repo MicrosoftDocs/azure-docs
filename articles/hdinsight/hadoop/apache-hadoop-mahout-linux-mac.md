@@ -15,7 +15,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 11/06/2017
 ms.author: larryfr
 
 ---
@@ -56,9 +56,9 @@ The following workflow is a simplified example that uses movie data:
 
 Conveniently, [GroupLens Research][movielens] provides rating data for movies in a format that is compatible with Mahout. This data is available on your cluster's default storage at `/HdiSamples/HdiSamples/MahoutMovieData`.
 
-There are two files, `moviedb.txt` and `user-ratings.txt`. The user-ratings.txt file is used during analysis, while moviedb.txt is used to provide user-friendly text information when displaying the results of the analysis.
+There are two files, `moviedb.txt` and `user-ratings.txt`. The `user-ratings.txt` file is used during analysis. The `moviedb.txt` is used to provide user-friendly text information when viewing the results.
 
-The data contained in user-ratings.txt has a structure of `userID`, `movieID`, `userRating`, and `timestamp`, which tells us how highly each user rated a movie. Here is an example of the data:
+The data contained in user-ratings.txt has a structure of `userID`, `movieID`, `userRating`, and `timestamp`, which indicates how highly each user rated a movie. Here is an example of the data:
 
     196    242    3    881250949
     186    302    3    891717742
@@ -94,7 +94,7 @@ mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/M
 
     The first column is the `userID`. The values contained in '[' and ']' are `movieId`:`recommendationScore`.
 
-2. You can use the output, along with the moviedb.txt, to provide more information on the recommendations. First, we need to copy the files locally using the following commands:
+2. You can use the output, along with the moviedb.txt, to provide more information on the recommendations. First, copy the files locally using the following commands:
 
     ```bash
     hdfs dfs -get /example/data/mahoutout/part-r-00000 recommendations.txt
