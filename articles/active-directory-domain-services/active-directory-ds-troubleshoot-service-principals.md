@@ -19,7 +19,7 @@ ms.author: ergreenl
 ---
 # Azure AD Domain Services - Troubleshooting Service Principal Configuration
 
-To service, manage, and update your domain, Microsoft uses various [Service Principals](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-application-objects) to communicate with your tenant. If one is misconfigured or deleted, it can cause a disruption in your service. To troubleshoot when a Service Principal is deleted, please choose the ID below that matches your Service Principal's ID.
+To service, manage, and update your domain, Microsoft uses various [Service Principals](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-application-objects) to communicate with your tenant. If one is misconfigured or deleted, it can cause a disruption in your service. To troubleshoot when a Service Principal is deleted, choose the ID  in the preceding table that matches your Service Principal's ID.
 
 | ID Number | Solution |
 | :-------- | :------- |
@@ -34,9 +34,9 @@ To service, manage, and update your domain, Microsoft uses various [Service Prin
 
 *For IDs: id1, id2, and id3*
 
-You will need Azure AD PowerShell to complete these steps. For information on installing Azure AD PowerShell, see [this article](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.).
+You need Azure AD PowerShell to complete these steps. For information on installing Azure AD PowerShell, see [this article](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.).
 
-Type the following commands in a PowerShell window to address this issue:
+To address this issue, type the following commands in a PowerShell window:
 1. Install-Module AzureAD
 2. Import-Module AzureAD
 3. Check whether the service principal required for Azure AD Domain Services is missing in your tenant by executing the following PowerShell command:
@@ -55,25 +55,25 @@ After you have created the missing Service Principal, check your domain's health
 
 *For IDs: id7 and id8*
 
-Follow the steps below to restore Domain Services on your tenant:
+Use the following steps to restore Domain Services on your tenant:
 
 1. Travel and login to the Azure Portal (https://portal.azure.com)
 
-2. Click on **Azure Active Directory** in the left-hand navigation blade
+2. Click on **Azure Active Directory** in the left-hand navigation
 
 3. Click on **Enterprise Application** in the Azure Active Directory navigation.
 
 4. Navigate to **All Applications** using the navigation panel.
 
-5. In the All Applications blade, filter the applications to show *Microsoft Applications* using the Show filter. Click **Apply**.
+5. In the All Applications list, filter the applications to show *Microsoft Applications* using the Show filter. Click **Apply**.
 
 6. Search for the application with the ID xxxxxxxxxxxx and click on the row to take you to that application's overview.
 
 7. Click **Properties**.
 
-8. Check to see if you have disabled the toggle that says "Enable for users to sign-in?".
+8. Check to see if you have disabled the toggle that says "Enable for users to sign-in?."
 
-5. Re-enable the application by toggling to "Yes".
+5. Re-enable the application by toggling to "Yes."
 
 6. Re-enable Azure AD Domain Services.
 
@@ -83,7 +83,7 @@ Follow the steps below to restore Domain Services on your tenant:
 
 *For IDs: id4, id5, and id6*
 
-Microsoft can identify when specific Service Principals are missing, misconfigured, or deleted. To remedy this quickly, Microsoft will recreate the Service Principals itself.
+Microsoft can identify when specific Service Principals are missing, misconfigured, or deleted. To remedy the service quickly, Microsoft will recreate the Service Principals itself.
 
 ## Contact Us
 Contact the Azure Active Directory Domain Services product team to [share feedback or for support](active-directory-ds-contact-us.md).
