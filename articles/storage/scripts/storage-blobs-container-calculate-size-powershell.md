@@ -57,22 +57,22 @@ The following calculations show how to estimate the amount of storage consumed p
 
 * Block blob (base blob or snapshot):
 
-`
-124 bytes + Len(BlobName) * 2 bytes +
-For-Each Metadata[3 bytes + Len(MetadataName) + Len(Value)] +
-8 bytes + number of committed and uncommitted blocks * Block ID Size in bytes +
-SizeInBytes(data in unique committed data blocks stored) +
-SizeInBytes(data in uncommitted data blocks)
-`
+   `
+   124 bytes + Len(BlobName) * 2 bytes +
+   For-Each Metadata[3 bytes + Len(MetadataName) + Len(Value)] +
+   8 bytes + number of committed and uncommitted blocks * Block ID Size in bytes +
+   SizeInBytes(data in unique committed data blocks stored) +
+   SizeInBytes(data in uncommitted data blocks)
+   `
 
 * Page blob (base blob or snapshot):
 
-`
-124 bytes + Len(BlobName) * 2 bytes +
-For-Each Metadata[3 bytes + Len(MetadataName) + Len(Value)] +
-number of nonconsecutive page ranges with data * 12 bytes +
-SizeInBytes(data in unique pages stored)
-`
+   `
+   124 bytes + Len(BlobName) * 2 bytes +
+   For-Each Metadata[3 bytes + Len(MetadataName) + Len(Value)] +
+   number of nonconsecutive page ranges with data * 12 bytes +
+   SizeInBytes(data in unique pages stored)
+   `
 
 Following is the breakdown:
 
@@ -99,7 +99,7 @@ Following is the breakdown:
     * The size of the data in all of the committed and uncommitted blocks. 
     
     >[!NOTE]
-    >When snapshots are used, this size  includes only the unique data for this base or snapshot blob. If the uncommitted blocks are not used after a week, they are garbage-collected. After that, they don't count towards billing.
+    >When snapshots are used, this size  includes only the unique data for this base or snapshot blob. If the uncommitted blocks are not used after a week, they are garbage-collected. After that, they don't count toward billing.
 
 * For page blobs:
     * The number of nonconsecutive page ranges with data times 12 bytes. This is the number of unique page ranges you see when calling the **GetPageRanges** API.
@@ -115,8 +115,8 @@ Following is the breakdown:
 
 ## Next steps
 
-- For more information about  Azure Storage Billing, see [Understanding Windows Azure Storage Billing](https://blogs.msdn.microsoft.com/windowsazurestorage/2010/07/08/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity/).
+- For more information about Azure Storage billing, see [Understanding Windows Azure Storage Billing](https://blogs.msdn.microsoft.com/windowsazurestorage/2010/07/08/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity/).
 
 - For more information about the Azure PowerShell module, see [Azure PowerShell documentation](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azurermps-4.4.1).
 
-- Additional Storage PowerShell script samples can be found in [PowerShell samples for Azure Storage](../blobs/storage-samples-blobs-powershell.md).
+- You can find additional Storage PowerShell script samples in [PowerShell samples for Azure Storage](../blobs/storage-samples-blobs-powershell.md).
