@@ -64,7 +64,7 @@ To mount the problem VM, the Recovery VM must meet the following prerequisite:
 
 12. Select **Install**.
 
-13. Allow the server to install the Hyper-V role. This will take a few minutes and the server will reboot automatically.
+13. Allow the server to install the Hyper-V role. This takes a few minutes and the server will reboot automatically.
 
 ## Step 2 Create the problem VM on the Recovery VM’s Hyper-V server
 
@@ -100,7 +100,7 @@ To mount the problem VM, the Recovery VM must meet the following prerequisite:
 
 12. Select **Finish** when the VM is created.
 
-13. Right-click the VM that you just created, and then select **Settings**.
+13. Right-click the VM that you created, and then select **Settings**.
 
 14. Select **IDE Controller 0**, select **Hard Drive**, and then click **Add**.
 
