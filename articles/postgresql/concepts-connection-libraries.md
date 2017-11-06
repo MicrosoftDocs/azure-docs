@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 09/26/2017
 ---
 # Connection libraries for Azure Database for PostgreSQL
-This topic lists libraries and drivers that developers can use to program applications to connect to and query Azure Database for PostgreSQL.
+This topic lists libraries and drivers that developers can use to develop applications to connect to and query Azure Database for PostgreSQL.
 
 ## Client interfaces
 Most language client libraries used to connect to PostgreSQL server are external projects and are distributed independently. These are supported on the Windows, Linux, and Mac platforms. Some of the popular client drivers are listed in the following table:
