@@ -47,12 +47,14 @@ The following languages have GA status in v1:
 
 The following languages are experimental in v1:
 
-* **Python** - Does not scale well under load because an instance of *python.exe* is launched on every function invocation. Also, Python in v1 has poor support for Functions bindings and can't access the HTTP request object.
-* **PHP** - Works the same way as Python, so the same comment about scaling applies.
-* **PowerShell** - The VMs that Function apps run on have PowerShell 4.0 installed. There is no plan to upgrade the PowerShell version.
+* **Python**
+* **PHP**
+* **PowerShell**
 * **Batch (.cmd, .bat)**
 * **TypeScript** 
 * **Bash**
+
+Functions that use these languages don't scale well and don't support all bindings. For example, Python is slow because the Functions runtime runs *python.exe* with each function invocation. And while Python supports HTTP bindings, it can't access the request object. PowerShell is limited to version 4.0 because that is what's installed on the VMs that Function apps run on
 
 ## Functions v2 runtime (preview)
 
