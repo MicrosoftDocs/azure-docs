@@ -12,8 +12,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/22/2017
-ms.author: jonatul
+ms.date: 11/06/2017
+ms.author: subsarma
 ---
 
 # Azure DNS FAQ
