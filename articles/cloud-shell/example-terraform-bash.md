@@ -20,9 +20,9 @@ This article walks you through creating a resource group with the [Terraform Azu
 [Hashicorp Terraform](https://www.terraform.io/) is an open source tool that codifies APIs into declarative configuration files that can be shared amongst team members, treated as code, edited, reviewed, and versioned. The Microsoft AzureRM provider is used to interact with the many resources supported by Azure Resource Manager via the AzureRM APIs. 
 
 # Terraform and Cloud Shell
-Terraform is installed in Bash in Cloud Shell by default and automatically authenticates you to deploy resources through the Terraform Azure modules. Your default subscription selected for Azure CLI 2.0 is used to run commands with Terraform.
+Terraform is installed in Bash in Cloud Shell by default. Additionally, Cloud Shell automatically authenticates your default Azure CLI 2.0 subscription to deploy resources through the Terraform Azure modules.
 
-Terraform uses the default Azure CLI 2.0 subscription that is set. If you need to change subscriptions to deploy from Terraform with, run: 
+Terraform uses the default Azure CLI 2.0 subscription that is set. If you need to update default subscriptions run:
 ```azurecli-interactive
 az account set --subscription mySubscriptionName
 ```
@@ -50,7 +50,7 @@ Begin by running terraform init.
 ```azurecli-interactive
 terraform init
 ```
-The [terraform init command](https://www.terraform.io/docs/commands/init.html) is used to initialize a working directory containing Terraform configuration files. This is the first command that should be run after writing a new Terraform configuration or cloning an existing one from version control. It is safe to run this command multiple times.
+The [terraform init command](https://www.terraform.io/docs/commands/init.html) is used to initialize a working directory containing Terraform configuration files. The `terraform init` command is the first command that should be run after writing a new Terraform configuration or cloning an existing one from version control. It is safe to run this command multiple times.
 
 ## Terraform plan
 Preview the resources to be created by the Terraform template.
@@ -71,10 +71,10 @@ terraform apply
 The [terraform apply command](https://www.terraform.io/docs/commands/apply.html) is used to apply the changes required to reach the desired state of the configuration.
 
 ## Verify deployment with Azure CLI 2.0
-Run `az group show -n myRgName` to verify the resources has suceeded provisioning.
+Run `az group show -n myRgName` to verify the resources has succeeded provisioning.
 
 ## Clean up
-Run `az group delete -n myRgName` to delete the resource group you just created.
+Run `az group delete -n myRgName` to delete the resource group you created.
 
 ## Next Steps
 [Learn about the Terraform Azure provider](https://www.terraform.io/docs/providers/azurerm/#)<br>
