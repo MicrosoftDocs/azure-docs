@@ -71,6 +71,8 @@
         href: connector-azure-cosmos-db.md
       - name: Azure Data Lake Store
         href: connector-azure-data-lake-store.md
+      - name: Azure File Storage
+        href: connector-azure-file-storage.md
       - name: Azure Search
         href: connector-azure-search.md
       - name: Azure SQL Database
@@ -188,8 +190,8 @@
       href: encrypt-credentials-self-hosted-integration-runtime.md
   - name: Monitor and manage
     items: 
-    - name: Use .NET
-      href: quickstart-create-data-factory-dot-net.md#monitor-pipeline-run
+    - name: Use SDKs
+      href: monitor-programmatically.md
     - name: Use Azure Monitor
       href: monitor-using-azure-monitor.md
     - name: Monitor visually

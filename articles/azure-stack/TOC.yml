@@ -24,10 +24,16 @@
   - name: Servicing policy
     href: azure-stack-servicing-policy.md
   - name: Release notes
-    href: azure-stack-asdk-release-notes.md
+    items:
+    - name: Development kit release notes
+      href: azure-stack-asdk-release-notes.md
+    - name: Integrated systems release notes
+      items:  
+      - name: 1710 update
+        href: azure-stack-update-1710.md  
   - name: Key features and concepts
     href: azure-stack-key-features.md
-  - name: Azure Stack Development Kit architecture
+  - name: Development kit architecture
     href: azure-stack-architecture.md
   - name: Administration basics
     href: azure-stack-manage-basics.md

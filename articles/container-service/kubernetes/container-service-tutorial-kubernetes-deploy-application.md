@@ -22,6 +22,8 @@ ms.custom: mvc
 
 # Run applications in Kubernetes
 
+[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+
 In this tutorial, part four of seven, a sample application is deployed into a Kubernetes cluster. Steps completed include:
 
 > [!div class="checklist"]

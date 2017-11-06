@@ -12,7 +12,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
-ms.author: bwren
+ms.author: mbullwin
 
 ---
 # Metric telemetry: Application Insights data model

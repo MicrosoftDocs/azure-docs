@@ -12,14 +12,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 11/02/2017
 ms.author: jingwang
 
 ---
 # Copy data from Dynamics 365/Dynamics CRM using Azure Data Factory
+
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from Dynamics 365/Dynamics CRM. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
-## Supported scenarios
+> [!NOTE]
+> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Copy Activity in V1](v1/data-factory-data-movement-activities.md).
+
+## Supported capabilities
 
 You can copy data from Dynamics 365/Dynamics CRM to any supported sink data store. For a list of data stores supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
@@ -36,6 +40,7 @@ Specifically, this Dynamics connector supports below Dynamics versions and authe
 > To use Dynamics connector, store your password in Azure Key Vault and let ADF copy acitivty pull from there when performing data copy. See how to configure in [linked service properties](#linked-service-properties) section.
 
 ## Getting started
+
 You can create a pipeline with copy activity using .NET SDK, Python SDK, Azure PowerShell, REST API, or Azure Resource Manager template. See [Copy activity tutorial](quickstart-create-data-factory-dot-net.md) for step-by-step instructions to create a pipeline with a copy activity.
 
 The following sections provide details about properties that are used to define Data Factory entities specific to Dynamics.

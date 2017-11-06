@@ -4,7 +4,7 @@ description: An On-premises gateway is necessary if your Analysis Services serve
 services: analysis-services
 documentationcenter: ''
 author: minewiskan
-manager: erikre
+manager: kfile
 editor: ''
 tags: ''
 
@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 10/11/2017
+ms.date: 10/30/2017
 ms.author: owend
 
 ---
@@ -136,6 +136,9 @@ This proximity minimizes latency and avoids egress charges on the Azure VM.
 **Q**: Can the gateway Windows service run with an Azure Active Directory account? <br/>
 **A**: No. The Windows service must have a valid Windows account. By default, 
 the service runs with the Service SID, NT SERVICE\PBIEgwService.
+
+**Q**: How do I takeover a gateway? <br/>
+**A**: In order to takeover a gateway (by running Setup/Change in Control Panel > Programs) you need to be an Owner for the gateway resource in Azure and have the recovery key. Gateway resource Owners are configurable in Access Control.
 
 ### <a name="high-availability"></a>High availability and disaster recovery
 
