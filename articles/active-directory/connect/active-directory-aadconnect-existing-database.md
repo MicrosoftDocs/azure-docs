@@ -39,8 +39,8 @@ These benefits are useful in the following scenarios:
 
 Important notes to take note of before you proceed:
 
-
 - Make sure to review the pre-requisites for installing Azure AD Connect at Hardware and prerequisites, and account and permissions required for installing Azure AD Connect. The permissions required for installing Azure AD Connect using “use existing database” mode is the same as “custom” installation.
+- Deploying Azure AD Connect against an existing ADSync database is only supported with full SQL. You cannot use SQL Express LocalDB for this. If you have an existing ADSync database in LocalDB that you wish to use, you must first backup the ADSync database (LocalDB) and restore it to full SQL. After which, you can deploy Azure AD Connect against the restored database using this method.
 - The version of the Azure AD Connect used for installation must satisfy the following criteria:
 	- 1.1.613.0 or above, AND
 	- Same or higher than the version of the Azure AD Connect last used with the ADSync database. If the Azure AD Connect version used for installation is higher than the version last used with the ADSync database, then a full sync may be required.  This is required if there are schema or sync rule changes between the two versions. 
