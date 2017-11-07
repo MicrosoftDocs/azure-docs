@@ -59,7 +59,7 @@
     href: site-recovery-support-matrix-to-sec-site.md
   - name: Disaster recovery for workloads
     href: site-recovery-workload.md
-  - name: Migration with Azure Site Recovery
+  - name: Migration to Azure
     href: site-recovery-migrate-to-azure.md
   - name: Role-based access permissions
     href: site-recovery-role-based-linked-access-control.md
