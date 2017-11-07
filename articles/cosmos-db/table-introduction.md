@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/01/2017
+ms.date: 11/02/2017
 ms.author: arramac
 
 ---
@@ -27,9 +27,9 @@ ms.author: arramac
 * Guaranteed high availability.
 * [Automatic secondary indexing](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
 
-These applications can migrate to Azure Cosmos DB by using the Table API with no code changes and take advantage of premium capabilities. The Table API is available for .NET and Python.
+Applications written for Azure Table storage can migrate to Azure Cosmos DB by using the Table API with no code changes and take advantage of premium capabilities. The Table API has one client SDK available for .NET.
 
-We recommend that you watch the following video, where Aravind Ramachandran explains how to get started with the Table API for Azure Cosmos DB:
+We recommend that you watch the following video, where Aravind Ramachandran explains how to get started with the Azure Cosmos DB Table API:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Table-API-for-Azure-Cosmos-DB/player]
 > 
@@ -38,7 +38,7 @@ We recommend that you watch the following video, where Aravind Ramachandran expl
 ## Table offerings
 If you currently use Azure Table Storage, you gain the following benefits by moving to the Azure Cosmos DB Table API (preview):
 
-| | Azure Table Storage | Azure Cosmos DB Table API (preview) |
+| | Azure Table storage | Azure Cosmos DB Table API (preview) |
 | --- | --- | --- |
 | Latency | Fast, but no upper bounds on latency. | Single-digit millisecond latency for reads and writes, backed with <10-ms latency reads and <15-ms latency writes at the 99th percentile, at any scale, anywhere in the world. |
 | Throughput | Variable throughput model. Tables have a scalability limit of 20,000 operations/s. | Highly scalable with [dedicated reserved throughput per table](request-units.md) that's backed by SLAs. Accounts have no upper limit on throughput and support >10 million operations/s per table. |
@@ -61,5 +61,5 @@ Here are a few pointers to get you started:
 * [Query table data by using the Table API](tutorial-query-table.md)
 * [Learn how to set up Azure Cosmos DB global distribution by using the Table API](tutorial-global-distribution-table.md)
 * [Azure Cosmos DB Table .NET API](table-sdk-dotnet.md)
-* [Azure Cosmos DB Table SDK for Python](table-sdk-python.md)
+
 
