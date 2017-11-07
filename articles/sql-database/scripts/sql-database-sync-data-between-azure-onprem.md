@@ -187,7 +187,7 @@ $IsSucceeded = $false
 While ($IsSucceeded -eq $false)
 {
     Start-Sleep -s 10
-    $timer=$timer+1
+    $timer=$timer+10
     $Details = Get-AzureRmSqlSyncSchema -SyncGroupName $SyncGroupName -ServerName $ServerName -DatabaseName $DatabaseName -ResourceGroupName $ResourceGroupName
     if ($Details.LastUpdateTime -gt $StartTime)
       {
