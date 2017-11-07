@@ -114,7 +114,7 @@ Like other telemetry, **performanceCounters** also has a column `cloud_RoleInsta
 * *Exceptions* is a count of the TrackException reports received by the portal in the sampling interval of the chart. It includes only the handled exceptions where you have written TrackException calls in your code, and doesn't include all [unhandled exceptions](app-insights-asp-net-exceptions.md). 
 
 ## Performance Counters in Asp.Net Core Applications
-Performance counters are supported only if the application is targetting the full .NET Framework. There is no ability to collect Performance counters for .Net Core applications.
+Performance counters are supported only if the application is targeting the full .NET Framework. There is no ability to collect Performance counters for .Net Core applications.
 
 ## Alerts
 Like other metrics, you can [set an alert](app-insights-alerts.md) to warn you if a performance counter goes outside a limit you specify. Open the Alerts blade and click Add Alert.
