@@ -159,6 +159,12 @@
 ### [Process with video thumbnails](media-services-video-summarization.md)
 ### [Process with OCR](media-services-video-optical-character-recognition.md)
 
+## [Create clips](media-services-azure-media-clipper-overview.md)
+### [Get started with Azure Media Clipper](media-services-azure-media-clipper-getting-started.md)
+### [Load assets into Azure Media Clipper](media-services-azure-media-clipper-load-assets.md)
+### [Configure custom keyboard shortcuts](media-services-azure-media-clipper-keyboard-shortcuts.md)
+### [Submit clipping jobs](media-services-azure-media-clipper-submit-job.md)
+
 ## [Configure telemetry](media-services-telemetry-overview.md)
 ###[.NET](media-services-dotnet-telemetry.md)
 ###[REST](media-services-rest-telemetry.md)
