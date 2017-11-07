@@ -27,7 +27,7 @@ Databricks is developed by the people who created Apache Spark, the processing e
 
 ## Why use Azure Databricks?
 
-Azure Databricks incorporates many features that handle the operational tasks of your Spark deployments with minimal guidance from your data engineers and data scientists. By simplifying the operational management of your Spark clusters, teams can focus on building data products instead of maintaining infrastructure and managing operations.
+Azure Databricks incorporates features that handle the operational tasks of your Spark deployments with minimal guidance from data engineers and data scientists. By simplifying the operational management of your Spark clusters, teams can focus on building data products instead of maintaining infrastructure and managing operations.
 
 ### Productivity
 
@@ -44,7 +44,7 @@ Azure Databricks enables you to spend less time processing data and more time de
 Azure Databricks offers unmatched support and security for your data and analytics, complying with even the most rigorous enterprise SLAs. You can use built-in rich Azure Active Directory integration to build greater security into your solution. You can also enable users to be more productive with fine-grained user permissions through Azure Databricks rules-based access.
 
 * **Encryption**: Provides strong encryption at rest and in flight with standards compliance, including SSL. 
-* **Integrated Identity Management**: Facilitates seamless integration with Azure Active Directory.
+* **Integrated Identity Management**: Facilitates integration with Azure Active Directory.
 * **Role-Based Access Control**: Enables fine-grain management access to every component of the enterprise data infrastructure, including files, clusters, code, application deployments, dashboards, and reports. 
 * **Data Governance**: Provides the ability to monitor and audit all actions taken in every aspect of the enterprise data infrastructure.
 * **Compliance Standards**: Databricks has SOC 2 Type 1 certification and can offer a HIPAA-compliant service.
@@ -54,26 +54,26 @@ Azure Databricks offers unmatched support and security for your data and analyti
 
 Azure Databricks offers a highly secure and reliable production Spark environment in the cloud. 
 
-* Powerful cluster management capabilities enables you to create new clusters in seconds, dynamically scale them up and down, and share them across teams. 
+* Powerful cluster management capabilities enable you to create new clusters in seconds, dynamically scale them up and down, and share them across teams. 
 * Intuitive interfaces enable your teams to use Spark with Power BI and other traditional BI tools, or programmatically use the clusters via restful APIs. 
 * Secure data integration capabilities built on top of Spark so you can unify your data without centralization. 
 * Instant access to the latest Spark features with each release
 
 ### Integrated workspace
 
-Through a collaborative and integrated environment, Azure Databricks streamlines the process of exploring data, prototyping, and operationalizing data-driven applications in Spark. 
+Through a collaborative and integrated environment, Azure Databricks streamlines the process of exploring data, prototyping, and running data-driven applications in Spark. 
 
 * Easy data exploration allows teams to determine what the data lets you do.
 * Document your progress in notebooks--in R, Python, Scala, or SQL.
 * Visualize data in just a few clicks, and use familiar tools like matplotlib, ggoplot, or d3.
-* Interactive dashboards empower teams to create dynamic reports.
+* Interactive dashboards enable teams to create dynamic reports.
 * Teams can easily use Spark and interact with the data simultaneously.
 
 ### Custom Spark applications
-Azure Databricks provides a flexible job scheduler that enables a seamless transition from prototyping to production deployment without incremental work. 
+Azure Databricks provides a flexible job scheduler that enables transition from prototyping to production deployment without incremental work. 
 
 * Monitor progress through custom alerts for job completion and failure, and easily view historical and in-progress results. 
-* Enable production deployments, especially long-running applications such as streaming, to be automatically re-launched whenever a failure happens.
+* Enable production deployments, especially long-running applications such as streaming, to be automatically relaunched whenever a failure happens.
 * Run notebooks as Spark jobs.
 
 ## Next steps
