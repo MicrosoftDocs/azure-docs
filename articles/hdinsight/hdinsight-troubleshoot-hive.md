@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/7/2017
+ms.date: 11/2/2017
 ms.author: dharmeshkakadia
 
 ---
@@ -24,7 +24,7 @@ ms.author: dharmeshkakadia
 Learn about the top questions and their resolutions when working with Apache Hive payloads in Apache Ambari.
 
 
-## How do I export a Hive metastore and import it on another cluster
+## How do I export a Hive metastore and import it on another cluster?
 
 
 ### Resolution steps
@@ -52,7 +52,7 @@ The code in the resolution steps assumes that data paths on the new cluster are 
 - [Connect to an HDInsight cluster by using SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 
-## How do I locate Hive logs on a cluster
+## How do I locate Hive logs on a cluster?
 
 ### Resolution steps
 
@@ -81,7 +81,7 @@ The code in the resolution steps assumes that data paths on the new cluster are 
 - [Connect to an HDInsight cluster by using SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 
-## How do I launch the Hive shell with specific configurations on a cluster
+## How do I launch the Hive shell with specific configurations on a cluster?
 
 ### Resolution steps
 
@@ -108,7 +108,7 @@ The code in the resolution steps assumes that data paths on the new cluster are 
 - [Hive configuration properties](https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties)
 
 
-## <a name="how-do-i-analyze-tez-dag-data-on-a-cluster-critical-path"></a>How do I analyze Tez DAG data on a cluster-critical path
+## <a name="how-do-i-analyze-tez-dag-data-on-a-cluster-critical-path"></a>How do I analyze Tez DAG data on a cluster-critical path?
 
 
 ### Resolution steps
@@ -148,7 +148,7 @@ The code in the resolution steps assumes that data paths on the new cluster are 
 - [Connect to an HDInsight cluster by using SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 
-## How do I download Tez DAG data from a cluster
+## How do I download Tez DAG data from a cluster?
 
 
 #### Resolution steps
@@ -175,6 +175,8 @@ There are two ways to collect the Tez DAG data:
 [Connect to an HDInsight cluster by using SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 
+### See Also
+[Troubleshoot by Using Azure HDInsight](hdinsight-troubleshoot-guide.md)
 
 
 

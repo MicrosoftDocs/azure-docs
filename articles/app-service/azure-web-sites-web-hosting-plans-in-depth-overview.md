@@ -1,5 +1,5 @@
 ---
-title: Azure App Service plans in-depth overview | Microsoft Docs
+title: App Service plans in Azure App Service Web Apps | Microsoft Docs
 description: Learn how App Service plans for Azure App Service work, and how they benefit your management experience.
 keywords: app service, azure app service, scale, scalable, app service plan, app service cost
 services: app-service
@@ -18,7 +18,7 @@ ms.date: 12/02/2016
 ms.author: byvinyal
 
 ---
-# Azure App Service plans in-depth overview
+# App Service plans in Azure App Service Web Apps
 
 App Service plans represent the collection of physical resources used to host your apps.
 

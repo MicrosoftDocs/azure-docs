@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 10/21/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
 
@@ -28,7 +28,7 @@ Currently, Azure Active Directory detects six types of risk events:
 - [Impossible travel to atypical locations](#impossible-travel-to-atypical-locations) 
 - [Sign-ins from infected devices](#sign-ins-from-infected-devices) 
 - [Sign-ins from IP addresses with suspicious activity](#sign-ins-from-ip-addresses-with-suspicious-activity) 
-- [Sign-ins from unfamiliar locations](#sign-in-from-unfamiliar-locations) (*exclusive to **Azure Active Directory Premium P2** editions*)
+- [Sign-ins from unfamiliar locations](#sign-in-from-unfamiliar-locations) (exclusive to **Azure Active Directory Premium P2** editions)
 
 ![Risk event](./media/active-directory-reporting-risk-events/91.png)
 

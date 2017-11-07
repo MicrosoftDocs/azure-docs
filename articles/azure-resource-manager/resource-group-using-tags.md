@@ -13,7 +13,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: AzurePortal
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2017
+ms.date: 11/01/2017
 ms.author: tomfitz
 
 ---

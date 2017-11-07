@@ -332,7 +332,7 @@ In this tutorial, you create a service which stores a counter value in a reliabl
 
     Visual Studio creates a service project and displays them in Solution Explorer.
 
-    ![Solution Explorer](./media/service-fabric-tutorial-create-dotnet-app/solution-explorer-aspnetcore-service.png)
+    ![Solution Explorer](./media/service-fabric-tutorial-create-dotnet-app/solution-explorer-aspnetcore-webapi-service.png)
 
 ### Add the VoteDataController.cs file
 

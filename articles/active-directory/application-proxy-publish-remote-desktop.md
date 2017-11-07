@@ -5,14 +5,13 @@ services: active-directory
 documentationcenter: ''
 author: kgremban
 manager: femila
-
 ms.assetid:
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 11/03/2017
 ms.author: kgremban
 ms.custom: it-pro
 ms.reviewer: harshja
@@ -46,9 +45,6 @@ In an RDS deployment, the RD Web role and the RD Gateway role run on Internet-fa
 - You should already have [deployed RDS](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure), and [enabled Application Proxy](active-directory-application-proxy-enable.md).
 
 - This scenario assumes that your end users go through Internet Explorer on Windows 7 or Windows 10 desktops that connect through the RD Web page. If you need to support other operating systems, see [Support for other client configurations](#support-for-other-client-configurations).
-
-  >[!NOTE]
-  >Windows 10 Creator's Update is not currently supported.
 
 - On Internet Explorer, enable the RDS ActiveX add-on.
 

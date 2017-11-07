@@ -59,7 +59,12 @@ To ensure that your Azure Batch pool compute nodes work in a VNet that has force
 * The Batch service needs to communicate with pool compute nodes for scheduling tasks. To enable this communication, add a user-defined route for each IP address used by the Batch service in the region where your Batch account exists. To obtain the list of IP addresses of the Batch service, please contact Azure Support.
 
 * Ensure that outbound traffic to Azure Storage (specifically, URLs of the form `<account>.table.core.windows.net`, `<account>.queue.core.windows.net`, and `<account>.blob.core.windows.net`) is not blocked via your on-premises network appliance.
-    
+
+When you add a user-defined route, define the route for each related Batch IP address prefix, and set **Next hop type** to **Internet**. See the following example:
+
+![User-defined route](./media/batch-virtual-network/user-defined-route.png)
+
 ## Next steps
 
 - For an in-depth overview of Batch, see [Develop large-scale parallel compute solutions with Batch](batch-api-basics.md).
+- For more about creating a user-defined route, see [Create a user-defined route - Azure portal](../virtual-network/create-user-defined-route-portal.md).
