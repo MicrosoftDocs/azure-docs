@@ -1,6 +1,6 @@
 ---
-title: Manage AzureAD credentials for Azure Key Vault apps
-description: Use the Microsoft.Azure.Services.AppAuthentication library to easily and securely manage AzureAD credentials for apps using Azure Key Vault and other Azure services.
+title: Manage Azure AD credentials for Azure Key Vault apps
+description: Use the Microsoft.Azure.Services.AppAuthentication library to easily and securely manage Azure AD credentials for apps using Azure Key Vault and other Azure services.
 keywords: azure key vault azuread credentials
 author: lleonard-msft
 manager: mbaldwin
@@ -15,13 +15,14 @@ ms.assetid: 4be434c4-0c99-4800-b775-c9713c973ee9
 
 ---
 
-# Manage AzureAD credentials for Azure Key Vault apps
+# Manage Azure AD credentials for Azure Key Vault apps
 
 The `Microsoft.Azure.Services.AppAuthentication` for .NET library simplifies credential management for Microsoft Azure Key Vault and other Azure services that rely on Azure Active Directory (Azure AD) authentication.  
 
 While you're developing your app, the library uses your developer credentials for Azure AD authentication. When your app is deployed to Azure, the library automatically switches to an OAuth 2.0 client authentication flow. This avoids placing credentials at risk because you are no longer tempted to include them in source code or configuration files. 
 
 The `Microsoft.Azure.Services.AppAuthentication` library supports local development with Microsoft Visual Studio, Azure CLI, or Azure AD integrated authentication. When deployed to Azure or an Azure virtual machine (VM), the library automatically uses [Managed Service Identity](/azure/active-directory/msi-overview) (MSI). No code changes are required. The library also supports [service principals](azure/azure-resource-manager/resource-group-authenticate-service-principal). when MSI is not available or when the developer's security context cannot be determined during local development.
+
 
 ## <a name="asal"></a>Using the library
 
@@ -51,15 +52,17 @@ The `AzureServiceTokenProvider` class caches the token in memory and retrieves i
 
 The `GetAccessTokenAsync` method requires a resource identifier. To learn more, see [Which Azure services support Managed Service Identity](https://docs.microsoft.com/en-us/azure/active-directory/msi-overview#which-azure-services-support-managed-service-identity).
 
+
 ## <a name="samples"></a>Samples
 
-The following samples show the Microsoft.Azure.Services.AppAuthentication for .NET library in action:
+The following samples show the `Microsoft.Azure.Services.AppAuthentication` library in action:
 
 1. [Use a Managed Service Identity (MSI) to retreive a secret from Azure Key Vault at runtime](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet)
 
 2. [Programmatically deploy an Azure Resource Manager template from an Azure VM with an MSI](https://github.com/Azure-Samples/windowsvm-msi-arm-dotnet).
 
 3. [Use .NET Core sample and MSI to call Azure services from an Azure Linux VM](https://github.com/Azure-Samples/linuxvm-msi-keyvault-arm-dotnet/).
+
 
 ## <a name="local"></a>Local development authentication
 
@@ -70,13 +73,14 @@ For local development, there are two primary authentication scenarios:
 
 Here, you learn the requirements for each scenario.
 
+
 ### Authenticating to Azure Services using Visual Studio, Azure CLI, or Azure AD
 
 Local machines do not support Managed Service Identity (MSI).  As a result, the `Microsoft.Azure.Services.AppAuthentication` library provides a local development experience where the code you'll eventually deploy to Azure uses your local developer identity to run in your local development environment. The means you can test the same code locally and remotely. When deployed to Azure, the library automatically uses MSI for authentication.
 
-For local development, `AzureServiceTokenProvider` tries to fetch a token using **Visual Studio**, **Azure command-line interface** (CLI) or **Azure AD Integrated Authentication**. Each option is tried sequentially and the library uses the first option that succeeds. An `AzureServiceTokenProviderException` is thrown if no option works; detailed information is provided.
+For local development, `AzureServiceTokenProvider` tries to fetch a token using **Visual Studio**, **Azure command-line interface** (CLI) or **Azure AD Integrated Authentication**. Each option is tried sequentially and the library uses the first option that succeeds. If no options works, an `AzureServiceTokenProviderException` exception is thrown with detailed information.
 
-Visual Studio works under the following conditions:
+To use Visual Studio, verify:
 
 1. You've installed [Visual Studio 2017 v15.5](https://blogs.msdn.microsoft.com/visualstudio/2017/10/11/visual-studio-2017-version-15-5-preview/) or later.
 
@@ -101,7 +105,7 @@ To use Azure AD authentication, verify that:
 
 When custom services call Azure services, the previous steps work because Azure services allow access to both users and applications.  
 
-When you creating a service that calls a custom service, you need to use a service principal for local development. 
+When creating a service that calls a custom service, use a service principal for local development authentication: 
 
 1.  [Create a service principal](/cli/azure/create-an-azure-service-principal-azure-cli).
 
@@ -122,9 +126,11 @@ Once you've signed in to Azure, `AzureServiceTokenProvider` uses the service pri
 
 This applies only to local development; when your solution is deployed to Azure, the library automatically switches to an MSI workflow.
 
+
 ## <a name="msi"></a>Running the application using a Managed Service Identity 
 
 When you run your code in Azure that supports MSI or in an Azure VM, the library automatically uses Managed Service Identity to trigger an OAuth 2.0 workflow. No code changes are required. 
+
 
 ## <a name="sp"></a>Running the application using a Service Principal 
 
@@ -210,7 +216,7 @@ When using Visual Studio, these issues include:
     Go to **Tools**&nbsp;>&nbsp;**Options**>**Azure&nbsp;Service&nbsp;Authentication. and look for a **Re-authenticate** link under the selected account.  Select it to authenticate. 
 
 
-When using Azure CLI, common issues include:
+When using Azure CLI, common issues include:  
 
 1.  Azure CLI is not installed, is out-of-date, or you are not signed in.
 
@@ -222,7 +228,7 @@ When using Azure CLI, common issues include:
 
     If necessary, `AzureServiceTokenProvider` adds the **AzureCLIPath** environment variable to the **Path** environment variable.
 
-3. You are logged into Azure CLI using multiple accounts your account has access to multiple subscriptions/tenants.
+3.  You are logged into Azure CLI using multiple accounts your account has access to multiple subscriptions/tenants.
  
     Use Azure CLI to set the default subscription and ensure the tenant is associated with your Key Vault:
 
@@ -235,6 +241,7 @@ When using Azure CLI, common issues include:
     ```
     az account list
     ```
+
 
 ## Next steps
 
