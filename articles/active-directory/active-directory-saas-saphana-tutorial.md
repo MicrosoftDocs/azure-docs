@@ -24,7 +24,7 @@ In this tutorial, you learn how to integrate SAP HANA with Azure Active Director
 When you integrate SAP HANA with Azure AD, you get the following benefits:
 
 - You can control in Azure AD who has access to SAP HANA.
-- You can enable your users to automatically get signed-in to SAP HANA with their Azure AD accounts.
+- You can enable your users to automatically get signed into SAP HANA with their Azure AD accounts.
 - You can manage your accounts in one central location--the Azure portal.
 
 For more information about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
@@ -34,7 +34,7 @@ For more information about SaaS app integration with Azure AD, see [What is appl
 To configure Azure AD integration with SAP HANA, you need the following items:
 
 - An Azure AD subscription.
-- A SAP HANA single sign-on enabled subscription.
+- A SAP HANA single sign-on-enabled subscription.
 - A  HANA instance that's running on any public IaaS, on-premises, Azure VM, or SAP large instances in Azure.
 - The XSA Administration web interface, as well as HANA Studio installed on the HANA instance.
 
@@ -44,10 +44,10 @@ To configure Azure AD integration with SAP HANA, you need the following items:
 To test the steps in this tutorial, follow these recommendations:
 
 - Don't use your production environment unless it's necessary.
-- If you don't already have an Azure AD trial environment, you can [get a one-month free trial](https://azure.microsoft.com/pricing/free-trial/).
+- [Get a one-month free trial](https://azure.microsoft.com/pricing/free-trial/) of Azure AD if you don't already have an Azure AD trial environment.
 
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
+In this tutorial, you test Azure AD single sign-on (SSO) in a test environment. 
 The scenario that's outlined in this tutorial consists of two main building blocks:
 
 1. Adding SAP HANA from the gallery.
@@ -79,11 +79,11 @@ In this section, you configure and test Azure AD single sign-on with SAP HANA ba
 
 For single sign-on to work, Azure AD needs to know who the counterpart user in SAP HANA is to a user in Azure AD. In other words, you need to establish a link  between an Azure AD user and the related user in SAP HANA.
 
-In SAP HANA, give the **Username** value the same value of the **user name** in Azure AD. This establishes the link between the two users.
+In SAP HANA, give the **Username** value the same value of the **user name** in Azure AD. This step establishes the link between the two users.
 
 To configure and test Azure AD single sign-on with SAP HANA, complete the following building blocks:
 
-1. **[Configure Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** to enable your users to use this feature.
+1. **[Configure Azure AD single sign-on](#configuring-azure-ad-single-sign-on)** to enable your users to use this feature.
 2. **[Create an Azure AD test user](#creating-an-azure-ad-test-user)** to test Azure AD single sign-on with Britta Simon.
 3. **[Create a SAP HANA test user](#creating-a-sap-hana-test-user)** to have a counterpart of Britta Simon in SAP HANA that is linked to the Azure AD representation of user.
 4. **[Assign the Azure AD test user](#assigning-the-azure-ad-test-user)** to enable Britta Simon to use Azure AD single sign-on.
@@ -107,12 +107,12 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Domain and URLs single sign-on information](./media/active-directory-saas-saphana-tutorial/tutorial_saphana_url.png)
 
-	a. In the **Identifier** box, type as: `HA100`. 
+	a. In the **Identifier** box, type the following: `HA100` 
 
-	b. In the **Reply URL** box, type a URL with the following pattern: `https://<Customer-SAP-instance-url>/sap/hana/xs/saml/login.xscfunc`.
+	b. In the **Reply URL** box, type a URL with the following pattern: `https://<Customer-SAP-instance-url>/sap/hana/xs/saml/login.xscfunc`
 
 	> [!NOTE] 
-	> These values aren't real. Update these values with the actual Identifier and reply URL. Contact the [SAP HANA Client support team](https://cloudplatform.sap.com/contact.html) to get these values. 
+	> These values aren't real. Update these values with the actual Identifier and reply URL. Contact the [SAP HANA client support team](https://cloudplatform.sap.com/contact.html) to get these values. 
 
 4. In the **SAML Signing Certificate** section, select **Metadata XML**. Then save the metadata file on your computer.
 
@@ -137,10 +137,10 @@ Here we've mapped the **User Identifier** with the **ExtractMailPrefix()** funct
 
 	![Configure the single sign-on Save button](./media/active-directory-saas-saphana-tutorial/tutorial_general_400.png)
 	
-8. To configure single sign-on on the **SAP HANA** side, sign in to your **HANA XSA Web Console**  by going to the respective HTTPS-endpoint.
+8. To configure single sign-on on the SAP HANA side, sign in to your **HANA XSA Web Console**  by going to the respective HTTPS-endpoint.
 
 	> [!NOTE]
-	> In the default configuration, the URL redirects the request to a sign-in screen, which requires the credentials of an authenticated SAP HANA database user. The user who signs in must permissions to perform SAML administration tasks.
+	> In the default configuration, the URL redirects the request to a sign-in screen, which requires the credentials of an authenticated SAP HANA database user. The user who signs in must have permissions to perform SAML administration tasks.
 
 9. In the XSA Web Interface, go to **SAML Identity Provider**. From there, select the **“+”** -button on the bottom of the screen to display the **Add Identity Provider Info** pane. Then take the following steps:
 
@@ -150,14 +150,14 @@ Here we've mapped the **User Identifier** with the **ExtractMailPrefix()** funct
 
 	![Add Identity Provider settings](./media/active-directory-saas-saphana-tutorial/sap2.png)
 
-	b. If the contents of the XML document are valid, the parsing process extracts the information that's required for the **Subject, Entity ID, and Issuer** fields in the General Data screen area. It also extracts the necessary information for the URL fields in the Destination screen area--for example, **Base URL and SingleSignOn URL (*)**.
+	b. If the contents of the XML document are valid, the parsing process extracts the information that's required for the **Subject, Entity ID, and Issuer** fields in the General Data screen area. It also extracts the information that's necessary for the URL fields in the Destination screen area--for example, the **Base URL and SingleSignOn URL (*)** fields.
 
 	![Add Identity Provider settings](./media/active-directory-saas-saphana-tutorial/sap3.png)
 
 	c. In the **Name** box of the **General Data** screen area, enter a name for the new SAML SSO identity provider.
 
 	> [!NOTE]
-	> The name of the SAML IDP is mandatory and must be unique. It appears in the list of available SAML IDPs that is displayed if you select SAML as the authentication method for SAP HANA XS applications to use. For example, you can do this in the Authentication screen area of the XS Artifact Administration tool.
+	> The name of the SAML IDP is mandatory and must be unique. It appears in the list of available SAML IDPs that is displayed when you select SAML as the authentication method for SAP HANA XS applications to use. For example, you can do this in the Authentication screen area of the XS Artifact Administration tool.
 
 10. Select **Save** to save the details of the SAML identity provider and to add the new SAML IDP to the list of known SAML IDPs.
 
@@ -230,7 +230,7 @@ If you need to create a user manually, take the following steps:
 	![Assigning roles](./media/active-directory-saas-saphana-tutorial/sap6.png)
 
  	> [!TIP]
-  	> You should give those permissions appropriate for your use cases, only.
+  	> You should give permissions that are appropriate for your use cases only.
 
 6. Save the user.
 
@@ -242,7 +242,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 **To assign Britta Simon to SAP HANA, perform the following steps:**
 
-1. In the Azure portal, open the applications view. Go to the directory view, and and go to **Enterprise applications**. Select **All applications**.
+1. In the Azure portal, open the applications view. Go to the directory view, and go to **Enterprise applications**. Select **All applications**.
 
 	![Assign user][201] 
 
@@ -258,18 +258,18 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 	![The Add Assignment pane][203]
 
-5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+5. In the **Users and groups** dialog box, select **Britta Simon** in the Users list.
 
-6. Click **Select** button on **Users and groups** dialog.
+6. Click the **Select** button in the **Users and groups** dialog box.
 
-7. Click **Assign** button on **Add Assignment** dialog.
+7. Select the **Assign** button in the **Add Assignment** dialog box.
 	
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration by using the access panel.
 
-When you select the SAP HANA tile in the access panel, you should get automatically signed-in to your SAP HANA application.
-For more information about the access panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+When you select the SAP HANA tile in the access panel, you should get automatically signed into your SAP HANA application.
+For more information about the access panel, see [Introduction to the access panel](active-directory-saas-access-panel-introduction.md).
 
 ## Additional resources
 
