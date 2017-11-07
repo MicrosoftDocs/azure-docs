@@ -13,7 +13,7 @@ ms.author: tarcher
 
 # Create a VM cluster with Terraform and HCL
 
-This tutorial demonstrates creating a small compute cluster using the [Hashicorp Configuration Language](https://www.terraform.io/docs/configuration/syntax.html) (HCL). The configuration creates a load balancer, two Linux VMs in an [availability set](/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy), and all necessary networking resources.
+This tutorial demonstrates creating a small compute cluster using the [HashiCorp Configuration Language](https://www.terraform.io/docs/configuration/syntax.html) (HCL). The configuration creates a load balancer, two Linux VMs in an [availability set](/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy), and all necessary networking resources.
 
 In this tutorial you will:
 
@@ -50,7 +50,7 @@ In this tutorial you will:
 
 ## 2. Create the Terraform template file
 
-1. In the same directory you created the `azureProviderAndCreds.tf` file, create a new file named named `main.tf`. 
+1. In the same directory where you created the `azureProviderAndCreds.tf` file, create a new file named `main.tf`. 
 
 2. Copy following Terraform template code into the newly created `main.tf` file: 
 
@@ -195,7 +195,7 @@ In this tutorial you will:
 
 ## 3. Initialize Terraform 
 
-The `terraform init` command is used to initialize a directory that contains the Terraform configuration files - the files you created with the previous steps. You should always run the h`terraform init` command after writing a new Terraform configuration. 
+The `terraform init` command is used to initialize a directory that contains the Terraform configuration files - the files you created with the previous steps. You should always run the `terraform init` command after writing a new Terraform configuration. 
 
 > [!TIP]
 > The `terraform init` command is idempotent meaning that it can be called repeatedly while producing the same result.
@@ -204,7 +204,7 @@ The `terraform init` command is used to initialize a directory that contains the
 
 2. Change the current directory to the directory containing the `azureProviderAndCreds.tf` and `main.tf` files you created in the previous steps.
 
-3. Run the following command to initialize Terraform:
+3. To initialize Terraform, run the following command:
 
   ```cmd
   terraform init
@@ -212,7 +212,7 @@ The `terraform init` command is used to initialize a directory that contains the
 
 ## 4. Create a Terraform execution plan
 
-The `terraform plan -out` command is used to create an execution plan. When you run the command, Terraform performs a refresh and determines what actions are necessary to achieve the desired state specified in the `azureProviderAndCreds.tf` configuration file. Note that the use of the -out parameter saves the execution plan so that a subsequent running of `terraform apply` ensures only the pre-planned actions are executed.
+The `terraform plan -out` command is used to create an execution plan. When you run the command, Terraform performs a refresh and determines what actions are necessary to achieve the desired state specified in the `azureProviderAndCreds.tf` configuration file. The use of the -out parameter saves the execution plan so that a subsequent running of `terraform apply` ensures only the pre-planned actions are executed.
 
 Run the following command to create the Terraform execution plan:
 
