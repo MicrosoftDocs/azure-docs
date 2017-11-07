@@ -34,8 +34,7 @@ This quickstart guide will help you get started implementing a blockchain networ
 ⋅⋅*	If using the Azure Government portal, we may configure a new resource group by selecting: "Resource groups" on the left-hand panel and pressing “+Add”
 *	Next, enter the values associated with Resource group name, Subscription, and Resource group location
 
- 
- 
+ ![storage1](./media/documentation-government-rg.png)
  
 ## Provision a Hyperledger Fabric Single Member Blockchain
 1.	Log in to the Azure Government Portal.  
@@ -43,7 +42,7 @@ This quickstart guide will help you get started implementing a blockchain networ
 3.	Select "Blockchain" from the list of Azure Marketplace offerings. 
 ⋅⋅* Pick the option for "Hyperledger Fabric Single Member Blockchain".
  
- [picture]
+ ![storage1](./media/documentation-marketplacebc.png)
  
 Once selected, it is time to configure the basic settings and network topology.  The Template Deployment will walk you through configuring the network.  The deployment flow is divided into three steps: Basics, Network configuration, and Fabric configuration.
  
@@ -52,7 +51,7 @@ Once selected, it is time to configure the basic settings and network topology. 
 ⋅⋅* For Resource group, use the one configured at the start of the guide, or select 'Create new' and specify the value for the parameter name.
 ⋅⋅*	For Location, select the Location in which you wish to host your virtual machines and network.
  
-[picture]
+ ![storage1](./media/documentation-government-hlinputs.png)
  
  
 2. Under the 'Network size and performance' blade:
@@ -60,17 +59,15 @@ Once selected, it is time to configure the basic settings and network topology. 
 ⋅⋅*	For a simple test-run, the default configuration options should be fine.
 ⋅⋅*	A sample snippet is shown below:
  
- [picture]
- 
- 
+ ![storage1](./media/documentation-government-hlinputs2.png)
+
  
 3. Finally, under Fabric Settings, we will specify the fabric related configuration settings
 ⋅⋅* The value for Bootstrap user name  configures the initial authorized user that will be registered with the member services in the deployed network. 
 ⋅⋅* The Bootstrap user password is used to secure the Fabric CA account imported into the Membership node.
 ⋅⋅* A sample deployment is shown below:
  
- [picture]
- 
+  ![storage1](./media/documentation-government-hlinputs3.png)
  
  
 4. In the next blade, you will see a summary of the inputs specified.  Hit 'OK' to move on to the final blade
@@ -83,13 +80,14 @@ Once selected, it is time to configure the basic settings and network topology. 
 1.) Once the deployment has been completed, you should be able to access an overview of the resources within the Resource Group.  In the Resource Group blade, click on the 'Deployments' tab (as shown below)
  
  
- [picture]
+ ![storage1](./media/documentation-government-hlinputs4.png)
+
+ ![storage1](./media/documentation-government-hlinputs5.png)
   
 
 2.) Click on the deployment prepended with the string 'microsoft-azure-blockchain' in the list and look at the details.
  
- 
- [picture]
+ ![storage1](./media/documentation-government-hlinputs6.png)
 
 
 3. Under Outputs, look for the values "API-ENDPOINT", "PREFIX", and "SSH-TO-FIRST-VM" as shown below.
@@ -104,11 +102,11 @@ Once selected, it is time to configure the basic settings and network topology. 
 ⋅⋅* The example for the sample deployment is: “$ ssh -p 3000 azureuser@bctestsky.usgovvirginia.cloudapp.usgovcloudapi.net”
 ⋅⋅* ⋅⋅*To get to additional transaction nodes, increment the port number by one (e.g. the first transaction node is on port 3000, the second is on 3001, the third is on 3002, etc.). 
 
- 
+ ![storage1](./media/documentation-government-hlbash.png)
  
  
 ### Next Steps
  
 Now you can begin to develop and test your chaincode and applications against your Hyperledger Fabric consortium network.  
 
-For further developer documentation related to Hyperledger Fabric, chaincode, and network deployment, check out the Fabric Github repositry: (Link.
+For further developer documentation related to Hyperledger Fabric, chaincode, and network deployment, check out the Fabric Github repositry: [Link.](https://github.com/hyperledger/fabric)
