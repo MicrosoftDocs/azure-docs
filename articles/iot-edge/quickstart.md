@@ -48,13 +48,13 @@ If you've used IoT Hub in the past and already have a hub created, you can skip 
 
 1. Create a resource group. The following code creates a resource group called **IoTEdge** in the **West US** region:
 
-   ```Azure CLI
+   ```azurecli
    az group create --name IoTEdge --location westus
    ```
 
 1. Create an IoT hub in your new resource group. The following code creates a free **F1** hub called **MyIotHub** in the resource group **IoTEdge**:
 
-   ```Azure CLI
+   ```azurecli
    az iot hub create --resource-group IoTEdge --name MyIotHub --sku F1 
    ```
 
