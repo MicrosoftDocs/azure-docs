@@ -56,7 +56,7 @@ BUGBUG: We need to change the aka.ms to a new link without premium that points t
 
 To learn more about complex Azure Table storage tasks, see:
 
-* [Introduction to Azure Cosmos DB: Table API](table-introduction.md)
+* [Introduction to Azure Cosmos DB Table API](table-introduction.md)
 * The Table service reference documentation for complete details about available APIs [Storage Client Library for .NET reference](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
 BUGBUG: Are the APIs still going to live at http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409?
 
@@ -82,15 +82,21 @@ Let's start by creating an Azure Cosmos DB account in the Azure portal.
 [!INCLUDE [cosmos-db-table-clonerunsample](../../includes/cosmos-db-table-clonerunsample.md)]
 
 ## Azure Cosmos DB capabilities
-Azure Cosmos DB supports a number of capabilities that are not available in the Azure Table storage API. The new functionality can be enabled via the following `appSettings` configuration values. We did not introduce any new signatures or overloads to the preview Azure Storage SDK. This allows you to connect to both standard and premium tables, and work with other Azure Storage services like Blobs and Queues. 
+Azure Cosmos DB supports a number of capabilities that are not available in the Azure Table storage API. 
 
+Certain functionality is accessed via new overloads to CreateCloudTableClient that enable one to specify connection policy and consistency level.
+
+| Table Connection Settings | Description |
+| --- | --- |
+| Connection Mode  | Azure Cosmos DB supports two connectivity modes. In `Gateway` mode, requests are always made to the Azure Cosmos DB gateway, which forwards it to the corresponding data partitions. In `Direct` connectivity mode, the client fetches the mapping of tables to partitions, and requests are made directly against data partitions. We recommend `Direct`, the default.  |
+| Connection Protocol | Azure Cosmos DB supports two connection protocols - `Https` and `Tcp`. `Tcp` is the default, and recommended because it is more lightweight. |
+| Preferred Locations | Comma-separated list of preferred (multi-homing) locations for reads. Each Azure Cosmos DB account can be associated with 1-30+ regions. Each client instance can specify a subset of these regions in the preferred order for low latency reads. The regions must be named using their [display names](https://msdn.microsoft.com/library/azure/gg441293.aspx), for example, `West US`. Also see [Multi-homing APIs](tutorial-global-distribution-table.md). |
+| Consistency Level | You can trade off between latency, consistency, and availability by choosing between five well-defined consistency levels: `Strong`, `Session`, `Bounded-Staleness`, `ConsistentPrefix`, and `Eventual`. Default is `Session`. The choice of consistency level makes a significant performance difference in multi-region setups. See [Consistency levels](consistency-levels.md) for details. |
+
+Other functionality can be enabled via the following `appSettings` configuration values.
 
 | Key | Description |
 | --- | --- |
-| TableConnectionMode  | Azure Cosmos DB supports two connectivity modes. In `Gateway` mode, requests are always made to the Azure Cosmos DB gateway, which forwards it to the corresponding data partitions. In `Direct` connectivity mode, the client fetches the mapping of tables to partitions, and requests are made directly against data partitions. We recommend `Direct`, the default.  |
-| TableConnectionProtocol | Azure Cosmos DB supports two connection protocols - `Https` and `Tcp`. `Tcp` is the default, and recommended because it is more lightweight. |
-| TablePreferredLocations | Comma-separated list of preferred (multi-homing) locations for reads. Each Azure Cosmos DB account can be associated with 1-30+ regions. Each client instance can specify a subset of these regions in the preferred order for low latency reads. The regions must be named using their [display names](https://msdn.microsoft.com/library/azure/gg441293.aspx), for example, `West US`. Also see [Multi-homing APIs](tutorial-global-distribution-table.md). |
-| TableConsistencyLevel | You can trade off between latency, consistency, and availability by choosing between five well-defined consistency levels: `Strong`, `Session`, `Bounded-Staleness`, `ConsistentPrefix`, and `Eventual`. Default is `Session`. The choice of consistency level makes a significant performance difference in multi-region setups. See [Consistency levels](consistency-levels.md) for details. |
 | TableThroughput | Reserved throughput for the table expressed in request units (RU) per second. Single tables can support 100s-millions of RU/s. See [Request units](request-units.md). Default is `400` |
 | TableIndexingPolicy | JSON string conforming to the indexing policy specification. See [Indexing Policy](indexing-policies.md) to see how you can change indexing policy to include/exclude specific columns. |
 | TableQueryMaxItemCount | Configure the maximum number of items returned per table query in a single round trip. Default is `-1`, which lets Azure Cosmos DB dynamically determine the value at runtime. |
@@ -108,10 +114,6 @@ To change the default value, open the `app.config` file from Solution Explorer i
         value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://account-name.table.cosmosdb.net" />
 BUGBUG: is the TableEndpoint correct?
       <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key; TableEndpoint=https://account-name.documents.azure.com" />
-      <add key="TableConnectionMode" value="Direct"/>
-      <add key="TableConnectionProtocol" value="Tcp"/>
-      <add key="TablePreferredLocations" value="East US, West US, North Europe"/>
-      <add key="TableConsistencyLevel" value="Eventual"/>
 
       <!--Table creation options -->
       <add key="TableThroughput" value="700"/>
@@ -136,7 +138,8 @@ You initialize a `CloudTableClient` to connect to the table account.
 CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 ```
 This client is initialized using the `TableConnectionMode`, `TableConnectionProtocol`, `TableConsistencyLevel`, and `TablePreferredLocations` configuration values if specified in the app settings.
-    
+BUGBUG: WE NEED TO USE THE NEW OVERLOADED CONSTRUCTOR HERE AND CHANGE THE SAMPLE TO MATCH. ASSUMING WE ARE KEEPING THIS SAMPLE AT ALL AND DON'T SWITCH OVER TO THE STORAGE SOLUTION.
+
 ## Create a table
 Then, you create a table using `CloudTable`. Tables in Azure Cosmos DB can scale independently in terms of storage and throughput, and partitioning is handled automatically by the service. Azure Cosmos DB supports both fixed size and unlimited tables. See [Partitioning in Azure Cosmos DB](partition-data.md) for details. 
 

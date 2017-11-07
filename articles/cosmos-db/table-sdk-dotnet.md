@@ -60,4 +60,4 @@ Any request to Azure Cosmos DB using a retired SDK will be rejected by the servi
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## See also
-To learn more about the Azure Cosmos DB Table API, see [Introduction to Azure Cosmos DB: Table API](table-introduction.md). 
+To learn more about the Azure Cosmos DB Table API, see [Introduction to Azure Cosmos DB Table API](table-introduction.md). 
