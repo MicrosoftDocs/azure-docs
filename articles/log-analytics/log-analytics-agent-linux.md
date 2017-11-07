@@ -44,7 +44,7 @@ The following Linux distributions are officially supported.  However, the OMS Ag
 * SUSE Linux Enterprise Server 11 and 12 (x86/x64)
 
 ### Network
-The information below list the proxy and firewall configuration information required for the Linux agent to communicate with Log Analytics. Traffic is outbound from your network to the service. 
+The information below list the proxy and firewall configuration information required for the Linux agent to communicate with Log Analytics and Azure Automation. Traffic is outbound from your network to the service. 
 
 |Agent Resource| Ports |  
 |------|---------|  
@@ -97,7 +97,10 @@ Upgrade from versions earlier than 1.0.0-47 is supported in this release. Perfor
 
 ## Installing the agent
 
-This section describes how to install the OMS Agent for Linux using a bunndle, which contains Debian and RPM packages for each of the agent components.  It can be installed directly or extracted to retrieve the individual packages.  
+This section describes how to install the OMS Agent for Linux manually using a bunndle, which contains Debian and RPM packages for each of the agent components.  It can be installed directly or extracted to retrieve the individual packages.  If you are planning to install the agent on an Azure Linux VM, see the following topic [Collect data about Azure Virtual Machines](log-analytics-quick-collect-azurevm.md) to learn how to install the agent using the Log Analytics VM Extension following the steps under the section *Enable the Log Analytics VM Extension*.  For Linux computers hosted in your environment, you can simplify the installation process using a scripted method provided described in the article, [Collect data from Linux computers hosted in your environment](log-analytics-quick-collect-linux-computers.md).  
+
+> [!NOTE]
+> While the two articles referenced above are intended for someone who is new to Log Analytics and begin using the service quickly, the steps for configuring the computer are relevant.  If you already have a workspace and are looking to connect the Linux computer,  depending on your scenario select the existing workspace if an Azure Linux VM or copy the workspace ID and key if the computer is hosted outside of Azure.  
 
 Before installing the OMS agent for Linux, you need the workspace ID and key for your Log Analytics workspace.  
 
