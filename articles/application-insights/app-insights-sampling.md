@@ -170,7 +170,7 @@ Remove the `AdaptiveSamplingTelemetryProcessor` node from the .config file.
 ## Sampling for web pages with JavaScript
 You can configure web pages for fixed-rate sampling from any server. 
 
-When you [configure the web pages for Application Insights](app-insights-javascript.md), modify the snippet that you get from the Application Insights portal. (In ASP.NET apps, the snippet typically goes in _Layout.cshtml.)  Insert a line like `samplingPercentage: 10,` before the instrumentation key:
+When you [configure the web pages for Application Insights](app-insights-javascript.md), modify the JavaScript snippet that you get from the Application Insights portal. (In ASP.NET apps, the snippet typically goes in _Layout.cshtml.)  Insert a line like `samplingPercentage: 10,` before the instrumentation key:
 
     <script>
     var appInsights= ... 
@@ -260,9 +260,9 @@ Instead of setting the sampling parameter in the .config file, you can programma
 ([Learn about telemetry processors](app-insights-api-filtering-sampling.md#filtering).)
 
 ## When to use sampling?
-Adaptive sampling is automatically enabled if you use the ASP.NET SDK version 2.0.0-beta3 or later. No matter what SDK version you use, you can use ingestion sampling (at our server).
+Adaptive sampling is automatically enabled if you use the ASP.NET SDK version 2.0.0-beta3 or later. Regardless of which version of the SDK you use, you can enable ingestion sampling to allow Application Insights to sample the collected data.
 
-You don’t need sampling for most small and medium size applications. The most useful diagnostic information and most accurate statistics are obtained by collecting data on all your user activities. 
+In general, for most small and medium size applications you don’t need sampling. The most useful diagnostic information and most accurate statistics are obtained by collecting data on all your user activities. 
 
 The main advantages of sampling are:
 
@@ -285,7 +285,7 @@ The main advantages of sampling are:
 
 **Use adaptive sampling:**
 
-Otherwise, we recommend adaptive sampling. This is enabled by default in the ASP.NET server SDK, version 2.0.0-beta3 or later. It doesn't reduce traffic until a certain minimum rate, so it won't affect a low-use site.
+If the conditions to use the other forms of sampling do not apply, we recommend adaptive sampling. This is enabled by default in the ASP.NET server SDK, version 2.0.0-beta3 or later. It will not reduce traffic until a certain minimum rate is reached, therefore, low-use sites will not be affected.
 
 ## How do I know whether sampling is in operation?
 To discover the actual sampling rate no matter where it has been applied, use an [Analytics query](app-insights-analytics.md) such as this:
@@ -334,7 +334,7 @@ The client-side (JavaScript) SDK participates in fixed-rate sampling in conjunct
 
 * One way is to start with adaptive sampling, find out what rate it settles on (see the above question), and then switch to fixed-rate sampling using that rate. 
   
-    Otherwise, you have to guess. Analyze your current telemetry usage in AI, observe any throttling that is occurring, and estimate the volume of the collected telemetry. These three inputs, together with your selected pricing tier, suggest how much you might want to reduce the volume of the collected telemetry. However, an increase in the number of your users or some other shift in the volume of telemetry might invalidate your estimate.
+    Otherwise, you have to guess. Analyze your current telemetry usage in Application Insights, observe any throttling that is occurring, and estimate the volume of the collected telemetry. These three inputs, together with your selected pricing tier, suggest how much you might want to reduce the volume of the collected telemetry. However, an increase in the number of your users or some other shift in the volume of telemetry might invalidate your estimate.
 
 *What happens if I configure sampling percentage too low?*
 
