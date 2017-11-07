@@ -14,6 +14,7 @@
 ### [Service limits](key-vault-service-limits.md)
 ### [HSM-protected keys](key-vault-hsm-protected-keys.md)
 ### [Migrate to .NET 2.0](key-vault-dotnet2api-release-notes.md)
+### [Manage credentials](manage-credentials.md)
 ### Overviews
 #### [Security worlds](key-vault-ovw-security-worlds.md)
 #### [Soft-delete](key-vault-ovw-soft-delete.md)
