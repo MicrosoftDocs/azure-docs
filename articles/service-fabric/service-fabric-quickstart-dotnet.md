@@ -55,12 +55,14 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 ## Run the application locally
 Right-click the Visual Studio icon in the Start Menu and choose **Run as administrator**. In order to attach the debugger to your services, you need to run Visual Studio as administrator.
 
-Open the **Voting.sln** Visual Studio solution from the repository you cloned.
+Open the **Voting.sln** Visual Studio solution from the repository you cloned.  
+
+By default, the Voting application is set to listen on port 8080.  The application port is set in the */VotingWeb/PackageRoot/ServiceManifest.xml* file.  You can change the application port by updating the **Port** attribute of the **Endpoint** element.  To deploy and run the application locally, the application port must be open and available on your computer.  If you change the application port, substitute the new application port value for "8080" throughout this article.
 
 To deploy the application, press **F5**.
 
 > [!NOTE]
-> The first time you run and deploy the application, Visual Studio creates a local cluster for debugging. This operation may take some time. The cluster creation status is displayed in the Visual Studio output window.
+> The first time you run and deploy the application, Visual Studio creates a local cluster for debugging. This operation may take some time. The cluster creation status is displayed in the Visual Studio output window.  In the output, you will see the message "The application URL is not set or is not an HTTP/HTTPS URL so the browser will not be opened to the application."  This message does not indicate an error, but that a browser will not auto-launch.
 
 When the deployment is complete, launch a browser and open this page: `http://localhost:8080` - the web front-end of the application.
 
