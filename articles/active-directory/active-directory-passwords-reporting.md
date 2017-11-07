@@ -28,7 +28,7 @@ Post deployment many organizations want to know how or if SSPR is really being u
 The following questions can be answered by reports that exist in the [Azure portal] (https://portal.azure.com/).
 
 > [!NOTE]
-> You must be [a global administrator](active-directory-assign-admin-roles.md#assign-or-remove-administrator-roles) and must opt-in for this data to be gathered on behalf of your organization, by visiting the reporting tab or audit logs at least once. Until doing so, data will not be collected for your organization
+> You must be [a global administrator](active-directory-assign-admin-roles.md) and must opt-in for this data to be gathered on behalf of your organization, by visiting the reporting tab or audit logs at least once. Until doing so, data will not be collected for your organization
 
 * How many people have registered for password reset?
 * Who has registered for password reset?

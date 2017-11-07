@@ -84,8 +84,20 @@
     - name: Azure Machine Learning workspace
       href: ../studio/create-workspace.md
       maintainContext: true
-    - name: Set up virtual machines
-      href: virtual-machines.md
+    - name: Set up a Data Science VM
+      items:
+      - name: Create a Windows Data Science VM
+        href: ../data-science-virtual-machine/provision-vm.md
+        maintainContext: true
+      - name: Create an Ubuntu Data Science VM
+        href: ../data-science-virtual-machine/dsvm-ubuntu-intro.md
+        maintainContext: true
+      - name: Create a CentOS Data Science VM
+        href: ../data-science-virtual-machine/linux-dsvm-intro.md
+        maintainContext: true
+      - name: Create a Deep Learning VM
+        href: ../data-science-virtual-machine/provision-deep-learning-dsvm.md
+        maintainContext: true
   - name: Analyze business needs
     items:
     - name: Identify your scenario

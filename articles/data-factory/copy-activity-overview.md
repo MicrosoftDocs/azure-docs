@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 11/02/2017
 ms.author: jingwang
 
 ---
@@ -152,7 +152,7 @@ Copy activity execution details and performance characteristics are returned in 
 | sqlDwPolyBase | If PolyBase is used when copying data into SQL Data Warehouse. | Boolean |
 | redshiftUnload | If UNLOAD is used when copying data from Redshift. | Boolean |
 | hdfsDistcp | If DistCp is used when copying data from HDFS. | Boolean |
-| effectiveIntegrationRuntime | Show which Integration Runtime(s) is used to empower the activity run, in the format of "`<IR name> (<region if it's Azure IR>)`". | Text (string) |
+| effectiveIntegrationRuntime | Show which Integration Runtime(s) is used to empower the activity run, in the format of `<IR name> (<region if it's Azure IR>)`. | Text (string) |
 | usedCloudDataMovementUnits | The effective cloud data movement units during copy. | Int32 value |
 | redirectRowPath | Path to the log of skipped incompatible rows in the blob storage you configure under "redirectIncompatibleRowSettings". See below example. | Text (string) |
 | billedDuration | The duration being billed for data movement. | Int32 value in seconds |

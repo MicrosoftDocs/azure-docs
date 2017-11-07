@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/18/2017
+ms.date: 11/03/2017
 ms.author: ryanwi
 
 ---
@@ -167,7 +167,7 @@ The Service Fabric SDK and tools provide a service template to help you create a
 
 1. Start Visual Studio.  Select **File** > **New** > **Project**.
 2. Select **Service Fabric application**, name it "MyFirstContainer", and click **OK**.
-3. Select **Guest Container** from the list of **service templates**.
+3. Select **Container** from the list of **service templates**.
 4. In **Image Name** enter "myregistry.azurecr.io/samples/helloworldapp", the image you pushed to your container repository.
 5. Give your service a name, and click **OK**.
 

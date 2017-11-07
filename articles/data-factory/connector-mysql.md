@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 11/01/2017
 ms.author: jingwang
 
 ---
@@ -37,7 +37,7 @@ Specifically, this MySQL connector supports MySQL **version 5.1 and above**.
 To use this MySQL connector, you need to:
 
 - Set up a Self-hosted Integration Runtime. See [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md) article for details.
-- Install the [MySQL Connector/Net for Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) version 6.6.5 or above on the Integration Runtime machine.
+- Install the [MySQL Connector/Net for Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) version 6.6.5 or above on the Integration Runtime machine. This 32 bit driver is compatible with 64 bit IR.
 
 > [!TIP]
 > If you hit error on "Authentication failed because the remote party has closed the transport stream.", consider to upgrade the MySQL Connector/Net to higher version.
