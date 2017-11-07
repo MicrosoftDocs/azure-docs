@@ -81,15 +81,15 @@ To deploy the web service along with the model file, you also need a scoring scr
 
    ![Scoring file](media/tutorial-classifying-iris/model_data_collection.png)
 
-4. To get the schema file, run the script. Select the **local** environment and the **iris_score.py** script in the command bar, and then select the **Run** button. 
+4. To get the schema file, run the script. Select the **local** environment and the **score_iris.py** script in the command bar, and then select the **Run** button. 
 
 5. This script creates a JSON file in the **Outputs** section, which captures the input data schema required by the model.
 
-6. Note the **Jobs** pane on the right side of the **Project Dashboard** pane. Wait for the latest **iris\_score.py** job to display the green **Completed** status. Then select the hyperlink **iris\_score.py [1]** for the latest job run to see the run details from the **score_iris.py** run. 
+6. Note the **Jobs** pane on the right side of the **Project Dashboard** pane. Wait for the latest **score_iris.py** job to display the green **Completed** status. Then select the hyperlink **score_iris.py [1]** for the latest job run to see the run details from the **score_iris.py** run. 
 
 7. On the **Run Properties** pane, in the **Outputs** section, select the newly created **service_schema.json** file.  Select the check box next to the file name, and then select **Download**. Save the file into your project root folder.
 
-8. Return to the previous tab where you opened the **iris-score.py** script. By using data collection, you can capture model inputs and predictions from the web service. The following steps are of particular interest for data collection.
+8. Return to the previous tab where you opened the **score_iris.py** script. By using data collection, you can capture model inputs and predictions from the web service. The following steps are of particular interest for data collection.
 
 9. Review the code at the top of the file imports class **ModelDataCollector**, because it contains the model data collection functionality:
 
