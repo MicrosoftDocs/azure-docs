@@ -14,8 +14,8 @@ ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: quickstart
-ms.date: 01/26/2017
-ms.author: elbutter;barbkess
+ms.date: 11/06/2017
+ms.author: elbutter
 
 ---
 # Get started with SQL Data Warehouse
@@ -530,7 +530,7 @@ SQL Data Warehouse supports a key statement called CREATE TABLE AS SELECT (CTAS)
 
     ```sql
     SELECT * FROM sys.dm_pdw_exec_requests;
-	```
+    ```
 
 4. Enjoy seeing your data nicely loaded into your Azure SQL Data Warehouse.
 
