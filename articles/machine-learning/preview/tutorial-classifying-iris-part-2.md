@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
-ms.date: 09/25/2017
+ms.date: 11/06/2017
 ---
 
 # Classify Iris part 2: Build a model
@@ -331,7 +331,7 @@ To execute your script in a Docker container on a remote Linux machine, you need
    ```yaml
    "Framework": "PySpark"
    ```
-   Don't make any changes to the `myvm.compute` file. The same Docker image on the same VM gets used for the Spark execution. In the new `myvy-spark.runconfig`, the `target` field points to the same `myvm.compute` file via its name `myvm`.
+   Don't make any changes to the `myvm.compute` file. The same Docker image on the same VM gets used for the Spark execution. In the new `myvm-spark.runconfig`, the `target` field points to the same `myvm.compute` file via its name `myvm`.
 
 5. Type the following command to run it in the Spark instance in the remote Docker container:
    ```azureli
