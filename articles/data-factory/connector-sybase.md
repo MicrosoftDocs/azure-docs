@@ -26,7 +26,7 @@ This article outlines how to use the Copy Activity in Azure Data Factory to copy
 > [!NOTE]
 > This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Sybase connector in V1](v1/data-factory-onprem-sybase-connector.md).
 
-## Supported scenarios
+## Supported capabilities
 
 You can copy data from Sybase database to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
@@ -103,8 +103,7 @@ To copy data from Sybase, set the type property of the dataset to **RelationalTa
 ```json
 {
     "name": "SybaseDataset",
-    "properties":
-    {
+    "properties": {
         "type": "RelationalTable",
         "linkedServiceName": {
             "referenceName": "<Sybase linked service name>",
@@ -168,4 +167,4 @@ Sybase supports T-SQL types. For a mapping table from SQL types to Azure Data Fa
 
 
 ## Next steps
-For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
