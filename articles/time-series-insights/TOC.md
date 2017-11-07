@@ -19,8 +19,8 @@
 
 # Concepts
 ## [Manage resources with Azure Resource Manager](time-series-insights-manage-resources-using-azure-resource-manager.md)
-## [Visualize your data with explorer](time-series-insights-explorer.md)
-## [Causes of Throttling](time-series-insights-how-tsi-throttles.md)
+## [Visualize your data with the explorer](time-series-insights-explorer.md)
+## [Causes of throttling](time-series-insights-how-tsi-throttles.md)
 ## [Mitigate latency and throttling](time-series-insights-environment-mitigate-latency.md)
 
 ## Develop

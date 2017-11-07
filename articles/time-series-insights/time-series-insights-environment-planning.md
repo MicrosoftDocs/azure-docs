@@ -1,6 +1,6 @@
 ---
-title: Plan your Time Series Insights environment | Microsoft Docs
-description: This article describes best practices for planning a Time Series Insights environment
+title: Plan your Azure Time Series Insights environment | Microsoft Docs
+description: This article describes best practices for planning an Azure Time Series Insights environment
 keywords: 
 services: time-series-insights
 documentationcenter: 
@@ -68,4 +68,6 @@ To provision your Time Series Insights environment, identify the SKU(s) that wil
 
 ## Next steps
 
+[How to add an Event Hub event source](time-series-insights-how-to-add-an-event-source-eventhub.md)
+[How to add an IoT Hub event source](time-series-insights-how-to-add-an-event-source-iothub.md)
 

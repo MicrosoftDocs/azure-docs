@@ -1,5 +1,5 @@
 ---
-title: How Time Series Insights throttles data | Microsoft Docs
+title: How Azure Time Series Insights throttles data | Microsoft Docs
 description: This article describes how Azure Time Series Insights throttles data if you exceed your ingress capacity threshold
 keywords: 
 services: time-series-insights
@@ -20,7 +20,7 @@ ms.author:
 
 # When Time Series Insights throttles data
 
-If the event sources for your Azure IoT Hub or Azure Event Hub push data beyond the enforced limits for your environment, your Time Series Insights is throttled, and your data will lag.
+If the event sources for your Azure IoT Hub or Azure Event Hub push data beyond the enforced limits for your environment, your Azure Time Series Insights is throttled, and your data will lag.
 
 The throttling limit enforced by Azure Time Series Insights is based on your environment's SKU type and capacity. Your environment's capacity comprises all of your event sources. 
 

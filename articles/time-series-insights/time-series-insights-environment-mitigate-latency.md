@@ -1,5 +1,5 @@
 ---
-title: How to mitigate throttling and latency | Microsoft Docs
+title: How to mitigate throttling and latency in Azure Time Series Insights | Microsoft Docs
 description: This article describes how to mitigate latency and throttling in Azure Time Series Insights 
 keywords: 
 services: time-series-insights
