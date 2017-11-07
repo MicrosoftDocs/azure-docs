@@ -37,7 +37,7 @@ $ az --version
 ```
 
 If you don't have the `az` tool installed, there are instructions [here](https://github.com/azure/azure-cli#installation).  
-Alternatively, you can use [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview), which has the `az` Azure cli and `kubectl` tools already installed for you.  
+Alternatively, you can use [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), which has the `az` Azure cli and `kubectl` tools already installed for you.  
 
 You can test if you have the `kubectl` tool installed by running:
 
