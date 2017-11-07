@@ -29,7 +29,7 @@ This quickstart guides through creating a [serverless](https://azure.microsoft.c
 To develop functions app with Java, you must have the following installed:
 
 -  [.NET Core](https://www.microsoft.com/net/core), latest version.
--  [Java Developer Kit](https://www.azul.com/downloads/zulu/), version 1.8.
+-  [Java Developer Kit](https://www.azul.com/downloads/zulu/), version 8.
 -  [Azure CLI](https://docs.microsoft.com/cli/azure)
 -  [Apache Maven](https://maven.apache.org), version 3.0 or above.
 -  [Node.js](https://nodejs.org/download/), version 8.6 or higher.
