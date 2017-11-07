@@ -7,7 +7,7 @@
  
     Setting|Suggested value|Description
     ---|---|---
-    ID|*Enter a unique name*|Enter a unique name to identify this Azure Cosmos DB account. Because *documents.azure.com* is appended to the ID that you provide to create your URI, use a unique but identifiable ID.<br><br>The ID can contain only lowercase letters, numbers, and the hyphen (-) character, and it must contain 3 to 50 characters.
+    ID|*Enter a unique name*|Enter a unique name to identify this Azure Cosmos DB account. Because *documents.azure.com* is appended to the ID that you provide to create your contact point, use a unique but identifiable ID.<br><br>The ID can contain only lowercase letters, numbers, and the hyphen (-) character, and it must contain 3 to 50 characters.
     API|Cassandra (wide-column)|The API determines the type of account to create. Azure Cosmos DB provides five APIs to suits the needs of your application: Gremlin (graph), MongoDB, SQL (DocumentDB), Table (key-value), and Cassandra, each which currently require a separate account. <br><br>Select **Cassandra (wide-column)** because in this quickstart you are creating a wide-column database that is queryable using CQL syntax.<br><br>[Learn more about the Cassandra API](../articles/cosmos-db/cassandra-introduction.md)|
     Subscription|*Your subscription*|Select Azure subscription that you want to use for this Azure Cosmos DB account. 
     Resource Group|*Enter the same unique name as provided above in ID*|Enter a new resource-group name for your account. For simplicity, you can use the same name as your ID. 

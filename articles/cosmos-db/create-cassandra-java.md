@@ -41,22 +41,16 @@ In addition:
 
 ## Create a database account
 
-Before you can create a document database, you need to create a SQL (DocumentDB) database account with Azure Cosmos DB.
+Before you can create a document database, you need to create a Cassandra account with Azure Cosmos DB.
 
-TODO CREATE NEW Cassandra include file
-
-[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
+[!INCLUDE [cosmos-db-create-dbaccount-cassandra](../../includes/cosmos-db-create-dbaccount-cassandra.md)]
 
 ## Add a collection
 
-TODO CREATE NEW Cassandra include file
-
-[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
+[!INCLUDE [cosmos-db-create-cassandra](../../includes/cosmos-db-create-cassandra.md)]
 
 <a id="add-sample-data"></a>
 ## Add sample data
-
-TODO CREATE NEW Cassandra content
 
 You can now add data to your new collection using Data Explorer.
 
@@ -146,10 +140,10 @@ Now go back to the Azure portal to get your connection string information and co
 
 ## Run the app
 
-1. In the git terminal window, `cd` to the azure-cosmos-db-documentdb-java-getting-started folder.
+1. In the git terminal window, `cd` to the azure-cosmosdb-cassandra-java-getting-started\java-examples folder.
 
     ```git
-    cd "C:\git-samples\azure-cosmos-db-documentdb-java-getting-started"
+    cd "C:\git-samples\azure-cosmosdb-cassandra-java-getting-started\java-examples"
     ```
 
 2. In the git terminal window, type `mvn package` to install the required Java packages.

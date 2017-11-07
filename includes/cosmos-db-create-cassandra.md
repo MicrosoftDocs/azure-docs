@@ -1,4 +1,4 @@
-You can now use the Data Explorer tool in the Azure portal to create a table. 
+You can now use the Data Explorer tool in the Azure portal to create a Cassandra table. 
 
 1. In the Azure portal, in the menu on the left, select **Data Explorer**.
 
