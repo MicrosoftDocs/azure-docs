@@ -81,7 +81,7 @@ By default, [Azure Search blob indexer](search-howto-indexing-azure-blob-storage
 
 ### Indexer definition for single JSON blobs
 
-Using the Azure Search blob indexer, a JSON document similar to the previous example is parsed into a single Azure Search document. The indexer loads an index by matching "text", "datePublished", and "tags" from the source against identically named and typed target fields in an search index.
+Using the Azure Search blob indexer, a JSON document similar to the previous example is parsed into a single Azure Search document. The indexer loads an index by matching "text", "datePublished", and "tags" from the source against identically named and typed target fields.
 
 Indexer configuration is provided in the body of an indexer operation. Recall that the data source object, previously defined, specifies the data source type and connection information. Additionally, the target index must also exist as an empty container in your service. Schedule and parameters are optional, but if you omit them, the indexer runs immediately, using `json` as the parsing mode.
 
@@ -187,7 +187,7 @@ You can also refer to individual array elements by using a zero-based index. For
 
 ## Example: Indexer request with field mappings
 
-The following example is a fuly specified indexer payload, including field mappings:
+The following example is a fully specified indexer payload, including field mappings:
 
     POST https://[service name].search.windows.net/indexers?api-version=2016-09-01
     Content-Type: application/json
