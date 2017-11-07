@@ -101,9 +101,13 @@ azure compute virtual-machine initiate-maintenance --service-name myService --na
 The following attributes will be shown during the maintenance wave: 
 
 data:    MaintenanceStatus IsCustomerInitiatedMaintenanceAllowed true
+
 data:    MaintenanceStatus PreMaintenanceWindowStartTime 2017-07-12T05:00:00.000Z
+
 data:    MaintenanceStatus PreMaintenanceWindowEndTime 2017-07-25T05:00:00.000Z
+
 data:    MaintenanceStatus MaintenanceWindowStartTime 2017-08-02T05:00:00.000Z
+
 data:    MaintenanceStatus MaintenanceWindowEndTime 2017-08-04T05:00:00.000Z
 
 
