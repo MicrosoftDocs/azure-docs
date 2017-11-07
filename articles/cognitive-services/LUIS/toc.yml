@@ -63,7 +63,7 @@
       href: Label-Suggested-Utterances.md
     - name: Publish your app
       href: PublishApp.md
-  - name: Prebuilt models
+  - name: Use prebuilt models
     items: 
     - name: Use prebuilt entities
       href: Pre-builtEntities.md
@@ -85,6 +85,10 @@
       href: luis-how-to-collaborate.md    
 - name: Reference
   items: 
+  - name: Prebuilt entity reference
+    href: luis-reference-prebuilt-entities.md
+  - name: Cortana prebuilt app reference
+    href: luis-reference-cortana-prebuilt.md
   - name: Authoring APIs
     href: https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f
   - name: Endpoint API
