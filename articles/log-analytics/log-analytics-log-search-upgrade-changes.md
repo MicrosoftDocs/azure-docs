@@ -47,7 +47,7 @@ Alerts work the same in upgraded workspaces, but the query that they run must be
 The format of the payload for runbooks and webhooks sent from alerts has changed.  Get details for the new payload format in [Add actions to alert rules in Log Analytics](log-analytics-alerts-actions.md).
 
 ## Dashboards
-[Dashboards](log-analytics/log-analytics-dashboards.md) are in the process of being deprecated.  You can continue to use any tiles that you added to the dashboard before your workspace was upgraded, but you cannot edit those tiles or add new ones.  Use View Designer to create custom views which has a richer feature set than dashboards.
+[Dashboards](log-analytics-dashboards.md) are in the process of being deprecated.  You can continue to use any tiles that you added to the dashboard before your workspace was upgraded, but you cannot edit those tiles or add new ones.  Use View Designer to create custom views which has a richer feature set than dashboards.
 
 Details on View Designer are available at [Use View Designer to create custom views in Log Analytics](log-analytics-view-designer.md).
 
