@@ -24,8 +24,7 @@ BUGBUG: The picture is wrong
 3. Copy your URI value from the portal (using the copy button) and paste the value into the app.config file as the value of the CosmosDBStorageConnectionString. 
 
     `<add key="CosmosDBStorageConnectionString" 
-        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://account-name.table.cosmosdb.net" />`    
-        BUGBUG: MAKE SURE THE TABLE ENDPOINT IS CORRECT
+        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://account-name.table.cosmosdb.azure.com" />`    
 
 > [!NOTE]
 > To use this app with Azure Table storage, you need to change the connection string in `app.config file`. Use the account name as Table-account name and key as Azure Storage Primary key. <br>
