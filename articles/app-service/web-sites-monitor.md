@@ -190,9 +190,6 @@ is over-provision. You can learn more about auto scale here: [How to Scale](../m
 > 
 > 
 
-## What's changed
-* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-
 [fzilla]:http://go.microsoft.com/fwlink/?LinkId=247914
 [vmsizes]:http://go.microsoft.com/fwlink/?LinkID=309169
 

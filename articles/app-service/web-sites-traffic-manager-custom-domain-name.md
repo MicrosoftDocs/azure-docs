@@ -70,8 +70,6 @@ To associate your custom domain with a web app in Azure App Service, you must ad
 ## Next steps
 For more information, see the [Node.js Developer Center](/develop/nodejs/).
 
-[!INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
-
 [!INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
 <!-- URL List -->
