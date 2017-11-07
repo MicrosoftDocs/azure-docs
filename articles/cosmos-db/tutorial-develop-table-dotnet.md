@@ -51,8 +51,7 @@ If you currently use Azure Table storage, you gain the following benefits with A
 - 99.99% availability within a single region, and ability to add more regions for higher availability, and [industry-leading comprehensive SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) on general availability
 - Work with the existing Azure storage .NET SDK, and no code changes to your application
 
-This tutorial covers Azure Cosmos DB Table API using the .NET SDK. You can download the [Azure Storage Preview SDK](https://aka.ms/premiumtablenuget) from NuGet.
-BUGBUG: We need to change the aka.ms to a new link without premium that points to the right nuget location
+This tutorial covers Azure Cosmos DB Table API using the .NET SDK. You can download the [Azure Storage Preview SDK](https://aka.ms/tableapinuget) from NuGet.
 
 To learn more about complex Azure Table storage tasks, see:
 
