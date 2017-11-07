@@ -27,7 +27,7 @@ This sample requires the Azure PowerShell module version 4.2 or later. Run `Get-
  
 Run `Login-AzureRmAccount` to create a connection with Azure.
 
-For an overview of SQL Data Sync, see [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync (Preview)](sql-database-sync-data.md).
+For an overview of SQL Data Sync, see [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync (Preview)](../sql-database-sync-data.md).
 
 ## Sample script
 
