@@ -340,6 +340,8 @@
 #### [Set up OMS Log Analytics](service-fabric-diagnostics-oms-setup.md)
 #### [Add the OMS Agent](service-fabric-diagnostics-oms-agent.md)
 #### [Monitor containers](service-fabric-diagnostics-oms-containers.md)
+### Performance monitoring
+#### [Performance monitoring with WAD](service-fabric-diagnostics-perf-wad.md)
 
 # Reference
 ## [Azure PowerShell](/powershell/module/azurerm.servicefabric/)
