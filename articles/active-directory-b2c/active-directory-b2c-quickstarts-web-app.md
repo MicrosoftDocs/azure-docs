@@ -29,9 +29,7 @@ Azure Active Directory B2C provides cloud identity management to keep your appli
 
 ## Prerequisites
 
-* Install [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the following workloads:
-  - **ASP.NET and web development**
-
+* [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the **ASP.NET and web development** workload. 
 * A social account from either Facebook, Google, Microsoft, or Twitter.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -51,7 +49,7 @@ The solution is a sample to-do list application consisting of two projects:
 
 For this quickstart, you need to run both the `TaskWebApp` and `TaskService` projects at the same time. 
 
-1. In Solution Explorer, right-click on the solution and select **Set StartUp Projects...**. 
+1. In the Visual Studio menu, select **Projects > Set StartUp Projects...**. 
 2. Select **Multiple startup projects** radio button.
 3. Change the **Action** for both projects to **Start**. Click **OK**.
 
@@ -59,8 +57,8 @@ For this quickstart, you need to run both the `TaskWebApp` and `TaskService` pro
 
 Select **Debug > Start Debugging** to build and run both applications. Each application opens in its own browser tab:
 
-* `https://localhost:44316/` - This page is the ASP.NET web application. You interact directly with this application in the quickstart.
-* `https://localhost:44332/` - This page is the web API that is called by the ASP.NET web application.
+`https://localhost:44316/` - This page is the ASP.NET web application. You interact directly with this application in the quickstart.
+`https://localhost:44332/` - This page is the web API that is called by the ASP.NET web application.
 
 ## Create an account
 
@@ -76,15 +74,15 @@ To sign up using a social identity provider, click the button of the identity pr
 
 You need to authenticate (sign-in) using your social account credentials and authorize the application to read information from your social account. By granting access, the application can retrieve profile information from the social account such as your name and city. 
 
-![Authenticate and authorize using a social account](media/active-directory-b2c-quickstarts-web-app/twitter-authenticate-authorize-web.png)
+Finish the sign-in process for the identity provider. For example, if you chose Twitter, enter your Twitter credentials and click **Sign in**.
 
-Finish the sign-in process for the identity provider. For example, click **Sign in** button for Twitter.
+![Authenticate and authorize using a social account](media/active-directory-b2c-quickstarts-web-app/twitter-authenticate-authorize-web.png)
 
 Your new Azure AD B2C account profile details are pre-populated with information from your social account.
 
-![New account sign-up profile details](media/active-directory-b2c-quickstarts-web-app/new-account-sign-up-profile-details-web.png)
-
 Update the Display Name, Job Title, and City fields and click **Continue**.  The values you enter are used for your Azure AD B2C user account profile.
+
+![New account sign-up profile details](media/active-directory-b2c-quickstarts-web-app/new-account-sign-up-profile-details-web.png)
 
 You have successfully:
 
