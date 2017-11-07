@@ -1,5 +1,5 @@
 ---
-title: 'Move a public peering on ExpressRoute to Microsoft peering | Microsoft Docs'
+title: 'Move a public peering on Azure ExpressRoute to Microsoft peering | Microsoft Docs'
 description: This article shows you the steps to move your public peering to Microsoft peering on ExpressRoute.
 services: expressroute
 documentationcenter: na
@@ -18,7 +18,7 @@ ms.date: 11/07/2017
 ms.author: cherylmc
 
 ---
-# Move Azure public peering on ExpressRoute to Microsoft peering
+# Move a public peering to Microsoft peering
 
 ExpressRoute now supports Azure PaaS services, such as Azure storage and Azure SQL Database, using Microsoft peering with route filters. You now need only one routing domain to access Microsoft PaaS and SaaS services. You can take advantage of route filters to selectively advertise the PaaS service prefixes for Azure regions you want to consume.
 
