@@ -1,5 +1,5 @@
 ---
-title: Getting started with Azure SQL Data Sync (Preview) | Microsoft Docs
+title: Get started with Azure SQL Data Sync (Preview) | Microsoft Docs
 description: This tutorial helps you get started with Azure SQL Data Sync (Preview)
 services: sql-database
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.date: 06/08/2017
 ms.author: douglasl
 ms.reviewer: douglasl
 ---
-# Getting started with Azure SQL Data Sync (Preview)
+# Get started with Azure SQL Data Sync (Preview)
 In this tutorial, you learn how to set up Azure SQL Data Sync by creating a hybrid sync group that contains both Azure SQL Database and SQL Server instances. The new sync group is fully configured and synchronizes on the schedule you set.
 
 This tutorial assumes that you have at least some prior experience with SQL Database and with SQL Server. 
@@ -192,8 +192,19 @@ After the new sync group members are created and deployed, Step 3, **Configure s
 ## Next steps
 Congratulations. You have created a sync group that includes both a SQL Database instance and a SQL Server database.
 
-For more info about SQL Database and SQL Data Sync, see:
+For more info about SQL Data Sync, see:
+
+-   [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync](sql-database-sync-data.md)
+-   [Best practices for Azure SQL Data Sync](sql-database-best-practices-data-sync.md)
+-   [Troubleshoot issues with Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
+
+-   Complete PowerShell examples that show how to configure SQL Data Sync:
+    -   [Use PowerShell to sync between multiple Azure SQL databases](scripts/sql-database-sync-data-between-sql-databases.md)
+    -   [Use PowerShell to sync between an Azure SQL Database and a SQL Server on-premises database](scripts/sql-database-sync-data-between-azure-onprem.md)
 
 -   [Download the SQL Data Sync REST API documentation](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
+
+For more info about SQL Database, see:
+
 -   [SQL Database Overview](sql-database-technical-overview.md)
 -   [Database Lifecycle Management](https://msdn.microsoft.com/library/jj907294.aspx)

@@ -9,7 +9,7 @@ author: "douglaslMS"
 ms.author: "douglasl"
 manager: "craigg"
 ---
-# Troubleshoot issues with Azure SQL Data Sync
+# Troubleshoot issues with Azure SQL Data Sync (Preview)
 
 This article describes how to troubleshoot current issues that are known to the SQL Data Sync (Preview) team. If there is a workaround for an issue, it is provided here.
                                                            
@@ -482,3 +482,20 @@ Any of the following conditions can result in a sync group being stuck in the pr
 
 If you are unable to fix the problem, the status of your sync group can be reset by Microsoft support. In order to have your status reset, create a forum post on the [Azure SQL Database forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=ssdsgetstarted), and include your subscription ID and the sync group ID for the group that needs to be reset. A Microsoft support engineer will respond to your post and let you know when the status has been reset.
 
+## Next steps
+For more info about SQL Data Sync, see:
+
+-   [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync](sql-database-sync-data.md)
+-   [Get Started with Azure SQL Data Sync](sql-database-get-started-sql-data-sync.md)
+-   [Best practices for Azure SQL Data Sync](sql-database-best-practices-data-sync.md)
+
+-   Complete PowerShell examples that show how to configure SQL Data Sync:
+    -   [Use PowerShell to sync between multiple Azure SQL databases](scripts/sql-database-sync-data-between-sql-databases.md)
+    -   [Use PowerShell to sync between an Azure SQL Database and a SQL Server on-premises database](scripts/sql-database-sync-data-between-azure-onprem.md)
+
+-   [Download the SQL Data Sync REST API documentation](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
+
+For more info about SQL Database, see:
+
+-   [SQL Database Overview](sql-database-technical-overview.md)
+-   [Database Lifecycle Management](https://msdn.microsoft.com/library/jj907294.aspx)
