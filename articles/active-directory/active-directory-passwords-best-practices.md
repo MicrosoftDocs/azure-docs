@@ -35,8 +35,8 @@ Most customers follow these steps to ensure a smooth rollout of SSPR functionali
 10. Over time, review users registering and using by viewing the [reporting provided by Azure AD](active-directory-passwords-reporting.md).
 11. When you are ready, enable password reset for all users, set the **Self Service Password Reset Enabled** toggle to **All**. 
 
-    > [!IMPORTANT]
-    > Test SSPR with a user and not an administrator as Microsoft enforces strong authentication requirements for Azure administrator type accounts. For more information regarding the administrator password policy, see our [deep dive article](active-directory-passwords-how-it-works.md).
+   > [!IMPORTANT]
+   > Test SSPR with a user and not an administrator as Microsoft enforces strong authentication requirements for Azure administrator type accounts. For more information regarding the administrator password policy, see our [password policy article](active-directory-passwords-policy.md#administrator-password-policy-differences).
 
 ## Email-based rollout
 
@@ -64,7 +64,7 @@ If you want your users to register for password reset, you can force them to reg
 
 Administrators can require users to re-register after a period of time by setting the **Number of days before users are asked to reconfirm their authentication information** between 0-730 days.
 
-After you enable this option, users signing will see a message that informs them their administrator has required them to verify their authentication information.
+After you enable this option, users signing in will see a message that informs them their administrator has required them to verify their authentication information.
 
 ## Populate authentication data
 
