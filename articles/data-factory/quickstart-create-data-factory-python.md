@@ -106,7 +106,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
             print("\tErrors: {}".format(activity_run.error['message']))
 
     ```
-3. Add the following code to the **Main** method that creates an instance of DataFactoryManagementClient class. You use this object to create the data factory, linked service, datasets, and pipeline. You also use this object to monitor the pipeline run details. Set **subscription_id** variable to the ID of your Azure subscription.
+3. Add the following code to the **Main** method that creates an instance of DataFactoryManagementClient class. You use this object to create the data factory, linked service, datasets, and pipeline. You also use this object to monitor the pipeline run details. Set **subscription_id** variable to the ID of your Azure subscription. Currently, Data Factory V2 allows you to create data factories only in the East US, East US2, and West Europe regions. The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
 
     ```python   
     def main():

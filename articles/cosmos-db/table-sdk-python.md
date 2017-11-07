@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB Table API for Python | Microsoft Docs
-description: Learn all about the Azure Cosmos DB Python SDK for premium tables  including release dates, retirement dates, and changes made between each version.
+title: Azure Table storage SDK for Python | Microsoft Docs
+description: Learn all about the Azure Table storage SDK for Python, including release dates, retirement dates, and changes made between each version.
 services: cosmos-db
 documentationcenter: python
 author: mimig
@@ -13,12 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 11/04/2017
 ms.author: mimig1
 ms.custom: 
 
 ---
-# Azure Cosmos DB Table API for Python: Release notes and resources
+# Azure Table storage SDK for Python: Release notes and resources
 > [!div class="op_single_selector"]
 > * [.NET](table-sdk-dotnet.md)
 > * [Python](table-sdk-python.md)

@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/31/2017
+ms.date: 11/01/2017
 ms.author: markvi
 ms.reviewer: spunukol
 
@@ -132,7 +132,7 @@ In your conditional access policy, the following browsers are supported:
 | macOS                  | Chrome                      | Coming soon |
 
 > [!NOTE]
-> For Chrome support, you muse use Windows 10 Creators Update (version 1703) or later.<br>
+> For Chrome support, you must use Windows 10 Creators Update (version 1703) or later.<br>
 > You can install [this extension](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
 
 ### Supported mobile applications and desktop clients
