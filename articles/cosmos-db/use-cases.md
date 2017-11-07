@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 11/15/2017
 ms.author: mimig
 
 ---
@@ -37,7 +37,7 @@ Azure Cosmos DB is a global distributed, multi-model database that is used in a 
 
 The following are some attributes of Azure Cosmos DB that make it well-suited for high-performance applications with global ambition.
 
-* Azure Cosmos DB natively partitions your data for high availability and scalability. Azure Cosmos DB offers 99.99% guarantees for availability, throughput, low latency, and consistency.
+* Azure Cosmos DB natively partitions your data for high availability and scalability. Azure Cosmos DB offers 99.99% guarantees for availability, throughput, low latency, and consistency, and 99.999% read availability for database accounts spanning two or more Azure regions.
 * Azure Cosmos DB has SSD backed storage with low-latency order-of-millisecond response times.
 * Azure Cosmos DB's support for consistency levels like eventual, consistent prefix, session, and bounded-staleness allows for full flexibility and low cost-to-performance ratio. No database service offers as much flexibility as Azure Cosmos DB in levels consistency. 
 * Azure Cosmos DB has a flexible data-friendly pricing model that meters storage and throughput independently.
