@@ -93,7 +93,7 @@ Azure AD conditional access supports the following device platforms:
 
 - Windows
 
-- macOS (preview)
+- macOS
 
 
 
