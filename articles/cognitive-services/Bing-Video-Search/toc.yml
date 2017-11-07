@@ -35,6 +35,12 @@
     href: paging-videos.md
   - name: Resize and crop thumbnails
     href: resize-and-crop-thumbnails.md
+- name: Tutorials
+  items:
+  - name: Single-page Video Search app
+    href: tutorial-bing-video-search-single-page-app.md
+  - name: Single-page Video Search app (source code)
+    href: tutorial-bing-video-search-single-page-app-source.md
 - name: Reference
   items:
   - name: REST v7
