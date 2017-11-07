@@ -205,7 +205,7 @@ ms.custom: H1Hack27Feb2017
 > ![Windows][Logo_Windows] Windows
 >
 
-In September 2016, Microsoft released a feature where you can manage multiple virtual IP addresses by using an [Azure internal load balancer][load-balancer-multivip-overview]. This functionality already exists in the Azure external load balancer.
+In September 2016, Microsoft released a feature where you can manage multiple virtual IP addresses by using an [Azure internal load balancer][load-balancer-multivip-overview]. This functionality already exists in the Azure external load balancer. 
 
 If you have an SAP deployment, you have to use an internal load balancer to create a Windows cluster configuration for SAP ASCS/SCS.
 
