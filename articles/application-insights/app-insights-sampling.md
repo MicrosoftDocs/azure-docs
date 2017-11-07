@@ -193,7 +193,7 @@ For the sampling percentage, choose a percentage that is close to 100/N where N 
 If you also enable fixed-rate sampling at the server, the clients and server will synchronize so that, in Search, you can  navigate between related page views and requests.
 
 ## Fixed-rate sampling for ASP.NET web sites
-Fixed rate sampling reduces the traffic sent from your web server and web browsers. Unlike adaptive sampling, it reduces telemetry at a fixed rate decided by you. It also synchronizes the client and server sampling so that related items are retained - for example, so that if you look at a page view in Search, you can find its related request.
+Fixed rate sampling reduces the traffic sent from your web server and web browsers. Unlike adaptive sampling, it reduces telemetry at a fixed rate decided by you. It also synchronizes the client and server sampling so that related items are retained - for example, when  you look at a page view in Search, you can find its related request.
 
 The sampling algorithm retains related items. For each HTTP request event, the request and its related events are either discarded or transmitted together. 
 
