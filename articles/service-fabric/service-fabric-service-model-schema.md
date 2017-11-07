@@ -12,7 +12,7 @@ ms.devlang: xml
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 10/25/2017
+ms.date: 11/06/2017
 ms.author: ryanwi
 ---
 
@@ -15794,7 +15794,7 @@ file.write('ms.devlang: xml\n')
 file.write('ms.topic: article\n')
 file.write('ms.tgt_pltfrm: na\n')
 file.write('ms.workload: multiple\n')
-file.write('ms.date: 10/25/2017\n')
+file.write('ms.date: 11/06/2017\n')
 file.write('ms.author: ryanwi\n')
 
 file.write('---\n\n')
