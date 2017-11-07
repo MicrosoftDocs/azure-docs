@@ -71,7 +71,6 @@
 
 ## Set resource policies
 ### [What are resource policies?](resource-manager-policy.md)
-### [Use scripts to assign policy](resource-manager-policy-create-assign.md)
 ### Examples
 #### [Tags](resource-manager-policy-tags.md)
 #### [Naming conventions](resource-manager-policy-naming-convention.md)
