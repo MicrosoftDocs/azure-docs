@@ -63,11 +63,9 @@ The following properties are supported for ODBC linked service:
 ```json
 {
     "name": "ODBCLinkedService",
-    "properties":
-    {
+    "properties": {
         "type": "Odbc",
-        "typeProperties":
-        {
+        "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
                 "value": "<connection string>"
@@ -92,11 +90,9 @@ The following properties are supported for ODBC linked service:
 ```json
 {
     "name": "ODBCLinkedService",
-    "properties":
-    {
+    "properties": {
         "type": "Odbc",
-        "typeProperties":
-        {
+        "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
                 "value": "<connection string>"
@@ -131,15 +127,13 @@ To copy data from/to ODBC-compatible data store, set the type property of the da
 ```json
 {
     "name": "ODBCDataset",
-    "properties":
-    {
+    "properties": {
         "type": "RelationalTable",
         "linkedServiceName": {
             "referenceName": "<ODBC linked service name>",
             "type": "LinkedServiceReference"
         },
-        "typeProperties":
-        {
+        "typeProperties": {
             "tableName": "<table name>"
         }
     }
@@ -250,11 +244,9 @@ Create an ODBC linked service to link a IBM Informix data store to an Azure data
 ```json
 {
     "name": "InformixLinkedService",
-    "properties":
-    {
+    "properties": {
         "type": "Odbc",
-        "typeProperties":
-        {
+        "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
                 "value": "<Informix connection string or DSN>"
@@ -289,11 +281,9 @@ Create an ODBC linked service to link a Microsoft Access database to an Azure da
 ```json
 {
     "name": "MicrosoftAccessLinkedService",
-    "properties":
-    {
+    "properties": {
         "type": "Odbc",
-        "typeProperties":
-        {
+        "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
                 "value": "Driver={Microsoft Access Driver (*.mdb, *.accdb)};Dbq=<path to your DB file e.g. C:\\mydatabase.accdb>;"
@@ -328,11 +318,9 @@ Create an ODBC linked service to link a Microsoft Access database to an Azure da
 ```json
 {
     "name": "HistorianLinkedService",
-    "properties":
-    {
+    "properties": {
         "type": "Odbc",
-        "typeProperties":
-        {
+        "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
                 "value": "<GE Historian store connection string or DSN>"
@@ -371,11 +359,9 @@ Create an ODBC linked service to link a SAP HANA data store to an Azure data fac
 ```json
 {
     "name": "SAPHANAViaODBCLinkedService",
-    "properties":
-    {
+    "properties": {
         "type": "Odbc",
-        "typeProperties":
-        {
+        "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
                 "value": "Driver={HDBODBC};servernode=<HANA server>.clouddatahub-int.net:30015"

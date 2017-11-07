@@ -361,18 +361,23 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles//azure-resource-manager/resource-manager-policy-portal.md",
+            "source_path": "articles/azure-resource-manager/resource-manager-policy-portal.md",
             "redirect_url": "/azure/azure-policy/assign-policy-definition",
             "redirect_document_id": false
         },
         {
-            "source_path": "articles//azure-resource-manager/resource-manager-policy-network.md",
+            "source_path": "articles/azure-resource-manager/resource-manager-policy-network.md",
             "redirect_url": "/azure/azure-policy/json-samples",
             "redirect_document_id": false
         },
         {
-            "source_path": "articles//azure-resource-manager/resource-manager-policy-storage.md",
+            "source_path": "articles/azure-resource-manager/resource-manager-policy-storage.md",
             "redirect_url": "/azure/azure-policy/json-samples",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-resource-manager/resource-manager-policy-create-assign.md",
+            "redirect_url": "/azure/azure-policy/assign-policy-definition-ps",
             "redirect_document_id": false
         },
         {
@@ -7189,6 +7194,11 @@
         {
             "source_path": "articles/service-fabric/service-fabric-reliable-actors-get-started-java.md",
             "redirect_url": "/azure/service-fabric/service-fabric-create-your-first-linux-application-with-java",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/service-fabric/service-fabric-diagnostics-containers-windowsserver.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-diagnostics-oms-containers",
             "redirect_document_id": false
         },
         {
