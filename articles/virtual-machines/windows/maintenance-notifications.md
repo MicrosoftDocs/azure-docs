@@ -110,6 +110,30 @@ Using information from the function in the previous section, the following start
 Restart-AzureRmVM -PerformMaintenance -name $vm.Name -ResourceGroupName $rg.ResourceGroupName 
 ```
 
+### Classic deployments
+
+If you still have legacy VMs that were deployed using the classic deployment model, you can use PowerShell to query for VMs and initiate maintenance.
+
+To get the maintenance status of a VM, type:
+
+```
+Get-AzureVM -ServiceName <Service name> -Name <VM name>
+```
+
+To start maintenance on you classic VM, type:
+
+```
+Restart-AzureVM -InitiateMaintenance -ServiceName <service name> -Name <VM name>
+```
+
+The following attributes will be shown during the maintenance wave: 
+
+data:    MaintenanceStatus IsCustomerInitiatedMaintenanceAllowed true
+data:    MaintenanceStatus PreMaintenanceWindowStartTime 2017-07-12T05:00:00.000Z
+data:    MaintenanceStatus PreMaintenanceWindowEndTime 2017-07-25T05:00:00.000Z
+data:    MaintenanceStatus MaintenanceWindowStartTime 2017-08-02T05:00:00.000Z
+data:    MaintenanceStatus MaintenanceWindowEndTime 2017-08-04T05:00:00.000Z
+
 ## FAQ
 
 

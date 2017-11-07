@@ -64,6 +64,8 @@ The following values are returned under MaintenanceRedeployStatus:
 | LastOperationResultCode               | The result of the last attempt to initiate maintenance on the VM ||
 
 
+
+
 ## Start maintenance on your VM using CLI
 
 The following call will initiate maintenance on a VM if `IsCustomerInitiatedMaintenanceAllowed` is set to true.
@@ -73,6 +75,36 @@ az vm perform-maintenance rgName vmName
 ```
 
 [!INCLUDE [virtual-machines-common-maintenance-notifications](../../../includes/virtual-machines-common-maintenance-notifications.md)]
+
+## Classic deployments
+
+If you still have legacy VMs that were deployed using the classic deployment model, you can use CLI 1.0 to query for VMs and initiate maintenance.
+
+Make sure you are in the correct mode to work with classic VM by typing:
+
+```
+azure config mode asm
+```
+
+To get the maintenance status of a VM named *myVM*, type:
+
+```
+azure vm show myVM 
+``` 
+
+To start maintenance on you classic VM named *myVM* in the *myService* service and *myDeployment* deployment, type:
+
+```
+azure compute virtual-machine initiate-maintenance --service-name myService --name myDeployment --virtual-machine-name myVM
+```
+
+The following attributes will be shown during the maintenance wave: 
+
+data:    MaintenanceStatus IsCustomerInitiatedMaintenanceAllowed true
+data:    MaintenanceStatus PreMaintenanceWindowStartTime 2017-07-12T05:00:00.000Z
+data:    MaintenanceStatus PreMaintenanceWindowEndTime 2017-07-25T05:00:00.000Z
+data:    MaintenanceStatus MaintenanceWindowStartTime 2017-08-02T05:00:00.000Z
+data:    MaintenanceStatus MaintenanceWindowEndTime 2017-08-04T05:00:00.000Z
 
 
 ## FAQ
