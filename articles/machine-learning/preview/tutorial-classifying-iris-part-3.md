@@ -77,7 +77,7 @@ To deploy the web service along with the model file, you also need a scoring scr
 
 2. After the project is open, select the **Files** button (folder icon) on the left pane to open the file list in your project folder.
 
-3. Select the **iris-score.py** file. The Python script opens. This file is used as the scoring file.
+3. Select the **score_iris.py** file. The Python script opens. This file is used as the scoring file.
 
    ![Scoring file](media/tutorial-classifying-iris/model_data_collection.png)
 
@@ -85,7 +85,7 @@ To deploy the web service along with the model file, you also need a scoring scr
 
 5. This script creates a JSON file in the **Outputs** section, which captures the input data schema required by the model.
 
-6. Note the **Jobs** pane on the right side of the **Project Dashboard** pane. Wait for the latest **iris\_score.py** job to display the green **Completed** status. Then select the hyperlink **iris\_score.py [1]** for the latest job run to see the run details from the **iris_score.py** run. 
+6. Note the **Jobs** pane on the right side of the **Project Dashboard** pane. Wait for the latest **iris\_score.py** job to display the green **Completed** status. Then select the hyperlink **iris\_score.py [1]** for the latest job run to see the run details from the **score_iris.py** run. 
 
 7. On the **Run Properties** pane, in the **Outputs** section, select the newly created **service_schema.json** file.  Select the check box next to the file name, and then select **Download**. Save the file into your project root folder.
 
@@ -201,7 +201,7 @@ Now you're ready to create the real-time web service.
 1. To create a real-time web service, use the following command:
 
    ```azurecli
-   az ml service create realtime -f iris_score.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true 
+   az ml service create realtime -f score_iris.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true 
    ```
    This command generates a web service ID you can use later.
 
@@ -243,7 +243,7 @@ First, register the model. Then generate the manifest, build the Docker image, a
    To create a manifest, use the following command and provide the model ID output from the previous step:
 
    ```azurecli
-   az ml manifest create --manifest-name <new manifest name> -f iris_score.py -r python -i <model ID> -s service_schema.json
+   az ml manifest create --manifest-name <new manifest name> -f score_iris.py -r python -i <model ID> -s service_schema.json
    ```
    This command generates a manifest ID.
 
