@@ -32,173 +32,197 @@ In this tutorial you will:
 
 2. Create a new file named `azureProviderAndCreds.tf` in an empty directory.
 
-3. Copy following code into the newly created `azureProviderAndCreds.tf` file. Make sure to replace the placeholders as follows: For `subscription_id`, use the Azure subscription ID you specified when running `az account set`. For `tenant_id`, use the `tenant` value returned from `az ad sp create-for-rbac`. For `client_id`, use the `displayName` value returned from `az ad sp create-for-rbac`. For `client_secret`, use the `password` value returned from `az ad sp create-for-rbac`.
+3. Copy following code into the newly created `azureProviderAndCreds.tf` file. Make sure to replace the placeholders as follows: For `subscription_id`, use the Azure subscription ID you specified when running `az account set`. For `tenant_id`, use the `tenant` value returned from `az ad sp create-for-rbac`. For `client_id`, use the `appId` value returned from `az ad sp create-for-rbac`. For `client_secret`, use the `password` value returned from `az ad sp create-for-rbac`.
 
-```tf
-variable subscription_id {}
-variable tenant_id {}
-variable client_id {}
-variable client_secret {}
+  ```tf
+  variable subscription_id {default = "<my-azure-subscription-id>"}
+  variable tenant_id {default = "<tenantid-returned-from-creating-a-service-principal>"}
+  variable client_id {default = "<appid-returned-from-creating-a-service-principal>"}
+  variable client_secret {default = "<password-returned-from-creating-a-service-principal>"}
 
-provider "azurerm" {
-    subscription_id = "<azure-subscription-id>"
-    tenant_id = "<tenant>"
-    client_id = "<displayName>"
-    client_secret = "<password>"
-}
-```
-
-## 2. Create the template
-
-Create a new Terraform template named `main.tf` with the following code: 
-
-```tf
-resource "azurerm_resource_group" "test" {
-  name     = "acctestrg"
-  location = "West US 2"
-}
-
-resource "azurerm_virtual_network" "test" {
-  name                = "acctvn"
-  address_space       = ["10.0.0.0/16"]
-  location            = "${azurerm_resource_group.test.location}"
-  resource_group_name = "${azurerm_resource_group.test.name}"
-}
-
-resource "azurerm_subnet" "test" {
-  name                 = "acctsub"
-  resource_group_name  = "${azurerm_resource_group.test.name}"
-  virtual_network_name = "${azurerm_virtual_network.test.name}"
-  address_prefix       = "10.0.2.0/24"
-}
-
-resource "azurerm_public_ip" "test" {
-  name                         = "publicIPForLB"
-  location                     = "${azurerm_resource_group.test.location}"
-  resource_group_name          = "${azurerm_resource_group.test.name}"
-  public_ip_address_allocation = "static"
-}
-
-resource "azurerm_lb" "test" {
-  name                = "loadBalancer"
-  location            = "${azurerm_resource_group.test.location}"
-  resource_group_name = "${azurerm_resource_group.test.name}"
-
-  frontend_ip_configuration {
-    name                 = "publicIPAddress"
-    public_ip_address_id = "${azurerm_public_ip.test.id}"
+  provider "azurerm" {
+    subscription_id = "${var.subscription_id}"
+    tenant_id       = "${var.tenant_id}"
+    client_id       = "${var.client_id}"
+    client_secret   = "${var.client_secret}"
   }
-}
+  ```
 
-resource "azurerm_lb_backend_address_pool" "test" {
-  resource_group_name = "${azurerm_resource_group.test.name}"
-  loadbalancer_id     = "${azurerm_lb.test.id}"
-  name                = "BackEndAddressPool"
-}
+## 2. Create the Terraform template file
 
-resource "azurerm_network_interface" "test" {
-  count               = 2
-  name                = "acctni${count.index}"
-  location            = "${azurerm_resource_group.test.location}"
-  resource_group_name = "${azurerm_resource_group.test.name}"
+1. In the same directory you created the `azureProviderAndCreds.tf` file, create a new file named named `main.tf`. 
 
-  ip_configuration {
-    name                          = "testConfiguration"
-    subnet_id                     = "${azurerm_subnet.test.id}"
-    private_ip_address_allocation = "dynamic"
-    load_balancer_backend_address_pools_ids = ["${azurerm_lb_backend_address_pool.test.id}"]
-  }
-}
+2. Copy following Terraform template code into the newly created `main.tf` file: 
 
-resource "azurerm_managed_disk" "test" {
-  count                = 2
-  name                 = "datadisk_existing_${count.index}"
-  location             = "${azurerm_resource_group.test.location}"
-  resource_group_name  = "${azurerm_resource_group.test.name}"
-  storage_account_type = "Standard_LRS"
-  create_option        = "Empty"
-  disk_size_gb         = "1023"
-}
-
-resource "azurerm_availability_set" "avset" {
-  name                         = "avset"
-  location                     = "${azurerm_resource_group.test.location}"
-  resource_group_name          = "${azurerm_resource_group.test.name}"
-  platform_fault_domain_count  = 2
-  platform_update_domain_count = 2
-  managed                      = true
-}
-
-resource "azurerm_virtual_machine" "test" {
-  count                 = 2
-  name                  = "acctvm${count.index}"
-  location              = "${azurerm_resource_group.test.location}"
-  availability_set_id   = "${azurerm_availability_set.avset.id}"
-  resource_group_name   = "${azurerm_resource_group.test.name}"
-  network_interface_ids = ["${element(azurerm_network_interface.test.*.id, count.index)}"]
-  vm_size               = "Standard_DS1_v2"
-
-  # Uncomment this line to delete the OS disk automatically when deleting the VM
-  # delete_os_disk_on_termination = true
-
-  # Uncomment this line to delete the data disks automatically when deleting the VM
-  # delete_data_disks_on_termination = true
-
-  storage_image_reference {
-    publisher = "Canonical"
-    offer     = "UbuntuServer"
-    sku       = "16.04-LTS"
-    version   = "latest"
+  ```tf
+  resource "azurerm_resource_group" "test" {
+    name     = "acctestrg"
+    location = "West US 2"
   }
 
-  storage_os_disk {
-    name              = "myosdisk${count.index}"
-    caching           = "ReadWrite"
-    create_option     = "FromImage"
-    managed_disk_type = "Standard_LRS"
+  resource "azurerm_virtual_network" "test" {
+    name                = "acctvn"
+    address_space       = ["10.0.0.0/16"]
+    location            = "${azurerm_resource_group.test.location}"
+    resource_group_name = "${azurerm_resource_group.test.name}"
   }
 
-  # Optional data disks
-  storage_data_disk {
-    name              = "datadisk_new_${count.index}"
-    managed_disk_type = "Standard_LRS"
-    create_option     = "Empty"
-    lun               = 0
-    disk_size_gb      = "1023"
+  resource "azurerm_subnet" "test" {
+    name                 = "acctsub"
+    resource_group_name  = "${azurerm_resource_group.test.name}"
+    virtual_network_name = "${azurerm_virtual_network.test.name}"
+    address_prefix       = "10.0.2.0/24"
   }
 
-  storage_data_disk {
-    name            = "${element(azurerm_managed_disk.test.*.name, count.index)}"
-    managed_disk_id = "${element(azurerm_managed_disk.test.*.id, count.index)}"
-    create_option   = "Attach"
-    lun             = 1
-    disk_size_gb    = "${element(azurerm_managed_disk.test.*.disk_size_gb, count.index)}"
+  resource "azurerm_public_ip" "test" {
+    name                         = "publicIPForLB"
+    location                     = "${azurerm_resource_group.test.location}"
+    resource_group_name          = "${azurerm_resource_group.test.name}"
+    public_ip_address_allocation = "static"
   }
 
-  os_profile {
-    computer_name  = "hostname"
-    admin_username = "testadmin"
-    admin_password = "Password1234!"
+  resource "azurerm_lb" "test" {
+    name                = "loadBalancer"
+    location            = "${azurerm_resource_group.test.location}"
+    resource_group_name = "${azurerm_resource_group.test.name}"
+
+    frontend_ip_configuration {
+      name                 = "publicIPAddress"
+      public_ip_address_id = "${azurerm_public_ip.test.id}"
+    }
   }
 
-  os_profile_linux_config {
-    disable_password_authentication = false
+  resource "azurerm_lb_backend_address_pool" "test" {
+    resource_group_name = "${azurerm_resource_group.test.name}"
+    loadbalancer_id     = "${azurerm_lb.test.id}"
+    name                = "BackEndAddressPool"
   }
 
-  tags {
-    environment = "staging"
+  resource "azurerm_network_interface" "test" {
+    count               = 2
+    name                = "acctni${count.index}"
+    location            = "${azurerm_resource_group.test.location}"
+    resource_group_name = "${azurerm_resource_group.test.name}"
+
+    ip_configuration {
+      name                          = "testConfiguration"
+      subnet_id                     = "${azurerm_subnet.test.id}"
+      private_ip_address_allocation = "dynamic"
+      load_balancer_backend_address_pools_ids = ["${azurerm_lb_backend_address_pool.test.id}"]
+    }
   }
-}
-```
 
-## 3. Visualize the changes with plan
+  resource "azurerm_managed_disk" "test" {
+    count                = 2
+    name                 = "datadisk_existing_${count.index}"
+    location             = "${azurerm_resource_group.test.location}"
+    resource_group_name  = "${azurerm_resource_group.test.name}"
+    storage_account_type = "Standard_LRS"
+    create_option        = "Empty"
+    disk_size_gb         = "1023"
+  }
 
-Run `terraform plan` to preview the virtual machine infrastructure created by the template.
+  resource "azurerm_availability_set" "avset" {
+    name                         = "avset"
+    location                     = "${azurerm_resource_group.test.location}"
+    resource_group_name          = "${azurerm_resource_group.test.name}"
+    platform_fault_domain_count  = 2
+    platform_update_domain_count = 2
+    managed                      = true
+  }
 
-![Terraform Plan](media/terraform-create-vm-cluster-with-infrastructure/terraform-plan-vms-with-modules.png)
+  resource "azurerm_virtual_machine" "test" {
+    count                 = 2
+    name                  = "acctvm${count.index}"
+    location              = "${azurerm_resource_group.test.location}"
+    availability_set_id   = "${azurerm_availability_set.avset.id}"
+    resource_group_name   = "${azurerm_resource_group.test.name}"
+    network_interface_ids = ["${element(azurerm_network_interface.test.*.id, count.index)}"]
+    vm_size               = "Standard_DS1_v2"
 
+    # Uncomment this line to delete the OS disk automatically when deleting the VM
+    # delete_os_disk_on_termination = true
 
-## 4. Create the virtual machines with apply
+    # Uncomment this line to delete the data disks automatically when deleting the VM
+    # delete_data_disks_on_termination = true
+
+    storage_image_reference {
+      publisher = "Canonical"
+      offer     = "UbuntuServer"
+      sku       = "16.04-LTS"
+      version   = "latest"
+    }
+
+    storage_os_disk {
+      name              = "myosdisk${count.index}"
+      caching           = "ReadWrite"
+      create_option     = "FromImage"
+      managed_disk_type = "Standard_LRS"
+    }
+
+    # Optional data disks
+    storage_data_disk {
+      name              = "datadisk_new_${count.index}"
+      managed_disk_type = "Standard_LRS"
+      create_option     = "Empty"
+      lun               = 0
+      disk_size_gb      = "1023"
+    }
+
+    storage_data_disk {
+      name            = "${element(azurerm_managed_disk.test.*.name, count.index)}"
+      managed_disk_id = "${element(azurerm_managed_disk.test.*.id, count.index)}"
+      create_option   = "Attach"
+      lun             = 1
+      disk_size_gb    = "${element(azurerm_managed_disk.test.*.disk_size_gb, count.index)}"
+    }
+
+    os_profile {
+      computer_name  = "hostname"
+      admin_username = "testadmin"
+      admin_password = "Password1234!"
+    }
+
+    os_profile_linux_config {
+      disable_password_authentication = false
+    }
+
+    tags {
+      environment = "staging"
+    }
+  }
+  ```
+
+## 3. Initialize Terraform 
+
+The `terraform init` command is used to initialize a directory that contains the Terraform configuration files - the files you created with the previous steps. You should always run the h`terraform init` command after writing a new Terraform configuration. 
+
+> [!TIP]
+> The `terraform init` command is idempotent meaning that it can be called repeatedly while producing the same result.
+
+1. Open a command prompt.
+
+2. Change the current directory to the directory containing the `azureProviderAndCreds.tf` and `main.tf` files you created in the previous steps.
+
+3. Run the following command to initialize Terraform:
+
+  ```cmd
+  terraform init
+  ```
+
+## 4. Create a Terraform execution plan
+
+The `terraform plan -out` command is used to create an execution plan. When you run the command, Terraform performs a refresh and determines what actions are necessary to achieve the desired state specified in the `azureProviderAndCreds.tf` configuration file. Note that the use of the -out parameter saves the execution plan so that a subsequent running of `terraform apply` ensures only the pre-planned actions are executed.
+
+Run the following command to create the Terraform execution plan:
+
+  ```cmd
+  terraform plan
+  ```
+
+  ![Terraform Plan](media/terraform-create-vm-cluster-with-infrastructure/terraform-plan-vms-with-modules.png)
+
+## 5. Create the virtual machines with apply
 
 Run `terraform apply` to provision the VM cluster on Azure.
 
