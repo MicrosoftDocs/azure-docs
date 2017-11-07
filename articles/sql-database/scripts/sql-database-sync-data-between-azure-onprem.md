@@ -183,11 +183,11 @@ $timer=0
 $timeout=90
 # Check the log and see if refresh has gone through
 Write-Host "Check for successful refresh"
-$IsSucceeded = "false"
-While ($IsSucceeded -eq "False")
+$IsSucceeded = $false
+While ($IsSucceeded -eq $false)
 {
     Start-Sleep -s 10
-    $timer=$timer+1
+    $timer=$timer+10
     $Details = Get-AzureRmSqlSyncSchema -SyncGroupName $SyncGroupName -ServerName $ServerName -DatabaseName $DatabaseName -ResourceGroupName $ResourceGroupName
     if ($Details.LastUpdateTime -gt $StartTime)
       {
