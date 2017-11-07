@@ -35,9 +35,10 @@ Sampling reduces traffic and data costs, and helps you avoid throttling.
 ## Types of sampling
 There are three alternative sampling methods:
 
-* **Adaptive sampling** automatically adjusts the volume of telemetry sent from the SDK in your ASP.NET app. Default from SDK v 2.0.0-beta3. Currently available for ASP.NET server-side telemetry only. 
+* **Adaptive sampling** automatically adjusts the volume of telemetry sent from the SDK in your ASP.NET app. Beginning with SDK v 2.0.0-beta3 this is the default sampling method. Adaptive sampling is currently only available for ASP.NET server-side telemetry. 
 * **Fixed-rate sampling** reduces the volume of telemetry sent from both your ASP.NET server and from your users' browsers. You set the rate. The client and server will synchronize their sampling so that, in Search, you can navigate between related page views and requests.
-* **Ingestion sampling** works in the Azure portal. It discards some of the telemetry that arrives from your app, at a rate that you set. It doesn't reduce telemetry traffic, but helps you keep within your monthly quota. The big advantage of ingestion sampling is that you can set it without redeploying your app, and it works uniformly for all servers and clients. 
+* **Ingestion sampling** 
+works in the Azure portal. It discards some of the telemetry that arrives from your app, at a sampling rate that you set. It doesn't reduce telemetry traffic sent from your app, but helps you keep within your monthly quota. The main advantage of ingestion sampling is that you can set the sampling rate without redeploying your app, and it works uniformly for all servers and clients. 
 
 If Adaptive or Fixed rate sampling are in operation, Ingestion sampling is disabled.
 
@@ -64,11 +65,11 @@ Ingestion sampling doesn't operate while SDK-based adaptive or fixed-rate sampli
 ## Adaptive sampling at your web server
 Adaptive sampling is available for the Application Insights SDK for ASP.NET v 2.0.0-beta3 and later, and is enabled by default. 
 
-Adaptive sampling affects the volume of telemetry sent from your web server app to the Application Insights service. The volume is adjusted automatically to keep within a specified maximum rate of traffic.
+Adaptive sampling affects the volume of telemetry sent from your web server app to the Application Insights service endpoint. The volume is adjusted automatically to keep within a specified maximum rate of traffic.
 
 It doesn't operate at low volumes of telemetry, so an app in debugging or a website with low usage won't be affected.
 
-To achieve the target volume, some of the telemetry generated is discarded. But like other types of sampling, the algorithm retains related telemetry items. For example, when you're inspecting the telemetry in Search, you'll be able to find the request related to a particular exception. 
+To achieve the target volume, some of the generated telemetry is discarded. But like other types of sampling, the algorithm retains related telemetry items. For example, when you're inspecting the telemetry in Search, you'll be able to find the request related to a particular exception. 
 
 Metric counts such as request rate and exception rate are adjusted to compensate for the sampling rate, so that they show approximately correct values in Metric Explorer.
 
