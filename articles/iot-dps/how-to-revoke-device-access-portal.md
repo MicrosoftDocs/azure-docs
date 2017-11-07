@@ -34,7 +34,7 @@ Individual enrollments may use either X.509 certificates or SAS tokens (in a rea
 - To temporarily blacklist the device, you can disable its enrollment entry. 
 
     1. Log in to the Azure portal and click **All resources** from the left-hand menu.
-    2. Click the Device Provisioning service you want to blacklist your device from in the list of resources.
+    2. Click the Device Provisioning Service you want to blacklist your device from in the list of resources.
     3. In your provisioning service, click **Manage enrollments**, then select **Individual Enrollments** tab.
     4. Click the enrollment entry for the device you want to blacklist to open it. 
     5. Click **Disable** at the bottom of the enrollment list entry, then click **Save**.  
@@ -44,7 +44,7 @@ Individual enrollments may use either X.509 certificates or SAS tokens (in a rea
 - To permanently blacklist the device, you can delete its enrollment entry.
 
     1. Log in to the Azure portal and click **All resources** from the left-hand menu.
-    2. Click the Device Provisioning service you want to blacklist your device from in the list of resources.
+    2. Click the Device Provisioning Service you want to blacklist your device from in the list of resources.
     3. In your provisioning service, click **Manage enrollments**, then select **Individual Enrollments** tab.
     4. Check the box next to the enrollment entry for the device you want to blacklist. 
     5. Click **Delete** at the top of the window, then click **Yes** to confirm that you want to remove the enrollment. 
@@ -60,7 +60,7 @@ Individual enrollments may use either X.509 certificates or SAS tokens (in a rea
 The Device Provisioning Service first looks for an individual enrollment matching a device's credentials before searching enrollment groups. The provisioning service stops searching when it finds the first match. If the service finds a disabled individual enrollment for the device, it prevents the device from connecting, even if the device appears in an enabled enrollment group. To blacklist an individual device in an enrollment group, follow these steps:
 
 1. Log in to the Azure portal and click **All resources** from the left hand menu.
-2. From the list of resources, click the Device Provisioning service that contains the enrollment group for the device you want to blacklist.
+2. From the list of resources, click the Device Provisioning Service that contains the enrollment group for the device you want to blacklist.
 3. In your provisioning service, click **Manage enrollments**, then select **Individual Enrollments** tab.
 4. Click the **Add** button at the top. 
 5. Select `**X.509** as the security mechanism for the device and upload the signed certificate that is used by the device's enrollment group.
@@ -77,23 +77,24 @@ An **Enrollment group** is an entry for a group of devices that share a common a
 - To temporarily blacklist the signing certificate, you can disable its enrollment group. 
 
     1. Log in to the Azure portal and click **All resources** from the left-hand menu.
-    2. Click the Device Provisioning service you want to blacklist the signing certificate from in the list of resources.
+    2. Click the Device Provisioning Service you want to blacklist the signing certificate from in the list of resources.
     3. In your provisioning service, click **Manage enrollments**, then select **Enrollment Groups** tab.
-    4. Click the enrollment group for the certificate you want to blacklist to open it. 
-    5. Click **Disable** at the bottom of the enrollment list entry, then click **Save**.  
+    4. Click the enrollment group for the certificate you want to blacklist to open it.
+    5. Click **Edit group** at the top-left of the enrollment group entry.
+    6. To disable the enrollment entry, select **Disable** on the **Enable entry** switch, then click **Save**.  
 
-        ![Disable enrollment group entry in the portal](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png)
+        ![Disable enrollment group entry in the portal](./media/how-to-revoke-device-access-portal/disable-enrollment-group.png)
 
     
 - To permanently blacklist the signing certificate, you can delete its enrollment group.
 
     1. Log in to the Azure portal and click **All resources** from the left-hand menu.
-    2. Click the Device Provisioning service you want to blacklist your device from in the list of resources.
+    2. Click the Device Provisioning Service you want to blacklist your device from in the list of resources.
     3. In your provisioning service, click **Manage enrollments**, then select **Enrollment Groups** tab.
     4. Check the box next to the enrollment group for the certificate you want to blacklist. 
     5. Click **Delete** at the top of the window, then click **Yes** to confirm that you want to remove the enrollment group. 
 
-        ![Delete enrollment group entry in the portal](./media/how-to-revoke-device-access-portal/delete-individual-enrollment.png)
+        ![Delete enrollment group entry in the portal](./media/how-to-revoke-device-access-portal/delete-enrollment-group.png)
 
     6. Once the action is completed, you will see your entry removed from the list of enrollment groups.  
 
