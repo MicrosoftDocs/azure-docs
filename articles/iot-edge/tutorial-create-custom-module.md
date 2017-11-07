@@ -251,7 +251,8 @@ The following steps show you how to create an IoT Edge module using Visual Studi
     ```csh/sh
     docker login
     ```
-    > [!NOTE] By default, the **docker login** command connects to your private Docker Hub repository. If you are working with a different container registry, for example, Azure container registry, you may need to specify the login server for that registry as the **\[SERVER\]** parameter to the **docker login** command. For details about **docker login**, enter the following command:
+    > [!NOTE]
+    > By default, the **docker login** command connects to your private Docker Hub repository. If you are working with a different container registry, for example, Azure container registry, you may need to specify the login server for that registry as the **\[SERVER\]** parameter to the **docker login** command. For details about **docker login**, enter the following command:
     >
     > ```csh/sh
     > docker help login
