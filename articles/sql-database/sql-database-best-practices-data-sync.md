@@ -13,6 +13,8 @@ manager: "craigg"
 
 This article describes best practices for SQL Data Sync (Preview).
 
+For an overview of SQL Data Sync, see [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync (Preview)](sql-database-sync-data.md).
+
 ## <a name="security-and-reliability"></a> Security and reliability
 
 ### Client Agent

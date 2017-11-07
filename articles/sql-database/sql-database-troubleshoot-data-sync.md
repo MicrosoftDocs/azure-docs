@@ -12,6 +12,8 @@ manager: "craigg"
 # Troubleshoot issues with Azure SQL Data Sync (Preview)
 
 This article describes how to troubleshoot current issues that are known to the SQL Data Sync (Preview) team. If there is a workaround for an issue, it is provided here.
+
+For an overview of SQL Data Sync, see [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync (Preview)](sql-database-sync-data.md).
                                                            
 ## My client agent doesn't work
 

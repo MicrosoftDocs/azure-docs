@@ -23,7 +23,7 @@ In this tutorial, you learn how to set up Azure SQL Data Sync by creating a hybr
 
 This tutorial assumes that you have at least some prior experience with SQL Database and with SQL Server. 
 
-For an overview of SQL Data Sync, see [Sync data](sql-database-sync-data.md).
+For an overview of SQL Data Sync, see [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync (Preview)](sql-database-sync-data.md).
 
 For complete PowerShell examples that show how to configure SQL Data Sync, see the following articles:
 -   [Use PowerShell to sync between multiple Azure SQL databases](scripts/sql-database-sync-data-between-sql-databases.md)
