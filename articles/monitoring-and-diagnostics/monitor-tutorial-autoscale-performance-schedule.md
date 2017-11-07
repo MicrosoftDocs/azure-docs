@@ -32,10 +32,13 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 Log in to the [Azure portal](https://portal.azure.com/).
 
 ## Create a Web App and App Service Plan
-1. Click the **New** option from the left-hand navigation pane
-2. Search for and select the *Web App* item and click **Create**
-3. Select an app name like *MyTestScaleWebApp*. Create a new resource group *myResourceGroup' and place it into the resource group of your choosing.
-4. Within a few minutes, your resources should be provisioned. Use the Web App, and corresponding App Service Plan in the remainder of this tutorial.
+Click the **New** option from the left-hand navigation pane
+
+Search for and select the *Web App* item and click **Create**
+
+Select an app name like *MyTestScaleWebApp*. Create a new resource group *myResourceGroup' and place it into the resource group of your choosing.
+
+Within a few minutes, your resources should be provisioned. Use the Web App, and corresponding App Service Plan in the remainder of this tutorial.
 
     ![Create a new app service in the portal](./media/monitor-tutorial-autoscale-performance-schedule/Web-App-Create.png)
 

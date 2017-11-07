@@ -38,7 +38,7 @@ First, log in to your Azure subscription.
 Login-AzureRmAccount
 ```
 
-You are presenting with a sign in screen. Once you sign in your Account, TenantID, and default Subscription ID are displayed. All the Azure cmdlets work in the context of your default subscription. To view the list of subscriptions you have access to, use the following command:
+You'll see a sign in screen. Once you sign in your Account, TenantID, and default Subscription ID are displayed. All the Azure cmdlets work in the context of your default subscription. To view the list of subscriptions you have access to, use the following command:
 
 ```PowerShell
 Get-AzureRmSubscription
