@@ -14,7 +14,7 @@ ms.devlang:
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/24/2017
+ms.date: 10/26/2017
 ms.author: marsma
 ms.custom:
 ---
@@ -35,13 +35,17 @@ In subsequent tutorials, you deploy the container from your private registry to 
 
 ## Before you begin
 
-This tutorial requires that you are running the Azure CLI version 2.0.19 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+This tutorial requires that you are running the Azure CLI version 2.0.20 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 This tutorial assumes a basic understanding of core Docker concepts such as containers, container images, and basic docker commands. If needed, see [Get started with Docker]( https://docs.docker.com/get-started/) for a primer on container basics.
 
 To complete this tutorial, you need a Docker development environment. Docker provides packages that easily configure Docker on any [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), or [Linux](https://docs.docker.com/engine/installation/#supported-platforms) system.
 
 Azure Cloud Shell does not include the Docker components required to complete every step this tutorial. Therefore, we recommend a local installation of the Azure CLI and Docker development environment.
+
+> [!IMPORTANT]
+> The geo-replication feature of Azure Container Registry is currently in **preview**. Previews are made available to you on the condition that you agree to the  [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA).
+>
 
 ## Create a container registry
 
@@ -117,6 +121,8 @@ cd acr-helloworld
 ## Update Dockerfile
 
 The Dockerfile included in the sample shows how the container is built. It starts from an official [aspnetcore](https://store.docker.com/community/images/microsoft/aspnetcore) image, copies the application files into the container, installs dependencies, compiles the output using the official [aspnetcore-build](https://store.docker.com/community/images/microsoft/aspnetcore-build) image, and finally, builds an optimized aspnetcore image.
+
+The Dockerfile is located at `./AcrHelloworld/Dockerfile` in the cloned source.
 
 ```dockerfile
 FROM microsoft/aspnetcore:2.0 AS base
@@ -238,10 +244,10 @@ In this tutorial, you created a private, geo-replicated container registry, buil
 > * Built a Docker container image from application source
 > * Pushed the container image to your registry
 
-Advance to the next tutorial to learn about deploying your container to multiple Azure App Service instances, using geo-replication to serve the images locally.
+Advance to the next tutorial to learn about deploying your container to multiple Web Apps for Containers instances, using geo-replication to serve the images locally.
 
 > [!div class="nextstepaction"]
-> [Deploy containers to Azure App Services](container-registry-tutorial-deploy-app.md)
+> [Deploy web app from Azure Container Registry](container-registry-tutorial-deploy-app.md)
 
 <!-- IMAGES -->
 [tut-portal-01]: ./media/container-registry-tutorial-prepare-registry/tut-portal-01.png

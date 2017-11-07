@@ -139,6 +139,7 @@
   - name: Develop
     items:
     - name: DocumentDB API
+      href: documentdb-index.md
       items:
       - name: Resources
         href: documentdb-resources.md
@@ -213,6 +214,7 @@
         - name: Retire S1, S2, S3
           href: performance-levels.md
     - name: MongoDB API
+      href: mongodb-index.md
       items:
       - name: Connect to your MongoDB account
         href: connect-mongodb-account.md
@@ -242,32 +244,36 @@
         href: gremlin-support.md
     - name: Table API
       items:
-      - name: Table storage overview
-        href: table-storage-overview.md
-      - name: Table storage design guide
-        href: table-storage-design-guide.md
-      - name: Table storage REST APIs
-        href: /rest/api/storageservices/Table-Service-Concepts
-      - name: Tutorials
-        items:
-          - name: .NET
-            href: table-storage-how-to-use-dotnet.md
-          - name: F#
-            href: /dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
-          - name: Node.js 
-            href: table-storage-cloud-service-nodejs.md
-          - name: Java
-            href: table-storage-how-to-use-java.md
-          - name: Node.js
-            href: table-storage-how-to-use-nodejs.md
-          - name: C++ 
-            href: table-storage-how-to-use-c-plus.md
-          - name: PHP
-            href: table-storage-how-to-use-php.md
-          - name: Python
-            href: table-storage-how-to-use-python.md
-          - name: Ruby
-            href: table-storage-how-to-use-ruby.md
+      - name: Table development
+        href: table-support.md
+      - name: Azure Table storage
+        items:     
+        - name: Table storage overview
+          href: table-storage-overview.md
+        - name: Table storage design guide
+          href: table-storage-design-guide.md
+        - name: Table storage REST APIs
+          href: /rest/api/storageservices/Table-Service-Concepts
+        - name: How to
+          items:
+            - name: .NET
+              href: table-storage-how-to-use-dotnet.md
+            - name: F#
+              href: /dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
+            - name: Node.js 
+              href: table-storage-cloud-service-nodejs.md
+            - name: Java
+              href: table-storage-how-to-use-java.md
+            - name: Node.js
+              href: table-storage-how-to-use-nodejs.md
+            - name: C++ 
+              href: table-storage-how-to-use-c-plus.md
+            - name: PHP
+              href: table-storage-how-to-use-php.md
+            - name: Python
+              href: table-storage-how-to-use-python.md
+            - name: Ruby
+              href: table-storage-how-to-use-ruby.md
     - name: Change feed
       href: change-feed.md
     - name: Geospatial

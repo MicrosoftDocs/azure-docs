@@ -19,8 +19,8 @@
 ## [Install IoT Edge on a Raspberry Pi](how-to-install-iot-edge-raspberry-pi.md)
 
 # Concepts
-## [Azure IoT Edge runtime](iot-edge-runtime.md)
-## Iot Edge modules
+## [IoT Edge runtime](iot-edge-runtime.md)
+## [Iot Edge modules](iot-edge-modules.md)
 ### [Development](module-development.md)
 ### [Composition](module-composition.md)
 ### [Deployment and monitoring](module-deployment-monitoring.md)

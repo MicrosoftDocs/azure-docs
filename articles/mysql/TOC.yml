@@ -79,8 +79,8 @@
     href: concepts-monitoring.md
   - name: Development
     items:
-    - name: Connection libraries
-      href: concepts-connection-libraries.md
+    - name: Drivers and tools compatiblity
+      href: concepts-compatibility.md
     - name: Application development
       href: concepts-database-application-development.md
   - name: Migrate your database
@@ -105,6 +105,8 @@
     items:
     - name: Azure portal
       href: howto-restore-server-portal.md
+    - name: Azure CLI
+      href: howto-restore-server-cli.md
   - name: Connect applications
     items:
     - name: Connection strings

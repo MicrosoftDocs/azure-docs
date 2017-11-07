@@ -22,6 +22,9 @@ ms.custom: mvc
 ---
 
 # Jenkins integration with Azure Container Service and Kubernetes 
+
+[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+
 In this tutorial, we walk through the process to set up continuous integration of a multi-container application into Azure Container Service Kubernetes using the Jenkins platform. The workflow updates the container image in Docker Hub and upgrades the Kubernetes pods using a deployment rollout. 
 
 ## High level process

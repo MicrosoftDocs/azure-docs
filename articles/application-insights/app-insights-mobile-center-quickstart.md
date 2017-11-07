@@ -7,6 +7,7 @@ author: numberbycolors
 ms.author: daviste
 ms.date: 10/05/2017
 ms.service: application-insights
+ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
 ---

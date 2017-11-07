@@ -13,8 +13,8 @@ ms.custom: DBs & servers
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: data-management
-ms.date: 10/23/2017
+ms.workload: "Active"
+ms.date: 10/25/2017
 ms.author: carlrab
 ---
 
@@ -35,9 +35,11 @@ The following table lists the major features of SQL Server and provides informat
 | **SQL Server Feature** | **Supported in Azure SQL Database** | 
 | --- | --- |  
 | [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) | Yes - see [Cert store](sql-database-always-encrypted.md) and [Key vault](sql-database-always-encrypted-azure-key-vault.md)|
-| [AlwaysOn Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | [High availability and disaster recovery is built in](sql-database-geo-replication-overview.md) |
+| [AlwaysOn Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | High availability is included with every database. Disaster recovery is discussed in [Overview of business continuity with Azure SQL Database](sql-database-geo-replication-overview.md) |
 | [Attach a database](https://docs.microsoft.com/sql/relational-databases/databases/attach-a-database) | No |
 | [Application roles](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/application-roles) | Yes |
+|[Auditing](/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | [Yes](sql-database-auditing.md)|
+| [Automatic tuning](/sql/relational-databases/automatic-tuning/automatic-tuning)| [Yes](sql-database-automatic-tuning.md)|
 | [BACPAC file (export)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) | Yes - see [SQL Database export](sql-database-export.md) |
 | [BACPAC file (import)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database) | Yes - see [SQL Database import](sql-database-import.md) |
 | [BACKUP command](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql) | No - see [Automated backups](sql-database-automated-backups.md) |
@@ -66,6 +68,7 @@ The following table lists the major features of SQL Server and provides informat
 | [DML statements](https://docs.microsoft.com/sql/t-sql/queries/queries) | Yes |
 | [DML triggers](https://docs.microsoft.com/en-us/sql/relational-databases/triggers/create-dml-triggers) | Most - see individual statements | 
 | [DMVs](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views) | Some - see individual DMVs |
+|[Dynamic data masking](/sql/relational-databases/security/dynamic-data-masking)|[Yes](sql-database-dynamic-data-masking-get-started.md)|
 | [Event notifications](https://docs.microsoft.com/sql/relational-databases/service-broker/event-notifications) | No - see [Alerts](sql-database-insights-alerts-portal.md) |
 | [Expressions](https://docs.microsoft.com/sql/t-sql/language-elements/expressions-transact-sql) |Yes |
 | [Extended events](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events) | Some - see [Extended events in SQL Database](sql-database-xevent-db-diff-from-svr.md) |
@@ -79,7 +82,7 @@ The following table lists the major features of SQL Server and provides informat
 | [JSON data support](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) | Yes |
 | [Language elements](https://docs.microsoft.com/sql/t-sql/language-elements/language-elements-transact-sql) | Most - see individual elements |  
 | [Linked servers](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | No - see [Elastic query](sql-database-elastic-query-horizontal-partitioning.md) |
-| [Log shipping](https://docs.microsoft.com/sql/database-engine/log-shipping/about-log-shipping-sql-server) | [High availability and disaster recovery is built in](sql-database-geo-replication-overview.md) |
+| [Log shipping](https://docs.microsoft.com/sql/database-engine/log-shipping/about-log-shipping-sql-server) | High availability is included with every database. Disaster recovery is discussed in [Overview of business continuity with Azure SQL Database](sql-database-geo-replication-overview.md) |
 | [Master Data Services (MDS)](https://docs.microsoft.com/sql/master-data-services/master-data-services-overview-mds) | No |
 | [Minimal logging in bulk import](https://docs.microsoft.com/sql/relational-databases/import-export/prerequisites-for-minimal-logging-in-bulk-import) | No |
 | [Modifying system data](https://docs.microsoft.com/sql/relational-databases/databases/system-databases) | No |
@@ -118,7 +121,7 @@ The following table lists the major features of SQL Server and provides informat
 | [Temporal tables](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables) | Yes |
 | [Variables](https://docs.microsoft.com/sql/t-sql/language-elements/variables-transact-sql) | Yes | 
 | [Transparent data encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) | Yes |
-| [Windows Server Failover Clustering](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server) | [High availability and disaster recovery is built in](sql-database-geo-replication-overview.md) |
+| [Windows Server Failover Clustering](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server) | High availability is included with every database. Disaster recovery is discussed in [Overview of business continuity with Azure SQL Database](sql-database-geo-replication-overview.md) |
 | [XML indexes](https://docs.microsoft.com/sql/t-sql/statements/create-xml-index-transact-sql) | Yes |
 
 ## Next steps

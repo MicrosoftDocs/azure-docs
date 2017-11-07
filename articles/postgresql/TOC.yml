@@ -99,7 +99,7 @@
     items:
     - name: Azure CLI
       href: howto-configure-server-parameters-using-cli.md
-  - name: Access Server Logs
+  - name: Access server logs
     items:
     - name: Azure portal
       href: howto-configure-server-logs-in-portal.md

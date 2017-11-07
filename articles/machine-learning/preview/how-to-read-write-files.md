@@ -12,7 +12,7 @@ ms.topic: article
 ms.date: 09/10/2017
 ---
 # Persisting changes and working with large files
-With the Azure Machine Learning Experimentation service, you can configure a variety of execution targets. Some targets are local, such as a local computer or a Docker container on a local computer. Others are remote, such as a Docker container on a remote machine or an HDInsight cluster. For more information, see [Overview of Azure Machine Learning experiment execution service](experiment-execution-configuration.md). 
+With the Azure Machine Learning Experimentation service, you can configure a variety of execution targets. Some targets are local, such as a local computer or a Docker container on a local computer. Others are remote, such as a Docker container on a remote machine or an HDInsight cluster. For more information, see [Overview of Azure Machine Learning experiment execution service](experimentation-service-configuration.md). 
 
 Before you can execute on a target, you must copy the project folder to the compute target. You must do so even with a local execution that uses a local temp folder for this purpose. 
 
@@ -138,7 +138,7 @@ C:\users\<username>\.azureml\share\<exp_acct_name>\<workspace_name>\<proj_name>\
 
 You can place input data directly in these folders and expect that your local or Docker runs on the machine can pick it up. You can also write files to this folder from your local or Docker runs, and expect files get persisted in that folder, surviving the execution lifecycle.
 
-For more information, see [Azure Machine Learning Workbench execution configuration files](experiment-execution-configuration-reference.md).
+For more information, see [Azure Machine Learning Workbench execution configuration files](experimentation-service-configuration-reference.md).
 
 >[!NOTE]
 >The `AZUREML_NATIVE_SHARE_DIRECTORY` environment variable is not supported in an HDInsight compute context. However, it is easy to achieve the same result by explicitly using an absolute Azure Blob storage path to read from and write to the attached blob storage.
@@ -190,5 +190,5 @@ attach_storage_container(spark, "<storage account name>", "<storage key>”)
 Because Azure Machine Learning executes scripts by copying the entire project folder to the target compute context, take special care with large input, output, and intermediary files. For large file transactions, you can use the special outputs folder, the shared folder that's accessible through the `AZUREML_NATIVE_SHARE_DIRECTORY` environment variable, or external durable storage. 
 
 ## Next steps
-- Review the [Azure Machine Learning Workbench execution configuration files](experiment-execution-configuration-reference.md) article.
+- Review the [Azure Machine Learning Workbench execution configuration files](experimentation-service-configuration-reference.md) article.
 - See how the [Classifying Iris](tutorial-classifying-iris-part-1.md) tutorial project uses the outputs folder to persist a trained model.
