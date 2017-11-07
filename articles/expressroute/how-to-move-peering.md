@@ -35,9 +35,9 @@ This article helps you move a public peering configuration to Microsoft peering 
 
 In order to move to Microsoft peering with no downtime, you must use the steps in this article in the order that they are presented.
 
-## 1. Create Microsoft peering on ExpressRoute circuit
+## 1. Create Microsoft peering
 
-If Microsoft peering is not configured, use any of the following articles to create Microsoft peering.  If your connectivity provider offers managed layer 3 services, you can ask the connectivity provider to enable Microsoft peering for your circuit.
+If Microsoft peering has not been created, use any of the following articles to create Microsoft peering. If your connectivity provider offers managed layer 3 services, you can ask the connectivity provider to enable Microsoft peering for your circuit.
 
   * [Create Microsoft peering using Azure portal](expressroute-howto-routing-portal-resource-manager.md#msft)
   * [Create Microsoft peering using Azure Powershell](expressroute-howto-routing-arm.md#msft)
