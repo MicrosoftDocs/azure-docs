@@ -56,8 +56,7 @@ This tutorial covers Azure Cosmos DB Table API using the .NET SDK. You can downl
 To learn more about complex Azure Table storage tasks, see:
 
 * [Introduction to Azure Cosmos DB Table API](table-introduction.md)
-* The Table service reference documentation for complete details about available APIs [Storage Client Library for .NET reference](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
-BUGBUG: Are the APIs still going to live at http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409?
+* The Table service reference documentation for complete details about available APIs [Azure Cosmos DB Table API .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/cosmosdb/client?view=azure-dotnet)
 
 ### About this tutorial
 This tutorial is for developers who are familiar with the Azure Table storage SDK, and would like to use the premium features available using Azure Cosmos DB. It is based on [Get Started with Azure Table storage using .NET](table-storage-how-to-use-dotnet.md) and shows how to take advantage of additional capabilities like secondary indexes, provisioned throughput, and multi-homing. We cover how to use the Azure portal to create an Azure Cosmos DB account, and then build and deploy a Table application. We also walk through .NET examples for creating and deleting a table, and inserting, updating, deleting, and querying table data. 
@@ -132,7 +131,6 @@ You initialize a `CloudTableClient` to connect to the table account.
 CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 ```
 This client is initialized using the `TableConnectionMode`, `TableConnectionProtocol`, `TableConsistencyLevel`, and `TablePreferredLocations` configuration values if specified in the app settings.
-BUGBUG: WE NEED TO USE THE NEW OVERLOADED CONSTRUCTOR HERE AND CHANGE THE SAMPLE TO MATCH. ASSUMING WE ARE KEEPING THIS SAMPLE AT ALL AND DON'T SWITCH OVER TO THE STORAGE SOLUTION.
 
 ## Create a table
 Then, you create a table using `CloudTable`. Tables in Azure Cosmos DB can scale independently in terms of storage and throughput, and partitioning is handled automatically by the service. Azure Cosmos DB supports both fixed size and unlimited tables. See [Partitioning in Azure Cosmos DB](partition-data.md) for details. 
