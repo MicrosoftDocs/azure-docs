@@ -246,8 +246,10 @@
       items:
       - name: Table API operations with PowerShell
         href: table-powershell.md
+      - name: Table development
+        href: table-support.md
       - name: Azure Table storage
-        items:
+        items:     
         - name: Table storage overview
           href: table-storage-overview.md
         - name: Table storage design guide

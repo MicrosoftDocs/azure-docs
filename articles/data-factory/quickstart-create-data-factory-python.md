@@ -422,7 +422,7 @@ Copy duration: 4
 To delete the data factory, add the following code to the program:
 
 ```python
-adf_client.data_factories.delete(rg_name, df_name)
+adf_client.factories.delete(rg_name,df_name)
 ```
 
 ## Next steps
