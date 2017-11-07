@@ -82,8 +82,7 @@ A SQL Data Warehouse is a special type of database that is designed for massivel
 4. Choose **Pin to dashboard**
     ![Pin To Dashboard](./media/sql-data-warehouse-get-started-tutorial/pin-to-dashboard.png)
 
-5. Sit back and wait for your data warehouse to deploy! It's normal for this process to take several minutes. 
-  The portal notifies you when your data warehouse is ready to use. 
+5. Sit back and wait for your data warehouse to deploy! It's normal for this process to take several minutes. The portal notifies you when your data warehouse is ready to use. 
 
 ## Connect to SQL Data Warehouse
 
