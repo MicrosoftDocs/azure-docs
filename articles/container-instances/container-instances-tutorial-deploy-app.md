@@ -5,7 +5,7 @@ services: container-instances
 documentationcenter: ''
 author: seanmck
 manager: timlt
-editor: ''
+editor: mmacy
 tags:
 keywords:
 
@@ -15,7 +15,7 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2017
+ms.date: 11/07/2017
 ms.author: seanmck
 ms.custom: mvc
 ---
@@ -53,31 +53,31 @@ Container registry password:
 az acr credential show --name <acrName> --query "passwords[0].value"
 ```
 
-To deploy your container image from the container registry with a resource request of 1 CPU core and 1 GB of memory, run the following command:
+To deploy your container image from the container registry with a resource request of 1 CPU core and 1 GB of memory, run the following command. Replace `<acrLoginServer>` and `<acrPassword>` with the values you obtained from the previous two commands.
 
 ```azurecli
 az container create --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-password <acrPassword> --ip-address public -g myResourceGroup
 ```
 
-Within a few seconds, you should receive an initial response from Azure Resource Manager. To view the state of the deployment, use:
+Within a few seconds, you should receive an initial response from Azure Resource Manager. To view the state of the deployment, use [az container show](/cli/azure/container#az_container_show):
 
 ```azurecli
-az container show --name aci-tutorial-app --resource-group myResourceGroup --query state
+az container show --name aci-tutorial-app --resource-group myResourceGroup --query instanceView.state
 ```
 
-We can continue running this command until the state changes from *pending* to *running*. Then we can proceed.
+Repeat the `az container show` command until the state changes from *Pending* to *Running*, which should take under a minute. When the container is *Running*, proceed to the next step.
 
 ## View the application and container logs
 
-Once the deployment succeeds, open your browser to the IP address shown in the output of the following command:
+Once the deployment succeeds, display the container's public IP address with the [az container show](/cli/azure/container#az_container_show) command:
 
 ```bash
 az container show --name aci-tutorial-app --resource-group myResourceGroup --query ipAddress.ip
 ```
 
-```json
-"13.88.176.27"
-```
+Example output: `"13.88.176.27"`
+
+To see the running application, navigate to the public IP address in your favorite browser.
 
 ![Hello world app in the browser][aci-app-browser]
 
@@ -93,6 +93,14 @@ Output:
 listening on port 80
 ::ffff:10.240.0.4 - - [21/Jul/2017:06:00:02 +0000] "GET / HTTP/1.1" 200 1663 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
 ::ffff:10.240.0.4 - - [21/Jul/2017:06:00:02 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://13.88.176.27/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
+```
+
+## Clean up resources
+
+If you no longer need any of the resources you created in this tutorial series, you can execute the [az group delete](/cli/azure/group#delete) command to remove the resource group and all resources it contains. This command deletes the container registry you created, as well as the running container, and all related resources.
+
+```azurecli-interactive
+az group delete --name myResourceGroup
 ```
 
 ## Next steps

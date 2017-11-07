@@ -91,7 +91,7 @@ The following table describes the available password policy settings that can be
 
 ## Set password expiration policies in Azure Active Directory
 
-A global administrator for a Microsoft cloud service can use the Microsoft Azure Active Directory Module for Windows PowerShell to set up user passwords not to expire. You can also use Windows PowerShell cmdlets to remove the never-expires configuration, or to see which user passwords are set up not to expire. This guidance applies to other providers such as Microsoft Intune and Office 365, which also rely on Microsoft Azure Active Directory for identity and directory services.
+A global administrator for a Microsoft cloud service can use the Microsoft Azure Active Directory Module for Windows PowerShell to set up user passwords not to expire. You can also use Windows PowerShell cmdlets to remove the never-expires configuration, or to see which user passwords are set up not to expire. This guidance applies to other providers such as Microsoft Intune and Office 365, which also rely on Microsoft Azure Active Directory for identity and directory services. This is the only part of the policy that can be changed.
 
 > [!NOTE]
 > Only passwords for user accounts that are not synchronized through directory synchronization can be configured to not expire. For more information about directory synchronization see[Connect AD with Azure AD](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect).
@@ -124,6 +124,9 @@ To get started, you need to [download and install the Azure AD PowerShell module
 
    * To set the password of one user to never expire, run the following cmdlet by using the user principal name (UPN) or the user ID of the user: `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $true`
    * To set the passwords of all the users in an organization to never expire, run the following cmdlet: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $true`
+
+   > [!WARNING]
+   > If you set `-PasswordNeverExpires $true` the password will still age based on the `pwdLastSet` attribute. This means that if you set passwords to never expire and then 90+ days go by based on `pwdLastSet` and you change `-PasswordNeverExpires $false` all passwords that have a `pwdLastSet` older than 90 days will need to change at next logon. This change could impact a large number of users. 
 
 ## Next steps
 
