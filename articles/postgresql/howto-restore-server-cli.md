@@ -1,18 +1,18 @@
 ---
-title: 'How to back up and restore a server in Azure Database for PostgreSQL | Microsoft Docs'
-description: Learn how to back up and restore a server in Azure Database for PostgreSQL by using the Azure CLI.
+title: 'How to backup and restore a server in Azure Database for PostgreSQL | Microsoft Docs'
+description: Learn how to backup and restore a server in Azure Database for PostgreSQL by using the Azure CLI.
 services: postgresql
 author: jasonwhowell
 ms.author: jasonh
 manager: jhubbard
 editor: jasonwhowell
-ms.service: postgresql-database
+ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 11/03/2017
 ---
 
-# How to back up and restore a server in Azure Database for PostgreSQL by using the Azure CLI
+# How to backup and restore a server in Azure Database for PostgreSQL by using the Azure CLI
 
 Use Azure Database for PostgreSQL to restore a server database to an earlier date that spans from 7 to 35 days.
 
@@ -27,7 +27,7 @@ To complete this how-to guide, you need:
 > [!IMPORTANT]
 > If you install and use the Azure CLI locally, this how-to guide requires that you use Azure CLI version 2.0 or later. To confirm the version, at the Azure CLI command prompt, enter `az --version`. To install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
-## Back up happens automatically
+## Backup happens automatically
 When you use Azure Database for PostgreSQL, the database service automatically makes a backup of the service every 5 minutes. 
 
 For Basic Tier, the backups are available for 7 days. For Standard Tier, the backups are available for 35 days. For more information, see [Azure Database for PostgreSQL pricing tiers](concepts-service-tiers.md).
@@ -52,7 +52,7 @@ The `az postgres server restore` command requires the following parameters:
 | --- | --- | --- |
 | resource-group |  myResourceGroup |  The resource group where the source server exists.  |
 | name | mypgserver-restored | The name of the new server that is created by the restore command. |
-| restore-point-in-time | 2017-04-13T13:59:00Z | Select a point in time to restore to. This date and time must be within the source server's back up retention period. Use the ISO8601 date and time format. For example, you can use your own local time zone, such as `2017-04-13T05:59:00-08:00`. You can also use the UTC Zulu format, for example, `2017-04-13T13:59:00Z`. |
+| restore-point-in-time | 2017-04-13T13:59:00Z | Select a point in time to restore to. This date and time must be within the source server's backup retention period. Use the ISO8601 date and time format. For example, you can use your own local time zone, such as `2017-04-13T05:59:00-08:00`. You can also use the UTC Zulu format, for example, `2017-04-13T13:59:00Z`. |
 | source-server | mypgserver-20170401 | The name or ID of the source server to restore from. |
 
 When you restore a server to an earlier point in time, a new server is created. The original server and its databases from the specified point in time are copied to the new server.

@@ -12,19 +12,18 @@ ms.date: 08/05/2017
 ms.author: sajagtap
 ---
 
-# Try the review operations
+# Review operations
 
 Use the Review API's [Review operations](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4) to create image or text reviews within the review tool for human moderation. You would use this operation based on your post-moderation business logic after you have scanned your content using any of the Content Moderator image or text APIs or other Cognitive Services. Once your human moderators have reviewed the auto-assigned tags and prediction data and submitted their final decision, the Review API submits all information to your API endpoint.
 
-## Try with the API console
+## Use the API console
 Before you can test-drive the API from the online console, you will need a few values.
 
 - teamName: The team name you created when you set up your review tool account. 
 - ContentId: A string, this is passed to the API and returned through the callback, and is useful for associating internal identifiers or metadata with the results of a moderation job.
 - Metadata: Custom key value pairs returned to your API endpoint during the callback. Additionally, if the key is a short code defined within the review tool, it shows up as a tag.
-- Ocp-Apim-Subscription-Key: This is found under the Settings tab, as shown below.
+- Ocp-Apim-Subscription-Key: This is found under the **Settings** tab, as shown in the [Overview](overview.md) article.
 
-![Content Moderator credentials in the review tool](Review-Tool-User-Guide/images/credentials-2-reviewtool.png)
 
 The simplest way to access a testing console is from the Credentials window.
 1.	From the Credentials window, click **[API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4)**.

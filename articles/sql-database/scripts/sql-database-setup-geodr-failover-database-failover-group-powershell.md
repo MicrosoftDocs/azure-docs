@@ -1,6 +1,6 @@
 ﻿---
 title: PowerShell example-geo-replication failover group-single Azure SQL Database | Microsoft Docs
-description: Azure PowerShell example script to set up active geo-replication for a single Azure SQL database 
+description: Azure PowerShell example script to set up active geo-replication failover group for a single Azure SQL database and fail it over.
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -34,8 +34,8 @@ This PowerShell script example configures an active geo-replication failover gro
 After the script sample has been run, the following command can be used to remove the resource group and all resources associated with it.
 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName "myPrimaryResourceGroup"
-Remove-AzureRmResourceGroup -ResourceGroupName "mySecondaryResourceGroup"
+Remove-AzureRmResourceGroup -ResourceGroupName $primaryresourcegroupname
+Remove-AzureRmResourceGroup -ResourceGroupName $secondaryresourcegroupname
 ```
 
 ## Script explanation

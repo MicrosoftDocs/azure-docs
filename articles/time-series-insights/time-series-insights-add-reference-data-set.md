@@ -9,7 +9,7 @@ manager: almineev
 editor: cgronlun
 
 ms.assetid:
-ms.service: time-series-insights
+ms.service: tsi
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
@@ -24,8 +24,8 @@ A Reference Data Set is a collection of items that are augmented with the events
 
 ## Steps to add a reference data set to your environment
 
-1. Sign in to the [Ibiza portal](https://portal.azure.com).
-2. Click “All resources” in the menu on the left side of the Ibiza portal.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. Click “All resources” in the menu on the left side of the Azure portal.
 3. Select your Time Series Insights environment.
 
     ![Create the Time Series Insights reference data set](media/add-reference-data-set/getstarted-create-reference-data-set-1.png)
@@ -35,7 +35,7 @@ A Reference Data Set is a collection of items that are augmented with the events
     ![Create the Time Series Insights reference data set - details](media/add-reference-data-set/getstarted-create-reference-data-set-2.png)
 
 5. Specify the name of the reference data set.
-6. Specify the key name and its type. This name and type is used to pick the correct property from the event in your event source. For instance, if you provide key name as “DeviceId” and type as “String”, then the Time Series Insights ingress engine looks for a property with the name “DeviceId” of type “String” in the incoming event. You can provide more than one key to join with the event. The property name match is case-sensitive.
+6. Specify the key name and its type. This name and type are used to pick the correct property from the event in your event source. For instance, if you provide key name as “DeviceId” and type as “String”, then the Time Series Insights ingress engine looks for a property with the name “DeviceId” of type “String” in the incoming event. You can provide more than one key to join with the event. The key name match is case-sensitive.
 
      ![Create the Time Series Insights reference data set - details](media/add-reference-data-set/getstarted-create-reference-data-set-3.png)
 

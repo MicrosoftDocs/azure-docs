@@ -74,9 +74,9 @@ Once you have enabled diagnostic settings, you can return to the __Diagnostics l
 
 3. Click the **Download** link for a log entry to download that log.
 
-### Use the Azure Data Lake Storage account that contains log data
+### Use the Azure Storage account that contains log data
 
-1. Open the Azure Data Lake Storage account blade associated with Data Lake Analytics for logging, and then click __Blobs__. The **Blob service** blade lists two containers.
+1. Open the Azure Storage account blade associated with Data Lake Analytics for logging, and then click __Blobs__. The **Blob service** blade lists two containers.
 
     ![View diagnostic logging](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs-storage-account.png "View diagnostic logs")
 

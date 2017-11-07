@@ -3,8 +3,8 @@ title: How to work with the Node.js backend server SDK for Mobile Apps | Microso
 description: Learn how to work with the Node.js backend server SDK for Azure App Service Mobile Apps.
 services: app-service\mobile
 documentationcenter: ''
-author: ggailey777
-manager: syntaxc4
+author: elamalani
+manager: elamalani
 editor: ''
 
 ms.assetid: e7d97d3b-356e-4fb3-ba88-38ecbda5ea50
@@ -149,7 +149,7 @@ can add or modify tables and APIs, then republish the project. For more informat
 project code.
 
 1. Install Git, if you haven't already done so. The steps required to install Git vary between operating systems. See [Installing Git](http://git-scm.com/book/en/Getting-Started-Installing-Git) for operating system-specific distributions and installation guidance.
-2. Follow the steps in [Enable the App Service app repository](../app-service-web/app-service-deploy-local-git.md#Step3) to enable the Git repository for your backend site, making a note of the deployment username and password.
+2. Follow the steps in [Enable the App Service app repository](../app-service/app-service-deploy-local-git.md#Step3) to enable the Git repository for your backend site, making a note of the deployment username and password.
 3. In the blade for your Mobile App backend, make a note of the **Git clone URL** setting.
 4. Execute the `git clone` command using the Git clone URL, entering your password when required, as in the
    following example:
@@ -909,11 +909,16 @@ setting the **MS_DebugMode** app setting to true in the [Azure portal]. Generate
 Logs on the [Azure portal].
 
 ### <a name="in-portal-editing"></a><a name="work-easy-tables"></a>How to: Work with Easy Tables in the Azure portal
-Easy Tables in the portal let you create and work with tables right in the portal. You can even edit table
-operations using the App Service Editor.
+Easy Tables in the portal let you create and work with tables right in the portal. You can upload dataset to Easy Tables 
+in CSV format. Note that you cannot use properties names (in your CSV dataset) that conflict with system properties names 
+of Azure Mobile Apps backend. The system properties names are:
+* createdAt
+* updatedAt
+* deleted
+* version
 
-When you click **Easy tables** in your backend site settings, you can add, modify, or delete a table. You
-can also see data in the table.
+You can even edit table operations using the App Service Editor. When you click **Easy tables** in your backend site 
+settings, you can add, modify, or delete a table. You can also see data in the table.
 
 ![Work with Easy Tables](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-easy-tables.png)
 
@@ -966,20 +971,19 @@ download the project to your local computer. To edit script files in the online 
 [Xamarin.Android Client QuickStart]: app-service-mobile-xamarin-android-get-started.md
 [Xamarin.Forms Client QuickStart]: app-service-mobile-xamarin-forms-get-started.md
 [Windows Store Client QuickStart]: app-service-mobile-windows-store-dotnet-get-started.md
-[HTML/Javascript Client QuickStart]: app-service-html-get-started.md
 [offline data sync]: app-service-mobile-offline-data-sync.md
-[How to configure Azure Active Directory Authentication]: app-service-mobile-how-to-configure-active-directory-authentication.md
-[How to configure Facebook Authentication]: app-service-mobile-how-to-configure-facebook-authentication.md
-[How to configure Google Authentication]: app-service-mobile-how-to-configure-google-authentication.md
-[How to configure Microsoft Authentication]: app-service-mobile-how-to-configure-microsoft-authentication.md
-[How to configure Twitter Authentication]: app-service-mobile-how-to-configure-twitter-authentication.md
-[Azure App Service Deployment Guide]: ../app-service-web/web-sites-deploy.md
-[Monitoring an Azure App Service]: ../app-service-web/web-sites-monitor.md
-[Enable Diagnostic Logging in Azure App Service]: ../app-service-web/web-sites-enable-diagnostic-log.md
-[Troubleshoot an Azure App Service in Visual Studio]: ../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md
+[How to configure Azure Active Directory Authentication]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
+[How to configure Facebook Authentication]: ../app-service/app-service-mobile-how-to-configure-facebook-authentication.md
+[How to configure Google Authentication]: ../app-service/app-service-mobile-how-to-configure-google-authentication.md
+[How to configure Microsoft Authentication]: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md
+[How to configure Twitter Authentication]: ../app-service/app-service-mobile-how-to-configure-twitter-authentication.md
+[Azure App Service Deployment Guide]: ../app-service/app-service-deploy-local-git.md
+[Monitoring an Azure App Service]: ../app-service/web-sites-monitor.md
+[Enable Diagnostic Logging in Azure App Service]: ../app-service/web-sites-enable-diagnostic-log.md
+[Troubleshoot an Azure App Service in Visual Studio]: ../app-service/web-sites-dotnet-troubleshoot-visual-studio.md
 [specify the Node Version]: ../nodejs-specify-node-version-azure-apps.md
 [use Node modules]: ../nodejs-use-node-modules-azure-apps.md
-[Create a new Azure App Service]: ../app-service-web/
+[Create a new Azure App Service]: ../app-service/
 [azure-mobile-apps]: https://www.npmjs.com/package/azure-mobile-apps
 [Express]: http://expressjs.com/
 [Swagger]: http://swagger.io/

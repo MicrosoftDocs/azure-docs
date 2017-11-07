@@ -13,39 +13,32 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/27/2017
+ms.date: 10/13/2017
 ms.author: yurid
 
 ---
-# Set security policies in Azure Security Center
-This document helps you to configure security policies in Security Center by guiding you through the necessary steps to perform this task.
+# Set security policies in Security Center
+This document helps you to configure security policies in Security Center by guiding you through the necessary steps to perform this task. 
 
->[!NOTE] 
->Beginning in early June 2017, Security Center uses the Microsoft Monitoring Agent to collect and store data. See [Azure Security Center Platform Migration](security-center-platform-migration.md) to learn more. The information in this article represents Security Center functionality after transition to the Microsoft Monitoring Agent.
->
 
-## What are security policies?
-A security policy defines the set of controls, which are recommended for resources within the specified subscription. In Security Center, you define policies for your Azure subscriptions according to your company security needs and the type of applications or sensitivity of the data in each subscription.
+## How security policies work
+Security Center automatically creates a default security policy for each of your Azure subscriptions. You can edit the policy in Security Center and monitor policy compliance. 
+
+> [!NOTE]
+> You can now extend Security Center policies using Azure Policy, which is in limited preview. Click [here](http://aka.ms/getpolicy) to join the preview or see the documentation [here](security-center-azure-policy.md).
 
 For example, resources that are used for development or test might have different security requirements from resources that are used for production applications. Likewise, applications that use regulated data like personally identifiable information might require a higher level of security. Security policies that are enabled in Azure Security Center drive security recommendations and monitoring to help you identify potential vulnerabilities and mitigate threats. Read [Azure Security Center Planning and Operations Guide](security-center-planning-and-operations-guide.md) for more information about how to determine the option that is appropriate for you.
 
-## Set security policies
-You can configure security policies for each subscription. To modify a security policy, you must be an owner or contributor of that subscription. Sign in to the Azure portal and follow the succeeding steps to configure security polices in Security Center:
+## Edit security policies
+You can edit the default security policy for each of your Azure subscriptions in Security Center. To modify a security policy, you must be an owner, contributor or Security Admin of that subscription. Sign in to the Azure portal and follow the succeeding steps to configure security polices in Security Center: 
 
-1. Click the **Policy** tile in the Security Center dashboard.
-2. In the Security Policy blade that opens, select the subscription on which you want to enable the security policy.
+1.	In the **Security Center** dashboard, under **General**, click **Security Policy**.
+2.	Select the subscription on which you want to enable the security policy.
+3.	In the **POLICY COMPONENTS** section, click **Security policy**.
+4.	This is the default policy assigned by Security Center. You can turn on/off the available security recommendations.
+5.	When you finish editing, click **Save**.
 
-    ![Defining policy](./media/security-center-policies/security-center-policies-fig1-ga.png)
-3. The **Security policy** blade for the selected subscription opens with a set of options. The available options in this blade are:
-
-   * **Prevention policy**: Use this option to configure policies per subscription.  
-   * **Email notification**: Use this option to configure an email notification that's sent on the first daily occurrence of an alert and for high severity alerts. Email preferences can be configured only for subscription policies. Read [Provide security contact details in Azure Security Center](security-center-provide-security-contact-details.md) for more information about how to configure an email notification.
-   * **Pricing tier**: Use this option to upgrade the pricing tier selection. See [Security Center pricing](security-center-pricing.md) to learn more about pricing options.
-4. Make sure that **Collect data from virtual machines** options is **On**. This option enables automatic log collection for existing and new resources using the Microsoft Monitoring Agent – this is the same agent used by the Operations Management Suite and Log Analytics service. Data collected from this agent is stored in either an existing Log Analytics workspace(s) associated with your Azure subscription or a new workspace(s), taking into account the geography of the VM.
-
-5. In the **Security Policy** blade, click **Prevention policy** to see the available options. Click **On** to enable the security recommendations that are relevant for this subscription.
-
-    ![Selecting the security policies](./media/security-center-policies/security-center-policies-fig7.png)
+## Available security policy options
 
 Use the following table as a reference to understand each option:
 
@@ -64,15 +57,9 @@ Use the following table as a reference to understand each option:
 | Storage Encryption |Currently, this feature is available for Azure Blobs and Files. After enabling Storage Service Encryption, only new data will be encrypted, and any existing files in this storage account will remain unencrypted. |
 | JIT Network Access |When just in time is enabled, Security Center locks down inbound traffic to your Azure VMs by creating an NSG rule. You select the ports on the VM to which inbound traffic should be locked down. For more information, see [Manage virtual machine access using just in time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time). |
 
-After you configure all options, click **OK** in the **Security Policy** blade that has the recommendations, and then click **Save** in the **Security Policy** blade that  has the initial settings.
 
-> [!NOTE]
-> The pricing tier is still applicable for the resource group level. For more information visiting the [Pricing](https://azure.microsoft.com/pricing/details/security-center/) page.
->
->
-
-## See also
-In this document, you learned how to configure security policies in Azure Security Center. To learn more about Azure Security Center, see the following:
+## Next step
+In this document, you learned how to configure security policies in Security Center. To learn more about Security Center, see the following:
 
 * [Azure Security Center planning and operations guide](security-center-planning-and-operations-guide.md). Learn how to plan and understand the design considerations to adopt Azure Security Center.
 * [Security health monitoring in Azure Security Center](security-center-monitoring.md). Learn how to monitor the health of your Azure resources.

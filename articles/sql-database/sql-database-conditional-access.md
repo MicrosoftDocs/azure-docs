@@ -9,6 +9,7 @@ ms.service: sql-database
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: rickbyh
+ms.workload: "Inactive"
 ---
 
 

@@ -4,7 +4,7 @@ description: 'Learn how to use the intelligence of Cognitive capabilities in U-S
 services: data-lake-analytics
 documentationcenter: ''
 author: saveenr
-manager: sukvg
+manager: jhubbard
 editor: cgronlun
 
 ms.assetid: 019c1d53-4e61-4cad-9b2c-7a60307cbe19
@@ -20,131 +20,67 @@ ms.author: saveenr
 
 # Tutorial: Get started with the Cognitive capabilities of U-SQL
 
-Cognitive capabilities for U-SQL enable developers to use put intelligence in their big data programs. The overall process in simple:
+## Overview
+Cognitive capabilities for U-SQL enable developers to use put intelligence in their big data programs. 
+
+The following cognitive capabilities are available:
+* Imaging: Detect faces
+* Imaging: Detect emotion
+* Imaging: Detect objects (tagging)
+* Imaging: OCR (optical character recognition)
+* Text: Key Phrase Extraction
+* Text: Sentiment Analysis
+
+## How to use Cognitive in your U-SQL script
+
+The overall process is simple:
 
 * Use the REFERENCE ASSEMBLY statement to enable the cognitive features for the U-SQL Script
-* Call the PROCESS operation to use the Cognitive capabilities 
+* Use the PROCESS on an input Rowset using a Cognitive UDO, to generate an output RowSet
 
-## Imaging scenarios
+### Detecting objects in images
 
-### Example: Image tagging
+The following example shows how to use the cognitive capabilities to detect objects in images.
 
-The following example shows an end-to-end use of the imaging capabilities to detect objects in images.
+```
+REFERENCE ASSEMBLY ImageCommon;
+REFERENCE ASSEMBLY FaceSdk;
+REFERENCE ASSEMBLY ImageEmotion;
+REFERENCE ASSEMBLY ImageTagging;
+REFERENCE ASSEMBLY ImageOcr;
 
-    REFERENCE ASSEMBLY ImageCommon;
-    REFERENCE ASSEMBLY FaceSdk;
-    REFERENCE ASSEMBLY ImageEmotion;
-    REFERENCE ASSEMBLY ImageTagging;
-    REFERENCE ASSEMBLY ImageOcr;
+// Get the image data
 
-    @imgs =
-        EXTRACT FileName string, ImgData byte[]
-        FROM @"/images/{FileName:*}.jpg"
-        USING new Cognition.Vision.ImageExtractor();
+@imgs =
+    EXTRACT 
+        FileName string, 
+        ImgData byte[]
+    FROM @"/usqlext/samples/cognition/{FileName}.jpg"
+    USING new Cognition.Vision.ImageExtractor();
 
-    // Extract the number of objects on each image and tag them 
-    @objects =
-        PROCESS @imgs 
-        PRODUCE FileName,
-                NumObjects int,
-                Tags string
-        READONLY FileName
-        USING new Cognition.Vision.ImageTagger();
+//  Extract the number of objects on each image and tag them 
 
+@tags =
+    PROCESS @imgs 
+    PRODUCE FileName,
+            NumObjects int,
+            Tags SQL.MAP<string, float?>
+    READONLY FileName
+    USING new Cognition.Vision.ImageTagger();
 
-### Extract emotions from human faces 
+@tags_serialized =
+    SELECT FileName,
+           NumObjects,
+           String.Join(";", Tags.Select(x => String.Format("{0}:{1}", x.Key, x.Value))) AS TagsString
+    FROM @tags;
 
-    @emotions =
-        PROCESS @imgs
-        PRODUCE FileName string,
-                NumFaces int,
-                Emotion string
-        READONLY FileName
-        USING new Cognition.Vision.EmotionAnalyzer();
+OUTPUT @tags_serialized
+    TO "/tags.csv"
+    USING Outputers.Csv();
+```
+For more examples, look at the **U-SQL/Cognitive Samples** in the **Next steps** section.
 
-### Estimate age and gender for human faces
-
-    @faces = 
-            PROCESS @imgs
-            PRODUCE FileName,
-                    NumFaces int,
-                    FaceAge string,
-                    FaceGender string
-            READONLY FileName
-            USING new Cognition.Vision.FaceDetector();
-
-### Detect text in Images (OCR)
-
-    @ocrs =
-            PROCESS @imgs
-            PRODUCE FileName,
-                    Text string
-            READONLY FileName
-            USING new Cognition.Vision.OcrExtractor();
-
-## Text scenarios
-
-### Input data
-
-Assume that we have an input that consists of “War and Peace” by Leo Tolstoy.
-
-    REFERENCE ASSEMBLY [TextCommon];
-    REFERENCE ASSEMBLY [TextSentiment];
-    REFERENCE ASSEMBLY [TextKeyPhrase];
-
-    @WarAndPeace =
-        EXTRACT No int,
-                Year string,
-                Book string,
-                Chapter string,
-                Text string
-        FROM @"/usqlext/samples/cognition/war_and_peace.csv"
-        USING Extractors.Csv();
-
-### Extract key phrases for each paragraph
-
-    @keyphrase =
-        PROCESS @WarAndPeace
-        PRODUCE No,
-                Year,
-                Book,
-                Chapter,
-                Text,
-                KeyPhrase string
-        READONLY No,
-                Year,
-                Book,
-                Chapter,
-                Text
-        USING new Cognition.Text.KeyPhraseExtractor();
-
-    // Tokenize the key phrases.
-    @kpsplits =
-        SELECT No,
-            Year,
-            Book,
-            Chapter,
-            Text,
-            T.KeyPhrase
-        FROM @keyphrase
-            CROSS APPLY
-                new Cognition.Text.Splitter("KeyPhrase") AS T(KeyPhrase);
-    
-### Perform sentiment analysis on each paragraph
-
-    @sentiment =
-        PROCESS @WarAndPeace
-        PRODUCE No,
-                Year,
-                Book,
-                Chapter,
-                Text,
-                Sentiment string,
-                Conf double
-        READONLY No,
-                Year,
-                Book,
-                Chapter,
-                Text
-        USING new Cognition.Text.SentimentAnalyzer(true);
-
+## Next steps
+* [U-SQL/Cognitive Samples](https://github.com/Azure-Samples?utf8=✓&q=usql%20cognitive)
+* [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
+* [Using U-SQL window functions for Azure Data Lake Analytics jobs](data-lake-analytics-use-window-functions.md)

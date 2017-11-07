@@ -4,7 +4,7 @@ description: This topic shows how to use CLI 2.0 to create an Azure AD app and c
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.service: media-services

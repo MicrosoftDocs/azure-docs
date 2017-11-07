@@ -49,10 +49,6 @@ To get which faults Chaos induced, you can use GetChaosReport API (powershell, C
 ## Important configuration options
 * **TimeToRun**: Total time that Chaos runs before it finishes with success. You can stop Chaos before it has run for the TimeToRun period through the StopChaos API.
 
-> [!NOTE]
-> Chaos may still be running when *TimeToRun* is up, it can take as much as (MaxClusterStabilizationTime + MaxConcurrentFaults * WaitTimeBetweenFaults + WaitTimeBetweenIterations) additional time to automatically stop.
->
-
 * **MaxClusterStabilizationTimeout**: The maximum amount of time to wait for the cluster to become healthy before producing a ValidationFailedEvent. This wait is to reduce the load on the cluster while it is recovering. The checks performed are:
   * If the cluster health is OK
   * If the service health is OK

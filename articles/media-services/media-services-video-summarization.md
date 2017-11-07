@@ -4,7 +4,7 @@ description: Video summarization can help you create summaries of long videos by
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: a245529f-3150-4afc-93ec-e40d8a6b761d

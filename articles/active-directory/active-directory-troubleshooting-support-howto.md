@@ -13,8 +13,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/07/2017
+ms.date: 08/28/2017
 ms.author: curtand
+ms.reviewer: jeffsta
+ms.custom: it-pro
 
 ---
 # How to get support for Azure Active Directory

@@ -1,4 +1,4 @@
----
+﻿---
 title: Using Analytics - the powerful search tool of Azure Application Insights | Microsoft Docs
 description: 'Using the Analytics, the powerful diagnostic search tool of Application Insights. '
 services: application-insights
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: cfreeman
+ms.author: danha; mbullwin
 
 ---
 # Using Analytics in Application Insights
@@ -133,7 +133,7 @@ On a timechart, if there is a sudden spike or step in your data, you may see a h
 ![Analytics diagnostics](./media/app-insights-analytics-using/analytics-diagnostics.png)
 
 ## Pin to dashboard
-You can pin a diagram or table to one of your [shared dashboards](app-insights-dashboards.md) - just click the pin. (You might need to [upgrade your app's pricing package](app-insights-pricing.md) to turn on this feature.) 
+You can pin a diagram or table to one of your [shared dashboards](app-insights-dashboards.md) - just click the pin. 
 
 ![Click the pin](./media/app-insights-analytics-using/pin-01.png)
 

@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2017
+ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 
@@ -23,13 +23,13 @@ ms.custom: H1Hack27Feb2017
 
 This article helps you use the Change Tracking solution in Log Analytics to easily identify changes in your environment. The solution tracks changes to Windows and Linux software, Windows files and registry keys, Windows services, and Linux daemons. Identifying configuration changes can help you pinpoint operational issues.
 
-You install the solution to update the type of agent that you have installed. Changes to installed software, Windows services, and Linux daemons on the monitored servers are read and then the data is sent to the Log Analytics service in the cloud for processing. Logic is applied to the received data and the cloud service records the data. By using the information on the Change Tracking dashboard, you can easily see the changes that were made in your server infrastructure.
+You install the solution to update the type of agent that you have installed. Changes to installed software, Windows services, and Linux daemons on the monitored servers are read. Then, the data is sent to the Log Analytics service in the cloud for processing. Logic is applied to the received data and the cloud service records the data. By using the information on the Change Tracking dashboard, you can easily see the changes that were made in your server infrastructure.
 
 ## Installing and configuring the solution
 Use the following information to install and configure the solution.
 
 * You must have a [Windows](log-analytics-windows-agents.md), [Operations Manager](log-analytics-om-agents.md), or [Linux](log-analytics-linux-agents.md) agent on each computer where you want to monitor changes.
-* Add the Change Tracking solution to your OMS workspace from the [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ChangeTrackingOMS?tab=Overview) or by using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).  There is no further configuration required.
+* Add the Change Tracking solution to your OMS workspace from the [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ChangeTrackingOMS?tab=Overview). Or, you can add the solution using the information in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md). No further configuration is required.
 
 ### Configure Linux files to track
 Use the following steps to configure files to track on Linux computers.
@@ -38,7 +38,7 @@ Use the following steps to configure files to track on Linux computers.
 2. On the **Settings** page, click **Data**, and then click **Linux File Tracking**.
 3. Under Linux File Change Tracking, type the entire path, including the file name of the file that you want to track and then click the **Add** symbol. For example: "/etc/*.conf"
 4. Click **Save**.  
-  
+
 > [!NOTE]
 > Linux file tracking has additional capabilities including directory tracking, recrusion through directories, and wildcard tracking.
 
@@ -67,16 +67,16 @@ Use the following steps to configure registry keys to track on Windows computers
 2. **Links** (Handling Linux symlink references to other files or directories)
    * **Ignore** (Ignore symlinks during recurions to not include the files/directories referenced)
    * **Follow** (Follow the symlinks during recursion to also include the files/directories referenced)
-   * **Manage** (Follow the symlinks and alter the treatment of returned content) 
-   
+   * **Manage** (Follow the symlinks and alter the treatment of returned content)
+
    > [!NOTE]   
-   > The "Manage" links option is not recommended since file content retrieval is not currently supported.
-   
+   > The "Manage" links option is not recommended. File content retrieval is not supported.
+
 3. **Recurse** (Recurse through folder levels and track all files meeting the path statement)
 4. **Sudo** (Enable access files or directories that require sudo privilege)
 
 ### Limitations
-The Change Tracking solution does not currently support the following:
+The Change Tracking solution does not currently support the following items:
 
 * Folders (directories) for Windows File Tracking
 * Recursion for Windows File Tracking
@@ -97,9 +97,9 @@ Change Tracking collects software inventory and Windows Service metadata using t
 
 The following table shows data collection methods and other details about how data is collected for Change Tracking.
 
-| platform | Direct Agent | SCOM agent | Linux agent | Azure Storage | SCOM required? | SCOM agent data sent via management group | collection frequency |
+| platform | Direct Agent | Operations Manager agent | Linux agent | Azure Storage | Operations Manager required? | Operations Manager agent data sent via management group | collection frequency |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Windows and Linux |![Yes](./media/log-analytics-change-tracking/oms-bullet-green.png) |![Yes](./media/log-analytics-change-tracking/oms-bullet-green.png) |![Yes](./media/log-analytics-change-tracking/oms-bullet-green.png) |![No](./media/log-analytics-change-tracking/oms-bullet-red.png) |![No](./media/log-analytics-change-tracking/oms-bullet-red.png) |![Yes](./media/log-analytics-change-tracking/oms-bullet-green.png) | 5 minutes to 50 minutes, depending on the change type. See below for more information. |
+| Windows and Linux | &#8226; | &#8226; | &#8226; |  |  | &#8226; | 5 minutes to 50 minutes, depending on the change type. See the following table for more information. |
 
 
 The following table shows the data collection frequency for the types of changes.
@@ -123,7 +123,7 @@ Log Analytics performs Windows registry monitoring and tracking with the Change 
 - HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Shutdown
     - Monitors scripts that run at shutdown.
 - HKEY\_LOCAL\_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run
-    - Monitors keys that are loaded before the user signs in their Windows account for 32-bit programs running on 64-bit computers.
+    - Monitors keys that are loaded before the user signs in to their Windows account. The key is used for 32-bit programs running on 64-bit computers.
 - HKEY\_LOCAL\_MACHINE\SOFTWARE\Microsoft\Active Setup\Installed Components
     - Monitors changes to application settings.
 - HKEY\_LOCAL\_MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers
@@ -137,9 +137,9 @@ Log Analytics performs Windows registry monitoring and tracking with the Change 
 - HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers
     - Monitors for icon overlay handler registration for 32-bit programs running on 64-bit computers.
 - HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects
-    - Monitors for new browser helper object plugins for Internet Explorer, which can be used to access the Document Object Model (DOM) of the current page and to control navigation.
+    - Monitors for new browser helper object plugins for Internet Explorer. Used to access the Document Object Model (DOM) of the current page and to control navigation.
 - HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects
-    - Monitors for new browser helper object plugins for Internet Explorer, which can be used to access the Document Object Model (DOM) of the current page and to control navigation for 32-bit programs running on 64-bit computers.
+    - Monitors for new browser helper object plugins for Internet Explorer. Used to access the Document Object Model (DOM) of the current page and to control navigation for 32-bit programs running on 64-bit computers.
 - HKEY\_LOCAL\_MACHINE\Software\Microsoft\Internet Explorer\Extensions
     - Monitors for new Internet Explorer extensions, such as custom tool menus and custom toolbar buttons.
 - HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Internet Explorer\Extensions

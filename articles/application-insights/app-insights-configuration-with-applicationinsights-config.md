@@ -1,10 +1,10 @@
----
+﻿---
 title: ApplicationInsights.config reference - Azure | Microsoft Docs
 description: Enable or disable data collection modules, and add performance counters and other parameters.
 services: application-insights
 documentationcenter: ''
 author: OlegAnaniev-MSFT
-editor: alancameronwills
+editor: mrbullwinkle
 manager: carmonm
 
 ms.assetid: 6e397752-c086-46e9-8648-a1196e8078c2
@@ -13,8 +13,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/3/2017
-ms.author: cfreeman
+ms.date: 05/03/2017
+ms.author: mbullwin
 
 ---
 # Configuring the Application Insights SDK with ApplicationInsights.config or .xml
