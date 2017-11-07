@@ -21,8 +21,8 @@
 # How to
 ## Plan and design
 ### [Understand Azure AD architecture](active-directory-architecture.md)
-### [Deploy a hybrid identity solution](active-directory-hybrid-identity-design-considerations-overview.md)
 ### [Claims mapping in Azure Active Directory](active-directory-claims-mapping.md)
+### [Deploy a hybrid identity solution](active-directory-hybrid-identity-design-considerations-overview.md)
 #### Determine requirements
 ##### [Identity](active-directory-hybrid-identity-design-considerations-business-needs.md)
 ##### [Directory sync](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
@@ -279,7 +279,7 @@
 ## [Manage access to Azure](toc.yml)
 
 ## Delegate access to resources
-### [Administrator roles](active-directory-assign-admin-roles.md)
+### [Administrator roles](active-directory-assign-admin-roles-azure-portal.md)
 #### [Assign admin roles](active-directory-users-assign-role-azure-portal.md)
 ### [Administrative units](active-directory-administrative-units-management.md)
 ### [Configure token lifetimes](active-directory-configurable-token-lifetimes.md)

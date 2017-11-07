@@ -1,6 +1,6 @@
 ---
-title: Using Azure Import/Export to transfer data to and from blob storage | Microsoft Docs
-description: Learn how to create import and export jobs in the Azure portal for transferring data to and from blob storage.
+title: Using Azure Import/Export to transfer data to and from Azure Storage | Microsoft Docs
+description: Learn how to create import and export jobs in the Azure portal for transferring data to and from Azure Storage.
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -17,18 +17,18 @@ ms.date: 10/03/2017
 ms.author: muralikk
 
 ---
-# Use the Microsoft Azure Import/Export service to transfer data to Azure storage
-In this article, we provide step-by-step instructions on using Azure Import/Export service to securely transfer large amounts of data to Azure blob and file storage by shipping disk drives to an Azure data center. This service can also be used to transfer data from Azure blob storage to hard disk drives and ship to your on-premise sites. Data from a single internal SATA disk drive can be imported either to Azure blob Storage or Azure File storage. 
+# Use the Microsoft Azure Import/Export service to transfer data to Azure Storage
+In this article, we provide step-by-step instructions on using Azure Import/Export service to securely transfer large amounts of data to Azure Blob storage and Azure Files by shipping disk drives to an Azure data center. This service can also be used to transfer data from Azure storage to hard disk drives and ship to your on-premise sites. Data from a single internal SATA disk drive can be imported either to Azure Blob storage or Azure Files. 
 
 > [!IMPORTANT] 
-> This service only accepts internal SATA HDDs or SSDs only. No other device is supported. Please do not send External HDDs or NAS devices etc as they will be returned when possible or discarded.
+> This service only accepts internal SATA HDDs or SSDs only. No other device is supported. Do not send external HDDs, NAS devices, etc., as they will be returned if possible, or otherwise discarded.
 >
 >
 
-Follow the below steps if the data on the disk is to be imported into Azure Blob Storage.
+Follow the below steps if the data on the disk is to be imported into Azure Storage.
 ### Step 1: Prepare the drive/s using WAImportExport tool and generate journal file/s.
 
-1.  Identify the data to be imported into Azure blob storage. This could be directories and standalone files on a local server or a network share.
+1.  Identify the data to be imported into Azure Storage. This could be directories and standalone files on a local server or a network share.
 2.  Depending on total size of the data, procure the required number of 2.5 inch SSD or 2.5" or 3.5" SATA II or III hard disk drives.
 3.	Attach the hard drives directly using SATA or with external USB adaptors to a windows machine.
 4.  Create a single NTFS volume on each hard drive and assign a drive letter to the volume. No mountpoints.
@@ -84,7 +84,7 @@ You can use this service in scenarios such as:
 
 * Migrating data to the cloud: Move large amounts of data to Azure quickly and cost effectively.
 * Content distribution: Quickly send data to your customer sites.
-* Backup: Take backups of your on-premises data to store in Azure blob storage.
+* Backup: Take backups of your on-premises data to store in Azure Storage.
 * Data recovery: Recover large amount of data stored in storage and have it delivered to your on-premises location.
 
 ## Prerequisites
@@ -94,13 +94,13 @@ In this section we list the prerequisites required to use this service. Please r
 You must have an existing Azure subscription and one or more storage accounts to use the Import/Export service. Each job may be used to transfer data to or from only one storage account. In other words, a single import/export job cannot span across multiple storage accounts. For information on creating a new storage account, see [How to Create a Storage Account](storage-create-storage-account.md#create-a-storage-account).
 
 ### Data types
-You can use Azure Import/Export service to copy data to **Block** blobs or **Page** blobs or **Files**. Conversely, you can only export **Block** blobs, **Page** blobs or **Append** blobs from Azure storage using this service. The service does not support export of Azure files and can only import files into Azure storage.
+You can use Azure Import/Export service to copy data to **Block** blobs, **Page** blobs, or **Files**. Conversely, you can only export **Block** blobs, **Page** blobs or **Append** blobs from Azure storage using this service. The service supports only import of Azure Files into Azure storage. Exporting Azure Files is not currently supported.
 
 ### Job
 To begin the process of importing to or exporting from storage, you first create a job. A job can be an import job or an export job:
 
-* Create an import job when you want to transfer data you have on-premises to blobs in your Azure storage account.
-* Create an export job when you want to transfer data currently stored as blobs in your storage account to hard drives that are shipped to us. When you create a job, you notify the Import/Export service that you will be shipping one or more hard drives to an Azure data center.
+* Create an import job when you want to transfer data you have on-premises to your Azure storage account.
+* Create an export job when you want to transfer data currently stored in your storage account to hard drives that are shipped to us. When you create a job, you notify the Import/Export service that you will be shipping one or more hard drives to an Azure data center.
 
 * For an import job, you will be shipping hard drives containing your data.
 * For an export job, you will be shipping empty hard drives.
@@ -111,7 +111,7 @@ You can create an import or export job using the Azure portal or the [Azure Stor
 ### WAImportExport tool
 The first step in creating an **import** job is to prepare your drives that will be shipped for import. To prepare your drives, you must connect it to a local server and run the WAImportExport Tool on the local server. This WAImportExport tool facilitates copying your data to the drive, encrypting the data on the drive with BitLocker, and generating the drive journal files.
 
-The journal files store basic information about your job and drive such as drive serial number and storage account name. This journal file is not stored on the drive. It is used during import job creation. Step by step details about job creation is provided later in this article.
+The journal files store basic information about your job and drive such as drive serial number and storage account name. This journal file is not stored on the drive. It is used during import job creation. Step-by-step details about job creation are provided later in this article.
 
 The WAImportExport tool is only compatible with 64-bit Windows operating system. See the [Operating System](#operating-system) section for specific OS versions supported.
 
@@ -303,7 +303,7 @@ When you ship drives to Azure, you pay the shipping cost to the shipping carrier
 
 **Transaction costs**
 
-There are no transaction costs when importing data into blob storage. The standard egress charges are applicable when data is exported from blob storage. For more details on transaction costs, see [Data transfer pricing.](https://azure.microsoft.com/pricing/details/data-transfers/)
+There are no transaction costs when importing data into Azure Storage. The standard egress charges are applicable when data is exported from Blob storage. For more details on transaction costs, see [Data transfer pricing.](https://azure.microsoft.com/pricing/details/data-transfers/)
 
 
 
@@ -313,7 +313,6 @@ The first step when importing data using the Azure Import/Export service is to p
 
 1. Identify the data to be imported into Azure File Storage. This could be directories and standalone files on the local server or a network share.  
 2. Determine the number of drives you will need depending on total size of the data. Procure the required number of 2.5 inch SSD or 2.5" or 3.5" SATA II or III hard disk drives.
-3. Identify the target storage account, container, virtual directories, and blobs.
 4. Determine the directories and/or standalone files that will be copied to each hard disk drive.
 5. Create the CSV files for dataset and driveset.
     
@@ -511,11 +510,11 @@ The data under your Azure storage account can be accessed via the Azure Portal o
 
 **After the import job completes, what will my data look like in the storage account? Will my directory hierarchy be preserved?**
 
-When preparing a hard drive for an import job, the destination is specified by the DstBlobPathOrPrefix field in dataset CSV. This is the destination container in the storage account to which data from the hard drive is copied. Within this destination container, virtual directories are created for folders from the hard drive and blobs are created for files. 
+When preparing a hard drive for an import job, the destination is specified by the DstBlobPathOrPrefix field in the dataset CSV. This is the destination container in the storage account to which data from the hard drive is copied. Within this destination container, virtual directories are created for folders from the hard drive and blobs are created for files. 
 
-**If the drive has files that already exist in my storage account, will the service overwrite existing blobs in my storage account?**
+**If the drive has files that already exist in my storage account, will the service overwrite existing blobs or files in my storage account?**
 
-When preparing the drive, you can specify whether the destination files should be overwritten or ignored using the field in dataset CSV file called Disposition:<rename|no-overwrite|overwrite>. By default, the service will rename the new files rather than overwrite existing blobs.
+When preparing the drive, you can specify whether the destination files should be overwritten or ignored using the field in dataset CSV file called Disposition:<rename|no-overwrite|overwrite>. By default, the service will rename the new files rather than overwrite existing blobs or files.
 
 **Is the WAImportExport tool compatible with 32-bit operating systems?**
 No. The WAImportExport tool is only compatible with 64-bit Windows operating systems. Please refer to the Operating Systems section in the [pre-requisites](#pre-requisites) for a complete list of supported OS versions.
