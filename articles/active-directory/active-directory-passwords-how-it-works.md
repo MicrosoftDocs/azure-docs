@@ -86,6 +86,23 @@ Users can choose to supply more authentication methods if they are enabled by th
 
 If a user does not have the minimum required methods registered, they see an error page that directs them to request an administrator to reset their password.
 
+#### Changing authentication methods
+
+If you start with a policy that has only one authentication method required for reset or unlock registered and you change that to two what happens?
+
+| Number of methods registered | Number of methods required | Result |
+| :---: | :---: | :---: |
+| 1 or more | 1 | **Able** to reset or unlock |
+| 1 | 2 | **Unable** to reset or unlock |
+| 2 or more | 2 | **Able** to reset or unlock |
+
+If you change the types of authentication methods that a user can use you may inadvertently stop users from being able to use SSPR if they do not have the minimum amount of data available.
+
+Example: 
+1. Original policy configured with 2 authentication methods required using only office phone and security questions. 
+2. Administrator changes the policy to no longer use security questions but allow the use of mobile phone and alternate email.
+3. Users without mobile phone and alternate email fields populated can't reset their passwords.
+
 ### How secure are my security questions
 
 If you use security questions, we recommend them in use with another method as they can be less secure than other methods since some people may know the answers to another user's questions.
@@ -166,6 +183,7 @@ When this is disabled users can still manually register their contact informatio
 > [!NOTE]
 > Users can dismiss the password reset registration portal by clicking cancel or closing the window but are prompted each time they login until they complete registration.
 >
+> This will not break the user's connection if they are alreay signed in.
 
 ### Number of days before users are asked to reconfirm their authentication information
 
@@ -187,7 +205,7 @@ Example: There are four administrators in an environment. Administrator "A" rese
 
 ## On-premises integration
 
-If you have installed, configured, and enabled Azure AD Connect, you will have the following additional options for on-premises integrations.
+If you have installed, configured, and enabled Azure AD Connect, you will have the following additional options for on-premises integrations. If these options are greyed-out then writeback has not been properly configured see [Configuring password writeback](active-directory-passwords-writeback.md#configuring-password-writeback) for more information.
 
 ### Write back passwords to your on-premises directory
 
@@ -211,6 +229,9 @@ Password reset and change are fully supported with all B2B configurations. The f
 3. **B2B users** - Any new B2B users created using the new [Azure AD B2B capabilities](active-directory-b2b-what-is-azure-ad-b2b.md) will also be able to reset their passwords with the email they registered during the invite process.
 
 To test this scenario, go to http://passwordreset.microsoftonline.com with one of these partner users. As long as they have an alternate email or authentication email defined, password reset works as expected.
+
+> [!NOTE]
+> Microsoft accounts that have been granted guest access to your Azure AD tenant such as those from Hotmail.com, Outlook.com, or other personal email addresses are not able to use Azure AD SSPR and will need to reset their password using the information found in the article [When you can't sign in to your Microsoft account](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).
 
 ## Next steps
 
