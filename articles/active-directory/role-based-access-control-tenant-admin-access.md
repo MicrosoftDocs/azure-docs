@@ -100,8 +100,7 @@ When you call *elevateAccess* you create a role assignment for yourself, so to r
 	1. GET *https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=principalId+eq+'{objectid}'*
 	
 		>[!NOTE] 
-		>A tenant admin should not have many assignments, if the query below returns too many assignments, you can also query for all assignments just at tenant scope level, then filter the results:
-		>GET *https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()*
+		>A tenant admin should not have many assignments, if the query above returns too many assignments, you can also query for all assignments just at tenant scope level, then filter the results: GET *https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()*
 		
 	2. The above calls return a list of role assignments. Find the role assignment where the scope is "/" and the RoleDefinitionId ends with the role name GUID you found in step 1 and PrincipalId matches the ObjectId of the Tenant Admin. The role assignment looks like this:
 
