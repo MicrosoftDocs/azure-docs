@@ -146,7 +146,7 @@ In this section, you create a Node.js console app that initiates a remote **lock
     var connectionString = '{iothubconnectionstring}';
     var queryCondition = "deviceId IN ['myDeviceId']";
     var startTime = new Date();
-    var maxExecutionTimeInSeconds =  3600;
+    var maxExecutionTimeInSeconds =  300;
     var jobClient = JobClient.fromConnectionString(connectionString);
     ```
 6. Add the following function that is used to monitor the execution of the job:
