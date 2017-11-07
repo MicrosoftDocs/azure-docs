@@ -61,7 +61,7 @@ When calling the indexer, do the following:
 
 + Set the **parsingMode** parameter to `json` (to index each blob as a single document) or `jsonArray` (if your blobs contain JSON arrays and you need each element of an array to be treated as a separate document).
 
-+ Optionally, use **field mappings** to pick the properties of the source JSON document used to populate your target search index. For JSON arrays, you can specify a nested path on the source field to more precisely map contents in the array to a corresponding field in your index.
++ Optionally, use **field mappings** to choose which properties of the source JSON document are used to populate your target search index. For JSON arrays, if the array exists as a lower level property, you can set a document root indicating where the array is placed within the blob.
 
 > [!IMPORTANT]
 > When you use `json` or `jsonArray` parsing mode, Azure Search assumes that all blobs in your data source contain JSON. If you need to support a mix of JSON and non-JSON blobs in the same data source, let us know on [our UserVoice site](https://feedback.azure.com/forums/263029-azure-search).
@@ -83,7 +83,7 @@ By default, [Azure Search blob indexer](search-howto-indexing-azure-blob-storage
 
 Using the Azure Search blob indexer, a JSON document similar to the previous example is parsed into a single Azure Search document. The indexer loads an index by matching "text", "datePublished", and "tags" from the source against identically named and typed target fields.
 
-Indexer configuration is provided in the body of an indexer operation. Recall that the data source object, previously defined, specifies the data source type and connection information. Additionally, the target index must also exist as an empty container in your service. Schedule and parameters are optional, but if you omit them, the indexer runs immediately, using `json` as the parsing mode.
+Configuration is provided in the body of an indexer operation. Recall that the data source object, previously defined, specifies the data source type and connection information. Additionally, the target index must also exist as an empty container in your service. Schedule and parameters are optional, but if you omit them, the indexer runs immediately, using `json` as the parsing mode.
 
 A fully specified request might look as follows:
 
@@ -99,11 +99,11 @@ A fully specified request might look as follows:
       "parameters" : { "configuration" : { "parsingMode" : "json" } }
     }
 
-As noted, field mappings are not required. Given an index with "text", "datePublished, and "tags" fields, the blob indexer can infer the correct mapping without a field mapping list.
+As noted, field mappings are not required. Given an index with "text", "datePublished, and "tags" fields, the blob indexer can infer the correct mapping without a field mapping present in the request.
 
 ## How to parse JSON arrays (preview)
 
-Alternatively, you can opt for the JSON array preview feature. This capability is useful when blobs contain an **array of JSON objects**, you may want each element of the array to become a separate Azure Search document. For example, given the following JSON blob, you can populate your Azure Search index with three separate documents, each with "id" and "text" fields.  
+Alternatively, you can opt for the JSON array preview feature. This capability is useful when blobs contain an *array of JSON objects*, and you want each element to become a separate Azure Search document. For example, given the following JSON blob, you can populate your Azure Search index with three separate documents, each with "id" and "text" fields.  
 
     [
         { "id" : "1", "text" : "example 1" },
@@ -113,7 +113,7 @@ Alternatively, you can opt for the JSON array preview feature. This capability i
 
 ### Indexer definition for a JSON array
 
-The indexer definition uses the preview API and the `jsonArray` parser. These are the two array-specific requirements for indexing JSON arrays.
+For a JSON array, the indexer request uses the preview API and the `jsonArray` parser. These are the only two array-specific requirements for indexing JSON blobs.
 
     POST https://[service name].search.windows.net/indexers?api-version=2016-09-01-Preview
     Content-Type: application/json
@@ -127,7 +127,7 @@ The indexer definition uses the preview API and the `jsonArray` parser. These ar
       "parameters" : { "configuration" : { "parsingMode" : "jsonArray" } }
     }
 
-Notice that field mappings are not required. Given an index with "id" and "text" fields, the blob indexer can infer the correct mapping without a field mapping list.
+Again, notice that field mappings are not required. Given an index with "id" and "text" fields, the blob indexer can infer the correct mapping without a field mapping list.
 
 ### Nested JSON arrays
 What if you wish to index an array of JSON objects, but that array is nested somewhere within the document? You can pick which property contains the array using the `documentRoot` configuration property. For example, if your blobs look like this:
