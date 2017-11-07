@@ -30,7 +30,7 @@ Refer to the [Authoring API definitions][authoring-apis] for technical documenta
 * The **version ID** within the application that receives the utterances. The default ID is "0.1"
 * Create a new file named `add-utterances.js` project in VSCode.
 
-> NOTE: 
+> [!NOTE] 
 > The complete `add-utterances.js` file is available from the [**LUIS-Samples** Github repository](https://github.com/Microsoft/LUIS-Samples/tree/master/examples/add-utterances/nodejs).
 
 
@@ -85,7 +85,7 @@ Create and edit the file `utterances.json` to specify the entities you want to a
 
 The `text` field contains the text of the utterance. The `intentName` field must correspond to the name of an intent in the LUIS app. The `entityLabels` field is required. If you don't want to label any entities, provide an empty list as shown in the following example.
 
-If the entityLabels list is not empty, the `startCharIndex` and `endCharIndex` need to mark the entity referred to in the `entityName` field. Both indexes are zero-based counts meaning 6 in the top example refers to the `S` of Seattle and not the space before the capital S.
+If the entityLabels list is not empty, the `startCharIndex` and `endCharIndex` need to mark the entity referred to in the `entityName` field. Both indexes are zero-based counts meaning 6 in the top example refers to the "S" of Seattle and not the space before the capital S.
 
 ```json
 [
@@ -145,7 +145,7 @@ Call add-utterance with the `-train` argument to send a request to train, and su
 > node add-utterances.js -train
 ````
 
-> NOTE: 
+> [!NOTE]
 > Duplicate utterances aren't added again, but don't cause an error. The `response` contains the ID of the original utterance.
 
 When you call the sample with the `-train` argument, it creates a `training-results.json` file indicating the request to train the LUIS app was successfully queued. 
