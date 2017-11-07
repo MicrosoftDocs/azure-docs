@@ -1,7 +1,7 @@
 ---
 title: High Frequency Trading Simulation With Stream Analytics | Microsoft Docs
 description: How to perform linear regression model training and scoring in the same Stream Analytics job
-keywords: ''
+keywords: 'machine learning, advanced analytics, linear regression, simulation, UDA, user defined function'
 documentationcenter: ''
 services: stream-analytics
 author: zhongc
@@ -25,7 +25,7 @@ The combination of Azure Stream Analytics' SQL language and JavaScript UDF and U
 Let's set aside the extremely low latency requirement for real world high frequency trading for the time being, the logical flow of high frequency trading is about getting real-time quotes from an exchange, build a predictive model around the quotes, so we can anticipate the price movement, and place buy or sell orders accordingly in order to make money off the successful prediction of the price movements. As a result, we will need the following
 * Real-time quote feed
 * A predictive model that can operate on the real-time quotes
-* A trading simulation that demonstrate the profit/loss of the trading algorithm
+* A trading simulation that demonstrates the profit/loss of the trading algorithm
 
 ### Real-time quote feed
 IEX offers free real time bid and ask quotes using socket.io, https://iextrading.com/developer/docs/#websockets. A simple console program can be written to receive real time quotes, and push to Event Hub as a data source. The skeleton of the program is shown below. Error handling is omitted for brevity. You will also need to include SocketIoClientDotNet and WindowsAzure.ServiceBus nuget packages in your project.
@@ -48,7 +48,7 @@ IEX offers free real time bid and ask quotes using socket.io, https://iextrading
         socket.Emit("subscribe", symbols);
     });
 
-Here is some sample events generated.
+Here are some sample events generated.
 
     {"symbol":"MSFT","marketPercent":0.03246,"bidSize":100,"bidPrice":74.8,"askSize":300,"askPrice":74.83,"volume":70572,"lastSalePrice":74.825,"lastSaleSize":100,"lastSaleTime":1506953355123,"lastUpdated":1506953357170,"sector":"softwareservices","securityType":"commonstock"}
     {"symbol":"GOOG","marketPercent":0.04825,"bidSize":114,"bidPrice":870,"askSize":0,"askPrice":0,"volume":11240,"lastSalePrice":959.47,"lastSaleSize":60,"lastSaleTime":1506953317571,"lastUpdated":1506953357633,"sector":"softwareservices","securityType":"commonstock"}
@@ -65,9 +65,11 @@ For the purpose of demonstration, we use a linear model described by Darryl Shen
 
 Volume Order Imbalance (VOI) is a function of current bid/ask price and volume, and bid/ask price/volume from the last tick. The paper identifies correlation between VOI and future price movement, and builds a linear model between the past 5 VOI values and the price change in the next 10 ticks. The model is trained using previous day's data with linear regression. The trained model is then used to make price change predictions on quotes in the current trading day in real time. When a large enough price change is predicted, a trade is executed. Depending on the threshold setting, thousands of trades can be expected for a single stock during a trading day.
 
+![VOI definition](./media/stream-analytics-high-frequency-trading/VOI.png)
+
 Now, let's express the training and prediction operations in an Azure Stream Analytics job.
 
-First, the inputs are cleaned up.
+First, the inputs are cleaned up. Epoch time is converted to datetime using **DATEADD**. **TRY_CAST** is used to coerce data types without failing the query. IT's always a good practice to cast input fields to the expected data types, so there is no unexpected behavior when it comes to manipulation or comparison of the fields.
 
     WITH
     typeconvertedquotes AS (
@@ -92,7 +94,7 @@ First, the inputs are cleaned up.
     	WHERE DATEPART(hour, lastUpdated) >= 14 AND DATEPART(hour, lastUpdated) < 20 AND bidSize > 0 AND askSize > 0 AND bidPrice > 0 AND askPrice > 0
     ),
 
-Next, we use the LAG function to get values from the last tick.
+Next, we use the **LAG** function to get values from the last tick. One hour of **LIMIT DURATION** value is arbitrarily chosen. Given the quote frequency, it's generally safe to assume you can find the previous tick looking back for one hour.  
 
     shiftedquotes AS (
         /* get previous bid/ask price and size in order to calculate VOI */
@@ -110,7 +112,7 @@ Next, we use the LAG function to get values from the last tick.
     	FROM timefilteredquotes
     ),
 
-We can then compute VOI value. Note, we filter out the null values if the previous tick doesn't exist.
+We can then compute VOI value. Note, we filter out the null values if the previous tick doesn't exist, just in case.
 
     currentPriceAndVOI AS (
         /* calculate VOI */
@@ -135,7 +137,7 @@ We can then compute VOI value. Note, we filter out the null values if the previo
     		askSizePrev IS NOT NULL
     ),
 
-Now, we use LAG again to create a sequence with 2 consecutive VOI values, followed by 10 consecutive mid-price values.
+Now, we use **LAG** again to create a sequence with 2 consecutive VOI values, followed by 10 consecutive mid-price values.
 
     shiftedPriceAndShiftedVOI AS (
         /* get 10 future prices and 2 previous VOIs */
@@ -183,7 +185,9 @@ We then reshape the data into inputs for a two variable linear model. Again filt
     		VOI2 IS NOT NULL
     ),
 
-Because Azure Stream Analytics doesn't have a builtin linear regression function, we use SUM and AVG aggregates to compute the coefficients for the linear model.
+Because Azure Stream Analytics doesn't have a builtin linear regression function, we use **SUM** and **AVG** aggregates to compute the coefficients for the linear model.
+
+![Linear regression fromula](./media/stream-analytics-high-frequency-trading/linear-regression-formula.png)
 
     modelagg AS (
         /* get aggregates for linear regression calculation,
@@ -222,7 +226,7 @@ Because Azure Stream Analytics doesn't have a builtin linear regression function
     	FROM modelparambs
     ),
 
-In order to use previous day's model for current event's scoring, we want to join the quotes with the model. However, here instead of using join, we union the model events and quote events, and then use LAG to pair the events with previous day's model.
+In order to use previous day's model for current event's scoring, we want to join the quotes with the model. However, here, instead of using **JOIN**, we **UNION** the model events and quote events, and then use **LAG** to pair the events with previous day's model, so we can get exactly one match. Because of the weekend, we have to look back 3 days. If using a straightforward **JOIN**, we would get 3 models for every quote event.
 
     shiftedVOI AS (
         /* get two consecutive VOIs */
@@ -271,7 +275,7 @@ In order to use previous day's model for current event's scoring, we want to joi
     	WHERE type = 'voi'
     ),
 
-Now, we can make predictions and generate buy/sell signals based on the model.
+Now, we can make predictions and generate buy/sell signals based on the model, with a 0.02 threshold value. Trade value of 10 is buy; trade value of -10 is sell.
 
     prediction AS (
         /* make prediction if there is a model */
@@ -300,7 +304,7 @@ Now, we can make predictions and generate buy/sell signals based on the model.
     ),
 
 ### Trading simulation
-Once we have the trading signals, we would like to test how effective the trading strategy is, without trading for real. This is achieved with a user defined aggregate (UDA), with a hopping windows, hopping every 1 minute. The additional grouping on date, and the having clause allow the window only accounts for events belong to the same day, in the event the hopping window starts from the previous day.
+Once we have the trading signals, we would like to test how effective the trading strategy is, without trading for real. This is achieved with a user defined aggregate (UDA), with a hopping windows, hopping every 1 minute. The additional grouping on date, and the having clause allow the window only accounts for events belong to the same day. For a hopping window going across two days, **GROUP BY** date, separates the grouping into previous day and current day. The **HAVING** clause filters out the windows ending on the current day, but grouping on the previous day.
 
     simulation AS
     (
@@ -315,7 +319,8 @@ Once we have the trading signals, we would like to test how effective the tradin
     	Having DateDiff(day, date, time) < 1 AND DATEPART(hour, time) < 13
     )
 
-The JavaScript UDA initializes all accumulators in the init function, compute the state transition with every event added to the window, and returns the simulation results at the end of the window.
+The JavaScript UDA initializes all accumulators in the init function, compute the state transition with every event added to the window, and returns the simulation results at the end of the window. The general trading process is to buy stock when a buy signal is received and there is no stocking holding; sell stock when a sell signal is received and there is stock holding, or short if there is no stock holding. If there is short position, and a buy signal is received, buy to cover. We never hold or short 10 shares of a given stock in this simulation, and transaction cost is a flat $8.
+
 
     function main() {
     	var TRADE_COST = 8.0;
@@ -417,8 +422,13 @@ Finally we output to Power BI dashboard for visualization.
         INTO pnlDashboard
     FROM simulation /* output trade simulation to PBI */
 
+![Trades](./media/stream-analytics-high-frequency-trading/trades.png)
+
+![PNL](./media/stream-analytics-high-frequency-trading/pnl.png)
+
+
 ## Summary
 As you can see, a somewhat realistic high frequency trading model can be implemented with a moderately complex query in Azure Stream Analytics. We have to simplify the model from 5 input variables to 2, because of the lack of builtin linear regression function. However, for a determined user, algorithms with higher dimensions and sophistication can possibly be implemented as JavaScript UDA as well. What's worth noting is that most of the query, other than the JavaScript UDA, can be tested and debugged within Visual Studio with  
-[Azure Stream Analytics Tool for Visual Studio](stream-analytics-tools-for-visual-studio.md). After the initial query was authored, the author spent less than 30 minutes testing and debugging the query in Visual Studio. Currently, UDA cannot be debugged in Visual Studio. We are working on enabling that with the ability to step through the JavaScript. In addition, please note the fields reaching the UDA have field names all lower cased. This was not obvious behavior during query testing. However, with Azure Stream Analytics compatibility level 1.1, we allow the field name casing to be preserved, so the behavior is more natural.
+[Azure Stream Analytics Tool for Visual Studio](stream-analytics-tools-for-visual-studio.md). After the initial query was authored, the author spent less than 30 minutes testing and debugging the query in Visual Studio. Currently, UDA cannot be debugged in Visual Studio. We are working on enabling that with the ability to step through JavaScript code. In addition, please note the fields reaching the UDA have field names all lower cased. This was not an obvious behavior during query testing. However, with Azure Stream Analytics compatibility level 1.1, we allow the field name casing to be preserved, so the behavior is more natural.
 
-I hope this article serves as an inspiration for all Azure Stream Analytics users, who can use our service to perform advanced analytics in near real time, continuously. Please let us know any feedback you have to make it easier to implement a query for advance analytics scenarios.
+I hope this article serves as an inspiration for all Azure Stream Analytics users, who can use our service to perform advanced analytics in near real time, continuously. Please let us know any feedback you have to make it easier to implement queries for advance analytics scenarios.
