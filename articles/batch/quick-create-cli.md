@@ -19,7 +19,7 @@ ms.author: danlep
 ms.custom: mvc
 ---
 
-# Run a sample Batch job with the Azure CLI
+# Create a Batch account and pool with the Azure CLI
 
 The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This quickstart shows how to use the Azure CLI to create a Batch account, a *pool* of compute nodes (virtual machines), and a sample *job* that runs a set of parallel *tasks* on the pool. This example is very basic but introduces you to the key concepts of the Batch service.
 
