@@ -96,7 +96,15 @@ You can use a certificate from a certificate authority (CA) as the cluster certi
 - be created for key exchange, which is exportable to a Personal Information Exchange (.pfx) file.
 - have a subject name that matches the domain that you use to access the Service Fabric cluster. This matching is required to provide SSL for the cluster's HTTPS management endpoints and Service Fabric Explorer. You cannot obtain an SSL certificate from a certificate authority (CA) for the .cloudapp.azure.com domain. You must obtain a custom domain name for your cluster. When you request a certificate from a CA, the certificate's subject name must match the custom domain name that you use for your cluster.
 
-Fill in the empty **clusterName**, **adminUserName**, and **adminPassword** parameters in the *linuxcluster.parameters.json* file for your deployment.  Leave the **certificateThumbprint**, **certificateUrlValue**, and **sourceVaultValue** parameters blank to create a self-signed certificate.  If you want to use an existing certificate previously uploaded to a key vault, fill in those parameter values.
+Fill in these empty parameters in the *linuxcluster.parameters.json* file for your deployment:
+
+|Parameter|Value|
+|---|---|
+|adminPassword|Password#1234|
+|adminUserName|vmadmin|
+|clusterName|mysfcluster|
+
+Leave the **certificateThumbprint**, **certificateUrlValue**, and **sourceVaultValue** parameters blank to create a self-signed certificate.  If you want to use an existing certificate previously uploaded to a key vault, fill in those parameter values.
 
 The following script uses the [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) command and template to deploy a new cluster in Azure. The cmdlet also creates a new key vault in Azure, adds a new self-signed certificate to the key vault, and downloads the certificate file locally. You can specify an existing certificate and/or key vault by using other parameters of the [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) command.
 
@@ -146,9 +154,9 @@ In this tutorial, you learned how to:
 > * Connect to the cluster using Service Fabric CLI
 > * Remove a cluster
 
-Next, advance to the following tutorial to learn how to deploy API Management with Service Fabric.
+Next, advance to the following tutorial to learn how to scale your cluster.
 > [!div class="nextstepaction"]
-> [Deploy API Managment](service-fabric-tutorial-deploy-api-management.md)
+> [Scale a Cluster](service-fabric-tutorial-scale-cluster.md)
 
 
 [network-arm]:https://github.com/Azure-Samples/service-fabric-api-management/blob/master/network.json

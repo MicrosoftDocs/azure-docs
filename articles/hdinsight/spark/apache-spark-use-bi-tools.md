@@ -16,147 +16,148 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/21/2017
+ms.date: 10/24/2017
 ms.author: nitinme
 
 ---
 # Apache Spark BI using data visualization tools with Azure HDInsight
 
-Learn how to use data visualization tools such as Power BI and Tableau to analyze a raw sample data set using Apache Spark BI on HDInsight clusters.
-
-> [!NOTE]
-> Connectivity with BI tools described in this article is not supported on Spark 2.1 on Azure HDInsight 3.6 Preview. Only Spark versions 1.6 and 2.0 (HDInsight 3.4, 3.5 respectively) are supported.
->
-
-This tutorial is also available as a Jupyter notebook on an HDInsight Spark cluster. The notebook experience lets you run the Python snippets from the notebook itself. To perform the tutorial from within a notebook, create a Spark cluster, launch a Jupyter notebook (`https://CLUSTERNAME.azurehdinsight.net/jupyter`), and then run the notebook **Use BI tools with Apache Spark on HDInsight.ipynb** under the **Python** folder.
+Learn how to use Power BI and Tableau to visualize data in an Apache Spark cluster on Azure HDInsight.
 
 ## Prerequisites
 
 * An Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](apache-spark-jupyter-spark-sql.md).
+* Sample data in the cluster. For instructions, see [Run interactive queries on an HDInsight Spark cluster](apache-spark-load-data-run-query.md).
+* Power BI: [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/) and [Power BI trial subscription](https://app.powerbi.com/signupredirect?pbi_source=web) (optional).
+* Tableau: [Tableau Desktop](http://www.tableau.com/products/desktop) and [Microsoft Spark ODBC driver](http://go.microsoft.com/fwlink/?LinkId=616229).
 
 
-## <a name="hivetable"></a>Prepare data for Spark data visualization
+## <a name="hivetable"></a>Review sample data
 
-In this section, we use the [Jupyter](https://jupyter.org) notebook from an HDInsight Spark cluster to run jobs that process your raw sample data and save it as a table. The sample data is a .csv file (hvac.csv) available on all clusters by default. Once your data is saved as a table, in the next section we use BI tools to connect to the table and perform data visualizations.
+The Jupyter notebook that you created in the [previous tutorial](apache-spark-load-data-run-query.md) includes code to create an `hvac` table. This table is based on the CSV file available on all HDInsight Spark clusters at **\HdiSamples\HdiSamples\SensorSampleData\hvac\hvac.csv**. Let's review the data in the Spark cluster before creating visualizations.
 
-> [!NOTE]
-> If you are performing the steps in this article after completing the instructions in [Run interactive queries on an HDInsight Spark cluster](apache-spark-load-data-run-query.md), you can skip to Step 8 below.
->
-
-1. From the [Azure portal](https://portal.azure.com/), from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard). You can also navigate to your cluster under **Browse All** > **HDInsight Clusters**.   
-
-2. From the Spark cluster blade, click **Cluster Dashboard**, and then click **Jupyter Notebook**. If prompted, enter the admin credentials for the cluster.
-
-   > [!NOTE]
-   > You may also reach the Jupyter Notebook for your cluster by opening the following URL in your browser. Replace **CLUSTERNAME** with the name of your cluster:
-   >
-   > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
-   >
-   >
-
-3. Create a notebook. Click **New**, and then click **PySpark**.
-
-    ![Create a Jupyter notebook for Apache Spark BI](./media/apache-spark-use-bi-tools/create-jupyter-notebook-for-spark-bi.png "Create a Jupyter notebook for Apache Spark BI")
-
-4. A new notebook is created and opened with the name Untitled.pynb. Click the notebook name at the top, and enter a friendly name.
-
-    ![Provide a name for the notebook for Apache Spark BI](./media/apache-spark-use-bi-tools/jupyter-notebook-name-for-spark-bi.png "Provide a name for the notebook for Apache Spark BI")
-
-5. Because you created a notebook using the PySpark kernel, you do not need to create any contexts explicitly. The Spark and Hive contexts are automatically created for you when you run the first code cell. You can start by importing the types required for this scenario. To do so, place the cursor in the cell and press **SHIFT + ENTER**.
-
-        from pyspark.sql import *
-
-6. Load sample data into a temporary table. When you create a Spark cluster in HDInsight, the sample data file, **hvac.csv**, is copied to the associated storage account under **\HdiSamples\HdiSamples\SensorSampleData\hvac**.
-
-    In an empty cell, paste the following snippet and press **SHIFT + ENTER**. This snippet registers the data into a table called **hvac**.
-
-        # Create an RDD from sample data
-        hvacText = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
-
-        # Create a schema for our data
-        Entry = Row('Date', 'Time', 'TargetTemp', 'ActualTemp', 'BuildingID')
-
-        # Parse the data and create a schema
-        hvacParts = hvacText.map(lambda s: s.split(',')).filter(lambda s: s[0] != 'Date')
-        hvac = hvacParts.map(lambda p: Entry(str(p[0]), str(p[1]), int(p[2]), int(p[3]), int(p[6])))
-
-        # Infer the schema and create a table       
-        hvacTable = sqlContext.createDataFrame(hvac)
-        hvacTable.registerTempTable('hvactemptable')
-        dfw = DataFrameWriter(hvacTable)
-        dfw.saveAsTable('hvac')
-
-7. Verify that the table was successfully created. You can use the `%%sql` magic to run Hive queries directly. For more information about the `%%sql` magic, and other magics available with the PySpark kernel, see [Kernels available on Jupyter notebooks with Spark HDInsight clusters](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
+1. Verify that the expected tables exist. In an empty cell in the notebook, copy the following snippet and press **SHIFT + ENTER**.
 
         %%sql
         SHOW TABLES
 
-    You see an output like shown below:
+    You see an output like the one shown below:
 
-        +---------------+-------------+
-        |tableName      |isTemporary  |
-        +---------------+-------------+
-        |hvactemptable  |true		 |
-        |hivesampletable|false  	  |
-        |hvac           |false  	  |
-        +---------------+-------------+
+    ![Show tables in Spark](./media/apache-spark-use-bi-tools/show-tables.png)
 
-    Only the tables that have false under the **isTemporary** column are hive tables that are stored in the metastore and can be accessed from the BI tools. In this tutorial, we connect to the **hvac** table we created.
+    If you closed the notebook before starting this tutorial, `hvactemptable` is cleaned up, so it's not included in the output.
+    Only hive tables that are stored in the metastore (indicated by **False** under the **isTemporary** column) can be accessed from the BI tools. In this tutorial, we connect to the **hvac** table we created.
 
-8. Verify that the table contains the intended data. In an empty cell in the notebook, copy the following snippet and press **SHIFT + ENTER**.
+2. Verify that the table contains the expected data. In an empty cell in the notebook, copy the following snippet and press **SHIFT + ENTER**.
 
         %%sql
         SELECT * FROM hvac LIMIT 10
 
-9. Shut down the notebook to release the resources. To do so, from the **File** menu on the notebook, click **Close and Halt**.
+    You see an output like the one shown below:
+
+    ![Show rows from hvac table in Spark](./media/apache-spark-use-bi-tools/select-limit.png)
+
+3. Shut down the notebook to release the resources. To do so, from the **File** menu on the notebook, click **Close and Halt**.
 
 ## <a name="powerbi"></a>Use Power BI for Spark data visualization
 
+Now that you've verified that the expected data exists, you can use Power BI to create visualizations, reports, and dashboards from this data. In this article, we'll show a simple example with static data, but please let us know in the comments if you'd like to see more complex streaming examples.
+
+### Create a report in Power BI Desktop
+The first steps in working with Spark are to connect to the cluster in Power BI Desktop, load data from the cluster, and create a basic visualization based on that data.
+
 > [!NOTE]
-> This section is applicable only for Spark 1.6 on HDInsight 3.4 and Spark 2.0 on HDInsight 3.5.
->
->
+> The connector demonstrated in this article is currently in preview, but we encourage you to use it and provide any feedback you have through the [Power BI Community](https://community.powerbi.com/) site or [Power BI Ideas](https://ideas.powerbi.com/forums/265200-power-bi-ideas).
 
-Once you have saved the data as a table, you can use Power BI to connect to the data and visualize it to create reports, dashboards, etc.
+1. In Power BI Desktop, on the **Home** tab, click **Get Data**, then **More**.
 
-1. Make sure you have access to Power BI. You can get a free preview subscription of Power BI from [http://www.powerbi.com/](http://www.powerbi.com/).
+2. Search for `Spark`, select **Azure HDInsight Spark**, then click **Connect**.
 
-2. Sign in to [Power BI](http://www.powerbi.com/).
+    ![Get data into Power BI from Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-import-data-power-bi.png "Get data into Power BI from Apache Spark BI")
 
-3. From the bottom of the left pane, click **Get Data**.
+3. Enter your cluster URL (in the form `mysparkcluster.azurehdinsight.net`), select **DirectQuery**, then click **OK**.
 
-4. On the **Get Data** page, under **Import or Connect to Data**, for **Databases**, click **Get**.
+    ![Connect to Apache Spark BI](./media/apache-spark-use-bi-tools/connect-to-apache-spark-bi.png "Connect to Apache Spark BI")
 
-    ![Get data into Power BI for Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-import-data-power-bi.png "Get data into Power BI for Apache Spark BI")
+    > [!NOTE]
+    > You can use either connectivity mode with Spark. If you use DirectQuery, changes are reflected in reports without refreshing the entire dataset. If you import data, you must refresh the data set to see changes. For more information on how and when to use DirectQuery, see [Using DirectQuery in Power BI](https://powerbi.microsoft.com/documentation/powerbi-desktop-directquery-about/). 
 
-5. On the next screen, click **Spark on Azure HDInsight** and then click **Connect**. When prompted, enter the cluster URL (`mysparkcluster.azurehdinsight.net`) and the credentials to connect to the cluster.
+4. Enter the HDInsight login account information for **User name** and **Password** (the default account is `admin`), then click **Connect**.
 
-	![Connect to Apache Spark BI](./media/apache-spark-use-bi-tools/connect-to-apache-spark-bi.png "Connect to Apache Spark BI")
+    ![Spark cluster user name and password](./media/apache-spark-use-bi-tools/user-password.png "Spark cluster user name and password")
 
-    After the connection is established, Power BI starts importing data from the Spark cluster on HDInsight.
+5. Select the `hvac` table, and wait to see a preview of the data. Then click **Load**.
 
-6. Power BI imports the data and adds a **Spark** dataset under the **Datasets** heading. Click the data set to open a new worksheet to visualize the data. You can also save the worksheet as a report. To save a worksheet, from the **File** menu, click **Save**.
+    ![Spark cluster user name and password](./media/apache-spark-use-bi-tools/apache-spark-bi-select-table.png "Spark cluster user name and password")
 
-    ![Apache Spark BI tile on Power BI dashboard](./media/apache-spark-use-bi-tools/apache-spark-bi-tile-dashboard.png "Apache Spark BI tile on Power BI dashboard")
-7. Notice that the **Fields** list on the right lists the **hvac** table you created earlier. Expand the table to see the fields in the table, as you defined in notebook earlier.
+    Power BI Desktop now has all the information it needs to connect to the Spark cluster and load data from the `hvac` table. The table and its columns are displayed in the **FIELDS** pane.
 
-      ![List tables on Apache Spark BI dashboard](./media/apache-spark-use-bi-tools/apache-spark-bi-display-tables.png "List tables on Apache Spark BI dashboard")
+    ![List tables on Apache Spark BI dashboard](./media/apache-spark-use-bi-tools/apache-spark-bi-display-tables.png "List tables on Apache Spark BI dashboard")
 
-8. Build a visualization to show the variance between target temperature and actual temperature for each building. To visualize your data, select **Area Chart** (shown in red box). To define the axis, drag-and-drop the **BuildingID** field under **Axis**, and **ActualTemp**/**TargetTemp** fields under **Value**.
+7. Build a visualization to show the variance between target temperature and actual temperature for each building: 
 
-    ![Create Spark data visualizations using Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-add-value-columns.png "Create Spark data visualizations using Apache Spark BI")
+    1. In the **VISUALIZATIONS** pane, select **Area Chart**. Drag the **BuildingID** field to **Axis**, and drag the **ActualTemp** and **TargetTemp** fields to **Value**.
 
-9. By default the visualization shows the sum for **ActualTemp** and **TargetTemp**. For both the fields, from the drop-down, select **Average** to get an average of actual and target temperatures for both buildings.
+        ![Create Spark data visualizations using Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-add-value-columns.png "Create Spark data visualizations using Apache Spark BI")
 
-    ![Create Spark data visualizations using Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-average-of-values.png "Create Spark data visualizations using Apache Spark BI")
+    2. By default the visualization shows the sum for **ActualTemp** and **TargetTemp**. For both of the fields, from the drop-down, select **Average** to get an average of actual and target temperatures for each building.
 
-10. Your data visualization should be similar to the one in the screenshot. Move your cursor over the visualization to get tool tips with relevant data.
+        ![Create Spark data visualizations using Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-average-of-values.png "Create Spark data visualizations using Apache Spark BI")
 
-    ![Create Spark data visualizations using Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph.png "Create Spark data visualizations using Apache Spark BI")
+    3. Your data visualization should be similar to the one in the screenshot. Move your cursor over the visualization to get tool tips with relevant data.
 
-11. Click **Save** from the top menu and provide a report name. You can also pin the visual. When you pin a visualization, it is stored on your dashboard so you can track the latest value at a glance.
+        ![Create Spark data visualizations using Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph.png "Create Spark data visualizations using Apache Spark BI")
 
-   You can add as many visualizations as you want for the same dataset and pin them to the dashboard for a snapshot of your data. Also, Spark clusters on HDInsight are connected to Power BI with direct connect. This ensures that Power BI always has the most up-to-date data from your cluster so you do not need to schedule refreshes for the dataset.
+11. Click **File** then **Save**, and enter the name `spark.pbix` for the file. 
+
+### Publish the report to the Power BI Service (optional)
+You now have a fully functional report in Power BI Desktop, and you can stop there, but many people want to take advantage of the Power BI service, which makes it easy to share reports and dashboards across your organization. 
+
+In this section, you publish the dataset and report that is contained in the Power BI Desktop file you created. You then pin the visualization from the report to a dashboard. Dashboards are typically used to focus on a subset of data in a report; you have only one visualization in your report, but it's still useful to go through the steps.
+
+1. In Power BI Desktop, on the **Home** tab, click **Publish**.
+
+    ![Publish from Power BI Desktop](./media/apache-spark-use-bi-tools/apache-spark-bi-publish.png "Publish from Power BI Desktop")
+
+2. Select a workspace to publish your dataset and report to, then click **Select**. In the following image, the default **My Workspace** is selected.
+
+    ![Select workspace to publish dataset and report to](./media/apache-spark-use-bi-tools/apache-spark-bi-select-workspace.png "Select workspace to publish dataset and report to") 
+
+3. After Power BI Desktop returns with a success message, click **Open 'spark.pbix' in Power BI**.
+
+    ![Publish success, click to enter credentials](./media/apache-spark-use-bi-tools/apache-spark-bi-publish-success.png "Publish success, click to enter credentials") 
+
+4. In the Power BI service, click **Enter credentials**.
+
+    ![Enter credentials in Power BI service](./media/apache-spark-use-bi-tools/apache-spark-bi-enter-credentials.png "Enter credentials in Power BI service")
+
+5. Click **Edit credentials**.
+
+    ![Edit credentials in Power BI service](./media/apache-spark-use-bi-tools/apache-spark-bi-edit-credentials.png "Edit credentials in Power BI service")
+
+6. Enter the HDInsight login account information (typically the default `admin` account you used in Power BI Desktop), then click **Sign in**.
+
+    ![Sign in to Spark cluster](./media/apache-spark-use-bi-tools/apache-spark-bi-sign-in.png "Sign in to Spark cluster")
+
+7. In the left pane, go to **Workspaces** > **My Workspace** > **REPORTS**, then click **spark**.
+
+    ![Report listed under reports in left pane](./media/apache-spark-use-bi-tools/apache-spark-bi-service-left-pane.png "Report listed under reports in left pane")
+
+    You should also see **spark** listed under **DATASETS** in the left pane.
+
+8. The visual you created in Power BI Desktop is now available in the service. To pin this visual to a dashboard, hover over the visual and click the pin icon.
+
+    ![Report in the Power BI service](./media/apache-spark-use-bi-tools/apache-spark-bi-service-report.png "Report in the Power BI service")
+
+9. Select "New dashboard", enter the name `SparkDemo`, then click **Pin**.
+
+    ![Pin to new dashboard](./media/apache-spark-use-bi-tools/apache-spark-bi-pin-dashboard.png "Pin to new dashboard")
+
+10. In the report, click **Go to dashboard**. 
+
+    ![Go to dashboard](./media/apache-spark-use-bi-tools/apache-spark-bi-open-dashboard.png "Go to dashboard")
+
+Your visual is pinned to the dashboard - you can add other visuals to the report and pin them to the same dashboard. For more information about reports and dashboards, see [Reports in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-reports/)and [Dashboards in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/).
 
 ## <a name="tableau"></a>Use Tableau Desktop for Spark data visualization
 
