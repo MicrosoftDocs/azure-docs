@@ -65,16 +65,16 @@ The following samples show the Microsoft.Azure.Services.AppAuthentication for .N
 
 For local development, there are two primary authentication scenarios:
 
-- Authenticating to Azure services using Visual Studio, Azure CLI, or Azure AD
-- Authenticating to custom services supporting Azure AD
+- [Authenticating to Azure services using Visual Studio, Azure CLI, or Azure AD](#authenticating-to-azure-services-visual-studio-azure-cli-or-azure-ad)
+- [Authenticating to custom services](#authenticating-to-custom-services)
 
 Here, you learn the requirements for each scenario.
 
-### Authenticating to Azure Services Visual Studio, Azure CLI, or Azure AD
+### Authenticating to Azure Services using Visual Studio, Azure CLI, or Azure AD
 
 Local machines do not support Managed Service Identity (MSI).  As a result, the `Microsoft.Azure.Services.AppAuthentication` library provides a local development experience where the code you'll eventually deploy to Azure uses your local developer identity to run in your local development environment. The means you can test the same code locally and remotely. When deployed to Azure, the library automatically uses MSI for authentication.
 
-For local development, `AzureServiceTokenProvider` tries to fetch a token using **Visual Studio**, **Azure command-line interface (CLI)** or **Azure AD Integrated Authentication**. Each option is tried sequentially and the library uses the first option that succeeds. An `AzureServiceTokenProviderException` is thrown if no option works; detailed information is provided.
+For local development, `AzureServiceTokenProvider` tries to fetch a token using **Visual Studio**, **Azure command-line interface** (CLI) or **Azure AD Integrated Authentication**. Each option is tried sequentially and the library uses the first option that succeeds. An `AzureServiceTokenProviderException` is thrown if no option works; detailed information is provided.
 
 Visual Studio works under the following conditions:
 
@@ -86,7 +86,7 @@ Visual Studio works under the following conditions:
 
 To use Azure CLI for local development:
 
-1. Install [Azure CLI 2.0.12](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) or later. (Support for the `get-access-token` option was added to `AzureServiceTokenProvider` in v2.0.12.)  Upgrade earlier versions. 
+1. Install [Azure CLI v2.0.12](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) or later. Upgrade earlier versions. 
 
 2. Use **az login** to sign in to Azure.
 
@@ -97,7 +97,7 @@ To use Azure AD authentication, verify that:
 - Your code is running on a domain-joined machine.
 
 
-### Authenticating to Custom services that support Azure AD Authentication
+### Authenticating to custom services
 
 When custom services call Azure services, the previous steps work because Azure services allow access to both users and applications.  
 
