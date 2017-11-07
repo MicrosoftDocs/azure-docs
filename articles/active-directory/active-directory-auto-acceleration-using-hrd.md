@@ -10,7 +10,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: it-pro
-ms.date: 10/23/2017
+ms.date: 11/07/2017
 ms.author: billmath
 ---
 
@@ -20,7 +20,7 @@ ms.author: billmath
 The following provides an introduction to home realm discovery and auto-acceleration.
 
 ### Home Realm Discovery
-Home Realm Discovery is the process through which the Azure Active Directory figures out at sign-in time where a user needs to authenticate.  When signing in to an Azure AD tenant to access a resource, or the Azure AD common sign-in page, the user types a user name (UPN).  Azure AD uses that to discover where the user needs to sign-in.   The user may need to be taken to one of the following to be authenticated:
+Home Realm Discovery is the process that allows Azure Active Directory to determine, at sign-in time, where a user needs to authenticate.  When signing in to an Azure AD tenant to access a resource, or the Azure AD common sign-in page, the user types a user name (UPN).  Azure AD uses that to discover where the user needs to sign-in.   The user may need to be taken to one of the following to be authenticated:
 
 - The home tenant of the user (this may be the same tenant as the resource the user is attempting to access).  If this is a different Azure AD tenant to the one the user is signing into to access a resource the user is typically signing in as a guest.
 - Microsoft account.   The user is a guest in the resource tenant
