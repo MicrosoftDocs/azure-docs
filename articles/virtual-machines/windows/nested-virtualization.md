@@ -31,7 +31,7 @@ You can view the regional availability of Dv3 or Ev3 series virtual machines [he
 >
 >For detailed instructions on creating a new virtual machine, see [Create and Manage Windows VMs with the Azure PowerShell module](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/tutorial-manage-vm)
     
-## Connect to your virtual machine
+## Connect to your Azure VM
 
 Create a remote desktop connection to the virtual machine.
 
@@ -44,6 +44,13 @@ Create a remote desktop connection to the virtual machine.
 4. You may receive a certificate warning during the sign-in process. Click **Yes** or **Continue** to proceed with the connection.
 
 ## Enable the Hyper-V Feature on the Azure VM
+You can configure these settings manually or we have provided a PowerShell script to automate the configuration.
+
+### Option 1: Use a PowerShell script to configure nested virtualization
+A PowerShell script to enable nested virtualization on a Windows Server 2016 host is available on [GitHub](https://github.com/MicrosoftDocs/Virtualization-Documentation/tree/live/hyperv-tools/Nested). The script checks pre-requisites and then configures nested virtualization on the Azure VM. A restart of the Azure VM is necessary to complete the configuration. This script may work in other environments but is not guaranteed. 
+Check out the Azure blog post with a live video demonstration on nested virtualization running on Azure! https://aka.ms/AzureNVblog.
+
+### Option 2: Configure nested virtualization manually
 
 1. On the Azure VM, open PowerShell as an Administrator. 
 
@@ -61,8 +68,6 @@ Create a remote desktop connection to the virtual machine.
 
 ## Set up Internet connectivity for the guest virtual machine
 Create a new virtual network adapter for the guest virtual machine and configure a NAT Gateway to enable Internet connectivity.
-
-You can either manually assign an IP address to the guest virtual machine or use DHPC to dynamically assign an address. Instructions for configuring a DHCP server are included in the article.
 
 ### Create a NAT virtual network switch
 
@@ -109,10 +114,27 @@ In order to configure the gateway, you will need to provide information about th
     New-NetNat -Name "InternalNat" -InternalIPInterfaceAddressPrefix 192.168.0.0/24
     ```
 
-## (Optional) Use DHCP to dynamically assign an IP address
+
+## Create the guest virtual machine
+
+1. Open Hyper-V Manager and create a new virtual machine. Configure the virtual machine to use the new Internal network you created.
+    
+    ![NetworkConfig](./media/virtual-machines-nested-virtualization/configure-networking.png)
+    
+2. Install an operating system on the guest virtual machine.
+    
+    >[!NOTE] 
+    >
+    >You need installation media for an operating system to install on the VM. In this case we are using Windows 10 Enterprise.
+
+## Assign an IP address to the guest virtual machine
+
+You can assign an IP address to the guest virtual machine either by manually setting a static IP address on the guest virtual machine or configuring DHCP on the Azure VM to assign the IP address dynamically.
+
+###  Option 1: Configure DHCP to dynamically assign an IP address to the guest virtual machine
 Follow the steps below to configure DHCP on the host virtual machine for dynamic address assignment.
 
-### Install DCHP Server on the Azure VM
+#### Install DCHP Server on the Azure VM
 
 1. Open Server Manager. On the Dashboard, click **Add roles and features**. The Add Roles and Features Wizard appears.
   
@@ -122,7 +144,7 @@ Follow the steps below to configure DHCP on the host virtual machine for dynamic
   
 4. Click **Install**.
 
-### Configure a new DHCP Scope
+#### Configure a new DHCP Scope
 
 1. Open DHCP Manager.
   
@@ -135,23 +157,24 @@ Follow the steps below to configure DHCP on the host virtual machine for dynamic
 5. Click **Next** until the Default Gateway page. Enter the IP Address you created earlier (for example, 192.168.0.1) as the Default Gateway.
   
 6. Click **Next** until the wizard completes, leaving all default values, then click **Finish**.
+    
+### Option 2: Manually set a static IP address on the guest virtual machine
+If you did not configure DHCP to dynamically assign an IP address toe the guest virtual machine, follow these steps to set a static IP address.
+
+1. On the Azure VM, open PowerShell as an Administrator.
+
+2. Right-click the guest virtual machine and click Connect.
+
+3. Log on to the guest virtual machine.
+
+4. On the guest virtual machine, open the Network and Sharing Center.
+
+5. Configure the network adapter for an address within the range of the NAT network you created in the previous section.
+
+    In this example you will use an address in the 192.168.0.0/24 range.
 
 ## Test connectivity in guest virtual machine
 
-1. Open Hyper-V Manager and create a new virtual machine. Configure the virtual machine to use the new Internal network you created.
-    
-    ![NetworkConfig](./media/virtual-machines-nested-virtualization/configure-networking.png)
-    
-2. Install a guest operating system on the guest virtual machine.
-    
-    >[!NOTE] 
-    >
-    >You need installation media for an operating system to install on the VM. In this case we are using Windows 10 Enterprise.
-    
-3. Connect to the guest virtual machine.
+1. In the guest virtual machine, open your browser and navigate to a web page.
     
     ![GuestVM](./media/virtual-machines-nested-virtualization/guest-virtual-machine.png)
-    
-## Use a PowerShell script to configure nested virtualization
-A PowerShell script to enable nested virtualization on a Windows Server 2016 host is available on [GitHub](https://github.com/Microsoft/Virtualization-Documentation/tree/master/hyperv-tools/Nested). The script checks pre-requisites and then configures nested virtualization on the Azure VM. A restart of the Azure VM is necessary to complete the configuration. This script may work in other environments but is not guaranteed. 
-Check out the Azure blog post with a live video demonstration on nested virtualization running on Azure! https://aka.ms/AzureNVblog.
