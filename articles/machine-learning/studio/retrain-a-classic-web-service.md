@@ -30,7 +30,7 @@ You must have set up a training experiment and a predictive experiment as shown 
 
 For additional information on Deploying web services, see [Deploy an Azure Machine Learning web service](publish-a-machine-learning-web-service.md).
 
-## Add a new Endpoint
+## Add a new endpoint
 The Predictive Web Service that you deployed contains a default scoring endpoint that is kept in sync with the original training and scoring experiments trained model. To update your web service to with a new trained model, you must create a new scoring endpoint. 
 
 To create a new scoring endpoint, on the Predictive Web Service that can be updated with the trained model:
@@ -54,7 +54,7 @@ You can add scoring endpoints using the sample code provided in this [github rep
 3. Click **Add**.
 4. Type a name and description for the new endpoint. Select the logging level and whether sample data is enabled. For more information on logging, see [Enable logging for Machine Learning web services](web-services-logging.md).
 
-## Update the added endpoint’s Trained Model
+## Update the added endpoint’s trained model
 To complete the retraining process, you must update the trained model of the new endpoint that you added.
 
 If you added the endpoint using the sample code, this includes location of the help URL identified by the *HelpLocationURL* value in the output.

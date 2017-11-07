@@ -75,7 +75,7 @@ The PATCH help page contains the PATCH URL you must use and provides sample code
 
 ### Check to see that you are updating the correct scoring endpoint
 * Do not patch the training web service: The patch operation must be performed on the scoring web service.
-* Do not patch the default endpoint on web service: The patch operation must be performed on the new scoring web service endpoint that you added.
+* Do not patch the default endpoint on the web service: The patch operation must be performed on the new scoring web service endpoint that you added.
 
 You can verify which web service the endpoint is on by visiting the Web Services portal. 
 
@@ -92,7 +92,9 @@ You can verify which web service the endpoint is on by visiting the Web Services
 ### Check that your workspace is in the same region as the web service
 1. Sign in to [Machine Learning Studio](https://studio.azureml.net/).
 2. At the top, click the drop-down list of your workspaces.
+
    ![Machine learning region UI.][image4]
+
 3. Verify the region that your workspace is in.
 
 <!-- Image Links -->

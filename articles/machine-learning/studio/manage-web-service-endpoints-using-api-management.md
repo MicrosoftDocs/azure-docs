@@ -39,17 +39,17 @@ To complete this guide, you need:
 
 You can manage your Azure Machine Learning web service with an API Management instance.
 
-1. Sign in to the [Azure portal](https://portal.azure.com)
-2. Select **+ Create a resource**
-3. In the search box, type "API management", then select the "API management" resource
-4. Click **Create**
-5. The **Name** value will be used to create a unique URL (this example uses "demoazureml")
-6. Select a **Subscription**, **Resource group**, and **Location** for your service instance
-7. Specify a value for **Organization name** (this example uses "demoazureml")
-8. Enter your **Administrator email** - this email will be used for notifications from the API Management system
-9. Click **Create**
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. Select **+ Create a resource**.
+3. In the search box, type "API management", then select the "API management" resource.
+4. Click **Create**.
+5. The **Name** value will be used to create a unique URL (this example uses "demoazureml").
+6. Select a **Subscription**, **Resource group**, and **Location** for your service instance.
+7. Specify a value for **Organization name** (this example uses "demoazureml").
+8. Enter your **Administrator email** - this email will be used for notifications from the API Management system.
+9. Click **Create**.
 
-It may take up to thirty minutes for a new service to be created.
+It may take up to 30 minutes for a new service to be created.
 
 ![create-service](./media/manage-web-service-endpoints-using-api-management/create-service.png)
 
@@ -59,18 +59,18 @@ Once the service instance is created, the next step is to create the API. An API
 
 To create the API:
 
-1. In the Azure portal, open the service instance you just created
-2. In the left navigation pane, select **APIs**
+1. In the Azure portal, open the service instance you just created.
+2. In the left navigation pane, select **APIs**.
 
    ![api-management-menu](./media/manage-web-service-endpoints-using-api-management/api-management.png)
 
-1. Click **Add API**
-2. Enter a **Web API name** (this example uses "AzureML Demo API")
-3. For **Web service URL**, enter "`https://ussouthcentral.services.azureml.net`"
-4. Enter a **Web API URL suffix" - this will become the last part of the URL that customers will use for sending requests to the service instance (this example uses "azureml-demo")
-5. For **Web API URL scheme** select **HTTPS**
-6. For **Products**, select **Starter**
-7. Click **Save**
+1. Click **Add API**.
+2. Enter a **Web API name** (this example uses "AzureML Demo API").
+3. For **Web service URL**, enter "`https://ussouthcentral.services.azureml.net`".
+4. Enter a **Web API URL suffix". This will become the last part of the URL that customers will use for sending requests to the service instance (this example uses "azureml-demo").
+5. For **Web API URL scheme**, select **HTTPS**.
+6. For **Products**, select **Starter**.
+7. Click **Save**.
 
 
 ## Add the operations
@@ -84,14 +84,14 @@ The **New operation** window will be displayed and the **Signature** tab will be
 ## Add RRS Operation
 First create an operation for the AzureML RRS service:
 
-1. For the **HTTP verb**, select **POST**
-2. For the **URL template**, type "`/workspaces/{workspace}/services/{service}/execute?api-version={apiversion}&details={details}`"
-3. Enter a **Display name** (this example uses "RRS Execute")
+1. For the **HTTP verb**, select **POST**.
+2. For the **URL template**, type "`/workspaces/{workspace}/services/{service}/execute?api-version={apiversion}&details={details}`".
+3. Enter a **Display name** (this example uses "RRS Execute").
 
    ![add-rrs-operation-signature](./media/manage-web-service-endpoints-using-api-management/add-rrs-operation-signature.png)
 
-4. Click **Responses** > **ADD** on the left and select **200 OK**
-5. Click **Save** to save this operation
+4. Click **Responses** > **ADD** on the left and select **200 OK**.
+5. Click **Save** to save this operation.
 
    ![add-rrs-operation-response](./media/manage-web-service-endpoints-using-api-management/add-rrs-operation-response.png)
 
@@ -102,41 +102,41 @@ First create an operation for the AzureML RRS service:
 
 ### Submit (but not start) a Batch Execution job
 
-1. Click **add operation** to add a BES operation to the API
-2. For the **HTTP verb**, select **POST**
-3. For the **URL template**, type "`/workspaces/{workspace}/services/{service}/jobs?api-version={apiversion}`"
-4. Enter a **Display name** (this example uses "BES Submit")
-5. Click **Responses** > **ADD** on the left and select **200 OK**
-6. Click **Save**
+1. Click **add operation** to add a BES operation to the API.
+2. For the **HTTP verb**, select **POST**.
+3. For the **URL template**, type "`/workspaces/{workspace}/services/{service}/jobs?api-version={apiversion}`".
+4. Enter a **Display name** (this example uses "BES Submit").
+5. Click **Responses** > **ADD** on the left and select **200 OK**.
+6. Click **Save**.
 
 ### Start a Batch Execution job
 
-1. Click **add operation** to add a BES operation to the API
-2. For the **HTTP verb**, select **POST**
-3. For the **HTTP verb**, type "`/workspaces/{workspace}/services/{service}/jobs/{jobid}/start?api-version={apiversion}`"
-4. Enter a **Display name** (this example uses "BES Start")
-6. Click **Responses** > **ADD** on the left and select **200 OK**
-7. Click **Save**
+1. Click **add operation** to add a BES operation to the API.
+2. For the **HTTP verb**, select **POST**.
+3. For the **HTTP verb**, type "`/workspaces/{workspace}/services/{service}/jobs/{jobid}/start?api-version={apiversion}`".
+4. Enter a **Display name** (this example uses "BES Start").
+6. Click **Responses** > **ADD** on the left and select **200 OK**.
+7. Click **Save**.
 
 ### Get the status or result of a Batch Execution job
 
-1. Click **add operation** to add a BES operation to the API
-2. For the **HTTP verb**, select **GET**
-3. For the **URL template**, type "`/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}`"
-4. Enter a **Display name** (this example uses "BES Status")
-6. Click **Responses** > **ADD** on the left and select **200 OK**
-7. Click **Save**
+1. Click **add operation** to add a BES operation to the API.
+2. For the **HTTP verb**, select **GET**.
+3. For the **URL template**, type "`/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}`".
+4. Enter a **Display name** (this example uses "BES Status").
+6. Click **Responses** > **ADD** on the left and select **200 OK**.
+7. Click **Save**.
 
 ### Delete a Batch Execution job
 
-1. Click **add operation** to add a BES operation to the API
-2. For the **HTTP verb**, select **DELETE**
-3. For the **URL template**, type "`/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}`"
-4. Enter a **Display name** (this example uses "BES Delete")
-5. Click **Responses** > **ADD** on the left and select **200 OK**
-6. Click **Save**
+1. Click **add operation** to add a BES operation to the API.
+2. For the **HTTP verb**, select **DELETE**.
+3. For the **URL template**, type "`/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}`".
+4. Enter a **Display name** (this example uses "BES Delete").
+5. Click **Responses** > **ADD** on the left and select **200 OK**.
+6. Click **Save**.
 
-## Call an operation from the Developer Portal
+## Call an operation from the Developer portal
 
 Operations can be called directly from the Developer portal, which provides a convenient way to view and test the operations of an API. In this step you will call the **RRS Execute** method that was added to the **AzureML Demo API**. 
 

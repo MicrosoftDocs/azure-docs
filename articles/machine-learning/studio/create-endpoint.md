@@ -17,7 +17,7 @@ ms.date: 10/04/2016
 ms.author: himad
 
 ---
-# Creating Endpoints
+# Creating endpoints
 > [!NOTE]
 >  This topic describes techniques applicable to a **Classic** Machine Learning Web service.
 > 
@@ -51,6 +51,6 @@ You can add an endpoint to your Web service programmatically using the [AddEndpo
 3. Click **New**.
 4. Type a name and description for the new endpoint. Endpoint names must be 24 character or less in length, and must be made up of lower-case alphabets or numbers. Select the logging level and whether sample data is enabled. For more information on logging, see [Enable logging for Machine Learning Web services](web-services-logging.md).
 
-## Next Steps
+## Next steps
 [How to consume an Azure Machine Learning Web service](consume-web-services.md).
 
