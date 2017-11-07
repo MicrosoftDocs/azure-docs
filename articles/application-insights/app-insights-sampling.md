@@ -73,7 +73,11 @@ To achieve the target volume, some of the generated telemetry is discarded. But 
 
 Metric counts such as request rate and exception rate are adjusted to compensate for the sampling rate, so that they show approximately correct values in Metric Explorer.
 
-**Update your project's NuGet** packages to the latest *pre-release* version of Application Insights: Right-click the project in Solution Explorer, choose Manage NuGet Packages, check **Include prerelease** and search for Microsoft.ApplicationInsights.Web. 
+### Update NuGet packages ###
+
+Update your project's NuGet packages to the latest *pre-release* version of Application Insights. In Visual Studio, right-click the project in Solution Explorer, choose Manage NuGet Packages, check **Include prerelease** and search for Microsoft.ApplicationInsights.Web. 
+
+### Configuring adaptive sampling ###
 
 In [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), you can adjust several parameters in the `AdaptiveSamplingTelemetryProcessor` node. The figures shown are the default values:
 
@@ -114,7 +118,7 @@ In [ApplicationInsights.config](app-insights-configuration-with-applicationinsig
 **To switch off** adaptive sampling, remove the AdaptiveSamplingTelemetryProcessor node from applicationinsights-config.
 
 ### Alternative: configure adaptive sampling in code
-Instead of adjusting sampling in the .config file, you can use code. This allows you to specify a callback function that is invoked whenever the sampling rate is re-evaluated. You could use this, for example, to find out what sampling rate is being used.
+Instead of setting the sampling parameter in the .config file, you can programmatically set these values. This allows you to specify a callback function that is invoked whenever the sampling rate is re-evaluated. You could use this, for example, to find out what sampling rate is being used.
 
 Remove the `AdaptiveSamplingTelemetryProcessor` node from the .config file.
 
@@ -191,11 +195,13 @@ If you also enable fixed-rate sampling at the server, the clients and server wil
 ## Fixed-rate sampling for ASP.NET web sites
 Fixed rate sampling reduces the traffic sent from your web server and web browsers. Unlike adaptive sampling, it reduces telemetry at a fixed rate decided by you. It also synchronizes the client and server sampling so that related items are retained - for example, so that if you look at a page view in Search, you can find its related request.
 
-The sampling algorithm retains related items. For each HTTP request event, it and its related events are either discarded or transmitted. 
+The sampling algorithm retains related items. For each HTTP request event, the request and its related events are either discarded or transmitted together. 
 
 In Metrics Explorer, rates such as request and exception counts are multiplied by a factor to compensate for the sampling rate, so that they are approximately correct.
 
-1. **Update your project's NuGet packages** to the latest *pre-release* version of Application Insights. Right-click the project in Solution Explorer, choose Manage NuGet Packages, check **Include prerelease** and search for Microsoft.ApplicationInsights.Web. 
+### Configuring fixed-rate sampling ###
+
+1. **Update your project's NuGet packages** to the latest *pre-release* version of Application Insights. In Visual Studio, right-click the project in Solution Explorer, choose Manage NuGet Packages, check **Include prerelease** and search for Microsoft.ApplicationInsights.Web. 
 2. **Disable adaptive sampling**: In [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), remove or comment out the `AdaptiveSamplingTelemetryProcessor` node.
    
     ```xml
@@ -231,7 +237,7 @@ In Metrics Explorer, rates such as request and exception counts are multiplied b
 > 
 
 ### Alternative: enable fixed-rate sampling in your server code
-Instead of setting the sampling parameter in the .config file, you can use code. 
+Instead of setting the sampling parameter in the .config file, you can programmatically set these values. 
 
 *C#*
 
