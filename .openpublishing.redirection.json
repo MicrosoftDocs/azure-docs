@@ -361,18 +361,23 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles//azure-resource-manager/resource-manager-policy-portal.md",
+            "source_path": "articles/azure-resource-manager/resource-manager-policy-portal.md",
             "redirect_url": "/azure/azure-policy/assign-policy-definition",
             "redirect_document_id": false
         },
         {
-            "source_path": "articles//azure-resource-manager/resource-manager-policy-network.md",
+            "source_path": "articles/azure-resource-manager/resource-manager-policy-network.md",
             "redirect_url": "/azure/azure-policy/json-samples",
             "redirect_document_id": false
         },
         {
-            "source_path": "articles//azure-resource-manager/resource-manager-policy-storage.md",
+            "source_path": "articles/azure-resource-manager/resource-manager-policy-storage.md",
             "redirect_url": "/azure/azure-policy/json-samples",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-resource-manager/resource-manager-policy-create-assign.md",
+            "redirect_url": "/azure/azure-policy/assign-policy-definition-ps",
             "redirect_document_id": false
         },
         {
@@ -7192,6 +7197,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/service-fabric/service-fabric-diagnostics-containers-windowsserver.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-diagnostics-oms-containers",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/service-fabric/service-fabric-cluster-creation-via-visual-studio.md",
             "redirect_url": "/azure/service-fabric/service-fabric-cluster-creation-via-arm",
             "redirect_document_id": false
@@ -7234,6 +7244,31 @@
         {
             "source_path": "articles/service-fabric/service-fabric-use-data-loss-api.md",
             "redirect_url": "/azure/service-fabric/service-fabric-testability-overview",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/site-recovery-azure-to-azure-prereq.md",
+            "redirect_url": "site-recovery-support-matrix-azure-to-azure",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/site-recovery-network-design.md",
+            "redirect_url": "concepts-on-premises-to-azure-networking",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/site-recovery-prereq.md",
+            "redirect_url": "site-recovery-support-matrix-to-azure",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/site-recovery-migrate-aws-to-azure.md",
+            "redirect_url": "tutorial-migrate-aws-to-azure",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/site-recovery-azure-to-azure-architecture.md",
+            "redirect_url": "concepts-azure-to-azure-architecture",
             "redirect_document_id": false
         },
 		{

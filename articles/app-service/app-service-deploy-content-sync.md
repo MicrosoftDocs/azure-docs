@@ -45,5 +45,6 @@ To enable content sync from the [Azure Portal](https://portal.azure.com), follow
    
     ![Deployment History](./media/app-service-deploy-content-sync/onedrive_sync.png)
 
-More information for Dropbox deployment is available under [Deploy from Dropbox](http://blogs.msdn.com/b/windowsazure/archive/2013/03/19/new-deploy-to-windows-azure-web-sites-from-dropbox.aspx). 
+More information for Dropbox deployment is available under [Deploy from Dropbox]
+(https://azure.microsoft.com/en-in/blog/new-deploy-to-windows-azure-web-sites-from-dropbox/).
 

@@ -39,7 +39,7 @@ This tutorial covers the following tasks:
 
 Azure Cosmos DB provides the [Table API](table-introduction.md) for applications that need a key-value store with a schema-less design. Both Azure Cosmos DB Table API and [Azure Table storage](../storage/common/storage-introduction.md) now support the same SDKs and REST APIs. You can use Azure Cosmos DB to create tables with high throughput requirements.
 
-You can continue to use Azure Table storage for tables with high storage and lower throughput requirements.
+This tutorial is for developers who are familiar with the Azure Table storage SDK, and would like to use the premium features available with Azure Cosmos DB. It is based on [Get Started with Azure Table storage using .NET](table-storage-how-to-use-dotnet.md) and shows how to take advantage of additional capabilities like secondary indexes, provisioned throughput, and multi-homing. This tutorial describes how to use the Azure portal to create an Azure Cosmos DB account, and then build and deploy a Table API application. We also walk through .NET examples for creating and deleting a table, and inserting, updating, deleting, and querying table data. 
 
 If you currently use Azure Table storage, you gain the following benefits with Azure Cosmos DB Table API:
 
@@ -70,10 +70,6 @@ If you don't already have Visual Studio 2017 installed, you can download and use
 ## Create a database account
 
 Let's start by creating an Azure Cosmos DB account in the Azure portal.  
-
-> [!TIP]
-> * Already have an Azure Cosmos DB account? If so, skip ahead to [Set up your Visual Studio solution](#SetupVS).
-> * Did you have an Azure DocumentDB account? If so, your account is now an Azure Cosmos DB account and you can skip ahead to [Set up your Visual Studio solution](#SetupVS).  
 
 [!INCLUDE [cosmosdb-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)] 
 

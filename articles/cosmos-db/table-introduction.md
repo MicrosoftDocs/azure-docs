@@ -27,9 +27,9 @@ ms.author: arramac
 * Guaranteed high availability.
 * [Automatic secondary indexing](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
 
-These applications can migrate to Azure Cosmos DB by using the Table API with no code changes and take advantage of premium capabilities. The Table API is available for .NET and Python.
+Applications written for Azure Table storage can migrate to Azure Cosmos DB by using the Table API with no code changes and take advantage of premium capabilities. The Table API has one client SDK available for .NET.
 
-We recommend that you watch the following video, where Aravind Ramachandran explains how to get started with the Table API for Azure Cosmos DB:
+We recommend that you watch the following video, where Aravind Ramachandran explains how to get started with the Azure Cosmos DB Table API:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Table-API-for-Azure-Cosmos-DB/player]
 > 
@@ -38,7 +38,7 @@ We recommend that you watch the following video, where Aravind Ramachandran expl
 ## Table offerings
 If you currently use Azure Table Storage, you gain the following benefits by moving to the Azure Cosmos DB Table API (preview):
 
-| | Azure Table Storage | Azure Cosmos DB Table API (preview) |
+| | Azure Table storage | Azure Cosmos DB Table API (preview) |
 | --- | --- | --- |
 | Latency | Fast, but no upper bounds on latency. | Single-digit millisecond latency for reads and writes, backed with <10-ms latency reads and <15-ms latency writes at the 99th percentile, at any scale, anywhere in the world. |
 | Throughput | Variable throughput model. Tables have a scalability limit of 20,000 operations/s. | Highly scalable with [dedicated reserved throughput per table](request-units.md) that's backed by SLAs. Accounts have no upper limit on throughput and support >10 million operations/s per table. |

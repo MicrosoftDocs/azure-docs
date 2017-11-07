@@ -99,6 +99,7 @@ Selecting any of the tiles, opens a drill-down report into the specific perspect
 Each perspective, provides summaries on subscription, server, elastic pool, and database level. In addition, each perspective shows perspective specific report on the right. Selecting subscription, server, pool, or database from the list continues the drill down.
 
 | Perspective | Description |
+| --- | --- |
 | Resource by type | Perspective that counts all the resources monitored. Drill-down provides the summary of DTU and GB metrics. |
 | Insights | Provides hierarchical drill-down into Intelligent Insights. Learn more about intelligent insights. |
 | Errors | Provides hierarchical drill-down into SQL errors that happened on the databases. |

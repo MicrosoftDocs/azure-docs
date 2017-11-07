@@ -80,10 +80,11 @@ function getSubscriptionKey() {
     return key;
 }
 ```
-The HTML `<body>` tag includes an `onload` attribute that calls `getSubscriptionKey()` when the page has finished loading. This call serves to prompt the user for their key if they haven't yet entered one. The key is stored for continuing use by the application.
+The HTML `<form>` tag `onsubmit` calls the `bingWebSearch` function to return search results. `bingWebSearch` uses `getSubscriptionKey()` to authenticate each query. As shown in the previous definition, `getSubscriptionKey` prompts the user for the key if the key hasn't been entered. The key is then stored for continuing use by the application.
 
 ```html
-<body onload="document.forms.bing.query.focus(); getSubscriptionKey();">
+<form name="bing" onsubmit="this.offset.value = 0; return bingWebSearch(this.query.value, 
+    bingSearchOptions(this), getSubscriptionKey())">
 ```
 ## Selecting search options
 The following figure shows the query text box and options that define a search for news about school funding.

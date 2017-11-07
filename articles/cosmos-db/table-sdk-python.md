@@ -18,7 +18,7 @@ ms.author: mimig1
 ms.custom: 
 
 ---
-# Azure Cosmos DB Table API for Python: Release notes and resources
+# Azure Table storage SDK for Python: Release notes and resources
 > [!div class="op_single_selector"]
 > * [.NET](table-sdk-dotnet.md)
 > * [Java](table-sdk-java.md)
