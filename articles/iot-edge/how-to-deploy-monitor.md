@@ -55,7 +55,7 @@ There are five steps to create a deployment. The following sections walk through
 There are two types of modules that you can add to a deployment. The first is a module based off of an Azure service, like Storage Account or Stream Analytics. The second is a module based off of your own code. You can add multiple modules of either type to a deployment. 
 
 >[!NOTE]
->Azure Machine Learning and Azure Functions don't support the automated Azure servive deployment yet. Use the custom module deployment to manually add those services to your deployment. 
+>Azure Machine Learning and Azure Functions don't support the automated Azure service deployment yet. Use the custom module deployment to manually add those services to your deployment. 
 
 To add a module from an Azure service follow these steps:
 1. Select **Add Azure service IoT Edge module**.
@@ -69,10 +69,10 @@ To add custom code as a module, or to manually add an Azure service module, foll
 1. Use the drop-down menus under **OS** and **Architecture** to identify the properties of the Docker container that represents this module. 
 1. Specify any **Create options** that should be passed to the container. For more information, see [docker create][lnk-docker-create].
 1. Use the drop-down menu to select a **Restart policy**. Choose from the following options: 
-   * **Always** - The module will always restart if it shuts down for any reason.
-   * **Never** - The module won't restart if it shuts down for any reason.
-   * **On-failed** 
-   * **On-unhealthy** 
+   * **Always** - The module always restarts if it shuts down for any reason.
+   * **Never** - The module never restarts if it shuts down for any reason.
+   * **On-failed** - The module restarts if it crashes, but not if it shuts down cleanly. 
+   * **On-unhealthy** - The module restarts if it crashes or returns an unhealthy status. It's up to each module to implement the health status function. 
 1. Use the drop-down menu to select the startup **Status** for the module. Choose from the following options:
    * **Running** - This is the default option. The module will start running immediately after being deployed.
    * **Stopped** - After being deployed, the module will remain idle until called upon to start by you or another module.
@@ -131,7 +131,7 @@ When you modify a deployment, the changes immediately replicate to all targeted 
 If you update the target condition, the following updates occur:
 * If a device didn't meet the old target condition, but meets the new target condition and this deployment is the highest priority for that device, then this deployment is applied to the device. 
 * If a device currently running this deployment no longer meets the target condition, it uninstalls this deployment and takes on the next highest priority deployment. 
-* If a device currently running this deployment no longer meets the target condition and doesn't meet the target condition of any other deployments, then no change occurs on the device. The device continues running its current modules in their current state, but is not managed as part of this deployment anymore. Once it meets the target condition of any other deployment, it will uninstall this deployment and take on the new one. 
+* If a device currently running this deployment no longer meets the target condition and doesn't meet the target condition of any other deployments, then no change occurs on the device. The device continues running its current modules in their current state, but is not managed as part of this deployment anymore. Once it meets the target condition of any other deployment, it uninstalls this deployment and takes on the new one. 
 
 To modify a deployment, use the following steps: 
 
@@ -165,6 +165,7 @@ When you delete a deployment, any devices take on their next highest priority de
 
 ## Next steps
 
+Learn more about [Deploying modules to Edge devices][lnk-deployments].
 
 <!-- Images -->
 [1]: ./media/how-to-deploy-monitor/view-deployments.png
@@ -173,4 +174,7 @@ When you delete a deployment, any devices take on their next highest priority de
 [lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
 [lnk-portal]: https://portal.azure.com
 [lnk-docker-create]: https://docs.docker.com/engine/reference/commandline/create/
+[lnk-deployments]: module-deployment-monitoring.md
+
+<!-- Anchor links -->
 [anchor-monitor]: #monitor-a-deployment
