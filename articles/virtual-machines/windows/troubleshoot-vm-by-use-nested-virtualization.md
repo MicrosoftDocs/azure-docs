@@ -16,9 +16,9 @@ ms.topic: troubleshooting
 ms.date: 11/06/2017
 ms.author: genli
 ---
-# How to troubleshoot a problem Azure VM by using nested virtualization in Azure
+# Troubleshoot a problem Azure VM by using nested virtualization in Azure
 
-This article shows how to create a nested virtualization environment in Microsoft Azure, so you can mount the disk of the problem VM on the Hyper-V host (Recovery VM) for troubleshooting purpose.
+This article shows how to create a nested virtualization environment in Microsoft Azure, so you can mount the disk of the problem VM on the Hyper-V host (Recovery VM) for troubleshooting purposes.
 
 ## Prerequisite
 
@@ -30,7 +30,7 @@ To mount the problem VM, the Recovery VM must meet the following prerequisite:
 
 -   The Recovery VM must use the same type of Storage Account (Standard or Premium) as the problem VM.
 
-## Step 1 Create a recovery VM and install Hyper-V role
+## Step 1: Create a recovery VM and install Hyper-V role
 
 1.  Create a new Recovery VM:
 
@@ -66,7 +66,7 @@ To mount the problem VM, the Recovery VM must meet the following prerequisite:
 
 13. Allow the server to install the Hyper-V role. This takes a few minutes and the server will reboot automatically.
 
-## Step 2 Create the problem VM on the Recovery VM’s Hyper-V server
+## Step 2: Create the problem VM on the Recovery VM’s Hyper-V server
 
 1.  Record the name of the disk in the problem VM, and then delete the problem VM. Make sure that you keep all attached disks. 
 
@@ -80,7 +80,7 @@ To mount the problem VM, the Recovery VM must meet the following prerequisite:
 
 3.  After the disk has successfully attached, remote desktop to the Recovery VM.
 
-4.  Open Disk Management (diskmgmt.msc), make sure that the disk of the problem VM is set to **Offline**.
+4.  Open Disk Management (diskmgmt.msc). Make sure that the disk of the problem VM is set to **Offline**.
 
 5.  Open Hyper-V Manager: In **Server Manager**, select the **Hyper-V role**. Right-click the server, and then select the **Hyper-V Manager**.
 
@@ -106,7 +106,7 @@ To mount the problem VM, the Recovery VM must meet the following prerequisite:
 
     ![the image about adds new hard drive](./media/troubleshoot-vm-by-use-nested-virtualization/create-new-drive.png)    
 
-15. In **Physical Hard Disk**, select the disk of the problem VM that you attached to the Azure VM. If you do not see any disks listed. Check if the disk is set to offline by using Disk management.
+15. In **Physical Hard Disk**, select the disk of the problem VM that you attached to the Azure VM. If you do not see any disks listed, check if the disk is set to offline by using Disk management.
 
     ![the image about mounts the disk](./media/troubleshoot-vm-by-use-nested-virtualization/mount-disk.png)  
 
@@ -117,7 +117,7 @@ To mount the problem VM, the Recovery VM must meet the following prerequisite:
 
 19. Now you can work on the VM as the on-premises VM. You could follow any troubleshooting steps you need.
 
-## Step 3 Recreate your Azure VM in Azure
+## Step 3: Re-create your Azure VM in Azure
 
 1.  After you get the VM back online, shut down the VM in the Hyper-V manager.
 
@@ -127,12 +127,12 @@ To mount the problem VM, the Recovery VM must meet the following prerequisite:
 
      ![the image about searches the disk](./media/troubleshoot-vm-by-use-nested-virtualization/search-disk.png)     
 
-4. Click **Create vm**.
+4. Click **Create VM**.
 
      ![the image about creates vm from the disk](./media/troubleshoot-vm-by-use-nested-virtualization/create-vm-from-vhd.png) 
 
 You can also use Azure PowerShell to create the VM from the disk. For more information, see [Create the new VM from an existing disk by using PowerShell](create-vm-specialized.md#create-the-new-vm). 
 
-## New steps
+## Next steps
 
 If you are having issues connecting to your VM, see [Troubleshoot RDP connections to an Azure VM](troubleshoot-rdp-connection.md). For issues with accessing applications running on your VM, see [Troubleshoot application connectivity issues on a Windows VM](troubleshoot-app-connection.md).
