@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/16/2017
+ms.date: 11/15/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
 
@@ -37,7 +37,7 @@ The following table illustrates the specific guarantees each consistency level p
 
 | Consistency Level	| Guarantees |
 | --- | --- |
-| Strong | Linearizability |
+| Strong | Linearizability. Reads are guaranteed to return the most recent version of an item.|
 | Bounded Staleness	| Consistent Prefix. Reads lag behind writes by k prefixes or t interval |
 | Session	| Consistent Prefix. Monotonic reads, monotonic writes, read-your-writes, write-follows-reads |
 | Consistent Prefix	| Updates returned are some prefix of all the updates, with no gaps |
@@ -57,7 +57,7 @@ You can configure a default consistency level on your database account that appl
 
 * Strong consistency offers a [linearizability](https://aphyr.com/posts/313-strong-consistency-models) guarantee with the reads guaranteed to return the most recent version of an item. 
 * Strong consistency guarantees that a write is only visible after it is committed durably by the majority quorum of replicas. A write is either synchronously committed durably by both the primary and the quorum of secondaries, or it is aborted. A read is always acknowledged by the majority read quorum, a client can never see an uncommitted or partial write and is always guaranteed to read the latest acknowledged write. 
-* Azure Cosmos DB accounts that are configured to use strong consistency cannot associate more than one Azure region with their Azure Cosmos DB account. 
+* Azure Cosmos DB accounts that are configured to use strong consistency must have read regions within 5000 miles (8050 km) of each other. Regions outside the 5000 mile (8050 km) boundary cannot be added to global replication of the account. 
 * The cost of a read operation (in terms of [request units](request-units.md) consumed) with strong consistency is higher than session and eventual, but the same as bounded staleness.
 
 **Bounded staleness**: 
@@ -65,7 +65,7 @@ You can configure a default consistency level on your database account that appl
 * Bounded staleness consistency guarantees that the reads may lag behind writes by at most *K* versions or prefixes of an item or *t* time-interval. 
 * Therefore, when choosing bounded staleness, the "staleness" can be configured in two ways: number of versions *K* of the item by which the reads lag behind the writes, and the time interval *t* 
 * Bounded staleness offers total global order except within the "staleness window." The monotonic read guarantees exists within a region both inside and outside the "staleness window." 
-* Bounded staleness provides a stronger consistency guarantee than session or eventual consistency. For globally distributed applications, we recommend you use bounded staleness for scenarios where you would like to have strong consistency but also want 99.99% availability and low latency. 
+* Bounded staleness provides a stronger consistency guarantee than session or eventual consistency.  
 * Azure Cosmos DB accounts that are configured with bounded staleness consistency can associate any number of Azure regions with their Azure Cosmos DB account. 
 * The cost of a read operation (in terms of RUs consumed) with bounded staleness is higher than session and eventual consistency, but the same as strong consistency.
 
