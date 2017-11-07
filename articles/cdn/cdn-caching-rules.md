@@ -1,5 +1,5 @@
 ---
-title: Control Azure CDN caching behavior with caching rules | Microsoft Docs
+title: Control Azure Content Delivery Network caching behavior with caching rules | Microsoft Docs
 description: 'You can use CDN caching rules to set or modify default cache expiration behavior both globally and with conditions, such as a URL path and file extensions.'
 services: cdn
 documentationcenter: ''
@@ -18,18 +18,18 @@ ms.author: v-deasim
 
 ---
 
-# Control Azure CDN caching behavior with caching rules
+# Control Azure Content Delivery Network caching behavior with caching rules
 
 > [!NOTE] 
 > Caching rules are available only for **Azure CDN from Verizon Standard** and **Azure CDN from Akamai Standard**. For **Azure CDN from Verizon Premium**, you can use the [Azure CDN rules engine](cdn-rules-engine.md) in the **Manage** portal for similar functionality.
  
-Azure CDN offers two ways to control how your files are cached: 
+Azure Content Delivery Network offers two ways to control how your files are cached: 
 
-- Caching rules: This article describes how you can use CDN caching rules to set or modify default cache expiration behavior both globally and with custom conditions, such as a URL path and file extension. Azure CDN provides two types of caching rules:
+- Caching rules: This article describes how you can use content deliver network (CDN) caching rules to set or modify default cache expiration behavior both globally and with custom conditions, such as a URL path and file extension. Azure CDN provides two types of caching rules:
    - Global caching rules: You can set one global caching rule for each endpoint in your profile, which affects all requests to the endpoint. The global caching rule overrides any HTTP cache-directive headers, if set.
    - Custom caching rules: You can set one or more custom caching rules for each endpoint in your profile. Custom caching rules match specific paths and file extensions, are processed in order, and override the global caching rule, if set. 
 
-- Query string caching: You can adjust how Azure CDN treats caching for requests with query strings. For information, see [Control Azure CDN caching behavior with query strings](cdn-query-string.md). If the file is not cacheable, the query string caching setting has no effect, based on caching rules and CDN default behaviors.
+- Query string caching: You can adjust how the Azure CDN treats caching for requests with query strings. For information, see [Control Azure CDN caching behavior with query strings](cdn-query-string.md). If the file is not cacheable, the query string caching setting has no effect, based on caching rules and CDN default behaviors.
 
 For information about default caching behavior and caching directive headers, see [How caching works](cdn-how-caching-works.md).
 
@@ -44,13 +44,13 @@ How to set CDN caching rules:
    2. Set **Caching behavior** to **Set if missing**.
    3. For **Cache expiration duration**, enter 10 in the **Days** field.
 
-       The global caching rule affects all requests to the endpoint. This rule honors the origin cache-directive headers if they exist (`Cache-Control` or `Expires`); otherwise, if they are not specified, it sets the cache to 10 days. 
+       The global caching rule affects all requests to the endpoint. This rule honors the origin cache-directive headers, if they exist (`Cache-Control` or `Expires`); otherwise, if they are not specified, it sets the cache to 10 days. 
 
 4. Create a custom caching rule as follows:
     1. Under **Custom caching rules**, set **Match condition** to **Path** and **Match value** to `/images/*.jpg`.
     2. Set **Caching behavior** to **Override** and enter 30 in the **Days** field.
        
-       This custom caching rule sets a cache duration of 30 days on any `.jpg` image files in the `/images` folder of your endpoint and overrides any `Cache-Control` or `Expires` HTTP headers that are sent by the origin server.
+       This custom caching rule sets a cache duration of 30 days on any `.jpg` image files in the `/images` folder of your endpoint. It overrides any `Cache-Control` or `Expires` HTTP headers that are sent by the origin server.
 
   ![Caching rules dialog](./media/cdn-caching-rules/cdn-caching-rules-dialog.png)
 
@@ -104,5 +104,5 @@ Global and custom caching rules are processed in the following order:
    - Caching behavior: **Set if missing**
    - Cache expiration duration: 3 days
 
-When these rules are set, a request for `<endpoint>.azureedge.net/home/index.html` triggers custom caching rule #2, which is set to: **Set if missing** and “3 days”. Therefore, if the `index.html` file has `Cache-Control` or `Expires` HTTP headers, they are honored; otherwise, if these headers are not set, the file is cached for 3 days.
+When these rules are set, a request for `<endpoint>.azureedge.net/home/index.html` triggers custom caching rule #2, which is set to: **Set if missing** and 3 days. Therefore, if the `index.html` file has `Cache-Control` or `Expires` HTTP headers, they are honored; otherwise, if these headers are not set, the file is cached for 3 days.
 

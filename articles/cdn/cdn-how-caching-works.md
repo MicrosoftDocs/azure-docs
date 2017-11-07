@@ -1,5 +1,5 @@
 ---
-title: How caching works in Azure CDN | Microsoft Docs
+title: How caching works in the Azure Content Delivery Network | Microsoft Docs
 description: 'Caching is the process of storing data locally so that future requests for that data can be accessed more quickly.'
 services: cdn
 documentationcenter: ''
@@ -19,15 +19,15 @@ ms.author: v-deasim
 ---
 # How caching works
 
-This article provides an overview of general caching concepts and how Azure CDN uses caching to improve performance. If you’d like to learn about how to customize caching behavior on your CDN endpoint, see [Control Azure CDN caching behavior with caching rules](cdn-caching-rules.md) and [Control Azure CDN caching behavior with query strings](cdn-query-string.md).
+This article provides an overview of general caching concepts and how the Azure Content Delivery Network (CDN) uses caching to improve performance. If you’d like to learn about how to customize caching behavior on your CDN endpoint, see [Control Azure CDN caching behavior with caching rules](cdn-caching-rules.md) and [Control Azure CDN caching behavior with query strings](cdn-query-string.md).
 
 ## Introduction to caching
 
 Caching is the process of storing data locally so that future requests for that data can be accessed more quickly. In the most common type of caching, web browser caching, a web browser stores copies of static data locally on a local hard drive. By using caching, the web browser can avoid making multiple round-trips to the server and instead access the same data locally, thus saving time and resources. Caching is well-suited for locally managing small, static data such as static images, CSS files, and JavaScript files.
 
-Similarly, caching is used by a content delivery network (CDN) on edge servers close to the user to avoid requests traveling back to the origin and reducing end-user latency. Unlike a web browser cache, which is used only for a single user, the CDN has a shared cache. In a CDN shared cache, a file that is requested by one user can be accessed later by other users, which greatly decreases the number of requests to the origin server.
+Similarly, caching is used by a content delivery network on edge servers close to the user to avoid requests traveling back to the origin and reducing end-user latency. Unlike a web browser cache, which is used only for a single user, the CDN has a shared cache. In a CDN shared cache, a file that is requested by one user can be accessed later by other users, which greatly decreases the number of requests to the origin server.
 
-Dynamic resources that change frequently or are unique to an individual user cannot be cached. Those types of resources, however, can take advantage of dynamic site acceleration (DSA) optimization on Azure CDN for performance improvements.
+Dynamic resources that change frequently or are unique to an individual user cannot be cached. Those types of resources, however, can take advantage of dynamic site acceleration (DSA) optimization on the Azure Content Delivery Network for performance improvements.
 
 Caching can occur at multiple levels between the origin server and the end user:
 
@@ -54,7 +54,7 @@ Caching is integral to the way a CDN operates to speed up delivery and reduce or
 
 - By offloading work to a CDN, caching can reduce network traffic and the load on the origin server. Doing so reduces cost and resource requirements for the application, even when there are large numbers of users.
 
-Similar to a web browser, you can control how CDN caching is performed by sending cache-directive headers. Cache-directive headers are HTTP headers, which are typically added by the origin server. Although most of these headers were originally designed to address caching in client browsers, they are now also used by all intermediate caches, such as CDNs. Two headers can be used to define cache freshness: `Cache-Control` and `Expires`. `Cache-Control` is more current and takes precedence over `Expires`, if both exist. There are also two types of headers used for validation (called validators): `ETag` and `Last-Modified`. `ETag` is more current and takes precedence over `Last-Modified`, if both exist.  
+Similar to a web browser, you can control how CDN caching is performed by sending cache-directive headers. Cache-directive headers are HTTP headers, which are typically added by the origin server. Although most of these headers were originally designed to address caching in client browsers, they are now also used by all intermediate caches, such as CDNs. Two headers can be used to define cache freshness: `Cache-Control` and `Expires`. `Cache-Control` is more current and takes precedence over `Expires`, if both exist. There are also two types of headers used for validation (called validators): `ETag` and `Last-Modified`. `ETag` is more current and takes precedence over `Last-Modified`, if both are defined.  
 
 ## Cache-directive headers
 
@@ -93,12 +93,12 @@ When the cache is stale, HTTP cache validators are used to compare the cached ve
 - `ETag` defines a string that is unique for every file and version of a file. For example, `ETag: "17f0ddd99ed5bbe4edffdd6496d7131f"`.
 - Introduced in HTTP 1.1 and is more current than `Last-Modified`. Useful when the last modified date is difficult to determine.
 - Supports both strong validation and weak validation; however, Azure CDN supports only strong validation. For strong validation, the two resource representations must be byte-for-byte identical. 
-- A cache validates a file that uses `ETag` by sending an `If-None-Match` header with one or more `ETag` validators in the request. For example, `If-None-Match: "17f0ddd99ed5bbe4edffdd6496d7131f"`. If the server’s version matches an ETag on the list, it sends a `304 not modified` response. If the version is different, the server responds with a 200 code and the updated resource.
+- A cache validates a file that uses `ETag` by sending an `If-None-Match` header with one or more `ETag` validators in the request. For example, `If-None-Match: "17f0ddd99ed5bbe4edffdd6496d7131f"`. If the server’s version matches an `ETag` validator on the list, it sends status code 304 (Not Modified) in its response. If the version is different, the server responds with status code 200 (OK) and the updated resource.
 
 `Last-Modified`
 - For **Azure CDN from Verizon only**, Last-Modified is used if ETag is not part of the HTTP response. 
 - Specifies the date and time that the origin server has determined the resource was last modified. For example, `Last-Modified: Thu, 19 Oct 2017 09:28:00 GMT`.
-- A cache validates a file using `Last-Modified` by sending an `If-Modified-Since` header with a date and time in the request. The origin server compares that date with the Last-Modified header of the latest resource, and returns a `304 Not Modified` response if it has not been modified since the specified time. If it has been modified, the server responds with a 200 code and the updated resource.
+- A cache validates a file using `Last-Modified` by sending an `If-Modified-Since` header with a date and time in the request. The origin server compares that date with the `Last-Modified` header of the latest resource. If the resource has not been modified since the specified time, the server returns status code 304 (Not Modified) in its response. If the resource has been modified, the server returns status code 200 (OK) and the updated resource.
 
 ## Determining which files can be cached
 
