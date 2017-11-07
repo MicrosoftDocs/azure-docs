@@ -21,7 +21,7 @@ ms.author: larryfr
 
 # Connect to Kafka on HDInsight through an Azure Virtual Network
 
-Learn how to directly connect to Kafka on HDInsight using Azure Virtual Networks. This document provides information on connecting to Kafka using the following configurations:
+Learn how to directly connect to Kafka on HDInsight through an Azure Virtual Network. This document provides information on connecting to Kafka using the following configurations:
 
 * From resources in an on-premises network. This connection is established by using a VPN device (software or hardware) on your local network.
 * From a development environment using a VPN software client.
@@ -56,7 +56,7 @@ HDInsight does not allow direct connection to Kafka over the public internet. In
     > This configuration is only recommended for development purposes because of the following limitations:
     >
     > * Each client must connect using a VPN software client. Azure only provides a Windows-based client.
-    > * The client does not pass name resolution requests to the virtual network, so you must use IP addressing to communicate with Kafka. IP communication requires additional configuration on the Kafka cluster.
+    > * The VPN client does not pass name resolution requests to the virtual network, so you must use IP addressing to communicate with Kafka. IP communication requires additional configuration on the Kafka cluster.
 
 For more information on using HDInsight in a virtual network, see [Extend HDInsight by using Azure Virtual Networks](../hdinsight-extend-hadoop-virtual-network.md).
 
@@ -235,7 +235,7 @@ Use the steps in this section to create the following configuration:
     ```
 
   > [!WARNING]
-  > This process takes around 20 minutes to complete.
+  > This process takes around 15 minutes to complete.
 
 8. Use the following cmdlet to retrieve the URL for the Windows VPN client for the virtual network:
 

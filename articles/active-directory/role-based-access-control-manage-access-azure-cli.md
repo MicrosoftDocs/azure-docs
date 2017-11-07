@@ -146,7 +146,7 @@ The example then removes the role assignment from a group on the subscription.
 ## Create a custom role
 To create a custom role, use:
 
-    azure role definition create --role-definition <file path>
+    azure role create --inputfile <file path>
 
 The following example creates a custom role called *Virtual Machine Operator*. This custom role grants access to all read operations of *Microsoft.Compute*, *Microsoft.Storage*, and *Microsoft.Network* resource providers and grants access to start, restart, and monitor virtual machines. This custom role can be used in two subscriptions. This example uses a JSON file as an input.
 
@@ -155,9 +155,9 @@ The following example creates a custom role called *Virtual Machine Operator*. T
 ![RBAC Azure command line - azure role create - screenshot](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-create-2.png)
 
 ## Modify a custom role
-To modify a custom role, first use the `azure role definition list` command to retrieve role definition. Second, make the desired changes to the role definition file. Finally, use `azure role definition update` to save the modified role definition.
+To modify a custom role, first use the `azure role list` command to retrieve role definition. Second, make the desired changes to the role definition file. Finally, use `azure role set` to save the modified role definition.
 
-    azure role definition update --role-definition <file path>
+    azure role set --inputfile <file path>
 
 The following example adds the *Microsoft.Insights/diagnosticSettings/* operation to the **Actions**, and an Azure subscription to the **AssignableScopes** of the Virtual Machine Operator custom role.
 
@@ -166,7 +166,7 @@ The following example adds the *Microsoft.Insights/diagnosticSettings/* operatio
 ![RBAC Azure command line - azure role set - screenshot](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-set2.png)
 
 ## Delete a custom role
-To delete a custom role, first use the `azure role definition list` command to determine the **ID** of the role. Then, use the `azure role definition delete` command to delete the role by specifying the **ID**.
+To delete a custom role, first use the `azure role list` command to determine the **ID** of the role. Then, use the `azure role delete` command to delete the role by specifying the **ID**.
 
 The following example removes the *Virtual Machine Operator* custom role.
 
@@ -178,7 +178,7 @@ To list the roles that are available for assignment at a scope, use the `azure r
 The following command lists all roles that are available for assignment in the selected subscription.
 
 ```
-azure role definition list --json | jq '.[] | {"name":.properties.roleName, type:.properties.type}'
+azure role list --json | jq '.[] | {"name":.properties.roleName, type:.properties.type}'
 ```
 
 ![RBAC Azure command line - azure role list - screenshot](./media/role-based-access-control-manage-access-azure-cli/5-azure-role-list1.png)
@@ -186,7 +186,7 @@ azure role definition list --json | jq '.[] | {"name":.properties.roleName, type
 In the following example, the *Virtual Machine Operator* custom role isn’t available in the *Production4* subscription because that subscription isn’t in the **AssignableScopes** of the role.
 
 ```
-azure role definition list --json | jq '.[] | if .properties.type == "CustomRole" then .properties.roleName else empty end'
+azure role list --json | jq '.[] | if .properties.type == "CustomRole" then .properties.roleName else empty end'
 ```
 
 ![RBAC Azure command line - azure role list for custom roles - screenshot](./media/role-based-access-control-manage-access-azure-cli/5-azure-role-list2.png)
