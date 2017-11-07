@@ -118,6 +118,7 @@ When you specify the output location in the Request Payload, the extension of th
         },
 
 The following is an example of retraining output:
+
 ![Retraining output][6]
 
 ## Evaluate the retraining results
