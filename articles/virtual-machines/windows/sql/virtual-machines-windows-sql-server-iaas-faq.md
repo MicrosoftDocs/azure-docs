@@ -58,7 +58,7 @@ This topic provides answers to some of the most common questions about running [
    If you do decide to uninstall the default instance, also uninstall the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md) as well.
    
    >[!NOTE]
-   >An Azure virtual machine that was created from the template is billed as a SQL Server. This continues to be true if you uninstall SQL Server. If you do not want to be charged the prices for SQL Server virtual machines, deploy a new virtual machine without SQL Server and migrate the data and applications to the new virtual machine. Then you can remove the SQL Server virtual machine.
+   >A SQL Server Azure virtual machine is billed as described in [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md). If you remove SQL Server, the usage charges continue. If you no longer need SQL Server, you can deploy a new virtual machine and migrate the data and applications to the new virtual machine. Then you can remove the SQL Server virtual machine.
 
 1. **How do I upgrade to a new version/edition of the SQL Server in an Azure VM?**
 
