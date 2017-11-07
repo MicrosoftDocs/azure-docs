@@ -15,13 +15,13 @@ ms.assetid: 4be434c4-0c99-4800-b775-c9713c973ee9
 
 ---
 
-# Managing AzureAD credentials for Azure Key Vault apps
+# Manage AzureAD credentials for Azure Key Vault apps
 
-The Microsoft.Azure.Services.AppAuthentication for .NET library simplifies credential management for Microsoft Azure Key Vault and other Azure services that rely on Azure Active Directory (Azure AD) authentication.  
+The `Microsoft.Azure.Services.AppAuthentication` for .NET library simplifies credential management for Microsoft Azure Key Vault and other Azure services that rely on Azure Active Directory (Azure AD) authentication.  
 
 While you're developing your app, the library uses your developer credentials for Azure AD authentication. When your app is deployed to Azure, the library automatically switches to an OAuth 2.0 client authentication flow. This avoids placing credentials at risk because you are no longer tempted to include them in source code or configuration files. 
 
-The Microsoft.Azure.Services.AppAuthentication library supports local development with Microsoft Visual Studio, Azure CLI, or Azure AD integrated authentication. When deployed to Azure or an Azure virtual machine (VM), the library automatically uses [Managed Service Identity](/azure/active-directory/msi-overview) (MSI). No code changes are required. The library also supports [service principals](azure/azure-resource-manager/resource-group-authenticate-service-principal). when MSI is not available or when the developer's security context cannot be determined during local development.
+The `Microsoft.Azure.Services.AppAuthentication` library supports local development with Microsoft Visual Studio, Azure CLI, or Azure AD integrated authentication. When deployed to Azure or an Azure virtual machine (VM), the library automatically uses [Managed Service Identity](/azure/active-directory/msi-overview) (MSI). No code changes are required. The library also supports [service principals](azure/azure-resource-manager/resource-group-authenticate-service-principal). when MSI is not available or when the developer's security context cannot be determined during local development.
 
 ## <a name="asal"></a>Using the library
 
@@ -68,7 +68,7 @@ For local development, there are two primary authentication scenarios:
 - Authenticating to Azure services using Visual Studio, Azure CLI, or Azure AD
 - Authenticating to custom services supporting Azure AD
 
-Here, you learn the requirements needs for each scenario.
+Here, you learn the requirements for each scenario.
 
 ### Authenticating to Azure Services Visual Studio, Azure CLI, or Azure AD
 
@@ -78,7 +78,7 @@ For local development, `AzureServiceTokenProvider` tries to fetch a token using 
 
 Visual Studio works under the following conditions:
 
-1. You've installed [Visual Studio 2017 15.5](https://blogs.msdn.microsoft.com/visualstudio/2017/10/11/visual-studio-2017-version-15-5-preview/) or later.
+1. You've installed [Visual Studio 2017 v15.5](https://blogs.msdn.microsoft.com/visualstudio/2017/10/11/visual-studio-2017-version-15-5-preview/) or later.
 
 2. The [Azure Services Authentication extension]() is installed.
  
