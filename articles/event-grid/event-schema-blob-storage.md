@@ -13,30 +13,20 @@ ms.author: babanisa
 
 # Azure Event Grid event schema
 
-This article describes the properties and schema that are present for all events. Events consist of a set of five required string properties and a required data object. The properties are common to all events from any publisher. The data object contains properties that are specific to each publisher. For system topics, these properties are specific to the resource provider, such as Azure Storage or Azure Event Hubs.
+This article provides the properties and schema for events. Events consist of a set of five required string properties and a required data object. The properties are common to all events from any publisher. The data object contains properties that are specific to each publisher. For system topics, these properties are specific to the resource provider, such as Azure Storage or Azure Event Hubs.
 
 Events are sent to Azure Event Grid in an array, which can contain multiple event objects. If there is only a single event, the array has a length of 1. The array can have a total size of up to 1 MB. Each event in the array is limited to 64 KB.
 
-## Event schema
+## Available event types
 
-The following example shows the properties that are used by all event publishers:
+Storage blobs raise the following event types:
 
-```json
-[
-  {
-    "topic": string,
-    "subject": string,    
-    "id": string,
-    "eventType": string,
-    "eventTime": string,
-    "data":{
-      object-unique-to-each-publisher
-    }
-  }
-]
-```
+- **Microsoft.Storage.BlobCreated**: Raised when a blob is created.
+- **Microsoft.Storage.BlobDeleted**: Raised when a blob is deleted.
 
-For example, the schema published for an Azure storage blob event is:
+## Example event
+
+This sample event shows the schema of a storage event raised when a blob is created: 
 
 ```json
 [
@@ -66,7 +56,7 @@ For example, the schema published for an Azure storage blob event is:
  
 ## Event properties
 
-All events will contain the same following top-level data:
+An event has the following top-level data:
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
@@ -75,18 +65,23 @@ All events will contain the same following top-level data:
 | eventType | string | One of the registered event types for this event source. |
 | eventTime | string | The time the event is generated based on the provider's UTC time. |
 | id | string | Unique identifier for the event. |
-| data | object | Event data specific to the resource provider. |
+| data | object | Storage blob event data. |
 
-## Available event sources
+The data object has the following properties:
 
-The following event sources publish events for consumption via Event Grid:
-
-* [Azure subscriptions (management operations)](event-schema-subscriptions.md)
-* [Blob storage](event-schema-blob-storage.md)
-* [Custom topics](event-schema-custom-topics.md)
-* [Event hubs](event-schema-event-hubs.md)
-* [Resource groups (management operations)](event-schema-resource-groups.md)
-
+| Property | Type | Description |
+| -------- | ---- | ----------- |
+| api | string | The operation that triggered the event. |
+| clientRequestId | string | A client-generated, opaque value with a 1 KB character limit that is recorded in the analytics logs when storage analytics logging is enabled. |
+| requestId | string | The unique identifier for the request. You can be use it for troubleshooting the request. |
+| eTag | string | The value that you can use to perform operations conditionally. |
+| contentType | string | The content type specified for the blob. |
+| contentLength | integer | The size of the blob in bytes. |
+| blobType | string | The type of blob. |
+| url | string | The path to the blob. |
+| sequencer | string | A user-controlled value that you can use to track requests. |
+| storageDiagnostics | object | Information about the storage diagnostics. |
+ 
 ## Next steps
 
 * For an introduction to Azure Event Grid, see [What is Event Grid?](overview.md).
