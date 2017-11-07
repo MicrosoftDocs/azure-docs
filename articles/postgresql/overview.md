@@ -34,7 +34,7 @@ For a set of Azure CLI samples, see:
 - [Azure CLI samples for Azure Database for PostgreSQL](./sample-scripts-azure-cli.md)
 
 ## Adjust performance and scale within seconds
-In preview, the Azure Database for MySQL service offers two service tiers: Basic and Standard. Each tier offers different performance and capabilities to support lightweight to heavyweight database workloads. You can build your first app on a small database for a few dollars a month, and then adjust the scale to meet the needs of your solution. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements. You only pay for the resources you need, and only when you need them. See [Pricing tiers](concepts-service-tiers.md) for details.
+In preview, the Azure Database for PostgreSQL service offers two service tiers: Basic and Standard. Each tier offers different performance and capabilities to support lightweight to heavyweight database workloads. You can build your first app on a small database for a few dollars a month, and then adjust the scale to meet the needs of your solution. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements. You only pay for the resources you need, and only when you need them. See [Pricing tiers](concepts-service-tiers.md) for details.
 
 ## Monitoring and alerting
 How do you decide when to dial up and down? You use the built-in performance monitoring and alerting features, combined with the performance ratings based on Compute Units. Using these tools, you can quickly assess the impact of scaling Compute Units up or down based on your current or projected performance needs. See [Alerts](howto-alert-on-metric.md) for details.
