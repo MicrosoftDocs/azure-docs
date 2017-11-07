@@ -70,7 +70,43 @@ A priority defines whether a deployment should be applied to a targeted device r
 
 Labels are string key/value pairs that you can use to filter and group of deployments. A deployment may have multiple labels. Labels are optional and do no impact the actual configuration of IoT Edge devices. 
 
-### Dep
+### Deployment status
+
+A deployment can be monitored to determine whether it applied successfully for any targeted IoT Edge device.  A targeted Edge device will appear in one or more of the following status categories: 
+* **Target** shows the IoT Edge devices that match the Deployment targeting condition.
+* **Actual** shows the targeted IoT Edge devices that are not targeted by another deployment of higher priority.
+* **Healthy** shows the IoT Edge devices that have reported back to the service that the modules have been deployed successfully. 
+* **Unhealthy** shows the IoT Edge devices have reported back to the service that one or modules have not been deployed successfully. To further investigate the error, connect remotely to that devices and view the log files.
+* **Unknown** shows the IoT Edge devices that did not report any status pertaining this deployment. To further investigate, view service info and log files.
+
+## Phased rollout 
+
+A phased rollout is an overall process whereby an operator deploys changes to a broadening set of IoT Edge devices. The goal is to make changes gradually to reduce the risk of making wide scale breaking changes.  
+
+A phased rollout is executed in the following phases and steps: 
+1. Establish a test environment of IoT Edge devices by provisioning them and setting a device twin tag like `tag.environment='test'`. The test environment should mirror the production environment that the deployment will eventually target. 
+1. Create a deployment including the desired modules and configurations. The targeting condition should target the test IoT Edge device environment.   
+1. Validate the new module configuration in the test environment.
+1. Update the deployment to include a subset of production IoT Edge devices by adding a new tag to the targeting condition. Also, ensure that the priority for the deployment is higher than other deployments currently targeted to those devices 
+1. Verify that the deployment succeeded on the targeted IoT Devices by viewing the deployment status.
+1. Update the deployment to target all remaining production IoT Edge devices.
+
+## Rollback
+
+Deployments can be rolled back in case of errors or misconfigurations.  Because a deployment defines the absolute module configuration for an IoT Edge device, an additional deployment must also be targeted to the same device at a lower priority even if the goal is to remove all modules.  
+
+Perform rollbacks in the following sequence: 
+1. Confirm that a second deployment is also targeted at the same device set. If the goal of the rollback is to remove all modules, the second deployment should not include any modules. 
+1. Modify or remove the target condition expression of the deployment you wish to roll back so that the devices no longer meet the targeting condition.
+1. Verify that the rollback succeeded by viewing the deployment status.
+   * The rolled-back deployment should no longer show status for the devices that were rolled back.
+   * The second deployment should now include deployment status for the devices that were rolled back.
+
+
+## Next steps
+
+* Walk through the steps to create, update, or delete a deployment in [Deploy and monitor IoT Edge modules at scale][lnk-howto].
+* Learn more about other IoT Edge concepts like the [IoT Edge runtime][lnk-runtime] and [IoT Edge modules][lnk-modules].
 
 <!-- Links -->
 [lnk-lifecycle]: ../iot-hub/iot-hub-device-management-overview.md
