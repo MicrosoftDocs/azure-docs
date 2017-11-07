@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/27/2017
+ms.date: 11/07/2017
 ms.author: markvi
 ms.reviewer: calebb
 
@@ -136,7 +136,7 @@ The device platform is characterized by the operating system that is running on 
 - iOS
 - Windows Phone
 - Windows
-- macOS (preview). 
+- macOS  
 
 ![Conditions](./media/active-directory-conditional-access-azure-portal/02.png)
 
