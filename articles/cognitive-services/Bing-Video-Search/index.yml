@@ -24,17 +24,17 @@ sections:
     style: dataMatrix
     columns:
       - image:
-          src: media/index/logo_csharp.svg
+          src: Bing-Web-Search/media/index/logo_csharp.svg
       - image:
-          src: media/index/logo_java.svg
+          src: Bing-Web-Search/media/index/logo_java.svg
       - image:
-          src: media/index/logo_nodejs.svg
+          src: Bing-Web-Search/media/index/logo_nodejs.svg
       - image:
-          src: media/index/logo_python.svg
+          src: Bing-Web-Search/media/index/logo_python.svg
       - image:
-          src: media/index/logo_php.svg
+          src: Bing-Web-Search/media/index/logo_php.svg
       - image:
-          src: media/index/logo_ruby.svg
+          src: Bing-Web-Search/media/index/logo_ruby.svg
     rows:
       - title: 'Call and response: your first query'
         values:
