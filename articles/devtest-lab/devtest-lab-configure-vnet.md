@@ -30,6 +30,7 @@ The following steps walk you through adding an existing virtual network (and sub
 1. Select **More Services**, and then select **DevTest Labs** from the list.
 1. From the list of labs, select the desired lab. 
 1. On the lab's main pane, select **Configuration and policies**.
+
     ![Access the lab's configuration and policies](./media/devtest-lab-configure-vnet/policies-menu.png)
 1. In the **EXTERNAL RESOURCES** section, select **Virtual networks**. A list of virtual networks configured for the current lab is displayed as well as the default virtual network created for your lab. 
 1. Select **+ Add**.
