@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2017
+ms.date: 11/15/2017
 ms.author: mimig
 
 ---
@@ -69,7 +69,7 @@ Let's dig into each one in detail.
 |Active directory integration (RBAC)| You can also provide access to the database account using Access control (IAM) in the Azure portal, as shown in the screenshot that follows this table. IAM provides role-based access control and integrates with Active Directory. You can use built in roles or custom roles for individuals and groups as shown in the following image.|
 |Global replication|Azure Cosmos DB offers turnkey global distribution, which enables you to replicate your data to any one of Azure's world-wide datacenters with the click of a button. Global replication lets you scale globally and provide low-latency access to your data around the world.<br><br>In the context of security, global replication insures data protection against regional failures.<br><br>Learn more in [Distribute data globally](distribute-data-globally.md).|
 |Regional failovers|If you have replicated your data in more than one data center, Azure Cosmos DB automatically rolls over your operations should a regional data center go offline. You can create a prioritized list of failover regions using the regions in which your data is replicated. <br><br>Learn more in [Regional Failovers in Azure Cosmos DB](regional-failover.md).|
-|Local replication|Even within a single data center, Azure Cosmos DB automatically replicates data for high availability giving you the choice of [consistency levels](consistency-levels.md). This guarantees a [99.99% uptime availability SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db) and comes with a financial guarantee - something no other database service can provide.|
+|Local replication|Even within a single data center, Azure Cosmos DB automatically replicates data for high availability giving you the choice of [consistency levels](consistency-levels.md). This guarantees a 99.99% uptime [availability SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db) for database accounts configured with relaxed consistency models, and a 99.999% SLA for read availability for database accounts spanning two or more Azure regions.|
 |Automated online backups|Azure Cosmos DB databases are backed up regularly and stored in a georedundant store. <br><br>Learn more in [Automatic online backup and restore with Azure Cosmos DB](online-backup-and-restore.md).|
 |Restore deleted data|The automated online backups can be used to recover data you may have accidentally deleted up to ~30 days after the event. <br><br>Learn more in [Automatic online backup and restore with Azure Cosmos DB](online-backup-and-restore.md)|
 |Protect and isolate sensitive data|All data in the regions listed in [What's new?](#whats-new) is now encrypted at rest.<br><br>PII and other confidential data can be isolated to specific collections and read-write, or read-only access can be limited to specific users.|
