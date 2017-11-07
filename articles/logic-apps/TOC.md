@@ -5,8 +5,8 @@
 
 # Get started
 ## [Create your first logic app](logic-apps-create-a-logic-app.md)
-## [Templates for logic apps](logic-apps-use-logic-app-templates.md)
-## [Create logic apps from templates](logic-apps-arm-provision.md)
+## [Create logic apps from templates](logic-apps-create-logic-apps-from-templates.md)
+## [Create logic apps from Resource Manager templates](logic-apps-create-deploy-azure-resource-manager-templates.md)
 ## [Move MABS apps to logic apps](logic-apps-move-from-mabs.md)
 
 # How To
@@ -16,10 +16,23 @@
 ### [Add switch statements](logic-apps-switch-case.md)
 ### [Add custom code with Azure Functions](logic-apps-azure-functions.md)
 ### [Loops, scopes, and data debatching](logic-apps-loops-and-scopes.md)
+### [Batch process messages](logic-apps-batch-process-send-receive-messages.md)
 ### [Author logic app definitions](logic-apps-author-definitions.md)
 ### [Call, trigger, or nest logic apps](logic-apps-http-endpoint.md)
-### [Create custom APIs for logic apps](logic-apps-create-api-app.md)
-### [Call custom APIs for logic apps](logic-apps-custom-hosted-api.md)
+### Develop custom connectors
+#### [Custom connectors overview](custom-connector-overview.md)
+#### [Create connectors from Web APIs](custom-connector-build-web-api-app-tutorial.md)
+#### [Secure connectors with Azure AD](custom-connector-azure-active-directory-authentication.md)
+#### [Describe APIs with Postman](custom-connector-api-postman-collection.md)
+#### [Extend OpenAPI for custom connectors](custom-connector-openapi-extensions.md)
+#### [Create and register OpenAPI connector](logic-apps-custom-connector-register.md)
+#### [Create and register SOAP connector](logic-apps-soap-connector-create-register.md)
+#### [Certify your connector](custom-connector-submit-certification.md)
+#### [FAQ for custom connectors](custom-connector-faq.md)
+### Develop custom APIs
+#### [Create custom APIs for logic apps](logic-apps-create-api-app.md)
+#### [Secure calls to custom APIs](logic-apps-custom-api-authentication.md)
+#### [Deploy and call custom APIs](logic-apps-custom-api-host-deploy-call.md)
 ### [Handle errors and exceptions](logic-apps-exception-handling.md)
 ### [Handle content types](logic-apps-content-type.md)
 ### [Secure your logic apps](logic-apps-securing-a-logic-app.md)
@@ -31,6 +44,7 @@
 ### [Partners](logic-apps-enterprise-integration-partners.md)
 ### [Agreements](logic-apps-enterprise-integration-agreements.md)
 ### [B2B processing](logic-apps-enterprise-integration-b2b.md)
+### [Send EDI messages as batch](logic-apps-scenario-edi-send-batch-messages.md)
 ### [XML processing](logic-apps-enterprise-integration-xml.md)
 ### [Flat file processing](logic-apps-enterprise-integration-flatfile.md)
 ### [Validate XML](logic-apps-enterprise-integration-xml-validation.md)
@@ -45,10 +59,12 @@
 ### [EDIFACT enterprise integration](logic-apps-enterprise-integration-edifact.md)
 ### [EDIFACT encoding](logic-apps-enterprise-integration-edifact-encode.md)
 ### [EDIFACT decoding](logic-apps-enterprise-integration-edifact-decode.md)
+### [How to handle EDIFACT documents having a UNH2.5 segment](logic-apps-enterprise-integration-edifact_inputfile_unh2.5.md)
 ### [X12 enterprise integration](logic-apps-enterprise-integration-x12.md)
 ### [X12 encoding](logic-apps-enterprise-integration-x12-encode.md)
 ### [X12 decoding](logic-apps-enterprise-integration-x12-decode.md)
 ### [Disaster recovery](logic-apps-enterprise-integration-b2b-business-continuity.md)
+### [Errors and solutions](logic-apps-enterprise-integration-b2b-list-errors-solutions.md)
 
 ## Access on-premises data
 ### [Connect to on-premises data](logic-apps-gateway-connection.md)
@@ -60,27 +76,25 @@
 
 ## Manage & monitor
 ### [Manage logic apps with Visual Studio](logic-apps-manage-from-vs.md)
-### [Monitor logic apps](logic-apps-monitor-your-logic-apps.md)
 ### [Manage integration accounts](logic-apps-enterprise-integration-accounts.md)
+### [Monitor logic app status](logic-apps-monitor-your-logic-apps.md)
+### [Monitor logic app status in OMS with Log Analytics](logic-apps-monitor-your-logic-apps-oms.md)
 ### [Monitor B2B messages](logic-apps-monitor-b2b-message.md)
+#### [Track B2B messages in OMS](logic-apps-track-b2b-messages-omsportal.md)
+#### [Query OMS for B2B messages](logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
 #### [AS2 tracking schema](logic-apps-track-integration-account-as2-tracking-schemas.md)
 #### [X12 tracking schema](logic-apps-track-integration-account-x12-tracking-schema.md)
 #### [Custom tracking schema](logic-apps-track-integration-account-custom-tracking-schema.md)
-#### [Track B2B messages in OMS](logic-apps-track-b2b-messages-omsportal.md)
-#### [Query OMS for messages](logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
 
-## Examples, scenarios, and walkthroughs
-### [Overview](logic-apps-examples-and-scenarios.md)
+## [Examples, scenarios, and walkthroughs](logic-apps-examples-and-scenarios.md)
 ### [Create a serverless social dashboard](logic-apps-scenario-social-serverless.md)
 ### [Call logic apps with Azure Functions](logic-apps-scenario-function-sb-trigger.md)
 ### [Add error and exception handling](logic-apps-scenario-error-and-exception-handling.md)
-### [B2B processing](logic-apps-enterprise-integration-b2b.md)
-### [How to handle EDIFACT documents having UNH2.5 segment](logic-apps-enterprise-integration-edifact_inputfile_unh2.5.md)
+### [B2B processing](logic-apps-enterprise-integration-b2b.md) 
 
 ## Pricing & billing
 ### [Pricing](https://azure.microsoft.com/pricing/details/logic-apps/)
 ### [Usage metering](logic-apps-pricing.md)
-
 
 # Serverless
 ## Overview
@@ -96,7 +110,7 @@
 ## [Workflow definition language](logic-apps-workflow-definition-language.md)
 ## [Workflow actions and triggers](logic-apps-workflow-actions-triggers.md)
 ## [REST API](/rest/api/logic/)
-## [PowerShell](/powershell/module/azurerm.logicapp)
+## [Azure PowerShell](/powershell/module/azurerm.logicapp)
 ## Connectors: In-depth topics
 ### [AS2](logic-apps-enterprise-integration-as2.md)
 ### [Azure Blob Storage](../connectors/connectors-create-api-azureblobstorage.md)
@@ -116,6 +130,7 @@
 ### [HTTP Webhook](../connectors/connectors-native-webhook.md)
 ### [Informix](../connectors/connectors-create-api-informix.md)
 ### [Integration Account](logic-apps-enterprise-integration-metadata.md)
+### [MQ](../connectors/connectors-create-api-mq.md)
 ### [Office 365 Outlook](../connectors/connectors-create-api-office365-outlook.md)
 ### [Oracle Database](../connectors/connectors-create-api-oracledatabase.md)
 ### [Request / Response](../connectors/connectors-native-reqres.md)
@@ -137,6 +152,8 @@
 ### [Preview](logic-apps-schema-2015-08-01.md)
 
 # Resources
-## [Service updates](https://azure.microsoft.com/updates/?product=logic-apps)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [MSDN Forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azurelogicapps)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
+## [Service updates](https://azure.microsoft.com/updates/?product=logic-apps)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-logic-apps)

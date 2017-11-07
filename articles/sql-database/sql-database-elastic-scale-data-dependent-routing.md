@@ -9,8 +9,8 @@ editor: ''
 
 ms.assetid: cad09e15-5561-4448-aa18-b38f54cda004
 ms.service: sql-database
-ms.custom: multiple databases
-ms.workload: sql-database
+ms.custom: scale out apps
+ms.workload: "Inactive"
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article

@@ -521,7 +521,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Enables you to generate a performance counter table that is optimized for fast queries. Each performance counter that is defined in the **PerformanceCounters** element is stored in the Metrics table in addition to the Performance Counter table.  
 
- The **resourceId** attribute is required.  The resource ID of the Virtual Machine you are deploying Azure Diagnostics to. Get the **resourceID** from the [Azure portal](https://portal.azure.com). Select **Browse** -> **Resource Groups** -> **<Name\>**. Click the **Properties** tile and copy the value from the **ID** field.  
+ The **resourceId** attribute is required.  The resource ID of the Virtual Machine or Virtual Machine Scale Set you are deploying Azure Diagnostics to. Get the **resourceID** from the [Azure portal](https://portal.azure.com). Select **Browse** -> **Resource Groups** -> **<Name\>**. Click the **Properties** tile and copy the value from the **ID** field.  
 
 |Child Elements|Description|  
 |--------------------|-----------------|  
@@ -554,7 +554,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Child Element|Description|  
 |-------------------|-----------------|  
-|**DataSource**|The Windows Event logs to collect. Required attribute:<br /><br /> **name** - The XPath query describing the windows events to be collected. For example:<br /><br /> `Application!*[Application[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[Security[(Level <= 3)]`<br /><br /> To collect all events, specify "*"|  
+|**DataSource**|The Windows Event logs to collect. Required attribute:<br /><br /> **name** - The XPath query describing the windows events to be collected. For example:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> To collect all events, specify "*"|  
 
 
 

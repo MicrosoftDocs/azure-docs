@@ -1,11 +1,11 @@
 ---
 title: Azure Cognitive Services, Face API Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to create and develop apps invoking the Face API
-services: sql-database
-author: carolz
+services: cognitive-services
+author: czeumault
 manager: carolz
 layout: LandingPage
-ms.service: sql-database
+ms.service: cognitive-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
@@ -15,7 +15,7 @@ ms.author: carolz
 <div class="content">
     <h1>Face API Documentation</h1>
     <div class="intro" style="min-width: 200px">
-        <p>The cloud-based Face API provides developers with access to advanced face algorithms. MIcrosoft Face algorithms enable face attribute detection and face recognition. Learn how to analyze content in different ways with our quickstarts, tutorials, and samples.</p>
+        <p>The cloud-based Face API provides developers with access to advanced face algorithms. Microsoft Face algorithms enable face attribute detection and face recognition. Learn how to analyze content in different ways with our quickstarts, tutorials, and samples.</p>
     </div>
 <h2 style="margin-top: 18px; margin-bottom: 0px;">5-Minute Quickstarts</h2>
 <p style="margin-top: 6px; margin-bottom: 6px;">Detect and identify faces using:</p>

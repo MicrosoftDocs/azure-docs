@@ -4,7 +4,7 @@ description: Learn how to track job progress.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: a1a1f956-c035-448a-af9c-5ac15fcce9dd
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 08/10/2017
 ms.author: juliako
 
 ---
@@ -26,6 +26,15 @@ ms.author: juliako
 > 
 
 When you run jobs, you often require a way to track job progress. You can find out the Job status by using the Job's State property. For more information on the State property, see [Job Entity Properties](https://docs.microsoft.com/rest/api/media/operations/job#job_entity_properties).
+
+## Connect to Media Services
+
+For information on how to connect to the AMS API, see [Access the Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md). 
+
+>[!NOTE]
+>After successfully connecting to https://media.windows.net, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI.
+
+## Check job progress
 
 Request:
 
@@ -63,3 +72,6 @@ Response:
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
+## See also
+
+[Media Services operations REST API overview](media-services-rest-how-to-use.md)

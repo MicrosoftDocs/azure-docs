@@ -3,7 +3,7 @@ title: Azure AD Windows Store Getting Started | Microsoft Docs
 description: Build Windows Store apps that integrate with Azure AD for sign-in and call Azure AD protected APIs using OAuth.
 services: active-directory
 documentationcenter: windows
-author: dstrockis
+author: jmprieur
 manager: mbaldwin
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: mobile-windows-store
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/16/2016
-ms.author: dastrock
+ms.author: jmprieur
 ms.custom: aaddev
 
 ---
@@ -22,6 +22,9 @@ ms.custom: aaddev
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
+
+> [!NOTE]
+> Windows Store 8.1 and prior version projects are not supported in Visual Studio 2017.  For more information, see [Visual Studio 2017 Platform Targeting and Compatibility](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs).
 
 If you're developing apps for the Windows Store, Azure Active Directory (Azure AD) makes it simple and straightforward to authenticate your users with their Active Directory accounts. By integrating with Azure AD, an app can securely consume any web API that's protected by Azure AD, such as the Office 365 APIs or the Azure API.
 

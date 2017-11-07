@@ -14,10 +14,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 08/28/2017
 ms.author: curtand
 
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017;it-pro
+ms.reviewer: piotrci
 
 ---
 # Manage access to resources with Azure Active Directory groups
@@ -28,7 +29,7 @@ Azure Active Directory (Azure AD) is a comprehensive identity and access managem
 >
 >
 
-Within Azure AD, one of the major features is the ability to manage access to resources. These resources can be part of the directory, as in the case of permissions to manage objects through roles in the directory, or resources that are external to the directory, such as SaaS applications, Azure services, and SharePoint sites or on premise resources. There are four ways a user can be assigned access rights to a resource:
+Within Azure AD, one of the major features is the ability to manage access to resources. These resources can be part of the directory, as in the case of permissions to manage objects through roles in the directory, or resources that are external to the directory, such as SaaS applications, Azure services, and SharePoint sites or on-premises resources. There are four ways a user can be assigned access rights to a resource:
 
 1. Direct assignment
 
@@ -64,7 +65,7 @@ The owner of a group can also make that group available for self-service request
 ## Getting started with access management
 Ready to get started? You should try out some of the basic tasks you can do with Azure AD groups. Use these capabilities to provide specialized access to different groups of people for different resources in your organization. A list of basic first steps are listed below.
 
-* [Creating a simple rule to configure dynamic memberships for a group](active-directory-accessmanagement-manage-groups.md#how-can-i-manage-the-membership-of-a-group-dynamically)
+* [Creating a simple rule to configure dynamic memberships for a group](active-directory-accessmanagement-manage-groups.md)
 * [Using a group to manage access to SaaS applications](active-directory-accessmanagement-group-saasapps.md)
 * [Making a group available for end user self-service](active-directory-accessmanagement-self-service-group-management.md)
 * [Syncing an on-premises group to Azure using Azure AD Connect](active-directory-aadconnect.md)

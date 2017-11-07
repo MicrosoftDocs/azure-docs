@@ -14,54 +14,202 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/02/2017
+ms.date: 11/06/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 
 ---
 
-# Set up GPU drivers for N-series VMs running Linux
+# Install NVIDIA GPU drivers on N-series VMs running Linux
 
-To take advantage of the GPU capabilities of Azure N-series VMs running Linux, install NVIDIA graphics drivers on each VM. This article provides driver setup steps after you deploy an N-series VM. Driver setup information is also available for [Windows VMs](../windows/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+To take advantage of the GPU capabilities of Azure N-series VMs running Linux, install supported NVIDIA graphics drivers. This article provides driver setup steps after you deploy an N-series VM. Driver setup information is also available for [Windows VMs](../windows/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 
 For N-series VM specs, storage capacities, and disk details, see [GPU Linux VM sizes](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 
 
 
-## Supported distributions and drivers
+[!INCLUDE [virtual-machines-n-series-linux-support](../../../includes/virtual-machines-n-series-linux-support.md)]
+
+## Install GRID drivers for NV VMs
+
+To install NVIDIA GRID drivers on NV VMs, make an SSH connection to each VM and follow the steps for your Linux distribution. 
+
+### Ubuntu 16.04 LTS
+
+1. Run the `lspci` command. Verify that the NVIDIA M60 card or cards are visible as PCI devices.
+
+2. Install updates.
+
+  ```bash
+  sudo apt-get update
+
+  sudo apt-get upgrade -y
+
+  sudo apt-get dist-upgrade -y
+
+  sudo apt-get install build-essential ubuntu-desktop -y
+  ```
+3. Disable the Nouveau kernel driver, which is incompatible with the NVIDIA driver. (Only use the NVIDIA driver on NV VMs.) To do this, create a file in `/etc/modprobe.d `named `nouveau.conf` with the following contents:
+
+  ```
+  blacklist nouveau
+
+  blacklist lbm-nouveau
+  ```
+
+
+4. Reboot the VM and reconnect. Exit X server:
+
+  ```bash
+  sudo systemctl stop lightdm.service
+  ```
+
+5. Download and install the GRID driver:
+
+  ```bash
+  wget -O NVIDIA-Linux-x86_64-367.106-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
+
+  chmod +x NVIDIA-Linux-x86_64-367.106-grid.run
+
+  sudo ./NVIDIA-Linux-x86_64-367.106-grid.run
+  ``` 
+
+6. When you're asked whether you want to run the nvidia-xconfig utility to update your X configuration file, select **Yes**.
+
+7. After installation completes, copy /etc/nvidia/gridd.conf.template to a new file gridd.conf at location /etc/nvidia/
+
+  ```bash
+  sudo cp /etc/nvidia/gridd.conf.template /etc/nvidia/gridd.conf
+  ```
+
+8. Add the following to `/etc/nvidia/gridd.conf`:
+ 
+  ```
+  IgnoreSP=TRUE
+  ```
+9. Reboot the VM and proceed to verify the installation.
+
+
+### CentOS-based 7.3 or Red Hat Enterprise Linux 7.3
 
 > [!IMPORTANT]
-> Currently, Linux GPU driver support is only available on Azure NC VMs. 
-
-The following distributions from the Azure Marketplace are supported to run NVIDIA graphics drivers on N-series Linux VMs.
-
-### NC VMs (Tesla K80 card)
-* Ubuntu 16.04 LTS 
-* Red Hat Enterprise Linux 7.3 
-* CentOS-based 7.3 
-
-**Supported drivers**: NVIDIA CUDA 8.0, driver branch R375. [Installation steps](#install-cuda-drivers-for-nc-vms)
-
-
-
-
-> [!WARNING] 
-> Installation of third-party software on Red Hat products can affect the Red Hat support terms. See the [Red Hat Knowledgebase article](https://access.redhat.com/articles/1067).
+> Do not run `sudo yum update` to update the kernel version on CentOS 7.3 or Red Hat Enterprise Linux 7.3. Currently, driver installation and updates do not work if the kernel is updated.
 >
 
+1. Update the kernel and DKMS.
+ 
+  ```bash  
+  sudo yum update
+ 
+  sudo yum install kernel-devel
+ 
+  sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+ 
+  sudo yum install dkms
+  ```
 
+2. Disable the Nouveau kernel driver, which is incompatible with the NVIDIA driver. (Only use the NVIDIA driver on NV VMs.) To do this, create a file in `/etc/modprobe.d `named `nouveau.conf` with the following contents:
+
+  ```
+  blacklist nouveau
+
+  blacklist lbm-nouveau
+  ```
+ 
+3. Reboot the VM, reconnect, and install the latest Linux Integration Services for Hyper-V:
+ 
+  ```bash
+  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3.tar.gz
+
+  tar xvzf lis-rpms-4.2.3.tar.gz
+
+  cd LISISO
+
+  sudo ./install.sh
+
+  sudo reboot
+
+  ```
+ 
+4. Reconnect to the VM and run the `lspci` command. Verify that the NVIDIA M60 card or cards are visible as PCI devices.
+ 
+5. Download and install the GRID driver:
+
+  ```bash
+  wget -O NVIDIA-Linux-x86_64-367.106-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
+
+  chmod +x NVIDIA-Linux-x86_64-367.106-grid.run
+
+  sudo ./NVIDIA-Linux-x86_64-367.106-grid.run
+  ``` 
+6. When you're asked whether you want to run the nvidia-xconfig utility to update your X configuration file, select **Yes**.
+
+7. After installation completes, copy /etc/nvidia/gridd.conf.template to a new file gridd.conf at location /etc/nvidia/
+  
+  ```bash
+  sudo cp /etc/nvidia/gridd.conf.template /etc/nvidia/gridd.conf
+  ```
+  
+8. Add the following to `/etc/nvidia/gridd.conf`:
+ 
+  ```
+  IgnoreSP=TRUE
+  ```
+9. Reboot the VM and proceed to verify the installation.
+
+### Verify driver installation
+
+
+To query the GPU device state, SSH to the VM and run the [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) command-line utility installed with the driver. 
+
+Output similar to the following appears:
+
+![NVIDIA device status](./media/n-series-driver-setup/smi-nv.png)
+ 
+
+### X11 server
+If you need an X11 server for remote connections to an NV VM, [x11vnc](http://www.karlrunge.com/x11vnc/) is recommended because it allows hardware acceleration of graphics. The BusID of the M60 device must be manually added to the xconfig file (`etc/X11/xorg.conf` on Ubuntu 16.04 LTS, `/etc/X11/XF86config` on CentOS 7.3 or Red Hat Enterprise Server 7.3). Add a `"Device"` section similar to the following:
+ 
+```
+Section "Device"
+    Identifier     "Device0"
+    Driver         "nvidia"
+    VendorName     "NVIDIA Corporation"
+    BoardName      "Tesla M60"
+    BusID          "your-BusID:0:0:0"
+EndSection
+```
+ 
+Additionally, update your `"Screen"` section to use this device.
+ 
+The BusID can be found by running
+
+```bash
+/usr/bin/nvidia-smi --query-gpu=pci.bus_id --format=csv | tail -1 | cut -d ':' -f 1
+```
+ 
+The BusID can change when a VM gets reallocated or rebooted. Therefore, you may want to use a script to update the BusID in the X11 configuration when a VM is rebooted. For example:
+
+```bash 
+#!/bin/bash
+BUSID=$((16#`/usr/bin/nvidia-smi --query-gpu=pci.bus_id --format=csv | tail -1 | cut -d ':' -f 1`))
+
+if grep -Fxq "${BUSID}" /etc/X11/XF86Config; then     echo "BUSID is matching"; else   echo "BUSID changed to ${BUSID}" && sed -i '/BusID/c\    BusID          \"PCI:0@'${BUSID}':0:0:0\"' /etc/X11/XF86Config; fi
+```
+
+This file can be invoked as root on boot by creating an entry for it in `/etc/rc.d/rc3.d`.
 
 
 ## Install CUDA drivers for NC VMs
 
-Here are steps to install NVIDIA drivers on Linux NC VMs from the NVIDIA CUDA Toolkit 8.0. 
+Here are steps to install NVIDIA drivers on Linux NC VMs from the NVIDIA CUDA Toolkit. 
 
 C and C++ developers can optionally install the full Toolkit to build GPU-accelerated applications. For more information, see the [CUDA Installation Guide](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html).
 
 
 > [!NOTE]
-> CUDA driver download links provided here are current at time of publication. For the latest drivers, visit the [NVIDIA](http://www.nvidia.com/) website.
+> CUDA driver download links provided here are current at time of publication. For the latest CUDA drivers, visit the [NVIDIA](https://developer.nvidia.com/cuda-zone) website.
 >
 
 To install CUDA Toolkit, make an SSH connection to each VM. To verify that the system has a CUDA-capable GPU, run the following command:
@@ -73,75 +221,103 @@ You will see output similar to the following example (showing an NVIDIA Tesla K8
 
 ![lspci command output](./media/n-series-driver-setup/lspci.png)
 
-Then run commands specific for your distribution.
+Then run installation commands specific for your distribution.
 
 ### Ubuntu 16.04 LTS
 
+1. Download and install the CUDA drivers.
+  ```bash
+  CUDA_REPO_PKG=cuda-9-0_9.0.176-1_amd64.deb
+
+  wget -O /tmp/${CUDA_REPO_PKG} http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/${CUDA_REPO_PKG} 
+
+  sudo dpkg -i /tmp/${CUDA_REPO_PKG}
+
+  sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub 
+
+  rm -f /tmp/${CUDA_REPO_PKG}
+
+  sudo apt-get update
+
+  sudo apt-get install cuda-drivers
+
+  ```
+
+  The installation can take several minutes.
+
+2. To optionally install the complete CUDA toolkit, type:
+
+  ```bash
+  sudo apt-get install cuda
+  ```
+
+3. Reboot the VM and proceed to verify the installation.
+
+#### CUDA driver updates
+
+We recommend that you periodically update CUDA drivers after deployment.
+
 ```bash
-CUDA_REPO_PKG=cuda-repo-ubuntu1604_8.0.61-1_amd64.deb
-
-wget -O /tmp/${CUDA_REPO_PKG} http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/${CUDA_REPO_PKG} 
-
-sudo dpkg -i /tmp/${CUDA_REPO_PKG}
-
-rm -f /tmp/${CUDA_REPO_PKG}
-
 sudo apt-get update
 
+sudo apt-get upgrade -y
+
+sudo apt-get dist-upgrade -y
+
 sudo apt-get install cuda-drivers
-
-```
-The installation can take several minutes.
-
-To optionally install the complete CUDA toolkit, type:
-
-```bash
-sudo apt-get install cuda
-```
-
-Reboot the VM and proceed to verify the installation.
-
-### CentOS 7.3 or Red Hat Enterprise Linux 7.3
-
-> [!IMPORTANT] 
-> Because of a known issue, NVIDIA CUDA driver installation fails on NC24r VMs running CentOS 7.3 or Red Hat Enterprise Linux 7.3.
->
-
-First, get updates. 
-
-```bash
-sudo yum update
 
 sudo reboot
 ```
 
-Reconnect to the VM and continue installation with the following commands:
+### CentOS-based 7.3 or Red Hat Enterprise Linux 7.3
 
-```bash
-sudo yum install kernel-devel
+1. Install the latest Linux Integration Services for Hyper-V.
 
-sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+  > [!IMPORTANT]
+  > If you installed a CentOS-based HPC image on an NC24r VM, skip to Step 3. Because Azure RDMA drivers and Linux Integration Services are pre-installed in the HPC image, LIS should not be upgraded, and kernel updates are disabled by default.
+  >
 
-sudo yum install dkms
+  ```bash
+  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-1.tar.gz
+ 
+  tar xvzf lis-rpms-4.2.3-1.tar.gz
+ 
+  cd LISISO
+ 
+  sudo ./install.sh
+ 
+  sudo reboot
+  ```
+ 
+3. Reconnect to the VM and continue installation with the following commands:
 
-CUDA_REPO_PKG=cuda-repo-rhel7-8.0.61-1.x86_64.rpm
+  ```bash
+  sudo yum install kernel-devel
 
-wget http://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/${CUDA_REPO_PKG} -O /tmp/${CUDA_REPO_PKG}
+  sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 
-sudo rpm -ivh /tmp/${CUDA_REPO_PKG}
+  sudo yum install dkms
 
-rm -f /tmp/${CUDA_REPO_PKG}
+  CUDA_REPO_PKG=cuda-repo-rhel7-9.0.176-1.x86_64.rpm
 
-sudo yum install cuda-drivers
-```
+  wget http://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/${CUDA_REPO_PKG} -O /tmp/${CUDA_REPO_PKG}
 
-The installation can take several minutes. To optionally install the complete CUDA toolkit, type:
+  sudo rpm -ivh /tmp/${CUDA_REPO_PKG}
 
-```bash
-sudo yum install cuda
-```
+  rm -f /tmp/${CUDA_REPO_PKG}
 
-Reboot the VM and proceed to verify the installation.
+  sudo yum install cuda-drivers
+  ```
+
+  The installation can take several minutes. 
+
+4. To optionally install the complete CUDA toolkit, type:
+
+  ```bash
+  sudo yum install cuda
+  ```
+
+5. Reboot the VM and proceed to verify the installation.
 
 
 ### Verify driver installation
@@ -154,37 +330,25 @@ Output similar to the following appears:
 ![NVIDIA device status](./media/n-series-driver-setup/smi.png)
 
 
-### CUDA driver updates
 
-We recommend that you periodically update CUDA drivers after deployment.
+## RDMA network for NC24r VMs
 
-#### Ubuntu 16.04 LTS
+RDMA network connectivity can be enabled on NC24r VMs deployed in the same availability set. The RDMA network supports Message Passing Interface (MPI) traffic for applications running with Intel MPI 5.x or a later version. Additional requirements follow:
 
-```bash
-sudo apt-get update
+### Distributions
 
-sudo apt-get upgrade -y
+Deploy NC24r VMs from one of the following images in the Azure Marketplace that supports RDMA connectivity:
+  
+* **Ubuntu** - Ubuntu Server 16.04 LTS. Configure RDMA drivers on the VM and register with Intel to download Intel MPI:
 
-sudo apt-get dist-upgrade -y
+  [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]
 
-sudo apt-get install cuda-drivers
-```
-
-After the update completes, restart the VM.
-
-#### CentOS 7.3 or Red Hat Enterprise Linux 7.3
-
-```bash
-sudo yum update
-```
-
-After the update completes, restart the VM.
-
+* **CentOS-based HPC** - CentOS-based 7.3 HPC. RDMA drivers and Intel MPI 5.1 are installed on the VM. 
 
 
 ## Troubleshooting
 
-* There is a known issue with CUDA drivers on Azure N-series VMs running the 4.4.0-75 Linux kernel on Ubuntu 16.04 LTS. To maintain driver function when you upgrade the kernel, upgrade to at least kernel version 4.4.0-77. 
+* There is a known issue with CUDA drivers on Azure N-series VMs running the 4.4.0-75 Linux kernel on Ubuntu 16.04 LTS. If you are upgrading from an earlier kernel version, upgrade to at least kernel version 4.4.0-77. 
 
 
 

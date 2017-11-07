@@ -5,7 +5,7 @@ services: cognitive services
 documentationcenter: ''
 author: juliako
 
-ms.service: video-indexer
+ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/02/2017
 ms.author: juliako;

@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2017
+ms.date: 09/21/2017
 ms.author: magoedte
 ---
 
@@ -37,9 +37,9 @@ If your IT security policies do not allow computers on your network to connect t
 ## System requirements
 Before starting, review the following details to verify you meet prerequisites.
 
-* OMS only supports Operations Manager 2016, Operations Manager 2012 SP1 UR6 and greater, and Operations Manager 2012 R2 UR2 and greater.  Proxy support was added in Operations Manager 2012 SP1 UR7 and Operations Manager 2012 R2 UR3.
+* OMS only supports Operations Manager 2016, Operations Manager 2012 SP1 UR10 and greater, and Operations Manager 2012 R2 UR11 and greater.
 * All Operations Manager agents must meet minimum support requirements. Ensure that agents are at the minimum update, otherwise Windows agent traffic may fail and many errors might fill the Operations Manager event log.
-* An OMS subscription.  For further information, review [Get started with Log Analytics](log-analytics-get-started.md).
+* An Azure Log Analytics subscription.  For further information, review [Get started with Log Analytics](log-analytics-get-started.md).
 
 ### Network
 The information below list the proxy and firewall configuration information required for the Operations Manager agent, management servers, and Operations console to communicate with OMS.  Traffic from each component is outbound from your network to the OMS service.     
@@ -47,14 +47,14 @@ The information below list the proxy and firewall configuration information requ
 |Resource | Port number| Bypass HTTP Inspection|  
 |---------|------|-----------------------|  
 |**Agent**|||  
-|\*.ods.opinsights.azure.com| 443 ||  
-|\*.oms.opinsights.azure.com| 443||  
-|\*.blob.core.windows.net| 443||  
+|\*.ods.opinsights.azure.com| 443 |Yes|  
+|\*.oms.opinsights.azure.com| 443|Yes|  
+|\*.blob.core.windows.net| 443|Yes|  
+|\*.azure-automation.net| 443|Yes|  
 |**Management server**|||  
-|service.systemcenteradvisor.com| 443||  
 |\*.service.opinsights.azure.com| 443||  
 |\*.blob.core.windows.net| 443| Yes|  
-|\*.ods.opinsights.azue.com| 443| Yes|  
+|\*.ods.opinsights.azure.com| 443| Yes|  
 |*.azure-automation.net | 443| Yes|  
 |**Operations Manager console to OMS**|||  
 |service.systemcenteradvisor.com| 443||  
@@ -196,7 +196,7 @@ To delete the two connectors - Microsoft.SystemCenter.Advisor.DataConnector and 
 
 ```
     .\OM2012_DeleteConnector.ps1 “Advisor Connector” <ManagementServerName>
-    .\OM2012_DeleteConnector.ps1 “Microsoft.SystemCenter.Advisor.DataConnector” <ManagementServerName>
+    .\OM2012_DeleteConnectors.ps1 “Microsoft.SytemCenter.Advisor.DataConnector” <ManagementServerName>
 ```
 
 > [!NOTE]
@@ -205,7 +205,7 @@ To delete the two connectors - Microsoft.SystemCenter.Advisor.DataConnector and 
 > 
 
 ```
-    param(
+    `param(
     [String] $connectorName,
     [String] $msName="localhost"
     )

@@ -4,7 +4,7 @@ description: This topic is an overview of scaling Media Processing with Azure Me
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 780ef5c2-3bd6-4261-8540-6dee77041387
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/13/2017
+ms.date: 07/04/2017
 ms.author: juliako
 
 ---

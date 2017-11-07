@@ -165,7 +165,7 @@ To create a VM from your original virtual hard disk, use [this Azure Resource Ma
 
 - https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-specialized-vhd/azuredeploy.json
 
-The template deploys a VM using the VHD URI from the earlier command. Deploy the template with [az group deployment create](/cli/azure/vm/deployment#create). Provide the URI to your original VHD and then specify the OS type, VM size, and VM name as follows:
+The template deploys a VM using the VHD URI from the earlier command. Deploy the template with [az group deployment create](/cli/azure/group/deployment#create). Provide the URI to your original VHD and then specify the OS type, VM size, and VM name as follows:
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup --name myDeployment \

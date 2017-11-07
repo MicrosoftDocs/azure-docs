@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/01/2017
+ms.date: 10/12/2017
 ms.author: cherylmc
 
 ---
@@ -23,89 +23,96 @@ ms.author: cherylmc
 This article shows you how to use PowerShell to create a Site-to-Site VPN gateway connection from your on-premises network to the VNet. The steps in this article apply to the Resource Manager deployment model. You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:
 
 > [!div class="op_single_selector"]
-> * [Resource Manager - Azure portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-> * [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
-> * [Resource Manager - CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
-> * [Classic - Azure portal](vpn-gateway-howto-site-to-site-classic-portal.md)
-> * [Classic - classic portal](vpn-gateway-site-to-site-create.md)
+> * [Azure portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+> * [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+> * [CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
+> * [Azure portal (classic)](vpn-gateway-howto-site-to-site-classic-portal.md)
 > 
 >
 
 
 A Site-to-Site VPN gateway connection is used to connect your on-premises network to an Azure virtual network over an IPsec/IKE (IKEv1 or IKEv2) VPN tunnel. This type of connection requires a VPN device located on-premises that has an externally facing public IP address assigned to it. For more information about VPN gateways, see [About VPN gateway](vpn-gateway-about-vpngateways.md).
 
-![Site-to-Site VPN Gateway cross-premises connection diagram](./media/vpn-gateway-create-site-to-site-rm-powershell/site-to-site-connection-diagram.png)
+![Site-to-Site VPN Gateway cross-premises connection diagram](./media/vpn-gateway-create-site-to-site-rm-powershell/site-to-site-diagram.png)
 
-## Before you begin
+## <a name="before"></a>Before you begin
 
 Verify that you have met the following criteria before beginning your configuration:
 
-* Verify that you want to work with the Resource Manager deployment model. [!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)] 
-* A compatible VPN device and someone who is able to configure it. For more information about compatible VPN devices and device configuration, see [About VPN Devices](vpn-gateway-about-vpn-devices.md).
-* An externally facing public IPv4 address for your VPN device. This IP address cannot be located behind a NAT.
+* Make sure you have a compatible VPN device and someone who is able to configure it. For more information about compatible VPN devices and device configuration, see [About VPN Devices](vpn-gateway-about-vpn-devices.md).
+* Verify that you have an externally facing public IPv4 address for your VPN device. This IP address cannot be located behind a NAT.
 * If you are unfamiliar with the IP address ranges located in your on-premises network configuration, you need to coordinate with someone who can provide those details for you. When you create this configuration, you must specify the IP address range prefixes that Azure will route to your on-premises location. None of the subnets of your on-premises network can over lap with the virtual network subnets that you want to connect to.
-* The latest version of the Azure Resource Manager PowerShell cmdlets. See [How to install and configure Azure PowerShell](/powershell/azure/overview) for more information about installing the PowerShell cmdlets.
+* Install the latest version of the Azure Resource Manager PowerShell cmdlets. PowerShell cmdlets are updated frequently and you will typically need to update your PowerShell cmdlets to get the latest feature functionality. If you don't update your PowerShell cmdlets, the values specified may fail. See [How to install and configure Azure PowerShell](/powershell/azure/overview) for more information about downloading and installing PowerShell cmdlets.
 
-### Example values
+### <a name="example"></a>Example values
 
 The examples in this article use the following values. You can use these values to create a test environment, or refer to them to better understand the examples in this article.
 
 ```
 #Example values
 
-VnetName                = testvnet 
-ResourceGroup           = testrg 
-Location                = West US 
-AddressSpace            = 10.0.0.0/16 
+VnetName                = TestVNet1
+ResourceGroup           = TestRG1
+Location                = East US 
+AddressSpace            = 10.11.0.0/16 
 SubnetName              = Subnet1 
-Subnet                  = 10.0.1.0/28 
-GatewaySubnet           = 10.0.0.0/27
-LocalNetworkGatewayName = LocalSite
+Subnet                  = 10.11.1.0/28 
+GatewaySubnet           = 10.11.0.0/27
+LocalNetworkGatewayName = Site2
 LNG Public IP           = <VPN device IP address> 
-Local Address Prefixes  = 10.0.0.0/24','20.0.0.0/24
-Gateway Name            = vnetgw1
-PublicIP                = gwpip
+Local Address Prefixes  = 10.0.0.0/24, 20.0.0.0/24
+Gateway Name            = VNet1GW
+PublicIP                = VNet1GWIP
 Gateway IP Config       = gwipconfig1 
 VPNType                 = RouteBased 
 GatewayType             = Vpn 
-ConnectionName          = myGWConnection
+ConnectionName          = VNet1toSite2
+
 ```
+
 
 ## <a name="Login"></a>1. Connect to your subscription
 
-[!INCLUDE [vpn-gateway-ps-login](../../includes/vpn-gateway-ps-login-include.md)]
+[!INCLUDE [PowerShell login](../../includes/vpn-gateway-ps-login-include.md)]
 
 ## <a name="VNet"></a>2. Create a virtual network and a gateway subnet
 
-If you don't already have a virtual network, create one. When creating a virtual network, make sure that the address spaces you specify don't overlap any of the address spaces that you have on your on-premises network. For this configuration, you also need a gateway subnet. The virtual network gateway uses a gateway subnet that contains the IP addresses that are used by the VPN gateway services. When you create a gateway subnet, it must be named 'GatewaySubnet'. If you name it something else, you create a subnet, but Azure won't treat it as a gateway subnet.
+If you don't already have a virtual network, create one. When creating a virtual network, make sure that the address spaces you specify don't overlap any of the address spaces that you have on your on-premises network. 
 
-The size of the gateway subnet that you specify depends on the VPN gateway configuration that you want to create. While it is possible to create a gateway subnet as small as /29, we recommend that you create a larger subnet that includes more addresses by selecting /27 or /28. Using the larger gateway subnet allows for enough IP addresses to accommodate possible future configurations.
+>[!NOTE]
+>In order for this VNet to connect to an on-premises location, you need to coordinate with your on-premises network administrator to carve out an IP address range that you can use specifically for this virtual network. If a duplicate address range exists on both sides of the VPN connection, traffic does not route the way you may expect it to. Additionally, if you want to connect this VNet to another VNet, the address space cannot overlap with other VNet. Take care to plan your network configuration accordingly.
+>
+>
 
-[!INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
+### About the gateway subnet
 
-### To create a virtual network and a gateway subnet
+[!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-include.md)]
+
+[!INCLUDE [No NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
+
+### <a name="vnet"></a>To create a virtual network and a gateway subnet
 
 This example creates a virtual network and a gateway subnet. If you already have a virtual network that you need to add a gateway subnet to, see [To add a gateway subnet to a virtual network you have already created](#gatewaysubnet).
 
 Create a resource group:
 
 ```powershell
-New-AzureRmResourceGroup -Name testrg -Location 'West US'
+New-AzureRmResourceGroup -Name TestRG1 -Location 'East US'
 ```
 
-Create your virtual network. 
+Create your virtual network.
 
 1. Set the variables.
 
   ```powershell
-  $subnet1 = New-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.0.0/27
-  $subnet2 = New-AzureRmVirtualNetworkSubnetConfig -Name 'Subnet1' -AddressPrefix '10.0.1.0/28'
+  $subnet1 = New-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.11.0.0/27
+  $subnet2 = New-AzureRmVirtualNetworkSubnetConfig -Name 'Subnet1' -AddressPrefix 10.11.1.0/28
   ```
 2. Create the VNet.
 
   ```powershell
-  New-AzureRmVirtualNetwork -Name testvnet -ResourceGroupName testrg `
-  -Location 'West US' -AddressPrefix 10.0.0.0/16 -Subnet $subnet1, $subnet2
+  New-AzureRmVirtualNetwork -Name TestVNet1 -ResourceGroupName TestRG1 `
+  -Location 'East US' -AddressPrefix 10.11.0.0/16 -Subnet $subnet1, $subnet2
   ```
 
 ### <a name="gatewaysubnet"></a>To add a gateway subnet to a virtual network you have already created
@@ -113,12 +120,12 @@ Create your virtual network.
 1. Set the variables.
 
   ```powershell
-  $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName testrg -Name testvnet
+  $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName TestRG1 -Name TestVet1
   ```
 2. Create the gateway subnet.
 
   ```powershell
-  Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.0.0/27 -VirtualNetwork $vnet
+  Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.11.0.0/27 -VirtualNetwork $vnet
   ```
 3. Set the configuration.
 
@@ -135,21 +142,21 @@ Use the following values:
 * The *GatewayIPAddress* is the IP address of your on-premises VPN device. Your VPN device cannot be located behind a NAT.
 * The *AddressPrefix* is your on-premises address space.
 
-- To add a local network gateway with a single address prefix:
+To add a local network gateway with a single address prefix:
 
   ```powershell
-  New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
-  -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.0.0.0/24'
+  New-AzureRmLocalNetworkGateway -Name Site2 -ResourceGroupName TestRG1 `
+  -Location 'East US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.0.0.0/24'
   ```
 
-- To add a local network gateway with multiple address prefixes:
+To add a local network gateway with multiple address prefixes:
 
   ```powershell
-  New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
-  -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix @('10.0.0.0/24','20.0.0.0/24')
+  New-AzureRmLocalNetworkGateway -Name Site2 -ResourceGroupName TestRG1 `
+  -Location 'East US' -GatewayIpAddress '23.99.221.164' -AddressPrefix @('10.0.0.0/24','20.0.0.0/24')
   ```
 
-- To modify IP address prefixes for your local network gateway:<br>
+To modify IP address prefixes for your local network gateway:<br>
 Sometimes your local network gateway prefixes change. The steps you take to modify your IP address prefixes depend on whether you have created a VPN gateway connection. See the [Modify IP address prefixes for a local network gateway](#modify) section of this article.
 
 ## <a name="PublicIP"></a>4. Request a Public IP address
@@ -159,7 +166,7 @@ A VPN gateway must have a Public IP address. You first request the IP address re
 Request a Public IP address that will be assigned to your virtual network VPN gateway.
 
 ```powershell
-$gwpip= New-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName testrg -Location 'West US' -AllocationMethod Dynamic
+$gwpip= New-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName TestRG1 -Location 'East US' -AllocationMethod Dynamic
 ```
 
 ## <a name="GatewayIPConfig"></a>5. Create the gateway IP addressing configuration
@@ -167,7 +174,7 @@ $gwpip= New-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName testrg -Locati
 The gateway configuration defines the subnet and the public IP address to use. Use the following example to create your gateway configuration:
 
 ```powershell
-$vnet = Get-AzureRmVirtualNetwork -Name testvnet -ResourceGroupName testrg
+$vnet = Get-AzureRmVirtualNetwork -Name TestVNet1 -ResourceGroupName TestRG1
 $subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
 $gwipconfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name gwipconfig1 -SubnetId $subnet.Id -PublicIpAddressId $gwpip.Id
 ```
@@ -180,12 +187,12 @@ Use the following values:
 
 * The *-GatewayType* for a Site-to-Site configuration is *Vpn*. The gateway type is always specific to the configuration that you are implementing. For example, other gateway configurations may require -GatewayType ExpressRoute.
 * The *-VpnType* can be *RouteBased* (referred to as a Dynamic Gateway in some documentation), or *PolicyBased* (referred to as a Static Gateway in some documentation). For more information about VPN gateway types, see [About VPN Gateway](vpn-gateway-about-vpngateways.md).
-* The *-GatewaySku* can be Basic, Standard, or HighPerformance. There are configuration limitations for certain SKUs. For more information, see [Gateway SKUs](vpn-gateway-about-vpngateways.md#gateway-skus).
+* Select the Gateway SKU that you want to use. There are configuration limitations for certain SKUs. For more information, see [Gateway SKUs](vpn-gateway-about-vpn-gateway-settings.md#gwsku). If you get an error when creating the VPN gateway regarding the -GatewaySku, verify that you have installed the latest version of the PowerShell cmdlets.
 
 ```powershell
-New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
--Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn `
--VpnType RouteBased -GatewaySku Standard
+New-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
+-Location 'East US' -IpConfigurations $gwipconfig -GatewayType Vpn `
+-VpnType RouteBased -GatewaySku VpnGw1
 ```
 
 ## <a name="ConfigureVPNDevice"></a>7. Configure your VPN device
@@ -196,7 +203,7 @@ Site-to-Site connections to an on-premises network require a VPN device. In this
 - The Public IP address of your virtual network gateway. You can view the public IP address by using the Azure portal, PowerShell, or CLI. To find the Public IP address of your virtual network gateway using PowerShell, use the following example:
 
   ```powershell
-  Get-AzureRmPublicIpAddress -Name GW1PublicIP -ResourceGroupName TestRG
+  Get-AzureRmPublicIpAddress -Name GW1PublicIP -ResourceGroupName TestRG1
   ```
 
 [!INCLUDE [Configure VPN device](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
@@ -208,14 +215,14 @@ Next, create the Site-to-Site VPN connection between your virtual network gatewa
 
 1. Set the variables.
   ```powershell
-  $gateway1 = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
-  $local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
+  $gateway1 = Get-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1
+  $local = Get-AzureRmLocalNetworkGateway -Name Site2 -ResourceGroupName TestRG1
   ```
 
 2. Create the connection.
   ```powershell
-  New-AzureRmVirtualNetworkGatewayConnection -Name MyGWConnection -ResourceGroupName testrg `
-  -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `
+  New-AzureRmVirtualNetworkGatewayConnection -Name VNet1toSite2 -ResourceGroupName TestRG1 `
+  -Location 'East US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `
   -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
   ```
 
@@ -227,9 +234,9 @@ There are a few different ways to verify your VPN connection.
 
 [!INCLUDE [Verify connection](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
 
-## <a name="connectVM"></a>Connect to a virtual machine
+## <a name="connectVM"></a>To connect to a virtual machine
 
-[!INCLUDE [Connect to VM](../../includes/vpn-gateway-connect-vm-s2s-include.md)]
+[!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm-s2s-include.md)]
 
 
 ## <a name="modify"></a>Modify IP address prefixes for a local network gateway
@@ -240,9 +247,11 @@ If the IP address prefixes that you want routed to your on-premises location cha
 
 ## <a name="modifygwipaddress"></a>Modify the gateway IP address for a local network gateway
 
-[!INCLUDE [Modify gw IP](../../includes/vpn-gateway-modify-lng-gateway-ip-rm-include.md)]
+[!INCLUDE [Modify gateway IP address](../../includes/vpn-gateway-modify-lng-gateway-ip-rm-include.md)]
 
 ## Next steps
 
 *  Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
 * For information about BGP, see the [BGP Overview](vpn-gateway-bgp-overview.md) and [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md).
+* For information about creating a site-to-site VPN connection using Azure Resource Manager template, see [Create a Site-to-Site VPN Connection](https://azure.microsoft.com/resources/templates/101-site-to-site-vpn-create/).
+* For information about creating a vnet-to-vnet VPN connection using Azure Resource Manager template, see [Deploy HBase geo replication](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-geo/).

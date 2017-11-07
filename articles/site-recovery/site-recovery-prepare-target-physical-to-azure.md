@@ -19,8 +19,8 @@ ms.author: bsiva
 
 # Prepare target (VMware to Azure)
 > [!div class="op_single_selector"]
-> * [VMware Virtual Machines](./site-recovery-prepare-target-vmware-to-azure.md)
-> * [Physical Servers](./site-recovery-prepare-target-physical-to-azure.md)
+> * [VMware to Azure](./site-recovery-prepare-target-vmware-to-azure.md)
+> * [Physical to Azure](./site-recovery-prepare-target-physical-to-azure.md)
 
 This article describes how to prepare your Azure environment to start replicating physical servers (x64) running Windows or Linux into Azure.
 

@@ -6,6 +6,7 @@ keywords:
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: femila
+ms.reviewer: sahenry
 
 ms.assetid: 
 ms.service: active-directory
@@ -13,15 +14,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 10/24/2017
 ms.author: joflore
+ms.custom: it-pro
 
 ---
 # Licensing requirements for Azure AD self-service password reset
 
 In order for Azure AD Password Reset to function, you **must have at least one license assigned in your organization**. We do not enforce per-user licensing on the password reset experience. To maintain compliance with your Microsoft licensing agreement, you need to assign licenses to any users that use premium features.
 
-* **Cloud only users** - Office 365 (O365) any paid SKU, or Azure AD Basic
+* **Cloud-only users** - Office 365 (O365) any paid SKU, or Azure AD Basic
 * **Cloud** and/or **on-premises users** - Azure AD Premium P1 or P2, Enterprise Mobility + Security (EMS), or Secure Productive Enterprise (SPE)
 
 ## Licenses required for password writeback
@@ -32,17 +34,18 @@ To use password writeback, you must have one of the following licenses assigned 
 * Azure AD Premium P2
 * Enterprise Mobility + Security E3
 * Enterprise Mobility + Security E5
-* Secure Productive Enterprise E3
-* Secure Productive Enterprise E5
+* Microsoft 365 E3
+* Microsoft 365 E5
 
-> [!NOTE]
+> [!WARNING]
 > Standalone Office 365 licensing plans **do not support password writeback** and require one of the preceding plans for this functionality to work.
 
 Additional licensing info including costs can be found on the following pages
 
 * [Azure Active Directory Pricing site](https://azure.microsoft.com/pricing/details/active-directory/)
+* [Azure Active Directory features and capabilities](https://www.microsoft.com/cloud-platform/azure-active-directory-features)
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)
-* [Secure Productive Enterprise](https://www.microsoft.com/secure-productive-enterprise/default.aspx)
+* [Microsoft 365](https://www.microsoft.com/microsoft-365/enterprise)
 
 ## Enable group or user-based licensing
 
@@ -52,14 +55,14 @@ Some Microsoft services are not available in all locations. Before a license can
 
 ## Next steps
 
-The following links provide additional information regarding password reset using Azure AD
-
-* [**Quick Start**](active-directory-passwords-getting-started.md) - Get up and running with Azure AD self service password management 
-* [**Data**](active-directory-passwords-data.md) - Understand the data that is required and how it is used for password management
-* [**Rollout**](active-directory-passwords-best-practices.md) - Plan and deploy SSPR to your users using the guidance found here
-* [**Customize**](active-directory-passwords-customize.md) - Customize the look and feel of the SSPR experience for your company.
-* [**Reporting**](active-directory-passwords-reporting.md) - Discover if, when, and where your users are accessing SSPR functionality
-* [**Technical Deep Dive**](active-directory-passwords-how-it-works.md) - Go behind the curtain to understand how it works
-* [**Frequently Asked Questions**](active-directory-passwords-faq.md) - How? Why? What? Where? Who? When? - Answers to questions you always wanted to ask
-* [**Troubleshoot**](active-directory-passwords-troubleshoot.md) - Learn how to resolve common issues that we see with SSPR
-
+* [How do I complete a successful rollout of SSPR?](active-directory-passwords-best-practices.md)
+* [Reset or change your password](active-directory-passwords-update-your-own-password.md).
+* [Register for self-service password reset](active-directory-passwords-reset-register.md).
+* [What data is used by SSPR and what data should you populate for your users?](active-directory-passwords-data.md)
+* [What authentication methods are available to users?](active-directory-passwords-how-it-works.md#authentication-methods)
+* [What are the policy options with SSPR?](active-directory-passwords-policy.md)
+* [What is password writeback and why do I care about it?](active-directory-passwords-writeback.md)
+* [How do I report on activity in SSPR?](active-directory-passwords-reporting.md)
+* [What are all of the options in SSPR and what do they mean?](active-directory-passwords-how-it-works.md)
+* [I think something is broken. How do I troubleshoot SSPR?](active-directory-passwords-troubleshoot.md)
+* [I have a question that was not covered somewhere else](active-directory-passwords-faq.md)

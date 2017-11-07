@@ -9,11 +9,11 @@ editor: ''
 
 ms.assetid: 9c0f033c-240e-4fee-8421-08907231087f
 ms.service: cosmos-db
-ms.custom: quick start connect
+ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 05/10/2017
 ms.author: mimig
 
@@ -30,7 +30,8 @@ This quick start demonstrates how to create an Azure Cosmos DB account, document
 	* [Node.js](https://nodejs.org/en/) version v0.10.29 or higher
 	* [Git](http://git-scm.com/)
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
+[!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 ## Create a database account
 

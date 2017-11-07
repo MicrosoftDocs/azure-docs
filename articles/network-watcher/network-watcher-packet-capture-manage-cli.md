@@ -3,7 +3,7 @@ title: Manage packet captures with Azure Network Watcher - Azure CLI 2.0 | Micro
 description: This page explains how to manage the packet capture feature of Network Watcher using Azure CLI 2.0
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor:
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
+ms.author: jdial
 ---
 
 # Manage packet captures with Azure Network Watcher using Azure CLI 2.0
@@ -69,10 +69,10 @@ az vm extension set --resource-group resourceGroupName --vm-name virtualMachineN
 
 ### Step 2
 
-To ensure that the agent is installed, run the `vm extension get` cmdlet and pass it the resource group and virtual machine name. Check the resulting list to ensure the agent is installed.
+To ensure that the agent is installed, run the `vm extension show` cmdlet and pass it the resource group and virtual machine name. Check the resulting list to ensure the agent is installed.
 
 ```azurecli
-az vm extension show -resource-group resourceGroupName --vm-name virtualMachineName --name NetworkWatcherAgentWindows
+az vm extension show --resource-group resourceGroupName --vm-name virtualMachineName --name NetworkWatcherAgentWindows
 ```
 
 The following sample is an example of the response from running `az vm extension show`
@@ -106,7 +106,7 @@ Once the preceding steps are complete, the packet capture agent is installed on 
 The next step is to retrieve the Network Watcher instance. TThe name of the Network Watcher is passed to the `az network watcher show` cmdlet in step 4.
 
 ```azurecli
-az network watcher show -resource-group resourceGroup -name networkWatcherName
+az network watcher show --resource-group resourceGroup --name networkWatcherName
 ```
 
 ### Step 2

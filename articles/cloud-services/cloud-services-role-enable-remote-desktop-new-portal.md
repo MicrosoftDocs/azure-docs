@@ -3,7 +3,7 @@ title: Enable Remote Desktop Connection for a Role in Azure Cloud Services | Mic
 description: How to configure your azure cloud service application to allow remote desktop connections
 services: cloud-services
 documentationcenter: ''
-author: seanmck
+author: mmccrory
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
-ms.author: seanmck
+ms.author: mmccrory
 
 ---
 # Enable Remote Desktop Connection for a Role in Azure Cloud Services
@@ -68,4 +68,4 @@ Once Remote Desktop is enabled on the roles, you can initiate a connection direc
 ## Additional resources
 
 [How to Configure Cloud Services](cloud-services-how-to-configure.md)
-[Cloud services FAQ - Remote Desktop](cloud-services-faq.md#remote-desktop)
+[Cloud services FAQ - Remote Desktop](cloud-services-faq.md)

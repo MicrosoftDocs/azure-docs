@@ -5,14 +5,12 @@ services: postgresql
 author: jasonwhowell
 ms.author: jasonh
 manager: jhubbard
-editor: jasonh
-ms.assetid: 
-ms.service: postgresql-database
-ms.tgt_pltfrm: portal
-ms.devlang: azurecli
-ms.topic:  article
-ms.custom: sample
-ms.date: 05/25/2017
+editor: jasonwhowell
+ms.service: postgresql
+ms.devlang: azure-cli
+ms.topic: sample
+ms.custom: sample, mvc
+ms.date: 11/03/2017
 ---
 # Azure CLI samples for Azure Database for PostgreSQL 
 The following table includes links to sample Azure CLI scripts for Azure Database for PostgreSQL.

@@ -14,19 +14,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/21/2017
+ms.date: 6/01/2017
 ms.author: negat
 
 ---
 # Azure VM scale sets and managed disks
 
-Azure [virtual machine scale sets](/azure/virtual-machine-scale-sets/) now support virtual machines with managed disks. Using managed disks with scale sets has several benefits, including:
+Azure [virtual machine scale sets](/azure/virtual-machine-scale-sets/) supports virtual machines with managed disks. Using managed disks with scale sets has several benefits, including:
 
 * You no longer need to pre-create and manage storage accounts to store the OS disks for the scale set VMs.
 
 * You can attach managed data disks to the scale set.
 
-* With managed disk, a scale set can have capacity as high as 1,000 VMs if based on a platform image or 100 VMs if based on a custom image.
+* With managed disk, a scale set can have capacity as high as 1,000 VMs if based on a platform image or 300 VMs if based on a custom image.
 
 ## Get started
 
@@ -39,13 +39,9 @@ az vmss create -g dsktest -n dskvmss --image ubuntults --instance-count 10 --dat
 
 Alternatively, you could look in the [Azure Quickstart Templates GitHub repo](https://github.com/Azure/azure-quickstart-templates) for folders that contain `vmss` to see pre-built examples of templates that deploy scale sets. To tell which templates are already using managed disks, you can refer to [this list](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md).
 
-## API versions
-
-The current Generally Available API version for scale sets with managed disks is `2016-04-30-preview`. Scale sets with unmanaged disks will continue to work as they currently do, even in new API versions that have support for managed disk. However, scale sets with unmanaged disks will not get the benefits of managed disks, even in these new api versions.
-
 ## Next steps
 
-To find more information on managed disks in general, see [this article](../storage/storage-managed-disks-overview.md).
+For more information on managed disks in general, see [this article](../virtual-machines/windows/managed-disks-overview.md).
 
 To see how to convert a Resource Manager template to provision scale sets with managed disks, see [this article](./virtual-machine-scale-sets-convert-template-to-md.md). The same modifications to the Resource Manager templates apply to the Azure REST API as well.
 

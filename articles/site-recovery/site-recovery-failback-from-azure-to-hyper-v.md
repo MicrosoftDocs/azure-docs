@@ -13,18 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 3/31/2017
+ms.date: 08/11/2017
 ms.author: ruturajd
 
 ---
 
 # Failback in Site Recovery for Hyper-V virtual machines
 
-> [!div class="op_single_selector"]
-> * [VMware/physical machines from Azure](site-recovery-how-to-failback-azure-to-vmware.md)
-> * [Hyper-V VMs from Azure](site-recovery-failback-from-azure-to-hyper-v.md)
-
-This article describes how to failback virtual machines protected by Site Recovery. 
+This article describes how to failback virtual machines protected by Site Recovery.
 
 ## Prerequisites
 1. Ensure that the primary site VMM server/Hyper-V server is connected.
@@ -37,6 +33,9 @@ When you initiate a failover, the blade informs you about the direction of the j
 
 ## Why is there only a planned failover gesture to failback?
 Azure is a highly available environment and your virtual machines will be always available. Failback is a planned activity where you decide to take a small downtime so that the workloads can start running on-premises again. This expects no data loss. Hence only a planned failover gesture is available, that will turn off the VMs in Azure, download the latest changes and ensure there is no data loss.
+
+## Do I need a process server in Azure to failback to Hyper-v?
+No, a process server is required only when you are protecting VMware virtual machines. No additional components are required to be deployed when protecting/failback of Hyper-v virtual machines.
 
 ## Initiate failback
 After failover from the primary to secondary location, replicated virtual machines aren't protected by Site Recovery, and the secondary location is now acting as the active location. Follow these procedures to fail back to the original primary site. This procedure describes how to run a planned failover for a recovery plan. Alternatively you can run the failover for a single virtual machine on the **Virtual Machines** tab.
@@ -51,12 +50,8 @@ After failover from the primary to secondary location, replicated virtual machin
 
     - **Synchronize data during failover only(full download)**—Use this option if you've been running on Azure for a long time. This option is faster because we expect that most of the disk has changed and we don't want to spend time in checksum calculation. It performs a download of the disk. It is also useful when the on-prem virtual machine has been deleted.
 
-	>[!NOTE] 
+	>[!NOTE]
 	>We recommend you use this option if you've been running Azure for a while (a month or more) or the on-prem virtual machine has been deleted.This option doesn't perform any checksum calculations.
-	>
-	>
-
-
 
 
 4. If data encryption is enabled for the cloud, in **Encryption Key** select the certificate that was issued when you enabled data encryption during Provider installation on the VMM server.
@@ -85,9 +80,13 @@ If you've deployed protection between a [Hyper-V site and Azure](site-recovery-h
 
     > [!NOTE]
     > If you cancel the failback job while it is in Data Synchronization step, the on-premises VM will be in a corrupted state. This is because Data Synchronization copies the latest data from Azure VM disks to the on-prem data disks, and until the synchronization completes, the disk data may not be in a consistent state. If the On-prem VM is booted after Data Synchronization is canceled, it may not boot. Re-trigger failover to complete the Data Synchronization.
-    >
-    >
 
+## Time taken to failback
+The time taken to complete the data synchronization and boot the virtual machine depends on various factors. To give an insight into the time taken, we explain what happens during data synchronization.
+
+Data synchronization takes a snapshot of the virtual machine's disks and starts checking block by block and calculates its checksum. This calculated checksum is sent to on-premises to compare with the on-premises checksum of the same block. In case the checksums match, the data block is not transferred. If it does not match, the data block is transferred to on-premises. This transfer time depends on the bandwidth available. The speed of the checksum is a few GBs per min. 
+
+To speed up the download of data, you can configure your MARS agent to use more threads to parallalize the download. Refer to the [document here](https://support.microsoft.com/en-us/help/3056159/how-to-manage-on-premises-to-azure-protection-network-bandwidth-usage) on how to change the download threads in the agent.
 
 
 ## Next Steps
@@ -95,5 +94,3 @@ If you've deployed protection between a [Hyper-V site and Azure](site-recovery-h
 Once you have completed the failback job, **Commit** the virtual machine. Commit deletes the Azure virtual machine and its disks and prepares the VM to be protected again.
 
 After **Commit**, you can initiate the *Reverse Replicate*. This will start protecting the virtual machine from on-premises back to Azure. Note that this will only replicate the changes since the VM has been turned off in Azure and hence sends differential changes only.
-
-

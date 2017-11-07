@@ -3,18 +3,18 @@ title: "Azure Analysis Services tutorial lesson 2: Get data | Microsoft Docs"
 description: Describes how to get and import data in the Azure Analysis Services tutorial project. 
 services: analysis-services
 documentationcenter: ''
-author: minewiskan
-manager: erikre
+author: Minewiskan
+manager: kfile
 editor: ''
 tags: ''
 
 ms.assetid: 
 ms.service: analysis-services
 ms.devlang: NA
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 11/01/2017
 ms.author: owend
 ---
 
@@ -25,6 +25,9 @@ ms.author: owend
 In this lesson, you use Get Data in SSDT to connect to the AdventureWorksDW2014 sample database, select data, preview and filter, and then import into your model workspace.  
   
 By using Get Data, you can import data from a wide variety of sources: Azure SQL Database, Oracle, Sybase, OData Feed, Teradata, files and more. Data can also be queried using a Power Query M formula expression.
+
+> [!NOTE]
+> Tasks and images in this tutorial show connecting to an AdventureWorksDW2014 database on an on-premises server. In some cases, an AdventureWorksDW2014 database on Azure may be different.
   
 Estimated time to complete this lesson: **10 minutes**  
   
@@ -58,21 +61,27 @@ This topic is part of a tabular modeling tutorial, which should be completed in 
 
     ![aas-lesson2-select-tables](../tutorials/media/aas-lesson2-select-tables.png)
   
-After you click OK, Query Editor will open where, in the next section, you filter the data you want to import.
+After you click OK, Query Editor opens. In the next section, you select only the data you want to import.
 
   
 ## Filter the table data  
-Tables in the AdventureWorksDW2014 sample database have data that isn't necessary to include in your model. When possible, you want to filter out data that will not be used to save in-memory space used by the model. You will filter out some of the columns from tables so they're not imported into the workspace database, or the model database after it has been deployed. 
+Tables in the AdventureWorksDW2014 sample database have data that isn't necessary to include in your model. When possible, you want to filter out unnecessary data to save in-memory space used by the model. You filter out some of the columns from tables so they're not imported into the workspace database, or the model database after it has been deployed. 
   
 #### To filter the table data before importing  
   
-1.  In Query Editor, select the **DimCustomer** table. A view of the DimCustomer table at the datasource (your AdventureWorksDWQ2014 sample database) appears. 
+1.  In Query Editor, select the **DimCustomer** table. A view of the DimCustomer table at the datasource (your AdventureWorksDW2014 sample database) appears. 
   
 2.  Multi-select (Ctrl + click) **SpanishEducation**, **FrenchEducation**, **SpanishOccupation**, **FrenchOccupation**, then right-click, and then click **Remove Columns**. 
 
     ![aas-lesson2-remove-columns](../tutorials/media/aas-lesson2-remove-columns.png)
   
     Since the values for these columns are not relevant to Internet sales analysis, there is no need to import these columns. Eliminating unnecessary columns makes your model smaller and more efficient.  
+
+    > [!TIP]
+    > If you make a mistake, you can backup by deleting a step in **APPLIED STEPS**.   
+    
+    ![aas-lesson2-remove-columns](../tutorials/media/aas-lesson2-remove-step.png)
+
   
 4.  Filter the remaining tables by removing the following columns in each table:  
     
@@ -80,7 +89,7 @@ Tables in the AdventureWorksDW2014 sample database have data that isn't necessar
     
       |Column|  
       |--------|  
-      |DateKey|  
+      |**DateKey**|  
       |**SpanishDayNameOfWeek**|  
       |**FrenchDayNameOfWeek**|  
       |**SpanishMonthName**|  
@@ -125,14 +134,10 @@ Tables in the AdventureWorksDW2014 sample database have data that isn't necessar
   
     **FactInternetSales**
   
-      |Column|  
-      |------------------|  
-      |**OrderDateKey**|  
-      |**DueDateKey**|  
-      |**ShipDateKey**|   
+      No columns removed.
   
 ## <a name="Import"></a>Import the selected tables and column data  
-Now that you've previewed and filtered out unnecessary data, you can import the rest of the data you do want. The wizard imports the table data along with any relationships between tables. New tables and columns are created in the model and data that you filtered out will not be imported.  
+Now that you've previewed and filtered out unnecessary data, you can import the rest of the data you do want. The wizard imports the table data along with any relationships between tables. New tables and columns are created in the model and data that you filtered out is not be imported.  
   
 #### To import the selected tables and column data  
   

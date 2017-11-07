@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2017
+ms.date: 10/31/2017
 ms.author: billmath
 
 ---
@@ -288,7 +288,7 @@ If you choose the Stored Procedure option, Export requires three different Store
 * **Add SP Name**: This SP runs if any object comes to connector for insertion in the respective table.
 * **Update SP Name**: This SP runs if any object comes to connector for update in the respective table.
 * **Delete SP Name**: This SP runs if any object comes to connector for deletion in the respective table.
-* Attribute selected from the schema used as a parameter value to the stored procedure. For example, `EmployeeName: INPUT: @EmployeeName` (EmployeeName is selected in the connector schema and the connector replaces the respective value while doing export)
+* Attribute selected from the schema used as a parameter value to the stored procedure. For example, `@EmployeeName: INPUT: EmployeeName` (EmployeeName is selected in the connector schema and the connector replaces the respective value while doing export)
 * To run parameterized stored procedure, provide parameters in `[Name]:[Direction]:[Value]` format. Enter each parameter on a separate line (Use Ctrl + Enter to get a new line).
 
 **SQL query**  

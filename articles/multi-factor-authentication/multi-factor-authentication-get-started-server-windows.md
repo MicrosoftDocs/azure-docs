@@ -3,9 +3,8 @@ title: Windows authentication and Azure MFA Server | Microsoft Docs
 description: This is the Azure Multi-factor authentication page that will assist in deploying Windows Authentication and Azure Multi-Factor Authentication Server.
 services: multi-factor-authentication
 documentationcenter: ''
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
-editor: yossib
 
 ms.assetid: 19a4043f-c4ce-43c0-80e7-2548ee92cb74
 ms.service: multi-factor-authentication
@@ -13,9 +12,10 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/06/2017
-ms.author: kgremban
-
+ms.date: 06/06/2017
+ms.author: joflore
+ms.reviewer: yossib
+ms.custom: it-pro
 ---
 # Windows Authentication and Azure Multi-Factor Authentication Server
 Use the Windows Authentication section of the Azure Multi-Factor Authentication Server to enable and configure Windows authentication for applications. Before you set up Windows Authentication, keep the following list in mind:

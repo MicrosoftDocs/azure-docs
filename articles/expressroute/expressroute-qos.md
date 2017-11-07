@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 07/25/2017
 ms.author: cherylmc
 
 ---
@@ -32,7 +32,7 @@ The following table provides a list of DSCP markings used by Skype for Business.
 | **Traffic Class** | **Treatment (DSCP Marking)** | **Skype for Business Workloads** |
 | --- | --- | --- |
 | **Voice** |EF (46) |Skype / Lync voice |
-| **Interactive** |AF41 (34) |Video |
+| **Interactive** |AF41 (34) |Video, VBSS |
 | AF21 (18) |App sharing | |
 | **Default** |AF11 (10) |File transfer |
 | CS0 (0) |Anything else | |

@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/12/2017
+ms.date: 10/06/2017
 ms.author: larryfr
 
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
@@ -42,6 +42,11 @@ HDInsight can use Linux (Ubuntu) as the operating system for nodes within the Ha
 > If your cluster contains an edge node, we recommend that you __always connect to the edge node__ using SSH. The head nodes host services that are critical to the health of Hadoop. The edge node runs only what you put on it.
 >
 > For more information on using edge nodes, see [Use edge nodes in HDInsight](hdinsight-apps-use-edge-node.md#access-an-edge-node).
+
+> [!TIP]
+> When you first connect to HDInsight, your SSH client may display a warning that the authenticity of the host can't be established. When prompted select 'yes' to add the host to your SSH client's trusted server list.
+>
+> If you have previously connected to a server with the same name, you may receive a warning that the stored host key does not match the host key of the server. The SSH client may refuse to connect to the cluster when this occurrs. Consult the documentation for your SSH client on how to remove the existing entry for the server name.
 
 ## SSH clients
 
@@ -128,9 +133,36 @@ For information on changing the SSH user account password, see the __Change pass
 
 If you are using a __domain-joined HDInsight cluster__, you must use the `kinit` command after connecting with SSH. This command prompts you for a domain user and password, and authenticates your session with the Azure Active Directory domain associated with the cluster.
 
-For more information, see [Configure domain-joined HDInsight](hdinsight-domain-joined-configure.md).
+For more information, see [Configure domain-joined HDInsight](./domain-joined/apache-domain-joined-configure.md).
 
-## Connect to worker and Zookeeper nodes
+## Connect to nodes
+
+The head nodes and edge node (if there is one) can be accessed over the internet on ports 22 and 23.
+
+* When connecting to the __head nodes__, use port __22__ to connect to the primary head node and port __23__ to connect to the secondary head node. The fully qualified domain name to use is `clustername-ssh.azurehdinsight.net`, where `clustername` is the name of your cluster.
+
+    ```bash
+    # Connect to primary head node
+    # port not specified since 22 is the default
+    ssh sshuser@clustername-ssh.azurehdinsight.net
+
+    # Connect to secondary head node
+    ssh -p 23 sshuser@clustername-ssh.azurehdinsight.net
+    ```
+    
+* When connectiung to the __edge node__, use port 22. The fully qualified domain name is `edgenodename.clustername-ssh.azurehdinsight.net`, where `edgenodename` is a name you provided when creating the edge node. `clustername` is the name of the cluster.
+
+    ```bash
+    # Connect to edge node
+    ssh sshuser@edgnodename.clustername-ssh.azurehdinsight.net
+    ```
+
+> [!IMPORTANT]
+> The previous examples assume that you are using password authentication, or that certificate authentication is occuring automatically. If you use an SSH key-pair for authentication, and the certificate is not used automatically, use the `-i` parameter to specify the private key. For example, `ssh -i ~/.ssh/mykey sshuser@clustername-ssh.azurehdinsight.net`.
+
+Once connected, the prompt changes to indicate the SSH user name and the node you are connected to. For example, when connected to the primary head node as `sshuser`, the prompt is `sshuser@hn0-clustername:~$`.
+
+### Connect to worker and Zookeeper nodes
 
 The worker nodes and Zookeeper nodes are not directly accessible from the internet. They can be accessed from the cluster head nodes or edge nodes. The following are the general steps to connect to other nodes:
 
@@ -184,6 +216,33 @@ If the SSH account is secured using __SSH keys__, make sure that SSH forwarding 
     If your private key is stored in a different file, replace `~/.ssh/id_rsa` with the path to the file.
 
 5. Connect to the cluster edge node or head nodes using SSH. Then use the SSH command to connect to a worker or zookeeper node. The connection is established using the forwarded key.
+
+## Copy files
+
+The `scp` utility can be used to copy files to and from individual nodes in the cluster. For example, the following command copies the `test.txt` directory from the local system to the primary head node:
+
+```bash
+scp test.txt sshuser@clustername-ssh.azurehdinsight.net:
+```
+
+Since no path is specified after the `:`, the file is placed in the `sshuser` home directory.
+
+The following example copies the `test.txt` file from the `sshuser` home directory on the primary head node to the local system:
+
+```bash
+scp sshuser@clustername-ssh.azurehdinsight.net:test.txt .
+```
+
+> [!IMPORTANT]
+> `scp` can only access the file system of individual nodes within the cluster. It cannot be used to access data in the HDFS-compatible storage for the cluster.
+>
+> Use `scp` when you need to upload a resource for use from an SSH session. For example, upload a Python script and then run the script from an SSH session.
+>
+> For information on directly loading data into the HDFS-compatible storage, see the following documents:
+>
+> * [HDInsight using Azure Storage](hdinsight-hadoop-use-blob-storage.md).
+>
+> * [HDInsight using Azure Data Lake Store](hdinsight-hadoop-use-data-lake-store.md).
 
 ## Next steps
 

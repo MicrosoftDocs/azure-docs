@@ -10,10 +10,10 @@ editor: ''
 
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 05/26/2017
+ms.date: 11/03/2017
 ms.author: genli
 
 ---

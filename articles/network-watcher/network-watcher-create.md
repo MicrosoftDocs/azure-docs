@@ -3,7 +3,7 @@ title: Create an Azure Network Watcher instance | Microsoft Docs
 description: This page provides the steps to create an instance of Network Watcher using the portal and Azure REST API
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
+ms.author: jdial
 ---
 
 # Create an Azure Network Watcher instance
@@ -29,6 +29,12 @@ Network Watcher is a regional service that enables you to monitor and diagnose c
 Navigate to **More Services** > **Networking** > **Network Watcher**. You can select all the subscriptions you want to enable Network Watcher for. This action creates a Network Watcher in every region that is available.
 
 ![create a network watcher][1]
+
+When you enable Network Watcher using the Portal, the name of the Network Watcher instance will automatically be set to NetworkWatcher_region_name where region_name corresponds to the Azure Region where the instance was enabled.  For example, a Network Watcher enabled in West Central US region will be named NetworkWatcher_westcentralus
+
+Additionally, the Network Watcher instance will automatically be added into a Resource Group called NetworkWatcherRG.  This Resource Group will be created if it does not already exist.
+
+If you wish to customize the name of a Network Watcher instance and the Resource Group it's placed into, you can use Powershell, the REST API, or ARMClient methods described below.  In each option, the Resource Group must exist before you place the Network Watcher into it.  
 
 ## Create a Network Watcher with PowerShell
 

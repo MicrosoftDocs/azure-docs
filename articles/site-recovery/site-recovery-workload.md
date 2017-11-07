@@ -1,6 +1,6 @@
 ---
-title: What workloads can you protect with Azure Site Recovery?
-description: Azure Site Recovery protects your workloads and applications by coordinating the replication, failover and recovery of on-premises virtual machines and physical servers to Azure or to a secondary on-premises site
+title: What workloads can you protect with Azure Site Recovery? | Microsoft Docs
+description: Describes the workloads that can be protected using disaster recovery with the Azure Site Recovery service. 
 services: site-recovery
 documentationcenter: ''
 author: rayne-wiselman
@@ -13,23 +13,26 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 05/08/2017
+ms.date: 10/30/2017
 ms.author: raynew
 
 ---
 # What workloads can you protect with Azure Site Recovery?
-This article describes workloads and applications you can replicate with the Azure Site Recovery service.
 
-Post any comments or questions at the bottom of this article, or on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+This article describes workloads and applications you can replicate with the [Azure Site Recovery](site-recovery-overview.md) service.
+
+
 
 ## Overview
+
 Organizations need a business continuity and disaster recovery (BCDR) strategy to keep workloads and data safe and available during planned and unplanned downtime, and recover to regular working conditions as soon as possible.
 
 Site Recovery is an Azure service that contributes to your BCDR strategy. Using Site Recovery, you can deploy application-aware replication to the cloud, or to a secondary site. Whether your apps are Windows or Linux-based, running on physical servers, VMware or Hyper-V, you can use Site Recovery to orchestrate replication, perform disaster recovery testing, and run failovers and failback.
 
-Site Recovery integrates with Microsoft applications, including SharePoint, Exchange, Dynamics, SQL Server and Active Directory. Microsoft also works closely with leading vendors including Oracle, SAP, IBM and Red Hat. You can customize replication solutions on an app-by-app basis.
+Site Recovery integrates with Microsoft applications, including SharePoint, Exchange, Dynamics, SQL Server and Active Directory. Microsoft also works closely with leading vendors including Oracle, SAP and Red Hat. You can customize replication solutions on an app-by-app basis.
 
 ## Why use Site Recovery for application replication?
+
 Site Recovery contributes to application-level protection and recovery as follows:
 
 * App-agnostic, providing replication for any workloads running on a supported machine.
@@ -50,7 +53,7 @@ Site Recovery can replicate any app running on a supported machine. In addition 
 | System Center Operations Manager |Y |Y |Y |Y |
 | Sharepoint |Y |Y |Y |Y |
 | SAP<br/><br/>Replicate SAP site to Azure for non-cluster |Y (tested by Microsoft) |Y (tested by Microsoft) |Y (tested by Microsoft) |Y (tested by Microsoft) |
-| Exchange (non-DAG) |Y |Coming soon |Y |Y |
+| Exchange (non-DAG) |Y |Y |Y |Y |
 | Remote Desktop/VDI |Y |Y |Y |N/A |
 | Linux (operating system and apps) |Y (tested by Microsoft) |Y (tested by Microsoft) |Y (tested by Microsoft) |Y (tested by Microsoft) |
 | Dynamics AX |Y |Y |Y |Y |
@@ -122,11 +125,12 @@ Site Recovery helps protect Exchange, as follows:
 ## Protect SAP
 Use Site Recovery to protect your SAP deployment, as follows:
 
-* Enable protection of the entire SAP deployment, by replicating different deployment layers to Azure, or to a secondary site.
+* Enable protection of SAP NetWeaver and non-NetWeaver Production applications running on-premises, by replicating components to Azure.
+* Enable protection of SAP NetWeaver and non-NetWeaver Production applications running Azure, by replicating components to another Azure datacenter.
 * Simplify cloud migration, by using Site Recovery to migrate your SAP deployment to Azure.
-* Simplify SAP development and testing, by creating a production-like copy on-demand for testing and debugging applications.
+* Simplify SAP project upgrades, testing, and prototyping, by creating a production clone on-demand for testing SAP applications.
 
-[Learn more](http://aka.ms/asr-sap) about protecting SAP.
+[Learn more](site-recovery-sap.md) about protecting SAP.
 
 ## Protect IIS
 Use Site Recovery to protect your IIS deployment, as follows:
@@ -147,10 +151,11 @@ Use Site Recovery to protect your Citrix XenApp and XenDesktop deployments, as f
 * Enable protection of the Citrix XenApp and XenDesktop deployment, by replicating different deployment layers including (AD DNS server, SQL database server, Citrix Delivery Controller, StoreFront server, XenApp Master (VDA), Citrix XenApp License Server) to Azure.
 * Simplify cloud migration, by using Site Recovery to migrate your Citrix XenApp and XenDesktop deployment to Azure.
 * Simplify Citrix XenApp/XenDesktop testing, by creating a production-like copy on-demand for testing and debugging.
-* This solution is only applicable for Windows Server operating system virtual desktops and not client virtual desktops as client virtual desktops are not yet supported for licensing in Azure. 
+* This solution is only applicable for Windows Server operating system virtual desktops and not client virtual desktops as client virtual desktops are not yet supported for licensing in Azure.
 [Learn More](https://azure.microsoft.com/pricing/licensing-faq/) about licensing for client/server desktops in Azure.
 
-[Learn more](site-recovery-citrix-xenapp-and-xendesktop.md) about protecting Citrix XenApp and XenDesktop deployments. Alternatively, you can refer the [whitepaper from Citrix](https://aka.ms/citrix-xenapp-xendesktop-with-asr) detailing the same. 
+[Learn more](site-recovery-citrix-xenapp-and-xendesktop.md) about protecting Citrix XenApp and XenDesktop deployments. Alternatively, you can refer the [whitepaper from Citrix](https://aka.ms/citrix-xenapp-xendesktop-with-asr) detailing the same.
 
 ## Next steps
-[Check prerequisites](site-recovery-prereq.md) 
+
+[Get started](azure-to-azure-quickstart.md) with Azure VM replication.

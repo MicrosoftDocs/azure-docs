@@ -4,8 +4,8 @@
   items:
   - name: About Azure Cosmos DB
     href: introduction.md
-  - name: Welcome DocumentDB customers
-    href: https://azure.microsoft.com/blog/dear-documentdb-customers-welcome-to-azure-cosmos-db/
+  - name: 20 days of tips
+    href: 20-days-of-tips.md
 - name: Quickstarts
   expanded: true
   items:
@@ -13,8 +13,6 @@
     items:
     - name: .NET
       href: create-documentdb-dotnet.md
-    - name: .NET Core
-      href: create-documentdb-dotnet-core.md
     - name: Java
       href: create-documentdb-java.md
     - name: Node.js
@@ -31,6 +29,8 @@
       href: create-mongodb-dotnet.md
     - name: Java
       href: create-mongodb-java.md
+    - name: Golang
+      href: create-mongodb-golang.md
   - name: Graph
     items:
     - name: .NET
@@ -51,8 +51,12 @@
     items:
     - name: DocumentDB
       href: tutorial-develop-documentdb-dotnet.md
-    - name: MongoDB
+    - name: MongoDB with .NET
       href: tutorial-develop-mongodb.md
+    - name: MongoDB with Angular
+      href: tutorial-develop-mongodb-nodejs.md
+    - name: MongoDB with React
+      href: tutorial-develop-mongodb-react.md
     - name: Table
       href: tutorial-develop-table-dotnet.md
     - name: Graph
@@ -89,14 +93,20 @@
       href: local-emulator.md
     - name: Export certificates
       href: local-emulator-export-ssl-certificates.md
+  - name: 6 - Integrate with Functions
+    items:
+    - name: HTTP trigger
+      href: tutorial-functions-http-trigger.md
 - name: Samples
   items:
-  - name: Azure CLI 2.0
+  - name: Azure CLI
     href: cli-samples.md
-  - name: Azure PowerShell
+  - name: PowerShell
     href: powershell-samples.md
 - name: Concepts
   items:
+  - name: Serverless database
+    href: serverless-computing-database.md
   - name: Global distribution
     href: distribute-data-globally.md
   - name: Partitioning
@@ -105,9 +115,6 @@
     href: consistency-levels.md
   - name: Throughput
     href: request-units.md
-    items:
-    - name: Request units per minute
-      href: request-units-per-minute.md
   - name: Multi-model APIs
     items:
     - name: DocumentDB
@@ -132,11 +139,14 @@
   - name: Develop
     items:
     - name: DocumentDB API
+      href: documentdb-index.md
       items:
       - name: Resources
         href: documentdb-resources.md
-      - name: SQL query
+      - name: SQL queries
         href: documentdb-sql-query.md
+      - name: SQL query performance
+        href: documentdb-sql-query-metrics.md        
       - name: SQL playground
         href: https://www.documentdb.com/sql/demo
       - name: Partitioning
@@ -187,12 +197,10 @@
           href: documentdb-nodejs-samples.md
         - name: Python samples
           href: documentdb-python-samples.md
-        - name: SQL syntax
-          href: https://msdn.microsoft.com/library/azure/dn782250.aspx
-        - name: SQL grammar cheat sheet
-          href: documentdb-sql-query-cheat-sheet.md
       - name: Resources
         items:
+        - name: SQL grammar cheat sheet
+          href: documentdb-sql-query-cheat-sheet.md
         - name: Stack Overflow
           href: http://stackoverflow.com/questions/tagged/azure-cosmosdb
         - name: Videos
@@ -206,6 +214,7 @@
         - name: Retire S1, S2, S3
           href: performance-levels.md
     - name: MongoDB API
+      href: mongodb-index.md
       items:
       - name: Connect to your MongoDB account
         href: connect-mongodb-account.md
@@ -213,7 +222,19 @@
         href: mongodb-mongochef.md
       - name: Using Robomongo
         href: mongodb-robomongo.md
-      - name: Tutorials
+      - name: Angular tutorial series
+        items:
+        - name: Part 2 - Create Node app
+          href: tutorial-develop-mongodb-nodejs-part2.md
+        - name: Part 3 - Add Angular UI
+          href: tutorial-develop-mongodb-nodejs-part3.md
+        - name: Part 4 - Create Cosmos DB
+          href: tutorial-develop-mongodb-nodejs-part4.md
+        - name: Part 5 - Connect to Cosmos DB
+          href: tutorial-develop-mongodb-nodejs-part5.md
+        - name: Part 6 - Write to the app
+          href: tutorial-develop-mongodb-nodejs-part6.md
+      - name: Additional tutorials
         items:
         - name: Node.js console app
           href: mongodb-samples.md
@@ -223,14 +244,44 @@
         href: gremlin-support.md
     - name: Table API
       items:
-      - name: Table storage
-        href: https://docs.microsoft.com/rest/api/storageservices/fileservices/Table-Service-Concepts
+      - name: Table development
+        href: table-support.md
+      - name: Azure Table storage
+        items:     
+        - name: Table storage overview
+          href: table-storage-overview.md
+        - name: Table storage design guide
+          href: table-storage-design-guide.md
+        - name: Table storage REST APIs
+          href: /rest/api/storageservices/Table-Service-Concepts
+        - name: How to
+          items:
+            - name: .NET
+              href: table-storage-how-to-use-dotnet.md
+            - name: F#
+              href: /dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
+            - name: Node.js 
+              href: table-storage-cloud-service-nodejs.md
+            - name: Java
+              href: table-storage-how-to-use-java.md
+            - name: Node.js
+              href: table-storage-how-to-use-nodejs.md
+            - name: C++ 
+              href: table-storage-how-to-use-c-plus.md
+            - name: PHP
+              href: table-storage-how-to-use-php.md
+            - name: Python
+              href: table-storage-how-to-use-python.md
+            - name: Ruby
+              href: table-storage-how-to-use-ruby.md
     - name: Change feed
       href: change-feed.md
     - name: Geospatial
       href: geospatial.md
     - name: Indexing
       href: indexing-policies.md
+    - name: Connected Service in Visual Studio
+      href: connected-service.md
   - name: Manage
     items:
     - name: Cost-effective reads and writes
@@ -245,8 +296,14 @@
       href: set-throughput.md
     - name: Monitor SLAs
       href: monitor-accounts.md
+    - name: Use metrics
+      href: use-metrics.md
+    - name: Diagnostic logging
+      href: logging.md
     - name: Manage keys and consistency
       href: manage-account.md
+    - name: Azure Storage Explorer
+      href: tutorial-documentdb-and-mongodb-in-storage-explorer.md
     - name: Security
       items:
       - name: Encryption at rest
@@ -272,7 +329,7 @@
     - name: Integrate with Azure Search
       href: ../search/search-howto-index-documentdb.md
     - name: Move data with Azure Data Factory
-      href: ../data-factory/data-factory-azure-documentdb-connector.md
+      href: ../data-factory/connector-azure-cosmos-db.md
     - name: Analyze real-time data with Azure Stream Analytics
       href: ../stream-analytics/stream-analytics-define-outputs.md#documentdb
     - name: Get changed HL7 FHIR record using Logic Apps
@@ -283,14 +340,20 @@
       href: powerbi-visualize.md
     - name: Leverage the ODBC driver for data visualization
       href: odbc-driver.md
+    - name: Use Spring Boot Starter with DocumentDB APIs
+      href: documentdb-java-spring-boot-starter-with-cosmos-db.md
 - name: Reference
   items:
+  - name: Code samples
+    href: https://azure.microsoft.com/en-us/resources/samples/?service=cosmos-db
   - name: DocumentDB APIs
     items:
     - name: Java
       href: documentdb-sdk-java.md
     - name: .NET
       href: documentdb-sdk-dotnet.md
+    - name: .NET Change feed
+      href: documentdb-sdk-dotnet-changefeed.md
     - name: .NET Core
       href: documentdb-sdk-dotnet-core.md
     - name: Node.js
@@ -301,18 +364,26 @@
       href: /rest/api/documentdb/
     - name: REST Resource Provider
       href: /rest/api/documentdbresourceprovider/
+    - name: SQL
+      href: documentdb-sql-query-reference.md
   - name: Table APIs
     items:
     - name: .NET
       href: table-sdk-dotnet.md
+    - name: Python
+      href: table-sdk-python.md  
   - name: Graph APIs
     items:
     - name: .NET
       href: graph-sdk-dotnet.md
 - name: Resources
   items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Try Azure Cosmos DB for free
+    href: https://azure.microsoft.com/try/cosmosdb/
   - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/documentdb/
+    href: https://azure.microsoft.com/pricing/details/cosmos-db/
   - name: FAQ
     href: faq.md
   - name: Stack Overflow

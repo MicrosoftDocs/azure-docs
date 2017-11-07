@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/24/2017
+ms.date: 05/31/2017
 ms.author: tomfitz
 
 ---
@@ -165,8 +165,8 @@ The **parent.json** file consists of:
   ],
   "outputs": {
     "result": {
-      "type": "object",
-      "value": "[reference('linkedTemplate').outputs.result]"
+      "type": "string",
+      "value": "[reference('linkedTemplate').outputs.result.value]"
     }
   }
 }
@@ -202,8 +202,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateUri 
 In Azure CLI 2.0, you get a token for the container and deploy the templates with the following code:
 
 ```azurecli
-seconds='@'$(( $(date +%s) + 1800 ))
-expiretime=$(date +%Y-%m-%dT%H:%MZ --date=$seconds)
+expiretime=$(date -u -d '30 minutes' +%Y-%m-%dT%H:%MZ)
 connection=$(az storage account show-connection-string \
     --resource-group ManageGroup \
     --name storagecontosotemplates \

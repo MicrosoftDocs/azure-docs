@@ -25,8 +25,6 @@ This script creates a virtual machine from a snapshot of an OS disk.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Sample script
@@ -37,7 +35,7 @@ This script creates a virtual machine from a snapshot of an OS disk.
 
 Run the following command to remove the resource group, VM, and all related resources.
 
-```azurecli
+```azurecli-interactive 
 az group delete --name myResourceGroup
 ```
 
@@ -47,9 +45,9 @@ This script uses the following commands to create a managed disk, virtual machin
 
 | Command | Notes |
 |---|---|
-| [az snapshot show](https://docs.microsoft.com/cli/azure/snapshot#show) | Gets snapshot using snapshot name and resource group name. Id property of the returned object is used to create a managed disk.  |
-| [az disk create](https://docs.microsoft.com/cli/azure/disk#create) | Creates managed disks from a snapshot using snapshot Id, disk name, storage type, and size  |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm#create) | Creates a VM using a managed OS disk |
+| [az snapshot show](https://docs.microsoft.com/cli/azure/snapshot#az_snapshot_show) | Gets snapshot using snapshot name and resource group name. Id property of the returned object is used to create a managed disk.  |
+| [az disk create](https://docs.microsoft.com/cli/azure/disk#az_disk_create) | Creates managed disks from a snapshot using snapshot Id, disk name, storage type, and size  |
+| [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | Creates a VM using a managed OS disk |
 
 ## Next steps
 

@@ -15,7 +15,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/22/2017
+ms.date: 10/12/2017
 ms.author: ankshah
 
 ---
@@ -45,7 +45,7 @@ When you add additional virtual machine instances to the group, they are automat
 When you access an Azure Cosmos DB database account from a computer on the internet, the client IP address or IP address range of the machine must be added to the allowed list of IP address for the Azure Cosmos DB database account. 
 
 ## <a id="configure-ip-policy"></a> Configuring the IP access control policy
-The IP access control policy can be set in the Azure portal, or programmatically through [Azure CLI](cli-samples.md), [Azure Powershell](powershell-samples.md), or the [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) by updating the `ipRangeFilter` property. IP addresses/ranges must be comma separated and must not contain any spaces. Example: "13.91.6.132,13.91.6.1/24". When updating your database account through these methods, be sure to populate all of the properties to prevent resetting to default settings.
+The IP access control policy can be set in the Azure portal, or programmatically through [Azure CLI](cli-samples.md), [Azure Powershell](powershell-samples.md), or the [REST API](/rest/api/documentdb/) by updating the `ipRangeFilter` property. IP addresses/ranges must be comma separated and must not contain any spaces. Example: "13.91.6.132,13.91.6.1/24". When updating your database account through these methods, be sure to populate all of the properties to prevent resetting to default settings.
 
 > [!NOTE]
 > By enabling an IP access control policy for your Azure Cosmos DB database account, all access to your Azure Cosmos DB database account from machines outside the configured allowed list of IP address ranges are blocked. By virtue of this model, browsing the data plane operation from the portal will also be blocked to ensure the integrity of access control.
@@ -62,10 +62,10 @@ In the new pane, specify whether the Azure portal can access the account, and ad
 > When you enable an IP access control policy, you need to add the IP address for the Azure portal to maintain access. The portal IP addresses are:
 > |Region|IP address|
 > |------|----------|
-> |All regions except those specified below| 104.42.195.92|
+> |All regions except those specified below|104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26|
 > |Germany|51.4.229.218|
 > |China|139.217.8.252|
-> |US Gov Arizona|52.244.48.71|
+> |US Gov|52.244.48.71|
 >
 
 ![Screenshot showing a how to configure firewall settings in the Azure portal](./media/firewall-support/azure-portal-firewall-configure.png)

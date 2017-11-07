@@ -4,7 +4,7 @@
   items:
     - name: Search the web for news
       href: search-the-web.md
-    - name: Upgrade from v5 to v7 Preview
+    - name: Upgrade from v5 to v7
       href: bing-news-upgrade-guide-v5-to-v7.md
     - name: Use and display requirements
       href: UseAndDisplayRequirements.md
@@ -12,7 +12,19 @@
   expanded: true
   items:
   - name: Get started
-    href: quick-start.md
+    href: quickstart.md
+  - name: C#
+    href: csharp.md
+  - name: Java
+    href: java.md
+  - name: Node.js
+    href: nodejs.md
+  - name: PHP
+    href: php.md
+  - name: Python
+    href: python.md
+  - name: Ruby
+    href: ruby.md
 - name: How to
   items:
   - name: Handle hit highlighting
@@ -21,14 +33,22 @@
     href: paging-news.md
   - name: Resize and crop thumbnails
     href: resize-and-crop-thumbnails.md
+- name: Tutorials
+  items:
+  - name: Single-page News app
+    href: tutorial-bing-news-search-single-page-app.md
+  - name: Single-page News app (source code)
+    href: tutorial-bing-news-search-single-page-app-source.md
 - name: Reference
   items:
-  - name: REST v5
-    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference
-  - name: REST v7 Preview
+  - name: REST v7
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference
+  - name: REST v5 
+    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference  
 - name: Resources
   items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
   - name: Subscription key
     href: https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api
   - name: Try it!

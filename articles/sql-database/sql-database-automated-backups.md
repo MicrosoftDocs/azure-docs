@@ -1,9 +1,9 @@
 ---
-title: Azure SQL Database backups-automatic, geo-redundant | Microsoft Docs
+title: Azure SQL Database automatic, geo-redundant backups | Microsoft Docs
 description: SQL Database automatically creates a local database backup every few minutes and uses Azure read-access geo-redundant storage for geo-redundancy.
 services: sql-database
 documentationcenter: ''
-author: anosov1960
+author: CarlRabeler
 manager: jhubbard
 editor: ''
 
@@ -13,14 +13,14 @@ ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 11/02/2016
-ms.author: sashan
+ms.workload: "Active"
+ms.date: 07/05/2017
+ms.author: carlrab
 
 ---
-# Learn about SQL Database backups
+# Learn about automatic SQL Database backups
 
-SQL Database automatically creates a database backups and uses Azure read-access geo-redundant storage (RA-GRS) to provide geo-redundancy. These backups are created automatically and at no additional charge. You don't need to do anything to make them happen. Database backups are an essential part of any business continuity and disaster recovery strategy because they protect your data from accidental corruption or deletion. If you want to keep backups in your own storage container you can configure a long-term backup retention policy. For more information, see [Long-term retention](sql-database-long-term-retention.md).
+SQL Database automatically creates database backups and uses Azure read-access geo-redundant storage (RA-GRS) to provide geo-redundancy. These backups are created automatically and at no additional charge. You don't need to do anything to make them happen. Database backups are an essential part of any business continuity and disaster recovery strategy because they protect your data from accidental corruption or deletion. If you want to keep backups in your own storage container you can configure a long-term backup retention policy. For more information, see [Long-term retention](sql-database-long-term-retention.md).
 
 ## What is a SQL Database backup?
 
@@ -38,10 +38,9 @@ You can use these backups to:
 > [!NOTE]
 > In Azure storage, the term *replication* refers to copying files from one location to another. SQL's *database replication* refers to keeping to multiple secondary databases synchronized with a primary database. 
 > 
-> 
 
 ## How much backup storage is included at no cost?
-SQL Database provides up to 200% of your maximum provisioned database storage as backup storage at no additional cost. For example, if you have a Standard DB instance with a provisioned DB size of 250 GB, you have 500 GB of backup storage at no additional charge. If your database exceeds the provided backup storage, you can choose to reduce the retention period by contacting Azure Support. Another option is to pay for extra backup storage that is billed at the standard Read-Access Geographically Redundant Storage (RA-GRS) rate. 
+SQL Database provides up to 200% of your maximum provisioned database storage as backup storage at no additional cost. For example, if you have a Standard DB instance with a provisioned DB size of 250 GB, you have 500 GB of backup storage at no additional charge. 
 
 ## How often do backups happen?
 Full database backups happen weekly, differential database backups generally happen every few hours, and transaction log backups generally happen every 5 - 10 minutes. The first full backup is scheduled immediately after a database is created. It usually completes within 30 minutes, but it can take longer when the database is of a significant size. For example, the initial backup can take longer on a restored database or a database copy. After the first full backup, all further backups are scheduled automatically and managed silently in the background. The exact timing of all database backups is determined by the SQL Database service as it balances the overall system workload. 
@@ -65,7 +64,6 @@ If you delete a database, SQL Database keeps the backups in the same way it woul
 > [!IMPORTANT]
 > If you delete the Azure SQL server that hosts SQL Databases, all databases that belong to the server are also deleted and cannot be recovered. You cannot restore a deleted server.
 > 
-> 
 
 ## How to extend the backup retention period?
 If your application requires that the backups are available for longer period of time you can extend the built-in retention period by configuring the Long-term backup retention policy for individual databases (LTR policy). This allows you to extend the built-it retention period from 35 days to up to 10 years. For more information, see [Long-term retention](sql-database-long-term-retention.md).
@@ -76,6 +74,10 @@ The restore API supports backups stored in the vault as long as the vault is in 
 > [!TIP]
 > For a How-to guide, see [Configure and restore from Azure SQL Database long-term backup retention](sql-database-long-term-backup-retention-configure.md)
 >
+
+## Are backups encrypted?
+
+When TDE is enabled for an Azure SQL database, backups are also encrypted. All new Azure SQL databases are configured with TDE enabled by default. For more information on TDE, see [Transparent Data Encryption with Azure SQL Database](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
 
 ## Next steps
 

@@ -37,7 +37,7 @@ Configuring Site-to-Site VPN and ExpressRoute coexisting connections has several
 * **Basic SKU gateway is not supported.** You must use a non-Basic SKU gateway for both the [ExpressRoute gateway](expressroute-about-virtual-network-gateways.md) and the [VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 * **Only route-based VPN gateway is supported.** You must use a route-based [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 * **Static route should be configured for your VPN gateway.** If your local network is connected to both ExpressRoute and a Site-to-Site VPN, you must have a static route configured in your local network to route the Site-to-Site VPN connection to the public Internet.
-* **ExpressRoute gateway must be configured first.** You must create the ExpressRoute gateway first, before you add the Site-to-Site VPN gateway.
+* **ExpressRoute gateway must be configured first and linked to a circuit.** You must create the ExpressRoute gateway first and link it to a circuit before you add the Site-to-Site VPN gateway.
 
 ## Configuration designs
 ### Configure a Site-to-Site VPN as a failover path for ExpressRoute
@@ -83,6 +83,7 @@ This procedure walks you through creating a VNet and Site-to-Site and ExpressRou
   Select-AzureRmSubscription -SubscriptionName 'yoursubscription'
   $location = "Central US"
   $resgrp = New-AzureRmResourceGroup -Name "ErVpnCoex" -Location $location
+  $VNetASN = 65010
   ```
 3. Create a virtual network including Gateway Subnet. For more information about the virtual network configuration, see [Azure Virtual Network configuration](../virtual-network/virtual-networks-create-vnet-arm-ps.md).
    
@@ -132,10 +133,10 @@ This procedure walks you through creating a VNet and Site-to-Site and ExpressRou
   New-AzureRmVirtualNetworkGateway -Name "VPNGateway" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -IpConfigurations $gwConfig -GatewayType "Vpn" -VpnType "RouteBased" -GatewaySku "Standard"
   ```
    
-    Azure VPN gateway supports the BGP. You can specify -EnableBgp in the following command.
+    Azure VPN gateway supports BGP routing protocol. You can specify ASN (AS Number) for that Virtual Network by adding the -Asn switch in the following command. Not specifying that parameter will default to AS number 65515.
 
   ```powershell
-  $azureVpn = New-AzureRmVirtualNetworkGateway -Name "VPNGateway" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -IpConfigurations $gwConfig -GatewayType "Vpn" -VpnType "RouteBased" -GatewaySku "Standard" -EnableBgp $true
+  $azureVpn = New-AzureRmVirtualNetworkGateway -Name "VPNGateway" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -IpConfigurations $gwConfig -GatewayType "Vpn" -VpnType "RouteBased" -GatewaySku "Standard" -Asn $VNetASN
   ```
    
     You can find the BGP peering IP and the AS number that Azure uses for the VPN gateway in $azureVpn.BgpSettings.BgpPeeringAddress and $azureVpn.BgpSettings.Asn. For more information, see [Configure BGP](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md) for Azure VPN gateway.

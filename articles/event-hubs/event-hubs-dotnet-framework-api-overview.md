@@ -13,14 +13,15 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/03/2017
-ms.author: jotaub;sethm
+ms.date: 08/15/2017
+ms.author: sethm
 
 ---
+
 # Event Hubs .NET Framework API overview
 This article summarizes some of the key Event Hubs .NET Framework client APIs. There are two categories: management and run-time APIs. Run-time APIs consist of all operations needed to send and receive a message. Management operations enable you to manage an Event Hubs entity state by creating, updating, and deleting entities.
 
-Monitoring scenarios span both management and run-time. For detailed reference documentation on the .NET APIs, see the [Service Bus .NET](/dotnet/api) and [EventProcessorHost API](/dotnet/api) references.
+Monitoring scenarios span both management and run-time. For detailed reference documentation on the .NET APIs, see the [Service Bus .NET](/dotnet/api/microsoft.servicebus.messaging) and [EventProcessorHost API](/dotnet/api/microsoft.azure.eventhubs.processor) references.
 
 ## Management APIs
 To perform the following management operations, you must have **Manage** permissions on the Event Hubs namespace:

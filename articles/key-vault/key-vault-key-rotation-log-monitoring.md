@@ -403,7 +403,7 @@ And add a file called project.json with following content:
 ```
 Upon **Save**, Azure Functions will download the required binaries.
 
-Switch to the **Integrate** tab and give the timer parameter a meaningful name to use within the function. In the preceding code, it expects the timer to be called *myTimer*. Specify a [CRON expression](../app-service-web/web-sites-create-web-jobs.md#CreateScheduledCRON) as follows: 0 \* \* \* \* \* for the timer that will cause the function to run once a minute.
+Switch to the **Integrate** tab and give the timer parameter a meaningful name to use within the function. In the preceding code, it expects the timer to be called *myTimer*. Specify a [CRON expression](../app-service/web-sites-create-web-jobs.md#CreateScheduledCRON) as follows: 0 \* \* \* \* \* for the timer that will cause the function to run once a minute.
 
 On the same **Integrate** tab, add an input of the type **Azure Blob Storage**. This will point to the sync.txt file that contains the timestamp of the last event looked at by the function. This will be available within the function by the parameter name. In the preceding code, the Azure Blob Storage input expects the parameter name to be *inputBlob*. Choose the storage account where the sync.txt file will reside (it could be the same or a different storage account). In the path field, provide the path where the file lives in the format {container-name}/path/to/sync.txt.
 

@@ -3,7 +3,7 @@ title: Get started with Azure Key Vault | Microsoft Docs
 description: Use this tutorial to help you get started with Azure Key Vault to create a hardened container in Azure, to store and manage cryptographic keys and secrets in Azure.
 services: key-vault
 documentationcenter: ''
-author: cabailey
+author: barclayn
 manager: mbaldwin
 tags: azure-resource-manager
 
@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/24/2016
-ms.author: cabailey
+ms.date: 10/16/2017
+ms.author: barclayn
 
 ---
 # Get started with Azure Key Vault

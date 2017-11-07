@@ -31,6 +31,10 @@
   items:
   - name: C#
     href: Tutorials/CSharpTutorial.md
+  - name: Java
+    href: Tutorials/java-tutorial.md
+  - name: JavaScript
+    href: Tutorials/javascript-tutorial.md
   - name: Python
     href: Tutorials/PythonTutorial.md
 - name: Reference
@@ -47,6 +51,8 @@
       href: https://github.com/Microsoft/Cognitive-vision-windows
 - name: Resources
   items: 
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
   - name: Samples
     href: https://azure.microsoft.com/resources/samples/?service=cognitive-services
   - name: Category taxonomy

@@ -3,25 +3,25 @@ title: "Azure Analysis Services tutorial lesson 7: Create Key Performance Indica
 description: Describes how to create Key Performance Indicators in the Azure Analysis Services tutorial project. 
 services: analysis-services
 documentationcenter: ''
-author: minewiskan
-manager: erikre
+author: Minewiskan
+manager: kfile
 editor: ''
 tags: ''
 
 ms.assetid: 
 ms.service: analysis-services
 ms.devlang: NA
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 11/01/2017
 ms.author: owend
 ---
 # Lesson 7: Create Key Performance Indicators
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
-In this lesson, you create Key Performance Indicators (KPIs). KPIs are used to gauge performance of a value, defined by a *Base* measure, against a *Target* value, also defined by a measure or by an absolute value. In reporting client applications, KPIs can provide business professionals a quick and easy way to understand a summary of business success or to identify trends. To learn more, see [KPIs](https://docs.microsoft.com/sql/analysis-services/tabular-models/kpis-ssas-tabular)
+In this lesson, you create Key Performance Indicators (KPIs). KPIs are used to gauge performance of a value defined by a *Base* measure, against a *Target* value also defined by a measure, or by an absolute value. In reporting client applications, KPIs can provide business professionals a quick and easy way to understand a summary of business success or to identify trends. To learn more, see [KPIs](https://docs.microsoft.com/sql/analysis-services/tabular-models/kpis-ssas-tabular)
   
 Estimated time to complete this lesson: **15 minutes**  
   
@@ -42,9 +42,9 @@ This topic is part of a tabular modeling tutorial, which should be completed in 
     InternetCurrentQuarterSalesPerformance :=DIVIDE([InternetCurrentQuarterSales]/[InternetPreviousQuarterSalesProportionToQTD],BLANK())  
     ```
 
-    This measure will serve as the Base measure for the KPI.  
+    This measure serves as the Base measure for the KPI.  
   
-4.  Right-click **InternetCurrentQuarterSalesPerformance** > **Create KPI**.   
+4.  In the measure grid, right-click **InternetCurrentQuarterSalesPerformance** > **Create KPI**.   
   
 5.  In the Key Performance Indicator (KPI) dialog box, in **Target** select **Absolute Value**, and then type **1.1**.  
   
@@ -55,7 +55,7 @@ This topic is part of a tabular modeling tutorial, which should be completed in 
     ![aas-lesson7-kpi](../tutorials/media/aas-lesson7-kpi.png)
     
     > [!TIP]  
-    > Notice the expandable **Descriptions** label below the available icon styles. Use this to enter descriptions for the various KPI elements to make them more identifiable in client applications.  
+    > Notice the expandable **Descriptions** label below the available icon styles. Use descriptions for the various KPI elements to make them more identifiable in client applications.  
   
 9. Click **OK** to complete the KPI.  
   

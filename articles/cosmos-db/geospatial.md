@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 05/22/2017
+ms.date: 10/20/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
 
 ---
 # Working with geospatial and GeoJSON location data in Azure Cosmos DB
-This article is an introduction to the geospatial functionality in [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/). After reading this, you will be able to answer the following questions:
+This article is an introduction to the geospatial functionality in [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). After reading this, you will be able to answer the following questions:
 
 * How do I store spatial data in Azure Cosmos DB?
 * How can I query geospatial data in Azure Cosmos DB in SQL and LINQ?
@@ -76,13 +76,13 @@ In addition to points, GeoJSON also supports LineStrings and Polygons. **LineStr
 ```json
 {
     "type":"Polygon",
-    "coordinates":[
+    "coordinates":[ [
         [ 31.8, -5 ],
         [ 31.8, -4.7 ],
         [ 32, -4.7 ],
         [ 32, -5 ],
         [ 31.8, -5 ]
-    ]
+    ] ]
 }
 ```
 

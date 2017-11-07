@@ -2,7 +2,7 @@
 title: Azure Data Catalog Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to set up a data catalog where your organization can find, understand, and consume data sources. Tutorials, API reference, and other documentation.
 services: data-catalog
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -67,6 +67,7 @@ Learn how to use Data Catalog to help your organization and team discover, under
                     <div class="cardText">
                         <h3>REST</h3>
                         <p><a href="/rest/api/datacatalog/">REST API</a></p>
+                        <p><a href="/rest/api/datacatalog/data-catalog-search-syntax-reference">Search syntax reference</a></p>
                     </div>
                 </div>
             </div>

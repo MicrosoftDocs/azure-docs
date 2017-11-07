@@ -3,7 +3,7 @@ title: 'Azure Cosmos DB: Develop with the Graph API in .NET | Microsoft Docs'
 description: Learn how to develop with Azure Cosmos DB's DocumentDB API using .NET
 services: cosmos-db
 documentationcenter: ''
-author: mimig1
+author: dennyglee
 manager: jhubbard
 editor: ''
 
@@ -12,10 +12,10 @@ ms.service: cosmos-db
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/10/2017
-ms.author: arramac
-
+ms.author: denlee
+ms.custom: mvc
 ---
 # Azure Cosmos DB: Develop with the Graph API in .NET
 Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 

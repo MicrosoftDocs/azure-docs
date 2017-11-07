@@ -12,8 +12,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 10/21/2017
 ms.author: markvi
+ms.reviewer: asteen
 
 ---
 # Article Index for Application Management in Azure Active Directory
@@ -51,7 +52,7 @@ Single sign-on allows users to access a variety of apps and services using only 
 | An introduction to federation and other types of sign-on |[Single Sign-On with Azure AD](active-directory-appssoaccess-whatis.md) |
 | Thousands of SaaS apps that are pre-integrated with Azure AD with simplified single sign-on configuration steps |[Getting started with the Azure AD application gallery](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Full List of Pre-Integrated Apps that Support Federation](http://aka.ms/aadfederatedapps)<br /><br />[How to Add Your App to the Azure AD App Gallery](active-directory-app-gallery-listing.md) |
 | More than 150 app tutorials on how to configure single sign-on for apps such as [Salesforce](active-directory-saas-salesforce-tutorial.md), [ServiceNow](active-directory-saas-servicenow-tutorial.md), [Google Apps](active-directory-saas-google-apps-tutorial.md), [Workday](active-directory-saas-workday-tutorial.md), and many more |[List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md) |
-| How to manually set up and customize your single sign-on configuration |[How to Configure Federated Single Sign-On to Apps that are not in the Azure Active Directory Application Gallery](active-directory-saas-custom-apps.md)<br /><br />[How to Customize Claims Issued in the SAML Token for Pre-Integrated Apps](active-directory-saml-claims-customization.md) |
+| How to manually set up and customize your single sign-on configuration |[How to Configure Federated Single Sign-On to Apps that are not in the Azure Active Directory Application Gallery](application-config-sso-how-to-configure-federated-sso-non-gallery.md)<br /><br />[How to Customize Claims Issued in the SAML Token for Pre-Integrated Apps](active-directory-saml-claims-customization.md) |
 | Troubleshooting guide for federated apps that use the SAML protocol |[Troubleshooting SAML-Based Single Sign-On](active-directory-saml-debugging.md) |
 | How to configure your app's certificate's expiration date, and how to renew your certificates |[Managing Certificates for Federated Single Sign-On in Azure Active Directory](active-directory-sso-certs.md) |
 
@@ -198,7 +199,7 @@ Azure Active Directory provides several reports and alerts to help you monitor y
 | Track changes made to who can access a particular application |[Azure Active Directory Audit Report Events](active-directory-reporting-audit-events.md) |
 | Export the data of these reports to your preferred tools using the Reporting API |[Getting Started with the Azure AD Reporting API](active-directory-reporting-api-getting-started.md) |
 
-To see which reports are included with different editions of Azure Active Directory, [click here](active-directory-view-access-usage-reports.md#report-editions).
+To see which reports are included with different editions of Azure Active Directory, [click here](active-directory-view-access-usage-reports.md).
 
 ## See also
 [What is Azure Active Directory?](active-directory-whatis.md)

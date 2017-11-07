@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 11/28/2016
+ms.date: 05/31/2017
 ms.author: mikeray
 
 ---
@@ -91,7 +91,7 @@ Create the availability group listener in two steps. First, create the client ac
 [!INCLUDE [firewall](../../../../includes/virtual-machines-ag-listener-create-listener.md)]
 
 ### Configure the cluster resources in PowerShell
-1. For external load balancing, you must obtain the public virtual IP address of the cloud service that contains your replicas. Log into the Azure classic portal. Navigate to the cloud service that contains your availability group VM. Open the **Dashboard** view.
+1. For external load balancing, you must obtain the public virtual IP address of the cloud service that contains your replicas. Log into the Azure portal. Navigate to the cloud service that contains your availability group VM. Open the **Dashboard** view.
 2. Note the address shown under **Public Virtual IP (VIP) Address**. If your solution spans VNets, repeat this step for each cloud service that contains a VM that hosts a replica.
 3. On one of the VMs, copy the PowerShell script below into a text editor and set the variables to the values you noted earlier.
    

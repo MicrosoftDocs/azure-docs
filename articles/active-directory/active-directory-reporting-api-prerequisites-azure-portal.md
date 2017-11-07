@@ -13,8 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/16/2017
+ms.date: 10/18/2017
 ms.author: dhanyahk;markvi
+ms.reviewer: dhanyahk
 
 ---
 # Prerequisites to access the Azure AD reporting API
@@ -36,7 +37,7 @@ To prepare your access to the reporting API, you must:
 2. Grant permissions 
 3. Gather configuration settings 
 
-For questions, issues or feedback, please contact [AAD Reporting Help](mailto:aadreportinghelp@microsoft.com).
+For questions, issues or feedback, please [file a support ticket](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-troubleshooting-support-howto).
 
 ## Register an Azure Active Directory application
 
@@ -69,7 +70,7 @@ To configure your directory to access the Azure AD reporting API, you must sign 
 
     a. In the **Name** textbox, type `Reporting API application`.
 
-    b. As **Application type**, select `Web app / API`.
+    b. As **Application type**, select **Web app / API**.
 
     c. In the **Sign-on URL** textbox, type `https://localhost`.
 
@@ -106,6 +107,11 @@ The objective of this step is to grant your application **Read directory data** 
 6. In the toolbar on the top, click **Save**.
 
     ![Register application](./media/active-directory-reporting-api-prerequisites-azure-portal/15.png)
+
+7. Click **Grant Permissions**, and then click **Yes**.
+
+    ![Register application](./media/active-directory-reporting-api-prerequisites-azure-portal/17.png)
+
 
 ## Gather configuration settings 
 This section shows you how to get the following settings from your directory:

@@ -28,8 +28,6 @@ This script creates a virtual machine by attaching an existing managed disk as O
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Sample script
@@ -40,7 +38,7 @@ This script creates a virtual machine by attaching an existing managed disk as O
 
 Run the following command to remove the resource group, VM, and all related resources.
 
-```azurecli
+```azurecli-interactive 
 az group delete --name myResourceGroup
 ```
 
@@ -50,8 +48,8 @@ This script uses the following commands to get managed disk properties, attach a
 
 | Command | Notes |
 |---|---|
-| [az disk show](https://docs.microsoft.com/cli/azure/disk#show) | Gets managed disk properties using disk name and resource group name. Id property is used to attach a managed disk to a new VM |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm#create) | Creates a VM using a managed OS disk |
+| [az disk show](https://docs.microsoft.com/cli/azure/disk#az_disk_show) | Gets managed disk properties using disk name and resource group name. Id property is used to attach a managed disk to a new VM |
+| [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | Creates a VM using a managed OS disk |
 ## Next steps
 
 For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).

@@ -45,6 +45,8 @@
       href: https://github.com/Microsoft/Cognitive-emotion-windows
 - name: Resources
   items: 
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
   - name: Samples
     href: https://azure.microsoft.com/resources/samples/?service=cognitive-services
   - name: FAQ

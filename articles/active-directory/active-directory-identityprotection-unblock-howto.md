@@ -13,8 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2017
+ms.date: 10/17/2017
 ms.author: markvi
+ms.reviewer: nigu
 
 ---
 # Azure Active Directory Identity Protection - How to unblock users

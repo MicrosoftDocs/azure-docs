@@ -3,18 +3,18 @@ title: "Azure Analysis Services tutorial supplemental lesson: Detail Rows | Micr
 description: Describes how to create a Detail Rows Expression in the Azure Analysis Services tutorial.
 services: analysis-services
 documentationcenter: ''
-author: minewiskan
-manager: erikre
+author: Minewiskan
+manager: kfile
 editor: ''
 tags: ''
 
 ms.assetid: 
 ms.service: analysis-services
 ms.devlang: NA
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 11/01/2017
 ms.author: owend
 ---
 # Supplemental lesson - Detail Rows
@@ -37,7 +37,7 @@ Let's look at the details of our InternetTotalSales measure, before adding a Det
 
     ![aas-lesson-detail-rows-pivottable](../tutorials/media/aas-lesson-detail-rows-pivottable.png)
 
-3. In the PivotTable, double-click an aggregated value for a year and a region name. Here we double-clicked on the value for Australia and the year 2014. A new sheet opens containing a lot of data, but not really useful.
+3. In the PivotTable, double-click an aggregated value for a year and a region name. Here we double-clicked the value for Australia and the year 2014. A new sheet opens containing data, but not useful data.
 
     ![aas-lesson-detail-rows-pivottable](../tutorials/media/aas-lesson-detail-rows-sheet.png)
   

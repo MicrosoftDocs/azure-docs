@@ -9,12 +9,12 @@ editor: ''
 
 ms.assetid: 51c11be2-af6d-425f-a86a-39cbfe61da29
 ms.service: cosmos-db
-ms.custom: quick start connect
+ms.custom: quick start connect, mvc, devcenter
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: python
-ms.topic: hero-article
-ms.date: 05/13/2017
+ms.topic: quickstart
+ms.date: 10/16/2017
 ms.author: mimig
 
 ---
@@ -27,11 +27,12 @@ This quick start demonstrates how to create an Azure Cosmos DB account, document
 ## Prerequisites
 
 * Before you can run this sample, you must have the following prerequisites:
-    * [Visual Studio 2015](http://www.visualstudio.com/) or higher.
+    * If you don’t already have Visual Studio 2017 installed, you can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
     * Python Tools for Visual Studio from [GitHub](http://microsoft.github.io/PTVS/). This tutorial uses Python Tools for VS 2015.
     * Python 2.7 from [python.org](https://www.python.org/downloads/release/python-2712/)
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
+[!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 ## Create a database account
 
@@ -54,7 +55,7 @@ Now let's clone a DocumentDB API app from github, set the connection string, and
     ```  
 ## Review the code
 
-Let's make a quick review of what's happening in the app. Open the DocumentDBRepository.cs file and you'll find that these lines of code create the Azure Cosmos DB resources. 
+Let's make a quick review of what's happening in the app. Open the DocumentDBGetStarted.py file and you'll find that these lines of code create the Azure Cosmos DB resources. 
 
 
 * The DocumentClient is initialized.
@@ -127,11 +128,11 @@ Now go back to the Azure portal to get your connection string information and co
 
 3. Copy your URI value from the portal (using the copy button) and make it the value of the endpoint key in `DocumentDBGetStarted.py`. 
 
-    `config.ENDPOINT : "https://FILLME.documents.azure.com"`
+    `'ENDPOINT': 'https://FILLME.documents.azure.com',`
 
 4. Then copy your PRIMARY KEY value from the portal and make it the value of the `config.MASTERKEY` in `DocumentDBGetStarted.py`. You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
 
-    `config.MASTERKEY : "FILLME"`
+    `'MASTERKEY': 'FILLME',`
     
 ## Run the app
 1. In Visual Studio, right-click on the project in **Solution Explorer**, select the current Python environment, then right click.

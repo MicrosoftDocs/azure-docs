@@ -13,8 +13,10 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 08/28/2017
 ms.author: curtand
+ms.reviewer: asteen
+ms.custom: it-pro
 
 ---
 # Remove a user or group assignment from an enterprise app in Azure Active Directory

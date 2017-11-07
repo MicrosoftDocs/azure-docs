@@ -1,17 +1,16 @@
 ---
 title: Design your first Azure Database for MySQL database - Azure CLI | Microsoft Docs
-description: This tutorial explains how to create and manage Azure Database for MySQL server and database using Azure CLI 2.0.
+description: This tutorial explains how to create and manage Azure Database for MySQL server and database using Azure CLI 2.0 from the command line.
 services: mysql
 author: v-chenyh
 ms.author: v-chenyh
 manager: jhubbard
-editor: jasonh
-ms.assetid:
-ms.service: mysql-database
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: portal
-ms.date: 05/23/2017
+editor: jasonwhowell
+ms.service: mysql
+ms.devlang: azure-cli
+ms.topic: tutorial
+ms.date: 11/03/2017
+ms.custom: mvc
 ---
 
 # Design your first Azure Database for MySQL database
@@ -21,29 +20,29 @@ Azure Database for MySQL is a relational database service in the Microsoft cloud
 > [!div class="checklist"]
 > * Create an Azure Database for MySQL
 > * Configure the server firewall
-> * Use [mysql command line tool](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) to create a database
+> * Use [mysql command-line tool](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) to create a database
 > * Load sample data
 > * Query data
 > * Update data
 > * Restore data
 
-[!INCLUDE [sample-cli-install](../../includes/sample-cli-install.md)]
+You may use the Azure Cloud Shell in the browser, or [Install Azure CLI 2.0]( /cli/azure/install-azure-cli) on your own computer to run the code blocks in this tutorial.
 
-## Log in to Azure
+[!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-Log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions.
+If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-```azurecli
-az login
+If you have multiple subscriptions, choose the appropriate subscription in which the resource exists or is billed for. Select a specific subscription ID under your account using [az account set](/cli/azure/account#set) command.
+```azurecli-interactive
+az account set --subscription 00000000-0000-0000-0000-000000000000
 ```
-Follow the command prompt instructions to open URL https://aka.ms/devicelogin in your browser, and then enter the code generated in the **command prompt**.
 
 ## Create a resource group
-Create an [Azure resource group](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) with [az group create](https://docs.microsoft.com/cli/azure/group#create) command. A resource group is a logical container into which Azure resources are deployed and managed as a group.
+Create an [Azure resource group](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) with [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) command. A resource group is a logical container into which Azure resources are deployed and managed as a group.
 
 The following example creates a resource group named `mycliresource` in the `westus` location.
 
-```azurecli
+```azurecli-interactive
 az group create --name mycliresource --location westus
 ```
 
@@ -52,7 +51,7 @@ Create an Azure Database for MySQL server with the az mysql server create comman
 
 The following example creates an Azure Database for MySQL server located in `westus` in the resource group `mycliresource` with name `mycliserver`. The server has an administrator log in named `myadmin` and password `Password01!`. The server is created with **Basic** performance tier and **50** compute units shared between all the databases in the server. You can scale compute and storage up or down depending on the application needs.
 
-```azurecli
+```azurecli-interactive
 az mysql server create --resource-group mycliresource --name mycliserver
 --location westus --user myadmin --password Password01!
 --performance-tier Basic --compute-units 50
@@ -63,16 +62,14 @@ Create an Azure Database for MySQL server-level firewall rule with the az mysql 
 
 The following example creates a firewall rule for a predefined address range. This example shows the entire possible range of IP addresses.
 
-```azurecli
-az mysql server firewall-rule create --resource-group mycliresource
---server mycliserver --name AllowYourIP --start-ip-address 0.0.0.0
---end-ip-address 255.255.255.255
+```azurecli-interactive
+az mysql server firewall-rule create --resource-group mycliresource --server mycliserver --name AllowYourIP --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
 ```
 
 ## Get the connection information
 
 To connect to your server, you need to provide host information and access credentials.
-```azurecli
+```azurecli-interactive
 az mysql server show --resource-group mycliresource --name mycliserver
 ```
 
@@ -102,7 +99,7 @@ The result is in JSON format. Make a note of the **fullyQualifiedDomainName** an
 ```
 
 ## Connect to the server using mysql
-Use [mysql command line tool](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) to establish a connection to your Azure Database for MySQL server. In this example, the command is:
+Use the [mysql command-line tool](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) to establish a connection to your Azure Database for MySQL server. In this example, the command is:
 ```cmd
 mysql -h mycliserver.database.windows.net -u myadmin@mycliserver -p
 ```
@@ -119,9 +116,9 @@ mysql> USE mysampledb;
 ```
 
 ## Create tables in the database
-Now that you know how to connect to the Azure Database for MySQL database, we can go over how to complete some basic tasks.
+Now that you know how to connect to the Azure Database for MySQL database, complete some basic tasks:
 
-First, we can create a table and load it with some data. Let's create a table that stores inventory information.
+First, create a table and load it with some data. Let's create a table that stores inventory information.
 ```sql
 CREATE TABLE inventory (
 	id serial PRIMARY KEY, 
@@ -131,7 +128,7 @@ CREATE TABLE inventory (
 ```
 
 ## Load data into the tables
-Now that we have a table, we can insert some data into it. At the open command prompt window, run the following query to insert some rows of data.
+Now that you have a table, insert some data into it. At the open command prompt window, run the following query to insert some rows of data.
 ```sql
 INSERT INTO inventory (id, name, quantity) VALUES (1, 'banana', 150); 
 INSERT INTO inventory (id, name, quantity) VALUES (2, 'orange', 154);
@@ -158,14 +155,14 @@ SELECT * FROM inventory;
 ## Restore a database to a previous point in time
 Imagine you have accidentally deleted this table. This is something you cannot easily recover from. Azure Database for MySQL allows you to go back to any point in time in the last up to 35 days and restore this point in time to a new server. You can use this new server to recover your deleted data. The following steps restore the sample server to a point before the table was added.
 
-For the Restore you need the following information:
+For the restore, you need the following information:
 
 - Restore point: Select a point-in-time that occurs before the server was changed. Must be greater than or equal to the source database's Oldest backup value.
 - Target server: Provide a new server name you want to restore to
 - Source server: Provide the name of the server you want to restore from
 - Location: You cannot select the region, by default it is same as the source server
 
-```azurecli
+```azurecli-interactive
 az mysql server restore --resource-group mycliresource --name mycliserver-restored --restore-point-in-time "2017-05-4 03:10" --source-server-name mycliserver
 ```
 
@@ -176,10 +173,11 @@ In this tutorial you learned to:
 > [!div class="checklist"]
 > * Create an Azure Database for MySQL
 > * Configure the server firewall
-> * Use [mysql command line tool](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) to create a database
+> * Use [mysql command-line tool](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) to create a database
 > * Load sample data
 > * Query data
 > * Update data
 > * Restore data
 
-For additional CLI script samples, try [Azure Database for MySQL - Azure CLI samples](./sample-scripts-azure-cli.md)
+> [!div class="nextstepaction"]
+> [Azure Database for MySQL - Azure CLI samples](./sample-scripts-azure-cli.md)

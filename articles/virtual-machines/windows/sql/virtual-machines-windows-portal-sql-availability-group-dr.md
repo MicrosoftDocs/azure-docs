@@ -1,4 +1,4 @@
----
+﻿---
 title: SQL Server Availability Groups - Azure Virtual Machines - Disaster Recovery | Microsoft Docs
 description: "This article explains how to configure a SQL Server availability group on Azure virtual machines with a replica in a different region."
 services: virtual-machines
@@ -103,7 +103,7 @@ To create a replica in a remote data center, do the following steps:
 
 1. On the new SQL Server in SQL Server Configuration Manager, [enable Always On Availability Groups](http://msdn.microsoft.com/library/ff878259.aspx).
 
-1. [Open firewall ports on the new SQL Server](virtual-machines-windows-portal-sql-availability-group-prereq.md#a-nameendpoint-firewall-configure-the-firewall-on-each-sql-server-vm).
+1. [Open firewall ports on the new SQL Server](virtual-machines-windows-portal-sql-availability-group-prereq.md#endpoint-firewall).
 
    The port numbers you need to open depend on your environment. Open ports for the mirroring endpoint and Azure load balancer health probe.
 

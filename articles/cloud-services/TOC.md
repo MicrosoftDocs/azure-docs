@@ -17,12 +17,10 @@
 ### [Build and deploy a Node.js application](cloud-services-nodejs-develop-deploy-app.md)
 ### [Build a Node.js web application using Express](cloud-services-nodejs-develop-deploy-express-app.md)
 ### Storage and Visual Studio
-#### [Blob storage and connected services](../storage/vs-storage-cloud-services-getting-started-blobs.md)
-#### [Queue storage and connected services](../storage/vs-storage-cloud-services-getting-started-queues.md)
-#### [Table storage and connected services](../storage/vs-storage-cloud-services-getting-started-tables.md)
+#### [Blob storage and connected services](../visual-studio/vs-storage-cloud-services-getting-started-blobs.md)
+#### [Queue storage and connected services](../visual-studio/vs-storage-cloud-services-getting-started-queues.md)
+#### [Table storage and connected services](../visual-studio/vs-storage-cloud-services-getting-started-tables.md)
 ### Configure packages for continuous build and deploy
-#### [Visual Studio Team Services and Git](cloud-services-continuous-delivery-use-vso-git.md)
-#### [Visual Studio Team Services](cloud-services-continuous-delivery-use-vso.md)
 #### [TFS and Team Build](cloud-services-dotnet-continuous-delivery.md)
 ### [Configure traffic rules for a role](cloud-services-enable-communication-role-instances.md)
 ### [Handle Cloud Service lifecycle events](cloud-services-role-lifecycle-dotnet.md)
@@ -36,13 +34,13 @@
 #### [Use a task to Install .NET on a Cloud Service role](cloud-services-dotnet-install-dotnet.md)
 
 ### Configure Remote Desktop
-#### [Portal](cloud-services-role-enable-remote-desktop-new-portal.md)
+#### [Azure portal](cloud-services-role-enable-remote-desktop-new-portal.md)
 #### [Classic portal](cloud-services-role-enable-remote-desktop.md)
-#### [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
+#### [Azure PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 
 ## Deploy
 ### Create and deploy a cloud service in portal
-#### [Portal](cloud-services-how-to-create-deploy-portal.md)
+#### [Azure portal](cloud-services-how-to-create-deploy-portal.md)
 #### [Classic portal](cloud-services-how-to-create-deploy.md)
 ### [Create an empty cloud service container in PowerShell](cloud-services-powershell-create-cloud-container.md)
 ### Configure a custom domain name
@@ -53,14 +51,14 @@
 
 ## Manage service
 ### Common management tasks
-#### [Portal](cloud-services-how-to-manage-portal.md)
+#### [Azure portal](cloud-services-how-to-manage-portal.md)
 #### [Classic portal](cloud-services-how-to-manage.md)
 ### Configure Cloud Service
-#### [Portal](cloud-services-how-to-configure-portal.md)
+#### [Azure portal](cloud-services-how-to-configure-portal.md)
 #### [Classic portal](cloud-services-how-to-configure.md)
 ### [Manage a Cloud Service using Azure Automation](automation-manage-cloud-services.md)
 ### Configure automatic scaling
-#### [Portal](cloud-services-how-to-scale-portal.md)
+#### [Azure portal](cloud-services-how-to-scale-portal.md)
 #### [Classic portal](cloud-services-how-to-scale.md)
 ### [Use Python to manage Azure Resources](cloud-services-python-how-to-use-service-management.md)
 
@@ -82,7 +80,7 @@
 ### [Test performance](../vs-azure-tools-performance-profiling-cloud-services.md)
 #### [Test with Visual Studio Profiler](cloud-services-performance-testing-visual-studio-profiler.md)
 ### Enable diagnostics
-#### [PowerShell](cloud-services-diagnostics-powershell.md)
+#### [Azure PowerShell](cloud-services-diagnostics-powershell.md)
 #### [.NET](cloud-services-dotnet-diagnostics.md)
 #### [Visual Studio](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
 ### [Use performance counters in Azure Diagnostics](cloud-services-dotnet-diagnostics-performance-counters.md)
@@ -102,16 +100,29 @@
 ### [Common deployment problems](cloud-services-troubleshoot-deployment-problems.md)
 ### [Role failed to start](cloud-services-troubleshoot-roles-that-fail-start.md)
 ### [Recovery guidance](cloud-services-disaster-recovery-guidance.md)
-### [Cloud Services FAQ](cloud-services-faq.md)
+### Cloud Services FAQ
+#### [Application and service availability FAQ](cloud-services-application-and-service-availability-faq.md)
+#### [Configuration and management FAQ](cloud-services-configuration-and-management-faq.md)
+#### [Connectivity and networking FAQ](cloud-services-connectivity-and-networking-faq.md)
+#### [Deployment FAQ](cloud-services-deployment-faq.md)
 
 # Reference
-## [.csdef XMLSchema](https://msdn.microsoft.com/library/azure/ee758711)
-## [.cscfg XMLSchema](https://msdn.microsoft.com/library/azure/ee758710)
-## [REST](https://msdn.microsoft.com/library/azure/ee460812)
+## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=cloud-services)
+## [.csdef XML Schema](schema-csdef-file.md)
+### [LoadBalancerProbe Schema](schema-csdef-loadbalancerprobe.md)
+### [WebRole Schema](schema-csdef-webrole.md)
+### [WorkerRole Schema](schema-csdef-workerrole.md)
+### [NetworkTrafficRules Schema](schema-csdef-networktrafficrules.md)
+## [.cscfg XML Schema](schema-cscfg-file.md)
+### [Role Schema](schema-cscfg-role.md)
+### [NetworkConfiguration Schema](schema-cscfg-networkconfiguration.md)
+## [REST](/rest/api/compute/cloudservices/)
 
 # Resources
-## [Pricing](https://azure.microsoft.com/pricing/details/cloud-services/)
-## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-us/home?forum=windowsazuredevelopment)
-## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=cloud-services)
-## [Service updates](https://azure.microsoft.com/updates/?product=cloud-services&updatetype=&platform=)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=compute)
 ## [Learning path](https://azure.microsoft.com/documentation/learning-paths/cloud-services/)
+## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-us/home?forum=windowsazuredevelopment)
+## [Pricing](https://azure.microsoft.com/pricing/details/cloud-services/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
+## [Service updates](https://azure.microsoft.com/updates/?product=cloud-services&updatetype=&platform=)
+## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=cloud-services)

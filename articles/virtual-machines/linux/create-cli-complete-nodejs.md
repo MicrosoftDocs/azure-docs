@@ -30,8 +30,6 @@ The environment contains:
 * A load balancer with a load-balancing rule on port 80.
 * Network security group (NSG) rules to protect your VM from unwanted traffic.
 
-![Basic environment overview](./media/create-cli-complete/environment_overview.png)
-
 To create this custom environment, you need the latest [Azure CLI 1.0](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) in Resource Manager mode (`azure config mode arm`). You also need a JSON parsing tool. This example uses [jq](https://stedolan.github.io/jq/).
 
 

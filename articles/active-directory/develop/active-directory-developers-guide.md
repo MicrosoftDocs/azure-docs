@@ -2,7 +2,7 @@
 title: Azure Active Directory for developers | Microsoft Docs
 description: This article provides an overview of signing in Microsoft work and school accounts using Azure Active Directory.
 services: active-directory
-author: bryanla
+author: dstrockis
 manager: mbaldwin
 editor: ''
 
@@ -13,8 +13,7 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/07/2017
-ms.author: bryanla
-ms.custom: aaddev
+ms.author: dastrock
 ms.custom: aaddev
 ---
 # Azure Active Directory for developers
@@ -56,15 +55,9 @@ These articles provide detailed information on APIs, protocol messages, and term
 | [Glossary](active-directory-dev-glossary.md)                                      | Terminology and definitions of words used throughout this documentation |
 | [More reference material...](active-directory-developers-guide-index.md#reference)|     |
 
-## Help & Support
-These are the best places to get help with developing on Azure Active Directory.
-
-|  |  
-|---|
-|[Stack Overflow's `azure-active-directory` and `adal` tags](http://stackoverflow.com/questions/tagged/azure-active-directory+or+adal)      |
-|[Feedback on Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/category/164757-developer-experiences)|
-
-<br />
 
 > [!NOTE]
 > If you need to sign-in Microsoft personal accounts, you may want to consider using the [Azure AD v2.0 endpoint](active-directory-appmodel-v2-overview.md).  The Azure AD v2.0 endpoint is the unification of Microsoft personal accounts & Microsoft work accounts (from Azure AD) into a single authentication system.
+
+
+[!INCLUDE  [Help and Support Options](../../../includes/active-directory-develop-help-support-include.md)]

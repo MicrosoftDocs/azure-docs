@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2017
+ms.date: 09/19/2017
 ms.author: sasolank
 
 ---
@@ -29,8 +29,18 @@ Combining API Management provisioned in an internal VNET with the Application Ga
 * Use a single API Management resource and have a subset of APIs defined in API Management available for external consumers.
 * Provide a turn-key way to switch access to API Management from the public Internet on and off. 
 
+## Prerequisites
+
+To perform the steps described in this article, you must have:
+
++ An active Azure subscription.
+
+    [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
++ An APIM instance. For more information, see [Create an Azure API Management instance](get-started-create-service-instance.md).
+
 ##<a name="scenario"> </a> Scenario
-This article will cover how to use a single API Management service for both internal and external consumers and make it act as a single frontend for both on-prem and cloud APIs. You will also see how to expose only a subset of your APIs (in the example they are highlighted in green) for External Consumption using the PathBasedRouting functionality available in Application Gateway.
+This article covers how to use a single API Management service for both internal and external consumers and make it act as a single frontend for both on-prem and cloud APIs. You will also see how to expose only a subset of your APIs (in the example they are highlighted in green) for External Consumption using the PathBasedRouting functionality available in Application Gateway.
 
 In the first setup example all your APIs are managed only from within your Virtual Network. Internal consumers (highlighted in orange) can access all your internal and external APIs. Traffic never goes out to Internet a high performance is delivered via Express Route circuits.
 
@@ -38,7 +48,7 @@ In the first setup example all your APIs are managed only from within your Virtu
 
 ## <a name="before-you-begin"> </a> Before you begin
 
-1. Install the latest version of the Azure PowerShell cmdlets by using the Web Platform Installer. You can download and install the latest version from the **Windows PowerShell** section of the [Downloads page](https://azure.microsoft.com/downloads/).
+1. Install the latest version of the Azure PowerShell cmdlets by using the Web Platform Installer. You can download and install the latest version from the **Windows PowerShell** section of the [Downloads page](https://azure.microsoft.com/downloads/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 2. Create a Virtual Network and create separate subnets for API Management and Application Gateway. 
 3. If you intend to create a custom DNS server for the Virtual Network, do so before starting the deployment. Double check it works by ensuring a virtual machine created in a new subnet in the Virtual Network can resolve and access all Azure service endpoints.
 
@@ -143,7 +153,7 @@ $apimVirtualNetwork = New-AzureRmApiManagementVirtualNetwork -Location "West US"
 Create an API Management service inside the Virtual Network.
 
 ```powershell
-$apimService = New-AzureRmApiManagement -ResourceGroupName "apim-appGw-RG" -Location "West US" -Name "ContosoApi" -Organization "Contoso" -AdminEmail "admin@contoso.com" -VirtualNetwork $apimVirtualNetwork -VpnType "Internal" -Sku "Premium"
+$apimService = New-AzureRmApiManagement -ResourceGroupName "apim-appGw-RG" -Location "West US" -Name "ContosoApi" -Organization "Contoso" -AdminEmail "admin@contoso.com" -VirtualNetwork $apimVirtualNetwork -VpnType "Internal" -Sku "Developer"
 ```
 After the above command succeeds refer to [DNS Configuration required to access internal VNET API Management service](api-management-using-with-internal-vnet.md#apim-dns-configuration) to access it.
 
@@ -231,7 +241,7 @@ $apimprobe = New-AzureRmApplicationGatewayProbeConfig -Name "apimproxyprobe" -Pr
 
 ### Step 7
 
-Upload the certificate to be used on the SSL-enabled backend pool resources.
+Upload the certificate to be used on the SSL-enabled backend pool resources. This is the same certificate which you provided in Step 4 above.
 
 ```powershell
 $authcert = New-AzureRmApplicationGatewayAuthenticationCertificate -Name "whitelistcert1" -CertificateFile <full path to .cer file>
@@ -254,19 +264,46 @@ $apimProxyBackendPool = New-AzureRmApplicationGatewayBackendAddressPool -Name "a
 ```
 
 ### Step 10
-Configure URL rule paths for the back-end pools. This enables selecting only some of the APIs from API Management for being exposed to the public. (e.g. if there are `Echo API` (/echo/), `Calculator API` (/calc/) etc. make only `Echo API` accessible from Internet). 
+
+Create settings for a dummy (non-existent) backend. Requests to API paths that we do not want to expose from API Management via Application Gateway will hit this backend and return 404.
+
+Configure HTTP settings for the dummy backend.
+
+```powershell
+$dummyBackendSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name "dummySetting01" -Port 80 -Protocol Http -CookieBasedAffinity Disabled
+```
+
+Configure a dummy backend **dummyBackendPool**, which points to a FQDN address **dummybackend.com**. This FQDN address does not exist in the virtual network.
+
+```powershell
+$dummyBackendPool = New-AzureRmApplicationGatewayBackendAddressPool -Name "dummyBackendPool" -BackendFqdns "dummybackend.com"
+```
+
+Create a rule setting that the Application Gateway will use by default which points to the non-existent backend **dummybackend.com** in the Virtual Network.
+
+```powershell
+$dummyPathRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "nonexistentapis" -Paths "/*" -BackendAddressPool $dummyBackendPool -BackendHttpSettings $dummyBackendSetting
+```
+
+### Step 11
+
+Configure URL rule paths for the back-end pools. This enables selecting only some of the APIs from API Management for being exposed to the public. For example, if there are `Echo API` (/echo/), `Calculator API` (/calc/) etc. make only `Echo API` accessible from Internet). 
 
 The following example creates a simple rule for the "/echo/" path routing traffic to the back-end "apimProxyBackendPool".
 
 ```powershell
 $echoapiRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "externalapis" -Paths "/echo/*" -BackendAddressPool $apimProxyBackendPool -BackendHttpSettings $apimPoolSetting
+```
 
-$urlPathMap = New-AzureRmApplicationGatewayUrlPathMapConfig -Name "urlpathmap" -PathRules $echoapiRule -DefaultBackendAddressPool $apimProxyBackendPool -DefaultBackendHttpSettings $apimPoolSetting
+If the path doesn't match the path rules we want to enable from API Management, the rule path map configuration also configures a default back-end address pool named **dummyBackendPool**. For example, http://api.contoso.net/calc/* goes to **dummyBackendPool** as it is defined as the default pool for un-matched traffic.
+
+```powershell
+$urlPathMap = New-AzureRmApplicationGatewayUrlPathMapConfig -Name "urlpathmap" -PathRules $echoapiRule, $dummyPathRule -DefaultBackendAddressPool $dummyBackendPool -DefaultBackendHttpSettings $dummyBackendSetting
 ```
 
 The above step ensures that only requests for the path "/echo" are allowed through the Application Gateway. Requests to other APIs configured in API Management will throw 404 errors from Application Gateway when accessed from the Internet. 
 
-### Step 11
+### Step 12
 
 Create a rule setting for the Application Gateway to use URL path-based routing.
 
@@ -274,7 +311,7 @@ Create a rule setting for the Application Gateway to use URL path-based routing.
 $rule01 = New-AzureRmApplicationGatewayRequestRoutingRule -Name "rule1" -RuleType PathBasedRouting -HttpListener $listener -UrlPathMap $urlPathMap
 ```
 
-### Step 12
+### Step 13
 
 Configure the number of instances and size for the Application Gateway. Here we are using the [WAF SKU](../application-gateway/application-gateway-webapplicationfirewall-overview.md) for increased security of the API Management resource.
 
@@ -282,7 +319,7 @@ Configure the number of instances and size for the Application Gateway. Here we 
 $sku = New-AzureRmApplicationGatewaySku -Name "WAF_Medium" -Tier "WAF" -Capacity 2
 ```
 
-### Step 13
+### Step 14
 
 Configure WAF to be in "Prevention" mode.
 ```powershell
@@ -294,7 +331,7 @@ $config = New-AzureRmApplicationGatewayWebApplicationFirewallConfiguration -Enab
 Create an Application Gateway with all the configuration objects from the preceding steps.
 
 ```powershell
-$appgw = New-AzureRmApplicationGateway -Name "appgwtest" -ResourceGroupName "apim-appGw-RG" -Location "West US" -BackendAddressPools $apimProxyBackendPool -BackendHttpSettingsCollection $apimPoolSetting -FrontendIpConfigurations $fipconfig01 -GatewayIpConfigurations $gipconfig -FrontendPorts $fp01 -HttpListeners $listener -UrlPathMaps $urlPathMap -RequestRoutingRules $rule01 -Sku $sku -WebApplicationFirewallConfig $config -SslCertificates $cert -AuthenticationCertificates $authcert -Probes $apimprobe
+$appgw = New-AzureRmApplicationGateway -Name $applicationGatewayName -ResourceGroupName $resourceGroupName  -Location $location -BackendAddressPools $apimProxyBackendPool, $dummyBackendPool -BackendHttpSettingsCollection $apimPoolSetting, $dummyBackendSetting  -FrontendIpConfigurations $fipconfig01 -GatewayIpConfigurations $gipconfig -FrontendPorts $fp01 -HttpListeners $listener -UrlPathMaps $urlPathMap -RequestRoutingRules $rule01 -Sku $sku -WebApplicationFirewallConfig $config -SslCertificates $cert -AuthenticationCertificates $authcert -Probes $apimprobe
 ```
 
 ## CNAME the API Management proxy hostname to the public DNS name of the Application Gateway resource
@@ -314,7 +351,7 @@ Azure API Management configured in a VNET provides a single gateway interface fo
 * Learn more about Azure Application Gateway
   * [Application Gateway Overview](../application-gateway/application-gateway-introduction.md)
   * [Application Gateway Web Application Firewall](../application-gateway/application-gateway-webapplicationfirewall-overview.md)
+  * [Application Gateway using Path-based Routing](../application-gateway/application-gateway-create-url-route-arm-ps.md)
 * Learn more about API Management and VNETs
+  * [Using API Management available only within the VNET](api-management-using-with-internal-vnet.md)
   * [Using API Management in VNET](api-management-using-with-vnet.md)
-
-

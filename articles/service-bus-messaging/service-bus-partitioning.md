@@ -13,20 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/28/2017
+ms.date: 08/07/2017
 ms.author: sethm;hillaryc
 
 ---
 # Partitioned queues and topics
 Azure Service Bus employs multiple message brokers to process messages and multiple messaging stores to store messages. A conventional queue or topic is handled by a single message broker and stored in one messaging store. Service Bus *partitions* enable queues and topics, or *messaging entities*, to be partitioned across multiple message brokers and messaging stores. This means that the overall throughput of a partitioned entity is no longer limited by the performance of a single message broker or messaging store. In addition, a temporary outage of a messaging store does not render a partitioned queue or topic unavailable. Partitioned queues and topics can contain all advanced Service Bus features, such as support for transactions and sessions.
 
-For more information about Service Bus internals, see the [Service Bus architecture][Service Bus architecture] article.
+For information about Service Bus internals, see the [Service Bus architecture][Service Bus architecture] article.
 
 Partitioning is enabled by default at entity creation on all queues and topics in both Standard and Premium messaging. You can create Standard messaging tier entities without partitioning, but queues and topics in a Premium namespace are always partitioned; this option cannot be disabled. 
 
 It is not possible to change the partitioning option on an existing queue or topic in either Standard or Premium tiers, you can only set the option when you create the entity.
 
 ## How it works
+
 Each partitioned queue or topic consists of multiple fragments. Each fragment is stored in a different messaging store and handled by a different message broker. When a message is sent to a partitioned queue or topic, Service Bus assigns the message to one of the fragments. The selection is done randomly by Service Bus or by using a partition key that the sender can specify.
 
 When a client wants to receive a message from a partitioned queue, or from a subscription to a partitioned topic, Service Bus queries all fragments for messages, then returns the first message that is obtained from any of the messaging stores to the receiver. Service Bus caches the other messages and returns them when it receives additional receive requests. A receiving client is not aware of the partitioning; the client-facing behavior of a partitioned queue or topic (for example, read, complete, defer, deadletter, prefetching) is identical to the behavior of a regular entity.
@@ -34,6 +35,7 @@ When a client wants to receive a message from a partitioned queue, or from a sub
 There is no additional cost when sending a message to, or receiving a message from, a partitioned queue or topic.
 
 ## Enable partitioning
+
 To use partitioned queues and topics with Azure Service Bus, use the Azure SDK version 2.2 or later, or specify `api-version=2013-10` in your HTTP requests.
 
 ### Standard

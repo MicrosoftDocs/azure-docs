@@ -1,6 +1,6 @@
 ---
-title: What is Azure Stack Technical Preview 3? | Microsoft Docs
-description: Azure Stack POC is an environment for learning about core Azure Stack features and scenarios.
+title: What is Azure Stack? | Microsoft Docs
+description: Azure Stack allows you to run Azure services in your datacenter.  
 services: azure-stack
 documentationcenter: ''
 author: HeathL17
@@ -12,25 +12,29 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 4/11/2017
+ms.topic: overview
+ms.date: 09/25/2017
 ms.author: helaw
+ms.custom: mvc
 
 ---
-# What is Azure Stack Technical Preview 3?
->[!VIDEO https://channel9.msdn.com/Blogs/Azure/What-is-Microsoft-Azure-Stack/player]
+# What is Azure Stack?
 
+Microsoft Azure Stack is a hybrid cloud platform that lets you deliver Azure services from your organization’s datacenter.  Azure Stack is designed to enable new scenarios for your modern applications in key scenarios, like edge and disconnected environments, or meeting specific security and compliance requirements.  Azure Stack is offered in two deployment options to meet your needs.
 
-Microsoft Azure Stack is a hybrid cloud platform that lets you deliver Azure services from your organization’s datacenter. Microsoft Azure Stack Technical Preview 3 is being made available as a Proof of Concept (POC). Once deployed, the POC is an ideal environment for learning and demonstrating Azure Stack features. It lets you deploy all required components on a single physical machine to create an environment for evaluating key concepts and capabilities, and validating the extensibility model for APIs.
+## Azure Stack integrated systems
+Azure Stack integrated systems are offered through a partnership of Microsoft and [hardware partners](https://azure.microsoft.com/overview/azure-stack/integrated-systems/), creating a solution which offers cloud-paced innovation balanced with simplicity in management.  Because Azure Stack is offered as an integrated system of hardware and software, you are offered the right amount of flexibility and control, while still adopting innovation from the cloud.  Azure Stack integrated systems range in size from 4-12 nodes, and are jointly supported by the hardware partner and Microsoft.  Use Azure Stack integrated systems to enable new scenarios for your production workloads.    
 
-## Scope of Azure Stack POC
-* Azure Stack POC must not be used as a production environment and should only be used for testing, evaluation, and demonstration.  
-* Your deployment of Azure Stack is associated with a single identity provider, like Azure Active Directory or Active Directory Federation Services. You can create multiple users in this directory and assign subscriptions to each user.
+## Azure Stack Development Kit
+Microsoft Azure Stack Development Kit is a single-node deployment of Azure Stack, which you can use to evaluate and learn about Azure Stack.  You can also use Azure Stack Development Kit as a developer environment, where you can develop using APIs and tooling consistent with Azure.  Azure Stack Development Kit is not intended to be used as a production environment.
+
+Azure Stack development kit has the following limitations:
+* Azure Stack development kit is associated with a single Azure Active Directory or Active Directory Federation Services identity provider. You can create multiple users in this directory and assign subscriptions to each user.
 * With all components deployed on the single machine, there are limited physical resources available for tenant resources. This configuration is not intended for scale or performance evaluation.
-* Networking scenarios are limited due to the single host/NIC requirement.
+* Networking scenarios are limited due to the single host/NIC requirement.  
 
 ## Next steps
 [Key features and concepts](azure-stack-key-features.md)
 
-[Hybrid Application innovation with Azure and Azure Stack (pdf)](https://go.microsoft.com/fwlink/?LinkId=842846&clcid=0x409)
+[Azure Stack:  An extension of Azure (pdf)](https://azure.microsoft.com/en-us/resources/azure-stack-an-extension-of-azure/)
 

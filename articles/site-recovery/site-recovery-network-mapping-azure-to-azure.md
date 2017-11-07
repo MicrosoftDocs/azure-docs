@@ -13,15 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 5/25/2017
+ms.date: 08/11/2017
 ms.author: pratshar
 
 ---
 # Network mapping between two Azure regions
 
-> [!div class="op_single_selector"]
-> * [Replicate Azure virtual machines](site-recovery-network-mapping-azure-to-azure.md)
-> * [Replicate Hyper-V VMs to Azure](site-recovery-network-mapping.md)
 
 This article describes how to map Azure virtual networks of two Azure regions with each other. Network mapping ensures that when replicated virtual machine is created in the target Azure region, it is created on the virtual network that is mapped to virtual network of the source virtual machine.  
 

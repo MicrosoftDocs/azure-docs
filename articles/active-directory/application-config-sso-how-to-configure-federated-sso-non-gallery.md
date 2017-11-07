@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
 
 ---
 
 # How to configure federated single sign-on for a non-gallery application
 
-To configure a non-gallery application, you need to have Azure AD premium and the application supports SAML 2.0. For more information about Azure AD versions, visit [Azure AD pricing](https://azure.microsoft.com/pricing/details/active-directory/).
+To configure single sign-on for a non-gallery application *without writing code*, you need to have a subscription or Azure AD Premium and the application must support SAML 2.0. For more information about Azure AD versions, visit [Azure AD pricing](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## Overview of steps required
-Below is a high level overview of the steps required to configure federated single sign-on for a non-gallery (e.g., custom) application.
+Below is a high level overview of the steps required to configure federated single sign-on with SAML 2.0 for a non-gallery (e.g. custom) application.
 
 -   [Configure the application’s metadata values in Azure AD (Sign on URL, Identifier, Reply URL)](#_Configuring_single_sign-on)
 
@@ -174,6 +174,10 @@ To assign one or more users to an application directly, follow the steps below:
 15. Click the **Assign** button to assign the application to the selected users.
 
 After a short period of time, the users you have selected be able to launch these applications using the methods described in the solution description section.
+
+## Customizing the SAML claims sent to an application
+
+To learn how to customize the SAML attribute claims sent to your application, see [Claims mapping in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) for more information.
 
 ## Next steps
 [Provide single sign-on to your apps with Application Proxy](active-directory-application-proxy-sso-using-kcd.md)

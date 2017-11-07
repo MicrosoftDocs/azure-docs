@@ -1,5 +1,5 @@
 ---
-title: Designing Cloud Solutions for Disaster Recovery Using SQL Database geo-replication | Microsoft Docs
+title: Design disaster recovery solutions - Azure SQL Database | Microsoft Docs
 description: Learn how to design your cloud solution for disaster recovery by choosing the right failover pattern.
 services: sql-database
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.workload: "Inactive"
 ms.date: 04/07/2017
 ms.author: sashan;carlrab
 

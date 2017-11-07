@@ -24,7 +24,7 @@ For more information about the different deployment methods, including using Doc
 
 * To quickly prototype an app, you can create a single Docker host using [Docker Machine](docker-machine.md).
 * For larger, more stable environments, you can use the Azure Docker VM extension, which also supports [Docker Compose](https://docs.docker.com/compose/overview/) to generate consistent container deployments. This article details using the Azure Docker VM extension.
-* To build production-ready, scalable environments that provide additional scheduling and management tools, you can deploy a [Docker Swarm cluster on Azure Container Services](../../container-service/container-service-deployment.md).
+* To build production-ready, scalable environments that provide additional scheduling and management tools, you can deploy a [Docker Swarm cluster on Azure Container Services](../../container-service/dcos-swarm/container-service-deployment.md).
 
 ## CLI versions to complete the task
 You can complete the task using one of the following CLI versions:
@@ -196,5 +196,5 @@ Read more information about the additional Docker deployment options in Azure:
 
 * [Use Docker Machine with the Azure driver](docker-machine.md)  
 * [Get Started with Docker and Compose to define and run a multi-container application on an Azure virtual machine](docker-compose-quickstart.md).
-* [Deploy an Azure Container Service cluster](../../container-service/container-service-deployment.md)
+* [Deploy an Azure Container Service cluster](../../container-service/dcos-swarm/container-service-deployment.md)
 

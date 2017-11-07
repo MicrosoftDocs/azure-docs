@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/25/2017
+ms.date: 08/02/2017
 ms.author: billmath
 
 ---
@@ -30,6 +30,7 @@ This table describes the ports and protocols that are required for communication
 | Kerberos |88 (TCP/UDP) |Kerberos authentication to the AD forest. |
 | MS-RPC |135 (TCP/UDP) |Used during the initial configuration of the Azure AD Connect wizard when it binds to the AD forest, and also during Password synchronization. |
 | LDAP |389 (TCP/UDP) |Used for data import from AD. Data is encrypted with Kerberos Sign & Seal. |
+| RPC | 445 (TCP/UDP) |Used by Seamless SSO to create a computer account in the AD forest. |
 | LDAP/SSL |636 (TCP/UDP) |Used for data import from AD. The data transfer is signed and encrypted. Only used if you are using SSL. |
 | RPC |49152- 65535 (Random high RPC Port)(TCP/UDP) |Used during the initial configuration of Azure AD Connect when it binds to the AD forests, and during Password synchronization. See [KB929851](https://support.microsoft.com/kb/929851), [KB832017](https://support.microsoft.com/kb/832017), and [KB224196](https://support.microsoft.com/kb/224196) for more information. |
 

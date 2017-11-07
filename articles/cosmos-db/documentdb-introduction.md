@@ -26,15 +26,6 @@ ms.author: mimig
 
 With the DocumentDB API, Azure Cosmos DB provides rich and familiar [SQL query capabilities](documentdb-sql-query.md) with consistent low latencies over schema-less JSON data. In this article, we provide an overview of the Azure Cosmos DB's DocumentDB API, and how you can use it to store massive volumes of JSON data, query them within order of milliseconds latency, and evolve the schema easily. 
 
-## How can I learn about the DocumentDB API?
-A quick way to learn about the DocumentDB API and see it in action is to follow these three steps: 
-
-1. Watch the two minute [What is Azure Cosmos DB?](https://azure.microsoft.com/documentation/videos/what-is-azure-documentdb/) video, which introduces the benefits of using Azure Cosmos DB.
-2. Watch the three minute [Create Azure Cosmos DB on Azure](https://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/) video, which highlights how to get started with Azure Cosmos DB by using the Azure Portal.
-3. Visit the [Query Playground](http://www.documentdb.com/sql/demo), where you can walk through different activities to learn about the rich querying functionality available in DocumentDB. Then, head over to the Sandbox tab and run your own custom SQL queries and experiment with DocumentDB.
-
-Then, return to this article, where we'll dig in deeper.  
-
 ## What capabilities and key features does Azure Cosmos DB offer?
 Azure Cosmos DB, via the DocumentDB API, offers the following key capabilities and benefits:
 
@@ -54,8 +45,10 @@ Azure Cosmos DB, via the DocumentDB API, offers the following key capabilities a
 
 * **Automatic indexing:** By default, Azure Cosmos DB automatically indexes all the documents in the database and does not expect or require any schema or creation of secondary indices. Don't want to index everything? Don't worry, you can [opt out of paths in your JSON files](indexing-policies.md) too.
 
+* **Change feed support:** Change feed provides a sorted list of documents within an Azure Cosmos DB collection in the order in which they were modified. This feed can be used to listen for modifications to data in order to replicate data, trigger API calls or perform stream processing on updates. Change feed is automatically enabled and easy to use: [learn more about change feed](https://docs.microsoft.com/azure/cosmos-db/change-feed). 
+
 ## <a name="data-management"></a>How do you manage data with the DocumentDB API?
-The DocumentDB API helps manages JSON data through well-defined database resources. These resources are replicated for high availability and are uniquely addressable by their logical URI. DocumentDB offers a simple HTTP based RESTful programming model for all resources. 
+The DocumentDB API helps manage JSON data through well-defined database resources. These resources are replicated for high availability and are uniquely addressable by their logical URI. The DocumentDB API offers a simple HTTP based RESTful programming model for all resources. 
 
 
 The Azure Cosmos DB database account is a unique namespace that gives you access to Azure Cosmos DB. Before you can create a database account, you must have an Azure subscription, which gives you access to a variety of Azure services. 
@@ -73,13 +66,13 @@ A database account consists of a set of databases, each containing multiple coll
 
 ## <a name="develop"></a> How can I develop apps with the DocumentDB API?
 
-Azure Cosmos DB exposes resources through the DocumentDB REST API that can be called by any language capable of making HTTP/HTTPS requests. Additionally, we offer programming libraries for several popular languages for the DocumentDB API. The client libraries simplify many aspects of working with the API by handling details such as address caching, exception management, automatic retries and so forth. Libraries are currently available for the following languages and platforms:  
+Azure Cosmos DB exposes resources through the REST APIs that can be called by any language capable of making HTTP/HTTPS requests. Additionally, we offer programming libraries for several popular languages for the DocumentDB API. The client libraries simplify many aspects of working with the API by handling details such as address caching, exception management, automatic retries and so forth. Libraries are currently available for the following languages and platforms:  
 
 | Download | Documentation |
 | --- | --- |
-| [.NET SDK](http://go.microsoft.com/fwlink/?LinkID=402989) |[.NET library](https://msdn.microsoft.com/library/azure/dn948556.aspx) |
+| [.NET SDK](http://go.microsoft.com/fwlink/?LinkID=402989) |[.NET library](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) |
 | [Node.js SDK](http://go.microsoft.com/fwlink/?LinkID=402990) |[Node.js library](http://azure.github.io/azure-documentdb-node/) |
-| [Java SDK](http://go.microsoft.com/fwlink/?LinkID=402380) |[Java library](http://azure.github.io/azure-documentdb-java/) |
+| [Java SDK](http://go.microsoft.com/fwlink/?LinkID=402380) |[Java library](/java/api/com.microsoft.azure.documentdb) |
 | [JavaScript SDK](http://go.microsoft.com/fwlink/?LinkID=402991) |[JavaScript library](http://azure.github.io/azure-documentdb-js/) |
 | n/a |[Server-side JavaScript SDK](http://azure.github.io/azure-documentdb-js-server/) |
 | [Python SDK](https://pypi.python.org/pypi/pydocumentdb) |[Python library](http://azure.github.io/azure-documentdb-python/) |
@@ -91,16 +84,16 @@ Using the [Azure Cosmos DB Emulator](local-emulator.md), you can develop and tes
 Beyond basic create, read, update, and delete operations, the DocumentDB API provides a rich SQL query interface for retrieving JSON documents and server side support for transactional execution of JavaScript application logic. The query and script execution interfaces are available through all platform libraries as well as the REST APIs. 
 
 ### SQL query
-The DocumentDB API supports querying documents using a SQL language, which is rooted in the JavaScript type system, and expressions with support for relational, hierarchical, and spatial queries. The DocumentDB query language is a simple yet powerful interface to query JSON documents. The language supports a subset of ANSI SQL grammar and adds deep integration of JavaScript object, arrays, object construction, and function invocation. DocumentDB provides its query model without any explicit schema or indexing hints from the developer.
+The DocumentDB API supports querying documents using a SQL language, which is rooted in the JavaScript type system, and expressions with support for relational, hierarchical, and spatial queries. The DocumentDB query language is a simple yet powerful interface to query JSON documents. The language supports a subset of ANSI SQL grammar and adds deep integration of JavaScript object, arrays, object construction, and function invocation. The DocumentDB API provides its query model without any explicit schema or indexing hints from the developer.
 
 User Defined Functions (UDFs) can be registered with the DocumentDB API and referenced as part of a SQL query, thereby extending the grammar to support custom application logic. These UDFs are written as JavaScript programs and executed within the database. 
 
-For .NET developers, the DocumentDB [.NET SDK](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.aspx) also offers a LINQ query provider. 
+For .NET developers, the DocumentDB API [.NET SDK](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.aspx) also offers a LINQ query provider. 
 
 ### Transactions and JavaScript execution
 The DocumentDB API allows you to write application logic as named programs written entirely in JavaScript. These programs are registered for a collection and can issue database operations on the documents within a given collection. JavaScript can be registered for execution as a trigger, stored procedure or user defined function. Triggers and stored procedures can create, read, update, and delete documents whereas user defined functions execute as part of the query execution logic without write access to the collection.
 
-JavaScript execution within the DocumentDB API is modeled after the concepts supported by relational database systems, with JavaScript as a modern replacement for Transact-SQL. All JavaScript logic is executed within an ambient ACID transaction with snapshot isolation. During the course of its execution, if the JavaScript throws an exception, then the entire transaction is aborted.
+JavaScript execution within the Cosmos DB is modeled after the concepts supported by relational database systems, with JavaScript as a modern replacement for Transact-SQL. All JavaScript logic is executed within an ambient ACID transaction with snapshot isolation. During the course of its execution, if the JavaScript throws an exception, then the entire transaction is aborted.
 
 ## Are there any online courses on Azure Cosmos DB?
 

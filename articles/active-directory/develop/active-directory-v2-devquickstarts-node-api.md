@@ -3,7 +3,7 @@ title: Secure an Azure Active Directory v2.0 web API by using Node.js | Microsof
 description: Learn how to build a Node.js web API that accepts tokens both from a personal Microsoft account and from work or school accounts.
 services: active-directory
 documentationcenter: nodejs
-author: brandwe
+author: navyasric
 manager: mbaldwin
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 05/13/2017
-ms.author: brandwe
+ms.author: nacanuma
 ms.custom: aaddev
 
 ---

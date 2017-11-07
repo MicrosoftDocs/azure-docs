@@ -1,18 +1,23 @@
-You can now use Data Explorer to create a collection and add data to your database. 
+You can now use the Data Explorer tool in the Azure portal to create a database and collection. 
 
-1. In the Azure portal, in the navigation menu, click **Data Explorer**. 
-2. In the Data Explorer blade, click **New Collection**, then fill in the page using the following information.
+1. Click **Data Explorer** > **New Collection**. 
+    
+    The **Add Collection** area is displayed on the far right, you may need to scroll right to see it.
 
-    ![Data Explorer in the Azure portal](./media/cosmos-db-create-collection/azure-cosmosdb-data-explorer.png)
+    ![The Azure portal Data Explorer, Add Collection blade](./media/cosmos-db-create-collection/azure-cosmosdb-data-explorer.png)
+
+2. In the **Add collection** page, enter the settings for the new collection.
 
     Setting|Suggested value|Description
     ---|---|---
-    Database id|Items|The ID for your new database. Database names must be between 1 and 255 characters, and cannot contain `/ \ # ?` or a trailing space.
-    Collection id|ToDoList|The ID for your new collection. Collection names have the same character requirements as database ids.
-    Storage capacity| Fixed (10 GB)|Leave the default value. This is the storage capacity of the database.
-    Throughput|400 RUs|Leave the default value. You can scale up the throughput later if you want to reduce latency.
-    Partition key|/userid|A partition key that will distribute data evenly to each partition. Selecting the correct partition key is important in creating a performant collection, read more about it in [Designing for partitioning](../articles/cosmos-db/partition-data.md#designing-for-partitioning).    
+    Database id|Tasks|Enter *Tasks* as the name for the new database. Database names must contain from 1 through 255 characters, and they cannot contain /, \\, #, ?, or a trailing space.
+    Collection id|Items|Enter *Items* as the name for your new collection. Collection ids have the same character requirements as database names.
+    Storage capacity| Fixed (10 GB)|Change the value to **Fixed (10 GB)**. This value is the storage capacity of the database.
+    Throughput|400 RU|Change the throughput to 400 request units per second (RU/s). If you want to reduce latency, you can scale up the throughput later.
+    Partition key|/category|A partition key that distributes data evenly to each partition. Selecting the correct partition key is important in creating a performant collection. To learn more, see [Designing for partitioning](../articles/cosmos-db/partition-data.md#designing-for-partitioning).
 
+    Click **OK**.
 
+    Data Explorer displays the new database and collection.
 
-3. Once the form is filled out, click **OK**.
+    ![The Azure portal Data Explorer, showing the new database and collection](./media/cosmos-db-create-collection/azure-cosmos-db-new-collection.png)
