@@ -98,18 +98,6 @@ To start maintenance on you classic VM named *myVM* in the *myService* service a
 azure compute virtual-machine initiate-maintenance --service-name myService --name myDeployment --virtual-machine-name myVM
 ```
 
-The following attributes will be shown during the maintenance wave: 
-
-data:    MaintenanceStatus IsCustomerInitiatedMaintenanceAllowed true
-
-data:    MaintenanceStatus PreMaintenanceWindowStartTime 2017-07-12T05:00:00.000Z
-
-data:    MaintenanceStatus PreMaintenanceWindowEndTime 2017-07-25T05:00:00.000Z
-
-data:    MaintenanceStatus MaintenanceWindowStartTime 2017-08-02T05:00:00.000Z
-
-data:    MaintenanceStatus MaintenanceWindowEndTime 2017-08-04T05:00:00.000Z
-
 
 ## FAQ
 
