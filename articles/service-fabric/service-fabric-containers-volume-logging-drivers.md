@@ -26,7 +26,7 @@ Service Fabric supports specifying [Docker volume plugins](https://docs.docker.c
 If the Docker volume/logging driver is not installed on the machine, install it manually through RDP/SSH-ing into the machine or through a VMSS start-up script. For instance, in order to install the Docker Volume Driver, SSH into the machine and execute:
 
 ```bash
-docker plugin install --alias azure --grant-all-permissions docker4x/17.09.0-ce-azure1  \
+docker plugin install --alias azure --grant-all-permissions docker4x/cloudstor:17.09.0-ce-azure1  \
     CLOUD_PLATFORM=AZURE \
     AZURE_STORAGE_ACCOUNT="[MY-STORAGE-ACCOUNT-NAME]" \
     AZURE_STORAGE_ACCOUNT_KEY="[MY-STORAGE-ACCOUNT-KEY]" \
@@ -74,7 +74,7 @@ In the preceding example, the `Source` tag for the `Volume` refers to the source
 When specifying a volume plugin, Service Fabric automatically creates the volume using the parameters specified. The `Source` tag is the name of the volume, and the `Driver` tag specifies the volume driver plugin. Options can be specified using the `DriverOption` tag as shown in the following snippet:
 
 ```xml
-<Volume Source="myvolume1" Destination="c:\testmountlocation4" Driver="azurefile" IsReadOnly="true">
+<Volume Source="myvolume1" Destination="c:\testmountlocation4" Driver="azure" IsReadOnly="true">
            <DriverOption Name="share" Value="models"/>
 </Volume>
 ```
