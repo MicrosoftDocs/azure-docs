@@ -114,11 +114,10 @@ To look at what happens in the code, complete the following steps:
 To stop the debugging session, press **Shift+F5**.
 
 ## Deploy the application to Azure
-To deploy the application to a cluster in Azure, you can either choose to create your own cluster, or use a Party Cluster.
+To deploy the application to Azure, you need a Service Fabric cluster which runs the application. 
 
-Party clusters are free, limited-time Service Fabric clusters hosted on Azure and run by the Service Fabric team where anyone can deploy applications and learn about the platform. To get access to a Party Cluster, [follow the instructions](http://aka.ms/tryservicefabric). 
-
-For information about creating your own cluster, see [Create your first Service Fabric cluster on Azure](service-fabric-get-started-azure-cluster.md).
+### Join a Party cluster
+Party clusters are free, limited-time Service Fabric clusters hosted on Azure and run by the Service Fabric team where anyone can deploy applications and learn about the platform. Sign in and [join a Windows cluster](http://aka.ms/tryservicefabric). Remember the **Connection endpoint** value, which is used in following steps.
 
 > [!Note]
 > The web front-end service is configured to listen on port 8080 for incoming traffic. Make sure that port is open in your cluster. If you are using the Party Cluster, this port is open.
@@ -131,7 +130,9 @@ Now that the application is ready, you can deploy it to a cluster directly from 
 
     ![Publish Dialog](./media/service-fabric-quickstart-dotnet/publish-app.png)
 
-2. Type in the Connection Endpoint of the cluster in the **Connection Endpoint** field and click **Publish**. When signing up for the Party Cluster, the Connection Endpoint is provided in the browser. - for example, `winh1x87d1d.westus.cloudapp.azure.com:19000`.
+2. Copy the **Connection Endpoint** from the Party cluster page into the **Connection Endpoint** field and click **Publish**. For example, `winh1x87d1d.westus.cloudapp.azure.com:19000`.
+
+    Each application in the cluster must have a unique name.  Party clusters are a public, shared environment however and there may be a conflict with an existing application.  If there is a name conflict, rename the Visual Studio project and deploy again.
 
 3. Open a browser and type in the cluster address foolowed by ':8080' to get to the applicaiton in the cluster - for example, `http://winh1x87d1d.westus.cloudapp.azure.com:8080`. You should now see the application running in the cluster in Azure.
 
