@@ -83,7 +83,7 @@
 ## [Batch Shipyard](https://github.com/Azure/batch-shipyard)
 ## [Blog](https://blogs.technet.microsoft.com/windowshpc/)
 ## [C# code samples](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
-## [HPC solutions in Azure](,,/virtual-machines/linux/high-performance-computing.md?toc=%2fazure%2fbatch%2ftoc.json)
+## [HPC solutions in Azure](../virtual-machines/linux/high-performance-computing.md?toc=%2fazure%2fbatch%2ftoc.json)
 ## [Pricing](https://azure.microsoft.com/pricing/details/batch/)
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Python code samples](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)

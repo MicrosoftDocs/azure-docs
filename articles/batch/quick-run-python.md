@@ -29,4 +29,4 @@ In this quick start, you ... To learn more about Azure Batch, continue to the XX
 
 
 > [!div class="nextstepaction"]
-> [Azure Batch tutorials](tutorial-parallel-parallel.md)
+> [Azure Batch tutorials](tutorial-parallel-python.md)
