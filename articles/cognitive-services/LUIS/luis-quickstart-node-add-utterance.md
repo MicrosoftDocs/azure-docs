@@ -30,6 +30,10 @@ Refer to the [Authoring API definitions][authoring-apis] for technical documenta
 * The **version ID** within the application that receives the utterances. The default ID is "0.1"
 * Create a new file named `add-utterances.js` project in VSCode.
 
+> NOTE: 
+> The complete `add-utterances.js` file is available from the [**LUIS-Samples** Github repository](https://github.com/Microsoft/LUIS-Samples/tree/master/examples/add-utterances/nodejs).
+
+
 ## Write the Node.js code
 
 Add the NPM dependencies to the file.
