@@ -21,7 +21,9 @@ ms.author: nitinme
 
 Azure Databricks is a unified data analytics platform built on top of Apache Spark that unifies data science, data engineering, and business intelligence into a collaborative workspace and a highly preformative runtime that enables anyone to easily build and deploy advanced analytics solutions.
 
-Databricks was developed by the people who created Apache Spark, the processing engine of choice for large-scale data workloads. Databricks is the most advanced, performant, reliable, and secure Spark platform available. Optimized for the Azure Platform, Azure Databricks provides a high-performance processing engine to improve and scale your analytics.
+![Overview of Azure Databricks](./media/databricks-overview/azure-databricks-overview.png "Overview of Azure Databricks")
+
+Databricks is developed by the people who created Apache Spark, the processing engine of choice for large-scale data workloads. Databricks is the most advanced, performant, reliable, and secure Spark platform available. Optimized for the Azure Platform, Azure Databricks provides a high-performance processing engine to improve and scale your analytics.
 
 ## Why use Azure Databricks?
 
