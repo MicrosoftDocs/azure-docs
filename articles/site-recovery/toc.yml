@@ -79,8 +79,6 @@
   items:
   - name: Disaster recovery
     items:
-    - name: VMware VMs with multi-tenant support to Azure
-      href: site-recovery-multi-tenant-support-vmware-using-csp.md
     - name: Hyper-V VMs to Azure
       href: tutorial-hyper-v-to-azure.md
     - name: Physical servers to Azure
@@ -99,6 +97,8 @@
       href: tutorial-hyper-v-to-azure-failover-failback.md
     - name: Run a failover and failback between on-premises sites
       href: tutorial-vmm-to-vmm-failover-failback.md
+    - name: VMware VMs with multi-tenant support to Azure
+      href: site-recovery-multi-tenant-support-vmware-using-csp.md
   - name: Capacity and scaling
     items:
     - name: Capacity planning for VMware replication to Azure
@@ -203,6 +203,8 @@
       href: site-recovery-workload.md#protect-exchange
     - name: SAP
       href: site-recovery-sap.md
+    - name: File Server
+      href: file-server-disaster-recovery.md
     - name: IIS based web applications
       href: site-recovery-iis.md
     - name: Citrix XenApp and XenDesktop

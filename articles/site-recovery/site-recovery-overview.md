@@ -1,5 +1,5 @@
 ---
-title: What is Azure Site Recovery? | Microsoft Docs
+title: About Azure Site Recovery? | Microsoft Docs
 description: Provides an overview of the Azure Site Recovery service, and summarizes deployment scenarios.
 services: site-recovery
 documentationcenter: ''
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/30/2017
+ms.date: 11/01/2017
 ms.author: raynew
-
+ms.custom: MVC
 ---
-# What is Site Recovery?
+# About Site Recovery
+
 Welcome to the Azure Site Recovery service! This article provides a quick overview of the service.
 
 ## Business continuity and disaster recovery (BCDR) with Azure Recovery Services

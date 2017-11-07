@@ -5,12 +5,12 @@ author: mrbullwinkle
 services: application-insights
 documentationcenter: ''
 manager: carmonm
-
 ms.assetid: 6ccab5d4-34c4-4303-9d3b-a0f1b11e6651
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
+ms.custom: mvc
 ms.topic: overview
 ms.date: 06/26/2017
 ms.author: mbullwin
