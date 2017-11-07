@@ -23,7 +23,7 @@
 ### [Restrict access by country](cdn-restrict-access-by-country.md)
 ### [Improve performance by compressing files](cdn-improve-performance.md)
 ### [How caching works](cdn-how-caching-works.md)
-#### [Control Azure CDN caching behavior with caching rules](cdn-caching-rules.md)
+#### [Control caching behavior with caching rules](cdn-caching-rules.md)
 #### Cache content by query strings
 ##### [Standard tier](cdn-query-string.md)
 ##### [Premium tier](cdn-query-string-premium.md)

@@ -104,11 +104,11 @@ When the cache is stale, HTTP cache validators are used to compare the cached ve
 
 Not all resources can be cached. The following table shows what resources can be cached, based on the type of HTTP response. Resources delivered with HTTP responses that don't meet all of these conditions cannot be cached. For **Azure CDN from Verizon Premium** only, you can use the Rules Engine to customize some of these conditions.
 
-|                  | Azure CDN from Verizon | Azure CDN from Akamai            |
-|------------------|------------------------|----------------------------------|
-| HTTP codes       | 200                    | 200, 203, 300, 301, 302, and 401 |
-| HTTP method      | GET                    | GET                              |
-| File size        | 300 GB                 | <ul><li>General web delivery optimization: 1.8 GB</li> <li>Media streaming optimizations: 1.8 GB</li> <li>Large File Optimization: 150 GB</li> |
+|                   | Azure CDN from Verizon | Azure CDN from Akamai            |
+|------------------ |------------------------|----------------------------------|
+| HTTP status codes | 200                    | 200, 203, 300, 301, 302, and 401 |
+| HTTP method       | GET                    | GET                              |
+| File size         | 300 GB                 | <ul><li>General web delivery optimization: 1.8 GB</li> <li>Media streaming optimizations: 1.8 GB</li> <li>Large file optimization: 150 GB</li> |
 
 ## Default caching behavior
 
