@@ -12,7 +12,7 @@ ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.devlang: java
 ms.workload: na
-ms.date: 10/03/2017
+ms.date: 11/07/2017
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
 ---
