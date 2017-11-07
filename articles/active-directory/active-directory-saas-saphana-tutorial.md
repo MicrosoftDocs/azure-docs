@@ -24,8 +24,8 @@ In this tutorial, you learn how to integrate SAP HANA with Azure Active Director
 When you integrate SAP HANA with Azure AD, you get the following benefits:
 
 - You can control in Azure AD who has access to SAP HANA.
-- You can enable your users to automatically get signed-in to SAP HANA with their Azure AD accounts
-- You can manage your accounts in one central location--the Azure portal
+- You can enable your users to automatically get signed-in to SAP HANA with their Azure AD accounts.
+- You can manage your accounts in one central location--the Azure portal.
 
 For more information about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
