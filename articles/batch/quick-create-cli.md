@@ -306,4 +306,4 @@ In this quick start, you created a Batch account, a Batch pool, and a Batch job.
 
 
 > [!div class="nextstepaction"]
-> [Azure Batch tutorials](batch-dotnet-get-started.md)
+> [Azure Batch tutorials](> [Azure Batch tutorials](./tutorial-parallel-dotnet.md)

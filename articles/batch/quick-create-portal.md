@@ -122,7 +122,7 @@ When no longer needed, delete the resource group, Batch account, and all related
 In this quick start, you created a Batch account, a Batch pool, and a Batch job. The job ran a sample task and created output on a compute node. To learn more about Azure Batch, continue to the XXX tutorial.
 
 > [!div class="nextstepaction"]
-> [Azure Batch tutorials](./batch-dotnet-get-started.md)
+> [Azure Batch tutorials](./tutorial-parallel-dotnet.md)
 
 [marketplace_portal]: ./media/quick-create-portal/marketplace-batch.png
 
