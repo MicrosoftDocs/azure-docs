@@ -20,9 +20,9 @@ Autoscale settings enable you to add/remove instances of service based on preset
 In this tutorial, you will 
 > [!div class="checklist"]
 > * Create a Web App and App Service Plan
-> * Configure autoscale rules for scale-in and scale out 
-> * Trigger a scale-in action and view the results
-> * Trigger a scale-out action and view the results
+> * Configure autoscale rules for scale-in and scale out based on the number of requests a Web App receives
+> * Trigger a scale-out action and watch the number of instances increase
+> * Trigger a scale-in action and watch the number of instances decrease
 > * Clean up your resources
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
@@ -174,13 +174,11 @@ The scale-in condition in the autoscale setting triggers if there are fewer than
 In this tutorial, you  
 > [!div class="checklist"]
 > * Created a Web App and App Service Plan
-> * Configured autoscale rules for scale-in and scale out 
-> * Triggered a scale-in action and viewed the results
-> * Triggered a scale-out action and viewed the results
+> * Configured autoscale rules for scale-in and scale out based on the number of requests the Web App received
+> * Triggered a scale-out action and watched the number of instances increase
+> * Triggered a scale-in action and watched the number of instances decrease
 > * Cleaned up your resources
 
-
-In this tutorial, you created a simple Web App and App Service Plan. You then created an autoscale setting that would scale the App Service Plan based on the number of requests the Web App was receiving. 
 
 To learn more about autoscale settings, continue on to the [autoscale overview](monitoring-overview-autoscale.md).
 
