@@ -44,7 +44,7 @@ There are several ways to create an Azure AD application and an Azure AD service
 
 Sign in to administer your Azure subscription by issuing the following command:
 
-`az login`
+   `az login`
 
 If you have multiple Azure subscriptions, their details are returned by the `az login` command. Set the `SUBSCRIPTION_ID` environment variable to hold the value of the returned `id` field from the subscription you want to use. 
 
