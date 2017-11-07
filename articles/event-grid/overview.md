@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 11/02/2017
 ms.author: babanisa
 ---
 
@@ -47,6 +47,8 @@ Here are some of the key features of Azure Event Grid:
 * **High throughput** - Build high-volume workloads on Event Grid with support for millions of events per second.
 * **Built-in Events** - Get up and running quickly with resource-defined built-in events.
 * **Custom Events** - use Event Grid route, filter, and reliably deliver custom events in your app.
+
+For a comparison of Event Grid, Event Hubs, and Service Bus, see [Choose between Azure services that deliver messages](compare-messaging-services.md).
 
 ## Built-in publisher and handler integration
 
@@ -97,14 +99,6 @@ Event Grid allows you to speed automation and simplify policy enforcement. For e
 ![Application integration](./media/overview/app_integration.png)
 
 Event Grid connects your app with other services. For example, create a custom topic to send your app's event data to Event Grid, and take advantage of its reliable delivery, advanced routing, and direct integration with Azure. Alternatively, you can use Event Grid with Logic Apps to process data anywhere, without writing code. 
-
-## How is Event Grid different from other Azure integration services?
-
-Event Grid is an eventing backplane that enables event-driven, reactive programming. It is deeply integrated with Azure services and can be integrated with third-party services. The event message contains the information you need to react to changes in services and applications. Event Grid is not a data pipeline, and does not deliver the actual object that was updated.
-
-Service Bus is well suited for traditional enterprise applications that require transactions, ordering, duplicate detection, and instantaneous consistency. Event Grid is designed for speed, scale, breadth, and low cost in a reactive model. It is well suited to serverless architecture.
-
-Event Grid complements other Azure services like Logic Apps and Event Hubs. Event Grid triggers the logic app to begin its workflow. Event Hubs works with Event Grid by enabling you to react to events from Event Hubs Capture, and build data ingress and transformation pipelines.
 
 ## How much does Event Grid cost?
 
