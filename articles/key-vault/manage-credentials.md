@@ -147,8 +147,8 @@ To manage your service principal using a certificate:
 3. Set an environment variable named **AzureServicesAuthConnectionString** to:
 
     ```
-    **RunAs=App;AppId={AppId};TenantId={TenantId};CertificateThumbprint={Thumbprint};
-          CertificateStoreLocation={LocalMachine or CurrentUser}**.
+    RunAs=App;AppId={AppId};TenantId={TenantId};CertificateThumbprint={Thumbprint};
+          CertificateStoreLocation={LocalMachine or CurrentUser}.
     ```
  
     Replace _{AppId}_, _{TenantId}_, and _{Thumbprint}_ with values generated in Step 1.
@@ -164,7 +164,7 @@ To manage your service principal using a password:
 2. Set an environment variable named **AzureServicesAuthConnectionString** to:
 
     ```
-    **RunAs=App;AppId={AppId};TenantId={TenantId};AppKey={ClientSecret}**. 
+    RunAs=App;AppId={AppId};TenantId={TenantId};AppKey={ClientSecret}. 
     ```
 
     Replace _{AppId}_, _{TenantId}_, and _{ClientSecret}_ with values generated in Step 1.
@@ -199,20 +199,20 @@ For local development, the most common issues are related to earlier versions or
 
 When using Visual Studio, these issues include:
 
-1. Visual Studio token provider file cannot be found. 
+1.  Visual Studio token provider file cannot be found. 
 
     Verify that you're using Visual Studio 2017 15.5 or later and have installed the Azure Services Authentication extension. 
 
     Select an account to use for local development using **Tools**&nbsp;>&nbsp;**Options**>**Azure&nbsp;Service&nbsp;Authentication. 
 
-2. Visual Studio account needs authentication.
+2.  Visual Studio account needs authentication.
 
     Go to **Tools**&nbsp;>&nbsp;**Options**>**Azure&nbsp;Service&nbsp;Authentication. and look for a **Re-authenticate** link under the selected account.  Select it to authenticate. 
 
 
 When using Azure CLI, common issues include:
 
-1. Azure CLI is not installed, is out-of-date, or you are not signed in.
+1.  Azure CLI is not installed, is out-of-date, or you are not signed in.
 
     Use `az account get-access-token` to verify access.  If you receive a "No such program found" error, install [Azure CLI 2.0](/cli/azure/install-azure-cli). 
 
