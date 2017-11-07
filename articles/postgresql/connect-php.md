@@ -10,7 +10,7 @@ ms.service: postgresql
 ms.custom: mvc
 ms.devlang: php
 ms.topic: quickstart
-ms.date: 06/29/2017
+ms.date: 11/03/2017
 ---
 
 # Azure Database for PostgreSQL: Use PHP to connect and query data

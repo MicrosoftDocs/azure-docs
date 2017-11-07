@@ -249,7 +249,7 @@ What is specific for this architecture is the following:
 * SAP GLOBAL files are placed on SMB file share and are accessed using the <SAPGLOBALHost> host name
  \\\\&lt;SAPGLOBALHost&gt;\sapmnt\\&lt;SID&gt;\SYS\...
 * The SAP (A)SCS instance is installed on a local disk on both cluster nodes
-* The **<(A)SCSVirtualHostName>** network name is different from **<SAPGLOBALHost>**
+* The **<(A)SCSVirtualHostName>** network name is different from **&lt;SAPGLOBALHost&gt;**
 
 ![Figure 2: New SAP (A)SCS HA architecture with SMB file share][sap-ha-guide-figure-8004]
 

@@ -13,12 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 11/02/2017
 ms.author: twooley
 
 ---
 
-# Azure Stack 1710 update (Build 20171020.1)
+# Azure Stack 1710 Update (Build 20171020.1)
 
 *Applies to: Azure Stack integrated systems*
 
@@ -53,9 +53,12 @@ This update includes the following quality improvements and fixes for Azure Stac
 
 This section contains known issues that you may encounter during the installation of the 1710 update.
 
+> [!IMPORTANT]
+> If the update fails, when you later try to resume the update you must use the `Resume-AzureStackUpdate` cmdlet from the privileged endpoint. Do not resume the update by using the administrator portal. (This is a known issue in this release.) For more information, see [Monitor updates in Azure Stack using the privileged endpoint](azure-stack-monitor-update.md).
+
 | Symptom  | Cause  | Resolution |
 |---------|---------|---------|
-|When you perform an update, an error similar to the following error may occur during the "Storage Hosts Restart Storage Node" step of the update action plan.<br><br>**{"name":"Restart Storage Hosts","description":"Restart Storage Hosts.","errorMessage":"Type 'Restart' of Role 'BareMetal' raised an exception:\n\nThe computer HostName-05 is skipped. Fail to retrieve its LastBootUpTime via the WMI service with the following error message: The RPC server is unavailable. (Exception from HRESULT: 0x800706BA).\nat Restart-Host** | This issue is caused by a potential faulty driver present in some configurations. | 1. Sign in to the baseboard management controller (BMC) web interface and restart the host that's identified in the error message.<br><br>2. Resume the update. |
+|When you perform an update, an error similar to the following error may occur during the "Storage Hosts Restart Storage Node" step of the update action plan.<br><br>**{"name":"Restart Storage Hosts","description":"Restart Storage Hosts.","errorMessage":"Type 'Restart' of Role 'BareMetal' raised an exception:\n\nThe computer HostName-05 is skipped. Fail to retrieve its LastBootUpTime via the WMI service with the following error message: The RPC server is unavailable. (Exception from HRESULT: 0x800706BA).\nat Restart-Host** | This issue is caused by a potential faulty driver present in some configurations. | 1. Sign in to the baseboard management controller (BMC) web interface and restart the host that's identified in the error message.<br><br>2. Resume the update by using the privileged endpoint. |
 | When you perform an update, the update process appears to stall and not make progress after step "Step: Running step 2.4 - Install update" of the update action plan.<br><br>This step is then followed by a series of copy processes of .nupkg files to the internal infrastructure file shares. For example:<br><br>**Copying 1 files from content\PerfCollector\VirtualMachines to \VirtualMachineName-ERCS03\C$\TraceCollectorUpdate\PerfCounterConfiguration**  | The issue is caused by log files filling up the disks on an infrastructure virtual machine and an issue in Windows Server Scale-Out File Server (SOFS) that will be delivered in a subsequent update. | Please contact Microsoft Customer Service and Support (CSS) for assistance. | 
 | When you perform an update, an error similar to the following may occur during the step "Step: Running step 2.13.2 - Update *VM_Name*" of the update action plan. (The virtual machine name may vary.)<br><br>**ActionPlanInstanceWarning ece/MachineName: WarningMessage:Task: Invocation of interface 'LiveUpdate' of role 'Cloud\Fabric\WAS' failed:<br>Type 'LiveUpdate' of Role 'WAS' raised an exception:<br>ERROR during storage initialization: An error occurred while trying to make an API call to Microsoft Storage service: {"Message":"A timeout occurred while communicating with Service Fabric. Exception Type: TimeoutException. Exception message: Operation timed out."}**  | The issue is caused by an I/O timeout in Windows Server that will be fixed in a subsequent update. | Please contact Microsoft CSS for assistance.
 | When you perform an update, an error similar to the following may occur during step "Step 21 Restart SQL server VMs."<br><br>**Type 'LiveUpdateRestart' of Role 'VirtualMachines' raised an exception:<br>VerboseMessage:[VirtualMachines:LiveUpdateRestart] Querying for VM MachineName-Sql01. - 10/13/2017 5:11:50 PM VerboseMessage:[VirtualMachines:LiveUpdateRestart] VM is marked as HighlyAvailable. - 10/13/2017 5:11:50 PM VerboseMessage:[VirtualMachines:LiveUpdateRestart] at MS.Internal.ServerClusters.ExceptionHelp.Build at MS.Internal.ServerClusters.ClusterResource.BeginTakeOffline(Boolean force) at Microsoft.FailoverClusters.PowerShell.StopClusterResourceCommand.BeginTimedOperation() at Microsoft.FailoverClusters.PowerShell.TimedCmdlet.WrappedProcessRecord() at Microsoft.FailoverClusters.PowerShell.FCCmdlet.ProcessRecord() - 10/13/2017 5:11:50 PM WarningMessage:Task: Invocation of interface 'LiveUpdateRestart' of role 'Cloud\Fabric\VirtualMachines' failed:** | This issue can occur if the virtual machine was unable to restart. | Please contact Microsoft CSS for assistance.
@@ -108,6 +111,7 @@ This section contains post-installation known issues with build 20171020.1.
 **Network**
 - You can't create a load balancer with a public IP address by using the portal. As a workaround, you can use PowerShell to create the load balancer.
 - You must create a network address translation (NAT) rule when you create a network load balancer. If you don't, you'll receive an error when you try to add a NAT rule after the load balancer is created.
+- You can't disassociate a public IP address from a virtual machine (VM) after the VM has been created and associated with that IP address. Disassociation will appear to work, but the previously assigned public IP address remains associated with the original VM. This behavior occurs even if you reassign the IP address to a new VM (commonly referred to as a *VIP swap*). All future attempts to connect through this IP address result in a connection to the originally associated VM, and not to the new one. Currently, you must only use new public IP addresses for new VM creation.
  
 ### Field replaceable unit (FRU) procedures
 

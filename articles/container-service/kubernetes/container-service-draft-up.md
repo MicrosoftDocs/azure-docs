@@ -271,16 +271,16 @@ The output looks something like:
   }
   ```
 5. Reinstall **draft**
-  1. Remove **draftd** from the cluster by typing `helm delete --purge draft`. 
-  2. Reinstall **draft** by using the same `draft-init` command, but with the `--ingress-enabled` option:
+
+   1. Remove **draftd** from the cluster by typing `helm delete --purge draft`. 
+   2. Reinstall **draft** by using the same `draft-init` command, but with the `--ingress-enabled` option:
     ```bash
     draft init --ingress-enabled
     ```
-Respond to the prompts as you did the first time, above. However, you have one more question to respond to, using the complete domain path that you configured with the Azure DNS.
-```bash
-4. Enter your top-level domain for ingress (e.g. draft.example.com): draft.squillace.io
-```
-5. When you call `draft up` this time, you will be able to see your application (or `curl` it) at the URL of the form `<appname>.draft.<domain>.<top-level-domain>`. In the case of this example, `http://handy-labradoodle.draft.squillace.io`. 
+   Respond to the prompts as you did the first time, above. However, you have one more question to respond to, using the complete domain path that you configured with the Azure DNS.
+
+6. Enter your top-level domain for ingress (e.g. draft.example.com): draft.squillace.io
+7. When you call `draft up` this time, you will be able to see your application (or `curl` it) at the URL of the form `<appname>.draft.<domain>.<top-level-domain>`. In the case of this example, `http://handy-labradoodle.draft.squillace.io`. 
 ```bash
 curl -s http://handy-labradoodle.draft.squillace.io
 Hello World, I'm Java!
