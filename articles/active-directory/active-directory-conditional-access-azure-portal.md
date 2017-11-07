@@ -131,17 +131,13 @@ You can use the calculated sign-in risk level as condition in a conditional acce
 ### Device platforms
 
 The device platform is characterized by the operating system that is running on your device:
+You can define the device platforms that are included as well as device platforms that are exempted from a policy.  
+To use device platforms in the policy, first change the configure toggles to **Yes**, and then select all or individual device platforms the policy applies to. If you select individual device platforms, the policy has only an impact on these platforms. In this case, sign-ins to other supported platforms are not impacted by the policy.
 
-- Android
-- iOS
-- Windows Phone
-- Windows
-- macOS  
 
 ![Conditions](./media/active-directory-conditional-access-azure-portal/02.png)
 
-You can define the device platforms that are included as well as device platforms that are exempted from a policy.  
-To use device platforms in the policy, first change the configure toggles to **Yes**, and then select all or individual device platforms the policy applies to. If you select individual device platforms, the policy has only an impact on these platforms. In this case, sign-ins to other supported platforms are not impacted by the policy.
+For a complete list of the supported device platforms, see [device platform condition](active-directory-conditional-access-technical-reference.md#device-platform-condition).
 
 
 ### Locations

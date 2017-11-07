@@ -79,11 +79,7 @@ In addition to the Microsoft cloud apps, you can assign a conditional access pol
 
 ## Device platform condition
 
-In a conditional access policy, you can configure the device platform condition to tie the policy to the operating system on a client.
-
-![Tie the access policy to the client OS](./media/active-directory-conditional-access-technical-reference/41.png)
-
-Azure AD conditional access supports the following device platforms:
+In a conditional access policy, you can configure the device platform condition to tie the policy to the operating system on a client. Azure AD conditional access supports the following device platforms:
 
 - Android
 
@@ -94,6 +90,11 @@ Azure AD conditional access supports the following device platforms:
 - Windows
 
 - macOS
+
+
+![Tie the access policy to the client OS](./media/active-directory-conditional-access-technical-reference/41.png)
+
+
 
 
 
