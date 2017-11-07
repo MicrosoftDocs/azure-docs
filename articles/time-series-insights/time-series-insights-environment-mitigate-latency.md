@@ -53,6 +53,7 @@ From there, you can configure alerts using the following metrics:
 |**Ingress Stored Bytes**     | Total size of events stored and available for query. Size is computed only on the property value.        |
 |**Ingress Stored Events**     |   Count of flattened events stored and available for query.      |
 
+![Latency](media/environment-mitigate-latency/latency.png)
 
 One technique is to set an **Ingress Stored Events** alert >= a threshold slightly below your total environment capacity for a period of 2 hours.  This alert can help you understand if you are constantly at capacity, which indicates a high likelihood of latency.  
 

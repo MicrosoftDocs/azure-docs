@@ -14,7 +14,7 @@
 ## [Connect an IoT Hub event source](time-series-insights-how-to-add-an-event-source-iothub.md)
 ## [Scale your environment](time-series-insights-how-to-scale-your-environment.md)
 ## [Diagnose and solve problems](time-series-insights-diagnose-and-solve-problems.md)
-## [Configure data retention in Time Series Insights](time-series-insights-configure-retention.md)
+## [Configure data retention](time-series-insights-configure-retention.md)
 ## Develop custom apps
 
 # Concepts
@@ -30,8 +30,8 @@
 ### [Share a custom view](time-series-insights-parameteried-urls.md)
 
 # Reference
-## [Query API](/rest/api/time-series-insights/time-series-insights-reference-queryapi)
-## [Query syntax](/rest/api/time-series-insights/time-series-insights-reference-query-syntax)
+## [Query API](/rest/api/time-series-insights/time-series-insights-reference-queryapi) 
+## [Query syntax](/rest/api/time-series-insights/time-series-insights-reference-query-syntax) 
 
 # Related services
 ## [Azure IoT Suite](/azure/iot-suite/)

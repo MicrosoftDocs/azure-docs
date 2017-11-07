@@ -34,4 +34,4 @@ If you find that you use the overflow capacity for an hour per day or more, your
 
 ## Next steps
 
-To learn more about how Time Series Insights throttles data, see [Diagnose and solve problems in your Time Series Insights environment](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-diagnose-and-solve-problems#your-environment-is-getting-throttled)
+For information about how to resolve data throttling, see [Diagnose and solve problems in your Time Series Insights environment](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-diagnose-and-solve-problems#your-environment-is-getting-throttled)
