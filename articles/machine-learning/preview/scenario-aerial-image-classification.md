@@ -171,6 +171,18 @@ az --version
 
 Confirm that `batchai` is listed among the installed modules. If not, you may be using a different Command Line Interface (for example, one opened through Workbench).
 
+Next, check that provider registration has successfully completed. (Provider registration takes up to fifteen minutes and may still be ongoing if you recently completed the [Batch AI setup instructions](https://github.com/Azure/BatchAI/tree/master/recipes).) Confirm that both "Microsoft.Batch" and "Microsoft.BatchAI" appear with status "Registered" in the output of the following command:
+
+```
+az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table
+```
+
+If not, run the following provider registration commands and wait ~15 minutes for registration to complete.
+```
+az provider register --namespace Microsoft.Batch
+az provider register --namespace Microsoft.BatchAI
+```
+
 Modify the following commands to replace the bracketed expressions with the values you used earlier during resource group and storage account creation. Then, store the values as variables by executing the commands:
 ```
 az account set --subscription [subscription ID]

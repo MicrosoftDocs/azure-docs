@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Suite connected factory FAQ | Microsoft Docs
+title: Connected factory solution FAQ - Azure | Microsoft Docs
 description: Frequently asked questions for IoT Suite connected factory
 services: ''
 suite: iot-suite

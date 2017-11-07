@@ -13,14 +13,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 10/01/2017
 ms.author: spelluru
 
 robots: noindex
 ---
 # Troubleshoot Data Factory issues
 > [!NOTE]
-> This article applies to version 1 of Azure Data Factory, which is generally availabile (GA). 
+> This article applies to version 1 of Azure Data Factory, which is generally available (GA). 
 
 This article provides troubleshooting tips for issues when using Azure Data Factory. This article does not list all the possible issues when using the service, but it covers some issues and general troubleshooting tips.   
 

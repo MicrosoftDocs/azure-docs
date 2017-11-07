@@ -38,10 +38,10 @@ The endpoint protection integration experience may vary according to the solutio
 
 | Endpoint Protection               | Platforms                             | Security Center Installation | Security Center Discovery |
 |-----------------------------------|---------------------------------------|------------------------------|---------------------------|
-| Windows Defender                  | Windows Server 2016                   | No, Built in to OS           | Yes                       |
-| System Center Endpoint Protection | Windows Server 2012 R2, 2012, 2008 R2 | Via Extension                | Yes                       |
+| Windows Defender (Microsoft Antimalware)                  | Windows Server 2016                   | No, Built in to OS           | Yes                       |
+| System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2, 2012, 2008 R2 | Via Extension                | Yes                       |
 | Trend Micro – All version         | Windows Server Family                 | Via Extension                | Yes                       |
-| Symantec v12+                     | Windows Server Family                 | No                           | No                        |
+| Symantec v12+                     | Windows Server Family                 | No                           | Yes                        |
 | MacAfee                           | Windows Server Family                 | No                           | No                        |
 | Kaspersky                         | Windows Server Family                 | No                           | No                        |
 | Sophos                            | Windows Server Family                 | No                           | No                        |
