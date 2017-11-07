@@ -33,7 +33,7 @@
     href: luis-tutorial-node-import-utterances-csv.md
 - name: Samples
   items:
-  - name: Code Samples
+  - name: Code samples
     href: https://github.com/Microsoft/LUIS-Samples
 - name: Concepts
   items: 
