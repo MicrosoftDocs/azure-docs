@@ -145,11 +145,11 @@ Upload has been completed in 142.0429536 seconds. Press any key to continue
 
 ### Validate the connections
 
-While the files are being uploaded, you can verify the number of concurrent connections to your storage account. Open a `Command Prompt` and type `netstat -a | find /c "blob:https"`.  This shows the number of connections that are currently opened using `netstat`. The following example shows a similar output to what you see when running the tutorial yourself. As you can see from the example over 280 connections were open when uploading the random files to the storage account.  By uploading in parralel block chunks the amount of time required to transfer the contents is greatly reduced.
+While the files are being uploaded, you can verify the number of concurrent connections to your storage account. Open a `Command Prompt` and type `netstat -a | find /c "blob:https"`.  This shows the number of connections that are currently opened using `netstat`. The following example shows a similar output to what you see when running the tutorial yourself. As you can see from the example 800 connections were open when uploading the random files to the storage account.  By uploading in parralel block chunks the amount of time required to transfer the contents is greatly reduced.
 
 ```
 C:\>netstat -a | find /c "blob:https"
-289
+800
 
 C:\>
 ```
@@ -164,7 +164,7 @@ In part two of the series, you learned about uploading large amounts of random d
 > * Run the application
 > * Validate the number of connections
 
-Advance to part two of the series to upload large amounts of data to a storage account using exponential retry and parallelism.
+Advance to part three of the series to upload large amounts of data to a storage account using exponential retry and parallelism.
 
 > [!div class="nextstepaction"]
 > [Upload large amounts of large files in parallel to a storage account](storage-blob-scalable-app-download-files.md)

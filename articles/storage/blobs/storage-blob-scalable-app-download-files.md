@@ -41,27 +41,46 @@ mstsc /v:<publicIpAddress>
 
 ## Update the application
 
-Open `c:\git\StoragePerfandScalabilityExample\Program.cs` in a text editor.  Uncomment the following lines of code to enable 
+In the prevous tutorial you only uploaded files to the storage account. Open `c:\git\StoragePerfandScalabilityExample\Program.cs` in a text editor.  Replace the `Main` method with the sample below. This example comments out the upload task and uncomments the download task and the task to delete the content in the storage account when complete.
+
+```csharp
+static void Main(string[] args)
+{
+    // Set threading and default connection limit to 100 to ensure multiple threads and connections can be opened.
+    // This is in addition to parallelism with the storage client library that is defined in the functions below.
+    ThreadPool.SetMinThreads(100, 4);
+    ServicePointManager.DefaultConnectionLimit = 100; //(Or More)
+
+    // Call the UploadFilesAsync function.
+    //UploadFilesAsync().Wait();
+    // Uncomment the following line to enable downloading of files from the storage account.  This is commented out
+    // initially to support the tutorial at http://inserturlhere.
+    DownloadFilesAsync().Wait();
+    Console.WriteLine("Application complete. After you press any key the container and blobs will be deleted.");
+    Console.ReadKey();
+    // The following function will delete the container and all files contained in them.  This is commented out initialy
+    // As the tutorial at http://inserturlhere has you upload only for one tutorial and download for the other. 
+    Util.DeleteExistingContainersAsync().Wait();
+}
+```
+
+After the application has been updated, the application needs to be re-built.  Open a `Command Prompt` and navigate to `c:\git\StoragePerfandScalabilityExample`. Rebuild the applictaion by running `dotnet build` as seen in the following example.  
 
 ```
-DownloadFilesAsync(args).Wait();
+dotnet build
 ```
 
-When finished
 ## Run the application
 
-Open a `Command Prompt` and navigate to `c:\git\StoragePerfandScalabilityExample`.
+Now that the application has been rebuilt it is time to run the application. If not already open, open a `Command Prompt` and navigate to `c:\git\StoragePerfandScalabilityExample`.
 
-Type `dotnet run` to run the application. The `download` argument limits the application to only downloading the files.
+Type `dotnet run` to run the application.
 
 ```
-dotnet run download
+dotnet run
 ```
 
-The application creates retrieve the containers found in the storage account specified in the `Config.json` file. It creates a download directory if it doesn't already exist and beings downloading the blobs in the containers.
-
-The [DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadToFileAsync_System_String_System_IO_FileMode_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) method is used to download the blobs to the local machine.
-
+The application reads the containers located in the storage accound as specified in the `Config.json` file. It iterates through the blobs in the containers and downloads them to the local machine using the [DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadToFileAsync_System_String_System_IO_FileMode_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) method.
 The following table shows the [BlobRequestOptions](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions?view=azure-dotnet) that are defined for each blob as it is downloaded.
 
 |Property|Value|Description|
@@ -126,8 +145,17 @@ C:\>netstat -a | find /c "blob:https"
 C:\>
 ```
 
+## Next steps
+
+In part two of the series, you learned about downloading large amounts of random data from a storage account, such as how to:
+
 > [!div class="checklist"]
 > * Run the application
 > * Validate the number of connections
+
+Advance to part four of the series to verify throughtput and latency metrics in the portal.
+
+> [!div class="nextstepaction"]
+> [Verify throughput and latency metrics in the portal](storage-blob-scalable-app-verify-metrics.md)
 
 [previous-tutorial]: storage-blob-scalable-app-upload-files.md

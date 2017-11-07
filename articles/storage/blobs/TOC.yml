@@ -44,11 +44,12 @@
     items:
       - name: Create a VM and storage account
         href: storage-blob-scalable-app-create-vm.md
-      - name: Upload large data to azure storage
+      - name: Upload large data to an Azure storage account
         href: storage-blob-scalable-app-upload-files.md
-      - name: Download larges amount of data
+      - name: Download larges data from a Azure storage account
         href: storage-blob-scalable-app-download-files.md
       - name: Verify throughput and latency metrics
+        href: storage-blob-scalable-app-verify-metrics.md
 - name: Samples
   items:
   - name: Azure PowerShell
