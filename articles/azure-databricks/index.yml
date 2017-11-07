@@ -39,3 +39,4 @@ sections:
     - hmtl: <a href="https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html#azure-data-lake-store" target="_blank">Import data from Azure Data Lake Store</a>
     - html: <a href="https://docs.azuredatabricks.net/user-guide/notebooks/index.html" target="_blank">Work with notebooks</a>
     - html: <a href="https://docs.azuredatabricks.net/user-guide/jobs.html" target="_blank">Run Spark jobs</a>
+    - html: <a href="https://docs.azuredatabricks.net/spark/latest/data-sources/index.html" target="_blank">Spark data sources</a>
