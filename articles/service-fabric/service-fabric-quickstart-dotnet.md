@@ -117,10 +117,12 @@ To stop the debugging session, press **Shift+F5**.
 To deploy the application to Azure, you need a Service Fabric cluster which runs the application. 
 
 ### Join a Party cluster
-Party clusters are free, limited-time Service Fabric clusters hosted on Azure and run by the Service Fabric team where anyone can deploy applications and learn about the platform. Sign in and [join a Windows cluster](http://aka.ms/tryservicefabric). Remember the **Connection endpoint** value, which is used in following steps.
+Party clusters are free, limited-time Service Fabric clusters hosted on Azure and run by the Service Fabric team where anyone can deploy applications and learn about the platform. 
+
+Sign in and [join a Windows cluster](http://aka.ms/tryservicefabric). Remember the **Connection endpoint** value, which is used in following steps.
 
 > [!Note]
-> The web front-end service is configured to listen on port 8080 for incoming traffic. Make sure that port is open in your cluster. If you are using the Party Cluster, this port is open.
+> By default, the web front-end service is configured to listen on port 8080 for incoming traffic. Port 8080 is open in the Party Cluster.  If you need to change the application port, change it to one of the ports that are open in the Party Cluster.
 >
 
 ### Deploy the application using Visual Studio
