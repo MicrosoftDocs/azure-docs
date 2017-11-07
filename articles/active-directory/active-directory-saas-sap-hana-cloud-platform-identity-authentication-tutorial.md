@@ -1,4 +1,4 @@
-.---
+---
 title: 'Tutorial: Azure Active Directory integration with SAP Cloud Platform Identity Authentication | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and SAP Cloud Platform Identity Authentication.
 services: active-directory
@@ -148,7 +148,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure single sign-on](./media/active-directory-saas-sapcloudauth-tutorial/attribute.png)
 
-7. If your SAP application expects an attribute for example **firstName**, add the **firstName** attribute in the **User Attributes** section, in the **Single sign-on** dialog box, in the SAML token attributes dialog box.
+7. If your SAP application expects an attribute for example **firstName**, add the **firstName** attribute in the **User Attributes** section. This option is available in the **Single sign-on** dialog box of the **SAML token attributes** dialog box..
 
 	a. To open the **Add Attribute** dialog box, select **Add attribute**. 
 	
