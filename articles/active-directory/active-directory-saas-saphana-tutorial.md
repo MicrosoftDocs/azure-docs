@@ -140,7 +140,7 @@ Here we've mapped the **User Identifier** with the **ExtractMailPrefix()** funct
 8. To configure single sign-on on the **SAP HANA** side, sign in to your **HANA XSA Web Console**  by going to the respective HTTPS-endpoint.
 
 	> [!NOTE]
-	> In the default configuration, the URL redirects the request to a sign-in screen, which requires the credentials of an authenticated SAP HANA database user. The user who signs in must have the privileges that are necessary to perform SAML administration tasks.
+	> In the default configuration, the URL redirects the request to a sign-in screen, which requires the credentials of an authenticated SAP HANA database user. The user who signs in must permissions to perform SAML administration tasks.
 
 9. In the XSA Web Interface, go to **SAML Identity Provider**. From there, select the **“+”** -button on the bottom of the screen to display the **Add Identity Provider Info** pane. Then take the following steps:
 
@@ -174,7 +174,7 @@ Here we've mapped the **User Identifier** with the **ExtractMailPrefix()** funct
 ### Create an Azure AD test user
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
-![Create Azure AD User][100]
+![Create Azure AD user][100]
 
 **To create a test user in Azure AD, take the following steps:**
 
