@@ -12,48 +12,121 @@ ms.date: 10/26/2017
 ms.author: v-demak
 ---
 
-# Import utterances from the query log using Node.js
+# Build an app programmatically
 
-This tutorial helps you import utterances from the query log that contains all the user utterances passed to your LUIS endpoint.
+LUIS provides a programmatic API that does everything that the UI at [luis.ai](http://www.luis.ai) does. This can save time when you might have a lot of pre-existing data and it'd be simpler to programmatically create a LUIS app. 
 
 ## Prerequisites
 
 * Log in to www.luis.ai and find your Programmatic Key in Account Settings.  You use this key to call the Authoring API.
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-* This tutorial assumes you have already [created a LUIS app](luis-get-started-create-app.md), [trained](https://docs.microsoft.com/en-us/azure/cognitive-services/LUIS/train-test) and [published](PublishApp.md) it, and that some utterances have been passed to its endpoint.
+* This tutorial starts with a CSV for a hypothetical company's log files of user requests. Download it [here](https://nodejs.org/en/download/).
 * Install the latest Node.js with NPM. Download it from [here](https://nodejs.org/en/download/).
 * **[Recommended]** Visual Studio Code for IntelliSense and debugging, download it from [here](https://code.visualstudio.com/) for free.
 
-## Download the query log
-This sample shows how to import queries from an application's query log from [luis.ai](http://www.luis.ai).
+## Map preexisting data to intents and entities
+Open the `IoT.csv` file. It contains the hypothetical records of user queries to a home automation service, including how they were categorized, what the user said, and some columns with useful information pulled out of them.
 
-In order to export a LUIS application, select the download icon for the application and download the file. 
-
-![Export icon button on luis.ai](./media/luis-tutorial-node-import-utterances-csv/download-querylog.png) 
+![CSV file](./media/luis-tutorial-node-import-utterances-csv/csv.png) 
 
 
-### Format of Query log
-The format of the query log is a CSV file with a heading row. The parsing needed to ignore the first two columns and focus on the third column.  
+You'll see that the RequestType column could be intents, the Text column shows an example utterance, and the other fields could be entities if they actually occur in the utterance. Because we have what intents, entities, and example utterances, we have what we need to create a sample app.
 
-````
-"Query","UTC DateTime","Response"
-"go to paris",10/04/2017 17:56:05,"{""query"":""go to paris"",""intents"":[{""intent"":""BookFlight"",""score"":0.9999256},{""intent"":""None"",""score"":0.16970253}],""entities"":[{""entity"":""paris"",""type"":""Location::LocationTo"",""startIndex"":6,""endIndex"":10,""score"":0.797421634}]}"
-"ticket to paris",10/04/2017 18:15:58,"{""query"":""ticket to paris"",""intents"":[{""intent"":""BookFlight"",""score"":0.9999747},{""intent"":""None"",""score"":0.149017587}],""entities"":[{""entity"":""paris"",""type"":""Location::LocationTo"",""startIndex"":10,""endIndex"":14,""score"":0.9220803}]}"
+## Calling the API
+To start building a script to import data for a new LUIS app, first you parse the data from the CSV file and gather information on what intents and entities are there. Then you'll make API calls to create the app, add intents and entities we extracted from the text, then upload the example utterances. You can see this flow in the last part of the code snippet below. Copy this code and save it.
 
-````
+```javascript
+var path = require('path');
 
+const download = require('./_download');
+const parse = require('./_parse');
+const upload = require('./_upload');
+
+// TBD: CHANGE THESE VALUES
+const LUIS_subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
+const LUIS_appId = "YOUR_APP_ID";
+const LUIS_appName = "Your App Name";
+const LUIS_appCulture = "en-us";
+const LUIS_versionId = "0.1";
+
+// NOTE: final output of add-utterances api named utterances.upload.json
+const downloadFile= "./IoT.csv";
+const uploadFile = "./utterances.json"
+
+var intents = [];
+var entities = [];
+
+/* add utterances configuration */
+var configAddUtterances = {
+    LUIS_subscriptionKey: LUIS_subscriptionKey,
+    LUIS_appId: LUIS_appId,
+    LUIS_versionId: LUIS_versionId,
+    inFile: path.join(__dirname, uploadFile),
+    batchSize: 100,
+    uri: "https://westus.api.cognitive.microsoft.com/luis/api/v2.0/apps/{appId}/versions/{versionId}/examples".replace("{appId}", LUIS_appId).replace("{versionId}", LUIS_versionId)
+};
+
+/* create app configuration */
+var configCreateApp = {
+    LUIS_subscriptionKey: LUIS_subscriptionKey,
+    LUIS_versionId: LUIS_versionId,
+    appName: LUIS_appName,
+    culture: LUIS_appCulture,
+    uri: "https://westus.api.cognitive.microsoft.com/luis/api/v2.0/apps/"
+};
+
+/* add intents configuration */
+var configAddIntents = {
+    LUIS_subscriptionKey: LUIS_subscriptionKey,
+    LUIS_appId: LUIS_appId,
+    LUIS_versionId: LUIS_versionId,
+    intentList: intents,
+    uri: "https://westus.api.cognitive.microsoft.com/luis/api/v2.0/apps/{appId}/versions/{versionId}/examples".replace("{appId}", LUIS_appId).replace("{versionId}", LUIS_versionId)
+};
+
+/* parse configuration */
+var configParse = {
+    inFile: path.join(__dirname, downloadFile),
+    outFile: path.join(__dirname, uploadFile)
+}; 
+
+/* parse to extract intents and entities first, then add intents, entities, and add utterances */
+parse(configParse)
+.then((model) => {
+    intents = model.intents;
+    entities = model.entities;
+    console.log("JSON file should contain utterances. Next step is to create an app with the intents and entities it found.");
+    return createApp(configCreateApp);
+
+}).then((appId) => {
+    return addIntents(configAddIntents);
+    console.log("process done");
+
+}).then((intentIdList) => {
+    return addEntities(configAddEntities);
+    console.log("process done");
+
+}).then((entityIdList) => {
+    return upload(configAddUtterances);
+    console.log("process done");
+}).catch(err => {
+    console.log(err);
+});
+```
 ## Download sample code
 
-The code for this tutorial is at [CSV Upload Sample](https://github.com/Microsoft/LUIS-Samples/tree/master/examples/demo-upload-example-utterances/demo-Upload-utterances-from-querylog). Download the following files:
+The code for this tutorial is at [CSV Upload Sample](https://github.com/Microsoft/LUIS-Samples/tree/master/examples/create-app-programmatically/). Download the following files:
 
 | Filename    | Description           |
 |-------------|-----------------------|
 | [index.js](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/demo-upload-example-utterances/demo-Upload-utterances-from-querylog/index.js)  |  The sample's main file. It contains configuration settings and uploads the batch of utterances. Change the `downloadFile` value in the index.js file to the location and name of your query log file. |
 | [_parse.js](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/demo-upload-example-utterances/demo-Upload-utterances-from-querylog/_parse.js)  |  This file converts the utterances to the format expected by the [Batch Add Labels API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09) |
-| [_upload.js](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/demo-upload-example-utterances/demo-Upload-utterances-from-querylog/_upload.js)  |  This file contains methods for uploading JSON to the [Batch Add Labels API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09) |
+| [_create.js](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/demo-upload-example-utterances/demo-Upload-utterances-from-querylog/_upload.js)  |  This file contains methods for adding utterances using the [Batch Add Labels API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09) |
+
+## Run the code
 
 
-## Install Node.js dependencies
+### Install Node.js dependencies
 Install the Node.js dependencies from NPM in the terminal/command line.
 
 ````
@@ -94,133 +167,16 @@ upload done
 process done
 ````
 
-## Batching Utterances
-The sample sends batches of utterances. They are grouped into pages before sending each page. Each batch sent of received is numbered with an "ExampleId" between 0-99. This helps you find which utterances failed.
-
-## Inspect the generated files
-The sample creates files associated with each step:
-
-* utterances.json: Batch labels to upload.
-* utterances.upload.json: The final response body from the Batch Add Labels API.
-
-Examples of the files used and produced by the sample are in the ./example-files subdirectory.
-
-If any of these files are missing, there was an error with the application. 
-
-## Format of the JSON for the batch upload
-The format of the JSON for the batch upload is noted in the [batch add labels](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09) API. Note that the format of the download for query logs is different both in content and format. 
 
 
 ## LUIS APIs used in this sample
 This sample applications use the following LUIS APIs:
-- [download query log](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36) API
-- [batch add labels](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09) API.
+- [create app](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36)
+- [add intents](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09)
+- [add entities](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09) 
+- [add utterances](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09) 
 
 
-## Troubleshooting
-
-### Use your own private apps
-If you incorrectly use an app ID that you do not have permission to upload to, such as any public apps, you receive an error.
-
-### If intents and entities are not found, they are not created
-Any intent or entity uploaded that is not found in your LUIS app will cause an error. It is important that all intents and entities used in the batch already exist in the app.
-
-### Errors in output file of the application
-The final response body from upload API is in the 'utterances.upload.json' file. This file is an array of responses, one response for each item in the batch. 
-
-Each item in the batch can succeed or fail independent of any other item, so it is important to check the response. 
-
-#### Examples of correctly formatted items:
-
-````JavaScript
-// successfully formated item
-    {
-        "row": 1,
-        "text": "go to paris",
-        "intentName": "BookFlight",
-        "entityLabels": [
-            {
-                "entityName": "Location::LocationTo",
-                "startCharIndex": 6,
-                "endCharIndex": 10
-            }
-        ]
-    }
-````
-
-#### An example of a successful item upload response:
-
-````JavaScript
-// successfully uploaded item
-{
-    "value": {
-        "UtteranceText": "go to paris",
-        "ExampleId": -175128
-    },
-    "hasError": false
-}
-````
-
-#### Examples of successful request (HTTP 200+) with failed items in the response body:
-
-````JavaScript
-// failed uploaded item - don't upload built-ins
-{
-    "value": null,
-    "hasError": true,
-    "error": {
-        "code": "FAILED",
-        "message": "ticket to seattle tomorrowtimezoneOffset=0. Error: The entity extractor builtin.number doesn't exist in the selected application"
-    }
-}
-````
-
-````JavaScript
-// failed uploaded item - missing intent
-{
-    "value": null,
-    "hasError": true,
-    "error": {
-        "code":"FAILED","message":"turn on the left light. Error: The intent classifier TurnOn does not exist in the selected application"
-    }
-}
-````
- 
-#### Reasons for failed requests (HTTP 400+) other than malformed items:
-A batch upload may fail for general reasons not related to the batch itself. You need to investigate the error returned to fix the problem. A list of common issues include:
-
-- public subscription ID - you are not allowed to write a batch to this subscription
-- incorrect app ID
-- incorrect version ID
-- incorrect LUIS API URI
-
-#### Examples of failed requests (HTTP 400+) because of malformed items:
-
-Batch upload items (or the whole batch) can result in parsing errors in the LUIS API. These errors are generally returned as HTTP 400 status errors instead of returning a successful response with an array of items, some of which failed.
-
-A list of common issues include for a well-formed batch:
-
-- batch has too many items
-- batch includes intent that doesn't exist in app
-- batch includes entity that doesn't exist in app
-- batch includes prebuilt entity provided by LUIS Prebuilt domains
-
-A malformed batch will also be refused because the JSON cannot be parsed as it is. The following JSON examples show some malformed JSON you should avoid.
-
-````JavaScript
-// malformed item - entityLabels first array item is present but empty
-// fix - should remove {}, empty entityLabels array is fine
-{
-    "row": 2,
-    "text": "ticket to paris",
-    "intentName": "BookFlight",
-    "entityLabels": [
-        {
-            
-        }
-    ]
-}
-```` 
 
 ````JavaScript
 // malformed item - malformed JSON - no comma
@@ -255,5 +211,5 @@ A malformed batch will also be refused because the JSON cannot be parsed as it i
 
 ## Next steps
 
-* Try to improve your app's performance by continuing to add and label utterances.
+* You can work with your app in LUIS.ai.
 
