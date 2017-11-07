@@ -40,7 +40,7 @@
 #### [Tools comparison](active-directory-hybrid-identity-design-considerations-tools-comparison.md)
 
 ## Manage users
-### [Add new users to Azure AD](add-users-azure-active-directory.md))
+### [Add new users to Azure AD](add-users-azure-active-directory.md)
 ### [Manage user profiles](active-directory-users-profile-azure-portal.md)
 ### [Share accounts](active-directory-sharing-accounts.md)
 ### [Assign users to admin roles](active-directory-users-assign-role-azure-portal.md)
