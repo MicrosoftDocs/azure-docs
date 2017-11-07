@@ -12,7 +12,7 @@ ms.date: 11/01/2017
 ms.author: v-gedod
 ---
 # Tutorial: Single-page Video Search app
-The Bing Video Search API lets you search the Web and obtain results of the video type relevant to a search query. In this tutorial, we build a single-page Web application that uses the Bing search API to display search results on the page. The application includes HTML, CSS, and JavaScript components.
+The Bing Video Search API lets you search the Web and get video results relevant to a search query. In this tutorial, we build a single-page Web application that uses the Bing search API to display search results on the page. The application includes HTML, CSS, and JavaScript components.
 
 ![Single-page Bing Video Search app](./media/video-search-singlepage.png)
 
