@@ -204,8 +204,7 @@ You are now ready to load data into your data warehouse. This step shows you how
 
 3. Define the external file formats
 
-    The ```CREATE EXTERNAL FILE FORMAT``` command is used to specify the
-    format of files that contain the external data. They contain text separated by one or more characters called delimiters. For demonstration purposes, the taxi cab data is stored both as uncompressed data and as gzip compressed data.
+    The ```CREATE EXTERNAL FILE FORMAT``` command is used to specify the format of files that contain the external data. They contain text separated by one or more characters called delimiters. For demonstration purposes, the taxi cab data is stored both as uncompressed data and as gzip compressed data.
 
     Run these T-SQL commands to define two different formats: uncompressed and compressed.
 
@@ -240,7 +239,7 @@ You are now ready to load data into your data warehouse. This step shows you how
     ```
 5. Create the external tables. These tables reference data stored in Azure blob storage. Run the following T-SQL commands to create several external tables that all point to the Azure blob we defined previously in our external data source.
 
-```sql
+  ```sql
     CREATE EXTERNAL TABLE [ext].[Date] 
     (
         [DateID] int NOT NULL,
@@ -413,7 +412,7 @@ You are now ready to load data into your data warehouse. This step shows you how
         REJECT_VALUE = 0
     )
     ;
-```
+  ```
 
 ### Import the data from Azure blob storage.
 
@@ -496,9 +495,9 @@ SQL Data Warehouse supports a key statement called CREATE TABLE AS SELECT (CTAS)
 
 2. View your data as it loads.
 
-   You’re loading several GBs of data and compressing it into highly performant clustered columnstore indexes. Run the following query that uses a dynamic management views (DMVs) to show the status of the load. After starting the query, grab a coffee and a snack while SQL Data Warehouse does some heavy lifting.
+  You’re loading several GBs of data and compressing it into highly performant clustered columnstore indexes. Run the following query that uses a dynamic management views (DMVs) to show the status of the load. After starting the query, grab a coffee and a snack while SQL Data Warehouse does some heavy lifting.
 
-    ```sql
+  ```sql
     SELECT
         r.command,
         s.request_id,
@@ -524,13 +523,14 @@ SQL Data Warehouse supports a key statement called CREATE TABLE AS SELECT (CTAS)
     ORDER BY
         nbr_files desc, 
         gb_processed desc;
-    ```
+  ```
+
 
 3. View all system queries.
 
     ```sql
     SELECT * FROM sys.dm_pdw_exec_requests;
-    ```
+	```
 
 4. Enjoy seeing your data nicely loaded into your Azure SQL Data Warehouse.
 
