@@ -166,6 +166,8 @@
       href: compute-linked-services.md
   - name: Control flow
     items: 
+    - name: If Condition Activity
+      href: control-flow-if-condition-activity.md
     - name: Web Activity
       href: control-flow-web-activity.md     
     - name: Lookup Activity
