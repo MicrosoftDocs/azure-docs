@@ -83,7 +83,7 @@ A SQL Data Warehouse is a special type of database that is designed for massivel
     ![Pin To Dashboard](./media/sql-data-warehouse-get-started-tutorial/pin-to-dashboard.png)
 
 5. Sit back and wait for your data warehouse to deploy! It's normal for this process to take several minutes. 
-The portal notifies you when your data warehouse is ready to use. 
+  The portal notifies you when your data warehouse is ready to use. 
 
 ## Connect to SQL Data Warehouse
 
@@ -199,7 +199,7 @@ You are now ready to load data into your data warehouse. This step shows you how
     WITH
     (
         TYPE = Hadoop,
-        LOCATION = 'wasbs://2013@nytpublic.blob.core.windows.net/'
+        LOCATION = 'wasbs://2013@nytaxiblob.blob.core.windows.net/'
     );
     ```
 
@@ -208,7 +208,7 @@ You are now ready to load data into your data warehouse. This step shows you how
     The ```CREATE EXTERNAL FILE FORMAT``` command is used to specify the
     format of files that contain the external data. They contain text separated by one or more characters called delimiters. For demonstration purposes, the taxi cab data is stored both as uncompressed data and as gzip compressed data.
 
-	Run these T-SQL commands to define two different formats: uncompressed and compressed.
+    Run these T-SQL commands to define two different formats: uncompressed and compressed.
 
     ```sql
     CREATE EXTERNAL FILE FORMAT uncompressedcsv
@@ -227,7 +227,7 @@ You are now ready to load data into your data warehouse. This step shows you how
         FORMAT_TYPE = DELIMITEDTEXT,
         FORMAT_OPTIONS ( FIELD_TERMINATOR = '|',
             STRING_DELIMITER = '',
-	    DATE_FORMAT = '',
+        DATE_FORMAT = '',
             USE_TYPE_DEFAULT = False
         ),
         DATA_COMPRESSION = 'org.apache.hadoop.io.compress.GzipCodec'
@@ -407,7 +407,7 @@ You are now ready to load data into your data warehouse. This step shows you how
     )
     WITH
     (
-        LOCATION = 'Weather2013',
+        LOCATION = 'Weather',
         DATA_SOURCE = NYTPublic,
         FILE_FORMAT = uncompressedcsv,
         REJECT_TYPE = value,
@@ -432,7 +432,7 @@ SQL Data Warehouse supports a key statement called CREATE TABLE AS SELECT (CTAS)
     AS SELECT * FROM [ext].[Date]
     OPTION (LABEL = 'CTAS : Load [dbo].[Date]')
     ;
-    
+
     CREATE TABLE [dbo].[Geography]
     WITH
     ( 
@@ -443,7 +443,7 @@ SQL Data Warehouse supports a key statement called CREATE TABLE AS SELECT (CTAS)
     SELECT * FROM [ext].[Geography]
     OPTION (LABEL = 'CTAS : Load [dbo].[Geography]')
     ;
-    
+
     CREATE TABLE [dbo].[HackneyLicense]
     WITH
     ( 
@@ -453,7 +453,7 @@ SQL Data Warehouse supports a key statement called CREATE TABLE AS SELECT (CTAS)
     AS SELECT * FROM [ext].[HackneyLicense]
     OPTION (LABEL = 'CTAS : Load [dbo].[HackneyLicense]')
     ;
-    
+
     CREATE TABLE [dbo].[Medallion]
     WITH
     (
@@ -463,7 +463,7 @@ SQL Data Warehouse supports a key statement called CREATE TABLE AS SELECT (CTAS)
     AS SELECT * FROM [ext].[Medallion]
     OPTION (LABEL = 'CTAS : Load [dbo].[Medallion]')
     ;
-    
+
     CREATE TABLE [dbo].[Time]
     WITH
     (
@@ -473,7 +473,7 @@ SQL Data Warehouse supports a key statement called CREATE TABLE AS SELECT (CTAS)
     AS SELECT * FROM [ext].[Time]
     OPTION (LABEL = 'CTAS : Load [dbo].[Time]')
     ;
-    
+
     CREATE TABLE [dbo].[Weather]
     WITH
     ( 
@@ -483,7 +483,7 @@ SQL Data Warehouse supports a key statement called CREATE TABLE AS SELECT (CTAS)
     AS SELECT * FROM [ext].[Weather]
     OPTION (LABEL = 'CTAS : Load [dbo].[Weather]')
     ;
-    
+
     CREATE TABLE [dbo].[Trip]
     WITH
     (
@@ -498,7 +498,7 @@ SQL Data Warehouse supports a key statement called CREATE TABLE AS SELECT (CTAS)
 2. View your data as it loads.
 
    You’re loading several GBs of data and compressing it into highly performant clustered columnstore indexes. Run the following query that uses a dynamic management views (DMVs) to show the status of the load. After starting the query, grab a coffee and a snack while SQL Data Warehouse does some heavy lifting.
-    
+
     ```sql
     SELECT
         r.command,
@@ -565,7 +565,7 @@ First, let's scale the sizing down to 100 DWU so we can get an idea of how one c
     > [!NOTE]
     > Queries cannot run while changing the scale. Scaling **kills** your currently running queries. You can restart them when the operation is finished.
     >
-    
+
 5. Do a scan operation on the trip data, selecting the top million entries for all the columns. If you're eager to move on quickly, feel free to select fewer rows. Take note of the time it takes to run this operation.
 
     ```sql
@@ -627,12 +627,12 @@ First, let's scale the sizing down to 100 DWU so we can get an idea of how one c
     > [!NOTE]
     > SQL DW does not automatically manage statistics for you. Statistics are important for query
     > performance and it is highly recommended you create and update statistics.
-    > 
+    >
     > **You gain the most benefit by having statistics on columns involved in joins, columns
     > used in the WHERE clause and columns found in GROUP BY.**
     >
 
-3. Run the query from Prerequisites again and observe any performance differences. While the differences in query performance will not be as drastic as scaling up, you should notice a  speed-up. 
+4. Run the query from Prerequisites again and observe any performance differences. While the differences in query performance will not be as drastic as scaling up, you should notice a  speed-up. 
 
 ## Next steps
 
