@@ -22,7 +22,7 @@ ms.author: cherylmc
 
 ExpressRoute now supports Azure PaaS services, such as Azure storage and Azure SQL Database, using Microsoft peering with route filters. You now need only one routing domain to access Microsoft PaaS and SaaS services. You can take advantage of route filters to selectively advertise the PaaS service prefixes for Azure regions you want to consume.
 
-This article helps you move the public peering configuration to Microsoft peering. By using the steps outlined in this article, you can move your Azure public peering configuration to Microsoft peering with no downtime. For more information about routing domains and peerings, see [ExpressRoute circuits and routing domains](expressroute-circuit-peerings.md).
+This article helps you move a public peering configuration to Microsoft peering with no downtime. For more information about routing domains and peerings, see [ExpressRoute circuits and routing domains](expressroute-circuit-peerings.md).
 
 > [!IMPORTANT]
 > You must have the ExpressRoute premium add-on in order to use Microsoft peering. For more information about the premium add-on, see the [ExpressRoute FAQ](expressroute-faqs.md#expressroute-premium).
