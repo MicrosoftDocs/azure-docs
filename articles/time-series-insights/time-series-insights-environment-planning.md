@@ -26,11 +26,11 @@ This topic describes how to plan your Time Series Insights environment based on 
 
 To get started, it’s best if you know how much data you expect to push by the minute as well as how long you need to store your data in Time Series Insights.  
 
-For more information about capacity and retention for both Time Series Insights SKUs, see [Time Series Insights pricing](https://azure.microsoft.com/en-us/pricing/details/time-series-insights/).
+For more information about capacity and retention for both Time Series Insights SKUs, see [Time Series Insights pricing](https://azure.microsoft.com/pricing/details/time-series-insights/).
 
-## Overall Storage Capacity
+## Overall storage capacity
 
-By default, Time Series Insights retains data based on the amount of storage you have provisioned (units x storage per unit) and ingress.  
+By default, Time Series Insights retains data based on the amount of storage you have provisioned (units times amount of storage per unit) and ingress.  
 
 ## Data retention
 
@@ -67,7 +67,7 @@ If you have a spike in your data ingress lasting less than 24 hours, Time Series
 
 For example, if you have a single S1 SKU and ingress data at a rate of 700 events per minute, and spike for less than 1 hour at a rate of 1400 events or less, there would be no noticeable latency to your environment. However, if you exceed 1400 events per minute for more than one hour, you would likely experience latency to data that is visualized and available for query in your environment. 
 
-You may not know in advance how much data you expect to push. In this case, you can find data telemetry for [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-metrics) and [Azure Event Hubs](https://blogs.msdn.microsoft.com/cloud_solution_architect/2016/05/25/using-the-azure-rest-apis-to-retrieve-event-hub-metrics/) in your Azure portal. This telemetry can help you determine how much with which to provision your environment. Use the **Metrics** blade in the Azure portal for the respective event source to view its telemetry. If you understand your event source metrics, you can more effectively plan and provision your Time Series Insights environment.
+You may not know in advance how much data you expect to push. In this case, you can find data telemetry for [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-metrics) and [Azure Event Hubs](https://blogs.msdn.microsoft.com/cloud_solution_architect/2016/05/25/using-the-azure-rest-apis-to-retrieve-event-hub-metrics/) in your Azure portal. This telemetry can help you determine how to provision your environment. Use the **Metrics** blade in the Azure portal for the respective event source to view its telemetry. If you understand your event source metrics, you can more effectively plan and provision your Time Series Insights environment.
 
 ## Know your requirements
 

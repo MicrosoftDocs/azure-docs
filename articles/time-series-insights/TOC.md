@@ -30,8 +30,8 @@
 ### [Share a custom view](time-series-insights-parameteried-urls.md)
 
 # Reference
-## [Query API](https://docs.microsoft.com/rest/api/time-series-insights/time-series-insights-reference-queryapi)
-## [Query syntax](https://docs.microsoft.com/rest/api/time-series-insights/time-series-insights-reference-query-syntax)
+## [Query API](/rest/api/time-series-insights/time-series-insights-reference-queryapi) 
+## [Query syntax](/rest/api/time-series-insights/time-series-insights-reference-query-syntax) 
 
 # Related services
 ## [Azure IoT Suite](/azure/iot-suite/)
