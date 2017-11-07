@@ -119,7 +119,7 @@ Below is a list of detailed updates in each component area of Azure Machine Lear
 ### Operationalization
 - Web service with "score" in its name no longer fails.
 - User can now create a deployment environment with just Owner access to an Azure resource group. Owner access to the entire subscription is no longer needed.
-- Operationalization CLI now enjoys tab auto-completion.
+- Operationalization CLI now enjoys tab auto-completion on Linux.
 - Image construction service now supports building images for Azure IoT services/devices.
 
 ### Sample projects
