@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 10/19/2017
 ms.author: billmath
 ---
 
@@ -26,7 +26,7 @@ It depends on your on-premises environment and organizational requirements. Revi
 
 ## Is Pass-through Authentication a free feature?
 
-Pass-through Authentication is a free feature and you don't need any paid editions of Azure AD to use it. It remains free when the feature reaches general availability.
+Pass-through Authentication is a free feature and you don't need any paid editions of Azure AD to use it.
 
 ## Is Pass-through Authentication available in [Microsoft Cloud Germany](http://www.microsoft.de/cloud-deutschland) and [Microsoft Azure Government Cloud](https://azure.microsoft.com/features/gov/)?
 
@@ -42,7 +42,7 @@ Yes. Pass-through Authentication supports `Alternate ID` as the username when co
 
 ## Does Password Hash Synchronization act as a fallback to Pass-through Authentication?
 
-No, Password Hash Synchronization is not a generic fallback to Pass-through Authentication. It only acts as a fallback for [scenarios that Pass-through Authentication doesn't support today](active-directory-aadconnect-pass-through-authentication-current-limitations.md#unsupported-scenarios). To avoid user sign-in failures, you should configure Pass-through Authentication for [high availability](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
+No, Pass-through Authentication _does not_ automatically failover to Password Hash Synchronization. It only acts as a fallback for [scenarios that Pass-through Authentication doesn't support today](active-directory-aadconnect-pass-through-authentication-current-limitations.md#unsupported-scenarios). To avoid user sign-in failures, you should configure Pass-through Authentication for [high availability](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
 
 ## Can I install an [Azure AD Application Proxy](../active-directory-application-proxy-get-started.md) connector on the same server as a Pass-through Authentication Agent?
 
@@ -93,7 +93,7 @@ Yes. Multi-forest environments are supported if there are forest trusts between 
 
 ## How many Pass-through Authentication Agents do I need to install?
 
-Installing multiple Pass-through Authentication Agents ensures [high availability](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability). However it does not provide load balancing. One or two of the Authentication Agents may end up handling the bulk of the sign-in requests.
+Installing multiple Pass-through Authentication Agents ensures [high availability](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability). However it does not provide deterministic load balancing between the Authentication Agents.
 
 Consider the peak and average load of sign-in requests that you expect to see on your tenant. As a benchmark, a single Authentication Agent can handle 300,000 to 400,000 authentications per second on a standard 4-core CPU, 16 GB RAM server. For most customers, two or three Authentication Agents in total are sufficient for high availability and capacity.
 

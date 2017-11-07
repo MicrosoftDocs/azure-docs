@@ -1,6 +1,7 @@
 # Overview
 ## [Linux SQL Server VMs](sql-server-linux-virtual-machines-overview.md)
-## [Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux/)
+## [Pricing](../../windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md?toc=%2fazure%2fvirtual-machines%2flinux%2fsql%2ftoc.json)
+## [FAQ](sql-server-linux-faq.md)
 
 # Get Started
 ## [Provision a VM in the Azure portal](provision-sql-server-linux-virtual-machine.md)

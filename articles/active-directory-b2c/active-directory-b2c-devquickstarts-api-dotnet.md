@@ -37,7 +37,7 @@ Next, you need to create a web API app in your B2C directory. This gives Azure A
 * Include a **web app** or **web API** in the application.
 * Use the **Redirect URI** `https://localhost:44332/` for the web app. This is the default location of the web app client for this code sample.
 * Copy the **Application ID** that is assigned to your app. You'll need it later.
-* Enter an app identifier into **App ID URI**.
+* Enter an app identifier into **App ID URI**. Copy the full **App ID URI**. You'll need it later.
 * Add permissions through the **Published scopes** menu.
 
   [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
@@ -80,6 +80,7 @@ Our sample is configured to use the policies and client ID of our demo tenant. I
     * `ida:SignUpSignInPolicyId` with your "Sign-up or Sign-in" policy name
     * `ida:EditProfilePolicyId` with your "Edit Profile" policy name
     * `ida:ResetPasswordPolicyId` with your "Reset Password" policy name
+    * `api:ApiIdentifier` with your "App ID URI"
 
 
 ## Secure the API

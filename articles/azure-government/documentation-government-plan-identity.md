@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 09/15/2017
+ms.date: 10/20/2017
 ms.author: beellis
 
 ---
 # Planning identity for Azure Government applications
 
-Microsoft Azure Government provides the same ways to build applications and manage identities as Azure Commercial. Azure Government customers may already have an Azure Active Directory (Azure AD) Commercial tenant or may create a tenant in Azure AD Government. This article provides guidance on identity decisions based on the application and location of your identity.
+Microsoft Azure Government provides the same ways to build applications and manage identities as Azure Public. Azure Government customers may already have an Azure Active Directory (Azure AD) Public tenant or may create a tenant in Azure AD Government. This article provides guidance on identity decisions based on the application and location of your identity.
 
 ## Identity models
 Before determining the identity approach for your application, you need to know what identity types are available to you. There are three types: On-Premises Identity, Cloud Identity, and Hybrid Identity.
@@ -42,23 +42,23 @@ When building any Azure application, a developer must first decide on the authen
 Based on this decision there are different considerations when building in Azure Government.
 
 ### Applications using modern authentication in Azure Government
-[Integrating Applications with Azure Active Directory](..\active-directory\develop\active-directory-integrating-applications.md) shows how you can use Azure AD to provide secure sign-in and authorization to your applications.  This process is the same for Azure Commercial and Azure Government once you choose your identity authority.
+[Integrating Applications with Azure Active Directory](..\active-directory\develop\active-directory-integrating-applications.md) shows how you can use Azure AD to provide secure sign-in and authorization to your applications.  This process is the same for Azure Public and Azure Government once you choose your identity authority.
 
 #### Choosing your identity authority
-Azure Government applications can use Azure AD Government identities, but can you use Azure AD Commercial identities to authenticate to an application hosted in Azure Government?  Yes!  Since you can use either identity authority, you need to choose which to use:
+Azure Government applications can use Azure AD Government identities, but can you use Azure AD Public identities to authenticate to an application hosted in Azure Government?  Yes!  Since you can use either identity authority, you need to choose which to use:
 
--	**Azure AD Commercial** – Commonly used if your organization already has an Azure AD Commercial tenant to support Office 365 (Commercial or GCC) or another application.
+-	**Azure AD Public** – Commonly used if your organization already has an Azure AD Public tenant to support Office 365 (Public or GCC) or another application.
 -	**Azure AD Government** - Commonly used if your organization already has an Azure AD Government tenant to support Office 365 (GCC High or DoD) or are creating a new tenant in Azure AD Government.
 
-Once decided, the special consideration is where you perform your app registration. If you choose Azure AD Commercial identities for your Azure Government application, this requires the application to be registered in your Azure AD Commercial tenant. Otherwise, if you perform the app registration in the directory the subscription trusts (Azure Government) the intended set of users cannot authenticate.
+Once decided, the special consideration is where you perform your app registration. If you choose Azure AD Public identities for your Azure Government application, you must register the application in your Azure AD Public tenant. Otherwise, if you perform the app registration in the directory the subscription trusts (Azure Government) the intended set of users cannot authenticate.
 
 >[!NOTE]
-> Applications registered with Azure AD only allow sign-in from users in the Azure AD tenant the application was registered in. If you have multiple Azure AD Commercial tenants, it’s important to know which is intended to allow sign-ins from. If you intend to allow users to authenticate to the application from multiple Azure AD tenants the application must be registered in each tenant.
+> Applications registered with Azure AD only allow sign-in from users in the Azure AD tenant the application was registered in. If you have multiple Azure AD Public tenants, it’s important to know which is intended to allow sign-ins from. If you intend to allow users to authenticate to the application from multiple Azure AD tenants the application must be registered in each tenant.
 >
 
 The other consideration is the identity authority URL.  You need the correct URL based on your chosen authority:
 
--	**Azure AD Commercial** = login.microsoftonline.com
+-	**Azure AD Public** = login.microsoftonline.com
 -	**Azure AD Government** = login.microsoftonline.us
 
 ### Applications using legacy authentication protocols (Kerberos/NTLM)
@@ -96,16 +96,16 @@ First, see [Managing and connecting to your subscription in Azure Government](.\
 There are a few important points that set the foundation of this section:
 
  -  Azure subscriptions only trust one directory, therefore subscription administration must be performed by an identity from that directory.
- -  Azure Commercial subscriptions trust directories in Azure AD Commercial and Azure Government subscriptions trust directories in Azure AD Government.
- -  If you have both Azure Commercial and Azure Government subscriptions, separate identities for both are required.
+ -  Azure Public subscriptions trust directories in Azure AD Public and Azure Government subscriptions trust directories in Azure AD Government.
+ -  If you have both Azure Public and Azure Government subscriptions, separate identities for both are required.
 
-The currently supported identity scenarios to simultaneously manage Azure Commercial and Azure Government subscriptions are:
+The currently supported identity scenarios to simultaneously manage Azure Public and Azure Government subscriptions are:
 
 - Cloud identities - Cloud identities are used to manage both subscriptions
 - Hybrid and cloud identities - Hybrid identity for one subscription, cloud identity for the other
 - Hybrid identities - Hybrid identities are used to manage both subscriptions.
 
-A common scenario, having both Office 365 and Azure subscriptions, is conveyed in each of scenarios listed below.
+A common scenario, having both Office 365 and Azure subscriptions, is conveyed in each of the following scenarios.
 
 ### Using cloud identities for multi-cloud subscription administration
 
@@ -127,7 +127,7 @@ See [How Azure Multi-Factor Authentication works](..\multi-factor-authentication
 
 ### Using hybrid and cloud identities for multi-cloud subscription administration
 
-In this scenario, we include administrator identities through directory synchronization to the Commercial tenant while cloud identities are still used in the government tenant:
+In this scenario, we include administrator identities through directory synchronization to the Public tenant while cloud identities are still used in the government tenant:
 
 <div id="imagecontainer">
 <div></div>
@@ -139,7 +139,7 @@ In this scenario, we include administrator identities through directory synchron
 <div></div>
 </div>
 
-Using hybrid identities for administrative accounts allows the use of smartcards (physical or virtual). Government agencies using Common Access Cards (CACs) or Personal Identity Verification (PIV) cards benefit from this. In this scenario ADFS serves as the identity provider and implements the two-step verification (**for example**, smart card + PIN).
+Using hybrid identities for administrative accounts allows the use of smartcards (physical or virtual). Government agencies using Common Access Cards (CACs) or Personal Identity Verification (PIV) cards benefit from this approach. In this scenario ADFS serves as the identity provider and implements the two-step verification (**for example**, smart card + PIN).
 
 ### Using hybrid identities for multi-cloud subscription administration
 
@@ -157,6 +157,11 @@ In this scenario, hybrid identities are used to administrator subscriptions in b
 
 ## Frequently asked questions
 
+**Why does Office 365 GCC use Azure AD Public?**
+
+The first Office 365 US Government environment, Government Community Cloud (GCC), was created when Microsoft had a single cloud directory. The Office 365 GCC environment was designed to use Azure AD Public while still adhering to controls and requirements outlined in FedRAMP Moderate, CJIS (Criminal Justice Information Services), IRS 1075, and National Institute of Standards and Technology (NIST) publication 800-171. Azure Government, with its Azure AD infrastructure was created later. By that time, GCC had already secured the necessary compliance certifications (for example, FedRAMP Moderate and CJIS) to meet Federal, State, and Local government requirements while serving hundreds of thousands of customers. Now, many Office 365 GCC customers have two AAD tenants: one from the AAD subscription that supports Office 365 GCC and the other from their Azure Government subscription with identities in both.
+
+
 **How do I identify an Azure Government tenant?**  
 Here’s a way to find out using your browser of choice:
 
@@ -170,19 +175,19 @@ Here’s a way to find out using your browser of choice:
 `
    - If the **tenant_region_scope** attribute’s value is **USG** as shown, you have yourself an Azure Government tenant.
      - The result is a JSON file that’s natively rendered by more modern browsers such as Microsoft Edge, Mozilla Firefox, and Google Chrome. Internet Explorer doesn’t natively render the JSON format so instead prompts you to open or save the file. If you must use Internet Explorer, choose the save option and open it with another browser or plain text reader.
-     - The tenant_region_scope property is exactly how it sounds, regional. If you have a tenant in Azure Commercial in North America, the value would be **NA**.
+     - The tenant_region_scope property is exactly how it sounds, regional. If you have a tenant in Azure Public in North America, the value would be **NA**.
 
 **If I’m an Office 365 GCC customer and want to build solutions in Azure Government do I need to have two tenants?**  
 Yes, the Azure AD Government tenant is required for your Azure Government Subscription administration.
 
-**If I’m an Office 365 GCC customer that has built workloads in Azure Government, where should I authenticate from, Commercial or Government?**  
+**If I’m an Office 365 GCC customer that has built workloads in Azure Government, where should I authenticate from, Public or Government?**  
 See “Choosing your Identity Authority” earlier in this article.
 
 **I’m an Office 365 customer and have chosen hybrid identity as my identity model. I also have several Azure subscriptions. Is it possible to use the same Azure AD tenant to handle sign-in for Office 365, applications built in my Azure subscriptions, and/or applications reconfigured to use Azure AD for sign-in?**
 
 Yes, see [How Azure subscriptions are associated with Azure Active Directory](..\active-directory\active-directory-how-subscriptions-associated-directory.md) to learn more about the relationship between Azure subscriptions and Azure AD. It also contains instructions on how to associate subscriptions to the common directory of your choosing.
 
-**Can an Azure Government subscription be associated with a directory in Azure AD Commercial?**
+**Can an Azure Government subscription be associated with a directory in Azure AD Public?**
 
 No, the ability to manage Azure Government subscriptions requires identities sourced from a directory in Azure AD Government.
 

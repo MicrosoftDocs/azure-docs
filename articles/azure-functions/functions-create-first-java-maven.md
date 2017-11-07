@@ -12,14 +12,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.devlang: java
 ms.workload: na
-ms.date: 10/03/2017
+ms.date: 11/07/2017
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
 ---
 
 # Create your first function with Java and Maven (Preview)
 
-This quickstart guides through creating a serverless function project with Maven, testing it locally, and deploying it to Azure Functions. When you're done, you have a HTTP-triggered function app running in Azure.
+This quickstart guides through creating a [serverless](https://azure.microsoft.com/overview/serverless-computing/) function project with Maven, testing it locally, and deploying it to Azure Functions. When you're done, you have a HTTP-triggered function app running in Azure.
 
  ![Access a Hello World function from the command line with cURL](media/functions-create-java-maven/hello-azure.png)
 
@@ -29,10 +29,13 @@ This quickstart guides through creating a serverless function project with Maven
 To develop functions app with Java, you must have the following installed:
 
 -  [.NET Core](https://www.microsoft.com/net/core), latest version.
--  [Java Developer Kit](https://www.azul.com/downloads/zulu/), version 1.8.
+-  [Java Developer Kit](https://www.azul.com/downloads/zulu/), version 8.
 -  [Azure CLI](https://docs.microsoft.com/cli/azure)
 -  [Apache Maven](https://maven.apache.org), version 3.0 or above.
 -  [Node.js](https://nodejs.org/download/), version 8.6 or higher.
+
+> [!IMPORTANT] 
+> The JAVA_HOME environment variable must be set to the install location of the JDK to complete this quickstart.
 
 ## Install the Azure Functions Core Tools
 
@@ -54,16 +57,14 @@ In an empty folder, run the following command to generate the Functions project 
 ```bash
 mvn archetype:generate \
     -DarchetypeGroupId=com.microsoft.azure \
-	-DarchetypeArtifactId=azure-functions-archetype \
-    -DarchetypeVersion=1.0-SNAPSHOT
+	-DarchetypeArtifactId=azure-functions-archetype 
 ```
 
 ### Windows (CMD)
 ```cmd
 mvn archetype:generate ^
 	-DarchetypeGroupId=com.microsoft.azure ^
-	-DarchetypeArtifactId=azure-functions-archetype ^
-    -DarchetypeVersion=1.0-SNAPSHOT
+	-DarchetypeArtifactId=azure-functions-archetype
 ```
 
 Maven prompts you for values needed to finish generating the project. For _groupId_, _artifactId_, and _version_ values, see the [Maven naming conventions](https://maven.apache.org/guides/mini/guide-naming-conventions.html) reference. The _appName_ value must be unique across Azure, so Maven generates an app name based on the previously entered _artifactId_  as a default. The _packageName_ value determines the Java package for the generated function code.

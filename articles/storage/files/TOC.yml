@@ -32,14 +32,14 @@
       href: storage-sync-files-planning.md
     - name: How to deploy Azure File Sync
       href: storage-sync-files-deployment-guide.md
-    - name: Snapshot file shares
+    - name: About file share snapshots
       href: storage-snapshots-files.md
-    - name: How to work with share snapshots
+    - name: How to work with file share snapshots
       href: storage-how-to-use-files-snapshots.md
     - name: Replication
       href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json 
     - name: Scalability and performance targets
-      href: ../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json 
+      href: storage-files-scale-targets.md 
     - name: Performance and scalability checklist
       href: ../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json 
     - name: Concurrency
@@ -66,8 +66,12 @@
       href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json 
   - name: Manage
     items:
-    - name: PowerShell
+    - name: PowerShell for Azure Files
       href: storage-how-to-use-files-powershell.md
+    - name: PowerShell for Azure Storage
+      href: ../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: PowerShell for China, Government, and German clouds
+      href: ../common/storage-powershell-independent-clouds.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Azure CLI 2.0
       href: ../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Azure CLI 1.0
@@ -132,14 +136,18 @@
     href: /cli/azure/storage
   - name: .NET
     items:
-    - name: Resource Manager
-      href: /dotnet/api/microsoft.azure.management.storage
-    - name: Data movement
-      href: /dotnet/api/microsoft.windowsazure.storage.datamovement
     - name: Blobs, Queues, Tables, and Files
-      href: https://docs.microsoft.com/en-us/dotnet/api/overview/azure/storage?view=azure-dotnet
+      href: https://docs.microsoft.com/dotnet/api/overview/azure/storage/client?view=azure-dotnet
+    - name: Data movement
+      href: https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement?view=azure-dotnet
+    - name: Resource Manager
+      href: https://docs.microsoft.com/dotnet/api/overview/azure/storage/management?view=azure-dotnet
   - name: Java
-    href: http://azure.github.io/azure-storage-java/
+    items:
+    - name: Blobs, Queues, Tables, and Files
+      href: https://docs.microsoft.com/java/api/overview/azure/storage/clientlibrary
+    - name: Resource Manager
+      href: https://docs.microsoft.com/java/api/overview/azure/storage/managementapi
   - name: Node.js
     href: http://azure.github.io/azure-storage-node
   - name: Ruby
@@ -168,6 +176,8 @@
     href: https://azure.microsoft.com/roadmap/?category=storage
   - name: Azure Storage client tools
     href: ../common/storage-explorers.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json 
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/windows-azure-storage
   - name: Forum
     href: https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata
   - name: Pricing
@@ -176,8 +186,6 @@
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=storage
-  - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/windows-azure-storage
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=storage
   - name: Azure Storage Explorer
@@ -220,3 +228,5 @@
       href: https://github.com/Azure/azure-storage-ruby
     - name: iOS
       href: https://github.com/Azure/azure-storage-ios
+  - name: Azure File Sync release notes
+    href: storage-files-release-notes.md

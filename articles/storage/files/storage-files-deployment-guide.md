@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 10/08/2017
 ms.author: wgries
 ---
 
@@ -31,8 +31,10 @@ This article assumes that you have already completed the following steps:
 ## Transfer data into Azure Files
 You may wish to migrate existing file shares, such as those stored on-premises, to your new Azure File share. This section will show you how to move data into an Azure File share via several popular methods detailed from the [planning guide](storage-files-planning.md#data-transfer-method)
 
-### Azure File Sync (preview)
-Azure File Sync (preview) maybe used to migrate data into an Azure File share, even if the sync mechanism isn't desired for long-term use. More information on how to use Azure File Sync to ingress data into Azure File share can be found in [Planning for an Azure File Sync deployment](storage-sync-files-planning.md) and [How to deploy Azure File Sync](storage-sync-files-deployment-guide.md).
+### Azure File Sync (Preview)
+Azure File Sync (Preview) allows you centralize your organization's file shares in Azure Files without giving up the flexibility, performance, and compatibility of an on-premises file server. It does this by transforming your Windows Servers into a quick cache of your Azure File share. You can use any protocol available on Windows Server to access your data locally (including SMB, NFS, and FTPS) and you can have as many caches as you need across the world.
+
+Azure File Sync may be used to migrate data into an Azure File share, even if the sync mechanism isn't desired for long-term use. More information on how to use Azure File Sync to transfer data into Azure File share can be found in [Planning for an Azure File Sync deployment](storage-sync-files-planning.md) and [How to deploy Azure File Sync](storage-sync-files-deployment-guide.md).
 
 ### Azure Import/Export
 The Azure Import/Export service allows you to securely transfer large amounts of data into an Azure File share by shipping hard disk drives to an Azure datacenter. See [Use the Microsoft Azure Import/Export service to transfer data to Azure storage](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) for a more detailed overview of the service.

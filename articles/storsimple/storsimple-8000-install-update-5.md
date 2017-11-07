@@ -1,10 +1,10 @@
 ---
 title: Install Update 5 on StorSimple 8000 series device | Microsoft Docs
-description: Explains how to install StorSimple 8000 Series Update 4 on your StorSimple 8000 series device.
+description: Explains how to install StorSimple 8000 Series Update 5 on your StorSimple 8000 series device.
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jconnoc
 editor: ''
 
 ms.assetid: 
@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 10/02/2017
+ms.date: 11/02/2017
 ms.author: alkohli
 
 ---
@@ -27,7 +27,7 @@ Update 5 includes device software, Storport and Spaceport, OS security updates a
 
 > [!IMPORTANT]
 > * A set of manual and automatic pre-checks are done prior to the install to determine the device health in terms of hardware state and network connectivity. These pre-checks are performed only if you apply the updates from the Azure  portal.
-> * We strongly recommend that when updating a device running versions prior to Update 3, you install the updates using hotfix method. To help Support guide you through the update, [log a support ticket](storsimple-8000-contact-microsoft-support.md).
+> * We strongly recommend that when updating a device running versions prior to Update 3, you install the updates using hotfix method. If you encounter any issues, [log a support ticket](storsimple-8000-contact-microsoft-support.md).
 > * We recommend that you install the software and other regular updates via the Azure portal. You should only go to the Windows PowerShell interface of the device (to install updates) if the pre-update gateway check fails in the portal. Depending upon the version you are updating from, the updates may take 4 hours (or greater) to install. The maintenance mode updates must be installed via the Windows PowerShell interface of the device. As maintenance mode updates are disruptive updates, these result in a down time for your device.
 > * If running the optional StorSimple Snapshot Manager, ensure that you have upgraded your Snapshot Manager version to Update 5 prior to updating the device.
 
@@ -44,12 +44,11 @@ Perform the following steps to update your device to [Update 5](storsimple-updat
 
 Verify that your device is running **StorSimple 8000 Series Update 5 (6.3.9600.17845)**. The **Last updated date** should be modified.
 
-* You will now see that the Maintenance mode updates are available (this message might continue to be displayed for up to 24 hours after you install the updates). Maintenance mode updates are disruptive updates that result in device downtime and can only be applied via the Windows PowerShell interface of your device.
+You will now see that the Maintenance mode updates are available (this message might continue to be displayed for up to 24 hours after you install the updates). The steps to install maintenance mode update are detailed in the next section.
 
-* Download the maintenance mode updates by using the steps listed in [to download hotfixes](#to-download-hotfixes) to search for and download KB4011837, which installs disk firmware updates (the other updates should already be installed by now). Follow the steps listed in [install and verify maintenance mode hotfixes](#to-install-and-verify-maintenance-mode-hotfixes) to install the maintenance mode updates.
+[!INCLUDE [storsimple-8000-install-maintenance-mode-updates](../../includes/storsimple-8000-install-maintenance-mode-updates.md)]
 
 ## Install Update 5 as a hotfix
-
 
 The software versions that can be upgraded using the hotfix method are:
 

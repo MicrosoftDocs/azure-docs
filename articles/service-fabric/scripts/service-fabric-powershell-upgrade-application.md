@@ -20,7 +20,7 @@ ms.custom: mvc
 
 # Upgrade a Service Fabric application
 
-This sample script upgrades a running Service Fabric application instance to version 1.3.0. The script copies the new application package to the cluster image store, registers the application type, and removes the unneeded application package.  The script starts a monitored upgrade and continuously checks the upgrade status until the upgrade completes or rolls back. Customize the parameters as needed. 
+This sample script upgrades a running Service Fabric application instance to version 1.3.0. The script copies the new application package to the cluster image store, registers the application type, and removes the unnecessary application package.  The script starts a monitored upgrade and continuously checks the upgrade status until the upgrade completes or rolls back. Customize the parameters as needed. 
 
 If needed, install the Service Fabric PowerShell module with the [Service Fabric SDK](../service-fabric-get-started.md). 
 

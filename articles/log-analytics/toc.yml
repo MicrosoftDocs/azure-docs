@@ -9,6 +9,10 @@
   items:
   - name: Collect - Azure VMs
     href: log-analytics-quick-collect-azurevm.md
+  - name: Collect - Linux computer
+    href: log-analytics-quick-collect-linux-computer.md
+  - name: Collect - Windows Computer
+    href: log-analytics-quick-collect-windows-computer.md
 - name: Tutorials
   items:
   - name: 1 - Analyze data
@@ -23,24 +27,28 @@
     href: powershell-samples.md
 - name: Concepts
   items:
+  - name: Workspace upgrade
+    href: log-analytics-log-search-upgrade.md
   - name: Log Analytics FAQ
     href: log-analytics-faq.md
-  - name: Data Consumption
+  - name: Data consumption
     href: log-analytics-usage.md
   - name: Manage access
     href: log-analytics-manage-access.md
-  - name: Features for Service providers
+  - name: Features for service providers
     href: log-analytics-service-providers.md 
   - name: Log Search
     items:
-       - name: Log Search FAQ
-         href: log-analytics-log-search-faq.md
        - name: Log searches overview
          href: log-analytics-log-search-new.md   
-       - name: Log search portals
+       - name: Log Search FAQ
+         href: log-analytics-log-search-faq.md
+       - name: Log Search portals
          href: log-analytics-log-search-portals.md   
-- name: How To
+- name: How-to guides
   items:
+  - name: Create Log Analytics workspace
+    href: log-analytics-quick-create-workspace.md
   - name: Collect data
     items:
     - name: Connected sources
@@ -53,6 +61,8 @@
         href: log-analytics-azure-vm-extension.md
       - name: Azure resources
         href: log-analytics-azure-storage.md
+      - name: Diagnostic or log data from Azure storage
+        href: log-analytics-azure-storage-iis-table.md
       - name: Operations Manager
         href: log-analytics-om-agents.md
       - name: Configuration Manager
@@ -85,6 +95,20 @@
         href: log-analytics-custom-fields.md
   - name: Query data
     items:
+    - name: Language documentation
+      href: https://docs.loganalytics.io
+    - name: Transition from legacy language
+      href: log-analytics-log-search-transition.md
+    - name: Cross-workspace searches
+      href: log-analytics-cross-workspace-search.md
+    - name: Take action from search results
+      href: log-analytics-log-search-takeaction.md
+    - name: Use computer groups
+      href: log-analytics-computer-groups.md
+    - name: Flow connector
+      href: log-analytics-flow-tutorial.md
+  - name: Legacy log search
+    items:
     - name: Log searches overview
       href: log-analytics-log-searches.md
     - name: Search reference
@@ -92,26 +116,20 @@
       items:
       - name: Regular expressions
         href: log-analytics-log-searches-regex.md
-      - name: Cross-workspace searches
-        href: log-analytics-cross-workspace-search.md
-    - name: Take action from search results
-      href: log-analytics-log-search-takeaction.md
-    - name: Computer groups
-      href: log-analytics-computer-groups.md
-  - name: New log search
-    items:
-    - name: Upgrade your workspace
-      href: log-analytics-log-search-upgrade.md
-    - name: Transitioning from legacy language
-      href: log-analytics-log-search-transition.md
-    - name: Flow connector
-      href: log-analytics-flow-tutorial.md
   - name: Analyze data
     items:
     - name: Dashboards
       href: log-analytics-dashboards.md
     - name: View Designer
-      href: log-analytics-view-designer.md
+      items:
+      - name: Overview
+        href: log-analytics-view-designer.md
+      - name: Tile reference
+        href: log-analytics-view-designer-tiles.md
+      - name: Visualization part reference
+        href: log-analytics-view-designer-parts.md
+      - name: Filters
+        href: log-analytics-view-designer-filters.md
     - name: Power BI
       href: log-analytics-powerbi.md
   - name: Create alerts
@@ -132,6 +150,12 @@
       href: log-analytics-alerts-webhooks.md
     - name: Alert Management solution
       href: log-analytics-solution-alert-management.md
+  - name: Manage
+    items:
+    - name: Manage workspace cost
+      href: log-analytics-manage-cost-storage.md
+    - name: Delete a workspace
+      href: log-analytics-manage-del-workspace.md
   - name: Use solutions
     items:
     - name: Solutions overview
@@ -140,7 +164,7 @@
       href: ../operations-management-suite/operations-management-suite-solution-targeting.md?toc=%2fazure%2flog-analytics%2ftoc.json
     - name: Activity Log Analytics
       href: log-analytics-activity.md
-    - name: AD Assessment
+    - name: AD Health Check
       href: log-analytics-ad-assessment.md
     - name: AD Replication Status
       href: log-analytics-ad-replication-status.md
@@ -183,7 +207,7 @@
       href: log-analytics-network-performance-monitor.md
     - name: Office 365
       href: ../operations-management-suite/oms-solution-office-365.md?toc=%2fazure%2flog-analytics%2ftoc.json
-    - name: SCOM Assessment
+    - name: SCOM Health Check
       href: log-analytics-scom-assessment.md
     - name: Security Audit
       href: ../operations-management-suite/oms-security-getting-started.md?toc=%2fazure%2flog-analytics%2ftoc.json
@@ -194,7 +218,7 @@
         href: log-analytics-service-fabric-azure-resource-manager.md
     - name: Service Map
       href: ../operations-management-suite/operations-management-suite-service-map.md?toc=%2fazure%2flog-analytics%2ftoc.json
-    - name: SQL Assessment
+    - name: SQL Health Check
       href: log-analytics-sql-assessment.md
     - name: Surface Hub
       href: log-analytics-surface-hubs.md
@@ -227,10 +251,12 @@
       href: log-analytics-api-alerts.md
 - name: Reference
   items:
+  - name: Language reference
+    href: https://docs.loganalytics.io/docs/Language-Reference
   - name: Azure PowerShell
     href: /powershell/module/azurerm.operationalinsights
   - name: REST
-    href: /rest/api/loganalytics
+    href: /rest/api/loganalytics 
 - name: Resources
   items:
   - name: Azure Roadmap

@@ -10,7 +10,7 @@ editor: ''
 ms.assetid:
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/13/2017
@@ -19,7 +19,7 @@ ms.author: ryanwi
 ---
 
 # Deploy API Management with Service Fabric
-This tutorial is part two of a series. This tutorial shows you how to set up [Azure API Management](../api-management/api-management-key-concepts.md) with Service Fabric to route traffic to a back-end service in Service Fabric.  When you're finished, you will have deployed API Management to a VNET, configured an API operation to send traffic to back-end stateless services. To learn more about Azure API Management scenarios with Service Fabric, see the [overview](service-fabric-api-management-overview.md) article.
+This tutorial is part two of a series. This tutorial shows you how to set up [Azure API Management](../api-management/api-management-key-concepts.md) with Service Fabric to route traffic to a back-end service in Service Fabric.  When you're finished, you have deployed API Management to a VNET, configured an API operation to send traffic to back-end stateless services. To learn more about Azure API Management scenarios with Service Fabric, see the [overview](service-fabric-api-management-overview.md) article.
 
 In this tutorial, you learn how to:
 
@@ -40,11 +40,11 @@ Before you begin this tutorial:
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - Install the [Azure Powershell module version 4.1 or higher](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) or [Azure CLI 2.0](/cli/azure/install-azure-cli).
 - Create a secure [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) or [Linux cluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md) on Azure
+- If you deploy a Windows cluster, set up a Windows development environment. Install [Visual Studio 2017](http://www.visualstudio.com) and the **Azure development**, **ASP.NET and web development**, and **.NET Core cross-platform development** workloads.  Then set up a [.NET development environment](service-fabric-get-started.md).
+- If you deploy a Linux cluster, set up a Java development environment on [Linux](service-fabric-get-started-linux.md) or [MacOS](service-fabric-get-started-mac.md).  Install the [Service Fabric CLI](service-fabric-cli.md). 
 
-## Sign-in to Azure and select your subscription
-This tutorial uses [Azure PowerShell][azure-powershell]. When you start a new PowerShell session, sign in to your Azure account and select your subscription before you execute Azure commands.
- 
-Sign in to your Azure account select your subscription:
+## Sign in to Azure and select your subscription
+Sign in to your Azure account select your subscription before you execute Azure commands.
 
 ```powershell
 Login-AzureRmAccount
@@ -97,7 +97,7 @@ The API Management REST API is currently the only way to configure a backend ser
  2. Check the **Enable API Management REST API** checkbox.
  3. Note the **Management API URL**, which we use later to set up the Service Fabric backend.
  4. Generate an **Access Token** by selecting an expiry date and a key, then click the **Generate** button toward the bottom of the page.
- 5. Copy the **access token** and save it.  We'll use the access token in the following steps. Note this is different from the primary key and secondary key.
+ 5. Copy the **access token** and save it.  We use the access token in the following steps. Note this is different from the primary key and secondary key.
 
 #### Upload a Service Fabric client certificate
 
@@ -151,7 +151,7 @@ Request body:
 }
 ```
 
-The **url** parameter here is a fully-qualified service name of a service in your cluster that all requests are routed to by default if no service name is specified in a backend policy. You may use a fake service name, such as "fabric:/fake/service" if you do not intend to have a fallback service.
+The **url** parameter here is a fully qualified service name of a service in your cluster that all requests are routed to by default if no service name is specified in a backend policy. You may use a fake service name, such as "fabric:/fake/service" if you do not intend to have a fallback service.
 
 Refer to the API Management [backend API reference documentation](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-contract-reference#a-namebackenda-backend) for more details on each field.
 
@@ -192,19 +192,17 @@ print(response.text)
 
 ## Deploy a Service Fabric back-end service
 
-Now that you have the Service Fabric configured as a backend to API Management, you can author backend policies for your APIs that send traffic to your Service Fabric services. But first you need a service running in Service Fabric to accept requests.
+Now that you have the Service Fabric configured as a backend to API Management, you can author backend policies for your APIs that send traffic to your Service Fabric services. But first you need a service running in Service Fabric to accept requests.  If you previously created a [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md), deploy a .NET Service Fabric service.  If you previously created a [Linux cluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md), deploy a Java Service Fabric service.
 
-### Create a Service Fabric service with an HTTP endpoint
+### Deploy a .NET Service Fabric service
 
-For this tutorial, we'll create a basic stateless ASP.NET Core Reliable Service using the default Web API project template. This creates an HTTP endpoint for your service, which you'll expose through Azure API Management:
+For this tutorial, we create a basic stateless ASP.NET Core Reliable Service using the default Web API project template. This creates an HTTP endpoint for your service, which you expose through Azure API Management:
 
 ```
 /api/values
 ```
 
-Start by [setting up your development environment for ASP.NET Core development](service-fabric-add-a-web-frontend.md#set-up-your-environment-for-aspnet-core).
-
-Once your development environment is set up, start Visual Studio as Administrator and create an ASP.NET Core service:
+Start Visual Studio as Administrator and create an ASP.NET Core service:
 
  1. In Visual Studio, select File -> New Project.
  2. Select the Service Fabric Application template under Cloud and name it **"ApiApplication"**.
@@ -230,11 +228,47 @@ Once your development environment is set up, start Visual Studio as Administrato
     ["value1", "value2"]`
     ```
 
-    This is the endpoint that you'll expose through API Management in Azure.
+    This is the endpoint that you expose through API Management in Azure.
 
- 7. Finally, deploy the application to your cluster in Azure. [Using Visual Studio](service-fabric-publish-app-remote-cluster.md#to-publish-an-application-using-the-publish-service-fabric-application-dialog-box), right-click the Application project and select **Publish**. Provide your cluster endpoint (for example, `mycluster.westus.cloudapp.azure.com:19000`) to deploy the application to your Service Fabric cluster in Azure.
+ 7. Finally, deploy the application to your cluster in Azure. [Using Visual Studio](service-fabric-publish-app-remote-cluster.md#to-publish-an-application-using-the-publish-service-fabric-application-dialog-box), right-click the Application project and select **Publish**. Provide your cluster endpoint (for example, `mycluster.southcentralus.cloudapp.azure.com:19000`) to deploy the application to your Service Fabric cluster in Azure.
 
 An ASP.NET Core stateless service named `fabric:/ApiApplication/WebApiService` should now be running in your Service Fabric cluster in Azure.
+
+### Create a Java Service Fabric service
+For this tutorial, we deploy a basic web server which echoes messages back to the user. The echo server sample application contains an HTTP endpoint for your service, which you expose through Azure API Management.
+
+1. Clone the Java getting started samples.
+
+   ```bash
+   git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git
+   cd service-fabric-java-getting-started
+   ```
+
+2. Edit *Services/EchoServer/EchoServer1.0/EchoServerApplication/EchoServerPkg/ServiceManifest.xml*. Update the endpoint so the service listens on port 8081.
+
+   ```xml
+   <Endpoint Name="WebEndpoint" Protocol="http" Port="8081" />
+   ```
+
+3. Save *ServiceManifest.xml*, then build the EchoServer1.0 application.
+
+   ```bash
+   cd Services/EchoServer/EchoServer1.0/
+   gradle
+   ```
+
+4. Deploy the application to the cluster.
+
+   ```bash
+   cd Scripts
+   sfctl cluster select --endpoint http://mycluster.southcentralus.cloudapp.azure.com:19080
+   ./install.sh
+   ```
+
+   A Java stateless service named `fabric:/EchoServerApplication/EchoServerService` should now be running in your Service Fabric cluster in Azure.
+
+5. Open a browser and type in http://mycluster.southcentralus.cloudapp.azure.com:8081/getMessage, you should see "[version 1.0]Hello World !!!" displayed.
+
 
 ## Create an API operation
 
@@ -252,7 +286,7 @@ Now we're ready to create an operation in API Management that external clients u
  
 4. Select **Service Fabric App** from the list of APIs and click **+ Add operation** to add a front-end API operation. Fill out the values:
     
-    - **URL**: Select **GET** and provide a URL path for the API. For this tutorial, use "/api/values".  By default, the URL path specified here is the URL path sent to the backend Service Fabric service. If you use the same URL path here that your service uses, in this case "/api/values", then the operation works without further modification. You may also specify a URL path here that is different from the URL path used by your backend Service Fabric service, in which case you will also need to specify a path rewrite in your operation policy later.
+    - **URL**: Select **GET** and provide a URL path for the API. For this tutorial, use "/api/values".  By default, the URL path specified here is the URL path sent to the backend Service Fabric service. If you use the same URL path here that your service uses, in this case "/api/values", then the operation works without further modification. You may also specify a URL path here that is different from the URL path used by your backend Service Fabric service, in which case you also need to specify a path rewrite in your operation policy later.
     - **Display name**: Provide any name for the API. For this tutorial, use "Values".
 
 5. Click **Save**.
@@ -305,7 +339,7 @@ You can now try sending a request to your back-end service in Service Fabric thr
 
  1. In the API Management service, select **API**.
  2. In the **Service Fabric App** API you created in the previous steps, select the **Test** tab and then the **Values** operation.
- 3. Click the **Send** button to send a test request to the backend service.  You should see a HTTP response similar to:
+ 3. Click the **Send** button to send a test request to the backend service.  You should see an HTTP response similar to:
 
     ```http
     HTTP/1.1 200 OK
@@ -349,7 +383,7 @@ ResourceGroupName="tutorialgroup"
 az group delete --name $ResourceGroupName
 ```
 
-## Next steps
+## Conclusion
 In this tutorial, you learned how to:
 
 > [!div class="checklist"]
@@ -358,7 +392,6 @@ In this tutorial, you learned how to:
 > * Create an API operation
 > * Configure a backend policy
 > * Add the API to a product
-
 
 [azure-powershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 

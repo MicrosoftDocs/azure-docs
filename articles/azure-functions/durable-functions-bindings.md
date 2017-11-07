@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
-ms.author: cgillum
+ms.author: azfuncdf
 ---
 
 # Bindings for Durable Functions (Azure Functions)
@@ -39,7 +39,7 @@ When you write orchestrator functions in scripting languages (for example, in th
 ```
 
 * `orchestration` is the name of the orchestration. This is the value that clients must use when they want to start new instances of this orchestrator function. This property is optional. If not specified, the name of the function is used.
-* `version` is a version label of the orchestration. Clients that start a new instance of an orchestration must include the matching version label. This property is optional. If not specified, the empty string is used. For more information on versioning, see the [Versioning](durable-functions-versioning.md) topic.
+* `version` is a version label of the orchestration. Clients that start a new instance of an orchestration must include the matching version label. This property is optional. If not specified, the empty string is used. For more information on versioning, see [Versioning](durable-functions-versioning.md).
 
 > [!NOTE]
 > Setting values for `orchestration` or `version` properties is not recommended at this time.
@@ -81,7 +81,7 @@ public static string Run([OrchestrationTrigger] DurableOrchestrationContext cont
 }
 ```
 
-In most cases, an orchestrator function will actually call another function as part of its implementation, so here is another "Hello World" example which demonstrates this:
+Most orchestrator functions call other functions, so here is a "Hello World" example that demonstrates how to call a function:
 
 ```csharp
 [FunctionName("HelloWorld")]
@@ -96,7 +96,7 @@ public static async Task<string> Run(
 
 ## Activity triggers
 
-The activity trigger enables you to author functions which are called by orchestrator functions.
+The activity trigger enables you to author functions that are called by orchestrator functions.
 
 If you're using Visual Studio, the activity trigger is configured using the [ActvityTriggerAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.ActivityTriggerAttribute.html) .NET attribute. 
 
@@ -113,7 +113,7 @@ If you're using the Azure portal for development, the activity trigger is define
 ```
 
 * `activity` is the name of the activity. This is the value that orchestrator functions use to invoke this activity function. This property is optional. If not specified, the name of the function is used.
-* `version` is a version label of the activity. Orchestrator functions that invoke an activity must include the matching version label. This property is optional. If not specified, the empty string is used. For more information on versioning, see the [Versioning](durable-functions-versioning.md) topic.
+* `version` is a version label of the activity. Orchestrator functions that invoke an activity must include the matching version label. This property is optional. If not specified, the empty string is used. For more information, see [Versioning](durable-functions-versioning.md).
 
 > [!NOTE]
 > Setting values for `activity` or `version` properties is not recommended at this time.
@@ -192,7 +192,7 @@ If you're using scripting languages (e.g. *.csx* files) for development, the orc
 * `connectionName` - The name of an app setting that contains a storage connection string. The storage account represented by this connection string must be the same one used by the target orchestrator functions. If not specified, the default connection string for the function app is used.
 
 > [!NOTE]
-> In most cases, it is recommended to omit these properties and rely on the default behavior.
+> In most cases, we recommend that you omit these properties and rely on the default behavior.
 
 ### Client usage
 
@@ -207,9 +207,9 @@ Alternatively, you can bind to `IAsyncCollector<T>` where `T` is [StartOrchestra
 
 See the [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) API documentation for additional details on these operations.
 
-### Client sample (Visual Studio Development)
+### Client sample (Visual Studio development)
 
-Here is an example queue-triggered function which starts a "HelloWorld" orchestration.
+Here is an example queue-triggered function that starts a "HelloWorld" orchestration.
 
 ```csharp
 [FunctionName("QueueStart")]
@@ -222,7 +222,7 @@ public static Task Run(
 }
 ```
 
-### Client sample (Non-Visual Studio)
+### Client sample (not Visual Studio)
 
 If you're not using Visual Studio for development, you can create the following function.json file. This example shows how to configure a queue-triggered function that uses the durable orchestration client binding:
 
@@ -277,7 +277,7 @@ module.exports = function (context, input) {
 };
 ```
 
-More details on starting instances can be found in the [Instance Management](durable-functions-instance-management.md) topic.
+More details on starting instances can be found in [Instance management](durable-functions-instance-management.md).
 
 ## Next steps
 

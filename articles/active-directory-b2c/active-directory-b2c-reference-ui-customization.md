@@ -24,6 +24,7 @@ User experience is paramount in a customer facing application.  Grow your custom
 > [!NOTE]
 > The page UI customization feature described in this article does not apply to the sign-in only policy, its accompanying password reset page, and verification emails.  These features use the [company branding feature](../active-directory/active-directory-add-company-branding.md) instead.
 >
+> Similarly, if a user intiates an edit profile policy *before* signing in, the user will be redirected to a page that can be customized using the [company branding feature](../active-directory/active-directory-add-company-branding.md).
 
 This article covers the following topics:
 

@@ -5,6 +5,8 @@
 ## [Choose a hybrid identity solution](choose-hybrid-identity-solution.md)
 ## [Associate Azure subscriptions](active-directory-how-subscriptions-associated-directory.md)
 ## [FAQs](active-directory-faq.md)
+## [What's New](whats-new.md)
+
 
 # Get started
 ## [Get started with Azure AD](get-started-azure-ad.md)
@@ -19,8 +21,8 @@
 # How to
 ## Plan and design
 ### [Understand Azure AD architecture](active-directory-architecture.md)
-### [Deploy a hybrid identity solution](active-directory-hybrid-identity-design-considerations-overview.md)
 ### [Claims mapping in Azure Active Directory](active-directory-claims-mapping.md)
+### [Deploy a hybrid identity solution](active-directory-hybrid-identity-design-considerations-overview.md)
 #### Determine requirements
 ##### [Identity](active-directory-hybrid-identity-design-considerations-business-needs.md)
 ##### [Directory sync](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
@@ -44,8 +46,8 @@
 #### [Migrate individual licensed users to group-based licensing](active-directory-licensing-group-migration-azure-portal.md)
 #### [Additional scenarios for group-based licensing](active-directory-licensing-group-advanced.md)
 #### [Azure PowerShell examples for group-based licensing](active-directory-licensing-ps-examples.md)
+#### [Reference for products and service plans in Azure AD](active-directory-licensing-product-and-service-plan-reference.md)
 ### [Manage user profiles](active-directory-users-profile-azure-portal.md)
-### [Reset a password](active-directory-users-reset-password-azure-portal.md)
 ### [Manage user work information](active-directory-users-work-info-azure-portal.md)
 ### [Share accounts](active-directory-sharing-accounts.md)
 
@@ -65,6 +67,7 @@
 #### [Migrate individual licensed users to group-based licensing](active-directory-licensing-group-migration-azure-portal.md)
 #### [Additional scenarios for group-based licensing](active-directory-licensing-group-advanced.md)
 #### [Azure PowerShell examples for group-based licensing](active-directory-licensing-ps-examples.md)
+#### [Reference for products and service plans in Azure AD](active-directory-licensing-product-and-service-plan-reference.md)
 ### [Set up Office 365 groups expiration](active-directory-groups-lifecycle-azure-portal.md)
 ### [View all groups](active-directory-groups-view-azure-portal.md)
 ### [Enable dedicated groups](active-directory-accessmanagement-dedicated-groups.md)
@@ -95,6 +98,7 @@
 #### [Latencies](active-directory-reporting-latencies-azure-portal.md)
 #### [Notifications](active-directory-reporting-notifications.md)
 #### [Sign-in activity error codes](active-directory-reporting-activity-sign-ins-errors.md)
+#### [Multi-factor authentication](active-directory-reporting-activity-sign-ins-mfa.md)
 ### Troubleshoot
 #### [Missing audit data](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [Missing data in downloads](active-directory-reporting-troubleshoot-missing-data-download.md)
@@ -107,24 +111,22 @@
 #### [Sign-in samples](active-directory-reporting-api-sign-in-activity-samples.md)
 #### [Using certificates](active-directory-reporting-api-with-certificates.md)
 
-## [Manage passwords](active-directory-passwords-overview.md)
+## Manage passwords
+### [Passwords overview](active-directory-passwords-overview.md)
 ### User documents
 #### [Reset or change your password](active-directory-passwords-update-your-own-password.md)
 #### [Password best practices](active-directory-secure-passwords.md)
 #### [Register for self-service password reset](active-directory-passwords-reset-register.md)
-### [License SSPR](active-directory-passwords-licensing.md)
-### [Deploy SSPR](active-directory-passwords-best-practices.md)
+### [SSPR How it works](active-directory-passwords-how-it-works.md)
+### [SSPR Deployment guide](active-directory-passwords-best-practices.md)
+### [SSPR Policies ](active-directory-passwords-policy.md)
+### [SSPR Customization](active-directory-passwords-customize.md)
+### [SSPR Data requirements](active-directory-passwords-data.md)
+### [SSPR Reporting](active-directory-passwords-reporting.md)
 ### IT Admins: Reset passwords
 #### [Azure portal](active-directory-users-reset-password-azure-portal.md)
-#### [Azure classic portal](active-directory-create-users-reset-password.md)
-### [Understand SSPR policies ](active-directory-passwords-policy.md)
-### [Understand password reset](active-directory-passwords-how-it-works.md)
-### [Customize SSPR](active-directory-passwords-customize.md)
-### [Data used by SSPR](active-directory-passwords-data.md)
-### [Reporting on SSPR](active-directory-passwords-reporting.md)
-### [Azure AD Connect](./connect/active-directory-aadconnect.md)
+### [License SSPR](active-directory-passwords-licensing.md)
 ### [Password writeback](active-directory-passwords-writeback.md)
-### [Password hash synchronization](./connect/active-directory-aadconnectsync-implement-password-synchronization.md#how-password-synchronization-works)
 ### [Troubleshoot](active-directory-passwords-troubleshoot.md)
 ### [FAQ](active-directory-passwords-faq.md)
 
@@ -137,7 +139,7 @@
 ### Tasks
 #### [Set up Azure AD registered Windows 10 devices](device-management-azuread-registered-devices-windows10-setup.md)
 #### [Set up Azure AD joined devices](device-management-azuread-joined-devices-setup.md)
-#### [Set up hybrid Azure AD joined devices](device-management-hybrid-azuread-joined-devices-setup.md) 
+#### [Set up hybrid Azure AD joined devices](device-management-hybrid-azuread-joined-devices-setup.md)
 #### [Deploy on-premises](active-directory-device-registration-on-premises-setup.md)
 #### [Azure AD join during Windows 10 first-run experience](device-management-azuread-joined-devices-frx.md)
 ### Troubleshoot
@@ -148,8 +150,7 @@
 ### [Overview](active-directory-enable-sso-scenario.md)
 ### [Getting started](active-directory-integrating-applications-getting-started.md)
 ### [SaaS app integration tutorials](active-directory-saas-tutorial-list.md)
-### [Cloud App Discovery](cloudappdiscovery-overview.md)
-#### [Set up agentless discovery](cloudappdiscovery-get-started.md)
+### [Cloud App Discovery](cloudappdiscovery-get-started.md)
 #### [Create snapshot reports](cloudappdiscovery-set-up-snapshots.md)
 #### [Configure continuous reporting](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 #### [Use a custom log parser](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
@@ -204,6 +205,7 @@
 #### [Manage user account provisioning](active-directory-enterprise-apps-manage-provisioning.md)
 #### [Manage single sign-on for enterprise apps](active-directory-enterprise-apps-manage-sso.md)
 #### [Advanced certificate signing for SAML apps](active-directory-enterprise-apps-advance-certificate-options.md)
+#### [Hide a third-party app from a user's experience](active-directory-coreapps-hide-third-party-app.md)
 
 ### [Manage access to apps](active-directory-managing-access-to-apps.md)
 #### [Self-service access](active-directory-self-service-application-access.md)
@@ -238,6 +240,7 @@
 ### [Multiple directories](active-directory-licensing-directory-independence.md)
 ### [O365 directories](active-directory-manage-o365-subscription.md)
 ### [Self-service signup](active-directory-self-service-signup.md)
+#### [Take over an unmanaged directory](domains-admin-takeover.md)
 ### [Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)
 #### [Enable](active-directory-windows-enterprise-state-roaming-enable.md)
 #### [Group policy settings](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
@@ -276,7 +279,7 @@
 ## [Manage access to Azure](toc.yml)
 
 ## Delegate access to resources
-### [Administrator roles](active-directory-assign-admin-roles.md)
+### [Administrator roles](active-directory-assign-admin-roles-azure-portal.md)
 #### [Assign admin roles](active-directory-users-assign-role-azure-portal.md)
 ### [Administrative units](active-directory-administrative-units-management.md)
 ### [Configure token lifetimes](active-directory-configurable-token-lifetimes.md)
@@ -299,6 +302,7 @@
 #### [Best practices](active-directory-conditional-access-best-practices.md)
 #### [Understand device policies for Office 365 services](active-directory-conditional-access-device-policies.md)
 #### Tasks
+##### [Migrate classic policies](active-directory-conditional-access-migration.md)
 ##### [Set up device-based conditional access](active-directory-conditional-access-policy-connected-applications.md)
 ##### [Set up app-based conditional access](active-directory-conditional-access-mam.md)
 ##### [Provide terms of use for users and apps](active-directory-tou.md)
@@ -307,8 +311,6 @@
 ##### [Remediation](active-directory-conditional-access-device-remediation.md)
 #### [Technical reference](active-directory-conditional-access-technical-reference.md)
 #### [FAQs](active-directory-conditional-faqs.md)
-#### [Classic portal](active-directory-conditional-access.md)
-##### [Get started](active-directory-conditional-access-azuread-connected-apps.md)
 
 ### Windows Hello
 #### [Authenticate without passwords](active-directory-azureadjoin-passport.md)

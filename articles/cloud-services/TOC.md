@@ -116,7 +116,7 @@
 ## [.cscfg XML Schema](schema-cscfg-file.md)
 ### [Role Schema](schema-cscfg-role.md)
 ### [NetworkConfiguration Schema](schema-cscfg-networkconfiguration.md)
-## [REST](https://msdn.microsoft.com/library/azure/ee460812)
+## [REST](/rest/api/compute/cloudservices/)
 
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=compute)

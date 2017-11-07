@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/28/2017
+ms.date: 10/13/2017
 ms.author: nitinme
 
 ---
@@ -25,7 +25,7 @@ ms.author: nitinme
 >
 >
 
-In this article,, you learn how to perform account management operations on Data Lake Store using .NET SDK. Account management operations include creating a Data Lake Store account, listing the accounts in an Azure subscription, deleting the accounts, etc.
+In this article, you learn how to perform account management operations on Data Lake Store using .NET SDK. Account management operations include creating a Data Lake Store account, listing the accounts in an Azure subscription, deleting the accounts, etc.
 
 For instructions on how to perform data management operations on Data Lake Store using .NET SDK, see [Filesystem operations on Data Lake Store using .NET SDK](data-lake-store-data-operations-net-sdk.md).
 
@@ -60,13 +60,17 @@ For instructions on how to perform data management operations on Data Lake Store
 
         using System;
         using System.IO;
-		using System.Security.Cryptography.X509Certificates; // Required only if you are using an Azure AD application created with certificates
+        using System.Linq;
+        using System.Text;
         using System.Threading;
-
+		using System.Collections.Generic;
+        using System.Security.Cryptography.X509Certificates; // Required only if you are using an Azure AD application created with certificates
+                
+        using Microsoft.Rest;
+        using Microsoft.Rest.Azure.Authentication;
         using Microsoft.Azure.Management.DataLake.Store;
 		using Microsoft.Azure.Management.DataLake.Store.Models;
 		using Microsoft.IdentityModel.Clients.ActiveDirectory;
-		using Microsoft.Rest.Azure.Authentication;
 
 7. Declare the variables and provide the values for placeholders. Also, make sure the local path and file name you provide exist on the computer.
 
@@ -98,11 +102,11 @@ In the remaining sections of the article, you can see how to use the available .
 * For end-user authentication for your application, see [End-user authentication with Data Lake Store using .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md).
 * For service-to-service authentication for your application, see [Service-to-service authentication with Data Lake Store using .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md).
 
-## Create client objects
+## Create client object
 The following snippet creates the Data Lake Store account client object, which is used to issue account management requests to the service, such as create account, delete account, etc.
 
     // Create client objects and set the subscription ID
-    _adlsClient = new DataLakeStoreAccountManagementClient(creds) { SubscriptionId = _subId };
+    _adlsClient = new DataLakeStoreAccountManagementClient(armCreds) { SubscriptionId = _subId };
     
 ## Create a Data Lake Store account
 The following snippet creates a Data Lake Store account in the Azure subscription you provided while creating the Data Lake Store account client object.

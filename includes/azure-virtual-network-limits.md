@@ -39,19 +39,24 @@ The following limits apply only for networking resources managed through Azure R
 | Application security groups that can be specified within all security rules of a network security group |50 |100 |
 | User defined route tables |100 |200 |
 | User defined routes per route table |100 |400 |
-| Public IP addresses - dynamic |(Basic) |60 |contact support |
+| Public IP addresses - dynamic |(Basic) 60 |contact support |
 | Public IP addresses - static |(Basic) 20 |contact support |
 | Public IP addresses - static |(Standard) 20 |contact support |
-| Load Balancers (internal and internet facing, Basic and Standard) |100 |1000 |
-| Load Balancer (Basic) rules per load balancer |150 |250 |
-| Load Balancer (Standard) rules per load balancer | 1250 | 1500|
-| Load Balancer (Basic) rules per IP configuration |250 |250 |
-| Public front end IP per Load Balancer (Basic) |10 |30 |
-| Public front end IP per Load Balancer (Standard) | 10 | 600 |
-| Private front end IP per Load Balancer (Basic) |10 |contact support |
-| Private front end IP per Load Balancer (Standard) | 10 | 600 |
 | Point-to-Site Root Certificates per VPN Gateway |20 |20 |
 
+#### <a name="load-balancer"></a>Load Balancer limits
+
+| Resource | Default limit | Maximum Limit |
+| --- | --- | --- |
+| Load Balancers | 100 | 1000 |
+| Rules per resource, Basic | 150 | 250 |
+| Rules per resource, Standard | 1250 | 1500 |
+| Rules per IP configuration | 299 |299 |
+| Frontend IP configurations, Basic | 10 | contact support |
+| Frontend IP configurations, Standard | 10 | 600 |
+| Backend pool, Basic | 100, single Availability Set | - |
+| Backend pool, Standard | 1000, single VNet | contact support |
+| HA Ports, Standard | 1 per internal frontend | - |
 
 [Contact support](../articles/azure-supportability/resource-manager-core-quotas-request.md ) in case you need to increase limits from default.
 

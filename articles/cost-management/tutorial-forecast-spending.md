@@ -5,8 +5,8 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 09/29/2017
-ms.topic: article
+ms.date: 10/11/2017
+ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm

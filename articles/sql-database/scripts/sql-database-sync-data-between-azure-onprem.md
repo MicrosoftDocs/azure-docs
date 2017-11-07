@@ -4,7 +4,7 @@ description: Azure PowerShell example script to sync between an Azure SQL Databa
 services: sql-database
 documentationcenter: sql-database
 author: jognanay
-manager: jhubbard
+manager: craigg
 editor: ''
 tags:
 
@@ -16,7 +16,8 @@ ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 07/31/2017
-ms.author: douglasl
+ms.author: jognanay
+ms.reviewer: douglasl
 ---
 # Use PowerShell to sync between an Azure SQL Database and a SQL Server on-premises database
 
@@ -182,11 +183,11 @@ $timer=0
 $timeout=90
 # Check the log and see if refresh has gone through
 Write-Host "Check for successful refresh"
-$IsSucceeded = "false"
-While ($IsSucceeded -eq "False")
+$IsSucceeded = $false
+While ($IsSucceeded -eq $false)
 {
     Start-Sleep -s 10
-    $timer=$timer+1
+    $timer=$timer+10
     $Details = Get-AzureRmSqlSyncSchema -SyncGroupName $SyncGroupName -ServerName $ServerName -DatabaseName $DatabaseName -ResourceGroupName $ResourceGroupName
     if ($Details.LastUpdateTime -gt $StartTime)
       {

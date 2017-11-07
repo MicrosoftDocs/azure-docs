@@ -87,10 +87,8 @@
       href: durable-functions-checkpointing-and-replay.md
     - name: Instance management
       href: durable-functions-instance-management.md
-    - name: Singletons
-      href: durable-functions-singletons.md
-    - name: Sub-orchestrations
-      href: durable-functions-sub-orchestrations.md
+    - name: HTTP API
+      href: durable-functions-http-api.md
     - name: Error handling
       href: durable-functions-error-handling.md
     - name: Diagnostics
@@ -101,6 +99,12 @@
       href: durable-functions-external-events.md
     - name: Eternal orchestrations
       href: durable-functions-eternal-orchestrations.md
+    - name: Singleton orchestrations
+      href: durable-functions-singletons.md
+    - name: Sub-orchestrations
+      href: durable-functions-sub-orchestrations.md
+    - name: Task hubs
+      href: durable-functions-task-hubs.md
     - name: Versioning
       href: durable-functions-versioning.md
     - name: Performance and scale
