@@ -50,19 +50,19 @@ The custom module that you create in this tutorial filters the temperature data 
 * [Docker](https://docs.docker.com/engine/installation/). The Community Edition (CE) for your platform is sufficient for this tutorial. 
 * [.NET Core 2.0 SDK](https://www.microsoft.com/net/core#windowscmd). 
 
-## Bug Bash Configuration steps
+## Bug bash configuration steps
 The steps in this section are only required until Azure IoT Edge goes public. They walk you through setting up VS Code with dependencies that will not be public until we release Azure IoT Edge. 
  
-1. Install version 3 or later of the [Nuget CLI](https://docs.microsoft.com/en-us/nuget/guides/install-nuget#nuget-cli). The module code depends on a couple of Nuget packages that won't be made public until we release Azure IoT Edge. For the time being, we have placed them on `myget`. You need the Nuget CLI to reference these packages. 
+1. Install version 3 or later of the [NuGet CLI](https://docs.microsoft.com/en-us/nuget/guides/install-nuget#nuget-cli). The module code depends on a couple of NuGet packages that won't be made public until we release Azure IoT Edge. For the time being, we have placed them on `myget`. You need the NuGet CLI to reference these packages. 
 2. Open Visual Studio Code. 
 3. Use the **View | Integrated Terminal** menu command to open the VS Code integrated terminal.
-4. In integrated terminal, add a Nuget source for the **AzureIotEdgeModule** template Nuget package.  
+4. In integrated terminal, add a NuGet source for the **AzureIotEdgeModule** template NuGet package.  
 
     ```cmd/sh
     nuget sources add -name AzureIoTEdgeModule -source https://www.myget.org/F/dotnet-template-azure-iot-edge-module/api/v3/index.json 
     ``` 
 
-3. The preview version of the **Microsoft.Azure.Devices.Client** package used in this tutorial is not yet available in the public gallery. To ensure that your IoT Edge module will build correctly, add a Nuget source that contains the correct package version. 
+3. The preview version of the **Microsoft.Azure.Devices.Client** package used in this tutorial is not yet available in the public gallery. To ensure that your IoT Edge module will build correctly, add a NuGet source that contains the correct package version. 
 
     ```cmd/sh
     nuget sources Add -Name "Edge Private Preview" -source https://www.myget.org/F/aziot-device-sdk/api/v3/index.json
@@ -85,7 +85,7 @@ The following steps show you how to create an IoT Edge module using Visual Studi
 1. Use the **View | Integrated Terminal** menu command to open the VS Code integrated terminal.
 1. In the integrated terminal, enter the following command to install the **AzureIoTEdgeModule** template in dotnet:
 
-    ```
+    ```cmd/sh
     dotnet new -i Microsoft.Azure.IoT.Edge.Module
     ```
 
@@ -241,7 +241,7 @@ The following steps show you how to create an IoT Edge module using Visual Studi
 
 ## Create a Docker image and publish it to your registry
 
-1. Build the docker image.
+1. Build the Docker image.
    1. In VS Code explorer, click on the **Docker** folder to open it, then right-click the **Dockerfile** and click **Build IoT Edge module Docker image**. 
    2. In the **Select Folder** box, either browse to or enter `./bin/Debug/netcoreapp2.0/publish`. Click **Select Folder as EXE_DIR**.
    3. In the pop-up text box at the top of the VS Code window, enter the image URL; for example, `<docker registry address>/filtermodule:latest`.
