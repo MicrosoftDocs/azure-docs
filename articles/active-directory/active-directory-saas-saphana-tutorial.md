@@ -123,9 +123,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 5. The SAP HANA application expects the SAML assertions in a specific format. The following screenshot shows an example of this format. 
 
-Here we've mapped the **User Identifier** with the **ExtractMailPrefix()** function of **user.mail**. This gives the prefix value of the user's email, which is the unique user ID. This user ID is sent to the SAP HANA application in every successful response.
+	Here we've mapped the **User Identifier** with the **ExtractMailPrefix()** function of **user.mail**. This gives the prefix value of the user's email, which is the unique user ID. This user ID is sent to the SAP HANA application in every successful response.
 
-![Configure single sign-on](./media/active-directory-saas-saphana-tutorial/attribute.png)
+	![Configure single sign-on](./media/active-directory-saas-saphana-tutorial/attribute.png)
 
 6. In the **User Attributes** section of the **Single sign-on** dialog box, take the following steps:
 
@@ -142,7 +142,7 @@ Here we've mapped the **User Identifier** with the **ExtractMailPrefix()** funct
 	> [!NOTE]
 	> In the default configuration, the URL redirects the request to a sign-in screen, which requires the credentials of an authenticated SAP HANA database user. The user who signs in must have permissions to perform SAML administration tasks.
 
-9. In the XSA Web Interface, go to **SAML Identity Provider**. From there, select the **“+”** -button on the bottom of the screen to display the **Add Identity Provider Info** pane. Then take the following steps:
+9. In the XSA Web Interface, go to **SAML Identity Provider**. From there, select the **+** -button on the bottom of the screen to display the **Add Identity Provider Info** pane. Then take the following steps:
 
 	![Add Identity Provider](./media/active-directory-saas-saphana-tutorial/sap1.png)
 
@@ -150,7 +150,7 @@ Here we've mapped the **User Identifier** with the **ExtractMailPrefix()** funct
 
 	![Add Identity Provider settings](./media/active-directory-saas-saphana-tutorial/sap2.png)
 
-	b. If the contents of the XML document are valid, the parsing process extracts the information that's required for the **Subject, Entity ID, and Issuer** fields in the General Data screen area. It also extracts the information that's necessary for the URL fields in the Destination screen area--for example, the **Base URL and SingleSignOn URL (*)** fields.
+	b. If the contents of the XML document are valid, the parsing process extracts the information that's required for the **Subject, Entity ID, and Issuer** fields in the **General data** screen area. It also extracts the information that's necessary for the URL fields in the **Destination** screen area, for example, the **Base URL and SingleSignOn URL (*)** fields.
 
 	![Add Identity Provider settings](./media/active-directory-saas-saphana-tutorial/sap3.png)
 
@@ -168,7 +168,7 @@ Here we've mapped the **User Identifier** with the **ExtractMailPrefix()** funct
 	![assertion_timeout setting](./media/active-directory-saas-saphana-tutorial/sap7.png)
 
 > [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com) while you are setting up the app! After you add this app from the **Active Directory** > **Enterprise Applications** section,  select the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature at [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com) while you are setting up the app! After you add this app from the **Active Directory** > **Enterprise Applications** section,  select the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature at [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985).
 > 
 
 ### Create an Azure AD test user
@@ -210,7 +210,7 @@ SAP HANA supports just-in-time provisioning, which is by enabled by default.
 If you need to create a user manually, take the following steps:
 
 >[!NOTE]
->You can change the external authentication that the user uses. You can authenticate with an external system such as Kerberos. For detailed information about external identities, contact your [domain administrator](https://cloudplatform.sap.com/contact.html).
+>You can change the external authentication that the user uses. They can authenticate with an external system such as Kerberos. For detailed information about external identities, contact your [domain administrator](https://cloudplatform.sap.com/contact.html).
 
 1. Open the [SAP HANA Studio](https://help.sap.com/viewer/a2a49126a5c546a9864aae22c05c3d0e/2.0.01/en-us) as an administrator, and then enable the DB-User for SAML SSO.
 
