@@ -160,13 +160,14 @@ echo The MSI service principal ID is $spID
 The following script demonstrates how to:
 
 1. Acquire an MSI access token for an Azure VM.
-2. Use the access token to sign in to Azure AD, under the application ID of the corresponding MSI service principal. Be sure to substitute the MSI service principal's application ID for `<APP-ID>` in the script.  
+2. Use the access token to sign in to Azure AD, under the application ID of the corresponding MSI service principal. Be sure to substitute the MSI service principal's application ID for `<APP-ID>` in the script. 
+
    > [!NOTE]
-   > Use the following if you need to obtain the application ID, substituting the name of your virtual machine for `<VM-NAME>`:
+   > Use the following if you need to obtain the application ID, substituting the name of your virtual machine for `<VM-NAME>`. This can be done from any computer:
    > ```azurepowershell-interactive
    > # Install the Azure AD PS cmdlets if necessary
    > Install-Module AzureAD
-   > # Sign in using an account from the AAD tenant associated with your MSI VM’s Azure subscription
+   > # Sign in using an account from the AAD tenant associated with the Azure subscription of your VM
    > Connect-AzureAD 
    > # Copy the appId property returned from the following, substituting the name of your VM for VM-NAME
    > Get-AzureADServicePrincipal -Filter "displayName eq '<VM-NAME>'" 
