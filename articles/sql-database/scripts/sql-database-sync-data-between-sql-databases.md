@@ -362,17 +362,17 @@ Additional SQL Database PowerShell script samples can be found in [Azure SQL Dat
 
 For more info about SQL Data Sync, see:
 
--   [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync](sql-database-sync-data.md)
--   [Get Started with Azure SQL Data Sync](sql-database-get-started-sql-data-sync.md)
--   [Best practices for Azure SQL Data Sync](sql-database-best-practices-data-sync.md)
--   [Troubleshoot issues with Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
+-   [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync](../sql-database-sync-data.md)
+-   [Get Started with Azure SQL Data Sync](../sql-database-get-started-sql-data-sync.md)
+-   [Best practices for Azure SQL Data Sync](../sql-database-best-practices-data-sync.md)
+-   [Troubleshoot issues with Azure SQL Data Sync](../sql-database-troubleshoot-data-sync.md)
 
 -   Complete PowerShell examples that show how to configure SQL Data Sync:
-    -   [Use PowerShell to sync between an Azure SQL Database and a SQL Server on-premises database](scripts/sql-database-sync-data-between-azure-onprem.md)
+    -   [Use PowerShell to sync between an Azure SQL Database and a SQL Server on-premises database](sql-database-sync-data-between-azure-onprem.md)
 
 -   [Download the SQL Data Sync REST API documentation](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
 
 For more info about SQL Database, see:
 
--   [SQL Database Overview](sql-database-technical-overview.md)
+-   [SQL Database Overview](../sql-database-technical-overview.md)
 -   [Database Lifecycle Management](https://msdn.microsoft.com/library/jj907294.aspx)
