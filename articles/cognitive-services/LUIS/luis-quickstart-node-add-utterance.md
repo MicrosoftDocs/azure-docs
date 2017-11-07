@@ -26,7 +26,7 @@ Refer to the [Authoring API definitions][authoring-apis] for technical documenta
 * NPM dependencies for this quickstart: [**request**](https://www.npmjs.com/package/request), [**request-promise**](https://www.npmjs.com/package/request-promise), [**fs-extra**](https://www.npmjs.com/package/fs-extra).  
 * **[Recommended]** [Visual Studio Code](https://code.visualstudio.com/) for IntelliSense and debugging.
 * Your LUIS **programmatic key**. You can find this key under Account Settings in [https://www.luis.ai](https://www.luis.ai).
-* Your LUIS [**application ID**](./luis-get-started-create-app.md). The application ID is shown in the application dashboard.
+* Your existing LUIS [**application ID**](./luis-get-started-create-app.md). The application ID is shown in the application dashboard. The LUIS application with the intents and entities used in the `utterances.json` file must exist prior to running the code in `add-utterances.js`. The code in this article will not create the intents and entities. It will only add the utterances for existing intents and entities. 
 * The **version ID** within the application that receives the utterances. The default ID is "0.1"
 * Create a new file named `add-utterances.js` project in VSCode.
 
@@ -34,7 +34,7 @@ Refer to the [Authoring API definitions][authoring-apis] for technical documenta
 
 Add the NPM dependencies to the file.
 
-   [!code-nodejs[NPM Dependencies](~/samples-luis/documentation-samples/authoring-api-samples/node/add-utterances.js?range=16-19 "NPM Dependencies")]
+   [!code-javascript[NPM Dependencies](~/samples-luis/documentation-samples/authoring-api-samples/node/add-utterances.js?range=16-19 "NPM Dependencies")]
 
 Add the LUIS constants to the file. Copy the following code and change to your programmatic key, application ID, and version ID.
 
@@ -75,6 +75,9 @@ Add the code that chooses which action to take (add utterance or train) based on
 
 ## Specify utterances to add
 Create and edit the file `utterances.json` to specify the entities you want to add to the LUIS app. The intent and entities **must** already be in the LUIS app.
+
+> [!NOTE]
+> The LUIS application with the intents and entities used in the `utterances.json` file must exist prior to running the code in `add-utterances.js`. The code in this article will not create the intents and entities. It will only add the utterances for existing intents and entities.
 
 The `text` field contains the text of the utterance. The `intentName` field must correspond to the name of an intent in the LUIS app. The `entityLabels` field is required. If you don't want to label any entities, provide an empty list as shown in the following example.
 
