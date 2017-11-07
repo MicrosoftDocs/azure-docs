@@ -59,18 +59,8 @@
     href: site-recovery-support-matrix-to-sec-site.md
   - name: Disaster recovery for workloads
     href: site-recovery-workload.md
-  - name: Migration with Azure Site Recovery
+  - name: Migration to Azure
     href: site-recovery-migrate-to-azure.md
-  - name: Azure to Azure networking (preview)
-    href: site-recovery-azure-to-azure-networking-guidance.md
-  - name: VM connectivity after failover to Azure
-    href: concepts-on-premises-to-azure-networking.md
-  - name: VM connectivity after failover to a secondary site
-    href: concepts-on-premises-to-on-premises-networking.md
-  - name: Network mapping for Azure VM replication
-    href: site-recovery-network-mapping-azure-to-azure.md
-  - name: Network mapping for Hyper-V VM replication to Azure
-    href: site-recovery-network-mapping.md
   - name: Role-based access permissions
     href: site-recovery-role-based-linked-access-control.md
   - name: FAQ
@@ -115,6 +105,16 @@
       href: site-recovery-performance-and-scaling-testing-on-premises-to-on-premises.md
   - name: Configure
     items:
+    - name: Set up networking for Azure VM disaster recovery (preview)
+      href: site-recovery-azure-to-azure-networking-guidance.md
+    - name: Set up IP addressing for access after failover to Azure
+      href: concepts-on-premises-to-azure-networking.md
+    - name: Set up IP addressing for access after failover to a secondary site
+      href: concepts-on-premises-to-on-premises-networking.md
+    - name: Set up network mapping for Azure VM disaster recovery (preview)
+      href: site-recovery-network-mapping-azure-to-azure.md
+    - name: Prepare network mapping for Hyper-V VM replication to Azure
+      href: site-recovery-network-mapping.md
     - name: Set up the source environment
       items:
       - name: Source environment for VMware to Azure
