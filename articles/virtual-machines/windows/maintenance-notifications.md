@@ -86,8 +86,7 @@ function MaintenanceIterator
 
     for ($rgIdx=0; $rgIdx -lt $rgList.Length ; $rgIdx++)
     {
-        $rg = $rgList[$rgIdx]
-        $vmList = Get-AzureRMVM -ResourceGroupName $rg.ResourceGroupName 
+        $rg = $rgList[$rgIdx]        $vmList = Get-AzureRMVM -ResourceGroupName $rg.ResourceGroupName 
         for ($vmIdx=0; $vmIdx -lt $vmList.Length ; $vmIdx++)
         {
             $vm = $vmList[$vmIdx]
@@ -110,7 +109,7 @@ Using information from the function in the previous section, the following start
 Restart-AzureRmVM -PerformMaintenance -name $vm.Name -ResourceGroupName $rg.ResourceGroupName 
 ```
 
-### Classic deployments
+## Classic deployments
 
 If you still have legacy VMs that were deployed using the classic deployment model, you can use PowerShell to query for VMs and initiate maintenance.
 
