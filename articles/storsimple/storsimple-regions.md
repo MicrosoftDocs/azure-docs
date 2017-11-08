@@ -1,6 +1,6 @@
 ---
-title: Deploy the StorSimple Device Manager service in Azure | Microsoft Docs
-description: Explains how to create and delete the StorSimple Device Manager service in the Azure portal, and describes how to manage the service registration key.
+title: StorSimple region availability | Microsoft Docs
+description: Explains the Azure regions in which the various StorSimple device models are available.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -17,7 +17,7 @@ ms.date: 11/08/2017
 ms.author: alkohli
 
 ---
-# Deploy the StorSimple Device Manager service for StorSimple 8000 series devices
+# Available regions for your StorSimple 
 
 ## Overview
 
