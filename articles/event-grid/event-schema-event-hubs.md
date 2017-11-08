@@ -71,10 +71,10 @@ The data object has the following properties:
 | firstSequenceNumber | integer | The smallest sequence number from the queue. |
 | lastSequenceNumber | integer | The last sequence number from the queue. |
 | firstEnqueueTime | string | The first time from the queue. |
-| lastEnqueueTime | string | The last time from the queuq. |
+| lastEnqueueTime | string | The last time from the queue. |
 
 ## Next steps
 
-* For an introduction to Azure Event Grid, see [What is Event Grid?](overview.md).
+* For an introduction to Azure Event Grid, see [What is Event Grid?](overview.md)
 * For more information about creating an Azure Event Grid subscription, see [Event Grid subscription schema](subscription-creation-schema.md).
 * For information about handling event hubs events, see [Stream big data into a data warehouse](event-grid-event-hubs-integration.md).

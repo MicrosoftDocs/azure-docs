@@ -24,7 +24,7 @@ Resource groups emit management events from Azure Resource Manager, such as when
 - **Microsoft.Resources.ResourceWriteCancel**: Raised when a resource create or update operation is canceled.  
 - **Microsoft.Resources.ResourceDeleteSuccess**: Raised when a resource delete operation succeeds.  
 - **Microsoft.Resources.ResourceDeleteFailure**: Raised when a resource delete operation fails.  
-- **Microsoft.Resources.ResourceDeleteCancel**: Raised when a resource delete operation is canceled. This happens when a template deployment is canceled.
+- **Microsoft.Resources.ResourceDeleteCancel**: Raised when a resource delete operation is canceled. This event happens when a template deployment is canceled.
 
 ## Example event
 
@@ -93,14 +93,14 @@ The data object has the following properties:
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
-| authorization | string | The requested authoriztion for the operation. |
+| authorization | string | The requested authorization for the operation. |
 | claims | string | The properties of the claims. |
 | correlationId | string | An operation ID for troubleshooting. |
 | httpRequest | string | The details of the operation. |
 | resourceProvider | string | The resource provider performing the operation. |
 | resourceUri | string | The URI of the resource in the operation. |
 | operationName | string | The operation that was performed. |
-| status | string | The status of the operation . |
+| status | string | The status of the operation. |
 | subscriptionId | string | The subscription ID of the resource. |
 | tenantId | string | The tenant ID of the resource. |
 
