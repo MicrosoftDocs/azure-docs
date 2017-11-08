@@ -35,7 +35,7 @@ This quick start demonstrates how to create an Azure Cosmos DB account, key/valu
 
 ## Create a database account
 
-[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
+[!INCLUDE cosmos-db-create-dbaccount-cassandra] 
 
 ## Clone the sample application
 
