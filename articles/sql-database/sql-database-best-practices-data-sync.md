@@ -9,9 +9,11 @@ author: "douglaslMS"
 ms.author: "douglasl"
 manager: "craigg"
 ---
-# Best practices for SQL Data Sync 
+# Best practices for Azure SQL Data Sync (Preview) 
 
 This article describes best practices for SQL Data Sync (Preview).
+
+For an overview of SQL Data Sync, see [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync (Preview)](sql-database-sync-data.md).
 
 ## <a name="security-and-reliability"></a> Security and reliability
 
@@ -217,3 +219,21 @@ Do not attempt to remove a database from a sync group and then edit the sync gro
 First, remove a database from a sync group. Then deploy the change and wait for de-provisioning to complete. Once this operation has completed, you may edit the sync group and deploy the changes.
 
 If you attempt to remove a database, and then edit a sync group without first deploying one of the changes, one or the other operation fails, and the portal interface may get into an inconsistent state. In this case, you can refresh the page to restore the correct state.
+
+## Next steps
+For more info about SQL Data Sync, see:
+
+-   [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync](sql-database-sync-data.md)
+-   [Get Started with Azure SQL Data Sync](sql-database-get-started-sql-data-sync.md)
+-   [Troubleshoot issues with Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
+
+-   Complete PowerShell examples that show how to configure SQL Data Sync:
+    -   [Use PowerShell to sync between multiple Azure SQL databases](scripts/sql-database-sync-data-between-sql-databases.md)
+    -   [Use PowerShell to sync between an Azure SQL Database and a SQL Server on-premises database](scripts/sql-database-sync-data-between-azure-onprem.md)
+
+-   [Download the SQL Data Sync REST API documentation](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
+
+For more info about SQL Database, see:
+
+-   [SQL Database Overview](sql-database-technical-overview.md)
+-   [Database Lifecycle Management](https://msdn.microsoft.com/library/jj907294.aspx)
