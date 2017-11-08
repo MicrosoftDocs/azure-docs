@@ -21,14 +21,14 @@ ms.author: bryanla
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 A VM Managed Service Identity makes two important features available to client applications running on the VM:
 
-1. An MSI [**service principal**](develop/active-directory-dev-glossary.md#service-principal-object), which is created upon enabling MSI on the VM, and can be used for client application sign-in. Traditionally, in order for a client to be able to access secured resources under its own identity, it must:  
+1. An MSI [**service principal**](develop/active-directory-dev-glossary.md#service-principal-object), which is [created upon enabling MSI](msi-overview.md#how-does-it-work) on the VM. The service principal can then be given access to Azure resources, and used by client applications that need to sign-in under their own identity. Traditionally, in order for a client to be able to access secured resources under its own identity, it must:  
 
    - be registered with Azure AD as a confidential/web client application, and consented for use by a tenant's user(s)/admin
    - sign in under its service principal, using the ID+secret credentials generated during registration (which are likely embedded in the client code)
 
   With MSI, your client application no longer needs to do either, as it can sign in under the MSI service principal. 
 
-2. An [**app-only access token**](develop/active-directory-dev-glossary.md#access-token) for a given resource, which is based on the MSI service principal. As such, there is also no need for the client to authenticate and obtain an access token under its own service principal. The token is suitable for use as a bearer token in [service-to-service calls requiring client credentials](active-directory-protocols-oauth-service-to-service.md).
+2. An [**app-only access token**](develop/active-directory-dev-glossary.md#access-token), which is issued for the MSI service principal and used for secured access to a given resource's API(s). As such, there is also no need for the client to authenticate and obtain an access token under its own service principal. The token is suitable for use as a bearer token in [service-to-service calls requiring client credentials](active-directory-protocols-oauth-service-to-service.md).
 
 This article shows you various ways a client application can use the MSI service principal and/or access token, in order to access secured resources.
 
@@ -39,7 +39,7 @@ This article shows you various ways a client application can use the MSI service
 If you plan to use the Azure PowerShell or Azure CLI examples in this article, you have three options:
 - Use [Azure Cloud Shell](../cloud-shell/overview.md) from the Azure portal.
 - Use the embedded Azure Cloud Shell via the "Try It" button, located in the top right corner of code blocks.
-- Install the latest version of [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM) or [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) if you prefer to use  a local command prompt. 
+- Install the latest version of [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM) or [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) if you prefer to use a local command prompt. 
 
 > [!IMPORTANT]
 > - All sample code/script in this article assumes the client is running on an MSI-enabled Virtual Machine. Use the VM "Connect" feature in the Azure portal, to remotely connect to your VM. For details on enabling MSI on a VM, see [Configure a VM Managed Service Identity (MSI) using the Azure portal](msi-qs-configure-portal-windows-vm.md), or one of the variant articles (using PowerShell, CLI, a template, or an Azure SDK). 
@@ -47,13 +47,11 @@ If you plan to use the Azure PowerShell or Azure CLI examples in this article, y
 
 ## Code examples
 
-Scripting hosts such as Azure PowerShell and Azure CLI can use an MSI service principal for sign-in, instead of signing in interactively with a user account. When using an MSI service principal, the host takes care of acquiring an access token in the background, for making subsequent calls to access resources. 
-
-However, if you're writing your own client application, you need to write your own token acquisition logic.
+As discussed previously, MSI offers both a service principal for sign-in identity, and an access token for secure resource access.
 
 The examples below show of variety of ways to do one or both functions:
 
-| Sample | Sign-in | Token acquisition | Resource access |
+| Client sample | Sign-in | Token acquisition | Resource access |
 | ------ | ------- | ----------------- | --------------- |
 | [HTTP/REST](#httprest) | N | Y | N |
 | [.NET C#](#net-c) | N | Y | N |
@@ -67,7 +65,7 @@ The examples below show of variety of ways to do one or both functions:
 
 ### HTTP/REST 
 
-A client application can use HTTP REST calls to acquire the MSI access token. This is similar to the Azure AD programming model, except the client uses a localhost endpoint on the virtual machine (vs and Azure AD endpoint).
+Any client application running on the VM that can make HTTP REST calls, can acquire an MSI access token. This is similar to the Azure AD programming model, except the client uses a localhost endpoint on the virtual machine (vs and Azure AD endpoint).
 
 Sample request:
 
@@ -144,6 +142,8 @@ catch (Exception e)
 
 ### Azure CLI
 
+Scripting hosts such as Azure CLI can use an MSI service principal for sign-in, instead of signing in interactively with a user account. When using an MSI service principal, the host takes care of acquiring an access token in the background, and using it to make subsequent calls to access resources. 
+
 The following script demonstrates how to:
 
 - sign in to Azure AD under the VM's MSI service principal
@@ -155,18 +155,12 @@ spID=$(az resource list -n <VM-NAME> --query [*].identity.principalId --out tsv)
 echo The MSI service principal ID is $spID
 ```
 
-**TODO:** Talk about just using the access token and REST, instead of doing sign-in? ie:
-
-```bash
-curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true
-curl https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>?api-version=2016-09-01 -H "Authorization: Bearer <ACCESS TOKEN>"
-
-```
-
 ### Azure PowerShell
 
+Scripting hosts such as Azure PowerShell can use an MSI service principal for sign-in, instead of signing in interactively with a user account. When using an MSI service principal, the host takes care of acquiring an access token in the background, and using it to make subsequent calls to access resources. 
+
 > [!NOTE]
-> In order to complete this section, you need the application ID of the MSI's service principal. Use the following script, substituting the name of your virtual machine for `<VM-NAME>`: 
+> In order to complete this section, you need the application ID of the MSI's service principal. Use the following script to retreive it, substituting the name of your virtual machine for `<VM-NAME>`: 
 
 > ```azurepowershell-interactive
 > # Install the Azure AD PS cmdlets if necessary
