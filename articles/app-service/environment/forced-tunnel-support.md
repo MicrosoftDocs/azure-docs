@@ -60,11 +60,11 @@ You can configure the ASE with a different egress address after the ASE is alrea
 
 ### Changing the egress address after the ASE is operational ###
 1. Get the IP addresses you want to use as egress IPs for your ASE. If you are doing forced tunneling then this would be your NATs or gateway IPs.  If you were routing all of the ASE outbound traffic through an NVA, then the egress address would be the public IP of the NVA.
-1. Set the egress addresses in your ASE configuration information. Go to resource.azure.com and navigate to: Subscription/<subscription id>/resourceGroups/<ase resource group>/providers/Microsoft.Web/hostingEnvironments/<ase name> then you will see the json that describes your ASE.  Make sure it says read/write at the top.  Click Edit   Scroll down to the bottom and change userWhitelistedIpRanges from  
+2. Set the egress addresses in your ASE configuration information. Go to resource.azure.com and navigate to: Subscription/<subscription id>/resourceGroups/<ase resource group>/providers/Microsoft.Web/hostingEnvironments/<ase name> then you will see the json that describes your ASE.  Make sure it says read/write at the top.  Click Edit   Scroll down to the bottom and change userWhitelistedIpRanges from  
 
        "userWhitelistedIpRanges": null 
       
-to something like the following, but using the addresses you will set as the egress address range 
+  to something like the following, but using the addresses you will set as the egress address range 
 
       "userWhitelistedIpRanges": [
           "11.22.33.44/32".
@@ -72,8 +72,10 @@ to something like the following, but using the addresses you will set as the egr
           ] 
 
    as appropriate. Then click PUT at the top. This will trigger a scale operation on your ASE and adjust the firewall.
-1. Create or edit a route table and populate the rules to allow access to/from the management addresses that map to your ASE location.  The management addreses are here, [App Service Environment management addresses][management] 
-1. Adjust the routes applied to the ASE subnet with a route table or BGP routes.  
+   
+3. Create or edit a route table and populate the rules to allow access to/from the management addresses that map to your ASE location.  The management addreses are here, [App Service Environment management addresses][management] 
+
+4. Adjust the routes applied to the ASE subnet with a route table or BGP routes.  
 
 If the ASE goes unresponsive from the portal then there is a problem with your changes.  It can be that your list of egress addresses was incomplete, the traffic was lost or the traffic was blocked.  
 
