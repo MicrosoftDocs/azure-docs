@@ -149,11 +149,19 @@ The following script demonstrates how to:
 - sign in to Azure AD under the VM's MSI service principal
 - use the MSI service principal to make an Azure Resource Manager call, to obtain the ID of the service principal
 
-```azurecli-interactive
+```azurecli
 az login --msi
 spID=$(az resource list -n <VM-NAME> --query [*].identity.principalId --out tsv)
 echo The MSI service principal ID is $spID
 ```
+
+If you're using interactive sign in via Azure Cloud Shell, you can use:
+
+```azurecli-interactive
+spID=$(az resource list -n <VM-NAME> --query [*].identity.principalId --out tsv)
+echo The MSI service principal ID is $spID
+```
+
 
 ### Azure PowerShell
 
