@@ -1,6 +1,6 @@
 ---
-title: Indexer tutorial for indexing Azure data sources in Azure Search | Microsoft Docs
-description: Crawl Azure SQL database, Azure Cosmos DB, or Azure storage to extract searchable data and populate an Azure Search index.
+title: Tutorial for indexing Azure SQL databases in Azure Search | Microsoft Docs
+description: Crawl Azure SQL database to extract searchable data and populate an Azure Search index.
 services: search
 documentationcenter: ''
 author: HeidiSteen
@@ -18,18 +18,18 @@ ms.date: 11/10/2017
 ms.author: heidist
 ---
 
-# How to index Azure data sources in Azure Search
+# How to crawl an Azure SQL database using Azure Search indexers
 
-Indexers are a component of Azure Search that crawl external data sources, populating an index with searchable content. Currently, Azure Search provides indexers for these data sources: Azure Blob storage, Azure Table storage, Azure Cosmos DB, and SQL Server data in Azure (as a service or a virtual machine). 
+*Indexers* are a component of Azure Search that crawl external data sources, populating a search index with searchable content. Currently, Azure Search provides indexers for these data sources: Azure Blob storage, Azure Table storage, Azure Cosmos DB, and SQL Server data in Azure (as a service or a virtual machine). 
 
-Indexers simplify coding requirements. Rather than preparing and pushing a schema-compliant JSON dataset, you can attach an indexer to a data source, and have the indexer pull data into an index on your service.
+Proficiency in indexer configuration is helpful; it simplifies the amount of code you have to write and maintain. Rather than preparing and pushing a schema-compliant JSON dataset, you can attach an indexer to a data source, have the indexer extract data from the source, and push it into an index in Azure Search.
 
-This tutorial demonstrates the fundamental workflow of working with indexers. In this tutorial, you accomplish the following tasks, using the [Azure Search .NET client libraries](https://aka.ms/search-sdk) and a .NET Core console application:
+This tutorial demonstrates indexing of Azure SQL databases through the following tasks, using the [Azure Search .NET client libraries](https://aka.ms/search-sdk) and a .NET Core console application:
 
 > [!div class="checklist"]
 > * Download and configure the solution
 > * Add search service information to application settings
-> * Prepare an external dataset
+> * Prepare an external dataset in Azure SQL daatabase 
 > * Understand the index and indexer definitions
 > * Run the indexer code to import data
 > * Search the index
@@ -39,9 +39,9 @@ This tutorial demonstrates the fundamental workflow of working with indexers. In
 
 * An active Azure account. If you don't have one, you can sign up for a [free trial](https://azure.microsoft.com/free/). 
 
-* An Azure Search service. For help on setting one up, see [Create a search service](search-create-service-portal.md).
+* An Azure Search service. For help setting one up, see [Create a search service](search-create-service-portal.md).
 
-* An Azure service providing the external data source used by an indexer. There are sample datasets for the following services: Azure SQL Database, Azure Table Storage, Azure Cosmos DB. Only one is needed to complete this tutorial.
+* An Azure SQL database providing the external data source used by an indexer. The sample solution provides a SQL data file to create the table.
 
 * Visual Studio 2017. You can use the free [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). 
 
@@ -50,7 +50,7 @@ This tutorial demonstrates the fundamental workflow of working with indexers. In
 
 ## Download the solution
 
-The indexer solution used in this tutorial is from a collection of Azure Search samples delivered in one download. The solution name is *DotNetHowToIndexers*.
+The indexer solution used in this tutorial is from a collection of Azure Search samples delivered in one master download. The solution used for this tutorial is *DotNetHowToIndexers*.
 
 1. Go to [**Azure-Samples/search-dotnet-getting-started**](https://github.com/Azure-Samples/search-dotnet-getting-started) in the Azure samples GitHub repository.
 
@@ -60,24 +60,20 @@ The indexer solution used in this tutorial is from a collection of Azure Search 
 
 4. Turn off read-only permissions. Right-click the folder name > **Properties** > **General**, and then clear the **Read-only** attribute for the current folder, subfolders, and files.
 
-5. In **Visual Studio**, open the solution *DotNetHowToIndexers.sln*.
+5. In **Visual Studio 2017**, open the solution *DotNetHowToIndexers.sln*.
 
 6. In **Solution Explorer**, right-click the top node parent Solution > **Restore Nuget Packages**.
 
 ## Set up connections
-Information for connecting to services and datasets is specified in the **appsettings.json** file in the solution. 
+Connection information to required services is specified in the **appsettings.json** file in the solution. 
 
-In Solution Explorer, open **appsettings.json** so that you can populate each setting, using the instructions in this tutorial. Connecting to the search service is required, but you only need one external data source for indexing purposes. 
+In Solution Explorer, open **appsettings.json** so that you can populate each setting, using the instructions in this tutorial.  
 
 ```json
 {
-  "SearchServiceName": "(Required) Put your search service name here",
-  "SearchServiceAdminApiKey": "(Required) Put your primary or secondary API key here",
-  "AzureSqlConnectionString": "(If SQL) Put your Azure SQL database connection string here",
-  "AzureStorageConnectionString": "(If Table storage) Put your Azure Storage connection string here",
-  "AzureStorageTableName": "(If Table storage) Put your Azure Table Storage table name here",
-  "AzureCosmosDbConnectionString": "(If Cosmos DB) Put your Azure Cosmos DB database connection string here",
-  "AzureCosmosDbCollectionName": "(If Cosmos DB) Put your Azure Cosmos DB collection name here"
+  "SearchServiceName": "Put your search service name here",
+  "SearchServiceAdminApiKey": "Put your primary or secondary API key here",
+  "AzureSqlConnectionString": "Put your Azure SQL database connection string here",
 }
 ```
 
@@ -89,31 +85,34 @@ You can find the search service endpoint and key in the portal. A key provides a
 
 2. Open the service page.
 
-3. On the top, in **Essentials**, copy the URL and paste it into the "SearchServiceName" item in **appsettings.json**. The URL should look like this: `https://<your-service-name>.search.windows.net`
+3. On the top, find the service name in the main page. In the following screenshot, it's `azs-tutorial`.
 
-4. On the left, in **Settings** > **Keys**, copy one of the admin keys and paste it into the "SearchServiceAdminApiKey" item in the same file. Keys are alphanumeric strings generated for your service during provisioning.
+   ![Service name](./media/search-indexer-tutorial/service-name.png)
+
+4. Copy and paste it as your first entry into **appsettings.json** in Visual Studio.
+
+  > [!Note]
+  > A service name is part of the endpoint that includes search.windows.net. If you are curious, you can see the full URL in **Essentials** on the Overview page. The URL should look like this: `https://<your-service-name>.search.windows.net`
+
+5. On the left, in **Settings** > **Keys**, copy one of the admin keys and paste it as the second entry into i**appsettings.json**. Keys are alphanumeric strings generated for your service during provisioning and used to authorize access to service operations. 
 
   After adding both settings, your file should look like this:
 
   ```json
   {
-    "SearchServiceName": "https://<your-service-name>.search.windows.net",
-    "SearchServiceAdminApiKey": "A1B2C3D4E5F6G7H8I9J10",
+    "SearchServiceName": "azs-tutorial",
+    "SearchServiceAdminApiKey": "A1B2C3D4E5F6G7H8I9J10K11L12M13N14",
     . . .
   }
   ```
 
 ## Prepare an external data source
 
-In this step, create an external data source that an indexer can crawl. If you aren't familiar with any of the three data sources used in this tutorial, choose Azure SQL Database. This article provides more detail for indexing from that platform.
-
-Data files for this tutorial are provided in the solution, in the \DotNetHowToIndexers\data folder. Each file contains equivalent data, in a format specific to data sources used in this tutorial.
-
-  ![File list](./media/search-indexer-tutorial/data-files.png)
+In this step, create an external data source that an indexer can crawl. The data file for this tutorial is `hotel.sql`,provided in the \DotNetHowToIndexers solution folder. 
 
 ### Azure SQL Database
 
-Among the sample data files is a SQL script for creating a table and inserting rows. You can use the Azure portal and the hotels.sql file from the sample to create the dataset in Azure SQL Database.
+You can use the Azure portal and the hotels.sql file from the sample to create the dataset in Azure SQL Database. Azure Search consumes flattened rowsets, such as one provided by a view, query, or stored procedure.
 
 The following exercise assumes no existing server or database, and includes instructions for creating both in step 2. If you have an existing resource, you can add the hotels table, starting at step 4.
 
@@ -133,9 +132,9 @@ The following exercise assumes no existing server or database, and includes inst
 
 5. Click **Login** and enter the user name and password of server admin.
 
-6. Click **Open query** and navigate to the data folder containing *hotels.sql*. By default, the file location is \Downloads\search-dotnet-getting-started-master\search-dotnet-getting-started-master\DotNetHowToIndexers\DotNetHowToIndexers\data\. 
+6. Click **Open query** and navigate to the location of hotels.sql. 
 
-7. Select hotels.sql and click **Open**. The script that should look similar to the following screenshot.
+7. Select the file and click **Open**. The script that should look similar to the following screenshot.
 
   ![SQL script](./media/search-indexer-tutorial/sql-script.png)
 
@@ -150,37 +149,31 @@ The following exercise assumes no existing server or database, and includes inst
 
 10. Now that you have an external dataset, copy the ADO.NET connection string for the database. On the SQL Database page of your database, go to **Settings** > **Connection Strings**, and copy the ADO.NET connection string.
  
-  An ADO.NET connection string should be as follows, modified to use a valid database name, user name, and password.
+  An ADO.NET connection string looks like the following example, modified to use a valid database name, user name, and password.
 
   ```sql
   Server=tcp:hotels-db.database.windows.net,1433;Initial Catalog=hotels-db;Persist Security Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
   ```
-11. Paste the connection string into "AzureSqlConnectionString" in **appsettings.json** file in Visual Studio.
+11. Paste the connection string into "AzureSqlConnectionString" as the third entry in **appsettings.json** file in Visual Studio.
 
     ```json
     {
-      "SearchServiceName": "<your-service-name>",
-      "SearchServiceAdminApiKey": "<your-admin-key>",
+      "SearchServiceName": "azs-tutorial",
+      "SearchServiceAdminApiKey": "A1B2C3D4E5F6G7H8I9J10K11L12M13N14",
       "AzureSqlConnectionString": "Server=tcp:hotels-db.database.windows.net,1433;Initial Catalog=hotels-db;Persist Security  Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;",
-      "AzureStorageConnectionString": " ",
-      "AzureStorageTableName": " ",
-      "AzureCosmosDbConnectionString": " ",
-      "AzureCosmosDbCollectionName": " "
     }
     ```
 
 ## Understand index and indexer definitions
 
-Your code is now ready to build and run. Before you do that, take a minute to study the index and indexer definitions for this sample. The relevant code is in two files:
+Your code is now ready to build and run. Before doing that, take a minute to study the index and indexer definitions for this sample. The relevant code is in two files:
 
   + **hotel.cs**, containing the schema that defines the index
   + **Program.cs**, containing the functions for creating and managing structures in your service
 
 ### In hotel.cs
 
-The index schema defines the field collection, including attributes specifying allowed operations, such as whether a field is full-text searchable, filterable, or sortable. The schema can also include other elements, including scoring profiles for boosting a search score, custom analyzers, and other constructs. 
-
-In this tutorial, the schema specified for the hotels dataset is sparse, consisting only of fields found in the sample datasets.
+The index schema defines the fields collection, including attributes specifying allowed operations, such as whether a field is full-text searchable, filterable, or sortable as shown in the following field definition for HotelName. 
 
 ```csharp
 . . . 
@@ -188,6 +181,8 @@ In this tutorial, the schema specified for the hotels dataset is sparse, consist
 public string HotelName { get; set; }
 . . .
 ```
+
+A schema can also include other elements, including scoring profiles for boosting a search score, custom analyzers, and other constructs. However, for our purposes, the schema is sparsely defined, consisting only of fields found in the sample datasets.
 
 In this tutorial, the indexer pulls data from one data source. In practice, you can attach multiple indexers to the same index, creating a consolidated searchable index from multiple data sources and indexers. You can use the same index-indexer pair, varying just the data sources, or one index with various indexer and data source combinations, depending on where you need the flexibility.
 
@@ -231,35 +226,40 @@ Notice that the indexer API calls are platform-agnostic except for [DataSourceTy
 
 ## Run the indexer
 
-In this step, compile and run the program. Your code runs locally in Visual Studio, connecting to your search service on Azure, which in turn uses the connection string to connect to Azure SQL Database and retrieve the dataset. with all this interleaving, there are several potential points of failure, but if you get an error, check the following conditions first:
+In this step, compile and run the program. 
+
+1. In Solution Explorer, right-click **DotNetHowToIndexers** and select **Build**.
+2. Again, right-click **DotNetHowToIndexers**, followed by **Debug** > **Start new instance**.
+
+A console window reports the status of each operation.
+
+  ![SQL script](./media/search-indexer-tutorial/console-output.png)
+
+Your code runs locally in Visual Studio, connecting to your search service on Azure, which in turn uses the connection string to connect to Azure SQL Database and retrieve the dataset. With this many operationas, there are several potential points of failure, but if you get an error, check the following conditions first:
 
 + Database connection information in **appsettings.json**. It should be the ADO.NET connection string obtained from the portal, modified to include a username and password that are valid for your database. The user account must have permission to retrieve data.
 
-+ Resource limits. Recall that the shared (free) service has limits on the number of resources you can create. Although the sample code deletes existing objects of the same name, a service already at the maximum limits with differently named resources won't accept new objects.
++ Resource limits. Recall that the shared (free) service has limits of 3 indexes, indexers, and data sources. A service at the maximum limit cannot create new objects.
 
 ## Search the index 
 
-In the Azure portal, in the search service page, click **Search explorer** to submit a few queries on the new index.
+In the Azure portal, in the search service Overview page, click **Search explorer** at the top to submit a few queries on the new index.
 
-TBD - pending successful build...
+1. Click **Change index** at the top to select the *hotels* index.
+2. Click **Search** to issue an empty search. The three entries in your index are returned as JSON documents.
+3. Next, enter a search string: `search=river&$count=true`. 
+
+This query invokes full text search on the term `river`, and the result includes a count of the matching documents. In this case, only one document matches the query.
 
 ## View indexer configuration
 
 All indexers, including the one you just created programmatically, are listed in the portal. You can open an indexer definition and view its data source, or configure a refresh schedule to pick up new and changed rows.
 
-1. Open the service page of your Azure Search service.
+1. Open the service Overview page of your Azure Search service.
 2. Scroll down to find the tiles for **Indexers** and **Data Sources**.
 3. Click a tile to open a list of each resource. You can select individual indexers or data sources to view or modify configuration settings.
 
   ![Indexer and data source tiles](./media/search-indexer-tutorial/tiles-portal.png)
-
-## Use Azure Cosmos DB 
-
-TBD
-
-## Use Azure Table Storage API
-
-TBD
 
 ## Clean up resources
 
@@ -270,7 +270,7 @@ If you're not going to continue to using these services, follow these steps to d
 
 ## Next steps
 
-For more information and tasks specific to each data source type, see the following articles:
+For more information and tasks specific to other supported data sources, see the following articles:
 
 * [Azure SQL Database or SQL Server on an Azure virtual machine](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [Azure Cosmos DB](search-howto-index-documentdb.md)
