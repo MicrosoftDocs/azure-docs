@@ -6,7 +6,8 @@
 ## [Analyze data on the edge](quickstart.md)
 
 # Tutorials
-## [Install Azure IoT Edge and deploy a module](tutorial-install-iot-edge.md)
+## [Simulate an Edge device - Windows](tutorial-simulate-device-windows.md) 
+## [Simulate an Edge device - Linux](tutorial-simulate-device-linux.md) 
 ## [Deploy Azure Function as a module](tutorial-deploy-function.md)
 ## [Deploy Azure Stream Analytics as a module](tutorial-deploy-stream-analytics.md)
 ## [Deploy Azure Machine Learning as a module](tutorial-deploy-machine-learning.md)

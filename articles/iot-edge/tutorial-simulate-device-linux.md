@@ -1,6 +1,6 @@
 ---
-title: Install Azure IoT Edge | Microsoft Docs 
-description: Install the Azure IoT Edge runtime and deploy your first module to an edge device
+title: Install Azure IoT Edge - Linux | Microsoft Docs 
+description: Install the Azure IoT Edge runtime on a simulated device in Linux, and deploy your first module
 services: iot-edge
 keywords: 
 author: kgremban
@@ -14,7 +14,7 @@ ms.service: iot-edge
 
 ---
 
-# Deploy Azure IoT Edge on a simulated device
+# Deploy Azure IoT Edge on a simulated device in Linux
 
 Azure IoT Edge moves the power of the cloud to your Internet of Things (IoT) devices. This tutorial walks you through creating a simulated IoT Edge device that generates sensor data. You learn how to:
 
@@ -29,14 +29,10 @@ The simulated device that you create in this tutorial is a monitor on a wind tur
 
 ## Prerequisites
 
-This tutorial assumes that you're using a computer or virtual machine to simulate an Internet of Things device. The following services are required to successfully deploy an IoT Edge device:
+This tutorial assumes that you're using a computer or virtual machine running Linux to simulate an Internet of Things device. The following services are required to successfully deploy an IoT Edge device:
 
-- Docker
-   - [Install Docker on Windows][lnk-docker-windows] and make sure it's running.
-   - [Install Docker on Linux][lnk-docker-ubuntu] and make sure it's running. 
-- Python 2.7
-   - [Install Python 2.7 on Windows][lnk-python-windows].
-   - Most Linux distributions, including Ubuntu, already have Python 2.7 installed. Use the following command to make sure that pip is installed: `sudo apt-get install python-pip`.
+- [Install Docker for Linux][lnk-docker-ubuntu] and make sure it's running. 
+- Most Linux distributions, including Ubuntu, already have Python 2.7 installed. Use the following command to make sure that pip is installed: `sudo apt-get install python-pip`.
 
 ## Create an IoT hub
 
@@ -59,54 +55,38 @@ Create a device identity for your simulated device so that it can communicate wi
 
 The IoT Edge runtime is deployed on all IoT Edge devices. It comprises two modules. First, the IoT Edge agent facilitates deployment and monitoring of modules on the IoT Edge device. Second, the IoT Edge hub manages communications between modules on the IoT Edge device, and between the device and IoT Hub. 
 
->[!TIP]
->This section gives the Python 2.7 commands for Windows. If you're running this tutorial on Linux, add `sudo` in front of each command. 
-
 Use the following steps to install and start the IoT Edge runtime:
 
 > [!NOTE]
 > Remove before merging. During bug bash: Instead of step 1, run the following code:
 >
-> (linux):
 > `wget https://azureiotedgepreview.blob.core.windows.net/shared/azure-iot-edge-ctl.tar.gz`
 > `tar xvzf azure-iot-edge-ctl-1.0.0rc6.dev6995193.tar.gz`
 > `cd azure-iot-edge-ctl-1.0.0rc6.dev6995193`
 > `sudo pip install -U .`
->
-> (windows):
->
-> Download [scripts](https://azureiotedgepreview.blob.core.windows.net/shared/azure-iot-edge-ctl.zip)
->
-> Extract all
->
-> Open cmd in extracted dir
->
-> `pip install -U .[win32]`
-
-
 
 1. On the machine where you'll run the IoT Edge device, download the IoT Edge control script.
 
    ```
-   pip install -U azure-iot-edge-runtime-ctl
+   sudo pip install -U azure-iot-edge-runtime-ctl
    ```
 
 1. Configure the runtime with your IoT Edge device connection string from the previous section.
 
    ```
-   iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
+   sudo iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
    ```
 
 1. Start the runtime.
 
    ```
-   iotedgectl start
+   sudo iotedgectl start
    ```
 
 1. Check Docker to see that the IoT Edge agent is running as a module.
 
    ```
-   docker ps
+   sudo docker ps
    ```
 
 ## Deploy a module
@@ -140,18 +120,13 @@ In this tutorial, you created a new IoT Edge device and used the Azure IoT Edge 
 This tutorial is the prerequisite for all of the other IoT Edge tutorials. You can continue on to any of the other tutorials to learn how Azure IoT Edge can help you turn this data into business insights at the edge.
 
 > [!div class="nextstepaction"]
-> [Deploy Azure Function as a module](tutorial-deploy-function.md)<br>
-> [Deploy Azure Stream Analytics as a module](tutorial-deploy-stream-analytics.md)<br>
 > [Deploy your own code as a module](tutorial-create-custom-module.md)
+> [Deploy Azure Stream Analytics as a module](tutorial-deploy-stream-analytics.md)
 
 
 <!-- Images -->
 [1]: ./media/tutorial-install-iot-edge/view-module.png
 
 <!-- Links -->
-[lnk-docker-windows]: https://docs.docker.com/docker-for-windows/install/ 
 [lnk-docker-ubuntu]: https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/ 
-[lnk-dotnet-windows]: https://docs.microsoft.com/dotnet/core/windows-prerequisites?tabs=netcore2x
-[lnk-dotnet-ubuntu]: https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x
-[lnk-python-windows]: https://www.python.org/downloads/
 [lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
