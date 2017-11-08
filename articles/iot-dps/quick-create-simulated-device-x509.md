@@ -76,10 +76,10 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
 
     ![Enter X.509 device enrollment information in the portal blade](./media/quick-create-simulated-device-x509/enter-device-enrollment.png)  
 
-   On successful enrollment, your X.509 device will appear as **riot-device-cert** under the *Registration ID* column in the *Individual Enrollments* tab. 
+   On successful enrollment, your X.509 device appears as **riot-device-cert** under the *Registration ID* column in the *Individual Enrollments* tab. 
 
 > [!NOTE]
-> At present, you can only add one X.509 device for Individual Enrollment. Enrolling a second X.509 device will simply replace the enrollment for the existing X.509 device. 
+> At present, you can only add one X.509 device for Individual Enrollment. Enrolling a second X.509 device replaces the enrollment for the existing X.509 device. 
 > 
 
 
