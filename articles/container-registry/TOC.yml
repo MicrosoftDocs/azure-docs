@@ -15,6 +15,12 @@
     href: container-registry-get-started-powershell.md
 - name: Tutorials
   items:
+  - name: Azure Container Instances
+    href: ../container-instances/container-instances-tutorial-prepare-app.md
+  - name: Azure Container Service (AKS)
+    href: ../aks/tutorial-kubernetes-prepare-app.md
+  - name: Service Fabric
+    href: ../service-fabric/service-fabric-tutorial-create-container-images.md
   - name: Geo-replication (preview)
     items:
     - name: 1 - Prepare container registry
@@ -23,14 +29,6 @@
       href: container-registry-tutorial-deploy-app.md
     - name: 3 - Update web application
       href: container-registry-tutorial-deploy-update.md
-  - name: Deploy in Azure
-    items:
-    - name: Azure Container Instances
-      href: ../container-instances/container-instances-tutorial-prepare-app.md
-    - name: Azure Container Service (AKS)
-      href: ../aks/tutorial-kubernetes-prepare-app.md
-    - name: Service Fabric
-      href: ../service-fabric/service-fabric-tutorial-create-container-images.md
 - name: Concepts
   items:
   - name: Container registry SKUs
