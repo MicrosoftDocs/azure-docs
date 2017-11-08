@@ -38,9 +38,6 @@ sections:
       - image:
           src: media/index/logo_ruby.svg
     rows:
-      - title: 'Create a LUIS app'
-        values: 
-        - href: luis-get-started-create-app
       - title: 'Get intent from utterance'
         values:
         - href: luis-get-started-cs-get-intent
