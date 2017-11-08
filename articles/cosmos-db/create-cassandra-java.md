@@ -45,51 +45,6 @@ Before you can create a document database, you need to create a Cassandra accoun
 
 [!INCLUDE [cosmos-db-create-dbaccount-cassandra](../../includes/cosmos-db-create-dbaccount-cassandra.md)]
 
-## Add a collection
-
-[!INCLUDE [cosmos-db-create-cassandra](../../includes/cosmos-db-create-cassandra.md)]
-
-<a id="add-sample-data"></a>
-## Add sample data
-
-You can now add data to your new collection using Data Explorer.
-
-1. Expand the **Items** collection, click **Documents** > **New Document**.
-
-   ![Create new documents in Data Explorer in the Azure portal](./media/create-cassandra-java/azure-cosmosdb-data-explorer-new-document.png)
-  
-2. Now add a document to the collection with the following structure and click **Save**.
-
-     ```json
-     {
-         "id": "1",
-         "category": "personal",
-         "name": "groceries",
-         "description": "Pick up apples and strawberries.",
-         "isComplete": false
-     }
-     ```
-
-    ![Copy in json data and click Save in Data Explorer in the Azure portal](./media/create-cassandra-java/azure-cosmosdb-data-explorer-save-document.png)
-
-3.  Create and save one more document where you change `id` to 2, and change the other properties as you see fit. Your new documents can have any structure you want as Azure Cosmos DB doesn't impose any schema on your data.
-
-## Query your data
-
-You can now use queries in Data Explorer to retrieve and filter your data.
-
-1. See that by default, the query is set to `SELECT * FROM c`. This default query retrieves and displays all documents in the collection. 
-
-    ![Default query in Data Explorer is `SELECT * FROM c`](./media/create-cassandra-java/azure-cosmosdb-data-explorer-query.png)
-
-2. Change the query by clicking the **Edit Filter** button, adding `ORDER BY c._ts DESC` to the query predicate box, and then clicking **Apply Filter**.
-
-    ![Change the default query by adding ORDER BY c._ts DESC and clicking Apply Filter](./media/create-cassandra-java/azure-cosmosdb-data-explorer-edit-query.png)
-
-This modified query lists the documents in descending order based on their time stamp, so now your second document is listed first. If you're familiar with SQL syntax, you can enter any of the supported [SQL queries](documentdb-sql-query.md) in this box. 
-
-That completes our work in Data Explorer. Before we move on to working with code, note that you can also use Data Explorer to create stored procedures, UDFs, and triggers to perform server-side business logic as well as scale throughput. Data Explorer exposes all of the built-in programmatic data access available in the APIs, but provides easy access to your data in the Azure portal.
-
 ## Clone the sample application
 
 Now let's switch to working with code. Let's clone a DocumentDB API app from GitHub, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
