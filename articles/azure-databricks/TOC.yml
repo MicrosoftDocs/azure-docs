@@ -2,8 +2,8 @@
   href: index.yml
 - name: Overview
   items:
-  - name: Introduction to Azure Databricks
-    href: databricks-overview.md
+  - name: What is Azure Databricks?
+    href: what-is-azure-databricks.md
 - name: Quickstarts
   expanded: true
   items:

@@ -1,6 +1,6 @@
 ---
-title: Azure Databricks overview | Microsoft Docs
-description: An introduction of Databricks on Microsoft Azure. 
+title: What is Azure Databricks? | Microsoft Docs
+description: Azure Databricks is a data analytics platform built on top of Apache Spark. 
 services: azure-databricks
 documentationcenter: ''
 author: nitinme
@@ -17,11 +17,11 @@ ms.author: nitinme
 
 ---
 
-# Overview of Azure Databricks
+# What is Azure Databricks?
 
 Azure Databricks is a unified data analytics platform built on top of Apache Spark that unifies data science, data engineering, and business intelligence into a collaborative workspace and a highly preformative runtime that enables anyone to easily build and deploy advanced analytics solutions.
 
-![Overview of Azure Databricks](./media/databricks-overview/azure-databricks-overview.png "Overview of Azure Databricks")
+![Overview of Azure Databricks](./media/what-is-azure-databricks/azure-databricks-overview.png "Overview of Azure Databricks")
 
 Databricks is developed by the people who created Apache Spark, the processing engine of choice for large-scale data workloads. Databricks is the most advanced, performant, reliable, and secure Spark platform available. Optimized for the Azure Platform, Azure Databricks provides a high-performance processing engine to improve and scale your analytics.
 
