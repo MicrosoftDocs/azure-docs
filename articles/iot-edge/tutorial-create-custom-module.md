@@ -20,9 +20,9 @@ ms.service: iot-edge
 # ms.reviewer:
 ---
 
-# Deploy a custom IoT Edge module to your simulated device
+# Develop and Deploy an IoT Edge module to your simulated device
 
-You can use IoT Edge modules to deploy code that implements your business logic directly to your IoT Edge devices. This tutorial walks you through creating and deploying a custom module that filters sensor data on the simulated IoT Edge device that you created in the [Azure Install IoT Edge tutorial](./tutorial-install-iot-edge.md). You learn how to:    
+You can use IoT Edge modules to deploy code that implements your business logic directly to your IoT Edge devices. This tutorial walks you through creating and deploying a custom module that filters sensor data on the simulated IoT Edge device that you created in the [Azure Install IoT Edge tutorial](./tutorial-install-iot-edge.md). In this tutorial, you learn how to:    
 
 > [!div class="checklist"]
 > * Use Visual Studio Code to create a custom module
@@ -78,7 +78,7 @@ For this tutorial, you need a Docker registry to publish your IoT Edge module to
 ## Configure the Azure IoT Toolkit extension with your IoT hub connection string 
 1. Open Visual Studio Code.
 2. Use the **View | Explorer** menu command to open the VS Code explorer. 
-3. In the explorer, click **IOT HUB DEVICES** and then click **...**. Click **Set IoT Hub Connection String** and enter the connection string for the IoT hub that your IoT Edge device connects to in the pop-up window.  
+3. In the explorer, click **IOT HUB DEVICES** and then click **...**. Click **Set IoT Hub Connection String** and enter the connection string for the IoT hub that your IoT Edge device connects to in the pop-up window. Note: To find the connection string for your Iot hub, click the tile for your IoT hub in the Azure portal to open its properties window, and then click **Shared access policies**. In **Shared access policies**, click the **iothubowner** policy, and then copy and make note of the IoT Hub connection string in the **iothubowner** window.   
 
 ## Create a custom IoT Edge module project
 The following steps show you how to create an IoT Edge module using Visual Studio Code and the IoT Edge extension.
@@ -131,7 +131,7 @@ The following steps show you how to create an IoT Edge module using Visual Studi
 
     ```csharp
     // Open a connection to the Edge runtime using MQTT transport and 
-    // the connection string provded as an environment variable
+    // the connection string provided as an environment variable
     ITransportSettings[] settings =
     {
         new MqttTransportSettings(TransportType.Mqtt_Tcp_Only)
@@ -273,13 +273,13 @@ iotedgectl login --address --username --password
 
 1. In the **Azure portal**, [https://df.onecloud.azure-test.net/](https://df.onecloud.azure-test.net/), navigate to your IoT hub.
 2. Go to **IoT Edge Explorer** and select your IoT Edge device.
-3. Select **Deploy modules**. 
-4. Select **Add custom IoT Edge module**.
+3. Select **Deploy Modules**. 
+4. Select **Add IoT Edge Module**.
 5. In the **Name** field, enter `tempSensor`.
 6. In the **Image** field, enter `edgepreview.azurecr.io/azureiotedge/simulated-temperature-sensor:1.0-preview`.
 7. In the **OS** field, select **linux**.
 8. Leave the other settings unchanged and select **Save**.
-9. From the **Add Modules** step, select **Add custom IoT Edge module** again.
+9. From the **Add Modules** step, select **Add IoT Edge Module** again.
 10. In the **Name** field, enter `filtermodule`.
 11. In the **Image** field, enter your image address; for example `{your registry}/filtermodule:latest`.
 12. In the **OS** field, select **linux**.
