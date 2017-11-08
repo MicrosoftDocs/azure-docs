@@ -185,7 +185,7 @@ Suppose you have the following Event Hubs output binding in the `bindings` array
 }
 ```
 
-See the language-specific sample that writes an event to the even stream.
+See the language-specific sample that writes an event to the event stream.
 
 * [C#](#outcsharp)
 * [F#](#outfsharp)
