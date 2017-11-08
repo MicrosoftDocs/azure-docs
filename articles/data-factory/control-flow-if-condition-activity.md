@@ -73,10 +73,13 @@ expression | Expression that must evaluate to true or false | Yes
 ifTrueActivities | Set of activities that are executed when the expression evaluates to `true`. | Yes
 ifFalseActivities | Set of activities that are executed when the expression evaluates to `false`. | Yes
 
-## Sample
-The pipeline in this sample copies data from an input folder to an output folder. The output folder is determined by the value of pipeline parameter: routeSelection. If the value of routeSelection is true, the data is copied to outputPath1. And, if the value of routeSelection is false, the data is copied to outputPath2. 
+## Example
+The pipeline in this example copies data from an input folder to an output folder. The output folder is determined by the value of pipeline parameter: routeSelection. If the value of routeSelection is true, the data is copied to outputPath1. And, if the value of routeSelection is false, the data is copied to outputPath2. 
 
-### Pipeline with IF-Condition activity
+> [!NOTE]
+> This section provides JSON definitions and sample PowerShell commands to run the pipeline. For a walkthrough with step-by-step instructions to create a Data Factory pipeline by using Azure PowerShell and JSON definitions, see [tutorial: create a data factory by using Azure PowerShell](quickstart-create-data-factory-powershell.md).
+
+### Pipeline with IF-Condition activity (Adfv2QuickStartPipeline.json)
 
 ```json
 {
@@ -187,7 +190,7 @@ Another example for expression is:
 ```
 
 
-### Azure Storage linked service
+### Azure Storage linked service (AzureStorageLinkedService.json)
 
 ```json
 {
@@ -204,7 +207,7 @@ Another example for expression is:
 }
 ```
 
-### Parameterized Azure Blob dataset
+### Parameterized Azure Blob dataset (BlobDataset.json)
 The pipeline sets the **folderPath** to the value of either **outputPath1** or **outputPath2** parameter of the pipeline. 
 
 ```json
@@ -231,7 +234,7 @@ The pipeline sets the **folderPath** to the value of either **outputPath1** or *
 }
 ```
 
-### Pipeline parameter JSON
+### Pipeline parameter JSON (PipelineParameters.json)
 
 ```json
 {
@@ -243,10 +246,11 @@ The pipeline sets the **folderPath** to the value of either **outputPath1** or *
 ```
 
 ### PowerShell commands
+These commands assume that you have saved the JSON files into the folder: C:\ADF. 
 
 ```powershell
-# Login-AzureRmAccount
-# Select-AzureRmSubscription "<Your subscription name>"
+Login-AzureRmAccount
+Select-AzureRmSubscription "<Your subscription name>"
 
 $resourceGroupName = "<Resource Group Name>"
 $dataFactoryName = "<Data Factory Name. Must be globally unique>";
