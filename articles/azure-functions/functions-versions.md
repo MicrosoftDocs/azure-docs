@@ -23,7 +23,8 @@ This article doesn't cover setting the runtime version on your development compu
 
 ## Differences between runtime 1.x and 2.x
 
-Runtime 1.x is the only version approved for production use. Runtime 2.x is in preview. 
+> [!NOTE] 
+> Runtime 1.x is the only version approved for production use. Runtime 2.x is in preview. 
 
 ### Languages
 
@@ -43,9 +44,7 @@ One set of bindings works only in 2.x: [Microsoft Graph bindings](functions-bind
 
 Runtime 1.x supports function development only in the portal or on Windows; with 2.x you can develop and run Azure Functions on Linux or macOS.
 
-For more information about what's included in each version of the runtime, see the [Release notes](https://github.com/Azure/azure-webjobs-sdk-script/releases).
-
-## The FUNCTIONS\_EXTENSION\_VERSION app setting
+## Automatic and manual version updates
 
 Functions lets you target a specific version of the runtime by using the `FUNCTIONS_EXTENSION_VERSION` application setting in a function app. The function app is kept on the specified major version until you explicitly choose to move to a new version.
 
@@ -69,7 +68,7 @@ Use the following procedure to view the runtime version currently used by a func
  
    ![Select function app settings](./media/functions-versions/function-app-view-version.png)
 
-## Target the Functions version 2.0 runtime
+## Target the version 2.0 runtime
 
 >[!IMPORTANT]   
 > Azure Functions runtime 2.0 is in preview and currently not all features of Azure Functions are supported. For more information, see [Differences between runtime 1.x and 2.x](#differences-between-runtime-1x-and-2x) earlier in this article.
@@ -80,7 +79,7 @@ You can move a function app to the runtime version 2.0 preview in the Azure port
 
 This setting is equivalent to setting the `FUNCTIONS_EXTENSION_VERSION` application setting to `beta`. Choose the **~1** button to move back to the current publicly supported major version. You can also use the Azure CLI to update this application setting. 
 
-## Target a specific runtime version from the portal
+## Target a version using the portal
 
 When you need to target a version other than the current major version or version 2.0, you must set the `FUNCTIONS_EXTENSION_VERSION` application setting.
 
@@ -94,7 +93,7 @@ When you need to target a version other than the current major version or versio
 
 3. Click **Save** to save the application setting update. 
 
-## Target a specific version using Azure CLI
+## Target a version using Azure CLI
 
  You can also set the `FUNCTIONS_EXTENSION_VERSION` from the Azure CLI. Using the Azure CLI, update the application setting in the function app with the [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#set) command.
 
@@ -111,3 +110,6 @@ You can run this command from the [Azure Cloud Shell](../cloud-shell/overview.md
 
 > [!div class="nextstepaction"]
 > [Target the 2.0 runtime in your local development environment](functions-run-local.md)
+
+> [!div class="nextstepaction"]
+> [See Release notes for runtime versions](https://github.com/Azure/azure-webjobs-sdk-script/releases)
