@@ -23,7 +23,7 @@
 ## [Synonyms preview in .NET](search-synonyms-tutorial-sdk.md)
 ## [SQL data indexer in .NET](search-indexer-tutorial.md)
 ## [Portal walkthrough](search-get-started-portal.md)
-## [Search semi-structured dataT](search-semi-structured-data.md)
+## [Search semi-structured data](search-semi-structured-data.md)
 
 # How to
 

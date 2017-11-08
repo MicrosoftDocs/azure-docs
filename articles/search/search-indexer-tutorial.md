@@ -22,7 +22,7 @@ ms.author: heidist
 
 *Indexers* are a component of Azure Search that crawl external data sources, populating a search index with searchable content. Of all indexers, the indexer for Azure SQL database is the most widely used. 
 
-This tutorial demonstrates indexer configuration using a sample Azure SQL database. Proficiency in indexer configuration is helpful because it simplifies the amount of code you have to write and maintain. Rather than preparing and pushing a schema-compliant JSON dataset, you can attach an indexer to a data source, have the indexer extract data, and push it into an index, and optionally run it on a schedule to pick up changes in the underlying database.
+This tutorial demonstrates indexer configuration using a sample Azure SQL database. Proficiency in indexer configuration is helpful because it simplifies the amount of code you have to write and maintain. Rather than preparing and pushing a schema-compliant JSON dataset, you can attach an indexer to a data source, have the indexer extract data, push it into an index, and optionally run it on a recurring schedule to pick up changes in the underlying database.
 
 In this tutorial, you complete the following tasks, using the [Azure Search .NET client libraries](https://aka.ms/search-sdk) and a .NET Core console application:
 
@@ -92,7 +92,7 @@ You can find the search service endpoint and key in the portal. A key provides a
 4. Copy and paste it as your first entry into **appsettings.json** in Visual Studio.
 
   > [!Note]
-  > A service name is part of the endpoint that includes search.windows.net. If you are curious, you can see the full URL in **Essentials** on the Overview page. The URL should look like this example: https://<your-service-name>.search.windows.net
+  > A service name is part of the endpoint that includes search.windows.net. If you are curious, you can see the full URL in **Essentials** on the Overview page. The URL should look like this example: https://your-service-name.search.windows.net
 
 5. On the left, in **Settings** > **Keys**, copy one of the admin keys and paste it as the second entry into i**appsettings.json**. Keys are alphanumeric strings generated for your service during provisioning and used to authorize access to service operations. 
 
