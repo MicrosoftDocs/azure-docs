@@ -18,7 +18,7 @@ ms.author: tdykstra
 ---
 # Supported languages in Azure Functions
 
-This article explains the levels of support offered for languages that you can use with the Azure Functions runtime.
+This article explains the levels of support offered for languages that you can use with Azure Functions.
 
 ## Levels of support
 
@@ -28,53 +28,19 @@ There are three levels of support:
 * **Preview** - Not yet supported but is expected to reach GA status in the future.
 * **Experimental** - Not supported and might be abandoned in the future; no guarantee of eventual preview or GA status.
 
-  >[!NOTE] 
-  > Don't use experimental languages for anything that you rely on, as there is no official support for them.  You can request help by [creating GitHub issues](https://github.com/Azure/azure-webjobs-sdk-script/issues), but support cases should not be opened for problems with experimental languages. 
+## Languages supported in v1 and v2
 
-## Functions v1 runtime
+[Two versions of the Azure Functions runtime](functions-versions.md) are available. The v1 runtime is GA. It's the only runtime that is approved for production applications. The v2 runtime is currently in preview, so the languages it supports are in preview. The following table shows which languages are supported in each runtime version.
 
-The [v1 runtime](functions-versions.md) is GA. It is the only runtime that is approved for production applications.
-
-### Supported languages
-
-The following languages have GA status in v1:
-
-* [C#](functions-reference-csharp.md)
-* [JavaScript](functions-reference-node.md)
-* [F#](functions-reference-fsharp.md)
+[!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
 
 ### Experimental languages
 
-The following languages are experimental in v1:
+The experimental languages in v1 don't scale well and don't support all bindings. For example, Python is slow because the Functions runtime runs *python.exe* with each function invocation. And while Python supports HTTP bindings, it can't access the request object. PowerShell is limited to version 4.0 because that is what's installed on the VMs that Function apps run on
 
-* **Python**
-* **PHP**
-* **PowerShell**
-* **Batch (.cmd, .bat)**
-* **TypeScript** 
-* **Bash**
+The v2 runtime doesn't support experimental languages. In v2 we will add support for a language only when it scales well and supports advanced triggers.
 
-Functions that use these languages don't scale well and don't support all bindings. For example, Python is slow because the Functions runtime runs *python.exe* with each function invocation. And while Python supports HTTP bindings, it can't access the request object. PowerShell is limited to version 4.0 because that is what's installed on the VMs that Function apps run on
-
-## Functions v2 runtime (preview)
-
-The [v2 runtime](functions-versions.md) is currently in preview, so the languages it supports are in preview.
-
-### Preview languages
-
-The following languages are in preview in v2:
-
-* [C#](functions-reference-csharp.md)
-* [JavaScript](functions-reference-node.md)
-* [Java](functions-reference-java.md).
-
-Support for [F#](functions-reference-fsharp.md) will be added later.
-
-### Experimental languages
- 
-No experimental languages are supported in v2. We decided to add support only for languages that can scale well and support advanced triggers. We're working on a new architecture for Python that will enable it to meet these requirements.
-
-If you want to use one of the experimental languages, you can continue using the v1 runtime, but be aware of the warning mentioned [earlier](#levels-of-support).
+If you want to use one of the languages that are only available in v1, stay on the v1 runtime. But don't use experimental languages for anything that you rely on, as there is no official support for them. You can request help by [creating GitHub issues](https://github.com/Azure/azure-webjobs-sdk-script/issues), but support cases should not be opened for problems with experimental languages. 
 
 ## Next steps
 
