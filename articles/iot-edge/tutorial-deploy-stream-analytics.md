@@ -85,17 +85,17 @@ In this section, you create an Azure Stream Analytics job to take data from your
 
 6. Under **Job Topology**, select **Query**, and enter the following:
 
-```sql
-SELECT  
-    System.Timestamp AS OutputTime, 
-    Avg(temp) AS AvgMachineTemperature 
-INTO 
-   alert 
-FROM 
-   temperature TIMESTAMP BY timeCreated 
-GROUP BY TumblingWindow(second,30) 
-HAVING Avg(temp)>100
-```
+    ```sql
+    SELECT  
+        System.Timestamp AS OutputTime, 
+        Avg(temp) AS AvgMachineTemperature 
+    INTO 
+       alert 
+    FROM 
+       temperature TIMESTAMP BY timeCreated 
+    GROUP BY TumblingWindow(second,30) 
+    HAVING Avg(temp)>100
+    ```
 
 1. Under **Job Topology**, select **Devices**, and click **Add** to enter in your IoT Hub information.  Select _Disabled_ under **Monitoring**.  Click **Save**.
 
