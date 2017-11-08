@@ -23,7 +23,7 @@ ms.reviewer: douglasl
 
 This PowerShell example configures Data Sync to sync between an Azure SQL Database and a SQL Server on-premises database. 
 
-This sample requires the Azure PowerShell module version 4.2 or later. Run `Get-Module -ListAvailable AzureRM` to find the installed version. If you need to install or upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps).
+This sample requires the Azure PowerShell module version 4.2 or later. Run `Get-Module -ListAvailable AzureRM` to find the installed version. If you need to install or upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
  
 Run `Login-AzureRmAccount` to create a connection with Azure.
 
