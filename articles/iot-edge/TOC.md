@@ -1,6 +1,10 @@
 # Overview
 ## [Azure and IoT](iot-edge-what-is-azure-iot.md)
+<<<<<<< HEAD
 ## [About Azure IoT Edge](what-is-iot-edge.md)
+=======
+## [About Azure IoT Edge](how-iot-edge-works.md)
+>>>>>>> fc15064bf0873e9869e79cc58571477a80049e87
 
 # Quickstart
 ## [Analyze data on the edge](quickstart.md)
