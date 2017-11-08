@@ -43,9 +43,9 @@ APIs such as Microsoft Graph require an access token to allow accessing specific
 MSAL manages caching and refreshing access tokens for you, so your application doesn't need to.
 
 
-### NuGet packages
+### Libraries
 
-This guide uses the following NuGet packages:
+This guide uses the following library:
 
 |Library|Description|
 |---|---|
