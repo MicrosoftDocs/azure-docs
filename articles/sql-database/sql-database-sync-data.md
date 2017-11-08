@@ -18,7 +18,7 @@ ms.date: 06/27/2017
 ms.author: douglasl
 ms.reviewer: douglasl
 ---
-# Sync data across multiple cloud and on-premises databases with SQL Data Sync
+# Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync (Preview)
 
 SQL Data Sync is a service built on Azure SQL Database that lets you synchronize the data you select bi-directionally across multiple SQL databases and SQL Server instances.
 
@@ -151,7 +151,9 @@ Data Sync uses insert, update, and delete triggers to track changes. It creates 
 
 For more info about SQL Data Sync, see:
 
--   [Getting Started with SQL Data Sync](sql-database-get-started-sql-data-sync.md)
+-   [Get Started with Azure SQL Data Sync](sql-database-get-started-sql-data-sync.md)
+-   [Best practices for Azure SQL Data Sync](sql-database-best-practices-data-sync.md)
+-   [Troubleshoot issues with Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
 
 -   Complete PowerShell examples that show how to configure SQL Data Sync:
     -   [Use PowerShell to sync between multiple Azure SQL databases](scripts/sql-database-sync-data-between-sql-databases.md)
@@ -162,5 +164,4 @@ For more info about SQL Data Sync, see:
 For more info about SQL Database, see:
 
 -   [SQL Database Overview](sql-database-technical-overview.md)
-
 -   [Database Lifecycle Management](https://msdn.microsoft.com/library/jj907294.aspx)
