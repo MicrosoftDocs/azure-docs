@@ -33,7 +33,6 @@
     href: concepts-service.md
   - name: Security concepts
     href: concepts-security.md
-  - name: Security 
 - name: How-to guides
   items:
   - name: Manage device enrollments
