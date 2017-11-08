@@ -3,7 +3,7 @@ title: Migrating from Azure Access Control Service (ACS)
 description: Options for moving apps & services off of Azure Access Control Service | Microsoft Azure
 services: active-directory
 documentationcenter: dev-center-name
-author: dastrock
+author: dstrockis
 manager: mbaldwin
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/31/2017
-ms.author: dstrockis
+ms.author: dastrock
 ---
 
 
