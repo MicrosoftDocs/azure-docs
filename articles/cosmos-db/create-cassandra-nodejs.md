@@ -37,7 +37,9 @@ This quick start demonstrates how to create an Azure Cosmos DB account for the [
 
 ## Create a database account
 
-[!INCLUDE cosmos-db-create-dbaccount-cassandra] 
+Before you can create a document database, you need to create a Cassandra account with Azure Cosmos DB.
+
+[!INCLUDE [cosmos-db-create-dbaccount-cassandra](../../includes/cosmos-db-create-dbaccount-cassandra.md)]
 
 ## Clone the sample application
 
