@@ -18,7 +18,7 @@ ms.author: bwren
 ---
 
 # What's changed in Log Analytics?
-In addition to the query language itself, there are several improvements and changes that you should be aware of when your Log Analytics workspace is [upgraded to the new query language](log-analytics-log-search-new.md).  This article briefly describes all the changes between a legacy and upgraded workspace with links to detailed content for each. 
+In addition to the query language itself, there are several improvements and changes that you should be aware of when your Log Analytics workspace is [upgraded to the new query language](log-analytics-log-search-new.md).  This article briefly describes the changes between a legacy and upgraded workspace with links to detailed content for each. 
 
 See [Log Analytics new log search FAQ and known issues](log-analytics-log-search-faq.md) for a description of any known issues with the upgrade and answers to common question.  
 
