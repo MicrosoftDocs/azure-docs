@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: "On Demand"
-ms.date: 09/19/2017
+ms.date: 11/08/2017
 ms.author: jovanpop
 
 ---
