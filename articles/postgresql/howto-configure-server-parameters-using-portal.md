@@ -43,5 +43,5 @@ To step through this how-to guide you need:
 
 ## Next steps
 Learn about:
-- [Overview of server parameters in Azure Database for PostgreSQL](concepts-server-parameters.md)
+- [Overview of server parameters in Azure Database for PostgreSQL](concepts-servers.md)
 - [Configuring parameters using the Azure CLI](howto-configure-server-parameters-using-cli.md)
