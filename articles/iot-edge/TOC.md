@@ -25,6 +25,7 @@
 ### [Development](module-development.md)
 ### [Composition](module-composition.md)
 ### [Deployment and monitoring](module-deployment-monitoring.md)
+## [Security](security.md)
 
 # Reference
 
