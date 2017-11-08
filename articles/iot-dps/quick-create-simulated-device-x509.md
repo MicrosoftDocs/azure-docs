@@ -20,7 +20,7 @@ ms.custom: mvc
 > * [TPM](quick-create-simulated-device.md)
 > * [X.509](quick-create-simulated-device-x509.md)
 
-These steps show how to create a simulated device on your development machine running Windows OS, run the Windows X.509 simulator as the [Hardware Security Module (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) of the device, and use the code sample to connect this simulated device with the Device Provisioning Service and your IoT hub. 
+These steps show how to simulate an X.509 device on your development machine running Windows OS, and use a code sample to connect this simulated device with the Device Provisioning Service and your IoT hub. 
 
 Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before you proceed.
 
@@ -58,7 +58,7 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
 
 1. Open the solution generated in the *cmake* folder named `azure_iot_sdks.sln`, and build it in Visual Studio.
 
-2. Right-click the **dice\_device\_enrollment** project under the **Provision\_Samples** folder. Run the solution. Enter `i` for Individual enrollment when prompted. The output window displays a locally generated device certificate for your simulated environment. Copy to clipboard the output starting from *-----BEGIN CERTIFICATE-----* and ending at *-----END PUBLIC KEY-----*, making sure to include both of these lines as well. 
+2. Right-click the **dice\_device\_enrollment** project under the **Provision\_Samples** folder, and select **Set as Startup Project**. Run the solution. In the output window, enter `i` for individual enrollment when prompted. The output window displays a locally generated X.509 certificate for your simulated device. Copy to clipboard the output starting from *-----BEGIN CERTIFICATE-----* and ending at *-----END PUBLIC KEY-----*, making sure to include both of these lines as well. 
  
 3. Create a file named **_X509testcertificate.pem_** on your Windows machine, open it in an editor of your choice, and copy the clipboard contents to this file. Save the file. 
 
@@ -100,7 +100,7 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
 
 4. Right-click the **prov\_dev\_client\_sample** project and select **Set as Startup Project**. Run the sample. Notice the messages that simulate the device booting and connecting to the Device Provisioning Service to get your IoT hub information. Close the window at the end of the messages.
 
-5. In the portal, navigate to the IoT hub linked to your provisioning service and open the **Device Explorer** blade. On successful provisioning of the simulated X.509 device to the hub, its device ID appears on the **Device Explorer** blade, with *STATUS* as **enabled**. Note that you might need to click the **Refresh** button at the top if you have already opened the blade prior to running the sample device application. 
+5. In the portal, navigate to the IoT hub linked to your provisioning service and open the **Device Explorer** blade. On successful provisioning of the simulated X.509 device to the hub, its device ID appears on the **Device Explorer** blade, with *STATUS* as **enabled**. Note that you might need to click the **Refresh** button at the top if you already opened the blade prior to running the sample device application. 
 
     ![Device is registered with the IoT hub](./media/quick-create-simulated-device/hub-registration.png) 
 
