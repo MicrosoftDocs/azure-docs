@@ -63,7 +63,7 @@ namespace CSHttpClientSample
             var client = new HttpClient();
 
             // Request headers - replace this example key with your valid key.
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "13hc77781f7e4b19b5fcdd72a8df7156"); // 
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "<your-subscription-key>"); // 
 
             // NOTE: You must use the same region in your REST call as you used to obtain your subscription keys.
             //   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
