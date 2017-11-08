@@ -43,6 +43,12 @@
 ### [Configure a router](expressroute-config-samples-routing.md)
 ### [Router configuration samples for NAT](expressroute-config-samples-nat.md)
 ## [Configure Network Performance Monitor for ExpressRoute](how-to-npm.md)
+## How To (classic deployment model)
+### [Modify a circuit](expressroute-howto-circuit-classic.md)
+### [Create and modify peering configuration](expressroute-howto-routing-classic.md)
+### [Link a virtual network to an ExpressRoute circuit](expressroute-howto-linkvnet-classic.md)
+### [Configure ExpressRoute and S2S coexisting connections](expressroute-howto-coexist-classic.md)
+### [Add a gateway to a VNet](expressroute-howto-add-gateway-classic.md)
 
 ## Best Practices
 ### [Best practices for network security and cloud services](../best-practices-network-security.md)
