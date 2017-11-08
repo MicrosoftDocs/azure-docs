@@ -3,7 +3,7 @@
 ## [About Azure IoT Edge](how-iot-edge-works.md)
 
 # Quickstart
-## [Analyze data on the edge](quickstart-analyze-data.md)
+## [Analyze data on the edge](quickstart.md)
 
 # Tutorials
 ## [Install Azure IoT Edge and deploy a module](tutorial-install-iot-edge.md)
