@@ -41,7 +41,7 @@ The key reason for this fluidity is that NMT uses the full context of a sentence
 
 NMT models are at the core of the API and are not visible to end users. 
 The only noticeable differences are
--	The improved translation quality, especially for languages such as Chinese, Japanese, and Arabic. View suported languages on [Microsoft.com](https://www.microsoft.com/en-us/translator/languages.aspx). 
+-	The improved translation quality, especially for languages such as Chinese, Japanese, and Arabic. View supported languages on [Microsoft.com](https://www.microsoft.com/en-us/translator/languages.aspx). 
 -	The incompatibility with the existing Hub and CTF customization features
 
 Learn more about [how NMT works](https://www.microsoft.com/en-us/translator/mt.aspx#nnt)
