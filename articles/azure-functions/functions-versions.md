@@ -17,33 +17,45 @@ ms.author: glenga
 ---
 # How to target Azure Functions runtime versions
 
-A function app runs on a specific version of the Azure Functions runtime. There are two major versions: 1.0 and 2.0. This article explains how to choose which major version to use and how to configure a function app to run on the version you choose.
+A function app runs on a specific version of the Azure Functions runtime. There are two major versions: 1.x and 2.x. This article explains how to choose which major version to use and how to configure a function app to run on the version you choose.
 
-For information about how to set the runtime version on your development computer, see [Code and test Azure Functions locally](functions-run-local.md).
+This article doesn't cover setting the runtime version on your development computer. For information about how to do that, see [Code and test Azure Functions locally](functions-run-local.md).
 
-## Azure Functions runtime major versions. earlier in this article.
-[Microsoft Graph bindings](functions-bindings-microsoft-graph.md) are supported only on the 2.0 runtime.
+## Differences between runtime 1.x and 2.x
 
-The following table indicates which programming languages are supported in the major versions.
+Runtime 1.x is the only version approved for production use. Runtime 2.x is in preview. 
+
+### Languages
+
+The following table indicates which programming languages are supported.
+
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
 
-For more information, see the following articles:
+For more information, see [Supported languages](supported-languages.md).
 
-* [Supported languages](supported-languages.md)
-* [Runtime 2.0 known issues](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Azure-Functions-runtime-2.0-known-issues).
-* [Release notes](https://github.com/Azure/azure-webjobs-sdk-script/releases)
+### Bindings 
+
+Some bindings that 1.x supports don't have support yet in 2.x. For information about bindings support and other functional gaps in 2.x, see [Runtime 2.0 known issues](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Azure-Functions-runtime-2.0-known-issues).
+
+One set of bindings works only in 2.x: [Microsoft Graph bindings](functions-bindings-microsoft-graph.md).
+
+### Cross-platform development
+
+Runtime 1.x supports function development only in the portal or on Windows; with 2.x you can develop and run Azure Functions on Linux or macOS.
+
+For more information about what's included in each version of the runtime, see the [Release notes](https://github.com/Azure/azure-webjobs-sdk-script/releases).
 
 ## The FUNCTIONS\_EXTENSION\_VERSION app setting
 
 Functions lets you target a specific version of the runtime by using the `FUNCTIONS_EXTENSION_VERSION` application setting in a function app. The function app is kept on the specified major version until you explicitly choose to move to a new version.
 
-If you specify only the major version (for example "~1"), the function app is updated to new minor versions of the runtime when they become available. New minor versions do not introduce breaking changes. If you specify a minor version (for example, "1.0.11360"), the function app is kept on that version until you explicitly change it. 
+If you specify only the major version ("~1" for 1.x or "beta" for 2.x), the function app is automatically updated to new minor versions of the runtime when they become available. New minor versions do not introduce breaking changes. If you specify a minor version (for example, "1.0.11360"), the function app is kept on that version until you explicitly change it. 
 
 When a new version is publicly available, a prompt in the portal gives you the chance to move up to that version. After moving to a new version, you can always use the `FUNCTIONS_EXTENSION_VERSION` application setting to move back to a previous version.
 
 A change to the runtime version causes a function app to restart.
 
-The values you can set in the `FUNCTIONS_EXTENSION_VERSION` app setting to causes automatic updates are currently "~1" for the v1 runtime and "beta" for v2.
+The values you can set in the `FUNCTIONS_EXTENSION_VERSION` app setting to enable automatic updates are currently "~1" for the 1.x runtime and "beta" for 2.x.
 
 ## View the current runtime version
 
@@ -60,9 +72,9 @@ Use the following procedure to view the runtime version currently used by a func
 ## Target the Functions version 2.0 runtime
 
 >[!IMPORTANT]   
-> Azure Functions runtime 2.0 is in preview. For more information see the , and currently not all features of Azure Functions are supported. For more information, see [Azure Functions runtime major versions](#azure-functions-runtime-major-versions) earlier in this article.
+> Azure Functions runtime 2.0 is in preview and currently not all features of Azure Functions are supported. For more information, see [Differences between runtime 1.x and 2.x](#differences-between-runtime-1x-and-2x) earlier in this article.
 
-You can move your function app to the runtime version 2.0 preview in the Azure portal. In the **Function app settings** tab,  choose **beta** under **Runtime version**.  
+You can move a function app to the runtime version 2.0 preview in the Azure portal. In the **Function app settings** tab,  choose **beta** under **Runtime version**.  
 
 ![Select function app settings](./media/functions-versions/function-app-view-version.png)
 
