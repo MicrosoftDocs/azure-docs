@@ -20,17 +20,17 @@ ms.author: heidist
 
 # How to crawl an Azure SQL database using Azure Search indexers
 
-*Indexers* are a component of Azure Search that crawl external data sources, populating a search index with searchable content. Of all indexers, the indexer for Azure SQL database is the most widely used. 
+[*Indexers*](search-indexer-overview.md) are a component of Azure Search that crawl external data sources, populating a [search index](search-what-is-an-index.md) with searchable content. Of all indexers, the indexer for Azure SQL database is the most widely used. 
 
-This tutorial demonstrates indexer configuration using a sample Azure SQL database. Proficiency in indexer configuration is helpful because it simplifies the amount of code you have to write and maintain. Rather than preparing and pushing a schema-compliant JSON dataset, you can attach an indexer to a data source, have the indexer extract data, push it into an index, and optionally run it on a recurring schedule to pick up changes in the underlying database.
+This tutorial shows you how to configure an indexer for extracting data from a sample Azure SQL database. Proficiency in indexer configuration is helpful because it simplifies the amount of code you have to write and maintain. Rather than preparing and pushing a schema-compliant JSON dataset, you can attach an indexer to a data source, have the indexer extract data, push data into an index, and optionally run the indexer on a recurring schedule to pick up changes in the underlying source.
 
-In this tutorial, you complete the following tasks, using the [Azure Search .NET client libraries](https://aka.ms/search-sdk) and a .NET Core console application:
+In this tutorial, using the [Azure Search .NET client libraries](https://aka.ms/search-sdk) and a .NET Core console application, you perform the following tasks:
 
 > [!div class="checklist"]
 > * Download and configure the solution
 > * Add search service information to application settings
 > * Prepare an external dataset in Azure SQL database 
-> * Understand the index and indexer definitions
+> * Review the index and indexer definitions in sample code
 > * Run the indexer code to import data
 > * Search the index
 > * View indexer configuration in the portal
@@ -231,7 +231,7 @@ In this step, compile and run the program.
 1. In Solution Explorer, right-click **DotNetHowToIndexers** and select **Build**.
 2. Again, right-click **DotNetHowToIndexers**, followed by **Debug** > **Start new instance**.
 
-A console window reports the status of each operation.
+The program executes in debug mode. A console window reports the status of each operation.
 
   ![SQL script](./media/search-indexer-tutorial/console-output.png)
 

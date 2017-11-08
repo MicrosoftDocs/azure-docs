@@ -1,5 +1,5 @@
 # [Overview](search-what-is-azure-search.md)
-## [About Azure Search](search-what-is-azure-search.md)
+## [What is Azure Search?](search-what-is-azure-search.md)
 
 # Get Started
 
