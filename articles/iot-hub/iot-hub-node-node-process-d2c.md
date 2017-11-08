@@ -21,9 +21,10 @@ ms.author: v-masebo
 
 [!INCLUDE [iot-hub-selector-process-d2c](../../includes/iot-hub-selector-process-d2c.md)]
 
-Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of devices and a solution back end. Other tutorials ([Get started with IoT Hub] and [Send cloud-to-device messages with IoT Hub][lnk-c2d]) show you how to use the basic device-to-cloud and cloud-to-device messaging functionality of IoT Hub.
+This tutorial builds on the ([Get started with IoT Hub] tutorial.  The tutorial:
 
-This tutorial builds on the code shown in the [Get started with IoT Hub] tutorial, and shows you how to use message routing to process device-to-cloud messages in a scalable way. The tutorial illustrates how to process messages that require immediate action from the solution back end or messages that need to be permanently stored. For example, a device might send an alarm message that triggers inserting a ticket into a CRM system. By contrast, data-point messages such as temperature telemetry, simply feed into an analytics engine to be stored for later analysis.
+* Shows you how to use routing rules to dispatch device-to-cloud messages in an easy, configuration-based way.
+* Illustrates how to isolate interactive messages that require immediate action from the solution back end for further processing.  For example, a device might send an alarm message that triggers inserting a ticket into a CRM system.  In contrast, data-point messages, such as temperature telemetry, feed into an analytics engine.
 
 At the end of this tutorial, you run three Node.js console apps:
 
@@ -40,7 +41,7 @@ To complete this tutorial, you need the following:
 * Node.js version 4.0.x or later.
 * An active Azure account. (If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.)
 
-You should have some basic knowledge of [Azure Storage] and [Azure Service Bus].
+We also recommend reading about [Azure Storage] and [Azure Service Bus].
 
 ## Send interactive messages from a device app
 In this section, you modify the device app you created in the [Get started with IoT Hub] tutorial to occasionally send messages that require immediate processing.
@@ -93,9 +94,9 @@ In this section, you modify the device app you created in the [Get started with 
 2. Save and close the **simulateddevice\SimulatedDevice.js** file.
 
     > [!NOTE]
-    > For the sake of simplicity, this tutorial does not implement any retry policy. In production code, you should implement a retry policy such as exponential backoff, as suggested in the MSDN article [Transient Fault Handling].
+    > We strongly recommend that you implement a retry policy such as exponential backoff, as suggested in the MSDN article [Transient Fault Handling].
 
-## Add queues to your IoT hub and route messages to them
+## Add Service Bus queue to your IoT hub and route messages to it
 
 In this section, you create both a Service Bus queue and a Storage account, connect them to your IoT hub, and configure your IoT hub to send messages to the queue based on the presence of a property on the message and all messages to the Storage account. For more information about how to process messages from Service Bus queues, see [Get started with queues][lnk-sb-queues-node] and how to manage storage, see [Get started with Azure Storage][Azure Storage].
 
