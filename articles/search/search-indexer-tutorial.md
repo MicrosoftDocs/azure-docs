@@ -20,11 +20,11 @@ ms.author: heidist
 
 # How to crawl an Azure SQL database using Azure Search indexers
 
-*Indexers* are a component of Azure Search that crawl external data sources, populating a search index with searchable content. Currently, Azure Search provides indexers for these data sources: Azure Blob storage, Azure Table storage, Azure Cosmos DB, and SQL Server data in Azure (as a service or a virtual machine). 
+*Indexers* are a component of Azure Search that crawl external data sources, populating a search index with searchable content. Of all indexers, the indexer for Azure SQL database is the most widely used. 
 
-Proficiency in indexer configuration is helpful; it simplifies the amount of code you have to write and maintain. Rather than preparing and pushing a schema-compliant JSON dataset, you can attach an indexer to a data source, have the indexer extract data from the source, and push it into an index in Azure Search.
+This tutorial demonstrates indexer configuration using a sample Azure SQL database. Proficiency in indexer configuration is helpful because it simplifies the amount of code you have to write and maintain. Rather than preparing and pushing a schema-compliant JSON dataset, you can attach an indexer to a data source, have the indexer extract data, and push it into an index, and optionally run it on a schedule to pick up changes in the underlying database.
 
-This tutorial demonstrates indexing of Azure SQL databases through the following tasks, using the [Azure Search .NET client libraries](https://aka.ms/search-sdk) and a .NET Core console application:
+In this tutorial, you complete the following tasks, using the [Azure Search .NET client libraries](https://aka.ms/search-sdk) and a .NET Core console application:
 
 > [!div class="checklist"]
 > * Download and configure the solution
@@ -85,14 +85,14 @@ You can find the search service endpoint and key in the portal. A key provides a
 
 2. Open the service page.
 
-3. On the top, find the service name in the main page. In the following screenshot, it's `azs-tutorial`.
+3. On the top, find the service name in the main page. In the following screenshot, it's *azs-tutorial*.
 
    ![Service name](./media/search-indexer-tutorial/service-name.png)
 
 4. Copy and paste it as your first entry into **appsettings.json** in Visual Studio.
 
   > [!Note]
-  > A service name is part of the endpoint that includes search.windows.net. If you are curious, you can see the full URL in **Essentials** on the Overview page. The URL should look like this example: `https://<your-service-name>.search.windows.net`
+  > A service name is part of the endpoint that includes search.windows.net. If you are curious, you can see the full URL in **Essentials** on the Overview page. The URL should look like this example: https://<your-service-name>.search.windows.net
 
 5. On the left, in **Settings** > **Keys**, copy one of the admin keys and paste it as the second entry into i**appsettings.json**. Keys are alphanumeric strings generated for your service during provisioning and used to authorize access to service operations. 
 
@@ -112,7 +112,7 @@ In this step, create an external data source that an indexer can crawl. The data
 
 ### Azure SQL Database
 
-You can use the Azure portal and the hotels.sql file from the sample to create the dataset in Azure SQL Database. Azure Search consumes flattened rowsets, such as one provided by a view, query, or stored procedure.
+You can use the Azure portal and the *hotels.sql* file from the sample to create the dataset in Azure SQL Database. Azure Search consumes flattened rowsets, such as one provided by a view, query, or stored procedure.
 
 The following exercise assumes no existing server or database, and includes instructions for creating both in step 2. If you have an existing resource, you can add the hotels table, starting at step 4.
 
@@ -134,7 +134,7 @@ The following exercise assumes no existing server or database, and includes inst
 
 6. Click **Open query** and navigate to the location of *hotels.sql*. 
 
-7. Select the file and click **Open**. The script that should look similar to the following screenshot:
+7. Select the file and click **Open**. The script should look similar to the following screenshot:
 
   ![SQL script](./media/search-indexer-tutorial/sql-script.png)
 
@@ -164,7 +164,7 @@ The following exercise assumes no existing server or database, and includes inst
     }
     ```
 
-## Understand index and indexer definitions
+## Understand index and indexer code
 
 Your code is now ready to build and run. Before doing that, take a minute to study the index and indexer definitions for this sample. The relevant code is in two files:
 
