@@ -184,6 +184,9 @@ The following is the scenario support matrix for this single sign-on experience:
 For more information see [DigitalPersona Composite Authentication](http://www.crossmatch.com/uploadedFiles/Support/Reference_Material/DigitalPersona-Office-365-Deployment-Guide.pdf).
 
 ## ForgeRock Identity Platform Access Management V5.x
+
+The following is the scenario support matrix for this single sign-on experience:
+
 | Client | Support | Exceptions |
 | --- | --- | --- |
 | Web-based clients such as Exchange Web Access and SharePoint Online |Supported |None|
