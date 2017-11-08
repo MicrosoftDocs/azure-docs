@@ -16,6 +16,15 @@ metadata:
   ms.author: carolz
 abstract:
   description: Azure Cosmos DB is a globally distributed database service designed to enable you to elastically and independently scale throughput and storage across any number of geographical regions with a comprehensive SLA.  You can develop document, key/value, or graph databases with Cosmos DB using a series of popular APIs and programming models. Learn how to use Cosmos DB with our quickstarts, tutorials, and samples.
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: ./media/index/video.png
+      width: 250  
+    title: Build planet scale mobile apps in minutes (16:17)
+    href: https://azure.microsoft.com/en-us/resources/videos/build-2017-azure-cosmos-db-build-planet-scale-mobile-apps-in-minutes/
+    width: 250
 sections:
 - title: 5-Minute Quickstarts
   items:
