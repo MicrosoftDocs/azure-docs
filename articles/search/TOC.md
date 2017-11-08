@@ -1,9 +1,8 @@
 # [Overview](search-what-is-azure-search.md)
-## [What is Azure Search?](search-what-is-azure-search.md)
+## [About Azure Search](search-what-is-azure-search.md)
 
 # Get Started
 
-## [Choose a SKU](search-sku-tier.md)
 ## [Create a service](search-create-service-portal.md)
 ## [Create an index](search-what-is-an-index.md)
 ### [Azure portal](search-create-index-portal.md)
@@ -20,21 +19,23 @@
 
 # Tutorials
 
-## [.NET](search-howto-dotnet-sdk.md)
-## [.NET synonyms preview](search-synonyms-tutorial-sdk.md)
-## [Portal](search-get-started-portal.md)
-## [Search semi-structured data](search-semi-structured-data.md)
-## [Node.js](search-get-started-nodejs.md)
-## [Java](search-get-started-java.md)
+## [Develop in .NET](search-howto-dotnet-sdk.md)
+## [Synonyms preview in .NET](search-synonyms-tutorial-sdk.md)
+## [Azure SQL Database indexer in .NET](search-indexer-tutorial.md)
+## [Portal walkthrough](search-get-started-portal.md)
+## [Search semi-structured data with REST](search-semi-structured-data.md)
 
 # How to
 
 ## Plan and design
+### [Choose a SKU](search-sku-tier.md)
 ### [Service limits](search-limits-quotas-capacity.md)
 ### [Service scalability](search-capacity-planning.md)
 ### [Design patterns for multitenancy](search-modeling-multitenant-saas-applications.md)
 ## Develop
 ### [API versions](search-api-versions.md)
+### [Develop in Node.js](search-get-started-nodejs.md)
+### [Develop in Java](search-get-started-java.md)
 ### [Upgrade the SDK](search-dotnet-sdk-migration.md)
 ### [Upgrade the REST API](search-api-migration.md)
 ### [Model complex data types](search-howto-complex-data-types.md)
