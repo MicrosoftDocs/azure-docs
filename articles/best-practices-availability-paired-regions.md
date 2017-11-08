@@ -55,7 +55,9 @@ Figure 1 – Azure regional pair diagram
 Table 1 - Mapping of Azure regional pairs
 
 > (1) Brazil South is unique because it is paired with a region outside of its own geography. Brazil South’s secondary region is South Central US, but South Central US’s secondary region is not Brazil South.
+>
 > (2) US Gov Iowa's secondary region is US Gov Virginia, but US Gov Virginia's secondary region is not US Gov Iowa.
+> 
 > (3) US Gov Virginia's secondary region is US Gov Texas, but US Gov Texas' secondary region is not US Gov Virginia.
 
 We recommend that you replicate workloads across regional pairs to benefit from Azure’s isolation and availability policies. For example, planned Azure system updates are deployed sequentially (not at the same time) across paired regions. That means that even in the rare event of a faulty update, both regions will not be affected simultaneously. Furthermore, in the unlikely event of a broad outage, recovery of at least one region out of every pair is prioritized.
