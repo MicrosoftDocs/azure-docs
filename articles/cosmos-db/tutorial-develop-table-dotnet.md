@@ -73,7 +73,48 @@ Let's start by creating an Azure Cosmos DB account in the Azure portal.
 
 ## Clone the sample application
 
-[!INCLUDE [cosmos-db-table-clonerunsample](../../includes/cosmos-db-table-clonerunsample.md)]
+Now let's clone a Table app from github, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
+
+1. Open a git terminal window, such as git bash, and use the `cd` command to change to a folder to install the sample app. 
+
+    ```bash
+    cd "C:\git-samples"
+    ```
+
+2. Run the following command to clone the sample repository. This command creates a copy of the sample app on your computer. 
+
+    ```bash
+    git clone https://github.com/Azure-Samples/azure-cosmos-db-table-dotnet-getting-started.git
+    ```
+
+3. Then open the solution file in Visual Studio. 
+
+## Update your connection string
+
+Now go back to the Azure portal to get your connection string information and copy it into the app. This enables your app to communicate with your hosted database. 
+
+1. In the [Azure portal](http://portal.azure.com/), click **Connection String**. 
+
+    Use the copy buttons on the right side of the screen to copy the CONNECTION STRING.
+
+    ![View and copy the CONNECTION STRING in the Connection String pane](./media/create-table-dotnet/connection-string.png)
+
+2. In Visual Studio, open the app.config file. 
+
+3. Paste the CONNECTION STRING value into the app.config file as the value of the CosmosDBStorageConnectionString. 
+
+    `<add key="CosmosDBStorageConnectionString" 
+        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://account-name.table.cosmosdb.net" />`    
+
+    > [!NOTE]
+    > To use this app with Azure Table storage, you need to change the connection string in `app.config file`. Use the account name as Table-account name and key as Azure Storage Primary key. <br>
+    >`<add key="StandardStorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key;EndpointSuffix=core.windows.net" />`
+    > 
+    >
+
+4. Save the app.config file.
+
+You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
 
 ## Azure Cosmos DB capabilities
 Azure Cosmos DB supports a number of capabilities that are not available in the Azure Table storage API. 

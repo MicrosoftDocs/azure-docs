@@ -27,7 +27,7 @@ At this time, the [Azure Cosmos DB Table API](table-introduction.md) has one .NE
 - Quickstart: [Azure Cosmos DB: Build a .NET application using the Table API](create-table-dotnet.md)
 - Tutorial: [Azure Cosmos DB: Develop with the Table API in .NET](tutorial-develop-table-dotnet.md)
 
-Additional information about working with the Table API is available in the [FAQ: Develop with the Table API](faq.md#develop-with-the-table-api-preview) article.
+Additional information about working with the Table API is available in the [FAQ: Develop with the Table API](faq.md#develop-with-the-table-api) article.
 
 ## Developing with the Azure Table storage
 
