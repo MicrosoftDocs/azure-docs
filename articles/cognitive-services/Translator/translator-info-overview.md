@@ -23,14 +23,12 @@ Microsoft Translator is a cloud based machine translation service. At the core o
 Learn more about the [Microsoft Translator service](https://www.microsoft.com/en-us/translator/home.aspx)
 
 
-## Language customization and translation improvement
-Two extensions of the core Microsoft Translator service, the Microsoft Translator Hub and the Collaborative Translations Framework, can be used in conjunction with the Translator Text API to help you customize and improve your translated text.
+## Language customization
+An extension of the core Microsoft Translator service, the Microsoft Translator Hub, can be used in conjunction with the Translator Text API to help you customize and improve your translated text.
 
-**Microsoft Translator Hub**&mdash; With the Microsoft Translator Hub, you can build translation systems that understand the terminology used in your own business and industry. Your customized translation system will then easily integrate into your existing applications, workflows and websites, across multiple types of devices, through the regular Microsoft Translator Text API, by using the category parameter. The Hub only support customization of traditional statistical translation systems, not the new neural ones. 
+With the Microsoft Translator Hub, you can build translation systems that understand the terminology used in your own business and industry. Your customized translation system will then easily integrate into your existing applications, workflows and websites, across multiple types of devices, through the regular Microsoft Translator Text API, by using the category parameter. The Hub only support customization of traditional statistical translation systems, not the new neural ones. 
 
-**Collaborative Translations Framework (CTF)**&mdash; The Microsoft Translator API offers the unique ability to improve the accuracy of the delivered translations through the use of the Collaborative Translations Framework, allowing users to recommend alternative translations to those provided by Translator’s automatic translation engine. 
-
-Learn more about [language customization and translation improvement](customization.md)
+Learn more about [language customization](customization.md)
 
 ## Microsoft Translator Neural Machine Translation (NMT)
 Since it began, Microsoft Translator API has used industry standard statistical machine translation (SMT) technology to provide translations. The technology has reached a plateau in terms of performance improvement. Translation quality is no longer improving in any significant way for generic systems with SMT.
@@ -42,7 +40,7 @@ The key reason for this fluidity is that NMT uses the full context of a sentence
 NMT models are at the core of the API and are not visible to end users. 
 The only noticeable differences are
 -	The improved translation quality, especially for languages such as Chinese, Japanese, and Arabic. View supported languages on [Microsoft.com](https://www.microsoft.com/en-us/translator/languages.aspx). 
--	The incompatibility with the existing Hub and CTF customization features
+-	The incompatibility with the existing Hub customization features
 
 Learn more about [how NMT works](https://www.microsoft.com/en-us/translator/mt.aspx#nnt)
 
