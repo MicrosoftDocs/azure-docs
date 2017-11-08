@@ -64,14 +64,11 @@ You can configure the ASE with a different egress address after the ASE is alrea
 
        "userWhitelistedIpRanges": null 
       
-  to something like the following, but using the addresses you will set as the egress address range 
+  to something like the following. Use the addresses you want to set as the egress address range. 
 
-      "userWhitelistedIpRanges": [
-          "11.22.33.44/32".
-          "55.66.77.0/24"
-          ] 
+      "userWhitelistedIpRanges": ["11.22.33.44/32", "55.66.77.0/24"] 
 
-   as appropriate. Then click PUT at the top. This will trigger a scale operation on your ASE and adjust the firewall.
+  Click PUT at the top. This will trigger a scale operation on your ASE and adjust the firewall.
    
 3. Create or edit a route table and populate the rules to allow access to/from the management addresses that map to your ASE location.  The management addreses are here, [App Service Environment management addresses][management] 
 
@@ -87,7 +84,9 @@ In the event that your VNet is already configured to force tunnel all the traffi
 1. Pre-create the subnet to be used by the ASE. This is needed to let you set routes and also because the template requires it.  
 1. Create a route table with the management IPs that map to your ASE location and assign it to your ASE
 1. Follow the directions here, [Creating an ASE with a template][templatecreate], and pull down the appropriate template
-1. Edit the azuredeploy.json file to include **userWhitelistedIpRanges** with your values in the form *["11.22.33.44/32", "55.66.77.0/30"]* as appropriate.
+1. Edit the azuredeploy.json file "resources" section. Include a line for **userWhitelistedIpRanges** with your values like:
+
+       "userWhitelistedIpRanges":  ["11.22.33.44/32", "55.66.77.0/30"]
 
 If this is configured properly then the ASE should start with no issues.  
 
