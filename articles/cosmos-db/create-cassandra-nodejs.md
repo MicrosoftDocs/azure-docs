@@ -14,8 +14,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 11/15/2017
-ms.author: mimig
+ms.date: 11/08/2017
+ms.author: govindk
 
 ---
 # Azure Cosmos DB: Build a Cassandra API app with Node.js and the Azure portal
@@ -31,15 +31,11 @@ This quick start demonstrates how to create an Azure Cosmos DB account, key/valu
 	* [Git](http://git-scm.com/)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
-[!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
+
 
 ## Create a database account
 
-[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
-
-## Add a table
-
-[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
+[!INCLUDE cosmos-db-create-dbaccount-cassandra] 
 
 ## Clone the sample application
 
@@ -50,89 +46,123 @@ Now let's clone a Cassandra API app from github, set the connection string, and 
 2. Run the following command to clone the sample repository. 
 
     ```bash
-    git clone https://github.com/Azure-Samples/azure-cosmos-db-documentdb-nodejs-getting-started.git
+    git clone https://github.com/Azure-Samples/azure-cosmos-db-cassandra-nodejs-getting-started.git
     ```
 
 ## Review the code
 
-Let's make a quick review of what's happening in the app. Open the `app.js` file and you find that these lines of code create the Azure Cosmos DB resources. 
+Let's make a quick review of what's happening in the app. Open the `uprofile.js` file and you find that these lines of code create the Azure Cosmos DB resources. 
 
-* The `documentClient` is initialized.
+* `User name and password` is set. You can pick this from the Connection string under settings for the account.  
+
+   ```nodejs
+   const authProviderLocalCassandra = new cassandra.auth.PlainTextAuthProvider(config.username, config.password);
+   ```
+
+* The `client` is initialized with contactPoint information. You an pick this from the Connection string under settings for the account
 
     ```nodejs
-    var client = new documentClient(config.endpoint, { "masterKey": config.primaryKey });
+   const client = new cassandra.Client({contactPoints: [config.contactPoint], authProvider: authProviderLocalCassandra});
     ```
 
-* A new database is created.
+* The `client` connects up with Cassandra API of Azure Comsos DB.
 
     ```nodejs
-    client.createDatabase(config.database, (err, created) => {
-        if (err) reject(err)
-        else resolve(created);
-    });
+    client.connect(next);
     ```
 
-* A new collection is created.
+* A new keyspace is created.
 
     ```nodejs
-    client.createCollection(databaseUrl, config.collection, { offerThroughput: 400 }, (err, created) => {
-        if (err) reject(err)
-        else resolve(created);
-    });
+    function createKeyspace(next) {
+    	var query = "CREATE KEYSPACE IF NOT EXISTS uprofile WITH replication = {'class': 'SimpleStrategy', 'replication_factor': '3' } ";
+    	client.execute(query, next);
+    	console.log("created keyspace");    
+  }
     ```
 
-* Some documents are created.
+* A new table is created.
+
+   ```nodejs
+   function createTable(next) {
+   	var query = "CREATE TABLE IF NOT EXISTS uprofile.user (user_id int PRIMARY KEY, user_name text, user_bcity text)";
+    	client.execute(query, next);
+    	console.log("created table");
+   },
+   ```
+
+* Some key value entities are inserted.
 
     ```nodejs
-    client.createDocument(collectionUrl, document, (err, created) => {
-        if (err) reject(err)
-        else resolve(created);
-    });
-    ```
-
-* A SQL query over JSON is performed.
-
-    ```nodejs
-    client.queryDocuments(
-        collectionUrl,
-        'SELECT VALUE r.children FROM root r WHERE r.lastName = "Andersen"'
-    ).toArray((err, results) => {
-        if (err) reject(err)
-        else {
-            for (var queryResult of results) {
-                let resultString = JSON.stringify(queryResult);
-                console.log(`\tQuery returned ${resultString}`);
-            }
-            console.log();
-            resolve(results);
+    ...
+    {
+          query: 'INSERT INTO  uprofile.user  (user_id, user_name , user_bcity) VALUES (?,?,?)',
+          params: [5, 'SubbannaG', 'Belgaum', '2017-10-3136']
         }
+    ];
+    client.batch(queries, { prepare: true}, next);
+    ```
+
+* A Query for getting all key values is performed.
+
+    ```nodejs
+   var query = 'SELECT * FROM uprofile.user';
+    client.execute(query, { prepare: true}, function (err, result) {
+      if (err) return next(err);
+      result.rows.forEach(function(row) {
+        console.log('Obtained row: %d | %s | %s ',row.user_id, row.user_name, row.user_bcity);
+      }, this);
+      next();
     });
-    ```    
+    ```  
+    
+ * A Query for getting a key value is performed.
+
+    ```nodejs
+    function selectById(next) {
+    	console.log("\Getting by id");
+    	var query = 'SELECT * FROM uprofile.user where user_id=1';
+    	client.execute(query, { prepare: true}, function (err, result) {
+      	if (err) return next(err);
+      		result.rows.forEach(function(row) {
+        	console.log('Obtained row: %d | %s | %s ',row.user_id, row.user_name, row.user_bcity);
+      	}, this);
+      	next();
+    	});
+    }
+    ```  
 
 ## Update your connection string
 
 Now go back to the Azure portal to get your connection string information and copy it into the app.
 
-1. In the [Azure portal](http://portal.azure.com/), in your Azure Cosmos DB account, in the left navigation click **Keys**, and then click **Read-write Keys**. You'll use the copy buttons on the right side of the screen to copy the URI and Primary Key into the `config.js` file in the next step.
+1. In the [Azure portal](http://portal.azure.com/), in your Azure Cosmos DB account, in the left navigation click **Connection String**, and then click **Read-write Keys**. You'll use the copy buttons on the right side of the screen to copy the USERNAME, PORT,CONTACTPOINT & PASSWORD into the `config.js` file in the next step.
 
-    ![View and copy an access key in the Azure portal, Keys blade](./media/create-cassandra-dotnet/keys.png)
+    ![View and copy an access user name, password and contact point in the Azure portal, connection string blade](./media/create-cassandra-dotnet/connectionstring.png)
 
-2. In Open the `config.js` file. 
+2. Open the `config.js` file. 
 
-3. Copy your URI value from the portal (using the copy button) and make it the value of the endpoint key in `config.js`. 
+3. Copy your URI value from the portal (using the copy button) and make it the value of the contactPoint key in `config.js`. 
 
-    `config.endpoint = "https://FILLME.documents.azure.com"`
+    `config.contactPoint = "<FILLME>:10350"`
 
-4. Then copy your PRIMARY KEY value from the portal and make it the value of the `config.primaryKey` in `config.js`. You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
+4. Copy your USERNAME value from the portal (using the copy button) and make it the value of the endpoint key in `config.js`
 
-    `config.primaryKey "FILLME"`
+    `config.username = 'FILLME';`
+    
+5. Copy your PASSWORD value from the portal (using the copy button) and make it the value of the endpoint key in `config.js`
+
+    `config.password = 'FILLME';`
     
 ## Run the app
 1. Run `npm install` in a terminal to install required npm modules
 
-2. Run `node app.js` in a terminal to start your node application.
+2. Run `node uprofile.js` in a terminal to start your node application.
 
-You can now go back to Data Explorer and see query, modify, and work with this new data. 
+3. Verify the results as expected when the command line.
+ ![View and verify the outpu](./media/create-cassandra-dotnet/node-jsprofile-output.png)
+
+4. You can now go back to Data Explorer and see query, modify, and work with this new data. 
 
 ## Review SLAs in the Azure portal
 

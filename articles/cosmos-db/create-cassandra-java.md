@@ -58,7 +58,7 @@ Now let's switch to working with code. Let's clone a DocumentDB API app from Git
 2. Run the following command to clone the sample repository. This command creates a copy of the sample app on your computer.
 
     ```bash
-    git clone git clone https://github.com/kansrini/azure-cosmosdb-cassandra-java-getting-started.git
+    git clone git clone https://github.com/Azure-Samples/azure-cosmos-db-cassandra-java-getting-started.git
     ```
 
 ## Review the code
