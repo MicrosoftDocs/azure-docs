@@ -52,7 +52,7 @@ $resourceGroup = "contoso-storage-accounts"
 New-AzureRmResourceGroup -Name $resourceGroup -Location $location 
 ```
 
-## Create a general-purpose standard storage account
+## Create a general-purpose storage account
 
 There are several types of storage accounts, depending on how it is going to be used, and for which service (blobs, files, tables, or queues). This table shows the possibilities.
 
@@ -61,7 +61,7 @@ There are several types of storage accounts, depending on how it is going to be 
 |**Services supported**| Blob, File, Table, Queue services | Blob service | Blob service|
 |**Types of blobs supported**|Block blobs, page blobs, append blobs | Page blobs | Block blobs and append blobs|
 
-Use [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount) to create a general-purpose standard storage account that you can use for all four services. Name the storage account *contosomvcstandard*, and configure it to have Locally Redundant Storage and blob encryption enabled.
+Use [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount) to create a general-purpose storage account that you can use for all four services. Name the storage account *contosomvcstandard*, and configure it to have Locally Redundant Storage and blob encryption enabled.
 
 ```powershell
 New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
