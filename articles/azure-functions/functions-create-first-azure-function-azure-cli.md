@@ -16,7 +16,7 @@ manager: cfowler
 
 # Create your first function using the Azure CLI
 
-This quickstart tutorial walks through how to use Azure Functions to create your first function. You use the Azure CLI to create a function app, which is the [serverless](https://azure.microsoft.com/overview/serverless-computing/) infrastructure that hosts your function. The function code itself is deployed from a GitHub sample repository.    
+This quickstart topic walks you through how to use Azure Functions to create your first function. You use the Azure CLI to create a function app, which is the [serverless](https://azure.microsoft.com/overview/serverless-computing/) infrastructure that hosts your function. The function code itself is deployed from a GitHub sample repository.    
 
 You can follow the steps below using a Mac, Windows, or Linux computer. 
 
