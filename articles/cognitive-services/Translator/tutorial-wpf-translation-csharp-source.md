@@ -14,7 +14,7 @@ ms.author: v-jerkin
 ---
 # Tutorial: Microsoft Translator WPF application in C#
 
-This is the source code discussed in the [WPF C# tuturial](tutorial-wpf-translation-csharp.md) for the Microsoft Translator text API. To run the app, copy the source code into the appropriate file in a new WPF project in Visual Studio.
+This is the source code discussed in the [WPF C# tutorial](tutorial-wpf-translation-csharp.md) for the Microsoft Translator text API. To run the app, copy the source code into the appropriate file in a new WPF project in Visual Studio.
 
 ## MainWindow.xaml.cs
 
