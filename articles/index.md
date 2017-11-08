@@ -5,6 +5,8 @@ experimental: true
 experiment_id: "81ba5f65-59fb-4d"
 title: Microsoft Azure Documentation
 description: Learn how to build and manage powerful applications using Microsoft Azure cloud services. Get documentation, sample code, tutorials, and more.
+featureFlags:
+- clicktale
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -311,7 +313,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         <li>
                                             <a href="/azure/container-service/">
                                                 <img src="media/index/containerservice.svg" alt="" />
-                                                <p>Azure Container Service</p>
+                                                <p>Azure Container Service (AKS)</p>
                                             </a>
                                         </li>
                                         <li>
@@ -395,7 +397,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         <li>
                                             <a href="/azure/container-service/">
                                                 <img src="media/index/ContainerService.svg" alt="" />
-                                                <p>Azure Container Service</p>
+                                                <p>Azure Container Service (AKS)</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1361,8 +1363,8 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Container Service</h3>
-                                                    <p>Scale and orchestrate containers using Kubernetes, DC/OS or Docker Swarm</p>
+                                                    <h3>Azure Container Service (AKS)</h3>
+                                                    <p>Run containerized application at scale using Kubernetes</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2030,8 +2032,8 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Container Service</h3>
-                                                    <p>Scale and orchestrate containers using Kubernetes, DC/OS or Docker Swarm</p>
+                                                    <h3>Azure Container Service (AKS)</h3>
+                                                    <p>Run containerized application at scale using Kubernetes</p>
                                                 </div>
                                             </div>
                                         </div>

@@ -32,7 +32,7 @@ Download| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615
 
 
 ## 1.1.649.0
-Status: Not yet released
+Status: October 27 2017
 
 >[!NOTE]
 >This build is not available to customers through the Azure AD Connect Auto Upgrade feature.

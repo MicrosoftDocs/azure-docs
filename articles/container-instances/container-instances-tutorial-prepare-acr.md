@@ -5,7 +5,7 @@ services: container-instances
 documentationcenter: ''
 author: neilpeterson
 manager: timlt
-editor: ''
+editor: mmacy
 tags: acs, azure-container-service
 keywords: Docker, Containers, Micro-services, Kubernetes, DC/OS, Azure
 
@@ -15,7 +15,7 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2017
+ms.date: 11/07/2017
 ms.author: seanmck
 ms.custom: mvc
 ---
@@ -51,13 +51,19 @@ Create a resource group with the [az group create](/cli/azure/group#create) comm
 az group create --name myResourceGroup --location eastus
 ```
 
-Create an Azure Container registry with the [az acr create](/cli/azure/acr#create) command. The name of a Container Registry **must be unique**. In the following example, we use the name *mycontainerregistry082*.
+Create an Azure container registry with the [az acr create](/cli/azure/acr#create) command. The container registry name **must be unique** within Azure, and must contain 5-50 alphanumeric characters. Replace `<acrName>` with a unique name for your registry:
+
+```azurecli
+az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
+```
+
+For example, to create an Azure container registry named *mycontainerregistry082*:
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name mycontainerregistry082 --sku Basic --admin-enabled true
 ```
 
-Throughout the rest of this tutorial, we use `<acrname>` as a placeholder for the container registry name that you chose.
+Throughout the rest of this tutorial, we use `<acrName>` as a placeholder for the container registry name that you chose.
 
 ## Container registry login
 
@@ -67,7 +73,7 @@ You must log in to your ACR instance before pushing images to it. Use the [az ac
 az acr login --name <acrName>
 ```
 
-The command returns a 'Login Succeeded’ message once completed.
+The command returns a `Login Succeeded` message once completed.
 
 ## Tag container image
 
@@ -86,13 +92,21 @@ REPOSITORY                   TAG                 IMAGE ID            CREATED    
 aci-tutorial-app             latest              5c745774dfa9        39 seconds ago       68.1 MB
 ```
 
-To get the loginServer name, run the following command:
+To get the loginServer name, run the following command. Replace `<acrName>` with the name of your container registry.
 
 ```azurecli
 az acr show --name <acrName> --query loginServer --output table
 ```
 
-Tag the *aci-tutorial-app* image with the loginServer of the container registry. Also, add `:v1` to the end of the image name. This tag indicates the image version number.
+Example output:
+
+```
+Result
+------------------------
+mycontainerregistry082.azurecr.io
+```
+
+Tag the *aci-tutorial-app* image with the loginServer of your container registry. Also, add `:v1` to the end of the image name. This tag indicates the image version number. Replace `<acrLoginServer>` with the result of the `az acr show` command you just executed.
 
 ```bash
 docker tag aci-tutorial-app <acrLoginServer>/aci-tutorial-app:v1
@@ -114,12 +128,23 @@ mycontainerregistry082.azurecr.io/aci-tutorial-app        v1                  a9
 
 ## Push image to Azure Container Registry
 
-Push the *aci-tutorial-app* image to the registry.
-
-Using the following example, replace the container registry loginServer name with the loginServer from your environment.
+Push the *aci-tutorial-app* image to the registry with the `docker push` command. Replace `<acrLoginServer>` with the full login server name you obtain in the earlier step.
 
 ```bash
 docker push <acrLoginServer>/aci-tutorial-app:v1
+```
+
+The `push` operation should take a few seconds to a few minutes depending on your Internet connection, and output is similar to the following:
+
+```bash
+The push refers to a repository [mycontainerregistry082.azurecr.io/aci-tutorial-app]
+3db9cac20d49: Pushed
+13f653351004: Pushed
+4cd158165f4d: Pushed
+d8fbd47558a8: Pushed
+44ab46125c35: Pushed
+5bef08742407: Pushed
+v1: digest: sha256:ed67fff971da47175856505585dcd92d1270c3b37543e8afd46014d328f05715 size: 1576
 ```
 
 ## List images in Azure Container Registry

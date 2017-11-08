@@ -109,6 +109,40 @@ No. You can't update the computer name property. The new VM inherits it from the
 * [List of templates using Managed Disks](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
 * https://github.com/chagarw/MDPP
 
+## Migrate to Managed Disks 
+
+**What changes are required in a pre-existing Azure Backup service configuration prior/after migration to Managed Disks?**
+
+No changes are required. 
+
+**Will my VM backups created via Azure Backup service before the migration continue to work?**
+
+Yes, backups work seamlessly.
+
+**What changes are required in a pre-existing Azure Disks Encryption configuration prior/after migration to Managed Disks?**
+
+No changes are required. 
+
+**Is automated migration of an existing VM Scale Sets (VMSS) from unmanaged disks to Managed Disks supported?**
+
+No. You can create a new VMSS with Managed Disks using the image from your old VMSS with unmanaged disks. 
+
+**Can I create a Managed Disk from a page blob snapshot taken before migrating to Managed Disks?**
+
+No. You can export a page blob snapshot as a page blob and then create a Managed Disk from the exported page blob. 
+
+**Can I fail over my on-premises machines protected by Azure Site Recovery to a VM with Managed Disks?**
+
+Yes, you can choose to failover to a VM with Managed Disks.
+
+**Is there any impact of migration on Azure VMs protected by Azure Site Recovery (ASR) via Azure to Azure replication?**
+
+Yes. ASR Azure to Azure protection is not supported for VMs with Managed Disks. It is going to be supported by the end of CY2018. 
+
+**Can I migrate VMs with unmanaged disks that are located on storage accounts that are or were previously encrypted to managed disks?**
+
+Yes
+
 ## Managed Disks and Storage Service Encryption 
 
 **Is Azure Storage Service Encryption enabled by default when I create a managed disk?**
