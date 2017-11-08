@@ -20,9 +20,9 @@ ms.author: heidist
 
 # How to crawl an Azure SQL database using Azure Search indexers
 
-[*Indexers*](search-indexer-overview.md) are a component of Azure Search that crawl external data sources, populating a [search index](search-what-is-an-index.md) with searchable content. Of all indexers, the indexer for Azure SQL database is the most widely used. 
+This tutorial shows you how to configure an indexer for extracting searchale data from a sample Azure SQL database. [*Indexers*](search-indexer-overview.md) are a component of Azure Search that crawl external data sources, populating a [search index](search-what-is-an-index.md) with content. Of all indexers, the indexer for Azure SQL database is the most widely used. 
 
-This tutorial shows you how to configure an indexer for extracting data from a sample Azure SQL database. Proficiency in indexer configuration is helpful because it simplifies the amount of code you have to write and maintain. Rather than preparing and pushing a schema-compliant JSON dataset, you can attach an indexer to a data source, have the indexer extract data, push data into an index, and optionally run the indexer on a recurring schedule to pick up changes in the underlying source.
+Proficiency in indexer configuration is helpful because it simplifies the amount of code you have to write and maintain. Rather than preparing and pushing a schema-compliant JSON dataset, you can attach an indexer to a data source, have the indexer extract data and insert it into an index, and optionally run the indexer on a recurring schedule to pick up changes in the underlying source.
 
 In this tutorial, using the [Azure Search .NET client libraries](https://aka.ms/search-sdk) and a .NET Core console application, you perform the following tasks:
 
@@ -77,7 +77,7 @@ In Solution Explorer, open **appsettings.json** so that you can populate each se
 }
 ```
 
-### Get the search service URL and admin api-key
+### Get the search service name and admin api-key
 
 You can find the search service endpoint and key in the portal. A key provides access to service operations. Admin keys allow write-access, necessary for creating and deleting objects such as indexes and indexers, in your service.
 
@@ -92,11 +92,11 @@ You can find the search service endpoint and key in the portal. A key provides a
 4. Copy and paste it as your first entry into **appsettings.json** in Visual Studio.
 
   > [!Note]
-  > A service name is part of the endpoint that includes search.windows.net. If you are curious, you can see the full URL in **Essentials** on the Overview page. The URL should look like this example: https://your-service-name.search.windows.net
+  > A service name is part of the endpoint that includes search.windows.net. If you are curious, you can see the full URL in **Essentials** on the Overview page. The URL looks like this example: https://your-service-name.search.windows.net
 
-5. On the left, in **Settings** > **Keys**, copy one of the admin keys and paste it as the second entry into i**appsettings.json**. Keys are alphanumeric strings generated for your service during provisioning and used to authorize access to service operations. 
+5. On the left, in **Settings** > **Keys**, copy one of the admin keys and paste it as the second entry into i**appsettings.json**. Keys are alphanumeric strings generated for your service during provisioning and required for authorized access to service operations. 
 
-  After adding both settings, your file should look similar to this example:
+  After adding both settings, your file should look something like this example:
 
   ```json
   {
@@ -112,9 +112,9 @@ In this step, create an external data source that an indexer can crawl. The data
 
 ### Azure SQL Database
 
-You can use the Azure portal and the *hotels.sql* file from the sample to create the dataset in Azure SQL Database. Azure Search consumes flattened rowsets, such as one provided by a view, query, or stored procedure.
+You can use the Azure portal and the *hotels.sql* file from the sample to create the dataset in Azure SQL Database. Azure Search consumes flattened rowsets, such as one provided by a view, query, or stored procedure. The SQL script provided in the sample solution creates and populates a single table.
 
-The following exercise assumes no existing server or database, and includes instructions for creating both in step 2. If you have an existing resource, you can add the hotels table, starting at step 4.
+The following exercise assumes no existing server or database, and instructs you to create both in step 2. Optionally, if you have an existing resource, you can add the hotels table to it, starting at step 4.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/). 
 
@@ -246,10 +246,18 @@ Your code runs locally in Visual Studio, connecting to your search service on Az
 In the Azure portal, in the search service Overview page, click **Search explorer** at the top to submit a few queries on the new index.
 
 1. Click **Change index** at the top to select the *hotels* index.
-2. Click **Search** to issue an empty search. The three entries in your index are returned as JSON documents.
+
+2. Click the **Search** butoon to issue an empty search. 
+
+  The three entries in your index are returned as JSON documents. Search explorer returns documents in JSON so that you can view the entire structure.
+
 3. Next, enter a search string: `search=river&$count=true`. 
 
-This query invokes full text search on the term `river`, and the result includes a count of the matching documents. In this case, only one document matches the query.
+  This query invokes full text search on the term `river`, and the result includes a count of the matching documents. Returning the count of matching documents is helpful in testing scenarios when you have a large index with thousands or millions of documents. In this case, only one document matches the query.
+
+4. Lastly, enter a search string that limits the JSON output to fields of interest: `search=river&$count=true&$select=hotelId, baseRate, description`. 
+
+  The query response is reduced to selected fields, resulting in more concise output.
 
 ## View indexer configuration
 
