@@ -81,6 +81,23 @@ When you are working in Azure ML Workbench, you can also send us a frown (or a s
 
 - RevoScalePy library is only supported on Windows and Linux (in Docker containers). It is not supported on macOS.
 
+## Delete Experimentation Account
+You can use CLI to delete an Experimentation Account, but you must delete the child workspaces and the child projects within those child workspaces first.
+
+```azure-cli
+# delete a project
+$ az ml project delete -g <resource group name> -a <experimentation account name> -w <worksapce name> -n <project name>
+
+# delete a workspace 
+$ az ml workspace delete -g <resource group name> -a <experimentation account name> -n <worksapce name>
+
+# delete an experimentation account
+$ az ml account experimentation delete -g <resource group name> -n <experimentation account name>
+```
+
+You can also delete the projects and workspaces from within the Workbench app.
+
+
 ## File name too long on Windows
 If you uses Workbench on Windows, you might run into the default maximum 260-character file name length limit, which could surface as a somewhat misleading "system cannot find the path specified" error. You can modify a registry key setting to allow much longer file path name. Review [this article](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath) for more details on how to set the _MAX_PATH_ registry key.
 
