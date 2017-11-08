@@ -13,11 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 05/24/2016
+ms.date: 11/03/2017
 ms.author: v-sharos
 
 ---
 # Use the StorSimple Manager service to manage StorSimple volume containers
+> [!NOTE]
+> The classic portal for StorSimple is deprecated. Your StorSimple Device Managers will automatically move to the new Azure portal as per the deprecation schedule. You will receive an email and a portal notification for this move. This document will also be retired soon. To view the version of this article for the new Azure portal, go to [Use the StorSimple Manager service to manage StorSimple volume containers](storsimple-8000-manage-volume-containers.md). For any questions regarding the move, see [FAQ: Move to Azure portal](storsimple-8000-move-azure-portal-faq.md).
+
 ## Overview
 This tutorial explains how to use the StorSimple Manager service to create and manage StorSimple volume containers.
 
