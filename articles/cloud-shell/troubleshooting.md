@@ -35,6 +35,18 @@ Known resolutions for issues in Azure Cloud Shell include:
  - **Details**: Cloud Shell requires the ability to establish a websocket connection to Cloud Shell infrastructure.
  - **Resolution**: Check you have configured your network settings to enable sending https requests and websocket requests to domains at *.console.azure.com.
 
+## Bash resolutions
+
+### Cannot run az login
+
+- **Details**: Running `az login` will not work as you are already authenticated under the account used to sign into Cloud Shell or Azure portal.
+- **Resolution**: Utilize your account used to sign in or sign out and reauthenticate with your intended Azure account.
+
+### Cannot run the docker daemon
+
+- **Details**: Cloud Shell utilizes a container to host your shell environment, as a result running the daemon is disallowed.
+- **Resolution**: Utilize [docker-machine](https://docs.docker.com/machine/overview/), which is installed by default, to manage docker containers from a remote Docker host.
+
 ## PowerShell resolutions
 
 ### No $Home directory persistence

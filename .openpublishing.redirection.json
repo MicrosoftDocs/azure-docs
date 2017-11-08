@@ -26,9 +26,14 @@
 	    "redirect_document_id": false 
 	},
 	{
-            "source_path": "articles/active-directory/cloudappdiscovery-overview.md",
-            "redirect_url": "/azure/active-directory/cloudappdiscovery-get-started",
-            "redirect_document_id": false
+        "source_path": "articles/active-directory/cloudappdiscovery-overview.md",
+        "redirect_url": "/azure/active-directory/cloudappdiscovery-get-started",
+        "redirect_document_id": false
+    },
+    {
+            "source_path": "articles/active-directory/active-directory-users-work-info-azure-portal.md",
+            "redirect_url": "/azure/active-directory/active-directory-users-profile-azure-portal",
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/virtual-machines/linux/impactful-maintenance.md",
