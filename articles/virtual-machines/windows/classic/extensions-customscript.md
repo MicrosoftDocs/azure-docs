@@ -3,7 +3,7 @@ title: Custom Script extension on a Windows VM | Microsoft Docs
 description: Automate Azure VM configuration tasks by using the Custom Script extension to run PowerShell scripts on a remote Windows VM
 services: virtual-machines-windows
 documentationcenter: ''
-author: neilpeterson
+author: danielsollondon
 manager: timlt
 editor: ''
 tags: azure-service-management
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/17/2017
-ms.author: nepeters
+ms.author: danis
 
 ---
 
