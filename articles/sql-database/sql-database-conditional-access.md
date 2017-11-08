@@ -22,7 +22,7 @@ Both SQL Database and SQL Data Warehouse support Microsoft Conditional Access. T
 - When multi-factor authentication is enabled, you must connect with at supported tool, such as the latest SSMS. For more information, see [Configure Azure SQL Database multi-factor authentication for SQL Server Management Studio](sql-database-ssms-mfa-authentication-configure.md).  
 
 ## Configure CA for Azure SQL DB/DW  
-1.	Sign in to the Portal, select **Azure Active Directory**, and then select **Conditional access**. For more information, see [Azure Active Directory Conditional Access technical reference](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-technical-reference).  
+1.	Sign in to the Portal, select **Azure Active Directory**, and then select **Conditional access**. For more information, see [Azure Active Directory Conditional Access technical reference](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference).  
   ![conditional access blade](./media/sql-database-conditional-access/conditional-access-blade.png) 
      
 2.	In the **Conditional Access-Policies** blade, click **New policy**, provide a name, and then click **Configure rules**.  
