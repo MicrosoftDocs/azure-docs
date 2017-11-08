@@ -59,7 +59,7 @@ Indexers are paired with an index schema. If you are using the API (rather than 
 
 ### Step 3: Configure and run the indexer
 
-Until now, definitions for the data source and index have been parsingMode agnostic. However, in step 3 for Indexer configuration, you specify how you want the blobs to be imported and structured in an Azure Search index.
+Until now, definitions for the data source and index have been parsingMode agnostic. However, in step 3 for Indexer configuration, the path diverges depending on how you want the JSON blob content to be parsed and structured in an Azure Search index.
 
 When calling the indexer, do the following:
 
