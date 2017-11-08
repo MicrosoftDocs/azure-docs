@@ -20,16 +20,17 @@ ms.author: mimig
 
 # Azure Cosmos DB: Build a Cassandra web app with .NET and the Azure portal
 
-Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, table, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
+Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, table, key-value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quick start demonstrates how to create an Azure Cosmos DB account, key/value database, and table using the Azure portal. You'll then build and deploy a profile web app built on the [Cassandra API](cassandra-introduction.md) using .NET by cloning a sample from GitHub.  
+This quick start demonstrates how to create an Azure Cosmos DB account for the [Cassandra API](cassandra-introduction.md) by using the Azure portal. You'll then build a profile console app, as shown in the following image, with sample data cloning a .NET sample from GitHub.  
+
+![View and verify the output](./media/create-cassandra-dotnet/output.png)
 
 ## Prerequisites
 
 If you don't already have Visual Studio 2017 installed, you can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
-[!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]  
 
 <a id="create-account"></a>
 ## Create a database account
@@ -78,15 +79,17 @@ Let's make a quick review of what's happening in the app. Open the TODO file and
 
 ## Update your connection string
 
-Now go back to the Azure portal to get your connection string information and copy it into the app.
+Now go back to the Azure portal to get your connection string information and copy it into the app. This enables your app to communicate with your hosted database.
 
-1. In the [Azure portal](http://portal.azure.com/), in your Azure Cosmos DB account, in the left navigation click **Keys**, and then click **Read-write Keys**. You'll use the copy buttons on the right side of the screen to copy the URI and Primary Key into the web.config file in the next step.
+1. In the [Azure portal](http://portal.azure.com/), click **Connection String**. 
 
-    ![View and copy an access key in the Azure portal, Keys blade](./media/create-documentdb-dotnet/keys.png)
+    Use the copy buttons on the right side of the screen to copy the USERNAME value.
+
+    ![View and copy an access key in the Azure portal, Keys blade](./media/create-cassandra-dotnet/keys.png)
 
 2. In Visual Studio 2017, open the web.config file. 
 
-3. Copy your URI value from the portal (using the copy button) and make it the value of the endpoint key in web.config. 
+3. Copy your USERNAME value from the portal (using the copy button) and make it the value of the endpoint key in web.config. 
 
     `<add key="endpoint" value="FILLME" />`
 
@@ -101,11 +104,9 @@ Now go back to the Azure portal to get your connection string information and co
 
 3. From the results, install the **Microsoft.Azure.DocumentDB** library. This installs the Microsoft.Azure.DocumentDB package as well as all dependencies.
 
-4. Click CTRL + F5 to run the application. Your app displays in your browser. 
+4. Click CTRL + F5 to run the application. Your app displays in your the command window. 
 
-5. Click **Create New** in the browser and create a few new tasks in your to-do app.
-
-   ![Todo app with sample data](./media/create-cassandra-dotnet/azure-comosdb-todo-app-list.png)
+    ![View and verify the output](./media/create-cassandra-dotnet/output.png)
 
 You can now go back to Data Explorer and see query, modify, and work with this new data. 
 

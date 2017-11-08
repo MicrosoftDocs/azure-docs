@@ -20,14 +20,15 @@ ms.author: mimig
 
 # Azure Cosmos DB: Build a Cassandra API app with Java and the Azure portal
 
-Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, table, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
+Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, table, key-value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quick start demonstrates how to create an Azure Cosmos DB account, key/value database, and table using the Azure portal. You'll then build and deploy a profile web app built on the [Cassandra API](cassandra-introduction.md) using Java by cloning a sample from GitHub.  
+This quick start demonstrates how to create an Azure Cosmos DB account for the [Cassandra API](cassandra-introduction.md) by using the Azure portal. You'll then build a profile console app, as shown in the following image, with sample data cloning a Java sample from GitHub.  
+
+![View and verify the output](./media/create-cassandra-java/output.png)  
 
 ## Prerequisites
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
-[!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 In addition: 
 
@@ -111,7 +112,7 @@ Now go back to the Azure portal to get your connection string information and co
     
     At the end of the program, all the resources from this app are deleted from your account so that you don't incur any charges. 
 
-    ![Console output](./media/create-cassandra-java/console-output.png)
+    ![Console output](./media/create-cassandra-java/output.png)
 
 
 ## Review SLAs in the Azure portal

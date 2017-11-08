@@ -20,9 +20,11 @@ ms.author: govindk
 ---
 # Azure Cosmos DB: Build a Cassandra API app with Node.js and the Azure portal
 
-Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, table, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
+Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, table, key-value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quick start demonstrates how to create an Azure Cosmos DB account, key/value database, and table using the Azure portal. You'll then build and deploy a profile web app built on the [Cassandra API](cassandra-introduction.md) using Node.je by cloning a sample from GitHub.  
+This quick start demonstrates how to create an Azure Cosmos DB account for the [Cassandra API](cassandra-introduction.md) by using the Azure portal. You'll then build a profile console app, as shown in the following image, with sample data cloning a Node.js sample from GitHub.  
+
+![View and verify the output](./media/create-cassandra-dotnet/output.png)
 
 ## Prerequisites
 
@@ -53,19 +55,19 @@ Now let's clone a Cassandra API app from github, set the connection string, and 
 
 Let's make a quick review of what's happening in the app. Open the `uprofile.js` file and you find that these lines of code create the Azure Cosmos DB resources. 
 
-* `User name and password` is set. You can pick this from the Connection string under settings for the account.  
+* User name and password is set using the connection string page in the Azure portal.  
 
    ```nodejs
    const authProviderLocalCassandra = new cassandra.auth.PlainTextAuthProvider(config.username, config.password);
    ```
 
-* The `client` is initialized with contactPoint information. You an pick this from the Connection string under settings for the account
+* The `client` is initialized with contactPoint information. The contactPoint is retrieved from the Azure portal.
 
     ```nodejs
    const client = new cassandra.Client({contactPoints: [config.contactPoint], authProvider: authProviderLocalCassandra});
     ```
 
-* The `client` connects up with Cassandra API of Azure Comsos DB.
+* The `client` connects to the Azure Cosmos DB Cassandra API.
 
     ```nodejs
     client.connect(next);
@@ -91,7 +93,7 @@ Let's make a quick review of what's happening in the app. Open the `uprofile.js`
    },
    ```
 
-* Some key value entities are inserted.
+* Key/value entities are inserted.
 
     ```nodejs
     ...
@@ -103,7 +105,7 @@ Let's make a quick review of what's happening in the app. Open the `uprofile.js`
     client.batch(queries, { prepare: true}, next);
     ```
 
-* A Query for getting all key values is performed.
+* Query to get get all key values.
 
     ```nodejs
    var query = 'SELECT * FROM uprofile.user';
@@ -116,7 +118,7 @@ Let's make a quick review of what's happening in the app. Open the `uprofile.js`
     });
     ```  
     
- * A Query for getting a key value is performed.
+ * Query to get a key-value.
 
     ```nodejs
     function selectById(next) {
@@ -136,13 +138,13 @@ Let's make a quick review of what's happening in the app. Open the `uprofile.js`
 
 Now go back to the Azure portal to get your connection string information and copy it into the app.
 
-1. In the [Azure portal](http://portal.azure.com/), in your Azure Cosmos DB account, in the left navigation click **Connection String**, and then click **Read-write Keys**. You'll use the copy buttons on the right side of the screen to copy the USERNAME, PORT,CONTACTPOINT & PASSWORD into the `config.js` file in the next step.
+1. In the [Azure portal](http://portal.azure.com/), in your Azure Cosmos DB account, in the left navigation click **Connection String**, and then click **Read-write Keys**. You'll use the copy buttons on the right side of the screen to copy the CONTACT POINT, USERNAME, and PASSWORD into the `config.js` file in the next step.
 
-    ![View and copy an access user name, password and contact point in the Azure portal, connection string blade](./media/create-cassandra-dotnet/connectionstring.png)
+    ![View and copy an access user name, password and contact point in the Azure portal, connection string blade](./media/create-cassandra-dotnet/keys.png)
 
 2. Open the `config.js` file. 
 
-3. Copy your URI value from the portal (using the copy button) and make it the value of the contactPoint key in `config.js`. 
+3. Copy your CONTACT POINT value from the portal (using the copy button) and make it the value of the contactPoint key in `config.js`. 
 
     `config.contactPoint = "<FILLME>:10350"`
 
@@ -159,10 +161,11 @@ Now go back to the Azure portal to get your connection string information and co
 
 2. Run `node uprofile.js` in a terminal to start your node application.
 
-3. Verify the results as expected when the command line.
- ![View and verify the outpu](./media/create-cassandra-dotnet/node-jsprofile-output.png)
+3. Verify the results as expected from the command line.
 
-4. You can now go back to Data Explorer and see query, modify, and work with this new data. 
+    ![View and verify the output](./media/create-cassandra-dotnet/output.png)
+
+4. You can now go back to Data Explorer to see query, modify, and work with this new data. 
 
 ## Review SLAs in the Azure portal
 
