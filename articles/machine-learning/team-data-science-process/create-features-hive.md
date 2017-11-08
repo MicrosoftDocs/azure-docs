@@ -39,13 +39,13 @@ This article assumes that you have:
 ## <a name="hive-featureengineering"></a>Feature Generation
 In this section, several examples of the ways in which features can be generating using Hive queries are described. Once you have generated additional features, you can either add them as columns to the existing table or create a new table with the additional features and primary key, which can then be joined with the original table. Here are the examples presented:
 
-1. [Frequency based Feature Generation](#hive-frequencyfeature)
+1. [Frequency-based Feature Generation](#hive-frequencyfeature)
 2. [Risks of Categorical Variables in Binary Classification](#hive-riskfeature)
 3. [Extract features from Datetime Field](#hive-datefeatures)
 4. [Extract features from Text Field](#hive-textfeatures)
 5. [Calculate distance between GPS coordinates](#hive-gpsdistance)
 
-### <a name="hive-frequencyfeature"></a>Frequency based Feature Generation
+### <a name="hive-frequencyfeature"></a>Frequency-based Feature Generation
 It is often useful to calculate the frequencies of the levels of a categorical variable, or the frequencies of certain combinations of levels from multiple categorical variables. Users can use the following script to calculate these frequencies:
 
         select
@@ -60,7 +60,7 @@ It is often useful to calculate the frequencies of the levels of a categorical v
 
 
 ### <a name="hive-riskfeature"></a>Risks of Categorical Variables in Binary Classification
-In binary classification, we need to convert non-numeric categorical variables into numeric features when the models being used only take numeric features. This is done by replacing each non-numeric level with a numeric risk. In this section, we show some generic Hive queries that calculate the risk values (log odds) of a categorical variable.
+In binary classification, we need to convert non-numeric categorical variables into numeric features when the models being used only take numeric features. This is done by replacing each non-numeric level with a numeric risk. This section shows some generic Hive queries that calculate the risk values (log odds) of a categorical variable.
 
         set smooth_param1=1;
         set smooth_param2=20;
@@ -80,12 +80,12 @@ In binary classification, we need to convert non-numeric categorical variables i
             group by <column_name1>, <column_name2>
             )b
 
-In this example, variables `smooth_param1` and `smooth_param2` are set to smooth the risk values calculated from the data. Risks have a range between -Inf and Inf. A risks > 0 indicates that the probability that the target is equal to 1 is greater than 0.5.
+In this example, variables `smooth_param1` and `smooth_param2` are set to smooth the risk values calculated from the data. Risks have a range between -Inf and Inf. A risk > 0 indicates that the probability that the target is equal to 1 is greater than 0.5.
 
 After the risk table is calculated, users can assign risk values to a table by joining it with the risk table. The Hive joining query was provided in previous section.
 
 ### <a name="hive-datefeatures"></a>Extract features from Datetime Fields
-Hive comes with a set of UDFs for processing datetime fields. In Hive, the default datetime format is 'yyyy-MM-dd 00:00:00' ('1970-01-01 12:21:32' for example). In this section, we show examples that extract the day of a month, the month from a datetime field, and other examples that convert a datetime string in a format other than the default format to a datetime string in default format.
+Hive comes with a set of UDFs for processing datetime fields. In Hive, the default datetime format is 'yyyy-MM-dd 00:00:00' ('1970-01-01 12:21:32' for example). This section shows examples that extract the day of a month, the month from a datetime field, and other examples that convert a datetime string in a format other than the default format to a datetime string in default format.
 
         select day(<datetime field>), month(<datetime field>)
         from <databasename>.<tablename>;
@@ -111,7 +111,7 @@ When the Hive table has a text field that contains a string of words that are de
         from <databasename>.<tablename>;
 
 ### <a name="hive-gpsdistance"></a>Calculate distances between sets of GPS coordinates
-The query given in this section can be directly applied to the NYC Taxi Trip Data. The purpose of this query is to show how to apply an embedded mathematical functions in Hive to generate features.
+The query given in this section can be directly applied to the NYC Taxi Trip Data. The purpose of this query is to show how to apply an embedded mathematical function in Hive to generate features.
 
 The fields that are used in this query are the GPS coordinates of pickup and dropoff locations, named *pickup\_longitude*, *pickup\_latitude*, *dropoff\_longitude*, and *dropoff\_latitude*. The queries that calculate the direct distance between the pickup and dropoff coordinates are:
 
@@ -140,20 +140,20 @@ A full list of Hive embedded UDFs can be found in the **Built-in Functions** sec
 ## <a name="tuning"></a> Advanced topics: Tune Hive Parameters to Improve Query Speed
 The default parameter settings of Hive cluster might not be suitable for the Hive queries and the data that the queries are processing. In this section, we discuss some parameters that users can tune that improve the performance of Hive queries. Users need to add the parameter tuning queries before the queries of processing data.
 
-1. **Java heap space**: For queries involving joining large datasets, or processing long records, **running out of heap space** is one of the common error. This can be tuned by setting parameters *mapreduce.map.java.opts* and *mapreduce.task.io.sort.mb* to desired values. Here is an example:
+1. **Java heap space**: For queries involving joining large datasets, or processing long records, **running out of heap space** is one of the common errors. This can be tuned by setting parameters *mapreduce.map.java.opts* and *mapreduce.task.io.sort.mb* to desired values. Here is an example:
    
         set mapreduce.map.java.opts=-Xmx4096m;
         set mapreduce.task.io.sort.mb=-Xmx1024m;
 
     This parameter allocates 4GB memory to Java heap space and also makes sorting more efficient by allocating more memory for it. It is a good idea to play with these allocations if there are any job failure errors related to heap space.
 
-1. **DFS block size** : This parameter sets the smallest unit of data that the file system stores. As an example, if the DFS block size is 128MB, then any data of size less than and up to 128MB is stored in a single block, while data that is larger than 128MB is allotted extra blocks. Choosing a very small block size causes large overheads in Hadoop since the name node has to process many more requests to find the relevant block pertaining to the file. A recommended setting when dealing with gigabytes (or larger) data is :
+1. **DFS block size**: This parameter sets the smallest unit of data that the file system stores. As an example, if the DFS block size is 128MB, then any data of size less than and up to 128MB is stored in a single block, while data that is larger than 128MB is allotted extra blocks. Choosing a very small block size causes large overheads in Hadoop since the name node has to process many more requests to find the relevant block pertaining to the file. A recommended setting when dealing with gigabytes (or larger) data is:
    
         set dfs.block.size=128m;
-2. **Optimizing join operation in Hive** : While join operations in the map/reduce framework typically take place in the reduce phase, sometimes, enormous gains can be achieved by scheduling joins in the map phase (also called "mapjoins"). To direct Hive to do this whenever possible, we can set :
+2. **Optimizing join operation in Hive**: While join operations in the map/reduce framework typically take place in the reduce phase, sometimes, enormous gains can be achieved by scheduling joins in the map phase (also called "mapjoins"). To direct Hive to do this whenever possible, set:
    
         set hive.auto.convert.join=true;
-3. **Specifying the number of mappers to Hive** : While Hadoop allows the user to set the number of reducers, the number of mappers is typically not be set by the user. A trick that allows some degree of control on this number is to choose the Hadoop variables, *mapred.min.split.size* and *mapred.max.split.size* as the size of each map task is determined by :
+3. **Specifying the number of mappers to Hive**: While Hadoop allows the user to set the number of reducers, the number of mappers is typically not be set by the user. A trick that allows some degree of control on this number is to choose the Hadoop variables, *mapred.min.split.size* and *mapred.max.split.size* as the size of each map task is determined by:
    
         num_maps = max(mapred.min.split.size, min(mapred.max.split.size, dfs.block.size))
    
