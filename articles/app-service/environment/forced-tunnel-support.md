@@ -62,8 +62,10 @@ You can configure the ASE with a different egress address after the ASE is alrea
 1. Get the IP addresses you want to use as egress IPs for your ASE. If you are doing forced tunneling then this would be your NATs or gateway IPs.  If you were routing all of the ASE outbound traffic through an NVA, then the egress address would be the public IP of the NVA.
 1. Set the egress addresses in your ASE configuration information. Go to resource.azure.com and navigate to: Subscription/<subscription id>/resourceGroups/<ase resource group>/providers/Microsoft.Web/hostingEnvironments/<ase name> then you will see the json that describes your ASE.  Make sure it says read/write at the top.  Click Edit   Scroll down to the bottom and change userWhitelistedIpRanges from  
 
-      "userWhitelistedIpRanges": null 
-      To something more like 
+       "userWhitelistedIpRanges": null 
+      
+to something like the following, but using the addresses you will set as the egress address range 
+
       "userWhitelistedIpRanges": [
           "51.111.222.33/32".
           "44.55.66.0/24"
@@ -77,13 +79,13 @@ If the ASE goes unresponsive from the portal then there is a problem with your c
 
 ### Create a new ASE with a different egress address  ###
 
-In the event that your VNet is already configured to force tunnel all the traffic, you will need to take some extra steps to create your ASE such that it will come up successfully.  This essentially means you need to enable use of another egress endpoint during the ASE creation.  In order to create an ASE with a different egress endpoint, you need to create the ASE with a template. The steps to do this are:
+In the event that your VNet is already configured to force tunnel all the traffic, you will need to take some extra steps to create your ASE such that it will come up successfully. This means you need to enable use of another egress endpoint during the ASE creation.  To do this, you need to create the ASE with a template. The steps to do this are:
 
 1. Get the IP addresses that you will use as the egress addresses for your ASE.
 1. Pre-create the subnet to be used by the ASE. This is needed to let you set routes and also because the template requires it.  
 1. Create a route table with the management IPs that map to your ASE location and assign it to your ASE
 1. Follow the directions here, [Creating an ASE with a template][templatecreate], and pull down the appropriate template
-1. Put the userWhitelistedIpRanges with your values in your template with the values needed.
+1. Edit the azuredeploy.json file to include **userWhitelistedIpRanges** with your values in the form [10.0.0.0/30, 192.168.0.0/31] as appropriate.
 
 If this is configured properly then the ASE will start up with no issues.  
 
