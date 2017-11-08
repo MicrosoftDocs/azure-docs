@@ -112,9 +112,12 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![The Certificate download link](./media/active-directory-saas-apptio-tutorial/tutorial_apptio_certificate.png) 
 
-5. The Apptio Software application expects the SAML assertions in a specific format. Please configure the following claims for this application. You can manage the values of these attributes from the "**User Attributes**" section on application integration page. The following screenshot shows an example for this.
+5. The Apptio Software application expects the SAML assertions in a specific format. Please configure the following claims for this application. You can manage the values of these attributes from the "**User Attributes**" section on application integration page. Please note that **User Identifier** is mapped with **user.mail**. There are other three attributes - **fullname, mail and role** which you need to configure. The following screenshot shows an example for this.
 
-	![Configure Single Sign-On](./media/active-directory-saas-apptio-tutorial/tutorial_apptio_attribute_new.png)		
+	![Configure Single Sign-On](./media/active-directory-saas-apptio-tutorial/tutorial_apptio_attributes.png)		
+	
+	> [!NOTE]
+	> Please click [here](http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/) to know how to configure **Role** in Azure AD
 	
 6. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the image and perform the following steps:
 
@@ -122,6 +125,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| -------------- | -------------------- |    
 	| fullname       | user.displayname |
 	| mail 			 | user.mail |
+	| role 			 | user.assignedrole |
 	
 	a. Click **Add attribute** to open the **Add Attribute** dialog.
 
