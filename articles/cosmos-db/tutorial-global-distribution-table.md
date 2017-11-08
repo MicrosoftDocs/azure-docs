@@ -20,8 +20,6 @@ ms.author: mimig
 ---
 # How to setup Azure Cosmos DB global distribution using the Table API
 
-In this article, we show how to use the Azure portal to setup Azure Cosmos DB global distribution and then connect using the Table API.
-
 This article covers the following tasks: 
 
 > [!div class="checklist"]
@@ -33,13 +31,13 @@ This article covers the following tasks:
 
 ## Connecting to a preferred region using the Table API
 
-In order to take advantage of [global distribution](distribute-data-globally.md), client applications can specify the ordered preference list of regions to be used to perform document operations. This can be done by setting the `TablePreferredLocations` configuration value in the app config for the Azure Cosmos DB Table API SDK. Based on the Azure Cosmos DB account configuration, current regional availability and the preference list specified, the most optimal endpoint will be chosen by the Azure Cosmos DB Table API SDK to perform write and read operations.
+In order to take advantage of [global distribution](distribute-data-globally.md), client applications can specify the ordered preference list of regions to be used to perform document operations. This can be done by setting the `TablePreferredLocations` configuration value in the app.config for the Azure Cosmos DB Table API SDK. The Azure Cosmos DB Table API SDK will pick the best endpoint to communicate with based on the account configuration, current regional availability and the supplied preference list.
 
 The `TablePreferredLocations` should contain a comma-separated list of preferred (multi-homing) locations for reads. Each client instance can specify a subset of these regions in the preferred order for low latency reads. The regions must be named using their [display names](https://msdn.microsoft.com/library/azure/gg441293.aspx), for example, `West US`.
 
-All reads will be sent to the first available region in the `TablePreferredLocations` list. If the request fails, the client will fail down the list to the next region, and so on.
+All reads are sent to the first available region in the `TablePreferredLocations` list. If the request fails, the client will fail down the list to the next region, and so on.
 
-The SDK will only attempt to read from the regions specified in `TablePreferredLocations`. So, for example, if the Database Account is available in three regions, but the client only specifies two of the non-write regions for `TablePreferredLocations`, then no reads will be served out of the write region, even in the case of failover.
+The SDK attempts to read from the regions specified in `TablePreferredLocations`. So, for example, if the Database Account is available in three regions, but the client only specifies two of the non-write regions for `TablePreferredLocations`, then no reads will be served out of the write region, even in the case of failover.
 
 The SDK will automatically send all writes to the current write region.
 
