@@ -94,7 +94,7 @@ kubectl apply -f azure-secret.yml
 
 ## Mount file share as volume
 
-You can mount your Azure Files share into your pod by configuring the volume in its spec. Create a new file named `azure-files-pod.yml` with the following contents. Update `share-name` with the name given to the Azure Files share.
+You can mount your Azure Files share into your pod by configuring the volume in its spec. Create a new file named `azure-files-pod.yml` with the following contents. Update `aksshare` with the name given to the Azure Files share.
 
 ```yaml
 apiVersion: v1
