@@ -45,6 +45,7 @@ Please revisit this page regularly as we are updating it on a monthly basis.
 **Service Category:** ACS  
 **Product Capability:** Access Control Service 
 
+<a name="acs-retirement"></a>
 
 Microsoft Azure Active Directory Access Control (also known as Access Control Service or ACS) is being retired in late 2018.  Further information, including a detailed schedule & high level migration guidance, will provided in the next few weeks. In the meantime, please leave comments on this page with any questions regarding ACS, and a member of our team will reach out to help answer.
 
