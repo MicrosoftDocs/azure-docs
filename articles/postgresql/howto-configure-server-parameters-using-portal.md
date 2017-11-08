@@ -8,7 +8,7 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 10/27/2017
+ms.date: 11/08/2017
 ---
 
 # Configure server parameters in Azure portal
@@ -19,11 +19,11 @@ To step through this how-to guide you need:
 - [Azure Database for PostgreSQL server](quickstart-create-server-database-portal.md)
 
 ## Viewing and editing parameters
-1. Open the Azure portal.
+1. Open the [Azure portal](https://portal.azure.com).
 
 2. Select your Azure Database for PostgreSQL server.
 
-3. Under the **SETTINGS** section in the sidebar, select **Server parameters**. The page shows a list of parameters, their values, and descriptions.
+3. Under the **SETTINGS** section, select **Server parameters**. The page shows a list of parameters, their values, and descriptions.
 ![Overview Page for Parameters](./media/howto-configure-server-parameters-in-portal/3-overview-of-parameters.png)
 
 4. Select the **drop down** button to see the possible values for enumerated-type parameters like client_min_messages.

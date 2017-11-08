@@ -51,8 +51,6 @@
       href: concepts-supported-versions.md
     - name: PostgreSQL extensions
       href: concepts-extensions.md
-    - name: Server parameters
-      href: concepts-server-parameters.md
     - name: Server logs
       href: concepts-server-logs.md
     - name: High availability

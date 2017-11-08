@@ -1,6 +1,6 @@
 ---
 title: Server concepts in Azure Database for PostgreSQL | Microsoft Docs
-description: This topic provides considerations and guidelines for working with Azure Database for PostgreSQL servers.
+description: This topic provides considerations and guidelines for configuring and managing Azure Database for PostgreSQL servers.
 services: postgresql
 author: SaloniSonpal
 ms.author: salonis
@@ -8,7 +8,7 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 07/06/2017
+ms.date: 11/08/2017
 ---
 # Azure Database for PostgreSQL Servers
 This topic provides considerations and guidelines for working with Azure Database for PostgreSQL servers.
@@ -25,7 +25,7 @@ An Azure Database for PostgreSQL server:
 - Collocates resources in a region.
 - Provides a connection endpoint for server and database access (.postgresql.database.azure.com).
 - Provides the scope for management policies that apply to its databases: login, firewall, users, roles, configurations, etc.
-- Is available in multiple versions. For more information, see [Supported PostgreSQL database versions](concepts-supported-versions.md).
+- Is available in multiple versions. For more information, see [supported PostgreSQL database versions](concepts-supported-versions.md).
 - Is extensible by users. For more information, see [PostgreSQL extensions](concepts-extensions.md).
 
 Within an Azure Database for PostgreSQL server, you can create one or multiple databases. You can opt to create a single database per server to utilize all the resources, or create multiple databases to share the resources. The pricing is structured per-server, based on the configuration of pricing tier, compute units, and storage (GB). For more details, see [Pricing tiers](./concepts-service-tiers.md).
@@ -42,9 +42,16 @@ The following elements help ensure safe access to your database.
 |||
 
 ## How do I manage a server?
-You can manage Azure Database for PostgreSQL servers by using the Azure portal or the [Azure CLI](/cli/azure/postgres).
+You can manage Azure Database for PostgreSQL servers by using the [Azure portal](https://portal.azure.com) or the [Azure CLI](/cli/azure/postgres).
+
+## Server parameters
+The PostgreSQL server parameters determine the configuration of the server. In Azure Database for PostgreSQL the list of parameters can be viewed and edited via the Azure portal or the Azure CLI. 
+
+As a managed service for Postgres, the configurable parameters in Azure Database for PostgreSQL are a subset of the parameters in a local Postgres instance (For more information on Postgres parameters, see the [PostgreSQL documentation](https://www.postgresql.org/docs/9.6/static/runtime-config.html)). Your Azure Database for PostgreSQL server is enabled with default values for each parameter on creation. Parameters that would require a server restart or superuser access for changes to take effect cannot be configured by the user.
+
 
 ## Next steps
 - For an overview of the service, see [Azure Database for PostgreSQL Overview](overview.md).
 - For information about specific resource quotas and limitations based on your **service tier**, see [Service tiers](concepts-service-tiers.md).
 - For information on connecting to the service, see [Connection libraries for Azure Database for PostgreSQL](concepts-connection-libraries.md).
+- View and edit server parameters through [Azure Portal](howto-configure-server-parameters-using-portal.md) or [Azure CLI](howto-configure-server-parameters-using-cli.md).
