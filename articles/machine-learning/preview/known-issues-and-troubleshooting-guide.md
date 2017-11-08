@@ -40,7 +40,7 @@ If you run into issue during installation, the installer log files are here:
 You can zip up the contents of these directories and send it to us for diagnostics.
 
 ### Workbench desktop app
-If the Workbench desktop crashes, you can find log files here:
+If you have trouble logging in, or if the Workbench desktop crashes, you can find log files here:
 ```
 # Windows
 %APPDATA%\AmlWorkbench
