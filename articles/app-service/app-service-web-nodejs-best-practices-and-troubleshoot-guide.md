@@ -32,7 +32,7 @@ This [schema file](https://github.com/Azure/iisnode/blob/master/src/config/iisno
 
 * nodeProcessCountPerApplication
   
-    This setting controls the number of node processes that are launched per IIS application. Default value is 1. You can launch as many node.exe’s as your VM core count by setting this to 0. Recommended value is 0 for most application so you can utilize all of the cores on your machine. Node.exe is single threaded so one node.exe will consume a maximum of 1 core and to get maximum performance out of your node application you would want to utilize all cores.
+    This setting controls the number of node processes that are launched per IIS application. Default value is 1. You can launch as many node.exe’s as your VM vCPU count by setting this to 0. Recommended value is 0 for most applications so you can utilize all of the vCPUs on your machine. Node.exe is single-threaded so one node.exe will consume a maximum of 1 vCPU and to get maximum performance out of your node application, you would want to utilize all vCPUs.
 * nodeProcessCommandLine
   
     This setting controls the path to the node.exe. You can set this value to point to your node.exe version.
