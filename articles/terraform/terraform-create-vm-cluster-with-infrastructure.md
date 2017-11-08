@@ -7,7 +7,7 @@ manager: routlaw
 ms.service: virtual-machines-linux
 ms.custom: devops
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 11/08/2017
 ms.author: tarcher
 ---
 
@@ -28,31 +28,32 @@ In this tutorial you will:
 > [!NOTE]
 > If you [use Terraform environment variables](/azure/virtual-machines/linux/terraform-install-configure#set-environment-variables), or run this tutorial in the [Azure Cloud Shell](terraform-cloud-shell.md), skip this step.
 
+In this section, you will generate an Azure service principal, and a Terraform variables file containing the credentials from the security principal.
+
 1. [Set up an Azure AD service principal](/azure/virtual-machines/linux/terraform-install-configure#set-up-terraform-access-to-azure) to enable Terraform to provision resources into Azure. While creating the principal, Make note of the values for the subscription ID, tenant ID, displayName, and password.
 
-2. Create a new file named `azureProviderAndCreds.tf` in an empty directory.
+2. Open a command prompt.
 
-3. Copy following code into the newly created `azureProviderAndCreds.tf` file. Make sure to replace the placeholders as follows: For `subscription_id`, use the Azure subscription ID you specified when running `az account set`. For `tenant_id`, use the `tenant` value returned from `az ad sp create-for-rbac`. For `client_id`, use the `appId` value returned from `az ad sp create-for-rbac`. For `client_secret`, use the `password` value returned from `az ad sp create-for-rbac`.
+3. Create an empty directory in which you are going to store your Terraform files.
+
+4. Create a new file to define your Terraform variables. It is common to name your Terraform variable file `terraform.tfvars` as Terraform will automatically load any file named `terraform.tfvars` (or following a patern of `*.auto.tfvars`) if present in the current directory. 
+
+5. Copy the following code into your newly created Terraform variables file. Make sure to replace the placeholders as follows: For `subscription_id`, use the Azure subscription ID you specified when running `az account set`. For `tenant_id`, use the `tenant` value returned from `az ad sp create-for-rbac`. For `client_id`, use the `appId` value returned from `az ad sp create-for-rbac`. For `client_secret`, use the `password` value returned from `az ad sp create-for-rbac`.
 
   ```tf
-  variable subscription_id {default = "<my-azure-subscription-id>"}
-  variable tenant_id {default = "<tenantid-returned-from-creating-a-service-principal>"}
-  variable client_id {default = "<appid-returned-from-creating-a-service-principal>"}
-  variable client_secret {default = "<password-returned-from-creating-a-service-principal>"}
-
-  provider "azurerm" {
-    subscription_id = "${var.subscription_id}"
-    tenant_id       = "${var.tenant_id}"
-    client_id       = "${var.client_id}"
-    client_secret   = "${var.client_secret}"
-  }
+  subscription_id = "<azure-subscription-id>"
+  tenant_id = "<tenant-returned-from-creating-a-service-principal>"
+  client_id = "<appId-returned-from-creating-a-service-principal>"
+  client_secret = "<password-returned-from-creating-a-service-principal>"
   ```
 
 ## 2. Create the Terraform template file
 
-1. In the same directory where you created the `azureProviderAndCreds.tf` file, create a new file named `main.tf`. 
+In this section, you will create a file that contains resource definitions for your infrastructure.
 
-2. Copy following Terraform template code into the newly created `main.tf` file: 
+1. In the same directory where you created the Terraform variables file, create a new file named `main.tf`. 
+
+2. Copy following sample resource definitions into the newly created `main.tf` file: 
 
   ```tf
   resource "azurerm_resource_group" "test" {
@@ -195,38 +196,42 @@ In this tutorial you will:
 
 ## 3. Initialize Terraform 
 
-The `terraform init` command is used to initialize a directory that contains the Terraform configuration files - the files you created with the previous steps. You should always run the `terraform init` command after writing a new Terraform configuration. 
+The [terraform init](https://www.terraform.io/docs/commands/init.html) command is used to initialize a directory that contains the Terraform configuration files - the files you created with the previous steps. You should always run the `terraform init` command after writing a new Terraform configuration. 
 
 > [!TIP]
-> The `terraform init` command is idempotent meaning that it can be called repeatedly while producing the same result.
+> The `terraform init` command is idempotent meaning that it can be called repeatedly while producing the same result. Therefore, if you're working in a collaborative environment, and you think the confiruation files might have been changed, it's always a good idea to call the `terraform init` command before executing or applying a plan.
 
-1. Open a command prompt.
-
-2. Change the current directory to the directory containing the `azureProviderAndCreds.tf` and `main.tf` files you created in the previous steps.
-
-3. To initialize Terraform, run the following command:
+To initialize Terraform, run the following command:
 
   ```cmd
   terraform init
   ```
 
+  ![Initializing Terraform](media/terraform-create-vm-cluster-with-infrastructure/terraform-plan-vms-with-modules.png)
+
 ## 4. Create a Terraform execution plan
 
-The `terraform plan -out` command is used to create an execution plan. When you run the command, Terraform performs a refresh and determines what actions are necessary to achieve the desired state specified in the `azureProviderAndCreds.tf` configuration file. The use of the -out parameter saves the execution plan so that a subsequent running of `terraform apply` ensures only the pre-planned actions are executed.
+The [terraform plan](https://www.terraform.io/docs/commands/plan.html) command is used to create an execution plan. To generate the execution plan, Terraform aggregates all of the `.tf` files in the current directory. 
 
-Run the following command to create the Terraform execution plan:
+If you are working in a collaborative environment where the configuration might change, you should use the `-out` parameter and output the execution plan to a file. Otherwise, if you are working in a single-person environment, you can ommit the `-out` parameter. For purposes of this tutorial, we'll assume a single-person environment. To see the syntax for using the `-out` parameter, refer to the [Terraform documentation for the `-out` parameter](https://www.terraform.io/docs/commands/plan.html#out-path).
 
-  ```cmd
-  terraform plan
-  ```
+If the name of your Terraform variables file is not `terraform.tfvars` and it doesn't follow the xxx patter, you will need to specify the file name using the [-var-file parameter](https://www.terraform.io/docs/commands/plan.html#var-file-foo) when running the `terraform plan` command.
 
-  ![Terraform Plan](media/terraform-create-vm-cluster-with-infrastructure/terraform-plan-vms-with-modules.png)
+When processing the `terraform plan` command, Terraform performs a refresh and determines what actions are necessary to achieve the desired state specified in your configuration files.
+
+Run the following command to create the Terraform execution plan from your configuration files:
+
+```cmd
+terraform plan
+```
+
+![Creating a Terraform plan](media/terraform-create-vm-cluster-with-infrastructure/terraform-plan-vms-with-modules.png)
 
 ## 5. Create the virtual machines with apply
 
 Run `terraform apply` to provision the VM cluster on Azure.
 
-![Terraform Apply](media/terraform-create-vm-cluster-with-infrastructure/terraform-apply-vms-with-modules.png)
+![Applying a Terraform execution plan](media/terraform-create-vm-cluster-with-infrastructure/terraform-apply-vms-with-modules.png)
 
 ## Next steps
 
