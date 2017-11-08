@@ -59,7 +59,6 @@ Finally, device-to-cloud messages handled by the Edge hub are stamped with the f
 
 | Property | Description |
 | -------- | ----------- |
-| $edgeHubOriginInterface | `internal` if this message comes from a module of this device, `downstream` if from a downstream device |
 | $connectionDeviceId | The device id of the client that sent the message |
 | $connectionModuleId | The module id of the module that sent the message |
 | $inputName | The input that received this message. Can be empty. |
