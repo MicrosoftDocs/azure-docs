@@ -1,7 +1,7 @@
 ---
 
-title: Add new users to Azure Active Directory | Microsoft Docs
-description: Explains how to add new users in Azure Active Directory.
+title: Add or delete users in Azure Active Directory | Microsoft Docs
+description: Explains how to add new users or delete existing users in Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2017
+ms.date: 11/07/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
@@ -44,7 +44,7 @@ This article explains how to add new users in your organization in the Azure Act
 
 
 ### Learn more 
-* [Add an external user](active-directory-users-create-external-azure-portal.md)
+* [Add guest users from another directory](active-directory-b2b-what-is-azure-ad-b2b.md) 
 
 * [Assign a user to a role in your Azure AD](active-directory-users-assign-role-azure-portal.md)
 
