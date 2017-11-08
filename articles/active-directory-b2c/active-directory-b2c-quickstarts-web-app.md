@@ -114,7 +114,12 @@ You have successfully used your Azure AD B2C user account to make an authorized 
 
 ## Next steps
 
-The next step is to create your own Azure AD B2C tenant and configure the sample to run using your tenant. 
+The sample used in this quickstart can be used to try other Azure AD B2C scenarios including:
+
+* Creating a new local account using an email address.
+* Resetting your local account password.
+
+If you're ready to delve into creating your own Azure AD B2C tenant and configure the sample to run using your own tenant, try out the following tutorial.
 
 > [!div class="nextstepaction"]
-> [Create an Azure Active Directory B2C tenant in the Azure portal](active-directory-b2c-get-started.md)
+> [Create an ASP.NET web app with Azure Active Directory B2C sign-up, sign-in, profile edit, and password reset](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
