@@ -13,30 +13,30 @@ ms.author: v-jansko
 ---
 
 # Supported languages in the Microsoft Translator Text API #
-The Microsoft Translator Text API supports the following languages for text to text translation. 
+The Microsoft Translator Text API supports the following languages for text to text translation. [NMT] indicatates that neural machine translation is available for this language.
 
 | Language    | Language code | 
 |:----------- |:-------------:|
 | Afrikaans      | `af`          |
-| Arabic      | `ar`          |
+| Arabic [NMT]      | `ar`          |
 | Bangla      | `bn`          |
 | Bosnian (Latin)      | `bs`          |
 | Bulgarian      | `bg`          |
 | Cantonese (Traditional)      | `yue`          |
 | Catalan      | `ca`          |
-| Chinese Simplified      | `zh-Hans`          |
-| Chinese Traditional      | `zh-Hant`          |
+| Chinese Simplified [NMT]      | `zh-Hans`          |
+| Chinese Traditional [NMT]      | `zh-Hant`          |
 | Croatian      | `hr`          |
 | Czech      | `cs`          |
 | Danish      | `da`          |
 | Dutch      | `nl`          |
-| English      | `en`          |
+| English [NMT]      | `en`          |
 | Estonian      | `et`          |
 | Fijian      | `fj`          |
 | Filipino      | `fil`          |
 | Finnish      | `fi`          |
-| French      | `fr`          |
-| German      | `de`          |
+| French [NMT]      | `fr`          |
+| German [NMT]      | `de`          |
 | Greek      | `el`          |
 | Haitian Creole      | `ht`          |
 | Hebrew      | `he`          |
@@ -44,12 +44,12 @@ The Microsoft Translator Text API supports the following languages for text to t
 | Hmong Daw      | `mww`          |
 | Hungarian      | `hu`          |
 | Indonesian      | `id`          |
-| Italian      | `it`          |
-| Japanese      | `ja`          |
+| Italian [NMT]      | `it`          |
+| Japanese [NMT]      | `ja`          |
 | Kiswahili      | `sw`          |
 | Klingon      | `tlh`          |
 | Klingon (plqaD)      | `tlh-Qaak`          |
-| Korean      | `ko`          |
+| Korean [NMT]      | `ko`          |
 | Latvian      | `lv`          |
 | Lithuanian      | `lt`          |
 | Malagasy      | `mg`          |
@@ -58,16 +58,16 @@ The Microsoft Translator Text API supports the following languages for text to t
 | Norwegian      | `nb`          |
 | Persian      | `fa`          |
 | Polish      | `pl`          |
-| Portuguese      | `pt`          |
+| Portuguese [NMT]      | `pt`          |
 | Queretaro Otomi      | `otq`          |
 | Romanian      | `ro`          |
-| Russian      | `ru`          |
+| Russian [NMT]      | `ru`          |
 | Samoan      | `sm`          |
 | Serbian (Cyrillic)      | `sr-Cyrl`          |
 | Serbian (Latin)      | `sr-Latn`          |
 | Slovak     | `sk`          |
 | Slovenian      | `sl`          |
-| Spanish      | `es`          |
+| Spanish [NMT]      | `es`          |
 | Swedish      | `sv`          |
 | Tahitian      | `ty`          |
 | Tamil      | `ta`          |
@@ -99,6 +99,6 @@ Note that this method uses the Microsoft Translator Speech API to return the lis
 
 **Microsoft Translator website**
 
-For a quick look at the languages, the Microsoft Translator website shows all the languages supported by the Translator Text and Speech APIs as well as specific language lists avaialble in the Microsoft Translator apps. This list does not include developer specific information such as language codes.
+For a quick look at the languages, the Microsoft Translator website shows all the languages supported by the Translator Text and Speech APIs as well as specific language lists avaialable in the Microsoft Translator apps. This list does not include developer specific information such as language codes.
 
 [See the list of languages on our website](https://www.microsoft.com/translator/languages.aspx)
