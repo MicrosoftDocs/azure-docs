@@ -24,6 +24,7 @@
 ## [SQL data indexer in .NET](search-indexer-tutorial.md)
 ## [Portal walkthrough](search-get-started-portal.md)
 ## [Search semi-structured data](search-semi-structured-data.md)
+## [Explore the REST API](search-fiddler.md)
 
 # How to
 
