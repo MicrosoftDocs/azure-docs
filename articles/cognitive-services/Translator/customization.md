@@ -14,11 +14,11 @@ ms.author: v-jansko
 
 # Customize and improve your text translations
 
-The Translator Hub and Collaborative Translations Framework are free extensions of the Microsoft Translator service which allow you to customize and improve text translations you recieve from the Translator Text API. They are both fully integrated into the Translator Text API. 
+The Translator Hub and Collaborative Translations Framework are free extensions of the Microsoft Translator service which allow you to customize and improve text translations you receive from the Translator Text API. They are both fully integrated into the Translator Text API. 
 
 ## Customize translations with the Microsoft Translator Hub
 
-With the Hub, you can build translation systems customized to understand the terminology used in your own business and industry. The Hub will combine your domain specific data with Microsoft's vast language knowledge to generate a custom and unique translation system. 
+With the Hub, you can build translation systems customized on existing statistical machine translation systemsto understand the terminology used in your own business and industry. The Hub will combine your domain specific data with Microsoft's vast language knowledge to generate a custom and unique translation system. 
 
 Your customized translation system will then easily integrate into your existing applications, workflows and websites, across multiple types of devices.
 
