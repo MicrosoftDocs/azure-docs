@@ -24,8 +24,6 @@
 ## [Deployments](module-deployment-monitoring.md)
 ## [Security](security.md)
 
-# Reference
-
 # Resources
 ## [Azure Certified for IoT device catalog](https://catalog.azureiotsuite.com/)
 ## [Azure IoT Developer Center](https://azure.microsoft.com/develop/iot/)
