@@ -89,8 +89,6 @@
       href: tutorial-query-table.md
     - name: Graph
       href: tutorial-query-graph.md
-    - name: Cassandra
-      href: tutorial-query-cassandra.md
   - name: 4 - Distribute globally
     items:
     - name: DocumentDB
@@ -101,8 +99,6 @@
       href: tutorial-global-distribution-table.md
     - name: Graph
       href: tutorial-global-distribution-graph.md
-    - name: Cassandra
-      href: tutorial-global-distribution-cassandra.md
   - name: 5 - Develop locally
     items:
     - name: Use the emulator
