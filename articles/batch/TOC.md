@@ -2,18 +2,18 @@
 ## [What is Azure Batch?](batch-technical-overview.md)
 
 # Quickstarts
-## [Create an account and pool - Portal](quick-create-portal.md)
-## [Create an account and pool - CLI](quick-create-cli.md)
-## [Run job and tasks - .NET](quick-run-dotnet.md)
-## [Run job and tasks - Python](quick-run-python.md)
+## [Run a Batch job - Portal](quick-create-portal.md)
+## [Run a Batch job - CLI](quick-create-cli.md)
+## [Run a Batch job - .NET](quick-run-dotnet.md)
+## [Run a Batch job - Python](quick-run-python.md)
 
 
 # Tutorials
 
 ## [Basic parallel workload - .NET](tutorial-parallel-dotnet.md)
 ## [Basic parallel workload - Python](tutorial-parallel-python.md)
-## [Render an Arnold scene - CLI](tutorial-rendering-cli.md)
-## [Monte Carlo workload - R with doAzureParallel](tutorial-r-doazureparallel.md)
+## [Render an Arnold scene](tutorial-rendering-cli.md)
+## [Monte Carlo workload with R](tutorial-r-doazureparallel.md)
 
 # Samples
 ## [Code samples](https://azure.microsoft.com/resources/samples/?service=batch)
