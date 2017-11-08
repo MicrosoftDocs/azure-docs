@@ -1,21 +1,19 @@
 ---
-title: Azure Event Grid event schema
-description: Describes the properties that are provided for events with Azure Event Grid
+title: Azure Event Grid storage blob event schema
+description: Describes the properties that are provided for storage blob events with Azure Event Grid
 services: event-grid
-author: banisadr
+author: tfitzmac
 manager: timlt
 
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/06/2017
-ms.author: babanisa
+ms.date: 11/07/2017
+ms.author: tomfitz
 ---
 
-# Azure Event Grid event schema
+# Azure Event Grid storage blob event schema
 
-This article provides the properties and schema for events. Events consist of a set of five required string properties and a required data object. The properties are common to all events from any publisher. The data object contains properties that are specific to each publisher. For system topics, these properties are specific to the resource provider, such as Azure Storage or Azure Event Hubs.
-
-Events are sent to Azure Event Grid in an array, which can contain multiple event objects. If there is only a single event, the array has a length of 1. The array can have a total size of up to 1 MB. Each event in the array is limited to 64 KB.
+This article provides the properties and schema for storage blob events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md).
 
 ## Available event types
 
@@ -26,32 +24,53 @@ Storage blobs raise the following event types:
 
 ## Example event
 
-This sample event shows the schema of a storage event raised when a blob is created: 
+The following example shows the schema of a blob created event: 
 
 ```json
-[
-  {
-    "topic": "/subscriptions/{subscription-id}/resourceGroups/Storage/providers/Microsoft.Storage/storageAccounts/xstoretestaccount",
-    "subject": "/blobServices/default/containers/oc2d2817345i200097container/blobs/oc2d2817345i20002296blob",
-    "eventType": "Microsoft.Storage.BlobCreated",
-    "eventTime": "2017-06-26T18:41:00.9584103Z",
-    "id": "831e1650-001e-001b-66ab-eeb76e069631",
-    "data": {
-      "api": "PutBlockList",
-      "clientRequestId": "6d79dbfb-0e37-4fc4-981f-442c9ca65760",
-      "requestId": "831e1650-001e-001b-66ab-eeb76e000000",
-      "eTag": "0x8D4BCC2E4835CD0",
-      "contentType": "application/octet-stream",
-      "contentLength": 524288,
-      "blobType": "BlockBlob",
-      "url": "https://oc2d2817345i60006.blob.core.windows.net/oc2d2817345i200097container/oc2d2817345i20002296blob",
-      "sequencer": "00000000000004420000000000028963",
-      "storageDiagnostics": {
-        "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
-      }
+[{
+  "topic": "/subscriptions/{subscription-id}/resourceGroups/Storage/providers/Microsoft.Storage/storageAccounts/xstoretestaccount",
+  "subject": "/blobServices/default/containers/testcontainer/blobs/testfile.txt",
+  "eventType": "Microsoft.Storage.BlobCreated",
+  "eventTime": "2017-06-26T18:41:00.9584103Z",
+  "id": "831e1650-001e-001b-66ab-eeb76e069631",
+  "data": {
+    "api": "PutBlockList",
+    "clientRequestId": "6d79dbfb-0e37-4fc4-981f-442c9ca65760",
+    "requestId": "831e1650-001e-001b-66ab-eeb76e000000",
+    "eTag": "0x8D4BCC2E4835CD0",
+    "contentType": "text/plain",
+    "contentLength": 524288,
+    "blobType": "BlockBlob",
+    "url": "https://example.blob.core.windows.net/testcontainer/testfile.txt",
+    "sequencer": "00000000000004420000000000028963",
+    "storageDiagnostics": {
+      "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
     }
   }
-]
+}]
+```
+
+The schema for a blob deleted event is similar: 
+
+```json
+[{
+  "topic": "/subscriptions/{subscription-id}/resourceGroups/Storage/providers/Microsoft.Storage/storageAccounts/xstoretestaccount",
+  "subject": "/blobServices/default/containers/testcontainer/blobs/testfile.txt",
+  "eventType": "Microsoft.Storage.BlobDeleted",
+  "eventTime": "2017-11-07T20:09:22.5674003Z",
+  "id": "4c2359fe-001e-00ba-0e04-58586806d298",
+  "data": {
+    "api": "DeleteBlob",
+    "requestId": "4c2359fe-001e-00ba-0e04-585868000000",
+    "contentType": "text/plain",
+    "blobType": "BlockBlob",
+    "url": "https://example.blob.core.windows.net/testcontainer/testfile.txt",
+    "sequencer": "0000000000000281000000000002F5CA",
+    "storageDiagnostics": {
+      "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
+    }
+  }
+}]
 ```
  
 ## Event properties
@@ -72,8 +91,8 @@ The data object has the following properties:
 | Property | Type | Description |
 | -------- | ---- | ----------- |
 | api | string | The operation that triggered the event. |
-| clientRequestId | string | A client-generated, opaque value with a 1 KB character limit that is recorded in the analytics logs when storage analytics logging is enabled. |
-| requestId | string | The unique identifier for the request. You can be use it for troubleshooting the request. |
+| clientRequestId | string | A client-generated, opaque value with a 1-KB character limit. When you have enabled storage analytics logging, it is recorded in the analytics logs. |
+| requestId | string | The unique identifier for the request. Use it for troubleshooting the request. |
 | eTag | string | The value that you can use to perform operations conditionally. |
 | contentType | string | The content type specified for the blob. |
 | contentLength | integer | The size of the blob in bytes. |
@@ -84,5 +103,6 @@ The data object has the following properties:
  
 ## Next steps
 
-* For an introduction to Azure Event Grid, see [What is Event Grid?](overview.md).
+* For an introduction to Azure Event Grid, see [What is Event Grid?](overview.md)
 * For more information about creating an Azure Event Grid subscription, see [Event Grid subscription schema](subscription-creation-schema.md).
+* For an introduction to working with storage blob events, see [Route Blob storage events - Azure CLI](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json). 

@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 11/07/2017
 ms.author: babanisa
 ---
 
@@ -66,7 +66,7 @@ For example, the schema published for an Azure storage blob event is:
  
 ## Event properties
 
-All events will contain the same following top-level data:
+All events contain the same following top-level data:
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
@@ -77,17 +77,16 @@ All events will contain the same following top-level data:
 | id | string | Unique identifier for the event. |
 | data | object | Event data specific to the resource provider. |
 
-## Available event sources
-
-The following event sources publish events for consumption via Event Grid:
+To learn about the properties in the data object, see the event source:
 
 * [Azure subscriptions (management operations)](event-schema-subscriptions.md)
 * [Blob storage](event-schema-blob-storage.md)
-* [Custom topics](event-schema-custom-topics.md)
 * [Event hubs](event-schema-event-hubs.md)
 * [Resource groups (management operations)](event-schema-resource-groups.md)
 
+For custom topics, the event publisher determines the data object. The top-level data should contain the same fields as standard resource-defined events. When publishing events to custom topics, you should consider modeling the subject of your events to aid in routing and filtering.
+
 ## Next steps
 
-* For an introduction to Azure Event Grid, see [What is Event Grid?](overview.md).
+* For an introduction to Azure Event Grid, see [What is Event Grid?](overview.md)
 * For more information about creating an Azure Event Grid subscription, see [Event Grid subscription schema](subscription-creation-schema.md).
