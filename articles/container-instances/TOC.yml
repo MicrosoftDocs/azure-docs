@@ -19,7 +19,7 @@
     href: container-instances-tutorial-prepare-app.md
   - name: 2 - Create container registry
     href: container-instances-tutorial-prepare-acr.md
-  - name: 3 - Deploy app
+  - name: 3 - Deploy application
     href: container-instances-tutorial-deploy-app.md
 - name: Concepts
   items:
