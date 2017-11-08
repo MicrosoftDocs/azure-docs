@@ -246,6 +246,8 @@
       items:
       - name: Table development
         href: table-support.md
+      - name: Table API operations with PowerShell
+        href: table-powershell.md
       - name: Azure Table storage
         items:     
         - name: Table storage overview
@@ -254,7 +256,7 @@
           href: table-storage-design-guide.md
         - name: Table storage REST APIs
           href: /rest/api/storageservices/Table-Service-Concepts
-        - name: How to
+        - name: Develop
           items:
             - name: .NET
               href: table-storage-how-to-use-dotnet.md
@@ -274,6 +276,8 @@
               href: table-storage-how-to-use-python.md
             - name: Ruby
               href: table-storage-how-to-use-ruby.md
+            - name: PowerShell
+              href: table-storage-how-to-use-powershell.md
     - name: Change feed
       href: change-feed.md
     - name: Geospatial
