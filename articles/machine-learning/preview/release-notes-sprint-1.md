@@ -14,7 +14,7 @@ ms.date: 11/06/2017
 
 # Sprint 1 - November 2017 
 
-**Version number: 0.1.1710.25132**
+**Version number: 0.1.1710.31013**
 
 Welcome to the second update of Azure Machine Learning Workbench. We continue to make improvements around security, stability, and maintainability in the workbench app, the CLI and the back-end services layer. Thanks very much for sending us smiles and frowns. Many of the below updates are made as direct results of your feedback. Please keep them coming!
 
