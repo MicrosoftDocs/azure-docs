@@ -88,9 +88,9 @@ When you vote in the application the following events occur:
 When debugging application in Visual Studio, you are using a local Service Fabric development cluster. You have the option to adjust your debugging experience to your scenario. In this application, data is stored in back-end service using a reliable dictionary. Visual Studio removes the application per default when you stop the debugger. Removing the application causes the data in the back-end service to also be removed. To persist the data between debugging sessions, you can change the **Application Debug Mode** as a property on the **Voting** project in Visual Studio.
 
 To look at what happens in the code, complete the following steps:
-1. Open the **VotesController.cs** file and set a breakpoint in the web API's **Put** method (line 47) - You can search for the file in the Solution Explorer in Visual Studio.
+1. Open the **/VotingWeb/Controllers/VotesController.cs** file and set a breakpoint in the web API's **Put** method (line 47) - You can search for the file in the Solution Explorer in Visual Studio.
 
-2. Open the **VoteDataController.cs** file and set a breakpoint in this web API's **Put** method (line 50).
+2. Open the **/VotingData/ControllersVoteDataController.cs** file and set a breakpoint in this web API's **Put** method (line 50).
 
 3. Go back to the browser and click a voting option or add a new voting option. You hit the first breakpoint in the web front-end's api controller.
     - This is where the JavaScript in the browser sends a request to the web API controller in the front-end service.
@@ -159,7 +159,7 @@ To scale the web front-end service, do the following steps:
 
     ![Service Fabric Explorer Scale Service](./media/service-fabric-quickstart-dotnet/service-fabric-explorer-scaled-service.png)
 
-    You can now see that the service has two instances, and in the tree view you see which nodes the instances run on.
+    After a delay, you can see that the service has two instances.  In the tree view you see which nodes the instances run on.
 
 By this simple management task, the resources available doubled for the front-end service to process user load. It's important to understand that you do not need multiple instances of a service to have it run reliably. If a service fails, Service Fabric makes sure a new service instance runs in the cluster.
 
@@ -168,13 +168,8 @@ When deploying new updates to your application, Service Fabric rolls out the upd
 
 To upgrade the application, do the following:
 
-1. Open the **Index.cshtml** file in Visual Studio - You can search for the file in the Solution Explorer in Visual Studio.
-2. Change the heading on the page by adding some text - for example.
-    ```html
-        <div class="col-xs-8 col-xs-offset-2 text-center">
-            <h2>Service Fabric Voting Sample v2</h2>
-        </div>
-    ```
+1. Open the **/VotingWeb/Views/Home/Index.cshtml** file in Visual Studio.
+2. Change the <h2> heading on the page by adding or updating the text. For example, change the heading to "Service Fabric Voting Sample v2".
 3. Save the file.
 4. Right-click **Voting** in the Solution Explorer and choose **Publish**. The Publish dialog appears.
 5. Click the **Manifest Version** button to change the version of the service and application.
@@ -185,7 +180,7 @@ To upgrade the application, do the following:
 
     ![Publish Dialog Upgrade Setting](./media/service-fabric-quickstart-dotnet/upgrade-app.png)
 8. Open your browser and browse to the cluster address on port 19080 - for example, `http://winh1x87d1d.westus.cloudapp.azure.com:19080`.
-9. Click on the **Applications** node in the tree view, and then **Upgrades in Progress** in the right-hand pane. You see how the upgrade rolls through the upgrade domains in your cluster, making sure each domain is healthy before proceeding to the next.
+9. Click on the **Applications** node in the tree view, and then **Upgrades in Progress** in the right-hand pane. You see how the upgrade rolls through the upgrade domains in your cluster, making sure each domain is healthy before proceeding to the next. An upgrade domain in the progress bar appears green when the health of the domain has been verified.
     ![Upgrade View in Service Fabric Explorer](./media/service-fabric-quickstart-dotnet/upgrading.png)
 
     Service Fabric makes upgrades safe by waiting two minutes after upgrading the service on each node in the cluster. Expect the entire update to take approximately eight minutes.
