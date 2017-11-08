@@ -26,9 +26,14 @@
 	    "redirect_document_id": false 
 	},
 	{
-            "source_path": "articles/active-directory/cloudappdiscovery-overview.md",
-            "redirect_url": "/azure/active-directory/cloudappdiscovery-get-started",
-            "redirect_document_id": false
+        "source_path": "articles/active-directory/cloudappdiscovery-overview.md",
+        "redirect_url": "/azure/active-directory/cloudappdiscovery-get-started",
+        "redirect_document_id": false
+    },
+    {
+            "source_path": "articles/active-directory/active-directory-users-work-info-azure-portal.md",
+            "redirect_url": "/azure/active-directory/active-directory-users-profile-azure-portal",
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/virtual-machines/linux/impactful-maintenance.md",
@@ -5052,7 +5057,12 @@
         },
         {
             "source_path": "articles/machine-learning/machine-learning-data-science-customize-hadoop-cluster.md",
-            "redirect_url": "/azure/machine-learning/team-data-science-process/customize-hadoop-cluster",
+            "redirect_url": "/azure/hdinsight/spark/apache-spark-jupyter-spark-sql",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/team-data-science-process/customize-hadoop-cluster.md",
+            "redirect_url": "/azure/hdinsight/spark/apache-spark-jupyter-spark-sql",
             "redirect_document_id": false
         },
         {
