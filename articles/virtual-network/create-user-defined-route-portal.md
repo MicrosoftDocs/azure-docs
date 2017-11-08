@@ -267,6 +267,12 @@ This article provides steps to create a user-defined route through the Resource 
         - **Ubuntu**: Run the `tracepath myvm-private` command.
       Traffic passes through 10.0.2.4 (the NVA) before reaching 10.0.1.4 (the virtual machine in the Private subnet). 
     - Complete the previous steps by connecting to the *myVm-Private* virtual machine and pinging the *myVm-Public* virtual machine. The trace route shows communication traveling through 10.0.2.4 before reaching 10.0.0.4 (the virtual machine in the Public subnet).
+
+      > [!NOTE]
+      > The previous steps enable you to confirm routing between Azure private IP addresses. If you want to route traffic to public IP addresses through a network virtual appliance:
+      > - The appliance must provide network address translation capability to translate the private IP addresses of the virtual machines originating the connection to the private IP address of the network virtual appliance. Azure then translates the network virtual appliance's private IP address to a public IP address. For more information about how Azure translates private IP addresses to public IP addresses, see [Understanding outbound connections](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+      > - An additional route in the route table such as prefix: 0.0.0.0/0, next hop type VirtualAppliance, and next hop IP address as 10.0.2.4.
+      >
     - **Optionally**: To validate the next hop between two virtual machines within Azure, use the next hop capability of Azure Network Watcher. Before using Network Watcher, you must first [create an Azure Network Watcher instance](../network-watcher/network-watcher-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for the region you want to use it in. In this tutorial, the US East region is used. Once you've enabled a Network Watcher instance for the region, enter the following command to see the next hop information between the virtual machines in the Public and Private subnets:
      
         ```azurecli-interactive
