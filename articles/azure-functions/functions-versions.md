@@ -25,8 +25,7 @@ For information about how to set the runtime version on your development compute
 [Microsoft Graph bindings](functions-bindings-microsoft-graph.md) are supported only on the 2.0 runtime.
 
 The following table indicates which programming languages are supported in the major versions.
-
-[!INCLUDE [functions-supported-languages](../../Documents/GitHub/azure-docs-pr/includes/functions-supported-languages.md)]
+[!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
 
 For more information, see the following articles:
 
