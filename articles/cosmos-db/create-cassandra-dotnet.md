@@ -36,43 +36,6 @@ If you don't already have Visual Studio 2017 installed, you can download and use
 
 [!INCLUDE [cosmos-db-create-dbaccount-cassandra](../../includes/cosmos-db-create-dbaccount-cassandra.md)]
 
-<a id="create-collection"></a>
-## Add a collection
-
-[!INCLUDE [cosmos-db-create-cassandra](../../includes/cosmos-db-create-cassandra.md)]
-
-<a id="add-sample-data"></a>
-## Add sample data
-
-You can now add data to your new table using Data Explorer.
-
-1. In Data Explorer, the new table appears in the Cassandra Tables pane. Expand the **Profiles** database, expand the **Users** table, click **Rows**, and then click **Add new clause**. 
-
-    TODO - Update below with new steps
-
-   ![Create new clauses in Data Explorer in the Azure portal](./media/create-cassandra-dotnet/azure-cosmosdb-data-explorer-new-document.png)
-  
-2. Now add a clause to the table with the following structure.
-
-     ```json
-     {
-         "id": "1",
-         "category": "personal",
-         "name": "groceries",
-         "description": "Pick up apples and strawberries.",
-         "isComplete": false
-     }
-     ```
-
-3. Once you've added the json to the **Documents** tab, click **Save**.
-
-    ![Copy in json data and click Save in Data Explorer in the Azure portal](./media/create-cassandra-dotnet/azure-cosmosdb-data-explorer-save-document.png)
-
-4.  Create and save one more document where you insert a unique value for the `id` property, and change the other properties as you see fit. Your new documents can have any structure you want as Azure Cosmos DB doesn't impose any schema on your data.
-
-     You can now use queries in Data Explorer to retrieve your data. By default, Data Explorer uses `SELECT * FROM c` to retrieve all documents in the collection, but you can change that to a different [SQL query](documentdb-sql-query.md), such as `SELECT * FROM c ORDER BY c._ts DESC`, to return all the documents in descending order based on their timestamp.
- 
-     You can also use Data Explorer to create stored procedures, UDFs, and triggers to perform server-side business logic as well as scale throughput. Data Explorer exposes all of the built-in programmatic data access available in the APIs, but provides easy access to your data in the Azure portal.
 
 ## Clone the sample application
 
@@ -83,7 +46,7 @@ Now let's switch to working with code. Let's clone a DocumentDB API app from Git
 2. Run the following command to clone the sample repository. 
 
     ```bash
-    git clone https://github.com/Azure-Samples/documentdb-dotnet-todo-app.git
+    git clone https://github.com/Azure-Samples/azure-cosmos-db-cassandra-dotnet-getting-started.git
     ```
 
 3. Then open the todo solution file in Visual Studio. 
