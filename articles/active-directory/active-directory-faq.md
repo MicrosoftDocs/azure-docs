@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/16/2017
+ms.date: 11/08/2017
 ms.author: markvi
 
 ---
@@ -158,7 +158,7 @@ For a complete list of the pre-integrated applications, see the [Active Director
 
 For more information, see:
 
-* [Configuring single sign-on to applications that are not in the Azure Active Directory application gallery](active-directory-saas-custom-apps.md)
+* [Configuring single sign-on to applications that are not in the Azure Active Directory application gallery](application-config-sso-how-to-configure-federated-sso-non-gallery.md)
 * [Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](active-directory-scim-provisioning.md)
 
 - - -

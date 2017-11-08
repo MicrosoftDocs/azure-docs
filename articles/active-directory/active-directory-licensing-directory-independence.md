@@ -1,5 +1,5 @@
 ---
-title: Characteristics of Azure Active Directory tenant intercaction | Microsoft Docs
+title: Characteristics of Azure Active Directory tenant interaction | Microsoft Docs
 description: Manage your Azure Active tenant tenants by understanding your tenants as fully independent resources
 services: active-tenant
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/27/2017
+ms.date: 10/10/2017
 ms.author: curtand
 
 ms.custom: H1Hack27Feb2017;it-pro
@@ -45,8 +45,8 @@ You can configure each Azure AD tenant independently to get data synchronized fr
 To add an Azure AD tenant in the Azure portal, sign in to [the Azure portal](https://portal.azure.com) with an account that is an Azure AD global administrator, and, on the left, select **New**.
 
 > [!NOTE]
-> Unlike other Azure resources, your tenants are not child resources of an Azure subscription. If your Azure subscription is canceled or expired, you can still access your tenant data using Azure PowerShell, the Azure Graph API, or the Office 365 Admin Center. You can also associate another subscription with the tenant.
+> Unlike other Azure resources, your tenants are not child resources of an Azure subscription. If your Azure subscription is canceled or expired, you can still access your tenant data using Azure PowerShell, the Azure Graph API, or the Office 365 Admin Center. You can also [associate another subscription with the tenant](active-directory-how-subscriptions-associated-directory.md).
 >
 
 ## Next steps
-For a broad overview of Azure AD licensing issues and best practices, see [What is Azure Active tenant licensing?](active-directory-licensing-whatis-azure-portal.md)
+For a broad overview of Azure AD licensing issues and best practices, see [What is Azure Active tenant licensing?](active-directory-licensing-whatis-azure-portal.md).

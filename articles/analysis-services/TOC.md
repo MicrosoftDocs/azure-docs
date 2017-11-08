@@ -8,7 +8,7 @@
 
 # Get started
 ## [Create a server in Azure portal](analysis-services-create-server.md)
-## [Create a server with PowerShell](analysis-services-create-powershell.md)
+## [Create a server with Azure PowerShell](analysis-services-create-powershell.md)
 ## [Deploy a model from Visual Studio](analysis-services-deploy.md)
 ## [Create a model in Azure portal (preview)](analysis-services-create-model-portal.md)
 
@@ -20,6 +20,7 @@
 ## [Install and configure an on-premises data gateway](analysis-services-gateway-install.md)
 ## [Get client libraries](analysis-services-data-providers.md)
 ## [Backup and restore](analysis-services-backup.md)
+## [Configure query replica scale-out](analysis-services-scale-out.md)
 ## [Connect with Excel](analysis-services-connect-excel.md)
 ## [Connect with Power BI](analysis-services-connect-pbi.md)
 ## [Create an .odc file](analysis-services-odc.md)
@@ -43,14 +44,14 @@
 ### [Supplemental lesson - Ragged hierarchies](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  
 
 # Reference
-## [PowerShell](analysis-services-powershell.md)
+## [Azure PowerShell](analysis-services-powershell.md)
 ## [REST](/rest/api/analysisservices)
 ## [DAX](https://msdn.microsoft.com/library/gg413422.aspx)
 ## [Power Query M](https://msdn.microsoft.com/library/mt211003.aspx)
 ## [Tabular Model Scripting Language (TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)
 
 # Resources
-## [Analysis Services code samples on GitHub](https://github.com/Microsoft/Analysis-Services)
+## [Samples](analysis-services-samples.md)
 ## [Analysis Services team blog](https://blogs.msdn.microsoft.com/analysisservices/)
 ## [Azure Analysis Services forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAnalysisServices)
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=intelligence-analytics)

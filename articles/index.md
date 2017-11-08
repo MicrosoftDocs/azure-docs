@@ -5,6 +5,8 @@ experimental: true
 experiment_id: "81ba5f65-59fb-4d"
 title: Microsoft Azure Documentation
 description: Learn how to build and manage powerful applications using Microsoft Azure cloud services. Get documentation, sample code, tutorials, and more.
+featureFlags:
+- clicktale
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -63,10 +65,10 @@ description: Learn how to build and manage powerful applications using Microsoft
                     </div>
                 </a>
             </li>
-        </ul>             
+        </ul>
     </div>
     <div class="container">
-        <h1 class="screenReader">Microsoft Azure Documentation</h1>   
+        <h1 class="screenReader">Microsoft Azure Documentation</h1>
         <ul class="pivots">
             <li>
                 <a href="#get-started">Get Started</a>
@@ -94,6 +96,34 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         </div>
                                     </div>
                                 </div>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardText">
+                                                <h3>Manage Resources</h3>
+                                                <ul class="noBullet">
+                                                    <li><a class="barLink" href="/azure/monitoring-and-diagnostics/">Azure Monitor</a></li>
+                                                    <li><a class="barLink" href="/azure/application-insights/">Azure Application Insights</a></li>
+                                                    <li><a class="barLink" href="/azure/cost-management/">Azure Cost Management</a></li>
+                                                    <li><a class="barLink" href="/azure/backup/">Azure Backup</a></li>
+                                                    <li><a class="barLink" href="/azure/site-recovery/">Azure Site Recovery</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardText">
+                                                <h3>Hybrid</h3>
+                                                <ul class="noBullet">
+                                                    <li><a class="barLink" href="/azure/azure-stack/">Azure Stack</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </li>
                             <li>
                                 <div class="cardSize">
@@ -101,6 +131,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         <div class="card">
                                             <div class="cardText">
                                                 <h3>Develop apps</h3>
+                                                <table cellpadding="0" cellspacing="0" border="0"><tr><td style="border-top-color:transparent!important;padding-left:0;">
 												<ul class="noBullet">
                                                     <li>
 														<a class="barLink" href="/dotnet/azure/?view=azure-dotnet">
@@ -116,24 +147,23 @@ description: Learn how to build and manage powerful applications using Microsoft
 														<a class="barLink" href="/java/azure/">
 															<img src="media/index/logo_java.svg" alt="">
 															Java</a>
-													</li>
+													</li></ul></td><td style="border-top-color:transparent!important;padding-left:0;"><ul class="noBullet">
 													<li>
 														<a class="barLink" href="/azure/app-service-web/app-service-web-get-started-php">
 															<img src="media/index/logo_PHP.svg" alt="">
 															PHP</a>
 													</li>
 													<li>
-														<a class="barLink" href="/nodejs/azure/?view=azure-node-2.0.0">
+														<a class="barLink" href="/nodejs/azure/">
 															<img src="media/index/logo_nodejs.svg" alt="">
 															Node.js</a>
 													</li>
-												</ul>
-                                                <h4>App Models</h4>
+												</ul></td></tr></table>
+                                               <h4>App Models</h4>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/app-service-web/">Web Apps</a></li>
                                                     <li><a class="barLink" href="/azure/azure-functions/">Serverless Functions</a></li>
-                                                    <li><a class="barLink" href="/azure/container-instances/">Container Instances</a></li>
-                                                    <li><a class="barLink" href="/azure/container-service/kubernetes/">Containers with Kubernetes</a></li>
+                                                    <li><a class="barLink" href="/azure/containers/">Containers</a></li>
                                                     <li><a class="barLink" href="/azure/service-fabric/">Microservices with Service Fabric</a></li>
                                                 </ul>
                                             </div>
@@ -157,8 +187,13 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/cosmos-db/">Azure Cosmos DB</a></li>
                                                 </ul>
+                                                <h4>Storage</h4>
+                                                <ul class="noBullet">
+                                                    <li><a class="barLink" href="/azure/storage/">Blob Storage</a></li>
+                                                </ul>
                                                 <h4>AI and Cognitive Services</h4>
                                                 <ul class="noBullet">
+                                                    <li><a class="barLink" href="/azure/machine-learning/preview">Machine Learning services</a></li>
                                                     <li><a class="barLink" href="/azure/cognitive-services/computer-vision/">Computer Vision API</a></li>
                                                     <li><a class="barLink" href="/azure/cognitive-services/face/">Face API</a></li>
                                                 </ul>
@@ -173,18 +208,20 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         <div class="card">
                                             <div class="cardText">
                                                 <h3>Command-line tools</h3>
-												<ul class="noBullet">
-													<li>
-														<a class="barLink" href="/cli/azure/overview">
-															<img src="media/index/azure_dev-7.svg" alt="">
-															Azure CLI</a>
-													</li>
-													<li>
-														<a class="barLink" href="/powershell/azure/overview">
-															<img src="media/index/azure_dev-8.svg" alt="">
-															Azure PowerShell</a>
-													</li>
-												</ul>
+                                                <ul class="noBullet">
+                                                    <li>
+                                                        <a class="barLink" href="/cli/azure/overview">
+                                                            <img src="media/index/azure_dev-7.svg" alt="">
+                                                            Azure CLI
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="barLink" href="/powershell/azure/overview">
+                                                            <img src="media/index/azure_dev-8.svg" alt="">
+                                                            Azure PowerShell
+                                                        </a>
+                                                    </li>
+                                                </ul>
                                             </div>
                                         </div>
                                     </div>
@@ -196,18 +233,20 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         <div class="card">
                                             <div class="cardText">
                                                 <h3>DevOps</h3>
-												<ul class="noBullet">
-													<li>
-														<a class="barLink" href="https://www.visualstudio.com/en-us/docs/build/apps/jenkins/build-deploy-jenkins">
-															<img src="https://docs.microsoft.com/en-us/media/logos/logo_visual-studio.svg" alt="">
-															Visual Studio Team Services</a>
-													</li>
-													<li>
-														<a class="barLink" href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">
-															<img src="https://docs.microsoft.com/en-us/media/logos/logo_jenkins.svg" alt="">
-															Jenkins on Azure VMs</a>
-													</li>
-												</ul>
+                                                <ul class="noBullet">
+                                                    <li>
+                                                        <a class="barLink" href="https://docs.microsoft.com/vsts/deploy-azure/">
+                                                            <img src="https://docs.microsoft.com/en-us/media/logos/logo_vs-team-services.svg" alt="">
+                                                            Deploy to Azure
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="barLink" href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">
+                                                            <img src="https://docs.microsoft.com/en-us/media/logos/logo_jenkins.svg" alt="">
+                                                            Jenkins on Azure VMs
+                                                        </a>
+                                                    </li>
+                                                </ul>
                                             </div>
                                         </div>
                                     </div>
@@ -218,17 +257,16 @@ description: Learn how to build and manage powerful applications using Microsoft
                             <li></li>
                             <li class="bottomRightItem">
                                 <a href="https://aka.ms/j3wr7y">
-                                <button style="cursor: pointer;position: relative; background: #0050C5; border:none; padding:8px 16px; padding-right:30px;color: white; font-size:14px;">View all Azure Services<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 14" style="fill:white;height: 14px;position: absolute;bottom: 13px;right: 12px;width: 1em;"><path d="M7.4 7L1 .6l.6-.6 7 7-7 7-.6-.7L7.4 7z"/></svg></button>
+                                    <button style="cursor: pointer;position: relative; background: #0050C5; border:none; padding:8px 16px; padding-right:30px;color: white; font-size:14px;">View all Azure Services<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 14" style="fill:white;height: 14px;position: absolute;bottom: 13px;right: 12px;width: 1em;"><path d="M7.4 7L1 .6l.6-.6 7 7-7 7-.6-.7L7.4 7z" /></svg></button>
                                 </a>
-                            </li>
                             </li>
                         </ul>
                     </li>
                 </ul>
             </li>
             <li>
-                <a href="#services">Services</a>
-                <ul id="services">
+                <a href="#products">Products</a>
+                <ul id="products">
                     <li>
                         <a href="#all">All</a>
                         <ul id="all" class="directory">
@@ -273,11 +311,23 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/container-service/">
+                                                <img src="media/index/containerservice.svg" alt="" />
+                                                <p>Azure Container Service (AKS)</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/container-instances/">
+                                                <img src="media/index/ContainerInstances.svg" alt="" />
+                                                <p>Azure Container Instances</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/batch/">
                                                 <img src="media/index/Batch.svg" alt="" />
                                                 <p>Batch</p>
                                             </a>
-                                        </li>                                        
+                                        </li>
                                         <li>
                                             <a href="/azure/service-fabric/">
                                                 <img src="media/index/Fabric.svg" alt="" />
@@ -300,6 +350,18 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/mysql/">
+                                                <img src="media/index/MySQL.svg" alt="" />
+                                                <p>Azure Database for MySQL</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/postgresql/">
+                                                <img src="media/index/PostgreSQL.svg" alt="" />
+                                                <p>Azure Database for PostgreSQL</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/sql-data-warehouse/">
                                                 <img src="media/index/SQLDataWarehouse.svg" alt="" />
                                                 <p>SQL Data Warehouse</p>
@@ -318,15 +380,9 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/postgresql/">
-                                                <img src="media/index/PostgreSQL.svg" alt="" />
-                                                <p>PostgreSQL</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/mysql/">
-                                                <img src="media/index/MySQL.svg" alt="" />
-                                                <p>MySQL</p>
+                                            <a href="/azure/cosmos-db/table-storage-overview">
+                                                <img src="media/index/cosmosdb.svg" alt="" />
+                                                <p>Table Storage</p>
                                             </a>
                                         </li>
                                         <li>
@@ -335,25 +391,19 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 <p>Redis Cache</p>
                                             </a>
                                         </li>
-                                        <li>
-                                            <a href="/azure/data-factory/">
-                                                <img src="media/index/DataFactory.svg" alt="" />
-                                                <p>Data Factory</p>
-                                            </a>
-                                        </li>
                                     </ul>
                                     <h3>Containers</h3>
                                     <ul>
                                         <li>
-                                            <a href="/azure/container-instances/">
-                                                <img src="media/index/ContainerInstances.svg" alt="" />
-                                                <p>Azure Container Instances</p>
+                                            <a href="/azure/container-service/">
+                                                <img src="media/index/ContainerService.svg" alt="" />
+                                                <p>Azure Container Service (AKS)</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/container-service/">
-                                                <img src="media/index/ContainerService.svg" alt="" />
-                                                <p>Azure Container Service</p>
+                                            <a href="/azure/container-instances/">
+                                                <img src="media/index/ContainerInstances.svg" alt="" />
+                                                <p>Azure Container Instances</p>
                                             </a>
                                         </li>
                                         <li>
@@ -369,9 +419,9 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/app-service/">
+                                            <a href="/azure/app-service/containers/">
                                                 <img src="media/index/AppService.svg" alt="" />
-                                                <p>App Service</p>
+                                                <p>Web App for Containers</p>
                                             </a>
                                         </li>
                                         <li>
@@ -414,9 +464,21 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/data-catalog/">
+                                                <img src="media/index/data-catalog.svg" alt="" />
+                                                <p>Data Catalog</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/data-factory/">
                                                 <img src="media/index/DataFactory.svg" alt="" />
                                                 <p>Data Factory</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/event-grid/">
+                                                <img src="media/index/azure_event_grid.svg" alt="" />
+                                                <p>Event Grid</p>
                                             </a>
                                         </li>
                                         <li>
@@ -426,7 +488,22 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>Other Clouds</h3>
+                                    <h3>Azure Stack</h3>
+                                    <ul>
+                                        <li>
+                                            <a href="/azure/azure-stack/">
+                                                <img src="media/index/azure-stack.svg" alt="" />
+                                                <p>Azure Stack Operator</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/azure-stack/user">
+                                                <img src="media/index/azure-stack.svg" alt="" />
+                                                <p>Azure Stack User</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <h3>Sovereign Clouds</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/azure-government/">
@@ -441,9 +518,9 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/azure-stack/">
-                                                <img src="media/index/azure-stack.svg" alt="" />
-                                                <p>Azure Stack</p>
+                                            <a href="/azure/china/">
+                                                <img src="media/index/azure-germany.svg" alt="" />
+                                                <p>Microsoft Azure China 21Vianet</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -490,11 +567,11 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         <li>
                                             <a href="/azure/cdn/">
                                                 <img src="media/index/ContentDeliveryNetwork.svg" alt="" />
-                                                <p>CDN</p>
+                                                <p>Content Delivery Network</p>
                                             </a>
                                         </li>
                                         <li>
-                                        <a href="/azure/traffic-manager/">
+                                            <a href="/azure/traffic-manager/">
                                                 <img src="media/index/TrafficManager.svg" alt="" />
                                                 <p>Traffic Manager</p>
                                             </a>
@@ -503,6 +580,12 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             <a href="/azure/expressroute/">
                                                 <img src="media/index/ExpressRoute.svg" alt="" />
                                                 <p>ExpressRoute</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/virtual-network/ddos-protection-overview">
+                                                <img src="media/index/ddos.svg" alt="" />
+                                                <p>DDOS protection</p>
                                             </a>
                                         </li>
                                         <li>
@@ -515,15 +598,51 @@ description: Learn how to build and manage powerful applications using Microsoft
                                     <h3>AI + Cognitive Services</h3>
                                     <ul>
                                         <li>
-                                            <a href="/azure/cognitive-services/emotion/home">
-                                                <img src="media/index/API_Vis_Emotion.svg" alt="" />
-                                                <p>Emotion</p>
+                                            <a href="/azure/machine-learning/preview">
+                                                <img src="media/index/MachineLearning.svg" alt="" />
+                                                <p>Machine Learning services</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/face/">
-                                                <img src="media/index/API_Vis_Face.svg" alt="" />
-                                                <p>Face</p>
+                                            <a href="/bot-framework/azure-bot-service-overview">
+                                                <img src="media/index/bot-service.svg" alt="" />
+                                                <p>Azure Bot Service</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/batch-ai/">
+                                                <img src="media/index/Azure_batch_ai.svg" alt="" />
+                                                <p>Azure Batch AI</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-overview">
+                                                <img src="media/index/API_Custom_Decision_Service.svg" alt="" />
+                                                <p>Custom Decision Service</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/entitylinking/home">
+                                                <img src="media/index/API_Entity_LinkingIntelligence.svg" alt="" />
+                                                <p>Entity Linking</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/kes/overview">
+                                                <img src="media/index/API_KnowledgeExploration.svg" alt="" />
+                                                <p>Knowledge Exploration Service (KES)</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/qnamaker/home">
+                                                <img src="media/index/API_QnAMaker.svg" alt="" />
+                                                <p>QnAMaker</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/recommendations/overview">
+                                                <img src="media/index/API_Recommendations.svg" alt="" />
+                                                <p>Recommendations</p>
                                             </a>
                                         </li>
                                         <li>
@@ -533,159 +652,141 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/bing-autosuggest/get-suggested-search-terms">
-                                                <img src="media/index/API_Sear_BingAutoSuggest.svg" alt="" />
-                                                <p>Bing Autosuggest</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/bing-custom-search/overview">
-                                                <img src="media/index/API_Sear_BingSearch.svg" alt="" />
-                                                <p>Bing Custom Search</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/bing-image-search/search-the-web">
-                                                <img src="media/index/API_Sear_BingImageSearch.svg" alt="" />
-                                                <p>Bing Image</p>
-                                            </a>
-                                        </li>
-                                        <!-- <li>
-                                            <a href="/azure/cognitive-services/">
-                                                <img src="media/index/cs-bing-knowledge-graph.svg" alt="" />
-                                                <p>Bing Knowledge Graph</p>
-                                            </a>
-                                        </li> -->
-                                        <li>
-                                            <a href="/azure/cognitive-services/bing-news-search/search-the-web">
-                                                <img src="media/index/API_Sear_BingNewsSearch.svg" alt="" />
-                                                <p>Bing News</p>
-                                            </a>
-                                        </li>
-                                        <!-- <li>
-                                            <a href="/azure/cognitive-services/">
-                                                <img src="media/index/API_Spc_BingSpeech.svg" alt="" />
-                                                <p>Bing Speech Service</p>
-                                            </a>
-                                        </li> -->
-                                        <li>
-                                            <a href="/azure/cognitive-services/bing-spell-check/proof-text">
-                                                <img src="media/index/API_Lang_BingSpellCheck.svg" alt="" />
+                                            <a href="/azure/cognitive-services/bing-spell-check/">
+                                                <img src="media/index/API_Bing_Spell_Check.svg" alt="" />
                                                 <p>Bing Spell Check</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/bing-video-search/search-the-web">
-                                                <img src="media/index/API_Sear_BingVideoSearch.svg" alt="" />
-                                                <p>Bing Video</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/bing-web-search/search-the-web">
-                                                <img src="media/index/API_Sear_BingSearch.svg" alt="" />
-                                                <p>Bing Web Search</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/computer-vision/">
-                                                <img src="media/index/API_Vis_ComputerVision.svg" alt="" />
-                                                <p>Computer Vision</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/content-moderator/overview">
-                                                <img src="media/index/cs-content-moderator.svg" alt="" />
-                                                <p>Content Moderator</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-overview">
-                                                <img src="media/index/cs-decision-maker.svg" alt="" />
-                                                <p>Custom Decision Service</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home">
-                                                <img src="media/index/API_Spc_CustomSpeechService.svg" alt="" />
-                                                <p>Custom Speech Service</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/Custom-Vision-Service/home">
-                                                <img src="media/index/cs-custom-vision.svg" alt="" />
-                                                <p>Custom Vision Search</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/entitylinking/home">
-                                                <img src="media/index/API_Know_EntityLink.svg" alt="" />
-                                                <p>Entity Linking</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/kes/overview">
-                                                <img src="media/index/API_Know_Exploration.svg" alt="" />
-                                                <p>Knowledge Exploration Service (KES)</p>
-                                            </a>
-                                        </li>
-                                        <li>
                                             <a href="/azure/cognitive-services/luis/home">
-                                                <img src="media/index/API_Lang_LanguageUnderstanding.svg" alt="" />
+                                                <img src="media/index/API_Luis.svg" alt="" />
                                                 <p>Language Understanding Intelligent Services (LUIS)</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/linguisticanalysisapi/home">
-                                                <img src="media/index/API_Lang_LinguisticAnalysis.svg" alt="" />
-                                                <p>Linguistic</p>
+                                                <img src="media/index/API_LinguisticAnalysis.svg" alt="" />
+                                                <p>Linguistic Analysis</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/qnamaker/home">
-                                                <img src="media/index/API_Know_QandA_Maker.svg" alt="" />
-                                                <p>QnAMaker</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/recommendations/overview">
-                                                <img src="media/index/API_Know_Recommendations.svg" alt="" />
-                                                <p>Recommendations</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/speaker-recognition/home">
-                                                <img src="media/index/API_Spc_SpeakerRecognition.svg" alt="" />
-                                                <p>Speaker Recognition</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/text-analytics/overview">
-                                                <img src="media/index/API_Lang_TextAnalytics.svg" alt="" />
+                                            <a href="/azure/cognitive-services/text-analytics/">
+                                                <img src="media/index/API_TextAnalytics.svg" alt="" />
                                                 <p>Text Analytics</p>
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="https://docs.microsofttranslator.com/speech-translate.html">
+                                                <img src="media/index/API_TranslatorSpeech.svg" alt="" />
+                                                <p>Translator Speech</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/cognitive-services/translator/translator-info-overview">
-                                                <img src="media/index/cognitive-services-translator.svg" alt="" />
-                                                <p>Translator</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/video/home">
-                                                <img src="media/index/cs-video.svg" alt="" />
-                                                <p>Video</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/video-indexer/video-indexer-overview">
-                                                <img src="media/index/cs-video-indexer.svg" alt="" />
-                                                <p>Video Indexer</p>
+                                                <img src="media/index/API_TranslatorText.svg" alt="" />
+                                                <p>Translator Text API</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/web-language-model/home">
-                                                <img src="media/index/API_Lang_WebLM.svg" alt="" />
+                                                <img src="media/index/API_WebLanguageModel.svg" alt="" />
                                                 <p>Web Language Model</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/Bing-news-Search/search-the-web">
+                                                <img src="media/index/API_Bing_News_Search.svg" alt="" />
+                                                <p>Bing News</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/Bing-Video-Search/search-the-web">
+                                                <img src="media/index/API_Bing_Video_Search.svg" alt="" />
+                                                <p>Bing Video Search</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/bing-web-search/">
+                                                <img src="media/index/API_Bing_Web_Search.svg" alt="" />
+                                                <p>Bing Web Search</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/Bing-Autosuggest">
+                                                <img src="media/index/API_Bing_AutoSuggest.svg" alt="" />
+                                                <p>Bing Autosuggest</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/bing-custom-search">
+                                                <img src="media/index/API_Bing_Custom_Search.svg" alt="" />
+                                                <p>Bing Custom Search</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/bing-entities-search/search-the-web">
+                                                <img src="media/index/API_Bing_Entity_Search.svg" alt="" />
+                                                <p>Bing Entity Search</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/bing-image-search">
+                                                <img src="media/index/API_Bing_Image_Search.svg" alt="" />
+                                                <p>Bing Image Search</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/speech/home">
+                                                <img src="media/index/API_Bing_Speech.svg" alt="" />
+                                                <p>Bing Speech Service</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home">
+                                                <img src="media/index/API_Custom_Speech.svg" alt="" />
+                                                <p>Custom Speech Service</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/speaker-recognition/home">
+                                                <img src="media/index/API_Speaker_Recognition.svg" alt="" />
+                                                <p>Speaker Recognition</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/computer-vision/">
+                                                <img src="media/index/API_Computer_Vision.svg" alt="" />
+                                                <p>Computer Vision</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/content-moderator/overview">
+                                                <img src="media/index/API_Content_Moderator.svg" alt="" />
+                                                <p>Content Moderator</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/Custom-Vision-Service/home">
+                                                <img src="media/index/API_Custom_Vision.svg" alt="" />
+                                                <p>Custom Vision Service</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/emotion/home">
+                                                <img src="media/index/API_Emotion.svg" alt="" />
+                                                <p>Emotion API</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/face/">
+                                                <img src="media/index/API_Face.svg" alt="" />
+                                                <p>Face API</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/video-indexer/video-indexer-overview">
+                                                <img src="media/index/API_VideoIndexer.svg" alt="" />
+                                                <p>Video Indexer</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -710,19 +811,19 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         <li>
                                             <a href="/azure/virtual-machines/disks/">
                                                 <img src="media/index/Disks-color.svg" alt="" />
-                                                <p>Disks</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/storage/files/storage-files-introduction/">
-                                                <img src="media/index/logo_azure-storage-file.svg" alt="" />
-                                                <p>File Storage</p>
+                                                <p>Disk Storage</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/storage/queues/storage-queues-introduction/">
                                                 <img src="media/index/logo_azure-storage-q.svg" alt="" />
                                                 <p>Queue Storage</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/storage/files/storage-files-introduction/">
+                                                <img src="media/index/logo_azure-storage-file.svg" alt="" />
+                                                <p>File Storage</p>
                                             </a>
                                         </li>
                                         <li>
@@ -748,7 +849,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 <img src="media/index/SiteRecovery.svg" alt="" />
                                                 <p>Site Recovery</p>
                                             </a>
-                                        </li>                                        
+                                        </li>
                                     </ul>
                                     <h3>Data + Analytics</h3>
                                     <ul>
@@ -759,21 +860,9 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/machine-learning/">
-                                                <img src="media/index/MachineLearning.svg" alt="" />
-                                                <p>Machine Learning</p>
-                                            </a>
-                                        </li>
-                                        <li>
                                             <a href="/azure/stream-analytics/">
                                                 <img src="media/index/StreamAnalytics.svg" alt="" />
                                                 <p>Stream Analytics</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/data-catalog/">
-                                                <img src="media/index/data-catalog.svg" alt="" />
-                                                <p>Data Catalog</p>
                                             </a>
                                         </li>
                                         <li>
@@ -783,9 +872,15 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/data-lake-store/">
-                                                <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
-                                                <p>Data Lake Store</p>
+                                            <a href="/azure/analysis-services/">
+                                                <img src="media/index/AnalysisServices.svg" alt="" />
+                                                <p>Analysis Services</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/event-hubs/">
+                                                <img src="media/index/eventhubs.svg" alt="" />
+                                                <p>Event Hubs</p>
                                             </a>
                                         </li>
                                         <li>
@@ -795,29 +890,41 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/en-us/azure/sql-data-warehouse/">
+                                                <img src="media/index/sqldatawarehouse.svg" alt="" />
+                                                <p>SQL Data Warehouse</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/machine-learning/studio">
+                                                <img src="media/index/MachineLearning.svg" alt="" />
+                                                <p>Machine Learning Studio</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/data-catalog/">
+                                                <img src="media/index/data-catalog.svg" alt="" />
+                                                <p>Data Catalog</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/data-lake-store/">
+                                                <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
+                                                <p>Data Lake Store</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/power-bi-embedded/">
                                                 <img src="media/index/PowerBIEmbedded.svg" alt="" />
                                                 <p>Power BI Embedded</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/analysis-services/">
-                                                <img src="media/index/AnalysisServices.svg" alt="" />
-                                                <p>Analysis Services</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="https://docs.botframework.com/en-us/azure-bot-service/">
-                                                <img src="media/index/bot-service.svg" alt="" />
-                                                <p>Azure Bot Service</p>
                                             </a>
                                         </li>
                                     </ul>
                                     <h3>Developer Tools</h3>
                                     <ul>
                                         <li>
-                                            <a href="https://www.visualstudio.com/docs/overview">
-                                                <img src="media/index/VisualStudioTeamServices.svg" alt="" />
+                                            <a href="/vsts/">
+                                                <img src="media/index/logo_vs-team-services.svg" alt="" />
                                                 <p>Visual Studio Team Services</p>
                                             </a>
                                         </li>
@@ -843,6 +950,12 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             <a href="https://support.hockeyapp.net/kb">
                                                 <img src="media/index/HockeyApp.svg" alt="" />
                                                 <p>HockeyApp</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://azure.microsoft.com/en-us/features/xamarin">
+                                                <img src="media/index/logo_xamarin.svg" alt="" />
+                                                <p>Xamarin</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -874,14 +987,8 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         </li>
                                         <li>
                                             <a href="/azure/event-hubs/">
-                                                <img src="media/index/EventHubs.svg" alt="" />
+                                                <img src="media/index/eventhubs.svg" alt="" />
                                                 <p>Event Hubs</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/notification-hubs/">
-                                                <img src="media/index/NotificationHubs.svg" alt="" />
-                                                <p>Notification Hubs</p>
                                             </a>
                                         </li>
                                         <li>
@@ -891,15 +998,39 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/machine-learning/">
+                                            <a href="/azure/machine-learning/preview">
                                                 <img src="media/index/MachineLearning.svg" alt="" />
-                                                <p>Machine Learning</p>
+                                                <p>Machine Learning services</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/notification-hubs/">
+                                                <img src="media/index/NotificationHubs.svg" alt="" />
+                                                <p>Notification Hubs</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/time-series-insights/">
                                                 <img src="media/index/time-series-insights.svg" alt="" />
                                                 <p>Time Series Insights</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/event-grid/">
+                                                <img src="media/index/azure_event_grid.svg" alt="" />
+                                                <p>Event Grid</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cosmos-db/">
+                                                <img src="media/index/cosmosdb.svg" alt="" />
+                                                <p>Azure Cosmos DB</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/logic-apps/">
+                                                <img src="media/index/LogicApp.svg" alt="" />
+                                                <p>Logic Apps</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -911,6 +1042,12 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             <a href="/azure/app-service-web/">
                                                 <img src="media/index/app-service-web.svg" alt="" />
                                                 <p>Web Apps</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/app-service/containers/">
+                                                <img src="media/index/AppService.svg" alt="" />
+                                                <p>Web App for Containers</p>
                                             </a>
                                         </li>
                                         <li>
@@ -926,15 +1063,9 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/logic-apps/">
-                                                <img src="media/index/LogicApp.svg" alt="" />
-                                                <p>Logic Apps</p>
-                                            </a>
-                                        </li>
-                                        <li>
                                             <a href="/azure/cdn/">
                                                 <img src="media/index/ContentDeliveryNetwork.svg" alt="" />
-                                                <p>CDN</p>
+                                                <p>Content Delivery Network</p>
                                             </a>
                                         </li>
                                         <li>
@@ -946,7 +1077,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         <li>
                                             <a href="/azure/search/">
                                                 <img src="media/index/Search.svg" alt="" />
-                                                <p>Search</p>
+                                                <p>Azure Search</p>
                                             </a>
                                         </li>
                                         <li>
@@ -971,6 +1102,12 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="https://azure.microsoft.com/en-us/develop/identity">
+                                                <img src="media/index/ActiveDirectory.svg" alt="" />
+                                                <p>Azure Active Directory for Developers</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/key-vault/">
                                                 <img src="media/index/KeyVault.svg" alt="" />
                                                 <p>Key Vault</p>
@@ -991,7 +1128,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         <li>
                                             <a href="/azure/active-directory-domain-services">
                                                 <img src="media/index/ActiveDirectory.svg" alt="" />
-                                                <p>Azure Active Directory Domain Services</p>
+                                                <p>Azure Active Directory for Domain Services</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1010,6 +1147,24 @@ description: Learn how to build and manage powerful applications using Microsoft
                                     <h3>Monitoring + Management</h3>
                                     <ul>
                                         <li>
+                                            <a href="/azure/azure-policy/">
+                                                <img src="media/index/governance.svg" alt="" />
+                                                <p>Azure Policy</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cost-management/">
+                                                <img src="media/index/billing.svg" alt="" />
+                                                <p>Azure Cost Management</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/monitoring-and-diagnostics/">
+                                                <img src="media/index/AzureMonitoring.svg" alt="" />
+                                                <p>Azure Monitor</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/application-insights/">
                                                 <img src="media/index/ApplicationInsights.svg" alt="" />
                                                 <p>Application Insights</p>
@@ -1019,12 +1174,6 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             <a href="/azure/log-analytics/">
                                                 <img src="media/index/OperationsManagementSuite.svg" alt="" />
                                                 <p>Log Analytics</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/automation/">
-                                                <img src="media/index/Automation.svg" alt="" />
-                                                <p>Automation</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1040,15 +1189,15 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/scheduler/">
-                                                <img src="media/index/Scheduler.svg" alt="" />
-                                                <p>Scheduler</p>
+                                            <a href="/azure/automation/">
+                                                <img src="media/index/automation.svg" alt="" />
+                                                <p>Automation</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/monitoring-and-diagnostics/">
-                                                <img src="media/index/AzureMonitoring.svg" alt="" />
-                                                <p>Azure Monitor</p>
+                                            <a href="/azure/scheduler/">
+                                                <img src="media/index/scheduler.svg" alt="" />
+                                                <p>Scheduler</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1071,14 +1220,14 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         </li>
                                         <li>
                                             <a href="/azure/azure-resource-manager/">
-                                                <img src="media/index/AzureDefaultBlack.svg" alt="" />
+                                                <img src="media/index/azuredefaultblack.svg" alt="" />
                                                 <p>Azure Resource Manager</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/event-grid/">
-                                                <img src="media/index/azure_event_grid.svg" alt="" />
-                                                <p>Azure Event Grid</p>
+                                            <a href="/azure/managed-applications">
+                                                <img src="media/index/i_managed-application.svg" alt="" />
+                                                <p>Managed Applications</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -1204,6 +1353,44 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/container-service/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/ContainerService.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Container Service (AKS)</h3>
+                                                    <p>Run containerized application at scale using Kubernetes</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/container-instances/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/ContainerInstances.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Container Instances</h3>
+                                                    <p>Easily run containers with a single command</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/batch/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -1264,7 +1451,8 @@ description: Learn how to build and manage powerful applications using Microsoft
                     </li>
                     <li>
                         <a href="#network">Networking</a>
-                        <ul id="network" class="cardsA"><li>
+                        <ul id="network" class="cardsA">
+                            <li>
                                 <a href="/azure/networking/networking-overview">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -1333,8 +1521,10 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Application Gateway</h3>
-                                                    <p>Layer 7 Load Balancer with built-in HTTP load balancing and delivery
-                                                        control</p>
+                                                    <p>
+                                                        Layer 7 Load Balancer with built-in HTTP load balancing and delivery
+                                                        control
+                                                    </p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1390,9 +1580,8 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>CDN</h3>
-                                                    <p>Deliver content to end-users through a robust network of global data
-                                                        centers </p>
+                                                    <h3>Content Delivery Network</h3>
+                                                    <p>Deliver content to end-users through a robust network of global data centers</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1431,6 +1620,25 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 <div class="cardText">
                                                     <h3>ExpressRoute</h3>
                                                     <p>Dedicated private network fiber connections to Azure</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/virtual-network/ddos-protection-overview">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/ddos.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>DDOS Protection</h3>
+                                                    <p>Protect your applications from Distributed Denial of Service (DDoS) attacks</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1510,27 +1718,8 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Disks</h3>
-                                                    <p>Disks storage for VMs</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/storage/files/storage-files-introduction/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/logo_azure-storage-file.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>File Storage</h3>
-                                                    <p>Simple, distributed, cross platform file system</p>
+                                                    <h3>Disk Storage</h3>
+                                                    <p>Disk storage for VMs</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1550,6 +1739,25 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 <div class="cardText">
                                                     <h3>Queue Storage</h3>
                                                     <p>Durable queues for large-volume cloud services</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/storage/files/storage-files-introduction/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/logo_azure-storage-file.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>File Storage</h3>
+                                                    <p>Simple, distributed, cross-platform file system</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1625,13 +1833,13 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Site Recovery</h3>
-                                                    <p>Orchestrate protection and recovery of private clouds</p>
+                                                    <p>Orchestrate disaster recovery of Azure VMs, and on-premises VMs and physical servers</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </a>
-                            </li>                            
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -1650,6 +1858,25 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 <div class="cardText">
                                                     <h3>Web Apps</h3>
                                                     <p>Quickly create and deploy mission critical Web apps at scale</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/app-service/containers/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/appservice.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Web App for Containers</h3>
+                                                    <p>Easily deploy and run containerized web apps that scale with your business</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1695,25 +1922,6 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/logic-apps/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/LogicApp.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Logic Apps</h3>
-                                                    <p>Automate the access and use of data across clouds without writing code</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
                                 <a href="/azure/cdn/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -1724,9 +1932,8 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>CDN</h3>
-                                                    <p>Deliver content to end-users through a robust network of global data
-                                                        centers </p>
+                                                    <h3>Content Delivery Network</h3>
+                                                    <p>Deliver content to end-users through a robust network of global data centers </p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1763,7 +1970,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Search</h3>
+                                                    <h3>Azure Search</h3>
                                                     <p>Fully managed search-as-a-service</p>
                                                 </div>
                                             </div>
@@ -1825,27 +2032,8 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Container Service</h3>
-                                                    <p>Scale and orchestrate containers using Kubernetes, DC/OS or Docker Swarm</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/container-registry/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/container-registry.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Azure Container Registry</h3>
-                                                    <p>Store and manage container images across all types of Azure deployments</p>
+                                                    <h3>Azure Container Service (AKS)</h3>
+                                                    <p>Run containerized application at scale using Kubernetes</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1872,37 +2060,18 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/app-service/">
+                                <a href="/azure/container-registry/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/AppService.svg" alt="" />
+                                                        <img src="media/index/container-registry.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>App Service</h3>
-                                                    <p>Deploy web apps on Linux using containers</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/batch/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/Batch.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Batch</h3>
-                                                    <p>Cloud-scale job scheduling and compute management</p>
+                                                    <h3>Azure Container Registry</h3>
+                                                    <p>Store and manage container images across all types of Azure deployments</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1928,6 +2097,44 @@ description: Learn how to build and manage powerful applications using Microsoft
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="/azure/app-service/containers/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/AppService.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Web App for Containers</h3>
+                                                    <p>Easily deploy and run containerized web apps that scale with your business</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/batch/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/Batch.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Batch</h3>
+                                                    <p>Cloud-scale job scheduling and compute management</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -1946,6 +2153,44 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 <div class="cardText">
                                                     <h3>SQL Database</h3>
                                                     <p>Managed relational database-as-a-service</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/mysql/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/MySQL.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Database for MySQL</h3>
+                                                    <p>Managed MySQL database service for app developers</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/postgresql/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/PostgreSQL.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Database for PostgreSQL</h3>
+                                                    <p>Managed PostgreSQL database service for app developers</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2010,37 +2255,18 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/postgresql/">
+                                <a href="/azure/cosmos-db/table-storage-overview">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/PostgreSQL.svg" alt="" />
+                                                        <img src="media/index/CosmosDB_rgb_ui_lighttheme.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>PostgreSQL</h3>
-                                                    <p>Managed PostgreSQL database service for app developers</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/mysql/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/MySQL.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>MySQL</h3>
-                                                    <p>Managed MySQL database service for app developers</p>
+                                                    <h3>Table Storage</h3>
+                                                    <p>Globally distributed, multi-model database for any scale</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2060,182 +2286,6 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 <div class="cardText">
                                                     <h3>Redis Cache</h3>
                                                     <p>High throughput, low latency data access to build fast/scalable applications</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/data-factory/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/DataFactory.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Data Factory</h3>
-                                                    <p>Orchestrate and manage data transformation and movement</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#cognitive">AI + Cognitive Services</a>
-                        <ul id="cognitive" class="cardsA">
-                            <li>
-                                <a href="/azure/cognitive-services/computer-vision/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/API_Vis_ComputerVision.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Computer Vision</h3>
-                                                    <p>Distill actionable information from images</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/cognitive-services/face/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/API_Vis_Face.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Face</h3>
-                                                    <p>Detect, identify, analyze, organize, and tag faces in photos</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/cognitive-services/bing-web-search/search-the-web">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/API_Sear_BingSearch.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Bing Web Search</h3>
-                                                    <p>Connect powerful web search to your apps</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/API_Spc_CustomSpeechService.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Custom Speech Service</h3>
-                                                    <p>Overcome speech recognition barriers</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/cognitive-services/custom-vision-service/home">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/cs-custom-vision.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Custom Vision Service</h3>
-                                                    <p>A customizable web service that learns to recognize specific content in imagery</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/cognitive-services/video-indexer/video-indexer-overview">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/cs-video-indexer.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Video Indexer</h3>
-                                                    <p>Search, edit, analyze, and learn from your videos</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/cognitive-services/luis/home">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/API_Lang_LanguageUnderstanding.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Language Understanding Intelligent Services (LUIS)</h3>
-                                                    <p>Teach your apps to understand commands from your users</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/cognitive-services/bing-custom-search/overview">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/API_Sear_BingSearch.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Bing Custom Search</h3>
-                                                    <p>Build the search results you’re looking for</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2267,25 +2317,6 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/machine-learning/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/MachineLearning.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Machine Learning</h3>
-                                                    <p>Powerful cloud-based predictive analytics tool to enable predictive maintenance</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
                                 <a href="/azure/stream-analytics/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -2298,25 +2329,6 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 <div class="cardText">
                                                     <h3>Stream Analytics</h3>
                                                     <p>Real-time data stream processing from millions of IoT devices</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/data-catalog/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/data-catalog.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Data Catalog</h3>
-                                                    <p>Enable self-service data source discovery across the enterprise</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2343,18 +2355,37 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/data-lake-store/">
+                                <a href="/azure/analysis-services/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
+                                                        <img src="media/index/AnalysisServices.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Data Lake Store</h3>
-                                                    <p>Hyperscale repository for big data analytics workloads</p>
+                                                    <h3>Analysis Services</h3>
+                                                    <p>Enterprise-grade data modeling in the cloud</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/en-us/azure/event-hubs/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/eventhubs.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Event Hubs</h3>
+                                                    <p>Receive telemetry from millions of devices</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2381,6 +2412,82 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
+                                <a href="/en-us/azure/sql-data-warehouse/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/sqldatawarehouse.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>SQL Data Warehouse</h3>
+                                                    <p>Elastic data warehouse-as-a-service with enterprise-class features</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/machine-learning/studio">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/MachineLearning.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Machine Learning Studio</h3>
+                                                    <p>Powerful cloud-based predictive analytics tool to enable predictive maintenance</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/data-catalog/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/data-catalog.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Data Catalog</h3>
+                                                    <p>Enable self-service data source discovery across the enterprise</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/data-lake-store/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Data Lake Store</h3>
+                                                    <p>Hyperscale repository for big data analytics workloads</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/power-bi-embedded/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -2399,19 +2506,27 @@ description: Learn how to build and manage powerful applications using Microsoft
                                     </div>
                                 </a>
                             </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#cognitive">AI + Cognitive Services</a>
+                        <ul id="cognitive" class="cardsA">
+                            <li class="fullSpan">
+                                <h2>Artificial Intelligence</h2>
+                            </li>
                             <li>
-                                <a href="/azure/analysis-services/">
+                                <a href="/azure/machine-learning/preview">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/AnalysisServices.svg" alt="" />
+                                                        <img src="media/index/MachineLearning.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Analysis Services</h3>
-                                                    <p>Enterprise-grade data modeling in the cloud</p>
+                                                    <h3>Machine Learning services</h3>
+                                                    <p>Powerful cloud-based predictive analytics tool to enable predictive maintenance</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2419,7 +2534,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="https://docs.botframework.com/en-us/azure-bot-service/">
+                                <a href="/bot-framework/azure-bot-service-overview/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2436,6 +2551,182 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         </div>
                                     </div>
                                 </a>
+                            </li>
+                            <li>
+                                <a href="/azure/batch-ai/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/Azure_batch_ai.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Batch AI</h3>
+                                                    <p>Easily experiment and train your deep learning and AI models in parallel, at scale</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="fullSpan">
+                                <h2 style="margin-top:24px;margin-bottom:18px;">Cognitive Services</h2>
+                                <ul id="cognitive-services" class="cardsL panelContent singlePanelContent" style="display:flex!important;">
+                                    <li>
+                                        <div class="cardSize">
+                                            <div class="cardPadding">
+                                                <div class="card">
+                                                    <div class="cardText">
+                                                        <h3>Vision</h3>
+                                                        <ul class="noBullet">
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/computer-vision/"><img src="media/index/API_Computer_Vision.svg" alt="" />Computer Vision</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/content-moderator/overview"><img src="media/index/API_Content_Moderator.svg" alt="" />Content Moderator</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/Custom-Vision-Service/home"><img src="media/index/API_Custom_Vision.svg" alt="" /><span>Custom Vision Service&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/emotion/home"><img src="media/index/API_Emotion.svg" alt="" /><span>Emotion API&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/face/"><img src="media/index/API_Face.svg" alt="" />Face API</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/video-indexer/video-indexer-overview"><img src="media/index/API_VideoIndexer.svg" alt="" /><span>Video Indexer&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="cardSize">
+                                            <div class="cardPadding">
+                                                <div class="card">
+                                                    <div class="cardText">
+                                                        <h3>Speech</h3>
+                                                        <ul class="noBullet">
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/speech/home"><img src="media/index/API_Bing_Speech.svg" alt="" />Bing Speech Service</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home"><img src="media/index/API_Custom_Speech.svg" alt="" /><span>Custom Speech Service&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/speaker-recognition/home"><img src="media/index/API_Speaker_Recognition.svg" alt="" /><span>Speaker Recognition&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="https://docs.microsofttranslator.com/speech-translate.html"><img src="media/index/API_TranslatorSpeech.svg" alt="" />Translator Speech</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="cardSize">
+                                            <div class="cardPadding">
+                                                <div class="card">
+                                                    <div class="cardText">
+                                                        <h3>Language</h3>
+                                                        <ul class="noBullet">
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-spell-check/"><img src="media/index/API_Bing_Spell_Check.svg" alt="" />Bing Spell Check</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/luis/home"><img src="media/index/API_Luis.svg" alt="" /><span>Language Understanding Intelligent Services (LUIS)&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/linguisticanalysisapi/home"><img src="media/index/API_LinguisticAnalysis.svg" alt="" /><span>Linguistic Analysis&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/text-analytics/"><img src="media/index/API_TextAnalytics.svg" alt="" />Text Analytics</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/translator/translator-info-overview"><img src="media/index/API_TranslatorText.svg" alt="" />Translator Text</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/web-language-model/home"><img src="media/index/API_WebLanguageModel.svg" alt="" /><span>Web Language Model&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="cardSize">
+                                            <div class="cardPadding">
+                                                <div class="card">
+                                                    <div class="cardText">
+                                                        <h3>Knowledge</h3>
+                                                        <ul class="noBullet">
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/custom-decision-service/custom-decision-service-overview"><img src="media/index/API_Custom_Decision_Service.svg" alt="" /><span>Custom Decision Service&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/entitylinking/home"><img src="media/index/API_Entity_LinkingIntelligence.svg" alt="" /><span>Entity Linking&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/kes/overview"><img src="media/index/API_KnowledgeExploration.svg" alt="" /><span>Knowledge Exploration Service (KES)&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/qnamaker/home"><img src="media/index/API_QnAMaker.svg" alt="" /><span>QnAMaker&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/recommendations/overview"><img src="media/index/API_Recommendations.svg" alt="" /><span>Recommendations&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/academic-knowledge/home"><img src="media/index/API_Know_Academic.svg" alt="" /><span>Academic Knowledge&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="cardSize">
+                                            <div class="cardPadding">
+                                                <div class="card">
+                                                    <div class="cardText">
+                                                        <h3>Search</h3>
+                                                        <ul class="noBullet">
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-news-search/search-the-web"><img src="media/index/API_Bing_News_Search.svg" alt="" />Bing News</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/Bing-Video-Search/search-the-web"><img src="media/index/API_Bing_Video_Search.svg" alt="" />Bing Video Search</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-web-search/"><img src="media/index/API_Bing_Web_Search.svg" alt="" />Bing Web Search</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/Bing-Autosuggest"><img src="media/index/API_Bing_AutoSuggest.svg" alt="" />Bing Autosuggest</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-custom-search"><img src="media/index/API_Bing_Custom_Search.svg" alt="" /><span>Bing Custom Search</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-entities-search/search-the-web"><img src="media/index/API_Bing_Entity_Search.svg" alt="" /><span>Bing Entity Search&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-image-search"><img src="media/index/API_Bing_Image_Search.svg" alt="" />Bing Image Search</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
                             </li>
                         </ul>
                     </li>
@@ -2472,7 +2763,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure IoT Hub</h3>
+                                                    <h3>IoT Hub</h3>
                                                     <p>Connect, monitor, and control billions of IoT assets</p>
                                                 </div>
                                             </div>
@@ -2510,7 +2801,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure IoT Suite</h3>
+                                                    <h3>IoT Suite</h3>
                                                     <p>Capture and analyze untapped data to improve business results</p>
                                                 </div>
                                             </div>
@@ -2519,13 +2810,13 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/event-hubs/">
+                                <a href="/en-us/azure/event-hubs/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/EventHubs.svg" alt="" />
+                                                        <img src="media/index/eventhubs.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -2557,7 +2848,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/machine-learning/">
+                                <a href="/azure/machine-learning/preview">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2567,7 +2858,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Machine Learning</h3>
+                                                    <h3>Machine Learning services</h3>
                                                     <p>Powerful cloud-based predictive analytics tool to enable predictive maintenance</p>
                                                 </div>
                                             </div>
@@ -2607,6 +2898,63 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 <div class="cardText">
                                                     <h3>Time Series Insights</h3>
                                                     <p>Instantly explore and analyze time-series data</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/event-grid/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure_event_grid.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Event Grid</h3>
+                                                    <p>Get reliable event delivery at massive scale</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/cosmos-db/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/CosmosDB_rgb_ui_lighttheme.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Cosmos DB</h3>
+                                                    <p>Globally distributed, multi-model database for any scale</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/logic-apps/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/LogicApp.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Logic Apps</h3>
+                                                    <p>Automate the access and use of data across clouds without writing code</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2714,6 +3062,25 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/data-catalog/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/data-catalog.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Data Catalog</h3>
+                                                    <p>Enable self-service data source discovery across the enterprise</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/data-factory/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -2726,6 +3093,25 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 <div class="cardText">
                                                     <h3>Data Factory</h3>
                                                     <p>Orchestrate and manage data transformation and movement</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/event-grid/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure_event_grid.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Event Grid</h3>
+                                                    <p>Get reliable event delivery at massive scale</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2769,6 +3155,25 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 <div class="cardText">
                                                     <h3>Security Center</h3>
                                                     <p>Prevent, detect, and respond to threats with increased visibility</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://azure.microsoft.com/en-us/develop/identity">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/ActiveDirectory.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Active Directory for Developers</h3>
+                                                    <p>Scalable, cross-platform authentication for your mobile apps and websites</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2843,7 +3248,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Active Directory Domain Services</h3>
+                                                    <h3>Active Directory for Domain Services</h3>
                                                     <p>Join Azure virtual machines to a domain without domain controllers</p>
                                                 </div>
                                             </div>
@@ -2895,13 +3300,13 @@ description: Learn how to build and manage powerful applications using Microsoft
                         <a href="#devtools">Developer Tools</a>
                         <ul id="devtools" class="cardsA">
                             <li>
-                                <a href="https://www.visualstudio.com/docs/overview">
+                                <a href="/vsts/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/VisualStudioTeamServices.svg" alt="" />
+                                                        <img src="media/index/logo_vs-team-services.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -2989,11 +3394,87 @@ description: Learn how to build and manage powerful applications using Microsoft
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="https://azure.microsoft.com/en-us/features/xamarin">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/logo_xamarin.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Xamarin</h3>
+                                                    <p>Create amazing cloud-powered mobile apps faster</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
                         <a href="#mgmt">Monitoring + Management</a>
                         <ul id="mgmt" class="cardsA">
+                            <li>
+                                <a href="/azure/azure-policy/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/governance.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Policy</h3>
+                                                    <p>Create, assign and, manage policy definitions </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/cost-management/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/billing.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Cost Management</h3>
+                                                    <p>Track cloud usage and expenditures</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/monitoring-and-diagnostics/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/AzureMonitoring.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Monitor</h3>
+                                                    <p>Highly granular and real-time monitoring data for any Azure resource</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                             <li>
                                 <a href="/azure/application-insights/">
                                     <div class="cardSize">
@@ -3026,25 +3507,6 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 <div class="cardText">
                                                     <h3>Log Analytics</h3>
                                                     <p>Learn how to transform machine data into operational intelligence</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/automation/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/Automation.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Automation</h3>
-                                                    <p>Simplify cloud management with process automation</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3090,18 +3552,18 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/scheduler/">
+                                <a href="/azure/automation/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/Scheduler.svg" alt="" />
+                                                        <img src="media/index/automation.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Scheduler</h3>
-                                                    <p>Run your jobs on simple or complex recurring schedules</p>
+                                                    <h3>Automation</h3>
+                                                    <p>Simplify cloud management with process automation</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3109,18 +3571,18 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/monitoring-and-diagnostics/">
+                                <a href="/azure/scheduler/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/AzureMonitoring.svg" alt="" />
+                                                        <img src="media/index/scheduler.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Monitor</h3>
-                                                    <p>Highly granular and real-time monitoring data for any Azure resource</p>
+                                                    <h3>Scheduler</h3>
+                                                    <p>Run your jobs on simple or complex recurring schedules</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3185,37 +3647,18 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/azure-resource-manager/">
+                                <a href="/azure/managed-applications">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/AzureDefaultBlack.svg" alt="" />
+                                                        <img src="media/index/i_managed-application.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Resource Manager</h3>
-                                                    <p>Deploy and manage Azure resources</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/event-grid/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/azure_event_grid.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Azure Event Grid</h3>
-                                                    <p>Get reliable event delivery at massive scale</p>
+                                                    <h3>Managed Applications</h3>
+                                                    <p>Manage deployed solutions for your customers</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3225,7 +3668,48 @@ description: Learn how to build and manage powerful applications using Microsoft
                         </ul>
                     </li>
                     <li>
-                        <a href="#other">Other Clouds</a>
+                        <a href="#stack">Azure Stack</a>
+                        <ul id="stack" class="cardsA">
+                            <li>
+                                <a href="/azure/azure-stack/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure-stack.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Stack Operator</h3>
+                                                    <p>Deliver Azure services from your own datacenter with this new hybrid cloud platform</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/azure-stack/user">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardImageOuter">
+                                                <div class="cardImage">
+                                                    <img src="media/index/azure-stack.svg" alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="cardText">
+                                                <h3>Azure Stack User</h3>
+                                                <p>Use services and build applications for Azure Stack</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#other">Sovereign Clouds</a>
                         <ul id="other" class="cardsA">
                             <li>
                                 <a href="/azure/azure-government/">
@@ -3266,18 +3750,18 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/azure-stack/">
+                                <a href="/azure/china/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/azure-stack.svg" alt="" />
+                                                        <img src="media/index/azure-germany.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Microsoft Azure Stack</h3>
-                                                    <p>Deliver Azure services from your own datacenter with this new hybrid cloud platform</p>
+                                                    <h3>Microsoft Azure China 21Vianet</h3>
+                                                    <p>Build and host applications in compliance with policies and data-handling regulations stipulated by the government in China</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3361,7 +3845,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     <a href="/nodejs/azure/node-sdk-azure-install">Get the Azure libraries for Node.js</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="/nodejs/azure/?view=azure-node-2.0.0">Get started</a>
+                                                    <a href="/nodejs/azure/">Get started</a>
                                                 </p>
                                                 <p>
                                                     <a href="/nodejs/api/overview/azure">API reference</a>
@@ -3464,7 +3948,8 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 </div>
                                             </div>
                                             <div class="cardText">
-                                                <h3>Azure CLI 2.0
+                                                <h3>
+                                                    Azure CLI 2.0
                                                 </h3>
                                                 <p>
                                                     <a href="/cli/azure/overview">Get Started</a>
@@ -3515,7 +4000,8 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 </div>
                                             </div>
                                             <div class="cardText">
-                                                <h3>Azure CLI
+                                                <h3>
+                                                    Azure CLI
                                                 </h3>
                                                 <p>
                                                     <a href="/azure/xplat-cli-install?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">Get Started</a>
@@ -3631,7 +4117,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     <a href="/azure/vs-azure-tools-storage-manage-with-storage-explorer">Get Started</a>
                                                 </p>
                                                 <p>
-                                                     <a  href="http://go.microsoft.com/fwlink/?LinkId=722418">Download for Linux</a>
+                                                    <a href="http://go.microsoft.com/fwlink/?LinkId=722418">Download for Linux</a>
                                                 </p>
                                                 <p>
                                                     <a href="http://go.microsoft.com/fwlink/?LinkId=708342">Download for Mac</a>
@@ -3680,9 +4166,11 @@ description: Learn how to build and manage powerful applications using Microsoft
                         <ul id="architecture1" class="cardsC">
                             <li>
                                 <div class="container intro">
-                                    <p>A set of recommended architectures for cloud applications. Each architecture includes
+                                    <p>
+                                        A set of recommended architectures for cloud applications. Each architecture includes
                                         recommended practices, prescriptive steps, and an executable component that embodies
-                                        the recommendations.</p>
+                                        the recommendations.
+                                    </p>
                                 </div>
                             </li>
                             <li>
@@ -3754,35 +4242,17 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Best Practices for Cloud Applications</h3>
-                                                    <p>A set of best practices for cloud applications, covering aspects such
-                                                        as auto-scaling, caching, data partitioning, API design, and monitoring.</p>
+                                                    <p>
+                                                        A set of best practices for cloud applications, covering aspects such
+                                                        as auto-scaling, caching, data partitioning, API design, and monitoring.
+                                                    </p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </a>
                             </li>
-<!--                            <li>
-                                <a href="/azure/architecture/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage bgdAccent1">
-                                                        <img src="media/index/azure_scenarios.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Scenario Guides</h3>
-                                                    <p>Guidance for various end-to-end application scenarios in the cloud. Includes
-                                                        written guidance and reference implementations.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
--->                     </ul>
+                        </ul>
                     </li>
                 </ul>
             </li>

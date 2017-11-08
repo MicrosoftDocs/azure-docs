@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 9/20/2017
+ms.date: 10/22/2017
 ms.author: raiye
 
 ---
@@ -31,9 +31,19 @@ Provides you with up-to-date information about the latest Azure Guest OS release
 >
 >
 
+> [!IMPORTANT]
+> Starting from the November rollout, only the latest 2 versions of the Guest OS will be supported and available in the Azure portal.
+>
+>
+
 Unsure about what the Guest OS is or how the Guest OS releases work? Read [this](#how-it-works) section.
 
 ## News updates
+
+
+###### **October 6, 2017**
+September Guest OS has released. For the Windows Server 2016 September release, netfx3 is enabled by default. Customers should add ‘dism /online /disable-feature /featurename:netfx3’ in their OnStart if their workflow requires them to run a .NET 2.x app with a 4.x runtime or if they ran a .NET 2.x app, handled an error, and then ran a .NET 4.x app.
+
 ###### **September 14, 2017**
 September Guest OS rollout is starting September 14 and has a projected release of October 9.
 
@@ -67,7 +77,7 @@ April Guest OS rollout is starting April 18 and has a projected release of May 9
 
 ## Releases
 ## Family 5 releases
-**Windows Server, 2016**
+**Windows Server 2016**
 
 .NET Framework Installed: 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2
 
@@ -79,9 +89,10 @@ April Guest OS rollout is starting April 18 and has a projected release of May 9
 
 | Configuration String | Release date | Disable date | Expired date |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-5.11_201709-01 |October 6, 2017 |Post 5.13 |TBD |
 | WA-GUEST-OS-5.10_201708-01 |August 24, 2017 |Post 5.12 |TBD |
 | WA-GUEST-OS-5.9_201707-01 |August 3, 2017 |Post 5.11 |TBD |
-| WA-GUEST-OS-5.8_201706-01 |July 7, 2017 |Post 5.10 |TBD |
+|~~WA-GUEST-OS-5.8_201706-01~~ |July 7, 2017 |October 6, 2017 |TBD |
 |~~WA-GUEST-OS-5.7_201705-01~~ |June 5, 2017 |August 24, 2017 |TBD |
 |~~WA-GUEST-OS-5.6_201704-01~~ |May 9, 2017 |August 3, 2017 |TBD |
 |~~WA-GUEST-OS-5.5_201703-01~~ |April 10, 2017 |July 7, 2017 |TBD |
@@ -92,7 +103,7 @@ April Guest OS rollout is starting April 18 and has a projected release of May 9
 ## Family 4 releases
 **Windows Server 2012 R2**
 
-Supports .NET 4.0, 4.5, 4.5.1, 4.5.2
+.NET Framework Installed: 4.0, 4.5, 4.5.1, 4.5.2
 
 > [!NOTE]
 > Dates with a * are subject to change
@@ -101,9 +112,10 @@ Supports .NET 4.0, 4.5, 4.5.1, 4.5.2
 
 | Configuration String | Release date | Disable date | Expired date |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-4.46_201709-01 |October 6, 2017 |Post 4.48 |TBD |
 | WA-GUEST-OS-4.45_201708-01 |August 24, 2017 |Post 4.47 |TBD |
 | WA-GUEST-OS-4.44_201707-01 |August 3, 2017 |Post 4.46 |TBD |
-| WA-GUEST-OS-4.43_201706-01 |July 7, 2017 |Post 4.45 |TBD |
+|~~WA-GUEST-OS-4.43_201706-01~~ |July 7, 2017 |October 6, 2017 |TBD |
 |~~WA-GUEST-OS-4.42_201705-01~~ |June 5, 2017 |August 24, 2017 |TBD |
 |~~WA-GUEST-OS-4.41_201704-01~~ |May 9, 2017 |August 3, 2017 |TBD |
 |~~WA-GUEST-OS-4.40_201703-01~~ |April 10, 2017 |July 7, 2017 |TBD |
@@ -118,7 +130,7 @@ Supports .NET 4.0, 4.5, 4.5.1, 4.5.2
 ## Family 3 releases
 **Windows Server 2012**
 
-Supports .NET 4.0, 4.5, 4.5.1, 4.5.2
+.NET Framework Installed: 4.0, 4.5, 4.5.1, 4.5.2
 
 > [!NOTE]
 > Dates with a * are subject to change
@@ -127,9 +139,10 @@ Supports .NET 4.0, 4.5, 4.5.1, 4.5.2
 
 | Configuration String | Release date | Disable date | Expired date |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-3.53_201709-01 |October 6, 2017 |Post 3.55 |TBD |
 | WA-GUEST-OS-3.52_201708-01 |August 24, 2017 |Post 3.54 |TBD |
 | WA-GUEST-OS-3.51_201707-01 |August 3, 2017 |Post 3.53 |TBD |
-| WA-GUEST-OS-3.50_201706-01 |July 7, 2017 |Post 3.52 |TBD |
+|~~WA-GUEST-OS-3.50_201706-01~~ |July 7, 2017 |October 6, 2017 |TBD |
 |~~WA-GUEST-OS-3.49_201705-01~~ |June 5, 2017 |August 24, 2017 |TBD |
 |~~WA-GUEST-OS-3.48_201704-01~~ |May 9, 2017 |August 3, 2017 |TBD |
 |~~WA-GUEST-OS-3.47_201703-01~~ |April 10, 2017 |July 7, 2017 |TBD |
@@ -144,7 +157,7 @@ Supports .NET 4.0, 4.5, 4.5.1, 4.5.2
 ## Family 2 releases
 **Windows Server 2008 R2 SP1**
 
-Supports .NET 3.5, 4.0, 4.5, 4.5.1, 4.5.2
+.NET Framework Installed: 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
 > [!NOTE]
 > Dates with a * are subject to change
@@ -153,9 +166,10 @@ Supports .NET 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
 | Configuration String | Release date | Disable date | Expired date |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-2.66_201709-01 |October 6, 2017 |Post 2.68 |TBD |
 | WA-GUEST-OS-2.65_201708-01 |August 24, 2017 |Post 2.67 |TBD |
 | WA-GUEST-OS-2.64_201707-01 |August 3, 2017 |Post 2.66 |TBD |
-| WA-GUEST-OS-2.63_201706-01 |July 7, 2017 |Post 2.65 |TBD |
+|~~WA-GUEST-OS-2.63_201706-01~~ |July 7, 2017 |October 6, 2017 |TBD |
 |~~WA-GUEST-OS-2.62_201705-01~~ |June 5, 2017 |August 24, 2017 |TBD |
 |~~WA-GUEST-OS-2.61_201704-01~~ |May 9, 2017 |August 3, 2017 |TBD |
 |~~WA-GUEST-OS-2.60_201703-01~~ |April 10, 2017 |July 7, 2017 |TBD |

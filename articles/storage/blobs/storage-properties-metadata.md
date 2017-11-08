@@ -3,7 +3,7 @@ title: Set and retrieve object properties and metadata in Azure Storage | Micros
 description: Store custom metadata on objects in Azure Storage, and set and retrieve system properties.
 services: storage
 documentationcenter: ''
-author: mmacy
+author: tamram
 manager: timlt
 editor: tysonn
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
-ms.author: marsma
+ms.author: tamram
 ---
 # Set and retrieve properties and metadata
 
@@ -24,16 +24,16 @@ Objects in Azure Storage support system properties and user-defined metadata, in
 
 * **User-defined metadata**: User-defined metadata is metadata that you specify on a given resource in the form of a name-value pair. You can use metadata to store additional values with a storage resource. These additional metadata values are for your own purposes only, and do not affect how the resource behaves.
 
-Retrieving property and metadata values for a storage resource is a two-step process. Before you can read these values, you must explicitly fetch them by calling the **FetchAttributes** method.
+Retrieving property and metadata values for a storage resource is a two-step process. Before you can read these values, you must explicitly fetch them by calling the **FetchAttributesAsync** method.
 
 > [!IMPORTANT]
-> Property and metadata values for a storage resource are not populated unless you call one of the **FetchAttributes** methods.
+> Property and metadata values for a storage resource are not populated unless you call one of the **FetchAttributesAsync** methods.
 >
 > You will receive a `400 Bad Request` if any name/value pairs contain non-ASCII characters. Metadata name/value pairs are valid HTTP headers, and so must adhere to all restrictions governing HTTP headers. It is therefore recommended that you use URL encoding or Base64 encoding for names and values containing non-ASCII characters.
 >
 
 ## Setting and retrieving properties
-To retrieve property values, call the **FetchAttributes** method on your blob or container to populate the properties, then read the values.
+To retrieve property values, call the **FetchAttributesAsync** method on your blob or container to populate the properties, then read the values.
 
 To set properties on an object, specify the property value, then call the **SetProperties** method.
 
@@ -54,7 +54,7 @@ CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
 container.CreateIfNotExists();
 
 // Fetch container properties and write out their values.
-container.FetchAttributes();
+await container.FetchAttributesAsync();
 Console.WriteLine("Properties for container {0}", container.StorageUri.PrimaryUri.ToString());
 Console.WriteLine("LastModifiedUTC: {0}", container.Properties.LastModified.ToString());
 Console.WriteLine("ETag: {0}", container.Properties.ETag);
@@ -72,26 +72,26 @@ You can specify metadata as one or more name-value pairs on a blob or container 
 The following code example sets metadata on a container. One value is set using the collection's **Add** method. The other value is set using implicit key/value syntax. Both are valid.
 
 ```csharp
-public static void AddContainerMetadata(CloudBlobContainer container)
+public static async Task AddContainerMetadataAsync(CloudBlobContainer container)
 {
-    //Add some metadata to the container.
+    // Add some metadata to the container.
     container.Metadata.Add("docType", "textDocuments");
     container.Metadata["category"] = "guidance";
 
-    //Set the container's metadata.
-    container.SetMetadata();
+    // Set the container's metadata.
+    await container.SetMetadataAsync();
 }
 ```
 
 To retrieve metadata, call the **FetchAttributes** method on your blob or container to populate the **Metadata** collection, then read the values, as shown in the example below.
 
 ```csharp
-public static void ListContainerMetadata(CloudBlobContainer container)
+public static async Task ListContainerMetadataAsync(CloudBlobContainer container)
 {
-    //Fetch container attributes in order to populate the container's properties and metadata.
-    container.FetchAttributes();
+    // Fetch container attributes in order to populate the container's properties and metadata.
+    await container.FetchAttributesAsync();
 
-    //Enumerate the container's metadata.
+    // Enumerate the container's metadata.
     Console.WriteLine("Container metadata:");
     foreach (var metadataItem in container.Metadata)
     {

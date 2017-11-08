@@ -83,9 +83,10 @@
 #### [.NET](iot-hub-csharp-csharp-c2d.md)
 #### [Java](iot-hub-java-java-c2d.md)
 #### [Node.js](iot-hub-node-node-c2d.md)
-### [Upload files from devices]
+### Upload files from devices
 #### [.NET](iot-hub-csharp-csharp-file-upload.md)
 #### [Java](iot-hub-java-java-file-upload.md)
+#### [Node.js](iot-hub-node-node-file-upload.md)
 ### Get started with device twins
 #### [Node.js back end/Node.js device](iot-hub-node-node-twin-getstarted.md)
 #### [.NET back end/Node.js device](iot-hub-csharp-node-twin-getstarted.md)
@@ -109,32 +110,44 @@
 ### Use device jobs to update device firmware
 #### [Node back end/Node device](iot-hub-node-node-firmware-update.md)
 #### [.NET back end/Node.js device](iot-hub-csharp-node-firmware-update.md)
+#### [.NET back end/.NET device](iot-hub-csharp-csharp-firmware-update.md)
+#### [Java back end/Java device](iot-hub-java-java-firmware-update.md)
 ### Schedule and broadcast jobs
 #### [Node.js back end/Node.js device](iot-hub-node-node-schedule-jobs.md)
 #### [.NET back end/Node.js device](iot-hub-csharp-node-schedule-jobs.md)
 #### [Java](iot-hub-java-java-schedule-jobs.md)
+
 ## Manage
 ### Create an IoT hub 
-#### [Use the portal](iot-hub-create-through-portal.md)
-#### [Use PowerShell](iot-hub-create-using-powershell.md)
-#### [Use CLI 2.0](iot-hub-create-using-cli.md)
+#### [Use Azure portal](iot-hub-create-through-portal.md)
+#### [Use Azure PowerShell](iot-hub-create-using-powershell.md)
+#### [Use Azure CLI](iot-hub-create-using-cli.md)
 #### [Use CLI](iot-hub-create-using-cli-nodejs.md)
 #### [Use the REST API](iot-hub-rm-rest.md)
-#### [Use a template from PowerShell](iot-hub-rm-template-powershell.md)
+#### [Use a template from Azure PowerShell](iot-hub-rm-template-powershell.md)
 #### [Use a template from .NET](iot-hub-rm-template.md)
 ### Configure file upload
-#### [Use the portal](iot-hub-configure-file-upload.md)
-#### [Use PowerShell](iot-hub-configure-file-upload-powershell.md)
-#### [Use CLI 2.0](iot-hub-configure-file-upload-cli.md)
-### [Bulk manage IoT devices](iot-hub-bulk-identity-mgmt.md)
+#### [Use Azure portal](iot-hub-configure-file-upload.md)
+#### [Use Azure PowerShell](iot-hub-configure-file-upload-powershell.md)
+#### [Use Azure CLI](iot-hub-configure-file-upload-cli.md)
+### [Monitor with diagnostics](iot-hub-monitor-resource-health.md)
+#### [Migrate to diagnostics settings](iot-hub-migrate-to-diagnostics-settings.md)
+#### [Operations monitoring](iot-hub-operations-monitoring.md)
 ### [Usage metrics](iot-hub-metrics.md)
-### [Operations monitoring](iot-hub-operations-monitoring.md)
+### [Bulk manage IoT devices](iot-hub-bulk-identity-mgmt.md)
 ### [Configure IP filtering](iot-hub-ip-filtering.md)
+
 ## Secure
 ### [Security from the ground up](iot-hub-security-ground-up.md)
 ### [Security best practices](iot-hub-security-best-practices.md)
 ### [Security architecture](iot-hub-security-architecture.md)
 ### [Secure your IoT deployment](iot-hub-security-deployment.md)
+### Secure using X.509 CA certificates
+#### [X.509 CA certificate security overview](iot-hub-x509ca-overview.md)
+##### [X.509 CA certificate security concepts](iot-hub-x509ca-concept.md)
+#### [Get started on X.509 CA certificate security](iot-hub-security-x509-get-started.md)
+##### [Create certificates - PowerShell](iot-hub-security-x509-create-certificates.md)
+
 ## Azure IoT Edge
 ### [Overview](iot-hub-iot-edge-overview.md)
 ### Get started
@@ -166,7 +179,8 @@
 ## [.NET (Devices)](/dotnet/api/microsoft.azure.devices.client)
 ## [Java (Service)](/java/api/com.microsoft.azure.sdk.iot.service)
 ## [Java (Devices)](/java/api/com.microsoft.azure.sdk.iot.device)
-## [Node.js SDKs](http://azure.github.io/azure-iot-sdk-node/)
+## [Node.js (Devices)](https://docs.microsoft.com/en-us/javascript/api/azure-iot-device/)
+## [Node.js (Service)](https://docs.microsoft.com/en-us/javascript/api/azure-iothub)
 ## [C device SDK](https://azure.github.io/azure-iot-sdk-c/index.html)
 ## [Azure IoT Edge](http://azure.github.io/iot-edge/)
 ## [REST (Resource Provider)](https://docs.microsoft.com/rest/api/iothub/iothubresource)

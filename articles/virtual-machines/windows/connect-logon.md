@@ -4,7 +4,7 @@ description: Learn how to connect and log on to a Windows VM using the Azure por
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 
@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/01/2017
+ms.date: 10/20/2017
 ms.author: cynthn
 
 ---
@@ -25,9 +25,9 @@ If you are trying to connect to a Windows VM from a Mac, you need to install an 
 
 ## Connect to the virtual machine
 1. If you haven't already done so, sign in to the [Azure portal](https://portal.azure.com/).
-2. On the Hub menu, click **Virtual Machines**.
+2. In the left menu, click **Virtual Machines**.
 3. Select the virtual machine from the list.
-4. On the blade for the virtual machine, click **Connect**.
+4. On the page for the virtual machine, click **Connect**.
    
     ![Screenshot of the Azure portal showing how to connect to your VM.](./media/connect-logon/connect.png)
    

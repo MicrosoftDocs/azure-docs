@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/05/2017
+ms.date: 10/02/2017
 ms.author: ryanwi
 
 ---
@@ -47,7 +47,7 @@ Select **Service Fabric application**, name it "MyFirstContainer", and click **O
 
 Select **Container** from the list of **service templates**.
 
-In **Image Name**, enter "nanoserver/iis", the [Windows Server 2016 Nano Server and IIS base image](https://hub.docker.com/r/nanoserver/iis/). 
+In **Image Name**, enter "microsoft/iis:nanoserver", the [Windows Server Nano Server and IIS base image](https://hub.docker.com/r/microsoft/iis/). 
 
 Name your service "MyContainerService", and click **OK**.
 
@@ -64,6 +64,7 @@ Configure the container port-to-host port mapping by specifying a `PortBinding` 
 ```xml
 <ServiceManifestImport>
 ...
+  <ConfigOverrides />
   <Policies>
     <ContainerHostPolicies CodePackageRef="Code">
       <PortBinding ContainerPort="80" EndpointRef="MyContainerServiceTypeEndpoint"/>
@@ -90,7 +91,7 @@ Right-click **MyFirstContainer** in the Solution Explorer and choose **Publish**
 
 ![Publish Dialog](./media/service-fabric-quickstart-dotnet/publish-app.png)
 
-Type in the Connection Endpoint of the cluster in the **Connection Endpoint** field and click **Publish**. When signing up for the party cluster, the Connection Endpoint is provided in the browser - for example, `winh1x87d1d.westus.cloudapp.azure.com:19000`.
+Type in the connection endpoint of the cluster in the **Connection Endpoint** field. When signing up for the party cluster, the connection endpoint is provided in the browser - for example, `winh1x87d1d.westus.cloudapp.azure.com:19000`.  Click **Publish** and the application deploys.
 
 Open a browser and navigate to http://winh1x87d1d.westus.cloudapp.azure.com:80. You should see the IIS default web page:
 ![IIS default web page][iis-default]
@@ -117,7 +118,7 @@ Here are the complete service and application manifests used in this quickstart.
     <EntryPoint>
       <!-- Follow this link for more information about deploying Windows containers to Service Fabric: https://aka.ms/sfguestcontainers -->
       <ContainerHost>
-        <ImageName>nanoserver/iis</ImageName>
+        <ImageName>microsoft/iis:nanoserver</ImageName>
       </ContainerHost>
     </EntryPoint>
     <!-- Pass environment variables to your container: -->
@@ -191,7 +192,7 @@ In this quickstart, you learned how to:
 * Learn more about running [containers on Service Fabric](service-fabric-containers-overview.md).
 * Read the [Deploy a .NET application in a container](service-fabric-host-app-in-a-container.md) tutorial.
 * Learn about the Service Fabric [application life-cycle](service-fabric-application-lifecycle.md).
-* Checkout the [Service Fabric container code samples](https://github.com/Azure-Samples/service-fabric-dotnet-containers) on GitHub.
+* Checkout the [Service Fabric container code samples](https://github.com/Azure-Samples/service-fabric-containers) on GitHub.
 
 [iis-default]: ./media/service-fabric-quickstart-containers/iis-default.png
 [publish-dialog]: ./media/service-fabric-quickstart-containers/publish-dialog.png

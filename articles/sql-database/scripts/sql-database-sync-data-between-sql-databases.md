@@ -4,7 +4,7 @@ description: Azure PowerShell example script to sync between multiple Azure SQL 
 services: sql-database
 documentationcenter: sql-database
 author: jognanay
-manager: jhubbard
+manager: craigg
 editor: ''
 tags:
 
@@ -16,15 +16,18 @@ ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 07/31/2017
-ms.author: douglasl
+ms.author: jognanay
+ms.reviewer: douglasl
 ---
 # Use PowerShell to sync between multiple Azure SQL databases
  
 This PowerShell example configures Data Sync to sync between multiple Azure SQL databases.
 
-This sample requires the Azure PowerShell module version 4.2 or later. Run `Get-Module -ListAvailable AzureRM` to find the installed version. If you need to install or upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps).
+This sample requires the Azure PowerShell module version 4.2 or later. Run `Get-Module -ListAvailable AzureRM` to find the installed version. If you need to install or upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
  
-Run `Login-AzureRmAccount` to create a connection with Azure. 
+Run `Login-AzureRmAccount` to create a connection with Azure.
+
+For an overview of SQL Data Sync, see [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync (Preview)](../sql-database-sync-data.md).
 
 ## Sample script
 
@@ -159,7 +162,7 @@ $IsSucceeded = $false
 While ($IsSucceeded -eq $false)
 {
     Start-Sleep -s 10
-    $timer=$timer+1
+    $timer=$timer+10
     $Details = Get-AzureRmSqlSyncSchema -SyncGroupName $SyncGroupName -ServerName $ServerName -DatabaseName $DatabaseName -ResourceGroupName $ResourceGroupName
     if ($Details.LastUpdateTime -gt $StartTime)
       {
@@ -356,3 +359,20 @@ This script uses the following commands. Each command in the table links to comm
 For more information about Azure PowerShell, see [Azure PowerShell documentation](/powershell/azure/overview).
 
 Additional SQL Database PowerShell script samples can be found in [Azure SQL Database PowerShell scripts](../sql-database-powershell-samples.md).
+
+For more info about SQL Data Sync, see:
+
+-   [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync](../sql-database-sync-data.md)
+-   [Get Started with Azure SQL Data Sync](../sql-database-get-started-sql-data-sync.md)
+-   [Best practices for Azure SQL Data Sync](../sql-database-best-practices-data-sync.md)
+-   [Troubleshoot issues with Azure SQL Data Sync](../sql-database-troubleshoot-data-sync.md)
+
+-   Complete PowerShell examples that show how to configure SQL Data Sync:
+    -   [Use PowerShell to sync between an Azure SQL Database and a SQL Server on-premises database](sql-database-sync-data-between-azure-onprem.md)
+
+-   [Download the SQL Data Sync REST API documentation](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
+
+For more info about SQL Database, see:
+
+-   [SQL Database Overview](../sql-database-technical-overview.md)
+-   [Database Lifecycle Management](https://msdn.microsoft.com/library/jj907294.aspx)

@@ -13,13 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/25/2017
+ms.date: 10/10/2017
 ms.author: nberdy
 
 ---
 # IoT Hub operations monitoring
 
 IoT Hub operations monitoring enables you to monitor the status of operations on your IoT hub in real time. IoT Hub tracks events across several categories of operations. You can opt into sending events from one or more categories to an endpoint of your IoT hub for processing. You can monitor the data for errors or set up more complex processing based on data patterns.
+
+>[!NOTE]
+>IoT Hub operations monitoring is deprecated and will be removed from IoT Hub in the future. For monitoring the operations and health of IoT Hub, see [Monitor the health of Azure IoT Hub and diagnose problems quickly][lnk-monitor]. For more information about the deprecation timeline, see [Monitor your Azure IoT solutions with Azure Monitor and Azure Resource Health][lnk-blog-announcement].
 
 IoT Hub monitors six categories of events:
 
@@ -29,6 +32,9 @@ IoT Hub monitors six categories of events:
 * Connections
 * File uploads
 * Message routing
+
+> [!IMPORTANT]
+> IoT Hub operations monitoring does not guarantee reliable or ordered delivery of events. Depending on IoT Hub underlying infrastructure, some events might be lost or delivered out of order. Use operations monitoring to generate alerts based on error signals such as failed connection attempts, or high-frequency disconnections for specific devices. You should not rely on operations monitoring events to create a consistent store for device state, e.g. a store tracking connected or disconnected state of a device. 
 
 ## How to enable operations monitoring
 
@@ -56,15 +62,15 @@ The device identity operations category tracks errors that occur when you attemp
 ```json
 {
     "time": "UTC timestamp",
-        "operationName": "create",
-        "category": "DeviceIdentityOperations",
-        "level": "Error",
-        "statusCode": 4XX,
-        "statusDescription": "MessageDescription",
-        "deviceId": "device-ID",
-        "durationMs": 1234,
-        "userAgent": "userAgent",
-        "sharedAccessPolicy": "accessPolicy"
+    "operationName": "create",
+    "category": "DeviceIdentityOperations",
+    "level": "Error",
+    "statusCode": 4XX,
+    "statusDescription": "MessageDescription",
+    "deviceId": "device-ID",
+    "durationMs": 1234,
+    "userAgent": "userAgent",
+    "sharedAccessPolicy": "accessPolicy"
 }
 ```
 
@@ -74,21 +80,21 @@ The device telemetry category tracks errors that occur at the IoT hub and are re
 
 ```json
 {
-        "messageSizeInBytes": 1234,
-        "batching": 0,
-        "protocol": "Amqp",
-        "authType": "{\"scope\":\"device\",\"type\":\"sas\",\"issuer\":\"iothub\"}",
-        "time": "UTC timestamp",
-        "operationName": "ingress",
-        "category": "DeviceTelemetry",
-        "level": "Error",
-        "statusCode": 4XX,
-        "statusType": 4XX001,
-        "statusDescription": "MessageDescription",
-        "deviceId": "device-ID",
-        "EventProcessedUtcTime": "UTC timestamp",
-        "PartitionId": 1,
-        "EventEnqueuedUtcTime": "UTC timestamp"
+    "messageSizeInBytes": 1234,
+    "batching": 0,
+    "protocol": "Amqp",
+    "authType": "{\"scope\":\"device\",\"type\":\"sas\",\"issuer\":\"iothub\"}",
+    "time": "UTC timestamp",
+    "operationName": "ingress",
+    "category": "DeviceTelemetry",
+    "level": "Error",
+    "statusCode": 4XX,
+    "statusType": 4XX001,
+    "statusDescription": "MessageDescription",
+    "deviceId": "device-ID",
+    "EventProcessedUtcTime": "UTC timestamp",
+    "PartitionId": 1,
+    "EventEnqueuedUtcTime": "UTC timestamp"
 }
 ```
 
@@ -112,7 +118,7 @@ The cloud-to-device commands category tracks errors that occur at the IoT hub an
     "deviceId": "device-ID",
     "EventProcessedUtcTime": "UTC timestamp",
     "PartitionId": 1,
-    "EventEnqueuedUtcTime": “UTC timestamp"
+    "EventEnqueuedUtcTime": "UTC timestamp"
 }
 ```
 
@@ -290,6 +296,8 @@ To further explore the capabilities of IoT Hub, see:
 [img-endpoints]: media/iot-hub-operations-monitoring/monitoring-endpoint.png
 [img-service-key]: media/iot-hub-operations-monitoring/service-key.png
 
+[lnk-blog-announcement]: https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health
+[lnk-monitor]: iot-hub-monitor-resource-health.md
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [lnk-diagnostic-metrics]: iot-hub-metrics.md
 [lnk-scaling]: iot-hub-scaling.md

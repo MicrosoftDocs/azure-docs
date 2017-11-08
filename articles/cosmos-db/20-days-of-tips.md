@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 10/03/2017
 ms.author: mimig
 ms.custom: cda
 ---
@@ -111,6 +111,72 @@ Tip 12: Go serverless with Azure #CosmosDB and @AzureFunctions! Full docs at [ht
 > [!VIDEO https://www.youtube.com/embed/U--3mfisNCs]
 
 [![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/910534418716069889)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6316301619252248576)
+
+## Tip 13: MEAN app from scratch
+
+Tip 13: From zero to hero with @John_Papa and Azure Cosmos DB. Learn how to build  a MEAN app from scratch
+
+Article: [Create a MongoDB app with Angular and Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/tutorial-develop-mongodb-nodejs?WT.mc_id=sicotint&utm_content=buffer2495b&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer)
+
+[![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/910881618855907329)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6316647045599944704)
+
+## Tip 14: Use cases
+
+Tip 14: Curious about common Azure #CosmosDB use cases? Have a look at [https://aka.ms/Ihpf00](https://aka.ms/Ihpf00) to learn about IoT, gaming and social apps
+
+Article: [Common Azure Cosmos DB use cases](https://aka.ms/Ihpf00)
+
+[![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/911270472481992704)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6317036550945333248)
+
+## Tip 15: VS Code integration
+
+Tip 15: Create new Azure #CosmosDB account without ever leaving @code. Install extension from [https://aka.ms/Wy547u](https://aka.ms/Wy547u) 
+
+> [!VIDEO https://www.youtube.com/embed/w8HyW8AHHZQ]
+
+[![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/912384598486679557)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6318150514613850112)
+
+
+## Tip 16: Functions and Twilio demo
+
+Tip 16: Awesome demo! Integrate Azure #cosmosDB, functions and @twilio to send an SMS on any DB change. See docs at [https://aka.ms/Kjkc2d](https://aka.ms/Kjkc2d) 
+
+> [!VIDEO https://www.youtube.com/embed/3Q7WffTeaKY]
+
+[![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/912703755988160512)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6318469696291246081)
+
+
+## Tip 17: Using Mongoose discriminators
+
+Tip 17: Optimize cost by using Mongoose discriminators to store multiple entities in a single #CosmosDB collection [https://aka.ms/M488jm](https://aka.ms/M488jm)
+
+Blog:  [Using Mongoose Discriminators to Store Multiple Entities in a Single Cosmos DB Collection by Anthony Chu](https://aka.ms/M488jm)
+
+[![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/913076502429933569)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6318842474928443393)
+
+## Tip 18: Request units
+
+Tip 18: Learn what Request Units (RU) are and how to configure them in Azure #CosmosDB. More on docs at [https://aka.ms/Kt2nbn](https://aka.ms/Kt2nbn) 
+
+Article: [Request Units in Azure Cosmos DB](https://aka.ms/Kt2nbn)
+
+[![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/913449916026032128)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6319223402796326912)
+
+## Tip 19: Partition! Partition! Partition! 
+
+Tip 19: Partition! Partition! Partition! The why and how in Azure #CosmosDB. Docs at [https://aka.ms/Ts5pon](https://aka.ms/Ts5pon)  
+
+> [!VIDEO https://www.youtube.com/embed/I_tVk3hKvSI]
+
+[![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/913773131499794433)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6319541726637883392)
+
+## Tip 20: Cheatsheet
+
+Tip 20: Everyone loves a good old cheatsheet. Azure #CosmosDB has one too. Check it out at [https://aka.ms/Nt01nl](https://aka.ms/Nt01nl)
+
+Cheatsheet: [Azure Cosmos DB: DocumentDB API SQL query cheat sheet PDF](https://aka.ms/Nt01nl)
+
+[![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/913793292474732544)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6319559027986698241)
 
 ## Next steps
 

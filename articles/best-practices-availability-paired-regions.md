@@ -13,7 +13,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2017
+ms.date: 09/27/2017
 ms.author: raynew
 ---
 
@@ -46,9 +46,8 @@ Figure 1 – Azure regional pair diagram
 | Japan |Japan East |Japan West |
 | Brazil |Brazil South (1) |South Central US |
 | US Government |US Gov Iowa |US Gov Virginia |
-| US Government |US Gov Virginia |US Gov Texas |
-| US Government |US Gov Texas |US Gov Arizona |
 | US Government |US Gov Arizona |US Gov Texas |
+| US Department of Defense |US DoD East |US DoD Central |
 | UK |UK West |UK South |
 | Germany |Germany Central |Germany Northeast |
 

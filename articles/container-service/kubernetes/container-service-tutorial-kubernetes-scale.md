@@ -22,6 +22,8 @@ ms.custom: mvc
 
 # Scale Kubernetes pods and Kubernetes infrastructure
 
+[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+
 If you've been following the tutorials, you have a working Kubernetes cluster in Azure Container Service and you deployed the Azure Voting app. 
 
 In this tutorial, part five of seven, you scale out the pods in the app and try pod autoscaling. You also learn how to scale the number of Azure VM agent nodes to change the cluster's capacity for hosting workloads. Tasks completed include:

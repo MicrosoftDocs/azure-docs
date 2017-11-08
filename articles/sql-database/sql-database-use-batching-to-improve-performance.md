@@ -13,7 +13,7 @@ ms.custom: develop apps
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: data-management
+ms.workload: "On Demand"
 ms.date: 07/12/2016
 ms.author: sstein
 

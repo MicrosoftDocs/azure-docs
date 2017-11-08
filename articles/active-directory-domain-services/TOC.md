@@ -1,6 +1,8 @@
 # Overview
 ## [What is Azure AD Domain Services?](active-directory-ds-overview.md)
-## [Is it right for you?](active-directory-ds-comparison.md)
+## Is it right for you?
+### [Compare with Windows Server AD](active-directory-ds-comparison.md)
+### [Compare with Azure AD join](active-directory-ds-compare-with-azure-ad-join.md)
 ## [Features](active-directory-ds-features.md)
 ## [Scenarios](active-directory-ds-scenarios.md)
 ## [How synchronization works](active-directory-ds-synchronization.md)
@@ -15,17 +17,19 @@
 
 # How to
 ## Join a managed domain
-### [Join a Windows Server VM](active-directory-ds-admin-guide-join-windows-vm-portal.md)
-### [Join a Windows Server VM using PowerShell](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
-### [Join a Linux VM](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
+### [Windows Server VM](active-directory-ds-admin-guide-join-windows-vm-portal.md)
+### [Windows Server VM from template](active-directory-ds-join-windows-vm-template.md)
+### [CentOS](active-directory-ds-join-centos-linux-vm.md)
+### [CoreOS](active-directory-ds-join-coreos-linux-vm.md)
+### [RedHat Enterprise Linux](active-directory-ds-join-rhel-linux-vm.md)
+### [Ubuntu Server](active-directory-ds-join-ubuntu-linux-vm.md)
 ## Administer a managed domain
 ### [Administer a managed domain](active-directory-ds-admin-guide-administer-domain.md)
 ### [Administer DNS on a managed domain](active-directory-ds-admin-guide-administer-dns.md)
 ### Configure secure LDAP for a managed domain
 #### [Task 1: obtain a certificate for secure LDAP](active-directory-ds-admin-guide-configure-secure-ldap.md)
 #### [Task 2: export the secure LDAP certificate](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)
-#### [Task 3: enable secure LDAP for the managed domain using Azure classic portal](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps-classic.md)
-#### [Task 3: enable secure LDAP for the managed domain using Azure portal (preview)](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
+#### [Task 3: enable secure LDAP for the managed domain using Azure portal](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
 
 ### [Create an OU on a managed domain](active-directory-ds-admin-guide-create-ou.md)
 ### [Administer group policy on a managed domain](active-directory-ds-admin-guide-administer-group-policy.md)
@@ -34,10 +38,10 @@
 ### [Configure support for profile synchronization for SharePoint Server](active-directory-ds-enable-sharepoint-profile-sync.md)
 ### [Configure Kerberos Constrained Delegation](active-directory-ds-enable-kcd.md)
 ### [Deploy Azure AD Application Proxy](active-directory-ds-deploy-azure-app-proxy.md)
+## [Delete a managed domain](active-directory-ds-disable-aadds.md)
 ## Troubleshoot
 ### [FAQs](active-directory-ds-faqs.md)
 ### [Troubleshooting guide](active-directory-ds-troubleshooting.md)
-### [Enable the preview Azure portal experience](active-directory-ds-azure-portal-enable-preview-access.md)
 ### [Resolve mismatched tenant errors](active-directory-ds-mismatched-tenant-error.md)
 
 # Reference

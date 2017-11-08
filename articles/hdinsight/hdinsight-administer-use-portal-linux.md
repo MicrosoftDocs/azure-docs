@@ -3,7 +3,7 @@ title: Manage Hadoop clusters in HDInsight using Azure portal | Microsoft Docs
 description: Learn how to create and manage HDInsight clusters using the Azure portal.
 services: hdinsight
 documentationcenter: ''
-author: mumian
+author: ashishthaps
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -16,10 +16,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2017
-ms.author: jgao
+ms.author: ashishtha
 
 ---
 # Manage Hadoop clusters in HDInsight by using the Azure portal
+
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
 Using the [Azure portal][azure-portal], you can manage Hadoop clusters in Azure HDInsight. Use the tab selector above for information on managing Hadoop clusters in HDInsight using other tools.
@@ -161,7 +162,7 @@ The impact of changing the number of data nodes varies for each type of cluster 
     >balancer
     ```
 
-    For more information on using the HBase shell, see [Get started with an Apache HBase example in HDInsight](hdinsight-hbase-tutorial-get-started-linux.md).
+    For more information on using the HBase shell, see [Get started with an Apache HBase example in HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md).
 
 * Storm
 
@@ -207,7 +208,7 @@ There are many ways you can program the process:
 * User Azure Data Factory. See [Create on-demand Linux-based Hadoop clusters in HDInsight using Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md) for creating on-demand HDInsight linked services.
 * Use Azure PowerShell.  See [Analyze flight delay data](hdinsight-analyze-flight-delay-data.md).
 * Use Azure CLI. See [Manage HDInsight clusters using Azure CLI](hdinsight-administer-use-command-line.md).
-* Use HDInsight .NET SDK. See [Submit Hadoop jobs](hdinsight-submit-hadoop-jobs-programmatically.md).
+* Use HDInsight .NET SDK. See [Submit Hadoop jobs](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 
 For the pricing information, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/). To delete a cluster from the Portal, see [Delete clusters](#delete-clusters)
 
@@ -339,7 +340,7 @@ The **Usage** section of the HDInsight cluster blade displays information about 
 
 ## Connect to a cluster
 
-* [Use Hive with HDInsight](hdinsight-hadoop-use-hive-ambari-view.md)
+* [Use Hive with HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md)
 * [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 ## Next steps
@@ -351,10 +352,10 @@ In this article, you have learned some basic administrative functions. To learn 
 * [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md)
 * [Read more about using the Ambari Web UI](hdinsight-hadoop-manage-ambari.md)
 * [Details on using the Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md)
-* [Use Hive in HDInsight](hdinsight-use-hive.md)
-* [Use Pig in HDInsight](hdinsight-use-pig.md)
-* [Use Sqoop in HDInsight](hdinsight-use-sqoop.md)
-* [Get Started with Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
+* [Use Hive in HDInsight](hadoop/hdinsight-use-hive.md)
+* [Use Pig in HDInsight](hadoop/hdinsight-use-pig.md)
+* [Use Sqoop in HDInsight](hadoop/hdinsight-use-sqoop.md)
+* [Get Started with Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [What version of Hadoop is in Azure HDInsight?](hdinsight-component-versioning.md)
 
 [azure-portal]: https://portal.azure.com

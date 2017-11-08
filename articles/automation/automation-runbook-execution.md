@@ -3,7 +3,7 @@ title: Runbook execution in Azure Automation | Microsoft Docs
 description: Describes the details of how a runbook in Azure Automation is processed.
 services: automation
 documentationcenter: ''
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 

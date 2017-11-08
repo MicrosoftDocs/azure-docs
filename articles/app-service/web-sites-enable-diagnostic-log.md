@@ -177,17 +177,17 @@ To see a list of available paths, use the -ListPath parameter.
 ### Streaming with Azure Command-Line Interface
 To stream logging information, open a new command prompt, PowerShell, Bash, or Terminal session and enter the following command:
 
-    azure site log tail webappname
+    az webapp log tail --name webappname --resource-group myResourceGroup
 
 This will connect to the web app named 'webappname' and begin streaming information to the window as log events occur on the web app. Any information written to files ending in .txt, .log, or .htm that are stored in the /LogFiles directory (d:/home/logfiles) will be streamed to the local console.
 
 To filter specific events, such as errors, use the **--Filter** parameter. For example:
 
-    azure site log tail webappname --filter Error
+    az webapp log tail --name webappname --resource-group myResourceGroup --filter Error
 
 To filter specific log types, such as HTTP, use the **--Path** parameter. For example:
 
-    azure site log tail webappname --path http
+    az webapp log tail --name webappname --resource-group myResourceGroup --path http
 
 > [!NOTE]
 > If you have not installed the Azure Command-Line Interface, or have not configured it to use your Azure Subscription, see [How to Use Azure Command-Line Interface](../cli-install-nodejs.md).
@@ -271,7 +271,7 @@ The web server logs are formatted using the [W3C extended log file format](http:
 >
 
 ## <a name="nextsteps"></a> Next steps
-* [How to Monitor Web Apps](http://docs.microsoft.com/en-us/azure/app-service-web/web-sites-monitor)
+* [How to Monitor Web Apps](web-sites-monitor.md)
 * [Troubleshooting Azure web apps in Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md)
 * [Analyze web app Logs in HDInsight](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
 

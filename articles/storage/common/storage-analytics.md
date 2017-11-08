@@ -3,7 +3,7 @@ title: Use Azure Storage Analytics to collect logs and metrics data | Microsoft 
 description: Storage Analytics enables you to track metrics data for all storage services, and to collect logs for Blob, Queue, and Table storage.
 services: storage
 documentationcenter: ''
-author: robinsh
+author: tamram
 manager:  timlt
 editor: tysonn
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/03/2017
-ms.author: robinsh
+ms.author: tamram
 
 ---
 # Storage Analytics
@@ -34,7 +34,7 @@ Storage Analytics logs detailed information about successful and failed requests
 
 Log entries are created only if there is storage service activity. For example, if a storage account has activity in its Blob service but not in its Table or Queue services, only logs pertaining to the Blob service will be created.
 
-Storage Analytics Logging is not available for Azure File storage.
+Storage Analytics Logging is not available for Azure Files.
 
 ### Logging authenticated requests
 The following types of authenticated requests are logged:

@@ -12,7 +12,7 @@ ms.custom: DBs & servers
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: data-management
+ms.workload: "On Demand"
 ms.date: 06/05/2017
 ms.author: carlrab
 
@@ -96,7 +96,7 @@ To change the Azure SQL Database connection policy for an Azure SQL Database ser
 - If your connection policy is set to **Proxy**, all network packets flow via the Azure SQL Database gateway. For this setting, you need to allow outbound to only the Azure SQL Database gateway IP. Using a setting of **Proxy** has more latency than a setting of **Redirect**. 
 - If your connection policy is setting **Redirect**, all network packets flow directly to the middleware proxy. For this setting, you need to allow outbound to multiple IPs. 
 
-## Script to change connection settings
+## Script to change connection settings via PowerShell 
 
 > [!IMPORTANT]
 > This script requires the [Azure PowerShell module](/powershell/azure/install-azurerm-ps).
@@ -155,6 +155,32 @@ $body = @{properties=@{connectionType=$connectionType}} | ConvertTo-Json
 # Apply Changes
 Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Sql/servers/$serverName/connectionPolicies/Default?api-version=2014-04-01-preview" -Method PUT -Headers $authHeader -Body $body -ContentType "application/json"
 ```
+
+## Script to change connection settings via Azure CLI 2.0 
+
+> [!IMPORTANT]
+> This script requires the [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
+>
+
+The following CLI script shows how to change the connection policy.
+
+<pre>
+ # Get SQL Server ID
+ sqlserverid=$(az sql server show -n <b>sql-server-name</b> -g <b>sql-server-group</b> --query 'id' -o tsv)
+
+# Set URI
+uri="https://management.azure.com/$sqlserverid/connectionPolicies/Default?api-version=2014-04-01-preview"
+
+# Get Access Token 
+accessToken=$(az account get-access-token --query 'accessToken' -o tsv)
+
+# Get current connection policy 
+curl -H "authorization: Bearer $accessToken" -X GET $uri
+
+#Update connection policy 
+curl -H "authorization: Bearer $accessToken" -H "Content-Type: application/json" -d '{"properties":{"connectionType":"Proxy"}}' -X PUT $uri
+
+</pre>
 
 ## Next steps
 

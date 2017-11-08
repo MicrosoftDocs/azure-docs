@@ -45,6 +45,7 @@
 ## Deploy configuration management (DSC)
 ### [Desired State Configuration (DSC) overview](automation-dsc-overview.md)
 ### [Getting started](automation-dsc-getting-started.md)
+### [Configure servers to a desired state and manage drift with Azure Automation](tutorial-configure-servers-desired-state.md)
 ### [Onboarding machines for management](automation-dsc-onboarding.md)
 ### [Compiling DSC configurations](automation-dsc-compile.md)
 ### [Continuous deployment using Chocolatey](automation-dsc-cd-chocolatey.md)
@@ -68,8 +69,12 @@
 ### [Call Azure Automation Runbook from Log Analytics alert](automation-invoke-runbook-from-omsla-alert.md)
 ### [Deploy an Azure Resource Manager template in an Azure Automation PowerShell runbook](automation-deploy-template-runbook.md)
 ## Solutions
-### [Change Tracking](../log-analytics/log-analytics-change-tracking.md)
 ### [Update Management](../operations-management-suite/oms-solution-update-management.md)
+#### [Manage updates for multiple VMs](manage-update-multi.md)
+#### [Integrate SCCMr with OMS Update Management](oms-solution-updatemgmt-sccmintegration.md)
+### [Change tracking](../log-analytics/log-analytics-change-tracking.md)
+### [Track changes in your VMs](automation-vm-change-tracking.md)
+### [Manage a VM with inventory collection](automation-vm-inventory.md)
 ### [Start/stop VMs during off-hours](automation-solution-vm-management.md)
 ## Monitor
 ### [Forward Azure Automation job data to Log Analytics](automation-manage-send-joblogs-log-analytics.md)
@@ -81,8 +86,8 @@
 ### [Troubleshoot common errors](automation-troubleshooting-automation-errors.md)
 ### [Troubleshoot Hybrid Runbook Worker](automation-troubleshooting-hybrid-runbook-worker.md)
 # Reference
-## [PowerShell](/powershell/module/azurerm.automation)
-## [PowerShell (Classic)](/powershell/module/azure/?view=azuresmps-3.7.0)
+## [Azure PowerShell](/powershell/module/azurerm.automation)
+## [Azure PowerShell (Classic)](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [.NET](/dotnet/api/microsoft.azure.management.automation)
 ## [REST](/rest/api/automation)
 ## [REST (Classic)](https://msdn.microsoft.com/library/azure/mt163781)

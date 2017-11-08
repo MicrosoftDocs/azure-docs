@@ -33,13 +33,15 @@
     href: tutorial-virtual-network.md
   - name: 9 - Backup virtual machines
     href: tutorial-backup-vms.md
-  - name: 10 - Monitor virtual machines
+  - name: 10 - Monitor and update VMs
     href: tutorial-monitoring.md
   - name: 11 - Manage VM security
     href: tutorial-azure-security.md
   - name: 12 - Team Services CI/CD
     href: tutorial-vsts-iis-cicd.md
-  - name: 13 - Secure web server with SSL
+  - name: 13 - Install a SQL\IIS\.NET stack
+    href: tutorial-iis-sql.md
+  - name: 14 - Secure web server with SSL
     href: tutorial-secure-web-server.md
 - name: Samples
   items:
@@ -55,10 +57,38 @@
     href: regions-and-availability.md
   - name: VM types and sizes
     href: sizes.md
+    items:
+    - name: General purpose
+      href: sizes-general.md  
+      items:
+      - name: B-series burstable
+        href: b-series-burstable.md
+    - name: Compute optimized
+      href: sizes-compute.md    
+    - name: Memory optimized
+      href: sizes-memory.md    
+    - name: Storage optimized
+      href: sizes-storage.md    
+    - name: GPU optimized
+      href: sizes-gpu.md   
+      items:
+      - name: Setup GPU drivers
+        href: n-series-driver-setup.md      
+    - name: High performance compute
+      href: sizes-hpc.md    
+    - name: Azure compute units (ACU)
+      href: sizes-general.md          
   - name: Maintenance and updates
     href: maintenance-and-updates.md
   - name: Storage
     href: about-disks-and-vhds.md
+    items:
+    - name: Premium storage
+      href: premium-storage.md
+    - name: Premium storage performance
+      href: premium-storage-performance.md
+    - name: Standard storage
+      href: standard-storage.md
   - name: Networking
     href: network-overview.md
   - name: Auto-scale applications
@@ -145,7 +175,7 @@
       href: prepare-for-upload-vhd-image.md
     - name: Use generalized image
       href: create-vm-generalized-managed.md
-    - name: Use specialized image
+    - name: Use specialized disk
       href: create-vm-specialized.md
     - name: Capture VM to image
       href: capture-image-resource.md
@@ -163,6 +193,12 @@
       href: manage-availability.md
     - name: Vertically scale
       href: vertical-scaling-automation.md
+    - name: Create VM in availability zone
+      items:
+      - name: PowerShell
+        href: create-powershell-availability-zone.md
+      - name: Portal
+        href: create-portal-availability-zone.md    
   - name: Use automation tools
     items:
     - name: Chef
@@ -170,7 +206,7 @@
   - name: Run applications
     items:
     - name: SQL Server
-      href: /sql/virtual-machines-windows-sql-server-iaas-overview
+      href: sql/virtual-machines-windows-sql-server-iaas-overview.md
     - name: MongoDB
       href: install-mongodb.md
     - name: SAP on Azure
@@ -206,12 +242,16 @@
       href: detach-disk.md
     - name: Resize a disk
       href: expand-os-disk.md
+    - name: Backup and disaster recovery for disks
+      href: backup-and-disaster-recovery-for-azure-iaas-disks.md
     - name: Snapshot a disk
       href: snapshot-copy-managed-disk.md
     - name: Back up unmanaged disks
       href: incremental-snapshots.md
     - name: Convert disk between Standard and Premium
       href: convert-disk-storage.md
+    - name: Migrate to Premium storage with Azure Site Recovery
+      href: migrate-to-premium-storage-using-azure-site-recovery.md
     - name: Use File storage
       href: mount-azure-file-storage.md
     - name: Deploy disks with template
@@ -338,11 +378,15 @@
         href: troubleshoot-recovery-disks-portal.md
     - name: Use PerfInsights
       href: how-to-use-perfInsights.md
+    - name: Performance Diagnostics VM Extension 
+      href: performance-diagnostics-vm-extension.md
+    - name: Use nested virtualization 
+      href: troubleshoot-vm-by-use-nested-virtualization.md
 - name: Reference
   items:
   - name: Azure CLI
     href: /cli/azure/vm
-  - name: PowerShell
+  - name: Azure PowerShell
     href: /powershell/azureps-cmdlets-docs
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.compute

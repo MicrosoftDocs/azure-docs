@@ -129,8 +129,9 @@ The following script shows an example for using the cmdlet. In this script, `$aa
 
 The `Initialize-ADSyncDomainJoinedComputerSync` cmdlet:
 
-- Uses the Active Directory PowerShell module, which relies on Active Directory Web Services running on a domain controller. Active Directory Web Services is supported on domain controllers running Windows Server 2008 R2 and later.
+- Uses the Active Directory PowerShell module and AD DS Tools, which rely on Active Directory Web Services running on a domain controller. Active Directory Web Services is supported on domain controllers running Windows Server 2008 R2 and later.
 - Is only supported by the **MSOnline PowerShell module version 1.1.166.0**. To download this module, use this [link](http://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185).   
+- If the AD DS tools are not installed, the `Initialize-ADSyncDomainJoinedComputerSync` will fail.  The AD DS tools can be installed through Server Manager under Features - Remote Server Administration Tools - Role Administration Tools.
 
 For domain controllers running Windows Server 2008 or earlier versions, use the script below to create the service connection point.
 
@@ -290,8 +291,7 @@ The definition helps you to verify whether the values are present or if you need
 
 In the claim above,
 
-- `$<domain>` is the AD FS service URL
-- `<verified-domain-name>` is a placeholder you need to replace with one of your verified domain names in Azure AD
+- `<verified-domain-name>` is a placeholder you need to replace with one of your verified domain names in Azure AD. For example, Value = "http://contoso.com/adfs/services/trust/"
 
 
 

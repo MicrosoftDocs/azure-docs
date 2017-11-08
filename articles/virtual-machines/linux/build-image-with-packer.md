@@ -38,21 +38,23 @@ Packer authenticates with Azure using a service principal. An Azure service prin
 Create a service principal with [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) and output the credentials that Packer needs:
 
 ```azurecli
-az ad sp create-for-rbac --query [appId,password,tenant]
+az ad sp create-for-rbac --query "{ client_id: appId, client_secret: password, tenant_id: tenant }"
 ```
 
 An example of the output from the preceding commands is as follows:
 
 ```azurecli
-"f5b6a5cf-fbdf-4a9f-b3b8-3c2cd00225a4",
-"0e760437-bf34-4aad-9f8d-870be799c55d",
-"72f988bf-86f1-41af-91ab-2d7cd011db47"
+{
+    "client_id": "f5b6a5cf-fbdf-4a9f-b3b8-3c2cd00225a4",
+    "client_secret": "0e760437-bf34-4aad-9f8d-870be799c55d",
+    "tenant_id": "72f988bf-86f1-41af-91ab-2d7cd011db47"
+}
 ```
 
 To authenticate to Azure, you also need to obtain your Azure subscription ID with [az account show](/cli/azure/account#show):
 
 ```azurecli
-az account show --query [id] --output tsv
+az account show --query "{ subscription_id: id }"
 ```
 
 You use the output from these two commands in the next step.

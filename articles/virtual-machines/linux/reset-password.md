@@ -13,8 +13,8 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
-ms.topic: article
-ms.date: 7/3/2017
+ms.topic: troubleshooting
+ms.date: 11/03/2017
 ms.author: delhan
 
 ---

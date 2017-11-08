@@ -1,6 +1,6 @@
 ---
 title: How to assign an MSI access to an Azure resource, using the Azure portal
-description: Step by step instructions for assigning an MSI on one resource, access to another resource, using the Azure portal.
+description: Step-by-step instructions for assigning an MSI on one resource access to another resource, by using the Azure portal.
 services: active-directory
 documentationcenter: 
 author: bryanla
@@ -16,11 +16,11 @@ ms.date: 09/14/2017
 ms.author: bryanla
 ---
 
-# Assign a Managed Service Identity (MSI) access to a resource using the Azure portal
+# Assign a Managed Service Identity access to a resource by using the Azure portal
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
-Once you've configured an Azure resource with an MSI, you can give the MSI access to another resource, just like any security principal. This example shows you how to give an Azure virtual machine's MSI access to an Azure storage account, using the Azure portal.
+After you've configured an Azure resource with a Managed Service Identity (MSI), you can give the MSI access to another resource, just like any security principal. This article shows you how to give an Azure virtual machine's MSI access to an Azure storage account, by using the Azure portal.
 
 ## Prerequisites
 
@@ -34,22 +34,22 @@ After you've enabled MSI on an Azure resource, [such as an Azure VM](msi-qs-conf
 
 2. Navigate to the desired resource on which you want to modify access control. In this example, we are giving an Azure VM access to a storage account, so we navigate to the storage account.
 
-3. Click the "Access control (IAM)" page of the resource, and click "+ Add." Then specify the Role, Assign access to a "Virtual Machine", and specify the corresponding Subscription and Resource Group where the resource resides. Under the search criteria area, you should see the resource show up. Select the resource and hit "Save": 
+3. Select the **Access control (IAM)** page of the resource, and select **+ Add**. Then specify the **Role**, **Assign access to Virtual Machine**, and specify the corresponding **Subscription** and **Resource Group** where the resource resides. Under the search criteria area, you should see the resource. Select the resource, and select **Save**. 
 
    ![Access control (IAM) screenshot](./media/msi-howto-assign-access-portal/assign-access-control-iam-blade-before.png)  
 
-4. You are returned to the main "Access control (IAM)" page, where you see a new entry for the resource's MSI. In this example, the "SimpleWinVM" VM from the Demo Resource Group has been given "Contributor" access to the storage account:
+4. You are returned to the main **Access control (IAM)** page, where you see a new entry for the resource's MSI. In this example, the "SimpleWinVM" VM from the Demo Resource Group has **Contributor** access to the storage account.
 
    ![Access control (IAM) screenshot](./media/msi-howto-assign-access-portal/assign-access-control-iam-blade-after.png)
 
 ## Troubleshooting
 
-If the MSI for the resource does not show up in the list of available identities, verify that the MSI has been enabled correctly. In our case, we can go back to the Azure VM and:
+If the MSI for the resource does not show up in the list of available identities, verify that the MSI has been enabled correctly. In our case, we can go back to the Azure VM, and check the following:
 
-- Look at the "Configuration" page and ensure MSI enabled = "Yes."
-- Look at the "Extensions" page and ensure the MSI extension deployed successfully.
+- Look at the **Configuration** page and ensure that the value for **MSI enabled** is **Yes**.
+- Look at the **Extensions** page and ensure that the MSI extension deployed successfully.
 
-If either is incorrect, you may need to redeploy the MSI on your resource again, or troubleshoot the deployment failure.
+If either is incorrect, you might need to redeploy the MSI on your resource again, or troubleshoot the deployment failure.
 
 ## Related content
 
