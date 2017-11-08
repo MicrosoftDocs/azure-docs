@@ -58,7 +58,7 @@ The Microsoft Translator service has numerous endpoints that provide various pie
 
 ## The translation app
 
-Our translator application's user interface is built using Windows Presentation Foundation (WPF). Create a new WPF project in Visual STudio by following these steps.
+Our translator application's user interface is built using Windows Presentation Foundation (WPF). Create a new WPF project in Visual Studio by following these steps.
 
 * From the **File** menu, choose **New > Project**.
 * In the New Project window, open **Installed > Templates > Visual C#**. A list of the available project templates appears in the center of the dialog.
@@ -252,7 +252,7 @@ Populating the menus is a straightforward matter of iterating over the `language
 > [!TIP]
 > If we don't set a default selection for our menus, the user can click **Translate** without choosing a To or From language. The defaults eliminate the need to deal with this problem.
 
-Now `MainWindow` has been initialized, creating the user interface. We don't get control again until the user clicks the **Translate** button.
+Now `MainWindow` has been initialized, creating the user interface. We don't get control again until the user clicks the **Translate**  button.
 
 ## Perform translation
 
