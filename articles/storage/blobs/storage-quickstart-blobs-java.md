@@ -141,7 +141,7 @@ Blob storage supports block blobs, append blobs, and page blobs. Block blobs are
 
 To upload a file to a blob, get a reference to the blob in the target container. Once you have the blob reference, you can upload data to it by using [Cloud​Block​Blob.​Upload​](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.upload#com_microsoft_azure_storage_blob__cloud_block_blob_upload_final_InputStream_final_long). This operation creates the blob if it doesn't already exist, or overwrites it if it does already exist.
 
-The sample code creates a local file to be used for the upload and download, storing the file to be uploaded as **source** and the name of the blob in **blob**. The following example uploads the file to your container called **quickstartblobs**.
+The sample code creates a local file to be used for the upload and download. storing the file to be uploaded as **source** and the name of the blob in **blob**. The following example uploads the file to your container called **quickstartblobs**.
 
 ```java
 //Getting the path to user's myDocuments folder
