@@ -26,6 +26,9 @@ This script calculates the size of a container in Azure Blob storage by totaling
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
+> [!IMPORTANT]
+> This PowerShell script provides an estimated size for the container and should not be used for billing calculations. For a script that calculates container size for billing purposes, see [Calculate the size of a Blob storage container for billing purposes](../scripts/storage-blobs-container-calculate-billing-size-powershell). 
+
 ## Sample script
 
 [!code-powershell[main](../../../powershell_scripts/storage/calculate-container-size/calculate-container-size.ps1 "Calculate container size")]
@@ -48,6 +51,8 @@ This script uses the following commands to calculate the size of the Blob storag
 | [Get-AzureStorageBlob](/powershell/module/azure.storage/get-azurestorageblob) | Lists blobs in a container. ||
 
 ## Next steps
+
+For a script that calculates container size for billing purposes, see [Calculate the size of a Blob storage container for billing purposes](../scripts/storage-blobs-container-calculate-billing-size-powershell).
 
 For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/overview).
 
