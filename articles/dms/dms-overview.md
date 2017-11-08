@@ -23,6 +23,5 @@ Azure Database Migration Service integrates some functionality of our existing t
 
 
 ## Next steps
+- [Create Azure Database Migration Service using the Azure portal](quickstart-create-data-migration-service-portal.md).
 - See the [pricing page](https://azure.microsoft.com/pricing/details/dms/) for costs and pricing tiers.
-- Get started by [migrating the AdventureWorks2014 database from SQL Server to Azure SQL](/quickstart-sql-server-to-azure-sql.md).
-- Request a [preview of DMS](https://aka.ms/get-dms)

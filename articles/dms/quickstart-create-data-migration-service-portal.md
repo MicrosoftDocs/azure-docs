@@ -21,14 +21,14 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 ## Log in to the Azure portal
 Open your web browser, and navigate to the [Microsoft Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
 
-## Create Azure Data Migration Service
-1. Click **+** to create a new service.  Data Migration Service is still in preview.  
+## Create Azure Database Migration Service
+1. Click **+** to create a new service.  Database Migration Service is still in preview.  
 
-1. Search the marketplace for "migration", select "Data Migration Service (preview)," then click **create**.
+1. Search the marketplace for "migration", select "Database Migration Service (preview)," then click **create**.
 
     ![Create migration service](media/quickstart-create-data-migration-service-portal/dms-create-service.png)
 
-1. Choose a **Service name** that is memorable and unique to identify your Azure Data Migration Service Instance.
+1. Choose a **Service name** that is memorable and unique to identify your Azure Database Migration Service Instance.
 
 1. Select your Azure **Subscription** in which you want to create the Database Migration Service.
 
@@ -38,7 +38,7 @@ Open your web browser, and navigate to the [Microsoft Azure portal](https://port
 
 1. Select Basic: 1 vCore for the **Pricing tier**.
 
-1. Click **Create**
+1. Click **Create**.
 
 After a few moments, your Azure Database Migration service will be created and ready to use.
 
