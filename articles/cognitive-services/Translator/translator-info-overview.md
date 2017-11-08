@@ -26,25 +26,25 @@ Learn more about the [Microsoft Translator service](https://www.microsoft.com/en
 ## Language customization and translation improvement
 Two extensions of the core Microsoft Translator service, the Microsoft Translator Hub and the Collaborative Translations Framework, can be used in conjunction with the Translator Text API to help you customize and improve your translated text.
 
-**Microsoft Translator Hub**&mdash; With the Microsoft Translator Hub, you can build translation systems that understand the terminology used in your own business and industry. Your customized translation system will then easily integrate into your existing applications, workflows and websites, across multiple types of devices, through the regular Microsoft Translator Text API, by using the category parameter.
+**Microsoft Translator Hub**&mdash; With the Microsoft Translator Hub, you can build translation systems that understand the terminology used in your own business and industry. Your customized translation system will then easily integrate into your existing applications, workflows and websites, across multiple types of devices, through the regular Microsoft Translator Text API, by using the category parameter. The Hub only support customization of traditional statistical translation systems, not the new neural ones. 
 
 **Collaborative Translations Framework (CTF)**&mdash; The Microsoft Translator API offers the unique ability to improve the accuracy of the delivered translations through the use of the Collaborative Translations Framework, allowing users to recommend alternative translations to those provided by Translator’s automatic translation engine. 
 
 Learn more about [language customization and translation improvement](customization.md)
 
-## Microsoft Translator Deep Neural Network translation
-Since it began, Microsoft Translator API has used Statistical Machine Translation (SMT) technology to provide translations. The technology has reached a plateau in terms of performance improvement. Translation quality is no longer improving with SMT.
-A new AI-based translation technology is gaining momentum based on Deep Neural Networks (DNN).
+## Microsoft Translator Neural Machine Translation (NMT)
+Since it began, Microsoft Translator API has used industry standard statistical machine translation (SMT) technology to provide translations. The technology has reached a plateau in terms of performance improvement. Translation quality is no longer improving in any significant way for generic systems with SMT.
+A new AI-based translation technology is gaining momentum based on Neural Networks (NN).
 
-DNN provides better translations not only from a raw translation quality scoring standpoint but also because they will sound more fluid, more human, than SMT ones. 
-The key reason for this fluidity is that DNN translation uses the full context of a sentence to translate words contrary to SMT that only takes the context of a few words before and after each word.
+NMT provides better translations not only from a raw translation quality scoring standpoint but also because they will sound more fluent, more human, than SMT ones. 
+The key reason for this fluidity is that NMT uses the full context of a sentence to translate words contrary to SMT that only takes the context of a few words before and after each word.
 
-DNN models are at the core of the API and are not visible to end users. 
+NMT models are at the core of the API and are not visible to end users. 
 The only noticeable differences are
 -	The improved translation quality, especially for languages such as Chinese, Japanese, and Arabic. View suported languages on [Microsoft.com](https://www.microsoft.com/en-us/translator/languages.aspx). 
 -	The incompatibility with the existing Hub and CTF customization features
 
-Learn more about [how DNN works](https://www.microsoft.com/en-us/translator/mt.aspx#nnt)
+Learn more about [how NMT works](https://www.microsoft.com/en-us/translator/mt.aspx#nnt)
 
 ## Next steps
 
