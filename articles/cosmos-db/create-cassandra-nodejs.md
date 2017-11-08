@@ -24,7 +24,7 @@ Azure Cosmos DB is Microsoft's globally distributed multi-model database service
 
 This quick start demonstrates how to create an Azure Cosmos DB account for the [Cassandra API](cassandra-introduction.md) by using the Azure portal. You'll then build a profile console app, as shown in the following image, with sample data cloning a Node.js sample from GitHub.  
 
-![View and verify the output](./media/create-cassandra-dotnet/output.png)
+![View and verify the output](./media/create-cassandra-nodejs/output.png)
 
 ## Prerequisites
 
@@ -140,7 +140,7 @@ Now go back to the Azure portal to get your connection string information and co
 
 1. In the [Azure portal](http://portal.azure.com/), in your Azure Cosmos DB account, in the left navigation click **Connection String**, and then click **Read-write Keys**. You'll use the copy buttons on the right side of the screen to copy the CONTACT POINT, USERNAME, and PASSWORD into the `config.js` file in the next step.
 
-    ![View and copy an access user name, password and contact point in the Azure portal, connection string blade](./media/create-cassandra-dotnet/keys.png)
+    ![View and copy an access user name, password and contact point in the Azure portal, connection string blade](./media/create-cassandra-nodejs/keys.png)
 
 2. Open the `config.js` file. 
 
