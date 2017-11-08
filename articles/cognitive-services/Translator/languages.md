@@ -13,74 +13,72 @@ ms.author: v-jansko
 ---
 
 # Supported languages in the Microsoft Translator Text API #
-The Microsoft Translator Text API supports the following languages for text to text translation. [NMT] indicates that neural machine translation is available for this language.
+The Microsoft Translator Text API supports the following languages for text to text translation. 
 
-| Language    | Language code | 
-|:----------- |:-------------:|
-| Afrikaans      | `af`          |
-| Arabic [NMT]      | `ar`          |
-| Bangla      | `bn`          |
-| Bosnian (Latin)      | `bs`          |
-| Bulgarian      | `bg`          |
-| Cantonese (Traditional)      | `yue`          |
-| Catalan      | `ca`          |
-| Chinese Simplified [NMT]      | `zh-Hans`          |
-| Chinese Traditional [NMT]      | `zh-Hant`          |
-| Croatian      | `hr`          |
-| Czech      | `cs`          |
-| Danish      | `da`          |
-| Dutch      | `nl`          |
-| English [NMT]      | `en`          |
-| Estonian      | `et`          |
-| Fijian      | `fj`          |
-| Filipino      | `fil`          |
-| Finnish      | `fi`          |
-| French [NMT]      | `fr`          |
-| German [NMT]      | `de`          |
-| Greek      | `el`          |
-| Haitian Creole      | `ht`          |
-| Hebrew      | `he`          |
-| Hindi      | `hi`          |
-| Hmong Daw      | `mww`          |
-| Hungarian      | `hu`          |
-| Indonesian      | `id`          |
-| Italian [NMT]      | `it`          |
-| Japanese [NMT]      | `ja`          |
-| Kiswahili      | `sw`          |
-| Klingon      | `tlh`          |
-| Klingon (plqaD)      | `tlh-Qaak`          |
-| Korean [NMT]      | `ko`          |
-| Latvian      | `lv`          |
-| Lithuanian      | `lt`          |
-| Malagasy      | `mg`          |
-| Malay      | `ms`          |
-| Maltese      | `mt`          |
-| Norwegian      | `nb`          |
-| Persian      | `fa`          |
-| Polish      | `pl`          |
-| Portuguese [NMT]      | `pt`          |
-| Queretaro Otomi      | `otq`          |
-| Romanian      | `ro`          |
-| Russian [NMT]      | `ru`          |
-| Samoan      | `sm`          |
-| Serbian (Cyrillic)      | `sr-Cyrl`          |
-| Serbian (Latin)      | `sr-Latn`          |
-| Slovak     | `sk`          |
-| Slovenian      | `sl`          |
-| Spanish [NMT]      | `es`          |
-| Swedish      | `sv`          |
-| Tahitian      | `ty`          |
-| Tamil      | `ta`          |
-| Thai      | `th`          |
-| Tongan      | `to`          |
-| Turkish      | `tr`          |
-| Ukrainian      | `uk`          |
-| Urdu      | `ur`          |
-| Vietnamese      | `vi`          |
-| Welsh      | `cy`          |
-| Yucatec Maya      | `yua`          |
-
-
+| Language    | Language code | NMT Available|
+|:----------- |:-------------:|:----------- |
+| Afrikaans      | `af`          |               |
+| Arabic       | `ar`          | Yes              |
+| Bangla      | `bn`          |               |
+| Bosnian (Latin)      | `bs`          |               |
+| Bulgarian      | `bg`          |               |
+| Cantonese (Traditional)      | `yue`          |               |
+| Catalan      | `ca`          ||              |
+| Chinese Simplified      | `zh-Hans`          | Yes               |
+| Chinese Traditional      | `zh-Hant`          |              |
+| Croatian      | `hr`          |               |
+| Czech      | `cs`          |               |
+| Danish      | `da`          |               |
+| Dutch      | `nl`          |               |
+| English      | `en`          |  Yes             |
+| Estonian      | `et`          |               |
+| Fijian      | `fj`          |               |
+| Filipino      | `fil`          |               |
+| Finnish      | `fi`          |               |
+| French      | `fr`          | Yes              |
+| German      | `de`          | Yes              |
+| Greek      | `el`          |               |
+| Haitian Creole      | `ht`          |               |
+| Hebrew      | `he`          |              |
+| Hindi      | `hi`          |               |
+| Hmong Daw      | `mww`          |               |
+| Hungarian      | `hu`          |               |
+| Indonesian      | `id`          |               |
+| Italian      | `it`          | Yes               |
+| Japanese      | `ja`          | Yes               |
+| Kiswahili      | `sw`          |               |
+| Klingon      | `tlh`          |               |
+| Klingon (plqaD)      | `tlh-Qaak`          |               |
+| Korean      | `ko`          | Yes               |
+| Latvian      | `lv`          |              |
+| Lithuanian      | `lt`          |               |
+| Malagasy      | `mg`          |               |
+| Malay      | `ms`          |               |
+| Maltese      | `mt`          |               |
+| Norwegian      | `nb`          |               |
+| Persian      | `fa`          |               |
+| Polish      | `pl`          |               |
+| Portuguese      | `pt`          | Yes              |
+| Queretaro Otomi      | `otq`          |               |
+| Romanian      | `ro`          |               |
+| Russian      | `ru`          | Yes               |
+| Samoan      | `sm`          |               |
+| Serbian (Cyrillic)      | `sr-Cyrl`          |               |
+| Serbian (Latin)      | `sr-Latn`          |               |
+| Slovak     | `sk`          |              |
+| Slovenian      | `sl`          |              |
+| Spanish      | `es`          | Yes               |
+| Swedish      | `sv`          |               |
+| Tahitian      | `ty`          |               |
+| Tamil      | `ta`          |               |
+| Thai      | `th`          |               |
+| Tongan      | `to`          |               |
+| Turkish      | `tr`          |               |
+| Ukrainian      | `uk`          |               |
+| Urdu      | `ur`          |               |
+| Vietnamese      | `vi`          |              |
+| Welsh      | `cy`          |              |
+| Yucatec Maya      | `yua`          |              |
 
 **Access the list programmatically**
 
