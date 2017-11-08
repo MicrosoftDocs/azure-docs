@@ -53,7 +53,7 @@ In this tutorial, you learned how to:
 > * Forecast future spending
 
 
-Advance to the Cloudyn documentation to learn more about getting started with Cloudyn and using its features.
+Advance to the next tutorial to learn how to manage costs with cost allocation and showback reports.
 
 > [!div class="nextstepaction"]
-> [Cloudyn documentation](https://support.cloudyn.com/hc/)
+> [Manage costs with cost allocation and showback reports](tutorial-manage-costs.md)
