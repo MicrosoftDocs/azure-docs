@@ -85,7 +85,7 @@ To configure and test Azure AD single sign-on with SAP HANA, complete the follow
 
 1. **[Configure Azure AD single sign-on](#configuring-azure-ad-single-sign-on)** to enable your users to use this feature.
 2. **[Create an Azure AD test user](#creating-an-azure-ad-test-user)** to test Azure AD single sign-on with Britta Simon.
-3. **[Create a SAP HANA test user](#creating-a-sap-hana-test-user)** to have a counterpart of Britta Simon in SAP HANA that is linked to the Azure AD representation of user.
+3. **[Create a SAP HANA test user](#creating-a-sap-hana-test-user)** to have a counterpart of Britta Simon in SAP HANA that is linked to the Azure AD representation of the user.
 4. **[Assign the Azure AD test user](#assigning-the-azure-ad-test-user)** to enable Britta Simon to use Azure AD single sign-on.
 5. **[Test single sign-on](#testing-single-sign-on)** to verify whether the configuration works.
 
