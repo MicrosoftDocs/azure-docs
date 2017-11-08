@@ -14,27 +14,33 @@ ms.service: iot-edge
 
 ---
 
-# Deploy Azure IoT Edge on a simulated device - Public preview
+# Deploy an Azure IoT Edge module on a simulated device - Public preview
 
-Azure IoT Edge moves the power of the cloud to your Internet of Things (IoT) devices. This tutorial walks you through creating a simulated IoT Edge device that generates sensor data. You learn how to:
+Azure IoT Edge enables you to perform analytics and data processing on your devices, instead of having to push all the data to the cloud. The IoT Edge tutorials demonstrate how to deploy different types of modules, built from Azure services or custom code, but first you need a device to test. 
+
+This tutorial walks you through creating a simulated IoT Edge device, then deploying a module that generates sensor data. You learn how to:
 
 > [!div class="checklist"]
 > * Create an IoT hub
 > * Register an IoT Edge device
 > * Start the IoT Edge runtime
 > * Deploy a module
-> * View generated data
 
-The simulated device that you create in this tutorial is a monitor on a wind turbine that generates temperature, humidity, and pressure data. You're interested in this data because your turbines perform at different levels of efficiency depending on the weather conditions. The other Azure IoT Edge tutorials build upon the work you do here by deploying modules that analyze the data for business insights. 
+The simulated device that you create in this tutorial is a monitor that generates temperature, humidity, and pressure data. The other Azure IoT Edge tutorials build upon the work you do here by deploying modules that analyze the data for business insights. 
 
 ## Prerequisites
 
-This tutorial assumes that you're using a computer or virtual machine to simulate an Internet of Things device. The following services are required to successfully deploy an IoT Edge device:
+This tutorial assumes that you're using a computer or virtual machine to simulate an Internet of Things device. 
+
+>[!TIP] 
+>If you're running Windows in a virtual machine, enable [nested virtualization][lnk-nested] and allocate at least 2GB memory. 
+
+The following services are required to successfully deploy an IoT Edge device:
 
 - Docker
    - [Install Docker on Windows][lnk-docker-windows] and make sure it's running.
    - [Install Docker on Linux][lnk-docker-ubuntu] and make sure it's running. 
-- Python 2.7
+- Python 2.7.x
    - [Install Python 2.7 on Windows][lnk-python-windows].
    - Most Linux distributions, including Ubuntu, already have Python 2.7 installed. Use the following command to make sure that pip is installed: `sudo apt-get install python-pip`.
 
@@ -52,7 +58,7 @@ Create a device identity for your simulated device so that it can communicate wi
 1. Give your simulated device a unique device ID.
 1. Confirm that the value of **Azure IoT Edge device** is set to **Yes**.
 1. Select **Save** to add your device.
-1. Select your new device from the list of devices. 
+1. Click on your new device to see its details. 
 1. Copy the value for **Connection string--primary key** and save it. You'll use this value to configure the IoT Edge runtime in the next section. 
 
 ## Install and start the IoT Edge runtime
@@ -149,6 +155,7 @@ This tutorial is the prerequisite for all of the other IoT Edge tutorials. You c
 [1]: ./media/tutorial-install-iot-edge/view-module.png
 
 <!-- Links -->
+[lnk-nested]: https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization 
 [lnk-docker-windows]: https://docs.docker.com/docker-for-windows/install/ 
 [lnk-docker-ubuntu]: https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/ 
 [lnk-dotnet-windows]: https://docs.microsoft.com/dotnet/core/windows-prerequisites?tabs=netcore2x
