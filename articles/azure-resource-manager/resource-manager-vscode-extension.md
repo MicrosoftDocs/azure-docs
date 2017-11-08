@@ -176,8 +176,8 @@ This article builds on the template you created in [Create and deploy your first
          "value": "[resourceGroup().location]"
        },
        "storageUri": {
-         "type": "string",
-         "value": "[reference(variables('storageName'))]"
+         "type": "object",
+         "value": "[reference(concat('Microsoft.Storage/storageAccounts/',variables('storageName')))]"
        }
    }
    ```
@@ -244,8 +244,8 @@ The final template is:
       "value": "[resourceGroup().location]"
     },
     "storageUri": {
-      "type": "string",
-      "value": "[reference(variables('storageName'))]"
+      "type": "object",
+      "value": "[reference(concat('Microsoft.Storage/storageAccounts/',variables('storageName')))]"
     }
   }
 }
