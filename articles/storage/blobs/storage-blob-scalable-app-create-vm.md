@@ -47,62 +47,54 @@ The sample uploads large files to a blob container in an Azure Storage account. 
 In the following command, substitute your own globally unique name for the Blob storage account where you see the `<blob_storage_account>` placeholder.
 
 ```powershell-interactive
-$storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
-  -Name "mystorageaccount" `
-  -Location $location `
+$storageAccount = New-AzureRmStorageAccount -ResourceGroupName myResourceGroup `
+  -Name "mystorageaccountrgfv" `
+  -Location EastUS `
   -SkuName Standard_LRS `
   -Kind Storage `
   -EnableEncryptionService Blob
-
-$ctx = $storageAccount.Context
-```
-
-## Create networking resources
-
-### Create a virtual network, subnet, and a public IP address
-These resources are used to provide network connectivity to the virtual machine and connect it to the internet.
-
-```azurepowershell-interactive
-# Create a subnet configuration
-$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
-
-# Create a virtual network
-$vnet = New-AzureRmVirtualNetwork -ResourceGroupName myResourceGroup -Location EastUS `
-    -Name MYvNET -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
-
-# Create a public IP address and specify a DNS name
-$pip = New-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup -Location EastUS `
-    -AllocationMethod Static -IdleTimeoutInMinutes 4 -Name "mypublicdns$(Get-Random)"
-```
-
-### Create a network card for the virtual machine. 
-Create a network card with [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) for the virtual machine. The network card connects the virtual machine to a subnet, network security group, and public IP address.
-
-```azurepowershell-interactive
-# Create a virtual network card and associate with public IP address and NSG
-$nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName myResourceGroup -Location EastUS `
-    -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
 ```
 
 ## Create virtual machine
 
 Create a virtual machine configuration. This configuration includes the settings that are used when deploying the virtual machine such as a virtual machine image, size, and authentication configuration. When running this step, you are prompted for credentials. The values that you enter are configured as the user name and password for the virtual machine.
 
+Create the virtual machine with [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm).
+
 ```azurepowershell-interactive
-# Define a credential object
-$cred = Get-Credential
+# Variables for common values
+$resourceGroup = "myResourceGroup"
+$location = "eastus"
+$vmName = "myVM"
+
+# Create user object
+$cred = Get-Credential -Message "Enter a username and password for the virtual machine."
+
+# Create a subnet configuration
+$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
+
+# Create a virtual network
+$vnet = New-AzureRmVirtualNetwork -ResourceGroupName $resourceGroup -Location $location `
+  -Name MYvNET -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
+
+# Create a public IP address and specify a DNS name
+$pip = New-AzureRmPublicIpAddress -ResourceGroupName $resourceGroup -Location $location `
+  -Name "mypublicdns$(Get-Random)" -AllocationMethod Static -IdleTimeoutInMinutes 4
+
+# Create a virtual network card and associate with public IP address
+$nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName $resourceGroup -Location $location `
+  -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
 
 # Create a virtual machine configuration
 $vmConfig = New-AzureRmVMConfig -VMName myVM -VMSize Standard_DS14_v2 | `
     Set-AzureRmVMOperatingSystem -Windows -ComputerName myVM -Credential $cred | `
     Set-AzureRmVMSourceImage -PublisherName MicrosoftWindowsServer -Offer WindowsServer `
     -Skus 2016-Datacenter -Version latest | Add-AzureRmVMNetworkInterface -Id $nic.Id
-```
 
-Create the virtual machine with [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm).
+# Create a virtual machine
+New-AzureRmVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 
-```azurepowershell-interactive
-New-AzureRmVM -ResourceGroupName myResourceGroup -Location EastUS -VM $vmConfig
+Write-host "Your public IP address is $($pip.IpAddress)"
 ```
 
 ## Deploy configuration
@@ -121,12 +113,13 @@ Run the following cmdlet to finalize configuration of the virtual machine. This 
 
 ```azurepowershell-interactive
 # Start a CustomScript extension to use a simple PowerShell script to instal .NET core, dependancies, and pre-create the files to upload.
-Set-AzureRMVMCustomScriptExtension -ResourceGroupName $resourcegroup `
+Measure-Command -Expression { Set-AzureRMVMCustomScriptExtension -ResourceGroupName myResourceGroup `
     -VMName myVM `
-    -Location $location `
+    -Location EastUS `
     -FileUri https://raw.githubusercontent.com/georgewallace/StoragePerfandScalabilityExample/master/script.ps1 `
     -Run 'script.ps1' `
     -Name DemoScriptExtension
+}
 ```
 
 ## Next steps

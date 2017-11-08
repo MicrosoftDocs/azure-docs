@@ -33,7 +33,7 @@ To complete this tutorial, you must have completed the previous Storage tutorial
 
 ## Remote into your virtual machine
 
-Use the following command, on your local machine, to create a remote desktop session with the virtual machine. Replace the IP address with the publicIPAddress of your virtual machine. When prompted, enter the credentials used when creating the virtual machine.
+ To create a remote desktop session with the virtual machine use the following command on your local machine. Replace the IP address with the publicIPAddress of your virtual machine. When prompted, enter the credentials used when creating the virtual machine.
 
 ```
 mstsc /v:<publicIpAddress>
@@ -41,7 +41,7 @@ mstsc /v:<publicIpAddress>
 
 ## Update the application
 
-In the prevous tutorial you only uploaded files to the storage account. Open `c:\git\StoragePerfandScalabilityExample\Program.cs` in a text editor.  Replace the `Main` method with the sample below. This example comments out the upload task and uncomments the download task and the task to delete the content in the storage account when complete.
+In the previous tutorial, you only uploaded files to the storage account. Open `c:\git\StoragePerfandScalabilityExample\Program.cs` in a text editor. Replace the `Main` method with the following sample. This example comments out the upload task and uncomments the download task and the task to delete the content in the storage account when complete.
 
 ```csharp
 static void Main(string[] args)
@@ -64,7 +64,7 @@ static void Main(string[] args)
 }
 ```
 
-After the application has been updated, the application needs to be re-built.  Open a `Command Prompt` and navigate to `c:\git\StoragePerfandScalabilityExample`. Rebuild the applictaion by running `dotnet build` as seen in the following example.  
+After the application has been updated, the application needs to be rebuilt. Open a `Command Prompt` and navigate to `c:\git\StoragePerfandScalabilityExample`. Rebuild the application by running `dotnet build` as seen in the following example:
 
 ```
 dotnet build
@@ -80,7 +80,7 @@ Type `dotnet run` to run the application.
 dotnet run
 ```
 
-The application reads the containers located in the storage accound as specified in the `Config.json` file. It iterates through the blobs in the containers and downloads them to the local machine using the [DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadToFileAsync_System_String_System_IO_FileMode_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) method.
+The application reads the containers located in the storage account as specified in the `Config.json` file. It iterates through the blobs in the containers and downloads them to the local machine using the [DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadToFileAsync_System_String_System_IO_FileMode_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) method.
 The following table shows the [BlobRequestOptions](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions?view=azure-dotnet) that are defined for each blob as it is downloaded.
 
 |Property|Value|Description|
@@ -136,7 +136,7 @@ private static async Task DownloadFilesAsync(string[] args)
 
 ### Validate the connections
 
-While the files are being downloaded, you can verify the number of concurrent connections to your storage account. Open a `Command Prompt` and type `netstat -a | find /c "blob:https"`.  This shows the number of connections that are currently opened using `netstat`. The following example shows a similar output to what you see when running the tutorial yourself. As you can see from the example over 280 connections were open when downloading the random files from the storage account.
+While the files are being downloaded, you can verify the number of concurrent connections to your storage account. Open a `Command Prompt` and type `netstat -a | find /c "blob:https"`. This shows the number of connections that are currently opened using `netstat`. The following example shows a similar output to what you see when running the tutorial yourself. As you can see from the example, over 280 connections were open when downloading the random files from the storage account.
 
 ```
 C:\>netstat -a | find /c "blob:https"
@@ -153,7 +153,7 @@ In part two of the series, you learned about downloading large amounts of random
 > * Run the application
 > * Validate the number of connections
 
-Advance to part four of the series to verify throughtput and latency metrics in the portal.
+Advance to part four of the series to verify throughput and latency metrics in the portal.
 
 > [!div class="nextstepaction"]
 > [Verify throughput and latency metrics in the portal](storage-blob-scalable-app-verify-metrics.md)

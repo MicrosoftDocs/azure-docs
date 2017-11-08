@@ -29,7 +29,7 @@ In part two of the series, you learn how to:
 > * Run the application
 > * Validate the number of connections
 
-Azure blob storage provides a scalable service for storing your data. To ensure your application is as performant as possible, an understanding of how blob storage works is recommended. Knowledge of the limits for Azure blobs is important, to learn more about these limits visit: [blob storage scalability targets](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets). [Partition naming](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#subheading47) is another important factor when designing a highly performing application using blobs. Azure storage uses a range-based partioning scheme to scale and load balance. This means that files with similar naming conventions or prefixes will go to the same partition. This includes the name of the container that the files are being uploaded to. In this tutorial we use files that have guids for names as well as randomly generated content and upload them to 5 different containers with random names.
+Azure blob storage provides a scalable service for storing your data. To ensure your application is as performant as possible, an understanding of how blob storage works is recommended. Knowledge of the limits for Azure blobs is important, to learn more about these limits visit: [blob storage scalability targets](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets). [Partition naming](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#subheading47) is another important factor when designing a highly performing application using blobs. Azure storage uses a range-based partitioning scheme to scale and load balance. This configuration means that files with similar naming conventions or prefixes go to the same partition. This includes the name of the container that the files are being uploaded to. In this tutorial, you use files that have GUIDs for names as well as randomly generated content and upload them to five different containers with random names.
 
 ## Prerequisites
 
@@ -37,7 +37,7 @@ To complete this tutorial, you must have completed the previous Storage tutorial
 
 ## Remote into your virtual machine
 
-Use the following command, on your local machine, to create a remote desktop session with the virtual machine. Replace the IP address with the publicIPAddress of your virtual machine. When prompted, enter the credentials used when creating the virtual machine.
+Use the following command on your local machine to create a remote desktop session with the virtual machine. Replace the IP address with the publicIPAddress of your virtual machine. When prompted, enter the credentials used when creating the virtual machine.
 
 ```
 mstsc /v:<publicIpAddress>
@@ -45,71 +45,81 @@ mstsc /v:<publicIpAddress>
 
 ## Configure the connection string
 
-Log in to the virtual machine you created in the previous tutorial. Navigate to `C:\Git\StoragePerfandScalabilityExample` and open the `Program.cs` file in a text editor.
+Log in to the virtual machine you created in the previous tutorial. Open a **Command Prompt** as an administrator and  in  Navigate to `C:\Git\StoragePerfandScalabilityExample` and open the `config.json` file in a text editor.
 
-In the Azure portal, navigate to your storage account. Select **Access keys** under **Settings** in your storage account in the Azure portal. Copy the **connection string** from the primary or secondary key and paste it in the **App.config** file. Select **Save**, to save the file when complete.
+In the Azure portal, navigate to your storage account. Select **Access keys** under **Settings** in your storage account in the Azure portal. Copy the **connection string** from the primary or secondary key. Log in to the virtual machine you created in the previous tutorial. Open a **Command Prompt** as an administrator and replace **\<storageConnectionString\>** in the following sample. Run the **setx** command to save the environment variable. The environment variable is not available until to reload the **Command Prompt**.
 
-Replace the connectionString variable with the connection string.
-
-```csharp
-string connectionString = "UseDevelopmentStorage=true;";
+```
+setx storageconnectionstring "<storageConnectionString>" /m
 ```
 
-When finished, open a **Command Prompt**, navigate to `c:\git\StoragePerfandScalabilityExample` and type `dotnet build` to rebuild the application.
+When finished, open another **Command Prompt**, navigate to `D:\git\StoragePerfandScalabilityExample` and type `dotnet build` to rebuild the application.
 
 ## Run the application
 
 Open a `Command Prompt` and navigate to `c:\git\StoragePerfandScalabilityExample`.
 
-Type `dotnet run` to run the application. A command runs initially to populate your local package cache, to improve restore speed and enable offline access. This command will take up to a minute to complete and will only happen once.
+Type `dotnet run` to run the application. A command runs initially to populate your local package cache, to improve restore speed and enable offline access. This command takes up to a minute to complete and only happens once.
 
 ```
-dotnet run upload
+dotnet run
 ```
 
-The application creates 5 random named containers and begins uploading the files in the staging directory to the storage account. The application sets the minimum threads to 100 and the [DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit(v=vs.110).aspx) to 100 to ensure that a large number of concurrent connections are allowed when running the application.
+The application creates five random named containers and begins uploading the files in the staging directory to the storage account. The application sets the minimum threads to 100 and the [DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit(v=vs.110).aspx) to 100 to ensure that a large number of concurrent connections are allowed when running the application.
 
-In addition to setting the threading and connection limit settings, the [BlobRequestOptions](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions?view=azure-dotnet) for the [UploadFromStreamAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromstreamasync?view=azure-dotnet) method are configured to configure parallelism and disabling MD5 hash validation. The files are uploaded in 100mb blocks, this provides better performance but can be costly in the event of a poorly performing network as when retrying the upload the entire 100mb block is retried.
+In addition to setting the threading and connection limit settings, the [BlobRequestOptions](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions?view=azure-dotnet) for the [UploadFromStreamAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromstreamasync?view=azure-dotnet) method are configured to configure parallelism and disabling MD5 hash validation. The files are uploaded in 100 mb blocks, this provides better performance but can be costly in the event of a poorly performing network as when retrying the upload the entire 100 mb block is retried.
 
 |Property|Value|Description|
 |---|---|---|
 |[ParallelOperationThreadCount](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.paralleloperationthreadcount?view=azure-dotnet)| 8| The setting breaks the blob into blocks when uploading. For highest performance, this value should be 8 times the number of cores. |
 |[DisableContentMD5Validation](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.disablecontentmd5validation?view=azure-dotnet)| true| This property disables checking the MD5 hash of the content uploaded. Disabling MD5 validation produces a faster transfer. |
 |[StorBlobContentMD5](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.storeblobcontentmd5?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_StoreBlobContentMD5)| false| This property determines if an MD5 hash is calculated and stored   |
-| [RetryPolicy](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.retrypolicy?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_RetryPolicy)| Determines the retry policy of requests. Connection failures are retried, in this example `ExponentialRetry` is configured with a 2 second backoff and a maximum retry count of 10 |
+| [RetryPolicy](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.retrypolicy?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_RetryPolicy)| 2 second backoff with 10 max retry |Determines the retry policy of requests. Connection failures are retried, in this example `ExponentialRetry` is configured with a 2-second backoff and a maximum retry count of 10 |
 
 The `UploadFilesAsync` task is shown in the following example:
 
 ```csharp
-private static async Task UploadFilesAsync(string[] args)
+private static async Task UploadFilesAsync()
 {
-    CloudBlobContainer[] containers = Util.GetRandomContainers();
+    // Create random 5 characters containers to upload files to.
+    CloudBlobContainer[] containers = await GetRandomContainersAsync();
     var currentdir = System.IO.Directory.GetCurrentDirectory();
     // path to the directory to upload
     string uploadPath = currentdir + "\\upload";
-
     Stopwatch time = Stopwatch.StartNew();
     try
     {
         Console.WriteLine("Iterating in directiory: {0}", uploadPath);
         int count = 0;
+        int max_outstanding = 100;
+        int completed_count = 0;
+        Semaphore sem = new Semaphore(max_outstanding, max_outstanding);
+
         List<Task> Tasks = new List<Task>();
         Console.WriteLine("Found {0} file(s)", Directory.GetFiles(uploadPath).Count());
+
+        // Iterate through the files
         foreach (string fileName in Directory.GetFiles(uploadPath))
         {
+            // Create random file names and set the block size that is used for the upload.
             var container = containers[count % 5];
             Random r = new Random((int)DateTime.Now.Ticks);
             String s = (r.Next() % 10000).ToString("X5");
             Console.WriteLine("Starting upload of {0} as {1} to container {2}.", fileName, s, container.Name);
             CloudBlockBlob blockBlob = container.GetBlockBlobReference(s);
             blockBlob.StreamWriteSizeInBytes = 100 * 1024 * 1024;
-            Tasks.Add(blockBlob.UploadFromFileAsync(fileName, null, new BlobRequestOptions() {
-                    RetryPolicy = new ExponentialRetry(TimeSpan.FromSeconds(2), 10),
-                    ParallelOperationThreadCount = 8,
-                    DisableContentMD5Validation = true,
-                    StoreBlobContentMD5 = false }, null));
+            sem.WaitOne();
+            // Create tasks for each file that is uploaded. This is added to a collection that executes them all asyncronously.  Defined the BlobRequestionOptions on the upload.
+            // This includes defining an exponential retry policy to ensure that failed connections are retried with a backoff policy. As multiple large files are being uploaded
+            // large block sizes this can cause an issue if an exponential retry policy is not defined.  Additionally parallel operations are enabled with a thread count of 8
+            // This could be should be multiple of the number of cores that the machine has. Lastly MD5 hash validation is disabled, this imroves the upload speed.
+            Tasks.Add(blockBlob.UploadFromFileAsync(fileName, null, new BlobRequestOptions() { ParallelOperationThreadCount = 8, DisableContentMD5Validation = true, StoreBlobContentMD5 = false }, null).ContinueWith((t) => {
+                sem.Release();
+                Interlocked.Increment(ref completed_count);
+            }));
             count++;
         }
+        // Creates an asynchonous task that completes when all the uploads complete.
         await Task.WhenAll(Tasks);
     }
     catch (Exception ex)
@@ -145,7 +155,7 @@ Upload has been completed in 142.0429536 seconds. Press any key to continue
 
 ### Validate the connections
 
-While the files are being uploaded, you can verify the number of concurrent connections to your storage account. Open a `Command Prompt` and type `netstat -a | find /c "blob:https"`.  This shows the number of connections that are currently opened using `netstat`. The following example shows a similar output to what you see when running the tutorial yourself. As you can see from the example 800 connections were open when uploading the random files to the storage account.  By uploading in parralel block chunks the amount of time required to transfer the contents is greatly reduced.
+While the files are being uploaded, you can verify the number of concurrent connections to your storage account. Open a **Command Prompt** and type `netstat -a | find /c "blob:https"`. This shows the number of connections that are currently opened using `netstat`. The following example shows a similar output to what you see when running the tutorial yourself. As you can see from the example, 800 connections were open when uploading the random files to the storage account. By uploading in parallel block chunks, the amount of time required to transfer the contents is greatly reduced.
 
 ```
 C:\>netstat -a | find /c "blob:https"
@@ -156,7 +166,7 @@ C:\>
 
 ## Next steps
 
-In part two of the series, you learned about uploading large amounts of random data to a a storage account in parallel, such as how to:
+In part two of the series, you learned about uploading large amounts of random data to a storage account in parallel, such as how to:
 
 > [!div class="checklist"]
 > * Configure the connection string
