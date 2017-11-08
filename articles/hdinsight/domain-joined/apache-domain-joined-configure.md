@@ -30,10 +30,6 @@ This article is the first tutorial of a series:
 * Create an HDInsight cluster connected to Azure AD (via the Azure Directory Domain Services capability) with Apache Ranger enabled.
 * Create and apply Hive policies through Apache Ranger, and allow users (for example, data scientists) to connect to Hive using ODBC-based tools, for example Excel, Tableau etc. Microsoft is working on adding other workloads, such as HBase and Storm, to Domain-joined HDInsight soon.
 
-An example of the final topology looks as follows:
-
-![Domain-joined HDInsight topology](./media/apache-domain-joined-configure/hdinsight-domain-joined-topology.png)
-
 Azure service names must be globally unique. The following names are used in this tutorial. Contoso is a fictitious name. You must replace *contoso* with a different name when you go through the tutorial. 
 
 **Names:**
