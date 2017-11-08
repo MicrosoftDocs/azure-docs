@@ -12,16 +12,16 @@ ms.date: 10/17/2017
 ---
 
 
-# Image Classification using Azure Machine Learning workbench
+# Image classification using Azure Machine Learning Workbench
 
 Image classification approaches can be used to solve a large number of Computer Vision problems.
 These include building models, which answer questions such as: *Is an OBJECT present in the image?* where OBJECT could for example be *dog*, *car*, or *ship*. Or more complex questions like: *What class of eye disease severity is evinced by this patient's retinal scan?*.
 
-This tutorial addresses solving such problems. We show how to train, evaluate, and deploy your own image classification model using the  [Microsoft Cognitive Toolkit (CNTK) ](https://www.microsoft.com/en-us/cognitive-toolkit/) for deep learning.
+This tutorial addresses solving such problems. We show how to train, evaluate, and deploy your own image classification model using the  [Microsoft Cognitive Toolkit (CNTK) ](https://docs.microsoft.com/cognitive-toolkit/) for deep learning.
 Example images are provided, but the reader can also bring their own dataset and train their own custom models.
 
 Computer Vision solutions traditionally required expert knowledge to manually identify and implement so-called *features*, which highlight desired information in images.
-This manual approach changed in 2012 with the famous [AlexNet](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf)[1] Deep Learning paper, and at present, Deep Neural Networks (DNN) are used to automatically find these features.
+This manual approach changed in 2012 with the famous [AlexNet](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf) [1] Deep Learning paper, and at present, Deep Neural Networks (DNN) are used to automatically find these features.
 DNNs led to a huge improvement in the field not just for image classification, but also for other Computer Vision problems such as object detection and image similarity.
 
 
@@ -46,18 +46,18 @@ The prerequisites to run this example are as follows:
 1. An [Azure account](https://azure.microsoft.com/free/) (free trials are available).
 2. The [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) following the [quick start installation guide](./quickstart-installation.md) to install the program and create a workspace.  
 3. A Windows machine. Windows OS is necessary since the Workbench supports only Windows and MacOS, while Microsoft's Cognitive Toolkit (which we use as deep learning library) only supports Windows and Linux.
-4. A dedicated GPU is not required to execute the SVM training in part 1, however it is needed for refining of the DNN described in part 2. If you lack a strong GPU, want to train on multiple GPUs, or do not have a Windows machine, then consider using Azure's Deep Learning Virtual Machine with Windows operating system. See [here](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.dsvm-deep-learning) for a 1-click deployment guide. Once deployed, connect to the VM via a remote desktop connection, install Workbench there, and execute the code locally from the VM.
-5. Various python libraries such as OpenCV need to be installed. Click *Open Command Prompt* from the *File* menu in the Workbench and run the following commands to install these dependencies:  
+4. A dedicated GPU is not required to execute the SVM training in part 1, however it is needed for refining of the DNN described in part 2. If you lack a strong GPU, want to train on multiple GPUs, or do not have a Windows machine, then consider using Azure's Deep Learning Virtual Machine with Windows operating system. See [here](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning) for a 1-click deployment guide. Once deployed, connect to the VM via a remote desktop connection, install Workbench there, and execute the code locally from the VM.
+5. Various Python libraries such as OpenCV need to be installed. Click *Open Command Prompt* from the *File* menu in the Workbench and run the following commands to install these dependencies:  
     - `pip install https://cntk.ai/PythonWheel/GPU/cntk-2.0-cp35-cp35m-win_amd64.whl`  
     - `pip install opencv_python-3.3.0-cp35-cp35m-win_amd64.whl` after downloading the OpenCV wheel from http://www.lfd.uci.edu/~gohlke/pythonlibs/ (the exact filename and version can change)
     - `conda install matplotlib numpy pillow`
     - `conda install -c conda-forge bqplot`
 
-Troubleshooting / Known bugs:
+### Troubleshooting / Known bugs
 - A GPU is needed for part 2, and otherwise the error "Batch normalization training on CPU is not yet implemented" is thrown when trying to refine the DNN.
 - Out-of-memory errors during DNN training can be avoided by reducing the minibatch size (variable `cntk_mb_size` in `PARAMETERS.py`).
 - The code was tested using CNTK 2.0 and 2.1, and should run also on newer versions without any (or only minor) changes.
-- At the time of writing, the AML Workbench had problems showing notebooks larger than 5 Mbytes. Notebooks of this large size can happen if the notebook is saved with all cell output displayed. If you encounter this error, then open the command prompt from the File menu inside the Workbench, execute `jupyter notebook`, open the notebook, clear all output, and save the notebook. After performing these steps, the notebook will open properly inside the AML Workbench again.
+- At the time of writing, the Azure Machine Learning Workbench had problems showing notebooks larger than 5 Mbytes. Notebooks of this large size can happen if the notebook is saved with all cell output displayed. If you encounter this error, then open the command prompt from the File menu inside the Workbench, execute `jupyter notebook`, open the notebook, clear all output, and save the notebook. After performing these steps, the notebook will open properly inside the Azure Machine Learning Workbench again.
 
 
 ## Create a new workbench project
@@ -69,11 +69,11 @@ To create a new project using this example as a template:
 4.	In the **Search Project Templates** search box, type "Image classification" and select the template.
 5.	Click **Create**.
 
-Performing these steps creates the project structure shown below. The project directory is restricted to be less than 25 Mbytes since the AML Workbench creates a copy of this folder after each run (to enable run history). Hence, all image and temporary files are saved to and from the directory *~/Desktop/imgClassificationUsingCntk_data* (referred to as *DATA_DIR* in this document).
+Performing these steps creates the project structure shown below. The project directory is restricted to be less than 25 Mbytes since the Azure Machine Learning Workbench creates a copy of this folder after each run (to enable run history). Hence, all image and temporary files are saved to and from the directory *~/Desktop/imgClassificationUsingCntk_data* (referred to as *DATA_DIR* in this document).
 
   Folder| Description
   ---|---
-  aml_config/|		                     Directory containing the AML Workbench configuration files
+  aml_config/|		                     Directory containing the Azure Machine Learning Workbench configuration files
   libraries/|		                       Directory containing all Python and Jupyter helper functions
   notebooks/|		                       Directory containing all notebooks
   resources/|		                       Directory containing all resources (for example url of fashion images)
@@ -97,9 +97,7 @@ The following figure shows examples for the attributes dotted (left two columns)
 </p>
 
 
-## Scenario structure
-
-## PART 1 - Model training and evaluation
+## Part 1 - Model training and evaluation
 
 In the first part of this tutorial, we are training a system that uses, but does not modify, a pre-trained deep neural network. This pre-trained DNN is used as a featurizer, and a linear SVM is trained to predict the attribute (dotted, striped, or leopard) of a given image.
 
@@ -129,7 +127,7 @@ Now execute the script named `1_prepareData.py`, which assigns all images to eit
 ### Step 2: Refining the Deep Neural Network
 `Script: 2_refineDNN.py`
 
-As we explained in part 1 of this tutorial, the pre-trained DNN is kept fixed (that is, it is not refined). However, the script named `2_refineDNN.py` is still executed in part 1, as it loads a pre-trained [ResNet](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf)[2] model and modifies it, for example, to allow for higher input image resolution. This step is fast (seconds) and does not require a GPU.
+As we explained in part 1 of this tutorial, the pre-trained DNN is kept fixed (that is, it is not refined). However, the script named `2_refineDNN.py` is still executed in part 1, as it loads a pre-trained [ResNet](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf) [2] model and modifies it, for example, to allow for higher input image resolution. This step is fast (seconds) and does not require a GPU.
 
 In part 2 of the tutorial, a modification to the PARAMETERS.py file causes the `2_refineDNN.py` script to also refine the pre-trained DNN. By default, we run 45 training epochs during refinement.
 
@@ -189,7 +187,7 @@ Finally, the notebook `showResults.py` is provided to scroll through the test im
 ### Step 6: Deployment
 `Scripts: 6_callWebservice.py, deploymain.py. Notebook: deploy.ipynb`
 
-The trained system can now be published it as a REST API. Deployment is explained in the notebook `deploy.ipynb`, and based on functionality within the AML Workbench. See also the excellent deployment section of the [IRIS tutorial](https://docs.microsoft.com/en-us/azure/machine-learning/preview/tutorial-classifying-iris-part-3).
+The trained system can now be published it as a REST API. Deployment is explained in the notebook `deploy.ipynb`, and based on functionality within the Azure Machine Learning Workbench. See also the excellent deployment section of the [IRIS tutorial](https://docs.microsoft.com/azure/machine-learning/preview/tutorial-classifying-iris-part-3).
 
 Once deployed, the web service can be called using the script `6_callWebservice.py`. Note that the IP address (either local or on the cloud) of the web service needs to be set first in the script. The notebook `deploy.ipynb` explains how to find this IP address.
 
@@ -200,7 +198,7 @@ Once deployed, the web service can be called using the script `6_callWebservice.
 
 
 
-## PART 2 - Accuracy improvements
+## Part 2 - Accuracy improvements
 
 In part 1, we showed how to classify an image by training a linear Support Vector Machine on the 512-floats output of a Deep Neural Network. This DNN was pre-trained on millions of images, and the penultimate layer returned as feature vector. This approach is fast since the DNN is used as-is, but nevertheless often gives good results.
 
@@ -224,9 +222,9 @@ As can be seen in the plot below, the accuracy using DNN refinement on the provi
 
 ### Run history tracking
 
-The AML Workbench stores the history of each run on Azure to allow comparison of two or more runs that are even weeks apart. This is explained in detail in the [Iris tutorial](https://docs.microsoft.com/en-us/azure/machine-learning/preview/tutorial-classifying-iris-part-2). It is also illustrated in the following screenshots where we compare two runs of the script `5_evaluate.py`, using either DNN refinement that is, `classifier = "dnn"`(run number 148) or SVM training that is, `classifier = "svm"` (run number 150).
+The Azure Machine Learning Workbench stores the history of each run on Azure to allow comparison of two or more runs that are even weeks apart. This is explained in detail in the [Iris tutorial](https://docs.microsoft.com/azure/machine-learning/preview/tutorial-classifying-iris-part-2). It is also illustrated in the following screenshots where we compare two runs of the script `5_evaluate.py`, using either DNN refinement that is, `classifier = "dnn"`(run number 148) or SVM training that is, `classifier = "svm"` (run number 150).
 
-In the first screenshot, the DNN refinement leads to better accuracies than SVM training for all classes. The second screenshot shows all metrics that are being tracked, including what the classifier was. This tracking is done in the script `5_evaluate.py` by calling the AML logger. In addition, the script also saves the ROC curve and confusion matrix to the *outputs* folder. This *outputs* folder is special in that its content is also tracked by the Workbench history feature and hence the output files can be accessed at any time, regardless of whether local copies have been overwritten.
+In the first screenshot, the DNN refinement leads to better accuracies than SVM training for all classes. The second screenshot shows all metrics that are being tracked, including what the classifier was. This tracking is done in the script `5_evaluate.py` by calling the Azure Machine Learning Workbench logger. In addition, the script also saves the ROC curve and confusion matrix to the *outputs* folder. This *outputs* folder is special in that its content is also tracked by the Workbench history feature and hence the output files can be accessed at any time, regardless of whether local copies have been overwritten.
 
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/run_comparison1.jpg" alt="alt text" width="700"/>  
@@ -242,14 +240,14 @@ As is true for most machine learning projects, getting good results for a new da
 
 Some of the most promising avenues for improvements are:
 
-- Data quality: ensure the training and test sets have high quality. That is, the images are annotated correctly, ambiguous images removed (for example clothing items with both stripes and dots), and the attributes are mutually exclusive (that is, chosen such that each image belongs to exactly one attribute).
-- if the object-of-interest is small in the image then Image classification approaches are known not to work well. In such cases consider using an object detection approach as described in this [tutorial](https://github.com/Azure/ObjectDetectionUsingCntk).
-- DNN refinement: the arguably most important parameter to get right is the learning rate `rf_lrPerMb`. If the accuracy on the training set (first figure in part 2) is not close to 0-5%, most likely it is due to a wrong the learning rate. The other parameters starting with `rf_` are less important. Typically, the training error should decrement exponentially and be close to 0% after training.
-- Input resolution: the default image resolution is 224x224 pixels. Using higher image resolution (parameter: `rf_inputResoluton`) of, for example, 448x448 or 896x896 pixels often significant improves accuracy but slows down DNN refinement. **Using higher image resolution is nearly free lunch and almost always boosts accuracy**.
-- DNN over-fitting: avoid a large gap between the training and test accuracy during DNN refinement (first figure in part 2). This gap can be reduced using dropout rates `rf_dropoutRate` of 0.5 or more, and by increasing the regularizer weight `rf_l2RegWeight`. Using a high dropout rate can be especially helpful if the DNN input image resolution is high.
+- Data quality: Ensure the training and test sets have high quality. That is, the images are annotated correctly, ambiguous images removed (for example clothing items with both stripes and dots), and the attributes are mutually exclusive (that is, chosen such that each image belongs to exactly one attribute).
+- If the object-of-interest is small in the image then Image classification approaches are known not to work well. In such cases consider using an object detection approach as described in this [tutorial](https://github.com/Azure/ObjectDetectionUsingCntk).
+- DNN refinement: The arguably most important parameter to get right is the learning rate `rf_lrPerMb`. If the accuracy on the training set (first figure in part 2) is not close to 0-5%, most likely it is due to a wrong the learning rate. The other parameters starting with `rf_` are less important. Typically, the training error should decrement exponentially and be close to 0% after training.
+- Input resolution: The default image resolution is 224x224 pixels. Using higher image resolution (parameter: `rf_inputResoluton`) of, for example, 448x448 or 896x896 pixels often significant improves accuracy but slows down DNN refinement. **Using higher image resolution is nearly free lunch and almost always boosts accuracy**.
+- DNN over-fitting: Avoid a large gap between the training and test accuracy during DNN refinement (first figure in part 2). This gap can be reduced using dropout rates `rf_dropoutRate` of 0.5 or more, and by increasing the regularizer weight `rf_l2RegWeight`. Using a high dropout rate can be especially helpful if the DNN input image resolution is high.
 - Try using deeper DNNs by changing `rf_pretrainedModelFilename` from `ResNet_18.model` to either `ResNet_34.model` or `ResNet_50.model`. The Resnet-50 model is not only deeper, but its output of the penultimate layer is of size 2048 floats (vs. 512 floats of the ResNet-18 and ResNet-34 models). This increased dimension can be especially beneficial when training an SVM classifier.
 
-## PART 3 - Custom dataset
+## Part 3 - Custom dataset
 
 In part 1 and 2, we trained and evaluated an image classification model using the provided upper body clothing textures images. We now show how to use a custom user-provided dataset instead. Or, if not available, how to generate and annotate such a dataset using Bing Image Search.
 
@@ -266,7 +264,7 @@ It is important that each image can be assigned to exactly one attribute. For ex
 
 
 
-### Image Scraping and Annotation
+### Image scraping and annotation
 
 Collecting a sufficiently large number of annotated images for training and testing can be difficult. One way to overcome this problem is to scrape images from the Internet. For example, see below the Bing Image Search results for the query *t-shirt striped*. As expected, most images indeed are striped t-shirts. The few incorrect or ambiguous images (such as column 1, row 1; or column 3, row 2) can be identified and removed easily:
 <p align="center">
@@ -275,7 +273,7 @@ Collecting a sufficiently large number of annotated images for training and test
 
 To generate a large and diverse dataset, multiple queries should be used. For example, 7\*3 = 21 queries can be synthesized automatically using all combinations of clothing items {blouse, hoodie, pullover, sweater, shirt, t-shirt, vest} and attributes {striped, dotted, leopard}. Downloading the top 50 images per query would then lead to a maximum of 21*50=1050 images.
 
-Rather than manually downloading images from Bing Image Search, it is much easier to instead use the [Cognitive Services Bing Image Search API](https://www.microsoft.com/cognitive-services/en-us/bing-image-search-api) which returns a set of image URLs given a query string.
+Rather than manually downloading images from Bing Image Search, it is much easier to instead use the [Cognitive Services Bing Image Search API](https://www.microsoft.com/cognitive-services/bing-image-search-api) which returns a set of image URLs given a query string.
 
 Some of the downloaded images are exact or near duplicates (for example, differ just by image resolution or jpg artifacts). These duplicates should be removed so that the training and test split do not contain the same images. Removing duplicate images can be achieved using a hashing-based approach, which works in two steps: (i) first, the hash string is computed for all images; (ii) in a second pass over the images, only those images are kept with a hash string that has not yet been seen. All other images are discarded. We found the `dhash` approach in the Python library `imagehash` and described in this [blog](http://www.hackerfactor.com/blog/index.php?/archives/529-Kind-of-Like-That.html) to perform well, with the parameter `hash_size` set to 16. It is OK to incorrectly remove some non-duplicate images, as long as the majority of the real duplicates get removed.
 
