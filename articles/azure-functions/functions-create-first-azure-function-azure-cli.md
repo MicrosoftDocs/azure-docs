@@ -6,7 +6,7 @@ keywords:
 author: ggailey777
 ms.author: glenga
 ms.assetid: 674a01a7-fd34-4775-8b69-893182742ae0
-ms.date: 10/30/2017
+ms.date: 11/08/2017
 ms.topic: quickstart
 ms.service: functions
 ms.custom: mvc
@@ -48,7 +48,7 @@ In the following command, substitute a unique function app name where you see th
 az functionapp create --name <app_name> --storage-account  <storage_name>  --resource-group myResourceGroup \
 --consumption-plan-location westeurope --deployment-source-url https://github.com/Azure-Samples/functions-quickstart
 ```
-By default, a function app is created with the Consumption hosting plan, which means that resources are added dynamically as required by your functions and you only pay when functions are running. For more information, see [Choose the correct hosting plan](functions-scale.md). 
+Setting the _consumption-plan-location_ parameter means that the function app is hosted in a Consumption hosting plan. In this plan, resources are added dynamically as required by your functions and you only pay when functions are running. For more information, see [Choose the correct hosting plan](functions-scale.md). 
 
 After the function app has been created, the Azure CLI shows information similar to the following example:
 

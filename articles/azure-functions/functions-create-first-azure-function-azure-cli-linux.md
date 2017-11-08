@@ -5,7 +5,7 @@ services: functions
 keywords: 
 author: ggailey777
 ms.author: glenga
-ms.date: 10/30/2017
+ms.date: 11/07/2017
 ms.topic: quickstart
 ms.service: functions
 ms.custom: mvc
@@ -15,7 +15,7 @@ manager: cfowler
 
 # Create your first function running on Linux using the Azure CLI
 
-This quickstart tutorial walks through how to use Azure Functions to create your first function on Linux. You use the Azure CLI to create a function app running on a built-in image. This app is the [serverless](https://azure.microsoft.com/overview/serverless-computing/) infrastructure that hosts your function. The function code itself is deployed to the image from a GitHub sample repository.    
+Azure Functions lets you host your function app on Linux in a container created from a built-in Docker image. This quickstart topic walks you through how to use Azure Functions to create your first function on Linux. You use the Azure CLI to create a function app running in a container created from a built-in Docker image. This app is the [serverless](https://azure.microsoft.com/overview/serverless-computing/) infrastructure that hosts your function. The function code itself is deployed to the image from a GitHub sample repository.    
 
 You can follow the steps below using a Mac, Windows, or Linux computer. 
 
@@ -42,9 +42,9 @@ Linux hosting for Functions is currently not supported on consumption plans. You
 
 [!INCLUDE [app-service-plan-no-h](../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
 
-## Create a function app with a built-in image
+## Create a function app on Linux
 
-You must have a function app to host the execution of your functions. The function app provides an environment for serverless execution of your function code. It lets you group functions as a logic unit for easier management, deployment, and sharing of resources. Create a function app by using the [az functionapp create](/cli/azure/functionapp#create) command. 
+You must have a function app to host the execution of your functions on Linux. The function app provides an environment for serverless execution of your function code. It lets you group functions as a logic unit for easier management, deployment, and sharing of resources. Create a function app by using the [az functionapp create](/cli/azure/functionapp#create) command with a Linux App Service plan. 
 
 In the following command, substitute a unique function app name where you see the `<app_name>` placeholder and the storage account name for  `<storage_name>`. The `<app_name>` is used as the default DNS domain for the function app, and so the name needs to be unique across all apps in Azure. The _deployment-source-url_ parameter is a sample repository in GitHub that contains a "Hello World" HTTP triggered function.
 
@@ -73,10 +73,10 @@ After the function app has been created and deployed, the Azure CLI shows inform
 }
 ```
 
-Because `myAppServicePlan` is a Linux plan, the built-in image is used to create the function app. 
+Because `myAppServicePlan` is a Linux plan, the built-in docker image is used to create the container that runs the function app on Linux. 
 
 >[!NOTE]  
->The sample repository currently includes two scripting files, [deploy.sh](https://github.com/Azure-Samples/functions-quickstart-linux/blob/master/deploy.sh) and [.deployment](https://github.com/Azure-Samples/functions-quickstart-linux/blob/master/.deployment). In the current preview release, scripts are required to deploy the function app on a the Linux image.  
+>The sample repository currently includes two scripting files, [deploy.sh](https://github.com/Azure-Samples/functions-quickstart-linux/blob/master/deploy.sh) and [.deployment](https://github.com/Azure-Samples/functions-quickstart-linux/blob/master/.deployment). The .deployment file tells the deployment process to use deploy.sh as the [custom deployment script](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script). In the current preview release, scripts are required to deploy the function app on a the Linux image.  
 
 [!INCLUDE [functions-test-function-code](../../includes/functions-test-function-code.md)]
 

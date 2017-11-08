@@ -15,7 +15,7 @@ manager: cfowler
 
 # Create a function on Linux using a custom image
 
-Azure Functions provides a built-in Docker image when running on a Linux App Service plan, but you can also host your function app on a custom image. In this tutorial, you learn how to deploy a function app as a custom Docker image. This pattern is useful when the built-in image don't include your language of choice, or when your function app requires a specific configuration that isn't provided within the built-in image.
+Azure Functions lets you host your function app on Linux in a container created from a custom Docker image. You can also use a [built-in function app image](functions-create-first-azure-function-azure-cli-linux.md). In this tutorial, you learn how to deploy a function app as a custom Docker image. This pattern is useful when the built-in image don't include your language of choice, or when your function app requires a specific configuration that isn't provided within the built-in image.
 
 This tutorial walks you through how to use Azure Functions to create and push a custom image Docker Hub. You then use this image as the deployment source for a function app that runs on Linux. You use Docker to build and push the image. You use the Azure CLI to create a function app and deploy the image from Docker Hub. 
 
@@ -222,4 +222,4 @@ In this tutorial, you learned how to:
 Learn more about developing Azure Functions locally using the Azure Functions Core Tools.
 
 > [!div class="nextstepaction"] 
-> [Code and test Azure Functions locally](../articles/azure-functions/functions-run-local.md)
+> [Code and test Azure Functions locally](functions-run-local.md)
