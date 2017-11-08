@@ -29,7 +29,7 @@ This article assumes that you have:
 
 * Created an Azure storage account. If you need instructions, see [About Azure storage accounts](../../storage/common/storage-create-storage-account.md).
 * Provisioned a customized Hadoop cluster with the HDInsight service.  If you need instructions, see [Customize Azure HDInsight Hadoop clusters for advanced analytics](customize-hadoop-cluster.md).
-* Enabled remote access to the cluster, logged in, and opened the Hadoop Command-Line console. If you need instructions, see [Access the Head Node of Hadoop Cluster](customize-hadoop-cluster.md#headnode).
+* Enabled remote access to the cluster, logged in, and opened the Hadoop Command-Line console. If you need instructions, see [Access the Head Node of Hadoop Cluster](customize-hadoop-cluster.md).
 
 ## Upload data to Azure blob storage
 If you created an Azure virtual machine by following the instructions provided in [Set up an Azure virtual machine for advanced analytics](../data-science-virtual-machine/setup-virtual-machine.md), this script file should have been downloaded to the *C:\\Users\\\<user name\>\\Documents\\Data Science Scripts* directory on the virtual machine. These Hive queries only require that you plug in your own data schema and Azure blob storage configuration in the appropriate fields to be ready for submission.
