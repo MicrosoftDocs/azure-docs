@@ -235,7 +235,7 @@ You have already configured a WSFC cluster to use for one SAP ASCS/SCS instance 
 
 ## SAP ASCS/SCS multi-SID architecture with shared disk
 
-The goal is to install multiple SAP Advanced Business Application Programming (ABAP) (ASCS) or SAP Java (SCS) clustered instances in the same WSFC cluster, as illustrated here:
+The goal is to install multiple SAP Advanced Business Application Programming (ASCS) or SAP Java (SCS) clustered instances in the same WSFC cluster, as illustrated here:
 
 ![Multiple SAP ASCS/SCS clustered instances in Azure][sap-ha-guide-figure-6002]
 
@@ -245,7 +245,7 @@ The complete landscape with two high-availability SAP systems would look like th
 
 ![SAP high-availability multi-SID setup with two SAP system SIDs][sap-ha-guide-figure-6003]
 
-## <a name="25e358f8-92e5-4e8d-a1e5-df7580a39cb0"></a> Infrastructure preparation for an SAP multi-SID scenario
+## <a name="25e358f8-92e5-4e8d-a1e5-df7580a39cb0"></a> Prepare the infrastructure for an SAP multi-SID scenario
 
 To prepare your infrastructure, you can install an additional SAP ASCS/SCS instance with the following parameters:
 
