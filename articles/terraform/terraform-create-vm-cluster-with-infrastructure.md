@@ -214,7 +214,7 @@ To initialize Terraform, run the following command:
 
 The [terraform plan command](https://www.terraform.io/docs/commands/plan.html) is used to create an execution plan. To generate the execution plan, Terraform aggregates all of the `.tf` files in the current directory. 
 
-If you are working in a collaborative environment where the configuration might change, you should use the `-out` parameter and output the execution plan to a file. Otherwise, if you are working in a single-person environment, you can omit the `-out` parameter. For purposes of this tutorial, a single-person environment is assumed. To see the syntax for using the `-out` parameter, refer to the [Terraform documentation for the `-out` parameter](https://www.terraform.io/docs/commands/plan.html#out-path).
+If you are working in a collaborative environment where the configuration might change, you should use the `-out` parameter and output the execution plan to a file. Otherwise, if you are working in a single-person environment, you can omit the `-out` parameter. For purposes of this tutorial, a single-person environment is assumed. To see the syntax for using the `-out` parameter, refer to the documentation for the [terraform plan command's -out parameter](https://www.terraform.io/docs/commands/plan.html#out-path).
 
 If the name of your Terraform variables file is not `terraform.tfvars` and it doesn't follow the `*.auto.tfvars` pattern, you need to specify the file name using the [terraform plan command's -var-file parameter](https://www.terraform.io/docs/commands/plan.html#var-file-foo) when running the `terraform plan` command.
 
