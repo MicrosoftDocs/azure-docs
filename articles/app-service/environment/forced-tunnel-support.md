@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 11/17/2017
 ms.author: ccompy
 ---
 The App Service Environment is a deployment of the Azure App Service in a customer's Azure Virtual Network (VNet). Many customers configure their VNets to be extentions of their on premises networks with VPNs or ExpressRoute connections. Due to corporate policies or other security constraints, they configure routes to send all outbound traffic on premises before it can go out to the internet. Changing the routing of the VNet so that the outbound traffic from the VNet flows through the VPN or ExpressRoute connection to on premises is called forced tunneling.  
@@ -67,8 +67,8 @@ You can configure the ASE with a different egress address after the ASE is alrea
 to something like the following, but using the addresses you will set as the egress address range 
 
       "userWhitelistedIpRanges": [
-          "51.111.222.33/32".
-          "44.55.66.0/24"
+          "11.22.33.44/32".
+          "55.66.77.0/24"
           ] 
 
    as appropriate. Then click PUT at the top. This will trigger a scale operation on your ASE and adjust the firewall.
@@ -85,9 +85,9 @@ In the event that your VNet is already configured to force tunnel all the traffi
 1. Pre-create the subnet to be used by the ASE. This is needed to let you set routes and also because the template requires it.  
 1. Create a route table with the management IPs that map to your ASE location and assign it to your ASE
 1. Follow the directions here, [Creating an ASE with a template][templatecreate], and pull down the appropriate template
-1. Edit the azuredeploy.json file to include **userWhitelistedIpRanges** with your values in the form [10.0.0.0/30, 192.168.0.0/31] as appropriate.
+1. Edit the azuredeploy.json file to include **userWhitelistedIpRanges** with your values in the form [11.22.33.44/32, 55.66.77.0/30] as appropriate.
 
-If this is configured properly then the ASE will start up with no issues.  
+If this is configured properly then the ASE should start with no issues.  
 
 
 <!--IMAGES-->
