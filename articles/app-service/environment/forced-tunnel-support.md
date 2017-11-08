@@ -87,7 +87,7 @@ In the event that your VNet is already configured to force tunnel all the traffi
 1. Pre-create the subnet to be used by the ASE. This is needed to let you set routes and also because the template requires it.  
 1. Create a route table with the management IPs that map to your ASE location and assign it to your ASE
 1. Follow the directions here, [Creating an ASE with a template][templatecreate], and pull down the appropriate template
-1. Edit the azuredeploy.json file to include **userWhitelistedIpRanges** with your values in the form [11.22.33.44/32, 55.66.77.0/30] as appropriate.
+1. Edit the azuredeploy.json file to include **userWhitelistedIpRanges** with your values in the form *["11.22.33.44/32", "55.66.77.0/30"]* as appropriate.
 
 If this is configured properly then the ASE should start with no issues.  
 
