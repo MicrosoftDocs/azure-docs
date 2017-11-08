@@ -117,9 +117,27 @@ A [TypeScript](https://www.typescriptlang.org/) definition file for the Clipper 
 This section documents the API surface provided by the Clipper.
 
 - load(assets): Loads a list of assets into the assets pane (should not be used together with assetsPanelLoaderCallback). See this [article](media-services-azure-media-clipper-load-assets.md) for details on how to load assets into the Clipper.
-- setLanguage(language): Sets the widget’s language if available. Otherwise, it fallbacks to English (en).
+- setLanguage(language): Sets the widget’s language. Otherwise, it fallbacks to English (en). The list of supported languages are the following:
+    - Chinese (Simplified): zh-hans
+    - Chinese (Traditional): zh-hant
+    - Czech: cs
+    - Dutch, Flemish: nl
+    - English: en
+    - French: fr
+    - German: de
+    - Hungarian: hu
+    - Italian: it
+    - Japanese: ja
+    - Korean: ko
+    - Polish: pl
+    - Portuguese (Brazil): pt-br
+    - Portuguese (Portugal): pt-pt
+    - Russian: ru
+    - Spanish: es
+    - Swedish: sv
+    - Turkish: tr
 ```javascript
-subclipper.setLanguage('es');
+subclipper.setLanguage('en');
 ```
 - setLogLevel(level): Sets the logging level to be displayed in the browser’s console. Possible values are: info, warn, error.
 ```javascript
