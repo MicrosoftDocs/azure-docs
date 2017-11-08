@@ -42,27 +42,43 @@ Azure Metadata Service surfaces Scheduled Events in the following use cases:
 -	Platform initiated maintenance (for example, Host OS rollout)
 -	User-initiated calls (for example, user restarts or redeploys a VM)
 
-
 ## The basics  
 
 Azure Metadata service exposes information about running Virtual Machines using a REST Endpoint accessible from within the VM. The information is available via a non-routable IP so that it is not exposed outside the VM.
 
 ### Scope
-Scheduled events are surfaced to all Virtual Machines in a cloud service or to all Virtual Machines in an Availability Set. As a result, you should check the `Resources` field in the event to identify which VMs are going to be impacted. 
+Scheduled events are surfaced to the following groupings: 
 
-### Discovering the endpoint
+|Service Type | Scheduled Events Grouping | 
+| - | - |
+| Cloud Service | All VMs in the Cloud Service | 
+| Availability Set | All VMs in the Availability Set | 
+| Virtual Machine Scale Set | All VMs in a placement group
+
+ You should check the `Resources` field for any given event to identify which VMs are going to be impacted. 
+
+## Discovering the endpoint
+For VNET enabled VMs, the full endpoint for the scheduled events service is: 
+
+ > `http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01`
+
 In the case where a Virtual Machine is created within a Virtual Network (VNet), the metadata service is available from a static non-routable IP, `169.254.169.254`.
-If the Virtual Machine is not created within a Virtual Network, the default cases for cloud services and classic VMs, additional logic is required to discover the endpoint to use. 
+If the Virtual Machine is not created within a Virtual Network, the default cases for cloud services and classic VMs, additional logic is required to discover the IP to use. 
 Refer to this sample to learn how to [discover the host endpoint](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm).
 
 ### Versioning 
-The Instance Metadata Service is versioned. Versions are mandatory and the current version is `2017-03-01`.
+The Instance Metadata Service is versioned. Versions are mandatory and the current version is `2017-08-01`.
+
+| Version | Release Notes | 
+| - | - | 
+| 2017-08-01 | Enable Opt-Out feature after 1 day of inactivity<br>Removed prepended underscore from resource names<br>Metadata Header requirement enforced for all requests | 
+| 2017-03-01 | Public Preview Version
 
 > [!NOTE] 
 > Previous preview releases of scheduled events supported {latest} as the api-version. This format is no longer supported and will be deprecated in the future.
 
 ### Using headers
-When you query the Metadata Service, you must provide the header `Metadata: true` to ensure the request was not unintentionally redirected.
+When you query the Metadata Service, you must provide the header `Metadata:true` to ensure the request was not unintentionally redirected. The `Metadata:true` header is required for all scheduled events requests. Failure to include the header in the request will result in a Bad Request response from the Metadata Service.
 
 ### Enabling Scheduled Events
 The first time you make a request for scheduled events, Azure implicitly enables the feature on your Virtual Machine. As a result, you should expect a delayed response in your first call of up to two minutes.
@@ -73,7 +89,7 @@ User initiated virtual machine maintenance via the Azure portal, API, CLI, or Po
 Restarting a virtual machine schedules an event with type `Reboot`. Redeploying a virtual machine schedules an event with type `Redeploy`.
 
 > [!NOTE] 
-> Currently a maximum of 10 user initiated maintenance operations can be simultaneously scheduled. This limit will be relaxed before Scheduled Events general availability.
+> Currently a maximum of 100 user initiated maintenance operations can be simultaneously scheduled.
 
 > [!NOTE] 
 > Currently user initiated maintenance resulting in Scheduled Events is not configurable. Configurability is planned for a future release.
@@ -83,8 +99,9 @@ Restarting a virtual machine schedules an event with type `Reboot`. Redeploying 
 ### Query for events
 You can query for Scheduled Events simply by making the following call:
 
+#### Powershell
 ```
-curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2017-03-01
+curl http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01 -H @{"Metadata"="true"}
 ```
 
 A response contains an array of scheduled events. An empty array means that there are currently no events scheduled.
@@ -128,8 +145,20 @@ Each event is scheduled a minimum amount of time in the future based on event ty
 
 Once you have learned of an upcoming event and completed your logic for graceful shutdown, you can approve the outstanding event by making a `POST` call to the metadata service with the `EventId`. This indicates to Azure that it can shorten the minimum notification time (when possible). 
 
+The following is the json expected in the `POST` request body. The request should contain a list of `StartRequests`. Each `StartRequest` contains the `EventId` for the event you want to expedite:
 ```
-curl -H Metadata:true -X POST -d '{"DocumentIncarnation":"5", "StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' http://169.254.169.254/metadata/scheduledevents?api-version=2017-03-01
+{
+	"StartRequests" : [
+		{
+			"EventId": {EventId}
+		}
+	]
+}
+```
+
+#### Powershell
+```
+curl -H @{"Metadata"="true"} -Method POST -Body '{"DocumentIncarnation":"5", "StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' -Uri http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01
 ```
 
 > [!NOTE] 
@@ -142,7 +171,7 @@ The following sample queries the metadata service for scheduled events and appro
 
 ```PowerShell
 # How to get scheduled events 
-function GetScheduledEvents($uri)
+function Get-ScheduledEvents($uri)
 {
     $scheduledEvents = Invoke-RestMethod -Headers @{"Metadata"="true"} -URI $uri -Method get
     $json = ConvertTo-Json $scheduledEvents
@@ -151,7 +180,7 @@ function GetScheduledEvents($uri)
 }
 
 # How to approve a scheduled event
-function ApproveScheduledEvent($eventId, $docIncarnation, $uri)
+function Approve-ScheduledEvent($eventId, $docIncarnation, $uri)
 {    
     # Create the Scheduled Events Approval Document
     $startRequests = [array]@{"EventId" = $eventId}
@@ -166,7 +195,7 @@ function ApproveScheduledEvent($eventId, $docIncarnation, $uri)
     Invoke-RestMethod -Uri $uri -Headers @{"Metadata"="true"} -Method POST -Body $approvalString
 }
 
-function HandleScheduledEvents($scheduledEvents)
+function Handle-ScheduledEvents($scheduledEvents)
 {
     # Add logic for handling events here
 }
@@ -178,10 +207,10 @@ $localHostIP = "169.254.169.254"
 $scheduledEventURI = 'http://{0}/metadata/scheduledevents?api-version=2017-03-01' -f $localHostIP 
 
 # Get events
-$scheduledEvents = GetScheduledEvents $scheduledEventURI
+$scheduledEvents = Get-ScheduledEvents $scheduledEventURI
 
 # Handle events however is best for your service
-HandleScheduledEvents $scheduledEvents
+Handle-ScheduledEvents $scheduledEvents
 
 # Approve events when ready (optional)
 foreach($event in $scheduledEvents.Events)
@@ -190,190 +219,13 @@ foreach($event in $scheduledEvents.Events)
     $entry = Read-Host "`nApprove event? Y/N"
     if($entry -eq "Y" -or $entry -eq "y")
     {
-        ApproveScheduledEvent $event.EventId $scheduledEvents.DocumentIncarnation $scheduledEventURI 
+        Approve-ScheduledEvent $event.EventId $scheduledEvents.DocumentIncarnation $scheduledEventURI 
     }
 }
 ``` 
 
-
-## C\# sample 
-
-The following sample is of a simple client that communicates with the metadata service.
-
-```csharp
-public class ScheduledEventsClient
-{
-    private readonly string scheduledEventsEndpoint;
-    private readonly string defaultIpAddress = "169.254.169.254"; 
-
-    // Set up the scheduled events URI for a VNET-enabled VM
-    public ScheduledEventsClient()
-    {
-        scheduledEventsEndpoint = string.Format("http://{0}/metadata/scheduledevents?api-version=2017-03-01", defaultIpAddress);
-    }
-
-    // Get events
-    public string GetScheduledEvents()
-    {
-        Uri cloudControlUri = new Uri(scheduledEventsEndpoint);
-        using (var webClient = new WebClient())
-        {
-            webClient.Headers.Add("Metadata", "true");
-            return webClient.DownloadString(cloudControlUri);
-        }   
-    }
-
-    // Approve events
-    public void ApproveScheduledEvents(string jsonPost)
-    {
-        using (var webClient = new WebClient())
-        {
-            webClient.Headers.Add("Content-Type", "application/json");
-            webClient.UploadString(scheduledEventsEndpoint, jsonPost);
-        }
-    }
-}
-```
-
-Scheduled Events can be represented using the following data structures:
-
-```csharp
-public class ScheduledEventsDocument
-{
-    public string DocumentIncarnation;
-    public List<CloudControlEvent> Events { get; set; }
-}
-
-public class CloudControlEvent
-{
-    public string EventId { get; set; }
-    public string EventStatus { get; set; }
-    public string EventType { get; set; }
-    public string ResourceType { get; set; }
-    public List<string> Resources { get; set; }
-    public DateTime? NotBefore { get; set; }
-}
-
-public class ScheduledEventsApproval
-{
-    public string DocumentIncarnation;
-    public List<StartRequest> StartRequests = new List<StartRequest>();
-}
-
-public class StartRequest
-{
-    [JsonProperty("EventId")]
-    private string eventId;
-
-    public StartRequest(string eventId)
-    {
-        this.eventId = eventId;
-    }
-}
-```
-
-The following sample queries the metadata service for scheduled events and approves each outstanding event.
-
-```csharp
-public class Program
-{
-    static ScheduledEventsClient client;
-
-    static void Main(string[] args)
-    {
-        client = new ScheduledEventsClient();
-
-        while (true)
-        {
-            string json = client.GetDocument();
-            ScheduledEventsDocument scheduledEventsDocument = JsonConvert.DeserializeObject<ScheduledEventsDocument>(json);
-
-            HandleEvents(scheduledEventsDocument.Events);
-
-            // Wait for user response
-            Console.WriteLine("Press Enter to approve executing events\n");
-            Console.ReadLine();
-
-            // Approve events
-            ScheduledEventsApproval scheduledEventsApprovalDocument = new ScheduledEventsApproval()
-            {
-	            DocumentIncarnation = scheduledEventsDocument.DocumentIncarnation
-            };
-	    
-            foreach (CloudControlEvent event in scheduledEventsDocument.Events)
-            {
-                scheduledEventsApprovalDocument.StartRequests.Add(new StartRequest(event.EventId));
-            }
-
-            if (scheduledEventsApprovalDocument.StartRequests.Count > 0)
-            {
-                // Serialize using Newtonsoft.Json
-                string approveEventsJsonDocument =
-                    JsonConvert.SerializeObject(scheduledEventsApprovalDocument);
-
-                Console.WriteLine($"Approving events with json: {approveEventsJsonDocument}\n");
-                client.ApproveScheduledEvents(approveEventsJsonDocument);
-            }
-
-            Console.WriteLine("Complete. Press enter to repeat\n\n");
-            Console.ReadLine();
-            Console.Clear();
-        }
-    }
-
-    private static void HandleEvents(List<CloudControlEvent> events)
-    {
-        // Add logic for handling events here
-    }
-}
-```
-
-## Python sample 
-
-The following sample queries the metadata service for scheduled events and approves each outstanding event.
-
-```python
-#!/usr/bin/python
-
-import json
-import urllib2
-import socket
-import sys
-
-metadata_url = "http://169.254.169.254/metadata/scheduledevents?api-version=2017-03-01"
-headers = "{Metadata:true}"
-this_host = socket.gethostname()
-
-def get_scheduled_events():
-   req = urllib2.Request(metadata_url)
-   req.add_header('Metadata', 'true')
-   resp = urllib2.urlopen(req)
-   data = json.loads(resp.read())
-   return data
-
-def handle_scheduled_events(data):
-    for evt in data['Events']:
-        eventid = evt['EventId']
-        status = evt['EventStatus']
-        resources = evt['Resources']
-        eventtype = evt['EventType']
-        resourcetype = evt['ResourceType']
-        notbefore = evt['NotBefore'].replace(" ","_")
-        if this_host in resources:
-            print "+ Scheduled Event. This host is scheduled for " + eventype + " not before " + notbefore
-            # Add logic for handling events here
-
-def main():
-   data = get_scheduled_events()
-   handle_scheduled_events(data)
-   
-if __name__ == '__main__':
-  main()
-  sys.exit(0)
-```
-
 ## Next steps 
 
+- Look through more Scheduled Events code sample in the [Azure Instance Metadata Scheduled Events Github Repository](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm)
 - Read more about the APIs available in the [Instance Metadata service](instance-metadata-service.md).
 - Learn about [planned maintenance for Windows virtual machines in Azure](planned-maintenance.md).
-
