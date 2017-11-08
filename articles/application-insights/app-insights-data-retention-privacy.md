@@ -117,7 +117,7 @@ They could send additional telemetry to your account by using the instrumentatio
 If you share code with other projects, remember to remove your instrumentation key.
 
 ## Is the data encrypted?
-Not inside the servers at present.
+Yes. Data which is ingested into Application Insights is saved in Azure Storage and therefore uses Azure Storage Encryption at Rest. The encryption keys are managed by Microsoft.
 
 All data is encrypted as it moves between data centers.
 
