@@ -35,9 +35,12 @@ This script will also retrieve the storage account key and place it in a variabl
 ```azurecli-interactive
 # Change these four parameters
 AKS_PERS_STORAGE_ACCOUNT_NAME=mystorageaccount$RANDOM
-AKS_PERS_RESOURCE_GROUP=myResourceGroup
+AKS_PERS_RESOURCE_GROUP=myAKSShare
 AKS_PERS_LOCATION=westus2
 AKS_PERS_SHARE_NAME=aksshare
+
+# Create the Resource Group
+az group create --name $AKS_PERS_RESOURCE_GROUP --location $AKS_PERS_LOCATION
 
 # Create the storage account with the parameters
 az storage account create -n $AKS_PERS_STORAGE_ACCOUNT_NAME -g $AKS_PERS_RESOURCE_GROUP -l $AKS_PERS_LOCATION --sku Standard_LRS
@@ -49,7 +52,7 @@ export AZURE_STORAGE_CONNECTION_STRING=`az storage account show-connection-strin
 az storage share create -n $AKS_PERS_SHARE_NAME
 
 # Get storage account key
-STORAGE_KEY=$(az storage account keys list --resource-group $AKS_PERS_RESOURCE_GROUP --account-name $STORAGE_ACCOUNT --query "[0].value" -o tsv)
+STORAGE_KEY=$(az storage account keys list --resource-group $AKS_PERS_RESOURCE_GROUP --account-name $AKS_PERS_STORAGE_ACCOUNT_NAME --query "[0].value" -o tsv)
 ```
 
 ## Create Kubernetes Secret
