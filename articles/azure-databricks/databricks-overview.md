@@ -33,11 +33,11 @@ Azure Databricks incorporates features that handle the operational tasks of your
 
 Azure Databricks enables you to spend less time processing data and more time delivering insights that drive innovation. You can achieve more with instant setup and streamlined workflows. Azure Databricks enables you to take on ambitious big data analytics challenges with a high-performance processing engine.
 
-1. **Save time and cut costs**. Launch a new Spark environment with a single click. You can reduce cost and complexity of creating and maintaining Spark clusters by using a fully managed, cloud-native, Azure Databricks service. You can also use notebooks to unify the process, from data gathering and model creation, and instantly deploy to production.
+* **Save time and cut costs**. Launch a new Spark environment with a single click. You can reduce cost and complexity of creating and maintaining Spark clusters by using a fully managed, cloud-native, Azure Databricks service. You can also use notebooks to unify the process, from data gathering and model creation, and instantly deploy to production.
 
-2. **Accelerate data processing on fast Spark engines**. Azure Databricks enables you to use fast analytics engine optimized for Spark to target data of almost any size, or a project using a complete set of analytics technologies including SQL, Streaming, MLlib, and Graph.
+* **Accelerate data processing on fast Spark engines**. Azure Databricks enables you to use fast analytics engine optimized for Spark to target data of almost any size, or a project using a complete set of analytics technologies including SQL, Streaming, MLlib, and Graph.
 
-3. **Improve sharing and insights through visualization**. You can use the notebooks in Azure Databricks to create visualizations to present your data. Also, through rich integration with PowerBI, Azure Databricks allows you to discover and share your insights.
+* **Improve sharing and insights through visualization**. You can use the notebooks in Azure Databricks to create visualizations to present your data. Also, through rich integration with PowerBI, Azure Databricks allows you to discover and share your insights.
 
 ### Security
 
@@ -57,7 +57,7 @@ Azure Databricks offers a highly secure and reliable production Spark environmen
 * Powerful cluster management capabilities enable you to create new clusters in seconds, dynamically scale them up and down, and share them across teams. 
 * Intuitive interfaces enable your teams to use Spark with Power BI and other traditional BI tools, or programmatically use the clusters via restful APIs. 
 * Secure data integration capabilities built on top of Spark so you can unify your data without centralization. 
-* Instant access to the latest Spark features with each release
+* Instant access to the latest Spark features with each release.
 
 ### Integrated workspace
 

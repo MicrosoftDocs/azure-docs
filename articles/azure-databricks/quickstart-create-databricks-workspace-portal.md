@@ -1,6 +1,6 @@
 ---
-title: 'Azure Databricks: Create a workspace using Portal | Microsoft Docs'
-description: Use the Azure Portal to create an Azure Databricks workspace.
+title: 'Azure Databricks: Create a workspace by using the Azure portal | Microsoft Docs'
+description: Use the Azure portal to create an Azure Databricks workspace.
 services: azure-databricks
 documentationcenter: ''
 author: nitinme
@@ -17,7 +17,7 @@ ms.author: nitinme
 
 ---
 
-# Get started with Azure Databricks using portal
+# Get started with Azure Databricks by using the Azure portal
 
 In this article, you learn how to create an Azure Databricks workspace and then an Apache Spark cluster within that workspace. You also learn how to run your first Spark job on the cluster. For more information on Azure Databricks, see [Azure Databricks Overview](databricks-overview.md).
 
@@ -25,7 +25,7 @@ In this article, you learn how to create an Azure Databricks workspace and then 
 
 * **An Azure subscription**. Before you begin this tutorial, you must have an Azure subscription. See [Create your free Azure account today](https://azure.microsoft.com/free).
 * **A Sample CSV file**. You can download the sample file from << HERE >>
-* **An Azure Blob Storage account**. For instructions, see [Create an Azure storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account). For more information, see [Introduction to Azure Blob storage](../storage/blobs/storage-blobs-introduction.md)
+* **An Azure Blob Storage account**. For instructions, see [Create an Azure storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account). For more information, see [Introduction to Azure Blob storage](../storage/blobs/storage-blobs-introduction.md).
 * **A modern web browser**. The Azure  portal uses HTML5 and Javascript, and may not function correctly in older web browsers.
 
 
@@ -41,7 +41,7 @@ In this article, you learn how to create an Azure Databricks workspace and then 
 
     * For **Workspace name**, provide a name for your Databricks workspace.
     * For **Subscription**, from the drop-down, select your Azure subscription.
-    * For **Resource group**, specify whether you want to create a new resource group or use an existing one. Resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group overview](../azure-resource-manager/resource-group-overview.md).
+    * For **Resource group**, specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group overview](../azure-resource-manager/resource-group-overview.md).
     * For **Location**, select **East US 2**.
 
 4. Click **Create**.
@@ -96,7 +96,7 @@ In this section, you create a notebook and then run a Spark SQL job on the clust
         %sql
         CREATE TEMPORARY TABLE hvacTempTable USING csv OPTIONS (path "wasbs://{YOUR CONTAINER NAME}@{YOUR STORAGE ACCOUNT NAME}/Path/to/sample/file/HVAC.csv", header "true", mode "FAILFAST")
 
-    Press **SHIFT + ENTER** to run the code cell.
+    Press SHIFT + ENTER to run the code cell.
 
     The `%sql` language magic command enables you to run a SQL code from the notebook, even if the notebook is of another type. For more information, see [Mixing languages in a notebook](https://docs.azuredatabricks.net/user-guide/notebooks/index.html#mixing-languages-in-a-notebook).
 
@@ -111,7 +111,7 @@ In this section, you create a notebook and then run a Spark SQL job on the clust
         %sql
         SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvacTempTable WHERE date = "6/1/13"
 
-    Press **SHIFT + ENTER** to run the code cell. You see a tabular output, similar the following screenshot:
+    Press SHIFT + ENTER to run the code cell. You see a tabular output, similar the following screenshot:
 
     ![Databricks query output tabular](./media/quickstart-create-databricks-workspace-portal/databricks-sql-query-output.png "Databricks query output tabular")
 
@@ -122,7 +122,7 @@ In this section, you create a notebook and then run a Spark SQL job on the clust
     The screenshot shows an area chart with **buildingID** as the key and **temp_diff** as the value.  
 
 
-## Next step
+## Next steps
 
 In this article, you created a Spark cluster in Azure Databricks and ran a Spark job using data in Azure storage. Look at the following articles to know more about working with Azure Databricks.
 
