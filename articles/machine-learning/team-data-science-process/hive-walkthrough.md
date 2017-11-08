@@ -134,7 +134,7 @@ The data should now in Azure Blob Storage and ready to be consumed within the HD
 > 
 > 
 
-To access the head node of the cluster for exploratory data analysis and down sampling of the data, follow the procedure outlined in [Access the Head Node of Hadoop Cluster](customize-hadoop-cluster.md#headnode).
+To access the head node of the cluster for exploratory data analysis and down sampling of the data, follow the procedure outlined in [Access the Head Node of Hadoop Cluster](customize-hadoop-cluster.md).
 
 In this walkthrough, we primarily use queries written in [Hive](https://hive.apache.org/), a SQL-like query language, to perform preliminary data explorations. The Hive queries are stored in .hql files. We then down sample this data to be used within Azure Machine Learning for building models.
 
