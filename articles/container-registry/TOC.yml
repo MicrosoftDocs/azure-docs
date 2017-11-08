@@ -23,7 +23,7 @@
       href: container-registry-tutorial-deploy-app.md
     - name: 3 - Update web application
       href: container-registry-tutorial-deploy-update.md
-  - name: Deploy to Azure services
+  - name: Deploy in Azure
     items:
     - name: Azure Container Instances
       href: ../container-instances/container-instances-tutorial-prepare-app.md
