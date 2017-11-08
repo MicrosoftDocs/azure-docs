@@ -178,6 +178,14 @@ Scale up at 8am to DW1000 , scale down once to DW600 at 4pm on the weekdays. Pau
 
 
 
+## Next Steps
+
+Learn more about [timer trigger](../azure-functions/functions-create-scheduled-function.md) Azure functions.
+
+Checkout the SQL Data Warehouse [samples repository](https://github.com/Microsoft/sql-data-warehouse-samples).
+
+
+
 [schedule examples]: ../azure-functions/functions-bindings-timer.md#schedule-examples
 
 [Application Settings]: ../azure-functions/functions-how-to-use-azure-function-app-settings.md
