@@ -1,5 +1,5 @@
 ---
-title: What's changed in Log Analytics? | Microsoft Docs
+title: What's changed in Azure Log Analytics? | Microsoft Docs
 description: This article provides frequently asked questions regarding the upgrade of Log Analytics to the new query language.
 services: log-analytics
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 11/08/2017
 ms.author: bwren
 
 ---
 
-# What's changed in Log Analytics?
+# What's changed in Azure Log Analytics?
 In addition to the query language itself, there are several improvements and changes that you should be aware of when your Log Analytics workspace is [upgraded to the new query language](log-analytics-log-search-new.md).  This article briefly describes the changes between a legacy and upgraded workspace with links to detailed content for each. 
 
 See [Log Analytics new log search FAQ and known issues](log-analytics-log-search-faq.md) for a description of any known issues with the upgrade and answers to common question.  
@@ -66,6 +66,6 @@ The log search REST API has changed, and any solutions that use the legacy versi
 
 Details on the new version of the API are available at [Azure Log Analytics REST API](https://dev.loganalytics.io/).
 
-## Next Steps
+## Next steps
 
 - See [Log Analytics new log search FAQ and known issues](log-analytics-log-search-faq.md) for a description of any known issues with the upgrade and answers to common question.
