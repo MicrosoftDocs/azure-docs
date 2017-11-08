@@ -1,6 +1,6 @@
 ---
-title: Mock API responses with the Azure portal  | Microsoft Docs
-description: This tutorial shows you how to use API Management (APIM) to set a policy on an API so it returns a mocked response. This method endables developers to proceed with implementation and testing of the API Management instance in case the backend is not available to send real responses.
+title: Add a blank API using the Azure portal  | Microsoft Docs
+description: This tutorial shows you how to use API Management (APIM) to add an blank API.
 services: api-management
 documentationcenter: ''
 author: juliako
@@ -12,90 +12,65 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/16/2017
+ms.date: 11/07/2017
 ms.author: apimpm
 
 ---
-# Mock API responses
+# Add a blank API 
 
-The steps in this tutorial show you how to use API Management (APIM) to set a policy on an API so it returns a mocked response. This method enables a developer to proceed with implementation and testing of the APIM instance in case the backend is not available to send real responses. Ability to mock up responses can be useful in a number of scenarios:
+The steps in this article show how to use the Azure portal to add a blank API to the API Management (APIM) instance. A common scenario when you would want to add a blank API is when you want to mock the API. Ability to mock up responses can be useful in a number of scenarios:
 
-+ When the API façade is designed first and the backend implementation comes later. Or, the backend is being developed in parallel).
++ When the API façade is designed first and the backend implementation comes later. Or, the backend is being developed in parallel.
 + When the backend is temporarily not operational or not able to scale.
 
-![Mocked operation response](./media/mock-api-responses/mock-api-responses01.png)
+For details about mocking an API, see [Mock API responses](mock-api-responses.md).
 
-In this tutorial, you learn how to:
+You might also want to create a blank API and compose it from multiple APIs by importing other APIs (for example, an **OpenAPI specification** and/or **Logic App**, and/or **Functions App**).
 
-> [!div class="checklist"]
-> * Create a test API and operation
-> * Enable response mocking
-> * Test the mocked API
-
-You can view a video that talks about APIM mock up at the end of the article.
+In this article, we create a blank API and specify [httpbin.org](httpbin.org) (a public API) as a backend.
 
 ## Prerequisites
 
-+ [Create an Azure API Management instance](get-started-create-service-instance.md)
-+ [Import and publish your first API](import-and-publish.md)
+To continue with this article, [Create an Azure API Management instance](get-started-create-service-instance.md)
 
-## Create a test API and operation
-
-The steps in this section show how to create a blank API with no backend. It also shows how to add an operation to the API. Calling the operation after completing steps in this section produces an error. You will get no errors after you complete steps in the "Enable response mocking" section.
-
-### Create a test API 
+## Create an API
 
 1. Navigate to your APIM instance in the [Azure portal](https://portal.azure.com/).
 2. Select **APIs** from under **API MANAGEMENT**.
 3. From the left menu, select **+ Add API**.
 4. Select **Blank API** from the list.
-5. Enter "*Test API*" for **Display name**.
+5. Enter "*Blank API*" for **Display name**.
 6. Enter "*Unlimited*" for **Products**.
 7. Select **Create**.
 
-### Add an operation
+At this point, you have no operations. If you call an operation that is exposed through the backend but not through the APIM, you get a **404**. 
+
+>[!NOTE] By default, when you add an API, even if it is connected to some backend service, APIM will not expose any operations until you whitelist them. To whitelist an operation of your backend service, creating an APIM operation.
+
+## Add an operation
+
+This section shows how to add a "/get" operation in order to map it to the backend "http://httpbin.org/get" operation.
 
 1. Select the API you created in the previous step.
 2. Click **+ Add Operation**.
-3. Enter "*/test*" for **URL**.
-4. Enter "*Test call*" for **Display name**.
-5. Select the **Response** tab, located under the URL, Display name, and Description fields.
-6. Click **+ Add response**.
-7. Select **200 OK** from the list.
-8. Under the **Representations** heading on the right, select **+ Add representation**.
-9. Enter "*application/json*" into the search box and select the **application/json** content type.
-11. In the **Sample** text box, enter  "*{ 'sampleField' : 'test' }*".
-12. Select **Save**.
+3. In the **URL**, select **GET** and enter "/get" in the resource.
 
-	![Mocked operation response](./media/mock-api-responses/mock-api-responses02.png)
+4. Enter "FetchData" for **Display name**.
+5. Select **Save**.
 
-## Enable response mocking
+## Add a parameterized operation
 
-1. Select the API you created in the "Create a test API" step.
-2. Select the test operation that you added.
-2. In the window on the right, click the **Design** tab.
-3. In the **Inbound processing** window, click the pencil icon.
-4. In the **Mocking** tab, select **Static responses** for **Mocking behavior**.
-5. In the **API Management returns the following response:** text box, type **200 OK, application/json**. This selection indicates that your API should return the response sample you defined in the previous section.
-6. Select **Save**.
+1. Select the API you created in the previous step.
+2. Click **+ Add Operation**.
+3. In the **URL**, select **GET** and enter "/status/{code}" in the resource. Optionally, you can provide some information associated with this parameter. For example, enter "Number" for **TYPE**, "200" for **VALUES**.
+4. Enter "GetStatus" for **Display name**.
+5. Select **Save**.
 
-## Test the mocked API
+## Test the API
 
 1. Select the API you created in the "Create a test API" step.
 2. Open the **Test** tab.
-3. Ensure the **Test call** API is selected.
-
-    > [!TIP]
-    > A yellow bar with the text **Mocking is enabled** indicates that responses returned from the API Management, sends a mocking policy and not an actual backend response.
-
 3. Select **Send** to make a test call.
-4. The **HTTP response** displays the JSON provided as a sample in the first section of the tutorial.
-
-## View video
-
-> [!VIDEO https://www.youtube.com/embed/i9PjUAvw7DQ]
-> 
-> 
 
 ## Next steps
 

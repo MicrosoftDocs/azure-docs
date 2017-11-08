@@ -36,10 +36,10 @@
 ### [Import a SOAP API](import-soap-api.md)
 ### [Import a SOAP API and convert to REST](restify-soap-api.md)
 ### [Import an API App as an API](import-api-app-as-api.md)
-### [Import a Logic App as an API](import-logic-app-as-api.md) 
 ### [Import a Function App as an API](import-function-app-as-api.md)
-### [Import a Service Fabric app as an API](import-service-fabric-app-as-api.md) 
-### [Edit an API](edit-api.md) 
+### [Import a Logic App as an API](import-logic-app-as-api.md)
+### [Import a Service Fabric app as an API](import-service-fabric-app-as-api.md)
+### [Edit an API](edit-api.md)
 ## Provision and scale
 ### [Upgrade and scale](upgrade-and-scale.md)
 ### [Configure a custom domain](configure-custom-domain.md)

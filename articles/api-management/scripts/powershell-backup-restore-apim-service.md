@@ -11,7 +11,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.devlang: na
 ms.topic: sample
-ms.date: 11/05/2017
+ms.date: 11/06/2017
 ms.author: apimpm
 ms.custom: mvc
 ---
