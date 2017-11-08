@@ -155,7 +155,7 @@ Daily scale up at 8am to DW600 and scale down at 8pm to DW200.
 
 
 
-###Example 2: 
+### Example 2: 
 
 Daily scale up at 8am to DW1000, scale down once to DW600 at 4pm and scale down at 10pm to DW200.
 
@@ -165,7 +165,7 @@ Daily scale up at 8am to DW1000, scale down once to DW600 at 4pm and scale down 
 | Function2 | 0 0 16 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW600"}` |
 | Function3 | 0 0 22 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW200"}` |
 
-###Example 3: 
+### Example 3: 
 
 Scale up at 8am to DW1000 , scale down once to DW600 at 4pm on the weekdays. Pauses Friday 11pm, resumes 7am Monday morning.
 
