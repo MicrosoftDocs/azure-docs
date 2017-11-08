@@ -20,7 +20,7 @@ abstract:
     image:
       alt: 
       height: 110
-      src: ./media/index/video.png
+      src: media/index/video.png
       width: 250  
     title: Build planet scale mobile apps in minutes (16:17)
     href: https://azure.microsoft.com/en-us/resources/videos/build-2017-azure-cosmos-db-build-planet-scale-mobile-apps-in-minutes/
