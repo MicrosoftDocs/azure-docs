@@ -227,7 +227,7 @@ Besides manage Azure Cosmos DB accounts through Azure subscription, an alternati
 
     ![connect to Azure Cosmos DB by connection string][33]
 
-2. Choose Azure Cosmos DB API, paste your **Connection String**, and then click **OK** to connect Azure Cosmos DB account. For information on retrieving the connection string, see [Get the connection string](https://docs.microsoft.com/en-us/azure/cosmos-db/manage-account#get-the--connection-string).
+2. Choose Azure Cosmos DB API, paste your **Connection String**, and then click **OK** to connect Azure Cosmos DB account. For information on retrieving the connection string, see [Get the connection string](https://docs.microsoft.com/azure/cosmos-db/manage-account#get-the--connection-string).
 
     ![connection-string][32]
 
