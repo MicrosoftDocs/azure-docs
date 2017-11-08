@@ -76,4 +76,4 @@ Try out these concepts by [deploying IoT Edge on a simulated device][lnk-quickst
 [2]: ./media/how-iot-edge-works/cloud-interface.png
 
 <!-- Links -->
-[lnk-quickstart]: quickstart-analyze-data.md
+[lnk-quickstart]: quickstart.md
