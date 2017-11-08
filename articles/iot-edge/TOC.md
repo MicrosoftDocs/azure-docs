@@ -6,27 +6,22 @@
 ## [Analyze data on the edge](quickstart.md)
 
 # Tutorials
-## [Install Azure IoT Edge and deploy a module](tutorial-install-iot-edge.md)
-## [Deploy Azure Function as a module](tutorial-deploy-function.md)
-## [Deploy Azure Stream Analytics as a module](tutorial-deploy-stream-analytics.md)
-## [Deploy Azure Machine Learning as a module](tutorial-deploy-machine-learning.md)
-## [Create a custom module](tutorial-create-custom-module.md)
+## [Simulate an Edge device](tutorial-install-iot-edge.md)
+## [Deploy C# code](tutorial-create-custom-module.md)
+## [Deploy Azure Stream Analytics](tutorial-deploy-stream-analytics.md)
 
 # How-to guides
 ## [Create a gateway device](how-to-create-gateway-device.md)
+## [Deploy Azure Functions](tutorial-deploy-function.md)
 ## [Deploy and monitor at scale](how-to-deploy-monitor.md)
-## [Troubleshoot an edge device](how-to-troubleshoot-edge-device.md)
-## [Install IoT Edge on a Raspberry Pi](how-to-install-iot-edge-raspberry-pi.md)
 
 # Concepts
-## [IoT Edge runtime](iot-edge-runtime.md)
 ## [Iot Edge modules](iot-edge-modules.md)
 ### [Development](module-development.md)
 ### [Composition](module-composition.md)
-### [Deployment and monitoring](module-deployment-monitoring.md)
+## [IoT Edge runtime](iot-edge-runtime.md)
+## [Deployments](module-deployment-monitoring.md)
 ## [Security](security.md)
-
-# Reference
 
 # Related
 ## [Azure IoT Hub](https://azure.microsoft.com/documentation/services/iot-hub/)
