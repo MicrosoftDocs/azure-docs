@@ -11,13 +11,13 @@ ms.date: 11/07/2017
 ms.author: tomfitz
 ---
 
-# Azure Event Grid storage blob event schema
+# Azure Event Grid event schema for storage blobs
 
 This article provides the properties and schema for storage blob events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md).
 
 ## Available event types
 
-Storage blobs raise the following event types:
+Storage blobs emit the following event types:
 
 - **Microsoft.Storage.BlobCreated**: Raised when a blob is created.
 - **Microsoft.Storage.BlobDeleted**: Raised when a blob is deleted.

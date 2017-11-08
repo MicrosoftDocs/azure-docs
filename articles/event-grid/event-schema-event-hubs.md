@@ -2,22 +2,22 @@
 title: Azure Event Grid event hubs event schema
 description: Describes the properties that are provided for event hubs events with Azure Event Grid
 services: event-grid
-author: banisadr
+author: tfitzmac
 manager: timlt
 
 ms.service: event-grid
 ms.topic: article
 ms.date: 11/07/2017
-ms.author: babanisa
+ms.author: tomfitz
 ---
 
-# Azure Event Grid event hubs event schema
+# Azure Event Grid event schema for event hubs
 
 This article provides the properties and schema for event hubs events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md).
 
 ### Available event types
 
-Event Hubs raises the **Microsoft.EventHub.CaptureFileCreated** event type when a capture file is created.
+Event Hubs emits the **Microsoft.EventHub.CaptureFileCreated** event type when a capture file is created.
 
 ## Example event
 
@@ -57,7 +57,7 @@ An event has the following top-level data:
 | eventType | string | One of the registered event types for this event source. |
 | eventTime | string | The time the event is generated based on the provider's UTC time. |
 | id | string | Unique identifier for the event. |
-| data | object | Event data specific to the resource provider. |
+| data | object | Event hub event data. |
 
 The data object has the following properties:
 

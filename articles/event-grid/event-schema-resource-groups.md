@@ -11,13 +11,15 @@ ms.date: 11/07/2017
 ms.author: tomfitz
 ---
 
-# Azure Event Grid resource group event schema
+# Azure Event Grid event schema for resource groups
 
 This article provides the properties and schema for resource group events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md).
 
+Azure subscriptions and resource groups emit the same event types. The event types are related to changes in resources. The primary difference is that resource groups emit events for resources within the resource group, and Azure subscriptions emit events for resources across the subscription. 
+
 ## Available event types
 
-Resource groups emit management events from Azure Resource Manager, such as when a VM is created or a storage account is deleted. Storage blobs raise the following event types:
+Resource groups emit management events from Azure Resource Manager, such as when a VM is created or a storage account is deleted. Resource groups raise the following event types:
 
 - **Microsoft.Resources.ResourceWriteSuccess**: Raised when a resource create or update operation succeeds.  
 - **Microsoft.Resources.ResourceWriteFailure**: Raised when a resource create or update operation fails.  
@@ -54,6 +56,8 @@ The following example shows the schema of a resource created event:
 ]
 ```
 
+The schema for a resource deleted event is similar:
+
 ```json
 [{
   "topic":"/subscriptions/{subscription-id}/resourceGroups/{resource-group}",
@@ -87,7 +91,7 @@ An event has the following top-level data:
 | eventType | string | One of the registered event types for this event source. |
 | eventTime | string | The time the event is generated based on the provider's UTC time. |
 | id | string | Unique identifier for the event. |
-| data | object | Storage blob event data. |
+| data | object | Resource group event data. |
 
 The data object has the following properties:
 
