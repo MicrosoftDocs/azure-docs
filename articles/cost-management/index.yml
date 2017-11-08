@@ -37,3 +37,4 @@ sections:
     - html: <a href="tutorial-review-usage">Review usage and costs to detect anomalies and efficiencies</a>
     - html: <a href="tutorial-user-access">Assign access to Cost Management data</a>
     - html: <a href="tutorial-forecast-spending">Forecast future spending</a>
+    - html: <a href="tutorial-manage-costs">Manage costs with cost allocation and showback and chargeback reports</a>
