@@ -23,7 +23,6 @@ This article shows you how to upload your own generalized VM image as a virtual 
 
 > [!IMPORTANT]
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model. You can also [upload](../upload-generalized-managed.md) a virtual machine using the Resource Manager model.
-> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 ## Prerequisites
 This article assumes you have:
