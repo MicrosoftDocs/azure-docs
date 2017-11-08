@@ -179,6 +179,18 @@ Using any of the approaches above, the respective certificates (*.pfx) for the s
 
 Cloud Service is a Classic resource. Only resources created through Azure Resource Manager support tags. You cannot apply tags to Classic resources such as Cloud Service. 
 
+## What are the upcoming Cloud Service capabilities in the Azure Portal which can help manage and monitor applications?
+
+* Ability to generate a new certificate for Remote Desktop Protocol (RDP) which is expected in February 2018. Alternatively, you can run this script:
+```powershell
+$cert = New-SelfSignedCertificate -DnsName yourdomain.cloudapp.net -CertStoreLocation "cert:\LocalMachine\My" -KeyLength 20 48 -KeySpec "KeyExchange"
+$password = ConvertTo-SecureString -String "your-password" -Force -AsPlainText
+Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $password
+```
+* Ability to choose blob or local for your csdef and cscfg upload location which is expected in February 2018. Using [New-AzureDeployment](https://docs.microsoft.com/en-us/powershell/module/azure/new-azuredeployment?view=azuresmps-4.0.0), you can set each location value.
+* Ability to monitor metrics at the instance level which is expected in June 2018. Additional monitoring capabilities are available in [How to Monitor Cloud Services](cloud-services-how-to-monitor.md).
+
+
 ## How to enable HTTP/2 on Cloud Services VM?
 
 Windows 10 and Windows Server 2016 come with support for HTTP/2 on both client and server side. If your client (browser) is connecting to the IIS server over TLS that negotiates HTTP/2 via TLS extensions, then you do not need to make any change on the server-side. This is because, over TLS, the h2-14 header specifying use of HTTP/2 is sent by default. If on the other hand your client is sending an Upgrade header to upgrade to HTTP/2, then you need to make the change below on the server side to ensure that the Upgrade works and you end up with an HTTP/2 connection. 
