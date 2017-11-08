@@ -16,16 +16,17 @@ ms.service: iot-edge
 
 # Understand Azure IoT Edge modules
 
-Azure IoT Edge modules are the programs that run your cloud or business logic on the edge. To understand how modules are developed, deployed, and maintained, it helps to think of four conceptual pieces that make up a module:
+Azure IoT Edge lets you deploy and manage business logic on the edge in the form of *modules*. Azure IoT Edge modules are the smallest unit of computation managed by IoT Edge, and can contain Azure services (such as Azure Stream Analytics) or your own solution-specific code. To understand how modules are developed, deployed, and maintained, it helps to think of four conceptual pieces that make up a module:
 
-* A **module image** is the logic that defines a module.
-* A **module instance** is the specific unit of computation running the module image on an IoT Edge device. The module instance is started by the IoT Edge runtime. 
-* A **module identity** is a unique identifier to manage each module instance.
-* A **module twin** is a configuration document that exists in the cloud so that you can make changes remotely. 
+* A **module image** is a package containing the software that defines a module.
+* A **module instance** is the specific unit of computation running the module image on an IoT Edge device. The module instance is started by the IoT Edge runtime.
+* A **module identity** is a piece of information (including security credentials) stored in IoT Hub, that is associated to each module instance.
+* A **module twin** is a JSON document stored in IoT Hub, that contains state information for a module instance, including metadata, configurations, and conditions. 
 
 ## Module images and instances
 
-When you take logic from an Azure service or your own business analytics and package it in a container, that's a module image. The images exist in the cloud and can be updated or changed. A module that uses machine learning to predict production line output exists as a separate image than a module that uses computer vision to control a drone. 
+IoT Edge module images contain applications that take advantage of the management, security, and communication features of the IoT Edge runtime. You can develop your own module images, or export one from a supported Azure service, such as Azure Stream Analytics.
+The images exist in the cloud and they can be updated, changed, and deployed in different solutions. For instance, a module that uses machine learning to predict production line output exists as a separate image than a module that uses computer vision to control a drone. 
 
 Each time a module image is deployed to a device and started by the IoT Edge runtime, a new instance of that module is created. A factory in Germany and a factory in Saudi Arabia may use the same production line module image from the cloud, but they each run a different module instance. 
 
@@ -35,11 +36,10 @@ In implementation, modules images exist as container images in a repository, and
 
 ## Module identities
 
-Every module instance has a corresponding identity that is unique across all instances. Module identities are tracked in the cloud. By maintaining unique identities, you can remotely manage and monitor all the module instances running on your devices. 
+When a new module instance is created by the IoT Edge runtime, the instance is associated with a corresponding module identity. The module identity is stored in IoT Hub, and is employed as the addressing and security scope for all local and cloud communications for that specific module instance.
+The identity associated with a module instance depends on the identity of the device on which the instance is running and the name you provide to that module in your solution. For instance, if you call `StreamProcessingJob` a module that uses an Azure Stream Analytics, and you deploy it on a device called `SolutionDevice`, the IoT Edge runtime will create a corresponding module identity called `/devices/SolutionDevice/modules/StreamProcessingJob`.
 
-Consider the same example of factories that run separate instances of a production line module. To give each module instance a unique identity, we combine the device name with the module name. This naming convention makes it easy to distinguish where each module instance is running. 
-
-There may be scenarios when you need to deploy one module image multiple times on the same device. To ensure that each of these instances has a unique identity, we add a numerical identifier to the module name. 
+Clearly, in scenarios when you need to deploy one module image multiple times on the same device, you can deploy the same image multiple times with different names.
 
 ![Module identities are unique][2]
 
@@ -47,7 +47,7 @@ There may be scenarios when you need to deploy one module image multiple times o
 
 Each module instance also has a corresponding module twin that you can use to configure the module instance. The instance and the twin are associated with each other through the module identity. 
 
-A module twin is a JSON document that stores module information and configuration properties. This concept parallels the [device identity][lnk-device-identity] and [device twin][lnk-device-twin] concepts from IoT Hub. The structure of a module twin is exactly the same as a device twin. The APIs used to interact with both types of twins are also the same. The only difference between the two is the identity used to instantiate the client SDK. 
+A module twin is a JSON document that stores module information and configuration properties. This concept parallels the [device twin][lnk-device-twin] concept from IoT Hub. The structure of a module twin is exactly the same as a device twin. The APIs used to interact with both types of twins are also the same. The only difference between the two is the identity used to instantiate the client SDK. 
 
 ```
 // Create a DeviceClient object. This DeviceClient will act on behalf of a 
