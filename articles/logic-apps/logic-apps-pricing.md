@@ -16,9 +16,9 @@ ms.date: 01/23/2017
 ms.author: LADocs; klam
 ---
 # Logic Apps pricing model
-You can create and run automated scalable integration workflows in the cloud with Azure Logic Apps.  Here are the details about billing and pricing work for Logic Apps.
+You can create and run automated scalable integration workflows in the cloud with Azure Logic Apps.  Here are the details about how billing and pricing work for Logic Apps.
 ## Consumption pricing model
-With newly-created logic apps, you pay only for what you use. New logic apps use a consumption plan and pricing model, which means that the logic app executions are not limitted and all executions performed by a logic app instance are metered.
+With newly-created logic apps, you pay only for what you use. New logic apps use a consumption plan and pricing model, which means that the logic app executions are not limited and all executions performed by a logic app instance are metered.
 ### What are action executions?
 Every step in a logic app definition is an action, which includes triggers, control flow steps like conditions, scopes, for each loops, do until loops, calls to native actions, and calls to connectors.
 ### Triggers
@@ -29,10 +29,11 @@ Triggers are special actions that create a logic app instance when a specific ev
 
 You can find trigger executions in your Logic Apps Overview pane under the Trigger History section.
 
-## Actions
+### Actions
 Built-in actions, for example, actions that call HTTP, Azure Functions, or API Management, are metered as native actions and have their respective types. Actions that call [connectors](https://docs.microsoft.com/connectors) have the "ApiConnection" type. Connectors are classified as either standard or enterprise connectors, and are metered at their respective [pricing].
 All successfully and unsuccessfully-run actions are counted and metered as action executions.  However, actions that are skipped due to a unmet conditions or actions that don’t run because the logic app terminated before completion don't count as action executions. Disabled logic apps can't instantiate new instances, so they are't charged while they are disabled. 
-Note After you disable a logic app, its instances might take a little time before they stop and are completely disabled.
+> [!NOTE]
+> After you disable a logic app, its instances might take a little time before they stop and are completely disabled.
 
 Actions that run inside loops are counted per each cycle in the loop.  For example, a single action in a "for each" loop that processes a 10-item list is counted by multiplying the number of list items (10) by the number of actions in the loop (1) plus one for starting the loop, which. So, for this example, the calculation is (10 * 1) + 1, which results in 11 action executions.
 
