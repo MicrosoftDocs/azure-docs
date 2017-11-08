@@ -29,7 +29,7 @@ This tutorial demonstrates indexing of Azure SQL databases through the following
 > [!div class="checklist"]
 > * Download and configure the solution
 > * Add search service information to application settings
-> * Prepare an external dataset in Azure SQL daatabase 
+> * Prepare an external dataset in Azure SQL database 
 > * Understand the index and indexer definitions
 > * Run the indexer code to import data
 > * Search the index
@@ -92,11 +92,11 @@ You can find the search service endpoint and key in the portal. A key provides a
 4. Copy and paste it as your first entry into **appsettings.json** in Visual Studio.
 
   > [!Note]
-  > A service name is part of the endpoint that includes search.windows.net. If you are curious, you can see the full URL in **Essentials** on the Overview page. The URL should look like this: `https://<your-service-name>.search.windows.net`
+  > A service name is part of the endpoint that includes search.windows.net. If you are curious, you can see the full URL in **Essentials** on the Overview page. The URL should look like this example: `https://<your-service-name>.search.windows.net`
 
 5. On the left, in **Settings** > **Keys**, copy one of the admin keys and paste it as the second entry into i**appsettings.json**. Keys are alphanumeric strings generated for your service during provisioning and used to authorize access to service operations. 
 
-  After adding both settings, your file should look like this:
+  After adding both settings, your file should look similar to this example:
 
   ```json
   {
@@ -108,7 +108,7 @@ You can find the search service endpoint and key in the portal. A key provides a
 
 ## Prepare an external data source
 
-In this step, create an external data source that an indexer can crawl. The data file for this tutorial is `hotel.sql`,provided in the \DotNetHowToIndexers solution folder. 
+In this step, create an external data source that an indexer can crawl. The data file for this tutorial is *hotels.sql*,provided in the \DotNetHowToIndexers solution folder. 
 
 ### Azure SQL Database
 
@@ -132,9 +132,9 @@ The following exercise assumes no existing server or database, and includes inst
 
 5. Click **Login** and enter the user name and password of server admin.
 
-6. Click **Open query** and navigate to the location of hotels.sql. 
+6. Click **Open query** and navigate to the location of *hotels.sql*. 
 
-7. Select the file and click **Open**. The script that should look similar to the following screenshot.
+7. Select the file and click **Open**. The script that should look similar to the following screenshot:
 
   ![SQL script](./media/search-indexer-tutorial/sql-script.png)
 
@@ -235,7 +235,7 @@ A console window reports the status of each operation.
 
   ![SQL script](./media/search-indexer-tutorial/console-output.png)
 
-Your code runs locally in Visual Studio, connecting to your search service on Azure, which in turn uses the connection string to connect to Azure SQL Database and retrieve the dataset. With this many operationas, there are several potential points of failure, but if you get an error, check the following conditions first:
+Your code runs locally in Visual Studio, connecting to your search service on Azure, which in turn uses the connection string to connect to Azure SQL Database and retrieve the dataset. With this many operations, there are several potential points of failure, but if you get an error, check the following conditions first:
 
 + Database connection information in **appsettings.json**. It should be the ADO.NET connection string obtained from the portal, modified to include a username and password that are valid for your database. The user account must have permission to retrieve data.
 
