@@ -25,9 +25,9 @@ sections:
     style: dataMatrix
     columns:
       - image:
-          src: media/index/logo_net.svg
-      - image:
           src: media/index/logo_java.svg
+      - image:
+          src: media/index/logo_net.svg
       - image:
           src: media/index/logo_nodejs.svg
       - image:
@@ -37,36 +37,36 @@ sections:
     rows:
       - title: DocumentDB API
         values:
-        - href: /azure/cosmos-db/create-documentdb-dotnet
         - href: /azure/cosmos-db/create-documentdb-java
+        - href: /azure/cosmos-db/create-documentdb-dotnet
         - href: /azure/cosmos-db/create-documentdb-nodejs
         - href: /azure/cosmos-db/create-documentdb-python
         - href:
       - title: MongoDB API
         values:
-          - href: /azure/cosmos-db/create-mongodb-dotnet
           - href: /azure/cosmos-db/create-mongodb-java
+          - href: /azure/cosmos-db/create-mongodb-dotnet
           - href: /azure/cosmos-db/create-mongodb-nodejs
           - href: 
           - href: 
       - title: Graph API
         values:
-          - href: /azure/cosmos-db/create-graph-dotnet
           - href: /azure/cosmos-db/create-graph-java
+          - href: /azure/cosmos-db/create-graph-dotnet
           - href: /azure/cosmos-db/create-graph-nodejs
           - href:
           - href: /azure/cosmos-db/create-graph-gremlin-console
       - title: Table API
         values:
-          - href: /azure/cosmos-db/create-table-dotnet
           - href: https://aka.ms/tableapijavaqs
+          - href: /azure/cosmos-db/create-table-dotnet
           - href: https://aka.ms/tableapinodeqs
           - href: https://aka.ms/tableapipythonqs 
           - href:
       - title: Cassandra API
         values:
-          - href: https://aka.ms/cassapidotnetqs
           - href: https://aka.ms/cassapijavaqs
+          - href: https://aka.ms/cassapidotnetqs
           - href: https://aka.ms/cassapinodeqs
           - href:
           - href:
@@ -77,8 +77,8 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: Develop an app with Cosmos DB&#58; <a href="/azure/cosmos-db/tutorial-develop-documentdb-dotnet">DocumentDB</a> | <a href="/azure/cosmos-db/tutorial-develop-mongodb">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-develop-table-dotnet">Table</a> | <a href="/azure/cosmos-db/tutorial-develop-graph-dotnet">Graph</a>
-    - html: Import data into Cosmos DB&#58; <a href="import-data">DocumentDB</a> | <a href="mongodb-migrate">MongoDB</a> | <a href="https://aka.ms/tableapiimporttool">Table</a>
+    - html: Develop an app with Cosmos DB&#58; <a href="/azure/cosmos-db/tutorial-develop-documentdb-dotnet">DocumentDB</a> | <a href="/azure/cosmos-db/tutorial-develop-mongodb">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-develop-table-dotnet">Table</a> | <a href="/azure/cosmos-db/tutorial-develop-graph-dotnet">Graph</a> | <a href="https://aka.ms/cassandratutorial">Cassandra</a>
+    - html: Import data into Cosmos DB&#58; <a href="import-data">DocumentDB</a> | <a href="mongodb-migrate">MongoDB</a> | <a href="https://aka.ms/tableapiimporttool">Table</a> | <a href="https://aka.ms/cassandraimport">Cassandra</a>
     - html: Query data with Cosmos DB&#58; <a href="/azure/cosmos-db/tutorial-query-documentdb">DocumentDB</a> | <a href="/azure/cosmos-db/tutorial-query-mongodb">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-query-table">Table</a> | <a href="/azure/cosmos-db/tutorial-query-graph">Graph</a>
     - html: Global database replication with Cosmos DB&#58; <a href="/azure/cosmos-db/tutorial-global-distribution-documentdb">DocumentDB</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-mongodb">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-table">Table</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-graph">Graph</a>
     - html: <a href="local-emulator">Develop your application locally using the emulator</a>
