@@ -15,13 +15,14 @@ ms.author: tarcher
 
 This tutorial demonstrates creating a small compute cluster using the [HashiCorp Configuration Language](https://www.terraform.io/docs/configuration/syntax.html) (HCL). The configuration creates a load balancer, two Linux VMs in an [availability set](/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy), and all necessary networking resources.
 
-In this tutorial you will:
+In this tutorial you:
 
 > [!div class="checklist"]
 > * Set up Azure authentication
-> * Create the Terraform template
-> * Visualize the changes with plan
-> * Apply the configuration to create the cluster
+> * Create a Terraform configuration file
+> * Initialize Terraform
+> * Create a Terraform execution plan
+> * Apply the Terraform execution plan
 
 ## 1. Set up Azure authentication
 
@@ -47,11 +48,11 @@ In this section, you generate an Azure service principal, and a Terraform variab
   client_secret = "<password-returned-from-creating-a-service-principal>"
   ```
 
-## 2. Create the Terraform template file
+## 2. Create a Terraform configuration file
 
 In this section, you create a file that contains resource definitions for your infrastructure.
 
-1. In the same directory where you created the Terraform variables file, create a new file named `main.tf`. 
+1. Create a new file named `main.tf`. 
 
 2. Copy following sample resource definitions into the newly created `main.tf` file: 
 
