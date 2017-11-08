@@ -6,7 +6,8 @@
 ## [Analyze data on the edge](quickstart.md)
 
 # Tutorials
-## [Create a simulated Edge device](tutorial-install-iot-edge.md)
+## [Simulate an Edge device - Windows](tutorial-install-iot-edge-windows.md)
+## [Simulate an Edge device - Linux](tutorial-install-iot-edge-linux.md)
 ## [Deploy C# code](tutorial-create-custom-module.md)
 ## [Deploy Azure Stream Analytics](tutorial-deploy-stream-analytics.md)
 
@@ -16,11 +17,12 @@
 ## [Deploy and monitor at scale](how-to-deploy-monitor.md)
 
 # Concepts
-## [IoT Edge runtime](iot-edge-runtime.md)
 ## [Iot Edge modules](iot-edge-modules.md)
 ### [Development](module-development.md)
 ### [Composition](module-composition.md)
+## [IoT Edge runtime](iot-edge-runtime.md)
 ## [Deployments](module-deployment-monitoring.md)
+## [Security](security.md)
 
 # Reference
 
