@@ -1,10 +1,6 @@
 # Overview
 ## [Azure and IoT](iot-edge-what-is-azure-iot.md)
-<<<<<<< HEAD
-## [About Azure IoT Edge](what-is-iot-edge.md)
-=======
 ## [About Azure IoT Edge](how-iot-edge-works.md)
->>>>>>> fc15064bf0873e9869e79cc58571477a80049e87
 
 # Quickstart
 ## [Analyze data on the edge](quickstart.md)
@@ -26,6 +22,13 @@
 ## [IoT Edge runtime](iot-edge-runtime.md)
 ## [Deployments](module-deployment-monitoring.md)
 ## [Security](security.md)
+
+# Related
+## [Azure IoT Hub](https://azure.microsoft.com/documentation/services/iot-hub/)
+## [Azure IoT Suite](https://azure.microsoft.com/documentation/suites/iot-suite/)
+## [Azure Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/)
+## [Stream Analytics](https://azure.microsoft.com/documentation/services/stream-analytics/)
+## [Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/)
 
 # Resources
 ## [Azure Certified for IoT device catalog](https://catalog.azureiotsuite.com/)

@@ -14,7 +14,7 @@ ms.service: iot-edge
 
 ---
 
-# Understand Azure IoT Edge modules
+# Understand Azure IoT Edge modules - Public preview
 
 Azure IoT Edge modules are the programs that run your cloud or business logic on the edge. To understand how modules are developed, deployed, and maintained, it helps to think of four conceptual pieces that make up a module:
 

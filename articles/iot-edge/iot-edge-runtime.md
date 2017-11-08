@@ -14,7 +14,7 @@ ms.service: iot-edge
 
 ---
 
-# Understand the Azure IoT Edge runtime and its architecture
+# Understand the Azure IoT Edge runtime and its architecture - Public preview
 
 The Azure IoT Edge runtime turns a regular device into an IoT Edge device. It enables your Azure IoT Edge scenarios by locally running workloads tailored to a specific type of device. Workloads are composed of modules, which are Docker containers that include high value AI or your own business logic. These modules can pass messages to each other to process data for to your scenario. 
 
