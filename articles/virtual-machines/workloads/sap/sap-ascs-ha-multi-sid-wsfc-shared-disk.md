@@ -396,9 +396,9 @@ To complete the infrastructure preparation for the second SAP system, do the fol
 1. Deploy dedicated VMs for the SAP application servers, and put each in its own dedicated availability group.
 2. Deploy dedicated VMs for the DBMS cluster, and put each in its own dedicated availability group.
 
-## SAP NetWeaver multi-SID installation
+## Install an SAP NetWeaver multi-SID system
 
-For a description of the complete process of installing a second SAP SID2 system, see [SAP NetWeaver HA Installation on Windows Failover Cluster and Shared Disk for SAP (A)SCS Instance][sap-high-availability-installation-wsfc-shared-disk].
+For a description of the complete process of installing a second SAP SID2 system, see [SAP NetWeaver HA installation on Windows Failover Cluster and shared disk for an SAP ASCS/SCS instance][sap-high-availability-installation-wsfc-shared-disk].
 
 The high-level procedure is as follows:
 
