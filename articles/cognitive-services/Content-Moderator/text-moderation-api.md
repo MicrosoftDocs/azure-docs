@@ -18,7 +18,7 @@ Content Moderator’s Text Moderation API does more than screen text: it also ma
 
 ## Language detection
 
-The first step is determining the language of the content to be moderated. The Text - Detect Language function returns language codes for the predominant language of the submitted text.
+The first step is determining the language of the content to be moderated. The Text - Detect Language function returns language codes for the predominant language of the submitted text. For more information see the [Text - Detect Language](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66e) API reference.
 
 ## Screening text
 
