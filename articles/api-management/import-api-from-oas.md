@@ -1,6 +1,6 @@
 ---
-title: Mock API responses with the Azure portal  | Microsoft Docs
-description: This tutorial shows you how to use API Management (APIM) to set a policy on an API so it returns a mocked response. This method endables developers to proceed with implementation and testing of the API Management instance in case the backend is not available to send real responses.
+title: Import an OpenAPI specification using the Azure portal | Microsoft Docs
+description: Learn how to import an OpenAPI specification with API Management.
 services: api-management
 documentationcenter: ''
 author: juliako
@@ -12,90 +12,107 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/16/2017
+ms.date: 11/07/2017
 ms.author: apimpm
 
 ---
-# Mock API responses
+# Import an OpenAPI specification
 
-The steps in this tutorial show you how to use API Management (APIM) to set a policy on an API so it returns a mocked response. This method enables a developer to proceed with implementation and testing of the APIM instance in case the backend is not available to send real responses. Ability to mock up responses can be useful in a number of scenarios:
+This article shows how to import an "OpenAPI specification" back-end API residing at http://conferenceapi.azurewebsites.net?format=json. This back-end API is provided by Microsoft and hosted on Azure. The topic also shows how to test the APIM API.
 
-+ When the API façade is designed first and the backend implementation comes later. Or, the backend is being developed in parallel).
-+ When the backend is temporarily not operational or not able to scale.
-
-![Mocked operation response](./media/mock-api-responses/mock-api-responses01.png)
-
-In this tutorial, you learn how to:
+In this article, you learn how to:
 
 > [!div class="checklist"]
-> * Create a test API and operation
-> * Enable response mocking
-> * Test the mocked API
-
-You can view a video that talks about APIM mock up at the end of the article.
+> * Import an "OpenAPI specification" back-end API
+> * Test the API in the Azure portal
+> * Test the API in the Developer portal
 
 ## Prerequisites
 
-+ [Create an Azure API Management instance](get-started-create-service-instance.md)
-+ [Import and publish your first API](import-and-publish.md)
+[Create an Azure API Management instance](get-started-create-service-instance.md).
 
-## Create a test API and operation
+## <a name="create-api"> </a>Import and publish a back-end API
 
-The steps in this section show how to create a blank API with no backend. It also shows how to add an operation to the API. Calling the operation after completing steps in this section produces an error. You will get no errors after you complete steps in the "Enable response mocking" section.
-
-### Create a test API 
+This section shows how to import and publish an OpenAPI specification back-end API.
 
 1. Navigate to your APIM instance in the [Azure portal](https://portal.azure.com/).
 2. Select **APIs** from under **API MANAGEMENT**.
-3. From the left menu, select **+ Add API**.
-4. Select **Blank API** from the list.
-5. Enter "*Test API*" for **Display name**.
-6. Enter "*Unlimited*" for **Products**.
-7. Select **Create**.
+3. Select **OpenAPI specification** from the **Add a new API** list.
 
-### Add an operation
+    ![Add an API](./media/api-management-get-started/add-api.png)    
+4. Enter the  http://conferenceapi.azurewebsites.net?format=json URL in the **OpenAPI specification** field.
+5. Press tab.
+
+    The following fields get filled up with the info from the specified OpenAPI specification: Display name, Name, Description.
+6. Add an API URL suffix. In this case, *conference*. The suffix is a name that identifies this specific API in this APIM instance. It has to be unique in this APIM instance.
+9. Publish the API by associating the API with a product. In this case, the "*Unlimited*" product is used.  If you want for the API to be published and be available to developers, add it to a product. You can do it during API creation or set it later.
+
+    Products are associations of one or more APIs. You can include a number of APIs and offer them to developers through the developer portal. Developers must first subscribe to a product to get access to the API. When they subscribe, they get a subscription key that is good for any API in that product. If you created the APIM instance, you are an administrator already, so you are subscribed to every product by default.
+
+    By default, each API Management instance comes with two sample products:
+
+    * **Starter**
+    * **Unlimited**   
+8. Select **Create**.
+
+    ![Create an API](./media/api-management-get-started/create-api.png)
+
+### Test the new APIM API in the administrative portal
+
+Operations can be called directly from the administrative portal, which provides a convenient way to view and test the operations of an API.  
 
 1. Select the API you created in the previous step.
-2. Click **+ Add Operation**.
-3. Enter "*/test*" for **URL**.
-4. Enter "*Test call*" for **Display name**.
-5. Select the **Response** tab, located under the URL, Display name, and Description fields.
-6. Click **+ Add response**.
-7. Select **200 OK** from the list.
-8. Under the **Representations** heading on the right, select **+ Add representation**.
-9. Enter "*application/json*" into the search box and select the **application/json** content type.
-11. In the **Sample** text box, enter  "*{ 'sampleField' : 'test' }*".
-12. Select **Save**.
+2. Press the **Test** tab.
 
-	![Mocked operation response](./media/mock-api-responses/mock-api-responses02.png)
+    ![Test API](./media/api-management-get-started/test-api.png)
+1. Click on **GetSpeakers**.
 
-## Enable response mocking
+    The page displays fields for query parameters but in this case we don't have any. The page also displays fields for the headers. One of the headers is "Ocp-Apim-Subscription-Key", for the subscription key of the product that is associated with this API. If you created the APIM instance, you are an administrator already, so the key is filled in automatically. 
+4. Press **Send**.
 
-1. Select the API you created in the "Create a test API" step.
-2. Select the test operation that you added.
-2. In the window on the right, click the **Design** tab.
-3. In the **Inbound processing** window, click the pencil icon.
-4. In the **Mocking** tab, select **Static responses** for **Mocking behavior**.
-5. In the **API Management returns the following response:** text box, type **200 OK, application/json**. This selection indicates that your API should return the response sample you defined in the previous section.
-6. Select **Save**.
+    Backend responds with **200 OK** and some data.
 
-## Test the mocked API
+### <a name="call-operation"> </a>Call an operation from the developer portal
 
-1. Select the API you created in the "Create a test API" step.
-2. Open the **Test** tab.
-3. Ensure the **Test call** API is selected.
+Operations can also be called **Developer portal** to test APIs. 
 
-    > [!TIP]
-    > A yellow bar with the text **Mocking is enabled** indicates that responses returned from the API Management, sends a mocking policy and not an actual backend response.
+1. Select the API you created in the "Import and publish a back-end API" step.
+2. Press **Developer portal**.
 
-3. Select **Send** to make a test call.
-4. The **HTTP response** displays the JSON provided as a sample in the first section of the tutorial.
+    ![Test in Developer portal](./media/api-management-get-started/developer-portal.png)
 
-## View video
+    The "Developer portal" site opens up.
+3. Select **API**.
+4. Select **Demo Conference API**.
+5. Click **GetSpeakers**.
+    
+    The page displays fields for query parameters but in this case we don't have any. The page also displays fields for the headers. One of the headers is "Ocp-Apim-Subscription-Key", for the subscription key of the product that is associated with this API. If you created the APIM instance, you are an administrator already, so the key is filled in automatically.
+6. Press **Try it**.
+7. Press **Send**.
+    
+    After an operation is invoked, the developer portal displays the **Response status**, the **Response headers**, and any **Response content**.
 
-> [!VIDEO https://www.youtube.com/embed/i9PjUAvw7DQ]
-> 
-> 
+## Append other APIs
+
+An API can be composed of APIs exposed by different services: **OpenAPI Specification**, **SOAP API**, **API App**, **Function App**, **Logic App**, **Service Fabric**.
+
+To append a different API to your existing API, follow the steps below. Once you import another API, the operations are appended to your current API.
+
+1. Navigate to your APIM instance in the [Azure portal](https://portal.azure.com/).
+2. Select **APIs** from under **API MANAGEMENT**.
+3. Press ellipsis ". . ." next tp the API that you want to append another API to.
+4. Select **Import** from the drop-down menu.
+5. Select one of services from which you want to import an API.
+
+## Related topics
+
++ [Add an API manually](add-api-manually.md)
++ [Import a SOAP API](import-soap-api.md)
++ [Import a SOAP API and convert to REST](restify-soap-api.md)
++ [Import an API App as an API](import-api-app-as-api.md)
++ [Import a Function App as an API](import-function-app-as-api.md)
++ [Import a Logic App as an API](import-logic-app-as-api.md)
++ [Import a Service Fabric app as an API](import-service-fabric-app-as-api.md)
 
 ## Next steps
 

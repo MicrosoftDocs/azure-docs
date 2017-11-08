@@ -37,7 +37,6 @@ You can view a video that talks about APIM mock up at the end of the article.
 ## Prerequisites
 
 + [Create an Azure API Management instance](get-started-create-service-instance.md)
-+ [Import and publish your first API](import-and-publish.md)
 
 ## Create a test API and an operation
 
