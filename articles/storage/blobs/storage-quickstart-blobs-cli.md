@@ -44,6 +44,10 @@ az storage container create --name mystoragecontainer
 
 Blob storage supports block blobs, append blobs, and page blobs. Most files stored in Blob storage are stored as block blobs. Append blobs are used when data must be added to an existing blob without modifying its existing contents, such as for logging. Page blobs back the VHD files of IaaS virtual machines.
 
+To upload a blob, you'll have to create a file first. If you're working locally feel free to use your own file.
+If you're using the cloud shell, use the following in order to create a file:
+`vi helloworld` when the file opens, type "Hello world" and then press **Esc** and enter `:x` and press **Enter**.
+
 In this example, we upload a blob to the container we created in the last step with the [az storage blob upload](/cli/azure/storage/blob#upload) command.
 
 ```azurecli-interactive
@@ -53,7 +57,18 @@ az storage blob upload \
     --file ~/path/to/local/file
 ```
 
+If you used the previously described methond to create a file in your Azure Cloud Shell, you can use this CLI command instead:
+
+```azurecli-interactive
+az storage blob upload \
+    --container-name mystoragecontainer \
+    --name helloworld
+    --file helloworld
+```
+
 This operation creates the blob if it doesn't already exist, and overwrites it if it does. Upload as many files as you like before continuing.
+
+To upload multiple files at the same time, you can use the [az storage blob upload-batch](/cli/azure/storage/blob#upload-batch) command.
 
 ## List the blobs in a container
 

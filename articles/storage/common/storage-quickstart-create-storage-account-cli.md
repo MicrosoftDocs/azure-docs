@@ -46,7 +46,7 @@ az account list-locations \
     --out table
 ```
 
-## Create a general-purpose standard storage account
+## Create a general-purpose storage account
 
 There are several types of storage accounts appropriate for different usage scenarios, each of which supports one or more of the storage services (blobs, files, tables, or queues). The following table details the available storage account types.
 
@@ -55,12 +55,13 @@ There are several types of storage accounts appropriate for different usage scen
 |**Services supported**| Blob, File, Table, Queue services | Blob service | Blob service|
 |**Types of blobs supported**|Block blobs, page blobs, append blobs | Page blobs | Block blobs and append blobs|
 
-Create a general-purpose standard storage account with the [az storage account create](/cli/azure/storage/account#create) command.
+Create a general-purpose storage account with the [az storage account create](/cli/azure/storage/account#create) command.
 
 ```azurecli-interactive
 az storage account create \
     --name mystorageaccount \
     --resource-group myResourceGroup \
+    --kind Storage \
     --location eastus \
     --sku Standard_LRS \
     --encryption blob
