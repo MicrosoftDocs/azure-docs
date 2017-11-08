@@ -29,7 +29,7 @@ Use the following steps to set up a Grafana server from Azure Marketplace and bu
 5. View the summary and select **Create** after accepting the terms of use.
 
 ## Log in to Grafana
-1. After the deployment completes, select the *Go to Resource Group* button. You see a list of newly created resources. 
+1. After the deployment completes, select **Go to Resource Group**. You see a list of newly created resources. 
 
     ![Grafana resource group objects](.\media\monitor-how-to-grafana\grafana1.png) 
 
@@ -117,6 +117,6 @@ You are charged when VMs are running whether you are using them or not. To avoid
 2. On your resource group page, click **Delete**, type **Grafana** in the text box, and then click **Delete**.
 
 ## Next steps
-* [Overview of Azure Monitor Metrics](monitoring-overview-metrics.md)]
+* [Overview of Azure Monitor Metrics](monitoring-overview-metrics.md)
 
 
