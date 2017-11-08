@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/6/2017
+ms.date: 10/22/2017
 ms.author: raiye
 
 ---
@@ -103,7 +103,7 @@ April Guest OS rollout is starting April 18 and has a projected release of May 9
 ## Family 4 releases
 **Windows Server 2012 R2**
 
-Supports .NET 4.0, 4.5, 4.5.1, 4.5.2
+.NET Framework Installed: 4.0, 4.5, 4.5.1, 4.5.2
 
 > [!NOTE]
 > Dates with a * are subject to change
@@ -130,7 +130,7 @@ Supports .NET 4.0, 4.5, 4.5.1, 4.5.2
 ## Family 3 releases
 **Windows Server 2012**
 
-Supports .NET 4.0, 4.5, 4.5.1, 4.5.2
+.NET Framework Installed: 4.0, 4.5, 4.5.1, 4.5.2
 
 > [!NOTE]
 > Dates with a * are subject to change
@@ -157,7 +157,7 @@ Supports .NET 4.0, 4.5, 4.5.1, 4.5.2
 ## Family 2 releases
 **Windows Server 2008 R2 SP1**
 
-Supports .NET 3.5, 4.0, 4.5, 4.5.1, 4.5.2
+.NET Framework Installed: 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
 > [!NOTE]
 > Dates with a * are subject to change

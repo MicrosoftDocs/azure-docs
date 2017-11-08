@@ -10,7 +10,7 @@ editor:
 ms.assetid: 89c2a155-c2fb-4b67-bc19-9b4e03c6d3bc
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.workload: data-management
+ms.workload: "On Demand"
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
@@ -328,7 +328,7 @@ Learn more about [Query Store runtime statistics data](https://docs.microsoft.co
 |ResourceProvider|Name of the resource provider. Always: MICROSOFT.SQL|
 |Category|Name of the category. Always: QueryStoreWaitStatistics|
 |OperationName|Name of the operation. Always: QueryStoreWaitStatisticsEvent|
-|Resource|Name of the resource.|
+|Resource|Name of the resource|
 |ResourceType|Name of the resource type. Always: SERVERS/DATABASES|
 |SubscriptionId|Subscription GUID that the database belongs to.|
 |ResourceGroup|Name of the resource group that the database belongs to.|
@@ -366,7 +366,7 @@ Learn more about [Query Store wait statistics data](https://docs.microsoft.com/e
 |ResourceProvider|Name of the resource provider. Always: MICROSOFT.SQL|
 |Category|Name of the category. Always: Errors|
 |OperationName|Name of the operation. Always: ErrorEvent|
-|Resource|Name of the resource.|
+|Resource|Name of the resource|
 |ResourceType|Name of the resource type. Always: SERVERS/DATABASES|
 |SubscriptionId|Subscription GUID that the database belongs to.|
 |ResourceGroup|Name of the resource group that the database belongs to.|
@@ -395,7 +395,7 @@ Learn more about [SQL Server error messages](https://msdn.microsoft.com/en-us/li
 |ResourceProvider|Name of the resource provider. Always: MICROSOFT.SQL|
 |Category|Name of the category. Always: DatabaseWaitStatistics|
 |OperationName|Name of the operation. Always: DatabaseWaitStatisticsEvent|
-|Resource|Name of the resource.|
+|Resource|Name of the resource|
 |ResourceType|Name of the resource type. Always: SERVERS/DATABASES|
 |SubscriptionId|Subscription GUID that the database belongs to.|
 |ResourceGroup|Name of the resource group that the database belongs to.|
@@ -424,7 +424,7 @@ Learn more about [database wait statistics](https://docs.microsoft.com/en-us/sql
 |ResourceProvider|Name of the resource provider. Always: MICROSOFT.SQL|
 |Category|Name of the category. Always: Timeouts|
 |OperationName|Name of the operation. Always: TimeoutEvent|
-|Resource|Name of the resource.|
+|Resource|Name of the resource|
 |ResourceType|Name of the resource type. Always: SERVERS/DATABASES|
 |SubscriptionId|Subscription GUID that the database belongs to.|
 |ResourceGroup|Name of the resource group that the database belongs to.|
@@ -447,7 +447,7 @@ Learn more about [database wait statistics](https://docs.microsoft.com/en-us/sql
 |ResourceProvider|Name of the resource provider. Always: MICROSOFT.SQL|
 |Category|Name of the category. Always: Blocks|
 |OperationName|Name of the operation. Always: BlockEvent|
-|Resource|Name of the resource.|
+|Resource|Name of the resource|
 |ResourceType|Name of the resource type. Always: SERVERS/DATABASES|
 |SubscriptionId|Subscription GUID that the database belongs to.|
 |ResourceGroup|Name of the resource group that the database belongs to.|
@@ -458,7 +458,7 @@ Learn more about [database wait statistics](https://docs.microsoft.com/en-us/sql
 |lock_mode_s|Lock mode used by the query.|
 |resource_owner_type_s|Owner of the lock.|
 |blocked_process_filtered_s|Blocked process report XML.|
-|duration_d|Duration of the lock in milliseconds.|
+|duration_d|Duration of the lock in microseconds.|
 
 ### Intelligent Insights dataset
 Learn more about the [Intelligent Insights log format](sql-database-intelligent-insights-use-diagnostics-log.md).

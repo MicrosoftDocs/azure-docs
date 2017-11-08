@@ -5,7 +5,7 @@ services: azure-stack
 author: troettinger
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 10/18/2017
 ms.author: victorh
 keywords:
 ---
@@ -41,8 +41,8 @@ Internal infrastructure VIPs are not listed because they’re not required for p
 |Graph|`Graph.[Region].[External FQDN]`|HTTPS|443|
 |Certificate revocation list|`Crl.[Region].[External FQDN]`|HTTP|80|
 |DNS|`*.[Region].[External FQDN]`|TCP & UDP|53|
-|Key Vault (user)|`*.vault.[Region].[External FQDN]`|TCP<br>TCP|443|
-|Key Vault (administrator)|`*.adminvault.[Region].[External FQDN]`|TCP<br>TCP|443|
+|Key Vault (user)|`*.vault.[Region].[External FQDN]`|TCP|443|
+|Key Vault (administrator)|`*.adminvault.[Region].[External FQDN]`|TCP|443|
 |Storage Queue|`*.queue.[Region].[External FQDN]`|HTTP<br>HTTPS|80<br>443|
 |Storage Table|`*.table.[Region].[External FQDN]`|HTTP<br>HTTPS|80<br>443|
 |Storage Blob|`*.blob.[Region].[External FQDN]`|HTTP<br>HTTPS|80<br>443|
@@ -105,4 +105,4 @@ If non-public routable IP addresses are used for the public VIP pool of Azure St
 
 ## Next steps
 
-[Azure Stack datacenter integration - DNS](azure-stack-integrate-dns.md)
+[Azure Stack datacenter integration - Security](azure-stack-integrate-security.md)

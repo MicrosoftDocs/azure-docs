@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 
 ms.service: sql-database
 ms.custom: mvc,develop apps
-ms.workload: drivers
+ms.workload: "Active"
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart

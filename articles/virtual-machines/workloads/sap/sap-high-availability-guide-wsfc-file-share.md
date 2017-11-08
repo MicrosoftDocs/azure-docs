@@ -205,13 +205,6 @@ ms.custom: H1Hack27Feb2017
 > ![Windows][Logo_Windows] Windows
 >
 
-> [!IMPORTANT]
->
->This is a **public preview feature**, customers must not use it for running productive SAP systems.
->
->If you want to join the pilot program, open an SAP support ticket in the BC-OP-NT-AZR queue.  After testing, provide us with feedback.
->
-
 Windows Server Failover Clustering is the foundation of a high-availability SAP ASCS/SCS installation and DBMS in Windows.
 
 A failover cluster is a group of 1+n independent servers (nodes) that work together to increase the availability of applications and services. If a node failure occurs, Windows Server Failover Clustering calculates the number of failures that can occur while maintaining a healthy cluster to provide applications and services. You can choose from different quorum modes to achieve failover clustering.
@@ -256,7 +249,7 @@ What is specific for this architecture is the following:
 * SAP GLOBAL files are placed on SMB file share and are accessed using the <SAPGLOBALHost> host name
  \\\\&lt;SAPGLOBALHost&gt;\sapmnt\\&lt;SID&gt;\SYS\...
 * The SAP (A)SCS instance is installed on a local disk on both cluster nodes
-* The **<(A)SCSVirtualHostName>** network name is different from **<SAPGLOBALHost>**
+* The **<(A)SCSVirtualHostName>** network name is different from **&lt;SAPGLOBALHost&gt;**
 
 ![Figure 2: New SAP (A)SCS HA architecture with SMB file share][sap-ha-guide-figure-8004]
 

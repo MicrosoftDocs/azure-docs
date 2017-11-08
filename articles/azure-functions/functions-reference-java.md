@@ -11,9 +11,10 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/20/2017
+ms.date: 11/07/2017
 ms.author: routlaw
 ---
+
 # Azure Functions Java developer guide
 > [!div class="op_single_selector"]
 [!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
@@ -159,10 +160,11 @@ Input are divided into two categories in Azure Functions: one is the trigger inp
 package com.example;
 
 import com.microsoft.azure.serverless.functions.annotation.BindingName;
+import java.util.Optional;
 
 public class MyClass {
-    public static String echo(String in, @BindingName("item") MyObject obj) {
-        return "Hello, " + in + " and " + obj.getKey() + ".";
+    public static String echo(Optional<String> in, @BindingName("item") MyObject obj) {
+        return "Hello, " + in.orElse("Azure") + " and " + obj.getKey() + ".";
     }
 
     private static class MyObject {
@@ -205,7 +207,7 @@ The `@BindingName` annotation accepts a `String` property that represents the na
 }
 ```
 
-So when this function is invoked, the HTTP request payload passes a   `String` for argument `in` and an Azure Table Storage `MyObject` type passed to argument `obj`.
+So when this function is invoked, the HTTP request payload passes an optional `String` for argument `in` and an Azure Table Storage `MyObject` type passed to argument `obj`. Use the `Optional<T>` type to handle inputs into your functions that can be null.
 
 ## Outputs
 
@@ -213,16 +215,17 @@ Outputs can be expressed both in return value or output parameters. If there is 
 
 Return value is the simplest form of output, you just return the value of any type, and Azure Functions runtime will try to marshal it back to the actual type (such as an HTTP response). In `functions.json`, you use `$return` as the name of the output binding.
 
-To produce multiple output values, use `OutputParameter<T>` type defined in the `azure-functions-java-core` package. If you need to make an HTTP response and push a message to a queue as well, you can write something like:
+To produce multiple output values, use `OutputBinding<T>` type defined in the `azure-functions-java-core` package. If you need to make an HTTP response and push a message to a queue as well, you can write something like:
 
 ```java
 package com.example;
 
-import com.microsoft.azure.serverless.functions.OutputParameter;
+import com.microsoft.azure.serverless.functions.OutputBinding;
 import com.microsoft.azure.serverless.functions.annotation.BindingName;
 
 public class MyClass {
-    public static String echo(String body, @BindingName("message") OutputParameter<String> queue) {
+    public static String echo(String body, 
+    @QueueOutput(queueName = "messages", connection = "AzureWebJobsStorage", name = "queue") OutputBinding<String> queue) {
         String result = "Hello, " + body + ".";
         queue.setValue(result);
         return result;
@@ -230,7 +233,7 @@ public class MyClass {
 }
 ```
 
-and define the output binding in `function.json`:
+which should define the output binding in `function.json`:
 
 ```json
 {
@@ -246,10 +249,10 @@ and define the output binding in `function.json`:
     },
     {
       "type": "queue",
-      "name": "message",
+      "name": "queue",
       "direction": "out",
-      "queueName": "myqueue",
-      "connection": "ExampleStorageAccount"
+      "queueName": "messages",
+      "connection": "AzureWebJobsStorage"
     },
     {
       "type": "http",
@@ -265,11 +268,34 @@ Sometimes a function must have detailed control over inputs and outputs. Special
 
 | Specialized Type      |       Target        | Typical Usage                  |
 | --------------------- | :-----------------: | ------------------------------ |
-| `HttpRequestMessage`  |    HTTP Trigger     | Get method, headers, or queries |
-| `HttpResponseMessage` | HTTP Output Binding | Return status other than 200   |
+| `HttpRequestMessage<T>`  |    HTTP Trigger     | Get method, headers, or queries |
+| `HttpResponseMessage<T>` | HTTP Output Binding | Return status other than 200   |
 
 > [!NOTE] 
 > You can also use `@BindingName` annotation to get HTTP headers and queries. For example, `@Bind("name") String query` iterates the HTTP request headers and queries and pass that value to the method. For example,  `query` will be `"test"` if the request URL is `http://example.org/api/echo?name=test`.
+
+### Metadata
+
+Metadata comes from different sources, like HTTP headers, HTTP queries, and [trigger metadata](/azure/azure-functions/functions-triggers-bindings#trigger-metadata-properties). Use the `@BindingName` annotation together with the metadata name to get the value.
+
+For example, the `queryValue` in the following code snippet will be `"test"` if the requested URL is `http://{example.host}/api/metadata?name=test`.
+
+```Java
+package com.example;
+
+import java.util.Optional;
+import com.microsoft.azure.serverless.functions.annotation.*;
+
+public class MyClass {
+    @FunctionName("metadata")
+    public static String metadata(
+        @HttpTrigger(name = "req", methods = { "get", "post" }, authLevel = AuthorizationLevel.ANONYMOUS) Optional<String> body,
+        @BindingName("name") String queryValue
+    ) {
+        return body.orElse(queryValue);
+    }
+}
+```
 
 ## Functions execution context
 
@@ -288,7 +314,7 @@ import com.microsoft.azure.serverless.functions.ExecutionContext;
 public class Function {
     public String echo(@HttpTrigger(name = "req", methods = {"post"}, authLevel = AuthorizationLevel.ANONYMOUS) String req, ExecutionContext context) {
         if (req.isEmpty()) {
-            context.getLogger().warning("Empty request body received in " + context.getInvocationId());
+            context.getLogger().warning("Empty request body received by function " + context.getFunctionName() + " with invocation " + context.getInvocationId());
         }
         return String.format(req);
     }

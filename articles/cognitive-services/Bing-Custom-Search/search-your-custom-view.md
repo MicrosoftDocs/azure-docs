@@ -55,7 +55,7 @@ The following shows the answers that the JSON response may contain.  For a list 
         "totalEstimatedMatches": 667000000,
         "value": [
             {
-                "id": "https://cognitivegblppe.azure-api.net/api/v7/#WebPages.0",
+                "id": "https://api.cognitive.microsoft.com/api/v7/#WebPages.0",
                 "name": "Contosos - Official Home Page",
                 "url": "http://www.contoso.com/en-us",
                 "displayUrl": ...,

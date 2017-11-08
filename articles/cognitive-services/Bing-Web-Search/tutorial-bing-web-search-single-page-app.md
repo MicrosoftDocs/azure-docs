@@ -82,10 +82,11 @@ function getSubscriptionKey() {
 }
 ```
 
-The HTML `<body>` tag includes an `onload` attribute that calls `getSubscriptionKey()` when the page has finished loading. This call serves to immediately prompt the user for their key if they haven't yet entered one.
+The HTML `form` tag `onsubmit` calls the `bingWebSearch` function to return search results. `bingWebSearch` uses `getSubscriptionKey` to authenticate each query. As shown in the previous definition, `getSubscriptionKey` prompts the user for the key if the key hasn't been entered. The key is then stored for continuing use by the application.
 
 ```html
-<body onload="document.forms.bing.query.focus(); getSubscriptionKey();">
+<form name="bing" onsubmit="this.offset.value = 0; return bingWebSearch(this.query.value, 
+    bingSearchOptions(this), getSubscriptionKey())">
 ```
 
 ## Selecting search options
@@ -323,7 +324,7 @@ function renderSearchResults(results) {
 
 If `resultIndex` is not specified for a given ranking item, `renderResultsItems()` iterates over all results of that type and calls the rendering function for each item. 
 
-Either way, the resulting HTML is inserted into the appropriate `<div>` element in the HTML.
+Either way, the resulting HTML is inserted into the appropriate `<div>` element in the page.
 
 ```javascript
 // render search results from rankingResponse object in specified order
@@ -416,7 +417,7 @@ Our image renderer function:
 
 The image renderer uses the `section` and `index` variables to display results differently depending on where they appear. A line break (`<br>` tag) is inserted between image results in the sidebar, so that the sidebar displays a column of images. In other sections, the first image result `(index === 0)` is preceded by a `<p>` tag. The thumbnails otherwise butt up against each other and wrap as needed in the browser window.
 
-The thumbnail size is used in both the `<img>` tag and the `h` and `w` fields in the thumbnail's URL. The Bing thumbnail service then delivers a thumbnail of exactly that size. The `title` and `alt` attributes (a textual description of the image) are constructed from the image's name and the hostname in the URL.
+The thumbnail size is used in both the `<img>` tag and the `h` and `w` fields in the thumbnail's URL. The [Bing thumbnail service](resize-and-crop-thumbnails.md) then delivers a thumbnail of exactly that size. The `title` and `alt` attributes (a textual description of the image) are constructed from the image's name and the hostname in the URL.
 
 Images appear as shown here in the mainline search results.
 

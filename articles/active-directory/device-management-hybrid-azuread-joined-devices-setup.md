@@ -291,8 +291,7 @@ The definition helps you to verify whether the values are present or if you need
 
 In the claim above,
 
-- `$<domain>` is the AD FS service URL
-- `<verified-domain-name>` is a placeholder you need to replace with one of your verified domain names in Azure AD
+- `<verified-domain-name>` is a placeholder you need to replace with one of your verified domain names in Azure AD. For example, Value = "http://contoso.com/adfs/services/trust/"
 
 
 

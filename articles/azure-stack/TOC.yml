@@ -24,10 +24,16 @@
   - name: Servicing policy
     href: azure-stack-servicing-policy.md
   - name: Release notes
-    href: azure-stack-asdk-release-notes.md
+    items:
+    - name: Development kit release notes
+      href: azure-stack-asdk-release-notes.md
+    - name: Integrated systems release notes
+      items:  
+      - name: 1710 update
+        href: azure-stack-update-1710.md  
   - name: Key features and concepts
     href: azure-stack-key-features.md
-  - name: Azure Stack Development Kit architecture
+  - name: Development kit architecture
     href: azure-stack-architecture.md
   - name: Administration basics
     href: azure-stack-manage-basics.md
@@ -51,13 +57,13 @@
       href: azure-stack-provision-vm.md
   - name: Datacenter integration
     items:
-    - name: Integrate DNS
+    - name: DNS
       href: azure-stack-integrate-dns.md
     - name: Identity
       href: azure-stack-integrate-identity.md
     - name: Publish endpoints
       href: azure-stack-integrate-endpoints.md
-    - name: Security
+    - name : Security
       href: azure-stack-integrate-security.md
   - name: Manage
     items:
@@ -86,7 +92,9 @@
       - name: Manage updates overview
         href: azure-stack-updates.md
       - name: Apply updates
-        href: azure-stack-apply-updates.md      
+        href: azure-stack-apply-updates.md
+      - name: Monitor update status
+        href: azure-stack-monitor-update.md      
     - name: Monitor health and alerts
       href: azure-stack-monitor-health.md
     - name: Manage network resources
@@ -99,8 +107,12 @@
       items:
       - name: Node actions
         href: azure-stack-node-actions.md
+      - name: Replace node
+        href: azure-stack-replace-node.md
       - name: Replace disk
         href: azure-stack-replace-disk.md
+      - name: Replace component
+        href: azure-stack-replace-component.md    
   - name: Security, compliance & identity
     items:
     - name: Security overview
@@ -210,7 +222,7 @@
 - name: Reference
   items:
   - name: Azure Stack PowerShell
-    href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.10
+    href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.9
 - name: Resources
   items:
   - name: Azure Roadmap

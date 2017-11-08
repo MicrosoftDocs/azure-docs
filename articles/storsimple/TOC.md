@@ -19,10 +19,12 @@
 
 ## How to
 ### [Manage via Azure portal](storsimple-virtual-array-manager-service-administration.md)
-#### [Install latest update](storsimple-virtual-array-install-update-06.md)
-##### [Install Update 0.5](storsimple-virtual-array-install-update-05.md)
-##### [Install Update 0.4](storsimple-virtual-array-install-update-04.md)
-##### [Install Update 0.3](storsimple-virtual-array-install-update.md)
+#### [Install latest update](storsimple-virtual-array-install-update-1.md)
+##### [Install Update 0.6](storsimple-virtual-array-install-update-06.md)
+##### Archive
+###### [Install Update 0.5](storsimple-virtual-array-install-update-05.md)
+###### [Install Update 0.4](storsimple-virtual-array-install-update-04.md)
+###### [Install Update 0.3](storsimple-virtual-array-install-update.md)
 #### [Create & manage backups](storsimple-virtual-array-backup.md)
 #### [Clone from backups](storsimple-virtual-array-clone.md)
 #### [Failover and DR](storsimple-virtual-array-failover-dr.md)
@@ -43,10 +45,10 @@
 ### [Configure via local web UI](storsimple-ova-web-ui-admin.md)
 
 ## Release notes
-### [Update 0.6 - current](storsimple-virtual-array-update-06-release-notes.md)
-### [Update 0.5](storsimple-virtual-array-update-05-release-notes.md)
-
+### [Update 1 - current](storsimple-virtual-array-update-1-release-notes.md)
+### [Update 0.6](storsimple-virtual-array-update-06-release-notes.md)
 ### Archive
+#### [Update 0.5](storsimple-virtual-array-update-05-release-notes.md)
 #### [Update 0.4](storsimple-virtual-array-update-04-release-notes.md)
 #### [Update 0.3](storsimple-ova-update-03-release-notes.md)
 #### [Update 0.2 and 0.1](storsimple-ova-update-01-release-notes.md)
@@ -119,7 +121,7 @@
 ##### [Configure web proxy](storsimple-8000-configure-web-proxy.md)
 ##### [Modify DATA 0 settings](storsimple-8000-modify-data-0.md)
 
-#### [Using Azure PowerShell sample scripts](storsimple-8000-automation-azurerm-scripts.md)
+
 
 #### [Using StorSimple Snapshot Manager](storsimple-snapshot-manager-admin.md)
 ##### [What is StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md)
@@ -131,6 +133,11 @@
 ##### [Manage backup jobs via StorSimple Snapshot Manager](storsimple-snapshot-manager-manage-backup-jobs.md)
 ##### [Manage volumes via StorSimple Snapshot Manager](storsimple-snapshot-manager-manage-volumes.md)
 ##### [Use MMC actions in StorSimple Snapshot Manager](storsimple-snapshot-manager-mmc-menu.md)
+
+### Automate
+
+#### [Using Azure PowerShell sample scripts](storsimple-8000-automation-azurerm-scripts.md)
+#### [Using Azure Automation runbooks](storsimple-8000-automation-azurerm-runbook.md)
 
 ### Build solutions
 #### [StorSimple with Veeam](storsimple-configure-backup-target-veeam.md)

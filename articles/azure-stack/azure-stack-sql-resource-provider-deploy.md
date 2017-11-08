@@ -105,15 +105,9 @@ $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domai
 # change the following as appropriate
 $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
-# Run the installation script from the folder where you extracted the installation files
-# Find the ERCS01 IP address first and make sure the certificate
-# file is in the specified directory
-
-$tempDir\DeploySQLProvider.ps1 -AzCredential $AdminCreds `
-  -VMLocalCredential $vmLocalAdminCreds `
-  -CloudAdminCredential $cloudAdminCreds `
-  -PrivilegedEndpoint '10.10.10.10' `
-  -DefaultSSLCertificatePassword $PfxPass -DependencyFilesLocalPath $tempDir\cert
+# Change directory to the folder where you extracted the installation files
+# and adjust the endpoints
+.$tempDir\DeploySQLProvider.ps1 -AzCredential $AdminCreds -VMLocalCredential $vmLocalAdminCreds -CloudAdminCredential $cloudAdminCreds -PrivilegedEndpoint '10.10.10.10' -DefaultSSLCertificatePassword $PfxPass -DependencyFilesLocalPath $tempDir\cert
  ```
 
 ### DeploySqlProvider.ps1 parameters

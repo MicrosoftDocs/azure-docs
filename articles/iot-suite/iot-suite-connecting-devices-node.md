@@ -1,5 +1,5 @@
 ---
-title: Connect a device using Node.js | Microsoft Docs
+title: Provision devices to Remote Monitoring in Node.js - Azure | Microsoft Docs
 description: Describes how to connect a device to the Azure IoT Suite preconfigured remote monitoring solution using an application written in Node.js.
 services: ''
 suite: iot-suite
@@ -14,27 +14,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/24/2017
+ms.date: 09/16/2017
 ms.author: dobett
 
 ---
 # Connect your device to the remote monitoring preconfigured solution (Node.js)
+
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-## Create a node.js sample solution
+This tutorial shows you how to connect a physical device to the remote monitoring preconfigured solution. In this tutorial, you use Node.js, which is a good option for environments with minimal resource constraints.
 
-Ensure that Node.js version 0.11.5 or later is installed on your development machine. You can run `node --version` at the command line to check the version.
+## Create a Node.js solution
 
-1. Create a folder called **RemoteMonitoring** on your development machine. Navigate to this folder in your command-line environment.
+Ensure that [Node.js](https://nodejs.org/) version 4.0.0 or later is installed on your development machine. You can run `node --version` at the command line to check the version.
 
-1. Run the following commands to download and install the packages you need to complete the sample app:
+1. Create a folder called `RemoteMonitoring` on your development machine. Navigate to this folder in your command-line environment.
 
-    ```
+1. To download and install the packages you need to complete the sample app, run the following commands:
+
+    ```cmd/sh
     npm init
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
 
-1. In the **RemoteMonitoring** folder, create a file called **remote_monitoring.js**. Open this file in a text editor.
+1. In the `RemoteMonitoring` folder, create a file called **remote_monitoring.js**. Open this file in a text editor.
 
 1. In the **remote_monitoring.js** file, add the following `require` statements:
 
@@ -47,22 +50,93 @@ Ensure that Node.js version 0.11.5 or later is installed on your development mac
     var Message = require('azure-iot-device').Message;
     ```
 
-1. Add the following variable declarations after the `require` statements. Replace the placeholder values [Device Id] and [Device Key] with values you noted for your device in the remote monitoring solution dashboard. Use the IoT Hub Hostname from the solution dashboard to replace [IoTHub Name]. For example, if your IoT Hub Hostname is **contoso.azure-devices.net**, replace [IoTHub Name] with **contoso**:
+1. Add the following variable declarations after the `require` statements. Replace the placeholder values `{Device Id}` and `{Device Key}` with values you noted for the device you provisioned in the remote monitoring solution. Use the IoT Hub Hostname from the solution to replace `{IoTHub Name}`. For example, if your IoT Hub Hostname is `contoso.azure-devices.net`, replace `{IoTHub Name}` with `contoso`:
 
     ```nodejs
-    var connectionString = 'HostName=[IoTHub Name].azure-devices.net;DeviceId=[Device Id];SharedAccessKey=[Device Key]';
+    var connectionString = 'HostName={IoTHub Name}.azure-devices.net;DeviceId={Device Id};SharedAccessKey={Device Key}';
     var deviceId = ConnectionString.parse(connectionString).DeviceId;
     ```
 
-1. Add the following variables to define some base telemetry data:
+1. To define some base telemetry data, add the following variables:
 
     ```nodejs
     var temperature = 50;
+    var temperatureUnit = 'F';
     var humidity = 50;
-    var externalTemperature = 55;
+    var humidityUnit = '%';
+    var pressure = 55;
+    var pressureUnit = 'psig';
     ```
 
-1. Add the following helper function to print operation results:
+1. To define some property values, add the following variables:
+
+    ```nodejs
+    var temperatureSchema = 'chiller-temperature;v1';
+    var humiditySchema = 'chiller-humidity;v1';
+    var pressureSchema = 'chiller-pressure;v1';
+    var interval = "00:00:05";
+    var deviceType = "Chiller";
+    var deviceFirmware = "1.0.0";
+    var deviceFirmwareUpdateStatus = "";
+    var deviceLocation = "Building 44";
+    var deviceLatitude = 47.638928;
+    var deviceLongitude = -122.13476;
+    ```
+
+1. Add the following variable to define the reported properties to send to the solution. These properties include metadata to describe the methods and telemetry the device uses:
+
+    ```nodejs
+    var reportedProperties = {
+      "Protocol": "MQTT",
+      "SupportedMethods": "Reboot,FirmwareUpdate,EmergencyValveRelease,IncreasePressure",
+      "Telemetry": {
+        "TemperatureSchema": {
+          "Interval": interval,
+          "MessageTemplate": "{\"temperature\":${temperature},\"temperature_unit\":\"${temperature_unit}\"}",
+          "MessageSchema": {
+            "Name": temperatureSchema,
+            "Format": "JSON",
+            "Fields": {
+              "temperature": "Double",
+              "temperature_unit": "Text"
+            }
+          }
+        },
+        "HumiditySchema": {
+          "Interval": interval,
+          "MessageTemplate": "{\"humidity\":${humidity},\"humidity_unit\":\"${humidity_unit}\"}",
+          "MessageSchema": {
+            "Name": humiditySchema,
+            "Format": "JSON",
+            "Fields": {
+              "humidity": "Double",
+              "humidity_unit": "Text"
+            }
+          }
+        },
+        "PressureSchema": {
+          "Interval": interval,
+          "MessageTemplate": "{\"pressure\":${pressure},\"pressure_unit\":\"${pressure_unit}\"}",
+          "MessageSchema": {
+            "Name": pressureSchema,
+            "Format": "JSON",
+            "Fields": {
+              "pressure": "Double",
+              "pressure_unit": "Text"
+            }
+          }
+        }
+      },
+      "Type": deviceType,
+      "Firmware": deviceFirmware,
+      "FirmwareUpdateStatus": deviceFirmwareUpdateStatus,
+      "Location": deviceLocation,
+      "Latitude": deviceLatitude,
+      "Longitude": deviceLongitude
+    }
+    ```
+
+1. To print operation results, add the following helper function:
 
     ```nodejs
     function printErrorFor(op) {
@@ -80,89 +154,39 @@ Ensure that Node.js version 0.11.5 or later is installed on your development mac
     }
     ```
 
-1. Add the following definition for the **DeviceInfo** object the device sends on startup:
+1. Add the following function to handle direct method calls from the solution. The solution uses direct methods to act on devices:
 
     ```nodejs
-    var deviceMetaData = {
-        'ObjectType': 'DeviceInfo',
-        'IsSimulatedDevice': 0,
-        'Version': '1.0',
-        'DeviceProperties': {
-            'DeviceID': deviceId,
-            'HubEnabledState': 1
+    function onDirectMethod(request, response) {
+      // Implement logic asynchronously here.
+      console.log('Simulated ' + request.methodName);
+
+      // Complete the response
+      response.send(200, request.methodName + ' was called on the device', function (err) {
+        if (!!err) {
+          console.error('An error ocurred when sending a method response:\n' +
+            err.toString());
+        } else {
+          console.log('Response to method \'' + request.methodName +
+            '\' sent successfully.');
         }
-    };
-    ```
-
-1. Add the following definition for the device twin reported values. This definition includes descriptions of the direct methods the device supports:
-
-    ```nodejs
-    var reportedProperties = {
-        "Device": {
-            "DeviceState": "normal",
-            "Location": {
-                "Latitude": 47.642877,
-                "Longitude": -122.125497
-            }
-        },
-        "Config": {
-            "TemperatureMeanValue": 56.7,
-            "TelemetryInterval": 45
-        },
-        "System": {
-            "Manufacturer": "Contoso Inc.",
-            "FirmwareVersion": "2.22",
-            "InstalledRAM": "8 MB",
-            "ModelNumber": "DB-14",
-            "Platform": "Plat 9.75",
-            "Processor": "i3-9",
-            "SerialNumber": "SER99"
-        },
-        "Location": {
-            "Latitude": 47.642877,
-            "Longitude": -122.125497
-        },
-        "SupportedMethods": {
-            "Reboot": "Reboot the device",
-            "InitiateFirmwareUpdate--FwPackageURI-string": "Updates device Firmware. Use parameter FwPackageURI to specifiy the URI of the firmware file"
-        },
+      });
     }
     ```
 
-1. Add the following function to handle the **Reboot** direct method call:
+1. Add the following code to send telemetry data to the solution. The client app adds properties to the message to identify the message schema:
 
-    ```nodejs
-    function onReboot(request, response) {
-        // Implement actual logic here.
-        console.log('Simulated reboot...');
+    ```node.js
+    function sendTelemetry(data, schema) {
+      var d = new Date();
+      var payload = JSON.stringify(data);
+      var message = new Message(payload);
+      message.properties.add('$$CreationTimeUtc', d.toISOString());
+      message.properties.add('$$MessageSchema', schema);
+      message.properties.add('$$ContentType', 'JSON');
 
-        // Complete the response
-        response.send(200, "Rebooting device", function(err) {
-            if(!!err) {
-                console.error('An error occurred when sending a method response:\n' + err.toString());
-            } else {
-                console.log('Response to method \'' + request.methodName + '\' sent successfully.' );
-            }
-        });
-    }
-    ```
-
-1. Add the following function to handle the **InitiateFirmwareUpdate** direct method call. This direct method uses a parameter to specify the location of the firmware image to download, and initiates the firmware update on the device asynchronously:
-
-    ```nodejs
-    function onInitiateFirmwareUpdate(request, response) {
-        console.log('Simulated firmware update initiated, using: ' + request.payload.FwPackageURI);
-
-        // Complete the response
-        response.send(200, "Firmware update initiated", function(err) {
-            if(!!err) {
-                console.error('An error occurred when sending a method response:\n' + err.toString());
-            } else {
-                console.log('Response to method \'' + request.methodName + '\' sent successfully.' );
-            }
-        });
-
-        // Add logic here to perform the firmware update asynchronously
+      console.log('Sending device message data:\n' + payload);
+      client.sendEvent(message, printErrorFor('send event'));
     }
     ```
 
@@ -175,7 +199,6 @@ Ensure that Node.js version 0.11.5 or later is installed on your development mac
 1. Add the following code to:
 
     * Open the connection.
-    * Send the **DeviceInfo** object.
     * Set up a handler for desired properties.
     * Send reported properties.
     * Register handlers for the direct methods.
@@ -183,71 +206,82 @@ Ensure that Node.js version 0.11.5 or later is installed on your development mac
 
     ```nodejs
     client.open(function (err) {
-        if (err) {
-            printErrorFor('open')(err);
-        } else {
-            console.log('Sending device metadata:\n' + JSON.stringify(deviceMetaData));
-            client.sendEvent(new Message(JSON.stringify(deviceMetaData)), printErrorFor('send metadata'));
+      if (err) {
+        printErrorFor('open')(err);
+      } else {
+        // Create device Twin
+        client.getTwin(function (err, twin) {
+          if (err) {
+            console.error('Could not get device twin');
+          } else {
+            console.log('Device twin created');
 
-            // Create device twin
-            client.getTwin(function(err, twin) {
-                if (err) {
-                    console.error('Could not get device twin');
-                } else {
-                    console.log('Device twin created');
-
-                    twin.on('properties.desired', function(delta) {
-                        console.log('Received new desired properties:');
-                        console.log(JSON.stringify(delta));
-                    });
-
-                    // Send reported properties
-                    twin.properties.reported.update(reportedProperties, function(err) {
-                        if (err) throw err;
-                        console.log('twin state reported');
-                    });
-
-                    // Register handlers for direct methods
-                    client.onDeviceMethod('Reboot', onReboot);
-                    client.onDeviceMethod('InitiateFirmwareUpdate', onInitiateFirmwareUpdate);
-                }
+            twin.on('properties.desired', function (delta) {
+              // Handle desired properties set by solution
+              console.log('Received new desired properties:');
+              console.log(JSON.stringify(delta));
             });
 
-            // Start sending telemetry
-            var sendInterval = setInterval(function () {
-                temperature += generateRandomIncrement();
-                externalTemperature += generateRandomIncrement();
-                humidity += generateRandomIncrement();
-
-                var data = JSON.stringify({
-                    'DeviceID': deviceId,
-                    'Temperature': temperature,
-                    'Humidity': humidity,
-                    'ExternalTemperature': externalTemperature
-                });
-
-                console.log('Sending device event data:\n' + data);
-                client.sendEvent(new Message(data), printErrorFor('send event'));
-            }, 5000);
-
-            client.on('error', function (err) {
-                printErrorFor('client')(err);
-                if (sendInterval) clearInterval(sendInterval);
-                client.close(printErrorFor('client.close'));
+            // Send reported properties
+            twin.properties.reported.update(reportedProperties, function (err) {
+              if (err) throw err;
+              console.log('twin state reported');
             });
-        }
+
+            // Register handlers for all the method names we are interested in.
+            // Consider separate handlers for each method.
+            client.onDeviceMethod('Reboot', onDirectMethod);
+            client.onDeviceMethod('FirmwareUpdate', onDirectMethod);
+            client.onDeviceMethod('EmergencyValveRelease', onDirectMethod);
+            client.onDeviceMethod('IncreasePressure', onDirectMethod);
+          }
+        });
+
+        // Start sending telemetry
+        var sendTemperatureInterval = setInterval(function () {
+          temperature += generateRandomIncrement();
+          var data = {
+            'temperature': temperature,
+            'temperature_unit': temperatureUnit
+          };
+          sendTelemetry(data, temperatureSchema)
+        }, 5000);
+
+        var sendHumidityInterval = setInterval(function () {
+          humidity += generateRandomIncrement();
+          var data = {
+            'humidity': humidity,
+            'humidity_unit': humidityUnit
+          };
+          sendTelemetry(data, humiditySchema)
+        }, 5000);
+
+        var sendPressureInterval = setInterval(function () {
+          pressure += generateRandomIncrement();
+          var data = {
+            'pressure': pressure,
+            'pressure_unit': pressureUnit
+          };
+          sendTelemetry(data, pressureSchema)
+        }, 5000);
+
+        client.on('error', function (err) {
+          printErrorFor('client')(err);
+          if (sendTemperatureInterval) clearInterval(sendTemperatureInterval);
+          if (sendHumidityInterval) clearInterval(sendHumidityInterval);
+          if (sendPressureInterval) clearInterval(sendPressureInterval);
+          client.close(printErrorFor('client.close'));
+        });
+      }
     });
     ```
 
 1. Save the changes to the **remote_monitoring.js** file.
 
-1. Run the following command at a command prompt to launch the sample application:
-   
-    ```
+1. To launch the sample application, run the following command at a command prompt:
+
+    ```cmd/sh
     node remote_monitoring.js
     ```
 
 [!INCLUDE [iot-suite-visualize-connecting](../../includes/iot-suite-visualize-connecting.md)]
-
-[lnk-github-repo]: https://github.com/azure/azure-iot-sdk-node
-[lnk-github-prepare]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md

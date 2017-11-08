@@ -4,7 +4,7 @@ There are two types of storage accounts:
 A general-purpose storage account gives you access to Azure Storage services such as Tables, Queues, Files, Blobs and Azure virtual machine disks under a single account. This type of storage account has two performance tiers:
 
 * A standard storage performance tier which allows you to store Tables, Queues, Files, Blobs and Azure virtual machine disks.
-* A premium storage performance tier which currently only supports Azure virtual machine disks. See [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../articles/storage/common/storage-premium-storage.md) for an in-depth overview of Premium storage.
+* A premium storage performance tier which currently only supports Azure virtual machine disks. See [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../articles/virtual-machines/windows/premium-storage.md) for an in-depth overview of Premium storage.
 
 ### Blob Storage Accounts
 A Blob storage account is a specialized storage account for storing your unstructured data as blobs (objects) in Azure Storage. Blob storage accounts are similar to your existing general-purpose storage accounts and share all the great durability, availability, scalability, and performance features that you use today including 100% API consistency for block blobs and append blobs. For applications requiring only block or append blob storage, we recommend using Blob storage accounts.

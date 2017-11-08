@@ -13,7 +13,7 @@ ms.custom: migrate
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: 
+ms.workload: "Inactive"
 ms.date: 10/14/2016
 ms.author: Joe.Sack
 ms.suite: SQL
