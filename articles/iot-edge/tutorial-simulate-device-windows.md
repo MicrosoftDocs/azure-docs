@@ -29,11 +29,7 @@ The simulated device that you create in this tutorial is a monitor on a wind tur
 
 ## Prerequisites
 
-This tutorial assumes that you're using a computer or virtual machine running Windows to simulate an Internet of Things device. The following Windows versions are supported:
-
-* Windows IoT Core (Build 16299) on a x64-based device
-* Windows 10 Fall Creators Update
-* Windows Server 1709 (Build 16299)
+This tutorial assumes that you're using a computer or virtual machine running Windows to simulate an Internet of Things device. 
 
 >[!TIP]
 >If you're running Windows in a virtual machine, enable [nested virtualization][lnk-nested] and allocate at least 2GB memory. 
@@ -42,19 +38,26 @@ Docker for Windows can run either Windows containers or Linux containers. The st
 
 ### Windows containers in Docker
 
-Run the following command in an Admin PowerShell console to install and configure the prerequisites:
+- Supported Windows versions:
+   * Windows IoT Core (Build 16299) on a x64-based device
+   * Windows 10 Fall Creators Update
+   * Windows Server 1709 (Build 16299)
+- Run the following command in an Admin PowerShell console to install and configure the prerequisites:
 
-```powershell
-iex (iwr -useb https://aka.ms/iotedgewin)
-```
+   ```powershell
+   iex (iwr -useb https://aka.ms/iotedgewin)
+   ```
 
-This script provides the following:
-* Docker, configured to use Windows containers
-* Python 2.7
-* The IoT Edge control tool (iotedgectl.exe)
+   This script provides the following:
+   * Docker, configured to use Windows containers
+   * Python 2.7
+   * The IoT Edge control tool (iotedgectl.exe)
 
 ### Linux containers in Docker
 
+- Supported Windows versions:
+   * Windows 10 
+   * Windows Server 1709
 - Install [Docker for Windows][lnk-docker-windows] and make sure it's running.
 - Install [Python 2.7 on Windows][lnk-python-windows] and make sure you can use the pip command.
 
