@@ -43,8 +43,6 @@
       href: apache-storm-write-data-lake-store.md
     - name: Event Hub, HBase (Java)
       href: apache-storm-sensor-data-analysis.md
-    - name: HBase (C#)
-      href: apache-storm-correlation-topology.md
   - name: Extend clusters
     items:
     - name: Use secure enabled storage account

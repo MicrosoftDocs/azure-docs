@@ -71,6 +71,8 @@
         href: connector-azure-cosmos-db.md
       - name: Azure Data Lake Store
         href: connector-azure-data-lake-store.md
+      - name: Azure File Storage
+        href: connector-azure-file-storage.md
       - name: Azure Search
         href: connector-azure-search.md
       - name: Azure SQL Database
@@ -164,6 +166,10 @@
       href: compute-linked-services.md
   - name: Control flow
     items: 
+    - name: If Condition Activity
+      href: control-flow-if-condition-activity.md
+    - name: Until Activity
+      href: control-flow-until-activity.md     
     - name: Web Activity
       href: control-flow-web-activity.md     
     - name: Lookup Activity
@@ -178,6 +184,8 @@
       href: control-flow-expression-language-functions.md
     - name: System variables         
       href: control-flow-system-variables.md     
+    - name: Wait Activity
+      href: control-flow-wait-activity.md          
   - name: Security
     items: 
     - name: Data movement security considerations

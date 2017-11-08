@@ -15,7 +15,7 @@ ms.devlang: python
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/04/2017
+ms.date: 11/02/2017
 ms.author: larryfr
 
 ---
@@ -36,7 +36,7 @@ The code for this project is available at [https://github.com/Azure-Samples/hdin
 
 * Maven 3
 
-* (Optional) A local Storm development environment. A local Storm environment is only needed if you want to run the topology locally. For more information, see [Setting up a development environment](http://storm.apache.org/releases/1.0.1/Setting-up-development-environment.html).
+* (Optional) A local Storm development environment. A local Storm environment is only needed if you want to run the topology locally. For more information, see [Setting up a development environment](http://storm.apache.org/releases/1.1.0/Setting-up-development-environment.html).
 
 ## Storm multi-language support
 

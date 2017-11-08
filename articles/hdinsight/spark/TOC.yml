@@ -73,9 +73,15 @@
         - name: Tools for VSCode
           href: ../hdinsight-for-vscode.md
           maintainContext: true
+        - name: Tools for IntelliJ
+          href: apache-spark-intellij-tool-plugin.md
+        - name: Tools for Eclipse
+          href: apache-spark-eclipse-tool-plugin.md
         - name: PySpark for VSCode
           href: ../set-up-pyspark-interactive-environment.md
           maintainContext: true
+        - name: Debug Spark in IntelliJ
+          href: apache-spark-intellij-tool-debug-remotely-through-ssh.md
     - name: Use notebooks with Spark
       items: 
         - name: Use a local Jupyter notebook

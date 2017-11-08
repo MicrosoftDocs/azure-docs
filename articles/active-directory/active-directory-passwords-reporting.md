@@ -28,7 +28,7 @@ Post deployment many organizations want to know how or if SSPR is really being u
 The following questions can be answered by reports that exist in the [Azure portal] (https://portal.azure.com/).
 
 > [!NOTE]
-> You must be [a global administrator](active-directory-assign-admin-roles.md#assign-or-remove-administrator-roles) and must opt-in for this data to be gathered on behalf of your organization, by visiting the reporting tab or audit logs at least once. Until doing so, data will not be collected for your organization
+> You must be [a global administrator](active-directory-assign-admin-roles.md) and must opt-in for this data to be gathered on behalf of your organization, by visiting the reporting tab or audit logs at least once. Until doing so, data will not be collected for your organization
 
 * How many people have registered for password reset?
 * Who has registered for password reset?
@@ -75,13 +75,7 @@ Currently, the Azure AD Reports and Events API retrieves up to **75,000 individu
 
 If you need to retrieve or store data beyond this window, we suggest persisting it in an external database and using the API to query the deltas that result. Our recommendation is to begin retrieving this data when you start using SSPR in your organization, persist it externally, and then continue to track the deltas from this point forward.
 
-## How to download password reset registration events quickly with PowerShell
-
-In addition to using the Azure AD Reports and Events API directly, you may also use the below PowerShell script to recent registration events in your directory. This is useful in case you want to see who has registered recently, or would like to ensure that your password reset rollout is occurring as you expect.
-
-* [Azure AD SSPR Registration Activity PowerShell Script](https://gallery.technet.microsoft.com/scriptcenter/azure-ad-self-service-e31b8aee)
-
-### Description of report columns in Azure portal
+## Description of report columns in Azure portal
 
 The following list explains each of the report columns in detail:
 
@@ -90,7 +84,7 @@ The following list explains each of the report columns in detail:
 * **Date and Time** – the date and time of the attempt.
 * **Data Registered** – what authentication data the user provided during password reset registration.
 
-### Description of report values in Azure portal
+## Description of report values in Azure portal
 
 The following table describes the different values allowed for each column:
 

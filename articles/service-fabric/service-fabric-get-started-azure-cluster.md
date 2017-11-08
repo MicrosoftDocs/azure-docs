@@ -47,12 +47,12 @@ Sign in to the Azure portal at [http://portal.azure.com](http://portal.azure.com
     Custom endpoints open up ports in Azure Load Balancer so that you can connect with applications running on the cluster.  Enter **80, 8172** to open up ports 80 and 8172.
 
     Do not select the **Configure advanced settings** box, which is used for customizing TCP/HTTP management endpoints, application port ranges, [placement constraints](service-fabric-cluster-resource-manager-configure-services.md#placement-constraints), and [capacity properties](service-fabric-cluster-resource-manager-metrics.md).    
+    
+    ![Screenshot of Node type configuration][node-type-config]
 
     Select **OK**.
 
-6. In the **Cluster configuration** form, set **Diagnostics** to **On**. For this quickstart, you do not need to enter any [fabric setting](service-fabric-cluster-fabric-settings.md) properties.  In **Fabric version**, select **Automatic** upgrade mode so that Microsoft automatically updates the version of the fabric code running the cluster.  Set the mode to **Manual** if you want to [choose a supported version](service-fabric-cluster-upgrade.md) to upgrade to. 
-
-    ![Screenshot of Node type configuration][node-type-config]
+6. In the **Cluster configuration** form, set **Diagnostics** to **On**. For this quickstart, you do not need to enter any [fabric setting](service-fabric-cluster-fabric-settings.md) properties.  In **Fabric version**, select **Automatic** upgrade mode so that Microsoft automatically updates the version of the fabric code running the cluster.  Set the mode to **Manual** if you want to [choose a supported version](service-fabric-cluster-upgrade.md) to upgrade to.     
 
     Select **OK**.
 

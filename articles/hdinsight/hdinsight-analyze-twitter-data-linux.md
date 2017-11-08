@@ -14,7 +14,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/07/2017
+ms.date: 11/02/2017
 ms.author: larryfr
 
 ms.custom: H1Hack27Feb2017,hdinsightactive
@@ -155,6 +155,9 @@ The following Python code downloads 10,000 tweets from Twitter and save them to 
     > * `consumer_key`
     > * `access_token`
     > * `access_token_secret`
+
+    > [!TIP]
+    > Adjust the topics filter on the last line to track popular keywords. Using keywords popular at the time you run the script allows for faster capture of data.
 
 6. Use **Ctrl + X**, then **Y** to save the file.
 
@@ -309,13 +312,16 @@ These commands store the data in a location that all nodes in the cluster can ac
 
    ```hiveql
    SELECT name, screen_name, count(1) as cc
-       FROM tweets
-       WHERE text like "%Azure%"
-       GROUP BY name,screen_name
-       ORDER BY cc DESC LIMIT 10;
+   FROM tweets
+   WHERE text like "%Azure%"
+   GROUP BY name,screen_name
+   ORDER BY cc DESC LIMIT 10;
    ```
 
     This query returns a maximum of 10 tweets that contain the word **Azure** in the message text.
+
+    > [!NOTE]
+    > If you changed the filter in the `gettweets.py` script, replace **Azure** with one of the filters you used.
 
 ## Next steps
 
