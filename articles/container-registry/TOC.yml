@@ -57,13 +57,19 @@
     href: /rest/api/containerregistry
   - name: PowerShell
     href: /powershell/module/azurerm.containerregistry
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.containerregistry/registries
 - name: Resources
   items:
-  - name: Roadmap
-    href: https://aka.ms/acr/roadmap
-  - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/container-registry/
   - name: Region availability
     href: https://azure.microsoft.com/regions/services/
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/container-registry/
+  - name: Roadmap
+    href: https://aka.ms/acr/roadmap
+  - name: Provide feedback
+    href: https://feedback.azure.com/forums/903958-azure-container-registry
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-container-registry
+  - name: Videos
+    href: https://azure.microsoft.com/resources/videos/index/?services=container-registry&sort=newest

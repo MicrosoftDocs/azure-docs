@@ -47,13 +47,19 @@
     href: /rest/api/container-instances
   - name: PowerShell
     href: /powershell/module/azurerm.containerinstance#container_instances
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.containerinstance/containergroups
 - name: Resources
   items:
   - name: Region availability
     href: https://azure.microsoft.com/regions/services/
-  - name: Pricing calculator
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Azure Roadmap
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/container-instances/
+  - name: Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Provide feedback
     href: https://feedback.azure.com/forums/602224-azure-container-instances
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-container-instances
+  - name: Videos
+    href: https://azure.microsoft.com/resources/videos/index/?services=container-instances&sort=newest

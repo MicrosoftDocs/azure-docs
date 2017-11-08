@@ -51,12 +51,14 @@
     href: /rest/api/aks
 - name: Resources
   items:
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
-  - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/container-service/
   - name: Region availability
     href: https://azure.microsoft.com/regions/services/
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/container-service/
+  - name: Roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Provide feedback
+    href: https://github.com/Azure/AKS/issues
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-container-service
   - name: Videos
