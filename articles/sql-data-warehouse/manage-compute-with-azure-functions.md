@@ -137,8 +137,44 @@ Currently, there are only two scaling functions included within the template. Th
    }
    ```
 
-   ​
 
+
+
+## Complex scheduling
+
+This section will briefly demonstrate what is necessary to get more complex scheduling of pause, resume, and scaling capabilities.
+
+### Example 1:
+
+Daily scale up at 8am to DW600 and scale down at 8pm to DW200.
+
+| Function  | Schedule     | Operation                                |
+| :-------- | :----------- | :--------------------------------------- |
+| Function1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",	"ServiceLevelObjective": "DW600"}` |
+| Function2 | 0 0 20 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW200"}` |
+
+
+
+###Example 2: 
+
+Daily scale up at 8am to DW1000, scale down once to DW600 at 4pm and scale down at 10pm to DW200.
+
+| Function  | Schedule     | Operation                                |
+| :-------- | :----------- | :--------------------------------------- |
+| Function1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",	"ServiceLevelObjective": "DW1000"}` |
+| Function2 | 0 0 16 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW600"}` |
+| Function3 | 0 0 22 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW200"}` |
+
+###Example 3: 
+
+Scale up at 8am to DW1000 , scale down once to DW600 at 4pm on the weekdays. Pauses Friday 11pm, resumes 7am Monday morning.
+
+| Function  | Schedule       | Operation                                |
+| :-------- | :------------- | :--------------------------------------- |
+| Function1 | 0 0 8 * * 1-5  | `var operation = {"operationType": "ScaleDw",	"ServiceLevelObjective": "DW1000"}` |
+| Function2 | 0 0 16 * * 1-5 | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW600"}` |
+| Function3 | 0 0 23 * * 5   | `var operation = {"operationType": "PauseDw"}` |
+| Function4 | 0 0 7 * * 0    | `var operation = {"operationType": "ResumeDw"}` |
 
 
 
@@ -148,10 +184,4 @@ Currently, there are only two scaling functions included within the template. Th
 [Add a new trigger function]: manage-compute-with-azure-functions.md#add-a-new-trigger-function
 
 [Performance Tiers]: performance-tiers.md
-
-
-
-
-
-
 
