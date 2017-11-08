@@ -42,11 +42,14 @@ The Azure File Sync agent is a downloadable package which enables a Windows Serv
     - C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll
     - C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll
 
+### Server Endpoint
+A Server Endpoint represents a specific location on a Registered Server, such as a folder on a server volume or the root of the volume. Multiple Server Endpoints can exist on the same volume if their namespaces are not overlapping (e.g. F:\sync1 and F:\sync2). You can configure cloud tiering policies individually for each Server Endpoint. If you add a server location with an existing set of files as a Server Endpoint to a Sync Group, those files will be merged with any other files already on other endpoints in the Sync Group.
+
 ### Cloud Endpoint
 A Cloud Endpoint is an Azure File share that is part of a Sync Group. The entire Azure File share syncs and an Azure File share can only be a member of one Cloud Endpoint, and therefore, one Sync Group. If you add an Azure File share with an existing set of files as a Cloud Endpoint to a Sync Group, those files will be merged with any other files already on other endpoints in the Sync Group.
 
-### Server Endpoint
-A Server Endpoint represents a specific location on a Registered Server, such as a folder on a server volume or the root of the volume. Multiple Server Endpoints can exist on the same volume if their namespaces are not overlapping (e.g. F:\sync1 and F:\sync2). You can configure cloud tiering policies individually for each Server Endpoint. If you add a server location with an existing set of files as a Server Endpoint to a Sync Group, those files will be merged with any other files already on other endpoints in the Sync Group.
+> [!Important]  
+> Azure File Sync supports making changes to the Azure File share directly, however note that any changes made on the Azure File share first need to be discovered by an Azure File Sync change detection job, which is only initatiated for a Cloud Endpoint once every 24 hours. See the [Azure Files FAQ](storage-files-faq.md#afs-change-detection) for more information.
 
 ### Cloud tiering 
 Cloud tiering is an optional feature of Azure File Sync, which enables infrequently used or access files to be tiered to Azure Files. When a file is tiered, the Azure File Sync file system filter (StorageSync.sys) replaces the file locally with a pointer, or reparse point, representing a URL to the file in Azure Files. A tiered file has the "offline" attribute set in NTFS, so third party applications can identify tiered files. When a user opens a tiered file, the Azure File Sync seamlessly recalls the file data from Azure Files without the user needing to know the file is not stored locally on the system. This functionality is also known as Hierarchical Storage Management (HSM).

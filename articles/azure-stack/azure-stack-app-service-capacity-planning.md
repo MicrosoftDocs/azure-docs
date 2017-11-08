@@ -13,7 +13,7 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 10/27/2017
 ms.author: anwestg
 
 ---
@@ -85,9 +85,7 @@ When deciding on the number of shared Web Worker roles to use, review these cons
 
 ## File server role
 
-For the File Server role, you can use the Standalone file server for development and testing. For production purposes, you should use a pre-configured Windows File Server, or a pre-configured non-Windows file server.
-
-The Standalone file server is included as part of the default Windows Azure Pack: Web Sites installation. The Standalone installation provisions the File Server role on a single machine, places ACLs for the appropriate accounts, and creates the necessary network shares.
+For the File Server role, you can use a Standalone file server for development and testing, for example when deploying Azure App Service on the Azure Stack Development Kit you can use this template - https://aka.ms/appsvconmasdkfstemplate. For production purposes, you should use a pre-configured Windows File Server, or a pre-configured non-Windows file server.
 
 In production environments, the File Server role experiences intensive disk I/O. Because it houses all of the content and application files for user web sites, you should pre-configure one of the following for this role:
 - a Windows File Server
@@ -95,7 +93,7 @@ In production environments, the File Server role experiences intensive disk I/O.
 - a non-Windows file server
 - file server cluster
 - NAS (Network Attached Storage) device
-For more information, see [provision a file server]().
+For more information, see [provision a file server](azure-stack-app-service-before-you-get-started.md#prepare-the-file-server).
 
 ## Next steps
 

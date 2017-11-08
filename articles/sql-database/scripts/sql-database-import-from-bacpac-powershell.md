@@ -19,7 +19,7 @@ ms.date: 06/23/2017
 ms.author: janeng
 ---
 
-# Use PowerShell to import a PACPAC file into an Azure SQL database
+# Use PowerShell to import a BACPAC file into an Azure SQL database
 
 This PowerShell script example imports a database from a BACPAC file into an Azure SQL database.  
 

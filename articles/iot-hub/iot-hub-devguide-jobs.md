@@ -13,16 +13,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/29/2017
+ms.date: 10/24/2017
 ms.author: juanpere
 
 ---
 # Schedule jobs on multiple devices
-## Overview
-As described by previous articles, Azure IoT Hub enables a number of building blocks ([device twin properties and tags][lnk-twin-devguide] and [direct methods][lnk-dev-methods]).  Typically, back-end apps enable device administrators and operators to update and interact with IoT devices in bulk and at a scheduled time.  Jobs encapsulate the execution of device twin updates and direct methods against a set of devices at a scheduled time.  For example, an operator would use a back-end app that would initiate and track a job to reboot a set of devices in building 43 and floor 3 at a time that would not be disruptive to the operations of the building.
 
-### When to use
-Consider using jobs when: a solution back end needs to schedule and track progress any of the following activities on a set of devices:
+Azure IoT Hub enables a number of building blocks like [device twin properties and tags][lnk-twin-devguide] and [direct methods][lnk-dev-methods].  Typically, back-end apps enable device administrators and operators to update and interact with IoT devices in bulk and at a scheduled time.  Jobs execute device twin updates and direct methods against a set of devices at a scheduled time.  For example, an operator would use a back-end app that initiates and tracks a job to reboot a set of devices in building 43 and floor 3 at a time that would not be disruptive to the operations of the building.
+
+Consider using jobs when you need to schedule and track progress any of the following activities on a set of devices:
 
 * Update desired properties
 * Update tags
@@ -32,17 +31,11 @@ Consider using jobs when: a solution back end needs to schedule and track progre
 Jobs are initiated by the solution back end and maintained by IoT Hub.  You can initiate a job through a service-facing URI (`{iot hub}/jobs/v2/{device id}/methods/<jobID>?api-version=2016-11-14`) and query for progress on an executing job through a service-facing URI (`{iot hub}/jobs/v2/<jobId>?api-version=2016-11-14`). To refresh the status of running jobs once a job is initiated, run a job query.
 
 > [!NOTE]
-> When you initiate a job, property names and values can only contain US-ASCII printable alphanumeric, except any in the following set: ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``.
-> 
-> 
-
-## Reference topics:
-The following reference topics provide you with more information about using jobs.
+> When you initiate a job, property names and values can only contain US-ASCII printable alphanumeric, except any in the following set: `$ ( ) < > @ , ; : \ " / [ ] ? = { } SP HT`.
 
 ## Jobs to execute direct methods
 The following snippet shows the HTTPS 1.1 request details for executing a [direct method][lnk-dev-methods] on a set of devices using a job:
 
-    ```
     PUT /jobs/v2/<jobId>?api-version=2016-11-14
 
     Authorization: <config.sharedAccessSignature>
@@ -62,10 +55,9 @@ The following snippet shows the HTTPS 1.1 request details for executing a [direc
         startTime: <jobStartTime>,          // as an ISO-8601 date string
         maxExecutionTimeInSeconds: <maxExecutionTimeInSeconds>        
     }
-    ```
+
 The query condition can also be on a single device ID or on a list of device IDs as shown in the following examples:
 
-**Examples**
 ```
 queryCondition = "deviceId = 'MyDevice1'"
 queryCondition = "deviceId IN ['MyDevice1','MyDevice2']"
@@ -76,7 +68,6 @@ queryCondition = "deviceId IN ['MyDevice1']
 ## Jobs to update device twin properties
 The following snippet shows the HTTPS 1.1 request details for updating device twin properties using a job:
 
-    ```
     PUT /jobs/v2/<jobId>?api-version=2016-11-14
     Authorization: <config.sharedAccessSignature>
     Content-Type: application/json; charset=utf-8
@@ -91,19 +82,16 @@ The following snippet shows the HTTPS 1.1 request details for updating device tw
         startTime: <jobStartTime>,          // as an ISO-8601 date string
         maxExecutionTimeInSeconds: <maxExecutionTimeInSeconds>        // format TBD
     }
-    ```
 
 ## Querying for progress on jobs
 The following snippet shows the HTTPS 1.1 request details for [querying for jobs][lnk-query]:
 
-    ```
     GET /jobs/v2/query?api-version=2016-11-14[&jobType=<jobType>][&jobStatus=<jobStatus>][&pageSize=<pageSize>][&continuationToken=<continuationToken>]
 
     Authorization: <config.sharedAccessSignature>
     Content-Type: application/json; charset=utf-8
     Request-Id: <guid>
     User-Agent: <sdk-name>/<sdk-version>
-    ```
 
 The continuationToken is provided from the response.  
 
@@ -126,16 +114,12 @@ The following list shows the properties and corresponding descriptions, which ca
 | | **failed**: Job failed. |
 | | **completed**: Job has completed. |
 | **deviceJobStatistics** |Statistics about the job's execution. |
-
-**deviceJobStatistics** properties.
-
-| Property | Description |
-| --- | --- |
-| **deviceJobStatistics.deviceCount** |Number of devices in the job. |
-| **deviceJobStatistics.failedCount** |Number of devices where the job failed. |
-| **deviceJobStatistics.succeededCount** |Number of devices where the job succeeded. |
-| **deviceJobStatistics.runningCount** |Number of devices that are currently running the job. |
-| **deviceJobStatistics.pendingCount** |Number of devices that are pending to run the job. |
+| | **deviceJobStatistics** properties: |
+| | **deviceJobStatistics.deviceCount**: Number of devices in the job. |
+| | **deviceJobStatistics.failedCount**: Number of devices where the job failed. |
+| | **deviceJobStatistics.succeededCount**: Number of devices where the job succeeded. |
+| | **deviceJobStatistics.runningCount**: Number of devices that are currently running the job. |
+| | **deviceJobStatistics.pendingCount**: Number of devices that are pending to run the job. |
 
 ### Additional reference material
 Other reference topics in the IoT Hub developer guide include:

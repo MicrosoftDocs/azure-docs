@@ -1,4 +1,4 @@
-In the local terminal window, add an Azure remote to your local Git repository.
+In the local terminal window, add an Azure remote to your local Git repository. This Azure remote was created for you in [Create a web app](#create-a-web-app).
 
 ```bash
 git remote add azure <URI from previous step>

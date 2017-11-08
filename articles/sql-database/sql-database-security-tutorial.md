@@ -14,7 +14,7 @@ ms.custom: mvc,security
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.workload: ''
+ms.workload: "On Demand"
 ms.date: 06/28/2017
 ms.author: daredis
 

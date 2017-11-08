@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 10/19/2017
 ms.author: jingwang
 
 ---
@@ -26,7 +26,7 @@ This article outlines how to use the Copy Activity in Azure Data Factory to copy
 > [!NOTE]
 > This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [ODBC connector in V1](v1/data-factory-odata-connector.md).
 
-## Supported scenarios
+## Supported capabilities
 
 You can copy data from ODBC source to any supported sink data store, or copy from any supported source data store to ODBC sink. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
@@ -51,7 +51,7 @@ The following properties are supported for ODBC linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **Odbc** | Yes |
-| connectionString | The connection string excluding the credential portion. See examples in the next section. | Yes |
+| connectionString | The connection string excluding the credential portion. You can specify the connection string with pattern like `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`, or use the system DSN (Data Source Name) you set up on the Integration Runtime machine with `"DSN=<name of the DSN on IR machine>;"` (you need still specify the credential portion in linked service accordingly).| Yes |
 | authenticationType | Type of authentication used to connect to the ODBC data store.<br/>Allowed values are: **Basic** and **Anonymous**. | Yes |
 | userName | Specify user name if you are using Basic authentication. | No |
 | password | Specify password for the user account you specified for the userName. Mark this field as a SecureString. | No |
@@ -63,16 +63,14 @@ The following properties are supported for ODBC linked service:
 ```json
 {
     "name": "ODBCLinkedService",
-    "properties":
-    {
+    "properties": {
         "type": "Odbc",
-        "typeProperties":
-        {
-            "authenticationType": "Basic",
+        "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
                 "value": "<connection string>"
             },
+            "authenticationType": "Basic",
             "userName": "<username>",
             "password": {
                 "type": "SecureString",
@@ -92,16 +90,14 @@ The following properties are supported for ODBC linked service:
 ```json
 {
     "name": "ODBCLinkedService",
-    "properties":
-    {
+    "properties": {
         "type": "Odbc",
-        "typeProperties":
-        {
-            "authenticationType": "Anonymous",
+        "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
                 "value": "<connection string>"
             },
+            "authenticationType": "Anonymous",
             "credential": {
                 "type": "SecureString",
                 "value": "RefreshToken=<secret refresh token>;"
@@ -131,15 +127,13 @@ To copy data from/to ODBC-compatible data store, set the type property of the da
 ```json
 {
     "name": "ODBCDataset",
-    "properties":
-    {
+    "properties": {
         "type": "RelationalTable",
         "linkedServiceName": {
             "referenceName": "<ODBC linked service name>",
             "type": "LinkedServiceReference"
         },
-        "typeProperties":
-        {
+        "typeProperties": {
             "tableName": "<table name>"
         }
     }
@@ -237,23 +231,27 @@ To copy data to ODBC-compatible data store, set the sink type in the copy activi
 ]
 ```
 
-## GE Historian source
+## IBM Informix source
 
-You create an ODBC linked service to link a [GE Proficy Historian (now GE Historian)](http://www.geautomation.com/products/proficy-historian) data store to an Azure data factory as shown in the following example:
+You can copy data from IBM Informix database using the generic ODBC connector.
+
+Set up a Self-hosted Integration Runtime on a machine with access to your data store. The Integration Runtime uses the ODBC driver for Informix to connect to the data store. Therefore, install the driver if it is not already installed on the same machine. For example, you can use driver "IBM INFORMIX ODBC DRIVER (64-bit)". See [Prerequisites](#prerequisites) section for details.
+
+Before you use the Informix source in a Data Factory solution, verify whether the Integration Runtime can connect to the data store using instructions in [Troubleshoot connectivity issues](#troubleshoot-connectivity-issues) section.
+
+Create an ODBC linked service to link a IBM Informix data store to an Azure data factory as shown in the following example:
 
 ```json
 {
-    "name": "HistorianLinkedService",
-    "properties":
-    {
+    "name": "InformixLinkedService",
+    "properties": {
         "type": "Odbc",
-        "typeProperties":
-        {
-            "authenticationType": "Basic",
+        "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
-                "value": "<GE Historian store connection string or DSN>"
+                "value": "<Informix connection string or DSN>"
             },
+            "authenticationType": "Basic",
             "userName": "<username>",
             "password": {
                 "type": "SecureString",
@@ -268,9 +266,79 @@ You create an ODBC linked service to link a [GE Proficy Historian (now GE Histor
 }
 ```
 
+Read the article from the beginning for a detailed overview of using ODBC data stores as source/sink data stores in a copy operation.
+
+## Microsoft Access source
+
+You can copy data from Microsoft Access database using the generic ODBC connector.
+
+Set up a Self-hosted Integration Runtime on a machine with access to your data store. The Integration Runtime uses the ODBC driver for Microsoft Access to connect to the data store. Therefore, install the driver if it is not already installed on the same machine. See [Prerequisites](#prerequisites) section for details.
+
+Before you use the Microsoft Access source in a Data Factory solution, verify whether the Integration Runtime can connect to the data store using instructions in [Troubleshoot connectivity issues](#troubleshoot-connectivity-issues) section.
+
+Create an ODBC linked service to link a Microsoft Access database to an Azure data factory as shown in the following example:
+
+```json
+{
+    "name": "MicrosoftAccessLinkedService",
+    "properties": {
+        "type": "Odbc",
+        "typeProperties": {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "Driver={Microsoft Access Driver (*.mdb, *.accdb)};Dbq=<path to your DB file e.g. C:\\mydatabase.accdb>;"
+            },
+            "authenticationType": "Basic",
+            "userName": "<username>",
+            "password": {
+                "type": "SecureString",
+                "value": "<password>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+Read the article from the beginning for a detailed overview of using ODBC data stores as source/sink data stores in a copy operation.
+
+## GE Historian source
+
+You can copy data from GE Historian using the generic ODBC connector.
+
 Set up a Self-hosted Integration Runtime on a machine with access to your data store. The Integration Runtime uses the ODBC driver for GE Historian to connect to the data store. Therefore, install the driver if it is not already installed on the same machine. See [Prerequisites](#prerequisites) section for details.
 
-Before you use the GE Historian store in a Data Factory solution, verify whether the Integration Runtime can connect to the data store using instructions in the next section.
+Before you use the GE Historian source in a Data Factory solution, verify whether the Integration Runtime can connect to the data store using instructions in [Troubleshoot connectivity issues](#troubleshoot-connectivity-issues) section.
+
+Create an ODBC linked service to link a Microsoft Access database to an Azure data factory as shown in the following example:
+
+```json
+{
+    "name": "HistorianLinkedService",
+    "properties": {
+        "type": "Odbc",
+        "typeProperties": {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "<GE Historian store connection string or DSN>"
+            },
+            "authenticationType": "Basic",
+            "userName": "<username>",
+            "password": {
+                "type": "SecureString",
+                "value": "<password>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
 
 Read the article from the beginning for a detailed overview of using ODBC data stores as source/sink data stores in a copy operation.
 
@@ -280,21 +348,25 @@ Read the article from the beginning for a detailed overview of using ODBC data s
 >To copy data from SAP HANA data store, refer to native [SAP HANA connector](connector-sap-hana.md). To copy data to SAP HANA, please follow this instruction to use ODBC connector. Note the linked services for SAP HANA connector and ODBC connector are with different type thus cannot be reused.
 >
 
-You create an ODBC linked service to link a SAP HANA data store to an Azure data factory as shown in the following example:
+You can copy data to SAP HANA database using the generic ODBC connector.
+
+Set up a Self-hosted Integration Runtime on a machine with access to your data store. The Integration Runtime uses the ODBC driver for SAP HANA to connect to the data store. Therefore, install the driver if it is not already installed on the same machine. See [Prerequisites](#prerequisites) section for details.
+
+Before you use the SAP HANA sink in a Data Factory solution, verify whether the Integration Runtime can connect to the data store using instructions in [Troubleshoot connectivity issues](#troubleshoot-connectivity-issues) section.
+
+Create an ODBC linked service to link a SAP HANA data store to an Azure data factory as shown in the following example:
 
 ```json
 {
     "name": "SAPHANAViaODBCLinkedService",
-    "properties":
-    {
+    "properties": {
         "type": "Odbc",
-        "typeProperties":
-        {
-            "authenticationType": "Basic",
+        "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
                 "value": "Driver={HDBODBC};servernode=<HANA server>.clouddatahub-int.net:30015"
             },
+            "authenticationType": "Basic",
             "userName": "<username>",
             "password": {
                 "type": "SecureString",
@@ -308,10 +380,6 @@ You create an ODBC linked service to link a SAP HANA data store to an Azure data
     }
 }
 ```
-
-Set up a Self-hosted Integration Runtime on a machine with access to your data store. The Integration Runtime uses the ODBC driver for SAP HANA to connect to the data store. Therefore, install the driver if it is not already installed on the same machine. See [Prerequisites](#prerequisites) section for details.
-
-Before you use the SAP HANA sink in a Data Factory solution, verify whether the Integration Runtime can connect to the data store using instructions in the next section.
 
 Read the article from the beginning for a detailed overview of using ODBC data stores as source/sink data stores in a copy operation.
 

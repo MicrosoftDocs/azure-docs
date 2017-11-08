@@ -1,9 +1,9 @@
 ---
-title: Basic Concepts | Microsoft Docs
+title: Concepts | Microsoft Docs
 description: Basic concepts used in Microsoft Speech Service.
 services: cognitive-services
 author: zhouwangzw
-manager: wolfma61
+manager: wolfma
 
 ms.service: cognitive-services
 ms.technology: speech

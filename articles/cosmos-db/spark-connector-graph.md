@@ -23,7 +23,7 @@ ms.author: khdang
 
 [Azure Cosmos DB](introduction.md) is the globally distributed, multi-model database service from Microsoft. You can create and query document, key/value, and graph databases, all of which benefit from the global-distribution and horizontal-scale capabilities at the core of Azure Cosmos DB. Azure Cosmos DB supports online transaction processing (OLTP) graph workloads that use [Apache TinkerPop Gremlin](graph-introduction.md).
 
-[Spark](http://spark.apache.org/) is an Apache Software Foundation project that's focused on general-purpose online analytical processing (OLAP) data processing. Spark provides a hybrid in-memory/disk-based distributed computing model that is similar to the Hadoop MapReduce model. You can deploy Apache Spark in the cloud by using [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/apache-spark/).
+[Spark](http://spark.apache.org/) is an Apache Software Foundation project that's focused on general-purpose online analytical processing (OLAP) data processing. Spark provides a hybrid in-memory/disk-based distributed computing model that is similar to the Hadoop MapReduce model. You can deploy Apache Spark in the cloud by using [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/apache-spark/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 By combining Azure Cosmos DB and Spark, you can perform both OLTP and OLAP workloads when you use Gremlin. This quick-start article demonstrates how to run Gremlin queries against Azure Cosmos DB on an Azure HDInsight Spark cluster.
 
