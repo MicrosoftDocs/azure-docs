@@ -13,7 +13,7 @@ ms.service: iot-edge
 
 ---
 
-# Deploy and monitor IoT Edge modules at scale
+# Deploy and monitor IoT Edge modules at scale - Public preview
 
 Azure IoT Edge enables you to move analytics to the edge and provides a cloud interface so that you can manage and monitor your IoT Edge devices without having to physically access each one. The capability to remotely manage devices is increasingly important as Internet of Things solutions are growing larger and more complex. Azure IoT Edge is designed to support your business goals, no matter how many devices you add.
 
