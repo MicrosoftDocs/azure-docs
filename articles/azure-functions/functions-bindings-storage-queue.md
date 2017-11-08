@@ -193,22 +193,17 @@ The storage account to use is determined in the following order:
 * The `StorageAccount` attribute applied to the class.
 * The "AzureWebJobsStorage" app setting.
 
-## Trigger - settings
+## Trigger - configuration
 
-The following settings appear only in the *function.json* file:
+The following table explains the binding configuration properties that you set in the *function.json* file and the `QueueTrigger` attribute.
 
-|Property  |Description  |
-|---------|---------|
-|**type** | Must be set to `queueTrigger`. This property is set automatically when you create the trigger in the Azure portal.|
-|**direction** | In the *function.json* file only. Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. |
-|**name** | The name of the variable that represents the queue in function code.  | 
-
-The following settings are configured in the *function.json* file or the `Queue Trigger` attribute constructor:
-
-|Property  |Description  |
-|---------|---------|
-|**queueName** | The name of the queue to poll. | 
-|**connection** | The name of an app setting that contains the Storage connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name here. For example, if you set `connection` to "MyStorage", the Functions runtime looks for an app setting that is named "AzureWebJobsMyStorage." If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.|
+|function.json property | Attribute property |Description|
+|---------|---------|----------------------|
+|**type** | n/a| Must be set to `queueTrigger`. This property is set automatically when you create the trigger in the Azure portal.|
+|**direction**| n/a | In the *function.json* file only. Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. |
+|**name** | n/a |The name of the variable that represents the queue in function code.  | 
+|**queueName** | **QueueName**| The name of the queue to poll. | 
+|**connection** | **Connection** |The name of an app setting that contains the Storage connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name here. For example, if you set `connection` to "MyStorage", the Functions runtime looks for an app setting that is named "AzureWebJobsMyStorage." If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.|
 
 ## Trigger - usage
  
@@ -410,22 +405,17 @@ public static string Run([HttpTrigger] dynamic input,  TraceWriter log)
 
 You can use the `StorageAccount` attribute to specify the storage account at class, method, or parameter level. For more information, see [Trigger - .NET attributes](#trigger---net-attributes).
 
-## Output - settings
+## Output - configuration
 
-The following settings appear only in the *function.json* file:
+The following table explains the binding configuration properties that you set in the *function.json* file and the `Queue` attribute.
 
-|Property  |Description  |
-|---------|---------|
-|**type** | Must be set to `queue`. This property is set automatically when you create the trigger in the Azure portal.|
-|**direction** | Must be set to `out`. This property is set automatically when you create the trigger in the Azure portal. |
-|**name** | The name of the variable that represents the queue in function code. Set to `$return` to reference the function return value.| 
-
-The following settings are configured in the *function.json* file or the `Queue` attribute constructor:
-
-|Property  |Description  |
-|---------|---------|
-|**queueName** | The name of the queue. | 
-|**connection** | The name of an app setting that contains the Storage connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name here. For example, if you set `connection` to "MyStorage", the Functions runtime looks for an app setting that is named "AzureWebJobsMyStorage." If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.|
+|function.json property | Attribute property |Description|
+|---------|---------|----------------------|
+|**type** | n/a | Must be set to `queue`. This property is set automatically when you create the trigger in the Azure portal.|
+|**direction** | n/a | Must be set to `out`. This property is set automatically when you create the trigger in the Azure portal. |
+|**name** | n/a | The name of the variable that represents the queue in function code. Set to `$return` to reference the function return value.| 
+|**queueName** |**QueueName** | The name of the queue. | 
+|**connection** | **Connection** |The name of an app setting that contains the Storage connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name here. For example, if you set `connection` to "MyStorage", the Functions runtime looks for an app setting that is named "AzureWebJobsMyStorage." If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.|
 
 ## Output - usage
  

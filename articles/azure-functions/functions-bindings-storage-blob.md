@@ -180,22 +180,17 @@ The storage account to use is determined in the following order:
 * The `StorageAccount` attribute applied to the class.
 * The default storage account for the function app ("AzureWebJobsStorage" app setting).
 
-## Trigger - settings
+## Trigger - configuration
 
-The following settings appear only in the *function.json* file:
+The following table explains the binding configuration properties that you set in the *function.json* file and the `BlobTrigger` attribute.
 
-|Property |Description |
-|---------|---------|
-|**type** | Must be set to `blobTrigger`. This property is set automatically when you create the trigger in the Azure portal.|
-|**direction** | Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. Exceptions are noted in the [usage](#trigger---usage) section. |
-|**name** | The name of the variable that represents the blob in function code. | 
-
-The following settings are configured in the *function.json* file or the `BlobTrigger` attribute constructor:
-
-|Property |Description |
-|---------|---------|
-|**path** | The container to monitor.  May be a [blob name pattern](#trigger-blob-name-patterns). | 
-|**connection** | The name of an app setting that contains the Storage connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name here. For example, if you set `connection` to "MyStorage", the Functions runtime looks for an app setting that is named "AzureWebJobsMyStorage." If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.<br><br>The connection string must be for a general-purpose storage account, not a [blob-only storage account](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
+|function.json property | Attribute property |Description|
+|---------|---------|----------------------|
+|**type** | n/a | Must be set to `blobTrigger`. This property is set automatically when you create the trigger in the Azure portal.|
+|**direction** | n/a | Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. Exceptions are noted in the [usage](#trigger---usage) section. |
+|**name** | n/a | The name of the variable that represents the blob in function code. | 
+|**path** | **BlobPath** |The container to monitor.  May be a [blob name pattern](#trigger-blob-name-patterns). | 
+|**connection** | **Connection** | The name of an app setting that contains the Storage connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name here. For example, if you set `connection` to "MyStorage", the Functions runtime looks for an app setting that is named "AzureWebJobsMyStorage." If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.<br><br>The connection string must be for a general-purpose storage account, not a [blob-only storage account](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
 
 ## Trigger - usage
 
@@ -464,22 +459,18 @@ public static void Run(
 
 You can use the `StorageAccount` attribute to specify the storage account at class, method, or parameter level. For more information, see [Trigger - .NET attributes](#trigger---net-attributes).
 
-## Input & output - settings
+## Input & output - configuration
 
-The following settings appear only in the *function.json* file:
+The following table explains the binding configuration properties that you set in the *function.json* file and the `Blob` attribute.
 
-|Property |Description |
-|---------|---------|
-|**type** | Must be set to `blob`. |
-|**direction** | Must be set to `in` for an input binding or out for an output binding. Exceptions are noted in the [usage](#input--output---usage) section. |
-|**name** | The name of the variable that represents the blob in function code.  Set to `$return` to reference the function return value.|
-
-The following settings are configured in the *function.json* file or the `Blob` attribute constructor:
-
-|Property |Description |
-|---------|---------|
-|**path** | The path to the blob. | 
-|**connection** | The name of an app setting that contains the Storage connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name here. For example, if you set `connection` to "MyStorage", the Functions runtime looks for an app setting that is named "AzureWebJobsMyStorage." If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.<br><br>The connection string must be for a general-purpose storage account, not a [blob-only storage account](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
+|function.json property | Attribute property |Description|
+|---------|---------|----------------------|
+|**type** | n/a | Must be set to `blob`. |
+|**direction** | n/a | Must be set to `in` for an input binding or out for an output binding. Exceptions are noted in the [usage](#input--output---usage) section. |
+|**name** | n/a | The name of the variable that represents the blob in function code.  Set to `$return` to reference the function return value.|
+|**path** |**BlobPath** | The path to the blob. | 
+|**connection** |**Connection**| The name of an app setting that contains the Storage connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name here. For example, if you set `connection` to "MyStorage", the Functions runtime looks for an app setting that is named "AzureWebJobsMyStorage." If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.<br><br>The connection string must be for a general-purpose storage account, not a [blob-only storage account](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
+|n/a | Access | Indicates whether you will be reading or writing. |
 
 ## Input & output - usage
 

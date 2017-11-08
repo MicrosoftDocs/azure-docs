@@ -327,26 +327,21 @@ The storage account to use is determined in the following order:
 * The `StorageAccount` attribute applied to the class.
 * The default storage account for the function app ("AzureWebJobsStorage" app setting).
 
-## Input - settings
+## Input - configuration
 
-The following settings appear only in the *function.json* file:
+The following table explains the binding configuration properties that you set in the *function.json* file and the `Table` attribute.
 
-|Property|Description|
-|--------|-----------|
-|**type** | Must be set to `table`. This property is set automatically when you create the binding in the Azure portal.|
-|**direction** | Must be set to `in`. This property is set automatically when you create the binding in the Azure portal. |
-|**name** | The name of the variable that represents the table or entity in function code. | 
-
-The following settings are configured in the *function.json* file or the `Table` attribute constructor:
-
-|Property|Description|
-|--------|-----------|
-|**tableName** | The name of the table.| 
-|**partitionKey** | Optional. The partition key of the table entity to read. See the [usage](#input---usage) section for guidance on how to use this property.| 
-|**rowKey** | Optional. The row key of the table entity to read. See the [usage](#input---usage) section for guidance on how to use this property.| 
-|**take** | Optional. The maximum number of entities to read in JavaScript. See the [usage](#input---usage) section for guidance on how to use this property.| 
-|**filter** | Optional. An OData filter expression for table input in JavaScript. See the [usage](#input---usage) section for guidance on how to use this property.| 
-|**connection** | The name of an app setting that contains the Storage connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name here. For example, if you set `connection` to "MyStorage", the Functions runtime looks for an app setting that is named "AzureWebJobsMyStorage." If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.|
+|function.json property | Attribute property |Description|
+|---------|---------|----------------------|
+|**type** | n/a | Must be set to `table`. This property is set automatically when you create the binding in the Azure portal.|
+|**direction** | n/a | Must be set to `in`. This property is set automatically when you create the binding in the Azure portal. |
+|**name** | n/a | The name of the variable that represents the table or entity in function code. | 
+|**tableName** | **TableName** | The name of the table.| 
+|**partitionKey** | **PartitionKey** |Optional. The partition key of the table entity to read. See the [usage](#input---usage) section for guidance on how to use this property.| 
+|**rowKey** |**RowKey** | Optional. The row key of the table entity to read. See the [usage](#input---usage) section for guidance on how to use this property.| 
+|**take** |**Take** | Optional. The maximum number of entities to read in JavaScript. See the [usage](#input---usage) section for guidance on how to use this property.| 
+|**filter** |**Filter** | Optional. An OData filter expression for table input in JavaScript. See the [usage](#input---usage) section for guidance on how to use this property.| 
+|**connection** |**Connection** | The name of an app setting that contains the Storage connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name here. For example, if you set `connection` to "MyStorage", the Functions runtime looks for an app setting that is named "AzureWebJobsMyStorage." If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.|
 
 ## Input - usage
 
@@ -578,24 +573,19 @@ public static MyPoco TableOutput(
 
 You can use the `StorageAccount` attribute to specify the storage account at class, method, or parameter level. For more information, see [Input - .NET attributes](#input---net-attributes).
 
-## Output - settings
+## Output - configuration
 
-The following settings appear only in the *function.json* file:
+The following table explains the binding configuration properties that you set in the *function.json* file and the `Table` attribute.
 
-|Property|Description|
-|--------|-----------|
-|**type** | Must be set to `table`. This property is set automatically when you create the binding in the Azure portal.|
-|**direction** | Must be set to `out`. This property is set automatically when you create the binding in the Azure portal. |
-|**name** | The variable name used in function code that represents the table or entity. Set to `$return` to reference the function return value.| 
-
-The following settings are configured in the *function.json* file or the `Table` attribute constructor:
-
-|Property|Description|
-|--------|-----------|
-|**tableName** | The name of the table.| 
-|**partitionKey** | The partition key of the table entity to write. See the [usage section](#output---usage) for guidance on how to use this property.| 
-|**rowKey** | The row key of the table entity to write. See the [usage section](#output---usage) for guidance on how to use this property.| 
-|**connection** | The name of an app setting that contains the Storage connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name here. For example, if you set `connection` to "MyStorage", the Functions runtime looks for an app setting that is named "AzureWebJobsMyStorage." If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.|
+|function.json property | Attribute property |Description|
+|---------|---------|----------------------|
+|**type** | n/a | Must be set to `table`. This property is set automatically when you create the binding in the Azure portal.|
+|**direction** | n/a | Must be set to `out`. This property is set automatically when you create the binding in the Azure portal. |
+|**name** | n/a | The variable name used in function code that represents the table or entity. Set to `$return` to reference the function return value.| 
+|**tableName** |**TableName** | The name of the table.| 
+|**partitionKey** |**PartitionKey** | The partition key of the table entity to write. See the [usage section](#output---usage) for guidance on how to use this property.| 
+|**rowKey** |**RowKey** | The row key of the table entity to write. See the [usage section](#output---usage) for guidance on how to use this property.| 
+|**connection** |**Connection** | The name of an app setting that contains the Storage connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name here. For example, if you set `connection` to "MyStorage", the Functions runtime looks for an app setting that is named "AzureWebJobsMyStorage." If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.|
 
 ## Output - usage
 
