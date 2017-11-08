@@ -20,7 +20,7 @@ ms.author: heidist
 
 # How to crawl an Azure SQL database using Azure Search indexers
 
-This tutorial shows you how to configure an indexer for extracting searchable data from a sample Azure SQL database. [*Indexers*](search-indexer-overview.md) are a component of Azure Search that crawl external data sources, populating a [search index](search-what-is-an-index.md) with content. Of all indexers, the indexer for Azure SQL database is the most widely used. 
+This tutorial shows you how to configure an indexer for extracting searchable data from a sample Azure SQL database. [Indexers](search-indexer-overview.md) are a component of Azure Search that crawl external data sources, populating a [search index](search-what-is-an-index.md) with content. Of all indexers, the indexer for Azure SQL database is the most widely used. 
 
 Proficiency in indexer configuration is helpful because it simplifies the amount of code you have to write and maintain. Rather than preparing and pushing a schema-compliant JSON dataset, you can attach an indexer to a data source, have the indexer extract data and insert it into an index, and optionally run the indexer on a recurring schedule to pick up changes in the underlying source.
 
@@ -112,7 +112,7 @@ In this step, create an external data source that an indexer can crawl. The data
 
 ### Azure SQL Database
 
-You can use the Azure portal and the *hotels.sql* file from the sample to create the dataset in Azure SQL Database. Azure Search consumes flattened rowsets, such as one provided by a view, query, or stored procedure. The SQL script provided in the sample solution creates and populates a single table.
+You can use the Azure portal and the *hotels.sql* file from the sample to create the dataset in Azure SQL Database. Azure Search consumes flattened rowsets, such as one generated from a view or query. The SQL file in the sample solution creates and populates a single table.
 
 The following exercise assumes no existing server or database, and instructs you to create both in step 2. Optionally, if you have an existing resource, you can add the hotels table to it, starting at step 4.
 
@@ -236,6 +236,8 @@ The program executes in debug mode. A console window reports the status of each 
   ![SQL script](./media/search-indexer-tutorial/console-output.png)
 
 Your code runs locally in Visual Studio, connecting to your search service on Azure, which in turn uses the connection string to connect to Azure SQL Database and retrieve the dataset. With this many operations, there are several potential points of failure, but if you get an error, check the following conditions first:
+
++ Search service connection information that you provide is limited to the service name in this tutorial. If you entered the full URL, operations stop at index creation, with a failure to connect error.
 
 + Database connection information in **appsettings.json**. It should be the ADO.NET connection string obtained from the portal, modified to include a username and password that are valid for your database. The user account must have permission to retrieve data.
 
