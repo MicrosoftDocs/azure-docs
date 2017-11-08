@@ -24,7 +24,7 @@ ms.service: media-services
 
 # Create clips with Azure Media Clipper
 ## Overview
-Azure Media Clipper is a free JavaScript library that enables web developers to provide their users with an interface for creating media clips. This tool can be integrated into any web page or portal and provides APIs for loading assets and submitting clipping jobs.
+Azure Media Clipper is a free JavaScript library that enables web developers to provide their users with an interface for creating media clips. This tool can be integrated into any web page and provides APIs for loading assets and submitting clipping jobs.
 
 Azure Media Clipper enables you to:
 - Trim the pre-slate and post-slate from live archives 
@@ -35,13 +35,13 @@ Azure Media Clipper enables you to:
 - Generate dynamic manifest filters over existing live and VOD assets with group-of-pictures (GOP) accuracy 
 - Produce encoding jobs against the assets in your media services account
 
-To request new features, provide ideas or feedback, please submit to [UserVoice for Azure Media Services](http://aka.ms/amsvoice/). If you have and specific issues, questions or find any bugs, drop us a line at amcinfo@microsoft.com.
+To request new features, provide ideas or feedback, submit to [UserVoice for Azure Media Services](http://aka.ms/amsvoice/). If you have and specific issues, questions or find any bugs, drop the Media Services team a line at amcinfo@microsoft.com.
 
 ## Getting started
-To get started deploying the Clipper, read our [getting started](media-services-azure-media-clipper-getting-started.md) article for next steps.
+To get started deploying the Clipper, read the [getting started](media-services-azure-media-clipper-getting-started.md) article for next steps.
 
 ## Release notes
-Below is the list of known issues and changelog for the latest release:
+The following list describes various known issues and changelog for the latest release of the Clipper:
 - [Known issues list](https://amp.azure.net/libs/amc/latest/docs/known_issues.html)
 - [Changelog](https://amp.azure.net/libs/amc/latest/docs/changelog.html)
 

@@ -24,38 +24,37 @@ ms.service: media-services
 
 # Loading assets into Azure Media Clipper
 Assets can be loaded into the Azure Media Clipper by two methods:
-
-1. Static library of assets
-2. Dynamically loaded assets loaded via API
+1. Statically passing in a library of assets
+2. Dynamically generating a list of assets via API
 
 ## Loading static asset library
-In this case, you pass in a static set of assets to the Clipper. Each asset includes its AMS asset ID, name, published streaming URL, AES or DRM authentication token (if applicable), and optionally, an array of thumbnail URLs. The thumbnails will be populated into the interface, if passed in. In scenarios where the asset library is static and small, you can simply pass in the asset contract for each asset in the library.
+In this case, you pass in a static set of assets to the Clipper. Each asset includes an AMS asset/filter ID, name, published streaming URL. If applicable, a content protection authentication token or array of thumbnail URLs may be passed in. If passed in, the thumbnails are populated into the interface. In scenarios where the asset library is static and small, you can pass in the asset contract for each asset in the library.
 
-To load a static asset library, use the **load** method to pass in a JSON representation of each asset. The following code sample illustrates how to load a sample asset.
+To load a static asset library, use the **load** method to pass in a JSON representation of each asset. The following code sample illustrates the JSON representation for one asset.
 
 ```javascript
 var assets = 
 {
-  /* Required: represents the asset Id when "type" === "asset"; otherwise, represents the dynamic manifest asset filter Id ("type" === "filter")  */
+  /* Required: represents the Azure Media Services asset Id when "type" === "asset"; otherwise, represents the dynamic manifest asset filter Id ("type" === "filter")  */
   "id": "my-asset-or-dynamic-manifest-asset-filter-id",
 
-  /* Required */
+  /* Required: represents the asset name as shown in the Clipper interface */
   "name": "My Asset or Dynamic Manifest Asset Filter Name",
 
   /* Required: must be one of the following values: "asset" or "filter" */
-  /* NOTE: "asset" type represents a full asset; "filter" type represents a dynamic manifest asset filter. */
+  /* NOTE: "asset" type represents a rendered asset; "filter" type represents a dynamic manifest asset filter */
   "type": "asset",
 
   /* Required */
   "source": {
 
-    /* Required: this is the base Smooth Streaming URL that AMP uses to build the different dynamic packaging URLs.*/
+    /* Required: represents the asset streaming locator, the base Smooth Streaming URL */
     "src": "//amssamples.streaming.mediaservices.windows.net/91492735-c523-432b-ba01-faba6c2206a2/AzureMediaServicesPromo.ism/manifest",
 
     /* Optional: default value "application/vnd.ms-sstr+xml" */
     "type": "application/vnd.ms-sstr+xml",
 
-    /* Required: If the video has content protection, then it must include an array with the different protection types along with the token to request the license/key; otherwise, provide an empty array. */
+    /* Required: If the asset has content protection applied, then you must include an array with the different protection types along with the token to request the license/key; otherwise, provide an empty array */
     "protectionInfo": [{
         "type": "AES",
         "authenticationToken": "Bearer aes-token-placeholder"
@@ -77,7 +76,7 @@ var assets =
   },
 
   /* Optional: array containing thumbnail URLs for the video. */
-  /* NOTE: For the thumbnail URLs to work as expected in the subclipper timeline they must be evenly distributed across the video (based on the duration) and in chronological order within the array. */
+  /* NOTE: For the thumbnail URLs to work as expected in the Clipper timeline they must be evenly distributed across the video (based on the duration) and in chronological order within the array. */
   "thumbnails": [
     "//example/path/thumbnail_001.jpg",
     "//example/path/thumbnail_002.jpg",
@@ -114,7 +113,7 @@ subclipper.load(assets)
 ```
 
 ## Loading dynamic asset library
-Alternatively, you can load assets dynamically via a callback. In scenarios where assets are dynamically generated or the library is large, you should load via the callback. To load asset dynamically, you must implement the optional onLoadAssets callback function. This function is passed into the Clipper at initialization. The resolved assets should adhere to the same contract defined above for statically loaded assets. The following code sample illustrates the method signature, expected input, and expected output.
+Alternatively, you can load assets dynamically via a callback. In scenarios where assets are dynamically generated or the library is large, you should load via the callback. To load asset dynamically, you must implement the optional onLoadAssets callback function. This function is passed into the Clipper at initialization. The resolved assets should adhere to the same contract as statically loaded assets. The following code sample illustrates the method signature, expected input, and expected output.
 
 ```javascript
 // Video Assets Pane Callback

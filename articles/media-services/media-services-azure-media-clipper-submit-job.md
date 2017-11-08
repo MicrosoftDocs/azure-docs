@@ -23,7 +23,7 @@ ms.service: media-services
 ---
 
 # Submit clipping jobs from Azure Media Clipper
-Azure Media Clipper requires a **submitSubclipCallback** method to be implemented for handling clipping job submission. The intent of this function is for the Clipper to HTTP POST the Media Encoder Standard encoding preset to a web service where you can submit the media encoding job. This pass-through model is necessary since media services account credentials are not secure in the client's browser.
+Azure Media Clipper requires a **submitSubclipCallback** method to be implemented for handling clipping job submission. This function is for implementing an HTTP POST of the Clipper output to a web service. This web service is where you can submit the encoding job. The output of the Clipper is either a Media Encoder Standard encoding preset for rendered jobs or the REST API payload for dynamic manifest filter calls. This pass-through model is necessary because media services account credentials are not secure in the client's browser.
 
 The following code sample illustrates a sample **submitSubclipCallback** method. In this method, you implement the HTTP POST of the MES encoding preset. If the POST was successful (**result**), the **Promise** is resolved, otherwise, it is rejected with error details.
 
@@ -59,7 +59,7 @@ var subclipper = new subclipper({
 The output of the job submission is either the MES encoding preset for rendered job or the REST API payload for dynamic manifest filters.
 
 ## Rendered output
-The job output contract for a render sub-clipping is a JSON object with the following properties:
+The job output contract for rendered clipping is a JSON object with the following properties:
 
 ```json
 {
@@ -68,7 +68,7 @@ The job output contract for a render sub-clipping is a JSON object with the foll
 
   /* Required: string specifying the format of the Json file.
    */
-  /* NOTE: This subclipper version always returns '2.0' in this field.
+  /* NOTE: The REST API version, currently 2.0 is supported
    */
   "restVersion": "2.0"
 
@@ -153,12 +153,12 @@ The job output contract for a render sub-clipping is a JSON object with the foll
 ```
 
 ## Filter output
-The output contract for a filter sub-clipping is a JSON object with the following properties:
+The output contract for a filter clipping is a JSON object with the following properties:
 
 ```json
 {
-  /* Required */
-  "name": "My New Filter Subclip Output Name",
+  /* Required: Filter name (Alphanumeric characters and hyphens only, no whitespace) */
+  "name": "FilterName",
 
   /* Required: string specifying the format of the Json file.
    */
