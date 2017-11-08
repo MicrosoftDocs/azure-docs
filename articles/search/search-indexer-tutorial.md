@@ -20,7 +20,7 @@ ms.author: heidist
 
 # How to crawl an Azure SQL database using Azure Search indexers
 
-This tutorial shows you how to configure an indexer for extracting searchale data from a sample Azure SQL database. [*Indexers*](search-indexer-overview.md) are a component of Azure Search that crawl external data sources, populating a [search index](search-what-is-an-index.md) with content. Of all indexers, the indexer for Azure SQL database is the most widely used. 
+This tutorial shows you how to configure an indexer for extracting searchable data from a sample Azure SQL database. [*Indexers*](search-indexer-overview.md) are a component of Azure Search that crawl external data sources, populating a [search index](search-what-is-an-index.md) with content. Of all indexers, the indexer for Azure SQL database is the most widely used. 
 
 Proficiency in indexer configuration is helpful because it simplifies the amount of code you have to write and maintain. Rather than preparing and pushing a schema-compliant JSON dataset, you can attach an indexer to a data source, have the indexer extract data and insert it into an index, and optionally run the indexer on a recurring schedule to pick up changes in the underlying source.
 
@@ -247,7 +247,7 @@ In the Azure portal, in the search service Overview page, click **Search explore
 
 1. Click **Change index** at the top to select the *hotels* index.
 
-2. Click the **Search** butoon to issue an empty search. 
+2. Click the **Search** button to issue an empty search. 
 
   The three entries in your index are returned as JSON documents. Search explorer returns documents in JSON so that you can view the entire structure.
 
