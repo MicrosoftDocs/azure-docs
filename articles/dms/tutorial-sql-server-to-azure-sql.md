@@ -1,12 +1,12 @@
 ---
 title: Use Azure Database Migration Service to migrate migrate SQL Server on-premises to Azure SQL DB | Microsoft Docs
 description: Learn to migrate from on premises SQL Server to Azure SQL using Azure Database Migration Service.
-services: dms
+services: database-migration
 author: HJToland3
 ms.author: jtoland
-manager: jhubbard
+manager: 
 ms.reviewer: 
-ms.service: dms
+ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
@@ -37,7 +37,6 @@ To complete this tutorial, you need:
 - Azure Database Migration Service requires a VNET created by using the Azure Resource Manager deployment model, which provides site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) or [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
 - The credentials used to connect to source SQL Server instance must have CONTROL SERVER permissions.
 - The credentials used to connect to target Azure SQL DB instance must have CONTROL DATABASE permission on the target Azure SQL DB databases.
-- Open your Windows firewall to allow Azure Database Migration Service to access the source SQL Server.
 
 ## Assess your on-premises database by using the Data Migration Assistant
 Before you can migrate data from an on-premises SQL Server instance to Azure SQL Database, you need to assess the SQL Server database for any blocking issues that might prevent migration. After you download and install Data Migration Assistant v3.3, use the steps described in the article [Performing a SQL Server migration assessment](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem) to complete the on-premises database assessment. A summary of the required steps follows:

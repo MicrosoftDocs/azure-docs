@@ -1,26 +1,26 @@
 ---
 title:  Migrate AdventureWorks2014 from SQL Server to Azure SQL | Microsoft Docs
 description: Migrate AdventureWorks2014 from SQL Server to Azure SQL using Data Migration Assistant and Data Migration Service.
-services: dms
+services: database-migration
 author: edmacauley
 ms.author: edmaca
-manager: jhubbard
+manager: craigg
 ms.reviewer: 
-ms.service: dms
+ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
-ms.topic: quickstart
-ms.date: 10/20/2017
+ms.topic: article
+ms.date: 11/02/2017
 ---
 
 # Migrate AdventureWorks
-This quickstart migrates the sample AdventureWorks 2014 database from an on-premises SQL Server instance to an Azure SQL database.  It uses Microsoft Data Migration Assistant to migrate the schema and Azure Data Migration Service to migrate the data.
+This article migrates the sample AdventureWorks 2014 database from an on-premises SQL Server instance to an Azure SQL database.  It uses Microsoft Data Migration Assistant to migrate the schema and Azure Data Migration Service to migrate the data.
+
+If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 ## Prerequisites
-- An instance of SQL Server with an AdventureWorks 2014 database that is directly connected to Azure.
-- An empty Azure SQL database.
-- [Microsoft Data Migration Assistant](https://aka.ms/get-dma)
 - Azure Data Migration Service requires a VNET created by using the Azure Resource Manager deployment model, which provides site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) or [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+- This how-to also requires resources created by the quickstart [Prepare to migrate AdventureWorks](quickstart-prepare-to-migrate.md).  Please complete the quickstart before this how-to article.
 
 ## Create a migration project
 1. Open Microsoft Data Migration assistant and choose **+** to create a new project.
@@ -29,7 +29,7 @@ This quickstart migrates the sample AdventureWorks 2014 database from an on-prem
 1. Choose "SQL Server" for **Source server type**.
 1. For **Target server type**, choose "Azure SQL Database."
 1. **Migration scope** must be set to "Schema only."
-![Create a new project](media/quickstart-sql-server-to-azure-sql/DMANewProject.png)
+![Create a new project](media/howto-sql-server-to-azure-sql/DMANewProject.png)
 1. Click **Create**.
 
 ## Select schema source
@@ -38,7 +38,7 @@ This quickstart migrates the sample AdventureWorks 2014 database from an on-prem
 1. Enter your **username** and **password**.
 1. Ensure **Encrypt connection** is checked and if you are using a self-signed certificate also check **Trust server certificate**
 1. Click **Connect**.
-![Select migration source](media/quickstart-sql-server-to-azure-sql/DMASelectSource.png)
+![Select migration source](media/howto-sql-server-to-azure-sql/DMASelectSource.png)
 1. Choose AdventureWorks 2014 and click **Next**.
 
 > [!NOTE]
@@ -50,7 +50,7 @@ This quickstart migrates the sample AdventureWorks 2014 database from an on-prem
 1. Ensure **Encrypt connection** is checked.
 1. Click **Connect**.
 1. Choose your Azure SQL database and then click **Next**.
-![Select migration target](media/quickstart-sql-server-to-azure-sql/DMASelectTarget.png)
+![Select migration target](media/howto-sql-server-to-azure-sql/DMASelectTarget.png)
 
 > [!NOTE]
 > The principal used to connect to the target Azure SQL database must have CONTROL DATABASE permission on the target database.
@@ -58,7 +58,7 @@ This quickstart migrates the sample AdventureWorks 2014 database from an on-prem
 ## Select schema objects
 Choose the objects you want to migrate to the target.  By default all of the database objects are selected.  You can click on individual objects and see any issues associated with it.  For purposes of this quickstart, you don't need to be concerned with any of the listed issues.
 
-![Select objects](media/quickstart-sql-server-to-azure-sql/DMASelectObjects.png)
+![Select objects](media/howto-sql-server-to-azure-sql/DMASelectObjects.png)
 
 When you're satisfied that all database objects are selected, click **Generate SQL scripts**.
 
@@ -70,26 +70,18 @@ You can review potential migration issues by clicking **Next issue** and **Previ
 
 You don't need to be concerned with any of these issues, they are warnings and not errors.  When you're ready, click **Deploy schema**.
 
-## Create Data Migration Service
-Navigate to the Azure portal and click **+** to create a new service.  Data Migration Service is still in preview.  Search the marketplace for "migration" and select "Data Migration Service (preview)."
+## Log in to the Azure portal
+Open your web browser, and navigate to the [Microsoft Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
 
-![Create new service](media/quickstart-sql-server-to-azure-sql/DMSNewService.png)
-
-Setting|Suggested value|Description
----|---|---
-Service name |*example-name*|Choose a unique name that identifies your Azure Data Migration Service.
-Subscription|*my subscription*|The Azure subscription that you want to use. If you have multiple subscriptions, choose the appropriate subscription in which the resource is billed for.
-Network|*mynetworkname*| Create a new network with a unique name.
-Location |*mylocation*| Choose the location that is closest to your source or target server.
-
-![Create migration service](media/quickstart-sql-server-to-azure-sql/DMSCreateMigrationService.png)
+## Select migration service
+Select the Database Migration Service instance that you created in the quickstart [Prepare to migrate AdventureWorks](quickstart-prepare-to-migrate.md).
 
 ## Create new migration project
 1. Click on "New Migration Project."
 1. Give the project a memorable name.
 1. Select "SQL Server" as the **Source server type**.
 1. Set **Target server type** to  "Azure SQL Database."
-![New migration](media/quickstart-sql-server-to-azure-sql/DMSNewMigration.png)
+![New migration](media/howto-sql-server-to-azure-sql/DMSNewMigration.png)
 1. Click **Start**.
 
 ## Select data target
@@ -100,7 +92,7 @@ Authentication type||Choose the appropriate type for your server, either "SQL Au
 User name|*myusername*| Your user name
 Password |*mypassword*| Your password
 
-![Migration target details](media/quickstart-sql-server-to-azure-sql/DMSSelectTarget.png)
+![Migration target details](media/howto-sql-server-to-azure-sql/DMSSelectTarget.png)
 
 Ensure **Encrypt connection** is checked and if you are using a self-signed certificate also check **Trust server certificate**.
 
@@ -112,7 +104,7 @@ Authentication type| |Choose the appropriate type for your server, either "SQL A
 User name|*myusername*| Your user name
 Password |*mypassword*| Your password
 
-![Migration source detail](media/quickstart-sql-server-to-azure-sql/DMSSelectSource.png)
+![Migration source detail](media/howto-sql-server-to-azure-sql/DMSSelectSource.png)
 
 Ensure **Encrypt connection** is checked and if you are using a self-signed certificate also check **Trust server certificate**.
 
@@ -122,14 +114,14 @@ Ensure **Encrypt connection** is checked and if you are using a self-signed cert
 ## Select source databases
 Check AdventureWorks2014 and select your target database.  You can make a database read only for the duration of the migration.
 
-![Select source databases](media/quickstart-sql-server-to-azure-sql/DMSSelectSourceDatabases.png)
+![Select source databases](media/howto-sql-server-to-azure-sql/DMSSelectSourceDatabases.png)
 
 Click **Save**
 
 ## Select tables
 If it exists in the source, target, and is empty, a table is automatically checked for migration.  Expand AdventureWorks2014 and review the selected tables. When you are satisfied that they are all selected, click **Save**.
 
-![Select Tables to Migrate](media/quickstart-sql-server-to-azure-sql/DMSSelectTables.png)
+![Select Tables to Migrate](media/howto-sql-server-to-azure-sql/DMSSelectTables.png)
 
 
 ## Run and monitor
@@ -139,9 +131,8 @@ To see detailed migration status:
 1. Click your migration's name.
 1. Click AdventureWorks2014.
 
-![Migration status](media/quickstart-sql-server-to-azure-sql/DMSMonitor.png)
+![Migration status](media/howto-sql-server-to-azure-sql/DMSMonitor.png)
 
- 
+
 ## Next steps
-- Request a [preview of Azure Data Migration Service](https://aka.ms/get-dms).
-- Overview of [Data Migration Assistant](https://aka.ms/dma).
+For information about Database Migration Service, see [Tutorial: Migrate SQL Server on-premises to Azure SQL DB](tutorial-sql-server-to-azure-sql.md)
