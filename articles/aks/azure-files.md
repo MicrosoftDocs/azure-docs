@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/30/2017
+ms.date: 11/08/2017
 ms.author: nepeters
 ms.custom: mvc
 
@@ -26,52 +26,46 @@ Container based applications often need to access and persist data in an externa
 
 For more information on Kubernetes volumes, see [Kubernetes volumes][kubernetes-volumes].
 
-## Creating a file share
+## Create an Azure file share
 
-An existing Azure File share can be used with Azure Container Service. If you need to create one, use the following set of commands.
-
-Create a resource group for the Azure File share using the [az group create][az-group-create] command. The resource group of the storage account and the Kubernetes cluster must be located in the same region.
+Before using an Azure file share with Azure Container Instances, you must create it. Run the following script to create a storage account to host the file share and the share itself. The storage account name must be globally unique, so the script adds a random value to the base string. This script will also retrieve the storage account key and place it in a variable. This variable is used in a later step.
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location westus2
-```
+# Change these four parameters
+AKS_PERS_STORAGE_ACCOUNT_NAME=mystorageaccount$RANDOM
+AKS_PERS_RESOURCE_GROUP=myResourceGroup
+AKS_PERS_LOCATION=eastus
+AKS_PERS_SHARE_NAME=acishare
 
-Use the [az storage account create][az-storage-create] command to create an Azure Storage account. The storage account name must be unique. Update the value of the `--name` argument with a unique value.
+# Create the storage account with the parameters
+az storage account create -n $AKS_PERS_STORAGE_ACCOUNT_NAME -g $AKS_PERS_RESOURCE_GROUP -l $AKS_PERS_LOCATION --sku Standard_LRS
 
-```azurecli-interactive
-az storage account create --name mystorageaccount --resource-group myResourceGroup --sku Standard_LRS
-```
+# Export the connection string as an environment variable, this is used when creating the Azure file share
+export AZURE_STORAGE_CONNECTION_STRING=`az storage account show-connection-string -n $AKS_PERS_STORAGE_ACCOUNT_NAME -g $AKS_PERS_RESOURCE_GROUP -o tsv`
 
-Use the [az storage account keys list ][az-storage-key-list] command to return the storage key. Update the value of the `--account-name` argument with the unique storage account name.
+# Create the share
+az storage share create -n $AKS_PERS_SHARE_NAME
 
-Take note of one of the key values, this is used in subsequent steps.
-
-```azurecli-interactive
-az storage account keys list --account-name mystorageaccount --resource-group myResourceGroup --output table
-```
-
-Use the [az storage share create][az-storage-share-create] command to create the Azure File share. Update the `--account-key` value with the value collected in the last step.
-
-```azurecli-interactive
-az storage share create --name myfileshare --account-name mystorageaccount --account-key <key>
+# Get storage account key
+STORAGE_KEY=$(az storage account keys list --resource-group $ACI_PERS_RESOURCE_GROUP --account-name $STORAGE_ACCOUNT --query "[0].value" -o tsv)
 ```
 
 ## Create Kubernetes Secret
 
 Kubernetes needs credentials to access the file share. Rather than storing the Azure Storage account name and key with each pod, it is stored once in a [Kubernetes secret][kubernetes-secret] and referenced by each Azure Files volume. 
 
-The values in a Kubernetes secret manifest must be base64 encoded. Use the following commands to return encoded values.
+The values in a Kubernetes secret manifest must be base64 encoded. Use the following commands to return encoded values. These steps re-use the variables from the storage creation step.
 
-First, encode the name of the storage account. Replace `storage-account` with the name of your Azure storage account.
+First, encode the name of the storage account. If needed, replace `$AKS_PERS_STORAGE_ACCOUNT_NAME` with the name of the Azure storage account.
 
 ```azurecli-interactive
-echo -n <storage-account> | base64
+echo -n $AKS_PERS_STORAGE_ACCOUNT_NAME | base64
 ```
 
-Next, the storage account access key is needed. Run the following command to return the encoded key. Replace `storage-key` with the key collected in an earlier step
+Next, encode the storage account access key. If needed, replace `$STORAGE_KEY` with the name of the Azure storage account key.
 
 ```azurecli-interactive
-echo -n <storage-key> | base64
+echo -n $STORAGE_KEY | base64
 ```
 
 Create a file named `azure-secret.yml` and copy in the following YAML. Update the `azurestorageaccountname` and `azurestorageaccountkey` values with the base64 encoded values retrieved in the last step.
