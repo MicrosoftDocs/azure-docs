@@ -14,7 +14,7 @@ ms.service: iot-edge
 
 ---
 
-# Deploy Azure IoT Edge on a simulated device
+# Deploy Azure IoT Edge on a simulated device - Public preview
 
 Azure IoT Edge moves the power of the cloud to your Internet of Things (IoT) devices. This tutorial walks you through creating a simulated IoT Edge device that generates sensor data. You learn how to:
 
