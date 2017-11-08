@@ -43,7 +43,7 @@
 ### [Configure a router](expressroute-config-samples-routing.md)
 ### [Router configuration samples for NAT](expressroute-config-samples-nat.md)
 ## [Configure Network Performance Monitor for ExpressRoute](how-to-npm.md)
-## How To (classic deployment model)
+## Classic deployment model articles
 ### [Modify a circuit](expressroute-howto-circuit-classic.md)
 ### [Create and modify peering configuration](expressroute-howto-routing-classic.md)
 ### [Link a virtual network to an ExpressRoute circuit](expressroute-howto-linkvnet-classic.md)
