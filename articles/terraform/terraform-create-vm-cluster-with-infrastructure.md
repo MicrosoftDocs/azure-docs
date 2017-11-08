@@ -28,7 +28,7 @@ In this tutorial you will:
 > [!NOTE]
 > If you [use Terraform environment variables](/azure/virtual-machines/linux/terraform-install-configure#set-environment-variables), or run this tutorial in the [Azure Cloud Shell](terraform-cloud-shell.md), skip this section.
 
-In this section, you will generate an Azure service principal, and a Terraform variables file containing the credentials from the security principal.
+In this section, you generate an Azure service principal, and a Terraform variables file containing the credentials from the security principal.
 
 1. [Set up an Azure AD service principal](/azure/virtual-machines/linux/terraform-install-configure#set-up-terraform-access-to-azure) to enable Terraform to provision resources into Azure. While creating the principal, Make note of the values for the subscription ID, tenant ID, displayName, and password.
 
@@ -36,7 +36,7 @@ In this section, you will generate an Azure service principal, and a Terraform v
 
 3. Create an empty directory in which you are going to store your Terraform files.
 
-4. Create a new file to define your Terraform variables. It is common to name your Terraform variable file `terraform.tfvars` as Terraform will automatically load any file named `terraform.tfvars` (or following a patern of `*.auto.tfvars`) if present in the current directory. 
+4. Create a new file to define your Terraform variables. It is common to name your Terraform variable file `terraform.tfvars` as Terraform automatically loads any file named `terraform.tfvars` (or following a patern of `*.auto.tfvars`) if present in the current directory. 
 
 5. Copy the following code into your newly created Terraform variables file. Make sure to replace the placeholders as follows: For `subscription_id`, use the Azure subscription ID you specified when running `az account set`. For `tenant_id`, use the `tenant` value returned from `az ad sp create-for-rbac`. For `client_id`, use the `appId` value returned from `az ad sp create-for-rbac`. For `client_secret`, use the `password` value returned from `az ad sp create-for-rbac`.
 
@@ -49,7 +49,7 @@ In this section, you will generate an Azure service principal, and a Terraform v
 
 ## 2. Create the Terraform template file
 
-In this section, you will create a file that contains resource definitions for your infrastructure.
+In this section, you create a file that contains resource definitions for your infrastructure.
 
 1. In the same directory where you created the Terraform variables file, create a new file named `main.tf`. 
 
@@ -213,9 +213,9 @@ To initialize Terraform, run the following command:
 
 The [terraform plan](https://www.terraform.io/docs/commands/plan.html) command is used to create an execution plan. To generate the execution plan, Terraform aggregates all of the `.tf` files in the current directory. 
 
-If you are working in a collaborative environment where the configuration might change, you should use the `-out` parameter and output the execution plan to a file. Otherwise, if you are working in a single-person environment, you can ommit the `-out` parameter. For purposes of this tutorial, we'll assume a single-person environment. To see the syntax for using the `-out` parameter, refer to the [Terraform documentation for the `-out` parameter](https://www.terraform.io/docs/commands/plan.html#out-path).
+If you are working in a collaborative environment where the configuration might change, you should use the `-out` parameter and output the execution plan to a file. Otherwise, if you are working in a single-person environment, you can omit the `-out` parameter. For purposes of this tutorial, a single-person environment is assumed. To see the syntax for using the `-out` parameter, refer to the [Terraform documentation for the `-out` parameter](https://www.terraform.io/docs/commands/plan.html#out-path).
 
-If the name of your Terraform variables file is not `terraform.tfvars` and it doesn't follow the `*.auto.tfvars` pattern, you will need to specify the file name using the [terraform plan -var-file parameter](https://www.terraform.io/docs/commands/plan.html#var-file-foo) when running the `terraform plan` command.
+If the name of your Terraform variables file is not `terraform.tfvars` and it doesn't follow the `*.auto.tfvars` pattern, you need to specify the file name using the [terraform plan -var-file parameter](https://www.terraform.io/docs/commands/plan.html#var-file-foo) when running the `terraform plan` command.
 
 When processing the `terraform plan` command, Terraform performs a refresh and determines what actions are necessary to achieve the desired state specified in your configuration files.
 
