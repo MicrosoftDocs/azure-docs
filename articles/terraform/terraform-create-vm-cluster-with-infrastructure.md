@@ -196,7 +196,7 @@ In this section, you create a file that contains resource definitions for your i
 
 ## 3. Initialize Terraform 
 
-The [terraform init](https://www.terraform.io/docs/commands/init.html) command is used to initialize a directory that contains the Terraform configuration files - the files you created with the previous sections. You should always run the `terraform init` command after writing a new Terraform configuration. 
+The [terraform init command](https://www.terraform.io/docs/commands/init.html) is used to initialize a directory that contains the Terraform configuration files - the files you created with the previous sections. You should always run the `terraform init` command after writing a new Terraform configuration. 
 
 > [!TIP]
 > The `terraform init` command is idempotent meaning that it can be called repeatedly while producing the same result. Therefore, if you're working in a collaborative environment, and you think the configuration files might have been changed, it's always a good idea to call the `terraform init` command before executing or applying a plan.
@@ -211,11 +211,11 @@ To initialize Terraform, run the following command:
 
 ## 4. Create a Terraform execution plan
 
-The [terraform plan](https://www.terraform.io/docs/commands/plan.html) command is used to create an execution plan. To generate the execution plan, Terraform aggregates all of the `.tf` files in the current directory. 
+The [terraform plan command](https://www.terraform.io/docs/commands/plan.html) is used to create an execution plan. To generate the execution plan, Terraform aggregates all of the `.tf` files in the current directory. 
 
 If you are working in a collaborative environment where the configuration might change, you should use the `-out` parameter and output the execution plan to a file. Otherwise, if you are working in a single-person environment, you can omit the `-out` parameter. For purposes of this tutorial, a single-person environment is assumed. To see the syntax for using the `-out` parameter, refer to the [Terraform documentation for the `-out` parameter](https://www.terraform.io/docs/commands/plan.html#out-path).
 
-If the name of your Terraform variables file is not `terraform.tfvars` and it doesn't follow the `*.auto.tfvars` pattern, you need to specify the file name using the [terraform plan -var-file parameter](https://www.terraform.io/docs/commands/plan.html#var-file-foo) when running the `terraform plan` command.
+If the name of your Terraform variables file is not `terraform.tfvars` and it doesn't follow the `*.auto.tfvars` pattern, you need to specify the file name using the [terraform plan command's -var-file parameter](https://www.terraform.io/docs/commands/plan.html#var-file-foo) when running the `terraform plan` command.
 
 When processing the `terraform plan` command, Terraform performs a refresh and determines what actions are necessary to achieve the desired state specified in your configuration files.
 
