@@ -8,6 +8,4 @@
   expanded: true
   items:
   - name: Create Databricks workspace
-    items:
-    - name: Portal
-      href: quickstart-create-databricks-workspace-portal.md
+    href: quickstart-create-databricks-workspace-portal.md
