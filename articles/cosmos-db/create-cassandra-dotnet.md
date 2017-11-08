@@ -54,28 +54,86 @@ Now let's switch to working with code. Let's clone a DocumentDB API app from Git
 
 ## Review the code
 
-Let's make a quick review of what's happening in the app. Open the TODO file and you'll find that these lines of code create the Azure Cosmos DB resources. 
+This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. The snippets are all taken from the `uprofile.js` file. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-string). 
 
-* The DocumentClient is initialized on line 73.
+* User name and password is set using the connection string page in the Azure portal.  
 
-    ```csharp
-    client = new DocumentClient(new Uri(ConfigurationManager.AppSettings["endpoint"]), ConfigurationManager.AppSettings["authKey"]);`
-    ```
+   ```csharp
+   const authProviderLocalCassandra = new cassandra.auth.PlainTextAuthProvider(config.username, config.password);
+   ```
 
-* A new database is created on line 88.
-
-    ```csharp
-    await client.CreateDatabaseAsync(new Database { Id = DatabaseId });
-    ```
-
-* A new collection is created on line 107.
+* The `client` is initialized with contactPoint information. The contactPoint is retrieved from the Azure portal.
 
     ```csharp
-    await client.CreateDocumentCollectionAsync(
-        UriFactory.CreateDatabaseUri(DatabaseId),
-        new DocumentCollection { Id = CollectionId },
-        new RequestOptions { OfferThroughput = 1000 });
+   const client = new cassandra.Client({contactPoints: [config.contactPoint], authProvider: authProviderLocalCassandra});
     ```
+
+* The `client` connects to the Azure Cosmos DB Cassandra API.
+
+    ```csharp
+    client.connect(next);
+    ```
+
+* A new keyspace is created.
+
+    ```csharp
+    function createKeyspace(next) {
+    	var query = "CREATE KEYSPACE IF NOT EXISTS uprofile WITH replication = {'class': 'SimpleStrategy', 'replication_factor': '3' } ";
+    	client.execute(query, next);
+    	console.log("created keyspace");    
+  }
+    ```
+
+* A new table is created.
+
+   ```csharp
+   function createTable(next) {
+   	var query = "CREATE TABLE IF NOT EXISTS uprofile.user (user_id int PRIMARY KEY, user_name text, user_bcity text)";
+    	client.execute(query, next);
+    	console.log("created table");
+   },
+   ```
+
+* Key/value entities are inserted.
+
+    ```csharp
+    ...
+    {
+          query: 'INSERT INTO  uprofile.user  (user_id, user_name , user_bcity) VALUES (?,?,?)',
+          params: [5, 'SubbannaG', 'Belgaum', '2017-10-3136']
+        }
+    ];
+    client.batch(queries, { prepare: true}, next);
+    ```
+
+* Query to get get all key values.
+
+    ```csharp
+   var query = 'SELECT * FROM uprofile.user';
+    client.execute(query, { prepare: true}, function (err, result) {
+      if (err) return next(err);
+      result.rows.forEach(function(row) {
+        console.log('Obtained row: %d | %s | %s ',row.user_id, row.user_name, row.user_bcity);
+      }, this);
+      next();
+    });
+    ```  
+    
+ * Query to get a key-value.
+
+    ```csharp
+    function selectById(next) {
+    	console.log("\Getting by id");
+    	var query = 'SELECT * FROM uprofile.user where user_id=1';
+    	client.execute(query, { prepare: true}, function (err, result) {
+      	if (err) return next(err);
+      		result.rows.forEach(function(row) {
+        	console.log('Obtained row: %d | %s | %s ',row.user_id, row.user_name, row.user_bcity);
+      	}, this);
+      	next();
+    	});
+    }
+    ```  
 
 ## Update your connection string
 

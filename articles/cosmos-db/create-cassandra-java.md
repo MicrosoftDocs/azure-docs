@@ -64,9 +64,86 @@ Now let's switch to working with code. Let's clone a DocumentDB API app from Git
 
 ## Review the code
 
-This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. The snippets are all taken from the `Program.java` file installed in the C:\git-samples\azure-cosmos-db-documentdb-java-getting-started\src\GetStarted folder. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-string). 
+This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. The snippets are all taken from the `uprofile.js` file. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-string). 
 
-TODO insert code
+* User name and password is set using the connection string page in the Azure portal.  
+
+   ```java
+   const authProviderLocalCassandra = new cassandra.auth.PlainTextAuthProvider(config.username, config.password);
+   ```
+
+* The `client` is initialized with contactPoint information. The contactPoint is retrieved from the Azure portal.
+
+    ```java
+   const client = new cassandra.Client({contactPoints: [config.contactPoint], authProvider: authProviderLocalCassandra});
+    ```
+
+* The `client` connects to the Azure Cosmos DB Cassandra API.
+
+    ```java
+    client.connect(next);
+    ```
+
+* A new keyspace is created.
+
+    ```java
+    function createKeyspace(next) {
+    	var query = "CREATE KEYSPACE IF NOT EXISTS uprofile WITH replication = {'class': 'SimpleStrategy', 'replication_factor': '3' } ";
+    	client.execute(query, next);
+    	console.log("created keyspace");    
+  }
+    ```
+
+* A new table is created.
+
+   ```java
+   function createTable(next) {
+   	var query = "CREATE TABLE IF NOT EXISTS uprofile.user (user_id int PRIMARY KEY, user_name text, user_bcity text)";
+    	client.execute(query, next);
+    	console.log("created table");
+   },
+   ```
+
+* Key/value entities are inserted.
+
+    ```java
+    ...
+    {
+          query: 'INSERT INTO  uprofile.user  (user_id, user_name , user_bcity) VALUES (?,?,?)',
+          params: [5, 'SubbannaG', 'Belgaum', '2017-10-3136']
+        }
+    ];
+    client.batch(queries, { prepare: true}, next);
+    ```
+
+* Query to get get all key values.
+
+    ```java
+   var query = 'SELECT * FROM uprofile.user';
+    client.execute(query, { prepare: true}, function (err, result) {
+      if (err) return next(err);
+      result.rows.forEach(function(row) {
+        console.log('Obtained row: %d | %s | %s ',row.user_id, row.user_name, row.user_bcity);
+      }, this);
+      next();
+    });
+    ```  
+    
+ * Query to get a key-value.
+
+    ```java
+    function selectById(next) {
+    	console.log("\Getting by id");
+    	var query = 'SELECT * FROM uprofile.user where user_id=1';
+    	client.execute(query, { prepare: true}, function (err, result) {
+      	if (err) return next(err);
+      		result.rows.forEach(function(row) {
+        	console.log('Obtained row: %d | %s | %s ',row.user_id, row.user_name, row.user_bcity);
+      	}, this);
+      	next();
+    	});
+    }
+    ```  
 
 ## Update your connection string
 

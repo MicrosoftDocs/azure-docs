@@ -16,36 +16,34 @@ ms.date: 11/01/2017
 ms.author: govindk
 ms.custom: mvc
 ---
-# How to import Cassandra data into Azure Cosmos DB using CQL Copy
+# Azure Cosmos DB: Import Cassandra data
 
-This tutorial provides instructions on importing Cassandra data into Azure Cosmos DB using the CQL Copy command. 
+This tutorial provides instructions on importing Cassandra data into Azure Cosmos DB using the CQL COPY command. 
 
 This tutorial covers the following tasks:
 
 > [!div class="checklist"]
-> * add task 1
-> * add task 2
-> * add task 3
+> * Importing data using CQL
 
-## <a id="Prerequisites"></a>Prerequisites
-Before following the instructions in this article, ensure that you have the following installed:
+## Prerequisites
 
-* TODO.
+Data copied from Cassandra should be placed in tables in an Azure Cosmos DB Cassandra API account. To create an Azure Cosmos DB account, see [Create a database account](create-cassandra-java.md#create-a-database-account).
 
 ## Import data
 
-TODO
+To import data Cassandra data into Azure Cosmos DB, use the CQL COPY command.
+
+1. Export data from Cassandra to an csv file using the [COPY](http://docs.datastax.com/en/cql/3.1/cql/cql_reference/copy_r.html) command.
+2. Import to Azure Cosmos DB from the csv file using the COPY command. 
 
 ## Next steps
 
 In this tutorial, you've done the following:
 
 > [!div class="checklist"]
-> * add task 1
-> * add task 2
-> * add task 3
+> * Imported data using CQL
 
-You can now proceed to the next tutorial and learn how to query data using Azure Cosmos DB. 
+You can now proceed to the Concepts section for more information about Azure Cosmos DB. 
 
 > [!div class="nextstepaction"]
->[How to query data?](../cosmos-db/tutorial-query-cassandra.md)
+>[Tunable data consistency levels in Azure Cosmos DB](../cosmos-db/consistency-levels.md)
