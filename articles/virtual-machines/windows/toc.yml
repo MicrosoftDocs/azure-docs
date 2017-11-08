@@ -382,6 +382,8 @@
       href: how-to-use-perfInsights.md
     - name: Performance Diagnostics VM Extension 
       href: performance-diagnostics-vm-extension.md
+    - name: Use nested virtualization 
+      href: troubleshoot-vm-by-use-nested-virtualization.md
 - name: Reference
   items:
   - name: Azure CLI
