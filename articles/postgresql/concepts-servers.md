@@ -54,4 +54,4 @@ As a managed service for Postgres, the configurable parameters in Azure Database
 - For an overview of the service, see [Azure Database for PostgreSQL Overview](overview.md).
 - For information about specific resource quotas and limitations based on your **service tier**, see [Service tiers](concepts-service-tiers.md).
 - For information on connecting to the service, see [Connection libraries for Azure Database for PostgreSQL](concepts-connection-libraries.md).
-- View and edit server parameters through [Azure Portal](howto-configure-server-parameters-using-portal.md) or [Azure CLI](howto-configure-server-parameters-using-cli.md).
+- View and edit server parameters through [Azure portal](howto-configure-server-parameters-using-portal.md) or [Azure CLI](howto-configure-server-parameters-using-cli.md).
