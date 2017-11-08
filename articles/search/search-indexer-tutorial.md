@@ -108,7 +108,7 @@ You can find the search service endpoint and key in the portal. A key provides a
 
 ## Prepare an external data source
 
-In this step, create an external data source that an indexer can crawl. The data file for this tutorial is *hotels.sql*,provided in the \DotNetHowToIndexers solution folder. 
+In this step, create an external data source that an indexer can crawl. The data file for this tutorial is *hotels.sql*, provided in the \DotNetHowToIndexers solution folder. 
 
 ### Azure SQL Database
 
