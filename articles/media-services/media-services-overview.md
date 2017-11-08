@@ -79,7 +79,7 @@ For detailed information, see [AMS scenarios and availability of features and se
 
 For more information, see [Microsoft Azure SLA](https://azure.microsoft.com/support/legal/sla/).
 
-For information about availability in datacenters, see the [Avaiability](scenarios-and-availability.md#availability) section.
+For information about availability in datacenters, see the [Availability](scenarios-and-availability.md#availability) section.
 
 ## Support
 
