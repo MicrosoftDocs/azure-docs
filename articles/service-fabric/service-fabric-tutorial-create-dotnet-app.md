@@ -301,7 +301,7 @@ namespace VotingWeb.Controllers
 }
 ```
 
-## Configure the listening port
+### Configure the listening port
 When the VotingWeb front-end service is created, Visual Studio randomly selects a port for the service to listen on.  The VotingWeb service acts as the front-end for this application and accepts external traffic, so let's bind that service to a fixed and well-know port. In Solution Explorer, open  *VotingWeb/PackageRoot/ServiceManifest.xml*.  Find the **Endpoint** resource in the **Resources** section and change the **Port** value to 80.
 
 ```xml
