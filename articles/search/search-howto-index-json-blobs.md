@@ -18,25 +18,26 @@ ms.author: eugenesh
 ---
 
 # Indexing JSON blobs with Azure Search blob indexer
-This article shows you how to configure Azure Search blob indexer to extract structured content from blobs in Azure Blob storage that contain JSON.
+This article shows you how to configure an Azure Search blob indexer to extract structured content from JSON blobs in Azure Blob storage.
 
-Blobs in Azure blob storage are typically either a single JSON document or a JSON array. The blob indexer in Azure Search can parse either construction, using a **parsingMode** parameter to set the mode:
+JSON blobs in Azure Blob storage are typically either a single JSON document or a JSON array. The blob indexer in Azure Search can parse either construction, depending on how you set the **parsingMode** parameter on the request.
 
 | JSON document | parsingMode | Description | Availability |
 |--------------|-------------|--------------|--------------|
-| One per blob | `json` | Parses JSON blobs as a single chunk of text. Each JSON blob becomes a single Azure Search document. | Generally available in both REST and .NET APIs. |
-| Multiple per blob | `jsonArray` | Parses a JSON array in the blob, where each element of the array becomes a separate Azure Search document.  | In preview, available through the REST API only, in this api-version: `2016-09-01-Preview` |
+| One per blob | `json` | Parses JSON blobs as a single chunk of text. Each JSON blob becomes a single Azure Search document. | Generally available in both [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) and [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) APIs. |
+| Multiple per blob | `jsonArray` | Parses a JSON array in the blob, where each element of the array becomes a separate Azure Search document.  | In preview, in [REST api-version=`2016-09-01-Preview`](search-api-2016-09-01-preview.md) and [.NET SDK Preview](https://aka.ms/search-sdk-preview). |
 
 > [!Note]
 > Preview APIs are intended for testing and evaluation, and should not be used in production environments.
 >
 
 ## Setting up JSON indexing
-Indexing JSON blobs is similar to the regular document extraction in a three-part workflow.
+Indexing JSON blobs is similar to the regular document extraction in a three-part workflow common to all indexers in Azure Search.
 
 ### Step 1: Create a data source
 
-The data source type, specified as `azureblob`, determines which data extraction behaviors are invoked by the indexer. This step is the same for both JSON documents and arrays. 
+The first step is to provide data source connection information used by the indexer. 
+The data source type, specified here as `azureblob`, determines which data extraction behaviors are invoked by the indexer. For JSON blob indexing, data source is definition is the same for both JSON documents and arrays. 
 
     POST https://[service name].search.windows.net/datasources?api-version=2016-09-01
     Content-Type: application/json
@@ -53,9 +54,12 @@ The data source type, specified as `azureblob`, determines which data extraction
 
 Indexers are paired with an index schema. If you are using the API (rather than the portal), prepare an index in advance so that you can specify it on the indexer operation. 
 
+> [!Note]
+> Indexers are exposed in the portal through the **Import** action for a limited number of generally available indexers. Often, the import workflow can often construct a preliminary index based on metadata in the source. For more information, see [Import data into Azure Search in the portal](search-import-data-portal.md).
+
 ### Step 3: Configure and run the indexer
 
-Up to this step, definitions for the data source and index are mode agnostic. Indexer configuration is where you specify how you want the blobs to be articulated in your Azure Search index.
+Until now, definitions for the data source and index have been parsingMode agnostic. However, in step 3 for Indexer configuration, you specify how you want the blobs to be imported and structured in an Azure Search index.
 
 When calling the indexer, do the following:
 
@@ -69,7 +73,7 @@ When calling the indexer, do the following:
 
 ## How to parse single JSON blobs
 
-By default, [Azure Search blob indexer](search-howto-indexing-azure-blob-storage.md) parses JSON blobs as a single chunk of text. Often, you want to preserve the structure of your JSON documents. For example, assume you have the following JSON document in Azure blob storage:
+By default, [Azure Search blob indexer](search-howto-indexing-azure-blob-storage.md) parses JSON blobs as a single chunk of text. Often, you want to preserve the structure of your JSON documents. For example, assume you have the following JSON document in Azure Blob storage:
 
     {
         "article" : {
@@ -215,4 +219,4 @@ If you have feature requests or ideas for improvements, reach out to us on our [
 + [Indexers in Azure Search](search-indexer-overview.md)
 + [Indexing Azure Blob Storage with Azure Search](search-howto-index-json-blobs.md)
 + [Indexing CSV blobs with Azure Search blob indexer](search-howto-index-csv-blobs.md)
-+ [Tutorial: Search semi-structured data from Azure blob storage ](search-semi-structured-data.md)
++ [Tutorial: Search semi-structured data from Azure Blob storage ](search-semi-structured-data.md)
