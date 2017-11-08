@@ -49,21 +49,39 @@ Azure Metadata Service surfaces Scheduled Events in the following use cases:
 Azure Metadata service exposes information about running Virtual Machines using a REST Endpoint accessible from within the VM. The information is available via a non-routable IP so that it is not exposed outside the VM.
 
 ### Scope
-Scheduled events are surfaced to all Virtual Machines in a cloud service or to all Virtual Machines in an Availability Set. As a result, you should check the `Resources` field in the event to identify which VMs are going to be impacted. 
+Scheduled events are surfaced to the following groupings: 
+
+|Service Type | Scheduled Events Grouping | 
+| - | - |
+| Cloud Service | All VMs in the Cloud Service | 
+| Availability Set | All VMs in the Availability Set | 
+| Virtual Machine Scale Set | All VMs in a placement group
+
+ You should check the `Resources` field for any given event to identify which VMs are going to be impacted. 
 
 ### Discovering the endpoint
+For VNET enabled VMs, the full endpoint for the scheduled events service is: 
+
+ > `http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01`
+
 In the case where a Virtual Machine is created within a Virtual Network (VNet), the metadata service is available from a static non-routable IP, `169.254.169.254`.
-If the Virtual Machine is not created within a Virtual Network, the default cases for cloud services and classic VMs, additional logic is required to discover the endpoint to use. 
+If the Virtual Machine is not created within a Virtual Network, the default cases for cloud services and classic VMs, additional logic is required to discover the IP to use. 
 Refer to this sample to learn how to [discover the host endpoint](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm).
 
 ### Versioning 
-The Instance Metadata Service is versioned. Versions are mandatory and the current version is `2017-03-01`.
+The Instance Metadata Service is versioned. Versions are mandatory and the current version is `2017-08-01`.
+
+| Version | Release Notes | 
+| - | - | 
+| 2017-08-01 | Enable Opt-Out feature after 1 day of inactivity<br>Removed prepended underscore from resource names<br>Metadata Header requirement enforced for all requests | 
+| 2017-03-01 | Public Preview Version
+
 
 > [!NOTE] 
 > Previous preview releases of scheduled events supported {latest} as the api-version. This format is no longer supported and will be deprecated in the future.
 
 ### Using headers
-When you query the Metadata Service, you must provide the header `Metadata: true` to ensure the request was not unintentionally redirected.
+When you query the Metadata Service, you must provide the header `Metadata:true` to ensure the request was not unintentionally redirected. The `Metadata:true` header is required for all scheduled events requests. Failure to include the header in the request will result in a Bad Request response from the Metadata Service.
 
 ### Enabling Scheduled Events
 The first time you make a request for scheduled events, Azure implicitly enables the feature on your Virtual Machine. As a result, you should expect a delayed response in your first call of up to two minutes.
@@ -74,7 +92,7 @@ User initiated virtual machine maintenance via the Azure portal, API, CLI, or Po
 Restarting a virtual machine schedules an event with type `Reboot`. Redeploying a virtual machine schedules an event with type `Redeploy`.
 
 > [!NOTE] 
-> Currently a maximum of 10 user initiated maintenance operations can be simultaneously scheduled. This limit will be relaxed before Scheduled Events general availability.
+> Currently a maximum of 100 user initiated maintenance operations can be simultaneously scheduled.
 
 > [!NOTE] 
 > Currently user initiated maintenance resulting in Scheduled Events is not configurable. Configurability is planned for a future release.
@@ -84,8 +102,9 @@ Restarting a virtual machine schedules an event with type `Reboot`. Redeploying 
 ### Query for events
 You can query for Scheduled Events simply by making the following call:
 
+#### Bash
 ```
-curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2017-03-01
+curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01
 ```
 
 A response contains an array of scheduled events. An empty array means that there are currently no events scheduled.
@@ -129,15 +148,24 @@ Each event is scheduled a minimum amount of time in the future based on event ty
 
 Once you have learned of an upcoming event and completed your logic for graceful shutdown, you can approve the outstanding event by making a `POST` call to the metadata service with the `EventId`. This indicates to Azure that it can shorten the minimum notification time (when possible). 
 
+The following is the json expected in the `POST` request body. The request should contain a list of `StartRequests`. Each `StartRequest` contains the `EventId` for the event you want to expedite:
 ```
-curl -H Metadata:true -X POST -d '{"DocumentIncarnation":"5", "StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' http://169.254.169.254/metadata/scheduledevents?api-version=2017-03-01
+{
+	"StartRequests" : [
+		{
+			"EventId": {EventId}
+		}
+	]
+}
+```
+
+#### Bash Sample
+```
+curl -H Metadata:true -X POST -d '{"DocumentIncarnation":"5", "StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01
 ```
 
 > [!NOTE] 
 > Acknowledging an event allows the event to proceed for all `Resources` in the event, not just the virtual machine that acknowledges the event. You may therefore choose to elect a leader to coordinate the acknowledgement, which may be as simple as the first machine in the `Resources` field.
-
-
-
 
 ## Python sample 
 
@@ -184,6 +212,6 @@ if __name__ == '__main__':
 ```
 
 ## Next steps 
-
+- Look through more Scheduled Events code sample in the [Azure Instance Metadata Scheduled Events Github Repository](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm)
 - Read more about the APIs available in the [Instance Metadata service](instance-metadata-service.md).
 - Learn about [planned maintenance for Linux virtual machines in Azure](planned-maintenance.md).
