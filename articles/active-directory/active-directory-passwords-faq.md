@@ -173,6 +173,11 @@ This FAQ is split into the following sections:
   > **A:** The session lifetime for password reset is 15 minutes. From the beginning of the password reset operation, the user has 15 minutes to reset their password. The email and SMS one-time passcode are invalid after this time period expires.
   >
   >
+* **Q:  Can I block users from resetting their password?**
+
+  > **A:** Yes, if you are using a group to enable self-service password reset you can remove them from the group that allows them this ability.
+  >
+  >
 
 ## Password change
 
@@ -184,6 +189,11 @@ This FAQ is split into the following sections:
 * **Q:  Can my users be notified in the Office Portal when their on-premises password expires?**
 
   > **A:** This is possible today if you are using ADFS by following the instructions here: [Sending Password Policy Claims with ADFS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configure-ad-fs-to-send-password-expiry-claims?f=255&MSPPError=-2147217396). If you are using password hash synchronization, this is not possible today. This is because we do not sync password policies from on-premises, so it is not possible for us to post expiry notifications to cloud experiences. In either case, it is also possible to [notify users whose passwords are about to expire by using PowerShell](https://social.technet.microsoft.com/wiki/contents/articles/23313.notify-active-directory-users-about-password-expiry-using-powershell.aspx).
+  >
+  >
+* **Q:  Can I block users from changing their password?**
+
+  > **A:** For cloud-only users this cannot be blocked. For on-premises users you can set `User cannot change password` to checked and those users will not be able to change their password.
   >
   >
 

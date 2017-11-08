@@ -24,7 +24,7 @@ ms.author: mimig
 |---|---|
 |**SDK download**|[NuGet](https://aka.ms/acdbtablenuget)|
 |**API documentation**|[.NET API reference documentation](https://aka.ms/acdbtableapiref)|
-|**Quickstart**|[Azure Cosmos DB: Build an app with .NET and the Table API](https://aka.ms/acdbtnetqs)|
+|**Quickstart**|[Azure Cosmos DB: Build an app with .NET and the Table API](create-table-dotnet.md)|
 |**Tutorial**|[Azure CosmosDB: Create a container with the Graph API](tutorial-develop-graph-dotnet.md)|
 |**Current supported framework**|[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)|
 

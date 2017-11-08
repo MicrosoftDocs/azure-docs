@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
-ms.date: 09/25/2017
+ms.date: 11/06/2017
 ---
 
 # Classify Iris part 2: Build a model
@@ -227,7 +227,7 @@ With Machine Learning, you can easily configure additional execution environment
 
 2. Use the command prompt to log in to Azure. 
 
-   The workbench app and CLI use independent credential caches when authenticating against Azure resources. You only need to do this once until the cached token expires. The **az account list** command returns the list of subscriptions available to your login. If there is more than one, use the ID value from the desired subscription. Set that subscription as the default account to use with the **az set account -s** command, and then provide the subscription ID value. Then confirm the setting by using the account **show** command.
+   The workbench app and CLI use independent credential caches when authenticating against Azure resources. You only need to do this once until the cached token expires. The **az account list** command returns the list of subscriptions available to your login. If there is more than one, use the ID value from the desired subscription. Set that subscription as the default account to use with the **az account set -s** command, and then provide the subscription ID value. Then confirm the setting by using the account **show** command.
 
    ```azurecli
    REM login by using the aka.ms/devicelogin site
@@ -237,7 +237,7 @@ With Machine Learning, you can easily configure additional execution environment
    az account list -o table
    
    REM sets the current Azure subscription to the one you want to use
-   az set account -s <subscriptionId>
+   az account set -s <subscriptionId>
    
    REM verifies that your current subscription is set correctly
    az account show
@@ -331,7 +331,7 @@ To execute your script in a Docker container on a remote Linux machine, you need
    ```yaml
    "Framework": "PySpark"
    ```
-   Don't make any changes to the `myvm.compute` file. The same Docker image on the same VM gets used for the Spark execution. In the new `myvy-spark.runconfig`, the `target` field points to the same `myvm.compute` file via its name `myvm`.
+   Don't make any changes to the `myvm.compute` file. The same Docker image on the same VM gets used for the Spark execution. In the new `myvm-spark.runconfig`, the `target` field points to the same `myvm.compute` file via its name `myvm`.
 
 5. Type the following command to run it in the Spark instance in the remote Docker container:
    ```azureli

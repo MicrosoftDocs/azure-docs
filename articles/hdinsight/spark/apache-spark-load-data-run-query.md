@@ -31,10 +31,12 @@ For this tutorial, you use the **PySpark** kernel in the Jupyter notebook to run
 
 ## Create a Jupyter notebook to run interactive queries
 
-To run queries, we use sample data that is by default available in the storage associated with the cluster. However, you must first load that data into Spark as a dataframe. Once you have the dataframe, you can run queries on it using the Jupyter notebook. In this section, you look at how to:
+To run queries, we use sample data that is by default available in the storage associated with the cluster. However, you must first load that data into Spark as a dataframe. Once you have the dataframe, you can run queries on it using the Jupyter notebook. In this article, you look at how to:
 
 * Register a sample data set as a Spark dataframe.
 * Run queries on the dataframe.
+
+Let's get started.
 
 1. Open the [Azure portal](https://portal.azure.com/). If you opted to pin the cluster to the dashboard, click the cluster tile from the dashboard to launch the cluster blade.
 
@@ -75,7 +77,7 @@ To run queries, we use sample data that is by default available in the storage a
 
     ![Snapshot of data for interactive Spark SQL query](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "Snapshot of data for interactive Spark SQL query")
 
-6. Create a dataframe and a temporary table (**hvac**) by running the following code. For this tutorial, we do not create all the columns in the temporary table as compared to the columns in the raw CSV data. 
+6. Create a dataframe and a temporary table (**hvac**) by running the following code. For this tutorial, we do not create all the columns available in the CSV file. 
 
 		# Create an RDD from sample data
         hvacText = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
@@ -93,7 +95,7 @@ To run queries, we use sample data that is by default available in the storage a
         dfw = DataFrameWriter(hvacTable)
         dfw.saveAsTable('hvac')
 
-7. Once the table is created, run interactive query on the data, use the following code.
+7. Once the table is created, run an interactive query on the data, use the following code.
 
 		%%sql
 		SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
@@ -104,11 +106,13 @@ To run queries, we use sample data that is by default available in the storage a
 
      ![Table output of interactive Spark query result](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result.png "Table output of interactive Spark query result")
 
-    You can also see the results in other visualizations as well. For example, an area graph for the same output would look like the following.
+9. You can also see the results in other visualizations as well. To see an area graph for the same output, select **Area** then set other values as shown.
 
     ![Area graph of interactive Spark query result](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result-area-chart.png "Area graph of interactive Spark query result")
 
-9. Shut down the notebook to release the cluster resources after you have finished running the application. To do so, from the **File** menu on the notebook, click **Close and Halt**.
+10. From the **File** menu on the notebook, click **Save and Checkpoint**. 
+
+11. If you're starting the [next tutorial](apache-spark-use-bi-tools.md) now, leave the notebook open. If not, shut down the notebook to release the cluster resources: from the **File** menu on the notebook, click **Close and Halt**.
 
 ## Next step
 

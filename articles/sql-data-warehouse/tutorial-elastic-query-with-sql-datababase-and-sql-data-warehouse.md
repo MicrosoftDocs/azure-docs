@@ -119,9 +119,9 @@ In the next few steps we will create a table in our data warehouse instance with
    ) 
    WITH 
    (
-     	DATA_SOURCE = EnterpriseDwSrc,
-   	SCHEMA_NAME = N'dbo',
-   	OBJECT_NAME = N'OrderInformation'
+     	DATA_SOURCE = EnterpriseDwSrc
+   ,	SCHEMA_NAME = N'dbo'
+   ,	OBJECT_NAME = N'OrderInformation'
    )
    ```
 
