@@ -126,11 +126,19 @@ The following steps walk you through using the Azure portal to create an Azure C
 1. Add your Azure Container Registry access settings from the previous section of this tutorial to the `<servers>` collection in the *settings.xml* file; for example:
 
    ```xml
+   <settings>
+       <pluginGroups>
+           <pluginGroup>com.spotify</pluginGroup>
+       </pluginGroups>
+   </settings>
    <servers>
       <server>
          <id>wingtiptoysregistry</id>
          <username>wingtiptoysregistry</username>
          <password>AbCdEfGhIjKlMnOpQrStUvWxYz</password>
+         <configuration>
+            <email>foo@foo.bar</email>
+         </configuration>
       </server>
    </servers>
    ```
@@ -155,7 +163,7 @@ The following steps walk you through using the Azure portal to create an Azure C
       <version>0.4.11</version>
       <configuration>
          <imageName>${docker.image.prefix}/${project.artifactId}</imageName>
-         <dockerDirectory>src/main/docker</dockerDirectory>
+         <dockerDirectory>${project.basedir}</dockerDirectory>
          <resources>
             <resource>
                <targetPath>/</targetPath>
