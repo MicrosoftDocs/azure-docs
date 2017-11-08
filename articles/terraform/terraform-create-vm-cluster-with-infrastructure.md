@@ -199,7 +199,7 @@ In this section, you will create a file that contains resource definitions for y
 The [terraform init](https://www.terraform.io/docs/commands/init.html) command is used to initialize a directory that contains the Terraform configuration files - the files you created with the previous steps. You should always run the `terraform init` command after writing a new Terraform configuration. 
 
 > [!TIP]
-> The `terraform init` command is idempotent meaning that it can be called repeatedly while producing the same result. Therefore, if you're working in a collaborative environment, and you think the confiruation files might have been changed, it's always a good idea to call the `terraform init` command before executing or applying a plan.
+> The `terraform init` command is idempotent meaning that it can be called repeatedly while producing the same result. Therefore, if you're working in a collaborative environment, and you think the configuration files might have been changed, it's always a good idea to call the `terraform init` command before executing or applying a plan.
 
 To initialize Terraform, run the following command:
 
