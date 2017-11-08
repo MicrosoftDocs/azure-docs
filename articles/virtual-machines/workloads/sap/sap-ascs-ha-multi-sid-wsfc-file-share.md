@@ -396,22 +396,27 @@ Right-click the **saoglobal2** SOFS cluster group, and then select **Add File Sh
 
 _**Figure 6:** Start “Add File Share” wizard_
 
+<br>
 ![Figure 7: "Select SMB Share – Quick"][sap-ha-guide-figure-8018]
 
 _**Figure 7:** Select "SMB Share – Quick"_
 
+<br>
 ![Figure 8: Select "sapglobalhost2" and specify path on Volume2][sap-ha-guide-figure-8019]
 
 _**Figure 8:** Select "sapglobalhost2" and specify path on Volume2_
 
+<br>
 ![Figure 9: Set file share name to "sapmnt"][sap-ha-guide-figure-8020]
 
 _**Figure 9:** Set file share name to "sapmnt"_
 
+<br>
 ![Figure 10: Disable all settings][sap-ha-guide-figure-8021]
 
 _**Figure 10:** Disable all settings_
 
+<br>
 Assign *Full control* permissions to files and sapmnt share for:
 * The **SAP_\<SID>_GlobalAdmin** domain user group
 * Computer object of ASCS/SCS cluster nodes **ascs-1$** and **ascs-2$**
@@ -420,14 +425,17 @@ Assign *Full control* permissions to files and sapmnt share for:
 
 _**Figure 11:** Assign "Full control" to user group and computer accounts_
 
+<br>
 ![Figure 12: Select "Create"][sap-ha-guide-figure-8023]
 
 _**Figure 12:** Select "Create"_
 
+<br>
 ![Figure 13: The second sapmnt bound to sapglobal2 host and Volume2 is created][sap-ha-guide-figure-8024]
 
 _**Figure 13:** The second sapmnt bound to sapglobal2 host and Volume2 is created_
 
+<br>
 ## Install SAP NetWeaver multi-SID
 
 ### Install SAP \<SID2> ASCS/SCS and ERS instances
@@ -439,7 +447,7 @@ Install DBMS and SAP application Servers as described earlier.
 
 ## Next steps
 
-* [Install an ASCS/SCS instance on a failover cluster with no shared disks: Official SAP guidelines for an HA file share][sap-official-ha-file-share-document]:
+* [Install an ASCS/SCS instance on a failover cluster with no shared disks][sap-official-ha-file-share-document]: Official SAP guidelines for an HA file share
 
 * [Storage spaces direct in Windows Server 2016][s2d-in-win-2016]
 
