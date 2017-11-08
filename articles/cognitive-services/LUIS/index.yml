@@ -17,7 +17,7 @@ abstract:
   description: Language Understanding Intelligent Service (LUIS) allows your application to understand what a person wants in their own words. LUIS uses machine learning to allow developers to build applications that can receive user input in natural language and extract meaning from it.
 sections:
 - title: 5-Minute Quickstarts
-   items:
+  items:
   - type: paragraph
     text: 'Learn how to use LUIS API to add intelligence to your app:'
   - type: table
