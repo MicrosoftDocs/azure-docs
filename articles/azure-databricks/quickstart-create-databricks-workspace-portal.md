@@ -19,17 +19,15 @@ ms.author: nitinme
 
 # Quickstart: Get started with Azure Databricks by using the Azure portal
 
-This quickstart shows how to create an Azure Databricks workspace and then an Apache Spark cluster within that workspace. You also learn how to run your first Spark job on the cluster. For more information on Azure Databricks, see [What is Azure Databricks?](what-is-azure-databricks.md).
+This quickstart shows how to create an Azure Databricks workspace and then an Apache Spark cluster within that workspace. You also learn how to run your first Spark job on the cluster. For more information on Azure Databricks, see [What is Azure Databricks?](what-is-azure-databricks.md)
 
-## Prerequisites
+## Log in to the Azure portal
 
-* **An Azure subscription**. Before you begin this tutorial, you must have an Azure subscription. See [Create your free Azure account today](https://azure.microsoft.com/free).
-* **A Sample CSV file**. You can download the sample file from << HERE >>
-* **An Azure Blob Storage account**. For instructions, see [Create an Azure storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account). For more information, see [Introduction to Azure Blob storage](../storage/blobs/storage-blobs-introduction.md).
-* **A modern web browser**. The Azure  portal uses HTML5 and Javascript, and may not function correctly in older web browsers.
-
+Log in to the [Azure  portal](https://portal.azure.com).
 
 ## Create an Azure Databricks workspace
+
+Before you begin with this quickstart, you need to [Create an Azure storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) and download the sample CSV file from << HERE >>.
 
 1. Sign in to the [Azure  portal](https://portal.azure.com).
 
