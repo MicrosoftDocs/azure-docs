@@ -184,23 +184,18 @@ The attribute's constructor takes the name of the event hub, the name of the con
 public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnection")] string myEventHubMessage, TraceWriter log)
 ```
 
-## Trigger - settings
+## Trigger - configuration
 
-The following settings appear only in the *function.json* file:
+The following table explains the binding configuration properties that you set in the *function.json* file and the `EventHubTrigger` attribute.
 
-|Property  |Description  |
-|---------|---------|
-|**type** | Must be set to `eventHubTrigger`. This property is set automatically when you create the trigger in the Azure portal.|
-|**direction** | Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. |
-|**name** | The name of the variable that represents the event item in function code. | 
-
-The following settings are configured in the *function.json* file and the .NET attribute constructor:
-
-|Property  |Description  |
-|---------|---------|
-|**path** | The name of the event hub. | 
-|**consumerGroup** | An optional property that sets the [consumer group](../event-hubs/event-hubs-features.md#event-consumers) used to subscribe to events in the hub. If omitted, the `$Default` consumer group is used. | 
-|**connection** | The name of an app setting that contains the connection string to the event hub's namespace. Copy this connection string by clicking the **Connection Information** button for the *namespace*, not the event hub itself. This connection string must have at least read permissions to activate the trigger.|
+|function.json property | Attribute property |Description|
+|---------|---------|----------------------|
+|**type** | n/a | Must be set to `eventHubTrigger`. This property is set automatically when you create the trigger in the Azure portal.|
+|**direction** | n/a | Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. |
+|**name** | n/a | The name of the variable that represents the event item in function code. | 
+|**path** |**EventHubName** | The name of the event hub. | 
+|**consumerGroup** |**ConsumerGroup** | An optional property that sets the [consumer group](../event-hubs/event-hubs-features.md#event-consumers) used to subscribe to events in the hub. If omitted, the `$Default` consumer group is used. | 
+|**connection** |**Connection** | The name of an app setting that contains the connection string to the event hub's namespace. Copy this connection string by clicking the **Connection Information** button for the *namespace*, not the event hub itself. This connection string must have at least read permissions to activate the trigger.|
 
 ## Trigger - host.json properties
 
@@ -355,22 +350,17 @@ The attribute's constructor takes the name of the event hub and the name of an a
 public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, TraceWriter log)
 ```
 
-## Output - settings
+## Output - configuration
 
-The following settings appear only in the *function.json* file:
+The following table explains the binding configuration properties that you set in the *function.json* file and the `EventHub` attribute.
 
-|Property  |Description  |
-|---------|---------|
-|**type** | Must be set to `eventHub`. |
-|**direction** | Must be set to `out`. This parameter is set automatically when you create the binding in the Azure portal. |
-|**name** | The variable name used in function code that represents the event. | 
-
-The following settings are configured in the *function.json* file and the .NET attribute constructor:
-
-|Property  |Description  |
-|---------|---------|
-|**path** | The name of the event hub. | 
-|**connection** | The name of an app setting that contains the connection string to the event hub's namespace. Copy this connection string by clicking the **Connection Information** button for the *namespace*, not the event hub itself. This connection string must have send permissions to send the message to the event stream.|
+|function.json property | Attribute property |Description|
+|---------|---------|----------------------|
+|**type** | n/a | Must be set to "eventHub". |
+|**direction** | n/a | Must be set to "out". This parameter is set automatically when you create the binding in the Azure portal. |
+|**name** | n/a | The variable name used in function code that represents the event. | 
+|**path** |**EventHubName** | The name of the event hub. | 
+|**connection** |**Connection** | The name of an app setting that contains the connection string to the event hub's namespace. Copy this connection string by clicking the **Connection Information** button for the *namespace*, not the event hub itself. This connection string must have send permissions to send the message to the event stream.|
 
 ## Output - usage
 

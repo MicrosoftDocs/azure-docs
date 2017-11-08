@@ -187,25 +187,20 @@ The Service Bus account to use is determined in the following order:
 * The `ServiceBusAccount` attribute applied to the class.
 * The "AzureWebJobsServiceBus" app setting.
 
-## Trigger - settings
+## Trigger - configuration
 
-The following settings appear only in the *function.json* file:
+The following table explains the binding configuration properties that you set in the *function.json* file and the `ServiceBusTrigger` attribute.
 
-|Property  |Description  |
-|---------|---------|
-|`type` | Must be set to `serviceBusTrigger`. This property is set automatically when you create the trigger in the Azure portal.|
-|`direction` | Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. |
-|`name` | The name of the variable that represents the queue or topic message in function code. Set to `$return` to reference the function return value. | 
-
-The following settings are configured in the *function.json* file and the .NET attribute constructor:
-
-|Property  |Description  |
-|---------|---------|
-|`queueName`|Name of the queue to monitor.  Set only if monitoring a queue, not for a topic.
-|`topicName`|Name of the topic to monitor. Set only if monitoring a topic, not for a queue.|
-|`subscriptionName`|Name of the subscription to monitor. Set only if monitoring a topic, not for a queue.|
-|`connection`|The name of an app setting that contains the Service Bus connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name. For example, if you set `connection` to "MyServiceBus", the Functions runtime looks for an app setting that is named "AzureWebJobsMyServiceBus." If you leave `connection` empty, the Functions runtime uses the default Service Bus connection string in the app setting that is named `AzureWebJobsServiceBus`.<br><br>To obtain a connection string, follow the steps shown at [Obtain the management credentials](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials). The connection string must be for a Service Bus namespace, not limited to a specific queue or topic. |
-|`accessRights`|Access rights for the connection string. Available values are `manage` and `listen`. The default is `manage`, which indicates that the `connection` has the **Manage** permission. If you use a connection string that does not have the **Manage** permission, set `accessRights` to `listen`. Otherwise, the Functions runtime might fail trying to do operations that require manage rights.|
+|function.json property | Attribute property |Description|
+|---------|---------|----------------------|
+|**type** | n/a | Must be set to "serviceBusTrigger". This property is set automatically when you create the trigger in the Azure portal.|
+|**direction** | n/a | Must be set to "in". This property is set automatically when you create the trigger in the Azure portal. |
+|**name** | n/a | The name of the variable that represents the queue or topic message in function code. Set to "$return" to reference the function return value. | 
+|**queueName**|**QueueName**|Name of the queue to monitor.  Set only if monitoring a queue, not for a topic.
+|**topicName**|**TopicName**|Name of the topic to monitor. Set only if monitoring a topic, not for a queue.|
+|**subscriptionName**|**SubscriptionName**|Name of the subscription to monitor. Set only if monitoring a topic, not for a queue.|
+|**connection**|**Connection**|The name of an app setting that contains the Service Bus connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name. For example, if you set `connection` to "MyServiceBus", the Functions runtime looks for an app setting that is named "AzureWebJobsMyServiceBus." If you leave `connection` empty, the Functions runtime uses the default Service Bus connection string in the app setting that is named "AzureWebJobsServiceBus".<br><br>To obtain a connection string, follow the steps shown at [Obtain the management credentials](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials). The connection string must be for a Service Bus namespace, not limited to a specific queue or topic. |
+|**accessRights**|**Access**|Access rights for the connection string. Available values are `manage` and `listen`. The default is `manage`, which indicates that the `connection` has the **Manage** permission. If you use a connection string that does not have the **Manage** permission, set `accessRights` to "listen". Otherwise, the Functions runtime might fail trying to do operations that require manage rights.|
 
 ## Trigger - usage
 
@@ -421,25 +416,20 @@ For [precompiled C#](functions-dotnet-class-library.md) functions, use the [Serv
 
 You can use the `ServiceBusAccount` attribute to specify the Service Bus account to use at class, method, or parameter level.  For more information, see [Trigger - .NET attributes](#trigger---net-attributes).
 
-## Output - settings
+## Output - configuration
 
-The following settings appear only in the *function.json* file:
+The following table explains the binding configuration properties that you set in the *function.json* file and the `ServiceBus` attribute.
 
-|Property  |Description  |
-|---------|---------|
-|`type` | Must be set to `serviceBus`. This property is set automatically when you create the trigger in the Azure portal.|
-|`direction` | Must be set to `out`. This property is set automatically when you create the trigger in the Azure portal. |
-|`name` | The name of the variable that represents the queue or topic in function code. Set to `$return` to reference the function return value. | 
-
-The following settings are configured in the *function.json* file and the .NET attribute constructor:
-
-|Property  |Description  |
-|---------|---------|
-|`queueName`|Name of the queue.  Set only if sending queue messages, not for a topic.
-|`topicName`|Name of the topic to monitor. Set only if sending topic messages, not for a queue.|
-|`subscriptionName`|Name of the subscription to monitor. Set only if sending topic messages, not for a queue.|
-|`connection`|The name of an app setting that contains the Service Bus connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name. For example, if you set `connection` to "MyServiceBus", the Functions runtime looks for an app setting that is named "AzureWebJobsMyServiceBus." If you leave `connection` empty, the Functions runtime uses the default Service Bus connection string in the app setting that is named `AzureWebJobsServiceBus`.<br><br>To obtain a connection string, follow the steps shown at [Obtain the management credentials](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials). The connection string must be for a Service Bus namespace, not limited to a specific queue or topic. |
-|`accessRights`|Access rights for the connection string. Available values are `manage` and `listen`. The default is `manage`, which indicates that the `connection` has the **Manage** permission. If you use a connection string that does not have the **Manage** permission, set `accessRights` to `listen`. Otherwise, the Functions runtime might fail trying to do operations that require manage rights.|
+|function.json property | Attribute property |Description|
+|---------|---------|----------------------|
+|**type** | n/a | Must be set to "serviceBus". This property is set automatically when you create the trigger in the Azure portal.|
+|**direction** | n/a | Must be set to "out". This property is set automatically when you create the trigger in the Azure portal. |
+|**name** | n/a | The name of the variable that represents the queue or topic in function code. Set to "$return" to reference the function return value. | 
+|**queueName**|**QueueName**|Name of the queue.  Set only if sending queue messages, not for a topic.
+|**topicName**|**TopicName**|Name of the topic to monitor. Set only if sending topic messages, not for a queue.|
+|**subscriptionName**|**SubscriptionName**|Name of the subscription to monitor. Set only if sending topic messages, not for a queue.|
+|**connection**|**Connection**|The name of an app setting that contains the Service Bus connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name. For example, if you set `connection` to "MyServiceBus", the Functions runtime looks for an app setting that is named "AzureWebJobsMyServiceBus." If you leave `connection` empty, the Functions runtime uses the default Service Bus connection string in the app setting that is named "AzureWebJobsServiceBus".<br><br>To obtain a connection string, follow the steps shown at [Obtain the management credentials](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials). The connection string must be for a Service Bus namespace, not limited to a specific queue or topic. |
+|**accessRights**|**Access** |Access rights for the connection string. Available values are "manage" and "listen". The default is "manage", which indicates that the connection has **Manage** permissions. If you use a connection string that does not have **Manage** permissions, set `accessRights` to "listen". Otherwise, the Functions runtime might fail trying to do operations that require manage rights.|
 
 ## Output - usage
 

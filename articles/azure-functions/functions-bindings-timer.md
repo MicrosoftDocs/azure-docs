@@ -146,21 +146,16 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWr
 
 You can specify a `TimeSpan` instead of a CRON expression if your function app runs on an App Service plan (not a Consumption plan).
 
-## Settings
+## Configuration
 
-The following settings appear only in the *function.json* file:
+The following table explains the binding configuration properties that you set in the *function.json* file and the `TimerTrigger` attribute.
 
-|Property  |Description  |
-|---------|---------|
-|`type` | Must be set to `timerTrigger`. This property is set automatically when you create the trigger in the Azure portal.|
-|`direction` | Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. |
-|`name` | The name of the variable that represents the timer object in function code. | 
-
-The following setting is configured in the *function.json* file and the .NET attribute constructor.  
-
-|Property  |Description  |
-|---------|---------|
-|`schedule`|On the Consumption plan, you can define schedules with a CRON expression. If you're using an App Service Plan, you can also use a `TimeSpan` string. The following sections explain CRON expressions.|
+|function.json property | Attribute property |Description|
+|---------|---------|----------------------|
+|**type** | n/a | Must be set to "timerTrigger". This property is set automatically when you create the trigger in the Azure portal.|
+|**direction** | n/a | Must be set to "in". This property is set automatically when you create the trigger in the Azure portal. |
+|**name** | n/a | The name of the variable that represents the timer object in function code. | 
+|**schedule**|**ScheduleExpression**|On the Consumption plan, you can define schedules with a CRON expression. If you're using an App Service Plan, you can also use a `TimeSpan` string. The following sections explain CRON expressions. You can put the schedule expression in an app setting and set this property to a value wrapped in **%** signs, as in this example: "%NameOfAppSettingWithCRONExpression%".|
 
 ### CRON format 
 
