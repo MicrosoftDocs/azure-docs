@@ -39,7 +39,7 @@ Log in to the Azure portal at http://portal.azure.com.
 
 Before you can back up Windows Server, you must create a place for the backups, or restore points, to be stored. A [Recovery Services vault](backup-azure-recovery-services-vault-overview.md) is a container in Azure that stores the backups from your Windows Server. Follow the steps below to create a Recovery Services vault in the Azure portal. 
 
-1. On the left-hand menu, select **More services** and in the services list,type **Recovery Services**. Click **Recovery Services vaults**.
+1. On the left-hand menu, select **All services** and in the services list,type **Recovery Services**. Click **Recovery Services vaults**.
 
    ![open Recovery Services vault](./media/tutorial-backup-windows-server-to-azure/full-browser-open-rs-vault.png)
 
@@ -113,23 +113,19 @@ You use the Microsoft Azure Recovery Services agent to schedule when backups to 
 
 3. Click **Next** to navigate to the **Select Items to Back up** page.
 
-4. Click **Add Items** and from the dialog box that opens select **System State** and files or folders that you want to back up. Then click **OK**.
+4. Click **Add Items** and from the dialog box that opens, select **System State** and files or folders that you want to back up. Then click **OK**.
 
 5. Click **Next**.
 
-6. On the **Specify Backup Schedule** page, specify the times of the day, or week when backups need to be triggered for files and folders. System State backup schedule is automatically configured. 
+6. On the **Specify Backup Schedule (System State)** page, specify the time of the day, or week when backups need to be triggered for System State and click **Next** 
 
-    ![prepare infrastructure](./media/tutorial-backup-windows-server-to-azure/mars-schedule-backup.png)
- 
-
-
-7.	On the **Select Retention Policy** page, select the Retention Policy for the backup copy for files and folders. The retention period of System State backups is automatically set to 60 days.
+7.	On the **Select Retention Policy (System State)** page, select the Retention Policy for the backup copy for System State and click **Next**
+8. Similarly, select the backup schedule and retention policy for selected files and folders. 
 8.	On the **Choose Initial Back up Type** page, leave the option **Automatically over the network** selected, and then click **Next**.
 9.	On the **Confirmation** page, review the information, and then click **Finish**.
 10.	After the wizard finishes creating the backup schedule, click **Close**.
 
 ## Perform an ad-hoc back up
-
 
 You have established the schedule when backup jobs run. However, you have not backed up the server. It is a disaster recovery best practice to run an on-demand backup to ensure data resiliency for your server.
 
@@ -137,8 +133,9 @@ You have established the schedule when backup jobs run. However, you have not ba
 
     ![prepare infrastructure](./media/tutorial-backup-windows-server-to-azure/mars-schedule-backup.png)
 
-2.	On the **Confirmation** page, review the settings that the **Back Up Now** wizard uses to back up your server. Then click **Back Up**.
-3.	Click **Close** to close the wizard. If you close the wizard before the back up process finishes, the wizard continues to run in the background.
+2.	On the **Back Up Now** wizard, select one from **Files and Folders** or **System State** that you want to back up and click **Next** 
+3. On the **Confirmation** page, review the settings that the **Back Up Now** wizard uses to back up your server. Then click **Back Up**.
+4.	Click **Close** to close the wizard. If you close the wizard before the back up process finishes, the wizard continues to run in the background.
 4.	After the initial backup is completed, **Job completed** status appears in **Jobs** pane of the MARS agent console.
 
 
