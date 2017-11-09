@@ -29,9 +29,9 @@ You can use one of several methods to deploy OpenShift Container Platform in Azu
 For all options, a Red Hat subscription is required. During the deployment, the Red Hat Enterprise Linux instance is registered to the Red Hat subscription and attached to the Pool ID that contains the entitlements for OpenShift Container Platform.
 Ensure that you have a valid Red Hat Subscription Manager (RHSM) username, password, and Pool ID. You can verify this information by signing in to https://access.redhat.com.
 
-## Deploy using the OpenShift Container Platform Resource Manager template
+## Deploy by using the OpenShift Container Platform Resource Manager template
 
-To deploy using the Resource Manager template, you use a parameters file to supply the input parameters. To customize any of the deployment items that are not covered using input parameters, fork the GitHub repo and change the appropriate items.
+To deploy by using the Resource Manager template, you use a parameters file to supply the input parameters. To customize any of the deployment items that are not covered by using input parameters, fork the GitHub repo and change the appropriate items.
 
 Some common customization options include, but are not limited to:
 
@@ -44,7 +44,7 @@ Some common customization options include, but are not limited to:
 
 Use the `appId` value from the service principal you created earlier for the `aadClientId` parameter. 
 
-The following example creates a parameters file named **azuredeploy.parameters.json** with all the required inputs.
+The following example creates a parameters file named azuredeploy.parameters.json with all the required inputs.
 
 ```json
 {
@@ -132,12 +132,12 @@ The following example creates a parameters file named **azuredeploy.parameters.j
 
 Replace the items enclosed in brackets with your specific information.
 
-### Deploy using Azure CLI
+### Deploy by using Azure CLI
 
 > [!NOTE] 
 > The following command requires Azure CLI 2.0.8 or later. You can verify the CLI version with the `az --version` command. To update the CLI version, see [Install Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latesti).
 
-The following example deploys the OpenShift cluster and all related resources into a resource group named myResourceGroup, with a deployment name of myOpenShiftCluster. The template is referenced directly from the GitHub repo, and a local parameters file named **azuredeploy.parameters.json** file is used.
+The following example deploys the OpenShift cluster and all related resources into a resource group named myResourceGroup, with a deployment name of myOpenShiftCluster. The template is referenced directly from the GitHub repo, and a local parameters file named azuredeploy.parameters.json file is used.
 
 ```azurecli 
 az group deployment create -g myResourceGroup --name myOpenShiftCluster \
@@ -154,21 +154,21 @@ The deployment takes at least 30 minutes to complete, depending on the total num
 }
 ```
 
-## Deploy using the OpenShift Container Platform Azure Marketplace offer
+## Deploy by using the OpenShift Container Platform Azure Marketplace offer
 
 The simplest way to deploy OpenShift Container Platform into Azure is to use the [Azure Marketplace offer](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.openshift-container-platform?tab=Overview).
 
 This is the simplest option, but it also has limited customization capabilities. The offer includes three configuration options:
 
-- **Small**: Deploys a non-HA cluster with one master node, one infrastructure node, two application nodes, and one bastion node. All nodes are standard DS2v2 VM sizes. This cluster requires 10 total cores and is ideal for small-scale testing.
+- **Small**: Deploys a non-high availability (HA) cluster with one master node, one infrastructure node, two application nodes, and one bastion node. All nodes are standard DS2v2 VM sizes. This cluster requires 10 total cores and is ideal for small-scale testing.
 - **Medium**: Deploys an HA cluster with three master nodes, two infrastructure nodes, four application nodes, and one bastion node. All nodes except the bastion node are standard DS3v2 VM sizes. The bastion node is a standard DS2v2. This cluster requires 38 cores.
 - **Large**: Deploys an HA cluster with three master nodes, two infrastructure nodes, six application nodes, and one bastion node. The master and infrastructure nodes are standard DS3v2 VM sizes. The application nodes are standard DS4v2 VM sizes, and the bastion node is a standard DS2v2. This cluster requires 70 cores.
 
-Configuration of Azure Cloud Provider is optional for medium and large cluster sizes. The small cluster size does not give an option for configuring Azure Cloud Provider.
+Configuration of Azure Cloud Solution Provider is optional for medium and large cluster sizes. The small cluster size does not give an option for configuring Azure Cloud Solution Provider.
 
 ## Connect to the OpenShift cluster
 
-When the deployment finishes, connect to the OpenShift console with your browser using the `OpenShift Console Uri`. Alternatively, you can connect to the OpenShift master using the following command:
+When the deployment finishes, connect to the OpenShift console with your browser by using the `OpenShift Console Uri`. Alternatively, you can connect to the OpenShift master by using the following command:
 
 ```bash
 $ ssh clusteradmin@myopenshiftmaster.cloudapp.azure.com -p 2200
