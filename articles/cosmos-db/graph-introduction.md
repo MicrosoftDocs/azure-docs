@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/29/2017
+ms.date: 11/15/2017
 ms.author: denlee
 
 ---
@@ -41,7 +41,7 @@ The Azure Cosmos DB Graph API provides:
 - Elastic scaling of storage and throughput with less than 10 ms read latencies and less than 15 ms at the 99th percentile.
 - Automatic indexing with instant query availability.
 - Tunable consistency levels.
-- Comprehensive SLAs, including 99.99% availability.
+- Comprehensive SLAs, including 99.99% availability and 99.999% read availability for database accounts spanning two or more Azure regions.
 
 To query Azure Cosmos DB, you can use the [Apache TinkerPop](http://tinkerpop.apache.org) graph traversal language, [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), or other TinkerPop-compatible graph systems like [Apache Spark GraphX](spark-connector-graph.md).
 

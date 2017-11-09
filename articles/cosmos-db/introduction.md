@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 07/14/2017
+ms.date: 11/15/2017
 ms.author: mimig
 ms.custom: mvc
 ---
@@ -52,7 +52,7 @@ As a globally distributed database service, Azure Cosmos DB provides the followi
     * For a typical 1-KB item, Cosmos DB guarantees end-to-end latency of reads under 10 ms and indexed writes under 15 ms at the 99th percentile, within the same Azure region. The median latencies are significantly lower (under 5 ms).
 
 * **Ensure "always on" availability**
-    * 99.99% availability within a single region.
+    * 99.99% availability within a single region, and 99.999% read availability for database accounts spanning two or more Azure regions.
     * Deploy to any number of [Azure regions](https://azure.microsoft.com/regions) for higher availability.
     * [Simulate a failure](regional-failover.md) of one or more regions with zero-data loss guarantees. 
 
