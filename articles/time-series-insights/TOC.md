@@ -41,3 +41,7 @@
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=internet-of-things)
 ## [Pricing](https://azure.microsoft.com/pricing/details/time-series-insights/)
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
+## [Region Availability](https://azure.microsoft.com/regions/services/)
+## [MSDN forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights)
+## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-timeseries-insights)
+## [Support Options](https://azure.microsoft.com/support/options/)
