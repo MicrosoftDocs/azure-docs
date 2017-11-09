@@ -48,7 +48,17 @@ To setup a local Docker container and have a service fabric cluster running on i
     docker pull servicefabricoss/service-fabric-onebox
     ```
 
-2. Start a Service Fabric One-box container instance with the image:
+2. Update the Docker daemon configuration on your host with the following and restart the Docker daemon: 
+
+    ```json
+    {
+        "ipv6": true,
+        "fixed-cidr-v6": "fd00::/64"
+    }
+    ```
+    You can directly update this on daemon.json in your docker installation path (location of which might vary from machine to machine, e.g. - ~/Library/Containers/com.docker.docker/Data/database/com.docker.driver.amd64-linux/etc/docker/daemon.json). The advised way to update is - go to Docker Icon > Preferences > Daemon > Advanced and update it there.
+
+3. Start a Service Fabric One-box container instance with the image:
 
     ```bash
     docker run -itd -p 19080:19080 --name sfonebox servicefabricoss/service-fabric-onebox
@@ -56,21 +66,20 @@ To setup a local Docker container and have a service fabric cluster running on i
     >[!TIP]
     >By specifying a name for your container instance, you can handle it in a more readable manner. 
 
-3. Login to the Docker container in interactive ssh mode:
+4. Login to the Docker container in interactive ssh mode:
 
     ```bash
     docker exec -it sfonebox bash
     ```
 
-4. Run the setup script, that will fetch the required dependencies and after that start the cluster on the container.
+5. Run the setup script, that will fetch the required dependencies and after that start the cluster on the container.
 
     ```bash
     ./setup.sh     # Fetches and installs the dependencies required for Service Fabric to run
     ./run.sh       # Starts the local cluster
     ```
 
-5. After step 4 is completed successfully, you can go to ``http://localhoist:19080`` from your Mac and you would be able to see the Service Fabric explorer.
-
+6. After step 5 is completed successfully, you can go to ``http://localhost:19080`` from your Mac and you would be able to see the Service Fabric explorer.
 
 ## Set up the Service Fabric CLI (sfctl) on your Mac
 
