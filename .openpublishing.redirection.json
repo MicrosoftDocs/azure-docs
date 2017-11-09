@@ -5,7 +5,12 @@
 	    "redirect_url": "/azure/cognitive-services/video-indexer/video-indexer-overview",
 	    "redirect_document_id": false 
 	},
-	{
+    {
+        "source_path": "articles/active-directory/active-directory-accessmanagement-dedicated-groups.md",
+        "redirect_url": "/azure/active-directory/active-directory-groups-create-azure-portal",
+        "redirect_document_id": false
+    },
+    {
 	    "source_path": "articles/cognitive-services/Video/Glossary.md",
 	    "redirect_url": "/azure/cognitive-services/video-indexer/video-indexer-overview",
 	    "redirect_document_id": false 
