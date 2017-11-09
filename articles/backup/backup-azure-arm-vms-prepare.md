@@ -55,6 +55,12 @@ Before you prepare your environment, please understand the limitations.
 
 * Backing up virtual machines with more than 16 data disks is not supported.
 * Backing up virtual machines with data disk sizes greater than 1023GB is not supported.
+
+> [!NOTE]
+> We have a private preview to support backups for VMs with >1TB unmanaged disks. Please reach out to AskAzureBackupTeam@microsoft.com to register your subscription for the preview. 
+>
+>
+
 * Backing up virtual machines with a reserved IP address and no defined endpoint is not supported.
 * Backup of VMs encrypted using just BEK is not supported. Backup of Linux VMs encrypted using LUKS encryption is not supported.
 * Backup of VMs containing Cluster Shared Volumes(CSV) or Scale out File Server configuration is not recommended as they require involving all VMs included in the cluster configuration during snapshot task. Azure Backup doesn't support multi-VM consistency. 
