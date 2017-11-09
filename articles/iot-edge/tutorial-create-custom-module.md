@@ -8,7 +8,7 @@ author: JimacoMS2
 manager: timlt
 
 ms.author: v-jamebr
-ms.date: 10/18/2017
+ms.date: 11/08/2017
 ms.topic: article
 ms.service: iot-edge
 
@@ -68,22 +68,31 @@ The steps in this section are only required until Azure IoT Edge goes public. Th
     nuget sources Add -Name "Edge Private Preview" -source https://www.myget.org/F/aziot-device-sdk/api/v3/index.json
     ```
 
-## Create a Docker container registry
-For this tutorial, you need a Docker registry to publish your IoT Edge module to. You can use any Docker-compatible container registry, for example: [Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/) or [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). If you already have a Docker-compatible container registry, you can use it; otherwise, you can get a free private Docker repository on Docker Hub when you sign up for a Docker ID. 
+## Choose or Sign up for a Docker registry
+In this tutorial, you use the IoT Edge extension to build a [Docker image](https://docs.docker.com/glossary/?term=image) from your module code. Then you push this Docker image to a [Docker repository](https://docs.docker.com/glossary/?term=repository) hosted by a [Docker registry](https://docs.docker.com/glossary/?term=registry). Finally, you deploy your Docker image packaged as a [Docker container](https://docs.docker.com/glossary/?term=container) from your registry to your IoT Edge device.  
 
-1. To sign up for a Docker ID, follow the instructions in [Register for a Docker ID](https://docs.docker.com/docker-id/#register-for-a-docker-id) on the Docker site. 
+You can use any Docker-compatible registry for this tutorial. Two popular Docker registry services available in the cloud are **Azure Container Registry** and **Docker Hub**:
 
-2. To create a private Docker repository, follow the instructions in [Creating a new repository on Docker Hub](https://docs.docker.com/docker-hub/repos/#creating-a-new-repository-on-docker-hub) on the Docker site.
+- [Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/) is available with a [paid subscription](https://azure.microsoft.com/en-us/pricing/details/container-registry/). For this tutorial, the **Basic** subscription is sufficient. 
+
+- [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags) offers one free private repository if you sign up for a (free) Docker ID. 
+    1. To sign up for a Docker ID, follow the instructions in [Register for a Docker ID](https://docs.docker.com/docker-id/#register-for-a-docker-id) on the Docker site. 
+
+    2. To create a private Docker repository, follow the instructions in [Creating a new repository on Docker Hub](https://docs.docker.com/docker-hub/repos/#creating-a-new-repository-on-docker-hub) on the Docker site.
+
+Throughout this tutorial, where appropriate, commands will be provided for both Azure Container Registry and Docker Hub.
 
 ## Configure the Azure IoT Toolkit extension with your IoT hub connection string 
 1. Open Visual Studio Code.
 2. Use the **View | Explorer** menu command to open the VS Code explorer. 
-3. In the explorer, click **IOT HUB DEVICES** and then click **...**. Click **Set IoT Hub Connection String** and enter the connection string for the IoT hub that your IoT Edge device connects to in the pop-up window. Note: To find the connection string for your Iot hub, click the tile for your IoT hub in the Azure portal to open its properties window, and then click **Shared access policies**. In **Shared access policies**, click the **iothubowner** policy, and then copy and make note of the IoT Hub connection string in the **iothubowner** window.   
+3. In the explorer, click **IOT HUB DEVICES** and then click **...**. Click **Set IoT Hub Connection String** and enter the connection string for the IoT hub that your IoT Edge device connects to in the pop-up window. 
 
-## Create a custom IoT Edge module project
+    To find the connection string for your Iot hub, click the tile for your IoT hub in the Azure portal and then click **Shared access policies**. In **Shared access policies**, click the **iothubowner** policy and copy the IoT Hub connection string in the **iothubowner** window.   
+
+## Create an IoT Edge module project
 The following steps show you how to create an IoT Edge module using Visual Studio Code and the IoT Edge extension.
 1. Use the **View | Integrated Terminal** menu command to open the VS Code integrated terminal.
-1. In the integrated terminal, enter the following command to install the **AzureIoTEdgeModule** template in dotnet:
+2. In the integrated terminal, enter the following command to install the **AzureIoTEdgeModule** template in dotnet:
 
     ```cmd/sh
     dotnet new -i Microsoft.Azure.IoT.Edge.Module
@@ -130,40 +139,32 @@ The following steps show you how to create an IoT Edge module using Visual Studi
 7. In the **InitEdgeModule** method, replace the code in the **try** block with the following code. This code creates and configures a **DeviceClient** object, which allows the module to  connect to the local Azure IoT Edge runtime to send and receive messages. This is similar to the way code in a device uses a **DeviceClient** to connect to a remote IoT Hub, except that the endpoint and credential information used in the connection string are specific to the Edge hub. The connection string parameter used in the **InitEdgeModule** method is supplied to the module by Azure IoT Edge in an environment variable - **EdgeHubConnectionString**. After creating the **DeviceClient**, the code registers a callback for desired properties updates on the module twin and registers the **FilterHandler** method as the handler for messages from the Edge Hub via the "input1" endpoint.
 
     ```csharp
-    // Open a connection to the Edge runtime using MQTT transport and 
+    // Open a connection to the Edge runtime using MQTT transport and
     // the connection string provided as an environment variable
-    ITransportSettings[] settings =
-    {
-        new MqttTransportSettings(TransportType.Mqtt_Tcp_Only)
-        { RemoteCertificateValidationCallback = (sender, certificate, chain, sslPolicyErrors) => true }
-    };
-
-    DeviceClient IoTHubModuleClient = DeviceClient.CreateFromConnectionString(Environment.GetEnvironmentVariable("EdgeHubConnectionString"), settings);
-    await IoTHubModuleClient.OpenAsync();
+    DeviceClient ioTHubModuleClient = DeviceClient.CreateFromConnectionString(Environment.GetEnvironmentVariable("EdgeHubConnectionString"), TransportType.Mqtt_Tcp_Only);
+    await ioTHubModuleClient.OpenAsync();
     Console.WriteLine("IoT Hub module client initialized.");
 
     // Attach callback for Twin desired properties updates
-    await IoTHubModuleClient.SetDesiredPropertyUpdateCallbackAsync (onDesiredPropertiesUpdate, null);
+    await ioTHubModuleClient.SetDesiredPropertyUpdateCallbackAsync (onDesiredPropertiesUpdate, null);
 
     // Register callback to be called when a message is received by the module
-    await IoTHubModuleClient.SetInputMessageHandlerAsync("input1", FilterMessages, IoTHubModuleClient);
-
+    await ioTHubModuleClient.SetInputMessageHandlerAsync("input1", FilterMessages, ioTHubModuleClient);
     ```
 
 1. Add the following method to the **Program** class to update the **temperatureThreshold** field based on the desired properties sent by the back-end service via the module twin. All modules have their own module twin. A module twin lets a back-end service configure the code running inside a module, just like a device twin lets a back-end service configure code running on a device.
 
     ```csharp
-    static async Task onDesiredPropertiesUpdate(TwinCollection desiredProperties, object userContext)
+    static Task onDesiredPropertiesUpdate(TwinCollection desiredProperties, object userContext)
     {
         try
         {
-            await Task.Run( () => {
-                Console.WriteLine("Desired property change:");
-                Console.WriteLine(JsonConvert.SerializeObject(desiredProperties));
+            Console.WriteLine("Desired property change:");
+            Console.WriteLine(JsonConvert.SerializeObject(desiredProperties));
 
-                if (desiredProperties["TemperatureThreshold"].exists())
-                    temperatureThreshold = desiredProperties["TemperatureThreshold"];
-            });
+            if (desiredProperties["TemperatureThreshold"].exists())
+                temperatureThreshold = desiredProperties["TemperatureThreshold"];
+
         }
         catch (AggregateException ex)
         {
@@ -178,6 +179,7 @@ The following steps show you how to create an IoT Edge module using Visual Studi
             Console.WriteLine();
             Console.WriteLine("Error when receiving desired property: {0}", ex.Message);
         }
+        return Task.CompletedTask;
     }
     ```
 
@@ -244,26 +246,27 @@ The following steps show you how to create an IoT Edge module using Visual Studi
 1. Build the Docker image.
    1. In VS Code explorer, click on the **Docker** folder to open it, then right-click the **Dockerfile** and click **Build IoT Edge module Docker image**. 
    2. In the **Select Folder** box, either browse to or enter `./bin/Debug/netcoreapp2.0/publish`. Click **Select Folder as EXE_DIR**.
-   3. In the pop-up text box at the top of the VS Code window, enter the image URL; for example, `<docker registry address>/filtermodule:latest`.
+   3. In the pop-up text box at the top of the VS Code window, enter the image URL. For example:`<docker registry address>/filtermodule:latest`; where *docker registry address* is your Docker ID if you are using Docker Hub or similar to `<Your registry name>.azurecr.io`, if you are using Azure Container Registry.
  
-4. Sign in to Docker. In integrated terminal, enter the following command and enter your credentials when prompted:
+4. Sign in to Docker. In integrated terminal, enter the following command: 
 
-    ```csh/sh
-    docker login
-    ```
-    > [!NOTE]
-    > By default, the **docker login** command connects to your private Docker Hub repository. If you are working with a different container registry, for example, Azure container registry, you may need to specify the login server for that registry as the **\[SERVER\]** parameter to the **docker login** command. For details about **docker login**, enter the following command:
-    >
-    > ```csh/sh
-    > docker help login
-    > ```
-3. Push the image to your Docker repository. Use the **View | Command Palette ... | Edge: Push IoT Edge module Docker image** menu command and enter the image URL in the pop-up text box at the top of the VS Code window. Use the same image URL you used in step 1.a.; for example, `<docker registry address>/filtermodule:latest`.
+    - Docker Hub (enter your credentials when prompted):
+        ```csh/sh
+        docker login
+        ```
+    - For Azure Container Registry:
+        ```csh/sh
+        docker login -u <username> -p <password> <Login server>
+        ```
+        To find the user name, password and login server to use in this command, go to the [Azure portal] (https://portal.azure.com). From **All resources**, click the tile for your Azure container registry to open its properties, then click **Access keys**. Copy the values in the **Username**, **password**, and **Login server** fields. The login server sould be of the form: `<your registry name>.azurecr.io`.
+
+3. Push the image to your Docker repository. Use the **View | Command Palette ... | Edge: Push IoT Edge module Docker image** menu command and enter the image URL in the pop-up text box at the top of the VS Code window. Use the same image URL you used in step 1.c.
 
 ## Add registry credentials to Edge runtime on your Edge device
-Add the credentials for your registry to the Edge runtime on the machine where you are running your Edge device. This gives the runtime access to pull the container. Run the following command on the machine where you are running your Edge device:
+Add the credentials for your registry to the IoT Edge runtime on the machine where you are running your IoT Edge device. This gives the runtime access to pull the container from your repository. Run the following command on the machine where you are running your Edge device:
 
 ```cmd/sh
-iotedgectl login --address --username --password 
+iotedgectl login --address <docker-repository> --username <docker-username> --password <docker-password> 
 ```
 
 > [!NOTE]
