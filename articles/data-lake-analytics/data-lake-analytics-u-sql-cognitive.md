@@ -76,7 +76,7 @@ REFERENCE ASSEMBLY ImageOcr;
 
 OUTPUT @tags_serialized
     TO "/tags.csv"
-    USING Outputers.Csv();
+    USING Outputters.Csv();
 ```
 For more examples, look at the **U-SQL/Cognitive Samples** in the **Next steps** section.
 
