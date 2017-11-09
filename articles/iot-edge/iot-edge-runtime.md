@@ -16,13 +16,13 @@ ms.service: iot-edge
 
 # Understand the Azure IoT Edge runtime and its architecture - Public preview
 
-The Azure IoT Edge runtime turns a regular device into an IoT Edge device. It enables your Azure IoT Edge scenarios by locally running workloads tailored to a specific type of device. Workloads are composed of modules, which are Docker containers that include high value AI or your own business logic. These modules can pass messages to each other to process data for to your scenario. 
+The IoT Edge runtime is a collection of programs that need to be installed on a device for it to be considered an IoT Edge device. Collectively, the components of the IoT Edge runtime enable IoT Edge devices to receive code to run at the edge, and communicate the results. 
 
-The Iot Edge runtime performs the following functions on IoT Edge devices:
+The IoT Edge runtime performs the following functions on IoT Edge devices:
 
-* Installs workloads on the device.
+* Installs and updates workloads on the device.
 * Maintains Azure IoT Edge security standards on the device.
-* Ensures IoT Edge modules are always running.
+* Ensures that [IoT Edge modules][lnk-modules] are always running.
 * Reports module health to the cloud for remote monitoring.
 * Facilitates communication between downstream leaf devices and the IoT Edge device.
 * Facilitates communication between modules on the IoT Edge device.
@@ -32,7 +32,7 @@ The Iot Edge runtime performs the following functions on IoT Edge devices:
 
 The responsibilities of the IoT Edge runtime fall into two categories: module management and communication. These two roles are performed by two components that make up the IoT Edge runtime. The IoT Edge hub is responsible for communication, while the IoT Edge agent manages deploying and monitoring the modules. 
 
-Both the Edge agent and the Edge Hub are modules, just like any other module running on an IoT Edge device. For more information about how modules work, see [lnk-modules]. 
+Both the Edge agent and the Edge hub are modules, just like any other module running on an IoT Edge device. For more information about how modules work, see [lnk-modules]. 
 
 ## IoT Edge hub
 
