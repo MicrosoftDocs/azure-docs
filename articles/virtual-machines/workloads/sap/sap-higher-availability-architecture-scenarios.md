@@ -231,13 +231,13 @@ A sample architecture of an SAP NetWeaver system that uses Azure infrastructure 
 
 ![Utilize Azure infrastructure high availability to achieve SAP application “higher availability"][planning-guide-figure-2901]
 
-For critical SAP components, we have achieved the following so far:
+For critical SAP components, you have achieved the following so far:
 
 * High availability of SAP application servers
 
     SAP application server instances are redundant components. Each SAP application server instance is deployed on its own VM, which is running in a different Azure fault and upgrade domain. For more information, see the [Fault domains][planning-guide-3.2.1] and [Upgrade domains][planning-guide-3.2.2] sections. 
 
-    You can ensure this configuration by using Azure availability sets. For more information, see the [Azure availability sets][planning-guide-3.2.3]) section. 
+    You can ensure this configuration by using Azure availability sets. For more information, see the [Azure availability sets][planning-guide-3.2.3] section. 
 
     Potential planned or unplanned unavailability of an Azure fault or upgrade domain will cause unavailability of a restricted number of VMs with their SAP application server instances.
 
@@ -278,6 +278,6 @@ Assuming a typical Azure scenario of one SAP application server instance in a VM
   * [Starting and stopping SAP NetWeaver management agents](https://help.sap.com/saphelp_nwpi711/helpdata/en/49/9a15525b20423ee10000000a421938/content.htm)
   * [How to enable autostart of the HANA database](http://www.freehanatutorials.com/2012/10/how-to-enable-auto-start-of-hana.html)
 
-## Next Steps
+## Next steps
 
 For information about full SAP NetWeaver application-aware high availability, see [SAP application high availability on Azure IaaS][sap-high-availability-architecture-scenarios-sap-app-ha].
