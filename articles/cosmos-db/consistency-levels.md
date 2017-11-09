@@ -20,12 +20,12 @@ ms.custom: H1Hack27Feb2017
 
 ---
 # Tunable data consistency levels in Azure Cosmos DB
-Azure Cosmos DB is designed from the ground up with global distribution in mind for every data model. It is designed to offer predictable low latency guarantees, multiple well-defined relaxed consistency models, a 99.99% availability SLA for database accounts configured with relaxed consistency models, and an additional 99.999% SLA for read availability for database accounts spanning two or more Azure regions. Currently, Azure Cosmos DB provides five consistency levels: strong, bounded-staleness, session, consistent prefix, and eventual. 
+Azure Cosmos DB is designed from the ground up with global distribution in mind for every data model. It is designed to offer predictable low latency guarantees, multiple well-defined relaxed consistency models, and a 99.99% availability SLA for database accounts configured with relaxed consistency models. In addition, it provides an additional 99.999% SLA for read availability for database accounts spanning two or more Azure regions. Currently, Azure Cosmos DB provides five consistency levels: strong, bounded-staleness, session, consistent prefix, and eventual. 
 
-Besides **strong** and **eventual consistency** models commonly offered by distributed databases, Azure Cosmos DB offers three more carefully codified and operationalized consistency models, and has validated their usefulness against real world use cases. These are the **bounded staleness**, **session**, and **consistent prefix** consistency levels. Collectively these five consistency levels enable you to make well-reasoned trade-offs between consistency, availability, and latency. 
+Besides the **strong** and **eventual consistency** models commonly offered by distributed databases, Azure Cosmos DB offers three more carefully codified and operationalized consistency models: **bounded staleness**, **session**, and **consistent prefix**. The usefulness of each of these consistency levels has been validated against real world use cases. Collectively these five consistency levels enable you to make well-reasoned trade-offs between consistency, availability, and latency. 
 
 ## Distributed databases and consistency
-Commercial distributed databases fall into two categories: databases that do not offer well-defined, provable consistency choices at all, and databases which offer two extreme programmability choices (strong vs. eventual consistency). 
+Commercial distributed databases fall into two categories: databases that do not offer well-defined, provable consistency choices at all, and databases, which offer two extreme programmability choices (strong vs. eventual consistency). 
 
 The former burdens application developers with minutia of their replication protocols and expects them to make difficult tradeoffs between consistency, availability, latency, and throughput. The latter puts a pressure to choose one of the two extremes. Despite the abundance of research and proposals for more than 50 consistency models, the distributed database community has not been able to commercialize consistency levels beyond strong and eventual consistency. Cosmos DB allows developers to choose between five well-defined consistency models along the consistency spectrum – strong, bounded staleness, [session](http://dl.acm.org/citation.cfm?id=383631), consistent prefix, and eventual. 
 
@@ -43,9 +43,9 @@ The following table illustrates the specific guarantees each consistency level p
 | Consistent Prefix	| Updates returned are some prefix of all the updates, with no gaps |
 | Eventual	| Out of order reads |
 
-You can configure the default consistency level on your Cosmos DB account (and later override the consistency on a specific read request). Internally, the default consistency level applies to data within the partition sets which may span regions. About 73% of our tenants use session consistency and 20% prefer bounded staleness. We observe that approximately 3% of our customers experiment with various consistency levels initially before settling on a specific consistency choice for their application. We also observe that only 2% of our tenants override consistency levels on a per request basis. 
+You can configure the default consistency level on your Cosmos DB account (and later override the consistency on a specific read request). Internally, the default consistency level applies to data within the partition sets, which may span regions. About 73% of Azure Cosmos DB tenants use session consistency and 20% prefer bounded staleness. Approximately 3% of Azure Cosmos DB customers experiment with various consistency levels initially before settling on a specific consistency choice for their application. Only 2% of Azure Cosmos DB tenants override consistency levels on a per request basis. 
 
-In Cosmos DB, reads served at session, consistent prefix and eventual consistency are twice as cheap as reads with strong or bounded staleness consistency. Cosmos DB has industry leading comprehensive SLAs including consistency guarantees along with availability, throughput, and latency. We employ a [linearizability checker](http://dl.acm.org/citation.cfm?id=1806634), which continuously operates over our service telemetry and openly reports any consistency violations to you. For bounded staleness, we monitor and report any violations to k and t bounds. For all five relaxed consistency levels, we also report the [probabilistic bounded staleness metric](http://dl.acm.org/citation.cfm?id=2212359) directly to you.  
+In Cosmos DB, reads served at session, consistent prefix and eventual consistency are twice as cheap as reads with strong or bounded staleness consistency. Cosmos DB has industry leading comprehensive SLAs including consistency guarantees along with availability, throughput, and latency. Azure Cosmos DB employs a [linearizability checker](http://dl.acm.org/citation.cfm?id=1806634), which continuously operates over the service telemetry and openly reports any consistency violations to you. For bounded staleness, Azure Cosmos DB monitors and reports any violations to k and t bounds. For all five relaxed consistency levels, Azure Cosmos DB also reports the [probabilistic bounded staleness metric](http://dl.acm.org/citation.cfm?id=2212359) directly to you.  
 
 ## Scope of consistency
 The granularity of consistency is scoped to a single user request. A write request may correspond to an insert, replace, upsert, or delete transaction. As with writes, a read/query transaction is also scoped to a single user request. The user may be required to paginate over a large result-set, spanning multiple partitions, but each read transaction is scoped to a single page and served from within a single partition.
@@ -64,7 +64,7 @@ You can configure a default consistency level on your database account that appl
 
 * Bounded staleness consistency guarantees that the reads may lag behind writes by at most *K* versions or prefixes of an item or *t* time-interval. 
 * Therefore, when choosing bounded staleness, the "staleness" can be configured in two ways: number of versions *K* of the item by which the reads lag behind the writes, and the time interval *t* 
-* Bounded staleness offers total global order except within the "staleness window." The monotonic read guarantees exists within a region both inside and outside the "staleness window." 
+* Bounded staleness offers total global order except within the "staleness window." The monotonic read guarantees exist within a region both inside and outside the "staleness window." 
 * Bounded staleness provides a stronger consistency guarantee than session or eventual consistency.  
 * Azure Cosmos DB accounts that are configured with bounded staleness consistency can associate any number of Azure regions with their Azure Cosmos DB account. 
 * The cost of a read operation (in terms of RUs consumed) with bounded staleness is higher than session and eventual consistency, but the same as strong consistency.
@@ -94,9 +94,9 @@ You can configure a default consistency level on your database account that appl
 
 ## Configuring the default consistency level
 1. In the [Azure portal](https://portal.azure.com/), in the Jumpbar, click **Azure Cosmos DB**.
-2. In the **Azure Cosmos DB** blade, select the database account to modify.
-3. In the account blade, click **Default consistency**.
-4. In the **Default Consistency** blade, select the new consistency level and click **Save**.
+2. In the **Azure Cosmos DB** page, select the database account to modify.
+3. In the account page, click **Default consistency**.
+4. In the **Default Consistency** page, select the new consistency level and click **Save**.
    
     ![Screen shot highlighting the Settings icon and Default Consistency entry](./media/consistency-levels/database-consistency-level-1.png)
 
