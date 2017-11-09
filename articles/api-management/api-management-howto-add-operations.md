@@ -22,6 +22,8 @@ ms.author: apimpm
 
 You can also add operations manually, as shown in [Test an APIM instance with mocked API responses](mock-api-responses.md).
 
+## Settings
+
 This article explains **Operation**'s settings.  
 
 |Name|Description|

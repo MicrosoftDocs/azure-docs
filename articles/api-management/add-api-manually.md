@@ -1,6 +1,6 @@
 ---
 title: Add an API manually using the Azure portal  | Microsoft Docs
-description: This tutorial shows you how to use API Management (APIM) to add an Add an API manually.
+description: This tutorial shows you how to use API Management (APIM) to add an API manually.
 services: api-management
 documentationcenter: ''
 author: juliako
@@ -18,7 +18,7 @@ ms.author: apimpm
 ---
 # Add an API manually 
 
-The steps in this article show how to use the Azure portal to add Add an API manually to the API Management (APIM) instance. A common scenario when you would want to create a blank API and define it manually is when you want to mock the API. Ability to mock up responses can be useful in a number of scenarios:
+The steps in this article show how to use the Azure portal to add an API manually to the API Management (APIM) instance. A common scenario when you would want to create a blank API and define it manually is when you want to mock the API. Ability to mock up responses can be useful in a number of scenarios:
 
 + When the API façade is designed first and the backend implementation comes later. Or, the backend is being developed in parallel.
 + When the backend is temporarily not operational or not able to scale.

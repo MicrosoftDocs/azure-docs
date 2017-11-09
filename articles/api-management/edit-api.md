@@ -25,7 +25,7 @@ The steps in this tutorial show you how to use API Management (APIM) to edit an 
 + [Create an Azure API Management instance](get-started-create-service-instance.md)
 + [Import and publish your first API](import-and-publish.md)
 
-## Edit
+## Edit an API
 
 To edit an API, follow the following steps:
 

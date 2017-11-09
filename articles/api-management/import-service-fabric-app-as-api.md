@@ -16,7 +16,7 @@ ms.date: 10/16/2017
 ms.author: apimpm
 
 ---
-# Import a  Service Fabric app s an API
+# Import a Service Fabric app as an API
 
 This article shows how to import a Service Fabric app as an API. The article also shows how to test the APIM API.
 
