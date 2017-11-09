@@ -18,12 +18,15 @@ ms.author: subramar
 ---
 
 # Using volume plugins and logging drivers in your container
+Service Fabric supports specifying [Docker volume plugins](https://docs.docker.com/engine/extend/plugins_volume/) and [Docker logging drivers](https://docs.docker.com/engine/admin/logging/overview/) for your container service.  This will enable you to persist your data in [Azure Files](https://azure.microsoft.com/en-us/services/storage/files/) even if you container is moved or restarted on a different host.
 
-Service Fabric supports specifying [Docker volume plugins](https://docs.docker.com/engine/extend/plugins_volume/) and [Docker logging drivers](https://docs.docker.com/engine/admin/logging/overview/) for your container service. 
+Currently, there are only volume drivers for Linux containers as shown below.  If you are using Windows containers, it is possible to map a volume to a Azure Files [SMB3 share](https://blogs.msdn.microsoft.com/clustering/2017/08/10/container-storage-support-with-cluster-shared-volumes-csv-storage-spaces-direct-s2d-smb-global-mapping/) without a volume driver using the latest 1709 version of Windows Server. This would require updating your Virtual Machines in your cluster to the Windows Server 1709 version.
+
 
 ## Install volume/logging driver
 
-If the Docker volume/logging driver is not installed on the machine, install it manually through RDP/SSH-ing into the machine or through a virtual machine scale set start-up script. For instance, in order to install the Docker Volume Driver for Azure storage, SSH into the machine and execute:
+If the Docker volume/logging driver is not installed on the machine, install it manually through RDP/SSH-ing into the machine, through a [VMSS start-up script](https://azure.microsoft.com/en-us/resources/templates/201-vmss-custom-script-windows/) or using a [SetupEntryPoint](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-application-model#describe-a-service) script. Choosing one of the methods mentioned, you can write a script to install the [Docker Volume Driver for Azure](https://docs.docker.com/docker-for-azure/persistent-data-volumes/):
+
 
 ```bash
 docker plugin install --alias azure --grant-all-permissions docker4x/cloudstor:17.09.0-ce-azure1  \
