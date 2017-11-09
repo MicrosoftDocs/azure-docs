@@ -344,7 +344,6 @@ Changing the data in the numeric columns to a range of 0-1 allows some models to
 
    ```python
    maxVal = max(df["HOURLYDRYBULBTEMPF_Mean"])
-   maxVal = max(df["HOURLYDRYBULBTEMPF_Mean"])
    minVal = min(df["HOURLYDRYBULBTEMPF_Mean"])
    df["HOURLYDRYBULBTEMPF_Mean"] = (df["HOURLYDRYBULBTEMPF_Mean"]-minVal)/(maxVal-minVal)
    df.rename(columns={"HOURLYDRYBULBTEMPF_Mean":"N_DryBulbTemp"},inplace=True)
