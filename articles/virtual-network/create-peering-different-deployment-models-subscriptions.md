@@ -367,10 +367,10 @@ You must first register for the cross-subscription, cross-deployment model featu
       -ProviderNamespace Microsoft.Network
     ```
 
-> [!NOTE]
-This tutorial uses virtual networks that exist in the same region. The ability to peer virtual networks in different regions is also in preview. To register for cross-region, or global peering, complete steps 1-4 again, using `-FeatureName AllowGlobalVnetPeering` instead of `-FeatureName AllowClassicCrossSubscriptionPeering`. The two capabilities are independent of each other. You do not need to register for both, unless you want to use both. The capability is available in a limited set of regions (initially, US West Central, Canada Central, and US West 2).
-
     Do not complete the steps in the Portal, Azure CLI, PowerShell, or Resource Manager template sections of this article until the **RegistrationState** output you receive after entering the previous commands is **Registered** for both subscriptions.
+
+> [!NOTE]
+> This tutorial uses virtual networks that exist in the same region. The ability to peer virtual networks in different regions is also in preview. To register for cross-region, or global peering, complete steps 1-4 again, using `-FeatureName AllowGlobalVnetPeering` instead of `-FeatureName AllowClassicCrossSubscriptionPeering`. The two capabilities are independent of each other. You do not need to register for both, unless you want to use both. The capability is available in a limited set of regions (initially, US West Central, Canada Central, and US West 2).
 
 ### Azure CLI
 
@@ -390,10 +390,10 @@ This tutorial uses virtual networks that exist in the same region. The ability t
     az feature show --name AllowGlobalVnetPeering --namespace Microsoft.Network
     ```
 
-> [!NOTE]
-This tutorial uses virtual networks that exist in the same region. The ability to peer virtual networks in different regions is also in preview. To register for cross-region, or global peering, complete steps 1-5 again, using `--name AllowGlobalVnetPeering` instead of `--name AllowClassicCrossSubscriptionPeering`. The two capabilities are independent of each other. You do not need to register for both, unless you want to use both. The capability is available in a limited set of regions (initially, US West Central, Canada Central, and US West 2).
-
     Do not complete the steps in the Portal, Azure CLI, PowerShell, or Resource Manager template sections of this article until the **RegistrationState** output you receive after entering the previous command is **Registered** for both subscriptions.
+
+> [!NOTE]
+> This tutorial uses virtual networks that exist in the same region. The ability to peer virtual networks in different regions is also in preview. To register for cross-region, or global peering, complete steps 1-5 again, using `--name AllowGlobalVnetPeering` instead of `--name AllowClassicCrossSubscriptionPeering`. The two capabilities are independent of each other. You do not need to register for both, unless you want to use both. The capability is available in a limited set of regions (initially, US West Central, Canada Central, and US West 2).
 
 ## Next steps
 
