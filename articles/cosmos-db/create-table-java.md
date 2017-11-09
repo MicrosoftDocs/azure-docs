@@ -86,7 +86,7 @@ Now go back to the Azure portal to get your connection string information and co
 
     Use the copy buttons on the right side of the screen to copy the CONNECTION STRING.
 
-    ![View and copy the CONNECTION STRING in the Connection String pane](./media/create-table-dotnet/connection-string.png)
+    ![View and copy the CONNECTION STRING in the Connection String pane](./media/create-table-java/connection-string.png)
 
 2. In Visual Studio, open the app.config file. 
 
