@@ -15,9 +15,9 @@ manager: cfowler
 
 # Create a function on Linux using a custom image
 
-Azure Functions lets you host your function app on Linux in a container created from a custom Docker image. You can also use a [built-in function app image](functions-create-first-azure-function-azure-cli-linux.md). In this tutorial, you learn how to deploy a function app as a custom Docker image. This pattern is useful when the built-in image don't include your language of choice, or when your function app requires a specific configuration that isn't provided within the built-in image.
+Azure Functions lets you host your functions on Linux in your own custom container. You can also [host on a default Azure App Service container](functions-create-first-azure-function-azure-cli-linux.md). In this tutorial, you learn how to deploy a function app as a custom Docker image. This pattern is useful when the built-in App Service container images don't include your language versions of choice, when your function app requires a specific dependency or configuration that isn't provided within the built-in image.
 
-This tutorial walks you through how to use Azure Functions to create and push a custom image Docker Hub. You then use this image as the deployment source for a function app that runs on Linux. You use Docker to build and push the image. You use the Azure CLI to create a function app and deploy the image from Docker Hub. 
+This tutorial walks you through how to use Azure Functions to create and push a custom image to Docker Hub. You then use this image as the deployment source for a function app that runs on Linux. You use Docker to build and push the image. You use the Azure CLI to create a function app and deploy the image from Docker Hub. 
 
 In this tutorial, you learn how to:
 
@@ -57,7 +57,7 @@ In the Git repository, take a look at _Dockerfile_. This file describes the envi
 
 ```docker
 # Base the image on the default Azure Functions Linux image.
-FROM microsoft/azure-functions-runtime:v2.0.0-beta1
+FROM microsoft/azure-functions-runtime:v2.0.0-jessie
 ENV AzureWebJobsScriptRoot=/home/site/wwwroot
 
 COPY . /home/site/wwwroot
@@ -76,13 +76,13 @@ The command produces output similar to the following:
 
 ```bash
 Sending build context to Docker daemon  169.5kB
-Step 1/3 : FROM microsoft/azure-functions-runtime:v2.0.0-beta1
-v2.0.0-beta1: Pulling from microsoft/azure-functions-runtime
+Step 1/3 : FROM microsoft/azure-functions-runtime:v2.0.0-jessie
+v2.0.0-jessie: Pulling from microsoft/azure-functions-runtime
 b178b12f7913: Pull complete
 2d9ce077a781: Pull complete
 4775d4ba55c8: Pull complete
 Digest: sha256:073f45fc167b3b5c6642ef4b3c99064430d6b17507095...
-Status: Downloaded newer image for microsoft/azure-functions-runtime:v2.0.0-beta1
+Status: Downloaded newer image for microsoft/azure-functions-runtime:v2.0.0-jessie
  ---> 217799efa500
 Step 2/3 : ENV AzureWebJobsScriptRoot /home/site/wwwroot
  ---> Running in 528fa2077d17
@@ -95,7 +95,7 @@ Successfully tagged ggailey777/mydockerimage:v1.0.0
 ```
 
 ### Test the image locally
-Test that the build works by running the Docker container. Issue the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command and pass the name and tag of the image to it. Be sure to specify the port using the `-p` argument.
+Test that the build works by running the Docker image in a local container. Issue the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command and pass the name and tag of the image to it. Be sure to specify the port using the `-p` argument.
 
 ```bash
 docker run -p 8080:80 -it <docker-ID>/mydockerimage:v1.0.0
@@ -105,9 +105,9 @@ With the custom image running in a local Docker container, verify the function a
 
 ![Test the function app locally.](./media/functions-create-function-linux-custom-image/run-image-local-success.png)
 
-Now, you can push the custom image to your Docker Hub account.
+After you hav verified the function app in the container, stop the execution. Now, you can push the custom image to your Docker Hub account.
 
-## Push the Docker image to Docker Hub
+## Push the custom image to Docker Hub
 
 A registry is an application that hosts images and provides services image and container services. In order to share your image, you must push it to a registry. Docker Hub is a registry for Docker images that allows you to host your own repositories, either public or private. 
 
@@ -213,11 +213,11 @@ In this tutorial, you learned how to:
 
 > [!div class="checklist"]
 > * Build a custom image using Docker.
-> * Publish a custom image to a container registry.
+> * Publish a custom image to a container registry. 
 > * Create an Azure Storage account. 
 > * Create a Linux App Service plan. 
 > * Deploy a function app from Docker Hub.
-> * Add application settings to the function app. 
+> * Add application settings to the function app.
 
 Learn more about developing Azure Functions locally using the Azure Functions Core Tools.
 
