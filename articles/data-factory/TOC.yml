@@ -71,6 +71,8 @@
         href: connector-azure-cosmos-db.md
       - name: Azure Data Lake Store
         href: connector-azure-data-lake-store.md
+      - name: Azure Database for MySQL
+        href: connector-azure-database-for-mysql.md
       - name: Azure File Storage
         href: connector-azure-file-storage.md
       - name: Azure Search
@@ -194,6 +196,8 @@
       href: store-credentials-in-key-vault.md    
     - name: Encrypt credentials for self-hosted integration runtime
       href: encrypt-credentials-self-hosted-integration-runtime.md
+    - name: Data Factory service identity
+      href: data-factory-service-identity.md
   - name: Monitor and manage
     items: 
     - name: Use SDKs
