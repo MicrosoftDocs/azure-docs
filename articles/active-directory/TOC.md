@@ -253,7 +253,6 @@
 ##### [Classic portal](active-directory-add-manage-domain-names.md)
 ### [Administer your directory](active-directory-administer.md)
 ### [Multiple directories](active-directory-licensing-directory-independence.md)
-### [O365 directories](active-directory-manage-o365-subscription.md)
 ### [Self-service signup](active-directory-self-service-signup.md)
 #### [Take over an unmanaged directory](domains-admin-takeover.md)
 ### [Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)

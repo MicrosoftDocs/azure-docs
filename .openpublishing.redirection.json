@@ -6,6 +6,11 @@
 	    "redirect_document_id": false 
 	},
     {
+        "source_path": "articles/active-directory/active-directory-manage-o365-subscription.md",
+        "redirect_url": "/azure/active-directory/domains-admin-takeover",
+        "redirect_document_id": false
+    },
+    {
         "source_path": "articles/active-directory/active-directory-accessmanagement-dedicated-groups.md",
         "redirect_url": "/azure/active-directory/active-directory-groups-create-azure-portal",
         "redirect_document_id": false
