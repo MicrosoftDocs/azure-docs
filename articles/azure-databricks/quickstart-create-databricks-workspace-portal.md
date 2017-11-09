@@ -48,8 +48,6 @@ Before you begin with this quickstart, you need to [Create an Azure storage acco
 
 1. In the Azure portal, go to the Databricks workspace that you created, and then click **Initialize Workspace**.
 
-    ![Initialize an Azure Databricks workspace](./media/quickstart-create-databricks-workspace-portal/initialize-databricks-workspace.png "Initialize an Azure Databricks workspace")
-
 2. You are redirected to the Azure Databricks portal. From the portal, click **Cluster**.
 
     ![Databricks on Azure](./media/quickstart-create-databricks-workspace-portal/databricks-on-azure.png "Databricks on Azure")

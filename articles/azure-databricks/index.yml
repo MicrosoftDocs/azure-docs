@@ -14,7 +14,7 @@ metadata:
   ms.date: 11/15/2017
   ms.author: nitinme
 abstract:
-  description: Azure Databricks is a unified data analytics platform built on top of Apache Spark that unifies data science, data engineering, and business intelligence into a collaborative workspace and a highly performative runtime that enables anyone to easily build and deploy advanced analytics solutions. Learn how to use Azure Databricks using the quickstart and other links provided here.
+  description: Azure Databricks is a fast, easy, and collaborative Apache Spark-based analytics platform optimized for Azure. Designed in collaboration with the founders of Apache Spark, Azure Databricks combines the best of Databricks and Azure to help customers accelerate innovation with one-click setup, streamlined workflows, and an interactive workspace that enables collaboration between data scientists, data engineers, and business analysts. Learn how to use Azure Databricks using the quickstart and other links provided here.
 sections:
 - title: 5-Minute Quickstarts
   items:
