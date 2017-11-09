@@ -20,12 +20,12 @@ ms.service: iot-edge
 # ms.reviewer:
 ---
 
-# Understand how IoT Edge modules can be used, configured, and reused
+# Understand how IoT Edge modules can be used, configured, and reused - Public preview
 
 Azure IoT Edge allows you to compose multiple IoT Edge modules before deploying them to IoT Edge devices. This article explains the most important concepts around composing multiple IoT Edge modules before deployment. 
 
 ## The deployment manifest
-The *deployment manifest* is a JSON document which describes:
+The *deployment manifest* is a JSON document that describes:
 
 * Which IoT Edge modules have to be deployed, along with their creation and management options;
 * The configuration of the Edge hub, describing how messages should flow between modules, and between modules and IoT Hub;
@@ -64,14 +64,14 @@ The manifest follows this structure:
 An example of a deployment manifest is reported at the end of this section.
 
 > [!IMPORTANT]
-> All IoT Edge devices need to be configured with a deployment manifest. A newly installed IoT Edge runtime will report an error code until configured with a valid manifest. 
+> All IoT Edge devices need to be configured with a deployment manifest. A newly installed IoT Edge runtime reports an error code until configured with a valid manifest. 
 
 ### Specify the modules
 The desired properties of the module twin of the Edge agent contain: the desired modules, their configuration and management options, along with configuration parameters for the Edge agent.
 
 At a high level, this section of the manifest contains the references to the module images and management options for the IoT Edge runtime modules (Edge agent and Edge hub), and the user-specified modules.
 
-Refer to the [desired properties of the Edge agent][lnk-edgeagent-desired] for the detailed decsription of this section of the manifest.
+Refer to the [desired properties of the Edge agent][lnk-edgeagent-desired] for the detailed description of this section of the manifest.
 
 > [!NOTE]
 > A deployment manifest containing only the IoT Edge runtime (agent and hub) is valid.
@@ -108,13 +108,13 @@ The sink can be one of the following:
 
 It is important to note that Edge hub provides at-least-once guarantees, which means that messages will be stored locally in case a route cannot deliver the message to its sink, e.g. the Edge hub cannot connect to IoT Hub, or the target module is not connected.
 
-Edge hub will store the messages up to the time specified in the `storeAndForwardConfiguration.timeToLiveSecs` property of the Edge hub desired properties.
+Edge hub stores the messages up to the time specified in the `storeAndForwardConfiguration.timeToLiveSecs` property of the Edge hub desired properties.
 
 ### Specifying the desired properties of the module twin
 
 The deployment manifest can specify the desired properties of the module twin of each of the user modules specified in the Edge agent section.
 
-Note that when the desired properties are specified in the deployment manifest, they will overwrite any desired properties currently in the module twin.
+When the desired properties are specified in the deployment manifest, they overwrite any desired properties currently in the module twin.
 
 If you do not specify a module twin's desired properties in the deployment manifest, IoT Hub will not modify the module twin in any way, and you will be able to set the desired properties programmatically.
 
@@ -207,19 +207,19 @@ The desired properties are set when applying a deployment manifest on a specific
 | systemModules.edgeAgent.type | Has to be "docker" | Yes |
 | systemModules.edgeAgent.settings.image | The URI of the image of the Edge agent. Currently, the Edge agent is not able to update itself. | Yes |
 | systemModules.edgeAgent.settings.createOptions | A stringified JSON containing the options for the creation of the Edge agent container. [Docker create options][lnk-docker-create-options] | No |
-| systemModules.edgeAgent.configuration.id | The id of the deployment that deployed this module. | This is set by IoT Hub when this manifest is applied using a deployment. Not part of a deployment manifest. |
+| systemModules.edgeAgent.configuration.id | The ID of the deployment that deployed this module. | This is set by IoT Hub when this manifest is applied using a deployment. Not part of a deployment manifest. |
 | systemModules.edgeHub.type | Has to be "docker" | Yes |
 | systemModules.edgeHub.status | Has to be "running" | Yes |
 | systemModules.edgeHub.restartPolicy | Has to be "always" | Yes |
 | systemModules.edgeHub.settings.image | The URI of the image of the Edge hub. | Yes |
 | systemModules.edgeHub.settings.createOptions | A stringified JSON containing the options for the creation of the Edge hub container. [Docker create options][lnk-docker-create-options] | No |
-| systemModules.edgeHub.configuration.id | The id of the deployment that deployed this module. | This is set by IoT Hub when this manifest is applied using a deployment. Not part of a deployment manifest. |
+| systemModules.edgeHub.configuration.id | The ID of the deployment that deployed this module. | This is set by IoT Hub when this manifest is applied using a deployment. Not part of a deployment manifest. |
 | modules.{moduleId}.version | A user-defined string representing the version of this module. | Yes |
 | modules.{moduleId}.type | Has to be "docker" | Yes |
 | modules.{moduleId}.restartPolicy | {"never" \| "on-failed" \| "on-unhealthy" \| "always"} | Yes |
 | modules.{moduleId}.settings.image | The URI to the module image. | Yes |
 | modules.{moduleId}.settings.createOptions | A stringified JSON containing the options for the creation of the module container. [Docker create options][lnk-docker-create-options] | No |
-| modules.{moduleId}.configuration.id | The id of the deployment that deployed this module. | This is set by IoT Hub when this manifest is applied using a deployment. Not part of a deployment manifest. |
+| modules.{moduleId}.configuration.id | The ID of the deployment that deployed this module. | This is set by IoT Hub when this manifest is applied using a deployment. Not part of a deployment manifest. |
 
 ### Edge agent twin reported properties
 
@@ -229,10 +229,10 @@ The Edge agent reported properties include three main pieces of information:
 2. The status of the modules currently running on the device, as reported by the Edge agent; and
 3. A copy of the desired properties currently running on the device.
 
-This last pioece of information is useful in case the latest desired properties are not applied successfully by the runtime, and the device is still running a previous deployment manifest.
+This last piece of information is useful in case the latest desired properties are not applied successfully by the runtime, and the device is still running a previous deployment manifest.
 
 > [!NOTE]
-> The reported properties of the Edge agent are extremely useful as they can be queried with the [IoT Hub query language] to investigate the status of deployments at scale. Refer to [Deployments][lnk-deploy] for more information on how to use this feature.
+> The reported properties of the Edge agent are useful as they can be queried with the [IoT Hub query language][lnk-iothub-query] to investigate the status of deployments at scale. Refer to [Deployments][lnk-deploy] for more information on how to use this feature.
 
 The following table does not include the information that is copied from the desired properties.
 
@@ -273,7 +273,7 @@ The desired properties are set when applying a deployment manifest on a specific
 | -------- | ----------- | -------- |
 | schemaVersion | Has to be "1.0" | Yes |
 | routes.{routeName} | A string representing an Edge hub route. | The `routes` element can be present but empty. |
-| storeAndForwardConfiguration.timeToLiveSecs | The time in seconds that Edge hub will keep messages in case of disconnected routing endpoints, e.g. disconnected from IoT Hub, or local module | Yes |
+| storeAndForwardConfiguration.timeToLiveSecs | The time in seconds that Edge hub keeps messages in case of disconnected routing endpoints, e.g. disconnected from IoT Hub, or local module | Yes |
 
 ### Edge hub twin reported properties
 
@@ -282,10 +282,13 @@ The desired properties are set when applying a deployment manifest on a specific
 | lastDesiredVersion | This int refers to the last version of the desired properties processed by the Edge hub. |
 | lastDesiredStatus.code | This is the status code referring to last desired properties seen by the Edge hub. Allowed values: `200` Success, `400` Invalid configuration, `500` Failed |
 | lastDesiredStatus.description | Text description of the status |
-| clients.{device or module identity}.status | The connectivioty status of this device or module. Possible values {"connected" \| "disconnected"}. Only module identities can be in disconnected state. Downstream devices connecting to Edge hub appear only when connected. |
+| clients.{device or module identity}.status | The connectivity status of this device or module. Possible values {"connected" \| "disconnected"}. Only module identities can be in disconnected state. Downstream devices connecting to Edge hub appear only when connected. |
 | clients.{device or module identity}.lastConnectTime | Last time the device or module connected |
 | clients.{device or module identity}.lastDisconnectTime | Last time the device or module disconnected |
 
+## Next steps
+
+Now that you know how IoT Edge modules are used, [Understand the requirements and tools for developing IoT Edge modules][lnk-module-dev].
 
 [lnk-tutorial1]: tutorial-install-iot-edge.md
 [lnk-deploy]: module-deployment-monitoring.md
@@ -293,9 +296,7 @@ The desired properties are set when applying a deployment manifest on a specific
 [lnk-edgeagent-reported]: #edge-agent-twin-reported-properties
 [lnk=edgehub-desired]: #edge-hub-twin-desired-properties
 [lnk-edgehub-reported]: #edge-hub-twin-reported-properties
-
 [lnk-iothub-query]: ../iot-hub/iot-hub-devguide-query-language.md
-
 [lnk-docker-create-options]: https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate
-
 [lnk-docker-logging-options]: https://docs.docker.com/engine/admin/logging/overview/
+[lnk-module-dev]: module-development.md
