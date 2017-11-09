@@ -196,6 +196,7 @@ For more info about SQL Data Sync, see:
 
 -   [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync](sql-database-sync-data.md)
 -   [Best practices for Azure SQL Data Sync](sql-database-best-practices-data-sync.md)
+-   [Monitor Azure SQL Data Sync with OMS Log Analytics](sql-database-sync-monitor-oms.md)
 -   [Troubleshoot issues with Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
 
 -   Complete PowerShell examples that show how to configure SQL Data Sync:

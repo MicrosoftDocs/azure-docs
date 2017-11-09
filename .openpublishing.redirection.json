@@ -14965,6 +14965,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/hdinsight/r-server/r-server-install-r-studio.md",
+            "redirect_url": "/azure/hdinsight/r-server/r-server-get-started",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md",
             "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-join-windows-vm-template",
             "redirect_document_id": false
