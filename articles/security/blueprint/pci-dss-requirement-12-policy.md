@@ -24,7 +24,8 @@ ms.author: frasim
 
 **Maintain a policy that addresses information security for all personnel**
 
-> [!NOTE] These requirements are defined by the [Payment Card Industry (PCI) Security Standards Council](https://www.pcisecuritystandards.org/pci_security/) as part of the [PCI Data Security Standard (DSS) Version 3.2](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss). Please refer to the PCI DSS for information on testing procedures and guidance for each requirement.
+> [!NOTE]
+> These requirements are defined by the [Payment Card Industry (PCI) Security Standards Council](https://www.pcisecuritystandards.org/pci_security/) as part of the [PCI Data Security Standard (DSS) Version 3.2](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss). Please refer to the PCI DSS for information on testing procedures and guidance for each requirement.
 
 A strong security policy sets the security tone for the whole entity and informs personnel what is expected of them. All personnel should be aware of the sensitivity of data and their responsibilities for protecting it. For the purposes of Requirement 12, “personnel” refers to full-time and part-time employees, temporary employees, contractors and consultants who are “resident” on the entity’s site or otherwise have access to the cardholder data environment.
 
@@ -75,7 +76,8 @@ A strong security policy sets the security tone for the whole entity and informs
 
 **12.3** Develop usage policies for critical technologies and define proper use of these technologies.
 
-> [!NOTE] Examples of critical technologies include, but are not limited to, remote access and wireless technologies, laptops, tablets, removable electronic media, e-mail usage and Internet usage.
+> [!NOTE]
+> Examples of critical technologies include, but are not limited to, remote access and wireless technologies, laptops, tablets, removable electronic media, e-mail usage and Internet usage.
 Ensure these usage policies require the following.
 
 **Responsibilities:&nbsp;&nbsp;`Customer Only`**
@@ -237,7 +239,8 @@ Where there is an authorized business need, the usage policies must require the 
 - Overall accountability for maintaining PCI DSS compliance
 - Defining a charter for a PCI DSS compliance program and communication to executive management 
 
-> [!NOTE] This requirement is a best practice until January 31, 2018, after which it becomes a requirement.
+> [!NOTE]
+> This requirement is a best practice until January 31, 2018, after which it becomes a requirement.
 
 **Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
@@ -343,7 +346,8 @@ Where there is an authorized business need, the usage policies must require the 
 
 **12.6.1** Educate personnel upon hire and at least annually. 
 
-> [!NOTE] Methods can vary depending on the role of the personnel and their level of access to the cardholder data.
+> [!NOTE]
+> Methods can vary depending on the role of the personnel and their level of access to the cardholder data.
 
 **Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
@@ -371,7 +375,8 @@ Where there is an authorized business need, the usage policies must require the 
 
 **12.7** Screen potential personnel prior to hire to minimize the risk of attacks from internal sources. (Examples of background checks include previous employment history, criminal record, credit history, and reference checks.) 
 
-> [!NOTE] For those potential personnel to be hired for certain positions such as store cashiers who only have access to one card number at a time when facilitating a transaction, this requirement is a recommendation only.
+> [!NOTE]
+> For those potential personnel to be hired for certain positions such as store cashiers who only have access to one card number at a time when facilitating a transaction, this requirement is a recommendation only.
 
 **Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
@@ -413,7 +418,8 @@ Where there is an authorized business need, the usage policies must require the 
 
 **12.8.2** Maintain a written agreement that includes an acknowledgement that the service providers are responsible for the security of cardholder data the service providers possess or otherwise store, process or transmit on behalf of the customer, or to the extent that they could impact the security of the customer’s cardholder data environment. 
 
-> [!NOTE] The exact wording of an acknowledgement will depend on the agreement between the two parties, the details of the service being provided, and the responsibilities assigned to each party. The acknowledgement does not have to include the exact wording provided in this requirement.
+> [!NOTE]
+> The exact wording of an acknowledgement will depend on the agreement between the two parties, the details of the service being provided, and the responsibilities assigned to each party. The acknowledgement does not have to include the exact wording provided in this requirement.
 
 **Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
@@ -467,7 +473,8 @@ Where there is an authorized business need, the usage policies must require the 
 
 **12.9** Additional requirement for service providers only: Service providers acknowledge in writing to customers that they are responsible for the security of cardholder data the service provider possesses or otherwise stores, processes, or transmits on behalf of the customer, or to the extent that they could impact the security of the customer’s cardholder data environment. 
 
-> [!NOTE] The exact wording of an acknowledgement will depend on the agreement between the two parties, the details of the service being provided, and the responsibilities assigned to each party. The acknowledgement does not have to include the exact wording provided in this requirement.
+> [!NOTE]
+> The exact wording of an acknowledgement will depend on the agreement between the two parties, the details of the service being provided, and the responsibilities assigned to each party. The acknowledgement does not have to include the exact wording provided in this requirement.
 
 **Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
@@ -588,7 +595,8 @@ Reviews must cover the following processes:
 - Responding to security alerts
 - Change management processes 
 
-> [!NOTE] This requirement is a best practice until January 31, 2018, after which it becomes a requirement.
+> [!NOTE]
+> This requirement is a best practice until January 31, 2018, after which it becomes a requirement.
 
 
 **Responsibilities:&nbsp;&nbsp;`Customer Only`**
@@ -606,7 +614,8 @@ Reviews must cover the following processes:
 - Documenting results of the reviews
 - Review and sign-off of results by personnel assigned responsibility for the PCI DSS compliance program 
 
-> [!NOTE] This requirement is a best practice until January 31, 2018, after which it becomes a requirement.
+> [!NOTE]
+> This requirement is a best practice until January 31, 2018, after which it becomes a requirement.
 
 
 **Responsibilities:&nbsp;&nbsp;`Customer Only`**

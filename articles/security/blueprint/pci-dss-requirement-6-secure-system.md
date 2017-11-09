@@ -24,17 +24,20 @@ ms.author: frasim
 
 **Develop and maintain secure systems and applications**
 
-> [!NOTE] These requirements are defined by the [Payment Card Industry (PCI) Security Standards Council](https://www.pcisecuritystandards.org/pci_security/) as part of the [PCI Data Security Standard (DSS) Version 3.2](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss). Please refer to the PCI DSS for information on testing procedures and guidance for each requirement.
+> [!NOTE]
+> These requirements are defined by the [Payment Card Industry (PCI) Security Standards Council](https://www.pcisecuritystandards.org/pci_security/) as part of the [PCI Data Security Standard (DSS) Version 3.2](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss). Please refer to the PCI DSS for information on testing procedures and guidance for each requirement.
 
 Unscrupulous individuals use security vulnerabilities to gain privileged access to systems. Many of these vulnerabilities are fixed by vendor-provided security patches, which must be installed by the entities that manage the systems. All systems must have all appropriate software patches to protect against the exploitation and compromise of cardholder data by malicious individuals and malicious software.
 
-> [!NOTE] Appropriate software patches are those patches that have been evaluated and tested sufficiently to determine that the patches do not conflict with existing security configurations. For in-house developed applications, numerous vulnerabilities can be avoided by using standard system development processes and secure coding techniques.
+> [!NOTE]
+> Appropriate software patches are those patches that have been evaluated and tested sufficiently to determine that the patches do not conflict with existing security configurations. For in-house developed applications, numerous vulnerabilities can be avoided by using standard system development processes and secure coding techniques.
 
 ## PCI DSS Requirement 6.1
 
 **6.1** Establish a process to identify security vulnerabilities, using reputable outside sources for security vulnerability information, and assign a risk ranking (for example, as “high,” “medium,” or “low”) to newly discovered security vulnerabilities.
 
-> [!NOTE] Risk rankings should be based on industry best practices as well as consideration of potential impact. For example, criteria for ranking vulnerabilities may include consideration of the CVSS base score, and/or the classification by the vendor, and/or type of systems affected. 
+> [!NOTE]
+> Risk rankings should be based on industry best practices as well as consideration of potential impact. For example, criteria for ranking vulnerabilities may include consideration of the CVSS base score, and/or the classification by the vendor, and/or type of systems affected. 
 > 
 > Methods for evaluating vulnerabilities and assigning risk ratings will vary based on an organization’s environment and risk-assessment strategy. Risk rankings should, at a minimum, identify all vulnerabilities considered to be a “high risk” to the environment. In addition to the risk ranking, vulnerabilities may be considered “critical” if they pose an imminent threat to the environment, impact critical systems, and/or would result in a potential compromise if not addressed. Examples of critical systems may include security systems, public-facing devices and systems, databases, and other systems that store, process, or transmit cardholder data.
 
@@ -51,7 +54,8 @@ Unscrupulous individuals use security vulnerabilities to gain privileged access 
 
 **6.2** Ensure that all system components and software are protected from known vulnerabilities by installing applicable vendor-supplied security patches. Install critical security patches within one month of release.
 
-> [!NOTE] Critical security patches should be identified according to the risk ranking process defined in Requirement 6.1.
+> [!NOTE]
+> Critical security patches should be identified according to the risk ranking process defined in Requirement 6.1.
 
 **Responsibilities:&nbsp;&nbsp;`Shared`**
 
@@ -69,7 +73,8 @@ Unscrupulous individuals use security vulnerabilities to gain privileged access 
 - Based on industry standards and/or best practices
 - Incorporating information security throughout the software-development life cycle 
 
-> [!NOTE] This applies to all software developed internally as well as bespoke or custom software developed by a third party.
+> [!NOTE]
+> This applies to all software developed internally as well as bespoke or custom software developed by a third party.
 
 **Responsibilities:&nbsp;&nbsp;`Shared`**
 
@@ -101,7 +106,8 @@ Unscrupulous individuals use security vulnerabilities to gain privileged access 
 - Appropriate corrections are implemented prior to release
 - Code-review results are reviewed and approved by management prior to release 
 
-> [!NOTE] This requirement for code reviews applies to all custom code (both internal and public-facing), as part of the system development life cycle. 
+> [!NOTE]
+> This requirement for code reviews applies to all custom code (both internal and public-facing), as part of the system development life cycle. 
 >
 > Code reviews can be conducted by knowledgeable internal personnel or third parties. Public-facing web applications are also subject to additional controls, to address ongoing threats and vulnerabilities after implementation, as defined at PCI DSS Requirement 6.6.
 
@@ -200,7 +206,8 @@ Unscrupulous individuals use security vulnerabilities to gain privileged access 
 
 **6.4.6** Upon completion of a significant change, all relevant PCI DSS requirements must be implemented on all new or changed systems and networks, and documentation updated as applicable.
 
-> [!NOTE] This requirement is a best practice until January 31, 2018, after which it becomes a requirement.
+> [!NOTE]
+> This requirement is a best practice until January 31, 2018, after which it becomes a requirement.
 
 
 **Responsibilities:&nbsp;&nbsp;`Shared`**
@@ -218,9 +225,11 @@ Unscrupulous individuals use security vulnerabilities to gain privileged access 
 - Train developers at least annually in up-to-date secure coding techniques, including how to avoid common coding vulnerabilities.
 - Develop applications based on secure coding guidelines.
 
-> [!NOTE] The vulnerabilities listed at 6.5.1 through 6.5.10 were current with industry best practices when this version of PCI DSS was published. However, as industry best practices for vulnerability management are updated (for example, the OWASP Guide, SANS CWE Top 25, CERT Secure Coding, etc.), the current best practices must be used for these requirements. 
+> [!NOTE]
+> The vulnerabilities listed at 6.5.1 through 6.5.10 were current with industry best practices when this version of PCI DSS was published. However, as industry best practices for vulnerability management are updated (for example, the OWASP Guide, SANS CWE Top 25, CERT Secure Coding, etc.), the current best practices must be used for these requirements. 
 > 
-> [!NOTE] Requirements 6.5.1 through 6.5.6, below, apply to all applications (internal or external). Requirements 6.5.7 through 6.5.10, below, apply to web applications and application interfaces (internal or external). 
+> [!NOTE]
+> Requirements 6.5.1 through 6.5.6, below, apply to all applications (internal or external). Requirements 6.5.7 through 6.5.10, below, apply to web applications and application interfaces (internal or external). 
 
 - **6.5.1** Injection flaws, particularly SQL injection. Also consider OS Command Injection, LDAP and XPath injection flaws as well as other injection flaws.
 - **6.5.2** Buffer overflows

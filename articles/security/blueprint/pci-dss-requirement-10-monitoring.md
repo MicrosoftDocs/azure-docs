@@ -24,7 +24,8 @@ ms.author: frasim
 
 **Track and monitor all access to network resources and cardholder data**
 
-> [!NOTE] These requirements are defined by the [Payment Card Industry (PCI) Security Standards Council](https://www.pcisecuritystandards.org/pci_security/) as part of the [PCI Data Security Standard (DSS) Version 3.2](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss). Please refer to the PCI DSS for information on testing procedures and guidance for each requirement.
+> [!NOTE]
+> These requirements are defined by the [Payment Card Industry (PCI) Security Standards Council](https://www.pcisecuritystandards.org/pci_security/) as part of the [PCI Data Security Standard (DSS) Version 3.2](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss). Please refer to the PCI DSS for information on testing procedures and guidance for each requirement.
 
 Logging mechanisms and the ability to track user activities are critical in preventing, detecting, or minimizing the impact of a data compromise. The presence of logs in all environments allows thorough tracking, alerting, and analysis when something does go wrong. Determining the cause of a compromise is very difficult, if not impossible, without system activity logs.
 
@@ -83,7 +84,8 @@ Logging mechanisms and the ability to track user activities are critical in prev
 ## PCI DSS Requirement 10.4
 
 **10.4** Using time-synchronization technology, synchronize all critical system clocks and times and ensure that the following is implemented for acquiring, distributing, and storing time. 
-> [!NOTE] One example of time synchronization technology is Network Time Protocol (NTP).
+> [!NOTE]
+> One example of time synchronization technology is Network Time Protocol (NTP).
 
 **Responsibilities:&nbsp;&nbsp;`Shared`**
 
@@ -215,7 +217,8 @@ Logging mechanisms and the ability to track user activities are critical in prev
 
 **10.6** Review logs and security events for all system components to identify anomalies or suspicious activity.
  
-> [!NOTE] Log harvesting, parsing, and alerting tools may be used to meet this Requirement.
+> [!NOTE]
+> Log harvesting, parsing, and alerting tools may be used to meet this Requirement.
 
 **Responsibilities:&nbsp;&nbsp;`Shared`**
 
@@ -294,7 +297,8 @@ Logging mechanisms and the ability to track user activities are critical in prev
 - Audit logging mechanisms
 - Segmentation controls (if used) 
 
-> [!NOTE] This requirement is a best practice until January 31, 2018, after which it becomes a requirement.
+> [!NOTE]
+> This requirement is a best practice until January 31, 2018, after which it becomes a requirement.
 
 
 
@@ -319,7 +323,8 @@ remediation required to address root cause
 - Implementing controls to prevent cause of failure from reoccurring
 -Resuming monitoring of security controls 
 
-> [!NOTE] This requirement is a best practice until January 31, 2018, after which it becomes a requirement.
+> [!NOTE]
+> This requirement is a best practice until January 31, 2018, after which it becomes a requirement.
 
 
 **Responsibilities:&nbsp;&nbsp;`Shared`**

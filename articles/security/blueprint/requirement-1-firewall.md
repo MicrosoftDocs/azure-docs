@@ -165,7 +165,7 @@ Other system components may provide firewall functionality, as long as they meet
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
 | **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore's CDE is defined in the RA and deployment documentation. Untrusted networks are denied by design. The Contoso Webstore demo configures the Microsoft Azure application firewall to allow only specified ranges of IP addresses to access Microsoft Azure services. The Contoso Webstore provides a deny-all firewall at all CDE boundaries. All configurations is performed during the initial setup of the deployment.
 
-[!NOTE]
+> [!NOTE]
 > App Service Environment (ASE) is used in this solution to isolate the CDE However, it is essential that your Qualified Security Assessor (QSA) evaluates this solution, as ASE implements a DMZ isolation that allows outbound connections to be made by the ASE. PCI-DSS requires that all inbound and outbound connections which are not required must be blocked. For ASE to operate correctly, ASE will establish outbound connections as needed as defined in ["Networking considerations for an App Service Environment"](/azure/app-service/app-service-environment/network-info). Customers should evaluate the outbound connections with your QSA prior to deploying the solution into a production environment to ensure it will meet the requirements. |
 
 

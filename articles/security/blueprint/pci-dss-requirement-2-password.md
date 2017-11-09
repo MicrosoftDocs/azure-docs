@@ -24,7 +24,8 @@ ms.author: frasim
 
 **Do not use vendor-supplied defaults for system passwords and other security parameters**
 
-> [!NOTE] These requirements are defined by the [Payment Card Industry (PCI) Security Standards Council](https://www.pcisecuritystandards.org/pci_security/) as part of the [PCI Data Security Standard (DSS) Version 3.2](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss). Please refer to the PCI DSS for information on testing procedures and guidance for each requirement.
+> [!NOTE]
+> These requirements are defined by the [Payment Card Industry (PCI) Security Standards Council](https://www.pcisecuritystandards.org/pci_security/) as part of the [PCI Data Security Standard (DSS) Version 3.2](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss). Please refer to the PCI DSS for information on testing procedures and guidance for each requirement.
 
 Malicious individuals (external and internal to an entity) often use vendor default passwords and other vendor default settings to compromise systems. These passwords and settings are well known by hacker communities and are easily determined via public information.
 
@@ -77,7 +78,8 @@ Sources of industry-accepted system hardening standards may include, but are not
 
 **2.2.1** Implement only one primary function per server to prevent functions that require different security levels from co-existing on the same server. (For example, web servers, database servers, and DNS should be implemented on separate servers.) 
 
-> [!NOTE] Where virtualization technologies are in use, implement only one primary function per virtual system component.
+> [!NOTE]
+> Where virtualization technologies are in use, implement only one primary function per virtual system component.
 
 **Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
@@ -105,7 +107,8 @@ Sources of industry-accepted system hardening standards may include, but are not
 
 **2.2.3** Implement additional security features for any required services, protocols, or daemons that are considered to be insecure. 
 
-> [!NOTE] Where SSL/early TLS is used, the
+> [!NOTE]
+> Where SSL/early TLS is used, the
 requirements in Appendix A2 must be
 completed.
 
@@ -149,7 +152,8 @@ completed.
 
 **2.3** Encrypt all non-console administrative access using strong cryptography. 
 
-> [!NOTE] Where SSL/early TLS is used, the requirements in Appendix A2 must be completed.
+> [!NOTE]
+> Where SSL/early TLS is used, the requirements in Appendix A2 must be completed.
 
 **Responsibilities:&nbsp;&nbsp;`Shared`**
 
