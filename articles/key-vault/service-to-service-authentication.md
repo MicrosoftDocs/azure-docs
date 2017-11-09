@@ -25,8 +25,8 @@ Your development credentials are more secure because you are no longer tempted t
 
 The `Microsoft.Azure.Services.AppAuthentication` library supports local development with Microsoft Visual Studio, Azure CLI, or Azure AD Integrated Authentication. When deployed to Azure or an Azure virtual machine (VM), the library automatically uses [Managed Service Identity](/azure/active-directory/msi-overview) (MSI). No code changes are required. The library also supports [service principals](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authenticate-service-principal) when MSI is not available or when the developer's security context cannot be determined during local development.
 
-<a name="asal">
-## </a>Using the library
+<a name="asal"></a>
+## Using the library
 
 For .NET applications, the simplest way to work with a Managed Service Identity (MSI) is through the `Microsoft.Azure.Services.AppAuthentication` package. Here's how to get started:
 
