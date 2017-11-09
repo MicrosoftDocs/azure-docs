@@ -27,12 +27,7 @@ Azure IoT Edge is an Azure service that enables analytics and data processing at
 * Perform anomaly detection and react to changes in the environment without having to wait for instructions from the cloud.
 * Minimize bandwidth and storage cost by preprocessing data and sending the results. 
 
-Azure IoT Edge also includes a cloud interface that enables you to:
-
-* Push new modules to devices without having to physically access them. 
-* Apply deployments at scale, and monitor the status of individual devices or modules. 
-
-To learn more about IoT Edge, see [How IoT Edge works][lnk-iot-edge].
+You can use IoT Hub to implement your own solution back end. In addition, IoT Hub includes an identity registry used to provision devices, their security credentials, and their rights to connect to the IoT hub. To learn more about IoT Hub, see [What is IoT Hub][lnk-iot-hub].
 
 To learn how Azure IoT Hub enables standards-based device management for you to remotely manage your devices, see [Overview of device management with IoT Hub][lnk-device-management].
 
@@ -42,4 +37,9 @@ To get started writing some code and running some samples, see the [Get started 
 
 You may also be interested in [Azure IoT Suite][lnk-iot-suite], which is a collection of preconfigured solutions. IoT Suite enables you to get started quickly and scale IoT projects to address common IoT scenarios--such as remote monitoring, asset management, and predictive maintenance.
 
-[lnk-iot-edge]: how-iot-edge-works.md
+[lnk-getstarted]: ../iot-hub/iot-hub-csharp-csharp-getstarted.md
+[lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
+[lnk-iot-hub]: ../iot-hub/iot-hub-what-is-iot-hub.md
+[lnk-iot-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
+[lnk-iotdev]: https://azure.microsoft.com/develop/iot/
+[lnk-device-management]: ../iot-hub/iot-hub-device-management-overview.md
