@@ -40,7 +40,12 @@ Open your web browser, and navigate to the [Microsoft Azure portal](https://port
 
 1. Click **Create**.
 
-After a few moments, your Azure Database Migration service will be created and ready to use.
+After a few moments, your Azure Database Migration service will be created and ready to use.  You'll see the Database Migration Service as shown in the image.
+
+![Migration service created](media/quickstart-create-data-migration-service-portal/dms-service-created.png)
+
+## Clean up resources
+You can clean up the resources that you created in the quickstart by deleting the [Azure resource group](../azure-resource-manager/resource-group-overview.md).  To delete the resource group, navigate to the Database Migration Service you created, click on the **Resource group** name and then select **Delete resource group**.  This action deletes all of the assets in the resource group as well as the group itself.
 
 ## Next steps
 > [!div class="nextstepaction"]
