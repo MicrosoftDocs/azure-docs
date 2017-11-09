@@ -155,7 +155,7 @@ The following table explains the binding configuration properties that you set i
 |**type** | n/a | Must be set to "timerTrigger". This property is set automatically when you create the trigger in the Azure portal.|
 |**direction** | n/a | Must be set to "in". This property is set automatically when you create the trigger in the Azure portal. |
 |**name** | n/a | The name of the variable that represents the timer object in function code. | 
-|**schedule**|**ScheduleExpression**|On the Consumption plan, you can define schedules with a CRON expression. If you're using an App Service Plan, you can also use a `TimeSpan` string. The following sections explain CRON expressions. You can put the schedule expression in an app setting and set this property to a value wrapped in **%** signs, as in this example: "%NameOfAppSettingWithCRONExpression%". When you're developing locally, app settings go into the values of the [local.settings.json](../../Documents/GitHub/azure-docs-pr/articles/azure-functions/functions-run-local.md#local-settings) file.|
+|**schedule**|**ScheduleExpression**|On the Consumption plan, you can define schedules with a CRON expression. If you're using an App Service Plan, you can also use a `TimeSpan` string. The following sections explain CRON expressions. You can put the schedule expression in an app setting and set this property to a value wrapped in **%** signs, as in this example: "%NameOfAppSettingWithCRONExpression%". When you're developing locally, app settings go into the values of the [local.settings.json file](functions-run-local.md#local-settings-file).|
 
 ### CRON format 
 
