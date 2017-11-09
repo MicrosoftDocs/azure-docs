@@ -31,6 +31,8 @@
     items:
     - name: Add Utterance and train using Node.js
       href: luis-quickstart-node-add-utterance.md
+    - name: Add Utterance and train using Python
+      href: luis-quickstart-python-add-utterance.md
 - name: Tutorials
   items: 
   - name: Integrate LUIS with a bot using Node.js
