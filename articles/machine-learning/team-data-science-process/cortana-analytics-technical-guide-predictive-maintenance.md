@@ -68,7 +68,7 @@ source is derived from publicly available data from the
 repository](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/)
 using the [Turbofan Engine Degradation Simulation Data Set](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/#turbofan).
 
-The event generation application populate the Azure Event Hub only
+The event generation application populates the Azure Event Hub only
 while it's executing on your computer.
 
 ### Azure event hub
@@ -125,10 +125,10 @@ Solution Template, refer to the section below.
 
 ## **How to bring in your own data**
 This section describes how to bring your own data to Azure, and what
-areas would require changes for the data you bring into this
+areas require changes for the data you bring into this
 architecture.
 
-It's unlikely that any dataset you bring would match the dataset used by
+It's unlikely that any dataset you bring will match the dataset used by
 the [Turbofan Engine Degradation Simulation Data
 Set](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/#turbofan)
 used for this solution template. Understanding your data and the
@@ -182,9 +182,9 @@ on MSDN.
 
 In this solution, the queries output three datasets with near real-time
 analytics information about the incoming data stream to a Power BI
-dashboard that's provided as part of this solution template. Because
+dashboard provided as part of this solution template. Because
 there's implicit knowledge about the incoming data format, these queries
-would need to be altered based on your data format.
+must be altered based on your data format.
 
 The query in the second Stream Analytics job **maintenancesa02asablob** simply outputs all [Event
 Hub](https://azure.microsoft.com/services/event-hubs/) events to
@@ -199,7 +199,7 @@ service orchestrates the movement and processing of data. In the
 Predictive Maintenance for Aerospace Solution Template the data factory
 is made up of three
 [pipelines](../../data-factory/v1/data-factory-create-pipelines.md)
-that move and process the data using various technologies.  You can access your data factory by opening the Data Factory node at the bottom of the solution template diagram created with the deployment of the solution. This takes you to the data factory on your Azure portal. If you see errors under your datasets, you can ignore those as they are due to data factory being deployed before the data generator was started. Those errors do not prevent your data factory from functioning.
+that move and process the data using various technologies.  You can access your data factory by opening the Data Factory node at the bottom of the solution template diagram created with the deployment of the solution. This takes you to the data factory on your Azure portal. Ignore errors under your datasets. Those are due to data factory being deployed before the data generator was started. Those errors do not prevent your data factory from functioning.
 
 ![Data Factory dataset errors](./media/cortana-analytics-technical-guide-predictive-maintenance/data-factory-dataset-error.png)
 
@@ -217,11 +217,10 @@ created during setup. Their location is:
 maintenancesascript\\\\script\\\\hive\\\\ (or https://[Your solution
 name].blob.core.windows.net/maintenancesascript).
 
-Similar to the [Azure Stream Analytics](#azure-stream-analytics-1)
+Similar to [Azure Stream Analytics](#azure-stream-analytics-1)
 queries, the
 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx)
-scripts have implicit knowledge about the incoming data format, these
-queries would need to be altered based on your data format.
+scripts have implicit knowledge about the incoming data format and must be altered based on your data format.
 
 #### *AggregateFlightInfoPipeline*
 This
@@ -245,12 +244,12 @@ script for this partitioning task is ***AggregateFlightInfo.hql***
 #### *MLScoringPipeline*
 This
 [pipeline](../../data-factory/v1/data-factory-create-pipelines.md)
-contains several activities and whose end result is the scored
+contains several activities whose end result is the scored
 predictions from the [Azure Machine
 Learning](https://azure.microsoft.com/services/machine-learning/)
 experiment associated with this solution template.
 
-The activities contained in this are:
+Activities included are:
 
 * [HDInsightHive](../../data-factory/v1/data-factory-hive-activity.md)
   activity using an
@@ -268,12 +267,12 @@ The activities contained in this are:
   [HDInsightHive](../../data-factory/v1/data-factory-hive-activity.md)
   activity to a single [Azure
   Storage](https://azure.microsoft.com/services/storage/) blob
-  that can be access by the
+  accessed by the
   [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) activity.
 * [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx)
-  activity that calls the [Azure Machine
+  activity calls the [Azure Machine
   Learning](https://azure.microsoft.com/services/machine-learning/)
-  experiment which results in the results being put in a single [Azure
+  experiment, with results put in a single [Azure
   Storage](https://azure.microsoft.com/services/storage/) blob.
 
 #### *CopyScoredResultPipeline*
@@ -284,7 +283,7 @@ contains a single activity - a
 activity that moves the results of the [Azure Machine
 Learning](#azure-machine-learning) experiment from the
 ***MLScoringPipeline*** to the [Azure SQL
-Database](https://azure.microsoft.com/services/sql-database/) that was provisioned as part of the
+Database](https://azure.microsoft.com/services/sql-database/) provisioned as part of the
 solution template installation.
 
 ### Azure Machine Learning
@@ -292,17 +291,17 @@ The [Azure Machine
 Learning](https://azure.microsoft.com/services/machine-learning/)
 experiment used for this solution template provides the Remaining Useful
 Life (RUL) of an aircraft engine. The experiment is specific to the data
-set consumed and therefore require modification or replacement
-specific to the data that's brought in.
+set consumed and requires modification or replacement
+specific to the data brought in.
 
 For information about how the Azure Machine Learning experiment was
 created, see [Predictive Maintenance: Step 1 of 3, data preparation and feature engineering](http://gallery.cortanaanalytics.com/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2).
 
 ## **Monitor Progress**
- Once the Data Generator is launched, the pipeline begins to get hydrated and the different components of your solution start kicking into action following the commands issued by the Data Factory. There are two ways you can monitor the pipeline.
+Once the Data Generator is launched, the pipeline begins to dehydrate, and the different components of your solution start kicking into action following the commands issued by the data factory. There are two ways to monitor the pipeline.
 
 1. One of the Stream Analytics jobs writes the raw incoming data to blob storage. If you click on Blob Storage component of your solution from the screen you successfully deployed the solution and then click Open in the right panel, it takes you to the [Azure portal](https://portal.azure.com/). Once there, click on Blobs. In the next panel, you see a list of Containers. Click on **maintenancesadata**. In the next panel, you see the **rawdata** folder. Inside the rawdata folder, you see folders with names such as hour=17, hour=18 etc. If you see these folders, it indicates that the raw data is successfully being generated on your computer and stored in blob storage. You should see csv files that should have finite sizes in MB in those folders.
-2. The last step of the pipeline is to write data (e.g. predictions from machine learning) into SQL Database. You might have to wait a maximum of three hours for the data to appear in SQL Database. One way to monitor how much data is available in your SQL Database is through [azure portal](https://portal.azure.com/). On the left panel locate SQL DATABASES ![SQL icon](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-SQL-databases.png) and click it. Then locate your database **pmaintenancedb** and click on it. On the next page at the bottom, click on MANAGE
+2. The last step of the pipeline is to write data (e.g. predictions from machine learning) into SQL Database. You might have to wait a maximum of three hours for the data to appear in SQL Database. One way to monitor how much data is available in your SQL Database is through the [Azure portal](https://portal.azure.com/). On the left panel locate SQL DATABASES ![SQL icon](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-SQL-databases.png) and click it. Then locate your database **pmaintenancedb** and click on it. On the next page at the bottom, click on MANAGE
    
     ![Manage icon](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-manage.png).
    
@@ -442,17 +441,17 @@ account, you can [create one](https://powerbi.microsoft.com/pricing).
    * Click "s11" and "s11\_alert" so that they both appear
      under "Values". Click the small arrow next to **s11** and
      **s11\_alert**, change "Sum" to "Average".
-   * Click **SAVE** on the top and name the report "aircraftmonitor". The
+   * Click **SAVE** on the top and name the report "aircraftmonitor." The
      report named "aircraftmonitor" is shown in the **Reports**
      section in the **Navigator** pane on the left.
    * Click the **Pin Visual** icon on the top right corner of this
      line chart. A "Pin to Dashboard" window may show up for you to
-     choose a dashboard. Select "Predictive Maintenance Demo", then
-     click "Pin".
+     choose a dashboard. Select "Predictive Maintenance Demo," then
+     click "Pin."
    * Hover the mouse over this tile on the dashboard, click the "edit"
      icon on the top right corner to change its title to "Fleet View of
      Sensor 11 vs. Threshold 48.26" and subtitle to "Average across fleet
-     over time".
+     over time."
 
 ## **How to delete your solution**
 Please ensure that you stop the data generator when not actively using the solution as running the data generator will incur higher costs. Please delete the solution if you are not using it. Deleting your solution deletes all the components provisioned in your subscription when you deployed the solution. To delete the solution click on your solution name in the left panel of the solution template and click on delete.
