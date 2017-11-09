@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 11/09/2017
 ms.author: jingwang
 
 ---
@@ -45,9 +45,9 @@ The following properties are supported for Azure File Storage linked service:
 | host | Specifies the Azure File Storage endpoint as `"host": "\\\\<storage name>.file.core.windows.net\\<file service name>"`. | Yes |
 | userid | Specify the user to access the Azure File Storage as `"userid": "AZURE\\<storage name>"`. | Yes |
 | password | Specify the storage access key. Mark this field as SecureString.<br/> | Yes |
-| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in private network). If not specified, it uses the default Azure Integration Runtime. |No |
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in private network). If not specified, it uses the default Azure Integration Runtime. |No for source, Yes for sink |
 
->[!TIP]
+>[!IMPORTANT]
 > - To copy to Azure File Storage using Azure Integration Runtime, explicitly [create an Azure IR](create-azure-integration-runtime.md#create-azure-ir) with the location of your File Storage, and associate in the linked service as the following example.
 > - To copy from/to Azure File Storage using Self-hosted Integration Runtime outside of Azure, remember to open outbound TCP port 445 in your local network.
 
