@@ -61,7 +61,7 @@ PowerShell runbooks are based on Windows PowerShell.  You directly edit the code
 ### Known Issues
 Following are current known issues with PowerShell runbooks.
 
-* PowerShell runbooks cannot cannot retrieve an unencrypted [variable asset](automation-variables.md) with a null value.
+* PowerShell runbooks cannot retrieve an unencrypted [variable asset](automation-variables.md) with a null value.
 * PowerShell runbooks cannot retrieve a [variable asset](automation-variables.md) with *~* in the name.
 * Get-Process in a loop in a PowerShell runbook may crash after about 80 iterations. 
 * A PowerShell runbook may fail if it attempts to write a very large amount of data to the output stream at once.   You can typically work around this issue by outputting just the information you need when working with large objects.  For example, instead of outputting something like *Get-Process*, you can output just the required fields with *Get-Process | Select ProcessName, CPU*.
