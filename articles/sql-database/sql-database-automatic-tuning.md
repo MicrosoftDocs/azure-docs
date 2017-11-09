@@ -55,7 +55,7 @@ Automatic tuning can operate autonomously through automatically applying tuning 
 
 For more control, automatic application of tuning recommendations can be turned off, and tuning recommendations can be manually applied through Azure portal. It is also possible to use the solution to view automated tuning recommendations only and manually apply them through scripts and tools of your choice. 
 
-For an overview of how Automatic tuning works and for typical usage scenarios, please see the embedded video:
+For an overview of how automatic tuning works and for typical usage scenarios, see the embedded video:
 
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Improve-Azure-SQL-Database-Performance-with-Automatic-Tuning/player]
