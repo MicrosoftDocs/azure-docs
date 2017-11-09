@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/17/2017
 ms.author: ccompy
 ---
-The App Service Environment is a deployment of the Azure App Service in a customer's Azure Virtual Network (VNet). Many customers configure their VNets to be extentions of their on premises networks with VPNs or ExpressRoute connections. Due to corporate policies or other security constraints, they configure routes to send all outbound traffic on premises before it can go out to the internet. Changing the routing of the VNet so that the outbound traffic from the VNet flows through the VPN or ExpressRoute connection to on premises is called forced tunneling.  
+The App Service Environment is a deployment of the Azure App Service in a customer's Azure Virtual Network (VNet). Many customers configure their VNets to be extensions of their on premises networks with VPNs or ExpressRoute connections. Due to corporate policies or other security constraints, they configure routes to send all outbound traffic on premises before it can go out to the internet. Changing the routing of the VNet so that the outbound traffic from the VNet flows through the VPN or ExpressRoute connection to on premises is called forced tunneling.  
 
-Forced tunneling can cause problems for an ASE. The ASE has a number of external dependencies which are enumerated in this [ASE Network Architecture][network] document. The ASE, by default, requires that all outbound communication goes through the VIP that is provisioned with the ASE.
+Forced tunneling can cause problems for an ASE. The ASE has a number of external dependencies, which are enumerated in this [ASE Network Architecture][network] document. The ASE, by default, requires that all outbound communication goes through the VIP that is provisioned with the ASE.
 
-In an Azure Virtual Network, routing is done based on Longest Prefix Match (LPM).  If there is more than one route with the same LPM match then a route is selected based on its origin in the following order:
+In an Azure Virtual Network, routing is done based on Longest Prefix Match (LPM).  If there is more than one route with the same LPM match, then a route is selected based on its origin in the following order:
 
 1. User defined route
 1. BGP route (when ExpressRoute is used)
@@ -27,7 +27,7 @@ In an Azure Virtual Network, routing is done based on Longest Prefix Match (LPM)
 
 To learn more about routing in a VNet, read [User defined routes and IP forwarding][routes]. 
 
-If your want your ASE to operate in a forced tunnel VNet you have two choices:
+If you want your ASE to operate in a forced tunnel VNet, you have two choices:
 
 1. Enable your ASE to have direct internet access
 1. Change the egress endpoint for your ASE
@@ -48,19 +48,21 @@ If you make these two changes, internet-destined traffic that originates from th
 
 ## Change the egress endpoint for your ASE ##
 
-This section describes how to enable an ASE to operate in a forced tunnel configuration by changing the egress endpoint used by the ASE. This can be used to support forced tunneling situations or any other situation where the egress address must be changed.  An ASE not only has external dependencies but it also must listen for inbound traffic to manage the ASE. The ASE must be able to respond to such traffic and the replies cannot be sent back from another address as that breaks TCP.  There are thus three steps required to change the egress endpoint for the ASE.
+This section describes how to enable an ASE to operate in a forced tunnel configuration by changing the egress endpoint used by the ASE. If the outbound traffic from the ASE is forced tunneled to an on premises network, then you need to allow that traffic to source from IP addresses other than the ASE VIP address.
+
+An ASE not only has external dependencies but it also must listen for inbound traffic to manage the ASE. The ASE must be able to respond to such traffic and the replies cannot be sent back from another address as that breaks TCP.  There are thus three steps required to change the egress endpoint for the ASE.
 
 1. Set a route table to ensure that inbound management traffic can go back out from the same IP address
-1. Add your IP addresses that will be used for egress to the ASE firewall
+1. Add your IP addresses that to be used for egress to the ASE firewall
 1. Set the routes to outbound traffic from the ASE to be tunneled
 
 ![Forced tunnel network flow][1]
 
-You can configure the ASE with a different egress address after the ASE is already up and operational or during ASE deployment.  
+You can configure the ASE with different egress addresses after the ASE is already up and operational or they can be set during ASE deployment.  
 
 ### Changing the egress address after the ASE is operational ###
-1. Get the IP addresses you want to use as egress IPs for your ASE. If you are doing forced tunneling then this would be your NATs or gateway IPs.  If you were routing all of the ASE outbound traffic through an NVA, then the egress address would be the public IP of the NVA.
-2. Set the egress addresses in your ASE configuration information. Go to resource.azure.com and navigate to: Subscription/<subscription id>/resourceGroups/<ase resource group>/providers/Microsoft.Web/hostingEnvironments/<ase name> then you will see the json that describes your ASE.  Make sure it says read/write at the top.  Click Edit   Scroll down to the bottom and change userWhitelistedIpRanges from  
+1. Get the IP addresses you want to use as egress IPs for your ASE. If you are doing forced tunneling, then this would be your NATs or gateway IPs.  If you want to route the ASE outbound traffic through an NVA, then the egress address would be the public IP of the NVA.
+2. Set the egress addresses in your ASE configuration information. Go to resource.azure.com and navigate to: Subscription/<subscription id>/resourceGroups/<ase resource group>/providers/Microsoft.Web/hostingEnvironments/<ase name> then you can see the json that describes your ASE.  Make sure it says read/write at the top.  Click Edit   Scroll down to the bottom and change userWhitelistedIpRanges from  
 
        "userWhitelistedIpRanges": null 
       
@@ -68,27 +70,27 @@ You can configure the ASE with a different egress address after the ASE is alrea
 
       "userWhitelistedIpRanges": ["11.22.33.44/32", "55.66.77.0/24"] 
 
-  Click PUT at the top. This will trigger a scale operation on your ASE and adjust the firewall.
+  Click PUT at the top. This triggers a scale operation on your ASE and adjust the firewall.
    
-3. Create or edit a route table and populate the rules to allow access to/from the management addresses that map to your ASE location.  The management addreses are here, [App Service Environment management addresses][management] 
+3. Create or edit a route table and populate the rules to allow access to/from the management addresses that map to your ASE location.  The management addresses are here, [App Service Environment management addresses][management] 
 
 4. Adjust the routes applied to the ASE subnet with a route table or BGP routes.  
 
-If the ASE goes unresponsive from the portal then there is a problem with your changes.  It can be that your list of egress addresses was incomplete, the traffic was lost or the traffic was blocked.  
+If the ASE goes unresponsive from the portal, then there is a problem with your changes.  It can be that your list of egress addresses was incomplete, the traffic was lost, or the traffic was blocked.  
 
 ### Create a new ASE with a different egress address  ###
 
-In the event that your VNet is already configured to force tunnel all the traffic, you will need to take some extra steps to create your ASE such that it will come up successfully. This means you need to enable use of another egress endpoint during the ASE creation.  To do this, you need to create the ASE with a template. The steps to do this are:
+In the event that your VNet is already configured to force tunnel all the traffic, you will need to take some extra steps to create your ASE such that it can come up successfully. This means you need to enable use of another egress endpoint during the ASE creation.  To do this, you need to create the ASE with a template that specifies the permitted egress addresses.
 
-1. Get the IP addresses that you will use as the egress addresses for your ASE.
+1. Get the IP addresses to be used as the egress addresses for your ASE.
 1. Pre-create the subnet to be used by the ASE. This is needed to let you set routes and also because the template requires it.  
 1. Create a route table with the management IPs that map to your ASE location and assign it to your ASE
-1. Follow the directions here, [Creating an ASE with a template][templatecreate], and pull down the appropriate template
+1. Follow the directions here, [Creating an ASE with a template][template], and pull down the appropriate template
 1. Edit the azuredeploy.json file "resources" section. Include a line for **userWhitelistedIpRanges** with your values like:
 
        "userWhitelistedIpRanges":  ["11.22.33.44/32", "55.66.77.0/30"]
 
-If this is configured properly then the ASE should start with no issues.  
+If this is configured properly, then the ASE should start with no issues.  
 
 
 <!--IMAGES-->
