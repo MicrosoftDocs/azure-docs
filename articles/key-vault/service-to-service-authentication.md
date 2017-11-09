@@ -23,7 +23,7 @@ The `Microsoft.Azure.Services.AppAuthentication` for .NET library simplifies thi
 
 Your development credentials are more secure because you are no longer tempted to include them in source code or configuration files. The `Microsoft.Azure.Services.AppAuthentication` library manages authentication automatically, which in turn allows you to focus on your solution, rather than your credentials.
 
-The `Microsoft.Azure.Services.AppAuthentication` library supports local development with Microsoft Visual Studio, Azure CLI, or Azure AD Integrated Authentication. When deployed to Azure or an Azure virtual machine (VM), the library automatically uses [Managed Service Identity](/azure/active-directory/msi-overview) (MSI). No code changes are required. The library also supports [service principals](azure/azure-resource-manager/resource-group-authenticate-service-principal) when MSI is not available or when the developer's security context cannot be determined during local development.
+The `Microsoft.Azure.Services.AppAuthentication` library supports local development with Microsoft Visual Studio, Azure CLI, or Azure AD Integrated Authentication. When deployed to Azure or an Azure virtual machine (VM), the library automatically uses [Managed Service Identity](/azure/active-directory/msi-overview) (MSI). No code changes are required. The library also supports [service principals](/azure/azure-resource-manager/resource-group-authenticate-service-principal) when MSI is not available or when the developer's security context cannot be determined during local development.
 
 <a name="asal">
 ## </a>Using the library
