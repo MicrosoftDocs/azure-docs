@@ -62,6 +62,10 @@ Cloud applications typically need a front-end gateway to provide a single point 
 
 Now that you have a secure [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) or [Linux cluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md) on Azure, deploy API Management to the virtual network (VNET) in the subnet and NSG designated for API Management. For this tutorial, the API Management Resource Manager template is pre-configured to use the names of the VNET, subnet, and NSG that you set up in the previous [Windows cluster tutorial](service-fabric-tutorial-create-vnet-and-windows-cluster.md) or [Linux cluster tutorial](service-fabric-tutorial-create-vnet-and-linux-cluster.md). 
 
+This tutorial deploys the following topology to Azure in which API Management and Service Fabric are in subnets of the same Virtual Network:
+
+ ![Picture caption][sf-apim-topology-overview]
+
 Download the following Resource Manager template and parameters file:
  
 - [apim.json][apim-arm]
@@ -415,3 +419,6 @@ In this tutorial, you learned how to:
 
 [cluster-arm]: https://github.com/Azure-Samples/service-fabric-api-management/blob/master/cluster.json
 [cluster-parameters-arm]: https://github.com/Azure-Samples/service-fabric-api-management/blob/master/cluster.parameters.json
+
+<!-- pics -->
+[sf-apim-topology-overview]: ./media/service-fabric-tutorial-deploy-api-management/sf-apim-topology-overview.png
