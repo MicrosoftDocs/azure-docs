@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 11/08/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 
@@ -34,7 +34,7 @@ You might also be interested in these related topics:
 ## Scenario diagram
 In this scenario, external users need to access applications that run on domain-joined servers. The VMs that run the application servers and the replica DCs are installed in an Azure virtual network. The virtual network can be connected to the on-premises network by a [site-to-site VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md) connection, as shown in the following diagram, or you can use [ExpressRoute](../expressroute/expressroute-locations-providers.md) for a faster connection.
 
-The application servers and the DCs are deployed within separate cloud services to distribute compute processing and within [availability sets](../virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) for improved fault tolerance.
+The application servers and the DCs are deployed within separate cloud services to distribute compute processing and within availability sets for improved fault tolerance.
 The DCs replicate with each other and with on-premises DCs by using Active Directory replication. No synchronization tools are needed.
 
 ![Diagram pf replica Active Directory domain controller an Azure vnet][1]
@@ -47,8 +47,8 @@ It’s a good idea to create a site in Active Directory that represents the netw
 3. Create a subnet and associate with the new site: double-click **Sites** > right-click **Subnets** > **New subnet** > type the IP address range of the virtual network (such as 10.1.0.0/16 in the scenario diagram) > select the new Azure site > **OK**.
 
 ## Create an Azure virtual network
-1. In the [Azure classic portal](https://manage.windowsazure.com), click **New** > **Network Services** > **Virtual Network** > **Custom Create** and use the following values to complete the wizard.
-
+1. In the [Azure  portal](https://manage.windowsazure.com), click **New** > **Networking** > **Virtual network**. Use the following values to complete the wizard.
+2. 
    | On this wizard page… | Specify these values |
    | --- | --- |
    |  **Virtual Network Details** |<p>Name: Type a name for the virtual network, such as WestUSVNet.</p><p>Region: Choose the closest region.</p> |
