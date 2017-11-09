@@ -226,6 +226,7 @@ You can increase the level of visibility to include on-premises hops by moving t
 
 ![filters](.\media\how-to-npm\topology.png)
 
-#### Detailed Topology view of a particular ExpressRoute circuit - with VNet connections
+#### Detailed Topology view of a circuit
 
+This view shows VNet connections.
 ![detailed topology](.\media\how-to-npm\17.png)
