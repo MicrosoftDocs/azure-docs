@@ -28,7 +28,7 @@ Before getting into the details of planning for an Azure File Sync deployment, i
 ### Storage Sync Service
 The Storage Sync Service is the top-level Azure resource for Azure File Sync. The Storage Sync Service resource is a peer of the storage account resource, and can similarly be deployed to Azure resource groups. A distinct top-level resource from the storage account resource is required because the Storage Sync Service can create sync relationships with multiple storage accounts via multiple Sync Groups. A subscription can have multiple Storage Sync Service resources deployed.
 
-### Sync group
+### Sync Group
 A Sync Group defines the sync topology for a set of files. Endpoints within a Sync Group are kept in sync with each other. If, for example, you have two distinct sets of files that you want to manage with Azure File Sync, you would create two Sync Groups and add different endpoints to each Sync Group. A Storage Sync Service can host as many Sync Groups as you need.  
 
 ### Registered server
