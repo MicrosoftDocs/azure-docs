@@ -24,7 +24,7 @@ Learn some basic scenarios on how to use Azure Log Analytics to monitor Azure HD
 
 * [Analyze HDInsight cluster metrics](#analyze-hdinsight-cluster-metrics)
 * [Search for specific log messages](#search-for-specific-log-messages)
-* [Create event alerts](#create-alerts-to-track-events)
+* [Create event alerts](#create-alerts-for-tracking-events)
 
 ## Prerequisites
 
@@ -51,7 +51,7 @@ Learn how to look for specific metrics for your HDInsight cluster.
 
     ![Search all metrics](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-all-metrics.png "Search all metrics")
 
-    The output shall look like the following:
+    The output shall look like:
 
     ![Search all metrics output](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-all-metrics-output.png "Search all metrics output")
 
@@ -76,7 +76,7 @@ Learn how to look for specific metrics for your HDInsight cluster.
 
 ## Search for specific log messages
 
-Pearn how to  look error messages during a specific time window. The steps here are just one example on how you can arrive at the error message you are interested in. You can use any property that is available to look for the errors you are trying to find.
+Learn how to  look error messages during a specific time window. The steps here are just one example on how you can arrive at the error message you are interested in. You can use any property that is available to look for the errors you are trying to find.
 
 1. Open an HDInsight cluster that you have associated with Azure Log Analytics in the Azure portal.
 2. Click **Monitoring**, and the click **Open OMS Dashboard**.
@@ -110,7 +110,7 @@ Pearn how to  look error messages during a specific time window. The steps here 
 
     ![Search for specific errors output](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-error-arrived.png "Search for specific errors output")
 
-## Create alerts to track events
+## Create alerts for tracking events
 
 The first step to create an alert is to arrive at a query based on which the alert is triggered. For simplicity, let's use the following query that provides list of failed applications running on HDInsight clusters.
 
@@ -118,7 +118,7 @@ The first step to create an alert is to arrive at a query based on which the ale
 
 You can use any query that you want to create an alert.
 
-1. Open an HDInsight cluster blade that you have associated with Azure Log Analytics in the Azure portal.
+1. Open an HDInsight cluster that you have associated with Azure Log Analytics in the Azure portal.
 2. Click **Monitoring**, and then click **Open OMS Dashboard**.
 
     ![Open OMS dashboard](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-open-oms-dashboard.png "Open OMS dashboard")
@@ -139,7 +139,7 @@ You can use any query that you want to create an alert.
 
     ![Enter query to create an alert](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-create-alert.png "Enter query to create an alert")
 
-    In this screenshot, we only send an e-mail notification if the alert query retrieves an output.
+    The screenshot shows the configuration for sending an e-mail notification when the alert query returns an output.
 
 5. You can also edit or delete an existing alert. To do so, from any page in the OMS portal, click the **Settings** icon.
 
