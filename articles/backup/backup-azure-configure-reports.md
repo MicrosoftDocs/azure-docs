@@ -53,7 +53,7 @@ Use the following steps to configure the storage account for recovery services v
 4. Click on the link **Turn on diagnostics**. This opens UI for configuring storage account. 
 
       ![Turn on diagnostics step 4](./media/backup-azure-configure-reports/enable-diagnostics.png)
-5. Click on the link **Turn on diagnostics**, enter setting name in the field **Name** and select **Archive to a Storage Account** check box so that reporting data can start flowing in to the storage account.
+5. Enter setting name in the field **Name** and select **Archive to a Storage Account** check box so that reporting data can start flowing in to the storage account.
 
       ![Enable diagnostics step 4](./media/backup-azure-configure-reports/set-status-on.png)
 6. Click Storage Account picker and select the relevant subscription and storage account from the list for storing reporting data and click **OK**.
@@ -64,7 +64,7 @@ Use the following steps to configure the storage account for recovery services v
       ![Select storage account step 6](./media/backup-azure-configure-reports/save-configuration.png)
 7. Review all the changes and click **Save** button on top, as shown in the figure above. This action ensures that all your changes are saved and storage account is now configured for storing reporting data.
 
-8. The Diagnostic settings table should now show the new setting enabled for the vault.
+8. The Diagnostic settings table should now show the new setting enabled for the vault. If it does not show up, refresh the table to see the updated setting.
 
 > [!NOTE]
 > Once you configure reports by saving storage account, you should **wait for 24 hours** for initial data push to complete. You should import Azure Backup content pack in Power BI only after that time. Refer [FAQ section](#frequently-asked-questions) for further details. 
