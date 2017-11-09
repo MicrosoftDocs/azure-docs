@@ -66,7 +66,7 @@ After you register and schedule a VM for the Azure Backup service, Backup initia
 ## The specified Disk configuration is not supported
 
 > [!NOTE]
-> We now have a private preview to support backups for VMs with >1TB unmanaged disks. Please reach out to AskAzureBackupTeam@microsoft.com to register your subscription for the preview. 
+> We have a private preview to support backups for VMs with >1TB unmanaged disks. Please reach out to AskAzureBackupTeam@microsoft.com to register your subscription for the preview. 
 >
 >
 
