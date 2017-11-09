@@ -6,7 +6,8 @@
 ## [Analyze data on the edge](quickstart.md)
 
 # Tutorials
-## [Simulate an Edge device](tutorial-install-iot-edge.md)
+## [Simulate an Edge device - Windows](tutorial-simulate-device-windows.md) 
+## [Simulate an Edge device - Linux](tutorial-simulate-device-linux.md) 
 ## [Deploy C# code](tutorial-create-custom-module.md)
 ## [Deploy Azure Stream Analytics](tutorial-deploy-stream-analytics.md)
 
