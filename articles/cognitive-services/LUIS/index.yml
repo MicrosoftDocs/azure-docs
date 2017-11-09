@@ -1,3 +1,4 @@
+
 ### YamlMime:YamlDocument
 documentType: LandingData
 title: Language Understand Intelligent Service (LUIS) Documentation
@@ -43,6 +44,7 @@ sections:
         - href: luis-get-started-create-app
       - title: Get intent from utterance
         values:
+        - href: 
         - href: luis-get-started-cs-get-intent
         - href: luis-get-started-java-get-intent
         - href: luis-get-started-node-get-intent
