@@ -6430,16 +6430,6 @@
             "redirect_url": "text-analytics/quick-start",
             "redirect_document_id": false
         },
-        {
-            "source_path": "articles/cognitive-services/Bing-News-Search/index.md",
-            "redirect_url": "/azure/cognitive-services/Bing-News-Search/search-the-web",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/cognitive-services/Bing-Video-Search/index.md",
-            "redirect_url": "/azure/cognitive-services/Bing-Video-Search/search-the-web",
-            "redirect_document_id": false
-        },
 		{
             "source_path": "articles/cognitive-services/Speech/index.md",
             "redirect_url": "/azure/cognitive-services/Speech/Home",
