@@ -69,7 +69,7 @@ General recommendations for high availability are:
 
 Service level agreements (SLA) for Azure Search are targeted at query operations and at index updates that consist of adding, updating, or deleting documents.
 
-Basic tier tops out at one partition and three replicas. If you want the flexibility to immediately respond to a sudden demand for additional indexing or query throughput, you should strongly consider one of the Standard tiers.
+Basic tier tops out at one partition and three replicas. If you want the flexibility to immediately respond to fluctuations in demand for both indexing and query throughput, consider one of the Standard tiers.
 
 ### Index availability during a rebuild
 

@@ -33,7 +33,8 @@ Azure Search is a fully managed, cloud-based search service used for building a 
 
 Notice that *upgrade* is not listed as an administrative task. Because resources are allocated when the service is provisioned, moving to a different tier requires a new service. For details, see [Create an Azure Search service](search-create-service-portal.md).
 
-Looking for help on how to analyze search traffic or query performance? Gain insights into query volume, which terms people search for, and how successful search results are in guiding customers to specific documents in your index. For guidance, see [Search Traffic Analytics for Azure Search](search-traffic-analytics.md), [Monitor usage and query metrics](search-monitor-usage.md), and [Performance and optimization](search-performance-optimization.md).
+> [!Tip]
+> Looking for help on how to analyze search traffic or query performance? Gain insights into query volume, which terms people search for, and how successful search results are in guiding customers to specific documents in your index. For guidance, see [Search Traffic Analytics for Azure Search](search-traffic-analytics.md), [Monitor usage and query metrics](search-monitor-usage.md), and [Performance and optimization](search-performance-optimization.md).
 
 <a id="admin-rights"></a>
 
