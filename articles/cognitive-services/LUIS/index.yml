@@ -19,7 +19,7 @@ sections:
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: 'Learn how to use LUIS API to add intelligence to your app:'
+    text: 'Learn how to use LUIS to add intelligence to your app:'
   - type: table
     style: dataMatrix
     columns:
@@ -41,7 +41,7 @@ sections:
       - title: Create a LUIS app
         values:
         - href: luis-get-started-create-app
-      - title: Get intent from utterance
+      - title: Endpoint API
         values:
         - href: 
         - href: luis-get-started-cs-get-intent
@@ -50,6 +50,16 @@ sections:
         - href: luis-get-started-python-get-intent
         - href: luis-get-started-php-get-intent
         - href: luis-get-started-ruby-get-intent
+    rows: 
+      - title: Authoring API
+        values:
+        - href:
+        - href: 
+        - href:
+        - href:
+        - href:
+        - href:
+        - href:
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
