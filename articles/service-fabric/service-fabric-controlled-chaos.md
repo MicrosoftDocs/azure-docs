@@ -99,7 +99,7 @@ class Program
 
     static void Main(string[] args)
     {
-        var clusterConnectionString = "locahost:19000";
+        var clusterConnectionString = "localhost:19000";
         using (var client = new FabricClient(clusterConnectionString))
         {
             var startTimeUtc = DateTime.UtcNow;
