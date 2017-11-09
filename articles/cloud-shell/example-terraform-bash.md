@@ -22,7 +22,7 @@ This article walks you through creating a resource group with the [Terraform Azu
 # Terraform and Bash in Cloud Shell
 Terraform is installed in Bash in Cloud Shell by default. Additionally, Cloud Shell automatically authenticates your default Azure CLI 2.0 subscription to deploy resources through the Terraform Azure modules.
 
-Terraform uses the default Azure CLI 2.0 subscription that is set. If you need to update default subscriptions run:
+Terraform uses the default Azure CLI 2.0 subscription that is set. To update default subscriptions run:
 
 ```azurecli-interactive
 az account set --subscription mySubscriptionName
@@ -164,7 +164,7 @@ azurerm_resource_group.demo: Destruction complete after 45s
 Destroy complete! Resources: 1 destroyed.
 ```
 
-You have just successfully created an Azure resource through Terraform! Visit next steps to continue learning about Cloud Shell!
+You have successfully created an Azure resource through Terraform! Visit next steps to continue learning about Cloud Shell!
 
 ## Next Steps
 [Learn about the Terraform Azure provider](https://www.terraform.io/docs/providers/azurerm/#)<br>
