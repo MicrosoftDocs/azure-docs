@@ -226,8 +226,9 @@
 ## [REST](/rest/api/media/mediaservice)  
 
 # Resources
-## [Azure Media Services Community](media-services-community.md)
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=web-mobile)
+## [Azure Media Services community](media-services-community.md)
+## [Recommended on-prem encoders](media-services-recommended-encoders.md)
+## [Azure roadmap](https://azure.microsoft.com/roadmap/?category=web-mobile)
 ## [Pricing](https://azure.microsoft.com/pricing/details/media-services/)
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Release notes](media-services-release-notes.md)
