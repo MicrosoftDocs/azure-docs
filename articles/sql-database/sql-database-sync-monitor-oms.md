@@ -19,13 +19,13 @@ For an overview of SQL Data Sync, see [Sync data across multiple cloud and on-pr
 
 You no longer need to look through the logs of each Sync Group individually to look for issues. You can monitor all your Sync Groups from any of your subscriptions in one place by using a custom OMS (Operations Management Suite) view. This view surfaces the information that matters to SQL Data Sync customers.
 
-![Data Sync monitoring dashboard](media/sql-database-sync-monitor-oms/sync-monitoring-dashboard.jpg)
+![Data Sync monitoring dashboard](media/sql-database-sync-monitor-oms/sync-monitoring-dashboard.png)
 
 ## Automated Email notifications
 
 You no longer need to check the log manually in the Azure Portal or through PowerShell or the REST API. By leveraging [OMS Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview), you can create alerts that go directly to the email addresses of those that need to see them in the event of an error.
 
-![Data Sync email notifications](media/sql-database-sync-monitor-oms/sync-email-notifications.jpg)
+![Data Sync email notifications](media/sql-database-sync-monitor-oms/sync-email-notifications.png)
 
 ## How do you set this up? 
 
@@ -163,7 +163,7 @@ To configure the OMS view, do the following things:
 
         2.  On the tiles for each Sync Group, update the Sync Group names.
 
-    3.  Onn each tile, update the title as needed.
+    3.  On each tile, update the title as needed.
 
 4.  Click **Save** and the view is ready.
 
@@ -184,7 +184,7 @@ Download the code samples described in this article from the following locations
 -   [Data Sync Log OMS View](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
 
 ## Next steps
-or more info about SQL Data Sync, see:
+For more info about SQL Data Sync, see:
 
 -   [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync](sql-database-sync-data.md)
 -   [Get Started with Azure SQL Data Sync](sql-database-get-started-sql-data-sync.md)
