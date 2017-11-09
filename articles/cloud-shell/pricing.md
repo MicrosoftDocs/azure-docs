@@ -24,6 +24,6 @@ Bash in Cloud Shell and PowerShell in Cloud Shell (Preview) are subject to infor
 Azure Cloud Shell runs on a machine provided for free by Azure, but requires an Azure file share to use. 
 
 ## Storage Cost
-Cloud Shell requires a new or existing Azure File share to be mounted to persist files across sessions. Storage incurs regular costs.
+Cloud Shell requires a new or existing Azure Files share to be mounted to persist files across sessions. Storage incurs regular costs.
 
 Check [here for details on Azure Files costs](https://azure.microsoft.com/pricing/details/storage/files/). 

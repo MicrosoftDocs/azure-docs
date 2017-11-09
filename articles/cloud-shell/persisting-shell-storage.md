@@ -89,5 +89,5 @@ justin@Azure:~$
 
 ## Next steps
 [Cloud Shell Quickstart](quickstart.md) <br>
-[Learn about Azure File storage](https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) <br>
+[Learn about Microsoft Azure Files storage](https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) <br>
 [Learn about storage tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>

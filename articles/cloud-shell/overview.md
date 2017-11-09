@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 11/9/2017
 ms.author: juluk
 ---
 # Overview of Azure Cloud Shell
@@ -41,14 +41,14 @@ Azure Cloud Shell gives you the flexibility of choosing the shell experience tha
 Linux users can opt for a Bash experience, while Windows users can opt for PowerShell.
 
 ### Pre-configured Azure workstation
-Cloud Shell comes pre-installed with popular command-line tools and language support so you can work faster.
+Cloud Shell comes managed by Microsoft so it is pre-installed with popular command-line tools and language support so you can work faster.
 
 View the full tooling list for the [Bash experience](features.md#tools) and [PowerShell (Preview) experience.](features-powershell.md#tools)
 
 ### Automatic authentication
 Cloud Shell securely authenticates automatically on each session for instant access to your resources through the Azure CLI 2.0 or Azure PowerShell cmdlets.
 
-### Connect your Azure File storage
+### Connect your Azure Files storage
 Cloud Shell machines are temporary and as a result require an Azure Files share to be mounted as `clouddrive` to persist your $Home directory.
 On first launch Cloud Shell prompts to create a resource group, storage account, and file share on your behalf. This is a one-time step and will be automatically attached for all sessions. A single file share can be mapped and will be used by both Bash and PowerShell in Cloud Shell (Preview).
 
