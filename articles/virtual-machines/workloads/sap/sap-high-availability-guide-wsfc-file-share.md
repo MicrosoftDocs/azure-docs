@@ -248,10 +248,10 @@ This architecture is specific in the following ways:
 * SAP central services (with its own file structure and message and enqueue processes) are separate from the SAP global host files.
 * SAP central services run under an SAP ASCS/SCS instance.
 * SAP ASCS/SCS instance is clustered and is accessible by using the \<ASCS/SCS virtual host name\> virtual host name.
-* SAP GLOBAL files are placed on the SMB file share and are accessed by using the \<SAPGLOBALHOST\> host name:
- \\\\&lt;SAPGLOBALHOST&gt;\sapmnt\\&lt;SID&gt;\SYS\...
+* SAP global files are placed on the SMB file share and are accessed by using the \<SAP global host\> host name:
+ \\\\&lt;SAP global host&gt;\sapmnt\\&lt;SID&gt;\SYS\...
 * The SAP ASCS/SCS instance is installed on a local disk on both cluster nodes
-* The \<ASCS/SCS virtual host name\> network name is different from &lt;SAPGLOBALHOST&gt;.
+* The \<ASCS/SCS virtual host name\> network name is different from &lt;SAP global host&gt;.
 
 ![Figure 2: SAP ASCS/SCS HA architecture with SMB file share][sap-ha-guide-figure-8004]
 
@@ -275,11 +275,11 @@ _**Figure 3:** SAP &lt;SID&gt; cluster role resources for using a file share_
 
 ## Scale-out file shares with Storage Spaces Direct in Azure as an SAPMNT file share
 
-You can use a scale-out file share to host and protect SAP GLOBAL host files. A scale-out file share also offers a highly available SAPMNT file share service.
+You can use a scale-out file share to host and protect SAP global host files. A scale-out file share also offers a highly available SAPMNT file share service.
 
-![Figure 4: Scale-out file share used to protect SAP GLOBAL Host files][sap-ha-guide-figure-8006]
+![Figure 4: Scale-out file share used to protect SAP global host files][sap-ha-guide-figure-8006]
 
-_**Figure 4:** A scale-out file share used to protect SAP GLOBAL host files_
+_**Figure 4:** A scale-out file share used to protect SAP global host files_
 
 > [!IMPORTANT]
 > Scale-out file shares are fully supported in the Microsoft Azure cloud, and in on-premises environments.
@@ -287,7 +287,7 @@ _**Figure 4:** A scale-out file share used to protect SAP GLOBAL host files_
 
 A scale-out file share offers a highly available and horizontally scalable SAPMNT file share.
 
-Storage Spaces Direct is used as a shared disk for a scale-out file share. You can use Storage Spaces Direct to build highly available and scalable storage using servers with local storage. Shared storage that is used for a scale-out file share, like for SAP GLOBALHOST files, is not a single point of failure.
+Storage Spaces Direct is used as a shared disk for a scale-out file share. You can use Storage Spaces Direct to build highly available and scalable storage using servers with local storage. Shared storage that is used for a scale-out file share, like for SAP global host files, is not a single point of failure.
 
 > [!IMPORTANT]
 >If you plan to set up disaster recovery, we recommend using a scale-out file share as a solution for a highly available file share in Azure.
@@ -314,11 +314,11 @@ To use a scale-out file share, your system must meet the following requirements:
     For more information, see the [DSv2-Series][dv2-series] and [DS-Series][ds-series] specifications.
 * We recommend that you reserve some unallocated capacity in the storage pool. Leaving some unallocated capacity in the storage pool gives volumes space to repair "in place" if a drive fail. This improves data safety and performance.  For more information, see [Choosing volume size][choosing-the-size-of-volumes-s2d].
 * Scale-out file share Azure VMs must be deployed in their own Azure availability set.
-* You don't need to configure the Azure internal load balancer for the scale-out file share network name, such as for \<SAP global host name\>. This is done for the \<ASCS/SCS virtual host name\> of the SAP ASCS/SCS instance or for the DBMS. A scale-out file share scales out the load across all cluster nodes. \<SAP global host name\> uses the local IP address for all cluster nodes.
+* You don't need to configure the Azure internal load balancer for the scale-out file share network name, such as for \<SAP global host\>. This is done for the \<ASCS/SCS virtual host name\> of the SAP ASCS/SCS instance or for the DBMS. A scale-out file share scales out the load across all cluster nodes. \<SAP global host\> uses the local IP address for all cluster nodes.
 
 
 > [!IMPORTANT]
-> You cannot rename the SAPMNT file share, which points to SAPGLOBALHOST. SAP supports only the share name "sapmnt."
+> You cannot rename the SAPMNT file share, which points to \<SAP global host\>. SAP supports only the share name "sapmnt."
 
 > For more information, see [SAP Note 2492395 - Can the share name sapmnt be changed?][2492395]
 
@@ -327,7 +327,7 @@ To use a scale-out file share, your system must meet the following requirements:
 You can deploy SAP ASCS/SCS instances in one cluster, with their own SAP \<SID\> cluster role. In this case, you configure the scale-out file share on another cluster, with another cluster role.
 
 > [!IMPORTANT]
->In this scenario, the SAP ASCS/SCS instance is configured to access SAP GLOBALHost by using UNC path \\\\&lt;SAPGLOBALHost&gt;\sapmnt\\&lt;SID&gt;\SYS\.
+>In this scenario, the SAP ASCS/SCS instance is configured to access the SAP global host by using UNC path \\\\&lt;SAP global host&gt;\sapmnt\\&lt;SID&gt;\SYS\.
 >
 
 ![Figure 5: SAP ASCS/SCS instance and a scale-out file share deployed in two clusters][sap-ha-guide-figure-8007]
