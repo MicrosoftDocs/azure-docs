@@ -29,7 +29,7 @@ Cassandra applications can migrate to Azure Cosmos DB by using the Cassandra API
   
 ## Sign up now 
 
-If you already have an Azure subscription, you can sign up for the Cassandra API (Preview) in the [Azure portal](https://aka.ms/cosmosdb-cassandra-signup). If you’re new to Azure, signing up for a [free trial](https://azure.microsoft.com/en-us/free) where you’ll get 12 months of free access to Azure Cosmos DB.
+If you already have an Azure subscription, you can sign up for the Cassandra API (Preview) in the [Azure portal](https://aka.ms/cosmosdb-cassandra-signup). If you’re new to Azure, signing up for a [free trial](https://azure.microsoft.com/free) where you’ll get 12 months of free access to Azure Cosmos DB.
 
 ## Next steps
 
