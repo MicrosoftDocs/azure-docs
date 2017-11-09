@@ -2,14 +2,14 @@
 title: How to Use Jupyter Notebooks in Azure Machine Learning Workbench | Microsoft Docs
 description: Guide for the using the Jupyter Notebooks feature of Azure Machine Learning Workbench
 services: machine-learning
-author: jopela
-ms.author: jopela
+author: rastala
+ms.author: roastala
 manager: haining
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 11/09/2017
 ---
 # How to use Jupyter notebook in Azure Machine Learning Workbench
 
@@ -43,6 +43,9 @@ Currently, the Workbench supports the following types of kernels.
 
 ### Local Python kernel
 This Python kernel supports execution on local machine. It is integrated with Azure Machine Learning's Run History support. The name of the kernel is typically "my_project_name local".
+
+>[!NOTE]
+>Do not use the "Python 3" kernel. It is a standalone kernel provided by Jupyter by default. It is not integrated with Azure Machine Learning capabilities.
 
 ### Python Kernel in Docker (local or remote)
 This Python kernel runs in a Docker container either on your local machine, or in a remote Linux VM. The name of the kernel is typically "my_project docker". The associated `docker.runconfig` file has the `Framework` field set to `Python`.
@@ -99,6 +102,32 @@ Your default browser is automatically launched with Jupyter server pointing to t
 You can now click on a `.ipynb` notebook file, open it, and set the kernel (if it hasn't been set), and start your interactive session.
 
 ![project dashboard](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-08.png)
+
+## Use magic commands to manage experiments
+
+You can use [magic commands](http://ipython.readthedocs.io/en/stable/interactive/magics.html) within your notebook cells to track your run history and write outputs, such as models or datasets.
+
+To track individual notebook cell runs, use '%azureml history on' magic command. After you turn the history on, each cell run will appear as entry in run history.
+
+```
+%azureml history on
+from azureml.logging import get_azureml_logger
+logger = get_azureml_logger()
+logger.log("Cell","Load Data")
+```
+
+To turn cell run tracking off, use '%azureml history off' magic command.
+
+You can use '%azureml upload' magic command to save model and data files from your run. The saved objects appear as outputs in run history view for given run.
+
+```
+modelpath = os.path.join("outputs","model.pkl")
+with open(modelpath,"wb") as f:
+    pickle.dump(model,f)
+%azureml upload outputs/model.pkl
+```
+
+Note that the outputs must be saved to a folder named "outputs"
 
 ## Next Steps
 - To learn how to use Jupyter notebook, visit the [Jupyter official documentation](http://jupyter-notebook.readthedocs.io/en/latest/).    
