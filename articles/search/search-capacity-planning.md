@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 02/08/2017
+ms.date: 11/09/2017
 ms.author: heidist
 ---
 
@@ -60,9 +60,7 @@ Generally, search applications need more replicas than partitions, particularly 
 <a id="HA"></a>
 
 ## High availability
-Because it's easy and relatively fast to scale up, we generally recommend that you start with one partition and one or two replicas, and then scale up as query volumes build. For many services at the Basic or S1 tiers, one partition provides sufficient storage and I/O (at 15 million documents per partition).
-
-Query workloads run primarily on replicas. If you need more throughput or high availability, you will probably require additional replicas.
+Because it's easy and relatively fast to scale up, we generally recommend that you start with one partition and one or two replicas, and then scale up as query volumes build. Query workloads run primarily on replicas. If you need more throughput or high availability, you will probably require additional replicas.
 
 General recommendations for high availability are:
 
@@ -70,6 +68,8 @@ General recommendations for high availability are:
 * Three or more replicas for high availability of read/write workloads (queries plus indexing as individual documents are added, updated, or deleted)
 
 Service level agreements (SLA) for Azure Search are targeted at query operations and at index updates that consist of adding, updating, or deleting documents.
+
+Basic tier tops out at one partition and three replicas. If you want the flexibility to immediately respond to a sudden demand for additional indexing or query throughput, you should strongly consider one of the Standard tiers.
 
 ### Index availability during a rebuild
 
