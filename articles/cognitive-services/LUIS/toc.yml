@@ -17,6 +17,8 @@
       href: luis-get-started-cs-get-intent.md
     - name: Java
       href: luis-get-started-java-get-intent.md
+    - name: JavaScript
+      href: luis-get-started-js-get-intent.md
     - name: Node.js
       href: luis-get-started-node-get-intent.md
     - name: Python
@@ -25,11 +27,9 @@
       href: luis-get-started-php-get-intent.md
     - name: Ruby
       href: luis-get-started-ruby-get-intent.md
-    - name: JavaScript
-      href: luis-get-started-js-get-intent.md
   - name: Call LUIS authoring API
     items:
-    - name: Add Utterance and train
+    - name: Add utterance and train
       items: 
       - name: Node.js
         href: luis-quickstart-node-add-utterance.md
