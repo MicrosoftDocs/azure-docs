@@ -20,7 +20,7 @@ ms.author: nitinver
 
 Learn about the top issues and their resolutions when working with Apache HBase payloads in Apache Ambari.
 
-## How do I run hbck command reports with multiple unassigned regions
+## How do I run hbck command reports with multiple unassigned regions?
 
 A common error message that you might see when you run the `hbase hbck` command is "multiple regions being unassigned or holes in the chain of regions."
 
@@ -38,7 +38,7 @@ To bring the unassigned regions back to a normal state, complete the following s
 6. Run the `hbase hbck` command again (without any options). Check the output of this command to ensure that all regions are being assigned.
 
 
-## <a name="how-do-i-fix-timeout-issues-with-hbck-commands-for-region-assignments"></a>How do I fix timeout issues when using hbck commands for region assignments
+## <a name="how-do-i-fix-timeout-issues-with-hbck-commands-for-region-assignments"></a>How do I fix timeout issues when using hbck commands for region assignments?
 
 ### Issue
 
@@ -53,7 +53,7 @@ A potential cause for timeout issues when you use the `hbck` command might be th
 5. In the Ambari UI, restart the Active HBase Master service.
 6. Run the `hbase hbck -fixAssignments` command again.
 
-## <a name="how-do-i-force-disable-hdfs-safe-mode-in-a-cluster"></a>How do I force-disable HDFS safe mode in a cluster
+## <a name="how-do-i-force-disable-hdfs-safe-mode-in-a-cluster"></a>How do I force-disable HDFS safe mode in a cluster?
 
 ### Issue
 
@@ -208,7 +208,7 @@ The HDInsight cluster has been scaled down to a very few nodes. The number of no
    ```
 
 
-## How do I fix JDBC or SQLLine connectivity issues with Apache Phoenix
+## How do I fix JDBC or SQLLine connectivity issues with Apache Phoenix?
 
 ### Resolution steps
 
@@ -260,7 +260,7 @@ It can take up to five minutes for the HBase Master service to stabilize and fin
 When the SYSTEM.CATALOG table is back to normal, the connectivity issue to Phoenix should be automatically resolved.
 
 
-## What causes a master server to fail to start
+## What causes a master server to fail to start?
 
 ### Error 
 
@@ -342,7 +342,7 @@ This is a known issue with the HMaster service. General cluster startup tasks ca
 2. Restart the required services (HMaster, and possibly other HBase services).  
 
 
-## What causes a restart failure on a region server
+## What causes a restart failure on a region server?
 
 ### Issue
 
@@ -419,3 +419,5 @@ Because of the abrupt shutdown, the port associated with the process might not b
    sudo su - hbase -c "/usr/hdp/current/hbase-regionserver/bin/hbase-daemon.sh start regionserver"   
    ```
 
+### See Also
+[Troubleshoot by Using Azure HDInsight](../../hdinsight/hdinsight-troubleshoot-guide.md)
