@@ -35,7 +35,7 @@ In this section, you generate an Azure service principal, and two Terraform conf
 
 2. Open a command prompt.
 
-3. Create an empty directory in which you are going to store your Terraform files.
+3. Create an empty directory in which to store your Terraform files.
 
 4. Create a new file that holds your variables declarations. You can name this file anything you like with a `.tf` extension.
 
@@ -55,7 +55,7 @@ In this section, you generate an Azure service principal, and two Terraform conf
   }
   ```
 
-6. Create a new file that contains the values for your Terraform variables. It is common to name your Terraform variable file `terraform.tfvars` as Terraform automatically loads any file named `terraform.tfvars` (or following a patern of `*.auto.tfvars`) if present in the current directory. 
+6. Create a new file that contains the values for your Terraform variables. It is common to name your Terraform variable file `terraform.tfvars` as Terraform automatically loads any file named `terraform.tfvars` (or following a pattern of `*.auto.tfvars`) if present in the current directory. 
 
 7. Copy the following code into your variables file. Make sure to replace the placeholders as follows: For `subscription_id`, use the Azure subscription ID you specified when running `az account set`. For `tenant_id`, use the `tenant` value returned from `az ad sp create-for-rbac`. For `client_id`, use the `appId` value returned from `az ad sp create-for-rbac`. For `client_secret`, use the `password` value returned from `az ad sp create-for-rbac`.
 
@@ -230,9 +230,9 @@ To initialize Terraform, run the following command:
 
 ## 4. Create a Terraform execution plan
 
-The [terraform plan command](https://www.terraform.io/docs/commands/plan.html) is used to create an execution plan. To generate the execution plan, Terraform aggregates all of the `.tf` files in the current directory. 
+The [terraform plan command](https://www.terraform.io/docs/commands/plan.html) is used to create an execution plan. To generate an execution plan, Terraform aggregates all the `.tf` files in the current directory. 
 
-If you are working in a collaborative environment where the configuration might change, you should use the `-out` parameter and output the execution plan to a file. Otherwise, if you are working in a single-person environment, you can omit the `-out` parameter. For purposes of this tutorial, a single-person environment is assumed. To see the syntax for using the `-out` parameter, refer to the documentation for the [terraform plan command's -out parameter](https://www.terraform.io/docs/commands/plan.html#out-path).
+If you are working in a collaborative environment where the configuration might change between the time you create the execution plan and the time you apply the execution plan, you should use the `-out` parameter and output the execution plan to a file. Otherwise, if you are working in a single-person environment, you can omit the `-out` parameter. For purposes of this tutorial, a single-person environment is assumed. To see the syntax for using the `-out` parameter, refer to the documentation for the [terraform plan command's -out parameter](https://www.terraform.io/docs/commands/plan.html#out-path).
 
 If the name of your Terraform variables file is not `terraform.tfvars` and it doesn't follow the `*.auto.tfvars` pattern, you need to specify the file name using the [terraform plan command's -var-file parameter](https://www.terraform.io/docs/commands/plan.html#var-file-foo) when running the `terraform plan` command.
 
