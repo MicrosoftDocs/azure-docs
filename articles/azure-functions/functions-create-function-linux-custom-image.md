@@ -15,7 +15,7 @@ manager: cfowler
 
 # Create a function on Linux using a custom image
 
-Azure Functions lets you host your functions on Linux in your own custom container. You can also [host on a default Azure App Service container](functions-create-first-azure-function-azure-cli-linux.md). In this tutorial, you learn how to deploy a function app as a custom Docker image. This pattern is useful when the built-in App Service container images don't include your language versions of choice, when your function app requires a specific dependency or configuration that isn't provided within the built-in image.
+Azure Functions lets you host your functions on Linux in your own custom container. You can also [host on a default Azure App Service container](functions-create-first-azure-function-azure-cli-linux.md). In this tutorial, you learn how to deploy a function app as a custom Docker image. This pattern is useful when you need to customize the built-in App Service container image. For example, you need a specific language version, or your function app requires a specific dependency or configuration that isn't provided within the built-in image.
 
 This tutorial walks you through how to use Azure Functions to create and push a custom image to Docker Hub. You then use this image as the deployment source for a function app that runs on Linux. You use Docker to build and push the image. You use the Azure CLI to create a function app and deploy the image from Docker Hub. 
 
@@ -29,7 +29,7 @@ In this tutorial, you learn how to:
 > * Deploy a function app from Docker Hub.
 > * Add application settings to the function app. 
 
-You can follow the steps below using a Mac, Windows, or Linux computer. 
+The following steps are supported on a Mac, Windows, or Linux computer.  
 
 ## Prerequisites
 
@@ -186,7 +186,7 @@ The _deployment-container-image-name_ parameter indicates the image hosted on Do
 
 ## Configure the function app
 
-The function needs the connection string to connect to the default storage account. When you are publishing your custom image to a private container account, you should instead set these as environment variables in the Dockerfile using the [ENV instruction](https://docs.docker.com/engine/reference/builder/#env), or equivalent. 
+The function needs the connection string to connect to the default storage account. When you are publishing your custom image to a private container account, you should instead set these application settings as environment variables in the Dockerfile using the [ENV instruction](https://docs.docker.com/engine/reference/builder/#env), or equivalent. 
 
 In this case, `<storage_account>` is the name of the storage account you created. Get the connection string with the [az storage account show-connection-string](/cli/azure/storage/account#show-connection-string) command. Add these application settings in the function app with the [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#set) command.
 

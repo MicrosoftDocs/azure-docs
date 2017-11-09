@@ -17,11 +17,11 @@ manager: cfowler
 
 Azure Functions lets you host your functions on Linux in a default Azure App Service container. You can also [bring your own custom container](functions-create-function-linux-custom-image.md). This quickstart topic walks you through how to use Azure Functions with the Azure CLI to create your first function app on Linux hosted on the default App Service container. The function code itself is deployed to the image from a GitHub sample repository.    
 
-You can follow the steps below using a Mac, Windows, or Linux computer. 
+The following steps are supported on a Mac, Windows, or Linux computer. 
 
 ## Prerequisites 
 
-Before running this sample, you must have the following:
+To complete this quickstart, you need:
 
 + An active [GitHub](https://github.com) account. 
 + An active Azure subscription.
@@ -38,7 +38,7 @@ If you choose to install and use the CLI locally, this topic requires the Azure 
 
 ## Create a Linux App Service plan
 
-Linux hosting for Functions is currently only supported on a App Service plan. Consumption plan hosting is not yet supported. To learn more about hosting, see [Azure Functions hosting plans comparison](functions-scale.md). 
+Linux hosting for Functions is currently only supported on an App Service plan. Consumption plan hosting is not yet supported. To learn more about hosting, see [Azure Functions hosting plans comparison](functions-scale.md). 
 
 [!INCLUDE [app-service-plan-no-h](../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
 
@@ -76,7 +76,7 @@ After the function app has been created and deployed, the Azure CLI shows inform
 Because `myAppServicePlan` is a Linux plan, the built-in docker image is used to create the container that runs the function app on Linux. 
 
 >[!NOTE]  
->The sample repository currently includes two scripting files, [deploy.sh](https://github.com/Azure-Samples/functions-quickstart-linux/blob/master/deploy.sh) and [.deployment](https://github.com/Azure-Samples/functions-quickstart-linux/blob/master/.deployment). The .deployment file tells the deployment process to use deploy.sh as the [custom deployment script](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script). In the current preview release, scripts are required to deploy the function app on a the Linux image.  
+>The sample repository currently includes two scripting files, [deploy.sh](https://github.com/Azure-Samples/functions-quickstart-linux/blob/master/deploy.sh) and [.deployment](https://github.com/Azure-Samples/functions-quickstart-linux/blob/master/.deployment). The.deployment file tells the deployment process to use deploy.sh as the [custom deployment script](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script). In the current preview release, scripts are required to deploy the function app on a Linux image.  
 
 [!INCLUDE [functions-test-function-code](../../includes/functions-test-function-code.md)]
 
