@@ -70,10 +70,10 @@ The following samples show the `Microsoft.Azure.Services.AppAuthentication` libr
 
 For local development, there are two primary authentication scenarios:
 
-- [Authenticating to Azure services using Visual Studio, Azure CLI, or Azure AD](#authenticating-to-azure-services-visual-studio-azure-cli-or-azure-ad)
+- [Authenticating to Azure services](#authenticating-to-azure-services)
 - [Authenticating to custom services](#authenticating-to-custom-services)
 
-Here, you learn the requirements for each scenario.
+Here, you learn the requirements for each scenario and supported tools.
 
 
 ### Authenticating to Azure Services
@@ -110,15 +110,15 @@ If Azure CLI is not installed to the default directory, you may receive an error
 
 If you are signed in to Azure CLI using multiple accounts or your account has access to multiple subscriptions or tenants, you need to specify the specific subscription to be used.  To do so, use:
 
-    ```
-    az account set --subscription <subscription-id>
-    ```
+```
+az account set --subscription <subscription-id>
+```
 
-    When successful, this command generates no output.  To verify the current account settings, use:
+When successful, this command generates no output.  To verify the current account settings, use:
 
-    ```
-    az account list
-    ```
+```
+az account list
+```
 
 ### Authenticating with Azure AD authentication
 
