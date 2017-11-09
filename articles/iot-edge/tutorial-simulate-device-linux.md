@@ -16,16 +16,17 @@ ms.service: iot-edge
 
 # Deploy Azure IoT Edge on a simulated device in Linux
 
-Azure IoT Edge moves the power of the cloud to your Internet of Things (IoT) devices. This tutorial walks you through creating a simulated IoT Edge device that generates sensor data. You learn how to:
+Azure IoT Edge enables you to perform analytics and data processing on your devices, instead of having to push all the data to the cloud. The IoT Edge tutorials demonstrate how to deploy different types of modules, built from Azure services or custom code, but first you need a device to test. 
+
+This tutorial walks you through creating a simulated IoT Edge device, then deploying a module that generates sensor data. You learn how to:
 
 > [!div class="checklist"]
 > * Create an IoT hub
 > * Register an IoT Edge device
 > * Start the IoT Edge runtime
 > * Deploy a module
-> * View generated data
 
-The simulated device that you create in this tutorial is a monitor on a wind turbine that generates temperature, humidity, and pressure data. You're interested in this data because your turbines perform at different levels of efficiency depending on the weather conditions. The other Azure IoT Edge tutorials build upon the work you do here by deploying modules that analyze the data for business insights. 
+The simulated device that you create in this tutorial is a monitor that generates temperature, humidity, and pressure data. The other Azure IoT Edge tutorials build upon the work you do here by deploying modules that analyze the data for business insights. 
 
 ## Prerequisites
 
@@ -48,7 +49,7 @@ Create a device identity for your simulated device so that it can communicate wi
 1. Give your simulated device a unique device ID.
 1. Confirm that the value of **Azure IoT Edge device** is set to **Yes**.
 1. Select **Save** to add your device.
-1. Select your new device from the list of devices. 
+1. Click on your new device to see its details. 
 1. Copy the value for **Connection string--primary key** and save it. You'll use this value to configure the IoT Edge runtime in the next section. 
 
 ## Install and start the IoT Edge runtime
