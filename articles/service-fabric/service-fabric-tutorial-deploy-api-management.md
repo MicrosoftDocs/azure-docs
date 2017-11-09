@@ -67,7 +67,19 @@ Download the following Resource Manager template and parameters file:
 - [apim.json][apim-arm]
 - [apim.parameters.json][apim-parameters-arm]
 
-Fill in the empty parameters in the `apim.parameters.json` for your deployment.
+Fill in the following empty parameters in the *apim.parameters.json* for your deployment.
+
+|Parameter|Value|Description|
+|---|---|---|
+|apimInstanceName|sf-apim||
+|apimPublisherEmail|myemail@contosos.com||
+|apimSku|Developer||
+|serviceFabricCertificateName|sfclustertutorialgroup320171031144217||
+|certificatePassword|q6D7nN%6ck@6||
+|serviceFabricCertificate|0C6CFFA0DE2573E8CD3C161A65E584B5BDAD65B1||
+|url_path|/api/values||
+|clusterHttpManagementEndpoint|https://mysfcluster321.westus2.cloudapp.azure.com:19080||
+|inbound_policy|<policies>\r\n  <inbound>\r\n    <base />\r\n    <set-backend-service backend-id=\"servicefabric\" sf-service-instance-name=\"fabric:/ApiApplication/WebApiService\" sf-resolve-condition=\"@((int)context.Response.StatusCode != 200)\" />\r\n  </inbound>\r\n  <backend>\r\n    <base />\r\n  </backend>\r\n  <outbound>\r\n    <base />\r\n  </outbound>\r\n  <on-error>\r\n    <base />\r\n  </on-error>\r\n</policies>||
 
 Use the following script to deploy the Resource Manager template and parameter files for API Management:
 
