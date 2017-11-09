@@ -23,7 +23,7 @@ ms.author: mandia
 
 Azure BizTalk Services includes Backup and Restore capabilities. 
 
-> [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)
+> [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 > [!NOTE]
 > Hybrid Connections are NOT backed up, regardless of the Edition. You must recreate your hybrid connections.
