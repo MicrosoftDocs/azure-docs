@@ -24,7 +24,7 @@ ms.service: iot-edge
 
 IoT devices can produce large quantities of data. Sometimes this data has to be analyzed or processed before reaching the cloud to reduce the size of uploaded data or to eliminate the round-trip latency of an actionable insight.
 
-[Azure Stream Analytics][azure-stream] (ASA) provides a richly structured query syntax for data analysis both in the cloud and on IoT Edge devices. For more information about ASA on IoT Edge please refer to [ASA documentation](https://go.microsoft.com/fwlink/?linkid=862381).
+[Azure Stream Analytics][azure-stream] (ASA) provides a richly structured query syntax for data analysis both in the cloud and on IoT Edge devices. For more information about ASA on IoT Edge, see [ASA documentation](https://go.microsoft.com/fwlink/?linkid=862381).
 
 This tutorial walks you through the creation of an Azure Stream Analytics job, and its deployment on an IoT Edge device in order to process a local telemetry stream directly on the device, and generate alerts to drive immediate action on the device.  You learn how to:
 
@@ -33,7 +33,7 @@ This tutorial walks you through the creation of an Azure Stream Analytics job, a
 > * Connect the new ASA job with other IoT Edge modules
 > * Deploy the ASA job to an IoT Edge device
 
-## Prequisites
+## Prerequisites
 
 * An IoT Hub 
 * An IoT Edge runtime
@@ -42,7 +42,7 @@ This tutorial walks you through the creation of an Azure Stream Analytics job, a
     * [Linux installation][lnk-docker-linux]
 
 > [!NOTE]
-> Please note your IoT Hub connection string, device connection string, and edge device ID will be necessary for this tutorial. For a tutorial on installing IoT Hub and IoT Edge runtime see [Install Azure IoT Edge and deploy a module][lnk-first-tutorial]
+> Note your IoT Hub connection string, device connection string, and edge device ID will be necessary for this tutorial. For a tutorial on installing IoT Hub and IoT Edge runtime see [Install Azure IoT Edge and deploy a module][lnk-first-tutorial]
 
 IoT Edge takes advantage of pre-built Azure Service IoT Edge modules for quick deployment and Azure Stream Analytics (ASA) is one such module. You can create an ASA job from its portal, then come to IoT Hub portal to deploy it as an IoT Edge Module.  
 
@@ -77,7 +77,7 @@ In this section, you create an Azure Stream Analytics job to take data from your
     ![ASA input][2]
 
     > [!NOTE]
-    > Additonal inputs can include IoT Edge specific endpoints.
+    > Additional inputs can include IoT Edge specific endpoints.
 
 4. Under **Job Topology**, select **Outputs**, click **Add**.
 
@@ -107,13 +107,13 @@ You are now ready to deploy the ASA job on your IoT Edge device.
 
 1. Select **Set modules**, then select **Import Azure Service IoT Edge Module**.
 
-1. Select the subscription and the ASA Edge job that you just created. Then select your storage account. Click **Save**.
+1. Select the subscription and the ASA Edge job that you created. Then select your storage account. Click **Save**.
 
     ![set module][6]
 
 1. Copy the name of this module. Click **Next** to configure routes.
 
-1. Copy the following to **Routes**.  Replace {ModuleName} with the module name you just copied:
+1. Copy the following to **Routes**.  Replace {ModuleName} with the module name you copied:
 
     ```json
     {
@@ -131,7 +131,7 @@ You are now ready to deploy the ASA job on your IoT Edge device.
 
 1. In the **Review Template** step, click **Submit**.
 
-1. Return to the device details page and click **Refresh**.  You should see the new **ASA** module running along with the **tempSensor** moudle and the **IoT Edge runtime**.
+1. Return to the device details page and click **Refresh**.  You should see the new **ASA** module running along with the **tempSensor** module and the **IoT Edge runtime**.
 
         ![module output][8]
 
@@ -153,13 +153,13 @@ You are now ready to deploy the ASA job on your IoT Edge device.
 
     ![docker logs][10]
 
-1. In the Azure portal, in your Storage account, under **Blob Service**, click **Browse blobs**, select your container and select newly created JSON file.
+1. In the Azure portal, in your Storage account, under **Blob Service**, click **Browse blobs**, select your container, and select newly created JSON file.
 
 1. Click **Download** and view the results.
 
 ## Next steps
 
-In this tutorial, you configured an Azure Storage container and a Streaming Analytics job to analyze data from you IoT Edge device.  You then loaded a custom ASA module to move data from your device, through the stream, into a BLOB for download.  You can continue on to other tutorials to further see how Azure IoT Edge can create solutions for your business.
+In this tutorial, you configured an Azure Storage container and a Streaming Analytics job to analyze data from your IoT Edge device.  You then loaded a custom ASA module to move data from your device, through the stream, into a BLOB for download.  You can continue on to other tutorials to further see how Azure IoT Edge can create solutions for your business.
 
 > [!div class="nextstepaction"] 
 > [lnk-next-tutorial][Create a custom module][lnk-next-tutorial2]
