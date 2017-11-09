@@ -109,7 +109,7 @@ You are now ready to deploy the ASA job on your IoT Edge device.
 
 1. Select the subscription and the ASA Edge job that you just created. Then select your storage account. Click **Save**.
 
-        ![set module][6]
+    ![set module][6]
 
 1. Copy the name of this module. Click **Next** to configure routes.
 
@@ -125,7 +125,7 @@ You are now ready to deploy the ASA job on your IoT Edge device.
         }
     }
 
-        ![routes][7]
+    ![routes][7]
 
 1. Click **Next**.
 
@@ -143,7 +143,7 @@ You are now ready to deploy the ASA job on your IoT Edge device.
     docker ps  
     ```
 
-        ![docker output][9]
+    ![docker output][9]
 
 1. Run the command to see all system logs and metrics data. Use the module name from above:
 
@@ -151,7 +151,7 @@ You are now ready to deploy the ASA job on your IoT Edge device.
     docker logs -f {ModuleName}  
     ```
 
-        ![docker logs][10]
+    ![docker logs][10]
 
 1. In the Azure portal, in your Storage account, under **Blob Service**, click **Browse blobs**, select your container and select newly created JSON file.
 
@@ -162,7 +162,6 @@ You are now ready to deploy the ASA job on your IoT Edge device.
 In this tutorial, you configured an Azure Storage container and a Streaming Analytics job to analyze data from you IoT Edge device.  You then loaded a custom ASA module to move data from your device, through the stream, into a BLOB for download.  You can continue on to other tutorials to further see how Azure IoT Edge can create solutions for your business.
 
 > [!div class="nextstepaction"] 
-> [Deploy Azure Machine Learning as a module]
 > [lnk-next-tutorial][Create a custom module][lnk-next-tutorial2]
 
 <!-- Images. -->
@@ -188,7 +187,6 @@ In this tutorial, you configured an Azure Storage container and a Streaming Anal
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-first-tutorial]: tutorial-install-iot-edge.md
 [lnk-module-tutorial]: tutorial-create-custom-module.md
-[lnk-next-tutorial]: tutorial-deploy-machine-learning.md
 [lnk-next-tutorial2]: tutorial-create-custom-module.md
 
 [lnk-docker-windows]: https://docs.docker.com/docker-for-windows/install/ 
