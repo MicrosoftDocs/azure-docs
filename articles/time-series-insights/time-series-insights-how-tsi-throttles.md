@@ -18,7 +18,7 @@ ms.date: 11/06/2017
 ms.author: 
 ---
 
-# When Time Series Insights throttles data
+# Causes of throttling
 
 If the event sources for your Azure IoT Hub or Azure Event Hub push data beyond the enforced limits for your environment, your Azure Time Series Insights is throttled, and your data will lag.
 
