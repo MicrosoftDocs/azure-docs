@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 9/20/2017
+ms.date: 11/09/2017
 ms.author: genli
 
 ---
@@ -181,14 +181,15 @@ Cloud Service is a Classic resource. Only resources created through Azure Resour
 
 ## What are the upcoming Cloud Service capabilities in the Azure Portal which can help manage and monitor applications?
 
-* Ability to generate a new certificate for Remote Desktop Protocol (RDP) which is expected in February 2018. Alternatively, you can run this script:
+* Ability to generate a new certificate for Remote Desktop Protocol (RDP) is coming soon. Alternatively, you can run this script:
+
 ```powershell
 $cert = New-SelfSignedCertificate -DnsName yourdomain.cloudapp.net -CertStoreLocation "cert:\LocalMachine\My" -KeyLength 20 48 -KeySpec "KeyExchange"
 $password = ConvertTo-SecureString -String "your-password" -Force -AsPlainText
 Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $password
 ```
-* Ability to choose blob or local for your csdef and cscfg upload location which is expected in February 2018. Using [New-AzureDeployment](https://docs.microsoft.com/en-us/powershell/module/azure/new-azuredeployment?view=azuresmps-4.0.0), you can set each location value.
-* Ability to monitor metrics at the instance level which is expected in June 2018. Additional monitoring capabilities are available in [How to Monitor Cloud Services](cloud-services-how-to-monitor.md).
+* Ability to choose blob or local for your csdef and cscfg upload location is coming soon. Using [New-AzureDeployment](https://docs.microsoft.com/en-us/powershell/module/azure/new-azuredeployment?view=azuresmps-4.0.0), you can set each location value.
+* Ability to monitor metrics at the instance level. Additional monitoring capabilities are available in [How to Monitor Cloud Services](cloud-services-how-to-monitor.md).
 
 
 ## How to enable HTTP/2 on Cloud Services VM?
