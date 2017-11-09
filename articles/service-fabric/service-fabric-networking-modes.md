@@ -180,7 +180,7 @@ Using the dynamically assigned IP to discover services is not advisable since th
    |     2000 | Custom_Dns | VirtualNetwork | VirtualNetwork | DNS (UDP/53) | Allow  |
 
 
-4. Specify the networking mode in the app manifest for each service `<NetworkConfig NetworkType="Open">`.  The mode `Open` results in the service getting a dedicated IP address. If a mode isn't specified, it defaults to the basic `nat` mode. Thus, in the following manifest example, `NodeContainerServicePackage1` and `NodeContainerServicePackage2` can each listen to the same port (both services are listening on `Endpoint1`).
+4. Specify the networking mode in the app manifest for each service `<NetworkConfig NetworkType="Open">`.  The mode `Open` results in the service getting a dedicated IP address. If a mode isn't specified, it defaults to the basic `nat` mode. Thus, in the following manifest example, `NodeContainerServicePackage1` and `NodeContainerServicePackage2` can each listen to the same port (both services are listening on `Endpoint1`). Since the `Open` networking mode provides an IP address per container, you cannot specify a PortBinding configuration when `Open` is configured. 
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -195,7 +195,6 @@ Using the dynamically assigned IP to discover services is not advisable since th
         <Policies>
           <ContainerHostPolicies CodePackageRef="NodeContainerService1.Code" Isolation="hyperv">
            <NetworkConfig NetworkType="Open"/>
-           <PortBinding ContainerPort="8905" EndpointRef="Endpoint1"/>
           </ContainerHostPolicies>
         </Policies>
       </ServiceManifestImport>
@@ -204,7 +203,6 @@ Using the dynamically assigned IP to discover services is not advisable since th
         <Policies>
           <ContainerHostPolicies CodePackageRef="NodeContainerService2.Code" Isolation="default">
             <NetworkConfig NetworkType="Open"/>
-            <PortBinding ContainerPort="8910" EndpointRef="Endpoint1"/>
           </ContainerHostPolicies>
         </Policies>
       </ServiceManifestImport>
