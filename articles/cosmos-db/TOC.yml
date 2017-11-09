@@ -374,6 +374,10 @@
     items:
     - name: .NET
       href: table-sdk-dotnet.md
+    - name: Java
+      href: table-sdk-java.md
+    - name: Node.js
+      href: table-sdk-nodejs.md
     - name: Python
       href: table-sdk-python.md  
   - name: Graph APIs

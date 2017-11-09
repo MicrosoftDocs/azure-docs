@@ -1,6 +1,6 @@
 ---
 title: Build an Azure Cosmos DB .NET application using the Table API | Microsoft Docs
-description: Get started with Azure Cosmos DB's Tables API using .NET
+description: Get started with Azure Cosmos DB's Table API using .NET
 services: cosmos-db
 documentationcenter: ''
 author: arramac
@@ -9,12 +9,12 @@ editor: ''
 
 ms.assetid: 66327041-4d5e-4ce6-a394-fee107c18e59
 ms.service: cosmos-db
-ms.custom: quick start connect, mvc
+ms.custom: quickstart connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 06/22/2017
+ms.date: 11/15/2017
 ms.author: arramac
 
 ---
@@ -22,7 +22,7 @@ ms.author: arramac
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quick start demonstrates how to create an Azure Cosmos DB account, and create a table within that account using the Azure portal. You'll then write code to insert, update, and delete entities, and run some queries using the new [Windows Azure Storage Premium Table](https://aka.ms/premiumtablenuget) (preview) package from NuGet. This library has the same classes and method signatures as the public [Windows Azure Storage SDK](https://www.nuget.org/packages/WindowsAzure.Storage), but also has the ability to connect to Azure Cosmos DB accounts using the [Table API](table-introduction.md) (preview). 
+This quickstart demonstrates how to create an Azure Cosmos DB account, and create a table within that account using the Azure portal. You'll then write code to insert, update, and delete entities, and run some queries using the [Azure Cosmos DB Table API](https://aka.ms/tableapinuget) package from NuGet.
 
 ## Prerequisites
 
@@ -45,7 +45,7 @@ You can now add data to your new table using Data Explorer.
 1. In Data Explorer, expand **sample-table**, click **Entities**, and then click **Add Entity**.
 
    ![Create new entities in Data Explorer in the Azure portal](./media/create-table-dotnet/azure-cosmosdb-data-explorer-new-document.png)
-2. Now add data to the PartitionKey value box and RowKey value box, and click **Add Entity**.
+2. Now add data to the PartitionKey value box and RowKey value boxes, and click **Add Entity**.
 
    ![Set the Partition Key and Row Key for a new entity](./media/create-table-dotnet/azure-cosmosdb-data-explorer-new-entity.png)
   
@@ -55,9 +55,13 @@ You can now add data to your new table using Data Explorer.
 
 Now let's clone a Table app from github, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
 
-1. Open a git terminal window, such as git bash, and `cd` to a working directory.  
+1. Open a git terminal window, such as git bash, and use the `cd` command to change to a folder to install the sample app. 
 
-2. Run the following command to clone the sample repository. 
+    ```bash
+    cd "C:\git-samples"
+    ```
+
+2. Run the following command to clone the sample repository. This command creates a copy of the sample app on your computer. 
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-table-dotnet-getting-started.git
@@ -65,9 +69,36 @@ Now let's clone a Table app from github, set the connection string, and run it. 
 
 3. Then open the solution file in Visual Studio. 
 
+## Update your connection string
+
+Now go back to the Azure portal to get your connection string information and copy it into the app. This enables your app to communicate with your hosted database. 
+
+1. In the [Azure portal](http://portal.azure.com/), click **Connection String**. 
+
+    Use the copy buttons on the right side of the screen to copy the CONNECTION STRING.
+
+    ![View and copy the CONNECTION STRING in the Connection String pane](./media/create-table-dotnet/connection-string.png)
+
+2. In Visual Studio, open the app.config file. 
+
+3. Paste the CONNECTION STRING value into the app.config file as the value of the CosmosDBStorageConnectionString. 
+
+    `<add key="CosmosDBStorageConnectionString" 
+        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://account-name.table.cosmosdb.net" />`    
+
+    > [!NOTE]
+    > To use this app with Azure Table storage, you need to change the connection string in `app.config file`. Use the account name as Table-account name and key as Azure Storage Primary key. <br>
+    >`<add key="StandardStorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key;EndpointSuffix=core.windows.net" />`
+    > 
+    >
+
+4. Save the app.config file.
+
+You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
+
 ## Review the code
 
-Let's make a quick review of what's happening in the app. Open the Program.cs file and you'll find that these lines of code create the Azure Cosmos DB resources. 
+Let's quickly review what's happening in the app. Open the Program.cs file and you'll find that these lines of code create the Azure Cosmos DB resources. 
 
 * The CloudTableClient is initialized.
 
@@ -100,47 +131,27 @@ Let's make a quick review of what's happening in the app. Open the Program.cs fi
    table.Execute(deleteOperation);
    ```
 
+## Build and deploy the app
 
-## Update your connection string
+1. In Visual Studio, right-click on the **CosmosDBTableGetStarted** project in **Solution Explorer** and then click **Manage NuGet Packages**. 
 
-Now we'll update the connection string information so your app can talk to Azure Cosmos DB. 
+2. In the NuGet **Browse** box, type *Microsoft.Azure.CosmosDB.Table*.
 
-1. In Visual Studio, open the app.config file. 
+3. From the results, install the **Microsoft.Azure.CosmosDB.Table** library. This installs the Azure Cosmos DB Table API package as well as all dependencies.
 
-2. In the [Azure portal](http://portal.azure.com/), in the Azure Cosmos DB left navigation menu, click **Connection String**. Then in the new pane click the copy button for the connection string. 
+4. Add a breakpoint on line 196 of the Program.cs file so that the program stops before the new entities are deleted from the table. 
 
-    ![View and copy the Endpoint and Account Key in the Connection String pane](./media/create-table-dotnet/keys.png)
+4. Click CTRL + F5 to run the application.
 
-3. Paste the value into the app.config file as the value of the PremiumStorageConnectionString. 
-
-    `<add key="PremiumStorageConnectionString" 
-        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://COSMOSDB.documents.azure.com" />`    
-
-    You can leave the StandardStorageConnectionString as is.
-
-You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
-
-## Run the console app
-
-1. In Visual Studio, right-click on the **PremiumTableGetStarted** project in **Solution Explorer** and then click **Manage NuGet Packages**. 
-
-2. In the NuGet **Browse** box, type *WindowsAzure.Storage-PremiumTable*.
-
-3. Check the **Include prerelease** box. 
-
-4. From the results, install the **WindowsAzure.Storage-PremiumTable** library. This installs the preview Azure Cosmos DB Table API package as well as all dependencies. Note that this is a different NuGet package than the Windows Azure Storage package used by Azure Table storage. 
-
-5. Click CTRL + F5 to run the application.
-
-    The console window displays the data being added, retrieved, queried, replaced and deleted from the table. When the script completes, press any key to close the console window. 
+    The console window displays the data being added, retrieved, queried, and replaced in the table. 
     
     ![Console output of the quickstart](./media/create-table-dotnet/azure-cosmosdb-table-quickstart-console-output.png)
 
-6. If you want to see the new entities in Data Explorer, just comment out lines 188-208 in program.cs so they aren't deleted, then run the sample again. 
-
-    You can now go back to Data Explorer, click **Refresh**, expand the **people** table and click **Entities**, and then work with this new data. 
+5. You can now go back to Data Explorer, click **Refresh**, expand the **people** table and click **Entities**, and then work with this new data. 
 
     ![New entities in Data Explorer](./media/create-table-dotnet/azure-cosmosdb-table-quickstart-data-explorer.png)
+
+    If you want to delete the entities from the table, disable the breakpoint and continue the app execution. When the script completes, press any key to close the console window. 
 
 ## Review SLAs in the Azure portal
 
