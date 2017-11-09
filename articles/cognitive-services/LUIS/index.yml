@@ -67,8 +67,8 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: Integrating LUIS with a bot&#58; <a href="/azure/LUIS/luis-nodejs-tutorial-build-bot-framework-sample">Node.js</a> | <a href="/azure/LUIS/luis-csharp-tutorial-build-bot-framework-sample">.NET</a>
-    - html: Import utterances from a log&#58; <a href="/azure/LUIS/luis-tutorial-node-import-utterances-csv">Node.js</a>
+    - html: Integrating LUIS with a bot&#58; <a href="/azure/cognitive-services/LUIS/luis-nodejs-tutorial-build-bot-framework-sample">Node.js</a> | <a href="/azure/cognitive-services/LUIS/luis-csharp-tutorial-build-bot-framework-sample">.NET</a>
+    - html: Import utterances from a log&#58; <a href="/azure/cognitive-services/LUIS/luis-tutorial-node-import-utterances-csv">Node.js</a>
 - title: Reference
   items:
   - type: list
