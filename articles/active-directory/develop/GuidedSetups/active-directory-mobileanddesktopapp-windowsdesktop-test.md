@@ -51,5 +51,4 @@ Graph API requires the `user.read` scope to read user profile. This scope is aut
 
 <!--end-collapse-->
 
-
-
+[!INCLUDE  [Help and Support Options](../../../../includes/active-directory-develop-help-support-include.md)]

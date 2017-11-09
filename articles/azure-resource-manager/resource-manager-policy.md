@@ -53,8 +53,6 @@ Azure provides some built-in policy definitions that may reduce the number of po
 * Require SQL Server version 12.0
 * Require storage account encryption
 
-You can assign any of these policies through the [portal](resource-manager-policy-portal.md), [PowerShell](resource-manager-policy-create-assign.md#powershell), or [Azure CLI](resource-manager-policy-create-assign.md#azure-cli).
-
 ## Policy definition structure
 You use JSON to create a policy definition. The policy definition contains elements for:
 

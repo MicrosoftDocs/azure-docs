@@ -26,6 +26,7 @@ This article helps you manage Azure Multi-Factor Authentication now that you are
 
 | Feature | Description | 
 |:--- |:--- |
+| [Block/unblock users](#block/unblock-users) |Block/unblock users can prevent users from receiving authentication requests. |
 | [Fraud alert](#fraud-alert) |Fraud alert can be configured and set up so that your users can report fraudulent attempts to access their resources. |
 | [One-time bypass](#one-time-bypass) |A one-time bypass allows a user to authenticate a single time by "bypassing" multi-factor authentication. |
 | [Custom Voice Messages](#custom-voice-messages) |Custom voice messages allow you to use your own recordings or greetings with multi-factor authentication. |
@@ -34,6 +35,23 @@ This article helps you manage Azure Multi-Factor Authentication now that you are
 | [App Passwords](#app-passwords) |An app password allows an application that is not MFA-aware to bypass multi-factor authentication and continue working. |
 | [Remember Multi-Factor Authentication for remembered devices and browsers](#remember-multi-factor-authentication-for-devices-that-users-trust) |Allows you to remember devices for a set number of days after a user has successfully signed in using MFA. |
 | [Selectable Verification Methods](#selectable-verification-methods) |Allows you to choose the authentication methods that are available for users to use. |
+
+## Block/unblock users
+Block/unblock users can be used to prevent users from receiving authentication requests. Any authentication attempts for blocked users will be automatically denied. Blocked users will remain blocked for 90 days from the time they are blocked.
+
+### Block a user
+1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
+2. Navigate to **Azure Active Directory** > **MFA Server** > **Block/unblock users**.
+3. Click **Add** to block a user.
+4. Select the **Replication Group**, input the blocked username as **username@domain.com**, and enter a comment in the **Reason** field.
+5. Click **Add** to finish blocking the user.
+
+### Unblock a user
+1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
+2. Navigate to **Azure Active Directory** > **MFA Server** > **Block/unblock users**.
+3. Click **Unblock** in the **Action** column next to the user you want to unblock.
+4. Enter a comment in the **Reason for unblocking** field.
+5. Click **Unblock** to finish unblocking the user.
 
 ## Fraud Alert
 Fraud alert can be configured and set up so that your users can report fraudulent attempts to access their resources.  Users can report fraud either with the mobile app or through their phone.
