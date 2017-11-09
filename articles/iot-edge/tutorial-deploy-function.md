@@ -61,6 +61,7 @@ The steps in this section are only required until Azure IoT Edge goes public. Th
     ```cmd/sh
     nuget sources add -name AzureIoTEdgeFunction -source https://www.myget.org/F/dotnet-template-azure-iot-edge-function/api/v3/index.json  
     ``` 
+
 ## Choose or sign up for a Docker registry
 In this tutorial, you use the IoT Edge extension to build a [Docker image](https://docs.docker.com/glossary/?term=image) from your Azure Function code. Then you push this Docker image to a [Docker repository](https://docs.docker.com/glossary/?term=repository) hosted by a [Docker registry](https://docs.docker.com/glossary/?term=registry). Finally, you deploy your Docker image packaged as a [Docker container](https://docs.docker.com/glossary/?term=container) from your registry to your IoT Edge device.  
 
