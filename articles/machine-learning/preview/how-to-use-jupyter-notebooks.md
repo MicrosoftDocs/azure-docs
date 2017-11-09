@@ -107,7 +107,7 @@ You can now click on a `.ipynb` notebook file, open it, and set the kernel (if i
 
 You can use [magic commands](http://ipython.readthedocs.io/en/stable/interactive/magics.html) within your notebook cells to track your run history and save outputs, such as models or datasets.
 
-To track individual notebook cell runs, use '%azureml history on' magic command. After you turn the history on, each cell run will appear as entry in run history.
+To track individual notebook cell runs, use "%azureml history on" magic command. After you turn the history on, each cell run will appear as entry in run history.
 
 ```
 %azureml history on
@@ -116,9 +116,9 @@ logger = get_azureml_logger()
 logger.log("Cell","Load Data")
 ```
 
-To turn cell run tracking off, use '%azureml history off' magic command.
+To turn cell run tracking off, use "%azureml history off" magic command.
 
-You can use '%azureml upload' magic command to save model and data files from your run. The saved objects appear as outputs in run history view for given run.
+You can use "%azureml upload" magic command to save model and data files from your run. The saved objects appear as outputs in run history view for given run.
 
 ```
 modelpath = os.path.join("outputs","model.pkl")
