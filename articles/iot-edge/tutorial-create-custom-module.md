@@ -82,13 +82,6 @@ You can use any Docker-compatible registry for this tutorial. Two popular Docker
 
 Throughout this tutorial, where appropriate, commands will be provided for both Azure Container Registry and Docker Hub.
 
-## Configure the Azure IoT Toolkit extension with your IoT hub connection string 
-1. Open Visual Studio Code.
-2. Use the **View | Explorer** menu command to open the VS Code explorer. 
-3. In the explorer, click **IOT HUB DEVICES** and then click **...**. Click **Set IoT Hub Connection String** and enter the connection string for the IoT hub that your IoT Edge device connects to in the pop-up window. 
-
-    To find the connection string for your Iot hub, click the tile for your IoT hub in the Azure portal and then click **Shared access policies**. In **Shared access policies**, click the **iothubowner** policy and copy the IoT Hub connection string in the **iothubowner** window.   
-
 ## Create an IoT Edge module project
 The following steps show you how to create an IoT Edge module using Visual Studio Code and the IoT Edge extension.
 1. Use the **View | Integrated Terminal** menu command to open the VS Code integrated terminal.
@@ -239,14 +232,14 @@ The following steps show you how to create an IoT Edge module using Visual Studi
     }
     ```
 
-11. Build the project. Use the **View | Explorer** menu command to open the VS Code explorer. In the explorer, right-click the **SampleModule.csproj** file and click **Build IoT Edge module**.
+11. Build the project. Use the **View | Explorer** menu command to open the VS Code explorer. In the explorer, right-click the **FilterModule.csproj** file and click **Build IoT Edge module**.
 
 ## Create a Docker image and publish it to your registry
 
 1. Build the Docker image.
-   1. In VS Code explorer, click on the **Docker** folder to open it, then right-click the **Dockerfile** and click **Build IoT Edge module Docker image**. 
-   2. In the **Select Folder** box, either browse to or enter `./bin/Debug/netcoreapp2.0/publish`. Click **Select Folder as EXE_DIR**.
-   3. In the pop-up text box at the top of the VS Code window, enter the image URL. For example:`<docker registry address>/filtermodule:latest`; where *docker registry address* is your Docker ID if you are using Docker Hub or similar to `<Your registry name>.azurecr.io`, if you are using Azure Container Registry.
+    1. In VS Code explorer, click the **Docker** folder to open it. Then click the **linux-x64** folder, right-click the **Dockerfile** and click **Build IoT Edge module Docker image**. 
+    2. In the **Select Folder** box, either browse to or enter `./bin/Debug/netcoreapp2.0/publish`. Click **Select Folder as EXE_DIR**.
+    3. In the pop-up text box at the top of the VS Code window, enter the image URL. For example:`<docker registry address>/filtermodule:latest`; where *docker registry address* is your Docker ID if you are using Docker Hub or similar to `<your registry name>.azurecr.io`, if you are using Azure Container Registry.
  
 4. Sign in to Docker. In integrated terminal, enter the following command: 
 
@@ -318,7 +311,15 @@ iotedgectl login --address <docker-repository> --username <docker-username> --pa
 
 ## View generated data
 
-In VS Code, use the **View | Command Palette... | IoT: Start Monitoring D2C Messages** menu command to monitor data arriving in the IoT Hub. 
+To monitor device to cloud messages sent from your IoT Edge device to your IoT hub:
+1. Configure the Azure IoT Toolkit extension with connection string for your IoT hub: 
+    1. Use the **View | Explorer** menu command to open the VS Code explorer. 
+    3. In the explorer, click **IOT HUB DEVICES** and then click **...**. Click **Set IoT Hub Connection String** and enter the connection string for the IoT hub that your IoT Edge device connects to in the pop-up window. 
+
+        To find the connection string, click the tile for your IoT hub in the Azure portal and then click **Shared access policies**. In **Shared access policies**, click the **iothubowner** policy and copy the IoT Hub connection string in the **iothubowner** window.   
+
+1. To monitor data arriving at the IoT hub, use the **View | Command Palette... | IoT: Start monitoring D2C message** menu command. 
+2. To stop monitoring data, use the **View | Command Palette... | IoT: Stop monitoring D2C message** menu command. 
 
 ## Next steps
 
