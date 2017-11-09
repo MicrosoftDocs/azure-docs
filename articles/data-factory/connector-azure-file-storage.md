@@ -48,8 +48,8 @@ The following properties are supported for Azure File Storage linked service:
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in private network). If not specified, it uses the default Azure Integration Runtime. |No for source, Yes for sink |
 
 >[!IMPORTANT]
-> - To copy to Azure File Storage using Azure Integration Runtime, explicitly [create an Azure IR](create-azure-integration-runtime.md#create-azure-ir) with the location of your File Storage, and associate in the linked service as the following example.
-> - To copy from/to Azure File Storage using Self-hosted Integration Runtime outside of Azure, remember to open outbound TCP port 445 in your local network.
+> - To copy data into Azure File Storage using Azure Integration Runtime, explicitly [create an Azure IR](create-azure-integration-runtime.md#create-azure-ir) with the location of your File Storage, and associate in the linked service as the following example.
+> - To copy data from/to Azure File Storage using Self-hosted Integration Runtime outside of Azure, remember to open outbound TCP port 445 in your local network.
 
 **Example:**
 

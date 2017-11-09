@@ -17,21 +17,23 @@ ms.author: jingwang
 
 # Store credential in Azure Key Vault
 
-You can store credentials for data stores in an [Azure Key Vault](../key-vault/key-vault-whatis.md). Azure Data Factory retrieves the credentials when executing an activity that uses the data store. Currently, only [Dynamics connector](connector-dynamics-crm-office-365.md) and [Salesforce connector](connector-salesforce.md) support this feature.
+You can store credentials for data stores in an [Azure Key Vault](../key-vault/key-vault-whatis.md). Azure Data Factory retrieves the credentials when executing an activity that uses the data store. 
+
+Currently, only [Dynamics connector](connector-dynamics-crm-office-365.md) and [Salesforce connector](connector-salesforce.md) support this feature.
 
 > [!NOTE]
 > This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [documenttion for Data Factory version1](v1/data-factory-introduction.md).
 
 ## Prerequisites
 
-This feature relies on the data factory service identity. Learn how it works from [Data factory service identity](data-factory-service-identitiy.md) and make sure your data factory have an associated one.
+This feature relies on the data factory service identity. Learn how it works from [Data factory service identity](data-factory-service-identity.md) and make sure your data factory have an associated one.
 
 ## Steps
 
 To reference a credential stored in Azure Key Vault, you need to:
 
-1. Copy the "SERVICE IDENTITY APPLICATION ID" generated along with your data factory. Refer to [retrieve service identity](data-factory-service-identitiy.md#retrieve-service-identity).
-2. Grant the service identity access to your Azure Key Vault. In your key vault -> Access control -> Add -> search this service identity application ID to add Reader permission. It allows this designated factory to access secret in key vault.
+1. [Retrieve data factory service identity](data-factory-service-identity.md#retrieve-service-identity) by copying the value of "SERVICE IDENTITY APPLICATION ID" generated along with your factory.
+2. Grant the service identity access to your Azure Key Vault. In your key vault -> Access control -> Add -> search this service identity application ID to add at least **Reader** permission. It allows this designated factory to access secret in key vault.
 3. Create a linked service pointing to your Azure Key Vault. Refer to [Azure Key Vault linked service](#azure-key-vault-linked-service).
 4. Create data store linked service, inside which reference the corresponding secret stored in key vault. Refer to [reference credential stored in key vault](#reference-credential-stored-in-key-vault).
 

@@ -28,14 +28,16 @@ When creating a data factory, a service identity can be created along with facto
 
 Data factory service identity benefits the following two features:
 
-- [Store credential in Azure Key Vault](store-credentials-in-key-vault.md), in which case data factory service identity will be used for Azure Key Vault authentication.
+- [Store credential in Azure Key Vault](store-credentials-in-key-vault.md), in which case data factory service identity is used for Azure Key Vault authentication.
 - [Copy data from/to Azure Data Lake Store](connector-azure-data-lake-store.md), in which case data factory service identity can be used as one of the supported Data Lake Store authentication types.
 
 ## Generate service identity
 
+Data factory service identity is generated as follows:
+
 - When creating data factory through **Azure portal or PowerShell**, service identity will always be created automatically since ADF V2 public preview.
-- When creating data factory through **SDK**, service identity will be created only if you specify "Identity = new FactoryIdentity()" in the factory object for creation. See example from [.NET quickstart - create data factory](quickstart-create-data-factory-dot-net.md#create-a-data-factory).
-- When creating data factory through **REST API**, service identity will be created only if you specify "identity" section in request body. See example from [REST quickstart - create data factory](quickstart-create-data-factory-rest-api.md#create-a-data-factory).
+- When creating data factory through **SDK**, service identity will be created only if you specify "Identity = new FactoryIdentity()" in the factory object for creation. See example in [.NET quickstart - create data factory](quickstart-create-data-factory-dot-net.md#create-a-data-factory).
+- When creating data factory through **REST API**, service identity will be created only if you specify "identity" section in request body. See example in [REST quickstart - create data factory](quickstart-create-data-factory-rest-api.md#create-a-data-factory).
 
 If you find your data factory doesn't have a service identity associated following [retrieve service identity](#retrieve-service-identity) instruction, you can explicitly generate one by updating the data factory with identity initiator programmatically:
 
@@ -44,9 +46,9 @@ If you find your data factory doesn't have a service identity associated followi
 - [Generate service identity using SDK](#generate-service-identity-using-sdk)
 
 >[!NOTE]
->- **Service identity cannot be modified**. Updating a data factory which already have a service identity won't have any impact, the service identity will be kept unchanged.
->- **Service identity cannot be deleted**. If you update a data factory which already have a service identity, without specifying "identity" parameter in the factory object or without specifying "identity" section in REST request body, you will get an error.
->- When a data factory is deleted, the associated service identity will be deleted along.
+>- Service identity cannot be modified. Updating a data factory which already have a service identity won't have any impact, the service identity is kept unchanged.
+>- If you update a data factory which already have a service identity without specifying "identity" parameter in the factory object or without specifying "identity" section in REST request body, you will get an error.
+>- When you delete a data factory, the associated service identity will be deleted along.
 
 ### Generate service identity using PowerShell
 
@@ -134,7 +136,7 @@ You can find the service identity information from Azure portal -> your data fac
 
 - SERVICE IDENTITY ID
 - SERVICE IDENTITY TENANT
-- **SERVICE IDENTITY APPLICATION ID** > copy this value to grant access in Data Lake Store or Key Vault
+- **SERVICE IDENTITY APPLICATION ID** > copy this value
 
 ![Retrieve service identity](media/data-factory-service-identity/retrieve-service-identity-portal.png)
 
@@ -150,7 +152,7 @@ PrincipalId                          TenantId
 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc 72f988bf-XXXX-XXXX-XXXX-2d7cd011db47
 ```
 
-Copy the principal ID, then run below Azure Active Directory command with principal ID as parameter to get the **ApplicationId**, which you use to grant access in Data Lake Store or Key Vault:
+Copy the principal ID, then run below Azure Active Directory command with principal ID as parameter to get the **ApplicationId**, which you use to grant access:
 
 ```powershell
 PS C:\WINDOWS\system32> Get-AzureRmADServicePrincipal -ObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
@@ -162,3 +164,8 @@ Id                    : 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
 Type                  : ServicePrincipal
 ```
 
+## Next
+See the following topics which introduce when and how to use data factory service identity:
+
+- [Store credential in Azure Key Vault](store-credentials-in-key-vault.md)
+- [Copy data from/to Azure Data Lake Store using managed service identity authentication](connector-azure-data-lake-store.md)

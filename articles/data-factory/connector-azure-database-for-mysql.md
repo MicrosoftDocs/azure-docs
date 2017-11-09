@@ -55,7 +55,7 @@ The following properties are supported for Azure Database for MySQL linked servi
         "typeProperties": {
             "connectionString": {
                  "type": "SecureString",
-                 "value":  "Server=<server>.mysql.database.azure.com;Port=3306;Database=<database>;UID=<username>;PWD=<password>"
+                 "value": "Server=<server>.mysql.database.azure.com;Port=3306;Database=<database>;UID=<username>;PWD=<password>"
             }
         },
         "connectVia": {

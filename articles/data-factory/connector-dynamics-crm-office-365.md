@@ -62,7 +62,7 @@ The following properties are supported for Dynamics linked service:
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. If not specified, it uses the default Azure Integration Runtime. | No for source, Yes for sink |
 
 >[!IMPORTANT]
->To copy to Dynamics, explicitly [create an Azure IR](create-azure-integration-runtime.md#create-azure-ir) with a location near your Dynamics, and associate in the linked service as the following example.
+>To copy data into Dynamics, explicitly [create an Azure IR](create-azure-integration-runtime.md#create-azure-ir) with a location near your Dynamics, and associate in the linked service as the following example.
 
 **Example: Dynamics online using Office365 authentication**
 
@@ -111,7 +111,7 @@ The following properties are supported for Dynamics linked service:
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. If not specified, it uses the default Azure Integration Runtime. | No for source, Yes for sink |
 
 >[!IMPORTANT]
->To copy to Dynamics, explicitly [create an Azure IR](create-azure-integration-runtime.md#create-azure-ir) with the location near your Dynamics, and associate in the linked service as the following example.
+>To copy data into Dynamics, explicitly [create an Azure IR](create-azure-integration-runtime.md#create-azure-ir) with the location near your Dynamics, and associate in the linked service as the following example.
 
 **Example: Dynamics on-premises with IFD using IFD authentication**
 
@@ -158,7 +158,7 @@ To copy data from/to Dynamics, set the type property of the dataset to **Dynamic
 
 > [!IMPORTANT]
 >- **When copying data from Dynamics, the "structure" section is required** in Dynamics dataset, which defines column name and data type for Dynamics data that you want to copy over. Learn more from [dataset structure](concepts-datasets-linked-services.md#dataset-structure) and the [Data type mapping for Dynamics](#data-type-mapping-for-dynamics).
->- **When copying data to Dynamics, the "structure" section is optional** in Dynamics dataset. Which column(s) to copy into will be determined by the source data schema. If your source is CSV file, in the input dataset, specify the "structure" with column name and data type which maps to fields in CSV file one by one in order.
+>- **When copying data to Dynamics, the "structure" section is optional** in Dynamics dataset. Which column(s) to copy into will be determined by the source data schema. If your source is CSV file without header, in the input dataset, specify the "structure" with column name and data type which maps to fields in CSV file one by one in order.
 
 **Example:**
 
@@ -269,11 +269,11 @@ To copy data to Dynamics, set the sink type in the copy activity to **DynamicsSi
 |:--- |:--- |:--- |
 | type | The type property of the copy activity sink must be set to: **DynamicsSink**  | Yes |
 | writeBehavior | The write behavior of the operation.<br/>Allowed value is: **"Upsert"**. | Yes |
-| writeBatchSize | The row count of data written to Dynamics in one batch. | No (default is 10) |
-| ignoreNullValues | Indicates whether to ignore null values from input data (except key fields) during write operation.<br/>Allowed values are: **true**, and **false**.<br>- true: leave the data in the destination object unchanged when doing upsert/update operation and insert defined default value when doing insert operation.<br/>- false: update the data in the destination object to NULL when doing upsert/update operation and insert NULL value when doing insert operation.  | No (default is false) |
+| writeBatchSize | The row count of data written to Dynamics in each batch. | No (default is 10) |
+| ignoreNullValues | Indicates whether to ignore null values from input data (except key fields) during write operation.<br/>Allowed values are: **true**, and **false**.<br>- true: leave the data in the destination object unchanged when doing upsert/update operation, and insert defined default value when doing insert operation.<br/>- false: update the data in the destination object to NULL when doing upsert/update operation, and insert NULL value when doing insert operation.  | No (default is false) |
 
 >[!NOTE]
->The default value of writeBatchSize and [parallelCopies](copy-activity-performance.md#parallel-copy) for Dynamics sink both are 10.
+>The default value of sink writeBatchSize and copy activity [parallelCopies](copy-activity-performance.md#parallel-copy) for Dynamics sink are both 10, which means 100 records being submitted to Dynamics concurrently.
 
 **Example:**
 
@@ -329,7 +329,7 @@ Configure the corresponding ADF data type in dataset structure based on your sou
 | AttributeType.ManagedProperty | Boolean | ✓ |  |
 | AttributeType.Memo | String | ✓ | ✓ |
 | AttributeType.Money | Decimal | ✓ |  |
-| AttributeType.Owner | Guid | ✓ |No |
+| AttributeType.Owner | Guid | ✓ | |
 | AttributeType.Picklist | Int32 | ✓ | ✓ |
 | AttributeType.Uniqueidentifier | Guid | ✓ | ✓ |
 | AttributeType.String | String | ✓ | ✓ |

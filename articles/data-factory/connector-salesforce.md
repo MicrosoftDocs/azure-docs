@@ -16,7 +16,7 @@ ms.date: 11/09/2017
 ms.author: jingwang
 
 ---
-# Copy data from Salesforce using Azure Data Factory
+# Copy data from/to Salesforce using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1 - GA](v1/data-factory-salesforce-connector.md)
 > * [Version 2 - Preview](connector-salesforce.md)
@@ -62,12 +62,12 @@ The following properties are supported for Salesforce linked service:
 | type |The type property must be set to: **Salesforce**. |Yes |
 | environmentUrl | Specify the URL of Salesforce instance. <br> - Default is `"https://login.salesforce.com"`. <br> - To copy data from sandbox, specify `"https://test.salesforce.com"`. <br> - To copy data from custom domain, specify, for example, `"https://[domain].my.salesforce.com"`. |No |
 | username |Specify a user name for the user account. |Yes |
-| password |Specify a password for the user account.<br/>You can choose to mark this field as a SecureString to store in ADF, or store it in Azure Key Vault and let ADF copy acitivty pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). |Yes |
-| securityToken |Specify a security token for the user account. See [Get security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) for instructions on how to reset/get a security token. To learn about security tokens in general, see [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm).<br/>You can choose to mark this field as a SecureString to store in ADF, or store it in Azure Key Vault and let ADF copy acitivty pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). |Yes |
+| password |Specify a password for the user account.<br/><br/>You can choose to mark this field as a SecureString to store it securely in ADF, or store password in Azure Key Vault and let ADF copy acitivty pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). |Yes |
+| securityToken |Specify a security token for the user account. See [Get security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) for instructions on how to reset/get a security token. To learn about security tokens in general, see [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm).<br/><br/>You can choose to mark this field as a SecureString to store it securely in ADF, or store security token in Azure Key Vault and let ADF copy acitivty pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). |Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. If not specified, it uses the default Azure Integration Runtime. | No for source, Yes for sink |
 
 >[!IMPORTANT]
->To copy to Salesforce, explicitly [create an Azure IR](create-azure-integration-runtime.md#create-azure-ir) with a location near your Salesforce, and associate in the linked service as the following example.
+>To copy data into Salesforce, explicitly [create an Azure IR](create-azure-integration-runtime.md#create-azure-ir) with a location near your Salesforce, and associate in the linked service as the following example.
 
 **Example: storing credential in ADF**
 
@@ -189,9 +189,6 @@ To copy data from Salesforce, set the source type in the copy activity to **Sale
 
 ![Data Factory - Salesforce connection - API name](media/copy-data-from-salesforce/data-factory-salesforce-api-name-2.png)
 
->[!NOTE]
->For back compatibiliy, when copying data from Salesforce, using previous "RelationalSource" type copy source will keep working, while you are suggested to switch to the new "SalesforceSource" type.
-
 **Example:**
 
 ```json
@@ -224,6 +221,9 @@ To copy data from Salesforce, set the source type in the copy activity to **Sale
 ]
 ```
 
+>[!NOTE]
+>For back compatibiliy, when copying data from Salesforce, using previous "RelationalSource" type copy source will keep working, while you are suggested to switch to the new "SalesforceSource" type.
+
 ### Salesforce as sink
 
 To copy data to Salesforce, set the sink type in the copy activity to **SalesforceSink**. The following properties are supported in the copy activity **sink** section:
@@ -231,10 +231,10 @@ To copy data to Salesforce, set the sink type in the copy activity to **Salesfor
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity sink must be set to: **SalesforceSink** | Yes |
-| writeBehavior | The write behavior for the operation.<br/>Allowed values are: **Insert**, and **"Upsert"**. | No (default is Insert) |
+| writeBehavior | The write behavior for the operation.<br/>Allowed values are: **Insert**, and **Upsert**. | No (default is Insert) |
 | externalIdFieldName | The name of the external ID field for upsert operation. The specified field must be defined as "External Id Field" in the Salesforce object, and it cannot have NULL values in the corresponding input data. | Yes for "Upsert" |
 | writeBatchSize | The row count of data written to Salesforce in each batch. | No (default is 5000) |
-| ignoreNullValues | Indicates whether to ignore null values from input data during write operation.<br/>Allowed values are: **true**, and **false**.<br>- **true**: leave the data in the destination object unchanged when doing upsert/update operation and insert defined default value when doing insert operation.<br/>- **false**: update the data in the destination object to NULL when doing upsert/update operation and insert NULL value when doing insert operation. | No (default is false) |
+| ignoreNullValues | Indicates whether to ignore null values from input data during write operation.<br/>Allowed values are: **true**, and **false**.<br>- **true**: leave the data in the destination object unchanged when doing upsert/update operation, and insert defined default value when doing insert operation.<br/>- **false**: update the data in the destination object to NULL when doing upsert/update operation, and insert NULL value when doing insert operation. | No (default is false) |
 
 ### Example: Salesforce sink in copy activity
 
