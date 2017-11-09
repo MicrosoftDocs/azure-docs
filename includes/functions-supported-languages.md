@@ -3,7 +3,7 @@
 |[C#](../articles/azure-functions/functions-reference-csharp.md)|GA|Preview|
 |[JavaScript](../articles/azure-functions/functions-reference-node.md)|GA|Preview|
 |[F#](../articles/azure-functions/functions-reference-fsharp.md)|GA|In development\*|
-|[Java](../articles/azure-functions/functions-reference-java.md)|Experimental|Preview|
+|[Java](../articles/azure-functions/functions-reference-java.md)||Preview|
 |Python              |Experimental|In development\*|
 |PHP                 |Experimental||
 |TypeScript          |Experimental||

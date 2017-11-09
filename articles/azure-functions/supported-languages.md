@@ -46,7 +46,7 @@ If you want to use one of the languages that are only available in v1, stay on t
 
 ### Language extensibility
 
-The v2 runtime is designed to offer [language extensibility](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Language-Extensibility). Among the first languages to be based on this extensibility model is Java, which is in preview in v2 but is experimental in v1.
+The v2 runtime is designed to offer [language extensibility](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Language-Extensibility). Among the first languages to be based on this extensibility model is Java, which is in preview in v2.
 
 ## Next steps
 
