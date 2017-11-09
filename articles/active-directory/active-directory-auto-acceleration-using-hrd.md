@@ -10,7 +10,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: it-pro
-ms.date: 11/07/2017
+ms.date: 11/09/2017
 ms.author: billmath
 ---
 
