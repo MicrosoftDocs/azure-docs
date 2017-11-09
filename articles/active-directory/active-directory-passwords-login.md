@@ -21,7 +21,7 @@ ms.custom: it-pro
 ---
 # Azure AD password reset from the login screen
 
-You have already deployed Azure AD self-service password reset (SSPR) but your users still call the helpdesk when they forget their passwords. They call the helpdesk because they cant get to a web browser to access SSPR. If only they could access SSPR before they logged in...
+You have already deployed Azure AD self-service password reset (SSPR) but your users still call the helpdesk when they forget their passwords. They call the helpdesk because they can't get to a web browser to access SSPR.
 
 With the new Windows 10 Fall Creators Update, users with Azure AD joined devices can see a “Reset password” link on their login screen. When they click this link, they are brought to the same self-service password reset (SSPR) experience they are familiar with 
 
@@ -50,9 +50,9 @@ To enable users to reset their Azure AD password from the Windows 10 login scree
    * **Add** the following OMA-URI Setting to enable the Reset password link
       * Provide a meaningful name to explain what the setting is doing
       * Optionally provide a meaningful description of the setting
-      * **OMA-URI** set this to `./Vendor/MSFT/Policy/Config/Authentication/AllowAadPasswordReset`
-      * **Data type** set this to **Integer**
-      * **Value** set this to **1**
+      * **OMA-URI** set to `./Vendor/MSFT/Policy/Config/Authentication/AllowAadPasswordReset`
+      * **Data type** set to **Integer**
+      * **Value** set to **1**
       * Click **OK**
    * Click **OK**
 4. Click **Create**
@@ -64,7 +64,7 @@ To enable users to reset their Azure AD password from the Windows 10 login scree
 1. Log in to the [Azure portal](https://portal.azure.com) and click on **Azure Active Directory**.
 2. Browse to **Users and groups** > **All groups** > **New group**
 3. Provide a name for the group and under **Membership type** choose **Assigned** 
-   * Under **Members** choose the Azure AD joined Windows 10 devices that you want to apply the policy to.
+   * Under **Members**, choose the Azure AD joined Windows 10 devices that you want to apply the policy to.
    * Click **Select**
 4. Click **Create**
 
@@ -99,7 +99,7 @@ Now that the policy is configured and assigned, what changes for the user? How d
 
 ![LoginScreen][LoginScreen]
 
-When users attempt to log in they now see a Reset password link that opens the self-service password reset experience at the logon screen. This functionality allows users to reset their password without having to use another device to access a web browser.
+When users attempt to log in, they now see a Reset password link that opens the self-service password reset experience at the logon screen. This functionality allows users to reset their password without having to use another device to access a web browser.
 
 ## Next steps
 The following links provide additional information regarding password reset using Azure AD
@@ -112,5 +112,4 @@ The following links provide additional information regarding password reset usin
 [Assignment]: ./media/active-directory-passwords-login/profile-assignment.png "Assign Intune device configuration policy to a group of Windows 10 devices"
 [LoginScreen]: ./media/active-directory-passwords-login/logon-reset-password.png "Reset password link at the Windows 10 logon screen"
 
-Respond on publish to this with link to doc.
 https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/8737576-enable-self-service-password-reset-from-windows-10
