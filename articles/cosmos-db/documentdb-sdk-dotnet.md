@@ -50,7 +50,7 @@ ms.custom: H1Hack27Feb2017
 ## Release notes
 ### <a name="1.18.1"/>1.18.1 
 
-* Internal internalsvisibleto changes for Microsoft friends assemblies.
+* Internal changes for Microsoft friends assemblies.
 
 ### <a name="1.18.0"/>1.18.0 
 
