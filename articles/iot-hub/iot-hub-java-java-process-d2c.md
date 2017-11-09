@@ -41,7 +41,7 @@ To complete this tutorial, you need the following:
 * [Maven 3](https://maven.apache.org/install.html)
 * An active Azure account. (If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.)
 
-You should have some basic knowledge of [Azure Storage] and [Azure Service Bus].
+We also recommend reading about [Azure Storage] and [Azure Service Bus].
 
 ## Send interactive messages from a device app
 In this section, you modify the device app you created in the [Get started with IoT Hub] tutorial to occasionally send messages that require immediate processing.
@@ -104,7 +104,7 @@ In this section, you modify the device app you created in the [Get started with 
 2. Save and close the simulated-device\src\main\java\com\mycompany\app\App.java file.
 
     > [!NOTE]
-    > For the sake of simplicity, this tutorial does not implement any retry policy. In production code, you should implement a retry policy such as exponential backoff, as suggested in the MSDN article [Transient Fault Handling].
+    > We strongly recommend that you implement a retry policy such as exponential backoff, as suggested in the MSDN article [Transient Fault Handling].
 
 3. To build the **simulated-device** app using Maven, execute the following command at the command prompt in the simulated-device folder:
 

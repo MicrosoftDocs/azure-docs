@@ -40,7 +40,7 @@ To complete this tutorial, you need the following:
 * Visual Studio 2015 or Visual Studio 2017.
 * An active Azure account. <br/>If you don't have an account, you can create a [free account](https://azure.microsoft.com/free/) in just a couple of minutes.
 
-You should have some basic knowledge of [Azure Storage] and [Azure Service Bus].
+We also recommend reading about [Azure Storage] and [Azure Service Bus].
 
 ## Send interactive messages
 
@@ -96,7 +96,7 @@ This method randomly adds the property `"level": "critical"` to messages sent by
 > You can use message properties to route messages for various scenarios including cold-path processing, in addition to the hot-path example shown here.
 
 > [!NOTE]
-> For the sake of simplicity, this tutorial does not implement any retry policy. In production code, you should implement a retry policy such as exponential backoff, as suggested in the MSDN article [Transient Fault Handling].
+> We strongly recommend that you implement a retry policy such as exponential backoff, as suggested in the MSDN article [Transient Fault Handling].
 
 ## Route messages to a queue in your IoT hub
 
