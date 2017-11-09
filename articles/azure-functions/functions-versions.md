@@ -28,7 +28,7 @@ This article doesn't cover setting the runtime version on your development compu
 
 ### Languages
 
-The following table indicates which programming languages are supported.
+The following table indicates which programming languages are supported in each runtime version.
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
 
@@ -36,9 +36,9 @@ For more information, see [Supported languages](supported-languages.md).
 
 ### Bindings 
 
-Some bindings that 1.x supports don't have support yet in 2.x. For information about bindings support and other functional gaps in 2.x, see [Runtime 2.0 known issues](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Azure-Functions-runtime-2.0-known-issues).
+The experimental bindings that runtime 1.x supports are not available in 2.x. For information about bindings support and other functional gaps in 2.x, see [Runtime 2.0 known issues](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Azure-Functions-runtime-2.0-known-issues).
 
-One set of bindings works only in 2.x: [Microsoft Graph bindings](functions-bindings-microsoft-graph.md).
+Runtime 2.x lets you create custom [binding extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview). Built-in bindings that use this extensibility model are only available in 2.x; among the first of these is the [Microsoft Graph bindings](functions-bindings-microsoft-graph.md).
 
 ### Cross-platform development
 

@@ -42,6 +42,10 @@ The v2 runtime doesn't support experimental languages. In v2 we will add support
 
 If you want to use one of the languages that are only available in v1, stay on the v1 runtime. But don't use experimental languages for anything that you rely on, as there is no official support for them. You can request help by [creating GitHub issues](https://github.com/Azure/azure-webjobs-sdk-script/issues), but support cases should not be opened for problems with experimental languages. 
 
+### Language extensibility
+
+The v2 runtime is designed to offer [language extensibility](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Language-Extensibility). Among the first languages to be based on this extensibility model is Java, which is in preview in v2 but is experimental in v1.
+
 ## Next steps
 
 To learn more about how to use one of the GA or preview languages in Azure Functions, see the following resources:
