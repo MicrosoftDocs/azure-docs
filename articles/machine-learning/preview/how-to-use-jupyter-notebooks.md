@@ -26,12 +26,12 @@ At a high level, Jupyter notebook architecture includes three components, each c
 - **Server**: web server hosting the notebook files (.ipynb files)
 - **Kernel**: the runtime environment where the actual execution of the notebook cells happens
 
-For more details, please reference the official [Jupyter documentation](http://jupyter.readthedocs.io/en/latest/architecture/how_jupyter_ipython_work.html). Fowllowing is a diagram depicting how this client, server, and kernel architecture map to the components in Azure ML.
+For more details, please reference the official [Jupyter documentation](http://jupyter.readthedocs.io/en/latest/architecture/how_jupyter_ipython_work.html). Following is a diagram depicting how this client, server, and kernel architecture map to the components in Azure ML.
 
 ![notebook architecture](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-architecture.png)
 
 ## Kernels in Azure ML Workbench notebook
-You can access many different kernels in Azure ML Workbench by simply configure run configurations and compute targets in the `aml_config` folder in your project. Adding a new compute target by issuing `az ml computetarget attach` command is the equivalent of adding a new kernel.
+You can access many different kernels in Azure ML Workbench by configuring run configurations and compute targets in the `aml_config` folder in your project. Adding a new compute target by issuing `az ml computetarget attach` command is the equivalent of adding a new kernel.
 
 >[!NOTE]
 >Review the [Configure Execution](experimentation-service-configuration.md) for more details on run configurations and compute targets.
@@ -57,7 +57,7 @@ This PySpark kernel executes scripts in a Spark context running inside of Docker
 This kernel runs in the remote HDInsight cluster that you attached as a compute target for your project. The kernel name is typically "my_project my_hdi". 
 
 >[!IMPORTANT]
->In the `.compute` file of the HDI compute target, you must change the `yarnDeployMode` field to `client` (the default value is `cluster`) in order to use this kernel. 
+>In the `.compute` file for the HDI compute target, you must change the `yarnDeployMode` field to `client` (the default value is `cluster`) in order to use this kernel. 
 
 ## Start Jupyter Server from the Workbench
 From Azure Machine Learning Workbench, notebooks can be accessed via the Workbench's  **Notebooks** tab. The _Classifying Iris_ sample project includes an `iris.ipynb` sample notebook.
@@ -107,7 +107,7 @@ You can now click on a `.ipynb` notebook file, open it, and set the kernel (if i
 
 You can use [magic commands](http://ipython.readthedocs.io/en/stable/interactive/magics.html) within your notebook cells to track your run history and save outputs, such as models or datasets.
 
-To track individual notebook cell runs, use "%azureml history on" magic command. After you turn the history on, each cell run will appear as entry in run history.
+To track individual notebook cell runs, use "%azureml history on" magic command. After you turn on the history, each cell run will appear as entry in run history.
 
 ```
 %azureml history on
@@ -127,7 +127,8 @@ with open(modelpath,"wb") as f:
 %azureml upload outputs/model.pkl
 ```
 
-Note that the outputs must be saved to a folder named "outputs"
+>[!NOTE]
+>The outputs must be saved to a folder named "outputs"
 
 ## Next Steps
 - To learn how to use Jupyter notebook, visit the [Jupyter official documentation](http://jupyter-notebook.readthedocs.io/en/latest/).    
