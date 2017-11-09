@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/06/2017
+ms.date: 11/08/2017
 ms.author: joflore
 ms.custom: it-pro
 
@@ -93,19 +93,24 @@ We recommend using this method only to test the setting change.
    * `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\AzureADAccount`
       * `"AllowPasswordReset"=dword:00000001`
 
+## What will users see
 
+Now that the policy is configured and assigned, what changes for the user? How do they know that they can reset their password at the logon screen?
 
+![LoginScreen][LoginScreen]
 
+When users attempt to login they will now see a Reset password link that will open up the password reset experience at the logon screen. This functionality allows users to reset their password without having to use another device to access a web browser.
 
 Respond on publish to this with link to doc.
 https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/8737576-enable-self-service-password-reset-from-windows-10
 
-### Next steps
+## Next steps
 The following links provide additional information regarding password reset using Azure AD
 
+* [How do I deploy SSPR?](active-directory-passwords-best-practices.md)
 * [How do I enable PIN reset from the login screen?](https://docs.microsoft.com/intune/device-windows-pin-reset)
 * [More information about MDM authentication policies](https://docs.microsoft.com/windows/client-management/mdm/policy-csp-authentication)
 
-
-[CreateProfile] create-profile.png
-[Assignment]
+[CreateProfile]: ./media/active-directory-passwords-login/create-profile.png "Create Intune device configuration profile to enable Reset password link on the Windows 10 logon screen"
+[Assignment]: ./media/active-directory-passwords-login/profile-assignment.png "Assign Intune device configuration policy to a group of Windows 10 devices"
+[LoginScreen]: ./media/active-directory-passwords-login/logon-reset-password.png "Reset password link at the Windows 10 logon screen"
