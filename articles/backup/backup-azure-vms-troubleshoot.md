@@ -31,7 +31,7 @@ You can troubleshoot errors encountered while using Azure Backup with informatio
 ### Error: The specified Disk Configuration is not supported
 
 > [!NOTE]
-> We have a private preview to support backups for VMs with >1TB unmanaged disks. Please reach out to AskAzureBackupTeam@microsoft.com to register your subscription for the preview. 
+> We have a private preview to support backups for VMs with >1TB unmanaged disks. For details refer to [Private preview for large disk VM backup support](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
 >
 >
 
