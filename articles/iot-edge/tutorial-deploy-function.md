@@ -8,7 +8,7 @@ author: JimacoMS2
 manager: timlt
 
 ms.author: v-jamebr
-ms.date: 10/05/2017
+ms.date: 11/08/2017
 ms.topic: article
 ms.service: iot-edge
 
@@ -21,7 +21,7 @@ ms.service: iot-edge
 ---
 
 # Deploy Azure Function as an IoT Hub module - Public preview
-You can use Azure Functions to deploy code that implements your business logic directly to your IoT Edge devices. This tutorial walks you through creating and deploying an Azure Function that filters sensor data on the simulated IoT Edge device that you created in the [Azure Install IoT Edge tutorial](./tutorial-install-iot-edge.md). You learn how to:    
+You can use Azure Functions to deploy code that implements your business logic directly to your IoT Edge devices. This tutorial walks you through creating and deploying an Azure Function that filters sensor data on the simulated IoT Edge device that you created in the [Azure Install IoT Edge tutorial](./tutorial-install-iot-edge.md). In this tutorial, you learn how to:     
 
 > [!div class="checklist"]
 > * Use Visual Studio Code to create an azure function
