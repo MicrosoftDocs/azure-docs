@@ -21,12 +21,11 @@ ms.author: dobett
 
 ## Next steps
 
-Azure IoT Hub is an Azure service that enables secure and reliable bi-directional communications between your solution back end and millions of devices. It enables the solution back end to:
+Azure IoT Edge is an Azure service that enables analytics and data processing at the edge. With IoT Edge, you can empower your devices with container-based code that includes either logic pulled directly from the Azure services that you already use, or your own solution-specific code. It enables your devices to:
 
-* Receive telemetry at scale from your devices.
-* Route data from your devices to a stream event processor.
-* Receive file uploads from devices.
-* Send cloud-to-device messages to specific devices.
+* Act as gateway devices, aggregating and processing data from multiple leaf devices.
+* Perform anomaly detection and react to changes in the environment without having to wait for instructions from the cloud.
+* Minimize bandwidth and storage cost by preprocessing data and sending the results. 
 
 You can use IoT Hub to implement your own solution back end. In addition, IoT Hub includes an identity registry used to provision devices, their security credentials, and their rights to connect to the IoT hub. To learn more about IoT Hub, see [What is IoT Hub][lnk-iot-hub].
 
