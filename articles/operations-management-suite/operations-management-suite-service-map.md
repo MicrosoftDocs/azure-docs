@@ -223,11 +223,26 @@ The following image is a detailed view of a ConfigurationChange event that you m
 
 
 ## Operations Management Suite performance integration
-The **Machine Performance** pane displays standard performance metrics for the selected server. The metrics include CPU utilization, memory utilization, network bytes sent and received, and a list of the top processes by network bytes sent and received. To get the network performance data, you must also have enabled the Wire Data 2.0 solution in Operations Management Suite.
+The **Machine Performance** pane displays standard performance metrics for the selected server. The metrics include CPU utilization, memory utilization, network bytes sent and received, and a list of the top processes by network bytes sent and received.
 
 ![Machine Performance pane](media/oms-service-map/machine-performance.png)
 
+To see performance data, you may need to [enable the appropriate Log Analytics performance counters](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-performance-counters).  The counters you will want to enable:
 
+Windows:
+- Processor(*)\% Processor Time
+- Memory\% Committed Bytes In Use
+- Network Adapter(*)\Bytes Sent/sec
+- Network Adapter(*)\Bytes Received/sec
+
+Linux:
+- Processor(*)\% Processor Time
+- Memory(*)\% Used Memory
+- Network Adapter(*)\Bytes Sent/sec
+- Network Adapter(*)\Bytes Received/sec
+
+To get the network performance data, you must also have enabled the Wire Data 2.0 solution in Operations Management Suite.
+ 
 ## Operations Management Suite Security integration
 Service Map integration with Security and Audit is automatic when both solutions are enabled and configured in your Operations Management Suite workspace.
 

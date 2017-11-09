@@ -4,7 +4,7 @@ description: This article provides an introduction to Spark on HDInsight and the
 keywords: what is apache spark,spark cluster,introduction to spark,spark on hdinsight
 services: hdinsight
 documentationcenter: ''
-author: maxluk
+author: nitinme
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -17,7 +17,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/07/2017
-ms.author: maxluk
+ms.author: nitinme
 
 ---
 # Introduction to Spark on HDInsight

@@ -5,7 +5,17 @@
 	    "redirect_url": "/azure/cognitive-services/video-indexer/video-indexer-overview",
 	    "redirect_document_id": false 
 	},
-	{
+    {
+        "source_path": "articles/active-directory/active-directory-manage-o365-subscription.md",
+        "redirect_url": "/azure/active-directory/domains-admin-takeover",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/active-directory/active-directory-accessmanagement-dedicated-groups.md",
+        "redirect_url": "/azure/active-directory/active-directory-groups-create-azure-portal",
+        "redirect_document_id": false
+    },
+    {
 	    "source_path": "articles/cognitive-services/Video/Glossary.md",
 	    "redirect_url": "/azure/cognitive-services/video-indexer/video-indexer-overview",
 	    "redirect_document_id": false 
@@ -5538,6 +5548,11 @@
         {
             "source_path": "articles/storage/storage-troubleshoot-file-connection-problems.md",
             "redirect_url": "/azure/storage/storage-troubleshoot-windows-file-connection-problems",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/blobs/storage-quickstart-blobs-java.md",
+            "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-dotnet",
             "redirect_document_id": false
         },
         {
