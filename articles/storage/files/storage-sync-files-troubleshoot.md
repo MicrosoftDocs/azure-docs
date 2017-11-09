@@ -18,7 +18,7 @@ ms.author: wgries
 ---
 
 # Troubleshoot Azure File Sync (preview)
-Use Azure File Sync (preview) to centralize your organization's file shares in Azure Files, while keeping the flexibility, performance, and compatibility of an on-premises file server. Azure File Sync transforms your Windows Server machines into a quick cache of your Azure file share. You can use any protocol that's available on Windows Server to access your data locally, including SMB, NFS, and FTPS. You can have as many caches as you need across the world.
+Use Azure File Sync (preview) to centralize your organization's file shares in Azure Files, while keeping the flexibility, performance, and compatibility of an on-premises file server. Azure File Sync transforms Windows Server machines into a quick cache of your Azure file share. You can use any protocol that's available on Windows Server to access your data locally, including SMB, NFS, and FTPS. You can have as many caches as you need across the world.
 
 This article is designed to help you troubleshoot and resolve issues that you might encounter with your Azure File Sync deployment. We also describe how to collect important logs from the system if a deeper investigation of the issue is required. If you don't see the answer to your question, you can contact us through the following channels (in escalating order):
 
@@ -65,23 +65,23 @@ Reset-StorageSyncServer
 <a id="web-site-not-trusted"></a>**When I register a server, I see numerous "web site not trusted" responses. Why?**  
 This issue occurs when the **Enhanced Internet Explorer Security** policy is enabled during server registration. For more information about how to correctly disable the **Enhanced Internet Explorer Security** policy, see [Prepare Windows servers to use with Azure File Sync](storage-sync-files-deployment-guide.md#prepare-windows-servers-to-use-with-azure-file-sync) and [How to deploy Azure File Sync (preview)](storage-sync-files-deployment-guide.md).
 
-## Sync group management
-<a id="cloud-endpoint-using-share"></a>**Cloud endpoint creation fails, with this error: "The specified Azure FileShare is already in use by a different CloudEndpoint"**  
-This issue occurs if the Azure file share is already in use by another cloud endpoint. 
+## Sync Group management
+<a id="cloud-endpoint-using-share"></a>**Cloud Endpoint creation fails, with this error: "The specified Azure FileShare is already in use by a different CloudEndpoint"**  
+This issue occurs if the Azure file share is already in use by another Cloud Endpoint. 
 
-If you see this message and the Azure file share currently is not in use by a cloud endpoint, complete the following steps to clear the Azure File Sync metadata on the Azure file share:
+If you see this message and the Azure file share currently is not in use by a Cloud Endpoint, complete the following steps to clear the Azure File Sync metadata on the Azure file share:
 
 > [!Warning]  
-> Deleting the metadata on an Azure file share that is currently in use by a cloud endpoint causes Azure File Sync operations to fail. 
+> Deleting the metadata on an Azure file share that is currently in use by a Cloud Endpoint causes Azure File Sync operations to fail. 
 
 1. In the Azure portal, go to your Azure file share.  
 2. Right-click the Azure file share, and then select **Edit metadata**.
 3. Right-click **SyncService**, and then select **Delete**.
 
-<a id="cloud-endpoint-authfailed"></a>**Cloud endpoint creation fails, with this error: "AuthorizationFailed"**  
-This issue occurs if your user account doesn't have sufficient rights to create a cloud endpoint. 
+<a id="cloud-endpoint-authfailed"></a>**Cloud Endpoint creation fails, with this error: "AuthorizationFailed"**  
+This issue occurs if your user account doesn't have sufficient rights to create a Cloud Endpoint. 
 
-To create a cloud endpoint, your user account must have the following Microsoft Authorization permissions:  
+To create a Cloud Endpoint, your user account must have the following Microsoft Authorization permissions:  
 * Read: Get role definition
 * Write: Create or update custom role definition
 * Read: Get role assignment
@@ -99,27 +99,27 @@ To determine whether your user account role has the required permissions:
     * **Role assignment** should have **Read** and **Write** permissions.
     * **Role definition** should have **Read** and **Write** permissions.
 
-<a id="cloud-endpoint-deleteinternalerror"></a>**Cloud endpoint deletion fails, with this error: "MgmtInternalError"**  
-This issue might occur if the Azure file share or storage account is deleted before you delete the cloud endpoint. This issue will be fixed in a future update. At that time, you will be able to delete a cloud endpoint after you delete the Azure file share or storage account.
+<a id="cloud-endpoint-deleteinternalerror"></a>**Cloud Endpoint deletion fails, with this error: "MgmtInternalError"**  
+This issue might occur if the Azure file share or storage account is deleted before you delete the Cloud Endpoint. This issue will be fixed in a future update. At that time, you will be able to delete a Cloud Endpoint after you delete the Azure file share or storage account.
 
-Meanwhile, to prevent this issue from occurring, delete the cloud endpoint before you delete the Azure file share or storage account.
+Meanwhile, to prevent this issue from occurring, delete the Cloud Endpoint before you delete the Azure file share or storage account.
 
 ## Sync
-<a id="afs-change-detection"></a>**If I created a file directly in my Azure file share over SMB or through the portal, how long does it take for the file to sync to servers in the sync group?**  
+<a id="afs-change-detection"></a>**If I created a file directly in my Azure file share over SMB or through the portal, how long does it take for the file to sync to servers in the Sync Group?**  
 [!INCLUDE [storage-sync-files-change-detection](../../../includes/storage-sync-files-change-detection.md)]
 
 <a id="broken-sync"></a>**Sync fails on a server**  
 If sync fails on a server:
-1. Verify that a server endpoint exists in the Azure portal for the directory that you want to sync to an Azure file share:
+1. Verify that a Server Endpoint exists in the Azure portal for the directory that you want to sync to an Azure file share:
     
-    ![A screenshot of a sync group with both a cloud endpoint and a server endpoint in the Azure portal](media/storage-sync-files-troubleshoot/sync-troubleshoot-1.png)
+    ![A screenshot of a Sync Group with both a Cloud Endpoint and a Server Endpoint in the Azure portal](media/storage-sync-files-troubleshoot/sync-troubleshoot-1.png)
 
 2. In Event Viewer, review the operational and diagnostic event logs, located under Applications and Services\Microsoft\FileSync\Agent.
     1. Verify that the server has internet connectivity.
     2. Verify that the Azure File Sync service is running on the server. To do this, open the Services MMC snap-in and verify that the Storage Sync Agent service (FileSyncSvc) is running.
 
 <a id="replica-not-ready"></a>**Sync fails, with this error: "0x80c8300f - The replica is not ready to perform the required operation"**  
-This issue is expected if you create a cloud endpoint and use an Azure file share that contains data. When the change detection job finishes running on the Azure file share (it might take up to 24 hours), sync should start working correctly.
+This issue is expected if you create a Cloud Endpoint and use an Azure file share that contains data. When the change detection job finishes running on the Azure file share (it might take up to 24 hours), sync should start working correctly.
 
 <a id="broken-sync-files"></a>**Troubleshoot individual files that fail to sync**  
 If individual files fail to sync:
