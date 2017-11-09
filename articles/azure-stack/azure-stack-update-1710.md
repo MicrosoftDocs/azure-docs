@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 11/09/2017
 ms.author: twooley
 
 ---
@@ -73,16 +73,16 @@ This section contains post-installation known issues with build 20171020.1.
 
 - It may not be possible to view compute or storage resources in the administrator portal. This indicates that an error occurred during the installation of the update and that the update was incorrectly reported as successful. If this issue occurs, please contact Microsoft CSS for assistance.
 - You may see a blank dashboard in the portal. To recover the dashboard, select the gear icon in the upper right corner of the portal, and then select **Restore default settings**.
-- Users can browse the full marketplace without a subscription, and can see administrative items like plans and offers. These items are non-functional to users.
-- The **Move** button is disabled when you view the properties of a resource group. This behavior is expected. Moving resource groups between subscriptions is not currently supported.
-- You are not able to view permissions to your subscription using the Azure Stack portals. As a workaround, you can verify permissions by using PowerShell.
--  For any workflow where you select a subscription, resource group, or location in a drop-down list, you may experience one or more of the following issues:
+- When you view the properties of a resource group, the **Move** button is disabled. This behavior is expected. Moving resource groups between subscriptions is not currently supported.
+- For any workflow where you select a subscription, resource group, or location in a drop-down list, you may experience one or more of the following issues:
 
    - You may see a blank row at the top of the list. You should still be able to select an item as expected.
    - If the list of items in the drop-down list is short, you may not be able to view any of the item names.
    - If you have multiple user subscriptions, the resource group drop-down list may be empty. 
 
    To work around the last two issues, you can type the name of the subscription or resource group (if you know it), or you can use PowerShell instead.
+ - Deleting user subscriptions results in orphaned resources. As a workaround, first delete user resources or the entire resource group, and then delete user subscriptions.
+ - You are not able to view permissions to your subscription using the Azure Stack portals. As a workaround, you can verify permissions by using PowerShell.
   
 ### Backup
 
@@ -92,23 +92,24 @@ This section contains post-installation known issues with build 20171020.1.
 
 - If you reboot an infrastructure role instance, you may receive a message indicating that the reboot failed. However, the reboot actually succeeded.
 
-### Services
-
-**Marketplace**
+### Marketplace
 - When you try to add items to the Azure Stack marketplace by using the **Add from Azure** option, not all items may be visible for download.
-- There is no marketplace experience to create virtual machine scale sets. You can create a scale set by using a template.
-- A tenant must register the storage resource provider before they create their first Azure Function in the subscription.
-- Deleting user subscriptions results in orphaned resources. As a workaround, first delete user resources or the entire resource group, and then delete user subscriptions. 
+- Users can browse the full marketplace without a subscription, and can see administrative items like plans and offers. These items are non-functional to users.
 
-**SQL/MySQL**
+### SQL/MySQL
 - It can take up to an hour before tenants can create databases in a new SQL or MySQL SKU. 
 - Creation of items directly on SQL and MySQL hosting servers that are not performed by the resource provider is not supported and may result in a mismatched state.
+ 
+### App Service
+- A user must register the storage resource provider before they create their first Azure Function in the subscription.
 
-**Compute**
+### Compute
 - Users are given the option to create a virtual machine with geo-redundant storage. This configuration causes virtual machine creation to fail.
 - You can configure a virtual machine availability set only with a fault domain of one, and an update domain of one.
+- There is no marketplace experience to create virtual machine scale sets. You can create a scale set by using a template.
+- Scaling settings for virtual machine scale sets are not available in the portal. As a workaround, you can use [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Because of PowerShell version differences, you must use the `-Name` parameter instead of `-VMScaleSetName`.
  
-**Network**
+### Networking
 - You can't create a load balancer with a public IP address by using the portal. As a workaround, you can use PowerShell to create the load balancer.
 - You must create a network address translation (NAT) rule when you create a network load balancer. If you don't, you'll receive an error when you try to add a NAT rule after the load balancer is created.
 - You can't disassociate a public IP address from a virtual machine (VM) after the VM has been created and associated with that IP address. Disassociation will appear to work, but the previously assigned public IP address remains associated with the original VM. This behavior occurs even if you reassign the IP address to a new VM (commonly referred to as a *VIP swap*). All future attempts to connect through this IP address result in a connection to the originally associated VM, and not to the new one. Currently, you must only use new public IP addresses for new VM creation.
