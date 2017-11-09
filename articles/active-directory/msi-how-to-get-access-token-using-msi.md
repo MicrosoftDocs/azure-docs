@@ -51,17 +51,18 @@ As discussed previously, MSI offers both a service principal for sign-in identit
 
 The examples below show of variety of ways to do one or both functions:
 
-| Client sample | Sign-in | Token acquisition | Resource access |
-| ------ | ------- | ----------------- | --------------- |
-| [HTTP/REST](#httprest) | N | Y | N |
-| [.NET C#](#net-c) | N | Y | N |
-| [Azure CLI](#azure-cli) | Y | N | Y |
-| [Azure PowerShell](#azure-powershell) | N | Y | Y |
-| [Bash/CURL](#bashcurl) | N | Y | N |
-| [Go](#go) | N | Y | N |
-| [Java](#java) | N | Y | N |
-| [PHP](#php) | N | Y | N |
-
+|         Client         |       Code snippets       |  Code samples  | 
+| ---------------------- | ------------------------- | ---------------|
+| [HTTP/REST](#httprest) | Acquire token             | N/A            |           
+| [.NET C#](#net-c)      | Acquire token             | TBD, TBD       | 
+| [Azure CLI](#azure-cli)| Sign-in                   | N/A            |
+| [Azure PowerShell](#azure-powershell) | Acquire token, Sign-in| N/A |               
+| [Bash/CURL](#bashcurl) | Acquire token | N/A |                             
+| [Go](#go) | Acquire token | TBD |                                          
+| [Java](#java) | N/A |  TBD | 
+| [PHP](#php) | N/A | TBD | 
+| [Python](#python) | N/A | TBD | 
+| [Ruby](#ruby) | N/A | TBD | 
 
 ### HTTP/REST 
 
