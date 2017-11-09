@@ -25,7 +25,7 @@ You have already deployed Azure AD self-service password reset (SSPR) but your u
 
 With the new Windows 10 Fall Creators Update, users with Azure AD joined devices can see a “Reset password” link on their login screen. When they click this link, they are brought to the same self-service password reset (SSPR) experience they are familiar with 
 
-To enable users to reset their Azure AD password from the Windows 10 login screen the following requirements need to be met:
+To enable users to reset their Azure AD password from the Windows 10 login screen, the following requirements need to be met:
 
 * Windows 10, version 1709, or newer client that is Azure AD Domain joined.
 * Azure AD self-service password reset must be enabled.
@@ -76,7 +76,7 @@ More information on creating groups can be found in the article [Manage access t
 2. Find the device configuration profile created previously by going to **Device configuration** > **Profiles** > Click on the profile created earlier
 3. Assign the profile to a group of devices 
    * Click on **Assignments** > under **Include** > **Select groups to include**
-   * Select the group we created previously and click **Select**
+   * Select the group created previously and click **Select**
    * Click on **Save**
 
    ![Assignment][Assignment]
