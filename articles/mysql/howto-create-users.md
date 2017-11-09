@@ -14,14 +14,14 @@ ms.date: 11/09/2017
 # Create users in Azure Database for MySQL server 
 This article describes how you can create users in an Azure Database for MySQL server.
 
-When you first created your Azure Database for MySQL, you provided a default admin account user name and password. For more information, you can follow the [Quickstart](quickstart-create-mysql-server-database-using-azure-portal) or locate your server admin user from the Azure portal.
+When you first created your Azure Database for MySQL, you provided a server admin login user name and password. For more information, you can follow the [Quickstart](quickstart-create-mysql-server-database-using-azure-portal). You can locate your server admin login user name from the Azure portal.
 
-The default admin account gets certain privileges for your server as listed:
+The server admin user gets certain privileges for your server as listed:
 SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER
 
-Once the Azure Database for MySQL server is created, you can use the server admin user account to create additional users and grant admin access to them. Also, the server admin account can be used to create less privileged users that have access to individual database schemas.
+Once the Azure Database for MySQL server is created, you can use the first server admin user account to create additional users and grant admin access to them. Also, the server admin account can be used to create less privileged users that have access to individual database schemas.
 
-## How to create an admin user on Azure Database for MySQL
+## How to create additional admin users in Azure Database for MySQL
 1. Get the connection information and admin user name.
    To connect to your database server, you need the full server name and admin sign-in credentials. You can easily find the server name and sign-in information from the server **Overview** page or the **Properties** page in the Azure portal. 
 
@@ -45,7 +45,7 @@ Once the Azure Database for MySQL server is created, you can use the server admi
    SHOW GRANTS FOR 'new_master_user'@'%';
    ```
 
-## How to give an account access to single database.
+## How to create database users in Azure Database for MySQL
 
 1. Get the connection information and admin user name.
    To connect to your database server, you need the full server name and admin sign-in credentials. You can easily find the server name and sign-in information from the server **Overview** page or the **Properties** page in the Azure portal. 
