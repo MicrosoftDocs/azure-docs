@@ -4,7 +4,7 @@ description: Parallel Bulk Data Import Using SQL Partition Tables
 services: machine-learning
 documentationcenter: ''
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 
 ms.assetid: ff90fdb0-5bc7-49e8-aee7-678b54f901c8
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2017
+ms.date: 11/09/2017
 ms.author: bradsev
 
 ---
